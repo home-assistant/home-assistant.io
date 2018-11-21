@@ -23,7 +23,7 @@ This component provides the following platforms:
  - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
  - Switch - Charger and max range switch. Allow you to start/stop charging and set max range charging.
 
- ## {% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 To use Tesla in your installation, add the following to your `configuration.yaml` file:
 

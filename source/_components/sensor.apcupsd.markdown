@@ -28,9 +28,12 @@ sensor:
       - linev
 ```
 
-Configuration variables:
-
-- **resources** array (*Required*): Contains all entries to display.
+{% configuration %}
+resources:
+  description: Contains all entries to display.
+  required: true
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Example  %}
 

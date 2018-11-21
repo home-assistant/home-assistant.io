@@ -70,9 +70,9 @@ Now, lets assume that a blank file has been created in the Home Assistant config
 
 ```text
 automation.yaml
-zones.yaml
-sensors.yaml
-switches.yaml
+zone.yaml
+sensor.yaml
+switch.yaml
 device_tracker.yaml
 customize.yaml
 ```
@@ -83,9 +83,9 @@ Inside the base configuration file add the following entries:
 
 ```yaml
 automation: !include automation.yaml
-zone: !include zones.yaml
-sensor: !include sensors.yaml
-switch: !include switches.yaml
+zone: !include zone.yaml
+sensor: !include sensor.yaml
+switch: !include switch.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
@@ -111,7 +111,7 @@ This small example illustrates how the "split" files work. In this case, we star
 This (large) sensor configuration gives us another example:
 
 ```yaml
-### sensors.yaml
+### sensor.yaml
 ### METEOBRIDGE #############################################
 - platform: tcp
   name: 'Outdoor Temp (Meteobridge)'

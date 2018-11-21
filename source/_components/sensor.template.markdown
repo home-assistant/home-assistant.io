@@ -33,10 +33,10 @@ sensor:
       solar_angle:
         friendly_name: "Sun angle"
         unit_of_measurement: 'degrees'
-        value_template: "{{ states.sun.sun.attributes.elevation }}"
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
 
       sunrise:
-        value_template: "{{ states.sun.sun.attributes.next_rising }}"
+        value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
 ```
 {% endraw %}
 
@@ -103,7 +103,7 @@ sensor:
       solar_angle:
         friendly_name: "Sun Angle"
         unit_of_measurement: '°'
-        value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
+        value_template: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
 ```
 {% endraw %}
 
@@ -162,7 +162,7 @@ sensor:
         value_template: >-
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif states.switch.kettle.attributes.kwh|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'kwh')|float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
@@ -309,8 +309,7 @@ sensor:
 
 Useful entities to choose might be `sensor.date` which update once per day, or `sensor.time` which updates once per minute.
 
-Note: If a template uses more than one sensor they can be listed
-
+Note: [Time & Date Sensors](https://www.home-assistant.io/components/sensor.time_date/) used as an update trigger, must be configured. If a template uses more than one sensor they can be listed.
 
 The alternative to this is to create an `Automation`using the new (81.0) service `homeassistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
 

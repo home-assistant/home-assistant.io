@@ -51,6 +51,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 - Aqara Intelligent Air Conditioner Controller Hub (lumi.acpartner.v1)
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
 - Additional alarm events of the Gas and Smoke Detector: Analog alarm, battery fault alarm (smoke detector only), sensitivity fault alarm, I2C communication failure
+- Aqara HomeKit Gateway version(v3), as it is not supported by the Mi Home App, only the Aqara Home App.
 
 ## {% linkable_title Setup %}
 
@@ -207,7 +208,7 @@ This example plays the sound of a dog barking when the button is held down and s
 - alias: Let a dog bark on long press
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
@@ -221,7 +222,7 @@ This example plays the sound of a dog barking when the button is held down and s
 - alias: Stop barking immediately on single click
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
@@ -239,7 +240,7 @@ This example toggles the living room lamp on a double click of the button.
 - alias: Double Click to toggle living room lamp
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
