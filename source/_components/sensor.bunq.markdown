@@ -23,7 +23,8 @@ You can find more information about Bunq Bank at [their website](https://www.bun
 
 ## {% linkable_title API Key %}
 
-Once you have your Bunq bank account you will need to create an API key, there are restriction on that for specific types of Bunq accounts, at least for Premium and Pack users this is available. 
+Once you have your Bunq bank account you will need to create an API key, there are restrictions on that for specific types of Bunq accounts, at least for Premium and Pack users this is available. 
+
 1. Go to your Profile in the app
 2. Go to Security & Settings
 3. Go to Developers
@@ -36,6 +37,7 @@ Once you have your Bunq bank account you will need to create an API key, there a
 ## {% linkable_title Configuration %}
 
 To add Bunq account balance sensors to your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
