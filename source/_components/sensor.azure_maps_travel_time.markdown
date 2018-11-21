@@ -17,7 +17,7 @@ The `azure_maps_travel_time` sensor provides travel time from the [Azure Maps Ro
 
 ## {% linkable_title Setup %}
 
-You need to register for an API key by following the instructions [here](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-account-keys).
+You need to register for an API key by following the instructions [here](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-manage-account-keys). There are two keys there, both will work.
 
 Azure Maps is a paid Azure service, [pricing details here](https://azure.microsoft.com/en-us/pricing/details/azure-maps/). But you do get 25000 free API calls per month, so if you do not exceed 33 calls per hour then you incur no costs, if you want to have many travel times visible, consider changing the [scan interval](/docs/configuration/platform_options/#scan-interval) to something longer than 5 minutes to stay within the free credit limit or update the sensors on-demand using an automation (see example below).
 
