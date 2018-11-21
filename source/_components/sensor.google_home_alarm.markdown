@@ -30,5 +30,4 @@ host:
   description: The IP address of the Google Home.
   required: true
   type: string
-
 {% endconfiguration %}
