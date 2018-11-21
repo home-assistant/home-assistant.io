@@ -22,9 +22,6 @@ To use the Google Home Alarm sensor in your installation, add the following to y
 # Example configuration.yaml entry
 sensor:
   - platform: google_home_alarm
-    monitored_conditions:
-      - 'alarm'
-      - 'timer'
     host: 192.168.0.xxx
 ```
 
@@ -33,14 +30,5 @@ host:
   description: The IP address of the Google Home.
   required: true
   type: string
-monitored_conditions:
-  description: The conditions to monitor.
-  required: false
-  type: map
-  keys:
-    alarm:
-      description: The next alarm.
-    timer:
-      description: The next timer.
 
 {% endconfiguration %}
