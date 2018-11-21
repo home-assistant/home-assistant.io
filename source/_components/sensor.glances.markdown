@@ -68,11 +68,11 @@ name:
   default: Glances
 username:
   description: Your username for the HTTP connection to Glances.
-  required: true
+  required: false
   type: string
 password:
   description: Your password for the HTTP connection to Glances.
-  required: true
+  required: false
   type: string
 ssl:
   description: "If `true`, use SSL/TLS to connect to the Glances system."
