@@ -49,7 +49,7 @@ name:
   default: Dark Sky
   type: string
 forecast:
-  description: List of days in the 7 day forecast you would like to receive data on, starting with today as day 0 and ending with day 7. Any condition from `monitored_conditions` with a daily forecast by Dark Sky will generate a sensor with entity_id `<condition>_<day>`.
+  description: List of days in the 7-day forecast you would like to receive data on, starting with today as day 0 and ending with day 7. Any condition from `monitored_conditions` with a daily forecast by Dark Sky will generate a sensor with entity_id `<condition>_<day>`.
   required: false
   type: list
 language:
@@ -81,7 +81,7 @@ monitored_conditions:
     precip_intensity:
       description: The intensity of precipitation occurring at the given time. This value is conditional on probability (that is, assuming any precipitation occurs at all).
     precip_probability:
-      description: The probability of precipitation occuring, in percents.
+      description: The probability of precipitation occurring, in percents.
     precip_accumulation:
       description: The amount of snowfall accumulation expected to occur. If no snowfall is expected, this property will be `undefined`.
     temperature:
