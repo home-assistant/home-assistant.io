@@ -29,9 +29,7 @@ be found in the IHC project and setup as binary sensors:
 
 ## {% linkable_title Manual configuration %}
 
-To manually configure IHC Binary Sensors
-insert the "binary_sensors" section in your IHC configuration:
-
+To manually configure IHC Binary Sensors insert the "binary_sensors" section in your IHC configuration:
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,15 +37,14 @@ ihc:
   - url: 'http://192.168.1.3'
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    info: true 
+    info: true
     binary_sensors:
-      - id: 12345 
+      - id: 12345
         name: switch_front_door
         inverting: false
         note: Magnet contact
         position: Switch in door
         type: door
-      - id: 23451 
 ```
 
 {% configuration %}
@@ -81,11 +78,11 @@ binary_sensors:
       required: false
       type: string
       default: false
-    position
-      description: Where is it placed 
+    position:
+      description: Where is it placed
       required: false
       type: string
-      default: false      
+      default: false
 {% endconfiguration %}
 
 The resource id should be an id of a boolean IHC resource. For more information
