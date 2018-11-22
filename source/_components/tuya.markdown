@@ -40,7 +40,7 @@ country_code:
   required: true
   type: string
 platform:
-  description: "The app where your account register. `tuya` for Tuya Smart and `smart_life` for Smart Life."
+  description: "The app where your account register. `tuya` for Tuya Smart, `smart_life` for Smart Life, `jinvoo_smart` for Jinvoo Smart."
   required: false
   type: string
   default: tuya
