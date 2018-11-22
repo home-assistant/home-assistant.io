@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "MQTT JSON Light"
-description: "Instructions for how to setup MQTT JSON lights within Home Assistant."
+title: "MQTT Light - JSON Schema"
+description: "Instructions for how to setup MQTT lights using JSON schema within Home Assistant."
 date: 2016-08-09 08:30
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_iot_class: depends
 ha_release: 0.26
 ---
 
-The `mqtt_json` light platform lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
+The `mqtt` light platform with JSON schema lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
 This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing and white values. The messages sent to/from the lights look similar to this, omitting fields when they aren't needed:
 
@@ -46,7 +46,8 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_json
+  - platform: json
+    schema: json
     command_topic: "home/rgb1/set"
 ```
 
@@ -161,9 +162,9 @@ payload_not_available:
   RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
 </p>
 
-## {% linkable_title Comparison of light MQTT platforms %}
+## {% linkable_title Comparison of light MQTT schemas %}
 
-| Function          | [`mqtt`](/components/light.mqtt/) | [`mqtt_json`](/components/light.mqtt_json/) | [`mqtt_template`](/components/light.mqtt_template/) |
+| Function          | [`default`](/components/light.mqtt/) | [`json`](/components/light.mqtt_json/) | [`template`](/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
@@ -172,7 +173,7 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
@@ -186,7 +187,8 @@ To enable a light with brightness and RGB support in your installation, add the 
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: mqtt_json_light_1
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
@@ -201,7 +203,8 @@ To enable a light with brightness (but no color support) in your installation, a
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: mqtt_json_light_1
     state_topic: "home/rgb1"
     command_topic: "home/rgb1/set"
@@ -214,7 +217,8 @@ To enable a light using a brightness scale other than 8bit the `brightness_scale
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: mqtt_json_light_1
     state_topic: "home/light"
     command_topic: "home/light/set"
@@ -237,7 +241,8 @@ To use a light with hue+saturation as the color model, set `hs` to `true` in the
 
 ```yaml
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: mqtt_json_hs_light
     state_topic: "home/light"
     command_topic: "home/light/set"
@@ -263,7 +268,8 @@ To enable a light with brightness, RGB support and a separate white channel (RGB
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: mqtt_json_light_1
     state_topic: "home/rgbw1"
     command_topic: "home/rgbw1/set"

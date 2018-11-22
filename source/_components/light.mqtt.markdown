@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "MQTT Light"
-description: "Instructions on how to setup MQTT lights within Home Assistant."
+title: "MQTT Light - Default schema"
+description: "Instructions on how to setup MQTT lights using default schema within Home Assistant."
 date: 2015-11-13 08:30
 sidebar: true
 comments: false
@@ -12,7 +12,7 @@ ha_category: Light
 ha_iot_class: depends
 ---
 
-The `mqtt` light platform lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
+The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
 ## {% linkable_title Configuration %}
 
@@ -204,9 +204,9 @@ payload_not_available:
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
 </p>
 
-## {% linkable_title Comparison of light MQTT platforms %}
+## {% linkable_title Comparison of light MQTT schemas %}
 
-| Function          | [`mqtt`](/components/light.mqtt/) | [`mqtt_json`](/components/light.mqtt_json/) | [`mqtt_template`](/components/light.mqtt_template/) |
+| Function          | [`default`](/components/light.mqtt/) | [`json`](/components/light.mqtt_json/) | [`template`](/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |

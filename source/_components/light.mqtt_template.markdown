@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "MQTT Template Light"
-description: "Instructions for how to setup MQTT Template lights within Home Assistant."
+title: "MQTT Light - Template Schema"
+description: "Instructions for how to setup MQTT lights using template schema within Home Assistant."
 date: 2016-11-06 21:16
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_iot_class: depends
 ha_release: 0.33
 ---
 
-The `mqtt_template` light platform lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
+The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e. string, JSON), just configure it with templating.
 
 This platform supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing, effects and white values.
@@ -27,7 +27,8 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_template
+  - platform: mqtt
+    schema: template
     command_topic: "home/rgb1/set"
     command_on_template: "on"
     command_off_template: "off"
@@ -121,9 +122,9 @@ payload_not_available:
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
 </p>
 
-## {% linkable_title Comparison of light MQTT platforms %}
+## {% linkable_title Comparison of light MQTT schemas %}
 
-| Function          | [`mqtt`](/components/light.mqtt/) | [`mqtt_json`](/components/light.mqtt_json/) | [`mqtt_template`](/components/light.mqtt_template/) |
+| Function          | [`default`](/components/light.mqtt/) | [`json`](/components/light.mqtt_json/) | [`template`](/components/light.mqtt_template/) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Brightness        | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Color temperature | ✔                                                          | ✔                                                                    | ✔                                                                            |
@@ -132,7 +133,7 @@ payload_not_available:
 | RGB Color         | ✔                                                          | ✔                                                                    | ✔                                                                            |
 | Transitions       | ✘                                                          | ✔                                                                    | ✔                                                                            |
 | XY Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
-| HS Color          | ✘                                                          | ✔                                                                    | ✘                                                                            |
+| HS Color          | ✔                                                          | ✔                                                                    | ✘                                                                            |
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 ## {% linkable_title Examples %}
@@ -146,7 +147,8 @@ For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_template
+  - platform: mqtt
+    schema: template
     command_topic: "home/rgb1/set"
     state_topic: "home/rgb1/status"
     command_on_template: "{% raw %}on,{{ brightness|d }},{{ red|d }}-{{ green|d }}-{{ blue|d }}{% endraw %}"
@@ -166,6 +168,7 @@ For a JSON payload with the format `{"state": "on", "brightness": 255, "color": 
 # Example configuration.yaml entry
 light:
   - platform: mqtt_template
+    schema: template
     effect_list:
       - rainbow
       - colorloop
