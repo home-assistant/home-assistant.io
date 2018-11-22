@@ -37,18 +37,17 @@ insert the "binary_sensors" section in your IHC configuration:
 # Example configuration.yaml entry
 ihc:
   - url: 'http://192.168.1.3'
-    username: YOUR_USERNAME2
-    password: YOUR_PASSWORD2
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     info: true 
     binary_sensors:
-      12345: 
+      - id: 12345 
         name: switch_front_door
         inverting: false
         note: Magnet contact
         position: Switch in door
         type: door
-      23451 
-      ...
+      - id: 23451 
 ```
 
 {% configuration %}
@@ -77,7 +76,7 @@ binary_sensors:
         for available types.
       required: false
       type: string
-   note:
+    note:
       description: Descriptive note
       required: false
       type: string
@@ -87,8 +86,6 @@ binary_sensors:
       required: false
       type: string
       default: false      
-
-    
 {% endconfiguration %}
 
 The resource id should be an id of a boolean IHC resource. For more information
