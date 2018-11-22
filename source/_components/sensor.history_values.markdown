@@ -17,7 +17,7 @@ ha_qa_scale: internal
 
 The `history_values` sensor platform provides a way to process and summarize data from another component or platforms, using data from the [history](/components/history/).
 
-It can calculate the minimum, maximum and average values and the range of these values, in a custom time period.
+It can calculate the average, lowest, peak and range of the target sensor's values in a custom time period.
 
 # {% linkable_title Configuration %}
 {% raw %}
