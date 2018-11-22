@@ -19,6 +19,8 @@ The `google_assistant` component allows you to control things via Google Assista
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 
+For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
+
 ## {% linkable_title Manual setup %}
 
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
