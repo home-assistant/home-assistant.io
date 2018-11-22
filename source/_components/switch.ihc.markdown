@@ -30,8 +30,8 @@ IHC configuration:
 ```yaml
 ihc:
   - url: 'http://192.168.1.3'
-    username: YOUR_USERNAME2
-    password: YOUR_PASSWORD2
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     info: true 
     switches:
       - id: 12345
