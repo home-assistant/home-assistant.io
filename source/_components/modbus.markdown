@@ -111,11 +111,14 @@ timeout:
 | Service | Description |
 | ------- | ----------- |
 | write_register | Write register. Requires `unit`, `address` and `value` fields. `value` can be either single value or an array |
-| unit | Slave address (255 if not used) |
-| address | Address of the Register (e. g. 138) |
-| value | an array of 16 bit values. Might need reverse ordering. E. g. to set 0x0004 you might need to set [4,0] |
 
+#### {% linkable_title Service Data Attributes %}
 
+| Attribute | Description |
+| --------- | ----------- |
+| unit      | Slave address (set to 255 you talk to modbus via TCP) |
+| address   | Address of the Register (e. g. 138) |
+| value     | An array of 16 bit values. Might need reverse ordering. E. g. to set 0x0004 you might need to set [4,0] |
 
 ## {% linkable_title Building on top of Modbus %}
 
