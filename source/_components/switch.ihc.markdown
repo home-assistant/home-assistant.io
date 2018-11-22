@@ -57,7 +57,7 @@ switches:
       required: false
       type: string
       default: false
-    position
+    position:
       description: Where it is placed.
       required: false
       type: string
