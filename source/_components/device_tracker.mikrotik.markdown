@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "MikroTik"
-description: "Instructions on how to integrate MikroTik/RouterOS based routers into Home Assistant."
+description: "Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant."
 date: 2017-04-28 16:03
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.44
 ---
 
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik Routerboard](http://routerboard.com) based router.
+The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based device.
 
 You need to enable the RouterOS API to use this platform.
 
