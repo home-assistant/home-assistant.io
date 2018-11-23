@@ -37,6 +37,10 @@ cast:
     - host: 192.168.1.10
 ```
 
+<p class='note'>
+You may need to enable Multicast DNS (MDNS) on your router if you are on a different subnet or VLAN.
+</p>
+
 {% configuration %}
 media_player:
   description: A list that contains all Cast devices.
