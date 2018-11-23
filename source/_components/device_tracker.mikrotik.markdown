@@ -90,7 +90,7 @@ If everything is working fine you can disable the pure api service in RouterOS:
 /ip service disable api
 ```
 
-Note about the user privileges in RouterOS:
+**Note about the user privileges in RouterOS:**
 
 To use this device tracker you need resticted privileges only. To enhance the security of your MikroTik device create a read only user able to connect via api only:
 ```bash
