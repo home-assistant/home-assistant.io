@@ -60,7 +60,7 @@ port:
   default: 8728 (or 8729 if ssl is true)
   type: integer
 ssl:
-  description: Use api_ssl service instead of api.
+  description: Use api-ssl service instead of api.
   required: false
   default: false
   type: boolean
@@ -70,7 +70,7 @@ method:
   type: string
 {% endconfiguration %}
 
-To use api_ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api\-ssl service. Here is an example for a self signed certificate:
+To use api-ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api\-ssl service. Here is an example for a self signed certificate:
 
 ```bash
 /certificate add common-name="Self signed demo certificate for API" days-valid=3650 name="Self signed demo certificate for API" key-usage=digital-signature,key-encipherment,tls-server,key-cert-sign,crl-sign
