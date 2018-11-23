@@ -59,7 +59,7 @@ secondary_info:
   type: string
 format:
   required: false
-  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: "relative", "total", "date", "time", "datetime".
+  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: 'relative', 'total', 'date', 'time', 'datetime'."
   type: string
 {% endconfiguration %}
 
