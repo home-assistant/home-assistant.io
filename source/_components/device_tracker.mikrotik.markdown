@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Mikrotik"
-description: "Instructions on how to integrate Mikrotik/Routerboard based routers into Home Assistant."
+title: "MikroTik"
+description: "Instructions on how to integrate MikroTik/RouterOS based routers into Home Assistant."
 date: 2017-04-28 16:03
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.44
 ---
 
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [Mikrotik Routerboard](http://routerboard.com) based router.
+The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik Routerboard](http://routerboard.com) based router.
 
 You need to enable the RouterOS API to use this platform.
 
@@ -43,19 +43,19 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your router.
+  description: The IP address of your MikroTik device.
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges.
+  description: The username of a user on the MikroTik device.
   required: true
   type: string
 password:
-  description: The password for your given admin account.
+  description: The password of the given user account on the MikroTik device.
   required: true
   type: string
 port:
-  description: Mikrotik API port.
+  description: RouterOS API port.
   required: false
   default: 8728 (or 8729 if ssl is true)
   type: integer
@@ -70,7 +70,7 @@ method:
   type: string
 {% endconfiguration %}
 
-To use api-ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api\-ssl service. Here is an example for a self signed certificate:
+To use api-ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api-ssl service. Here is an example for a self signed certificate:
 
 ```bash
 /certificate add common-name="Self signed demo certificate for API" days-valid=3650 name="Self signed demo certificate for API" key-usage=digital-signature,key-encipherment,tls-server,key-cert-sign,crl-sign
