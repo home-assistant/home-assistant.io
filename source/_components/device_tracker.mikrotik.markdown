@@ -37,8 +37,8 @@ To use a Mikrotik router in your installation, add the following to your `config
 device_tracker:
   - platform: mikrotik
     host: IP_ADDRESS
-    username: ADMIN_USERNAME
-    password: ADMIN_PASSWORD
+    username: ROUTEROS_USERNAME
+    password: ROUTEROS_PASSWORD
 ```
 
 {% configuration %}
@@ -83,4 +83,23 @@ If everything is working you can disable the pure api service:
 ```bash
 /ip service disable api
 ```
+To use this device tracker you need resticted privileges only in the RouterOS. To enhance the security of your MikroTik device create a read only user able to connect via api only as shown below.
+
+```bash
+/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive
+on,!dude,!tikapp
+/user add group=homeassistant name=homeassistant
+/user set password="TopSecret" homeassistant
+```
+Then you have to add the proper config to your `configuration.yaml` file:
+```yaml
+
+device_tracker:
+  - platform: mikrotik
+    host: 192.168.88.1
+    username: homeassistant
+    password: TopSecret
+```
+Note: The IP address, username and password are examples only, use your onwn ones!
+
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
