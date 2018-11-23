@@ -84,7 +84,7 @@ Then you have to add
 ```
 to `mikrotik` device tracker entry in your `configuration.yaml` file.
 
-If everything is working fine you can disable the pure api service:
+If everything is working fine you can disable the pure api service in RouterOS:
 
 ```bash
 /ip service disable api
