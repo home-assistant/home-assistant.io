@@ -13,7 +13,7 @@ ha_release: 0.44
 ---
 
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based device.
+The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
 
 You need to enable the RouterOS API to use this platform.
 
@@ -30,7 +30,7 @@ Go to **IP** -> **Services** -> **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
-To use a Mikrotik router in your installation, add the following to your `configuration.yaml` file:
+To use a MikroTik router in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,7 +70,7 @@ method:
   type: string
 {% endconfiguration %}
 
-To use api-ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api-ssl service. Here is an example for a self signed certificate:
+To use api\-ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api\-ssl service. Here is an example for a self signed certificate:
 
 ```bash
 /certificate add common-name="Self signed demo certificate for API" days-valid=3650 name="Self signed demo certificate for API" key-usage=digital-signature,key-encipherment,tls-server,key-cert-sign,crl-sign
