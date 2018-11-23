@@ -34,7 +34,7 @@ you want to configure the IP address of the Cast device directly:
 # Example configuration.yaml entry
 cast:
   media_player:
-  - host: 192.168.1.10
+    - host: 192.168.1.10
 ```
 
 {% configuration %}
@@ -62,6 +62,6 @@ those as follows:
 # Example configuration.yaml entry for multiple devices
 cast:
   media_player:
-  - host: IP_ADDRESS_DEVICE_1
-  - host: IP_ADDRESS_DEVICE_2
+    - host: IP_ADDRESS_DEVICE_1
+    - host: IP_ADDRESS_DEVICE_2
 ```
