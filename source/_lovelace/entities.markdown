@@ -57,6 +57,10 @@ secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`."
   type: string
+format:
+  required: false
+  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Special Row Elements %}
