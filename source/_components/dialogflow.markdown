@@ -40,9 +40,9 @@ Using Dialogflow will be easy to create conversations like:
 
 To use this integration, you should define a conversation (intent) in Dialogflow, configure Home Assistant with the speech to return and, optionally, the action to execute.
 
-To get the webhook url, go to the integrations page in the configuration screen and find Dialogflow. Click on configure. Follow the instructions on the screen.
-
 ### {% linkable_title Configuring your Dialogflow account %}
+
+To get the webhook url, go to the integrations page in the configuration screen and find Dialogflow. Click on configure. Follow the instructions on the screen.
 
 - [Login](https://console.dialogflow.com/) with your Google account
 - Click on "Create Agent"
@@ -61,7 +61,6 @@ To get the webhook url, go to the integrations page in the configuration screen 
 - Dialogflow has send a request to your Home Assistant server
 
 Take a look to "Integrations", in the left menu, to configure third parties.
-
 
 ### {% linkable_title Configuring Home Assistant %}
 
