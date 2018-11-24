@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "NMBS Sensor"
-description: "Sensor for Belgian railway station NMBS"
+description: "Instructions on how to integrate timetable data for traveling on the NMBS Belgian Railway within Home Assistant."
 date: 2018-11-24 13:47
 sidebar: true
 comments: false
