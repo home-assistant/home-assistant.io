@@ -45,21 +45,21 @@ intent:
       default: false
       type: boolean
     card:
-      description: Card <- Need additional text>
+      description: Card
       required: false
       type: list
       keys:
         type:
-          description: Type <- Need additional text>
+          description: Type
           required: false
           default: simple
           type: string
         title:
-          description: Title <- Need additional text>
+          description: Title
           required: true
           type: template
         content:
-          description: Content <- Need additional text>
+          description: Content
           required: true
           type: template
     speech:
@@ -68,12 +68,12 @@ intent:
       type: list
       keys:
         type:
-          description: Type <- Need additional text>
+          description: Type
           required: false
           default: plain
           type: string
         text:
-          description: Text <- Need additional text>
+          description: Text
           required: true
           type: template
 {% endconfiguration %}
