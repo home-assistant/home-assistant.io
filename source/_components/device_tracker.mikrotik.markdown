@@ -15,7 +15,9 @@ ha_release: 0.44
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
 
-You need to enable the RouterOS API to use this platform.
+## {% linkable_title Configuring `mikrotik` device tracker %}
+
+You need to enable the RouterOS API on your router to use this platform.
 
 Terminal:
 
@@ -90,7 +92,7 @@ If everything is working fine you can disable the pure api service in RouterOS:
 /ip service disable api
 ```
 
-**Note about the user privileges in RouterOS:**
+## {% linkable_title Note about the user privileges in RouterOS: %}
 
 To use this device tracker you need resticted privileges only. To enhance the security of your MikroTik device create a read only user able to connect via api only:
 ```bash
