@@ -41,12 +41,13 @@ destination:
 offset:
   description: An offset for the next departure time.
   required: false
-  default: 0
   type: integer
+  default: 1
 name:
   description: Name of the sensor.
   required: false
   type: string
+  default: Ruter
 {% endconfiguration %}
 
 [ruter]: https://ruter.no/reiseplanlegger/Stoppested
