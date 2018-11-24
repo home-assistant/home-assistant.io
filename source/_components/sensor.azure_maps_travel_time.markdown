@@ -82,7 +82,7 @@ options:
 
 ## {% linkable_title Dynamic Configuration %}
 
-Tracking can be setup to track entities of type `device_tracker`, `zone` and `sensor`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
+Tracking can be set up to track entities of type `device_tracker`, `zone` and `sensor`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
 ```yaml
 # Example entry for configuration.yaml
@@ -105,15 +105,15 @@ sensor:
 ## {% linkable_title Entity Tracking %}
 
 - **device_tracker**
-  - If state is a zone then the zone location will be used
-  - If state is not a zone it will look for the longitude and latitude attributes
+  - If the state is a zone, then the zone location will be used.
+  - If the state is not a zone, it will look for the longitude and latitude attributes.
 - **zone**
-  - Uses the longitude and latitude attributes
+  - Uses the longitude and latitude attributes.
   - Can also be referenced by just the zone's friendly name found in the attributes.
 - **sensor**
-  - If state is a zone or zone friendly name then will use the zone location
-  - All other states will be passed directly into the API
-    - This includes all valid locations listed in the *Configuration Variables*
+  - If the state is a zone or zone friendly name, then will use the zone location.
+  - All other states will be passed directly into the API.
+    - This includes all valid locations listed in the *Configuration Variables*.
 
 ## {% linkable_title Updating sensors on-demand using Automation %}
 
