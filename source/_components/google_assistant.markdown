@@ -105,9 +105,9 @@ google_assistant:
   project_id: YOUR_PROJECT_ID
   api_key: YOUR_API_KEY
   exposed_domains:
-    - SWITCH
-    - LIGHT
-    - GROUP
+    - switch
+    - light
+    - group
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -134,7 +134,7 @@ api_key:
   required: false
   type: string
 expose_by_default:
-  description: "Expose devices in all supported domains by default. If set to false, you need to add the expose configuration option to each entity in `entity_config` and set it to true. Setting `exposed_domains` values will _not_ expose those domains if `expose_by_default` is false."
+  description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
   required: false
   default: True
   type: boolean
@@ -179,7 +179,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off)
+- fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))

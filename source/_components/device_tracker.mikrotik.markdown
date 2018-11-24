@@ -32,6 +32,7 @@ Go to **IP** -> **Services** -> **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
+
 To use a MikroTik router in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
