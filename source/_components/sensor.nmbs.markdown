@@ -30,7 +30,7 @@ sensor:
 
 {% configuration %}
 station_from:
-  description: The station where the connection departs
+  description: The station where the connection departs.
   required: true
   type: string
 station_to:
