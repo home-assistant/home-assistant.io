@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: sncb_nmbs.gif
 ha_category: Transport
-ha_release: 0.83
+ha_iot_class: "Cloud Polling"
+ha_release: 0.84
 ---
 
 The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.
