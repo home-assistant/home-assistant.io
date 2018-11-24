@@ -63,7 +63,7 @@ port:
   default: 8728 (or 8729 if ssl is true)
   type: integer
 ssl:
-  description: Use api-ssl service instead of api.
+  description: Use api-ssl service instead of API.
   required: false
   default: false
   type: boolean
@@ -73,7 +73,9 @@ method:
   type: string
 {% endconfiguration %}
 
-To use api\-ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api\-ssl service. Here is an example for a self signed certificate:
+## {% linkable_title Use a certificate %}
+
+To use api-ssl service further configuration is required at RouterOS side. You have to upload or generate a certificate for api-ssl service. Here is an example for a self signed certificate:
 
 ```bash
 /certificate add common-name="Self signed demo certificate for API" days-valid=3650 name="Self signed demo certificate for API" key-usage=digital-signature,key-encipherment,tls-server,key-cert-sign,crl-sign
@@ -81,43 +83,36 @@ To use api\-ssl service further configuration is required at RouterOS side. You 
 /ip service set api-ssl certificate="Self signed demo certificate for API"
 /ip service enable api-ssl
 ```
-Then you have to add
-```yaml
-    ssl: true
-```
-to `mikrotik` device tracker entry in your `configuration.yaml` file.
 
-If everything is working fine you can disable the pure api service in RouterOS:
+Then add `ssl: true` to `mikrotik` device tracker entry in your `configuration.yaml` file.
+
+If everything is working fine you can disable the pure API service in RouterOS:
 
 ```bash
 /ip service disable api
 ```
 
-## {% linkable_title Note about the user privileges in RouterOS: %}
+## {% linkable_title The user privileges in RouterOS %}
 
-To use this device tracker you need resticted privileges only. To enhance the security of your MikroTik device create a read only user able to connect via api only:
+To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect via API only:
+
 ```bash
 /user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive on,!dude,!tikapp
 /user add group=homeassistant name=homeassistant
-/user set password="TopSecret" homeassistant
+/user set password="YOUR_PASSWORD" homeassistant
 ```
-Then you have to add the proper config to `mikrotik` device tracker entry in your `configuration.yaml` file:
-```yaml
-    username: homeassistant
-    password: TopSecret
-```
-Here is a full example configuration entry:
+
+Add the additional configuration to the `mikrotik` device tracker entry in your `configuration.yaml` file:
+
 ```yaml
 device_tracker:
   - platform: mikrotik
     host: 192.168.88.1
     username: homeassistant
-    password: TopSecret
+    password: YOUR_PASSWORD
     ssl: true
     port: 8729
     method: capsman
 ```
-
-Note: The IP address, username and password are examples only, use your onwn ones!
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
