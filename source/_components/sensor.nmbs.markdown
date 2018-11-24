@@ -2,7 +2,7 @@
 layout: page
 title: NMBS Sensor
 description: "Sensor for Belgian railway station NMBS"
-date: 2017-12-04 22:00
+date: 2018-11-24 13:47
 sidebar: true
 comments: false
 sharing: true
@@ -10,7 +10,6 @@ footer: true
 logo: https://upload.wikimedia.org/wikipedia/commons/d/db/Sncb_nmbs.gif
 ha_category: Transport
 ha_release: 0.83
-ha_iot_class: "Cloud Polling"
 ---
 
 The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.
@@ -23,9 +22,9 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: nmbs
-    station_from: "Brugge"
-    station_from: "Gent Dampoort"
-    station_live: "Gent Dampoort"
+    station_from: "STATION_1"
+    station_from: "STATION_2"
+    station_live: "STATION_1"
 ```
 
 {% configuration %}
