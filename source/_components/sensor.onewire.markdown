@@ -66,8 +66,6 @@ To enable One wire sensors in your installation, add the following to your `conf
 # Example configuration.yaml entry
 sensor:
   - platform: onewire
-    names:
-      some_id: your name
 ```
 
 {% configuration %}
@@ -80,4 +78,16 @@ mount_dir:
   required: false
   type: string
 {% endconfiguration %}
+
+### Configuration Example
+
+When `onewire` is added to Home Assistant, it will generate an ID for the sensor. You can specify a friendly name for the sensor with the name configuration option.
+
+```yaml
+# Named sensor configuration.yaml entry
+sensor:
+  - platform: onewire
+    names:
+      GENERATED_ID: FRIENDLY_NAME
+```
 
