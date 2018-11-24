@@ -105,4 +105,4 @@ luftdaten:
     monitored_conditions:
       - temperature
       - humidity
-``
+```
