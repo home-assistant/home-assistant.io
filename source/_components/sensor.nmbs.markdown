@@ -1,6 +1,6 @@
 ---
 layout: page
-title: NMBS Sensor
+title: "NMBS Sensor"
 description: "Sensor for Belgian railway station NMBS"
 date: 2018-11-24 13:47
 sidebar: true
