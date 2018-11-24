@@ -68,17 +68,17 @@ password:
   required: true
   type: string
 drivers:
-  description: Array of drives to monitor (ex: `0:1`).
+  description: "Array of drives to monitor (ex: `0:1`)."
   required: false
   default: all drivers
   type: list
 volumes:
-  description: Array of volumes to monitor (ex: `DataVol1`).
+  description: "Array of volumes to monitor (ex: `DataVol1`)."
   required: false
   default: all volumes
   type: list
 nics:
-  description: Array of network interfaces to monitor (ex: `eth0`).
+  description: "Array of network interfaces to monitor (ex: `eth0`)."
   required: false
   default: all NICs
   type: list
