@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: https://upload.wikimedia.org/wikipedia/commons/d/db/Sncb_nmbs.gif
+logo: sncb_nmbs.gif
 ha_category: Transport
 ha_release: 0.83
 ---
