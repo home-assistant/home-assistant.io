@@ -38,7 +38,7 @@ station_to:
   required: true
   type: string
 station_live:
-  description: Setting this will create another sensor to monitor the liveboard in a station
+  description: Setting this will create another sensor to monitor the liveboard in a station.
   required: false
   type: string
 name:
