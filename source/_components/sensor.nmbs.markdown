@@ -34,7 +34,7 @@ station_from:
   required: true
   type: string
 station_to:
-  description: The station where the connection arrives
+  description: The station where the connection arrives.
   required: true
   type: string
 station_live:
