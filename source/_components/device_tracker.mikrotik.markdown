@@ -17,7 +17,7 @@ The `mikrotik` platform offers presence detection by looking at connected device
 
 ## {% linkable_title Configuring `mikrotik` device tracker %}
 
-You need to enable the RouterOS API on your router to use this platform.
+You have to enable accessing the RouterOS API on your router to use this platform.
 
 Terminal:
 
@@ -28,7 +28,7 @@ set api disabled=no port=8728
 
 Web Frontend:
 
-Go to **IP** -> **Services** -> **API** and enable it.
+Go to **IP** -> **Services** -> **api** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 
@@ -63,7 +63,7 @@ port:
   default: 8728 (or 8729 if ssl is true)
   type: integer
 ssl:
-  description: Use api-ssl service instead of API.
+  description: Use `api-ssl` service instead of `api`.
   required: false
   default: false
   type: boolean
@@ -86,7 +86,7 @@ To use api-ssl service further configuration is required at RouterOS side. You h
 
 Then add `ssl: true` to `mikrotik` device tracker entry in your `configuration.yaml` file.
 
-If everything is working fine you can disable the pure API service in RouterOS:
+If everything is working fine you can disable the pure `api` service in RouterOS:
 
 ```bash
 /ip service disable api
@@ -94,7 +94,7 @@ If everything is working fine you can disable the pure API service in RouterOS:
 
 ## {% linkable_title The user privileges in RouterOS %}
 
-To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect via API only:
+To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API only:
 
 ```bash
 /user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive on,!dude,!tikapp
@@ -102,7 +102,7 @@ To use this device tracker you need restricted privileges only. To enhance the s
 /user set password="YOUR_PASSWORD" homeassistant
 ```
 
-Add the additional configuration to the `mikrotik` device tracker entry in your `configuration.yaml` file:
+## {% linkable_title Using the additional configuration to the `mikrotik` device tracker entry in your `configuration.yaml` file: %}
 
 ```yaml
 device_tracker:
