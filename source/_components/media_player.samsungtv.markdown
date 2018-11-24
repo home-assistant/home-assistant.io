@@ -20,8 +20,7 @@ The `samsungtv` platform allows you to control a
 When the TV is first connected,
 you will need to accept Home Assistant on the TV to allow communication.
 
-To add a TV to your installation,
-add the following to your `configuration.yaml` file:
+To add a TV to your installation without relying on the [discovery component](/components/discovery/), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
