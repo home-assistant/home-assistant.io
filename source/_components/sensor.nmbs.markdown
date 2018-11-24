@@ -45,4 +45,5 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
+  default: "`NMBS`, `NMBS Live` for the liveboard sensor when set."
 {% endconfiguration %}
