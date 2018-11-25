@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `russound_rnet` platform allows you to control Russound devices that make use of the RNET protocol.
 
-This has initially been tested against a Russound CAV6.6 unit with six zones and six sources.
+This has initially been tested against a Russound CAV6.6 unit with six zones and six sources. It will also work with a Russound CAA66, but be sure to use a null-modem cable.
 
 Connecting to the Russound device is only possible by TCP, you can make use of a TCP to Serial gateway such as [tcp_serial_redirect](https://github.com/pyserial/pyserial/blob/master/examples/tcp_serial_redirect.py)
 

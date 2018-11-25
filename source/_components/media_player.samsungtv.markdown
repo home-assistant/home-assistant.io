@@ -20,8 +20,7 @@ The `samsungtv` platform allows you to control a
 When the TV is first connected,
 you will need to accept Home Assistant on the TV to allow communication.
 
-To add a TV to your installation,
-add the following to your `configuration.yaml` file:
+To add a TV to your installation without relying on the [discovery component](/components/discovery/), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,6 +92,7 @@ Currently known supported models:
 - U6000 (port must be set to 8001)
 - U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - UE40KU6400U (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- UE40ES6800
 - UE46D7000
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
