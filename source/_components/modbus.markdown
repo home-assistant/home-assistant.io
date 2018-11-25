@@ -116,9 +116,9 @@ timeout:
 
 | Attribute | Description |
 | --------- | ----------- |
-| unit      | Slave address (set to 255 you talk to modbus via TCP) |
-| address   | Address of the Register (e. g. 138) |
-| value     | An array of 16 bit values. Might need reverse ordering. E. g. to set 0x0004 you might need to set [4,0] |
+| unit      | Slave address (set to 255 you talk to Modbus via TCP) |
+| address   | Address of the Register (e.g., 138) |
+| value     | An array of 16-bit values. Might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
 
 ## {% linkable_title Building on top of Modbus %}
 
