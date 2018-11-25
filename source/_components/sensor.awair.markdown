@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: awair.jpg
 ha_category: Health
-ha_release: 0.83
+ha_release: 0.84
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -45,7 +45,7 @@ access_token:
   required: true
   type: string
 devices:
-  description: An optional list of devices to manually configure rather than relying upon API discovery.
+  description: An optional list to manually configure devices rather than relying upon API discovery.
   required: false
   type: list
   keys:
