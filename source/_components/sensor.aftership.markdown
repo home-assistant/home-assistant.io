@@ -13,20 +13,15 @@ ha_release: 0.83
 ha_iot_class: "Cloud Polling"
 ---
 
-The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that support 490+ couriers worldwide. 
-It is free to use upto 100 tracked packages per month, after that there is a fee.
+The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. It is free to use up to 100 tracked packages per month, after that there is a fee.
 
-The sensor value shows the number of packages that are not in `Delivered` state. 
-As attributes are number of packages per status.
+The sensor value shows the number of packages that are not in `Delivered` state. As attributes are the number of packages per status.
 
-To use this sensor, you need a [AfterShip Account](https://accounts.aftership.com/register)
-and setup an API Key. 
+To use this sensor, you need an [AfterShip Account](https://accounts.aftership.com/register) and set up an API Key. To set up an API Key go to [AfterShip API](https://secure.aftership.com/#/settings/api) page, and copy existing key or generate a new one.
 
-To setup API Key go to [AfterShip API](https://secure.aftership.com/#/settings/api) page and copy existing key or generate a new one.
-
-Note: AfterShip recently started requiring having a credit card on file even if you are
-only using the free plan. That does not change the functionallity of the component, just
-something to be aware of.
+<p class='note info'>
+AfterShip recently started requiring having a credit card on file even if you are only using the free plan. That does not change the functionality of the component, just something to be aware of.
+</p>
 
 ## {% linkable_title Configuration %}
 
@@ -50,6 +45,6 @@ api_key:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-This component retrieves data from AfterShip public REST Apis but the component is not affiliated with AfterShip.
+<p class='note info'>
+This component retrieves data from AfterShip public REST API, but the component is not affiliated with AfterShip.
 </p>
