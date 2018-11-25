@@ -41,7 +41,7 @@ WantedBy=multi-user.target
 
 ### {% linkable_title Python virtual environment %}
 
-If you've setup Home Assistant in `virtualenv` following our [Python installation guide](/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](/getting-started/installation-raspberry-pi/), the following template should work for you. If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately.
+If you've setup Home Assistant in `virtualenv` following our [Python installation guide](/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](/getting-started/installation-raspberry-pi/), the following template should work for you. If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately. [your user] should replaced by the user account that Home Assistant will run as (e.g `homeassistant`).
 
 ```
 [Unit]
@@ -51,7 +51,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=%i
-ExecStart=/srv/homeassistant/bin/hass -c "/home/homeassistant/.homeassistant"
+ExecStart=/srv/homeassistant/bin/hass -c "/home/[your user]/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
