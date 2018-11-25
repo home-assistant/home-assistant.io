@@ -10,7 +10,7 @@ footer: true
 logo: ruter.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: "0.83"
+ha_release: 0.83
 ---
 
 The `ruter` sensor will provide you departure information for the larger Oslo area in Norway from the [Ruter][ruter] public transportation service.
@@ -39,10 +39,10 @@ destination:
   required: false
   type: string
 offset:
-  description: An offset for the next departure time.
+  description: An offset for the next departure, 0 will give the first one.
   required: false
   type: integer
-  default: 1
+  default: 0
 name:
   description: Name of the sensor.
   required: false
