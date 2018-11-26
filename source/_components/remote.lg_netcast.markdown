@@ -64,7 +64,6 @@ Send a single command or a set of commands to one device. You can optionally spe
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
-| `device`               |       no | Device ID to send the command to.
 | `command`              |       no | A single command or a list of commands to send.
 | `num_repeats`          |      yes | The number of times to repeat the command(s).
 | `delay_secs`           |      yes | The number of seconds between sending each command.
