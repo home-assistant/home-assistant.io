@@ -102,6 +102,7 @@ doorbird:
       monitored_conditions:
         - doorbell
         - motion
+        - relay
 ```
 
 ## {% linkable_title Events %}
