@@ -50,7 +50,7 @@ The access token will not change until you factory reset your TV.
 
 ### {% linkable_title Service `remote.turn_off` %}
 
-Turn off all devices that were switched on from the start of the current activity.
+Turn off device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -85,7 +85,7 @@ data:
 You can use a string command (POWER, UP, DOWN, etc) or integer ID of the command.
 Available commands are :
 
-```
+```python
     POWER = 1
     NUMBER_0 = 2
     NUMBER_1 = 3
