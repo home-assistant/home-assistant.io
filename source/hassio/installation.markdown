@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Installing Hass.io"
-description: "Instructions on how to install Hass.io."
+title: "Installing HassOS"
+description: "Instructions on how to install HassOS."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The following will take you through the steps required to install Hass.io.
+The following will take you through the steps required to install HassOS.
 
 1. Download the appropriate install option:
 
@@ -29,7 +29,7 @@ The following will take you through the steps required to install Hass.io.
      - [VMDK][vmdk]
      - [OVA][Virtual Appliance] (not available at this time!)
     
-2. Install Hass.io:
+2. Install HassOS:
 
    - Flash the downloaded image to an SD card using [Etcher][etcher]. We recommend at least a 32 GB SD card to avoid running out of space.
    - Load the appliance image into your virtual machine software.
@@ -56,7 +56,7 @@ If you are using a Raspberry Pi please remember to ensure you're using an [appro
 
 Now you can [configure][configure] your install.
 
-### {% linkable_title Migrating from a non-Hass.io install %}
+### {% linkable_title Migrating from a non-HassOS install %}
 
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
 
@@ -87,7 +87,7 @@ $ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </p>
 
-A detailed guide about running Hass.io as a virtual machine is available in the [blog][hassio-vm].
+A detailed guide about running HassOS as a virtual machine is available in the [blog][hassio-vm].
 
 [etcher]: https://etcher.io/
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
