@@ -40,6 +40,10 @@ unit_of_measurement:
   description: Unit of Measurement given to data
   type: string
   default: "Unit Of Measurement given by entity"
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`
+  type: string
 min:
   required: false
   description: Minimum value for graph
