@@ -50,6 +50,16 @@ categories:
   required: false
   type: list
   default: None. Any incident regardless of its category will be included.
+latitude:
+  description: Latitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Latitude defined in your `configuration.yaml`
+longitude:
+  description: Longitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Longitude defined in your `configuration.yaml`
 {% endconfiguration %}
 
 ## {% linkable_title State Attributes %}
