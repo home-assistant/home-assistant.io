@@ -20,7 +20,7 @@ The `honeywell` climate platform let you control Honeywell Connected thermostats
 This platform is actually a hybrid combination of two distinct climate systems based upon either [somecomfort](https://github.com/kk7ds/somecomfort) (for US-based systems), or [evohome-client](https://github.com/watchforstock/evohome-client) (for international/EU systems) - see the `region` parameter, below. Before you proceed, please be clear which client library is appropriate to your system.
 </p>
 
-Although both regions remain support here, the `evohome-client`-based systems have a new [platform](/components/evohome/) available that may suit your needs better.
+Although both regions remain supported here, the `evohome-client`-based systems have a new [component](/components/evohome/) available that may suit your needs better.
 
 To set this climate platform, add the following information to your `configuration.yaml` file:
 
