@@ -13,9 +13,9 @@ ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
-The `evohome` platform is the main component to set up and integrate all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) systems, including the Honeywell evohome multi-zone heating system.
+The `evohome` platform is the main component to set up and integrate all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, primarily the Honeywell evohome multi-zone CH/DHW system.  It does not support the home security functionality of TCC.
 
-It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library and so will let you control (only) international/non-US systems. It _does not_ leverage the [somecomfort](https://github.com/kk7ds/somecomfort) client library as used by US-based systems.
+It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library and so will let you control (only) EU/international systems. It _does not_ leverage the [somecomfort](https://github.com/kk7ds/somecomfort) client library as used by US-based systems; for those, you may find what you need at the [honeywell climate component](/components/climate.honeywell/).
 
 Currently, only Controllers and Heating zones are supported; support for DHW controllers will be added at a later time. More information is available on the [evohome climate component](/components/climate.evohome/) page.
 
@@ -32,7 +32,7 @@ evohome:
 
 {% configuration %}
 username:
-  description: The username (email address) that has access to [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) web site.
+  description: The username (email address) that has access to [Honeywell TCC](https://international.mytotalconnectcomfort.com/Account/Login) web site.
   required: true
   type: string
 password:
@@ -40,7 +40,7 @@ password:
   required: true
   type: string
 location_idx:
-  description: Used to select which location to use, if your login has access to more than one location. Multiple locations are not supported.
+  description: Used to select which location to use, if your login has access to more than one location. Multiple locations at one time are not supported.
   required: false
   type: int
   default: 0
@@ -51,5 +51,5 @@ scan_interval:
   default: 300
 {% endconfiguration %}
 
-This is an IoT cloud-polling device, and the suggested `scan_interval` is 300 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
+This is an IoT cloud-polling device, and the recommended minimum `scan_interval` is 300 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 

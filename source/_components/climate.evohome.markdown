@@ -13,15 +13,15 @@ ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
-The `evohome` climate platform integrates your _non-US_ [Honeywell Total Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) system into Home Assistant.
+The `evohome` climate component integrates your _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) system into Home Assistant. It has been tested with the Honeywell evohome multi-zone CH/DHW system, but other systems may also work.
 
-It is distinct from - but related to - the `honeywell` climate component](/components/climate.honeywell/), which also allows (limited) integration with Honeywell Connected thermostats; these two components may well be usable side-by-side, but YMMV.
+It is distinct from - but related to - the [`honeywell`](/components/climate.honeywell/) climate component, which also allows (limited) integration with Honeywell Connected thermostats; these two components may well be usable side-by-side, but YMMV.
 
 The evohome evotouch controller supports seven distict operating modes: Auto, AutoWithEco, Away, DayOff, HeatingOff, and Custom; AutoWithReset is a 7th, hidden, mode.
 
 Currently, only the standard HA operating modes are supported; the evohome modes are mapped thus: 'Eco' (AutoWithEco), 'Off' (HeatingOff), and 'Auto' (all other evohome modes). 'Away' mode is supported separately, in the HA fashion.
 
-The actual operating modes can be tracked via `device_state_attributes`, which includes a JSON data structure for current state called `status`. For example:
+A device's actual operating mode can be tracked via its `device_state_attributes`, which includes a JSON data structure for current state called `status`. For example:
 ```
 {
 	'zoneId': '999999',
