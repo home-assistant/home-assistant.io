@@ -17,7 +17,7 @@ The `evohome` component is the main component to set up and integrate all _non-U
 
 It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library and so will let you control (only) EU/international systems. It _does not_ leverage the [somecomfort](https://github.com/kk7ds/somecomfort) client library as used by US-based systems; for those, you may find what you need at the [honeywell climate platform](/components/climate.honeywell/).
 
-Currently, only Controllers and Heating zones are supported; support for DHW controllers will be added at a later time. More information is available on the [evohome climate component](/components/climate.evohome/) page.
+Currently, only Controllers and Heating zones are supported; support for DHW controllers will be added at a later time. More information is available on the [evohome climate platform](/components/climate.evohome/) page.
 
 ## {% linkable_title Configuration %}
 
