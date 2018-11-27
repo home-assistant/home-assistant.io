@@ -32,7 +32,7 @@ climate:
     scan_interval: 600
 ```
 <p class='note'>
-Scan interval is expressed in seconds. Omitting/mis-configuring `scan_interval` may result in too-frequent polling and cause you to rate-limited by Honeywell.
+Scan interval is expressed in seconds. Omitting or mis-configuring `scan_interval` may result in too-frequent polling and cause you to be rate-limited by Honeywell.
 </p>
 
 {% configuration %}
