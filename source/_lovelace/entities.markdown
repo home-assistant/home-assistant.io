@@ -30,7 +30,7 @@ show_header_toggle:
   description: Button to turn on/off all entities.
   type: boolean
   default: true
-theme
+theme:
   required: false
   description: Set to any theme within `themes.yaml`.
   type: string
