@@ -22,7 +22,7 @@ This platform is actually a hybrid combination of two distinct climate systems b
 
 Although both regions remain supported here, the `evohome-client`-based systems have a new [component](/components/evohome/) available that may suit your needs better.
 
-To set this climate platform, add the following information to your `configuration.yaml` file:
+To set up this climate platform, add the following information to your `configuration.yaml` file:
 
 ```yaml
 climate:
