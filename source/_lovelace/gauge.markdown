@@ -31,10 +31,11 @@ entity:
   required: true
   description: "Entity id to show"
   type: string
-title:
+name:
   required: false
-  description: Title of Gauge Data
+  description: Name of Gauge Entity
   type: string
+  default: Entity Name
 unit_of_measurement:
   required: false
   description: Unit of Measurement given to data
@@ -79,7 +80,7 @@ Title and Unit of Measurement Example:
 
 ```yaml
 - type: gauge
-  title: CPU Usuage
+  name: CPU Usuage
   unit_of_measurement: '%'
   entity: sensor.cpu_usage
 ```
@@ -93,7 +94,7 @@ Define the severity map:
 
 ```yaml
 - type: gauge
-  title: With Severity
+  name: With Severity
   unit_of_measurement: '%'
   entity: sensor.cpu_usage
   severity:
