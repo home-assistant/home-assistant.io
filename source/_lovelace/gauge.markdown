@@ -42,7 +42,7 @@ unit_of_measurement:
   default: "Unit Of Measurement given by entity"
 theme:
   required: false
-  description: "Set to any theme within themes.yaml"
+  description: Set to any theme within `themes.yaml`
   type: string
 min:
   required: false
