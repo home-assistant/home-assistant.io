@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: wunderlist.png
 ha_category: Calendar
-ha_release: 
+ha_release: 0.84
 ---
 
 The `wunderlist` component allows you to create tasks in [Wunderlist](https://www.wunderlist.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that 
