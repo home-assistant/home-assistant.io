@@ -13,7 +13,7 @@ ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
-The `evohome` platform is the main component to set up and integrate all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, primarily the Honeywell evohome multi-zone CH/DHW system.  It does not support the home security functionality of TCC.
+The `evohome` component is the main component to set up and integrate all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, primarily the Honeywell evohome multi-zone CH/DHW system.  It does not support the home security functionality of TCC.
 
 It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library and so will let you control (only) EU/international systems. It _does not_ leverage the [somecomfort](https://github.com/kk7ds/somecomfort) client library as used by US-based systems; for those, you may find what you need at the [honeywell climate component](/components/climate.honeywell/).
 
