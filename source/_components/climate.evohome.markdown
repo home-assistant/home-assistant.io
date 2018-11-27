@@ -17,9 +17,11 @@ The `evohome` climate component integrates your _non-US_ [Honeywell Total Connec
 
 It is distinct from - but related to - the [`honeywell`](/components/climate.honeywell/) climate component, which also allows (limited) integration with Honeywell Connected thermostats; these two components may well be usable side-by-side, but YMMV.
 
-The evohome evotouch controller supports seven distict operating modes: Auto, AutoWithEco, Away, DayOff, HeatingOff, and Custom; AutoWithReset is a 7th, hidden, mode.
+The evohome evotouch Controller supports seven distict operating modes: Auto, AutoWithEco, Away, DayOff, HeatingOff, and Custom; AutoWithReset is a 7th, hidden, mode.
 
 Currently, only the standard HA operating modes are supported; the evohome modes are mapped thus: 'Eco' (AutoWithEco), 'Off' (HeatingOff), and 'Auto' (all other evohome modes). 'Away' mode is supported separately, in the HA fashion.
+
+The evohome Heating zones support only three operating modes: FollowSchedule, TemporaryOverride, and PermanentOverride. If the zone is in FollowSchedule mode, it inherits its `operating_mode` from the controller; the other modes are mapped to 'Manual' or 'Off'.
 
 A device's actual operating mode can be tracked via its `device_state_attributes`, which includes a JSON data structure for current state called `status`. For example:
 ```
