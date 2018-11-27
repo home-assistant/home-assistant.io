@@ -13,7 +13,7 @@ ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
-The `evohome` climate component integrates your _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) system into Home Assistant. It has been tested with the Honeywell evohome multi-zone CH/DHW system, but other systems may also work.
+The `evohome` climate platform integrates your _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) system into Home Assistant. It has been tested with the Honeywell evohome multi-zone CH/DHW system, but other systems may also work.
 
 It is distinct from - but related to - the [`honeywell`](/components/climate.honeywell/) climate component, which also allows (limited) integration with Honeywell Connected thermostats; these two components may well be usable side-by-side, but YMMV.
 
