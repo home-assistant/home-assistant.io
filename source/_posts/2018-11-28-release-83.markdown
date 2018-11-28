@@ -21,7 +21,7 @@ og_image: /images/blog/2018-11-release-82/lovelace-edit.png
   See what entities are exposed to Google and enable unlocking of locks.
 </p>
 
- ## {% linkable_title New Platforms %}
+## {% linkable_title New Platforms %}
 
 - Add Tautulli sensor platform ([@ludeeus] - [#17835]) ([sensor.tautulli docs]) (new-platform)
 - Implemented tplink_lte components and notify service via SMS ([@andtos90] - [#17111]) ([notify docs]) ([tplink_lte docs]) (new-platform)
@@ -32,13 +32,13 @@ og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 - Add support for Lupusec alarm control panel ([@majuss] - [#17691]) ([lupusec docs]) ([alarm_control_panel.lupusec docs]) ([binary_sensor.lupusec docs]) ([switch.lupusec docs]) (new-platform)
 - Add upload and download sensors and component for asuswrt ([@kennedyshead] - [#17757]) ([asuswrt docs]) ([device_tracker docs]) ([sensor.asuswrt docs]) (breaking change) (new-platform)
 - Add support for 17track.net package sensors ([@bachya] - [#18038]) ([sensor.seventeentrack docs]) (new-platform)
-- Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch docs]) (new-platform)
-- W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) ([switch.w800rf32 docs]) (new-platform)
+- Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch_library docs]) (new-platform)
+- W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) (new-platform)
 - Srpenergy ([@briglx] - [#18036]) ([sensor.srp_energy docs]) (new-platform)
 - Add support for sensors from Flu Near You ([@bachya] - [#18136]) ([sensor.flunearyou docs]) (new-platform)
-- Add niko-home-control support ([@legovaer] - [#18019]) ([light.niko_home_control docs]) ([sensor.niko_home_control docs]) (new-platform)
+- Add niko-home-control support ([@legovaer] - [#18019]) ([light.niko_home_control docs]) (new-platform)
 - Readded climate.velbus ([@Cereal2nd] - [#18434]) ([velbus docs]) ([climate.velbus docs]) (new-platform)
-- Initial support for Fibaro HomeCenter hubs ([@pbalogh77] - [#17891]) ([fibaro docs]) ([binary_sensor.fibaro docs]) ([cover.fibaro docs]) ([light.fibaro docs]) ([scene.fibaro docs]) ([sensor.fibaro docs]) ([switch.fibaro docs]) (new-platform)
+- Initial support for Fibaro HomeCenter hubs ([@pbalogh77] - [#17891]) ([fibaro docs]) ([binary_sensor.fibaro docs]) (new-platform)
 - Support for Point component ([@fredrike] - [#17466]) ([point docs]) ([binary_sensor.point docs]) ([sensor.point docs]) (new-platform)
 - Adds light switch platform ([@frenck] - [#18562]) ([light.switch docs]) (new-platform)
 - Add cloud pref for Google unlock ([@balloob] - [#18600]) ([cloud docs]) (new-platform)
@@ -61,8 +61,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Removes melissa sensors (they should be state attributes as implemented in #18201) ([@kennedyshead] - [#18214]) ([melissa docs]) ([sensor.melissa docs]) (breaking change)
+- Removes melissa sensors (they should be state attributes as implemented in #18201) ([@kennedyshead] - [#18214]) ([melissa docs]) (breaking change)
 - Enable config flow for Luftdaten ([@fabaff] - [#17700]) ([luftdaten docs]) ([sensor.luftdaten docs]) (breaking change)
+- Switch OwnTracks HTTP to use webhook component ([@kirichkov] - [#17034]) ([device_tracker docs]) (breaking change)
 - Update Neato states, actions and alerts based on Neato docs ([@dshokouhi] - [#17353]) ([neato docs]) (breaking change)
 - Add services to set/update and cancel Nest ETA ([@schmittx] - [#17836]) ([nest docs]) (breaking change)
 - Split out geofency with a component and platform ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
@@ -74,10 +75,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Darksky: Expose missing conditions for day 0 forecast ([@leppa] - [#18312]) ([sensor.darksky docs]) (breaking change)
 - Prefix all xiaomi_aqara events ([@syssi] - [#17354]) ([binary_sensor.xiaomi_aqara docs]) (breaking change)
 - Change channel with play_media instead of select_source ([@ehendrix23] - [#18474]) ([media_player.directv docs]) (breaking change)
+- OwnTracks Config Entry ([@balloob] - [#18759]) ([device_tracker docs]) ([owntracks docs]) (breaking change) (beta fix)
 
 ## {% linkable_title Beta Fixes %}
 
 - Rename sensor.launch to sensor.launch_library ([@ludeeus] - [#18337]) ([sensor.launch_library docs]) (beta fix)
+- Use asyncio Lock for fibaro light ([@pbalogh77] - [#18622]) ([light.fibaro docs]) (beta fix)
+- fixed wording that may confuse user ([@eliseomartelli] - [#18628]) (beta fix)
+- Updated webhook_register, version bump pypoint ([@fredrike] - [#18635]) ([point docs]) (beta fix)
+- Fix vol Dict -> dict ([@bramkragten] - [#18637]) ([lovelace docs]) (beta fix)
+- Set correct default offset ([@ludeeus] - [#18678]) ([sensor.ruter docs]) (beta fix)
+- Add permission checks to Rest API ([@balloob] - [#18639]) ([api docs]) ([http docs]) (beta fix)
+- Fix logbook filtering entities ([@balloob] - [#18721]) ([logbook docs]) (beta fix)
+- Async tests for owntracks device tracker ([@armills] - [#18681]) (beta fix)
+- OwnTracks Config Entry ([@balloob] - [#18759]) ([device_tracker docs]) ([owntracks docs]) (breaking change) (beta fix)
+- Default to on if logged in ([@balloob] - [#18766]) ([cloud docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -101,7 +113,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Turn off not cancellable scripts automatically HomeKit ([@quthla] - [#17793]) ([homekit docs])
 - add service to reconnect the bot ([@hobbypunk90] - [#18142]) ([hangouts docs])
 - Bump version of pywemo to 0.4.29 ([@sqldiablo] - [#18217]) ([wemo docs])
-- Removes melissa sensors (they should be state attributes as implemented in #18201) ([@kennedyshead] - [#18214]) ([melissa docs]) ([sensor.melissa docs]) (breaking change)
+- Removes melissa sensors (they should be state attributes as implemented in #18201) ([@kennedyshead] - [#18214]) ([melissa docs]) (breaking change)
 - Remove unrelated scripts ([@balloob] - [#18219])
 - Add available property to DirecTV ([@ehendrix23] - [#18168]) ([media_player.directv docs])
 - deCONZ - reflect hub status on entities ([@Kane610] - [#18106]) ([deconz docs]) ([binary_sensor.deconz docs]) ([cover.deconz docs]) ([light.deconz docs]) ([scene.deconz docs]) ([sensor.deconz docs]) ([switch.deconz docs])
@@ -137,7 +149,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add iAlarm "triggered" support ([@RyuzakiKK] - [#18263]) ([alarm_control_panel.ialarm docs])
 - Add support for switches in homekit controller ([@drndos] - [#17916]) ([homekit_controller docs])
 - Move more MQTT platforms to config entries ([@emontnemery] - [#18180]) ([lock docs]) ([mqtt docs]) ([light.mqtt_json docs]) ([lock.mqtt docs])
-- Switch OwnTracks HTTP to use webhook component ([@kirichkov] - [#17034]) ([device_tracker docs])
+- Switch OwnTracks HTTP to use webhook component ([@kirichkov] - [#17034]) ([device_tracker docs]) (breaking change)
 - Update Neato states, actions and alerts based on Neato docs ([@dshokouhi] - [#17353]) ([neato docs]) (breaking change)
 - Add services to set/update and cancel Nest ETA ([@schmittx] - [#17836]) ([nest docs]) (breaking change)
 - Normalize MAC addresses ([@balloob] - [#16916])
@@ -148,7 +160,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use async_add_executor_job at the xiaomi_miio platforms ([@syssi] - [#18294]) ([device_tracker docs]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([remote.xiaomi_miio docs]) ([sensor.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
 - Remove skipped device tracker tests ([@armills] - [#18291])
 - Update litejet automation tests to async ([@armills] - [#18287])
-- Update manual ACP tests to async ([@armills] - [#18289]) ([alarm_control_panel.demo docs])
+- Update manual ACP tests to async ([@armills] - [#18289])
 - Update input component tests to async ([@armills] - [#18290])
 - Darksky: Add icon to summary sensors ([@leppa] - [#18275]) ([sensor.darksky docs])
 - Add support for Lupusec alarm control panel ([@majuss] - [#17691]) ([lupusec docs]) ([alarm_control_panel.lupusec docs]) ([binary_sensor.lupusec docs]) ([switch.lupusec docs]) (new-platform)
@@ -162,8 +174,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added optional precision configuration option to generic_thermostat. ([@partofthething] - [#18317]) ([climate.generic_thermostat docs])
 - System groups ([@balloob] - [#18303])
 - Doc fix: a circular dependency does not raise an error. ([@smurfix] - [#18298])
-- Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch docs]) (new-platform)
-- W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) ([switch.w800rf32 docs]) (new-platform)
+- Add new launch sensor to keep track of space launches. ([@ludeeus] - [#18274]) ([sensor.launch_library docs]) (new-platform)
+- W800rf32 ([@horga83] - [#17920]) ([w800rf32 docs]) ([binary_sensor.w800rf32 docs]) (new-platform)
 - Srpenergy ([@briglx] - [#18036]) ([sensor.srp_energy docs]) (new-platform)
 - Restrict recorder query to include max age ([@ehendrix23] - [#18231]) ([sensor.statistics docs])
 - Add support for sensors from Flu Near You ([@bachya] - [#18136]) ([sensor.flunearyou docs]) (new-platform)
@@ -187,7 +199,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bumping aioasuswrt ([@kennedyshead] - [#18400]) ([asuswrt docs])
 - Filter Coinbase account wallets ([@tjorim] - [#18167]) ([coinbase docs])
 - Update pynello to 2.0.2 ([@ultrara1n] - [#18402]) ([lock.nello docs])
-- Add niko-home-control support ([@legovaer] - [#18019]) ([light.niko_home_control docs]) ([sensor.niko_home_control docs]) (new-platform)
+- Add niko-home-control support ([@legovaer] - [#18019]) ([light.niko_home_control docs]) (new-platform)
 - Add support for keypad keypress ([@gwww] - [#18393]) ([elkm1 docs]) ([sensor.elkm1 docs])
 - Use existing constant ([@fabaff] - [#18408]) ([weather.ecobee docs])
 - Bumps pytile to 2.0.5 ([@bachya] - [#18395]) ([device_tracker docs])
@@ -205,7 +217,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Readded climate.velbus ([@Cereal2nd] - [#18434]) ([velbus docs]) ([climate.velbus docs]) (new-platform)
 - Make mikrotik method setting optional as intended ([@WoLpH] - [#18454]) ([device_tracker docs])
 - Improve support for 1. generation mill heater ([@Danielhiversen] - [#18423]) ([climate.mill docs])
-- Initial support for Fibaro HomeCenter hubs ([@pbalogh77] - [#17891]) ([fibaro docs]) ([binary_sensor.fibaro docs]) ([cover.fibaro docs]) ([light.fibaro docs]) ([scene.fibaro docs]) ([sensor.fibaro docs]) ([switch.fibaro docs]) (new-platform)
+- Initial support for Fibaro HomeCenter hubs ([@pbalogh77] - [#17891]) ([fibaro docs]) ([binary_sensor.fibaro docs]) (new-platform)
 - Add Rainmachine config entry ([@bachya] - [#18419]) ([rainmachine docs]) ([binary_sensor.rainmachine docs]) ([sensor.rainmachine docs]) ([switch.rainmachine docs])
 - AirVisual: Show icon for air pollution level, based on its value ([@leppa] - [#18482]) ([sensor.airvisual docs])
 - Add Rainmachine to the device registry ([@bachya] - [#18452]) ([rainmachine docs]) ([binary_sensor.rainmachine docs]) ([sensor.rainmachine docs]) ([switch.rainmachine docs])
@@ -267,6 +279,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update locationsharinglib requirement to 3.0.8 ([@pc-coholic] - [#18612]) ([device_tracker docs])
 - Fix mqtt cover inverted ([@pszafer] - [#18456]) ([cover.mqtt docs])
 - Upgrade requests to 2.20.1 ([@fabaff] - [#18615])
+- Use asyncio Lock for fibaro light ([@pbalogh77] - [#18622]) ([light.fibaro docs]) (beta fix)
+- fixed wording that may confuse user ([@eliseomartelli] - [#18628]) (beta fix)
+- Updated webhook_register, version bump pypoint ([@fredrike] - [#18635]) ([point docs]) (beta fix)
+- Fix vol Dict -> dict ([@bramkragten] - [#18637]) ([lovelace docs]) (beta fix)
+- Set correct default offset ([@ludeeus] - [#18678]) ([sensor.ruter docs]) (beta fix)
+- Add permission checks to Rest API ([@balloob] - [#18639]) ([api docs]) ([http docs]) (beta fix)
+- Fix logbook filtering entities ([@balloob] - [#18721]) ([logbook docs]) (beta fix)
+- Async tests for owntracks device tracker ([@armills] - [#18681]) (beta fix)
+- OwnTracks Config Entry ([@balloob] - [#18759]) ([device_tracker docs]) ([owntracks docs]) (breaking change) (beta fix)
+- Default to on if logged in ([@balloob] - [#18766]) ([cloud docs]) (beta fix)
 
 [#16916]: https://github.com/home-assistant/home-assistant/pull/16916
 [#16989]: https://github.com/home-assistant/home-assistant/pull/16989
@@ -454,6 +476,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#18608]: https://github.com/home-assistant/home-assistant/pull/18608
 [#18612]: https://github.com/home-assistant/home-assistant/pull/18612
 [#18615]: https://github.com/home-assistant/home-assistant/pull/18615
+[#18622]: https://github.com/home-assistant/home-assistant/pull/18622
+[#18628]: https://github.com/home-assistant/home-assistant/pull/18628
+[#18635]: https://github.com/home-assistant/home-assistant/pull/18635
+[#18637]: https://github.com/home-assistant/home-assistant/pull/18637
+[#18639]: https://github.com/home-assistant/home-assistant/pull/18639
+[#18678]: https://github.com/home-assistant/home-assistant/pull/18678
+[#18681]: https://github.com/home-assistant/home-assistant/pull/18681
+[#18721]: https://github.com/home-assistant/home-assistant/pull/18721
+[#18759]: https://github.com/home-assistant/home-assistant/pull/18759
+[#18766]: https://github.com/home-assistant/home-assistant/pull/18766
 [@4lloyd]: https://github.com/4lloyd
 [@Bouni]: https://github.com/Bouni
 [@Cereal2nd]: https://github.com/Cereal2nd
@@ -542,12 +574,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ultrara1n]: https://github.com/ultrara1n
 [@vetegrodd]: https://github.com/vetegrodd
 [@w1ll1am23]: https://github.com/w1ll1am23
-[alarm_control_panel.demo docs]: /components/alarm_control_panel.demo/
 [alarm_control_panel.ialarm docs]: /components/alarm_control_panel.ialarm/
 [alarm_control_panel.lupusec docs]: /components/alarm_control_panel.lupusec/
 [alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
 [alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
 [alexa docs]: /components/alexa/
+[api docs]: /components/api/
 [asuswrt docs]: /components/asuswrt/
 [august docs]: /components/august/
 [binary_sensor.deconz docs]: /components/binary_sensor.deconz/
@@ -591,6 +623,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homekit docs]: /components/homekit/
 [homekit_controller docs]: /components/homekit_controller/
 [homematic docs]: /components/homematic/
+[http docs]: /components/http/
 [image_processing.opencv docs]: /components/image_processing.opencv/
 [image_processing.tensorflow docs]: /components/image_processing.tensorflow/
 [insteon docs]: /components/insteon/
@@ -607,6 +640,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lock.mqtt docs]: /components/lock.mqtt/
 [lock.nello docs]: /components/lock.nello/
 [lock.zwave docs]: /components/lock.zwave/
+[logbook docs]: /components/logbook/
 [lovelace docs]: /components/lovelace/
 [luftdaten docs]: /components/luftdaten/
 [lupusec docs]: /components/lupusec/
@@ -627,12 +661,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [nest docs]: /components/nest/
 [netgear_lte docs]: /components/netgear_lte/
 [notify docs]: /components/notify/
+[owntracks docs]: /components/owntracks/
 [point docs]: /components/point/
 [prometheus docs]: /components/prometheus/
 [rainmachine docs]: /components/rainmachine/
 [remote.xiaomi_miio docs]: /components/remote.xiaomi_miio/
 [scene.deconz docs]: /components/scene.deconz/
-[scene.fibaro docs]: /components/scene.fibaro/
 [sensor.airvisual docs]: /components/sensor.airvisual/
 [sensor.asuswrt docs]: /components/sensor.asuswrt/
 [sensor.coinbase docs]: /components/sensor.coinbase/
@@ -644,12 +678,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
 [sensor.glances docs]: /components/sensor.glances/
 [sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
-[sensor.launch docs]: /components/sensor.launch/
 [sensor.launch_library docs]: /components/sensor.launch_library/
 [sensor.luftdaten docs]: /components/sensor.luftdaten/
 [sensor.magicseaweed docs]: /components/sensor.magicseaweed/
-[sensor.melissa docs]: /components/sensor.melissa/
-[sensor.niko_home_control docs]: /components/sensor.niko_home_control/
 [sensor.point docs]: /components/sensor.point/
 [sensor.pollen docs]: /components/sensor.pollen/
 [sensor.rainmachine docs]: /components/sensor.rainmachine/
@@ -676,7 +707,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.lupusec docs]: /components/switch.lupusec/
 [switch.rainmachine docs]: /components/switch.rainmachine/
 [switch.switchmate docs]: /components/switch.switchmate/
-[switch.w800rf32 docs]: /components/switch.w800rf32/
 [switch.xiaomi_miio docs]: /components/switch.xiaomi_miio/
 [tibber docs]: /components/tibber/
 [toon docs]: /components/toon/
