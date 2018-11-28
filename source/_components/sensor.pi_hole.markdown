@@ -32,6 +32,16 @@ host:
   required: false
   type: string
   default: localhost
+username:
+  description: The username for accessing Pi-hole.
+  required: false
+  type: string
+  default: Admin
+password:
+  description: The password for accessing Pi-hole
+  required: false
+  type: string
+  default: false
 location:
   description: The installation location of the Pi-hole API.
   required: false
