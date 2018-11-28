@@ -15,6 +15,7 @@ footer: true
 - 📣 [gauge card]: can be themed
 - 📣 [light card]: can be themed
 - 📣 [thermostat card]: can be themed
+- `!secret` and `!include` usage restored for manual editing, but are not supported with the UI editor
 
 ## {% linkable_title Changes in 0.81.0 %}
 - 📣 New card type: `alarm-panel` ❤️
