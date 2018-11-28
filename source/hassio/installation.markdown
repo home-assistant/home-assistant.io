@@ -72,16 +72,22 @@ This is the list of packages you need to have available on your system that will
  - ca-certificates
  - curl
  - dbus
- - docker
  - jq
  - network-manager
  - socat
  - software-properties-common
 
-To perform the Hass.io installation, run the following command as root:
+You also need to have Docker-CE installed. There is well documented procedures for installing docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+
+To perform the Hass.io installation, run the following commands:
 
 ```bash
-$ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s
+sudo -i
+add-apt-repository universe
+apt-get update
+apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common
+curl -sSL https://get.docker.com | sh
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install" | bash -s
 ```
 
 <p class='note'>
