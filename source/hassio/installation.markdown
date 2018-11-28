@@ -64,19 +64,29 @@ If you copy over your existing Home Assistant configuration, make sure to enable
 
 For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
 
-This is the list of packages you need to have available on your system that will run Hass.io if you are using Debian/Ubuntu:
+To install Hass.io on your system you have to install the following dependencies. `jq` requires the universe repository, so add that first:
+```
+$ add-apt-repository universe
+$ apt-get update
+```
+To fix `add-apt-repository: command not found`, you have to install `software-properties-common`:
+```bash
+$ sudo apt-get install software-properties-common
+```
 
- - apparmor-utils
- - apt-transport-https
- - avahi-daemon
- - ca-certificates
- - curl
- - dbus
- - docker
- - jq
- - network-manager
- - socat
- - software-properties-common
+Finally, install the dependencies:
+```bash
+$ sudo apt-get install apparmor-utils \
+   apt-transport-https \
+   avahi-daemon \
+   ca-certificates \
+   curl \
+   dbus \
+   jq \
+   network-manager \
+   socat \
+   software-properties-common
+```
 
 To perform the Hass.io installation, run the following command as root:
 
