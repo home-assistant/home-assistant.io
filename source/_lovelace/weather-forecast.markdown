@@ -28,7 +28,7 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites Friendly Name
+  description: Overwrites the friendly name.
   type: string
   default: Entity Name
 {% endconfiguration %}
