@@ -189,6 +189,15 @@ Currently, the following domains are available to be used with Google Assistant,
 - climate (temperature setting)
 - vacuum (dock/start/stop/pause)
 
+### {% linkable_title Media Player Sources %}
+
+Media Player sources are sent via the Modes trait in Google Assistant.  
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:  
+https://developers.google.com/actions/reference/smarthome/traits/modes
+
+#### Example Command:
+"Hey Google, change input source to TV on Living Room Receiver"
+
 ### {% linkable_title Troubleshooting the request_sync service %}
 
 The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443) from Home Control and relink.
