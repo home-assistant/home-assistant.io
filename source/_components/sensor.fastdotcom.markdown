@@ -20,7 +20,9 @@ The `fastdotcom` sensor component uses the [Fast.com](https://fast.com/) web ser
 Currently fast.com only supports measuring download bandwidth. If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [speedtest](/components/sensor.speedtest) component.
 </p>
 
-By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a speedtest to run.
+By default, it will run every hour. The user can change the update frequency in the configuration by defining the minute and hour for a speedtest to run.
+
+## {% linkable_title Configuration %}
 
 To add a Fast.com sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -30,8 +32,6 @@ Once per hour, on the hour (default):
 sensor:
   - platform: fastdotcom
 ```
-
-More examples:
 
 Every half hour of every day:
 
@@ -67,6 +67,6 @@ manual:
 
 There is also a service named `sensor.update_fastdotcom` that you can use to run a fast.com speedtest on demand.  You can turn on manual mode to disable the scheduled speedtests.
 
-## Note
+## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.

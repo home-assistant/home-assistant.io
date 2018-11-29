@@ -137,11 +137,6 @@ component_config_glob:
       required: false
 {% endconfiguration %}
 
-## {% linkable_title Helper scripts %}
-
-- [Helper script `influxdb_import`](/docs/tools/influxdb_import/)
-- [Helper script `db_migrator`](/docs/tools/db_migrator/) (only used for [Home Assistant 0.36](/blog/2017/01/14/iss-usps-images-packages/#influxdb-export))
-
 ## {% linkable_title Examples %}
 
 ### {% linkable_title Full configuration %}

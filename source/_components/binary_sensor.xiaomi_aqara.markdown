@@ -148,7 +148,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
 - alias: Toggle dining light on single press
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
@@ -158,7 +158,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
 - alias: Toggle couch light on double click
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
@@ -168,7 +168,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
 - alias: Let a dog bark on long press
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
@@ -188,7 +188,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event flip90
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: flip90
@@ -200,7 +200,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event flip180
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: flip180
@@ -212,7 +212,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event move
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: move
@@ -224,7 +224,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event tap_twice
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: tap_twice
@@ -236,7 +236,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event shake_air
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: shake_air
@@ -255,7 +255,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 - alias: Decrease brightness of the gateway light
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_left_158xxxxxxxxx12
       click_type: single
@@ -277,7 +277,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 - alias: Increase brightness of the gateway light
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_right_158xxxxxxxxx12
       click_type: single
@@ -299,7 +299,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 - alias: Turn off the gateway light
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_both_158xxxxxxxxx12
       click_type: both

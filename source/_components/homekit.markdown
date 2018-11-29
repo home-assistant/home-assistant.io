@@ -73,6 +73,11 @@ homekit:
         description: The local network IP address. Only necessary if the default from Home Assistant does not work.
         required: false
         type: string
+      safe_mode:
+        description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
+        required: false
+        type: boolean
+        default: false
       filter:
         description: Filters for entities to be included/excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
@@ -256,6 +261,23 @@ Filters are applied as follows:
       - if entity is included, pass (as #2 above)
       - if entity include and exclude, the entity exclude is ignored
 
+## {% linkable_title Safe Mode %}
+
+The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Paring hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
+
+To use `safe_mode`, add the option to your `homekit` config:
+
+```yaml
+homekit:
+  safe_mode: True
+```
+
+Restart your Home Assistant instance. If you don't see a `pincode`, follow the [guide](#deleting-the-homekitstate-file) here. Now you should be able to pair normally.
+
+<p class="note warning">
+To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your config and restart Home Assistant.
+</p>
+
 ## {% linkable_title Supported Components %}
 
 The following components are currently supported:
@@ -263,7 +285,7 @@ The following components are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
-| automation / input_boolean / remote / script | Switch | All represented as switches. |
+| automation / input_boolean / remote / scene / script | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
@@ -339,7 +361,7 @@ Configure the network mode as `networkbridge`. Otherwise the Home Assistant Brid
 
 #### {% linkable_title Pairing hangs - zeroconf error %}
 
-Paining eventually fails, you might see and an error message `NonUniqueNameException`. To resolve this, you need to replace a specific file. See the following git issues for more details: [home-assistant#14567](https://github.com/home-assistant/home-assistant/issues/14567) and [home-assistant#17181](https://github.com/home-assistant/home-assistant/issues/17181)
+Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your config, see [safe_mode](#safe-mode).
 
 #### {% linkable_title Pairing hangs - only works with debug config %}
 

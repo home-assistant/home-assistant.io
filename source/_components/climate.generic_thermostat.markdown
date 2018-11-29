@@ -82,6 +82,11 @@ away_temp:
   description: Set the temperature used by "away_mode". If this is not specified, away_mode feature will not get activated.
   required: false
   type: float
+precision:
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
+  required: false
+  type: float
+  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
 {% endconfiguration %}
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
@@ -109,4 +114,5 @@ climate:
       minutes: 3
     initial_operation_mode: "off"
     away_temp: 16
+    precision: 0.1
 ```

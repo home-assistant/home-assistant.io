@@ -11,6 +11,7 @@ logo: deconz.jpeg
 ha_category: Hub
 ha_release: "0.61"
 ha_iot_class: "Local Push"
+ha_qa_scale: platinum
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.

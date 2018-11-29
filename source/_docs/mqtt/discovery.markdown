@@ -188,6 +188,7 @@ The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support f
 - [esphomeyaml](https://esphomelib.com/esphomeyaml/index.html)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
+- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 
 ### {% linkable_title Examples %}
 

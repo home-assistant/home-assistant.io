@@ -126,12 +126,17 @@ project_id:
   description: Project ID from the Actions on Google console (looks like `words-2ab12`)
   required: true
   type: string
+allow_unlock:
+  description: "When True, allows Google Assistant to unlock locks."
+  required: false
+  type: boolean
+  default: False
 api_key:
   description: Your Homegraph API key (for the `google_assistant.request_sync` service)
   required: false
   type: string
 expose_by_default:
-  description: "Expose devices in all supported domains by default. If set to false, you need to add the expose configuration option to each entity in `entity_config` and set it to true. Setting `exposed_domains` values will _not_ expose those domains if `expose_by_default` is false."
+  description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
   required: false
   default: True
   type: boolean
@@ -176,8 +181,9 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off)
+- fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
+- lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
 - media_player (on/off/set volume (via set brightness))
 - climate (temperature setting)
