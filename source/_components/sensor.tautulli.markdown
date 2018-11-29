@@ -36,8 +36,8 @@ If you want to enable this sensor, add the following lines to your `configuratio
 # Example configuration.yaml entry
 sensor:
   - platform: tautulli
-    api_key: 24b6eac0a858748664878d146bf63623b4
-    host: 192.168.1.14
+    api_key: TAUTULLI_API_KEY
+    host: TAUTULLI_HOST
 ```
 
 {% configuration %}
