@@ -57,6 +57,54 @@ Note, this release includes a migration to add an index to speed up the logbook 
 - Add cloud pref for Google unlock ([@balloob] - [#18600]) ([cloud docs]) (new-platform)
 - Add support for Panasonic Blu-Ray players ([@u1f35c] - [#18541]) ([media_player.panasonic_bluray docs]) (new-platform)
 
+## {% linkable_title Release 0.83.1 - November 29 %}
+
+- Add websocket call for adding item to shopping-list ([@iantrich] - [#18623]) ([shopping_list docs])
+- Convert shopping-list update to WebSockets ([@iantrich] - [#18713]) ([shopping_list docs])
+- Legacy api fix ([@balloob] - [#18733]) ([http docs])
+- Fix logbook domain filter - alexa, homekit ([@cdce8p] - [#18790]) ([logbook docs])
+- Make auth backwards compat again ([@balloob] - [#18792])
+- Render the secret ([@balloob] - [#18793]) ([owntracks docs])
+- Fix race condition in group.set ([@balloob] - [#18796]) ([group docs])
+- BUGFIX: handle extra fan speeds. ([@marchingphoenix] - [#18799]) ([google_assistant docs])
+- Bumped py17track to 2.1.0 ([@bachya] - [#18804]) ([sensor.seventeentrack docs])
+- Remove self from update function in rainmachine ([@Danielhiversen] - [#18807]) ([binary_sensor.rainmachine docs])
+- Remove additional self from update function in RainMachine ([@bachya] - [#18810]) ([sensor.rainmachine docs])
+- Hotfix for crash with virtual devices ([@pbalogh77] - [#18808]) ([fibaro docs])
+- Use proper signals ([@balloob] - [#18613]) ([emulated_hue docs]) ([http docs])
+
+[#18613]: https://github.com/home-assistant/home-assistant/pull/18613
+[#18623]: https://github.com/home-assistant/home-assistant/pull/18623
+[#18713]: https://github.com/home-assistant/home-assistant/pull/18713
+[#18733]: https://github.com/home-assistant/home-assistant/pull/18733
+[#18790]: https://github.com/home-assistant/home-assistant/pull/18790
+[#18792]: https://github.com/home-assistant/home-assistant/pull/18792
+[#18793]: https://github.com/home-assistant/home-assistant/pull/18793
+[#18796]: https://github.com/home-assistant/home-assistant/pull/18796
+[#18799]: https://github.com/home-assistant/home-assistant/pull/18799
+[#18804]: https://github.com/home-assistant/home-assistant/pull/18804
+[#18807]: https://github.com/home-assistant/home-assistant/pull/18807
+[#18808]: https://github.com/home-assistant/home-assistant/pull/18808
+[#18810]: https://github.com/home-assistant/home-assistant/pull/18810
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@cdce8p]: https://github.com/cdce8p
+[@iantrich]: https://github.com/iantrich
+[@marchingphoenix]: https://github.com/marchingphoenix
+[@pbalogh77]: https://github.com/pbalogh77
+[binary_sensor.rainmachine docs]: /components/binary_sensor.rainmachine/
+[emulated_hue docs]: /components/emulated_hue/
+[fibaro docs]: /components/fibaro/
+[google_assistant docs]: /components/google_assistant/
+[group docs]: /components/group/
+[http docs]: /components/http/
+[logbook docs]: /components/logbook/
+[owntracks docs]: /components/owntracks/
+[sensor.rainmachine docs]: /components/sensor.rainmachine/
+[sensor.seventeentrack docs]: /components/sensor.seventeentrack/
+[shopping_list docs]: /components/shopping_list/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
