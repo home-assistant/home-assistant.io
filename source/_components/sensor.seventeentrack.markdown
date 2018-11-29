@@ -26,8 +26,8 @@ file:
 ```yaml
 sensor:
   - platform: seventeentrack
-    username: <EMAIL ADDRESS>
-    password: <PASSWORD>
+    username: EMAIL_ADDRESS
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
