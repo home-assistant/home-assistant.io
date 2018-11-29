@@ -9,18 +9,7 @@ sharing: true
 footer: true
 ---
 ## {% linkable_title Changes in 0.83.0 %}
-
-### Breaking changes
-- 📣 [sensor card]: Removed configs `height`, `line_color` and `line_width`
-- 📣 [gauge card]: Renamed config `title` to `name`
-- 📣 [alarm-panel card]: Renamed config `title` to `name`
-
-### All changes
 - 📣 New card type: `shopping-list` ❤️
-- 📣 [weather card]: New config `name`
-- 📣 [thermostat card]: New config `name`
-- 📣 [plant card]: New config `name`
-- Ability to generate a new Lovelace config using available entities if one does not yet exist from the UI Editor
 
 ## {% linkable_title Changes in 0.82.0 %}
 - 📣 New card type: `light` ❤️
