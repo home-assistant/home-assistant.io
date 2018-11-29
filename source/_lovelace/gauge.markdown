@@ -35,7 +35,7 @@ title:
   required: false
   description: Title of Gauge Data
   type: string
-unit_of_measurement:
+unit:
   required: false
   description: Unit of Measurement given to data
   type: string
