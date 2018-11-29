@@ -1,25 +1,38 @@
 ---
 layout: post
-title: "0.83: TBF"
-description: "TBD"
-date: 2018-11-22 00:01:00
-date_formatted: "November 28, 2018"
+title: "0.83: Fibaro Home Center Hubs, locks via voice, Traccar"
+description: "Our first release with over 100 contributors is packed with features, fixes and goodies."
+date: 2018-11-29 00:01:00
+date_formatted: "November 29, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2018-11-release-82/lovelace-edit.png
+og_image: /images/blog/2018-11-release-83/components.png
 ---
 
- - Lock support for Google Assistant, including unlock if opted in: For HA Cloud, toggle in config cloud panel, for manual config, add to config: `allow_unlock: true`
- - Fibaro Home Center Hubs supported!
- - Home Assistant Cloud: show exposed entities in UI
- - [Frontend notes](https://github.com/home-assistant/home-assistant-polymer/pull/2077)
+<a href='/components/#version/0.83'><img src='/images/blog/2018-11-release-83/components.png' style='border: 0;box-shadow: none;'></a>
+
+It's release day! Today we're happy to release Home Assistant 0.83. If you might have noticed, this is using our new release schedule which evolves around releases on Wednesdays instead of Fridays (this one is one day late). It's the same 2-week release schedule as before, except that it has moved 5 days later.
+
+So what's new? A LOT. First, a contributor milestone. This release the backend has 99 contributors. That means that in the last 2,5 weeks since the last release, 99 people have written code that is now part of Home Assistant. The frontend has another 15 contributors. It's amazing to see how as a community we can rally around building the best piece of home automation software out there and get it done.
+
+I want to give a shout out to [@MartinHjelmare] who is doing an amazing job going through PRs and helping out where possible. Good job! ✨
+
+Alright, time for some highlights. First is that thanks to [@pbalogh77], Fibaro Home Center hubs are now supported. If you had already invested in a Z-Wave network with Fibaro, you can now seamlessly integrate that into Home Assistant and combine it with all the other intgrations out there.
+
+The second cool thing is that Google Assistant now supports locks. Locking is enabled by default, but if you want to support unlocking, you will need to go to the Home Assistant Cloud settings to enable unlocking, or, if you're using the manual config, add `allow_unlock: true` to your config.
 
 <p class='img'>
   <img src='/images/blog/2018-11-release-83/google-unlock.png' alt='Screenshot of the Google Assistant card on the cloud panel.'>
   See what entities are exposed to Google and enable unlocking of locks.
 </p>
+
+The frontend team hasn't sit still either. The extended release notes are [here](https://github.com/home-assistant/home-assistant-polymer/pull/2077) but the main highlight is the new shopping list card. [@iantrich] took the shopping list panel and shrunk it to the size of a Lovelace card.
+
+Oh and if you're into GPS tracking: [OwnTracks][OwnTracks docs] is a lot easier to get started with in this release. But if you really like all the data in the world: [@ludeeus] has added support for Traccar, including accompanying [Hass.io add-on](https://community.home-assistant.io/t/community-hass-io-add-on-traccar/81407?u=frenck) by [@frenck].
+
+Note, this release includes a migration to add an index to speed up the logbook queries. It might take a bit on first boot, please be patient.
 
 ## {% linkable_title New Platforms %}
 
@@ -28,7 +41,7 @@ og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 - Add Traccar device tracker ([@ludeeus] - [#18200]) ([device_tracker docs]) (new-platform)
 - Add support for Google Home device tracking ([@ludeeus] - [#18190]) ([device_tracker docs]) (new-platform)
 - Add Norwegian Public Transportation sensor (Ruter). ([@ludeeus] - [#18237]) ([sensor.ruter docs]) (new-platform)
-- Split out geofency with a component and platform ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
+- Split out geofency with a component and platform. The geofency device_tracker platform no longer takes any configuration. The configuration needs to be applied to the component geofency instead. The platform will be automatically loaded with the component. ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
 - Add support for Lupusec alarm control panel ([@majuss] - [#17691]) ([lupusec docs]) ([alarm_control_panel.lupusec docs]) ([binary_sensor.lupusec docs]) ([switch.lupusec docs]) (new-platform)
 - Add upload and download sensors and component for asuswrt ([@kennedyshead] - [#17757]) ([asuswrt docs]) ([device_tracker docs]) ([sensor.asuswrt docs]) (breaking change) (new-platform)
 - Add support for 17track.net package sensors ([@bachya] - [#18038]) ([sensor.seventeentrack docs]) (new-platform)
@@ -38,16 +51,11 @@ og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 - Add support for sensors from Flu Near You ([@bachya] - [#18136]) ([sensor.flunearyou docs]) (new-platform)
 - Add niko-home-control support ([@legovaer] - [#18019]) ([light.niko_home_control docs]) (new-platform)
 - Readded climate.velbus ([@Cereal2nd] - [#18434]) ([velbus docs]) ([climate.velbus docs]) (new-platform)
-- Initial support for Fibaro HomeCenter hubs ([@pbalogh77] - [#17891]) ([fibaro docs]) ([binary_sensor.fibaro docs]) (new-platform)
+- Support for Fibaro HomeCenter hubs ([@pbalogh77] - [#17891] - [#18487]) ([fibaro docs]) ([binary_sensor.fibaro docs]) (new-platform)
 - Support for Point component ([@fredrike] - [#17466]) ([point docs]) ([binary_sensor.point docs]) ([sensor.point docs]) (new-platform)
 - Adds light switch platform ([@frenck] - [#18562]) ([light.switch docs]) (new-platform)
 - Add cloud pref for Google unlock ([@balloob] - [#18600]) ([cloud docs]) (new-platform)
-- Fibaro components ([@pbalogh77] - [#18487]) ([fibaro docs]) ([cover.fibaro docs]) ([light.fibaro docs]) ([sensor.fibaro docs]) ([switch.fibaro docs]) (new-platform)
 - Add support for Panasonic Blu-Ray players ([@u1f35c] - [#18541]) ([media_player.panasonic_bluray docs]) (new-platform)
-
-## {% linkable_title New Features %}
-
-- Add scenes as switches HomeKit ([@quthla] - [#17799]) ([homekit docs]) (new-feature)
 
 ## {% linkable_title If you need help... %}
 
@@ -61,21 +69,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
+- OwnTracks is now using config entries. To set it up, go to the configuration panel and configure it there. When configured and MQTT is available, will automatically listen there too. ([@kirichkov] - [#17034]) ([@balloob] - [#18759]) ([owntracks docs]) (breaking change)
 - Removes melissa sensors (they should be state attributes as implemented in #18201) ([@kennedyshead] - [#18214]) ([melissa docs]) (breaking change)
 - Enable config flow for Luftdaten ([@fabaff] - [#17700]) ([luftdaten docs]) ([sensor.luftdaten docs]) (breaking change)
-- Switch OwnTracks HTTP to use webhook component ([@kirichkov] - [#17034]) ([device_tracker docs]) (breaking change)
-- Update Neato states, actions and alerts based on Neato docs ([@dshokouhi] - [#17353]) ([neato docs]) (breaking change)
-- Add services to set/update and cancel Nest ETA ([@schmittx] - [#17836]) ([nest docs]) (breaking change)
+- Update Neato states, actions and alerts based on Neato docs. The vacuum status attribute has new alerts and updated actions. ([@dshokouhi] - [#17353]) ([neato docs]) (breaking change)
+- Add services to set/update and cancel Nest ETA. Rename service set_mode to set_away_mode ([@schmittx] - [#17836]) ([nest docs]) (breaking change)
 - Split out geofency with a component and platform ([@rohankapoorcom] - [#17933]) ([device_tracker docs]) ([geofency docs]) (breaking change) (new-platform)
 - Add upload and download sensors and component for asuswrt ([@kennedyshead] - [#17757]) ([asuswrt docs]) ([device_tracker docs]) ([sensor.asuswrt docs]) (breaking change) (new-platform)
 - Show battery_level as a percent vs a decimal ([@chriskacerguis] - [#18328]) ([wirelesstag docs]) (breaking change)
 - Enable native support + ADB authentication for Fire TV ([@JeffLIrion] - [#17767]) ([media_player.firetv docs]) (breaking change)
-- Logbook speedup ([@jaxer] - [#18376]) (breaking change)
-- Template binary sensor to not track all state changes ([@amelchio] - [#18573]) ([binary_sensor.template docs]) (breaking change)
-- Darksky: Expose missing conditions for day 0 forecast ([@leppa] - [#18312]) ([sensor.darksky docs]) (breaking change)
-- Prefix all xiaomi_aqara events ([@syssi] - [#17354]) ([binary_sensor.xiaomi_aqara docs]) (breaking change)
+- Logbook speedup is now using the built-in entity filter modes. Means that  ([@jaxer] - [#18376]) (breaking change)
+- Template binary sensor will now fall back to manual updates only if we cannot extract the entity IDs to track from the templates ([@amelchio] - [#18573]) ([binary_sensor.template docs]) (breaking change)
+- Darksky: Expose missing conditions for day 0 forecast and append `_0` to the day 0 attributes: `precip_accumulation`, `temperature_high`, `temperature_low`, `apparent_temperature_high`, `apparent_temperature_low`, `precip_intensity_max`, `moon_phase`. ([@leppa] - [#18312]) ([sensor.darksky docs]) (breaking change)
+- Prefix all xiaomi_aqara events with "xiaomi_aqara". Please update your automations: `motion -> xiaomi_aqara.motion`, `click -> xiaomi_aqara.click`, `cube_action -> xiaomi_aqara.cube_action` ([@syssi] - [#17354]) ([binary_sensor.xiaomi_aqara docs]) (breaking change)
 - Change channel with play_media instead of select_source ([@ehendrix23] - [#18474]) ([media_player.directv docs]) (breaking change)
-- OwnTracks Config Entry ([@balloob] - [#18759]) ([device_tracker docs]) ([owntracks docs]) (breaking change) (beta fix)
 
 ## {% linkable_title Beta Fixes %}
 
