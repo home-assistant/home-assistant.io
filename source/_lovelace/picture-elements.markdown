@@ -25,7 +25,7 @@ type:
   description: picture-elements
   type: string
 image:
-  required: true
+  required: false
   description: The URL of an image.
   type: string
 camera_image:
