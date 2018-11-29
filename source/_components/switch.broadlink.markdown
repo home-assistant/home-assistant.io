@@ -286,10 +286,7 @@ ID: 17 | Name: New RF Remote
 
 ### {% linkable_title Using Windows to Obtain Codes with Broadlink Manager %}
 
-1. Install Broadlink Manager from this SourceForge link [here](https://sourceforge.net/projects/broadlink-manager/)
-
-2. Open the application and hit "scan" to activate your broadlink device
-
-3. Hit "Learn New Command" and follow instructions on screen
-
-4. The "OnRawData Base64" is the value to be used with Home Assistant
+1. Install Broadlink Manager from this SourceForge link [here](https://sourceforge.net/projects/broadlink-manager/).
+2. Open the application and hit "scan" to activate your broadlink device.
+3. Hit "Learn New Command" and follow instructions on screen.
+4. The "OnRawData Base64" is the value to be used with Home Assistant.
