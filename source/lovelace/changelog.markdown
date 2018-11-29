@@ -8,6 +8,15 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.82.0 %}
+- 📣 New card type: `light` ❤️
+- 📣 Alpha release of UI Editor
+- 📣 [entities card]: can be themed
+- 📣 [gauge card]: can be themed
+- 📣 [light card]: can be themed
+- 📣 [thermostat card]: can be themed
+- `!secret` and `!include` usage restored for manual editing, but are not supported with the UI editor
+
 ## {% linkable_title Changes in 0.81.0 %}
 - 📣 New card type: `alarm-panel` ❤️
 - 📣 New card type: `thermostat` ❤️

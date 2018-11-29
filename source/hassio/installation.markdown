@@ -72,6 +72,7 @@ This is the list of packages you need to have available on your system that will
  - ca-certificates
  - curl
  - dbus
+ - docker
  - jq
  - network-manager
  - socat
