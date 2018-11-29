@@ -26,11 +26,6 @@ entities:
   required: true
   description: List of entity IDs.
   type: list
-  keys:
-    entity:
-      required: true
-      description: "An `entity_id` to use."
-      type: string
 title:
   required: false
   description: The card title.
