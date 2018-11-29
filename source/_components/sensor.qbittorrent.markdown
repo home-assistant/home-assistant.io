@@ -9,11 +9,17 @@ sharing: true
 footer: true
 logo: qbittorrent.png
 ha_category: Downloading
-ha_release: 0.83
+ha_release: 0.84
 ha_iot_class: "Local Polling"
 ---
 
 The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
+
+## {% linkable_title Setup %}
+
+This sensor requires the qBittorrent Web UI enabled. The [official reference](https://github.com/qbittorrent/qBittorrent/wiki#webui-related) describes how to set up the Web UI.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -25,9 +31,6 @@ sensor:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
-
-This sensor requires the qBittorrent Web UI enabled.
-The [official reference](https://github.com/qbittorrent/qBittorrent/wiki#webui-related) describes how to set up the Web UI.
 
 {% configuration %}
 url:
