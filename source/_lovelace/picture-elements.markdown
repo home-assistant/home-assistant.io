@@ -25,8 +25,29 @@ type:
   description: picture-elements
   type: string
 image:
-  required: true
+  required: false
   description: The URL of an image.
+  type: string
+camera_image:
+  required: false
+  description: Camera entity as Background image.
+  type: string
+state_image:
+  required: false
+  description: Background image based on entity state.
+  type: object
+  keys:
+    state:
+      type: string
+      required: false
+      description: "`state: image-url`, check the example below."
+aspect_ratio:
+  required: false
+  description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
+  type: string
+entity:
+  required: false
+  description: Entity to use for `state_image`.
   type: string
 elements:
   required: true
