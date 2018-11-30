@@ -11,7 +11,9 @@ ha_category: Hub
 ha_release: 0.32
 ---
 
-The `mochad` component is the main component to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this component you will have to setup your X10 devices separately.
+The `mochad` component is the main component to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this component you will have to setup your X10 devices separately. From 0.85 version, home-assistant added support for X10 sensors. X10 messages are
+received by mochad service and published to mqtt topics. Autmations can be created using events in mqtt componnet of home-assistant. You will have to have a properly configured mqtt broker. mochad component 
+requires a working mqtt broker configuration in order to receive and publish events from X10 sensors.
 
 ## {% linkable_title Configuration %}
 
@@ -45,3 +47,53 @@ mochad:
   host: localhost
   port: 1099
 ```
+## {% linkable_title Events %}
+
+There are a number of events that can be triggered from mochad X10 sensors. Starting with simple
+motion detectors and window/door sensors, to remote controls and buttons. Run home-assisstant in a debug mode or without a confugured mqtt broker. All events received by mochad controller will be logged. For example:
+```
+2018-11-29 21:23:44 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/button/F8 : on to mqtt
+2018-11-29 21:23:44 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/button/B8 : off to mqtt
+2018-11-29 21:23:52 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/security/010500 : normal to mqtt
+2018-11-29 21:25:48 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/security/D70E81 : normal to mqtt
+2018-11-29 21:28:25 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/button/M3 : on to mqtt
+2018-11-29 21:28:25 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/button/M3 : off to mqtt
+
+```
+
+Once sensor IDs are identified, sensor events can be configured and used in automation.
+
+```yaml
+# Example of sensor.yaml entries
+sensor:
+ - platform: mqtt
+   state_topic: "X10/security/F7F310"
+   name: "Bedroom Door"
+   value_template: '{{ value_json.event_state }}'
+   payload_on: "alert"
+   payload_off: "normal"
+ - platform: mqtt
+   state_topic: "X10/button/C3"
+   name: "C3 Remote Keychain"
+   value_template: '{{ value_json.func }}'
+   payload_on: "on"
+   payload_off: "off"
+```
+```yaml
+# Example of automation.yaml entries
+automation:
+- alias: "Increment event counter"
+  trigger:
+    - platform: state
+      entity_id: sensor.bedroom_door
+      to: 'alert'
+    - platform: state
+      entity_id: sensor.c3_remote_keychain
+      to: 'on'
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.event_counter
+        value: '{{ (states.input_number.event_counter.state | int) + 1 }}'
+```
+
