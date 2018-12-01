@@ -18,7 +18,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 #### {% linkable_title Supported Devices %}
 
-- Xiaomi Aqara Gateway (lumi.gateway.v2, lumi.gateway.v3)
+- Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
 - Aqara Intelligent Door Lock (lock.aq1)
 - Temperature and Humidity Sensor (1st and 2nd generation)
@@ -47,6 +47,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 - Gateway Radio
 - Gateway Button
+- Xiaomi Aqara Gateway (lumi.gateway.aqhm01)
 - Xiaomi Mi Air Conditioning Companion (lumi.acpartner.v2)
 - Aqara Intelligent Air Conditioner Controller Hub (lumi.acpartner.v1)
 - Decoupled mode of the Aqara Wall Switches (Single & Double)
