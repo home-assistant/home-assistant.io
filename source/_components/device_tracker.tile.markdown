@@ -25,6 +25,10 @@ device_tracker:
   - platform: tile
     username: email@address.com
     password: MY_PASSWORD_123
+    monitored_variables:
+      - TILE
+      - PHONE
+  
 ```
 
 {% configuration %}
@@ -37,7 +41,7 @@ device_tracker:
     required: true
     type: string
   monitored_variables:
-    description: the Tile types to monitor; valid values are `TILE` and `PHONE` (default is for all types to be included)
+    description: the Tile types to monitor; valid values are `TILE` and `PHONE` (default is for only 'PHONE' to be monitored)
     required: false
     type: list
   show_inactive:
