@@ -57,7 +57,7 @@ password:
   type: string
   default: ubnt
 ssl:
-  description: Should use SSL to connect to the NVR
+  description: Should use SSL/TLS to connect to the NVR.
   required: false
   type: boolean
   default: false
