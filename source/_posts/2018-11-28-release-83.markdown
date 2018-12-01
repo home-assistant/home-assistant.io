@@ -69,7 +69,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- OwnTracks is now using config entries. To set it up, go to the configuration panel and configure it there. When configured and MQTT is available, will automatically listen there too. ([@kirichkov] - [#17034]) ([@balloob] - [#18759]) ([owntracks docs]) (breaking change)
+- OwnTracks is now using config entries. To set it up, go to the configuration panel and configure it there. When configured and MQTT is available, will automatically listen there too. **You must remove the old device tracker before upgrading** ([@kirichkov] - [#17034]) ([@balloob] - [#18759]) ([owntracks docs]) (breaking change)
 - Removes melissa sensors (they should be state attributes as implemented in #18201) ([@kennedyshead] - [#18214]) ([melissa docs]) (breaking change)
 - Enable config flow for Luftdaten ([@fabaff] - [#17700]) ([luftdaten docs]) ([sensor.luftdaten docs]) (breaking change)
 - Update Neato states, actions and alerts based on Neato docs. The vacuum status attribute has new alerts and updated actions. ([@dshokouhi] - [#17353]) ([neato docs]) (breaking change)
