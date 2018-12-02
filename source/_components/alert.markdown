@@ -83,7 +83,7 @@ skip_first:
   default: false
 message:
   description: >
-    A message to be sent after an alert transitions from `of` to `on`
+    A message to be sent after an alert transitions from `off` to `on`
     with [template][template] support.
   required: false
   type: template
