@@ -2,7 +2,7 @@
 layout: page
 title: "Lightwave"
 description: "Instructions on how to integrate Lightwave devices with Home Assistant."
-date: 2018-11-29 19:00
+date: 2018-12-02 18:00
 sidebar: true
 comments: false
 sharing: true
