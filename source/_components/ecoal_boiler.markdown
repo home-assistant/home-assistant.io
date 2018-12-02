@@ -41,6 +41,4 @@ password:
   required: false 
   default: admin
   type: string
-  
-  
 {% endconfiguration %}
