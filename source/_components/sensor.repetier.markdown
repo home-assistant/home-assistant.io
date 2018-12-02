@@ -2,7 +2,7 @@
 layout: page
 title: Repetier-Server Sensor
 description: "Instructions how to add Repetier-Server sensors to Home Assistant."
-date: 2018-12-02 22:03
+date: 2018-12-02 22:12
 sidebar: true
 comments: false
 sharing: true
