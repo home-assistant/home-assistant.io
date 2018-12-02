@@ -33,6 +33,7 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 
  - [Vera](/components/vera/)
  - [Wink](/components/wink/)
+ - [Fibaro](/components/fibaro/)
 
 ## {% linkable_title Controller Notes %}
 
