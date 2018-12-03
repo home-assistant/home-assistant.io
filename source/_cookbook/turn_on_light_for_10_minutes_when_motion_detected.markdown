@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Turn on lights for 10 minutes after motion detected"
+title: "Turn off lights 10 minutes after motion detected"
 description: "Turn on lights for 10 minutes when motion detected."
 date: 2015-10-08 19:05
 sidebar: true
