@@ -81,9 +81,10 @@ deviceid:
           description: The array that contains the HLK-SW16 relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
           required: false
           type: map
-          name:
-            description: The name used to display the switch in the frontend.
-            required: false
-            type: string
-            default: relayid
+          keys:
+            name:
+              description: The name used to display the switch in the frontend.
+              required: false
+              type: string
+              default: relayid
 {% endconfiguration %}
