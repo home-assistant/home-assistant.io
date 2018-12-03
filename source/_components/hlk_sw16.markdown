@@ -58,7 +58,7 @@ hlk_sw16:
 ```
 
 {% configuration %}
-relayname:
+deviceid:
   description: The array that contains the HLK-SW16 devices.
   required: true
   type: map
@@ -73,13 +73,17 @@ relayname:
       type: integer
       default: 8080
     switches:
-      description: The array that contains the relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
+      description: The array that contains the relays.
       required: true
       type: map
       keys:
-        name:
-          description: The name used to display the switch in the frontend.
+        relayid:
+          description: The array that contains the HLK-SW16 relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
           required: false
-          type: string
-          default: switch id
+          type: map
+          name:
+            description: The name used to display the switch in the frontend.
+            required: false
+            type: string
+            default: relayid
 {% endconfiguration %}
