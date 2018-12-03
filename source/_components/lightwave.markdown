@@ -37,10 +37,10 @@ lightwave:
       name: Torch socket
 ```
 
-Where ```192.168.1.2``` is the ip address of your Lightwave hub.
-Each ```switch``` or ```light``` requires an ```id``` and a ```name```. The ```id``` takes the form ```R#D#``` where ```R#``` is the room number and ```D#``` is the device number.
+Where `192.168.1.2` is the ip address of your Lightwave hub.
+Each `switch` or `light` requires an `id` and a `name`. The `id` takes the form `R#D#` where `R#` is the room number and `D#` is the device number.
 
-```lights``` and ```switches``` are optional but one of these must be present.
+`lights` and `switches` are optional but one of these must be present.
 
 The first use of a light or switch will try to register with your Lightwave WiFi Link hub. If the hub has not been registered a message on your hub will be displayed asking you to pair the device. You have 12 seconds to push the button on your hub to accept this. Once done, you should be able to control your lights and switches via Home Assistant. This only needs to be done if the hub has not been registered.
 
