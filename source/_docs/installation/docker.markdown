@@ -23,6 +23,14 @@ $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/
 ```bash
 $ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
 ```
+<p class='note'>
+You need to replace `/path/to/your/config` to your config path, for example if you choose your config path to be `/home/pi/homeassistant`, then full, ready-to-use command will be:
+ 
+```bash
+$ docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+```
+ 
+</p>
 
 ### {% linkable_title macOS %}
 
