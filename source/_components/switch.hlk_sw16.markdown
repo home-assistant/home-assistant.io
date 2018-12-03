@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hlktech.jpg
 ha_category: Switch
-ha_release: 0.94
+ha_release: 0.84
 ha_iot_class: "Local Push"
 ---
 
