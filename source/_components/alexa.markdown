@@ -13,9 +13,13 @@ featured: true
 ha_release: '0.10'
 ---
 
-<p class='note'>
-  Use [Home Assistant Cloud](/components/cloud/) to integrate with Alexa without any effort.
-</p>
+## {% linkable_title Automatic setup via Home Assistant Cloud %}
+
+With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+
+For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
+
+## {% linkable_title Manual setup %}
 
 There are a few ways that you can use Amazon Echo and Home Assistant together.
 

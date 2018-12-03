@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Push"
 ---
 
 
-The `nest` climate platform let you control a thermostat from [Nest](https://nest.com).
+The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).
 
 <p class='note'>
 You must have the [Nest component](/components/nest/) configured to use these sensors.  The `nest` climate component will automatically be setup when you do.

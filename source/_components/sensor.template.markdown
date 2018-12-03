@@ -33,10 +33,10 @@ sensor:
       solar_angle:
         friendly_name: "Sun angle"
         unit_of_measurement: 'degrees'
-        value_template: "{{ states.sun.sun.attributes.elevation }}"
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
 
       sunrise:
-        value_template: "{{ states.sun.sun.attributes.next_rising }}"
+        value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
 ```
 {% endraw %}
 
@@ -103,7 +103,7 @@ sensor:
       solar_angle:
         friendly_name: "Sun Angle"
         unit_of_measurement: '°'
-        value_template: "{{ '%+.1f'|format(states.sun.sun.attributes.elevation) }}"
+        value_template: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
 ```
 {% endraw %}
 
@@ -162,7 +162,7 @@ sensor:
         value_template: >-
           {% if is_state('switch.kettle', 'off') %}
             off
-          {% elif states.switch.kettle.attributes.kwh|float < 1000 %}
+          {% elif state_attr('switch.kettle', 'kwh')|float < 1000 %}
             standby
           {% elif is_state('switch.kettle', 'on') %}
             on
@@ -292,7 +292,7 @@ sensor:
 
 ### {% linkable_title Working with dates %}
 
-The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). This template contains no entities that will trigger an update, so either we need to use `homeassistant.update_entity` or add an `entity_id:` line for an entity that will force an update - here we're using `sun.sun`.
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). This template contains no entities that will trigger an update, so either we need to use `homeassistant.update_entity` or add an `entity_id:` line for an entity that will force an update - here we're using `sensor.date`.
 
 {% raw %}
 ```yaml
@@ -301,31 +301,15 @@ sensor:
   sensors:
     nonsmoker:
       value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      entity_id: sun.sun
+      entity_id: sensor.date
       friendly_name: 'Not smoking'
       unit_of_measurement: "Days"
 ```
 {% endraw %}
 
-### {% linkable_title Template tracking %}
+Useful entities to choose might be `sensor.date` which update once per day, or `sensor.time` which updates once per minute.
 
-This example shows how to add `entity_id` to a template to allow tracking of updates. Fixing an error caused in (81.0) 
-
-{% raw %}
-```yaml
-sensor:
-- platform: template
-  sensors:
-    nonsmoker:
-      entity_id: now.strptime
-      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      friendly_name: 'Not smoking'
-      unit_of_measurement: "Days"
-```
-{% endraw %}
-
-Note: If a template uses more than one sensor they can be listed
-
+Note: [Time & Date Sensors](https://www.home-assistant.io/components/sensor.time_date/) used as an update trigger, must be configured. If a template uses more than one sensor they can be listed.
 
 The alternative to this is to create an `Automation`using the new (81.0) service `homeassistant.update_entity` and list all entity's requiring updates and setting the interval based on time.
 

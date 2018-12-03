@@ -76,7 +76,8 @@ Title and Script Service Example:
 
 ```yaml
 - type: entity-button
-  title: Turn Off Lights
+  name: Turn Off Lights
+  tap_action: call-service
   entity: script.turn_off_lights
   service: script.turn_on
 ```

@@ -57,6 +57,10 @@ secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`."
   type: string
+format:
+  required: false
+  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Special Row Elements %}
@@ -72,20 +76,22 @@ name:
   required: true
   description: Main Label.
   type: string
-icon:
-  required: true
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
-action_name:
-  required: true
-  description: Button label.
-  type: string
 service:
   required: true
   description: "Service like `media_player.media_play_pause`"
   type: string
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: "`mdi:remote`"
+action_name:
+  required: false
+  description: Button label.
+  type: string
+  default: "`Run`"
 service_data:
-  required: true
+  required: false
   description: The service data to use.
   type: object
 {% endconfiguration %}

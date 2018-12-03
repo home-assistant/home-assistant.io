@@ -19,6 +19,8 @@ The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia s
 
 The preferred way to set up the Kodi platform is by enabling the [discovery component](/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
+## {% linkable_title Configuration %}
+
 In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -80,18 +82,26 @@ timeout:
   default: 5
 {% endconfiguration %}
 
+## {% linkable_title Services %}
+
 ### {% linkable_title Service `kodi_add_to_playlist` %}
 
 Add music to the default playlist (i.e. playlistid=0).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Kodi entities where to add the media.
-| `media_type` | yes | Media type identifier. It must be one of SONG or ALBUM.
-| `media_id` | no | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library.
-| `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.
-| `artist_name` | no | Optional artist name for filtering media.
+| `entity_id` | no | Name(s) of the Kodi entities where to add the media. |
+| `media_type` | yes | Media type identifier. It must be one of SONG or ALBUM. |
+| `media_id` | no | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library. |
+| `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist. |
+| `artist_name` | no | Optional artist name for filtering media. |
 
+#### {% linkable_title Service `media_player/kodi_set_shuffle` %}
+
+| Service data attribute | Optional | Description |
+|------------------------|----------|-------------|
+| `entity_id`            | yes      | Target a specific media player. It must be of type kodi. |
+| `shuffle_on`           | no       | True/false for shuffle on/off. |
 
 ### {% linkable_title Service `kodi_call_method` %}
 
@@ -99,10 +109,9 @@ Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with opti
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Kodi entities where to run the API method.
-| `method` | yes | Name of the Kodi JSONRPC API method to be called.
-| any other parameter | no | Optional parameters for the Kodi API call.
-
+| `entity_id` | no | Name(s) of the Kodi entities where to run the API method. |
+| `method` | yes | Name of the Kodi JSONRPC API method to be called. |
+| any other parameter | no | Optional parameters for the Kodi API call. |
 
 ### {% linkable_title Event triggering %}
 
@@ -240,6 +249,7 @@ This example and the following requires to have the [script.json-cec](https://gi
 
 #### Simple script to turn on the PVR in some channel as a time function
 
+{% raw %}
 ```yaml
 script:
   play_kodi_pvr:
@@ -249,14 +259,13 @@ script:
         service: media_player.turn_on
         data:
           entity_id: media_player.kodi
-
       - alias: Play TV channel
         service: media_player.play_media
         data_template:
           entity_id: media_player.kodi
           media_content_type: "CHANNEL"
           media_content_id: >
-            {% raw %}{% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
+            {% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
               10
             {% elif (now().hour < 16) %}
               15
@@ -268,8 +277,9 @@ script:
               15
             {% else %}
               10
-            {% endif %}{% endraw %}
+            {% endif %}
 ```
+{% endraw %}
 
 #### Trigger a Kodi video library update
 

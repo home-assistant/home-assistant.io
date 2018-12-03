@@ -27,11 +27,21 @@ Your LiteJet MCP should be configured for 19.2 K baud, 8 data bits, 1 stop bit, 
 
 You can also configure the Home Assistant to ignore lights, scenes, and switches via their name. This is highly recommended since LiteJet has a fixed number of each of these and with most systems many will be unused.
 
-Configuration variables:
-
-- **port** (*Required*): The path to the serial port connected to the LiteJet.
-- **exclude_names** (*Optional*): A list of light or switch names that should be ignored.
-- **include_switches** (*Optional*): Cause entities to be created for all the LiteJet switches. Default is `false`. This can be useful when debugging your lighting as you can press/release switches remotely.
+{% configuration %}
+port:
+  description: The path to the serial port connected to the LiteJet.
+  required: true
+  type: string
+exclude_names:
+  description: A list of light or switch names that should be ignored.
+  required: false
+  type: [list, string]
+include_switches:
+  description: Cause entities to be created for all the LiteJet switches. This can be useful when debugging your lighting as you can press/release switches remotely.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 ```yaml
 litejet:
@@ -64,5 +74,4 @@ automation:
       milliseconds: 1000
     held_less_than:
       milliseconds: 2000
-  ...
 ```

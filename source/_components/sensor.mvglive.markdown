@@ -27,16 +27,43 @@ sensor:
      - station: STATION_OR_STOP_NAME
 ```
 
-Configuration variables:
-
-  - **station** (*Required*): Name of the stop or station. Visit [the MVG live web site](http://www.mvg-live.de) to find valid names.
-  - **destinations** (*Optional*): One or multiple final stop names, e.g., 'Feldmoching' or ['Feldmoching','Harthof']. This can be used to only consider a particular direction of travel
-  - **directions** (*Optional*): Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz.
-  - **lines** (*Optional*): One or more line numbers, e.g., 'U2' or ['U2','U8','N41']
-  - **products** (*Optional*): One or more modes of transport, defaults to all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']. 
-  - **timeoffset** (*Optional*): Do not display departures leaving sooner than this number of minutes (defaults to 0). Useful if you are a couple of minutes away from the stop.
-  - **number** (*Optional*): Store a list of departures in the attribute "departures", defaults to 1. If you set this parameter to 3, the next three departures will be stored. 
-  - **name** (*Optional*): You can customize the name of the sensor, which defaults to the station name.
+{% configuration %}
+station:
+  description: Name of the stop or station. Visit [the MVG live web site](http://www.mvg-live.de) to find valid names.
+  required: true
+  type: string
+destinations:
+  description: One or multiple final stop names, e.g., 'Feldmoching' or ['Feldmoching','Harthof']. This can be used to only consider a particular direction of travel.
+  required: false
+  type: list
+directions:
+  description: "Filter by direction of the departure. For Tram, Bus, SEV, and S-Bahn, direction = direction. For U-Bahn trains, directions are more general. For U1, U2, U3 and U6, direction='1' indicates south-bound trains, direction='2' indicates northbound trains. For U4 and U5, direction='1' indicates east-bound trains, direction='2' indicates west-bound trains. For example, setting directions: '1' can be used to get all south-bound trains at Scheidplatz."
+  required: false
+  type: list
+lines:
+  description: One or more line numbers, e.g., 'U2' or ['U2','U8','N41'].
+  required: false
+  type: list
+products:
+  description: One or more modes of transport.
+  required: false
+  default: all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']
+  type: list
+timeoffset:
+  description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
+  required: false
+  default: 0
+  type: integer
+number:
+  description: Store a list of departures in the attribute "departures". If you set this parameter to 3, the next three departures will be stored.
+  required: false
+  default: 1
+  type: integer
+name:
+  description: You can customize the name of the sensor, which defaults to the station name.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 

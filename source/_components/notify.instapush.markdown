@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: pre 0.7
 ---
 
-
 The `instapush` platform uses [Instapush](https://instapush.im) to delivery notifications from Home Assistant to your Android or iOS device.
 
 The Instapush [Getting Started page](https://instapush.im/home/start/) will guide through the process of creating the required items.
@@ -30,13 +29,29 @@ notify:
     tracker: TRACKER_NAME
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): Your API key for Instapush.
-- **app_secret** (*Required*): The secret for your created application.
-- **event** (*Required*): The event to push to.
-- **tracker** (*Required*): The name of tracker inside Instapush.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+api_key:
+  description: Your API key for Instapush.
+  required: string
+  type: string
+app_secret:
+  description: The secret for your created application.
+  required: string
+  type: string
+event:
+  description: The event to push to.
+  required: string
+  type: string
+tracker:
+  description: The name of tracker inside Instapush.
+  required: string
+  type: string
+{% endconfiguration %}
 
 To retrieve the needed values for existing settings, log into your account at [https://instapush.im](https://instapush.im) and go to your **Dashboard**. Then click the **APPS** tab, choose an app, and check the **Basic Info** section. The *Application ID* is the `api_key` and `app_secret` is the *Application Secret*.
 

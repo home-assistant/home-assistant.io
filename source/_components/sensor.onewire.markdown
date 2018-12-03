@@ -29,7 +29,8 @@ The 1-Wire bus can be connected directly to the IO pins of Raspberry Pi or using
 
 ## {% linkable_title Raspberry Pi setup %}
 
-In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire). Don't use the `mount_dir` option.
+In order to setup 1-Wire support on Raspberry Pi, you'll need to edit `/boot/config.txt` following [this documentation](https://www.waveshare.com/wiki/Raspberry_Pi_Tutorial_Series:_1-Wire_DS18B20_Sensor#Enable_1-Wire).
+To edit `/boot/config.txt` on Hass.io use [this documentation](https://developers.home-assistant.io/docs/en/hassio_debugging.html) to enable SSH and edit `/mnt/boot/config.txt` via `vi`.
 
 ## {% linkable_title Interface adapter setup %}
 
@@ -65,8 +66,6 @@ To enable One wire sensors in your installation, add the following to your `conf
 # Example configuration.yaml entry
 sensor:
   - platform: onewire
-    names:
-      some_id: your name
 ```
 
 {% configuration %}
@@ -79,4 +78,16 @@ mount_dir:
   required: false
   type: string
 {% endconfiguration %}
+
+### Configuration Example
+
+When `onewire` is added to Home Assistant, it will generate an ID for the sensor. You can specify a friendly name for the sensor with the name configuration option.
+
+```yaml
+# Named sensor configuration.yaml entry
+sensor:
+  - platform: onewire
+    names:
+      GENERATED_ID: FRIENDLY_NAME
+```
 

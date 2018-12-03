@@ -392,9 +392,9 @@ For a more complex usage of the `telegram_bot` capabilities, using [AppDaemon](/
 This is how the previous 4 automations would be through a simple AppDaemon app:
 
 ```python
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 
-class TelegramBotEventListener(appapi.AppDaemon):
+class TelegramBotEventListener(hass.Hass):
     """Event listener for Telegram bot events."""
 
     def initialize(self):

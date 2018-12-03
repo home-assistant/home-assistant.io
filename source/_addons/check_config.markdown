@@ -17,6 +17,9 @@ You can use this add-on to check whether your configuration files are valid agai
 }
 ```
 
-Configuration variables:
-
-- **version** (*Required*): Version of Home Assistant that you plan to install.
+{% configuration %}
+version:
+  description: Version of Home Assistant that you plan to install.
+  required: true
+  type: string
+{% endconfiguration %}

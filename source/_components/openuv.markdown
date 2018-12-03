@@ -98,18 +98,20 @@ To configure additional functionality, add configuration options beneath a `bina
 openuv:
   api_key: YOUR_OPENUV_API_KEY
   binary_sensors:
-    - uv_protection_window
+    monitored_conditions:
+      - uv_protection_window
   sensors:
-    - current_ozone_level
-    - current_uv_index
-    - current_uv_level
-    - max_uv_index
-    - safe_exposure_time_type_1
-    - safe_exposure_time_type_2
-    - safe_exposure_time_type_3
-    - safe_exposure_time_type_4
-    - safe_exposure_time_type_5
-    - safe_exposure_time_type_6
+    monitored_conditions:
+      - current_ozone_level
+      - current_uv_index
+      - current_uv_level
+      - max_uv_index
+      - safe_exposure_time_type_1
+      - safe_exposure_time_type_2
+      - safe_exposure_time_type_3
+      - safe_exposure_time_type_4
+      - safe_exposure_time_type_5
+      - safe_exposure_time_type_6
 ```
 
 <p class='note warning'>

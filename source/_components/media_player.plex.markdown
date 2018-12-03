@@ -43,7 +43,7 @@ media_player:
   - platform: plex
 ```
 
-In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `~/.homeassistant/plex.conf` manually.
+In case [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can create the   `plex.conf` manually and placed it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io.
 
 ```json
 {"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
@@ -175,3 +175,4 @@ Plays a song, playlist, TV episode, or video on a connected client.
   ```
 
   If this occurs, check the setting `Server`>`Network`>`Secure connections` in your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
+* Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.

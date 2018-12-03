@@ -31,20 +31,47 @@ sensor:
      - before_offpeak_total
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Your EBox username.
-- **password** (*Required*): Your EBox password.
-- **monitored_variables** array (*Required*): Variables to monitor.
-  - **before_offpeak_download**: Download before offpeak usage
-  - **before_offpeak_upload**: Upload before offpeak usage
-  - **before_offpeak_total**: Total before offpeak usage
-  - **offpeak_download**: Download offpeak usage
-  - **offpeak_upload**: Upload offpeak usage
-  - **offpeak_total**: Total offpeak usage
-  - **download**: Download usage
-  - **upload**: Upload usage
-  - **total**: Total usage
-  - **balance**: Account balance
-  - **limit**: Limit usage
-  - **usage**: Percent usage
+{% configuration %}
+username:
+  description: Your EBox username.
+  required: true
+  type: string
+password:
+  description: Your EBox password.
+  required: true
+  type: string
+name:
+  description: The name of the sensor.
+  required: false
+  default: EBox
+  type: string
+monitored_variables:
+  description: Variables to monitor.
+  required: true
+  type: list
+  keys:
+    before_offpeak_download:
+      description: Download before offpeak usage
+    before_offpeak_upload:
+      description: Upload before offpeak usage
+    before_offpeak_total:
+      description: Total before offpeak usage
+    offpeak_download:
+      description: Download offpeak usage
+    offpeak_upload:
+      description: Upload offpeak usage
+    offpeak_total:
+      description: Total offpeak usage
+    download:
+      description: Download usage
+    upload:
+      description: Upload usage
+    total:
+      description: Total usage
+    balance:
+      description: Account balance
+    limit:
+      description: Limit usage
+    usage:
+      description: Percent usage
+{% endconfiguration %}
