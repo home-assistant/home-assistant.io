@@ -23,8 +23,9 @@ To connect to your RainMachine device, add the following to your
 
 ```yaml
 rainmachine:
-  ip_address: 192.168.1.100
-  password: YOUR_PASSWORD
+  controllers:
+    - ip_address: 192.168.1.100
+      password: YOUR_PASSWORD
 ```
 
 To configure additional functionality, add configuration options beneath
@@ -33,14 +34,15 @@ sections of `configuration.yaml` as below:
 
 ```yaml
 rainmachine:
-  ip_address: 192.168.1.100
-  password: YOUR_PASSWORD
-  binary_sensors:
-    # binary sensor configuration options...
-  sensors:
-    # sensor configuration options...
-  switches:
-    # switch configuration options...
+  controllers:
+    - ip_address: 192.168.1.100
+      password: YOUR_PASSWORD
+      binary_sensors:
+        # binary sensor configuration options...
+      sensors:
+        # sensor configuration options...
+      switches:
+        # switch configuration options...
 ```
 
 {% configuration %}
