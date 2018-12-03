@@ -10,7 +10,7 @@ footer: true
 logo: fibaro.png
 ha_category: Scene
 ha_iot_class: "Local Push"
-ha_release: 0.83
+ha_release: 0.83.3
 ---
 
 The `fibaro` platform allows you to activate scenes on your [Fibaro](http://fibaro.com/) HCL or HC2 from within Home Assistant.
