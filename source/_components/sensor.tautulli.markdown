@@ -26,7 +26,7 @@ The `Tautulli` sensor platform will monitor activity on a given [Tautulli Server
 - Transcode count
 - WAN bandwidth
 
-More user statistics can be added with the `monitored_variables` configuration option, this will add one attribute per user in addition to the users current `activity`.
+More user statistics can be added with the `monitored_conditions` configuration option, this will add one attribute per user in addition to the users current `activity`.
 
 To find your `api_key` open the Tautulli web interface and navigate to `Settings` and then to `Web interface`, the `api_key` will be at the bottom of that page.  
 
@@ -38,6 +38,12 @@ sensor:
   - platform: tautulli
     api_key: TAUTULLI_API_KEY
     host: TAUTULLI_HOST
+    monitored_users:
+      - user1
+      - user2
+    monitored_conditions:
+      - title
+      - state
 ```
 
 {% configuration %}
@@ -63,7 +69,7 @@ monitored_users:
   description: A list of Tautulli users you want to monitor, if not set this will monitor **all** users.
   required: false
   type: list
-monitored_variables:
+monitored_conditions:
   description: A list of attributes to expose for each Tautulli user you monitor, every key in the `session` [section here][tautulliapi] can be used.
   required: false
   type: list
