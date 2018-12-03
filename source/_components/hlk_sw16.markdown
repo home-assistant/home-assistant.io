@@ -62,23 +62,24 @@ relayname:
   description: The array that contains the HLK-SW16 devices.
   required: true
   type: map
-  host:
-    description: The IP address or hostname of the HLK-SW16.
-    required: true
-    type: string
-  port:
-    description: The control port for the relays.
-    required: false
-    type: integer
-    default: 8080
-  switches:
-    description: The array that contains the relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
-    required: true
-    type: map
-    keys:
-      name:
-        description: The name used to display the switch in the frontend.
-        required: false
-        type: string
-        default: switch id
+  keys:
+    host:
+      description: The IP address or hostname of the HLK-SW16.
+      required: true
+      type: string
+    port:
+      description: The control port for the relays.
+      required: false
+      type: integer
+      default: 8080
+    switches:
+      description: The array that contains the relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
+      required: true
+      type: map
+      keys:
+        name:
+          description: The name used to display the switch in the frontend.
+          required: false
+          type: string
+          default: switch id
 {% endconfiguration %}
