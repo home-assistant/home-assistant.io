@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hlktech.jpg
 ha_category: DIY
-ha_release: 0.XX
+ha_release: 0.84
 ha_iot_class: "Local Push"
 ---
 
@@ -55,46 +55,13 @@ hlk_sw16:
         name: relay1-e
       f:
         name: relay1-f
-
-  relay2:
-    host: 10.225.225.55
-    switches:
-      0:
-        name: relay2-0
-      1:
-        name: relay2-1
-      2:
-        name: relay2-2
-      3:
-        name: relay2-3
-      4:
-        name: relay2-4
-      5:
-        name: relay2-5
-      6:
-        name: relay2-6
-      7:
-        name: relay2-7
-      8:
-        name: relay2-8
-      9:
-        name: relay2-9
-      a:
-        name: relay2-a
-      b:
-        name: relay2-b
-      c:
-        name: relay2-c
-      d:
-        name: relay2-d
-      e:
-        name: relay2-e
-      f:
-        name: relay2-f
 ```
 
 {% configuration %}
 relayname:
+  description: The array that contains the HLK-SW16 devices.
+  required: true
+  type: map
   host:
     description: The IP address or hostname of the HLK-SW16.
     required: true
