@@ -125,6 +125,30 @@ Note, this release includes a migration to add an index to speed up the logbook 
 [mqtt docs]: /components/mqtt/
 [tts docs]: /components/tts/
 
+## {% linkable_title Release 0.83.3 - December 3 %}
+
+We had an issue where users that are still using the legacy auth for API access but not for UI access could end up with a legacy auth user without any permissions. If you run into this issue, we suggest to upgrade your scripts to use long lived access tokens, which offer the exact same functionality. Alternative is that you manually upgrade the legacy API user to be part of the admin group using [these instructions](https://github.com/home-assistant/home-assistant/pull/18922).
+
+- bugfix: ensure the `google_assistant` component respects `allow_unlock` ([@ahayworth] - [#18874]) ([google_assistant docs])
+- Use capability of sensor if present to fix multisensor Wink devices ([@w1ll1am23] - [#18907]) ([wink docs])
+- Add users added via credentials to admin group too ([@balloob] - [#18922])
+- fix aioasuswrt sometimes return empty lists ([@kennedyshead] - [#18742]) ([sensor.asuswrt docs])
+- bump aioasuswrt version ([@kennedyshead] - [#18955]) ([asuswrt docs])
+
+[#18742]: https://github.com/home-assistant/home-assistant/pull/18742
+[#18874]: https://github.com/home-assistant/home-assistant/pull/18874
+[#18907]: https://github.com/home-assistant/home-assistant/pull/18907
+[#18922]: https://github.com/home-assistant/home-assistant/pull/18922
+[#18955]: https://github.com/home-assistant/home-assistant/pull/18955
+[@ahayworth]: https://github.com/ahayworth
+[@balloob]: https://github.com/balloob
+[@kennedyshead]: https://github.com/kennedyshead
+[@w1ll1am23]: https://github.com/w1ll1am23
+[asuswrt docs]: /components/asuswrt/
+[google_assistant docs]: /components/google_assistant/
+[sensor.asuswrt docs]: /components/sensor.asuswrt/
+[wink docs]: /components/wink/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
