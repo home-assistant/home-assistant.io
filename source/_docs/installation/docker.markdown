@@ -38,6 +38,10 @@ Alternatively, `docker-compose` works with any recent release of `docker-ce` on 
 
 ### {% linkable_title Windows %}
 
+```powershell
+$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -e "TZ=America/Los_Angeles" --net=host homeassistant/home-assistant
+```
+
 When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
 ```
 netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
