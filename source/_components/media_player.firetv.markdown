@@ -40,7 +40,7 @@ media_player:
   - platform: firetv
     name: Fire TV 2
     host: 192.168.0.222
-    adbkey: "/config/adbkey"
+    adbkey: "/config/android/adbkey"
 
   # a device for which getting the current app (source) and the running apps (sources) cause issues
   - platform: firetv
