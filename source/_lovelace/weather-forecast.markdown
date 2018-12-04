@@ -37,7 +37,7 @@ name:
 
 ```yaml
 - type: weather-forecast
-  entity: weather.demo_weather_north
+  entity: weather.dark_sky
 ```
 
 <p class="note">
