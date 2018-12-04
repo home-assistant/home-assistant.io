@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Tado"
-description: "Instructions on how to integrate Tado into Home Assistant."
+title: "Tado Device Tracker"
+description: "Instructions on how to integrate Tado device tracker into Home Assistant."
 date: 2017-01-17 12:00
 sidebar: true
 comments: false
