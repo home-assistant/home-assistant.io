@@ -205,7 +205,8 @@ sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 ### {% linkable_title Message Templates %}
 
 It may be desirable to have the alert notifications include information
-about the state of the entity.
+about the state of the entity. [Templates](/docs/configuration/templating/)
+can be used in the message or name of the alert to make it more relevant.
 The following will show for a plant how to include the problem `attribute`
 of the entity.
 
@@ -229,5 +230,28 @@ alert:
 {% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
+
+The next example uses a template for the alert name.
+
+{% raw %}
+```yaml
+alert:
+  garage_door:
+    name: Garage has been open for {{ relative_time(states.binary_sensor.garage.last_changed) }}
+    done_message: Garage is closed
+    entity_id: binary_sensor.garage
+    state: 'on'
+    repeat:
+      - 30
+      - 60
+      - 120
+    can_acknowledge: True
+    skip_first: True
+    notifiers:
+      - ryans_phone
+```
+{% endraw %}
+
+The resulting title of the alert could be `Garage has been open for 30 min`.
 
 [template]: /docs/configuration/templating/
