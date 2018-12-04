@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: /images/supported_brands/solaredge.png
+logo: solaredge.png
 ha_category: Sensor
-ha_release: 0.84
+ha_release: 
 ha_iot_class: "Cloud Polling"
 ---
 
