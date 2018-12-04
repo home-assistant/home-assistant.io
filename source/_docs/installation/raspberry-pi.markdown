@@ -83,7 +83,9 @@ Once you have installed the required python package it is now time to install Ho
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
 ```
 
-Start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
+Next configure it to [autostart](/docs/autostart/systemd/#python-virtual-environment) (click to see how to do it)
+
+After configuring autostart, you can start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 
 ```bash
 (homeassistant) $ hass
