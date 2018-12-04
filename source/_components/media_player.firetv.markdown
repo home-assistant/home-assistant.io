@@ -40,7 +40,7 @@ media_player:
   - platform: firetv
     name: Fire TV 2
     host: 192.168.0.222
-    adbkey: "/config/android/adbkey"
+    adbkey: "/config/adbkey"
 
   # a device for which getting the current app (source) and the running apps (sources) cause issues
   - platform: firetv
@@ -92,7 +92,7 @@ If you get a "Device authentication required, no keys available" error when tryi
 Once you've successfully connected to your Fire TV via the command `adb connect <ipaddress>`, the files `adbkey` and `adbkey.pub` will be created on your computer.  The default locations for these files are (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 
 * Linux and Mac: `$HOME/.android.`
-* Windows: `%USERPOFILE%\.android.`
+* Windows: `%userprofile%\.android.`
 
 Copy the `adbkey` and `adbkey.pub` files to your Home Assistant folder and add the path to the `adbkey` file to your configuration.  
 
