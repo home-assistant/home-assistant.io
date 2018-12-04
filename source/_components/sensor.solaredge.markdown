@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: solaredge.png
+logo: /images/supported_brands/solaredge.png
 ha_category: Sensor
 ha_release: 0.84
 ha_iot_class: "Cloud Polling"
@@ -90,7 +90,7 @@ sensor:
 ```
 {% endraw %}
 
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform][/components/sensor.template/].
+In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/components/sensor.template/).
 
 {% raw %}
 ```yaml
