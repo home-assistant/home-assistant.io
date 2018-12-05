@@ -78,7 +78,7 @@ service_data:
   required: false
   description: The service data to use.
   type: object
-  default: entity_id: entity_id
+  default: "`entity_id: entity_id`"
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
