@@ -56,12 +56,10 @@ switches:
       description: Descriptive note.
       required: false
       type: string
-      default: false
     position:
       description: Where it is placed.
       required: false
       type: string
-      default: false
 {% endconfiguration %}
 
 The resource id should be a boolean resource (On/Off).
