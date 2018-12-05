@@ -255,6 +255,97 @@ monitored_variables:
 ## {% linkable_title Supported Variables %}
 The list above contains all supported variables. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` component and look for the status updates.
 
+# {% linkable_title Services %}
+
+### {% linkable_title Service `opentherm_gw.reset_gateway` %}
+
+Reset the OpenTherm Gateway.
+
+This service takes no parameters.
+
+### {% linkable_title Service `opentherm_gw.set_clock` %}
+
+Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway does not have the ability to accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
+
+| Service data attribute | Optional | Default | Description |
+| ---------------------- | -------- | ------- | ----------- |
+| `date` | yes | Today's date | Date from which the day of week will be extracted. Format: `YYYY-MM-DD`.
+| `time` | yes | Current time | Time in 24h format.
+
+### {% linkable_title Service `opentherm_gw.set_control_setpoint` %}
+
+<p class='note warning'>
+Improper use of this service may continuously keep your central heating system active, resulting in an overheated house and a significant increase in gas and/or electricity consumption.
+</p>
+
+Set the central heating control setpoint override on the OpenTherm Gateway.
+In a normal situation, the thermostat will calculate and control the central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. While the override is active, the OpenTherm Gateway will also request your boiler to activate the central heating circuit. For your boiler's actual maximum and minimum supported setpoint value, please see the [`slave_ch_max_setp`](#slave_ch_max_setp) and [`slave_ch_min_setp`](#slave_ch_min_setp) variables. Due to the potential consequences of leaving this setting enabled for prolonged periods, the override will be disabled when Home Assistant is shut down or restarted.
+**You will only need this if you are writing your own software thermostat.**
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `temperature` | no | The central heating setpoint. Values between `0.0` and `90.0` are accepted, but your boiler may not support the full range. Set to `0` to disable the override.
+
+<p class='note'>
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
+</p>
+
+### {% linkable_title Service `opentherm_gw.set_gpio_mode` %}
+
+Configure the GPIO behavior on the OpenTherm Gateway.
+For an explanation of the possible modes, see [GPIO modes](#gpio-modes)
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `id` | no | The GPIO ID, `A` or `B`.
+| `mode` | no | The GPIO mode to be set.
+
+### {% linkable_title Service `opentherm_gw.set_led_mode` %}
+
+Configure the function of the LEDs on the OpenTherm Gateway.
+For a list of possible modes with explanation, see [LED modes](#led-modes)
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `id` | no | The LED ID, accepted values are `A` through `F`.
+| `mode` | no | The LED mode to be set.
+
+### {% linkable_title Service `opentherm_gw.set_max_modulation` %}
+
+<p class='note warning'>
+Improper use of this service may impair the performance of your central heating system.
+</p>
+
+Set the maximum modulation level override on the OpenTherm Gateway.
+In a normal situation, the thermostat will control the maximum modulation level on the boiler. Setting this to any value other than `-1` will enable the override and allow the OpenTherm Gateway to control this setting. Due to the potential consequences of leaving this setting enabled, the override will be disabled when Home Assistant is shut down or restarted.
+**You will only need this if you are writing your own software thermostat.**
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `level` | no | The maximum modulation level. Accepted values are `-1` through `100`. Set to `-1` to disable the override.
+
+<p class='note'>
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
+</p>
+
+### {% linkable_title Service `opentherm_gw.set_outside_temperature` %}
+
+Provide the outside temperature to the thermostat.
+If your thermostat is unable to display an outside temperature and does not support OTC (Outside Temperature Correction), this has no effect. Note that not all thermostats are able to display the full supported range.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `temperature` | no | The outside temperature to provide to the thermostat. Accepted values are `-40.0` through `64.0`. Any value above `64.0` will clear a previously configured value (suggestion: `99`).
+
+### {% linkable_title Service `opentherm_gw.set_setback_temperature` %}
+
+Configure the setback temperature on the OpenTherm Gateway.
+The value you provide here will be used with the GPIO `home` (5) and `away` (6) modes.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `temperature` | no  | The setback temperature. Accepted values are `0.0` through `30.0`.
+
 
 ## {% linkable_title GPIO modes %}
 Possible modes and their meaning for the GPIO pins are listed here:

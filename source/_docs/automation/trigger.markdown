@@ -218,6 +218,21 @@ automation:
     event: enter  # or "leave"
 ```
 
+### {% linkable_title Geo Location trigger %}
+
+Geo Location triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geo Location](/components/geo_location/) platform support reporting GPS coordinates.
+Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source` which is directly linked to one of the Geo Location platforms.
+
+```yaml
+automation:
+  trigger:
+    platform: geo_location
+    source: nsw_rural_fire_service_feed
+    zone: zone.bushfire_alert_zone
+    # Event is either enter or leave
+    event: enter  # or "leave"
+```
+
 ### {% linkable_title Multiple triggers %}
 
 When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.

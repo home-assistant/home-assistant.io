@@ -44,6 +44,8 @@ vacuum:
     cleaning_template: "{{ value_json.cleaning }}"
     docked_topic: "vacuum/state"
     docked_template: "{{ value_json.docked }}"
+    error_topic: "vacuum/state"
+    error_template: "{{ value_json.error }}"
     fan_speed_topic: "vacuum/state"
     fan_speed_template: "{{ value_json.fan_speed }}"
     set_fan_speed_topic: "vacuum/set_fan_speed"
@@ -147,6 +149,14 @@ docked_template:
   description: "Defines a [template](/topics/templating/) to define the docked state of the vacuum."
   required: false
   type: string
+error_topic:
+  description: The MQTT topic subscribed to receive error messages from the vacuum.
+  required: false
+  type: string
+error_template:
+  description: "Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum."
+  required: false
+  type: string
 fan_speed_topic:
   description: The MQTT topic subscribed to receive fan speed values from the vacuum.
   required: false
@@ -227,7 +237,8 @@ MQTT payload:
     "docked": true,
     "cleaning": false,
     "charging": true,
-    "fan_speed": "off"
+    "fan_speed": "off",
+    "error": "Error message"
 }
 ```
 

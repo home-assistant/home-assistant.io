@@ -59,7 +59,7 @@ display_options:
     timestamp:
       description: Timestamp
     mined_blocks:
-      description: Minded Blocks
+      description: Mined Blocks
     blocks_size:
       description: Block size
     total_fees_btc:

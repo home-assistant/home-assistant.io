@@ -34,8 +34,12 @@ you want to configure the IP address of the Cast device directly:
 # Example configuration.yaml entry
 cast:
   media_player:
-  - host: 192.168.1.10
+    - host: 192.168.1.10
 ```
+
+<p class='note'>
+You may need to enable Multicast DNS (MDNS) on your router if you are on a different subnet or VLAN.
+</p>
 
 {% configuration %}
 media_player:
@@ -62,6 +66,6 @@ those as follows:
 # Example configuration.yaml entry for multiple devices
 cast:
   media_player:
-  - host: IP_ADDRESS_DEVICE_1
-  - host: IP_ADDRESS_DEVICE_2
+    - host: IP_ADDRESS_DEVICE_1
+    - host: IP_ADDRESS_DEVICE_2
 ```

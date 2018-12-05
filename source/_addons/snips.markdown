@@ -51,12 +51,20 @@ Now it's time to start Snips for the first time. You can configure the microphon
 }
 ```
 
-Configuration variables:
-
-- **assistant**: The name of your custom assistant in `/share`. If no assistant is found then a default assistant will be used.
-- **language**: Language. This is used to select the default custom assistant, Currently `en`, `de` and `fr` are supported.
-- **custom_tts**: Whether to use a TTS provider from Home Assistant for a variety of voices.
-- **tts_platform**: Which TTS platform to use.
+{% configuration %}
+assistant:
+  description: The name of your custom assistant in `/share`. If no assistant is found then a default assistant will be used.
+  type: string
+language:
+  description: Language. This is used to select the default custom assistant, Currently `en`, `de` and `fr` are supported.
+  type: string
+custom_tts:
+  description: Whether to use a TTS provider from Home Assistant for a variety of voices.
+  type: boolean
+tts_platform:
+  description: Which TTS platform to use.
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Home Assistant configuration %}
 
@@ -89,6 +97,7 @@ Next create a weather sensor, e.g., one for (Dark Sky)[/components/sensor.darksk
     - temperature_max
     - temperature_min
 ```
+
 Next add this to your `configuration.yaml` file to reference a new `intent_script` component. This is a good practice to [split your configuration files](/docs/configuration/splitting_configuration/) up.
 
 ```yaml
@@ -98,6 +107,7 @@ intent_script: !include intent_script.yaml
 Finally, create this `intent_script.yaml` file in your configuration directory.
 
 {% raw %}
+
 ```yaml
 searchWeatherForecast:
   speech:
@@ -110,6 +120,7 @@ searchWeatherForecast:
       {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
       and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
+
 {% endraw %}
 
 Now just restart HassIO and ask it what the weather is like.

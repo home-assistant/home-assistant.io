@@ -30,11 +30,31 @@ rss_feed_template:
       description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states.sensor.temp_outside.state}} °C{% endif %}{% endraw %}"
 ```
 
-Configuration variables:
-
-- **requires_api_password:** (*Optional*): If true and an API password is set, the password must be passed via '?api_password=...' parameter (Default: True)
-- **feed_id** (*Required*): The key is used as the ID of the feed. The feed can be accessed at /api/rss_template/feed_id (example: 'garden')
-- **title** (*Optional*): The title of the feed, which is parsed as [template](/topics/templating/).
-- **items** (*Required*): A list of feed items.
-- **items/title** (*Optional*): The title of the item, which is parsed as [template](/topics/templating/).
-- **items/description** (*Optional*): The description of the item, which is parsed as [template](/topics/templating/).
+{% configuration %}
+requires_api_password:
+  description: If true and an API password is set, the password must be passed via '?api_password=...' parameter.
+  required: false
+  default: true
+  type: boolean
+feed_id:
+  description: "The key is used as the ID of the feed. The feed can be accessed at /api/rss_template/feed_id (example: 'garden')."
+  required: true
+  type: string
+title:
+  description: The title of the feed, which is parsed as [template](/topics/templating/).
+  required: false
+  type: template
+items:
+  description: A list of feed items.
+  required: true
+  type: list
+  keys:
+    title:
+      description: The title of the item, which is parsed as [template](/topics/templating/).
+      required: false
+      type: template
+    description:
+      description: The description of the item, which is parsed as [template](/topics/templating/).
+      required: false
+      type: template
+{% endconfiguration %}

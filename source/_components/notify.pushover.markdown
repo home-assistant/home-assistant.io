@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: pre 0.7
 ---
 
-
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows components to send messages to the user using Pushover.
 
 ## {% linkable_title Configuration %}
@@ -30,11 +29,21 @@ notify:
     user_key: YOUR_USER_KEY
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): Your API key.
-- **user_key** (*Required*): Your user key for Pushover.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+api_key:
+  description: Your API key.
+  required: true
+  type: string
+user_key:
+  description: Your user key for Pushover.
+  required: true
+  type: string
+{% endconfiguration %}
 
 Example Automation:
 
@@ -58,6 +67,7 @@ When sending a notification, optional parameters can also be set as per the push
 Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
 {% raw %}
+
 ```yaml
 # Example configuration.yaml entries
 alexa:
@@ -74,4 +84,5 @@ alexa:
             device: pixel
             url: "https://www.home-assistant.io/"
 ```
+
 {% endraw %}
