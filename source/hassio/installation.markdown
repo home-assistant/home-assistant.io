@@ -63,7 +63,7 @@ If you copy over your existing Home Assistant configuration, make sure to enable
 ## {% linkable_title Alternative: install on generic Linux server %}
 
 For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
-
+Examples given here are tested on Ubuntu, but the instructions should work as a guideline for installing on other linux distros.
 This is the list of packages you need to have available on your system that will run Hass.io if you are using Debian/Ubuntu:
 
  - apparmor-utils
