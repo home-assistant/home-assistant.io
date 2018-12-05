@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `linode` component allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
 
-## {% linkable_title sETUP %}
+## {% linkable_title Setup %}
 
 Obtain your oAuth2 Access Token from Linode account.
 

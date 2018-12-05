@@ -14,6 +14,7 @@ In Home Assistant 0.19 we introduced a new powerful feature: variables in script
 
 The trigger data made is available during [template](/docs/configuration/templating/) rendering as the `trigger` variable.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entries
 automation:
@@ -23,28 +24,54 @@ automation:
   action:
     service: notify.notify
     data_template:
-      message: >{% raw %}
+      message: >
         Paulus just changed from {{ trigger.from_state.state }}
-        to {{ trigger.to_state.state }}{% endraw %}
+        to {{ trigger.to_state.state }}
 
 automation 2:
   trigger:
     platform: mqtt
     topic: /notify/+
   action:
-    service_template: >{% raw %}
-      notify.{{ trigger.topic.split('/')[-1] }}{% endraw %}
+    service_template: >
+      notify.{{ trigger.topic.split('/')[-1] }}
     data_template:
-      message: {% raw %}'{{ trigger.payload }}'{% endraw %}
+      message: '{{ trigger.payload }}'
+      
+automation 3:
+  trigger:
+    # Multiple Entities for which you want to perform the same action.
+    - platform: state
+      entity_id:
+        - light.bedroom_closet
+      to: 'on'
+      # Trigger when someone leaves the closet light on for 10 minutes.
+      for: '00:10:00'
+    - platform: state
+      entity_id:
+        - light.kiddos_closet
+      to: 'on'
+      for: '00:10:00'
+    - platform: state
+      entity_id:
+        - light.linen_closet
+      to: 'on'
+      for: '00:10:00'
+  action:
+    - service: light.turn_off
+      data_template:
+        # Whichever entity triggers the automation we want to turn off THAT entity, not the others.
+        entity_id: "{{ trigger.entity_id }}"
 ```
+{% endraw %}
 
 ## {% linkable_title Important Template Rules %}
 
 There are a few very important rules to remember when writing automation templates:
 
-1. You ***must*** use `data_template` in place of `data` when using templates in the `data` section of a service call.
-1. You ***must*** use `service_template` in place of `service` when using templates in the `service` section of a service call.
-1. You ***must*** surround single-line templates with double quotes (`"`) or single quotes (`'`).
+1. You **must** use `data_template` in place of `data` when using templates in the `data` section of a service call.
+1. You **must** use `service_template` in place of `service` when using templates in the `service` section of a service call.
+1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
 1. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](http://jinja.pocoo.org/docs/dev/templates/#default), or both.
 1. It is advised that when comparing numbers, you convert the number(s) to a [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) or an [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) by using the respective [filter](http://jinja.pocoo.org/docs/dev/templates/#list-of-builtin-filters).
 1. While the [`float`](http://jinja.pocoo.org/docs/dev/templates/#float) and [`int`](http://jinja.pocoo.org/docs/dev/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
@@ -125,6 +152,15 @@ The following tables show the available trigger data per platform.
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
+
+### {% linkable_title webhook %}
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `webhook`
+| `trigger.webhook_id` | The webhook ID that was triggered.
+| `trigger.json` | The JSON data of the request (if it had a JSON content type).
+| `trigger.data` | The form data of the request (if it had a form data content type).
 
 ### {% linkable_title zone %}
 

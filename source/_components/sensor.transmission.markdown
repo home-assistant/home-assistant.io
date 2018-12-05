@@ -56,7 +56,7 @@ host:
 port:
   description: The port your Transmission daemon uses.
   required: false
-  type: int
+  type: integer
   default: 9091
 name:
   description: The name to use when displaying this Transmission instance in the frontend.

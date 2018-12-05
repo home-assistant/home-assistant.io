@@ -22,11 +22,13 @@ Configure the integration:
 * Enter your **Google Mail Address** and **Password**
 * If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
 
-**BEST PRACTICE:** You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.
-
-**IMPORTANT:** If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.
-
-**IMPORTANT 2:** If you are sure your email and password is correct, but the component says the login is invalid. Wait a few hours and try it again, it might be, that google asks for a captcha which we can't support. Google does not provide official support for using bots with Google Hangouts, that's why we have to work around this.
+<p class='note'>
+You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.<br>
+<br>
+If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.<br>
+<br>
+If you are sure your email and password are correct, but the component says the login is invalid, wait a few hours and try again. It might be that Google asks for a captcha which we can't support. Google does not provide official support for using bots with Google Hangouts, that's why we have to work around this.
+</p>
 
 The authentication token will be generated and stored internally.
 
@@ -34,12 +36,17 @@ The authentication token will be generated and stored internally.
 # Example configuration.yaml entry
 hangouts:
   intents:
+    HangoutsHelp:
+      sentences:
+        - Help
     LivingRoomTemperature:
       sentences:
         - What is the temperature in the living room
       conversations:
         - id: CONVERSATION_ID1
         - id: CONVERSATION_ID2
+  default_conversations:
+    - id: CONVERSATION_ID1
   error_suppressed_conversations:
     - id: CONVERSATION_ID2
 
@@ -70,6 +77,16 @@ intents:
               description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
               required: true
               type: string
+default_conversations:
+  description: "A list of conversations that are used for intents if no `conversations` entry for an intent is given."
+  required: false
+  type: [map]
+  default: empty
+  keys:
+    id:
+      description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
+      required: true
+      type: string
 error_suppressed_conversations:
   description: "A list of conversations that won't get a message if the intent is not known."
   required: false
@@ -84,8 +101,11 @@ error_suppressed_conversations:
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
+The intent `HangoutsHelp` is part of the component and return a list of all sentences the component unterstand in this conversation.
+
 ## {% linkable_title Adding sentences %}
 
+{% raw %}
 ```yaml
 # The Hangouts component
 hangouts:
@@ -104,11 +124,12 @@ hangouts:
 intent_script:
   Ping:
     speech:
-      text: I know {% raw %}{{ states.hangouts.conversations.state }}{% endraw %} conversations
-
+      text: I know {{ states.hangouts.conversations.state }} conversations
 ```
+{% endraw %}
 
 This configuration will:
+
 - Toggle the light in the given location in a specific conversation.
 - Return the conversations the bot know.
 
@@ -125,6 +146,7 @@ The following configuration can handle the following sentences:
  - Change the lights to the color green
  - Change the lights to the color blue
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 hangouts:
@@ -132,7 +154,7 @@ hangouts:
     ColorLight:
       sentences:
         - Change the lights to [the color] {color}
-{% raw %}
+
 intent_script:
   ColorLight:
     speech:
@@ -144,8 +166,8 @@ intent_script:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
           - "{% if color == 'blue' %}255{% else %}0{% endif %}"
-{% endraw %}
 ```
+{% endraw %}
 
 ## {% linkable_title Services %}
 
@@ -165,5 +187,43 @@ Sends a message to the given conversations.
 |------------------------|----------|--------------------------------------------------|
 | target                 | List of targets with id or name. [Required] | [{"id": "UgxrXzVrARmjx_C6AZx4AaABAagBo-6UCw"}, {"name": "Test Conversation"}] |
 | message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
+| data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
 
 
+### {% linkable_title Service `hangouts.reconnect` %}
+
+Reconnects the hangouts bot.
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+|                        |          |                                                  |
+
+## {% linkable_title Advanced %}
+
+### {% linkable_title Automatic reconnect after ip change %}
+
+The hangouts component can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    resource: https://api.ipify.org?format=json
+    name: External IP
+    value_template: '{{ value_json.ip }}'
+    scan_interval: 10
+    
+automation:
+  - alias: Reconnect Hangouts
+    trigger:
+      - entity_id: sensor.external_ip
+        platform: state
+    condition:
+      - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+      - condition: template
+      value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
+    action:
+      - service: hangouts.reconnect
+```
+{% endraw %}

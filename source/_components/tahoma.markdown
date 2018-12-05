@@ -13,8 +13,9 @@ ha_release: 0.59
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `Tahoma` component platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.
+
+## {% linkable_title Configuration %}
 
 To use your Tahoma devices in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,15 +29,15 @@ tahoma:
 
 {% configuration %}
 username:
-  description: Username for tahomalink.com
+  description: Your username for tahomalink.com.
   required: true
   type: string
 password:
-  description: Password for tahomalink.com
+  description: Your password for tahomalink.com.
   required: true
   type: string
 exclude:
-  description: Excludes devices
+  description: List of devices to exclude.
   required: false
   type: list
 {% endconfiguration %}

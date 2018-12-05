@@ -36,17 +36,44 @@ switch:
             name: Light Office
 ```
 
-Configuration variables:
-
-- **i2c_hats** (*Optional*): Array of used I2C-HATs.
-  - **board** (*Required*): The board name.
-  - **address** (*Required*): The board I2C address, hex value.
-    - **channels** (*Required*): Array of used digital output channels.
-      - **index** (*Required*): Digital output channel index.
-      - **name** (*Required*): Friendly name to use for the frontend.
-      - **invert_logic** (*Optional*): Inverts the output logic, default is `False`.
-      - **initial_state** (*Optional*): Initial state, default is `None`, can also be `True` or `False`. `None` means no state is forced on the corresponding digital output when this switch is instantiated.
-
+{% configuration %}
+i2c_hats:
+  description: An array of used I2C-HATs.
+  required: false
+  type: list
+  keys:
+    board:
+      description: The board name.
+      required: true
+      type: string
+    address:
+      description: The board I2C address as HEX value.
+      required: true
+      type: string
+    channels:
+      description: An array of used digital input channels.
+      required: true
+      type: list
+      keys:
+        index:
+          description: The digital input channel index.
+          required: true
+          type: integer
+        name:
+          description: The friendly name to use for the frontend.
+          required: true
+          type: string
+        invert_logic:
+          description: Inverts the input logic.
+          required: false
+          default: false
+          type: boolean
+        initial_state:
+          description: "The initial state, can be either `true` or `false`. `none` means no state is forced on the corresponding digital output when this switch is instantiated."
+          required: false
+          default: None
+          type: boolean
+{% endconfiguration %}
 
 ## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
 

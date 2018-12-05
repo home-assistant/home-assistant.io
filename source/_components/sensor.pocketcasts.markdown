@@ -27,7 +27,13 @@ sensor:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username to access the PocketCasts service.
-- **password** (*Required*): The password for the given username.
+{% configuration %}
+username:
+  description: The username to access the PocketCasts service.
+  required: true
+  type: string
+password:
+  description: The password for the given username.
+  required: true
+  type: string
+{% endconfiguration %}

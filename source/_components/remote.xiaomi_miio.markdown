@@ -43,12 +43,12 @@ name:
 slot:
   description: The slot used to save learned command.
   required: false
-  type: int
+  type: integer
   default: 1
 timeout:
   description: Timeout for learning a new command.
   required: false
-  type: int
+  type: integer
   default: 30
 hidden:
   description: Hide the entity from UI. There is currently no reason to show the entity in UI as turning it off or on does nothing.

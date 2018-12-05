@@ -24,8 +24,8 @@ It uses a sensor under the hood to obtain the current temperature.
 climate:
   - platform: mqtt
     name: Study
-    current_temperature_topic: /sensors/hvac_study/current_temp
-    temperature_command_topic: /sensors/hvac_study/target_temp
+    current_temperature_topic: sensors/hvac_study/current_temp
+    temperature_command_topic: sensors/hvac_study/target_temp
 ```
 
 {% configuration %}
@@ -58,12 +58,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -86,6 +86,10 @@ current_temperature_topic:
   description: The MQTT topic on which to listen for the current temperature.
   required: false
   type: string
+current_temperature_template:
+  description: A template with which the value received on `current_temperature_topic` will be rendered.
+  required: false
+  type: template
 power_command_topic:
   description: The MQTT topic to publish commands to change the power state. This is useful if your device has a separate power toggle in addition to mode.
   required: false
@@ -102,6 +106,11 @@ mode_state_template:
   description: A template to render the value received on the `mode_state_topic` with.
   required: false
   type: template
+modes:
+  description: A list of supported modes.
+  required: false
+  default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
+  type: list
 temperature_command_topic:
   description: The MQTT topic to publish commands to change the target temperature.
   required: false
@@ -126,6 +135,11 @@ fan_mode_state_template:
   description: A template to render the value received on the `fan_mode_state_topic` with.
   required: false
   type: template
+fan_modes:
+  description: A list of supported fan modes.
+  required: false
+  default: ['auto', 'low', 'medium', 'high']
+  type: list
 swing_mode_command_topic:
   description: The MQTT topic to publish commands to change the swing mode.
   required: false
@@ -138,6 +152,11 @@ swing_mode_state_template:
   description: A template to render the value received on the `swing_mode_state_topic` with.
   required: false
   type: template
+swing_modes:
+  description: A list of supported swing modes.
+  required: false
+  default: ['on', 'off']
+  type: list
 away_mode_command_topic:
   description: The MQTT topic to publish commands to change the away mode.
   required: false
@@ -182,6 +201,11 @@ max_temp:
   description: Maximum set point available
   type: number
   required: false
+temp_step:
+  description: Step size for temperature set point
+  type: number
+  required: false
+  default: 1
 {% endconfiguration %}
 
 #### {% linkable_title Optimistic mode %}
@@ -200,9 +224,9 @@ climate:
   - platform: mqtt
     name: Study
     modes:
-      - off
-      - on
-      - auto
+      - "off"
+      - "on"
+      - "auto"
     mode_command_topic: "study/ac/mode/set"
     mode_state_topic: "study/ac/mode/state"
     mode_state_template: "{{ value_json }}"
@@ -222,16 +246,16 @@ climate:
   - platform: mqtt
     name: Study
     modes:
-      - off
-      - cool
-      - fan_only
+      - "off"
+      - "cool"
+      - "fan_only"
     swing_modes:
-      - on
-      - off
+      - "on"
+      - "off"
     fan_modes:
-      - high
-      - medium
-      - low
+      - "high"
+      - "medium"
+      - "low"
     power_command_topic: "study/ac/power/set"
     mode_command_topic: "study/ac/mode/set"
     temperature_command_topic: "study/ac/temperature/set"

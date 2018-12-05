@@ -22,10 +22,29 @@ splunk:
   token: B4415DFF-683C-5C6C-3994-4F6D4A5DB03A
 ```
 
-Configuration variables:
-
-- **token** (*Required*): The HTTP Event Collector Token already created in your Splunk instance.
-- **host** (*Optional*): IP address or host name of your Splunk host, eg. 192.168.1.10. Will default to `localhost` if not supplied.
-- **port** (*Optional*): Port to use. Defaults to 8088.
-- **ssl** (*Optional*): Use https instead of http to connect. Defaults to False.
-- **name** (*Optional*): This parameter allows you to specify a friendly to send to Splunk as the host, instead of using the name of the HEC. Defaults to HASS
+{% configuration %}
+token:
+  description: The HTTP Event Collector Token already created in your Splunk instance.
+  required: true
+  type: string
+host:
+  description: "IP address or host name of your Splunk host e.g., 192.168.1.10."
+  required: false
+  default: localhost
+  type: string
+port:
+  description: Port to use.
+  required: false
+  default: 8080
+  type: integer
+ssl:
+  description: Use HTTPS instead of HTTP to connect.
+  required: false
+  default: false
+  type: boolean
+name:
+  description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
+  required: false
+  default: HASS
+  type: string
+{% endconfiguration %}

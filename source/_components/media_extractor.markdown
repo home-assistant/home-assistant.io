@@ -10,8 +10,8 @@ footer: true
 logo: home-assistant.png
 ha_category: Media Player
 ha_release: 0.49
+ha_qa_scale: internal
 ---
-
 
 The `media_extractor` component gets a stream URL and sends it to a media player entity. This component can extract entity specific streams if configured accordingly.
 
@@ -26,10 +26,17 @@ To use the media extractor service in your installation, add the following to yo
 media_extractor:
 ```
 
-Configuration variables:
-
-- **default_query** (*Optional*): Set default stream query for all devices ('best' by default).
-- **customize** (*Optional*): Set entity specific values. For example:
+{% configuration %}
+default_query:
+  description: Set default stream query for all devices.
+  required: false
+  default: best
+  type: string
+customize:
+  description: Set entity specific values.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ```yaml
 # Example configuration.yaml entry

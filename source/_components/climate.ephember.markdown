@@ -27,10 +27,16 @@ climate:
 
 A single interface can handle up to 32 connected devices.
 
-Configuration variables:
-
-- **username** (*Required*): The email address you used to sign up to the EMBER app
-- **password** (*Required*): The password you used to sign up to the EMBER app
+{% configuration %}
+username:
+  description: The email address you used to sign up to the EMBER app.
+  required: true
+  type: string
+password:
+  description: The password you used to sign up to the EMBER app.
+  required: true
+  type: string
+{% endconfiguration %}
 
 The supported operation modes map to the ON/OFF period selection of your timeswitch / EMBER app. These include:
 

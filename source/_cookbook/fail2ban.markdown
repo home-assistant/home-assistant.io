@@ -163,7 +163,7 @@ eg:
 $ sudo fail2ban-client set ha unbanip xxx.xxx.xxx.xxx
 ```
 
-Fail2ban should now be configured and running, if an IP address is banned you will recieve an email with WHOIS details about the IP address that attempted to connect, if not you will need configure Postfix or another MTA (Mail Transport Agent).
+Fail2ban should now be configured and running, if an IP address is banned you will receive an email with WHOIS details about the IP address that attempted to connect, if not you will need configure Postfix or another MTA (Mail Transport Agent).
 
 If you want to read more about `fail2ban`, some links are below:
 

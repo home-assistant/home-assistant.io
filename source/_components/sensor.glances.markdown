@@ -59,17 +59,35 @@ host:
 port:
   description: The port where Glances is listening.
   required: false
-  type: int
+  type: integer
   default: 61208
 name:
   description: The prefix for the sensors.
   required: false
   type: string
   default: Glances
+username:
+  description: Your username for the HTTP connection to Glances.
+  required: false
+  type: string
+password:
+  description: Your password for the HTTP connection to Glances.
+  required: false
+  type: string
+ssl:
+  description: "If `true`, use SSL/TLS to connect to the Glances system."
+  required: false
+  type: boolean
+  default: false
+verify_ssl:
+  description: Verify the certification of the system.
+  required: false
+  type: boolean
+  default: true
 version:
   description: "The version of the Glances API. Supported version: `2` and `3`."
   required: false
-  type: int
+  type: integer
   default: 2
 resources:
   description: Entries to monitor.

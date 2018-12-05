@@ -40,7 +40,7 @@ sensor:
     description: I2C address of the sensor.
     required: false
     default: "`0x44`"
-    type: int
+    type: integer
   monitored_conditions:
     description: Conditions to monitor.
     required: false

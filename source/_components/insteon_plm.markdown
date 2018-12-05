@@ -15,4 +15,4 @@ ha_version: 0.39
 
 The `insteon_plm` component is depreciated and has been replaced by the [insteon] component.
 
-[insteon]: /component/insteon
+[insteon]: /components/insteon

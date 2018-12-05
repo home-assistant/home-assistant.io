@@ -14,6 +14,8 @@ redirect_from: /getting-started/z-wave-panel/
   If you don't see the **Configuration** menu on the menubar, where you'll find the Z-Wave menu, [see here](/components/config/).
 </p>
 
+Renaming Z-Wave entities is now done using the same [customization options](/docs/configuration/customizing-devices/) as for any other entity.
+
 ## {% linkable_title Z-Wave Network Management %}
 
 Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices from your network.
@@ -33,7 +35,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 ## {% linkable_title Z-Wave Node Management %}
 
 * **Refresh Node** refreshes the information on the node and its entities. If used on a battery powered device, the device will first need to wake for this to work.
-* **Remove Failed Node** will remove a failed node from the network. The node needs to be on the controller's Failed Node List (marked as `is_failed: true`), otherwise this command will fail.
+* **Remove Failed Node** will remove a failed node from the network. The node needs to be on the controller's Failed Node List (marked as `is_failed: true`), otherwise this command will fail. You can trick OpenZWave into thinking the node is failed by selecting the `zwave` entity in the *States* menu, under *Developer tools*, and changing `"is_failed": false,` to `"is_failed": true,` then selecting *Set State*.
 * **Replace Failed Node** will replace a failed device with another. If the node is not in the controller's Failed Node List, or the node responds, this command will fail.
 * **Print Node** prints all state of Z-Wave node to the console log
 
@@ -68,7 +70,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 *  **retries** How many retries have been made to send messages to this node
 *  **sentCnt** How many messages have been sent to the node
 *  **sentFailed** How many messages that were sent weren't acknowledged
-*  **sentTS** The date and time the last message was sent to the ndoe
+*  **sentTS** The date and time the last message was sent to the node
 *  **wake_up_interval** *Battery powered devices only* - the wakeup interval of the device, in seconds
 
 <p class='note'>
@@ -80,7 +82,7 @@ Battery powered devices need to be awake before you can use the Z-Wave control p
 This is a dropdown where you can select all the entities of this node. Once selected you can then use:
 
 * **Refresh Entity** to refresh just that entity's values
-* **Entity Attributes** to display the attributes of that entity (eg its friendly name, the ID of the node, etc)
+* **Entity Attributes** to display the attributes of that entity (e.g., its friendly name, the ID of the node, etc)
 
 Here you can mark a device as requiring polling so the controller is aware of changes because the device doesn't send updates itself. Do see the information on [polling here](/docs/z-wave/devices/#polling), since excessive polling can break your Z-Wave network.
 
@@ -114,6 +116,10 @@ That would remove the broadcast group from association group 1 of the device wit
 
 You can set the *wakeup* interval (in seconds) of the device, this is shown for all devices that can be battery powered, even if they are currently mains powered. The wakeup interval only applies when those devices are battery powered.
 
+<p class='note'>
+The wakeup interval has no impact on the device's ability to report sensor changes. This is purely for how often the Z-Wave chip will check in with the controller. That activity consumes a lot of battery power compared to reporting sensor changes and if you reduce it you'll be reducing the battery life of your device.
+</p>
+
 Underneath that you can select any supported configuration parameter to see the current setting. You can then change this and select **Set Config Parameter** to updated it. Battery powered devices will be updated the next time they wake.
 
 ### {% linkable_title Node protection %}
@@ -124,7 +130,7 @@ Set the new selection by pressing the **Set Protection** button.
 
 ## {% linkable_title Node user codes %}
 
-If your node has user codes, you can set and delete them. The format is raw hex Ascii code. Below the input you will see your actual code. For normal nodes this is as follows:
+If your node has user codes, you can set and delete them. The format is raw hex ASCII code. Below the input you will see your actual code. For normal nodes this is as follows:
 ```yaml
 \x30 = 0
 \x31 = 1
@@ -138,7 +144,7 @@ If your node has user codes, you can set and delete them. The format is raw hex 
 \x39 = 9
 ```
 Some non compliant device like tag readers, have implemented to use raw hex code.
-Please refer to a hex ascii table to set your code. Example: http://www.asciitable.com/
+Please refer to a hex ASCII table to set your code. Example: http://www.asciitable.com/
 
 Here is a small Python program than will take numbers on the command line and print the correct sequence for compliant devices:
 

@@ -39,22 +39,58 @@ switch:
 
 ```
 
-Configuration variables:
-
-- **devices** (*Optional*): A list of devices with their name to use in the frontend.
-- **device_defaults**: (*Optional*)
-  - **fire_event** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
-  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
-
-Device configuration variables:
-
-- **name** (*Optional*): Name for the device, defaults to RFLink ID.
-- **aliases** (*Optional*): Alternative RFLink ID's this device is known by.
-- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
-- **signal_repetitions** (*Optional*): Repeat every RFLink command this number of times (default: 1)
-- **group** (*Optional*): Allow switch to respond to group commands (ALLON/ALLOFF). (default: yes)
-- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
-- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
+{% configuration %}
+device_defaults:
+  description: The defaults for all listed devices.
+  required: false
+  type: list
+  keys:
+    fire_event:
+      description: Set default `fire_event` for Rflink switch devices (see below).
+      required: false
+      type: boolean
+    signal_repetitions:
+      description: Set default `signal_repetitions` for Rflink switch devices (see below).
+      required: false
+      type: integer
+devices:
+  description: A list of devices with their name to use in the frontend.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Name for the device.
+      required: false
+      default: Rflink ID
+      type: string
+    aliases:
+      description: (deprecated) Alternative Rflink ID's this device is known by.
+      required: false
+      type: [list, string]
+    group_aliases:
+      description: "(deprecated) `aliases` which only respond to group commands."
+      required: false
+      type: [list, string]
+    no_group_aliases:
+      description: "(deprecated) `aliases` which do not respond to group commands."
+      required: false
+      type: [list, string]
+    fire_event:
+      description: Fire a `button_pressed` event if this device is turned on or off.
+      required: false
+      default: false
+      type: boolean
+    signal_repetitions:
+      description: Set default `signal_repetitions` for RFLink switch devices (see below).
+      required: false
+      default: 1
+      type: integer
+    group:
+      description: Allow light to respond to group commands (ALLON/ALLOFF).
+      required: false
+      default: true
+      type: boolean
+{% endconfiguration %}
 
 ### {% linkable_title Switch state %}
 
@@ -80,4 +116,3 @@ Any on/off command from any alias ID updates the current state of the switch. Ho
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
-

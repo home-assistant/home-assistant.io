@@ -28,9 +28,8 @@ binary_sensor:
 ```
 
 {% configuration %}
-  nodes:
-    description:  List of VPSs you want to control.
-    required: true
-    type: string
+nodes:
+  description:  List of VPSs you want to control.
+  required: true
+  type: string
 {% endconfiguration %}
-

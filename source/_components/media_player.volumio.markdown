@@ -26,8 +26,20 @@ media_player:
     port: 3000
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name of the device
-- **host** (*Required*): IP address or hostname of the device
-- **port** (*Required*): Port number of Volumio service
+{% configuration %}
+name:
+  description: The name of the device.
+  required: false
+  default: Volumio
+  type: string
+host:
+  description: The IP address or hostname of the device.
+  required: true
+  default: localhost
+  type: string
+port:
+  description: The Port number of Volumio service.
+  required: true
+  default: 3000
+  type: integer
+{% endconfiguration %}

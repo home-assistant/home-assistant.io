@@ -33,14 +33,36 @@ cover:
         name:  Right Garage Door
 ```
 
-Configuration variables:
-
-- **covers** array (*Required*): List of your doors.
-  - **identifier**  (*Required*): Name of the cover as slug. Multiple entries are possible.
-    - **host** (*Required*): IP address of device.
-    - **port** (*Optional*): HTTP Port. Default is `80`.
-    - **device_key** (*Required*): Access key to control device. Default is `opendoor`.
-    - **name** (*Optional*): Name to use in the Frontend. If not provided, it will use name configured in device.
+{% configuration %}
+covers:
+  description: List of your doors.
+  required: true
+  type: map
+  keys:
+    identifier:
+      description: Name of the cover as slug. Multiple entries are possible.
+      required: true
+      type: map
+      keys:
+        host:
+          description: IP address of device.
+          required: true
+          type: string
+        port:
+          description: HTTP Port.
+          required: false
+          default: 80
+          type: integer
+        device_key:
+          description: Access key to control device.
+          required: true
+          default: opendoor
+          type: string
+        name:
+          description: Name to use in the Frontend. If not provided, it will use name configured in device.
+          required: false
+          type: string
+{% endconfiguration %}
 
 **Example with more detail:**
 <p class='img'>

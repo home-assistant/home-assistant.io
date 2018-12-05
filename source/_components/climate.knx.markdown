@@ -13,7 +13,6 @@ ha_release: 0.25
 ha_iot_class: "Local Polling"
 ---
 
-
 The `knx` climate platform is used as in interface with KNX thermostats.
 
 The `knx` component must be configured correctly, see [KNX Component](/components/knx).
@@ -48,29 +47,71 @@ climate:
     operation_mode_comfort_address: '5/1/7'
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  default: KNX Climate
+  type: string
+temperature_address:
+  description: KNX group address for reading current room temperature from KNX bus.
+  required: true
+  type: string
+target_temperature_address:
+  description: KNX group address for reading current target temperature from KNX bus.
+  required: true
+  type: string
+setpoint_shift_address:
+  description: KNX address for setpoint_shift.
+  required: false
+  type: string
+setpoint_shift_state_address:
+  description: Explicit KNX address for reading setpoint_shift.
+  required: false
+  type: string
+setpoint_shift_step:
+  description: Defines for step size in Kelvin for each step of setpoint_shift.
+  required: false
+  default: 0.5
+  type: float
+setpoint_shift_min:
+  description: Minimum value of setpoint shift.
+  required: false
+  default: -6
+  type: integer
+setpoint_shift_max:
+  description: Maximum value of setpoint shift.
+  required: false
+  default: 6
+  type: integer
+operation_mode_address:
+  description: KNX address for operation mode (Frost protection/night/comfort).
+  required: false
+  type: string
+operation_mode_state_address:
+  description: Explicit KNX address for reading operation mode.
+  required: false
+  type: string
+controller_status_address:
+  description: KNX address for HVAC controller status (in accordance with KNX AN 097/07 rev 3).
+  required: false
+  type: string
+controller_status_state_address:
+  description: Explicit KNX address for reading HVAC controller status.
+  required: false
+  type: string
+operation_mode_frost_protection_address:
+  description: KNX address for switching on/off frost/heat protection mode.
+  required: false
+  type: string
+operation_mode_night_address:
+  description: KNX address for switching on/off night mode.
+  required: false
+  type: string
+operation_mode_comfort_address:
+  description: KNX address for switching on/off comfort mode.
+  required: false
+  type: string
+{% endconfiguration %}
 
-- **name** (*Optional*): A name for this device used within Home Assistant.
-- **temperature_address**: KNX group address for reading current room temperature from KNX bus.
-- **target_temperature_address**: KNX group address for reading current target temperature from KNX bus.
-
-The `knx` component sets the desired target temperature by modifying the setpoint_shift. The module provides the following configuration options:
-
-* **setpoint_shift_address**: (*Optional*) KNX address for setpoint_shift
-* **setpoint_shift_state_address**: (*Optional*) Explicit KNX address for reading setpoint_shift.
-* **setpoint_shift_step**: (*Optional*) Defines for step size in Kelvin for each step of setpoint_shift. Default is 0.5 K.
-* **setpoint_shift_min**: (*Optional*) Minimum value of setpoint shift. Default is "-6".
-* **setpoint_shift_max**: (*Optional*) Maximum value of setpoint shift. Default is "6".
-
-The operation modes may be controlled with the following directives:
-
-- **operation_mode_address** (*Optional*): KNX address for operation mode (Frost protection/night/comfort).
-- **operation_mode_state_address** (*Optional*): Explicit KNX address for reading operation mode
-- **controller_status_address** (*Optional*): KNX address for HVAC controller status (in accordance with KNX AN 097/07 rev 3)
-- **controller_status_state_address** (*Optional*): Explicit KNX address for reading HVAC controller status
-
-- **operation_mode_frost_protection_address** (*Optional*): KNX address for switching on/off frost/heat protection mode.
-- **operation_mode_night_address** (*Optional*): KNX address for switching on/off night mode.
-- **operation_mode_comfort_address** (*Optional*): KNX address for switching on/off comfort mode.
-
-`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` was specified.
+`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.

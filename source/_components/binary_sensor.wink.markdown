@@ -13,11 +13,9 @@ ha_release: 0.14
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The Wink binary sensor platform allows you to get data from your [Wink](http://www.wink.com/) binary sensors.
 
 The requirement is that you have setup [Wink](/components/wink/).
-
 
 ### {% linkable_title Supported Binary sensor devices %}
 
@@ -36,4 +34,3 @@ The requirement is that you have setup [Wink](/components/wink/).
 <p class='note'>
 The above devices are confirmed to work, but others may work as well.
 </p>
-

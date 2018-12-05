@@ -12,7 +12,9 @@ footer: true
 
 Embed data from other webservices in your dashboard. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
 
+<p class='note warning'>
 You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
+</p>
 
 <p class='img'>
   <img width="500" src='/images/lovelace/lovelace_iframe.png' alt='Windy weather radar as iframe'>

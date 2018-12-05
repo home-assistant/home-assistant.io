@@ -67,15 +67,17 @@ assumed_state:
   type: boolean
   default: True
 device_class:
-  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below).
+  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
   required: false
-  type: boolean
-initial_state:
-  description: Sets the initial state for automations, `on` or `off`.
+  type: device_class
+  default: None
+unit_of_measurement:
+  description: Defines the units of measurement, if any. This will also influence the graphical presentation in the history visualisation as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values.
   required: false
   type: string
-unit_of_measurement:
-  description: Defines the units of measurement, if any.
+  default: None
+initial_state:
+  description: Sets the initial state for automations, `on` or `off`.
   required: false
   type: string
 {% endconfiguration %}

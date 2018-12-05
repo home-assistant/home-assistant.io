@@ -32,11 +32,29 @@ binary_sensor:
         settle_time: 50
 ```
 
-Configuration variables:
-
-- **ports** array (*Required*): Array of used ports.
-  - **num** (*Required*): Port number.
-    - **name** (*Required*): Port name.
-    - **settle_time** (*Optional*): The time in milliseconds for port debouncing. Default is 2 0ms.
-    - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
-
+{% configuration %}
+ports:
+  description: List of used ports.
+  required: true
+  type: map
+  keys:
+    num:
+      description: The port number.
+      required: true
+      type: map
+      keys:
+        name:
+          description: The port name.
+          required: true
+          type: string
+        settle_time:
+          description: The time in milliseconds for port debouncing.
+          required: false
+          type: integer
+          default: 20
+        invert_logic:
+          description: If `true`, inverts the output logic to ACTIVE LOW.
+          required: false
+          type: boolean
+          default: "`false` (ACTIVE HIGH)"
+{% endconfiguration %}

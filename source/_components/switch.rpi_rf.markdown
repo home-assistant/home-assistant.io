@@ -43,13 +43,41 @@ switch:
         signal_repetitions: 15
 ```
 
-Configuration variables:
-
-- **gpio** (*Required*): GPIO to which the data line of the TX module is connected.
-- **switches:** (*Required*): The array that contains all switches.
-  - **[entry]** (*Required*): Name of the switch. Multiple entries are possible.
-    - **code_on** (*Required*): Decimal code(s) to switch the device on. To run multiple codes in a sequence, separate the individual codes with commas ','.
-    - **code_off** (*Required*): Decimal code(s) to switch the device off. To run multiple codes in a sequence, separate the individual codes with commas ','.
-    - **protocol** (*Optional*): RF Protocol (Default is `1`).
-    - **pulselength** (*Optional*): Pulselength (Default is the protocol default).
-    - **signal_repetitions** (*Optional*): Number of times to repeat transmission (default is 10, can increase to try to improve reliability).
+{% configuration %}
+gpio:
+  description: GPIO to which the data line of the TX module is connected.
+  required: true
+  type: integer
+switches:
+  description: The array that contains all switches.
+  required: true
+  type: list
+  keys:
+    entry:
+      description: Name of the switch. Multiple entries are possible.
+      required: true
+      type: list
+      keys:
+        code_on:
+          description: Decimal code(s) to switch the device on. To run multiple codes in a sequence, separate the individual codes with commas ','.
+          required: true
+          type: list
+        code_off:
+          description: Decimal code(s) to switch the device off. To run multiple codes in a sequence, separate the individual codes with commas ','.
+          required: true
+          type: list
+        protocol:
+          description: RF Protocol.
+          required: false
+          default: 1
+          type: integer
+        pulselength:
+          description: Pulselength
+          required: false
+          type: integer
+        signal_repetitions:
+          description: Number of times to repeat transmission
+          required: false
+          default: 10
+          type: integer
+{% endconfiguration %}

@@ -13,7 +13,6 @@ ha_release: 0.47
 ha_iot_class: "Local Push"
 ---
 
-
 The `spc` alarm control panel platform allows you to control your [Vanderbilt SPC](https://www.spcsupportinfo.com/) alarms.
 
 The requirement is that you have setup your [SPC hub](/components/spc/).

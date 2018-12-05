@@ -42,7 +42,7 @@ cache_dir:
 time_memory:
   description: Time to hold the voice data inside memory for fast play on a media player. Minimum is 60 s and the maximum 57600 s (16 hours).
   required: false
-  type: int
+  type: integer
   default: 300
 base_url:
   description: A base URL to use *instead* of the one set in the [http component](/components/http/). It is used as-is by the `tts` component. In particular, you need to include the protocol scheme `http://` or `https://` and the correct port number. They will not be automatically added for you.

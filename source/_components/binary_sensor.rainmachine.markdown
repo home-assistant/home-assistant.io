@@ -14,7 +14,7 @@ ha_release: 0.71
 ---
 
 The `rainmachine` binary sensor platform allows you to view crucial sensor data
-within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/). 
+within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/).
 
 <p class='note'>
 You must have the [RainMachine component](https://www.home-assistant.io/components/rainmachine/)

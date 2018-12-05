@@ -35,16 +35,44 @@ binary_sensor:
             name: PIR Bedroom
 ```
 
-Configuration variables:
-
-- **i2c_hats** (*Optional*): Array of used I2C-HATs.
-  - **board** (*Required*): The board name [Di16, Di6Rly6, DI16ac, DI6acDQ6rly].
-  - **address** (*Required*): The board I2C address, hex value.
-    - **channels** (*Required*): Array of used digital input channels.
-      - **index** (*Required*): Digital input channel index.
-      - **name** (*Required*): Friendly name to use for the frontend.
-      - **invert_logic** (*Optional*): Inverts the input logic, default is `false`.
-      - **device_class** (*Optional*): See device classes in [binary_sensor component](/components/binary_sensor/), default is `None`
+{% configuration %}
+i2c_hats:
+  description: An array of used I2C-HATs.
+  required: false
+  type: list
+  keys:
+    board:
+      description: The board name either Di16, Di6Rly6, DI16ac or DI6acDQ6rly.
+      required: true
+      type: string
+    address:
+      description: The board I2C address as HEX value.
+      required: true
+      type: string
+    channels:
+      description: Array of used digital input channels.
+      required: true
+      type: list
+      keys:
+        index:
+          description: Digital input channel index.
+          required: true
+          type: integer
+        name:
+          description: Friendly name to use for the frontend.
+          required: true
+          type: string
+        invert_logic:
+          description: Inverts the input logic.
+          required: false
+          default: false
+          type: boolean
+        device_class:
+          description: See device classes in [binary_sensor component](/components/binary_sensor/).
+          required: false
+          default: "None"
+          type: string
+{% endconfiguration %}
 
 ## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
 

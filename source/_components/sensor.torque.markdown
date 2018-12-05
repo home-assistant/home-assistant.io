@@ -46,7 +46,14 @@ sensor:
     email: your_configured@email.com
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Vehicle name (your choice).
-- **email**  (*Required*): Email address configured in Torque application.
+{% configuration %}
+name:
+  description: Vehicle name (your choice).
+  required: false
+  default: vehicle
+  type: string
+email:
+  description: Email address configured in Torque application.
+  required: true
+  type: string
+{% endconfiguration %}

@@ -18,4 +18,3 @@ The `konnected` binary sensor allows you to monitor wired door sensors, window s
 See the [`konnected`](/components/konnected/) component for configuration and setup instructions.
 
 This component supports all of the built-in device classes of the generic [Binary Sensor](/components/binary_sensor/) component.
-

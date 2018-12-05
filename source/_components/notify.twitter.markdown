@@ -13,9 +13,13 @@ ha_release: 0.12
 ---
 
 
-The `twitter` platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
+The `twitter` notification platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
 
-Go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. Visit "Keys and Access Tokens" of the application to get the details ("Consumer Key", "Consumer Secret", "Access Token" and "Access Token Secret" which needs to be generated).
+## {% linkable_title Setup %}
+
+Go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. Visit "Keys and Access Tokens" of the application to get the details (Consumer Key, Consumer Secret, Access Token and Access Token Secret which needs to be generated).
+
+## {% linkable_title Configuration %}
 
 To add Twitter to your installation, add the following to your `configuration.yaml` file:
 
@@ -24,19 +28,38 @@ To add Twitter to your installation, add the following to your `configuration.ya
 notify:
   - name: NOTIFIER_NAME
     platform: twitter
-    consumer_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-    consumer_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
-    access_token: ABCDEFGHJKLMNOPQRSTUVXYZ
-    access_token_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
+    consumer_key: YOUR_API_KEY
+    consumer_secret: YOUR_API_SECRET
+    access_token: YOUR_ACCESS_TOKEN
+    access_token_secret: YOUR_ACCESS_SECRET
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **consumer_key** (*Required*): Your "Consumer Key" (API Key) for the application.
-- **consumer_secret** (*Required*): Your "Consumer Secret" (API Secret) for the application.
-- **access_token** (*Required*): Your "Access Token" for the application.
-- **access_token_secret** (*Required*): Your "Access Token Secret" for the application.
-- **username** (*Optional*): Twitter handle without `@` or with `@` and quoting for direct messaging.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: "`notify`"
+  type: string
+consumer_key:
+  description: Your Consumer Key (API Key) for the application.
+  required: true
+  type: string
+consumer_secret:
+  description: Your Consumer Secret (API Secret) for the application.
+  required: true
+  type: string
+access_token:
+  description: Your Access Token for the application.
+  required: true
+  type: string
+access_token_secret:
+  description: Your Access Token Secret for the application.
+  required: true
+  type: string
+username:
+  description: "Twitter handle without `@` or with `@` and quoting for direct messaging."
+  required: false
+  type: string
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

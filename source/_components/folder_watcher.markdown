@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: System Monitor
 ha_iot_class: "Local Polling"
 ha_release: 0.67
+ha_qa_scale: internal
 ---
 
 This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:

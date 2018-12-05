@@ -35,11 +35,23 @@ switch:
         scan_interval: 10
 ```
 
-Configuration variables:
-
-- **zone** (*Required*): Station zone identifier.
-- **friendly_name** (*Optional*): Just a friendly name for the station.
-- **trigger_time** (*Required*): The default duration to sprinkle the zone.
-- **scan_interval** (*Optional*): How fast to refresh the switch.
+{% configuration %}
+zone:
+  description: Station zone identifier.
+  required: true
+  type: string
+friendly_name:
+  description: Just a friendly name for the station.
+  required: false
+  type: string
+trigger_time:
+  description: The default duration to sprinkle the zone.
+  required: true
+  type: integer
+scan_interval:
+  description: How fast to refresh the switch.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).

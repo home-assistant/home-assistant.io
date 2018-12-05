@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Mercedes me"
+title: "Mercedes me Device Tracker"
 description: "Instructions on for how to integrate Mercedes me into Home Assistant."
 date: 2018-01-27 10:00
 sidebar: true

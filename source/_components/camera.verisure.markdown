@@ -13,8 +13,6 @@ ha_release: 0.31
 ha_iot_class: "Local Polling"
 ---
 
-
 The `verisure` camera platform allows you to control your [Verisure](https://www.verisure.com/) cameras.
 
 The requirement is that you have setup your [Verisure hub](/components/verisure/).
-

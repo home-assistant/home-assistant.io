@@ -17,8 +17,8 @@ One of the easiest ways to install Home Assistant on your Raspberry Pi Zero, 2, 
  3. Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your [wireless network settings](#wireless-network) **before proceeding to step 4**.
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 10 minutes.
 
-<p class='note'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets.
+<p class='note warning'>
+Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer. **Do not** try to power the Pi from the USB port on a TV, computer, or similar.
 </p>
 
 These instructions are also available as a [video](https://www.youtube.com/watch?v=iIz6XqDwHEk).  
@@ -40,7 +40,7 @@ The following extras are included on the image:
 
 ### {% linkable_title Wireless Network %}
 
-After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up Wifi for Raspbian][wifi-setup]. During start the file will automatically be copied in the right folder and the network connection will be established. The file could look like this:
+After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up WiFi for Raspbian][wifi-setup]. During start the file will automatically be copied in the right folder and the network connection will be established. The file could look like this:
 
 ```conf
 country=SE
@@ -55,7 +55,7 @@ network={
 
 You may need to adjust the country code depending upon where you are. A list of codes can be found [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
-If you are running in trouble with your Wifi connection (for [further details](https://www.raspberrypi.org/forums/viewtopic.php?t=207882)), check the output of the following command:
+If you are running in trouble with your WiFi connection (for [further details](https://www.raspberrypi.org/forums/viewtopic.php?t=207882)), check the output of the following command:
 
 ```bash
 $ sudo rfkill list

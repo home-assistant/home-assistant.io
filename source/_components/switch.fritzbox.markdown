@@ -13,9 +13,7 @@ ha_release: 0.68
 ha_iot_class: "Local Polling"
 ---
 
-<p class='note'>
-To get AVM Fritzbox switch follow the instructions for the general [Fritzbox](/components/fritzbox/).
-</p>
+To get AVM Fritzbox switch follow the instructions for the [Fritzbox component](/components/fritzbox/).
 
 ### {% linkable_title Attributes %}
 

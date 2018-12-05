@@ -37,7 +37,10 @@ sensor:
   - platform: supervisord
 ```
 
-Configuration variables:
-
-- **url** (*Optional*): The URL to track. Default to `http://localhost:9001/RPC2`.
-
+{% configuration %}
+url:
+  description: The URL to track.
+  required: false
+  default: "http://localhost:9001/RPC2"
+  type: string
+{% endconfiguration %}

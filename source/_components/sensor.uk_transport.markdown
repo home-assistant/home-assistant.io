@@ -29,22 +29,41 @@ To add a single train departure sensor add the following to your `configuration.
 # Example configuration.yaml entry for a single sensor
 sensor:
   - platform: uk_transport
-    app_id: abc123
-    app_key: efg456
+    app_id: YOUR_APP_ID
+    app_key: YOUR_APP_KEY
     queries:
       - mode: train
         origin: MAL
         destination: WAT
 ```
 
-Configuration variables:
-
-- **app_id** (*Required*): Your application id
-- **app_key** (*Required*): Your application key
-- **queries** array (*Required*): At least one entry required.
-- **mode** (*Required*): One of `bus` or `train`.
-- **origin** (*Required*): Specify the three character long origin station code.
-- **destination** (*Required*): Specify the three character long destination station code.
+{% configuration %}
+app_id:
+  description: Your application ID.
+  required: true
+  type: string
+app_key:
+  description: Your application Key.
+  required: true
+  type: string
+queries:
+  description: At least one entry required.
+  required: true
+  type: list
+  keys:
+    mode:
+      description: One of `bus` or `train`.
+      required: true
+      type: list
+    origin:
+      description: Specify the three character long origin station code.
+      required: true
+      type: string
+    destination:
+      description: Specify the three character long destination station code.
+      required: true
+      type: string
+{% endconfiguration %}
 
 A large amount of information about upcoming departures is available within the attributes of the sensor. The example above creates a sensor with ID `sensor.next_train_to_wat` with the attribute `next_trains` which is a list of the next 25 departing trains.
 
@@ -97,8 +116,8 @@ The `destination` must be a valid location in the "direction" field returned by 
 # Example configuration.yaml entry for multiple sensors
 sensor:
   - platform: uk_transport
-    app_id: abc123
-    app_key: efg456
+    app_id: YOUR_APP_ID
+    app_key: YOUR_APP_KEY
     queries:
       - mode: bus
         origin: 340000368SHE

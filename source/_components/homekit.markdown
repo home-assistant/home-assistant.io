@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HomeKit"
-description: "Instructions on how to setup the HomeKit component in Home Assistant."
+description: "Instructions on how to set up the HomeKit component in Home Assistant."
 date: 2018-02-20 17:30
 sidebar: true
 comments: false
@@ -12,15 +12,15 @@ ha_release: 0.64
 logo: apple-homekit.png
 ---
 
-The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they can be controlled from Apple's `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later.
+The `homekit` component allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+
+<p class="note">
+  If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/components/homekit_controller/) component.
+</p>
 
 <p class="note warning">
   It might be necessary to install an additional package:
   `$ sudo apt-get install libavahi-compat-libdnssd-dev`
-</p>
-
-<p class="note">
-  If you are upgrading Home Assistant from `0.65.x` and have used the HomeKit component, some accessories may not respond or may behave unusually. To fix these problems, you will need to remove the Home Assistant Bridge from your Home, stop Home Assistant and delete the `.homekit.state` file in your configuration folder and follow the Homekit [setup](#setup) steps again.
 </p>
 
 ```yaml
@@ -62,7 +62,7 @@ homekit:
       port:
         description: Port for the HomeKit extension.
         required: false
-        type: int
+        type: integer
         default: 51827
       name:
         description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
@@ -73,8 +73,13 @@ homekit:
         description: The local network IP address. Only necessary if the default from Home Assistant does not work.
         required: false
         type: string
+      safe_mode:
+        description: Only set this parameter if you encounter issues during pairing. ([Safe Mode](#safe-mode))
+        required: false
+        type: boolean
+        default: false
       filter:
-        description: Filters for entities to be included / excluded from HomeKit. ([Configure Filter](#configure-filter))
+        description: Filters for entities to be included/excluded from HomeKit. ([Configure Filter](#configure-filter))
         required: false
         type: map
         keys:
@@ -95,7 +100,7 @@ homekit:
             required: false
             type: list
       entity_config:
-        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g. `alarm_control_panel.alarm`.
+        description: Configuration for specific entities. All subordinate keys are the corresponding entity ids to the domains, e.g., `alarm_control_panel.alarm`.
         required: false
         type: map
         keys:
@@ -105,7 +110,7 @@ homekit:
             type: map
             keys:
               name:
-                description: Name of entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
               code:
@@ -123,42 +128,45 @@ homekit:
                     required: true
                     type: string
               type:
-                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `switch` and `outlet`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
                 default: '`switch`'
 {% endconfiguration %}
 
-<p class='note'>
-  If you use Z-Wave, or `discovery:` you'll need to disable auto-start, see the [section below](#disable-auto-start) for details on how to do this. You'll then need to start the HomeKit component once Z-Wave is ready, or an appropriate delay to allow your entities to be discovered.
-</p>
 
 ## {% linkable_title Setup %}
 
-To enable the `HomeKit` component in Home Assistant, add the following to your configuration file:
+To enable the HomeKit component in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
 homekit:
 ```
 
-After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if they are [supported](#supported-components). To add them:
+After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
+
 1. Open the Home Assistant frontend. A new card will display the `pin code`.
 1. Open the `Home` app.
-2. Choose `Add Accessory`, than select `Don't Have a Code or Can't Scan?` and enter the `pin code`.
-4. Confirm the you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
-5. Follow the setup be clicking on `Next` and lastly `Done` in the top right hand corner.
-6. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
+2. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
+4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
+5. Enter the `PIN` code.
+6. Follow the setup by clicking on `Next` and lastly `Done` in the top right-hand corner.
+7. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
 
-After the setup is completed you should be able to control your Home Assistant components through `Home` and `Siri`.
+After the setup is completed, you should be able to control your Home Assistant components through Apple's Home and Siri.
 
+## {% linkable_title Move Home Assistant install %}
+
+If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.homekit.state` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
+
+Before you copy it, make sure to stop the old and new Home Assistant instances first entirely, otherwise it won't work.
 
 ## {% linkable_title Considerations %}
 
-
 ### {% linkable_title Accessory ID %}
 
-Currently this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This however means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+Currently, this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
 
 ### {% linkable_title Device Limit %}
 
@@ -166,16 +174,19 @@ The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) pe
 
 ### {% linkable_title Persistence Storage %}
 
-Unfortunately `HomeKit` doesn't support any kind of persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not setup, their config will be deleted. (State unknown or similar will not cause any issues.)
+Unfortunately `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not set up, their config will be deleted. (State unknown or similar will not cause any issues.)
 
 A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
 
-
 ## {% linkable_title Disable Auto Start %}
 
-Depending on your individual setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully setup when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: False`, you can call the service `homekit.start`.
+Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: False`, you can call the service `homekit.start`.
 
-If you have Z-Wave entities you want exposed to HomeKit then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation:
+If you have Z-Wave entities you want to be exposed to HomeKit, then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
+
+<p class='note'>
+Please remember that you can only have a single `automation` entry. Add the automation to your existing automations.
+</p>
 
 {% raw %}
 ```yaml
@@ -190,6 +201,8 @@ automation:
         event_type: zwave.network_ready
       - platform: event
         event_type: zwave.network_complete
+      - platform: event
+        event_type: zwave.network_complete_some_dead
     action:
       - service: homekit.start
 ```
@@ -199,7 +212,7 @@ For a general delay where your component doesn't generate an event, you can also
 
 {% raw %}
 ```yaml
-# Example using a delay after start of Home Assistant
+# Example using a delay after the start of Home Assistant
 homekit:
   auto_start: False
 
@@ -214,10 +227,9 @@ automation:
 ```
 {% endraw %}
 
-
 ## {% linkable_title Configure Filter %}
 
-By default no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
+By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
 {% raw %}
 ```yaml
@@ -249,6 +261,22 @@ Filters are applied as follows:
       - if entity is included, pass (as #2 above)
       - if entity include and exclude, the entity exclude is ignored
 
+## {% linkable_title Safe Mode %}
+
+The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Paring hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
+
+To use `safe_mode`, add the option to your `homekit` config:
+
+```yaml
+homekit:
+  safe_mode: True
+```
+
+Restart your Home Assistant instance. If you don't see a `pincode`, follow the [guide](#deleting-the-homekitstate-file) here. Now you should be able to pair normally.
+
+<p class="note warning">
+To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your config and restart Home Assistant.
+</p>
 
 ## {% linkable_title Supported Components %}
 
@@ -257,7 +285,7 @@ The following components are currently supported:
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
 | alarm_control_panel | SecuritySystem | All security systems. |
-| automation / input_boolean / remote / script | Switch | All represented as switches. |
+| automation / input_boolean / remote / scene / script | Switch | All represented as switches. |
 | binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
 | climate | Thermostat | All climate devices. |
 | cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` as their `device_class`. |
@@ -272,41 +300,111 @@ The following components are currently supported:
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
+| sensor | CarbonMonoxideSensor | All sensors that have `co` as their `device_class` |
 | sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
 | sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
+| water_heater | WaterHeater | All water_heater devices. |
 
+## {% linkable_title Troubleshooting %}
 
-## {% linkable_title Error reporting %}
+### {% linkable_title Deleting the `.homekit.state` file %}
 
-If you encounter any issues or bug and want to report them on `GitHub`, please follow these steps to make it easier for others to help and get your issue solved.
+The `.homekit.state` file can be found in the configurations directory. You might need to enable `view hidden files` to see it.
 
-1. Enable debugging mode:
+ 1. **Stop** Home Assistant
+ 2. Delete the `.homekit.state` file
+ 3. **Start** Home Assistant
+
+### {% linkable_title Errors during pairing %}
+
+If you encounter any issues during pairing, make sure to:
+
+ 1. **Stop** Home Assistant
+ 2. Delete the `.homekit.state` file
+ 3. Edit your configuration (see below)
+ 4. **Start** Home Assistant
+
 ```yaml
 logger:
   default: warning
   logs:
-       homeassistant.components.homekit: debug
-       pyhap: debug
-```
-2. Reproduce the bug / problem you have encountered.
-3. Stop Home Assistant and copy the log from the log file. That is necessary since some errors only get logged, when Home Assistant is being shutdown.
-4. Follow this link: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit) and open a new issue.
-5. Fill out all fields and especially include the following information:
-   - The configuration entries for `homekit` and the `component` that is causing the issue.
-   - The log / traceback you have generated before.
-   - Screenshots of the failing entity in the `states` panel.
+    homeassistant.components.homekit: debug
+    pyhap: debug
 
-## {% linkable_title Troubleshooting PIN not appearing %}
-
-In some instances, the PIN will not appear as a persistent status or in the log files despite deleting `.homekit.state`, enabling logging, and reboot.  The log files will include the error ```Duplicate AID found when attempting to add accessory```.
-
-In such cases, modifying your configuration.yaml to add a filter limiting the included entities similar to the following:
-
-```yaml
-filter:
-  include_domains:
-    - light
+homekit:
+  filter:
+    include_entities:
+      - demo.demo
 ```
 
-Restart Home-Assistant and re-attempt pairing - a persistent status should now correctly appear.
+#### {% linkable_title PIN doesn't appear as persistent status %}
+
+You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
+
+#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) %}
+
+This is often setup and network related. Make sure to check the other issues below as well, but things that might work include:
+- Check your router configuration
+- Try with WIFI **and** LAN
+- Change the default [port](#port)
+
+Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
+
+#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker %}
+
+Set `network_mode: host`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
+
+#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox %}
+
+Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
+
+#### {% linkable_title Pairing hangs - zeroconf error %}
+
+Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your config, see [safe_mode](#safe-mode).
+
+#### {% linkable_title Pairing hangs - only works with debug config %}
+
+Pairing works fine when the filter is set to only include `demo.demo`, but fails with normal config. See [specific entity doesn't work](#specific-entity-doesnt-work)
+
+#### {% linkable_title Pairing hangs - no error %}
+
+Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
+
+#### {% linkable_title Duplicate AID found when attempting to add accessory %}
+
+Two of your entities share the same `entity_id`. Either resolve this or configure the [filter](#configure-filter) to exclude them.
+
+### {% linkable_title Issues during normal use %}
+
+#### {% linkable_title Some of my devices don't show up - Z-Wave / Discovery %}
+
+See [disable auto start](#disable-auto-start)
+
+#### {% linkable_title My entity doesn't show up %}
+
+Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
+
+#### {% linkable_title HomeKit doesn't work on second Home Assistant instance %}
+
+To use the HomeKit component with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
+
+#### {% linkable_title Specific entity doesn't work %}
+
+Although we try our best, some entities don't work with the HomeKit component yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
+
+#### {% linkable_title Accessories are all listed as not responding %}
+
+See [specific entity doesn't work](#specific-entity-doesnt-work)
+
+#### {% linkable_title Accessory not responding - after restart or update %}
+
+See [device limit](#device-limit)
+
+#### {% linkable_title Accessory not responding - randomly %}
+
+Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
+
+#### {% linkable_title Accessories not responding / behaving unusual - Upgrade from `0.65.x` %}
+
+To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.

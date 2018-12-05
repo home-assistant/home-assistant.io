@@ -48,7 +48,7 @@ version:
 port:
   description: The port of the alarm panel.
   required: false
-  type: int
+  type: integer
   default: 80
 report_server_enabled:
   description: Enable reporting by server.
@@ -58,7 +58,7 @@ report_server_enabled:
 report_server_port:
   description:  Port of the Egardia server.
   required: false
-  type: int
+  type: integer
   default: 52010
 report_server_codes:
   description: Map of list of codes for the different states.

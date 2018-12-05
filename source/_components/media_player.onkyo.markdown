@@ -80,6 +80,20 @@ List of source names:
 - xm
 - sirius
 
+### {% linkable_title Service `onkyo_select_hdmi_output` %}
+
+Changes HDMI output of your receiver
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of a single `entity_id` that will change output.
+| `hdmi_output` | no | The desired output code.
+
+Accepted values are:
+'no', 'analog', 'yes', 'out', 'out-sub', 'sub', 'hdbaset', 'both', 'up'
+which one to use seems to vary depending on model so you will have to try them out.
+( For model TX-NR676E it seems to be 'out' for main, 'out-sub' for sub, and 'sub' for both )
+
 ### {% linkable_title Example `play_media` script %}
 
 The `play_media` function can be used in script to play radio station by preset number.
@@ -101,4 +115,20 @@ script:
           media_content_type: "radio"
           media_content_id: "1"
 
+```
+
+### {% linkable_title Example `onkyo_select_hdmi_output` script %}
+
+```yaml
+# Example onkyo_select_hdmi_output script
+#
+script:
+ hdmi_sub:
+    alias: "Hdmi out projector"
+    sequence:
+      - service: media_player.onkyo_select_hdmi_output
+        service_data:
+          entity_id: media_player.onkyo
+          hdmi_output: out-sub
+      
 ```

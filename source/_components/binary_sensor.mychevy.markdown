@@ -18,4 +18,3 @@ The `mychevy` binary sensor platform allows you to monitor your Chevy Bolt car f
 The binary sensor platform will be automatically configured if the `mychevy` component is configured.
 
 For configuration instructions, see the [`mychevy` component](/components/mychevy/) documentation.
-

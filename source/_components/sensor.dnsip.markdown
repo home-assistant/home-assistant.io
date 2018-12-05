@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: "0.40"
 ---
 
-
 The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its value. There are two operational modes:
 
 1. When you enable the sensor with minimal configuration, it will query the [OpenDNS](https://www.opendns.com/) nameservers with the hostname `myip.opendns.com`, which will resolve to your external/public IP address.
@@ -31,15 +30,40 @@ sensor:
   - platform: dnsip
 ```
 
-Configuration variables:
+{% configuration %}
+hostname:
+  description: The hostname for which to perform the DNS query.
+  required: false
+  default: "`myip.opendns.com` (special hostname that resolves to your public IP)"
+  type: string
+name:
+  description: Name of the sensor.
+  required: false
+  default: "`myip` or hostname without dots if specified"
+  type: string
+resolver:
+  description: The DNS server to target the query at.
+  required: false
+  default: "`208.67.222.222` (OpenDNS)"
+  type: string
+ipv6:
+  description: Set this to `true` or `false` if IPv6 should be used. When resolving the public IP, this will be the IP of the machine where Home Assistant is running on.
+  required: false
+  default: false
+  type: boolean
+resolver_ipv6:
+  description: The IPv6 DNS server to target the query at.
+  required: false
+  default: "`2620:0:ccc::2` (OpenDNS)"
+  type: string
+scan_interval:
+  description: Defines number of seconds for polling interval.
+  required: false
+  default: "`120`"
+  type: integer
+{% endconfiguration %}
 
-- **hostname** (*Optional*): The hostname for which to perform the DNS query. Default: `myip.opendns.com` (special hostname that resolves to your public IP)
-- **resolver** (*Optional*): The DNS server to target the query at. Default: `208.67.222.222` (OpenDNS)
-- **ipv6** (*Optional*): Set this to `true` or `false` if IPv6 should be used. When resolving the public IP, this will be the IP of the machine where Home Assistant is running on.
-- **resolver_ipv6** (*Optional*): The IPv6 DNS server to target the query at. Default: `2620:0:ccc::2` (OpenDNS)
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval. Default: `120` seconds.
-
-#### {% linkable_title Extended example %}
+## {% linkable_title Extended example %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -49,5 +73,6 @@ sensor:
   # Resolve IP address of home-assistant.io via Google DNS
   - platform: dnsip
     hostname: home-assistant.io
+    name: hass
     resolver: 8.8.8.8
 ```

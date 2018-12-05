@@ -33,7 +33,7 @@ access_token:
 scan_interval:
   description: The time interval, in seconds, to poll the Hydrawise cloud.
   required: false
-  type: int
+  type: integer
   default: 30
 {% endconfiguration %}
 

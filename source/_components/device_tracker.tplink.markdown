@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "TP-Link"
+title: "TP-Link Router"
 description: "Instructions on how to integrate TP-Link routers into Home Assistant."
 date: 2015-06-22 10:30
 sidebar: true
@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ---
 
 
-The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) device.
+The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) router.
 
 Currently supported devices includes the following:
 
@@ -26,6 +26,9 @@ Currently supported devices includes the following:
 TP-Link devices typically only allow one login at a time to the admin console.  This component will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant. Home Assistant takes a few seconds to login, collect data, and log out. If you log into the admin console manually, remember to log out so that Home Assistant can log in again.
 </p>
 
+## {% linkable_title Configuration %}
+
+To enable this device tracker, add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,11 +39,20 @@ device_tracker:
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your router, e.g., 192.168.1.1.
-- **username** (*Required*): The username of a user with administrative privileges, usually *admin*. The Archer D9 last firmware does not require a username.
-- **password** (*Required*): The password for your given admin account.
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1.
+  required: true
+  type: string
+username:
+  description: The username of an user with administrative privileges, usually *admin*. The Archer D9 last firmware does not require a username.
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 For Archer C9 models running firmware version 150811 or later please use the encrypted password you can retrieve like this:
 
@@ -54,6 +66,3 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank.
-
-
-

@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Other
 ha_release: 0.58
+ha_qa_scale: internal
 ---
 
 The `system_log` component stores information about all logged errors and warnings in Home Assistant. All collected information is accessible directly in the frontend, just navigate to the `Info` section under `Developer Tools`. In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored. Older entries are automatically discarded from the log. It is possible to change the number of stored log entries using the parameter `max_entries`.
@@ -25,7 +26,7 @@ system_log:
 max_entries:
   description: Number of entries to store (older entries are discarded).
   required: false
-  type: int
+  type: integer
   default: 50
 fire_event:
   description: Whether events are fired (required when used for triggers).

@@ -13,10 +13,10 @@ ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
-The sensors are automatically created if the [IOTA hub](/components/iota/) is present.
+The sensors are automatically created if the [IOTA hub](/components/iota/) is
+present.
 
 Available sensors:
 
 - Wallet balance
 - Node information
-

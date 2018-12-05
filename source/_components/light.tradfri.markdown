@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IKEA Trådfri lights"
-description: "Access and control your ZigBee-based IKEA Trådfri (Tradfri) Lights."
+description: "Access and control your Zigbee-based IKEA Trådfri (Tradfri) Lights."
 date: 2017-04-12 22.04
 sidebar: true
 comments: false

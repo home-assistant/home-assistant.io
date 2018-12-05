@@ -25,15 +25,25 @@ sensor:
   - platform: ring
 ```
 
-Configuration variables:
-
-- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
-  - **battery**: Return the battery level from device
-  - **last_activity**: Return the timestamp from the last event captured (ding/motion/on demand) by the Ring doorbell camera
-  - **last_ding**: Return the timestamp from the last time the Ring doorbell button was pressed
-  - **last_motion**: Return the timestamp from the last motion event captured by the Ring doorbell camera
-  - **volume**: Return the volume level from the device.
-  - **wifi_signal_category**: Return the WiFi signal level from the device.
-  - **wifi_signal_strength**: Return the WiFi signal strength (dBm) from the device.
+{% configuration %}
+monitored_conditions:
+  type: list
+  required: false
+  description: Conditions to display in the frontend. The following conditions can be monitored. If not specified, all conditions below will be enabled.
+  battery:
+     description: Return the battery level from device.
+  last_activity:
+     description: Return the timestamp from the last event captured (ding/motion/on demand) by the Ring doorbell camera.
+  last_ding:
+     description: Return the timestamp from the last time the Ring doorbell button was pressed.
+  last_motion:
+     description: Return the timestamp from the last motion event captured by the Ring doorbell camera.
+  volume:
+     description: Return the volume level from the device.
+  wifi_signal_category:
+     description: Return the WiFi signal level from the device.
+  wifi_signal_strength:
+     description: Return the WiFi signal strength (dBm) from the device.
+{% endconfiguration %}
 
 Currently it supports doorbell, external chimes and stickup cameras.

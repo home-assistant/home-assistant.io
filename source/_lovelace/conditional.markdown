@@ -42,6 +42,8 @@ card:
 
 *one is required (`state` or `state_not`)
 
+Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
+
 ### {% linkable_title Examples %}
 
 ```yaml

@@ -56,11 +56,11 @@ maxcube:
   port:
     description: The UDP port number.
     required: false
-    type: int
+    type: integer
     default: 62910
   scan_interval:
     description: The update interval in seconds
     required: false
-    type: int
+    type: integer
     default: 300
 {% endconfiguration %}

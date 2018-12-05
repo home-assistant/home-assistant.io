@@ -13,10 +13,9 @@ ha_release: "0.40"
 ha_iot_class: "Local Polling"
 ---
 
-
 The `android_ip_webcam` binary sensor platform lets you observe the motion state of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant.
 
-Devices will be configured automatically. Please refer to the [component](/components/android_ip_webcam/) configuration on how to setup.
+Devices will be configured automatically. Please refer to the [Android IP webcam](/components/android_ip_webcam/) configuration on how to setup.
 
 ## {% linkable_title Examples %}
 

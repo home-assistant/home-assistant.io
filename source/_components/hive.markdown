@@ -41,7 +41,7 @@ password:
 scan_interval:
   description: The time in minutes between Hive API calls
   required: false
-  type: int
+  type: integer
   default: 2
 {% endconfiguration %}
 

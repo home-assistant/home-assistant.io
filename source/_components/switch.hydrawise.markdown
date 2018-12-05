@@ -29,7 +29,7 @@ switch:
 watering_minutes:
   description: When manual watering is enabled this will determine the length of time in minutes that irrigation zone will run. The allowed values are 5, 10, 15, 30, 45, or 60.
   required: false
-  type: int
+  type: integer
   default: 15
 monitored_conditions:
   description: Selects the set of switches that should be enabled on the frontend. Also sets the length of time a zone will run under manual control.

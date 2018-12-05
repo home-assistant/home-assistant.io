@@ -28,19 +28,19 @@ tuya:
 
 {% configuration %}
 username:
-  description: Your username to login to Tuya. This may be your phone number.
+  description: Your username to log in to Tuya. This may be your phone number.
   required: true
   type: string
 password:
-  description: Your password to login to Tuya.
+  description: Your password to log in to Tuya.
   required: true
   type: string
 country_code:
-  description: "Your account [country code](https://www.countrycode.org/) (e.g., 1 for USA or 86 for China)."
+  description: "Your account [country code](https://www.countrycode.org/), e.g., 1 for USA or 86 for China."
   required: true
   type: string
 platform:
-  description: "The app where your account register. `tuya` for Tuya Smart and `smart_life` for Smart Life."
+  description: "The app where your account register. `tuya` for Tuya Smart, `smart_life` for Smart Life, `jinvoo_smart` for Jinvoo Smart."
   required: false
   type: string
   default: tuya

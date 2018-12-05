@@ -17,16 +17,4 @@ The `rachio` binary sensor platform allows you to view the status of your [Rachi
 
 Once configured, a binary sensor will be added that shows whether or not each controller in the account provided is online and reachable by Rachio's servers.
 
-<p class='note'>
-You must have the [Rachio component](/components/rachio/) configured to use this switch.
-</p>
-
-## {% linkable_title Configuration %}
-
-To add this platform to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: rachio
-```
+They will be automatically added if the [Rachio component](/components/rachio/) component is loaded.

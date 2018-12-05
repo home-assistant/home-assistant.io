@@ -26,31 +26,70 @@ sensor:
     api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your Radarr API key, found in Settings > General in the Radarr Web UI.
-- **host** (*Optional*): The host Radarr is running on. Defaults to `localhost`.
-- **port** (*Optional*): The port Radarr is running on. Defaults to 7878.
-- **urlbase** (*Optional*): The base URL Radarr is running under. Defaults to `/`.
-- **monitored_conditions** array (*Optional*): Conditions to display on the frontend. Defaults to `movies`.
-  - **movies**: The number of movies in Radarr.
-  - **upcoming**: The number of upcoming movie releases (physical and in cinemas).
-  - **commands**: The number of commands being run.
-  - **diskspace**: The available disk space.
-  - **status**: The current system status information.
-- **days** (*Optional*): How many days to look ahead for the upcoming sensor, 1 means today only.  Defaults to 1.
-- **include_paths** (*Optional*): Array of file paths to include when calculating diskspace. Leave blank to include all.
-- **unit**: (*Optional*): The unit to display disk space in. Defaults to GB.
-- **ssl**:  boolean (*Optional*): Whether or not to use SSL for Radarr.
+{% configuration %}
+api_key:
+  required: true
+  type: string
+  description: Your Radarr API key, found in Settings > General in the Radarr Web UI.
+host:
+  required: false
+  type: string
+  description: The host Radarr is running on.
+  default: "`localhost`"
+port:
+  required: false
+  type: integer
+  description: The port Radarr is running on.
+  default: 7878
+urlbase:
+  required: false
+  type: string
+  description: The base URL Radarr is running under. Defaults to `/`.
+monitored_conditions:
+  required: false
+  type: list
+  description: Conditions to display on the frontend.
+  default: "`movies`"
+  keys:
+    movies:
+      description: The number of movies in Radarr.
+    upcoming:
+      description: The number of upcoming movie releases (physical and in cinemas).
+    commands:
+      description: The number of commands being run.
+    diskspace:
+      description: The available disk space.
+    status:
+      description: The current system status information.
+days:
+  required: false
+  type: integer
+  description: How many days to look ahead for the upcoming sensor, 1 means today only.
+  default: 1
+include_paths:
+  required: false
+  type: list
+  description: Array of file paths to include when calculating diskspace. Leave blank to include all.
+unit:
+  required: false
+  type: string
+  description: The unit to display disk space in.
+  default: GB
+ssl:
+  required: false
+  type: boolean
+  description: Whether or not to use SSL for Radarr.
+  default: false
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Get Episodes airing in next 2 days %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -65,7 +104,7 @@ sensor:
 SSL may run on a different port than the default (7878). The SSL port can be bound to any port in Radarr, so it should be set in the config here (unless it is changed to 7878).
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -80,7 +119,7 @@ sensor:
 ### {% linkable_title Get disk space for all storage locations %}
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -94,7 +133,7 @@ sensor:
 The storage locations Radarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY
@@ -112,7 +151,7 @@ The Radarr API returns available space in bytes, but this sensor will default to
 *This calculation is done using base 2 math, and may differ from systems calculating using base 10 math.*
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: radarr
     api_key: YOUR_API_KEY

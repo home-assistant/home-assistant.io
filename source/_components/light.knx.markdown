@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: knx.png
 ha_category: Light
-ha_release: 0.44 
+ha_release: 0.44
 ha_iot_class: "Local Polling"
 ---
 
@@ -26,21 +26,39 @@ To use your KNX light in your installation, add the following lines to your `con
 # Example configuration.yaml entry
 light:
   - platform: knx
-    name: Kitchen-Light-1
     address: '1/0/9'
-    brightness_address: '1/0/11'
 ```
 
-Configuration variables:
-
-- **address** (*Required*): KNX group address for switching the light on and off.
-- **name** (*Optional*): A name for this device used within Home Assistant.
-- **brightness_address** (Optional): KNX group address for dimming light.
-- **state_address** (*Optional*): separate KNX group address for retrieving the switch state of the light.
-- **brightness_state_address** (*Optional*): separate KNX group address for retrieving the dimmed state of the light.
-- **color_address** (*Optional*): separate KNX group address for setting the color of the light.
-- **color_state_address** (*Optional*): separate KNX group address for retrieving the color of the light.
+{% configuration %}
+address:
+  description: KNX group address for switching the light on and off.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  type: string
+brightness_address:
+  description: KNX group address for dimming light.
+  required: false
+  type: string
+state_address:
+  description: separate KNX group address for retrieving the switch state of the light.
+  required: false
+  type: string
+brightness_state_address:
+  description: separate KNX group address for retrieving the dimmed state of the light.
+  required: false
+  type: string
+color_address:
+  description: separate KNX group address for setting the color of the light.
+  required: false
+  type: string
+color_state_address:
+  description: separate KNX group address for retrieving the color of the light.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Some KNX devices can change their state internally without any messages on the KNX bus, e.g., if you configure a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 For switching/light actuators that are only controlled by a single group address and can't change their state internally, you don't have to configure the state address.
-

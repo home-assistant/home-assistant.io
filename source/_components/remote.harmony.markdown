@@ -13,7 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: "0.34"
 ---
 
-
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](http://www.logitech.com/en-us/product/harmony-hub).
 
 Supported units:
@@ -44,15 +43,31 @@ You can override some default configuration values on a discovered hub (e.g., th
     activity: Watch TV
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: The hub's name to display in the frontend. This name must match the name you have set on the Hub.
+  required: true
+  type: string
+host:
+  description: The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
+  required: false
+  type: string
+port:
+  description: The Harmony device's port.
+  required: false
+  type: integer
+  default: 5222
+activity:
+  description: Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
+  required: false
+  type: string
+delay_secs:
+  description: Default duration in seconds between sending commands to a device.
+  required: false
+  type: float
+{% endconfiguration %}
 
-- **name** (*Required*): The hub's name to display in the frontend. This name must match the name you have set on the Hub.
-- **host** (*Optional*): The Harmony device's IP address. Leave empty for the IP to be discovered automatically.
-- **port** (*Optional*): The Harmony device's port. Defaults to 5222.
-- **activity** (*Optional*): Activity to use when `turn_on` service is called without any data. Overrides the `activity` setting for this discovered hub.
-- **delay_secs** (*Optional*): Default duration in seconds between sending commands to a device.
-
-Configuration file:
+### {% linkable_title Configuration file %}
 
 Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_REMOTENAME.conf`. The file will contain:
 
@@ -76,6 +91,25 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
 | `activity`             |      yes | Activity ID or Activity Name to start.
+
+##### {% linkable_title Example %}
+
+In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
+
+```text
+Activities
+  22054907 - Watch TV
+```
+
+Using the activity name 'Watch TV', you can call a service via automation to switch this activity on:
+
+```yaml
+action:
+  - service: remote.turn_on
+    entity_id: remote.bed_room_hub
+    data:
+       activity: "Watch TV"
+```
 
 ### {% linkable_title Service `remote.send_command` %}
 

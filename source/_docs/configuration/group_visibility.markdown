@@ -95,7 +95,7 @@ if __name__ == '__main__':
     print(get_current_occasion(OCCASIONS))
 ```
 
-This script will output "work_morning" from 06:00-07:10 during weekdays (monday-friday), "weekday" during all other time from monday-friday and "weekend" on saturdays and sundays. Adjust according to your needs. To create the sensor, just add it like this:
+This script will output "work_morning" from 06:00-07:10 during weekdays (Monday-Friday), "weekday" during all other time from Monday-Friday and "weekend" on Saturdays and Sundays. Adjust according to your needs. To create the sensor, just add it like this:
 
 ```yaml
 sensor:

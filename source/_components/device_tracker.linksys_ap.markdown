@@ -29,12 +29,25 @@ device_tracker:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The hostname or IP address of your access point, eg. `192.168.1.1`.
-- **username** (*Required*): The username of an user with administrative privileges (read-only is sufficient).
-- **password** (*Required*): The password for your given admin account.
-- **verify_ssl** (*Optional*): Verify SSL certificate for HTTPS request. Defaults to true.
+{% configuration %}
+host:
+  description: The hostname or IP address of your access point, e.g., `192.168.1.1`.
+  required: true
+  type: string
+username:
+  description: The username of an user with administrative privileges (read-only is sufficient).
+  required: true
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+verify_ssl:
+  description: Verify SSL certificate for HTTPS request.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
 ## {% linkable_title Example %}
 

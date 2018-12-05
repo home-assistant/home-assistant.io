@@ -29,11 +29,22 @@ switch:
       12: Light Desk
 ```
 
-Configuration variables:
-
-- **ports** array (*Required*): Array of used ports.
-  - **port: name** (*Required*): Port numbers and corresponding names (GPIO #).
-- **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
+{% configuration %}
+ports:
+  description: Array of used ports.
+  required: true
+  type: list
+  keys:
+    port:
+      description:  Port numbers and corresponding names (GPIO #).
+      required: true
+      type: [integer, string]
+invert_logic:
+  description: If true, inverts the output logic to ACTIVE LOW.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
@@ -51,5 +62,3 @@ switch:
     ports:
       17: Speaker Relay
 ```
-
-

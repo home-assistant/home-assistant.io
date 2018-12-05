@@ -61,7 +61,7 @@ host:
 port:
   description: The port which GPSD is using.
   required: false
-  type: int
+  type: integer
   default: 2947
 name:
   description: Friendly name to use for the frontend.

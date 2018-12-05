@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Calendar
 ha_iot_class: "Local Push"
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 

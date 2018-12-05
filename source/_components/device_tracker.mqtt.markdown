@@ -26,11 +26,16 @@ device_tracker:
       annetherese_n4: 'location/annetherese'
 ```
 
-Configuration variables:
-
-- **devices** (*Required*): List of devices with their topic.
-- **qos** (*Optional*): The QoS level of the topic.
-
+{% configuration %}
+devices:
+  description: List of devices with their topic.
+  required: true
+  type: list
+qos:
+  description: The QoS level of the topic.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 Example JSON you can publish to the topic (e.g., via mqtt.publish service):
 

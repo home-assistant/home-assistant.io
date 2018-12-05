@@ -13,7 +13,6 @@ logo: upcloud.png
 ha_iot_class: Cloud Polling
 ---
 
-
 The `upcloud` component allows you to access the information about your [UpCloud](https://www.upcloud.com/) servers from Home Assistant.
 
 ## {% linkable_title Setup %}
@@ -43,6 +42,6 @@ password:
 scan_interval:
   description: Update interval in seconds.
   required: false
-  type: int
+  type: integer
   default: 60
 {% endconfiguration %}

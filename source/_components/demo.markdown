@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
+ha_qa_scale: internal
 ---
 
 
@@ -26,13 +27,15 @@ Available demo platforms:
 - [Image Processing](/components/image_processing/) (`image_processing`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)
+- [Mailbox](/components/mailbox/) (`mailbox`)
+- [Media Player](/components/media_player/) (`media_player`)
 - [Notification](/components/notify/) (`notify`)
 - [Remote](/components/remote/) (`remote`)
 - [Sensor](/components/sensor/) (`sensor`)
 - [Switch](/components/switch/) (`switch`)
 - [Text-to-speech](/components/tts/) (`tts`)
 - [Weather](/components/weather/) (`weather`)
-- [Mailbox](/components/mailbox/) (`mailbox`)
+
 
 To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -42,6 +45,9 @@ To integrate a demo platform in Home Assistant, add the following section to you
   - platform: demo
 ```
 
-Configuration variables:
-
-- **[component]** (*Required*): The name of the component as stated in the listing above the configuration example.
+{% configuration %}
+"[component]":
+  description: The name of the component as stated in the listing above the configuration example.
+  required: true
+  type: string
+{% endconfiguration %}

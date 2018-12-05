@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Other"
+ha_qa_scale: internal
 ---
 
 The `api` component exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This component depends on the [`http` component](/components/http/).
@@ -22,4 +23,4 @@ It is HIGHLY recommended that you set the `api_password`, especially if you are 
 api:
 ```
 
-For details to use the API, please refer to the [REST API](/developers/rest_api/) or the [Python REST API documentation](/developers/python_api/) in the "Developer" section. 
+For details to use the API, please refer to the [REST API](/developers/rest_api/) or the [Python REST API documentation](/developers/python_api/) in the "Developer" section.

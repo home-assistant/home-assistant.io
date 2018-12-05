@@ -37,14 +37,34 @@ switch:
           'off': 1
 ```
 
-Configuration variables:
-
-- **switches** array (*Required*): The list that contains all command switches.
-  - **[entry]** (*Required*): Name of the command switch. Multiple entries are possible.
-    - **on_code** (*Required*): The code to turn the device on.
-    - **off_code** (*Required*): The code to turn the device off.
-    - **on_code_receive** (*Optional*): If given, this command will turn the switch on if it is received by pilight.
-    - **off_code_receive** (*Optional*): If given, this command will turn the switch off if it is received by pilight.
+{% configuration %}
+switches:
+  description: The list that contains all command switches.
+  required: true
+  type: string
+  keys:
+    entry:
+      description: Name of the command switch. Multiple entries are possible.
+      required: true
+      type: list
+      keys:
+        on_code:
+          description: The code to turn the device on.
+          required: true
+          type: list
+        off_code:
+          description: The code to turn the device off.
+          required: true
+          type: list
+        on_code_receive:
+          description: If given, this command will turn the switch on if it is received by pilight.
+          required: false
+          type: list
+        off_code_receive:
+          description: If given, this command will turn the switch off if it is received by pilight.
+          required: false
+          type: list
+{% endconfiguration %}
 
 Variables for the different codes (`on_code` and `off_code`):
 

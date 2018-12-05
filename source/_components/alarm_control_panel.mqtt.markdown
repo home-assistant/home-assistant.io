@@ -25,6 +25,8 @@ The component will accept the following states from your Alarm Panel (in lower c
 
 The component can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
+## {% linkable_title Configuration %}
+
 To enable this platform, add the following lines to your `configuration.yaml`:
 
 ```yaml

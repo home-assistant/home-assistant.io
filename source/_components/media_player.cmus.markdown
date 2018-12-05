@@ -33,9 +33,23 @@ media_player:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): Hostname or IP address of the machine running cmus. Note if a remote cmus is configured that instance must be configured to listen to remote connections, which also requires a password to be set.
-- **password** (*Required if host is set*): Password for your cmus player.
-- **port** (*Optional*): Port of the cmus socket, defaults to 3000.
-- **name** (*Optional*): The name you'd like to give the cmus player in Home Assistant
+{% configuration %}
+host:
+  description: Hostname or IP address of the machine running cmus. Note if a remote cmus is configured that instance must be configured to listen to remote connections, which also requires a password to be set.
+  required: inclusive
+  type: string
+password:
+  description: Password for your cmus player.
+  required: inclusive
+  type: string
+port:
+  description: Port of the cmus socket.
+  required: false
+  default: 3000
+  type: integer
+name:
+  description: The name you'd like to give the cmus player in Home Assistant.
+  required: false
+  default: cmus
+  type: string
+{% endconfiguration %}

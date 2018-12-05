@@ -56,7 +56,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.     |
 | `source`               |       no | Name of the source to switch to. Platform dependent. |
 
-#### {% linkable_title Service `media_player/select_sound_mode` %}
+#### {% linkable_title Service `media_player.select_sound_mode` %}
 
 Currently only supported on [Denon AVR](/components/media_player.denonavr/) and  [Songpal](/components/media_player.songpal/).
 
@@ -65,7 +65,7 @@ Currently only supported on [Denon AVR](/components/media_player.denonavr/) and 
 | `entity_id`            |       no | Target a specific media player. For example `media_player.marantz`|
 | `sound_mode`           |       no | Name of the sound mode to switch to. Platform dependent.|
 
-#### {% linkable_title Service `media_player/shuffle_set` %}
+#### {% linkable_title Service `media_player.shuffle_set` %}
 
 Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), [Squeezebox](/components/media_player.squeezebox/) and [Universal](/components/media_player.universal/).
 

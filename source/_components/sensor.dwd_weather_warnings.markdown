@@ -37,7 +37,15 @@ The warning level is between 0 (no danger) and 4 (extreme weather conditions):
 - Warnungen vor markantem Wetter (Stufe 2)
 - Wetterwarnungen (Stufe 1)
 
-Configuration variables:
-
-- **region_name** (*Optional*): The region name string as identified from the DWD website.  If not given, defaults to Hansestadt Hamburg.
-- **name** (*Optional*): The name you would like to give to the warnapp sensor.
+{% configuration %}
+region_name:
+  required: false
+  description: The region name string as identified from the DWD website.
+  default: Hansestadt Hamburg
+  type: string
+name:
+  required: false
+  description: The name you would like to give to the warnapp sensor.
+  type: string
+  default: DWD-Weather-Warnings
+{% endconfiguration %}

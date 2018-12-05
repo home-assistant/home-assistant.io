@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Cloud Push"
 ---
 
-
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
 <p class='note'>
@@ -23,6 +22,7 @@ You must have the [Nest component](/components/nest/) configured to use these se
 ## {% linkable_title Configuration %}
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
+
 ```yaml
 # Example configuration.yaml entry
 nest:
@@ -34,9 +34,12 @@ nest:
 
 By default all sensors for your available Nest devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the [Nest component](/components/nest/).
 
-Configuration variables:
-
-- **monitored_conditions** array (*Optional*): States to monitor.
+{% configuration %}
+monitored_conditions:
+  description: States to monitor.
+  required: false
+  type: list
+{% endconfiguration %}
 
 The following conditions are available by device:
 
@@ -59,17 +62,17 @@ The following conditions are available by device:
 ## {% linkable_title Security State %}
 
 <p class='note warning'>
-This feature is not designed to transfer your Home Assitant to a secruity system, neither Home Assistant nor Nest be liable to You for damages,
+This feature is not designed to transfer your Home Assistant to a security system, neither Home Assistant nor Nest be liable to You for damages,
 or consequential damages of any character arising as a result of use this feature.
-  
+
 This feature does not depend on the [Nest Secure alarm system](https://nest.com/alarm-system/overview/) and is not a reflection of the status of that system,
 nor does it react to state changes in that system.
 </p>
 
 <p class='note'>
-This feautre use a new [Nest Secruity API](https://developers.nest.com/documentation/cloud/security-guide),
-you may need to change your ["Product"](https://developers.nest.com/products) permission setting to include `Secruity State Read`.
-After permission change, you may need to re-authorize your client.
+This feature uses a new [Nest Security API](https://developers.nest.com/documentation/cloud/security-guide).
+You may need to change your ["Product"](https://developers.nest.com/products) permission setting to include `Security State Read`.
+After this permission change, you may need to re-authorize your client.
 </p>
 
 If a Nest Cam detects the presence of a person (see `person_detected` in [binary_sensor.nest](/components/binary_sensor.nest/)) while the structure is in `away` mode (see `away` in [binary_sensor.nest](/components/binary_sensor.nest/)), the structure enters `deter` mode.

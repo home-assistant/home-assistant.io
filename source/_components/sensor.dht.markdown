@@ -31,14 +31,40 @@ sensor:
     - humidity
 ```
 
-Configuration variables:
-
-- **sensor** (*Required*): The sensor type, supported devices are DHT11, DHT22, and AM2302.
-- **pin** (*Required*): The pin the sensor is connected to.
-- **name** (*Optional*): The name of the sensor.
-- **monitored_conditions** array (*Required*): Conditions to monitor. Available conditions are only *temperature* and *humidity*.
-- **temperature_offset** (*Optional*): Add or subtract a value from the temperature.
-- **humidity_offset** (*Optional*): Add or subtract a value from the humidity.
+{% configuration %}
+sensor:
+  description: The sensor type, supported devices are DHT11, DHT22, and AM2302.
+  required: true
+  type: string
+pin:
+  description: The pin the sensor is connected to.
+  required: true
+  type: integer
+name:
+  description: The name of the sensor.
+  required: false
+  default: DHT Sensor
+  type: string
+monitored_conditions:
+  description: Conditions to monitor. Available conditions are only *temperature* and *humidity*.
+  required: true
+  type: list
+  keys:
+    temperature:
+      description: Temperature at the sensor's location.
+    humidity:
+      description: Humidity level at the sensor's location.
+temperature_offset:
+  description: Add or subtract a value from the temperature.
+  required: false
+  default: 0
+  type: [integer, float]
+humidity_offset:
+  description: Add or subtract a value from the humidity.
+  required: false
+  default: 0
+  type: [integer, float]
+{% endconfiguration %}
 
 The name of the pin to which the sensor is connected has different names on different platforms. 'P8_11' for Beaglebone, '23' for Raspberry Pi.
 

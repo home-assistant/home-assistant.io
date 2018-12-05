@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `vultr` binary sensor platform allows you to monitor your [Vultr](https://www.vultr.com/) subscription to see if it is powered on or not.
 
+## {% linkable_title Configuration %}
+
 To use this binary sensor, you first have to set up your [Vultr hub](/components/vultr/).
 
 <p class='note'>
@@ -42,6 +44,7 @@ name:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Full example %}
 
 Full `configuration.yaml` (produces `binary_sensor.totally_awesome_server`):
 
@@ -51,4 +54,3 @@ binary_sensor:
     name: totally_awesome_server
     subscription: 12345
 ```
-

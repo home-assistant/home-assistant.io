@@ -35,7 +35,7 @@ Some best practices to consider before putting your configuration on GitHub:
 
 ### {% linkable_title Step 1: Installing and Initializing Git %}
 
-In order to put your configuration on GitHub, you must install the Git package on your Home Assistant server (instructions below will work on Raspberry Pi, Ubunutu or any Debian-based system) *Note: this isn't required in Hass.io, it's included as default so proceed to step 2*:
+In order to put your configuration on GitHub, you must install the Git package on your Home Assistant server (instructions below will work on Raspberry Pi, Ubuntu or any Debian-based system) *Note: this isn't required in Hass.io, it's included as default so proceed to step 2*:
 
 ```bash
 $ sudo apt-get update
@@ -57,10 +57,22 @@ Creating a `.gitignore` file in your repository will tell Git which files NOT to
 Here is an example that will ignore everything but your YAML configuration.
 
 ```bash
-# Example .gitignore file for your config dir
+# Example .gitignore file for your config dir.
+# A * ensures that everything will be ignored.
 *
+
+# You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
 !.gitignore
+!*.md
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 ```
@@ -140,7 +152,7 @@ Every time you run this script, you will be prompted for a comment to describe t
 [Travis CI](https://travis-ci.org) is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
 
 - [Authorize Travis CI](https://travis-ci.org/auth) to have access to your GitHub repositories.
-- Create the build script that travis will run to test your repository.
+- Create the build script that Travis will run to test your repository.
 - Create a dummy `secrets.yaml` for Travis.
 
 Example .travis.yml

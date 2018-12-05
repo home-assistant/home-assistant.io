@@ -27,19 +27,48 @@ mqtt_statestream:
   publish_timestamps: true
 ```
 
-Configuration variables:
-
-- **base_topic** (*Required*): Base topic used to generate the actual topic used to publish.
-- **publish_attributes** (*Optional*): Publish attributes of the entity as well as the state.
-Default is false.
-- **publish_timestamps** (*Optional*): Publish the last_changed and last_updated timestamps for the entity.
-Default is false.
-- **exclude** (*Optional*): Configure which components should be excluded from recordings. See *Include/Exclude* section below for details.
-  - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
-  - **domains** (*Optional*): The list of domains to be excluded from recordings.
-- **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from recordings.
-  - **domains** (*Optional*): The list of domains to be included from recordings.
+{% configuration %}
+base_topic:
+  description: Base topic used to generate the actual topic used to publish.
+  required: true
+  type: string
+publish_attributes:
+  description: Publish attributes of the entity as well as the state.
+  required: false
+  default: false
+  type: boolean
+publish_timestamps:
+  description: Publish the last_changed and last_updated timestamps for the entity.
+  required: false
+  default: false
+  type: boolean
+exclude:
+  description: Configure which components should be excluded from recordings. See *Include/Exclude* section below for details.
+  required: false
+  type: list
+  keys:
+    entities:
+      description: The list of entity ids to be excluded from recordings.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be excluded from recordings.
+      required: false
+      type: list
+include:
+  description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
+  required: false
+  type: list
+  keys:
+    entities:
+      description: The list of entity ids to be included from recordings.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be included from recordings.
+      required: false
+      type: list
+{% endconfiguration %}
 
 ## Operation
 

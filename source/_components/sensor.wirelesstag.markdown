@@ -15,6 +15,8 @@ ha_release: 0.68
 
 To get your [wirelesstag.net](http://wirelesstag.net) sensors working within Home Assistant, please follow the instructions for the general [WirelessTag component](/components/wirelesstag).
 
+## {% linkable_title Configuration %}
+
 To enable tags set up with your [wirelesstag.net](http://wirelesstag.net) account, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -27,15 +29,18 @@ sensor:
 ```
 
 {% configuration %}
-  monitored_conditions:
-    description: The metrics types to monitor; valid values are specified below
-    required: true
-    type: list
+monitored_conditions:
+  description: The metrics types to monitor.
+  required: true
+  type: list
+  keys:
+    temperature:
+      description: Value is in Celsius or Fahrenheit (according to your settings at Tag Manager).
+    humidity:
+      description: "Humidity level in %."
+    moisture:
+      description: "Water level/soil moisture in % (applicable for Water Tag only)."
+    light:
+      description: Brightness in lux (if supported by tag).
 {% endconfiguration %}
 
-The following metrics can be monitored:
-
-* (`temperature`): Value is in Celsius or Fahrenheit (according to your settings at Tag Manager).
-* (`humidity`): Humidity level in %.
-* (`moisture`): Water level/soil moisture in % (applicable for Water Tag only).
-* (`light`): Brightness in lux (if supported by tag).

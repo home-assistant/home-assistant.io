@@ -15,16 +15,32 @@ ha_release: 0.36
 
 The `zengge` platform allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.
 
+## {% linkable_title Configuration %}
+
+To enable the lights, add the following lines to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 light:
   - platform: zengge
     devices:
-      C4:BE:84:51:54:8B:
+      "C4:BE:84:51:54:8B":
         name: Living Room
 ```
-Configuration variables:
 
-- **devices** array (*Required*): List of your devices/bulbs.
-  - **MAC address** (*Required*): The MAC address of the bulb.
-    - **name** (*Optional*): Friendly name for the frontend.
+{% configuration %}
+devices:
+  description: The list of your devices/bulbs.
+  required: true
+  type: list
+  keys:
+    mac_address:
+      description: The MAC address of the bulb.
+      required: true
+      type: list
+      keys:
+        name:
+          description: The friendly name for the frontend.
+          required: false
+          type: string
+{% endconfiguration %}

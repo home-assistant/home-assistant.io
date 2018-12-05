@@ -26,8 +26,18 @@ light:
     sender_id: [0xFF,0xC6,0xEA,0x04]
 ```
 
-Configuration variables:
-
-- **id** (*Required*): The ID of the device. This is the 4 bytes long number written on the dimmer.
-- **sender_id** (*Required*): The Sender ID of the device. This is a 4 bytes long number.
-- **name** (*Optional*): An identifier for the Ligh in the frontend.
+{% configuration %}
+id:
+  description: The ID of the device. This is the 4 bytes long number written on the dimmer.
+  required: true
+  type: list
+sender_id:
+  description: The Sender ID of the device. This is a 4 bytes long number.
+  required: true
+  type: list
+name:
+  description: An identifier for the Ligh in the frontend.
+  required: false
+  default: EnOcean Light
+  type: string
+{% endconfiguration %}

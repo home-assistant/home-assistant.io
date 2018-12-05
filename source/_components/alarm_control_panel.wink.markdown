@@ -14,18 +14,14 @@ ha_release: 0.37
 
 No Wink hub is required to support these devices.
 
-
 The Wink alarm platform allows you to control your [Wink](http://www.wink.com/) Canary all-in-one security camera.
 
 The requirement is that you have setup [Wink](/components/wink/).
-
 
 ### {% linkable_title Supported devices %}
 
 - Canary all-in-one security camera
 
-
 <p class='note'>
 The above devices are confirmed to work, but others may work as well.
 </p>
-

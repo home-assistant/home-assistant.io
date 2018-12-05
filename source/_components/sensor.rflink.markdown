@@ -34,17 +34,35 @@ sensor:
         sensor_type: temperature
 ```
 
-Configuration variables:
-
-- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
-- **devices** (*Optional*): A list of devices with their name to use in the frontend.
-
-Device configuration variables:
-
-- **sensor_type** (*Required*): Override automatically detected type of sensor. For list of values see below.
-- **name** (*Optional*): Name for the device, defaults to RFLink ID.
-- **unit_of_measurement** (*Optional*): Override automatically detected unit of sensor.
-- **aliases** (*Optional*): Alternative RFLink ID's this device is known by.
+{% configuration %}
+automatic_add:
+  description: Automatically add new/unconfigured devices to Home Assistant if detected.
+  required: false
+  default: true
+  type: boolean
+devices:
+  description: A list of devices with their name to use in the frontend.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Name for the device.
+      required: false
+      default: RFLink ID
+      type: string
+    sensor_type:
+      description: Override automatically detected type of sensor. For list of values see below.
+      required: true
+      type: string
+    unit_of_measurement:
+      description: Override automatically detected unit of sensor.
+      required: false
+      type: string
+    aliases:
+      description: "(deprecated) Alternative RFLink ID's this device is known by."
+      required: false
+      type: [list, string]
+{% endconfiguration %}
 
 Sensor type values:
 
@@ -92,4 +110,3 @@ Sensors are added automatically when the RFLink gateway intercepts a wireless co
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
-

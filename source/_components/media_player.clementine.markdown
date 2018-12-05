@@ -25,12 +25,26 @@ media_player:
     host: 192.168.0.20
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the Clementine Player (eg. 192.168.0.20).
-- **port** (*Optional*): The remote control port (default is: 5500).
-- **access_token** (*Optional*): The authorization code needed to connect.
-- **name** (*Optional*): The name you would like to give to the Clementine player. The default is "Clementine Remote".
+{% configuration %}
+host:
+  description: The IP address of the Clementine Player e.g., 192.168.0.20.
+  required: true
+  type: string
+port:
+  description: The remote control port.
+  required: false
+  default: 5500
+  type: integer
+access_token:
+  description: The authorization code needed to connect.
+  required: false
+  type: integer
+name:
+  description: The name you would like to give to the Clementine player.
+  required: false
+  default: Clementine Remote
+  type: string
+{% endconfiguration %}
 
 Remember that Clementine must be configured to accept connections through its network remote control protocol.
 

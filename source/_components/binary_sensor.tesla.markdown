@@ -14,7 +14,7 @@ ha_release: 0.53
 ---
 
 The `tesla` platform allows you to get data from your [Tesla](https://www.tesla.com/) sensors from within Home Assistant.
-  
+
 They will be automatically discovered if the Tesla component is loaded.
 
 For more configuration information see the [Tesla component](/components/tesla/) documentation.

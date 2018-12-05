@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/installation-vagrant/
 ---
 
-A `Vagrantfile` is available into `virtualization/vagrant` folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them. In the same `virtualization/vagrant` folder there's also a `provision.sh` shell script which provides an easy way to interact with the Home Assistant instance running within the Vagrant VM.
+A `Vagrantfile` is available into `virtualization/vagrant` folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them. In the same `virtualization/vagrant` folder there's also a `provision.sh` shell script which provides an easy way to interact with the Home Assistant instance running within the Vagrant VM. For Windows, use the batch script `provision.bat`.
 
 <p class='note'>
 Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
@@ -19,6 +19,8 @@ Vagrant is intended for testing/development only. It is NOT recommended for perm
 ## {% linkable_title Install Vagrant %}
 
 You must have [Vagrant](https://www.vagrantup.com/downloads.html) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads) installed on your workstation. Vagrant and Virtualbox support all the main platforms, including Windows, MacOS and Linux.
+
+Limited support is available for Hyper-V on Windows, see below.
 
 ## {% linkable_title Get Home Assistant source code %}
 
@@ -98,3 +100,15 @@ To completely remove the VM **and** setup a fresh new environment:
 ```bash
 $ ./provision.sh recreate
 ```
+
+## {% linkable_title Windows %}
+
+On Windows, Vagrant is launched through an elevated `PowerShell`. Use the batch script `provision.bat` instead of the shell script `provision.sh`.
+
+## {% linkable_title Hyper-V %}
+
+It is possible to use Hyper-V instead of Virtualbox on Windows, with some limitations.
+
+Samba is used for the virtual machine to access files, for which the Windows credentials are needed when the machine is created.
+As Hyper-V does not allow for port forwarding, NAT is used by default for the network. Through creating an external network switch in Hyper-V it is possible to access the machine on the network.
+The IP address is visible on creation, and through the Hyper-V manager.

@@ -19,7 +19,7 @@ The `fritz` platform offers presence detection by looking at connected devices t
 
 <p class='note warning'>
 It might be necessary to install additional packages: <code>$ sudo apt-get install python3-lxml</code>
-If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>$ sudo apt-get install libxslt-dev libxml2-dev zlib1g-dev; pip install lxml</code>; be patient this will take a while.</p>
+If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>$ sudo apt-get install libxslt-dev libxml2-dev zlib1g-dev; pip3 install lxml</code>; be patient this will take a while.</p>
 
 ## {% linkable_title Configuration %}
 
@@ -31,15 +31,23 @@ device_tracker:
   - platform: fritz
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router, eg. `192.168.1.1`. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
-- **username** (*Optional*: The username of an user with administrative privileges, usually `admin`.
-- **password** (*Optional*): The password for your given admin account.
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., `192.168.1.1`. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+  required: false
+  type: string
+username:
+  description: The username of an user with administrative privileges, usually `admin`.
+  required: false
+  type: string
+password:
+  description: The password for your given admin account.
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 It seems that it is not necessary to use it in current generation Fritz!Box routers because the necessary data can be retrieved anonymously.
 </p>
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-

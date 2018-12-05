@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Automation
+ha_qa_scale: internal
 ---
 
 The `script` component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.
@@ -115,6 +116,6 @@ script:
 
 ### {% linkable_title In the Overview %}
 
-Scripts in the Overview panel will be displayed with an **ACTIVATE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
+Scripts in the Overview panel will be displayed with an **EXECUTE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
 
 This is to enable you to stop a running script.

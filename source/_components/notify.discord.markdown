@@ -14,7 +14,9 @@ ha_release: 0.37
 
 The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows components to send messages to the user using Discord.
 
-In order to get a token you need to go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application. Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**) and activate **Require OAuth2 Code Grant**. Retrieve the **Client ID** and the (hidden) **Token** of your bot for later.
+In order to get a token you need to go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application. Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**).
+
+Retreive the **Client ID** from the information section and the (hidden) **Token** of your bot for later.
 
 When setting up the application you can use this [icon](/demo/favicon-192x192.png).
 
@@ -23,15 +25,21 @@ To use Discord notifications, add the following to your `configuration.yaml` fil
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
-    platform: discord
-    token: A1aB2b.C3cD4d-E5eF6f
+  - platform: discord
+    token: YOUR_DISCORD_BOT_TOKEN
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **token** (*Required*): Your bot's token.
+{% configuration %}
+name:
+  description: The notifier will bind to the service `notify.NAME`.
+  required: false
+  type: string
+  default: notify
+token:
+  description: Your bot's token.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Setting up the bot %}
 

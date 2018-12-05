@@ -14,6 +14,12 @@ ha_release: "0.20"
 
 The `aws_sns` notification platform enables publishing to an [AWS SNS](https://aws.amazon.com/sns/) topic or application.
 
+## {% linkable_title Setup %}
+
+For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) to get the needed details. Also, check the [boto3 Documentation](http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file) about the profiles and the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region) for available regions.
+
+## {% linkable_title Configuration %}
+
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,13 +32,30 @@ notify:
     region_name: 'us-east-1'
 ```
 
-Configuration variables:
-
-- **aws_access_key_id** (*Required if aws_secret_access_key is provided*): Your AWS Access Key ID. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`.
-- **aws_secret_access_key** (*Required if aws_access_key_id is provided*): Your AWS Secret Access Key. For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`.
-- **profile_name** (*Optional*): A credentials profile name. For more information, please see the [boto3 documentation section about credentials](http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file).
-- **region_name** (*Required*): The region identifier to connect to. The default is `us-east-1`.
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+{% configuration %}
+aws_access_key_id:
+  description: Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`.
+  required: Required if aws_secret_access_key is provided
+  type: string
+aws_secret_access_key:
+  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`.
+  required: Required if aws_access_key_id is provided
+  type: string
+profile_name:
+  description: A credentials profile name.
+  required: false
+  type: string
+region_name:
+  description: The region identifier to connect to.
+  required: true
+  default: us-east-1
+  type: string
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Usage %}
 

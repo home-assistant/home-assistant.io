@@ -24,7 +24,6 @@ weather:
   - platform: met
 ```
 
-
 {% configuration %}
 latitude:
   description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.

@@ -13,9 +13,12 @@ ha_release: 0.52
 ha_iot_class: "Cloud Push"
 ---
 
-The `abode` component will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
+The `abode` component will allow users to integrate their Abode Home Security
+systems into Home Assistant and use its alarm system and sensors to automate
+their homes.
 
-Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
+Please visit the [Abode website](https://goabode.com/) for further information
+about Abode Security.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -30,7 +33,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Configuration %}
 
-To use Abode devices in your installation, add the following `abode` section to your `configuration.yaml` file:
+To use Abode devices in your installation,
+add the following `abode` section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,7 +42,7 @@ abode:
   username: abode_username
   password: abode_password
   name: Abode Alarm System
-  polling: False
+  polling: false
   exclude:
     - 'ZW:0000000034'
     - 'RF:00000011'
@@ -46,18 +50,44 @@ abode:
     - 'ZW:0000000022'
 ```
 
-Configuration variables:
-
-- **username** (*Required*): Username for your Abode account.
-- **password** (*Required*): Password for your Abode account.
-- **name** (*Optional*): The name for your alarm controller.
-- **polling** (*Optional*): Enable polling if cloud push updating is less reliable. Will update the devices once every 30 seconds. Defaults to False.
-- **exclude** (*Optional*): A list of devices to exclude from Home Assistant by their Abode `device_id` or `automation_id`, found within the component attributes.
-- **lights** (*Optional*): A list of switch devices that Home Assistant should treat as lights by the switches Abode `device_id`, found within the component attributes.
+{% configuration %}
+username:
+  description: Username for your Abode account.
+  required: true
+  type: string
+password:
+  description: Password for your Abode account.
+  required: true
+  type: string
+name:
+  description: The name for your alarm controller.
+  required: false
+  type: string
+polling:
+  description: >
+    Enable polling if cloud push updating is less reliable.
+    Will update the devices once every 30 seconds.
+  required: false
+  type: boolean
+  default: false
+exclude:
+  description: >
+    A list of devices to exclude from Home Assistant by their Abode `device_id`
+    or `automation_id`, found within the component attributes.
+  required: false
+  type: list
+lights:
+  description: >
+    A list of switch devices that Home Assistant should treat as lights by the
+    switches Abode `device_id`, found within the component attributes.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ## {% linkable_title Events %}
 
-There are a number of events that can be triggered from Abode. They are grouped into the below events:
+There are a number of events that can be triggered from Abode.
+They are grouped into the below events:
 
 - **abode_alarm**: Fired when an alarm event is triggered from Abode. This includes Smoke, CO, Panic, and Burglar alarms.
 - **abode_alarm_end**: Fired when an alarm end event is triggered from Abode.
@@ -80,13 +110,16 @@ Field | Description
 `date` | The date of the event in the format `MM/DD/YYYY`.
 `time` | The time of the event in the format `HH:MM AM`.
 
-There is a unique list of known event_codes that can be found [here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
+There is a unique list of known event_codes that can be found
+[here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
 
 ## {% linkable_title Services %}
 
 ### {% linkable_title Service `change_setting` %}
 
-Change settings on your Abode system. For a full list of settings and valid values, consult the [AbodePy settings section](https://github.com/MisterWil/abodepy/blob/master/README.rst#settings).
+Change settings on your Abode system.
+For a full list of settings and valid values, consult the
+[AbodePy settings section](https://github.com/MisterWil/abodepy/blob/master/README.rst#settings).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -42,7 +42,7 @@ listen_port:
   description: Port to listen on for events from the device.
   required: false
   default: 8301
-  type: int
+  type: integer
 name:
   description: The name you would like to give to the device, e.g., `TV living room`.
   required: false

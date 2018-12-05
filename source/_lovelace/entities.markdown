@@ -57,6 +57,10 @@ secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`."
   type: string
+format:
+  required: false
+  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Special Row Elements %}
@@ -72,43 +76,24 @@ name:
   required: true
   description: Main Label.
   type: string
-icon:
-  required: true
-  description: "Icon to display (e.g. `mdi:home`)"
-  type: string
-action_name:
-  required: true
-  description: Button label.
-  type: string
 service:
   required: true
   description: "Service like `media_player.media_play_pause`"
   type: string
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: "`mdi:remote`"
+action_name:
+  required: false
+  description: Button label.
+  type: string
+  default: "`Run`"
 service_data:
-  required: true
+  required: false
   description: The service data to use.
   type: object
-{% endconfiguration %}
-
-### {% linkable_title Weblink %}
-
-{% configuration %}
-type:
-  required: true
-  description: weblink
-  type: string
-name:
-  required: true
-  description: Link label.
-  type: string
-icon:
-  required: true
-  description: "Icon to display (e.g. `mdi:home`)"
-  type: string
-url:
-  required: true
-  description: "Website URL."
-  type: string
 {% endconfiguration %}
 
 ### {% linkable_title Divider %}
@@ -123,6 +108,42 @@ style:
   description: Style the element using CSS.
   type: object
   default: "height: 1px, background-color: var(--secondary-text-color)"
+{% endconfiguration %}
+
+### {% linkable_title Section %}
+
+{% configuration %}
+type:
+  required: true
+  description: section
+  type: string
+label:
+  required: false
+  description: Section label
+  type: string
+{% endconfiguration %}
+
+### {% linkable_title Weblink %}
+
+{% configuration %}
+type:
+  required: true
+  description: weblink
+  type: string
+url:
+  required: true
+  description: "Website URL (or internal URL e.g. `/hassio/dashboard` or `/panel_custom_name`)"
+  type: string
+name:
+  required: false
+  description: Link label
+  type: string
+  default: url path
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: "`mdi:link`"
 {% endconfiguration %}
 
 ## {% linkable_title Example %}

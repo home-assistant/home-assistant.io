@@ -32,17 +32,43 @@ sensor:
       - example@gmail.com
 ```
 
-Configuration variables:
-
-- **server** (*Required*): The IP address or hostname of the IMAP server.
-- **port** (*Required*): The port where the server is accessible.
-- **name** (*Optional*): Name of the IMAP sensor to use in the frontend.
-- **username** (*Required*): Username for the IMAP server.
-- **password** (*Required*): Password for the IMAP server.
-- **senders** (*Required*): A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
-- **value_template** (*Optional*): If specified this template will be used to render the state of the sensor. If a template is not supplied the message subject will be used for the sensor value. The following attributes will be supplied to the template:
-
-   * **from**: The from address of the email
-   * **body**: The body of the email
-   * **subject**: The subject of the email
-   * **date**: The date and time the email was sent
+{% configuration %}
+server:
+  description: The IP address or hostname of the IMAP server.
+  required: true
+  type: string
+port:
+  description: The port where the server is accessible.
+  required: false
+  default: 993
+  type: integer
+name:
+  description: Name of the IMAP sensor.
+  required: false
+  type: string
+username:
+  description: Username for the IMAP server.
+  required: true
+  type: string
+password:
+  description: Password for the IMAP server.
+  required: true
+  type: string
+senders:
+  description: A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
+  required: true
+  type: string
+value_template:
+  description: If specified this template will be used to render the state of the sensor. If a template is not supplied the message subject will be used for the sensor value. The following attributes will be supplied to the template.
+  required: false
+  type: template
+  keys:
+    from:
+      description: The from address of the email.
+    body:
+      description: The body of the email.
+    subject:
+      description: The subject of the email.
+    date:
+      description: The date and time the email was sent.
+{% endconfiguration %}

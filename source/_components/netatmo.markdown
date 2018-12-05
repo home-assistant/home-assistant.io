@@ -13,7 +13,6 @@ ha_release: "0.20"
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
 
 To enable the Netatmo component, add the following lines to your `configuration.yaml`:
@@ -27,13 +26,29 @@ netatmo:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): The `client id` form your Netatmo app.
-- **secret_key** (*Required*): The `client secret` form your Netatmo app.
-- **username** (*Required*): Username for the Netatmo account.
-- **password** (*Required*): Password for the Netatmo account.
-- **discovery** (*Optional)*: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).
+{% configuration %}
+api_key:
+  description: The `client id` from your Netatmo app.
+  required: true
+  type: string
+secret_key:
+  description: The `client secret` from your Netatmo app.
+  required: true
+  type: integer
+username:
+  description: Username for the Netatmo account.
+  required: true
+  type: string
+password:
+  description: Password for the Netatmo account.
+  required: true
+  type: string
+discovery:
+  description: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add.
+  required: false
+  type: string
+  default: true
+{% endconfiguration %}
 
 ### {% linkable_title Get API and Secret Key %}
 
@@ -43,7 +58,7 @@ Click on 'Create an App' at the top of the page.
 <p class='img'>
 <img src='/images/screenshots/netatmo_create.png' />
 </p>
-You have to fill the form, but only two fields are required : Name and Description. It doesn't really matter what you put into those. Just write something that make sense to you. To submit your new app, click on create at the bottom of the form.
+You have to fill the form, but only two fields are required: Name and Description. It doesn't really matter what you put into those. Just write something that make sense to you. To submit your new app, click on create at the bottom of the form.
 
 <p class='img'>
 <img src='/images/screenshots/netatmo_app.png' />
@@ -54,4 +69,3 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 <p class='img'>
 <img src='/images/screenshots/netatmo_api.png' />
 </p>
-

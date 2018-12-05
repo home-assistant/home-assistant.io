@@ -61,3 +61,43 @@ realtime:
   required: false
   type: boolean
 {% endconfiguration %}
+
+
+## {% linkable_title Example using dynamic destination %}
+
+Using the flexible option to set a sensor value to the `destination`, you can setup a single Waze component that will calculate travel time to multiple optional locations on demand. 
+
+In the following example, the `Input Select` is converted into an address which is used to modify the destination for Waze route calculation from `device_tracker.myphone` location (It takes a few minutes for the value to update due to the interval set to fetch Waze data).
+
+{% raw %}
+```yaml
+input_select:
+  destination:
+    name: destination
+    options:
+      - Home
+      - Work
+      - Parents
+      
+sensor:
+  - platform: template
+    sensors:
+       dest_address:
+         value_template: >-
+            {%- if is_state("input_select.destination", "Home")  -%}
+              725 5th Ave, New York, NY 10022, USA
+            {%- elif is_state("input_select.destination", "Work")  -%}
+              767 5th Ave, New York, NY 10153, USA
+            {%- elif is_state("input_select.destination", "Parents")  -%}
+              178 Broadway, Brooklyn, NY 11211, USA
+            {%- else -%}
+              Unknown
+            {%- endif %}
+         
+  - platform: waze_travel_time
+    name: "Me to destination"
+    origin: device_tracker.myphone
+    destination: sensor.dest_address
+    region: 'US'
+```
+{% endraw %}

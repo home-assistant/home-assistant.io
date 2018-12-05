@@ -37,20 +37,32 @@ device_tracker:
       - 2004 Subaru Impreza
 ```
 
-Configuration variables:
-
-- **client_id** (*Required*): The OAuth client id (get from https://developer.automatic.com/).
-- **secret** (*Required*): The OAuth client secret (get from https://developer.automatic.com/).
-- **current_location** (*Optional*): Set to `true` if you have requested `scope:current_location` for your account. Home Assistant will then be able to receive periodic location updates during trips.
-- **devices** (*Optional*): The list of vehicle display names you wish to track. If not provided, all vehicles will be tracked.
+{% configuration %}
+client_id:
+  description: "The OAuth client id (get from https://developer.automatic.com/)."
+  required: true
+  type: string
+secret:
+  description: "The OAuth client secret (get from https://developer.automatic.com/)."
+  required: true
+  type: string
+current_location:
+  description: "Set to `true` if you have requested `scope:current_location` for your account. Home Assistant will then be able to receive periodic location updates during trips."
+  required: false
+  default: false
+  type: boolean
+devices:
+  description: The list of vehicle display names you wish to track. If not provided, all vehicles will be tracked.
+  required: false
+  type: list
+{% endconfiguration %}
 
 Home Assistant will also fire events when an update is received from Automatic. These can be used to trigger automations, as shown in the example below. A list of available event types can be found in the [Automatic Real-Time Events documentation](https://developer.automatic.com/api-reference/#real-time-events).
-
 
 ```yaml
 # Example automatic event automation
 automation:
-  - trigger: 
+  - trigger:
       - platform: event
         event_type: automatic_update
         event_data:
@@ -60,6 +72,7 @@ automation:
     action:
       - service: light.turn_off
 ```
+
 <p class='note'>
   You can obtain the correct ID for your vehicle from your known_devices.yaml file. Be sure to lower-case any letters contained in your vehicle's ID when using it in an automation trigger.
 </p>

@@ -68,7 +68,7 @@ host:
 port:
   description: The port that the Netdata instance is running on.
   required: false
-  type: int
+  type: integer
   default: 19999
 name:
   description: Name of the monitored Netdata instance.
@@ -96,7 +96,7 @@ resources:
         icon:
           description: Icon to use for the sensor.
           required: false
-          type: string
+          type: icon
           default: "mdi:desktop-classic"
 {% endconfiguration %}
 

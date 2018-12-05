@@ -40,20 +40,72 @@ switch:
       command_off: 0
 ```
 
-Configuration variables:
-
-- **coils** (*Optional*): A list of relevant coils to read from/write to.
-  - **slave** (*Required*): The number of the slave (can be omitted for tcp and udp Modbus).
-  - **name** (*Required*): Name of the switch.
-  - **coil** (*Required*): Coil number.
-- **registers** (*Optional*): A list of relevant registers to read from/write to.
-  - **slave** (*Required*): The number of the slave (can be omitted for tcp and udp Modbus).
-  - **name** (*Required*): Name of the switch.
-  - **register** (*Required*): Register number.
-  - **command_on** (*Required*): Value to write to turn on the switch.
-  - **command_off** (*Required*): Value to write to turn off the switch.
-  - **verify_state** (*Optional*): Define if is possible to readback the status of the switch. (default: True)
-  - **verify_register** (*Optional*): Register to readback. (default: same as register)
-  - **register_type** (*Optional*): Modbus register type: holding or input. (default: holding)
-  - **state_on** (*Optional*): Register value when switch is on. (default: same as command_on)
-  - **state_off** (*Optional*): Register value when switch is off. (default: same as command_off)
+{% configuration %}
+coils:
+  description: A list of relevant coils to read from/write to.
+  required: false
+  type: map
+  keys:
+    slave:
+      description: The number of the slave (can be omitted for tcp and udp Modbus).
+      required: true
+      type: integer
+    name:
+      description: Name of the switch.
+      required: true
+      type: string
+    coil:
+      description: Coil number.
+      required: true
+      type: integer
+register:
+  description: A list of relevant registers to read from/write to.
+  required: false
+  type: map
+  keys:
+    slave:
+      description: The number of the slave (can be omitted for tcp and udp Modbus).
+      required: true
+      type: integer
+    name:
+      description: Name of the switch.
+      required: true
+      type: string
+    register:
+      description: Register number.
+      required: true
+      type: integer
+    command_on:
+      description: Value to write to turn on the switch.
+      required: true
+      type: integer
+    command_off:
+      description: Value to write to turn off the switch.
+      required: true
+      type: integer
+    verify_state:
+      description: Define if is possible to readback the status of the switch.
+      required: false
+      default: True
+      type: boolean
+    verify_register:
+      description: Register to readback.
+      required: false
+      default: same as register
+      type: string
+    register_type:
+      description: Modbus register types are holding or input.
+      required: false
+      default: holding
+      type: string
+    state_on:
+      description: Register value when switch is on.
+      required: false
+      default: same as command_on
+      type: integer
+    state_off:
+      description: Register value when switch is off.
+      required: false
+      default: same as command_off
+      type: integer
+{% endconfiguration %}

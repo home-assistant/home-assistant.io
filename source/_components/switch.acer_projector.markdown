@@ -27,10 +27,21 @@ switch:
     filename: /dev/ttyUSB0
 ```
 
-Configuration variables:
-
-- **filename** (*Required*): The pipe where the projector is connected to.
-- **name** (*Optional*): The name to use when displaying this switch.
-- **timeout** (*Optional*): Timeout for the connection in seconds.
-- **write_timeout** (*Optional*): Write timeout in seconds.
-
+{% configuration %}
+filename:
+  description: The pipe where the projector is connected to.
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  type: string
+timeout:
+  description: Timeout for the connection in seconds.
+  required: false
+  type: integer
+write_timeout:
+  description: Write timeout in seconds.
+  required: false
+  type: integer
+{% endconfiguration %}

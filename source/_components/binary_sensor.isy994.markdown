@@ -14,5 +14,5 @@ ha_release: pre 0.7
 ---
 
 The `isy994` platform allows you to get data from your [ISY994](https://www.universal-devices.com/residential/isy994i-series/) binary sensors from within Home Assistant.
-  
+
 They will be automatically discovered if the `isy994` component is loaded.

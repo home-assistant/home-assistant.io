@@ -22,14 +22,33 @@ To add Emby to your installation, add the following to your `configuration.yaml`
 # Example configuration.yaml entry
 media_player:
   - platform: emby
-    host: 192.168.11.5
-    api_key: "emby_api_key"
+    host: YOUR_IP_ADDRESS
+    api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The host name or address of the device that is running Emby. Defaults to ```localhost```.
-- **api_key** (*Required*): The api-key you would like home-assistant to use to authenticate.
-- **ssl** (*Optional*): True if you want to connect with https/wss. Your SSL certificate must be valid. Default is False.
-- **port** (*Optional*): The port number. Defaults to 8096 with SSL set to False and 8920 with SSL set to True.
-- **auto_hide** (*Optional*): True if you want to automatically hide devices that are unavailable from the Home Assistant Interface. Defaults to False.
+{% configuration %}
+host:
+  description: The host name or IP address of the device that is running Emby.
+  required: false
+  default: localhost
+  type: string
+api_key:
+  description: The API key to use to authenticate.
+  required: true
+  type: string
+ssl:
+  description: True if you want to connect with HTTPS/WSS. Your SSL certificate must be valid.
+  required: false
+  default: false
+  type: boolean
+port:
+  description: The port number of the device that is running Emby.
+  required: false
+  default: 8096 (No SSL),  8920 (SSL)
+  type: integer
+auto_hide:
+  description: True if you want to automatically hide devices that are unavailable from the Home Assistant Interface.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}

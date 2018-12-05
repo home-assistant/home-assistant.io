@@ -32,7 +32,10 @@ host:
 port:
   description: The port on which the APCUPSd NIS is listening.
   required: false
-  type: int
+  type: integer
   default: 3551
 {% endconfiguration %}
 
+<p class='note'>
+If you get `ConnectionRefusedError: Connection refused` errors in the Home assistant logs, ensure the [APCUPSd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addesses will not connect. This includes Hass.io running in Docker, even when hosted on the same machine or a virtual machine.
+ </p>

@@ -24,11 +24,22 @@ switch:
     id: [0x01,0x90,0x84,0x3C]
 ```
 
-Configuration variables:
-
-- **id** (*Required*): The ID of the device. This is a 4 bytes long number.
-- **name** (*Optional*): An identifier for the switch. Default to `EnOcean Switch`.
-- **channel** (*Optional*): The number of the channel (typically 0 or 1) for the output channel to switch. Default to `0`.
+{% configuration %}
+id:
+  description: The ID of the device. This is a 4 bytes long number.
+  required: true
+  type: list
+name:
+  description: An identifier for the switch.
+  required: false
+  default: EnOcean Switch
+  type: string
+channel:
+  description: The number of the channel (typically 0 or 1) for the output channel to switch.
+  required: false
+  default: 0
+  type: integer
+{% endconfiguration %}
 
 ```yaml
 # Example entries for a switch with 2 outputs (channels), e.g., the Nod On SIN-2-1-01

@@ -40,11 +40,14 @@ show_state:
   description: Show entity state-text.
   type: boolean
   default: "true"
-column_width:
+theme:
   required: false
-  description: "Column width as CSS length like `100px` or `calc(100% / 7)`. This controls how many entities appear in a row - at the default 20% you have 5 entities in a row. Use `calc(100% / 7)` for 7 entities in a row, and so on."
+  description: "Set to any theme within `themes.yaml`"
   type: string
-  default: 20%
+columns:
+  required: false
+  description: Number of columns to show. If not specified the number will be set automatically.
+  type: integer
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
@@ -69,9 +72,14 @@ tap_action:
   description: "Set to `toggle` or `call-service` for direct actions."
   type: string
   default: more-info
+hold_action:
+  required: false
+  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
+  type: string
+  default: none
 service:
   required: false
-  description: "For `call-service`, e.g. `media_player.media_play_pause`"
+  description: "For `call-service`, e.g., `media_player.media_play_pause`"
   type: string
 service_data:
   required: false

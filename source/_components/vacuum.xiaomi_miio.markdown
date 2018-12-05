@@ -13,9 +13,9 @@ ha_release: 0.51
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](http://www.mi.com/roomrobot/).
+The `xiaomi miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
 
-Currently supported features are:
+Currently supported services are:
 
 - `start`
 - `pause`
@@ -26,10 +26,10 @@ Currently supported features are:
 - `set_fan_speed`
 - remote control of your robot.
 
+## {% linkable_title Configuration %}
+
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
-
-## {% linkable_title Configuring the Platform %}
 
 To add a vacuum to your installation, add the following to `configuration.yaml`:
 
@@ -40,11 +40,21 @@ vacuum:
     token: YOUR_TOKEN
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of your robot.
-- **token** (*Required*): The API token of your robot.
-- **name** (*Optional*): The name of your robot.
+{% configuration %}
+host:
+  description: The IP address of your robot.
+  required: true
+  type: string
+token:
+  description: The API token of your robot.
+  required: true
+  type: string
+name:
+  description: The name of your robot.
+  required: false
+  type: string
+  default: Xiaomi Vacuum cleaner
+{% endconfiguration %}
 
 ## {% linkable_title Platform Services %}
 
@@ -124,10 +134,10 @@ The following table shows the units of measurement for each attribute:
 ## {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>
-As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Android Mi-Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.0](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/) is confirmed as working for the following Android methods.
-  
-The iPhone app still stores the token in the sqlite db as of v4.7.18 (July 17, 2018).
-
+As per [python-miio issue 185](https://github.com/rytilahti/python-miio/issues/185) the Android Mi Home app no longer stores the token within the database (it's retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) is confirmed as working for the following Android methods. Using older version than 5.0.30 is not recommended as it might lack support for some newer devices like the Roborock S50.
+<br/> <br/>
+The iPhone app still stores the token in the sqlite db as of v4.9.1 (Nov 7, 2018).
+<br/> <br/>
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 </p>
@@ -176,6 +186,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 5. Click "Extract Token"
 6. On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.
 7. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
+8. If you don't get a token, close MiToolKit completely, delete the folder MiToolkit\apps\com.xiaomi.smarthome and relaunch MiToolKit to force recreate a new backup (sometimes the files would not be overwritten before deleting the old ones)
 
 #### {% linkable_title Linux and Android (not rooted) %}
 
@@ -237,15 +248,47 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 1. Configure the robot with the Mi-Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.
-3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
+3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
 5. Navigate to `com.xiaomi.mihome`.
 6. Search for a file that looks like this: `123456789_mihome.sqlite` – note that `_mihome.sqlite` is *not* the correct file.
 7. Save this file to your filesystem.
-8. Install [DB Browser for SQLite](http://sqlitebrowser.org/).
+8. Install [DB Browser for SQLite](https://sqlitebrowser.org/).
 9. Open DB Browser and load the `.sqlite` file you saved from your backup.
 10. Click on the `Execute SQL` tab.
 11. Input and run this query: `SELECT ZTOKEN FROM ZDEVICE WHERE ZMODEL LIKE "%vacuum%"`
 12. Copy the returned 32-digit hexadecimal string to your clipboard.
 13. Open `Terminal` and execute this command: `echo '0: <YOUR HEXADECIMAL STRING>' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000`
 14. Use the resulting string as your token.
+
+#### {% linkable_title Bluestacks %}
+
+1. Configure the robot with the Mi-Home app.
+2. Install [BlueStacks](https://www.bluestacks.com).
+3. Set up the Mi-Home app in BlueStacks and login to synchronize devices.
+4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
+
+#### {% linkable_title Selecting token manually (Windows and Android)%}
+
+The following instruction explained an alternativ way, if MiToolKit didn't work.
+  Software Required:
+- Android ADB is contained in [Android SDK](https://developer.android.com/studio/releases/platform-tools)
+- [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
+- [Android Backup Extractor](https://sourceforge.net/projects/adbextractor/)
+- [SQLite Browser](https://sqlitebrowser.org/)
+1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device
+2. Open MiHome, log-in and add your devices
+3. Enable USB-Debugging on your Android
+4. Create a backup from your MiHome App, by using adb
+	```bash
+	adb backup com.xiaomi.smarthome
+	```
+	Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
+5. Extract the backup-file with android-backup-extractor
+	```bash
+	java -jar abe.jar unpack backup.ab backup.tar
+	```
+	After that, you kann open the file with WinRaR or what ever you like.
+6. Go to \apps\com.xiaomi.smarthome\db
+7. Open miio2.db with SQLite Browser
+8. You can find your device tokens in "devicerecord" table

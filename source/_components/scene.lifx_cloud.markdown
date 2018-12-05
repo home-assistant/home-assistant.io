@@ -21,10 +21,17 @@ scene:
     token: YOUR_LIFX_TOKEN
 ```
 
-Configuration variables:
-
-- **token** (*Required*): The API token for your LIFX Cloud account.
-- **timeout** (*Optional*): Network timeout in seconds (defaults to 10).
+{% configuration %}
+token:
+  description: The API token for your LIFX Cloud account.
+  required: true
+  type: string
+timeout:
+  description: Network timeout in seconds.
+  required: false
+  default: 10
+  type: integer
+{% endconfiguration %}
 
 ### Getting an API token
 

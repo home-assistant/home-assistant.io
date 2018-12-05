@@ -43,12 +43,31 @@ switch:
       name: device_name
 ```
 
-Configuration variables:
-
-- **devices** (*Required*): A list of devices with their name to use in the frontend.
-- **automatic_add** (*Optional*): To enable the automatic addition of new switches.
-- **signal_repetitions** (*Optional*): Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
-- **fire_event** (*Optional*): Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Override the name to use in the frontend.
+      required: true
+      type: string
+    fire_event:
+      description: Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.
+      required: false
+      default: false
+      type: boolean
+automatic_add:
+  description: To enable the automatic addition of new switches.
+  required: false
+  default: false
+  type: boolean
+signal_repetitions:
+  description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 <p class='note warning'>
 This component and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.

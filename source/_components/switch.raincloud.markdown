@@ -13,11 +13,11 @@ ha_release: "0.55"
 ha_iot_class: "Cloud Polling"
 ---
 
-To get your [Melnor RainCloud](https://wifiaquatimer.com) binary sensors working within Home Assistant, please follow the instructions for the general [Raincloud component](/components/raincloud).
+To get your [Melnor RainCloud](https://wifiaquatimer.com) binary sensors working within Home Assistant, please follow the instructions for the general [Raincloud component](/components/raincloud/).
 
 ## {% linkable_title Configuration %}
 
-Once you have enabled the [Raincloud component](/components/raincloud), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud component](/components/raincloud/), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,9 +25,23 @@ switch:
   - platform: raincloud
 ```
 
-Configuration variables:
-
-- **watering_minutes** (*Optional*): Value in minutes to watering your garden via frontend. Defaults to 15. The values allowed are: 5, 10, 15, 30, 45, 60.
-- **monitored_conditions** array (*Optional*): Conditions to display in the frontend. If not specified, all conditions below will be enabled by default. The following conditions can be monitored.
-  - **auto_watering**: Toggle the watering scheduled per zone.
-  - **manual_watering**: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub component.
+{% configuration %}
+watering_minutes:
+  description: "Value in minutes to watering your garden via frontend. The values allowed are: 5, 10, 15, 30, 45, 60."
+  required: false
+  default: 15
+  type: integer
+monitored_conditions:
+  description: Conditions to display in the frontend. If not specified, all conditions below will be enabled by default.
+  required: false
+  type: list
+  keys:
+    auto_watering:
+      description: Toggle the watering scheduled per zone.
+      required: false
+      type: boolean
+    manual_watering:
+      description: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub component.
+      required: false
+      type: boolean
+{% endconfiguration %}

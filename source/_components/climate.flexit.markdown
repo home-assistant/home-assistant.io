@@ -26,10 +26,16 @@ climate:
     slave: 21
 ```
 
-Configuration variables:
-
-- **slave** (*Required*): The slave ID of the modbus adapter, set using DIP-switches.
-- **name** (*Optional*): Displayed name of the A/C unit
+{% configuration %}
+slave:
+  description: The slave ID of the modbus adapter, set using DIP-switches.
+  required: true
+  type: integer
+name:
+  description: Displayed name of the A/C unit.
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 This component requires the [Modbus](/components/modbus/) component to be set up to work

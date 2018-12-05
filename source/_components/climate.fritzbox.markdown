@@ -26,3 +26,7 @@ The are several attributes that can be useful for automations and templates.
 | `device_locked` | The state of the key lock at the device.
 | `locked` | The state of the lock for configuring the device via the app or the Fritzbox web interface.
 | `low_battery` | The low battery state indication.
+| `battery_level` | The battery level (only available since Fritz!OS 7).
+| `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7).
+| `summer_mode` | The state of the summer mode (only available since Fritz!OS 7).
+| `window_open` | The state of the window open detection (only available since Fritz!OS 7).

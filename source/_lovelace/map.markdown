@@ -35,11 +35,10 @@ title:
   required: false
   description: The card title.
   type: string
-aspect_ratio: 
+aspect_ratio:
   required: false
-  description: "The map's height:width ratio."
+  description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
   type: string
-  default: "100%"
 default_zoom:
   required: false
   description: The default zoom level of the map.

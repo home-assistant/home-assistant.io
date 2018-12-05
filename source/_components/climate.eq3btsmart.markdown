@@ -18,7 +18,8 @@ The current functionality allows setting the temperature as well as controlling 
 As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)),
 we report target temperature also as current one.
 
-### Testing the connectivity ###
+### {% linkable_title Testing the connectivity %}
+
 Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can be done with the eq3cli tool:
 
 ```bash
@@ -32,9 +33,9 @@ Boost: False
 Current target temp: 21.0
 Current mode: auto dst
 Valve: 0
-``` 
+```
 
-### Configuration ###
+### {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,9 +46,19 @@ climate:
         mac: '00:11:22:33:44:55'
 ```
 
-Configuration variables:
-
-- **devices** array (*Required*): List of thermostats.
-  - **[device-name]** (*Required*): The name to use for the thermostat.
-    - **mac** (*Required*): MAC address of the thermostat.
-
+{% configuration %}
+devices:
+  description: List of thermostats.
+  required: true
+  type: list
+  keys:
+    name:
+      description: The name to use for the thermostat.
+      required: true
+      type: string
+      keys:
+        mac:
+          description: MAC address of the thermostat.
+          required: true
+          type: string
+{% endconfiguration %}

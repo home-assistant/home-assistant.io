@@ -31,17 +31,34 @@ switch:
     mac_address: "00-01-02-03-04-05"
 ```
 
-Configuration variables:
-
-- **mac_address** (*Required*): MAC address to send the wake up command to.
-- **name** (*Optional*): The name of the switch. Default is 'Wake on LAN'.
-- **host** (*Optional*): The IP address or hostname to check the state of the device (on/off).
-- **turn_off** (*Optional*): Defines an [action](/getting-started/automation/) to run when the switch is turned off.
-- **broadcast_address** (*Optional*): The IP address of the host to send the magic packet to (default 255.255.255.255).
+{% configuration %}
+mac_address:
+  description: MAC address to send the wake up command to.
+  required: true
+  type: string
+name:
+  description: The name of the switch.
+  required: false
+  default: Wake on LAN
+  type: string
+host:
+  description: The IP address or hostname to check the state of the device (on/off).
+  required: false
+  type: string
+turn_off:
+  description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
+  required: false
+  type: string
+broadcast_address:
+  description: The IP address of the host to send the magic packet to.
+  required: false
+  default: 255.255.255.255
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-Here are some real life examples of how to use the **turn_off** variable.
+Here are some real-life examples of how to use the **turn_off** variable.
 
 ### {% linkable_title Suspending Linux %}
 

@@ -15,7 +15,7 @@ The IP address of the Home Assistant machine is 192.168.0.215. The system which 
 
 ## {% linkable_title SSH server Add-on %}
 
-To get access to Hass.io in secure way, SSH is provided by the [SSH server add-on](/addons/ssh/). 
+To get access to Hass.io in secure way, SSH is provided by the [SSH server add-on](/addons/ssh/).
 
 ```bash
 $ sudo nmap -A -n --reason -Pn -T5 -p1-65535 192.168.0.215
@@ -27,13 +27,13 @@ Not shown: 65532 closed ports
 Reason: 65532 resets
 PORT      STATE SERVICE REASON         VERSION
 22/tcp    open  ssh     syn-ack ttl 63 OpenSSH 7.5 (protocol 2.0)
-| ssh-hostkey: 
+| ssh-hostkey:
 |   2048 e3:a2:2d:20:3a:67:68:b9:b1:9e:16:fa:48:80:82:96 (RSA)
 |   256 92:f0:f4:be:4f:44:60:0e:c4:92:8a:cb:34:9e:c5:c2 (ECDSA)
 |_  256 09:da:a2:14:cd:c4:69:e9:13:e6:70:64:98:d0:55:0c (EdDSA)
 8123/tcp  open  http    syn-ack ttl 64 aiohttp 3.1.3 (Python 3.6)
 |_http-open-proxy: Proxy might be redirecting requests
-| http-robots.txt: 1 disallowed entry 
+| http-robots.txt: 1 disallowed entry
 |_/
 |_http-server-header: Python/3.6 aiohttp/3.1.3
 |_http-title: Home Assistant
@@ -70,15 +70,15 @@ Not shown: 65532 closed ports
 Reason: 65532 resets
 PORT      STATE SERVICE                  REASON         VERSION
 1883/tcp  open  mosquitto version 1.4.12 syn-ack ttl 63
-| mqtt-subscribe: 
-|   Topics and their most recent payloads: 
+| mqtt-subscribe:
+|   Topics and their most recent payloads:
 |     $SYS/broker/load/connections/5min: 0.39
 [...]
 |     $SYS/broker/load/connections/15min: 0.13
 |_    $SYS/broker/clients/total: 2
 8123/tcp  open  http                     syn-ack ttl 64 aiohttp 3.1.3 (Python 3.6)
 |_http-open-proxy: Proxy might be redirecting requests
-| http-robots.txt: 1 disallowed entry 
+| http-robots.txt: 1 disallowed entry
 |_/
 |_http-server-header: Python/3.6 aiohttp/3.1.3
 |_http-title: Home Assistant
@@ -119,7 +119,7 @@ PORT      STATE    SERVICE     REASON         VERSION
 445/tcp   open     netbios-ssn syn-ack ttl 64 Samba smbd 4.7.3 (workgroup: WORKGROUP)
 8123/tcp  open     http        syn-ack ttl 64 aiohttp 3.1.3 (Python 3.6)
 |_http-open-proxy: Proxy might be redirecting requests
-| http-robots.txt: 1 disallowed entry 
+| http-robots.txt: 1 disallowed entry
 |_/
 |_http-server-header: Python/3.6 aiohttp/3.1.3
 |_http-title: Home Assistant
@@ -134,21 +134,21 @@ Service Info: Host: HASSIO; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Host script results:
 |_nbstat: NetBIOS name: HASSIO, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
-| smb-os-discovery: 
+| smb-os-discovery:
 |   OS: Windows 6.1 (Samba 4.7.3)
 |   Computer name: \x00
 |   NetBIOS computer name: HASSIO\x00
 |   Workgroup: WORKGROUP\x00
 |_  System time: 2018-05-29T16:41:05+02:00
-| smb-security-mode: 
+| smb-security-mode:
 |   account_used: guest
 |   authentication_level: user
 |   challenge_response: supported
 |_  message_signing: disabled (dangerous, but default)
-| smb2-security-mode: 
-|   2.02: 
+| smb2-security-mode:
+|   2.02:
 |_    Message signing enabled but not required
-| smb2-time: 
+| smb2-time:
 |   date: 2018-05-29 16:41:05
 |_  start_date: 1601-01-01 00:53:28
 
@@ -172,7 +172,7 @@ $ smbclient -L //192.168.0.215 -U%
 	share           Disk      
 	backup          Disk      
 	IPC$            IPC       
-IPC Service (Samba HomeAssistant config share)
+IPC Service (Samba Home Assistant config share)
 Reconnecting with SMB1 for workgroup listing.
 
 	Server               Comment

@@ -11,6 +11,7 @@ logo: home-assistant.png
 ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.65
+ha_qa_scale: internal
 ---
 
 The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
@@ -75,7 +76,7 @@ seed:
   description: The [seed](https://docs.python.org/3.6/library/random.html#random.seed) value for the random noise component.
   required: false
   default: 999
-  type: int
+  type: integer
 spread:
   description: The spread is the range of the randomly distributed values about their mean. This is sometimes referred to as the Full Width at Half Maximum ([FWHM](https://en.wikipedia.org/wiki/Full_width_at_half_maximum)) of the random distribution.
   required: false

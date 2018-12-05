@@ -31,10 +31,24 @@ switch:
         name: Light Desk
 ```
 
-Configuration variables:
-
-- **ports** array (*Required*): Array of used ports.
-  - **num** (*Required*): Port number.
-    - **name** (*Required*): Port name.
-    - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
-
+{% configuration %}
+ports:
+  description: Array of used ports.
+  required: true
+  type: list
+  keys:
+    num:
+      description: Port number.
+      required: true
+      type: list
+      keys:
+        name:
+          description: Port name.
+          required: true
+          type: string
+        invert_logic:
+          description: If true, inverts the output logic to ACTIVE LOW.
+          required: false
+          default: false
+          type: boolean
+{% endconfiguration %}

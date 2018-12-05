@@ -13,7 +13,7 @@ ha_category: Binary Sensor
 ha_iot_class: "Polling"
 ---
 
-The `egardia` platform allows you to get data from your [Egardia](http://www.egardia.com)/[Woonveilig](http://www.woonveilig.nl) binary sensors from within Home Assistant. 
+The `egardia` platform allows you to get data from your [Egardia](http://www.egardia.com)/[Woonveilig](http://www.woonveilig.nl) binary sensors from within Home Assistant.
 Currently only door contacts are supported. IR sensors are not supported and will probably never be since their status cannot be read outside of the alarm control panel. Smoke sensors and others might be added but currently are not supported.
 
 You will need to set up your [Egardia hub](/components/egardia/).

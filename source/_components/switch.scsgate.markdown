@@ -26,6 +26,9 @@ switch:
         scs_id: XXXXX
 ```
 
-Configuration variables:
-
-- **devices** (*Required*): A list of devices with their name to use in the frontend.
+{% configuration %}
+devices:
+  description: A list of devices with their name to use in the frontend.
+  required: true
+  type: list
+{% endconfiguration %}

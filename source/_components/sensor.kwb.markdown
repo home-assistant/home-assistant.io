@@ -42,20 +42,33 @@ Telnet terminal server with a serial-ethernet converter:
     raw: False
 ```
 
-Configuration variables:
+Take a good look at which configuration variables are for `TCP` use or for `serial` use.
 
-*Required if used with a serial-ethernet converter*
-
-- **host**: The IP-address of the serial server
-- **port**: The TCP-port of the serial server
-- **type**: tcp
-
-*Required if used directly with a serial port*
-
-- **device**: The serial device of the machine
-- **type**: serial
-
-*Optional for both cases*
-
-- **name**: The name of the device used in the frontend
-- **raw**: Should the raw serial output be shown as a sensor
+{% configuration %}
+raw:
+  description: Should the raw serial output be shown as a sensor.
+  required: false
+  default: false
+  type: boolean
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  default: KWB
+  type: string
+device:
+  description: (For serial use) The serial device of the machine.
+  required: true
+  type: string
+host:
+  description: (For tcp use) The IP-address of the serial server.
+  required: true
+  type: string
+port:
+  description: (For tcp use) The TCP-port of the serial server.
+  required: true
+  type: integer
+type:
+  description: "Type of sensor, you can choose between: `serial` and `tcp`."
+  required: true
+  type: string
+{% endconfiguration %}

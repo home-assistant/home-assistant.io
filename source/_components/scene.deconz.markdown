@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "deCONZ scenes"
+title: "deCONZ Scenes"
 description: "Instructions on how to integrate deCONZ scenes into Home Assistant."
 date: 2017-11-19 20:00
 sidebar: true

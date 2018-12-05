@@ -25,24 +25,42 @@ To enable Garadget Covers in your installation, add the following to your `confi
 cover:
   - platform: garadget
     covers:
-        190028001947343412342341:
-          username: YOUR_USERNAME
-          password: YOUR_PASSWORD
+      190028001947343412342341:
+        username: YOUR_USERNAME
+        password: YOUR_PASSWORD
       4c003f001151353432134214:
         access_token: df4cc785ff818f2b01396c44142342fccdef
 ```
 
-Configuration variables:
-
-- **covers** array (*Required*): List of your doors.
-  - **device** (*Required*): This is the device id from your Garadget portal.
-  - Either:
-    - **username** (*Required*): Your Garadget account username.
-    - **password** (*Required*): Your Garadget account password.
-  - Or: 
-    - **access_token** (*Required*): A generated `access_token` from your Garadget account.
-  - **name** (*Optional*): Name to use in the frontend, will use name configured in Garadget otherwise.
-
+{% configuration %}
+covers:
+  description: List of your doors.
+  required: true
+  type: list
+  keys:
+    device:
+      description: This is the device id from your Garadget portal.
+      required: true
+      type: string
+      keys:
+        username:
+          description: Your Garadget account username.
+          required: true
+          type: string
+        password:
+          description: Your Garadget account password.
+          required: true
+          type: string
+        access_token:
+          description: A generated `access_token` from your Garadget account.
+          required: true
+          type: string
+        name:
+          description: me to use in the frontend, will use name configured in Garadget otherwise.
+          required: false
+          default: Garadget
+          type: string
+{% endconfiguration %}
 
 If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
 

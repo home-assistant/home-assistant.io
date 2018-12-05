@@ -16,4 +16,4 @@ Integrates Verisure binary sensors into Home Assistant. See the [main component]
 
 The following binary sensor types are supported:
 
-Door & Window
+- Door & Window

@@ -13,7 +13,14 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.77
 ---
 
-The `netatmo_public` sensor allows you to expose data from [Netatmo](https://weathermap.netatmo.com/) to Home Assistant, even if you don't have a Netatmo device yourself. Currently, only live rain data is supported.
+The `netatmo_public` sensor allows you to expose data from [Netatmo](https://weathermap.netatmo.com/) to Home Assistant, even if you don't have a Netatmo device yourself. Currently the following conditions are supported:
+
+* temperature
+* pressure
+* humidity
+* rain
+* windstrength
+* guststrength
 
 To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/).
 
@@ -30,6 +37,13 @@ sensor:
         lon_ne: -73.735
         lat_sw: 40.552
         lon_sw: -74.105
+        monitored_conditions:
+          - temperature
+          - pressure
+          - humidity
+          - rain
+          - windstrength
+          - guststrength
 ```
 
 {% configuration %}
@@ -54,14 +68,18 @@ areas:
       description: Longitude of south-western corner of area.
       required: true
       type: string
+    monitored_conditions:
+      description: List of environment conditions to monitor.
+      required: true
+      type: list
     name:
       description: Name of the sensor.
       required: false
       type: string
       default: Netatmo Public Data
-    type:
+    mode:
       description: "How to calculate the value of the sensor if there are multiple stations reporting data. Accepts `max` or `avg`."
       required: false
       type: string
-      default: max
+      default: avg
 {% endconfiguration %}

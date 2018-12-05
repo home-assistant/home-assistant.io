@@ -33,9 +33,25 @@ To use the `datadog` component in your installation, add the following to your `
 datadog:
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address or hostname of your Datadog host, e.g., 192.168.1.23. Defaults to `localhost`.
-- **port** (*Optional*): Port to use. Defaults to 8125.
-- **prefix** (*Optional*): Prefix to use. Defaults to `hass`.
-- **rate** (*Optional*): The sample rate of UDP packets sent to Datadog. Defaults to 1.
+{% configuration %}
+host:
+  description: The IP address or hostname of your Datadog host, e.g., 192.168.1.23.
+  required: false
+  default: localhost
+  type: string
+port:
+  description: Port to use.
+  required: false
+  default: 8125
+  type: integer
+prefix:
+  description: Prefix to use.
+  required: false
+  default: hass
+  type: string
+rate:
+  description: The sample rate of UDP packets sent to Datadog.
+  required: false
+  default: 1
+  type: integer
+{% endconfiguration %}

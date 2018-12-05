@@ -54,20 +54,76 @@ envisalink:
       name: 'Home Alarm'
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the Envisalink device on your home network.
-- **panel_type** (*Required*): `HONEYWELL` or `DSC`, depending upon which alarm system you have.
-- **user_name** (*Required*): Which username to authenticate with when connecting to the device. On a Honeywell alarm panel, the username/password are the same.
-- **password** (*Required*): Which password to authenticate with when connecting to the device. EVL3 only works with max. 6 characters.
-- **code** (*Required*): Your alarm panel's code, for authenticating user input during arm/disarm.
-- **port** (*Optional*): Which network port to connect with. Default: `4025`
-- **evl_version** (*Optional*): 3 for evl3, or 4 for evl4. Default: `3`
-- **keepalive_interval** (*Optional*): This is a periodic heartbeat signal (measured in seconds) sent to your Envisalink board to keep it from restarting.  This is required for DSC and Honeywell systems. Defaults to `60` seconds.
-- **zonedump_interval** (*Optional*): This is an interval (measured in seconds) where the evl will dump out all zone statuses.  This is required for Honeywell systems, which do not properly send zone closure events.  DSC boards do not technically need this. Default: `30`
-- **panic_type** (*Optional*): Both DSC and Honeywell boards support a "panic" alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise.  Default = Police. Valid values are: Police, Fire, Ambulance
-- **zones** (*Optional*): Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.envisalink/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*
-- **partitions** (*Optional*): Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.
+{% configuration %}
+host:
+  description: The IP address of the Envisalink device on your home network.
+  required: true
+  type: string
+panel_type:
+  description: "`HONEYWELL` or `DSC`, depending upon which alarm system you have."
+  required: true
+  type: string
+user_name:
+  description: Which username to authenticate with when connecting to the device. On a Honeywell alarm panel, the username/password are the same.
+  required: true
+  type: string
+password:
+  description: Which password to authenticate with when connecting to the device. EVL3 only works with max. 6 characters.
+  required: true
+  type: string
+code:
+  description: Your alarm panel's code, for authenticating user input during arm/disarm.
+  required: true
+  type: string
+port:
+  description: Which network port to connect with.
+  required: false
+  default: 4025
+  type: integer
+evl_version:
+  description: 3 for evl3, or 4 for evl4.
+  required: false
+  default: 3
+  type: integer
+keepalive_interval:
+  description: This is a periodic heartbeat signal (measured in seconds) sent to your Envisalink board to keep it from restarting. This is required for DSC and Honeywell systems.
+  required: false
+  default: 60
+  type: integer
+zonedump_interval:
+  description: This is an interval (measured in seconds) where Envisalink will dump out all zone statuses. This is required for Honeywell systems, which do not properly send zone closure events. DSC boards do not technically need this.
+  required: false
+  default: 30
+  type: integer
+panic_type:
+  description: "Both DSC and Honeywell boards support a panic alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance."
+  required: false
+  default: Police
+  type: string
+zones:
+  description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. For each zone, at least a name must be given. For more information on the available zone types, take a look at the [Binary Sensor](/components/binary_sensor.envisalink/) docs. *Note: If no zones are specified, Home Assistant will not load any binary_sensor components.*"
+  required: false
+  type: integer
+  keys:
+    name:
+      description: Zone name
+      required: true
+      type: string
+    type:
+      description: Zone type
+      required: false
+      default: opening
+      type: string
+partitions:
+  description: Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.
+  required: false
+  type: integer
+  keys:
+    name:
+      description: Partition name
+      required: true
+      type: string
+{% endconfiguration %}
 
 Supported services:
 

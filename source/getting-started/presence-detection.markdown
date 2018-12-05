@@ -27,13 +27,13 @@ Screenshot of Home Assistant showing a school, work and home zone and two people
 
 The device tracker component offers presence detection for Home Assistant. It supports three different methods for presence detection: scan for connected devices on the local network, scan for Bluetooth devices within range, and connect to third-party service.
 
-Scanning for connected devices is easy to setup; options include [supported routers][routers] and [scanning the network using nmap][nmap]. This approach does have its limitations, however: it will only be able to detect if a device is at home, and modern smartphones may show as not home inaccurately (as they disconnect from WiFi if idle).
+Scanning for connected devices is easy to setup; options include [supported routers][routers] and [scanning the network using Nmap][nmap]. This approach does have its limitations, however: it will only be able to detect if a device is at home, and modern smartphones may show as not home inaccurately (as they disconnect from WiFi if idle).
 
 You can scan for [Bluetooth][ha-bluetooth] and [Bluetooth LE][ha-bluetooth-le] devices. Unlike with WiFi, modern smartphones don't turn off Bluetooth automatically, though the range is lower.
 
 Home Assistant currently supports multiple third-party services for presence detection, such as [OwnTracks over MQTT][ha-owntracks-mqtt], [OwnTracks over HTTP][ha-owntracks-http] [GPSLogger][ha-gpslogger] and [Locative][ha-locative].
 
-There are a wide [range of options][ha-presence] available, both for scanning your local network and third-party services.
+There is a wide [range of options][ha-presence] available, both for scanning your local network and third-party services.
 
 ### {% linkable_title Zones %}
 

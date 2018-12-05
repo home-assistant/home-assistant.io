@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The Wink climate platform allows you to get data from your [Wink](http://www.wink.com/) thermostats, Air Conditioners, and Water Heaters.
+The Wink climate platform allows you to get data from your [Wink](http://www.wink.com/) thermostats and air conditioners.
 
 The requirement is that you have setup [Wink](/components/wink/).
 
@@ -28,7 +28,6 @@ The requirement is that you have setup [Wink](/components/wink/).
 - Honeywell (No Wink hub required)
 - Generic Z-Wave
 - Quirky Aros window AC unit
-- Rheem Econet water heaters (No Wink hub required)
 
 <p class='note'>
 The above devices are confirmed to work, but others may work as well.

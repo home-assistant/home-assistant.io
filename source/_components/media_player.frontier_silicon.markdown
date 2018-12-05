@@ -37,11 +37,23 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The host name or the IP address of the device. Defaults to 192.168.1.11.
-- **port** (*Optional*): The port number. Defaults to 80.
-- **password** (*Optional*): PIN code of the Internet Radio. Defaults to 1234.
+{% configuration %}
+host:
+  description: The host name or the IP address of the device.
+  required: true
+  default: 192.168.1.11
+  type: string
+port:
+  description: The port number of the device.
+  required: false
+  default: 80
+  type: integer
+password:
+  description: PIN code of the Internet Radio.
+  required: false
+  default: 1234
+  type: string
+{% endconfiguration %}
 
 Some models use a separate port (2244) for API access, this can be verified by visiting http://[host]:[port]/device.
 
@@ -80,7 +92,7 @@ is based on [tiwillam]'s fsapi project. Special thanks to both developers, this 
 ## Notes and Limitations
 
 <p class='note warning'>
-The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant component polls the device state every 30 seconds or issues a command by creating a new session. 
+The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant component polls the device state every 30 seconds or issues a command by creating a new session.
 *If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
 </p>
 
@@ -94,4 +106,3 @@ The Frontier Silicon API does not provide a multi-user environment. There is alw
 [UNDOK]: http://www.frontier-silicon.com/undok
 [flammy]: https://github.com/flammy/fsapi/
 [tiwillam]: https://github.com/tiwilliam/fsapi
-

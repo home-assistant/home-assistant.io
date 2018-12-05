@@ -34,28 +34,83 @@ homematic:
 
 Configuration variables (global):
 
-- **interfaces** (*Required*): Configuration for each XML-RPC interface to integrate into Home Assistant.
-- **hosts** (*Optional*): Configuration for each Hub (CCU/Homegear) to integrate into Home Assistant.
-- **local_ip** (*Optional*): IP of device running Home Assistant. Override auto-detected value for exotic network setups.
-- **local_port** (*Optional*): Port for connection with Home Assistant. By default it is randomly assigned.
+{% configuration %}
+interfaces:
+  description: Configuration for each XML-RPC interface to integrate into Home Assistant.
+  required: true
+  type: list
+hosts:
+  description: Configuration for each Hub (CCU/Homegear) to integrate into Home Assistant.
+  required: false
+  type: list
+local_ip:
+  description: IP of device running Home Assistant. Override auto-detected value for exotic network setups.
+  required: false
+  type: string
+local_port:
+  description: Port for connection with Home Assistant. By default it is randomly assigned.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 Configuration variables (interface):
 
-- **host** (*Required*): IP address or Hostname of CCU/Homegear device or Hass.io add-on.
-- **port** (*Optional*): Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292.
-- **callback_ip** (*Optional*): Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
-- **callback_port** (*Optional*): Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
-- **resolvenames** (*Optional*): [`metadata`, `json`, `xml`] Try to fetch device names. Defaults to `false` if not specified.
-- **jsonport** (*Optional*): Port of CCU JSON-RPC Server. The default is 80, but it may be different when running CCU virtually via Docker.
-- **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
-- **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
-- **path** (*Optional*): Set to `/groups` when using port 9292.
+{% configuration %}
+host:
+  description: IP address or Hostname of CCU/Homegear device or Hass.io add-on.
+  required: true
+  type: string
+port:
+  description: "Port of CCU/Homegear XML-RPC Server. Wireless: 2001, wired: 2000, IP: 2010, thermostatgroups: 9292."
+  required: false
+  type: integer
+callback_ip:
+  description: Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
+  required: false
+  type: string
+callback_port:
+  description: Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
+  required: false
+  type: integer
+resolvenames:
+  description: Try to fetch device names. Defaults to `false` if not specified.
+  required: false
+  type: string
+  default: false
+jsonport:
+  description: Port of CCU JSON-RPC Server. The default is 80, but it may be different when running CCU virtually via Docker.
+  required: false
+  type: integer
+username:
+  description: When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
+  required: false
+  type: string
+password:
+  description: When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
+  required: false
+  type: string
+path:
+  description: Set to `/groups` when using port 9292.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Configuration variables (host):
 
-- **host** (*Required*): IP address of CCU/Homegear device.
-- **username** (*Optional*): When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
-- **password** (*Optional*): When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
+{% configuration %}
+host:
+  description: IP address of CCU/Homegear device.
+  required: true
+  type: string
+username:
+  description: When fetching names via JSON-RPC, you need to specify a user with guest-access to the CCU.
+  required: false
+  type: string
+password:
+  description: When fetching names via JSON-RPC, you need to specify the password of the user you have configured above.
+  required: false
+  type: string
+{% endconfiguration %}
 
 #### Example configuration with multiple protocols and some other options set:
 
@@ -294,7 +349,7 @@ action:
 
 When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your HomeMatic components are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
 
-- If you have a sensor which you know will be updated frequently (e.g. an outdoor temperature sensor or light sensor) you could set up an automation like this:
+- If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor or light sensor) you could set up an automation like this:
 
   ```yaml
   automation:
@@ -309,7 +364,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
         service: homematic.reconnect
   ```
 
-- If you have a CCU you can also create a system variable on the CCU, which stores it's last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
+- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 
@@ -320,7 +375,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
      string now = system.Date("%d.%m.%Y %H:%M:%S");
      obj.State(now);
      ```
-  
+
      The HomeMatic CCU will execute all active programs which meet their conditions (none in this case) on every reboot.
 
   3. Set up a template sensor in Home Assistant, which contains the value of the system variable:

@@ -10,6 +10,7 @@ footer: true
 logo: http.png
 ha_category: Binary Sensor
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
@@ -60,7 +61,7 @@ $ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor. Beside `curl`.
+In this section you'll find some real-life examples of how to use this sensor, besides `curl`, which was shown earlier.
 
 ### {% linkable_title Using Python request module %}
 

@@ -31,7 +31,7 @@ The advantages of using Hass.io:
 
 ### {% linkable_title Upgrading %}
 
-Hass.io users can update Home Assistant via the 'Hass.io' page in the UI. However, please note that a Home Assistant updates take time to roll into the Hass.io builds. Therefore there is often a slight delay between the availability of a Home Assistant update and the update being available in Hass.io, so be patient. When a Hass.io update is available, it will be shown as a notification in the ‘Hass.io' page in the web interface.
+Hass.io users can update Home Assistant via the 'Hass.io' page in the UI. However, please note that a Home Assistant updates take time to roll into the Hass.io builds. Therefore, there is often a slight delay between the availability of a Home Assistant update and the update being available in Hass.io, so be patient. When a Hass.io update is available, it will be shown as a notification in the ‘Hass.io' page in the web interface.
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png'>
