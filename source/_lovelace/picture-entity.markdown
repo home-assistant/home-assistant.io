@@ -58,14 +58,27 @@ show_state:
   default: true
 tap_action:
   required: false
-  description: "Set to `toggle` for turning entity on/off."
+  description: "Action to perform when clicked (e.g., `more-info`, `toggle`, `navigate`, `call-service`)."
   type: string
   default: more-info
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`).
+  description: "Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `navigate`, `call-service`)."
   type: string
   default: none
+navigation_path:
+  required: false
+  description: "Path to navigate to when action set to `navigate`."
+  type: string
+service:
+  required: false
+  description: "For `call-service`, e.g., `media_player.media_play_pause`"
+  type: string
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
+  default: "`entity_id: entity_id`"
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
