@@ -77,12 +77,10 @@ binary_sensors:
       description: Descriptive note
       required: false
       type: string
-      default: false
     position:
       description: Where is it placed
       required: false
       type: string
-      default: false
 {% endconfiguration %}
 
 The resource id should be an id of a boolean IHC resource. For more information
