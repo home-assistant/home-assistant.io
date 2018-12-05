@@ -61,12 +61,12 @@ max_stream_height:
   required: false
   type: integer
 image_top:
-  description: The top (y) coordinate to be used as starting point for crop operations.
+  description: The top (y) coordinate to be used as a starting point for crop operations.
   required: false
   type: integer
   default: 0
 image_left:
-  description: The left (x) coordinate to be used as starting point for crop operations.
+  description: The left (x) coordinate to be used as a starting point for crop operations.
   required: false
   type: integer
   default: 0
