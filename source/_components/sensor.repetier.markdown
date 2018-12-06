@@ -15,21 +15,35 @@ ha_iot_class: "Local Polling"
 This component creates one sensor for each devices in your Repetier-Server installation.
 Each sensor contains information about the current state of the device, including job name, start time and percentage done.
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+Tested against Repetier-Server 0.90.7 with multiple printers attached.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: repetier
-    url: http://IP_ADDRESS
-    port: PORT
-    api_key: YOUR_API_KEY
-```
+{% configuration %}
+url:
+  description: The URL to connect to, without the port part.
+  required: true
+  type: string
+port:
+  description: The port to connect to the hos at (default Repetier-Server port is 3344)
+  required: true
+  type: integer
+api_key:
+  description: API-key for the user used to connect to Repetier-Server
+  required: true
+  type: string
+state_percent:
+  description: Use percent as sensor state, otherwise On, Idle and Off are the states.
+  required: false
+  type: boolean
+  default: false
+decimals:
+  description: How many decimals to show in state percent. Only used if state_percent is true.
+  required: false
+  type: integer
+  default: 1
+{% endconfiguration %}
 
-Configuration options for the Repetier-Server Sensor:
+### {% retrieve_api_key Retrieve API-key %}
 
-- **url** (*Required*): The URL to connect to without the port part.
-- **port** (*Required*): The port to connect to the host on (default Repetier-Server port is 3344).
-- **api_key** (*Required*): API-Key for the Repetier-Server user to login as.
-- **state_percent** (*Optional*): Show percent done as state of sensor. Defaults to `false` (On/Idle/Off)
-- **decimals** (*Optional*): How many decimals to show in state if state_percent is true. Defaults to `1`.
+To generate the needed API-key, go into your Repetier Server web-console, push the settings icon (the gear icon) and select User Profiles.
+Create a new user, deselect all options and click Create User.
+Edit the newly created user and take note of the API-key for this user, that's the one to use in the Home Assistant Settings
