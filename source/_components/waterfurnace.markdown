@@ -42,7 +42,6 @@ To use Waterfurnace in your installation, add the following to your `configurati
 waterfurnace:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  unit: 0123456789AB
 ```
 
 {% configuration %}
@@ -52,10 +51,6 @@ username:
   type: string
 password:
   description: The password for your Symphony WaterFurnace account
-  required: true
-  type: string
-unit:
-  description: The unit serial number for your WaterFurnace
   required: true
   type: string
 {% endconfiguration %}
