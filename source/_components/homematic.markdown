@@ -65,6 +65,7 @@ port:
   required: false
   type: integer
 ssl:
+  default: false
   description: Set to `true` if SSL support is enabled on the CCU3.
   required: false
   type: boolean
