@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zigbee Home Automation"
-description: "Instructions on how to integrate your Zigbee Home Automation within Home Assistant."
+description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant."
 date: 2017-02-22 19:59
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 [Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
-integration for Home Assistant allows you to connect many off-the-shelf Zigbee devices to Home Assistant, using a compatible Zigbee radio.
+integration for Home Assistant allows you to connect many off-the-shelf Zigbee based devices to Home Assistant, using one of the available Zigbee radio modules compatible with [zigpy](https://github.com/zigpy/zigpy) (an open source Python library implementing a Zigbee stack, which in turn relies on seperate libraries which can each interface a with Zigbee radio module a different manufacturer).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,12 +24,14 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](../switch.zha)
 - [Fan](../fan.zha)
 
-Known working Zigbee radios:
+Known working Zigbee radio modules:
 
-- Nortek/GoControl Z-Wave & Zigbee USB Adapter - Model HUSBZB-1
-- XBee Series 2C
-- [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
-- [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
+- EmberZNet based radios using the EZSP protocol (via the [bellows](https://github.com/zigpy/bellows) library for zigpy)
+  - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
+  - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
+  - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
+- XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
+  Digi XBee Series 2C (S2C) modules
 
 ## {% linkable_title Configuration %}
 
