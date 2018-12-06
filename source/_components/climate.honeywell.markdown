@@ -17,7 +17,7 @@ ha_iot_class: "Cloud Polling"
 The `honeywell` climate platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
 
 <p class='note'>
-This platform does NOT connect to MyTotalConnectComfort.com.  If you have a Honeywell WIFI thermostat that is connected through MyTotalConnectComfort.com, you may might to take a look at the IFTTT component which can bridge the gap between Home Assistant and MyTotalConnectComfort.com WIFI thermostats on a limited basis.
+This platform DOES support MyTotalConnectComfort.com.  If you have a WiFi thermostat connected via MyTotalConnectComfort.com, you must configure the region to us.
 </p>
 
 To set it up, add the following information to your `configuration.yaml` file:
@@ -28,6 +28,7 @@ climate:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     scan_interval: 600
+    region: us #required for MyTotalConnectComfort.com thermostats, otherwise optional
 ```
 <p class='note'>
 Scan interval is expressed in seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
