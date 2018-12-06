@@ -70,6 +70,7 @@ ssl:
   required: false
   type: boolean
 verify_ssl:
+  default: false
   description: Set to `true` if a valid certificate is being used. The default is `false` as usually a self-signed certificate is configured.
   required: false
   type: boolean
