@@ -35,7 +35,7 @@ tap_action:
       required: true
       description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
       type: string
-      default: `none`
+      default: `more-info`
     navigation_path:
       required: false
       description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
@@ -60,7 +60,7 @@ hold_action:
       required: true
       description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
       type: string
-      default: `none`
+      default: `more-info`
     navigation_path:
       required: false
       description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
