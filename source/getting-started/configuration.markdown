@@ -68,10 +68,10 @@ Go to the add-on store (see the previous step), click on Configurator and click 
  - You will be able to click the "OPEN WEB UI" link to open the Web UI on a new window
  - Type your username and password that you recently saved
 
-Time for the first practice with the configurator. We're going to add the Configurator to the main Home Assistant Sidebar:
+Time for the first practice with the configurator. We're going to add the Configurator to the main Home Assistant sidebar:
 
  - Click the folder icon in the top left of the configurator window to open the file browser sidebar. 
- - Click the `configuration.yaml` file (in the /config/ folder) to load it into the main Configurator edit window.
+ - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main Configurator edit window.
  - Copy and paste the following to the end of the `configuration.yaml` file:
 
 ```yaml
