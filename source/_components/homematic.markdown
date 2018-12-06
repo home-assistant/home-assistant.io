@@ -71,7 +71,7 @@ ssl:
 verify_ssl:
   description: Set to `true` if a valid certificate is being used. The default is `false` as usually a self-signed certificate is configured.
   required: false
-  type: bool
+  type: boolean
 callback_ip:
   description: Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
   required: false
