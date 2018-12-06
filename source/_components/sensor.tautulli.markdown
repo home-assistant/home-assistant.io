@@ -39,11 +39,11 @@ sensor:
     api_key: TAUTULLI_API_KEY
     host: TAUTULLI_HOST
     monitored_users:
-      - user1
-      - user2
+      - USER_1
+      - USER_2
     monitored_conditions:
-      - title
-      - state
+      - ATTRIBUTE_1
+      - ATTRIBUTE_2
 ```
 
 {% configuration %}
