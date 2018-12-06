@@ -13,6 +13,15 @@ og_image: /images/blog/2018-12-release-84/components.png
 
 <a href='/components/#version/0.84'><img src='/images/blog/2018-12-release-84/components.png' style='border: 0;box-shadow: none;'></a>
 
+Lovelace is the default. If you have not used Lovelace before, you don't have to do anything! We will automatically generate and maintain a configuration for you. If you opt-in for editing the configuration, we will write the configuration to disk and you can edit anything you like.
+
+Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit and delete cards, including custom cards!
+
+Note for users of Lovelace while it was experimental: we have aligned the configuration of all the cards, causing breaking changes. Changes are especially around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
+
+- Cloud webhooks. It is now possible to enable any webhook to be enabled via a cloud endpoint without requiring to expose your instance to the internet.
+- We have improved service call validation. Automations and scripts will now stop executing if invalid service or data is submitted.
+
 ## {% linkable_title New Platforms %}
 
 - Refactor ZHA ([@dmulcahey] - [#18629]) ([zha docs]) ([binary_sensor.zha docs]) ([fan.zha docs]) ([light.zha docs]) ([sensor.zha docs]) ([switch.zha docs]) (new-platform)
