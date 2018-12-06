@@ -36,7 +36,7 @@ name:
   description: Name of Gauge Entity
   type: string
   default: Entity Name
-unit_of_measurement:
+unit:
   required: false
   description: Unit of Measurement given to data
   type: string

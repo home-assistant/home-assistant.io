@@ -89,29 +89,29 @@ $ sudo systemctl --system daemon-reload
 To have Home Assistant start automatically at boot, enable the service.
 
 ```bash
-$ sudo systemctl enable home-assistant@[your user]
+$ sudo systemctl enable home-assistant@YOUR_USER
 ```
 
 To disable the automatic start, use this command.
 
 ```bash
-$ sudo systemctl disable home-assistant@[your user]
+$ sudo systemctl disable home-assistant@YOUR_USER
 ```
 
 To start Home Assistant now, use this command.
 ```bash
-$ sudo systemctl start home-assistant@[your user]
+$ sudo systemctl start home-assistant@YOUR_USER
 ```
 
 You can also substitute the `start` above with `stop` to stop Home Assistant, `restart` to restart Home Assistant, and 'status' to see a brief status report as seen below.
 
 ```bash
-$ sudo systemctl status home-assistant@[your user]
-● home-assistant@fab.service - Home Assistant for [your user]
-   Loaded: loaded (/etc/systemd/system/home-assistant@[your user].service; enabled; vendor preset: disabled)
+$ sudo systemctl status home-assistant@YOUR_USER
+● home-assistant@fab.service - Home Assistant for YOUR_USER
+   Loaded: loaded (/etc/systemd/system/home-assistant@YOUR_USER.service; enabled; vendor preset: disabled)
    Active: active (running) since Sat 2016-03-26 12:26:06 CET; 13min ago
  Main PID: 30422 (hass)
-   CGroup: /system.slice/system-home\x2dassistant.slice/home-assistant@[your user].service
+   CGroup: /system.slice/system-home\x2dassistant.slice/home-assistant@YOUR_USER.service
            ├─30422 /usr/bin/python3 /usr/bin/hass
            └─30426 /usr/bin/python3 /usr/bin/hass
 [...]
@@ -120,17 +120,17 @@ $ sudo systemctl status home-assistant@[your user]
 To get Home Assistant's logging output, simple use `journalctl`.
 
 ```bash
-$ sudo journalctl -f -u home-assistant@[your user]
+$ sudo journalctl -f -u home-assistant@YOUR_USER
 ```
 
 Because the log can scroll quite quickly, you can select to view only the error lines:
 ```bash
-$ sudo journalctl -f -u home-assistant@[your user] | grep -i 'error'
+$ sudo journalctl -f -u home-assistant@YOUR_USER | grep -i 'error'
 ```
 
 When working on Home Assistant, you can easily restart the system and then watch the log output by combining the above commands using `&&`
 
 ```bash
-$ sudo systemctl restart home-assistant@[your user] && sudo journalctl -f -u home-assistant@[your user]
+$ sudo systemctl restart home-assistant@YOUR_USER && sudo journalctl -f -u home-assistant@YOUR_USER
 ```
 

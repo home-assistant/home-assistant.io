@@ -8,6 +8,9 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.83.0 %}
+- 📣 New card type: `shopping-list` ❤️
+
 ## {% linkable_title Changes in 0.82.0 %}
 - 📣 New card type: `light` ❤️
 - 📣 Alpha release of UI Editor
@@ -36,7 +39,7 @@ footer: true
 
 ## {% linkable_title Changes in 0.75.0 %}
 
-### Breaking changes 
+### Breaking changes
 - 📣 [glance card]: `turn-on` replaced with `call-service`
 
 ### All changes
@@ -157,7 +160,7 @@ footer: true
 - [picture elements card] combined `service.domain` and `service.server` into `service`
 - 📣 [entities card] allow custom title just like `glance`
 - 📣 [entity filter card] allow auto-hide if empty using `show_empty: false`
-- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack` 
+- 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack`
 
 ## {% linkable_title Changes in 0.73.0b0 %}
 

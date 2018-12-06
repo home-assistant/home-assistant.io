@@ -90,10 +90,12 @@ proximity:
     tolerance: 50
     unit_of_measurement: mi
   home3:
+    zone: home3
     devices:
       - device_tracker.iphone1
     tolerance: 50
   work:
+    zone: work
     devices:
       - device_tracker.iphone2
     tolerance: 10

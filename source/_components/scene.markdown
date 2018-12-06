@@ -50,7 +50,7 @@ As you can see, there are two ways to define the states of each `entity_id`:
 - Define the `state` directly with the entity.
 - Define a complex state with its attributes.
 
-The mapping from states to services is done with the [state helper](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/state.py#L74). So, please have a look there for available states for your scenes.
+The mapping from states to services is done with the [state helper](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/helpers/state.py#L82). So, please have a look there for available states for your scenes.
 
 Scenes can be activated using the service `scene.turn_on` (there is no 'scene.turn_off' service).
 

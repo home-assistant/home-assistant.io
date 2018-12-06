@@ -12,8 +12,8 @@ ha_category: Presence Detection
 featured: false
 ha_release: 0.7.4
 redirect_from:
- - components/device_tracker.owntracks
- - components/device_tracker.owntracks_http
+ - /components/device_tracker.owntracks/
+ - /components/device_tracker.owntracks_http/
 ---
 
 OwnTracks is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
