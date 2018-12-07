@@ -23,7 +23,7 @@ water_heater:
 ## {% linkable_title Services %}
 
 ### {% linkable_title Water heater control services %}
-Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
+Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`, `water_heater.turn_on`, `water_heater.turn_off`
 
 <p class='note'>
 Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
@@ -118,3 +118,18 @@ automation:
       data:
         entity_id: water_heater.demo
 ```
+### {% linkable_title Service `water_heater.turn_on` %}
+
+Turn climate device on
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Targets all when omitted.
+
+### {% linkable_title Service `water_heater.turn_off` %}
+
+Turn climate device off
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Targets all when omitted.
