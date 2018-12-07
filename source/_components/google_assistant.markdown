@@ -193,9 +193,9 @@ Currently, the following domains are available to be used with Google Assistant,
 There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  
 Here are the modes that are currently available:
 - off
-- auto
 - heat
 - cool
+- heatcool (auto)
 - fan-only
 - dry
 - eco
