@@ -38,12 +38,6 @@ sensor:
   - platform: tautulli
     api_key: TAUTULLI_API_KEY
     host: TAUTULLI_HOST
-    monitored_users:
-      - USER_1
-      - USER_2
-    monitored_conditions:
-      - ATTRIBUTE_1
-      - ATTRIBUTE_2
 ```
 
 {% configuration %}
@@ -74,6 +68,22 @@ monitored_conditions:
   required: false
   type: list
 {% endconfiguration %}
+
+## {% linkable_title Full example for the configuration %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: tautulli
+    api_key: TAUTULLI_API_KEY
+    host: TAUTULLI_HOST
+    monitored_users:
+      - USER_1
+      - USER_2
+    monitored_conditions:
+      - ATTRIBUTE_1
+      - ATTRIBUTE_2
+```
 
 [tautulli]: https://tautulli.com
 [tautulliapi]: https://github.com/Tautulli/Tautulli/blob/master/API.md#get_activity
