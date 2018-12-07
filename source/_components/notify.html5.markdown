@@ -166,7 +166,7 @@ if there already exists one with the same tag.
       - platform: state
         entity_id: sensor.sensor
     action:
-      service: notify.html5
+      service: notify.notify
       data_template:
         message: "Last known sensor state is {% raw %}{{ states('sensor.sensor') }}{% endraw %}."
       data:
