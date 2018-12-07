@@ -13,7 +13,7 @@ ha_release: 0.25
 ha_iot_class: "Local Polling"
 ---
 
-Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery component](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
+Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery component](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will be discovered once they are powered-on.
 
 To ensure that your DirecTV boxes are always found and configured, they should be added into your `configuration.yaml`.
 
@@ -42,6 +42,16 @@ device:
   description: Use to specify a particular receiver in a Genie setup.
   required: false
   type: string
+discover_clients:
+  description: Use to define if Genie slave clients should be discovered
+  required: false
+  default: true
+  type: boolean
+client_discover_interval:
+  description: Interval for Genie slave client discovery in seconds
+  required: false
+  default: 300
+  type: integer
 {% endconfiguration %}
 
 To find valid device IDs, open `http://<IP Address of Genie Server>:8080/info/getLocations` in a web browser. For each Genie slave, you will find a variable `clientAddr` in the response, and this should be used for `device` in `configuration.yaml`
