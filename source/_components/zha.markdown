@@ -31,7 +31,7 @@ Known working Zigbee radio modules:
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
 - XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
-  Digi XBee Series 2C (S2C) modules
+  - Digi XBee Series 2C (S2C) modules
 
 ## {% linkable_title Configuration %}
 
