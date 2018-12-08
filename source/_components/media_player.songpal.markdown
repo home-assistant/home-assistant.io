@@ -46,7 +46,7 @@ endpoint:
   description: API endpoint of the device.
   required: true
   type: string
- poll:
+poll:
    description: If true, a websocket is used to listen for instantaneous notifications from the device instead of polling it.
    required: false
    type: bool
