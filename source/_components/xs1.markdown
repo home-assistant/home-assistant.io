@@ -51,7 +51,7 @@ xs1:
       required: false
       type: boolean
       default: false
-    user:
+    username:
       description: User to access XS1 web api
       required: false
       type: string
@@ -61,14 +61,14 @@ xs1:
       type: string
 {% endconfiguration %}
 
-### {% linkable_title Supported Device Types %}
+## {% linkable_title Supported Device Types %}
 
 <p class='note warning'>
 This component currently only covers part of the device types supported by the 
 XS1 gateway, unsupported types are simply ignored.
 </p>
 
-#### {% linkable_title Sensors %}
+### {% linkable_title Sensors %}
 
 Any type of sensor is supported.
 
@@ -77,7 +77,7 @@ If you are using climate devices the "current temp" sensor will be automatically
 To make this work have a look at the actuator description below.
 </p>
 
-#### {% linkable_title Actuators %}
+### {% linkable_title Actuators %}
 
 | Type          | Supported | Notes                                            |
 |---------------|-----------|--------------------------------------------------|
@@ -86,7 +86,7 @@ To make this work have a look at the actuator description below.
 | `temperature` | Yes       |                                                  |
  
  
-#### {% linkable_title Climate Actuator/Sensor%}
+### {% linkable_title Climate Actuator/Sensor%}
 
 Home Assistant can combine temperature sensors and climate actuators into a single device.
 The XS1 gateway dosen't allow this but a sensor and actuator can be configured separately.
@@ -96,4 +96,22 @@ sensor and actuator configuration on the XS1 gateway with the same sting, f.ex:
 ```
 Sensor device name: "Bedroom_Temp_Sensor"
 Actuator device name: "Bedroom_Temp"
+```
+
+## {% linkable_title Examples %}
+
+In this section you find some real-life examples of how to use this light.
+
+### {% linkable_title Full configuration %}
+
+This example shows how you can use the optional configuration options.
+
+```yaml
+# Example configuration.yaml entry
+xs1:
+  host: "192.168.2.100"
+  port: 80
+  ssl: false
+  username: myuser
+  password: 123totallySecure
 ```
