@@ -28,8 +28,38 @@ xs1:
 ```
 
 The component will automatically detect the configuration of the XS1 Gateway only **on initialization** which currently means
-when Home Assistant boots. When you change the configuration of the XS1 you (currently) have to reboot Home Assistant
+when Home Assistant boots. When you change the configuration of the XS1 you (currently) have to restart Home Assistant
 to see the effects.
+
+{% configuration %}
+xs1:
+  required: true
+  description: Main config entry to use this component
+  type: map
+  keys:
+    host:
+      description: Host of the XS1 Gateway
+      required: true
+      type: string
+    port:
+      description: Custom port if your running your gateway behind some kind of proxy
+      required: false
+      type: integer
+      default: 80
+    ssl:
+      description: Defines if `https` should be used for api requests  (only possible via your own proxy)
+      required: false
+      type: boolean
+      default: false
+    user:
+      description: User to access XS1 web api
+      required: false
+      type: string
+    password:
+      description: Password to access XS1 web api
+      required: false
+      type: string
+{% endconfiguration %}
 
 ### {% linkable_title Supported Device Types %}
 
@@ -53,6 +83,17 @@ To make this work have a look at the actuator description below.
 |---------------|-----------|--------------------------------------------------|
 | `switch`      | Yes       |                                                  |
 | `dimmer`      | Partly    | Dimmers are currently handled like switches so actual dimming is not supported :(|
-| `light`       | Yes       |                                                  |
 | `temperature` | Yes       |                                                  |
  
+ 
+#### {% linkable_title Climate Actuator/Sensor%}
+
+Home Assistant can combine temperature sensors and climate actuators into a single device.
+The XS1 gateway dosen't allow this but a sensor and actuator can be configured separately.
+To make Home Assistant register them in the same climate device just prefix the
+sensor and actuator configuration on the XS1 gateway with the same sting, f.ex:
+
+```
+Sensor device name: "Bedroom_Temp_Sensor"
+Actuator device name: "Bedroom_Temp"
+```
