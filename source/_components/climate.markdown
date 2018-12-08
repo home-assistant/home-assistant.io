@@ -11,7 +11,7 @@ footer: true
 
 
 The `climate` component is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) and thermostat devices.
- 
+
 To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
 
 ```yaml
@@ -54,7 +54,7 @@ automation:
 
 ### {% linkable_title Service `climate.set_away_mode` %}
 
-Set away mode for climate device. The away mode changes the target temperature permanently to a temperature 
+Set away mode for climate device. The away mode changes the target temperature permanently to a temperature
 reflecting a situation where the climate device is set to save energy. This may be used to emulate a
 "vacation mode", for example.
 
@@ -115,6 +115,7 @@ Set target temperature of climate device
 | `target_temp_high` | yes | New target high temperature for hvac
 | `target_temp_low` | yes | New target low temperature for hvac
 | `operation_mode` | yes | Operation mode to set temperature to. This defaults to current_operation mode if not set, or set incorrectly.
+| `fan_mode` | yes | Fan mode to set temperature to. This defaults to current_fan_mode if not set, or set incorrectly.
 
 #### {% linkable_title Automation example  %}
 
@@ -129,6 +130,7 @@ automation:
         entity_id: climate.kitchen
         temperature: 24
         operation_mode: Heat
+        fan_mode: low
 ```
 
 ### {% linkable_title Service `climate.set_humidity` %}
