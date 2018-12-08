@@ -46,6 +46,11 @@ endpoint:
   description: API endpoint of the device.
   required: true
   type: string
+ poll:
+   description: If true, a websocket is used to listen for instantaneous notifications from the device instead of polling it.
+   required: false
+   type: bool
+   default: true
 {% endconfiguration %}
 
 See [python-songpal's documentation](https://github.com/rytilahti/python-songpal#locating-the-endpoint) how to get your API endpoint.
