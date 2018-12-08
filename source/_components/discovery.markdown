@@ -39,6 +39,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Samsung TVs](/components/media_player.samsungtv/)
  * [Sonos speakers](/components/media_player.sonos/)
  * [Telldus Live](/components/tellduslive/)
+ * [LEDWORKS Twinkly](/components/light.twinkly/)
  * [Wink](/components/wink/)
  * [Yamaha media player](/components/media_player.yamaha/)
  * [Yeelight Sunflower bulb](/components/light.yeelightsunflower/)
