@@ -27,7 +27,7 @@ To isolate the Home Assistant installation a [venv](https://docs.python.org/3/li
 
 ```bash
 $ sudo mkdir -p /opt/homeassistant
-$ sudo useradd -rm homeassistant -G dialout,gpio
+$ sudo useradd -rm homeassistant -G dialout
 $ sudo chown -R homeassistant:homeassistant /opt/homeassistant
 ```
 Now switch to the new directory, setup the venv, and activate it.
