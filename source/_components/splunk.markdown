@@ -43,7 +43,7 @@ ssl:
   default: false
   type: boolean
 verify_ssl:
-  description: Allows you do disabe checking of the SSL certificate.
+  description: Allows you do disable checking of the SSL certificate.
   required: false
   default: false
   type: boolean
