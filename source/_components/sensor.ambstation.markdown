@@ -69,9 +69,9 @@ Configuration variables:
   - **dewPoint**: 
   - **feelsLike**:
   
-- **update_interval** (*Optional*): Minimum time interval between updates. Default is 5 minutes. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
+- **scan_interval** (*Optional*): Minimum time interval between updates. Default is 5 minutes. Supported formats:
+  - `scan_interval: 'HH:MM:SS'`
+  - `scan_interval: 'HH:MM'`
   - Time period dictionary, e.g.:
     <pre>update_interval:
         # At least one of these must be specified:
