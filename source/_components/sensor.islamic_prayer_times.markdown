@@ -14,7 +14,7 @@ ha_release: "0.85"
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.
 
-This component uses calculates prayer times using the following calculation methods:
+This component uses calculates prayer times using the following calculation methods
 
 - University of Islamic Sciences in Karachi
 - Islamic Society of North America
@@ -51,12 +51,12 @@ sensors:
     isha:
       description: Show the isha prayer time for today.
     midnight:
-      description: Show the midnight for today which is the end of isha prayer.  This is a calculated field and is not the same as 12:00AM.
+      description: Show the midnight for today which is the end of isha prayer.  This is a calculated field and is not the same as 12AM.
 calculation_method:
   required: false
   default: 'isna'
   type: string
-  description: "The calculation method used for prayer times.  Must be one of: 'karachi', 'isna', 'mwl', 'makkah'."
+  description: "The calculation method used for prayer times.  Must be one of: `karachi`, `isna`, `mwl`, `makkah`."
 {% endconfiguration %}
 
 ```yaml
