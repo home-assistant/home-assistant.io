@@ -96,7 +96,7 @@ Assuming the previous test completed successfully and your browser was registere
 1. Open Home Assistant in Chrome or Firefox.
 2. Open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
 3. From the Services dropdown, search for your HTML5 notify service (e.g., notify.NOTIFIER_NAME) and select it.
-4. In the Service Data text box enter: {"message":"hello world"}, then press the CALL SERVICE button.
+4. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
 5. If everything worked you should see a popup notification.
 
 ### {% linkable_title Usage %}
@@ -161,9 +161,7 @@ Example of adding a tag to your notification. This won't create new notification
 
 #### {% linkable_title Targets %}
 
-If you do not provide a `target` parameter in the notify payload a notification
-will be sent to all registered targets as listed in
-`html5_push_registrations.conf`. You can provide a `target` parameter like so:
+If you do not provide a `target` parameter in the notify payload a notification will be sent to all registered targets as listed in `html5_push_registrations.conf`. You can provide a `target` parameter like so:
 
 ```yaml
 title: Front door
