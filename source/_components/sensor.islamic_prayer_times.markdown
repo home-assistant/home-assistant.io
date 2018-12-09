@@ -1,18 +1,25 @@
 ---
 layout: page
-title: "Islamic Prayer Times"
-description: "Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant."
+title: 'Islamic Prayer Times'
+description: 'Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant.'
 date: 2018-12-09 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Calendar
-ha_iot_class: "Local Poll"
-ha_release: "0.85"
+ha_category: Sensor
+ha_iot_class: 'Cloud Push'
+ha_release: '0.85'
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.
+
+This component uses calculation methods using the following methods:
+
+- karachi: University of Islamic Sciences, Karachi
+- isna: Islamic Society of North America
+- mwl: Muslim World League
+- makkah: Umm Al-Qura University, Makkah 
 
 ## {% linkable_title Configuration %}
 
@@ -28,6 +35,7 @@ sensor:
 sensors:
   required: false
   default: 'fajr', 'dhuhr', 'asr', 'maghrib', 'isha'
+  type: list
   description: List of available sensors.
   keys:
     fajr:
@@ -47,22 +55,15 @@ sensors:
 calculation_method:
   required: false
   default: 'isna'
-  description: The calculation method used for prayer times.  Must be one of:
-  keys:
-    karachi:
-      description: University of Islamic Sciences, Karachi
-    isna:
-      description: Islamic Society of North America
-    mwl:
-      description: Muslim World League
-    makkah:
-      description: Umm Al-Qura University, Makkah
+  type: string
+  description: The calculation method used for prayer times.  Must be one of: 'karachi', 'isna', 'mwl', 'makkah'.
 {% endconfiguration %}
 
 ```yaml
-# Example configuration.yaml entry for all available sensors
+# Example configuration.yaml entry for all available sensors using a non-default calculation method
 sensor:
   - platform: islamic_prayer_times
+    calculation_method: makkah
     sensors:
       - fajr
       - sunrise
