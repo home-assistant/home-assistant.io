@@ -53,7 +53,8 @@ device_tracker:
     username: admin
     interval_seconds: 10
     consider_home: 180
-    track_new_devices: yes
+    new_device_defaults:
+      track_new_devices: true
 ```
 
 Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
