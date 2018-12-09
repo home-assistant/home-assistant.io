@@ -80,7 +80,7 @@ Title and Unit of Measurement Example:
 ```yaml
 - type: gauge
   title: CPU Usuage
-  unit_of_measurement: '%'
+  unit: '%'
   entity: sensor.cpu_usage
 ```
 
@@ -94,7 +94,7 @@ Define the severity map:
 ```yaml
 - type: gauge
   title: With Severity
-  unit_of_measurement: '%'
+  unit: '%'
   entity: sensor.cpu_usage
   severity:
     green: 0
