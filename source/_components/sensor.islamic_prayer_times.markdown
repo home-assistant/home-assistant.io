@@ -56,7 +56,7 @@ calculation_method:
   required: false
   default: 'isna'
   type: string
-  description: The calculation method used for prayer times.  Must be one of: 'karachi', 'isna', 'mwl', 'makkah'.
+  description: "The calculation method used for prayer times.  Must be one of: 'karachi', 'isna', 'mwl', 'makkah'."
 {% endconfiguration %}
 
 ```yaml
