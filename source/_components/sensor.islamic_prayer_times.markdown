@@ -1,25 +1,25 @@
 ---
 layout: page
-title: 'Islamic Prayer Times'
-description: 'Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant.'
+title: "Islamic Prayer Times"
+description: "Instructions on how to integrate the Islamic Prayer Times sensor within Home Assistant."
 date: 2018-12-09 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_iot_class: 'Cloud Push'
-ha_release: '0.85'
+ha_iot_class: "Cloud Push"
+ha_release: "0.85"
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.
 
-This component uses calculation methods using the following methods:
+This component uses calculates prayer times using the following calculation methods:
 
-- karachi: University of Islamic Sciences, Karachi
-- isna: Islamic Society of North America
-- mwl: Muslim World League
-- makkah: Umm Al-Qura University, Makkah 
+- University of Islamic Sciences in Karachi
+- Islamic Society of North America
+- Muslim World League
+- Umm Al-Qura University in Makkah 
 
 ## {% linkable_title Configuration %}
 
