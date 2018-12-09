@@ -14,7 +14,7 @@ ha_release: "0.85"
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.
 
-This component uses calculates prayer times using the following calculation methods
+This component calculates prayer times using the following calculation methods:
 
 - University of Islamic Sciences in Karachi
 - Islamic Society of North America
@@ -34,7 +34,7 @@ sensor:
 {% configuration %}
 sensors:
   required: false
-  default: 'fajr', 'dhuhr', 'asr', 'maghrib', 'isha'
+  default: "['fajr', 'dhuhr', 'asr', 'maghrib', 'isha']"
   type: list
   description: List of available sensors.
   keys:
