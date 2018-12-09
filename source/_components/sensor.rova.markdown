@@ -71,7 +71,7 @@ A full configuration entry would look like the sample below.
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: solaredge
+  - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
     name: Rova
