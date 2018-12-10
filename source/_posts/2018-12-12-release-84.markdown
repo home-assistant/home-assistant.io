@@ -13,11 +13,13 @@ og_image: /images/blog/2018-12-release-84/components.png
 
 <a href='/components/#version/0.84'><img src='/images/blog/2018-12-release-84/components.png' style='border: 0;box-shadow: none;'></a>
 
-Lovelace is the default. If you have not used Lovelace before, you don't have to do anything! We will automatically generate and maintain a configuration for you. If you opt-in for editing the configuration, we will write the configuration to disk and you can edit anything you like.
+Lovelace was supposed to be the default, but we decided to wait a release to make it all just right. If you are currently testing Lovelace, we have now three different modes; auto-generated, storage and yaml (the old way of doing Lovelace). The UI editor will be limited to the storage mode, in which we control how the config is stored. It was the only way we could manage to pull this off without running into a thousand bugs and crazy code everywhere.
 
-Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit and delete cards, including custom cards!
+So if you were using Lovelace and want to continue managing a YAML file, [check here how to enable the YAML mode](/lovelace/yaml-mode/). we have aligned the configuration of all the cards, causing breaking changes. Changes are especially around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
 
-Note for users of Lovelace while it was experimental: we have aligned the configuration of all the cards, causing breaking changes. Changes are especially around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
+Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit, move and delete cards, including custom cards!
+
+## Other features in this release
 
 - Cloud webhooks. It is now possible to enable any webhook to be enabled via a cloud endpoint without requiring to expose your instance to the internet.
 - We have improved service call validation. Automations and scripts will now stop executing if invalid service or data is submitted.
