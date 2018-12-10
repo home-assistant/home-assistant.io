@@ -15,7 +15,7 @@ og_image: /images/blog/2018-12-release-84/components.png
 
 Lovelace was supposed to be the default, but we decided to wait a release to make it all just right. If you are currently testing Lovelace, we have now three different modes; auto-generated, storage and yaml (the old way of doing Lovelace). The UI editor will be limited to the storage mode, in which we control how the config is stored. It was the only way we could manage to pull this off without running into a thousand bugs and crazy code everywhere.
 
-So if you were using Lovelace and want to continue managing a YAML file, [check here how to enable the YAML mode](/lovelace/yaml-mode/). we have aligned the configuration of all the cards, causing breaking changes. Changes are especially around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
+So if you were using Lovelace and want to continue managing a YAML file, [check here how to enable the YAML mode](/lovelace/yaml-mode/). Te file `ui-lovelace.yaml` will now be loading using the same loader as `configuration.yaml`. Main change between the old YAML loader is that it's now using YAML 1.1 instead of YAML 1.2, so make sure that you wrap `on` and `off` in your configs! We have also aligned the configuration of all the cards, causing breaking changes. Changes are especially focused around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
 
 Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit, move and delete cards, including custom cards!
 
