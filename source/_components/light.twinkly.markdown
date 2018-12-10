@@ -59,7 +59,7 @@ devices:
           description: IP address or hostname of the device.
           required: true
           type: map
-
+{% endconfiguration %}
 #### {% linkable_title Supported Devices %}
 
 - LEDWORKS Twinkly Strings
