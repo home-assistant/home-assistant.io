@@ -201,8 +201,10 @@ Webhook triggers are triggered by web requests made to the webhook endpoint: `/a
 automation:
   trigger:
     platform: webhook
-    webhook_id:
+    webhook_id: some_hook_id
 ```
+
+You could test triggering above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`.
 
 ### {% linkable_title Zone trigger %}
 
