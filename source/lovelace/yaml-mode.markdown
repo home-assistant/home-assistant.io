@@ -25,8 +25,6 @@ title: My Awesome Home
 views:
     # View tab title.
   - title: Example
-    panel: true
-    # Makes the first card fill the view
     cards:
         # The markdown card will render markdown text.
       - type: markdown
@@ -54,8 +52,8 @@ excluded_entities:
 views:
     # View tab title.
   - title: Example
-    # Unique id for direct access /lovelace/${id} and editing it from the UI.
-    id: example
+    # Unique path for direct access /lovelace/${path}
+    path: example
     # Optional background (overwrites the global background).
     background: radial-gradient(crimson, skyblue)
     # Each view can have a different theme applied. Theme should be defined in the frontend.
