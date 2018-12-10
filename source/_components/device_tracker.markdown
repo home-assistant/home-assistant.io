@@ -31,7 +31,11 @@ device_tracker:
       hide_if_away: false
 ```
 
-The following optional parameters can be used with any platform. However device tracker will only look for global settings under the configuration of the first configured platform:
+The following optional parameters can be used with any platform:
+
+<p class='note'>
+  Device tracker will only look for global settings under the configuration of the first configured platform.
+</p>
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
