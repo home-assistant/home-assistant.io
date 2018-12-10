@@ -62,8 +62,6 @@ views:
 
 You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths.
 
-IDs are also used to identify a view for editing in the Home Assistant frontend (not yet released), we will add a randomly generated ID to your view if you don't specify one. You can change this ID, as long as every view has a unique ID.
-
 ### {% linkable_title Example %}
 
 View config:
