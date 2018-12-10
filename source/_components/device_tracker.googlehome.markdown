@@ -40,9 +40,9 @@ rssi_threshold:
 
 ## {% linkable_title Usage %}
 
-Devices will appear in the format `devicetracker.<home hub ip>_<device mac address>`.  Note that dots are removed from the ip and BT mac addresses.
+Devices will appear in the format `devicetracker.<home hub ip>_<device mac address>`. Note that dots are removed from the IP and BT MAC addresses.
 
-After running this compnent for a little while,. you will likely see many devices appear.  It is advisable to set the configuration to not discover new devices once the device you want to track have appeared.  (see [device tracker configuration][devicetrackerconfig] for details.)
+After running this component for a little while, you will likely see many devices appear. It's advisable to set the configuration to not discover new devices once the device you want to track have appeared (see [device tracker configuration][devicetrackerconfig] for details).
 
 [googlehomeapi]: https://rithvikvibhu.github.io/GHLocalApi/
 [devicetrackerconfig]: https://www.home-assistant.io/components/device_tracker/#configuring-a-device_tracker-platform
