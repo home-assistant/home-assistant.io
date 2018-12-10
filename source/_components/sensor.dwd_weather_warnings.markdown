@@ -59,7 +59,7 @@ name:
 | `region_id` | Region ID assigned by DWD. |
 | `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
 | `warning_<x>_level` | *(int)* Issued warning level between 0 and 4. <br/>0 == Keine Warnungen, <br/>1 ==  Wetterwarnungen, <br/>2 == Warnungen vor markantem Wetter, <br/>3 == Unwetterwarnungen, <br/>4 == Warnungen vor extremem Unwetter |
-| `warning_<x>_type` | *(int)* Issued warning type. <br/>0 == ?, <br/>1 ==  ?, <br/>2 ==  ?, <br/>3 ==  ?, <br/>4 ==  ?,<br/>5 ==  ?, <br/>6 == Glätte |
+| `warning_<x>_type` | *(int)* Issued warning type. <br/>0 == ?, <br/>1 ==  ?, <br/>2 ==  ?, <br/>3 ==  ?, <br/>4 ==  ?,<br/>5 ==  Frost, <br/>6 == Glätte |
 | `warning_<x>_name` | This name correlates with the warning type and indicates it in short as a string. |
 | `warning_<x>_headline` | Official headline the weather warning. |
 | `warning_<x>_start` | Starting time and date of the issued warning. |
