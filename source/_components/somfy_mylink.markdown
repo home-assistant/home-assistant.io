@@ -33,23 +33,32 @@ password:
   description: The `System ID` of the Somfy MyLink hub. This can be found in the `Integration` menu in the mobile app.
   required: true
   type: string
-cover_options:
-  description: Allows setting specific options on a per-cover basis.
+default_move_time:
+  description: Sets the default time it takes for covers to open or close in seconds. This value is used to emulate setting and reading the position of the cover. If this value is omitted the ability to set a specific position will be disabled by default. This value can be applied on a per-cover basis (see `entity_config` below)
   required: false
-  type: list
+  type: float
+default_reverse:
+  description: Sets the default reversal status of the cover. Possible values are `true` or `false`. This value can be applied on a per-cover basis (see `entity_config` below)
+  required: false
+  type: boolean
+entity_config:
+  description: Configuration for specific cover entities. All subordinate keys are the corresponding entity ids to the domains, e.g., `cover.bedroom_blinds`.
+  required: false
+  type: map
   keys:
-    name:
-      description: The name of the device to apply the specified options to. A 'star' symbol (`*`) can be used as a wildcard to apply for all devices.
-      required: true
-      type: string
-    move_time:
-      description: The time it takes for the cover to open or close in seconds. This value is used to emulate setting and reading the position of the cover. If this value is omitted the ability to set a specific position will be disabled.
+    '`<ENTITY_ID>`':
+      description: Additional options for specific entities.
       required: false
-      type: float
-    reverse:
-      description: Reverses the direction of the cover. Possible values are `true` or `false`.
-      required: false
-      type: boolean
+      type: map
+      keys:
+        move_time:
+          description: The time it takes for the cover to open or close in seconds. This value is used to emulate setting and reading the position of the cover. If this value is omitted the ability to set a specific position will be disabled.
+          required: false
+          type: float
+        reverse:
+          description: Reverses the direction of the cover. Possible values are `true` or `false`.
+          required: false
+          type: boolean
 {% endconfiguration %}
 
 ```yaml
@@ -57,11 +66,11 @@ cover_options:
 somfy_mylink:
   host: 10.1.1.100
   password: mylink_id
-  cover_options:
-    - name: "*"
-      reverse: true
-    - name: "Bedroom"
-      move_time: 20.5
-    - name: "Living Room"
-      move_time: 22
+  default_move_time: 21.5
+  default_reverse: false
+  entity_config:
+    cover.bedroom:
+        move_time: 20.5
+    cover.outdoor_awning:
+        reverse: true
 ```
