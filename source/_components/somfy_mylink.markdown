@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tahoma.png
 ha_category: Hub
-ha_release: 0.81
+ha_release: 0.85
 ha_iot_class: "Assumed State"
 ---
 
