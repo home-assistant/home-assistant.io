@@ -21,7 +21,7 @@ To use your compatible `Somfy MyLink` devices in your installation, add the foll
 # Example configuration.yaml entry
 somfy_mylink:
   host: 10.1.1.100
-  password: mylink_id
+  system_id: mylink_id
 ```
 
 {% configuration %}
@@ -29,7 +29,7 @@ host:
   description: The IP address of the Somfy MyLink hub device.
   required: true
   type: string
-password:
+system_id:
   description: The `System ID` of the Somfy MyLink hub. This can be found in the `Integration` menu in the mobile app.
   required: true
   type: string
@@ -65,7 +65,7 @@ entity_config:
 # Advanced configuration.yaml entry setting specific options on a per-cover basis
 somfy_mylink:
   host: 10.1.1.100
-  password: mylink_id
+  system_id: mylink_id
   default_move_time: 21.5
   default_reverse: false
   entity_config:
