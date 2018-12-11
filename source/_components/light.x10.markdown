@@ -17,6 +17,8 @@ The `x10` light platform allows you to control your X10 based lights with Home A
 
 Requires [Heyu x10](http://www.heyu.org) and a CM11A or a CM17A "FireCracker" interface.
 
+Note: Brightness Control is currently only supported on the CM11A
+
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
