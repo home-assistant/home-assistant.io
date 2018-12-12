@@ -81,6 +81,7 @@ Currently known supported models:
 - KS7502 (port must be set to 8001, and `pip3 install websocket-client` must be executed, turn on doesn't work, turn off works fine)
 - KS8000 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- KS8500 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6020 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6100 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6290 (port must be set to 8001)
