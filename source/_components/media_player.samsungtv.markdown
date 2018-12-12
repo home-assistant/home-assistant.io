@@ -66,6 +66,7 @@ Currently known supported models:
 - EH5300
 - EH5600
 - ES5500
+- ES6300
 - ES6800
 - F4580
 - F6300
@@ -83,6 +84,7 @@ Currently known supported models:
 - KU6020 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6100 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6290 (port must be set to 8001)
+- KU6400U (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU7000 (port must be set to 8001)
 - M5620 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - MU6170UXZG (port must be set to 8001, and `pip3 install websocket-client` must be executed)
@@ -91,9 +93,7 @@ Currently known supported models:
 - Q7F (port must be set to 8001, MAC must be specified for Power On)
 - U6000 (port must be set to 8001)
 - U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
-- UE40KU6400U (port must be set to 8001, and `pip3 install websocket-client` must be executed)
-- UE40ES6800
-- UE46D7000
+- D7000
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 
@@ -119,7 +119,7 @@ The first letter (U, P, L, H & K) represent the screen type, e.g., LED or
 Plasma. The second letter represents the region, E is Europe, N is North America
 and A is Asia & Australia.
 The two numbers following that represent the screen size.
-If you add your model remember to remove these before adding them to the list.
+If you add your model remember to remove these first 4 characters before adding to the list.
 
 Changing channels can be done by calling the `media_player.play_media` service
 with the following payload:

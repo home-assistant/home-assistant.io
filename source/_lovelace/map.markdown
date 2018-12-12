@@ -55,7 +55,7 @@ default_zoom:
 
 ```yaml
 - type: map
-  aspect_ratio: 100%
+  aspect_ratio: 16:9
   default_zoom: 8
   entities:
     - device_tracker.demo_paulus
