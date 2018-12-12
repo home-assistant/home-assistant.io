@@ -56,6 +56,19 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 - Initial hlk-sw16 relay switch support ([@jameshilliard] - [#17855]) ([hlk_sw16 docs]) ([switch.hlk_sw16 docs]) (new-platform)
 - Initial scene support for Fibaro hubs ([@pbalogh77] - [#18779]) ([fibaro docs]) ([scene.fibaro docs]) (new-platform)
 
+## {% linkable_title Release 0.84.1 - December 12 %}
+
+- Add automation and script events to logbook event types ([@hunterjm] - [#19219]) ([logbook docs])
+- Fix owntracks topic in encrypted ios ([@balloob] - [#19220]) ([device_tracker docs]) ([owntracks docs])
+
+[#19219]: https://github.com/home-assistant/home-assistant/pull/19219
+[#19220]: https://github.com/home-assistant/home-assistant/pull/19220
+[@balloob]: https://github.com/balloob
+[@hunterjm]: https://github.com/hunterjm
+[device_tracker docs]: /components/device_tracker/
+[logbook docs]: /components/logbook/
+[owntracks docs]: /components/owntracks/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
