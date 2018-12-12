@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.84: TBD - UPDATE DATE"
-description: ""
-date: 2018-12-06 00:01:00
+title: "0.84: Cloud webhooks, Wunderlist and USGS Earth Quakes"
+description: "Final release of the year. Full of fixes and great little things."
+date: 2018-12-12 00:01:00
 date_formatted: "December 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -13,18 +13,35 @@ og_image: /images/blog/2018-12-release-84/components.png
 
 <a href='/components/#version/0.84'><img src='/images/blog/2018-12-release-84/components.png' style='border: 0;box-shadow: none;'></a>
 
-Lovelace was supposed to be the default, but we decided to wait a release to make it all just right. If you are currently testing Lovelace, we have now three different modes; auto-generated, storage, and yaml (the old way of doing Lovelace). The UI editor will be limited to the storage mode, in which we control how the config is stored. It was the only way we could manage to pull this off without running into a thousand bugs and crazy code everywhere.
+Time for the last release of the year. We were hoping to end the year with an enourmous bang and make Lovelace the default UI. However, in our final stretch we realized that to get to the experience that we wanted, we had to make more last minute changes than we felt comfortable making. If you are a Lovelace tester, please read the section for existing testers below.
 
-So if you were using Lovelace before 0.84, you have two options. Option one is to use the new storage mode and import your existing file. You can do this by opening the UI, click on Configure UI to go from generated to storage mode. Then click on "raw config editor" in the menu and paste the content of your `ui-lovelace.yaml` file.
+We want to wish everybody happy holidays and want to thank all our contributors to the code, the documentation and all the ones in the chat for making up our amazing community. We had a great year with a lot of accomplishments and are looking forward to see all the great stuff you all come up with in 2019. Cheers! 🥂
 
-If you want to continue managing a YAML file, [check here how to enable the YAML mode](/lovelace/yaml-mode/). The file `ui-lovelace.yaml` will load using the same loader as `configuration.yaml`. Main change between the old YAML loader is that it's now using YAML 1.1 instead of YAML 1.2, so make sure that you wrap `on` and `off` in your configs! We have also aligned the configuration of all the cards, causing breaking changes. Changes are especially focused around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
+Paulus
+
+_We will skip our next release in our bi-weekly release cycle and plan to be back on January 9. See you then!_
+
+## {% linkable_title Cloud webhooks %}
+
+This release introduces a new Home Assistant Cloud feature available: cloud webhooks. With cloud webhooks you can enable any webhook-enabled integration or automation in Home Assistant to be accessible via a unique URL in the cloud without having to open up a port on your router.
+
+This means that you can send any data back to your instance for OwnTracks, IFTTT or an automation with a webhook-trigger. Read more about the new functionality at [the Nabu Casa website](https://www.nabucasa.com/config/webhooks/).
+
+## {% linkable_title Improved service calling %}
+
+We have improved how we call services with better validation checks. This means that if you have an automation or a script that sends invalid data, we will now stop the execution and be better able to point out where your incorrect calls are coming from.
+
+## {% linkable_title For existing Lovelace testers %}
+
+If you are currently testing Lovelace, please read the notes thoroughly as a lot has changed. First, we now have now three different Lovelace modes: auto-generated, storage, and yaml (the old way of doing Lovelace). The UI editor will be limited to the storage mode, in which we control how the config is stored.
+
+So if you were using Lovelace before 0.84, you now have two options. Option one is to use the new storage mode and import your existing file. You can do this by opening the Lovelace UI and click on Configure UI, this will prompt you to change to storage mode. This will unlock a new option in the menu called "raw config editor". Open this and paste the content of your `ui-lovelace.yaml` file into it and click save. Note that YAML comments are not persisted.
+
+If you want to continue managing a YAML file, [check here how to enable the YAML mode](/lovelace/yaml-mode/). The file `ui-lovelace.yaml` will now follow the same options as `configuration.yaml`. This means that the Lovelace YAML config is now parsed with YAML 1.1 instead of YAML 1.2. Major change is that you need to make sure that you wrap `on` and `off` with quotes in your configs!
+
+We have also aligned the configuration of all the cards, causing breaking changes. Changes are especially focused around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
 
 Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit, move and delete cards, including custom cards!
-
-## Other features in this release
-
-- Cloud webhooks. It is now possible to enable any webhook to be enabled via a cloud endpoint without requiring to expose your instance to the internet.
-- We have improved service call validation. Automations and scripts will now stop executing if invalid service or data is submitted.
 
 ## {% linkable_title New Platforms %}
 
@@ -38,7 +55,6 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 - Add lightwave components for switches and lights ([@GeoffAtHome] - [#18026]) ([lightwave docs]) ([light.lightwave docs]) ([switch.lightwave docs]) (new-platform)
 - Initial hlk-sw16 relay switch support ([@jameshilliard] - [#17855]) ([hlk_sw16 docs]) ([switch.hlk_sw16 docs]) (new-platform)
 - Initial scene support for Fibaro hubs ([@pbalogh77] - [#18779]) ([fibaro docs]) ([scene.fibaro docs]) (new-platform)
-- Tellduslive refactoring ([@fredrike] - [#18780]) ([tellduslive docs]) ([binary_sensor.tellduslive docs]) ([cover.tellduslive docs]) ([light.tellduslive docs]) ([sensor.tellduslive docs]) ([switch.tellduslive docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -52,19 +68,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Add support for multiple IHC controllers ([@mopolus] - [#18058]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([switch.ihc docs]) (breaking change)
-- [Breaking Change] Cleanup Lutron light component ([@cdheiser] - [#18650]) ([light.lutron docs]) (breaking change)
-- Remove since last boot from systemmonitor sensor ([@balloob] - [#18644]) ([sensor.systemmonitor docs]) (breaking change)
-- Mqtt light refactor ([@emontnemery] - [#18227]) ([mqtt docs]) ([light.mqtt docs]) (breaking change) (new-platform)
-- Replace token in camera.push with webhook ([@dgomes] - [#18380]) ([camera.push docs]) (breaking change)
-- RFC: Call services directly ([@balloob] - [#18720]) (breaking change)
-- Fix issues with 17track.net sensor names ([@bachya] - [#18860]) ([sensor.seventeentrack docs]) (breaking change)
-- fixed state case for rtorrent ([@eliseomartelli] - [#18778]) ([sensor.rtorrent docs]) (breaking change)
-- Support for mulitple Blink sync modules ([@fronzbot] - [#18663]) ([blink docs]) ([alarm_control_panel.blink docs]) ([binary_sensor.blink docs]) ([camera.blink docs]) ([sensor.blink docs]) (breaking change)
-- Fix toon operation mode ([@balloob] - [#18966]) ([climate.toon docs]) (breaking change)
-- Bump waterfurnace to 1.0 ([@sdague] - [#19040]) ([waterfurnace docs]) (breaking change)
-- Add support for multiple RainMachine controllers ([@bachya] - [#18989]) ([rainmachine docs]) (breaking change)
-- Implemented unique ID support for Fibaro hub integration ([@pbalogh77] - [#19055]) ([fibaro docs]) (breaking change)
+- Support for multiple IHC controllers added. Manual IHC device configuration must be moved from platform sections to controller configuration section under the ihc component section. ([@mopolus] - [#18058]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([switch.ihc docs]) (breaking change)
+- Lutron: Change device_state_attributes() to use lowercase snakecase (Rename 'Lutron Integration ID' to 'lutron_integration_id') ([@cdheiser] - [#18650]) ([light.lutron docs]) (breaking change)
+- Remove "since last boot" from systemmonitor sensor, use `last_boot` instead. ([@balloob] - [#18644]) ([sensor.systemmonitor docs]) (breaking change)
+- All MQTT lights are merged into a single platform: `light.mqtt` ([@emontnemery] - [#18227]) ([mqtt docs]) ([light.mqtt docs]) (breaking change) (new-platform)
+- Use a webhook to send data to push camera ([@dgomes] - [#18380]) ([camera.push docs]) (breaking change)
+- Call services directly. Automations and scripts will now stop executing when a service call fails. The `service_executed` event is no longer being fired when a service is done. ([@balloob] - [#18720]) (breaking change)
+- Fix issues with 17track.net sensor names. See PR for details. ([@bachya] - [#18860]) ([sensor.seventeentrack docs]) (breaking change)
+- rtorrent: Changed the returned states of sensor.rtorrent from `Up`/`Down`, `Downloading` and `Seeding` to `up_down`, `downloading` and `seeding` to reflect the guidelines. Hence by automations relying on the state of this sensor should be updated. ([@eliseomartelli] - [#18778]) ([sensor.rtorrent docs]) (breaking change)
+- Blink alarm control panel now inherits the name of the actual sync module rather than defaulting to blink_sync ([@fronzbot] - [#18663]) ([blink docs]) ([alarm_control_panel.blink docs]) ([binary_sensor.blink docs]) ([camera.blink docs]) ([sensor.blink docs]) (breaking change)
+- Fix toon operation mode to follow our climate standard so it will work with Google Assistant / Alexa. ([@balloob] - [#18966]) ([climate.toon docs]) (breaking change)
+- Waterfurnace: the unit parameter is removed from config. ([@sdague] - [#19040]) ([waterfurnace docs]) (breaking change)
+- RainMachine: `configuration.yaml` format has changed to add support for multiple RainMachine controllers ([@bachya] - [#18989]) ([rainmachine docs]) (breaking change)
+- Fibaro: the `id` attribute has been renamed to `fibaro_id` ([@pbalogh77] - [#19055]) ([fibaro docs]) (breaking change)
 - Remove Instapush notify platform ([@fabaff] - [#19051]) ([notify docs]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
