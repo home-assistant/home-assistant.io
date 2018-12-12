@@ -96,6 +96,7 @@ matrix:
     - "#someothertest:matrix.org"
   commands:
     - word: testword
+      name: testword
       rooms:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
@@ -126,7 +127,7 @@ automation:
     action:
       service: notify.matrix_notify
       data_template:
-        message: "Hello {{trigger.event.data.name}}"
+        message: "Hello {{trigger.event.data.args['name']}}"
 ```
 
 This configuration will:
