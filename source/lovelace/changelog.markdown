@@ -9,7 +9,6 @@ sharing: true
 footer: true
 ---
 ## {% linkable_title Changes in 0.84.0 %}
-- 📣 Lovelace is now the default UI
 
 ### Breaking Changes
 - ⚠️ [sensor card]: Removed configs `height`, `line_color` and `line_width`
