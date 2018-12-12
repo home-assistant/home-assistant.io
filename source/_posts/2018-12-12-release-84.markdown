@@ -57,21 +57,36 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove since last boot from systemmonitor sensor ([@balloob] - [#18644]) ([sensor.systemmonitor docs]) (breaking change)
 - Mqtt light refactor ([@emontnemery] - [#18227]) ([mqtt docs]) ([light.mqtt docs]) (breaking change) (new-platform)
 - Replace token in camera.push with webhook ([@dgomes] - [#18380]) ([camera.push docs]) (breaking change)
+- RFC: Call services directly ([@balloob] - [#18720]) (breaking change)
 - Fix issues with 17track.net sensor names ([@bachya] - [#18860]) ([sensor.seventeentrack docs]) (breaking change)
 - fixed state case for rtorrent ([@eliseomartelli] - [#18778]) ([sensor.rtorrent docs]) (breaking change)
 - Support for mulitple Blink sync modules ([@fronzbot] - [#18663]) ([blink docs]) ([alarm_control_panel.blink docs]) ([binary_sensor.blink docs]) ([camera.blink docs]) ([sensor.blink docs]) (breaking change)
 - Fix toon operation mode ([@balloob] - [#18966]) ([climate.toon docs]) (breaking change)
-- Bump waterfurnace to 1.0 ([@balloob] - [#19040]) ([waterfurnace docs]) (breaking change)
+- Bump waterfurnace to 1.0 ([@sdague] - [#19040]) ([waterfurnace docs]) (breaking change)
 - Add support for multiple RainMachine controllers ([@bachya] - [#18989]) ([rainmachine docs]) (breaking change)
-- Remove Instapush notify platform ([@balloob] - [#19051]) ([notify docs]) (breaking change)
+- Implemented unique ID support for Fibaro hub integration ([@pbalogh77] - [#19055]) ([fibaro docs]) (breaking change)
+- Remove Instapush notify platform ([@fabaff] - [#19051]) ([notify docs]) (breaking change)
 
 ## {% linkable_title Beta Fixes %}
 
-- Use proper signals ([@balloob] - [#18613]) ([emulated_hue docs]) ([http docs]) (beta fix)
+- Revert #17745 ([@balloob] - [#19064]) ([google_assistant docs]) (beta fix)
+- Fix missing colorTemperatureInKelvin from Alexa responses ([@mikeage] - [#19069]) ([alexa docs]) (beta fix)
+- Force refresh Lovelace ([@bramkragten] - [#19073]) ([lovelace docs]) (beta fix)
+- Upgrade aiolifx to 0.6.7 ([@amelchio] - [#19077]) ([lifx docs]) (beta fix)
+- Upgrade pyatv to 0.3.12 ([@postlund] - [#19085]) ([apple_tv docs]) (beta fix)
+- Upgrade Tibber lib ([@Danielhiversen] - [#19098]) ([tibber docs]) (beta fix)
+- Bump skybellpy version to fix api issue ([@nhorvath] - [#19100]) ([skybell docs]) (beta fix)
+- Lovelace using storage ([@balloob] - [#19101]) ([frontend docs]) ([lovelace docs]) (beta fix)
+- Remove marking device tracker stale if state is stale ([@arigilder] - [#19133]) ([device_tracker docs]) (beta fix)
+- Google assistant fix target temp for *F values. ([@marchingphoenix] - [#19083]) ([google_assistant docs]) (beta fix)
+- Drop OwnTracks bad packets ([@balloob] - [#19161]) ([owntracks docs]) (beta fix)
+- Fix lovelace save ([@balloob] - [#19162]) ([lovelace docs]) (beta fix)
+- Add raw service data to event ([@balloob] - [#19163]) (beta fix)
+- Fix cloud defaults ([@balloob] - [#19172]) ([cloud docs]) (beta fix)
+- Revert PR #18602 ([@balloob] - [#19188]) ([camera.mjpeg docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
-- Use proper signals ([@balloob] - [#18613]) ([emulated_hue docs]) ([http docs]) (beta fix)
 - Add /sbin to launchd PATH ([@andersonshatch] - [#18601])
 - Minor change to still image on mjpeg ([@nragon] - [#18602]) ([camera.mjpeg docs])
 - Cleanup BOM dependencies + add basic test + IDEA autoformat ([@nickw444] - [#18462]) ([sensor.bom docs]) ([weather.bom docs])
@@ -153,7 +168,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add services description ([@schmittx] - [#18839])
 - Update of volvooncall component ([@molobrakos] - [#18702]) ([device_tracker docs]) ([volvooncall docs]) ([binary_sensor.volvooncall docs]) ([lock.volvooncall docs]) ([sensor.volvooncall docs]) ([switch.volvooncall docs])
 - Fix flaky geofency test ([@balloob] - [#18855])
-- RFC: Call services directly ([@balloob] - [#18720])
+- RFC: Call services directly ([@balloob] - [#18720]) (breaking change)
 - Bump py17track to 2.1.1 ([@bachya] - [#18861]) ([sensor.seventeentrack docs])
 - Fix issues with 17track.net sensor names ([@bachya] - [#18860]) ([sensor.seventeentrack docs]) (breaking change)
 - Add tests for directv platform ([@ehendrix23] - [#18590])
@@ -164,14 +179,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix ordinal filter in template ([@ludeeus] - [#18878])
 - Reintroduce unique_id for Netatmo sensor ([@heinemml] - [#18774]) ([sensor.netatmo docs])
 - Upgrade keyring to 17.0.0 ([@fabaff] - [#18901])
-- Upgrade sphinx-autodoc-typehints to 1.5.1 ([@Danielhiversen] - [#18893])
+- Upgrade sphinx-autodoc-typehints to 1.5.1 ([@fabaff] - [#18893])
 - Small refactoring of MQTT cover ([@emontnemery] - [#18850]) ([cover.mqtt docs])
 - Small refactoring of MQTT alarm ([@emontnemery] - [#18813]) ([alarm_control_panel.mqtt docs])
 - Small refactoring of MQTT climate ([@emontnemery] - [#18814]) ([climate.mqtt docs])
 - Optionally do not log template rendering errors ([@emontnemery] - [#18724])
 - Restore states when removing/adding entities ([@armills] - [#18890])
 - Fibaro ubs ([@pbalogh77] - [#18889]) ([fibaro docs]) ([binary_sensor.fibaro docs])
-- Use string formatting ([@balloob] - [#18886]) ([sense docs]) ([binary_sensor.sense docs]) ([sensor.sense docs])
+- Use string formatting ([@fabaff] - [#18886]) ([sense docs]) ([binary_sensor.sense docs]) ([sensor.sense docs])
 - Show ANSI color codes in logs in Hass.io ([@OttoWinter] - [#18834]) ([hassio docs])
 - Fix hdmi_cec entity race ([@yottatsa] - [#18753]) ([hdmi_cec docs]) ([media_player.hdmi_cec docs]) ([switch.hdmi_cec docs])
 - Set sensor to unavailable if battery is dead. ([@fucm] - [#18802]) ([binary_sensor.tahoma docs])
@@ -211,10 +226,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Allow checking entity permissions based on devices ([@balloob] - [#19007])
 - Add states to panels ([@bramkragten] - [#19026]) ([frontend docs])
 - Fix CI by pinning IDNA ([@balloob] - [#19038])
-- Bump waterfurnace to 1.0 ([@balloob] - [#19040]) ([waterfurnace docs]) (breaking change)
+- Bump waterfurnace to 1.0 ([@sdague] - [#19040]) ([waterfurnace docs]) (breaking change)
 - Don't wait for answer for webhook register ([@balloob] - [#19025]) ([cloud docs])
 - Small refactoring of MQTT light ([@emontnemery] - [#19009]) ([light.mqtt docs])
-- Small refactoring of MQTT switch ([@balloob] - [#19010]) ([switch.mqtt docs])
+- Small refactoring of MQTT switch ([@emontnemery] - [#19010]) ([switch.mqtt docs])
 - Bump version of elkm1_lib ([@gwww] - [#19030]) ([elkm1 docs])
 - Change error to warning ([@doudz] - [#19035]) ([media_player.plex docs])
 - Catch 'BrokenPipeError' exceptions for ADB commands ([@JeffLIrion] - [#19011]) ([media_player.firetv docs])
@@ -227,10 +242,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - VOC: Update external dependency to fix engine start issue ([@molobrakos] - [#19062]) ([volvooncall docs])
 - Fix saving YAML as JSON with empty array ([@bramkragten] - [#19057]) ([lovelace docs])
 - Update pyhomematic to 0.1.53 ([@danielperna84] - [#19056]) ([homematic docs])
-- Implemented unique ID support for Fibaro hub integration ([@pbalogh77] - [#19055]) ([fibaro docs])
-- Remove Instapush notify platform ([@balloob] - [#19051]) ([notify docs]) (breaking change)
+- Implemented unique ID support for Fibaro hub integration ([@pbalogh77] - [#19055]) ([fibaro docs]) (breaking change)
+- Remove Instapush notify platform ([@fabaff] - [#19051]) ([notify docs]) (breaking change)
 - Update locationsharinglib to 3.0.9 ([@pc-coholic] - [#19045]) ([device_tracker docs])
 - Add support for more Tibber Pulse data ([@Danielhiversen] - [#19033]) ([tibber docs]) ([sensor.tibber docs])
+- Revert #17745 ([@balloob] - [#19064]) ([google_assistant docs]) (beta fix)
+- Fix missing colorTemperatureInKelvin from Alexa responses ([@mikeage] - [#19069]) ([alexa docs]) (beta fix)
+- Force refresh Lovelace ([@bramkragten] - [#19073]) ([lovelace docs]) (beta fix)
+- Upgrade aiolifx to 0.6.7 ([@amelchio] - [#19077]) ([lifx docs]) (beta fix)
+- Upgrade pyatv to 0.3.12 ([@postlund] - [#19085]) ([apple_tv docs]) (beta fix)
+- Upgrade Tibber lib ([@Danielhiversen] - [#19098]) ([tibber docs]) (beta fix)
+- Bump skybellpy version to fix api issue ([@nhorvath] - [#19100]) ([skybell docs]) (beta fix)
+- Lovelace using storage ([@balloob] - [#19101]) ([frontend docs]) ([lovelace docs]) (beta fix)
+- Remove marking device tracker stale if state is stale ([@arigilder] - [#19133]) ([device_tracker docs]) (beta fix)
+- Google assistant fix target temp for *F values. ([@marchingphoenix] - [#19083]) ([google_assistant docs]) (beta fix)
+- Drop OwnTracks bad packets ([@balloob] - [#19161]) ([owntracks docs]) (beta fix)
+- Fix lovelace save ([@balloob] - [#19162]) ([lovelace docs]) (beta fix)
+- Add raw service data to event ([@balloob] - [#19163]) (beta fix)
+- Fix cloud defaults ([@balloob] - [#19172]) ([cloud docs]) (beta fix)
+- Revert PR #18602 ([@balloob] - [#19188]) ([camera.mjpeg docs]) (beta fix)
 
 [#17228]: https://github.com/home-assistant/home-assistant/pull/17228
 [#17270]: https://github.com/home-assistant/home-assistant/pull/17270
@@ -266,7 +296,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#18590]: https://github.com/home-assistant/home-assistant/pull/18590
 [#18601]: https://github.com/home-assistant/home-assistant/pull/18601
 [#18602]: https://github.com/home-assistant/home-assistant/pull/18602
-[#18613]: https://github.com/home-assistant/home-assistant/pull/18613
 [#18614]: https://github.com/home-assistant/home-assistant/pull/18614
 [#18618]: https://github.com/home-assistant/home-assistant/pull/18618
 [#18626]: https://github.com/home-assistant/home-assistant/pull/18626
@@ -392,6 +421,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#19056]: https://github.com/home-assistant/home-assistant/pull/19056
 [#19057]: https://github.com/home-assistant/home-assistant/pull/19057
 [#19062]: https://github.com/home-assistant/home-assistant/pull/19062
+[#19064]: https://github.com/home-assistant/home-assistant/pull/19064
+[#19069]: https://github.com/home-assistant/home-assistant/pull/19069
+[#19073]: https://github.com/home-assistant/home-assistant/pull/19073
+[#19077]: https://github.com/home-assistant/home-assistant/pull/19077
+[#19083]: https://github.com/home-assistant/home-assistant/pull/19083
+[#19085]: https://github.com/home-assistant/home-assistant/pull/19085
+[#19098]: https://github.com/home-assistant/home-assistant/pull/19098
+[#19100]: https://github.com/home-assistant/home-assistant/pull/19100
+[#19101]: https://github.com/home-assistant/home-assistant/pull/19101
+[#19133]: https://github.com/home-assistant/home-assistant/pull/19133
+[#19161]: https://github.com/home-assistant/home-assistant/pull/19161
+[#19162]: https://github.com/home-assistant/home-assistant/pull/19162
+[#19163]: https://github.com/home-assistant/home-assistant/pull/19163
+[#19172]: https://github.com/home-assistant/home-assistant/pull/19172
+[#19188]: https://github.com/home-assistant/home-assistant/pull/19188
 [@Adminiuga]: https://github.com/Adminiuga
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Eriner]: https://github.com/Eriner
@@ -399,8 +443,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@JeffLIrion]: https://github.com/JeffLIrion
 [@OttoWinter]: https://github.com/OttoWinter
 [@ahayworth]: https://github.com/ahayworth
+[@amelchio]: https://github.com/amelchio
 [@andersonshatch]: https://github.com/andersonshatch
 [@anton-johansson]: https://github.com/anton-johansson
+[@arigilder]: https://github.com/arigilder
 [@armills]: https://github.com/armills
 [@awarecan]: https://github.com/awarecan
 [@bachya]: https://github.com/bachya
@@ -440,18 +486,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@majuss]: https://github.com/majuss
 [@marchingphoenix]: https://github.com/marchingphoenix
 [@mdallaire]: https://github.com/mdallaire
+[@mikeage]: https://github.com/mikeage
 [@molobrakos]: https://github.com/molobrakos
 [@mopolus]: https://github.com/mopolus
+[@nhorvath]: https://github.com/nhorvath
 [@nickw444]: https://github.com/nickw444
 [@nragon]: https://github.com/nragon
 [@pagenoare]: https://github.com/pagenoare
 [@pbalogh77]: https://github.com/pbalogh77
 [@pc-coholic]: https://github.com/pc-coholic
 [@photinus]: https://github.com/photinus
+[@postlund]: https://github.com/postlund
 [@rytilahti]: https://github.com/rytilahti
 [@scarface-4711]: https://github.com/scarface-4711
 [@schmittx]: https://github.com/schmittx
 [@scop]: https://github.com/scop
+[@sdague]: https://github.com/sdague
 [@skalavala]: https://github.com/skalavala
 [@slackr31337]: https://github.com/slackr31337
 [@soosp]: https://github.com/soosp
@@ -464,6 +514,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alarm_control_panel.lupusec docs]: /components/alarm_control_panel.lupusec/
 [alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
 [alarm_control_panel.yale_smart_alarm docs]: /components/alarm_control_panel.yale_smart_alarm/
+[alexa docs]: /components/alexa/
 [apple_tv docs]: /components/apple_tv/
 [august docs]: /components/august/
 [automation docs]: /components/automation/
@@ -495,7 +546,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [daikin docs]: /components/daikin/
 [device_tracker docs]: /components/device_tracker/
 [elkm1 docs]: /components/elkm1/
-[emulated_hue docs]: /components/emulated_hue/
 [evohome docs]: /components/evohome/
 [fan.mqtt docs]: /components/fan.mqtt/
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
@@ -513,6 +563,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ihc docs]: /components/ihc/
 [image_processing docs]: /components/image_processing/
 [influxdb docs]: /components/influxdb/
+[lifx docs]: /components/lifx/
 [light.decora_wifi docs]: /components/light.decora_wifi/
 [light.fibaro docs]: /components/light.fibaro/
 [light.ihc docs]: /components/light.ihc/
@@ -573,6 +624,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.zha docs]: /components/sensor.zha/
 [shopping_list docs]: /components/shopping_list/
 [simplisafe docs]: /components/simplisafe/
+[skybell docs]: /components/skybell/
 [switch.hdmi_cec docs]: /components/switch.hdmi_cec/
 [switch.hlk_sw16 docs]: /components/switch.hlk_sw16/
 [switch.ihc docs]: /components/switch.ihc/
