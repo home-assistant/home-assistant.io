@@ -25,7 +25,7 @@ _We will skip our next release in our bi-weekly release cycle and plan to be bac
 
 This release introduces a new Home Assistant Cloud feature available: cloud webhooks. With cloud webhooks you can enable any webhook-enabled integration or automation in Home Assistant to be accessible via a unique URL in the cloud without having to open up a port on your router.
 
-This means that you can send any data back to your instance for OwnTracks, IFTTT or an automation with a webhook-trigger. Read more about the new functionality at [the Nabu Casa website](https://www.nabucasa.com/config/webhooks/).
+This means that you can send any data back to your instance for OwnTracks, IFTTT or an automation with a webhook-trigger. Check the cloud page in the configuration panel to get started or read more about the new functionality at [the Nabu Casa website](https://www.nabucasa.com/config/webhooks/).
 
 ## {% linkable_title Improved service calling %}
 
