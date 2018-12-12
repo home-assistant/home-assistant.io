@@ -31,10 +31,11 @@ entity:
   required: true
   description: "Entity id to show"
   type: string
-title:
+name:
   required: false
-  description: Title of Gauge Data
+  description: Name of Gauge Entity
   type: string
+  default: Entity Name
 unit:
   required: false
   description: Unit of Measurement given to data

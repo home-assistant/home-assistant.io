@@ -70,7 +70,6 @@ file.
 | processor_use       |                           |
 | process             | Binary, e.g., `octave-cli` |
 | last_boot           |                           |
-| since_last_boot     |                           |
 
 ## {% linkable_title Linux specific %}
 

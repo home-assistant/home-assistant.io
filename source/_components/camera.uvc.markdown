@@ -34,6 +34,7 @@ camera:
   - platform: uvc
     nvr: IP_ADDRESS
     key: API_KEY
+    ssl: USE_SSL
 ```
 
 {% configuration %}
@@ -55,4 +56,9 @@ password:
   required: false
   type: string
   default: ubnt
+ssl:
+  description: Should use SSL/TLS to connect to the NVR.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
