@@ -85,6 +85,7 @@ If the command is a word command, the `data` field contains a list of the comman
 
 This example also uses the [matrix `notify` platform](/components/notify.matrix/).
 
+{% raw %}
 ```yaml
 # The Matrix component
 matrix:
@@ -96,6 +97,7 @@ matrix:
     - "#someothertest:matrix.org"
   commands:
     - word: testword
+      name: testword
       rooms:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
@@ -126,9 +128,11 @@ automation:
     action:
       service: notify.matrix_notify
       data_template:
-        message: "Hello {{trigger.event.data.name}}"
+        message: "Hello {{trigger.event.data.args['name']}}"
 ```
+{% endraw %}
 
 This configuration will:
+
 - Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
