@@ -335,7 +335,7 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: json
+  - platform: mqtt
     schema: json
     command_topic: "home/rgb1/set"
 ```
