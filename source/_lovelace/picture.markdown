@@ -26,18 +26,56 @@ image:
   required: true
   description: The URL of an image.
   type: string
-navigation_path:
+tap_action:
   required: false
-  description: Path of URL to navigate to.
-  type: string
-service:
-  required: false
-  description: The service to call.
-  type: string
-service_data:
-  required: false
-  description: The service data.
+  description: Action to take on tap
   type: object
+  keys:
+    action:
+      required: true
+      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      type: string
+      default: `more-info`
+    navigation_path:
+      required: false
+      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      type: string
+      default: none
+    service:
+      required: false
+      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      type: string
+      default: none
+hold_action:
+  required: false
+  description: Action to take on tap-and-hold
+  type: object
+  keys:
+    action:
+      required: true
+      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      type: string
+      default: `more-info`
+    navigation_path:
+      required: false
+      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      type: string
+      default: none
+    service:
+      required: false
+      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      type: string
+      default: none
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
