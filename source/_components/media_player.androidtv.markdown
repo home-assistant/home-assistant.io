@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Media Player
-ha_release: 0.84?
+ha_release: 0.84
 ha_iot_class: "Local Polling"
 ---
 
@@ -42,7 +42,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP address for your Android TV device.
+  description: The IP address of your Android TV device.
   required: true
   type: string
 name:
