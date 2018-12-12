@@ -76,22 +76,22 @@ tap_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 hold_action:
@@ -101,22 +101,22 @@ hold_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 style:
@@ -152,22 +152,22 @@ tap_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 hold_action:
@@ -177,22 +177,22 @@ hold_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 style:
@@ -237,7 +237,7 @@ type:
   type: string
 icon:
   required: true
-  description: Icon to display (e.g., `mdi:home`)
+  description: "Icon to display (e.g., `mdi:home`)"
   type: string
 title:
   required: false
@@ -254,22 +254,22 @@ tap_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 hold_action:
@@ -279,22 +279,22 @@ hold_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 style:
@@ -322,22 +322,22 @@ tap_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 hold_action:
@@ -347,22 +347,22 @@ hold_action:
   keys:
     action:
       required: true
-      description: Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: `more-info`
+      default: "`more-info`"
     navigation_path:
       required: false
-      description: Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
       type: string
       default: none
     service:
       required: false
-      description: Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
       type: string
       default: none
     service_data:
       required: false
-      description: Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
       type: string
       default: none
 image:
