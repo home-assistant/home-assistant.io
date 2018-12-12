@@ -63,7 +63,7 @@ database_path:
   required: true
   type: string
 enable_quirks:
-  description: enable quirks mode for devices where manufacturers didn't follow specs.
+  description: Enable quirks mode for devices where manufacturers didn't follow specs.
   required: false
   type: boolean
   default: true
