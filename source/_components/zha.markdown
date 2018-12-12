@@ -41,7 +41,6 @@ and the path to the serial device for the radio and path to the database which w
 zha:
   usb_path: /dev/ttyUSB2
   database_path: /home/homeassistant/.homeassistant/zigbee.db
-  enable_quirks: false
 ```
 
 {% configuration %}
