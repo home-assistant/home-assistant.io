@@ -35,7 +35,7 @@ doorbird:
 
 {% configuration %}
 token:
-  description: Token to be used to authenticate Doorbird calls to Home Assistant.
+  description: Token to be used to authenticate Doorbird calls to Home Assistant. This can be obtained from your "Digital Passport" document provided with your Doorbird
   required: true
   type: string
 devices:
@@ -48,7 +48,7 @@ devices:
       required: true
       type: string
     username:
-      description: The username of a non-administrator user account on the device. This user needs the "API-Operator" permission enabled on doorbird.
+      description: The username of a non-administrator user account on the device. This user needs the "API-Operator" permission enabled on doorbird. It is recommend to setup a new account on your Doorbird for use with Home Assistant. This can be added via the Doorbird App by choosing Administration -> (User) Add. When the new account is created, you will need to enable the permission "API-Operator" in the "permisions option.
       required: true
       type: string
     password:
