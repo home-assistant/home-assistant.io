@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Home Assistant Python API"
-description: "Basic example how to work with the Home Assistant Python API in a Jupyter notebook."
+description: "Basic example of interacting with Home Assistant live from a Jupyter notebook using the Python API."
 date: 2016-07-23 09:00
 sidebar: true
 comments: false
@@ -10,4 +10,4 @@ footer: true
 redirect_from: /ecosystem/notebooks/api/
 ---
 
-The [Python API](/developers/python_api/) allows one to create [interactive notebooks](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/home-assistant-python-api.ipynb).
+You can interact with Home Assistant live from Jupyter notebooks by using the Home Assistant [Python API](/developers/python_api/). [See this example notebook](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/home-assistant-python-api.ipynb).

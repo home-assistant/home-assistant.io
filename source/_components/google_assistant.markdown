@@ -19,6 +19,8 @@ The `google_assistant` component allows you to control things via Google Assista
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 
+For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
+
 ## {% linkable_title Manual setup %}
 
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
@@ -105,9 +107,9 @@ google_assistant:
   project_id: YOUR_PROJECT_ID
   api_key: YOUR_API_KEY
   exposed_domains:
-    - SWITCH
-    - LIGHT
-    - GROUP
+    - switch
+    - light
+    - group
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -134,7 +136,7 @@ api_key:
   required: false
   type: string
 expose_by_default:
-  description: "Expose devices in all supported domains by default. If set to false, you need to add the expose configuration option to each entity in `entity_config` and set it to true. Setting `exposed_domains` values will _not_ expose those domains if `expose_by_default` is false."
+  description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
   required: false
   default: True
   type: boolean
@@ -179,13 +181,22 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off)
+- fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
-- media_player (on/off/set volume (via set brightness))
+- media_player (on/off/set volume (via set brightness)/source (via set input source))
 - climate (temperature setting)
 - vacuum (dock/start/stop/pause)
+
+### {% linkable_title Media Player Sources %}
+
+Media Player sources are sent via the Modes trait in Google Assistant.  
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:  
+https://developers.google.com/actions/reference/smarthome/traits/modes
+
+#### Example Command:
+"Hey Google, change input source to TV on Living Room Receiver"
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 

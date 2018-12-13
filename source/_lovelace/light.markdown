@@ -11,6 +11,7 @@ footer: true
 ---
 
 The Light card allows you to change the brightness of the light.
+Note: Long-press on the bulb to bring up the `more-info` dialog.
 
 <p class='img'>
 <img src='/images/lovelace/lovelace_light_card.png' alt='Screenshot of the Light card'>

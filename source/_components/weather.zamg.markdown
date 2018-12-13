@@ -49,5 +49,5 @@ longitude:
 {% endconfiguration %}
 
 <p class='note'>
-This platform is an alternative to the [`zamg`](/components/sensor.zamg/) sensor. The weather platform is easier to configure but less customizable.
+This platform is an alternative to the [`zamg`](/components/sensor.zamg/) sensor. The `weather` platform is easier to configure but less customizable and doesn't have support for conditions which is a key feature of the `weather` platforms.
 </p>

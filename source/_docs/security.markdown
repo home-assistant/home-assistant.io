@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-As Home Assistant is like every other service or daemon that is running on a computer system that allows access over a network connection, certain measurement were taken to increase the overall security while still staying operational.
+As Home Assistant is like every other service or daemon that is running on a computer system that allows access over a network connection, certain measures were taken to increase the overall security while still staying operational.
 
 [Secure your installation](/docs/configuration/securing/) once you've finished with the installation process regardless of your use case.
 
@@ -27,7 +27,7 @@ See the [open ports](/docs/security/porosity/) of a Hass.io instance with variou
 
 ## {% linkable_title HTTP SSL/TLS %}
 
-Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. To allow the users to access Home Assistant with most devices the target is **Intermediate compatibility**.
+Home Assistant is following the [Mozilla's Operations Security team recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS) for Server side SSL/TLS settings. Home Assistant uses **Modern compatibility** by default. If an user wishes to use **Intermediate compatibilty**, this is configurable in the [`http` component](/components/http/).
 
 ## {% linkable_title SSH %}
 

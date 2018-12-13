@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: 0.52
 ---
 
-
 The `prowl` platform uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
 
 Go to the [Prowl website](https://www.prowlapp.com/) and create a new API key.
@@ -27,10 +26,17 @@ notify:
     api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): The Prowl API key to use.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+api_key:
+  description: The Prowl API key to use.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Prowl service data %}
 
