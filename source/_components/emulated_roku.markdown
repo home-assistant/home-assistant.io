@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Hub
-ha_release: 0.81.0
+ha_release: 0.85.0
 ha_iot_class: "Local Push"
 ha_qa_scale: internal
 ---
@@ -28,9 +28,15 @@ Windows is not supported because Home Assistant uses `ProactorEventLoop` which d
 
 The component is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
 
-<p class='note warning'>
-You can only configure the component through the integrations page, not in configuration files.
-</p>
+If you wish to configure advanced options, you can add the following entry in `configuration.yaml`.
+
+```yaml
+# Example configuration.yaml entry
+emulated_roku:
+  servers:
+    - name: hass roku
+      listen_port: 8060
+```
 
 {% configuration %}
 name:
