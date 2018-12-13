@@ -27,6 +27,12 @@ This release introduces a new Home Assistant Cloud feature available: cloud webh
 
 This means that you can send any data back to your instance for OwnTracks, IFTTT or an automation with a webhook-trigger. Check the cloud page in the configuration panel to get started or read more about the new functionality at [the Nabu Casa website](https://www.nabucasa.com/config/webhooks/).
 
+## {% linkable_title Improved state restoring %}
+
+We have a new more reliable way of state restoration introduced by [@armills]. Instead of relying on the database it will now leverage the storage helper to keep track of states that need to be tracked. This should improve reliability and startup speed.
+
+This comes with a downside: we will be unable to restore states the first time you start 0.84.
+
 ## {% linkable_title Improved service calling %}
 
 We have improved how we call services with better validation checks. This means that if you have an automation or a script that sends invalid data, we will now stop the execution and be better able to point out where your incorrect calls are coming from.
@@ -81,6 +87,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
+- State restoration will not work the first time you start 0.84. ([@armills] - [#17270]) ([history docs])
 - Support for multiple IHC controllers added. Manual IHC device configuration must be moved from platform sections to controller configuration section under the ihc component section. ([@mopolus] - [#18058]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([switch.ihc docs]) (breaking change)
 - Lutron: Change device_state_attributes() to use lowercase snakecase (Rename 'Lutron Integration ID' to 'lutron_integration_id') ([@cdheiser] - [#18650]) ([light.lutron docs]) (breaking change)
 - Remove "since last boot" from systemmonitor sensor, use `last_boot` instead. ([@balloob] - [#18644]) ([sensor.systemmonitor docs]) (breaking change)
