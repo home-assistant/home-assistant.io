@@ -27,7 +27,7 @@ sensor:
     region_name: Hansestadt Hamburg
 ```
 
-<p class='important'>
+<p class="note">
 As it suggests the region name is not the city or nearest city you want to get the warnings for but the next higher level of the governmental district called "Kreis" in German.
 
 Be aware, to get the region name you need to use the following link by replacing `Hamburg` with your city:
@@ -35,12 +35,6 @@ Be aware, to get the region name you need to use the following link by replacing
 - On the page that is loaded in your browser you will find the correct region ("Kreis") below the map as a headding.
 - Verify if you find any warning for your region here. Your region ("Kreis") will appear only if warnings exist: `https://www.dwd.de/DWD/warnungen/warnapp_landkreise/json/warnings.json?jsonp=loadWarnings`
 </p>
-
-The warning level is between 0 (no danger) and 4 (extreme weather conditions):
-- Warnungen vor extremem Unwetter (Stufe 4)
-- Unwetterwarnungen (Stufe 3)
-- Warnungen vor markantem Wetter (Stufe 2)
-- Wetterwarnungen (Stufe 1)
 
 {% configuration %}
 region_name:
@@ -54,3 +48,25 @@ name:
   type: string
   default: DWD-Weather-Warnings
 {% endconfiguration %}
+
+### {% linkable_title Attributes %}
+
+| Attribute    | Description                            |
+| ------------ | -------------------------------------- |
+| `last_updated` | Information last update from DWD service. |
+| `region_name` | Requested region name. This should be the same as the region name in the configuration. |
+| `region_state` | State (Bundesland) in abriviated form the requested region is located, eg. "HE" for "Hessen". |
+| `region_id` | Region ID assigned by DWD. |
+| `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
+| `warning_<x>_level` | *(int)* Issued warning level between 0 and 4. <br/>0 == Keine Warnungen, <br/>1 ==  Wetterwarnungen, <br/>2 == Warnungen vor markantem Wetter, <br/>3 == Unwetterwarnungen, <br/>4 == Warnungen vor extremem Unwetter |
+| `warning_<x>_type` | *(int)* Issued warning type. <br/>0 == ?, <br/>1 ==  ?, <br/>2 ==  ?, <br/>3 ==  ?, <br/>4 ==  ?,<br/>5 ==  Frost, <br/>6 == Glätte |
+| `warning_<x>_name` | This name correlates with the warning type and indicates it in short as a string. |
+| `warning_<x>_headline` | Official headline the weather warning. |
+| `warning_<x>_start` | Starting time and date of the issued warning. |
+| `warning_<x>_end` | Ending time and date of the issued warning. |
+| `warning_<x>_description` | Details for the issued warning. |
+| `warning_<x>_instruction` | The DWD is sometimes providing helpful information about precautions to take for the issued warning. |
+
+ <p class="note">
+In the attribute name `x` is the counter of the warning starting from `1`.
+</p>

@@ -27,6 +27,12 @@ This release introduces a new Home Assistant Cloud feature available: cloud webh
 
 This means that you can send any data back to your instance for OwnTracks, IFTTT or an automation with a webhook-trigger. Check the cloud page in the configuration panel to get started or read more about the new functionality at [the Nabu Casa website](https://www.nabucasa.com/config/webhooks/).
 
+## {% linkable_title Improved state restoring %}
+
+We have a new more reliable way of state restoration introduced by [@armills]. Instead of relying on the database it will now leverage the storage helper to keep track of states that need to be tracked. This should improve reliability and startup speed.
+
+This comes with a downside: we will be unable to restore states the first time you start 0.84.
+
 ## {% linkable_title Improved service calling %}
 
 We have improved how we call services with better validation checks. This means that if you have an automation or a script that sends invalid data, we will now stop the execution and be better able to point out where your incorrect calls are coming from.
@@ -39,7 +45,7 @@ So if you were using Lovelace before 0.84, you now have two options. Option one 
 
 If you want to continue managing a YAML file, [check here how to enable the YAML mode](/lovelace/yaml-mode/). The file `ui-lovelace.yaml` will now follow the same options as `configuration.yaml`. This means that the Lovelace YAML config is now parsed with YAML 1.1 instead of YAML 1.2. Major change is that you need to make sure that you wrap `on` and `off` with quotes in your configs!
 
-We have also aligned the configuration of all the cards, causing breaking changes. Changes are especially focused around how we define actions for short and long presses. See [the docs][/lovelace/] for more info.
+We have also aligned the configuration of all the cards, causing breaking changes. Changes are especially focused around how we define actions for short and long presses. See [the docs][/lovelace/changelog/] for more info.
 
 Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit, move and delete cards, including custom cards!
 
@@ -56,6 +62,19 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 - Initial hlk-sw16 relay switch support ([@jameshilliard] - [#17855]) ([hlk_sw16 docs]) ([switch.hlk_sw16 docs]) (new-platform)
 - Initial scene support for Fibaro hubs ([@pbalogh77] - [#18779]) ([fibaro docs]) ([scene.fibaro docs]) (new-platform)
 
+## {% linkable_title Release 0.84.1 - December 12 %}
+
+- Add automation and script events to logbook event types ([@hunterjm] - [#19219]) ([logbook docs])
+- Fix owntracks topic in encrypted ios ([@balloob] - [#19220]) ([device_tracker docs]) ([owntracks docs])
+
+[#19219]: https://github.com/home-assistant/home-assistant/pull/19219
+[#19220]: https://github.com/home-assistant/home-assistant/pull/19220
+[@balloob]: https://github.com/balloob
+[@hunterjm]: https://github.com/hunterjm
+[device_tracker docs]: /components/device_tracker/
+[logbook docs]: /components/logbook/
+[owntracks docs]: /components/owntracks/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
@@ -68,6 +87,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
+- State restoration will not work the first time you start 0.84. ([@armills] - [#17270]) ([history docs])
 - Support for multiple IHC controllers added. Manual IHC device configuration must be moved from platform sections to controller configuration section under the ihc component section. ([@mopolus] - [#18058]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([switch.ihc docs]) (breaking change)
 - Lutron: Change device_state_attributes() to use lowercase snakecase (Rename 'Lutron Integration ID' to 'lutron_integration_id') ([@cdheiser] - [#18650]) ([light.lutron docs]) (breaking change)
 - Remove "since last boot" from systemmonitor sensor, use `last_boot` instead. ([@balloob] - [#18644]) ([sensor.systemmonitor docs]) (breaking change)
