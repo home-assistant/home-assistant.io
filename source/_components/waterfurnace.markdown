@@ -42,7 +42,6 @@ To use Waterfurnace in your installation, add the following to your `configurati
 waterfurnace:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  unit: 0123456789AB
 ```
 
 {% configuration %}
