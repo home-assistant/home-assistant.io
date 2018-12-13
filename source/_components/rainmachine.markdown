@@ -23,8 +23,9 @@ To connect to your RainMachine device, add the following to your
 
 ```yaml
 rainmachine:
-  ip_address: 192.168.1.100
-  password: YOUR_PASSWORD
+  controllers:
+    - ip_address: 192.168.1.100
+      password: YOUR_PASSWORD
 ```
 
 To configure additional functionality, add configuration options beneath
@@ -33,67 +34,68 @@ sections of `configuration.yaml` as below:
 
 ```yaml
 rainmachine:
-  ip_address: 192.168.1.100
-  password: YOUR_PASSWORD
-  binary_sensors:
-    # binary sensor configuration options...
-  sensors:
-    # sensor configuration options...
-  switches:
-    # switch configuration options...
+  controllers:
+    - ip_address: 192.168.1.100
+      password: YOUR_PASSWORD
+      binary_sensors:
+        # binary sensor configuration options...
+      sensors:
+        # sensor configuration options...
+      switches:
+        # switch configuration options...
 ```
 
 {% configuration %}
 ip_address:
-  description: the IP address or hostname of your RainMachine unit
+  description: The IP address or hostname of your RainMachine unit.
   required: optional
   type: string
 password:
-  description: your RainMachine password.
+  description: Your RainMachine password.
   required: true
   type: string
 port:
-  description: the TCP port used by your unit for the REST API
+  description: The TCP port used by your unit for the REST API.
   required: false
   type: integer
   default: 8080
 ssl:
-  description: whether communication with the local device should occur over HTTPS
+  description: Whether communication with the local device should occur over HTTPS.
   required: false
   type: boolean
   default: true
 scan_interval:
-  description: the frequency (in seconds) between data updates
+  description: The frequency (in seconds) between data updates.
   required: false
   type: integer
   default: 60
 binary_sensors:
-  description: binary sensor-related configuration options
+  description: Binary sensor-related configuration options.
   required: false
   type: map
   keys:
     monitored_conditions:
-      description: the conditions to create sensors from
+      description: The conditions to create sensors from.
       required: false
       type: list
       default: all (`extra_water_on_hot_days`, `freeze`, `freeze_protection`, `hourly`, `month`, `raindelay`, `rainsensor`, `weekday`)
 sensors:
-  description: sensor-related configuration options
+  description: Sensor-related configuration options.
   required: false
   type: map
   keys:
     monitored_conditions:
-      description: the conditions to create sensors from
+      description: The conditions to create sensors from.
       required: false
       type: list
       default: all (`freeze_protect_temp`)
 switches:
-  description: switch-related configuration options
+  description: Switch-related configuration options.
   required: false
   type: map
   keys:
     zone_run_time:
-      description: the default number of seconds that a zone should run when turned on
+      description: The default number of seconds that a zone should run when turned on.
       required: false
       type: integer
       default: 600
