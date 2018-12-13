@@ -10,7 +10,7 @@ footer: true
 logo: harman_kardon.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
-ha_release: 0.82.2
+ha_release: 0.85.0
 ---
 
 The `harman_kardon_avr` platform allows you to control Harman Kardon Network Receivers from Home Assistant.
@@ -27,8 +27,6 @@ To add a Harman Kardon Network Receiver to your installation, add the following 
 media_player:
   - platform: harman_kardon_avr
     host: IP_ADDRESS
-    name: NAME
-    port: PORT
 ```
 
 {% configuration %}
