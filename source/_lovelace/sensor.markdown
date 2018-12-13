@@ -42,20 +42,6 @@ unit:
   required: false
   description: The unit of measurement
   type: string
-height:
-  required: false
-  description: Height of the graph
-  type: integer
-  default: 100
-line_width:
-  required: false
-  description: Width of the line stroke
-  type: integer
-  default: 5
-line_color:
-  required: false
-  description: Color of the line stroke
-  type: string
 detail:
   required: false
   description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
