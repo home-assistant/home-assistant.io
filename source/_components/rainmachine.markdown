@@ -33,14 +33,15 @@ sections of `configuration.yaml` as below:
 
 ```yaml
 rainmachine:
-  ip_address: 192.168.1.100
-  password: YOUR_PASSWORD
-  binary_sensors:
-    # binary sensor configuration options...
-  sensors:
-    # sensor configuration options...
-  switches:
-    # switch configuration options...
+  controllers:
+    - ip_address: 192.168.1.100
+      password: YOUR_PASSWORD
+      binary_sensors:
+        # binary sensor configuration options...
+      sensors:
+        # sensor configuration options...
+      switches:
+        # switch configuration options...
 ```
 
 {% configuration %}
