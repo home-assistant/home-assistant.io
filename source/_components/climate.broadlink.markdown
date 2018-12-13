@@ -16,6 +16,7 @@ ha_iot_class: "Local Polling"
 ## {% linkable_title Description %}
 
 The `broadlink thermostat` climate platform is a thermostat implemented in Home Assistant. It work with numbers of Wifi thermostat (solds by Beok, Floureon, Beca Energy, Seesii...) like `Floureon Smart Wi-Fi Thermostat`, `Beok TGT70WIFI-EP Smart Wifi Thermostat`, `SeeSii Thermostat WiFi`...
+To know if your device will work with this component, look a the MAC address. If it start by C8:F7:42, 78:0F:77 or 34:EA:34, it should be fine.
 
 ## {% linkable_title Configuration %}
 
