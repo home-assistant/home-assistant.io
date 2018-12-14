@@ -10,6 +10,8 @@ footer: true
 redirect_from: /topics/platform_options/
 ---
 
+<p class='note info'>These options are being phased out and are only available for single platform integrations.</p>
+
 Some components or platforms (those that are based on the [entity](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/entity.py) class) allows various extra options to be set.
 
 ### {% linkable_title Entity namespace %}
@@ -22,8 +24,6 @@ light:
   - platform: your_lights
     entity_namespace: holiday_house
 ```
-
-_NB: For manual config platforms, such as Sonos and Cast, `entity_namespace` is no longer supported._
 
 ### {% linkable_title Scan Interval %}
 
