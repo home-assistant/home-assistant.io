@@ -128,6 +128,7 @@ sensor:
   - platform: jewish_calendar
     language: english
     diaspora: true
+    havdalah_minutes_after_sunset: 50
     sensors:
       - date
       - weekly_portion
