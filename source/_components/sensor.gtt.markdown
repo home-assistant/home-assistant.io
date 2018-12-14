@@ -10,7 +10,7 @@ footer: true
 ha_category: Transport
 logo: gtt.png
 ha_iot_class: "Cloud Polling"
-ha_release: 0.83
+ha_release: 0.85
 ---
 
 
