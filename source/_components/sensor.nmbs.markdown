@@ -24,7 +24,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 sensor:
   - platform: nmbs
     station_from: "STATION_1"
-    station_from: "STATION_2"
+    station_to: "STATION_2"
     station_live: "STATION_1"
 ```
 
