@@ -23,6 +23,8 @@ light:
     entity_namespace: holiday_house
 ```
 
+_NB: For manual config platforms, such as Sonos and Cast, `entity_namespace` is no longer supported._
+
 ### {% linkable_title Scan Interval %}
 
 Platforms that require polling will be polled in an interval specified by the main component. For example a light will check every 30 seconds for a changed state. It is possible to overwrite this scan interval for any platform that is being polled by specifying a `scan_interval` configuration key. In the example below we set up the `your_lights` platform but tell Home Assistant to poll the devices every 10 seconds instead of the default 30 seconds.
