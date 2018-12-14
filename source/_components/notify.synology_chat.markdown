@@ -23,7 +23,6 @@ To enable the Synology Chat notification in your installation, add the following
 notify:
   - platform: synology_chat
     name: hass_synchat
-    verify_ssl: True
     resource: https://example.your.synology.com/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=1&token=ABCDEFG
 ```
 
@@ -33,7 +32,7 @@ name:
   required: true
   type: string
 verify_ssl:
-  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.).
   required: false
   type: boolean
   default: true
