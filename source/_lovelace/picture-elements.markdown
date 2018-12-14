@@ -495,7 +495,7 @@ hold_action:
       icon: mdi:home
       tap_action:
         action: navigate
-          navigation_path: /lovelace/0
+        navigation_path: /lovelace/0
       style:
         top: 10%
         left: 10%
