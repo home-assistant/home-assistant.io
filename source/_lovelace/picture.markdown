@@ -85,7 +85,9 @@ Navigate to another view:
 ```yaml
 - type: picture
   image: /local/home.jpg
-  navigation_path: /lovelace/home
+  tap_action:
+    action: navigate
+    navigation_path: /lovelace/home
 ```
 
 Check the [views](/lovelace/views/) setup on how to setup custom IDs.
