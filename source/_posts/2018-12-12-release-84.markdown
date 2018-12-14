@@ -75,6 +75,43 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [logbook docs]: /components/logbook/
 [owntracks docs]: /components/owntracks/
 
+## {% linkable_title Release 0.84.2 - December 14 %}
+
+- Don't avoid async_schedule_update_ha_state by returning false ([@syssi] - [#19102]) ([binary_sensor.xiaomi_aqara docs])
+- Always add friendly name attribute to ZHA entities ([@damarco] - [#19141]) ([zha docs])
+- Bump aioasuswrt ([@kennedyshead] - [#19229]) ([asuswrt docs])
+- Add automation and script events to logbook filter events ([@luca-angemi] - [#19253]) ([logbook docs])
+- Fix list (fixes #19235) ([@fabaff] - [#19258]) ([tts docs])
+- Fix OwnTracks deadlocking ([@balloob] - [#19260]) ([owntracks docs])
+- Fix call to super() ([@marchingphoenix] - [#19279]) ([light.lutron docs])
+- Improve check for duplicated entity_id ([@emontnemery] - [#19194])
+- Fix race in entity_platform.async_add_entities ([@emontnemery] - [#19222])
+
+[#19102]: https://github.com/home-assistant/home-assistant/pull/19102
+[#19141]: https://github.com/home-assistant/home-assistant/pull/19141
+[#19222]: https://github.com/home-assistant/home-assistant/pull/19222
+[#19229]: https://github.com/home-assistant/home-assistant/pull/19229
+[#19253]: https://github.com/home-assistant/home-assistant/pull/19253
+[#19258]: https://github.com/home-assistant/home-assistant/pull/19258
+[#19260]: https://github.com/home-assistant/home-assistant/pull/19260
+[#19279]: https://github.com/home-assistant/home-assistant/pull/19279
+[#19194]: https://github.com/home-assistant/home-assistant/pull/19194
+[@balloob]: https://github.com/balloob
+[@damarco]: https://github.com/damarco
+[@emontnemery]: https://github.com/emontnemery
+[@fabaff]: https://github.com/fabaff
+[@kennedyshead]: https://github.com/kennedyshead
+[@luca-angemi]: https://github.com/luca-angemi
+[@marchingphoenix]: https://github.com/marchingphoenix
+[@syssi]: https://github.com/syssi
+[asuswrt docs]: /components/asuswrt/
+[binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
+[light.lutron docs]: /components/light.lutron/
+[logbook docs]: /components/logbook/
+[owntracks docs]: /components/owntracks/
+[tts docs]: /components/tts/
+[zha docs]: /components/zha/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
