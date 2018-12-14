@@ -28,7 +28,7 @@ sensor:
 language:
   required: false
   default: english
-  description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishri 5779).
+  description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are 'english' and 'hebrew'.
   type: string
 latitude:
   required: false
@@ -45,6 +45,20 @@ diaspora:
   description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
   default: False
   type: string
+candle_lighting_minutes_before_sunset:
+  required: false
+  description: Number of minutes before sunset to report as candle lighting
+  time.
+  default: 18
+  type: integer
+havdalah_minutes_after_sunset:
+  required: false
+  description: Number of minutes after sunset to report as havdalah time. If
+  this is set to 0, uses the time that the sun is 8.5 degrees below the horizon
+  (same as the 'three_stars' sensor). If non-zero, this value is added as an
+  offset to the time of sunset to report havdalah.
+  default: 0
+  type: integer
 sensors:
   required: false
   default: date
@@ -68,17 +82,41 @@ sensors:
       description: Time of the Plag Hamincha.
     first_stars:
       description: Time at which the first stars are visible (Tset Hakochavim - צאת הכוכבים).
+    upcoming_shabbat_candle_lighting:
+      description: The time of candle lighting for either the current Shabbat
+      (if it is currently Shabbat) or the immediately upcoming Shabbat.
+    upcoming_shabbat_havdalah:
+      description: The time of havdalah for either the current Shabbat
+      (if it is currently Shabbat) or the immediately upcoming Shabbat.
+    upcoming_candle_lighting:
+      description: The time of candle lighting for either the current Shabbat 
+      OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example,
+      today is Sunday, and Rosh Hashana is Monday night through Wednesday night,
+      this reports the candle lighting for Rosh Hashana on Monday night. 
+      To always get the Shabbat times, use the upcoming_shabbat_candle_lighting
+      sensor.
+    upcoming_havdalah:
+      description: The time of havdalah for either the current Shabbat 
+      OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example,
+      today is Sunday, and Rosh Hashana is Monday night through Wednesday night,
+      this reports the havdalah for Rosh Hashana on Wednesday night. To always 
+      get the Shabbat times, use the upcoming_shabbat_havdalah sensor.
+    issur_melacha_is_in_effect:
+      description: A boolean sensor indicating if melacha is currently not 
+      permitted. The value is true when it is currently Shabbat or Yom Tov and
+      false otherwise.
+    
 {% endconfiguration %}
 
 ### {% linkable_title Holyness levels %}
 
 1. Mido'rayta - by Torah ordination (Rosh Hashana, Yom Kippur, Pesach, Shavuot, Sukkot)
-2. Erev Yom Kippur
+2. Erev Yom Tov
 3. Hol Hamo'ed
 4. Hanukka and Purim
 5. Fast days
-6. Yom Yerushalayim and Yom Haatsmaut
-7. Lag ba'omer and Tu bishvat
+6. Modern holidays, e.g. Yom Yerushalayim and Yom Haatsmaut
+7. Minor holidays, e.g. Lag ba'omer and Tu bishvat
 8. Memorial days: yom hazikaron and yom hashoah
 9. Days mentioned by the Israeli parliament: Rabin memorial day, Ze'ev Zhabotinsky day, etc.
 
@@ -100,4 +138,6 @@ sensor:
       - mga_end_shma
       - plag_mincha
       - first_stars
+      - upcoming_candle_lighting
+      - upcoming_havdalah
 ```
