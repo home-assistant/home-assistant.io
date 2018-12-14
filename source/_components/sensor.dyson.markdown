@@ -14,7 +14,8 @@ ha_release: 0.47
 ---
 
 
-The `dyson` sensor platform allows you to control your Dyson Purifier's filter life time.
+The `dyson` sensor platform reports information from the dyson air purifiers 
+(temperature, humidity, particles, volatile compounds and filter life).
 
 You have first to setup the [Dyson component](/components/dyson/)
 
@@ -22,3 +23,4 @@ You have first to setup the [Dyson component](/components/dyson/)
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see [climate](/components/climate.dyson/) for thermal control)
+- Pure Cool 2018 (DP04 and TP04)
