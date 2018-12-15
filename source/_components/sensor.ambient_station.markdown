@@ -6,6 +6,7 @@ date: 2018-11-15 08:00
 sidebar: true
 comments: false
 logo: ambient_weather.png
+ha_category: Weather
 ha_release: "0.85"
 ha_iot_class: "Cloud Polling"
 ---
@@ -36,11 +37,11 @@ api_key:
   required: true
   type: string
 app_key:
-  description: The Application key to access the service
+  description: The Application key to access the service.
   required: true
   type: string
 monitored_conditions:
-  description: Weather conditions to display in the frontend.
+  description: Weather conditions to track.
   required: true
   type: list
   keys:
