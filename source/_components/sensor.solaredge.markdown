@@ -30,7 +30,7 @@ sensor:
   - platform: solaredge
     api_key: API_KEY
     site_id: SITE_ID
-    monitored_variables:
+    monitored_conditions:
       - current_power
       - last_day_data
 ```
@@ -81,7 +81,7 @@ sensor:
     api_key: API_KEY
     site_id: SITE_ID
     name: SolarEdge
-    monitored_variables:
+    monitored_conditions:
       - current_power
       - last_day_data
       - last_month_data
