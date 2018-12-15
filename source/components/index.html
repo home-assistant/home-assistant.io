@@ -14,7 +14,7 @@ regenerate: false
 ---
 
 {% assign count = site.components | size %}
-{% assign nocat = site.components | where: 'ha_category', null | size %}
+{% assign nocat = site.components | where: 'ha_category', nil | size %}
 {% assign tot = count | minus: nocat %}
 {% assign components = site.components | sort: 'title' %}
 {% assign categories = components | sort: 'ha_category' | map: 'ha_category' | uniq %}
