@@ -18,7 +18,7 @@ ha_iot_class: "Local Polling"
 
 Only a subset of the Homeworks system is supported - lights and keypads.
 
-There is another component [lutron](/components/lutron/) which controls the Lutron RadioRA 2 system.
+Lutron has created many systems over the years each with their own unique interfacing protocol.  There are three Homeworks systems - QS, Series 4 & 8, and original.  This platform is only for Series 4 & 8.  There is another component [lutron](/components/lutron/) which handles Lutron RadioRA 2 systems.
 
 ## {% linkable_title Configuration %}
 
