@@ -40,3 +40,17 @@ station:
   required: true
   type: string
 {% endconfiguration %}
+
+## {% linkable_title Full example %}
+
+This is a full example of the sensor:
+
+```yaml
+sensor:
+  - platform: prezzibenzina
+    station: <id>
+    fuel_types: 
+        - "Benzina"
+        - "GPL"
+    name: "Station"
+```
