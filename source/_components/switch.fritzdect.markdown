@@ -24,6 +24,7 @@ Supported Firmwares (tested):
 
 - FRITZ!OS: 06.80 / FRITZ!DECT: 03.83
 - FRITZ!OS: 06.98-51288 (Beta) / FRITZ!DECT: 03.87
+- FRITZ!OS: 7.01 / FRITZ!DECT: 04.09
 
 To use your AVM FRITZ!DECT switch(es) in your installation, add the following to your `configuration.yaml` file:
 
