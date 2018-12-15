@@ -148,7 +148,7 @@ $ dmesg | grep USB
 If Home Assistant (`hass`) runs with another user (e.g., *homeassistant* on Hassbian) give access to the stick with:
 
 ```bash
-$ sudo usermod -a -G dialout homeassistant
+$ sudo usermod -aG dialout homeassistant
 ```
 
 <p class='Note'>
