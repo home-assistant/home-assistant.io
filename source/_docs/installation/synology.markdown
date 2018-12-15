@@ -101,7 +101,7 @@ Start the docker service:
 ---
 To enable your user account to manage Docker without superuser privileges, add your “USER” account to the “docker” group:
 ```bash
-sudo gpasswd -a USER docker
+# sudo gpasswd -a USER docker
 ```
 
 You will now need to get the [spksrc Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment.
