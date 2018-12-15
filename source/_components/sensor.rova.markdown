@@ -26,7 +26,7 @@ sensor:
   - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
-    monitored_variables:
+    monitored_conditions:
       - gft
       - papier
 ```
@@ -75,7 +75,7 @@ sensor:
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
     name: Rova
-    monitored_variables:
+    monitored_conditions:
       - gft
       - papier
       - plasticplus
