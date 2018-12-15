@@ -230,7 +230,7 @@ Make a new one if you need to change it's name, the path or Shared-Folder.
 ```
 Activate the virtual Python environment
 ```bash
-# source ./venv-hass/bin/activate
+# source /volume1/homeassistant/venv-hass/bin/activate
 ```
 Install the “cross compiled module package” files we compiled earlier.
 This command expects you have copied the “Module-Packages” directory to your “homeassistent” Shared-Folder.
@@ -384,7 +384,7 @@ Here are some useful commands:
 ```
 * Upgrade Home Assistant:
 ```bash
-# source ./venv-hass/bin/activate
+# source /volume1/homeassistant/venv-hass/bin/activate
 # pip3 install --upgrade homeassistant
 # deactivate
 ```
