@@ -64,6 +64,11 @@ database_path:
   description: _Full_ path to the database which will keep persistent network data.
   required: true
   type: string
+enable_quirks:
+  description: Enable quirks mode for devices where manufacturers didn't follow specs.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 To add new devices to the network, call the `permit` service on the `zha` domain, and then follow the device instructions for doing a scan or factory reset. In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)
