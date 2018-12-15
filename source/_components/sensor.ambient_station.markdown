@@ -104,5 +104,5 @@ monitored_conditions:
     dewPoint:
       description: Dewpoint temperature 
     feelsLike:
-      description: *Feels Like* temperature
+      description: Feels Like temperature
 {% endconfiguration %}
