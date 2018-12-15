@@ -14,9 +14,14 @@ regenerate: false
 ---
 
 {% assign count = site.components | size %}
-{% assign nocat = site.components | where: 'ha_category', nil | size %}
+{% assign nocat = site.components | where: 'ha_category', null | size %}
 {% assign tot = count | minus: nocat %}
 {% assign components = site.components | sort: 'title' %}
+<pre>
+{% for component in components %}
+  <p>{{ component | jsonify | escape }}</p>
+{% endfor %}
+</pre>
 {% assign categories = components | sort: 'ha_category' | map: 'ha_category' | uniq %}
 {% capture current_version %}{{ site.current_major_version }}.{{ site.current_minor_version }}{% endcapture %}
 {% assign added_one_ago_minor_version = site.current_minor_version|minus: 1 %}
