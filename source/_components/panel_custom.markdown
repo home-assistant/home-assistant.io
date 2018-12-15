@@ -30,7 +30,7 @@ panel_custom:
 ```
 
 <p class='note'>
-Store your custom panels in `<config>/www` to make them available in the frontend at the path `/local`.
+Store your custom panels in `<config>/panels` to make them available in the frontend at the path `/local`.
 </p>
 
 {% configuration %}
