@@ -54,8 +54,8 @@ Just add the token to your configuration and restart Home Assistant and the medi
 The access token will not change until you factory reset your TV.
 </p>
 
-By default, the preview image that is captured from the TV and shown in the media player component is only refreshed on Home Assistant startup, or the first time the TV is turned on or the platform is initialized. This is because the image is cached in the media player component itself. To force updating the preview every time it is requested such that a near-live image is shown in the user interface, set `refresh_preview` to `true`.
+By default, the preview image that is captured from the TV and shown in the Media Player component is only refreshed on Home Assistant startup, or the first time the TV is turned on or the platform is initialized. This is because the image is cached in the Media Player component itself. To force updating the preview every time it is requested such that a near-live image is shown in the user interface, set `refresh_preview` to `true`.
 
 <p class='note'>
-Setting `refresh_preview` to `true` effectively disables the image cache for all media player platforms and could introduce a slight performance degradation.
+Setting `refresh_preview` to `true` effectively disables the image cache for all Media Player platforms and could introduce a slight performance degradation.
 </p>
