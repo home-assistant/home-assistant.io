@@ -35,6 +35,7 @@ The `secrets.yaml` file contains the corresponding password assigned to the iden
 ```yaml
 http_password: YOUR_PASSWORD
 ```
+If password contains the hash character, you have to embed it in double quotes to avoid it being treated as a comment. `http_password: "YOUR_PASSWORD_WITH_#"
 
 ### {% linkable_title Debugging secrets %}
 
