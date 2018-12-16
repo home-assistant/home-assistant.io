@@ -39,6 +39,11 @@ name:
   required: false
   default: LG TV Remote
   type: string
+refresh_preview:
+  description: Force the refresh of the preview image captured from the TV every time it is requested.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
@@ -47,4 +52,10 @@ Just add the token to your configuration and restart Home Assistant and the medi
 
 <p class='note'>
 The access token will not change until you factory reset your TV.
+</p>
+
+By default, the preview image that is captured from the TV and shown in the media player component is only refreshed on Home Assistant startup, or the first time the TV is turned on or the platform is initialized. This is because the image is cached in the media player component itself. To force updating the preview every time it is requested such that a near-live image is shown in the user interface, set `refresh_preview` to `true`.
+
+<p class='note'>
+Setting `refresh_preview` to `true` effectively disables the image cache for all media player platforms and could introduce a slight performance degradation.
 </p>
