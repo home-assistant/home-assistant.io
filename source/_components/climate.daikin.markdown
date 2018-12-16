@@ -23,25 +23,4 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current temperature is displayed.
 
-## {% linkable_title Configuration %}
-
-To enable the platform, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: daikin
-    host: 10.0.0.1
-```
-
-{% configuration %}
-host:
-  description: IP or hostname of the device.
-  required: true
-  type: string
-name:
-  description: If the device has a name previously set by the user than that name will be used.
-  required: false
-  type: string
-{% endconfiguration %}
-
+For configuration instructions, see [the Daikin component](/components/daikin/).
