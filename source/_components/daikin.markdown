@@ -20,7 +20,7 @@ The `daikin` component integrates Daikin air conditioning systems into Home Assi
 
 **Only** the european versions of Daikin ACs (models BRP069A41, 42, 43, 45).
 
-The some models does not support setting of fan speed or fan swing mode.
+Some models does not support setting of fan speed or fan swing mode.
 
 Please note that some AC devices may report outside temperature only when they are turned on.
 
