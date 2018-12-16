@@ -89,7 +89,7 @@ If you've added Home Assistant to the home screen, you have to first remove it f
     2. Click `Test -> Simulator`, then click `Share` icon in the right top corner. Follow the on-screen instruction:
         1. Add team members: Got to `Settings -> Permission`, click `Add`, type the new user's e-mail address and choose `Project -> Viewer` role.
         2. Copy and share the link with the new user.
-        3. New user clicks the link with their own Google account, it will enable our draft test app under their account.
+        3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
