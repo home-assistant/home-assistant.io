@@ -54,7 +54,3 @@ Brottsplatskartan captures all incidents in a region, e.g Stockholms län. If ar
 ### {% linkable_title Latitude and Longitude %}
 
 The radius is set to 5 km when using latitude and longitude to monitor an area. It's not possible to explicitly set radius to another value.
-
-### {% linkable_title Events %}
-
-The `brottsplatskartan` sensor fires a `brottsplatskartan_incident` event when a new incident is detected, including the description, external_source_link, location, timestamp and type of the incident.
