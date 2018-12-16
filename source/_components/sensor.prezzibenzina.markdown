@@ -39,6 +39,14 @@ station:
   description: The ID of the station you want to use.
   required: true
   type: string
+fuel_types:
+  description: The types of fuels you want to track.
+  required: false
+  type: list of strings
+name:
+  description: The name of the station.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Full example %}
