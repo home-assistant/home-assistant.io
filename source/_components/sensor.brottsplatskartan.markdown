@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Social
 logo: brottsplatskartan.png
-ha_release: 0.84
+ha_release: 0.85
 ha_iot_class: "Cloud Polling"
 ---
 
