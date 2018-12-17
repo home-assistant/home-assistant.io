@@ -249,7 +249,7 @@ $ groups homeassistant
 That should include `dialout`, if it doesn't then:
 
 ```bash
-$ sudo usermod -G dialout homeassistant
+$ sudo usermod -aG dialout homeassistant
 ```
 
 ### {% linkable_title Device path changes %}
