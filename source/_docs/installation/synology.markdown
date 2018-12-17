@@ -201,35 +201,55 @@ Extract the .whl (these are zip archives), rename all files as described above, 
 
 ## {% linkable_title Using the Synology webadmin: %}
 
-Open Synology Package Center and press the “*Manual Install*” button.
-Click “*Browse*” and select the Python package we created, then press “*Next*”.
-You will get a unverified package popup, press yes and next screen press “*Apply*”.
+* Open [Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
+* Press the “*Manual Install*” button on the top right of the window
+* Click on “*Browse*” and select the Python3 spk package we created
+* Click on “*Next*”
+* You will most likely get a unverified signature warning, click on “*Yes*”
+* Click on “*Apply*”
 
-Now while it's installing, you may setup the user and Shared-Folder for Home Assistent.
+Now while it's installing, you may setup the Shared-Folder for Home Assistent:
+* Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
+* Go to “[*Shared-Folder*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_desc)” settings
+* Click on “*Create*”
+* In “*Name*” write “**homeassistant**”
+* in "*Description*” write “**Home Assistent**”
+* Click on “*Next*”
+* Click on “*Next*” again
+* Click on “*Apply*”
 
-Open “*Control Panel*”, go to “*Shared-Folder*” settings and click on “*Create*”.
-In “*Name*” write “**homeassistant**”, in "Description” write “**Home Assistent**”
-Click “*Next*”, same for second screen, the third screen click “*Apply*”.
+Now the “*homeassistent*” Shared-Folder has been made, you need to copy the (previously created) “*Module-Packages*” directory there.
 
-Next go to “*User*” settings and click on “*Create*”.
-In "*Name*" write “**homeassistant**”, in "*Description*” write “**Home Assistent**”, "*Password*" is up to your choice.
-Click “*Next*”, next screen leave only “*users*” group checked and click “*Next*”.
-In this screen, set permission “*No access*” for all Shared-Folders and only “*homeassistent*” Shared-Folder to “*Read/Write*”.
-Click “*Next*” on this screen and the next, on the last screen click “*Apply*”.
-
-Now the “*homeassistent*” Shared-Folder has been made, you need to copy the “*Module-Packages*” directory there.
+Next setup the user:
+* Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
+* Go to “[*User*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_user_desc)” settings
+* Click on “*Create*”
+* In "*Name*" write “**homeassistant**”
+* In "*Description*” write “**Home Assistent**”
+* The "*Password*" up to your choice
+* Click on “*Next*”
+* Make sure only “*users*” group is checked and click “*Next*”
+* Set the permission “*Read/Write*” for “*homeassistent*” and the all the other Shared-Folders to “*No access*”
+* Click on “*Next*”
+* Click on “*Next*” again
+* Click on “*Apply*”.
 
 Incase you turned on the firewall on your Synology device, please update it as follows to allow connections for Home Assistent:
+* Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
+* Go to “[*Security*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_desc)” settings
+* Go to “[*Firewall*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_firewall)” settings
+* Go to “*Edit Rules*”
+* Click on “*Create*”
+* Select Custom: Destination port “TCP”
+* Type “8123” in port (eg, setting in [*server_port*](https://www.home-assistant.io/components/http/#server_port))
+* Click on “*OK*”
+* Click on “*OK*” again
 
-* Go to your Synology control panel
-* Go to security
-* Go to firewall
-* Go to Edit Rules
-* Click Create
-* Select Custom: Destination port "TCP"
-* Type "8123" in port (eg, setting in [server_port](https://www.home-assistant.io/components/http/#server_port)
-* Click on OK
-* Click on OK again
+
+Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM):
+* Install compiled Python3 package using the [Synology Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
+
+
 
 
 ## {% linkable_title Installing Home Assistent %}
