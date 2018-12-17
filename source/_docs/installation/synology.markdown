@@ -203,7 +203,7 @@ Extract the .whl (these are zip archives), rename all files as described above, 
 
 * Open [Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
 * Press the “*Manual Install*” button on the top right of the window
-* Click on “*Browse*” and select the Python3 spk package we created
+* Click on “*Browse*” and select the Python3 spk package you created earlier
 * Click on “*Next*”
 * You will most likely get a unverified signature warning, click on “*Yes*”
 * Click on “*Apply*”
