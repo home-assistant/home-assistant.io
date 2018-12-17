@@ -129,7 +129,7 @@ You need to do this to get “cross compiled module package” files, which you 
 These edits also enable you to use the “[Cloud](https://www.home-assistant.io/components/cloud)” component and fix the OpenSSL errors when using the “[Xiaomi_Aqara](https://www.home-assistant.io/components/Xiaomi_Aqara)” component.
 
 
-Edit “~/spksrc/spksrc/spk/python3/src/requirements.txt”, add at the end of the file:
+Edit “*~/spksrc/spksrc/spk/python3/src/requirements.txt*”, add at the end of the file:
 ```
 ##Cross compilation requirements for installing Home Assistent (Tested to work on 83.3).
 ##In the future, the requirements may change (need newer version to work, eg), modify as needed.
@@ -139,7 +139,8 @@ cryptography==2.3.1
 #Cross compilation requirement for installing “Warrent” module (Needed by “Cloud” Component)
 pycryptodome==3.7.2
 ```
-Edit “~/spksrc/spksrc/spk/python3/src/Makefile”, add above the line that says “<b>include ../../mk/spksrc.spk.mk</b>”:
+
+Edit “*~/spksrc/spksrc/spk/python3/src/Makefile*”, add above the line that says “<b>include ../../mk/spksrc.spk.mk</b>”:
 ```makefile
 # Needed to fix “_openssl.so: undefined symbol: pthread_atfork” error caused by lack of libpthread linkage on Synology (Needed for SSL and “xiaomi_aqara” component)
 export CFLAGS=-pthread
