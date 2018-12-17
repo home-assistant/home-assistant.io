@@ -82,6 +82,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes.
   required: false
   type: string
+json_attributes:
+  description: (Deprecated, replaced by json_attributes_topic) A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
+  required: false
+  type: list, string
 unique_id:
   description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
   required: false
