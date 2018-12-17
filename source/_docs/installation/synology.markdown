@@ -126,7 +126,8 @@ docker pull synocommunity/spksrc
 
 Now you need to edit 2 files.
 You need to do this to get “cross compiled module package” files, which you require for Home Assistent to able to be installed.
-These edits also enable you to use the “Cloud” component and fix the OpenSSL errors when using the “Xiaomi_Aqara” component.
+These edits also enable you to use the “[Cloud](https://www.home-assistant.io/components/cloud)” component and fix the OpenSSL errors when using the “[Xiaomi_Aqara](https://www.home-assistant.io/components/Xiaomi_Aqara)” component.
+
 
 Edit “~/spksrc/spksrc/spk/python3/src/requirements.txt”, add at the end of the file:
 ```
