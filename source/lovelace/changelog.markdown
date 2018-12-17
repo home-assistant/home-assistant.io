@@ -11,6 +11,7 @@ footer: true
 ## {% linkable_title Changes in 0.84.0 %}
 
 ### Breaking Changes
+- ⚠️ [views]: Renamed `id` to `path`
 - ⚠️ [sensor card]: Removed configs `height`, `line_color` and `line_width`
 - ⚠️ [gauge card]: Renamed config `title` to `name`
 - ⚠️ [alarm panel card]: Renamed config `title` to `name`
@@ -205,6 +206,7 @@ footer: true
 
 - ❤️ Initial release of the Lovelace UI
 
+[views]: /lovelace/views/
 [alarm panel card]: /lovelace/alarm-panel/
 [conditional card]: /lovelace/conditional/
 [entities card]: /lovelace/entities/
