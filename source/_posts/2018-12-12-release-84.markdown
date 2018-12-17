@@ -112,6 +112,35 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [tts docs]: /components/tts/
 [zha docs]: /components/zha/
 
+## {% linkable_title Release 0.84.3 - December 17 %}
+
+- Set lock status correctly for Schlage BE469 Z-Wave locks ([@ahayworth] - [#18737]) ([lock.zwave docs])
+- Fix restore state for manual alarm control panel ([@liaanvdm] - [#19284]) ([alarm_control_panel.manual docs])
+- Fix not being able to update entities ([@glentakahashi] - [#19344]) ([config docs])
+
+#### Frontend
+
+- Fix setting aspect ratio in percentage ([#2289](https://github.com/home-assistant/home-assistant-polymer/pull/2289)) [@balloob]
+- Fix opening edit dialog twice when closed by clicking on overlay ([#2290](https://github.com/home-assistant/home-assistant-polymer/pull/2290)) [@balloob]
+- Fix translations not loading on first load ([#2293](https://github.com/home-assistant/home-assistant-polymer/pull/2293)) [@balloob]
+- remove Animation for thermostat and light ([#2303](https://github.com/home-assistant/home-assistant-polymer/pull/2303)) [@zsarnett]
+- Fix for picture element positioning ([#2335](https://github.com/home-assistant/home-assistant-polymer/pull/2335)) [@iantrich]
+- Fix undefined on plant/weather card ([#2339](https://github.com/home-assistant/home-assistant-polymer/pull/2339)) [@balloob]
+- Fix service button element ([#2343](https://github.com/home-assistant/home-assistant-polymer/pull/2343)) [@balloob]
+
+
+[#18737]: https://github.com/home-assistant/home-assistant/pull/18737
+[#19284]: https://github.com/home-assistant/home-assistant/pull/19284
+[#19344]: https://github.com/home-assistant/home-assistant/pull/19344
+[@ahayworth]: https://github.com/ahayworth
+[@glentakahashi]: https://github.com/glentakahashi
+[@zsarnett]: https://github.com/zsarnett
+[@iantrich]: https://github.com/iantrich
+[@liaanvdm]: https://github.com/liaanvdm
+[alarm_control_panel.manual docs]: /components/alarm_control_panel.manual/
+[config docs]: /components/config/
+[lock.zwave docs]: /components/lock.zwave/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
