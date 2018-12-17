@@ -164,7 +164,7 @@ Compile Python3 for your Synology model
 ```bash
 # make arch-XXXX
 ```
-After the compilation is done, you can find the Python package at “~/spksrc/spksrc/packages/python3_XXXX.spk”.
+After the compilation is done, you can find the Python package at “*~/spksrc/spksrc/packages/python3_XXXX.spk*”.
 It should be named something like “python3_armada370-6.1_3.5.5-7.spk”, of course with a possibly different arch and version.
 
 Now you need to extract your “cross compiled module package” files which you added earlier.
@@ -186,9 +186,9 @@ Run these commands to extract the packages
 # 7z e package.tar -o"Module-Packages" "share/wheelhouse/cryptography-2.3.1-cp35-none-any.whl"
 # 7z e package.tar -o"Module-Packages" "share/wheelhouse/pycryptodome-3.7.2-cp35-none-any.whl"
 ```
-This should give you a directory “Module-Packages” with four .whl files, which you need to install later.
-Inside some of the .whl archives we need to rename files with “**x86_64-linux-gnu**” to “**arm-linux-gnueabihf**”.
-If we dont, these will be ignored by Python on ARM based Synology's, causing Home Assistent to not function.
+This should give you a directory named “**Module-Packages**” with four .whl files, which you need to install later.
+Inside some of the .whl archives you need to rename all files containing the text “**x86_64-linux-gnu**” to “**arm-linux-gnueabihf**”.
+If you do not, these will be ignored by Python on ARM based Synology's, causing Home Assistent to not function.
 ```bash
 # 7z rn "Module-Packages/cffi-1.11.5-cp35-none-any.whl" "_cffi_backend.cpython-35m-x86_64-linux-gnu.so" "_cffi_backend.cpython-35m-arm-linux-gnueabihf.so"
 # 7z l "Module-Packages/pycryptodome-3.7.2-cp35-none-any.whl" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "Module-Packages/pycryptodome-3.7.2-cp35-none-any.whl" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done
@@ -196,29 +196,28 @@ If we dont, these will be ignored by Python on ARM based Synology's, causing Hom
 <p class='note'>
 The 7z <b>rn</b> (eg, rename) parameter was included from 7-Zip 9.30, in the case you are pitifully stuck on a older version, do as follows.
 Extract the .whl (these are zip archives), rename all files as described above, then rearchive as zip (ofcourse the same full name with .whl and without .zip).
-If that is not possible, then upgrade your base or switch to a recent distribution so you can.
 </p>
 
 
 ## {% Using the Synology webadmin: %}
 
-Open Synology Package Center and press the “Manual Install” button.
-Click “Browse” and select the Python package we created, then press “Next”.
-You will get a unverified package popup, press yes and next screen press Apply.
+Open Synology Package Center and press the “*Manual Install*” button.
+Click “*Browse*” and select the Python package we created, then press “*Next*”.
+You will get a unverified package popup, press yes and next screen press “*Apply*”.
 
-Now while it's installing, you can setup the user and Shared-Folder for Home Assistent.
+Now while it's installing, you may setup the user and Shared-Folder for Home Assistent.
 
-Open “Control Panel”, go to “Shared-Folder” settings and click on “Create”.
-In “Name” write “**homeassistant**”, in "Description” write “**Home Assistent**”
-Click “Next”, same for second screen, the third screen click “Apply”.
+Open “*Control Panel*”, go to “*Shared-Folder*” settings and click on “*Create*”.
+In “*Name*” write “**homeassistant**”, in "Description” write “**Home Assistent**”
+Click “*Next*”, same for second screen, the third screen click “*Apply*”.
 
-Next go to “User” settings and click on “Create”.
-In "Name" write “**homeassistant**”, in "Description” write “**Home Assistent**”, "Password" is up to you.
-Click “Next”, next screen leave only “users” group checked and click “Next”.
-In this screen, set permission “No access” for all Shared-Folders and only “homeassistent” Shared-Folder to “Read/Write.”
-Click “Next” on this screen and the next, on the last screen click “Apply”.
+Next go to “*User*” settings and click on “*Create*”.
+In "*Name*" write “**homeassistant**”, in "*Description*” write “**Home Assistent**”, "*Password*" is up to your choice.
+Click “*Next*”, next screen leave only “*users*” group checked and click “*Next*”.
+In this screen, set permission “*No access*” for all Shared-Folders and only “*homeassistent*” Shared-Folder to “*Read/Write*”.
+Click “*Next*” on this screen and the next, on the last screen click “*Apply*”.
 
-Now the “homeassistent” Shared-Folder has been made, you need to copy the “Module-Packages” directory there.
+Now the “*homeassistent*” Shared-Folder has been made, you need to copy the “*Module-Packages*” directory there.
 
 Incase you turned on the firewall on your Synology device, please update it as follows to allow connections for Home Assistent:
 
@@ -252,7 +251,7 @@ Activate the virtual Python environment
 # source /volume1/homeassistant/venv-hass/bin/activate
 ```
 Install the “cross compiled module package” files we compiled earlier.
-This command expects you have copied the “Module-Packages” directory to your “homeassistent” Shared-Folder.
+This command expects you have copied the “*Module-Packages*” directory to your “*homeassistent*” Shared-Folder.
 ```bash
 # cd /volume1/homeassistant/Module-Packages
 # pip3 install cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl
