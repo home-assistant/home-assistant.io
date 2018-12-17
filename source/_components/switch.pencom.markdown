@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pencom"
-description: "How to use Pencom Designs 8 channel relay board."
+description: "How to use Pencom Designs 8 channel relay boards."
 date: 2018-10-05 23:00
 sidebar: true
 comments: false
@@ -24,7 +24,7 @@ The Pencom relays can be daisychained to allow for up to 8 boards.
 # Example configuration.yaml entry
 switch:
   - platform: pencom
-    host: IP_ADDRESS
+    host: host.domain.com
     port: 4001
     boards: 2 
     relays:
@@ -68,4 +68,3 @@ relays:
       required: false
       type: int between 1 and 8
 {% endconfiguration %}
-
