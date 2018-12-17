@@ -49,7 +49,7 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 2. Change your `configuration.yaml` file:
     - Remove `client_id`, `access_token`, `agent_user_id` config from `google_assistant:` since they are no longer needed.
 3. Restart Home Assistant, open the `Google Home` app on your mobile phone then go to `Account > Settings > Assistant > Home Control`, press the `3 dot icon in the top right > Manage accounts > [test] your app name > Unlink account` Then relink your account by selecting `[test] your app name` again.
-4. A browser will be open and asking you to login to your Home Assistant instance, it will redirect back to `Google Assistant` app right afterward.
+4. A browser will open and ask you to login to your Home Assistant instance and will redirect back to the `Google Assistant` app right afterward.
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
