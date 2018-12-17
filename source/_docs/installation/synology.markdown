@@ -15,7 +15,7 @@ Synology only provide <a href="https://www.synology.com/nl-nl/dsm/packages/py3k"
 </p>
 
 <p class="note">
-Update: You can install a more recent home assistent (eg, 0.84.2) by manually compiling a python3 package using the <a href="https://github.com/SynoCommunity/spksrc">spksrc compilation framework</a>. The new installation guide will be a little different though, but the upside is most failing components will now work, such as “<a href="https://www.home-assistant.io/components/discovery">Discovery</a>”, “<a href="https://www.home-assistant.io/components/cloud">Cloud</a>” and “<a href="https://www.home-assistant.io/components/Xiaomi_Aqara">Xiaomi_Aqara</a>”. Thread for more info: <a href="https://community.home-assistant.io/t/python-3-5-3-on-synology/46372/27">Python >=3.5.3 on Synology</a>.
+Update: You can install a more recent home assistant (eg, 0.84.2) by manually compiling a python3 package using the <a href="https://github.com/SynoCommunity/spksrc">spksrc compilation framework</a>. The new installation guide will be a little different though, but the upside is most failing components will now work, such as “<a href="https://www.home-assistant.io/components/discovery">Discovery</a>”, “<a href="https://www.home-assistant.io/components/cloud">Cloud</a>” and “<a href="https://www.home-assistant.io/components/Xiaomi_Aqara">Xiaomi_Aqara</a>”. Thread for more info: <a href="https://community.home-assistant.io/t/python-3-5-3-on-synology/46372/27">Python >=3.5.3 on Synology</a>.
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -125,13 +125,13 @@ docker pull synocommunity/spksrc
 ```
 
 Now you need to edit 2 files.
-You need to do this to get “cross compiled module package” files, which you require for Home Assistent to able to be installed.
+You need to do this to get “cross compiled module package” files, which you require for Home Assistant to able to be installed.
 These edits also enable you to use the “[Cloud](https://www.home-assistant.io/components/cloud)” component and fix the OpenSSL errors when using the “[Xiaomi_Aqara](https://www.home-assistant.io/components/Xiaomi_Aqara)” component.
 
 
 Edit “*~/spksrc/spksrc/spk/python3/src/requirements.txt*”, add at the end of the file:
 ```
-##Cross compilation requirements for installing Home Assistent (Tested to work on 83.3).
+##Cross compilation requirements for installing Home Assistant (Tested to work on 83.3).
 ##In the future, the requirements may change (need newer version to work, eg), modify as needed.
 cffi==1.11.5
 bcrypt==3.1.4
@@ -188,7 +188,7 @@ Run these commands to extract the packages
 ```
 This should give you a directory named “**Module-Packages**” with four .whl files, which you need to install later.
 Inside some of the .whl archives you need to rename all files containing the text “**x86_64-linux-gnu**” to “**arm-linux-gnueabihf**”.
-If you do not, these will be ignored by Python on ARM based Synology's, causing Home Assistent to not function.
+If you do not, these will be ignored by Python on ARM based Synology's, causing Home Assistant to not function.
 ```bash
 # 7z rn "Module-Packages/cffi-1.11.5-cp35-none-any.whl" "_cffi_backend.cpython-35m-x86_64-linux-gnu.so" "_cffi_backend.cpython-35m-arm-linux-gnueabihf.so"
 # 7z l "Module-Packages/pycryptodome-3.7.2-cp35-none-any.whl" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "Module-Packages/pycryptodome-3.7.2-cp35-none-any.whl" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done
@@ -208,33 +208,33 @@ Extract the .whl (these are zip archives), rename all files as described above, 
 * You will most likely get a unverified signature warning, click on “*Yes*”
 * Click on “*Apply*”
 
-Now while it's installing, you may setup the Shared-Folder for Home Assistent:
+Now while it's installing, you may setup the Shared-Folder for Home Assistant:
 * Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
 * Go to “[*Shared-Folder*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_desc)” settings
 * Click on “*Create*”
 * In “*Name*” write “**homeassistant**”
-* in "*Description*” write “**Home Assistent**”
+* in "*Description*” write “**Home Assistant**”
 * Click on “*Next*”
 * Click on “*Next*” again
 * Click on “*Apply*”
 
-As the “*homeassistent*” Shared-Folder has been made, copy the (previously created) “*Module-Packages*” directory there.
+As the “*homeassistant*” Shared-Folder has been made, copy the (previously created) “*Module-Packages*” directory there.
 
 Next setup the user:
 * Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
 * Go to “[*User*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_user_desc)” settings
 * Click on “*Create*”
 * In "*Name*" write “**homeassistant**”
-* In "*Description*” write “**Home Assistent**”
+* In "*Description*” write “**Home Assistant**”
 * The "*Password*" up to your choice
 * Click on “*Next*”
 * Make sure only “*users*” group is checked and click “*Next*”
-* Set the permission “*Read/Write*” for “*homeassistent*” and the all the other Shared-Folders to “*No access*”
+* Set the permission “*Read/Write*” for “*homeassistant*” and the all the other Shared-Folders to “*No access*”
 * Click on “*Next*”
 * Click on “*Next*” again
 * Click on “*Apply*”.
 
-In the case you turned on the firewall on your Synology device, please config it to allow connections for Home Assistent:
+In the case you turned on the firewall on your Synology device, please config it to allow connections for Home Assistant:
 * Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
 * Go to “[*Security*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_desc)” settings
 * Go to “[*Firewall*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_firewall)” settings
@@ -252,15 +252,15 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 
 
 
-## {% linkable_title Installing Home Assistent %}
+## {% linkable_title Installing Home Assistant %}
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
 Replace “<i>user</i>” with your Synology user and “x.x.x.x” with the its IP-Adress.
 ```bash
 # ssh user@x.x.x.x
 ```
-Create a virtual Python environment where we will install Home Assistent into.
-This will leave the Python package untouched, makes Home Assistent work better and installable/updateable without sudo.
+Create a virtual Python environment where we will install Home Assistant into.
+This will leave the Python package untouched, makes Home Assistant work better and installable/updateable without sudo.
 Note: After you made a virtual Python envoriment, you cant relocate the folder, else it will break. 
 Make a new one if you need to change it's name, the path or Shared-Folder.
 ```bash
@@ -271,12 +271,12 @@ Activate the virtual Python environment
 # source /volume1/homeassistant/venv-hass/bin/activate
 ```
 Install the “cross compiled module package” files we compiled earlier.
-This command expects you have copied the “*Module-Packages*” directory to your “*homeassistent*” Shared-Folder.
+This command expects you have copied the “*Module-Packages*” directory to your “*homeassistant*” Shared-Folder.
 ```bash
 # cd /volume1/homeassistant/Module-Packages
 # pip3 install cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl
 ```
-Install Home Assistent
+Install Home Assistant
 ```bash
 # pip3 install homeassistant
 ```
@@ -285,8 +285,8 @@ Leave the virtual Python environment
 # deactivate
 ```
 
-Create a file named “hass-daemon” in the “homeassistent” Shared-Folder with the script below as it's content.
-You can use it to easily start, stop and restart Home Assistent like a service/daemon.
+Create a file named “hass-daemon” in the “homeassistant” Shared-Folder with the script below as it's content.
+You can use it to easily start, stop and restart Home Assistant like a service/daemon.
 
 ```sh
 #!/bin/sh
