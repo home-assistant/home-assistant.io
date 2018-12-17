@@ -218,7 +218,7 @@ Now while it's installing, you may setup the Shared-Folder for Home Assistent:
 * Click on “*Next*” again
 * Click on “*Apply*”
 
-Now the “*homeassistent*” Shared-Folder has been made, you need to copy the (previously created) “*Module-Packages*” directory there.
+As the “*homeassistent*” Shared-Folder has been made, copy the (previously created) “*Module-Packages*” directory there.
 
 Next setup the user:
 * Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
@@ -234,7 +234,7 @@ Next setup the user:
 * Click on “*Next*” again
 * Click on “*Apply*”.
 
-Incase you turned on the firewall on your Synology device, please update it as follows to allow connections for Home Assistent:
+In the case you turned on the firewall on your Synology device, please config it to allow connections for Home Assistent:
 * Open “[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)”
 * Go to “[*Security*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_desc)” settings
 * Go to “[*Firewall*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_firewall)” settings
