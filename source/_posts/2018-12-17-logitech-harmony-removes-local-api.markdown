@@ -12,7 +12,15 @@ categories: Public-Service-Announcement
 
 Logitech has disabled the local API of the Harmony Hub with their latest software update (v4.15.206). For privacy and speed it is important that home automation devices communicate locally, without data leaving the network. With the latest update to the Logitech Harmony Hub, this is no longer possible.
 
-We hope that this was an oversight on their end and that it will be reverted shortly. We have reached out to Logitech for a clarification and will update this post when available.
+We hope that this was an oversight on their end and that it will be reverted shortly. We have reached out to Logitech for a clarification and will update this post when available. Update: still no response but Twitter user [@FlorianNoack](https://twitter.com/FlorianNoack/status/1074744105002037248?s=09) found an answer from Logitech on [a thread on their forums](https://community.logitech.com/s/question/0D55A00008D1oIoSAJ/firmware-update-blocked-api-access) (visible after clicking a few times on "More answers"):
+
+<p class='img'>
+  <img src='/images/blog/2018-12-logitech-harmony-removes-local-api/forum-post.png' alt='Screenshot of a forum post by a Logitech employee saying that the Harmony team is aware of the feedback and it will provide an update shortly.'>
+  Forum post by member of the Harmony Team.
+</p>
+
+
+
 
 If you have already updated your Harmony Hub to v4.15.206, you have probably noticed that Home Assistant and other products communicating with the local API have stopped working. Don’t worry, it’s (still?) possible to downgrade to a previous version using the following steps (source: [Reddit 1](https://www.reddit.com/r/homeassistant/comments/a6u6ep/psa_harmony_hub_firmware_v415206_breaksremoves/), [Reddit 2](https://www.reddit.com/r/homeassistant/comments/a6u6ep/psa_harmony_hub_firmware_v415206_breaksremoves/eby89t8/)):
 
