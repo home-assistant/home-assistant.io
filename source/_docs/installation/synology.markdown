@@ -246,12 +246,6 @@ In the case you turned on the firewall on your Synology device, please config it
 * Click on “*OK*” again
 
 
-Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM):
-* Install compiled Python3 package using the [Synology Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
-
-
-
-
 ## {% linkable_title Installing Home Assistant %}
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
