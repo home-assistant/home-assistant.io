@@ -42,13 +42,13 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 Like you might have read above, at this time of writing, Synology has not provided a recent [Python3](https://www.synology.com/nl-nl/dsm/packages/py3k) package, so we have to create a recent Python3 package ourself.
 Do not worry though, were gonna try keep this as painless as possible.
 
-## {% Preparing prerequisites %}
+## {% linkable_title Preparing prerequisites %}
 
 In this guide we are going to use a Linux based Operating System such as [Ubuntu](https://www.ubuntu.com/), [Mint](https://linuxmint.com/) or [Solus](https://getsol.us) to minimize difficulty. You will also need [Docker](https://docs.docker.com/install/).
 You can think of [Docker](https://docs.docker.com/install/) as a way more powerful [Chroot](https://help.ubuntu.com/community/BasicChroot) and containers as ready made mini operating systems.
 
 ---
-### {% Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
+### {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
 
 Refresh package lists:
 ```bash
@@ -80,7 +80,7 @@ Install Docker:
 # sudo apt-get install docker-ce
 ```
 ---
-### {% Installing Docker on [Solus](https://getsol.us) %}
+### {% linkable_title Installing Docker on [Solus](https://getsol.us) %}
 
 Update package lists:
 ```bash
@@ -146,7 +146,7 @@ Edit “*~/spksrc/spksrc/spk/python3/src/Makefile*”, add above the line that s
 export CFLAGS=-pthread
 ```
 
-## {% Compiling the Python3 package %}
+## {% linkable_title Compiling the Python3 package %}
 Run the container, this will make your terminal run inside the Docker container:
 ```bash
 # docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
@@ -199,7 +199,7 @@ Extract the .whl (these are zip archives), rename all files as described above, 
 </p>
 
 
-## {% Using the Synology webadmin: %}
+## {% linkable_title Using the Synology webadmin: %}
 
 Open Synology Package Center and press the “*Manual Install*” button.
 Click “*Browse*” and select the Python package we created, then press “*Next*”.
@@ -232,7 +232,7 @@ Incase you turned on the firewall on your Synology device, please update it as f
 * Click on OK again
 
 
-## {% Installing Home Assistent %}
+## {% linkable_title Installing Home Assistent %}
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
 Replace “<i>user</i>” with your Synology user and “x.x.x.x” with the its IP-Adress.
@@ -371,7 +371,7 @@ case $1 in
 esac
 ```
 
-## {% Controlling Home Assistent %}
+## {% linkable_title Controlling Home Assistent %}
 
 * Start Home Assistant:
 ```bash
