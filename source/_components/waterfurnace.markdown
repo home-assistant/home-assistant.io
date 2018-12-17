@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: waterfurnace.png
-ha_category: Irrigation
+ha_category: Sensor
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
@@ -25,6 +25,13 @@ The sensors provided include:
  - Current Humidity Setpoint
  - Total system power (in Watts)
  - Furnace Mode
+ - Compressor Power
+ - Fan Power
+ - Aux Power
+ - Loop Pump Power
+ - Compressor Speed
+ - Fan Speed
+
 
 ## {% linkable_title Configuration %}
 
@@ -35,7 +42,6 @@ To use Waterfurnace in your installation, add the following to your `configurati
 waterfurnace:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  unit: 0123456789AB
 ```
 
 {% configuration %}
@@ -45,10 +51,6 @@ username:
   type: string
 password:
   description: The password for your Symphony WaterFurnace account
-  required: true
-  type: string
-unit:
-  description: The unit serial number for your WaterFurnace
   required: true
   type: string
 {% endconfiguration %}

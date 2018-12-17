@@ -53,7 +53,7 @@ routes:
       description: Name of the route.
       required: true
       type: string
-    frome:
+    from:
       description: The start station.
       required: true
       type: string

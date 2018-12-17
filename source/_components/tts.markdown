@@ -83,6 +83,8 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). Setting a `base_url` that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
+* An alternative way to force Google cast devices to use internal DNS is to block them from accessing Google DNS at the firewall/router level. This would be useful in the case, for example, where your internal IP of HASS is a private IP and you have your internal DNS server (quite often a split-brain DNS scenario). This method works on both Google Home Mini and Google Chromecasts.
+
 ## {% linkable_title Service say %}
 
 The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`.

@@ -21,12 +21,16 @@ An `ihc` section must be present in the `configuration.yaml` file and contain
 the following options:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry for two IHC controllers
 ihc:
-   url: http://192.168.1.3
-   username: YOUR_USERNAME
-   password: YOUR_PASSWORD
-   info: true
+  - url: 'http://192.168.1.3'
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    info: true 
+  - url: 'http://192.168.1.4'
+    username: YOUR_USERNAME2
+    password: YOUR_PASSWORD2
+    info: true 
 ```
 
 {% configuration %}

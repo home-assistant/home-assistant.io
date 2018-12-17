@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IKEA Trådfri (Tradfri)"
-description: "Access and control your Zigbee-based IKEA Trådfri (Tradfri) devices."
+description: "Access and control your IKEA Trådfri Gateway (a.k.a. IKEA Tradfri hub/bridge) and via it its connected Zigbee-based devices."
 date: 2017-04-12 22.04
 sidebar: true
 featured: true
@@ -14,12 +14,12 @@ ha_iot_class: "Local Polling"
 ha_release: 0.43
 ---
 
-The `tradfri` component supports for the IKEA Trådfri (Tradfri) gateway. The gateway can control lights connected to it and Home Assistant will automatically discover its presence on your network, if `discovery:` is present in your `configuration.yaml` file.
+The `tradfri` component support the IKEA Trådfri Gateway (a.k.a. IKEA Tradfri hub/bridge). The gateway can control compatible Zigbee-based lights (certified ZigBee Light Link products) connected to it and Home Assistant will automatically discover the gateways presence on your local network, if `discovery:` is present in your `configuration.yaml` file.
 
-You will be prompted to configure the gateway through the Home Assistant interface. Enter the security key when prompted and click configure.
+You will be prompted to configure the gateway through the Home Assistant interface. The configuration process is very simple, when prompted, enter the security key printed on the physical sticker that is on the bottom of the IKEA Trådfri Gateway, then click configure.
 
 <p class='note'>
-If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP to your Trådfri gateway.
+If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP to your IKEA Trådfri Gateway in your router / DHCP-server.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -34,11 +34,11 @@ tradfri:
 
 {% configuration %}
 host:
-  description: "The IP address or hostname of your Trådfri gateway."
+  description: "The IP address or hostname of your IKEA Trådfri Gateway."
   required: true
   type: string
 allow_tradfri_groups:
-  description: "Set this to `true` to allow Home Assistant to import the groups defined on the Trådfri bridge."
+  description: "Set this to `true` to allow Home Assistant to import the groups defined on the IKEA Trådfri Gateway."
   required: false
   type: boolean
   default: false
@@ -48,7 +48,7 @@ allow_tradfri_groups:
 
 ### {% linkable_title Firmware updates %}
 
-After updating the firmware of your Trådfri gateway it might be necessary to repeat the configuration process. If you encounter problems, delete the `.tradfri_psk.conf` file in your `.homeassistant` directory, restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup. Possible errors: `Fatal DTLS error: code 115`.
+After updating the firmware of your IKEA Trådfri Gateway it might be necessary to repeat the configuration process. If you encounter problems, delete the `.tradfri_psk.conf` file in your `.homeassistant` directory, restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup. Possible errors: `Fatal DTLS error: code 115`.
 
 ### {% linkable_title Compilation issues %}
 

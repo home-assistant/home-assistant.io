@@ -13,7 +13,6 @@ ha_release: 0.47
 ha_iot_class: "Local Polling"
 ---
 
-
 The `nadtcp` platform allows you to control the D7050 and C338 from Home Assistant via WiFi. Note that it has only been tested with the D 7050.
 
 To add a NAD amplifier to your installation, add the following to your `configuration.yaml` file:
@@ -21,18 +20,35 @@ To add a NAD amplifier to your installation, add the following to your `configur
 ```yaml
 # Example configuration.yaml entry
 media_player:
-    platform: nadtcp
+  - platform: nadtcp
     host: 192.168.0.112
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your amplifier.
-- **name** (*Optional*): Name of the device. Default is NAD amplifier.
-- **min_volume** (*optional*): Minimum volume in dB to use with the slider. Default is `-60`
-- **max_volume** (*optional*): Maximum volume in dB to use with the slider. Default is `-10`
-- **volume_step** (*Optional*): The amount in dB you want to increase the volume with when pressing volume up/down. Default is 4 dB.
+{% configuration %}
+host:
+  description: The IP address of your amplifier.
+  required: true
+  type: string
+name:
+  description: Name of the device.
+  required: false
+  default: NAD amplifier
+  type: string
+min_volume:
+  description: Minimum volume in dB to use with the slider.
+  required: false
+  default: -60
+  type: integer
+max_volume:
+  description: Maximum volume in dB to use with the slider.
+  required: false
+  default: -10
+  type: integer
+volume_step:
+  description: The amount in dB you want to increase the volume with when pressing volume up/down.
+  required: false
+  default: 4
+  type: integer
+{% endconfiguration %}
 
 The maximum volume level of the D 7050 amplifier is +10 db, minimum is -90.
-
-

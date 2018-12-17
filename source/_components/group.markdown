@@ -12,7 +12,7 @@ ha_category: Organization
 ha_qa_scale: internal
 ---
 
-Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting `view: yes` under the group definition. This will make the group available as a new tab in the frontend.
+Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting `view: true` under the group definition. This will make the group available as a new tab in the frontend.
 
 Check the **Set State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
@@ -22,7 +22,7 @@ By default, every group appears in the HOME tab. If you create a group `default_
 # Example configuration.yaml entry
 group:
   default_view:
-    view: yes
+    view: true
     icon: mdi:home
     entities:
       - group.kitchen
@@ -35,7 +35,7 @@ group:
   upstairs:
     name: Kids
     icon: mdi:account-multiple
-    view: yes
+    view: true
     entities:
       - input_boolean.notify_home
       - camera.demo_camera
@@ -43,13 +43,13 @@ group:
       - group.garden
   climate:
     name: Climate
-    view: no
+    view: false
     entities:
       - sensor.bedroom_temp
       - sensor.porch_temp
   awesome_people:
     name: Awesome People
-    view: no
+    view: false
     entities:
       - device_tracker.dad_smith
       - device_tracker.mom_smith
@@ -78,7 +78,7 @@ entities:
   type: list
 all:
   description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
-  required: false 
+  required: false
   type: boolean
 {% endconfiguration %}
 
@@ -89,7 +89,7 @@ Example of groups shown as views in the frontend.
 
 If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once. If you want to hide this switch, set `control` to `hidden`.
 
-You can create views (tabs) that contain other groups (but not other groups which are marked as `view: yes`).
+You can create views (tabs) that contain other groups (but not other groups which are marked as `view: true`).
 Notice in the example below that in order to refer to the group "Living Room", you use `group.living_room` (lowercase and spaces replaced with underscores).
 
 ```yaml
@@ -101,7 +101,7 @@ Notice in the example below that in order to refer to the group "Living Room", y
       - binary_sensor.motion_living
   Bedroom: light.light_bedroom, switch.sleeping
   Rooms:
-    view: yes
+    view: true
     name: Rooms
     entities:
       - group.living_room
@@ -132,7 +132,7 @@ customize:
 group:
   automation_view:
     name: Automation
-    view: yes
+    view: true
     entities:
       - group.all_automations
       - group.all_scripts
@@ -155,7 +155,7 @@ customize:
 group:
   automation_view:
     name: Automation
-    view: yes
+    view: true
     entities:
       - group.all_automations
       - group.all_scripts

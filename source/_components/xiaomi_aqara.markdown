@@ -18,7 +18,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 #### {% linkable_title Supported Devices %}
 
-- Xiaomi Aqara Gateway (lumi.gateway.v2, lumi.gateway.v3)
+- Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
 - Aqara Intelligent Door Lock (lock.aq1)
 - Temperature and Humidity Sensor (1st and 2nd generation)
@@ -45,6 +45,7 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 #### {% linkable_title Unsupported Devices %}
 
+- Xiaomi Aqara Gateway (lumi.gateway.aqhm01), as it is not possible to activate dev mode in the Mi Home App.
 - Gateway Radio
 - Gateway Button
 - Xiaomi Mi Air Conditioning Companion (lumi.acpartner.v2)
@@ -98,7 +99,7 @@ gateways:
   type: map
   keys:
     mac:
-      description: The MAC address of your gateway. *Optional if only using one gateway.*
+      description: The MAC address of your gateway. Needs to be formatted without ":". *Optional if only using one gateway.*
       required: false
       type: string
     key:
@@ -207,7 +208,7 @@ This example plays the sound of a dog barking when the button is held down and s
 - alias: Let a dog bark on long press
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
@@ -221,7 +222,7 @@ This example plays the sound of a dog barking when the button is held down and s
 - alias: Stop barking immediately on single click
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
@@ -239,7 +240,7 @@ This example toggles the living room lamp on a double click of the button.
 - alias: Double Click to toggle living room lamp
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
@@ -272,5 +273,7 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Try to disable and then enable LAN access.
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.
-- If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light, you should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
+- If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light
+  - You should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
+  - You need to make sure to have multicast support on your network. If you are running Home Assistant in a virtual machine (like Proxmox), try `echo 0 >/sys/class/net/vmbr0/bridge/multicast_snooping` on the host and restart the service or reboot the host.
 - If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).

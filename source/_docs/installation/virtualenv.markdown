@@ -14,7 +14,7 @@ If you already have Python 3.5.3 or later installed, you can easily give Home As
 
 It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.5/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
-_(If you're on a Debian based system, you will need to install Python virtual environment support using `apt-get install python3-pip python3-venv`.)_
+_(If you're on a Debian based system, you will need to install Python virtual environment support using `apt-get install python3-pip python3-venv`. You may also need to install development libraries using `apt-get install build-essential libssl-dev libffi-dev python-dev`.)_
 
 <p class='Note'>
 It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) which allows for the installation to run as a `homeassistant` user. The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
@@ -65,6 +65,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
     $ python3 -m pip install --upgrade homeassistant
     ```
  5. Start Home Assistant
+ 6. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take up to 20 minutes before the web interface is available
 
 ### {% linkable_title Notes %}
 

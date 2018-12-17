@@ -13,7 +13,7 @@ ha_release: 0.43
 ha_qa_scale: internal
 ---
 
-The `ping` binary sensor platform allows you to using `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
+The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
 
 ## {% linkable_title Configuration %}
 

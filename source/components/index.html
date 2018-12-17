@@ -40,11 +40,11 @@ Support for these components is provided by the Home Assistant community.
       <a href='#version/{{ added_one_ago_version }}' class="btn added_one_version_ago">Added in {{ added_one_ago_version }} ({{ one_ago_version_components_count }})</a>
       <a href='#version/{{ added_two_ago_version }}' class="btn added_two_versions_ago">Added in {{ added_two_ago_version }} ({{ two_ago_version_components_count }})</a>
 
-{% for category in categories %}
-  {% if category and category != 'Other' %}
+{%- for category in categories -%}
+  {%- if category and category != 'Other' -%}
     <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components | where: 'ha_category', category | size }})</a>
-  {% endif %}
-{% endfor %}
+  {%- endif -%}
+{%- endfor -%}
 
       <a href='#other' class="btn">Other</a>
     </div>
@@ -61,11 +61,11 @@ Support for these components is provided by the Home Assistant community.
 
 {% comment %}
 ## Pages without categories
-{% for component in components %}
+{%- for component in components -%}
   {% unless component.ha_category %}
 <p>{{ component.title }}</p>
   {% endunless %}
-{% endfor %}
+{%- endfor -%}
 {% endcomment %}
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
@@ -89,14 +89,14 @@ Support for these components is provided by the Home Assistant community.
 <script type="text/javascript">
 // This object contains all components we have
 var allComponents = [
-  {% for component in components %}
-    {% if component.ha_category %}
-{% assign sliced_version = component.ha_release | split: '.' %}
-{% assign minor_version = sliced_version[1]|plus: 0 %}
-{% assign major_version = sliced_version[0]|plus: 0 %}
+  {%- for component in components -%}
+    {%- if component.ha_category -%}
+{%- assign sliced_version = component.ha_release | split: '.' -%}
+{%- assign minor_version = sliced_version[1]|plus: 0 -%}
+{%- assign major_version = sliced_version[0]|plus: 0 -%}
 {url:"{{ component.url }}", title:"{{component.title}}", cat:"{{component.ha_category | slugify}}", featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
-    {% endif %}
-  {% endfor %}
+    {% endif -%}
+  {%- endfor -%}
   false
 ];
 allComponents.pop(); // remove placeholder element at the end
@@ -260,10 +260,10 @@ allComponents.pop(); // remove placeholder element at the end
 
 <noscript>
   <ul>
-  {% for component in components %}
-    {% if component.ha_category %}
+  {%- for component in components -%}
+    {%- if component.ha_category -%}
       <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
-    {% endif %}
-  {% endfor %}
+    {%- endif -%}
+  {%- endfor -%}
   </ul>
 </noscript>

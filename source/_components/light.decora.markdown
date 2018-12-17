@@ -13,7 +13,7 @@ logo: leviton.png
 ha_release: 0.37
 ---
 
-Support for the Decora Bluetooth dimmer switch [Leviton](http://www.leviton.com/OA_HTML/SectionDisplay.jsp?section=76697&minisite=10251).
+Support for the Decora Bluetooth dimmer switch [Leviton](https://www.leviton.com/en/products/residential/dimmers/automation-smart-home/decora-digital-with-bluetooth-dimmers#t=Products&sort=%40wcs_site_tree_rank%20ascending&layout=card).
 
 The API key can be obtained by downloading [this git repository](https://github.com/mjg59/python-decora) and running the `read_key.py` script with the Bluetooth address of the switch as the first argument. Hold the switch in the off position until the green status LED starts flashing before running the script. The output is the API key.
 

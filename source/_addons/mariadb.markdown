@@ -32,18 +32,50 @@ Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databa
 }
 ```
 
-Configuration variables:
-
-- **databases** (*Required*): List of databases.
-- **logins** (*Required*): List of SQL accounts to create or update.
-  - **username** (*Required*): Username for account.
-  - **host** (*Required*): Host for account. If you need an account on multiple hosts, use '%'.
-  - **password** (*Required*): Password for account.
-- **rights** (*Required*): List of rights to be granted.
-  - **username** (*Required*): Username for granted rights.
-  - **host** (*Required*): Host is a part of username like above.
-  - **database** (*Required*): Database name on which to grant user rights.
-  - **grant** (*Required*): SQL grant part for access too.
+{% configuration %}
+databases:
+  description: List of databases.
+  required: true
+  type: list
+logins:
+  description: List of SQL accounts to create or update.
+  required: true
+  type: list
+  keys:
+    username:
+      description: Username for account.
+      required: true
+      type: string
+    host:
+      description: Host for account. If you need an account on multiple hosts, use '%'.
+      required: true
+      type: string
+    password:
+      description: Password for account.
+      required: true
+      type: string
+rights:
+  description: List of rights to be granted.
+  required: true
+  type: list
+  keys:
+    username:
+      description: Username for granted rights.
+      required: true
+      type: string
+    host:
+      description: Host is a part of username like above.
+      required: true
+      type: string
+    database:
+      description: Database name on which to grant user rights.
+      required: true
+      type: string
+    grant:
+      description: SQL grant part for access too.
+      required: true
+      type: string
+{% endconfiguration %}
 
 ## {% linkable_title Home Assistant configuration %}
 
