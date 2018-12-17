@@ -140,16 +140,14 @@ Purging does not necessarily remove all entries before a given date. For example
 | Database engine | `db_url`                                                 |
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
-| MariaDB         | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`         |
-| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
+| MariaDB         | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MariaDB         | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL           | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`         |
+| MySQL           | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
-| PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
+| PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
+| MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
 If you use MariaDB 10 you need to add port 3307 (or another port depending on which port is used by, for example: your hosting provider.) to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
