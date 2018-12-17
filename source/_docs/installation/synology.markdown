@@ -15,7 +15,7 @@ Synology only provide <a href="https://www.synology.com/nl-nl/dsm/packages/py3k"
 </p>
 
 <p class="note">
-Update: You can install a more recent home assistant (eg, 0.84.2) by manually compiling a python3 package using the <a href="https://github.com/SynoCommunity/spksrc">spksrc compilation framework</a>. The new installation guide will be a little different though, but the upside is most failing components will now work, such as “<a href="https://www.home-assistant.io/components/discovery">Discovery</a>”, “<a href="https://www.home-assistant.io/components/cloud">Cloud</a>” and “<a href="https://www.home-assistant.io/components/Xiaomi_Aqara">Xiaomi_Aqara</a>”. Thread for more info: <a href="https://community.home-assistant.io/t/python-3-5-3-on-synology/46372/27">Python >=3.5.3 on Synology</a>.
+Update: You can install a more recent home assistant (eg, 0.84.2) by manually compiling a python3 package using the <a href="https://github.com/SynoCommunity/spksrc">spksrc compilation framework</a>. The new installation guide will be a little different though, but the upside is most failing components will now work, such as “<a href="/components/discovery/">Discovery</a>”, “<a href="/components/cloud/">Cloud</a>” and “<a href="/components/Xiaomi_Aqara/">Xiaomi_Aqara</a>”. Thread for more info: <a href="https://community.home-assistant.io/t/python-3-5-3-on-synology/46372/27">Python >=3.5.3 on Synology</a>.
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -126,7 +126,7 @@ docker pull synocommunity/spksrc
 
 Now you need to edit 2 files.
 You need to do this to get “cross compiled module package” files, which you require for Home Assistant to able to be installed.
-These edits also enable you to use the “[Cloud](https://www.home-assistant.io/components/cloud)” component and fix the OpenSSL errors when using the “[Xiaomi_Aqara](https://www.home-assistant.io/components/Xiaomi_Aqara)” component.
+These edits also enable you to use the “[Cloud](/components/cloud/)” component and fix the OpenSSL errors when using the “[Xiaomi_Aqara](/components/Xiaomi_Aqara/)” component.
 
 
 Edit “*~/spksrc/spksrc/spk/python3/src/requirements.txt*”, add at the end of the file:
@@ -241,7 +241,7 @@ In the case you turned on the firewall on your Synology device, please config it
 * Go to “*Edit Rules*”
 * Click on “*Create*”
 * Select Custom: Destination port “TCP”
-* Type “8123” in port (eg, setting in [*server_port*](https://www.home-assistant.io/components/http/#server_port))
+* Type “8123” in port (eg, setting in [*server_port*](/components/http/#server_port))
 * Click on “*OK*”
 * Click on “*OK*” again
 
