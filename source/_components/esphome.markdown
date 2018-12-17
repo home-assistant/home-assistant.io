@@ -21,7 +21,7 @@ Menu: *Configuration* -> *Integrations*
 
 Press on **ESPHome** and configure the integration:
 
-* Enter your the address and port of your ESP. For example if the node is called `livingroom`, the address would be `livingroom.local` and the port number `6053` (default).
+* Enter the address and port of your ESP. For example if the node is called `livingroom`, the address would be `livingroom.local` and the port number `6053` (default).
 * Then Home Assistant will try to connect to the device. If you have a password set Home Assistant will additionally ask you for the password.
 
 After that, all the entities you have configured on your ESPHome node will automatically show up in Home Assistant.
