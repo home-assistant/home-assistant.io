@@ -12,6 +12,7 @@ footer: true
 
 ### Breaking Changes
 - ⚠️ [views]: Renamed `id` to `path`
+- ⚠️ `sensor_data`: `entity` is no longer passed as `entity_id` to service call and must be explicitly set
 - ⚠️ [sensor card]: Removed configs `height`, `line_color` and `line_width`
 - ⚠️ [gauge card]: Renamed config `title` to `name`
 - ⚠️ [alarm panel card]: Renamed config `title` to `name`
