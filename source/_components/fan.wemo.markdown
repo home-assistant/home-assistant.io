@@ -16,7 +16,7 @@ ha_release: 0.82
 
 The `wemo` platform allows you to control your [Belkin WeMo](http://www.belkin.com/us/p/P-F7C027/) humidifiers from within Home Assistant. This includes support for the [Holmes Smart Humidifier](https://www.holmesproducts.com/wemo-humidifier.html).
 
-WeMo devices are automatically discovered if the discovery component is enabled. For more configuration information, see the [WeMo component](/components/wemo/) documentation.
+WeMo devices are automatically discovered if the `discovery` component is enabled. For more configuration information, see the [WeMo component](/components/wemo/) documentation.
 
 ### {% linkable_title Attributes %}
 

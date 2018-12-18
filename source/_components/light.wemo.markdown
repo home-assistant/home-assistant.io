@@ -16,4 +16,4 @@ ha_release: 0.14
 
 The `wemo` platform allows you to control your Belkin WeMo [LED lights](http://www.belkin.com/us/p/P-F5Z0489/) and [Smart Dimmer Switch](http://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/) from within Home Assistant.
 
-WeMo devices are automatically discovered if the discovery component is enabled. For more configuration information, see the [WeMo component](/components/wemo/) documentation.
+WeMo devices are automatically discovered if the `discovery` component is enabled. For more configuration information, see the [WeMo component](/components/wemo/) documentation.
