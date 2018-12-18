@@ -29,8 +29,12 @@ entities:
   description: "List of entities to filter."
   type: list
 state_filter:
-  required: true
+  required: false
   description: List of strings representing states.
+  type: list
+state_filter_not:
+  required: false
+  description: List of strings representing states to filter out.
   type: list
 card:
   required: false
@@ -77,3 +81,18 @@ Show only people that are at home using [glance](/lovelace/glance/):
   <img src='/images/lovelace/lovelace_entity_filter_glance.png' alt='Entity filter combined with glance card'>
   Entity filter combined with glance card.
 </p>
+
+Show only people that are not at home using [glance](/lovelace/glance/):
+
+```yaml
+- type: entity-filter
+  entities:
+    - device_tracker.demo_paulus
+    - device_tracker.demo_anne_therese
+    - device_tracker.demo_home_boy
+  state_filter_not:
+    - home
+  card: 
+    type: glance
+    title: People not at home
+```
