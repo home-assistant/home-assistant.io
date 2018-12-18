@@ -17,10 +17,10 @@ The `prezzibenzina` platform allows you to monitor the fuel prices with [PrezziB
 
 ## {% linkable_title Setup %}
 
-To use this sensor you need the station id. To get this information go to [PrezziBenzina.it](https://www.prezzibenzina.it/) with your browser and find your station. Then copy the id from the url bar.
+To use this sensor you need the station ID. To get this information go to [PrezziBenzina.it](https://www.prezzibenzina.it/) with your browser and find your station. Then copy the ID from the URL bar.
 
-```
-https://www.prezzibenzina.it/distributori/<id>/
+```text
+https://www.prezzibenzina.it/distributori/STATION_ID/
 ```
 
 ## {% linkable_title Configuration %}
@@ -31,7 +31,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: prezzibenzina
-    station: <id> 
+    station: STATION_ID 
 ```
 
 {% configuration %}
@@ -40,9 +40,9 @@ station:
   required: true
   type: string
 fuel_types:
-  description: The types of fuels you want to track.
+  description: "The types of fuels you want to track. Allowed values are `Benzina`, `Benzina speciale`, `Diesel`, `Diesel speciale`, `GPL` or `Metano`."
   required: false
-  type: list of strings
+  type: list
 name:
   description: The name of the station.
   required: false
@@ -58,7 +58,7 @@ sensor:
   - platform: prezzibenzina
     station: <id>
     fuel_types: 
-        - "Benzina"
-        - "GPL"
+      - "Benzina"
+      - "GPL"
     name: "Station"
 ```
