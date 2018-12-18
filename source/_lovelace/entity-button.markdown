@@ -110,9 +110,9 @@ Title and Script Service Example:
   name: Turn Off Lights
   tap_action:
     action: call-service
-      service: script.turn_on
-      service_data:
-        entity_id: script.turn_off_lights
+    service: script.turn_on
+    service_data:
+      entity_id: script.turn_off_lights
   entity: script.turn_off_lights
 ```
 
