@@ -137,7 +137,7 @@ Returns an URL to the generated TTS file. Platform and message are required.
 
 ```json
 {
-    "plaform": "amazon_polly",
+    "platform": "amazon_polly",
     "message": "I am speaking now"
 }
 ```
