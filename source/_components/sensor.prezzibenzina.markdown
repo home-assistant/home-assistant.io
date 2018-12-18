@@ -43,13 +43,6 @@ fuel_types:
   description: The types of fuels you want to track.
   required: false
   type: list of strings
-  keys:
-    - "Benzina"
-    - "Benzina speciale"
-    - "Diesel"
-    - "Diesel speciale"
-    - "GPL"
-    - "Metano"
 name:
   description: The name of the station.
   required: false
