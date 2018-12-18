@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-It is possible to write your Lovelace config in YAML instead of via the UI. To do so, you will need to configure the Lovelace component to be in yaml mode:
+It is possible to write your Lovelace config in YAML instead of via the UI. To do so, you will need to configure the Lovelace component to be in yaml mode by adding the following to your `configuration.yaml`:
 
 ```yaml
 lovelace:
