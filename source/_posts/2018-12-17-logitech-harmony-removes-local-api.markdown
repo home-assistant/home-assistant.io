@@ -30,7 +30,18 @@ _This is a developing story that we will update as more information becomes avai
   Thread by member of the Harmony Team.
 </p>
 
-**Update 3 (18 dec):** Twitter user [@ChadBeattie](https://twitter.com/ChadBeattie/status/1074770135121125376) has discovered that there seems to be a second undocumented local API that is being used by the Logitech Harmony iOS app. Home Assistant dev [@ehendrix23](https://github.com/ehendrix23) is looking into updating the PyHarmony library to use this. Join #devs_backend on [our chat](https://www.home-assistant.io/join-chat/) if you want to help with development. We can't guarantee that it will work, but if we can get it to work, we will do a hot fix release.
+**Update 3 (18 dec):** Twitter user [@ChadBeattie](https://twitter.com/ChadBeattie/status/1074770135121125376) has discovered that there seems to be a second undocumented local API that is being used by the Logitech Harmony iOS app. Home Assistant developer [@ehendrix23] is looking into updating the PyHarmony library to use this. Join #devs_backend on [our chat](https://www.home-assistant.io/join-chat/) if you want to help with development. We can't guarantee that it will work, but if we can get it to work, we will do a hot fix release.
+
+[@ehendrix23]: https://github.com/ehendrix23
+
+**Update 4 (18 dec):** No word from Logitech yet on the future of the XMPP-based local API. Home Assistant developer [@ehendrix23], with the help of [@chadcb] and other amazing people in the comments to this post, did manage to figure out how the local websocket API works for the Logitech Harmony, which is also used by the Logitech Harmony iOS app. There is now an open [pull request for Home Assistant](https://github.com/home-assistant/home-assistant/pull/19440) to update the Harmony integration to use it. This PR is currently being tested, and if all works well, will be released as a hot fix on the 19th.
+
+<p class='img'>
+  <a href='https://github.com/home-assistant/home-assistant/pull/19440'><img src='/images/blog/2018-12-logitech-harmony-removes-local-api/pull-request.png' alt='Screenshot of GitHub.com showing a pull request to Home Assistant to update their Logitech Harmony integration to use the local websocket API.'></a>
+  Pull Request by [@ehendrix23] to use the local websockets-based API.
+</p>
+
+[@chadcb]: https://github.com/chadcb
 
 ### {% linkable_title Reverting the software update %}
 
