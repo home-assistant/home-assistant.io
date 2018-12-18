@@ -13,12 +13,7 @@ ha_release: 0.62
 ha_iot_class: "Cloud Polling"
 ---
 
-The `mychevy` component communicates with
-the [my.chevrolet](https://my.chevrolet.com) website using the
-javascript API that the website uses (as of Dec 2018). The mychevy
-website has been known to be both unstable (interfaces changing
-somewhat willy nilly) and have substantial outages. So be forwarned in
-using this component.
+The `mychevy` component communicates with the [my.chevrolet](https://my.chevrolet.com) website using the javascript API that the website uses (as of Dec 2018). The mychevy website has been known to be both unstable (interfaces changing somewhat willy nilly) and have substantial outages. So be forwarned in using this component.
 
 This component provides the following platforms:
 
@@ -54,7 +49,7 @@ The architecture of the GM automotive networking imposes some limitations on the
 
 The OnStar network link is very slow, and takes 1 - 3 minutes to get information back from the car. As such the mychevy component only polls every 30 minutes to not overwhelms that connection.
 
-The OnStar network (or more specifically the gateway used by the my.chevrolet website) appears to suffer more than most networks when the car is a) in a garage, and b) it's cold outside (like < 15 degrees F). One of the provided sensors is a status sensor which indicates if we got connectivity with the car on the last polling cycle or not.
+The OnStar network (or more specifically the gateway used by the my.chevrolet website) appears to suffer more than most networks when the car is a) in a garage, and b) it's cold outside (like < 15 degrees F). One of the provided sensors is a status sensor which indicates if we got connectivity with the car on the last polling cycle or not. 
 
-The "API" for this is written through using some existing API calls
-from the javascript web ui. As such, it only currently is known to work if you have a Chevy Bolt EV, and only 1 Chevy car connected to OnStar. Patches for extended support should go to the https://github.com/sdague/mychevy project first, then Home Assistant can be extended.
+The "API" for this is written through using some existing API calls from the Javascript web user interfae. As such, it only currently is known to work if you have a Chevy Bolt EV or a Chevy Volt, and only 1 Chevy car connected to OnStar. Patches for extended support should go to the [https://github.com/sdague/mychevy](https://github.com/sdague/mychevy) project first, then Home Assistant can be extended.
+

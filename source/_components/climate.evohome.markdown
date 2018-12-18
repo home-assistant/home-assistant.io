@@ -24,7 +24,7 @@ Currently, only the standard HA operating modes are supported; the evohome modes
 The evohome Heating zones support only three operating modes: FollowSchedule, TemporaryOverride, and PermanentOverride. If the zone is in FollowSchedule mode, it inherits its `operating_mode` from the controller; the other modes are mapped to 'Manual' or 'Off'.
 
 A device's actual operating mode can be tracked via its `device_state_attributes`, which includes a JSON data structure for current state called `status`. For example:
-```
+```json
 {
 	'zoneId': '999999',
 	'temperatureStatus': {
@@ -39,10 +39,13 @@ A device's actual operating mode can be tracked via its `device_state_attributes
 	'name': 'Main Room'
 }
 ```
+
 This data can be accessed in automations, etc., via a value template:
+{% raw %}
 ```
 value_template: "{{ state_attr('climate.main_room', 'status').setpointStatus.setpointMode }}"
 ```
+{% endraw %}
 
 <p class='note'>
 Full configuration details can be found on the main [evohome component](/components/evohome/) page.
