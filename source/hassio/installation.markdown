@@ -19,14 +19,16 @@ The following will take you through the steps required to install Hass.io.
      - [Raspberry Pi Zero W][pi0-w]
      - [Raspberry Pi 1 Model B][pi1]
      - [Raspberry Pi 2 Model B][pi2]
-     - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32]
-     - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64] (beta)
+     - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
+     - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
      - [Tinkerboard (Beta)][tinker]
      - [Odroid-C2 (Beta)][odroid-c2]
     
    - As a virtual appliance: 
   
      - [VMDK][vmdk]
+     - [VHDX (beta)][vhdx]
+     - [VDI (beta)][vdi]
      - [OVA][Virtual Appliance] (not available at this time!)
     
 2. Install Hass.io:
@@ -98,9 +100,11 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_rpi2-1.13.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_rpi3-1.13.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_rpi3-64-1.13.img.gz
-[tinker]: https://github.com/home-assistant/hassos/releases/download/2.3/hassos_tinker-2.3.img.gz
-[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.3/hassos_odroid-c2-2.3.img.gz
+[tinker]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_tinker-2.4.img.gz
+[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_odroid-c2-2.4.img.gz
 [vmdk]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_ova-1.13.vmdk.gz
+[vhdx]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_ova-2.4.vhdx.gz
+[vdi]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_ova-2.4.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
