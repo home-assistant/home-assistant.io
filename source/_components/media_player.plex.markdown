@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `plex` platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item.
+The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](https://www.home-assistant.io/components/media_player/) in Home Assistant. It will allow you to control media playback and see the current playing item.
 
 ## {% linkable_title Setup %}
 
