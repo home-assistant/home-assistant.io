@@ -36,6 +36,7 @@ To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the
 geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
+    radius: 50
 ```
 
 {% configuration %}
@@ -52,7 +53,7 @@ radius:
   description: The distance in kilometers around Home Assistant's coordinates in which seismic events are included.
   required: false
   type: float
-  default: 50km
+  default: 50
 latitude:
   description: Latitude of the coordinates around which events are considered.
   required: false
