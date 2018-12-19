@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: solaredge.png
 ha_category: Sensor
-ha_release: 
+ha_release: 0.85
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -54,6 +54,7 @@ monitored_conditions:
   description: SolarEdge Site information to be monitored. The following conditions can be monitored.
   required: false
   type: list
+  default: current_power
   keys:
     life_time_data:
       description: Lifetime energy generated at your SolarEdge Site in Wh
