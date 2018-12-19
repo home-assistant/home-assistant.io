@@ -118,6 +118,19 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 - Fix restore state for manual alarm control panel ([@liaanvdm] - [#19284]) ([alarm_control_panel.manual docs])
 - Fix not being able to update entities ([@glentakahashi] - [#19344]) ([config docs])
 
+## {% linkable_title Release 0.84.4 - December 19 %}
+
+- Fix parts of the frontend not picking up translations ([@balloob])
+- Fix IHC config schema ([@mopolus] - [#19415]) ([ihc docs])
+- Use web sockets for Harmony HUB ([@ehendrix23] - [#19440]) ([remote.harmony docs])
+
+[#19415]: https://github.com/home-assistant/home-assistant/pull/19415
+[#19440]: https://github.com/home-assistant/home-assistant/pull/19440
+[@ehendrix23]: https://github.com/ehendrix23
+[@mopolus]: https://github.com/mopolus
+[ihc docs]: /components/ihc/
+[remote.harmony docs]: /components/remote.harmony/
+
 #### Frontend
 
 - Fix setting aspect ratio in percentage ([#2289](https://github.com/home-assistant/home-assistant-polymer/pull/2289)) [@balloob]
