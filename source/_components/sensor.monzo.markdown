@@ -10,7 +10,7 @@ footer: true
 logo: "monzobank.png"
 ha_category: Finance
 featured: false
-ha_release: "0.79"
+ha_release: "0.85"
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -41,46 +41,42 @@ Once you've signed up:
 6. Click "Submit" and make a note of the newly created client id and secret, you will need this for your Home Assistant configuration.
 
 <p class='note info'>
-It is important that you select your OAuth client type to be Confidential. Otherwise Home Assistant will be unable to renew the Monzo access token once it expires
+It is important that you select your OAuth client type to be Confidential. Otherwise Home Assistant will be unable to renew the Monzo access token once it expires.
 </p>
 
 ## {% linkable_title Configuration %}
 
-To add a Monzo account balance sensor to your installation, add the following to your `configuration.yaml` file:
+To add the Monzo component to your Home Assistant, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: monzo
+monzo:
+  client_id: "your_client_id"
+  client_secret: "your_client_secret"
 ```
 
-On restarting Home Assistant, a default `monzo.conf` file will be generated in the configuration folder.
-
-```json
-{
-    "client_id": "CLIENT_ID_HERE",
-    "client_secret": "CLIENT_SECRET_HERE"
-}
-```
-
-Input the `client_id` and `client_secret` from the Monzo developer playground here.
-
-On returning to Home Assistant you will be directed to the authentication start point which will redirect you to Monzo. By clicking the magic link in the email Monzo sends after authentication you give Home Assistant access to the API.
+An entry will be added to the integrations page of your Home Assistant which will direct you to the Monzo authentication start point. Enter the email address that you used to sign up for your Monzo account and Monzo will send you a magic link to this email. Clicking this link will give Home Assistant access to details about your account through the API.
 
 {% configuration %}
-id:
-  description: A unique identifier for your Monzo account. If this is not set the Monzo sensor will track the first of your accounts returned by the Monzo API. You may want to manually set this if you have previously held a prepaid Monzo account which is now closed, or have multiple Monzo accounts such as a joint account which you want to track. The account id numbers for your accounts can be found using the "List Accounts" endpoint on the developer playground.
-  required: false
+client_id:
+  description: The client id associated with Home Assistant as given on the Monzo developer website
+  required: true
   type: string
-monitored_resources:
-  description: Choose to monitor your cleared or effective balance (or both).
-  required: false
-  type: list
-  default: balance
+client_secret:
+  description: The client secret associated with Home Assistant as given on the Monzo developer website
+  required: true
+  type: string
+sensors:
   keys:
-    balance:
-      description: The current balance of your Monzo account
-    spend_today:
-      description: The total of all transactions you have made today.
-    pots:
-      description: Tracks the balances of all of your Monzo Pots
+    monitored_resources:
+      description: Monitored values from your account.
+      required: false
+      type: list
+      default: balance, dailyspend, pots
+      keys:
+        balance:
+          description: The current balance of your Monzo account
+        dailyspend:
+          description: The total of all transactions you have made today.
+        pots:
+          description: Tracks the balances of all of your Monzo Pots
 {% endconfiguration %}
