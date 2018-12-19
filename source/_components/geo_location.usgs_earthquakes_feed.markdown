@@ -52,7 +52,7 @@ radius:
   description: The distance in kilometers around Home Assistant's coordinates in which seismic events are included.
   required: false
   type: float
-  default: 50km
+  default: 50
 latitude:
   description: Latitude of the coordinates around which events are considered.
   required: false
@@ -107,3 +107,17 @@ The following state attributes are available for each entity in addition to the 
 | updated            | Date and time when this event was most recently updated. |
 | status             | Indicates whether the event has been reviewed by a human: "automatic", "reviewed", "deleted" |
 | type               | Type of seismic event: "earthquake" or "quarry". |
+
+
+## {% linkable_title Full Configuration %}
+
+```yaml
+# Example configuration.yaml entry
+geo_location:
+  - platform: usgs_earthquakes_feed
+    feed_type: 'past_month_all_earthquakes'
+    radius: 50
+    minimum_magnitude: 0.0
+    latitude: 35.899722
+    longitude: -120.432778
+```
