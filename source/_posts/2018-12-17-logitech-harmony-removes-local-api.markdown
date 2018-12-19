@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Logitech Harmony removes local API"
+title: "[Update: not a mistake] Logitech Harmony removes local API"
 description: "Logitech has disabled the local API of the Harmony Hub with their latest software update. For privacy and speed it is important that home automation devices communicate locally, without data leaving the network."
 date: 2018-12-17 00:01:00
 date_formatted: "December 17, 2018"
@@ -13,8 +13,6 @@ categories: Public-Service-Announcement
 Logitech has disabled the local API of the Harmony Hub with their latest software update (v4.15.206). For privacy and speed it is important that home automation devices communicate locally, without data leaving the network. With the latest update to the Logitech Harmony Hub, this is no longer possible.
 
 We hope that this was an oversight on their end and that it will be reverted shortly. We have reached out to Logitech for a clarification and will update this post when available. Until this is resolved, we no longer recommend buying or using Logitech products.
-
-_This is a developing story that we will update as more information becomes available._
 
 **Update 1 (17 dec):** still no response on our inquiries but Twitter user [@FlorianNoack](https://twitter.com/FlorianNoack/status/1074744105002037248?s=09) found an answer from Logitech on [a thread on their forums](https://community.logitech.com/s/question/0D55A00008D1oIoSAJ/firmware-update-blocked-api-access) (visible after clicking a few times on "More answers"):
 
@@ -42,6 +40,18 @@ _This is a developing story that we will update as more information becomes avai
 </p>
 
 [@chadcb]: https://github.com/chadcb
+
+**Update 5 (19 dec):** Logitech has posted an official response on [their forums](https://community.logitech.com/s/question/0D55A00008D4bZ4SAJ/harmony-hub-firmware-update-fixes-vulnerabilities). They claim that they removed the local XMPP API after a report from a third-party cyber security firm. We have been unable to verify if this is true. The XMPP API has been around since [at least 2013](https://github.com/jterrace/pyharmony) and has been widely adopted within smart homes worldwide. In their forum post they write that they are aware it was being used, yet they did not consider giving any form of heads up, proofing to be an unreliable part of our smart homes.
+
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">We have no plans to reenable access to private APIs</p>&mdash; Todd Walker (@ToddW_Logitech) <a href="https://twitter.com/ToddW_Logitech/status/1075225822850560000?ref_src=twsrc%5Etfw">December 19, 2018</a>
+</blockquote>
+
+We will be releasing a hot fix today to migrate our integration to another local API that is being used by their iOS app. Expect it to suffer the same faith at a future point.
+
+<p class='img'>
+  <a href='https://community.logitech.com/s/question/0D55A00008D4bZ4SAJ/harmony-hub-firmware-update-fixes-vulnerabilities'><img src='/images/blog/2018-12-logitech-harmony-removes-local-api/forum-post-3.png' alt='Screenshot of a forum post by a Logitech employee saying that the local API was removed after a report from a third-party cyber security firm.'></a>
+  Thread by member of the Harmony Team.
+</p>
 
 ### {% linkable_title Reverting the software update %}
 
