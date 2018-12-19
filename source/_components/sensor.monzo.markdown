@@ -52,6 +52,9 @@ To add the Monzo component to your Home Assistant, add the following to your `co
 monzo:
   client_id: "your_client_id"
   client_secret: "your_client_secret"
+  sensors:
+    monitored_resources:
+      - balance
 ```
 
 An entry will be added to the integrations page of your Home Assistant which will direct you to the Monzo authentication start point. Enter the email address that you used to sign up for your Monzo account and Monzo will send you a magic link to this email. Clicking this link will give Home Assistant access to details about your account through the API.
