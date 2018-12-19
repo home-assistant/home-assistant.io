@@ -36,7 +36,6 @@ To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the
 geo_location:
   - platform: usgs_earthquakes_feed
     feed_type: 'past_day_all_earthquakes'
-    radius: 50
 ```
 
 {% configuration %}
@@ -108,3 +107,17 @@ The following state attributes are available for each entity in addition to the 
 | updated            | Date and time when this event was most recently updated. |
 | status             | Indicates whether the event has been reviewed by a human: "automatic", "reviewed", "deleted" |
 | type               | Type of seismic event: "earthquake" or "quarry". |
+
+
+## {% linkable_title Full Configuration %}
+
+```yaml
+# Example configuration.yaml entry
+geo_location:
+  - platform: usgs_earthquakes_feed
+    feed_type: 'past_month_all_earthquakes'
+    radius: 50
+    minimum_magnitude: 0.0
+    latitude: 35.899722
+    longitude: -120.432778
+```
