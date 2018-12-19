@@ -43,12 +43,18 @@ Add the following to your configuration.yaml file to add the PS4 component.
 
 ```yaml
 # Example configuration.yaml entry
-media_player
-  - platform ps4
-    host 192.168.0.11
-    name Playstation 4
+media_player:
+  platform: ps4
+    host: 192.168.0.11
 ```
-Configuration variables:
-
-- **host** (*Required*): The IP of the PS4 eg. `192.168.0.11`.
-- **name** (*Optional*): The name you would like to give to the PS4.
+{% configuration %}
+host: 
+  description: IP of the PS4 eg. `192.168.0.11`.
+  required: true
+  type: string
+name:
+  description: Name for PS4 entity.
+  required: false
+  type: string
+  default: Playstation 4
+{% endconfiguration %}
