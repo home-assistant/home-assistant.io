@@ -34,14 +34,17 @@ name:
   description: Override the name of your camera.
   required: false
   type: string
+  default: ONVIF Camera
 username:
   description: The username for the camera.
   required: false
   type: string
+  default: admin
 password:
   description: The password for the camera.
   required: false
   type: string
+  default: 888888
 port:
   description: The port for the camera.
   required: false
@@ -56,6 +59,7 @@ extra_arguments:
   description: "Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [`ffmpeg` component](/components/ffmpeg)."
   required: false
   type: string
+  default: -q:v 2
 {% endconfiguration %}
 
 Most of the ONVIF cameras support more than one audio/video profile. Each profile provides different image quality. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. One of the reasons may be that your hardware isn't able to render the highest quality image in real-time, especially when running on Raspberry Pi. Therefore you can choose which profile do you want to use by setting in config `profile` variable.
