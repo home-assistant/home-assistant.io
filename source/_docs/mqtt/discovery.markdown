@@ -182,13 +182,14 @@ Supported abbreviations:
 
 ### {% linkable_title Support by third-party tools %}
 
-The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
+The following software has built-in support for MQTT discovery:
 
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
 - [esphomeyaml](https://esphomelib.com/esphomeyaml/index.html)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
+- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 
 ### {% linkable_title Examples %}
 
