@@ -54,6 +54,10 @@ port:
   required: false
   default: 8181
   type: integer
+path:
+  description: The Base Url path of your Tautulli server.
+  required: false
+  type: string
 ssl:
   description: Use HTTPS to connect to Tautulli server. *NOTE* A host *cannot* be an IP address when this option is enabled.
   required: false
