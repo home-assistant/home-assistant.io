@@ -14,7 +14,7 @@ ha_release: "0.85"
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.
 
-This component calculates prayer times using the following calculation methods:
+This platform calculates prayer times using the following calculation methods:
 
 - University of Islamic Sciences in Karachi
 - Islamic Society of North America
