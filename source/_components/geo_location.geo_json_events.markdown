@@ -41,6 +41,16 @@ radius:
   required: false
   type: string
   default: 20km
+latitude:
+  description: Latitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Latitude defined in your `configuration.yaml`
+longitude:
+  description: Longitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Longitude defined in your `configuration.yaml`
 {% endconfiguration %}
 
 ## {% linkable_title Advanced Configuration Example %}

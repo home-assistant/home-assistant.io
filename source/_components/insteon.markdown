@@ -51,7 +51,6 @@ To set up an INSTEON Hub model [2242], use the following configuration:
 # Hub 2242 configuration variables
 insteon:
   host: HOST
-  ip_port: IP_PORT
   hub_version: 1
 ```
 

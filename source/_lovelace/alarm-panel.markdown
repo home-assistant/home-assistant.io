@@ -31,9 +31,9 @@ entity:
   required: true
   description: "Entity ID of `alarm_control_panel` domain"
   type: string
-title:
+name:
   required: false
-  description: Title of Alarm Panel
+  description: Overwrites Friendly Name
   type: string
   default: Current State of Alarm Entity
 states:
@@ -58,7 +58,7 @@ Title Example:
 
 ```yaml
 - type: alarm-panel
-  title: House Alarm
+  name: House Alarm
   entity: alarm_control_panel.alarm
 ```
 
@@ -71,7 +71,7 @@ Define the State List:
 
 ```yaml
 - type: alarm-panel
-  title: House Alarm
+  name: House Alarm
   entity: alarm_control_panel.alarm
   states:
     - arm_home

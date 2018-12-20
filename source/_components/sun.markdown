@@ -14,7 +14,10 @@ ha_qa_scale: internal
 
 The sun component will use your current location to track if the sun is above or
 below the horizon. The sun can be used within automation as
-[a trigger with an optional offset to simulate dawn/dusk](/getting-started/automation-trigger/#sun-trigger).
+[a trigger with an optional offset to simulate dawn/dusk][sun_trigger] or as [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
+
+[sun_trigger]: /docs/automation/trigger/#sun-trigger
+[sun_condition]: /docs/scripts/conditions/#sun-condition
 
 ```yaml
 # Example configuration.yaml entry

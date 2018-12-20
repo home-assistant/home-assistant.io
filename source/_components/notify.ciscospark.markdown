@@ -32,11 +32,20 @@ notify:
     roomid: CISCO_SPARK_ROOMID
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **token** (*Required*): Your development token.
-- **roomid** (*Required*): The Room ID.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+token:
+  description: Your development token.
+  required: true
+  type: string
+roomid:
+  description: The Room ID.
+  required: true
+  type: string
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-

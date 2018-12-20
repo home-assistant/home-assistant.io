@@ -25,7 +25,7 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
 If you do not want to combine AND and OR conditions, you can also just list them sequentially, by default all conditions have to be true. 
@@ -38,7 +38,7 @@ condition:
     state: 'home'
   - condition: numeric_state
     entity_id: 'sensor.temperature'
-    below: '20'
+    below: 20
 ```
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
@@ -56,7 +56,7 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
 ### {% linkable_title MIXED  AND and OR conditions %}
@@ -78,7 +78,7 @@ condition:
           state: 'rain'
         - condition: numeric_state
           entity_id: 'sensor.temperature'
-          below: '20'
+          below: 20
 ```
 
 ### {% linkable_title Numeric state condition %}
@@ -138,6 +138,20 @@ condition:
       - condition: sun
         before: sunrise
 ```
+
+```yaml
+condition:
+    condition: and  # 'when light' condition: before sunset and after sunrise
+    conditions:
+      - condition: sun
+        before: sunset
+      - condition: sun
+        after: sunrise
+```
+
+A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.
+
+<img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
 
 ### {% linkable_title Template condition %}
 

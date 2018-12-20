@@ -13,7 +13,7 @@ ha_release: 0.65
 
 The `proxy` camera platform allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.
 
-The current post-processing supports resizing the image/MJPEG as well as limiting the maximum refresh rate.
+The current post-processing supports resizing and/or cropping the image/MJPEG as well as limiting the maximum refresh rate.
 
 The current proxy capabilities are intended to reduce the camera bandwidth for slower internet connections.
 
@@ -39,14 +39,37 @@ name:
   description: This parameter allows you to override the name of your camera.
   required: false
   type: string
+mode:
+  description: The operating mode, either `resize` or `crop`.
+  required: false
+  type: string
+  default: resize
 max_image_width:
-  description: The maximum width of single images taken from the camera (aspect ratio will be maintained).
+  description: The maximum width of single images taken from the camera (aspect ratio will be maintained on resize processing).
+  required: false
+  type: integer
+max_image_height:
+  description: The maximum height of single images taken from the camera, only used for crop operations. If not provided, the original height is assumed by default.
   required: false
   type: integer
 max_stream_width:
-  description: The maximum width of the MJPEG stream from the camera (aspect ratio will be maintained).
+  description: The maximum width of the MJPEG stream from the camera (aspect ratio will be maintained on resize processing).
   required: false
   type: integer
+max_stream_height:
+  description: The maximum height of the MJPEG stream from the camera, only used for crop operations. If not provided, the original height is assumed by default.
+  required: false
+  type: integer
+image_top:
+  description: The top (y) coordinate to be used as a starting point for crop operations.
+  required: false
+  type: integer
+  default: 0
+image_left:
+  description: The left (x) coordinate to be used as a starting point for crop operations.
+  required: false
+  type: integer
+  default: 0
 image_quality:
   description: The quality level used for resulting JPEG for snapshots.
   required: false
@@ -73,7 +96,7 @@ cache_images:
 
 ## {% linkable_title Examples %}
 
-Example of using a Camera proxy along with a Foscam camera:
+Example of using two Camera proxies along with a Foscam camera:
 
 ```yaml
 camera:
@@ -87,4 +110,11 @@ camera:
     max_stream_width: 360
     max_image_width: 480
     image_refresh_rate: 5.0
+  - platform: proxy
+    entity_id: camera.mycamera
+    name: My cropped camera
+    mode: crop
+    max_image_width: 480
+    max_image_height: 320
+    image_left: 100
 ```

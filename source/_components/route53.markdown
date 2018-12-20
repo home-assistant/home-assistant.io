@@ -72,7 +72,7 @@ route53:
   aws_access_key_id: ABC123
   aws_secret_access_key: DEF456
   zone: ZONEID678
-  domain: home.yourdomain.com
+  domain: yourdomain.com
   records:
     - vpn
     - hassio
@@ -100,4 +100,9 @@ records:
   description: A list of records you want to update.
   required: true
   type: list
+ttl:
+  description: The TTL value for the DNS records.
+  required: false
+  type: int
+  default: 300
 {% endconfiguration %}

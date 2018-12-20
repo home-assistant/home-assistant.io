@@ -43,15 +43,14 @@ eufy:
 ```bash
 $ curl -H "Content-Type: application/json" \
    -d '{"client_id":"eufyhome-app", "client_Secret":"GQCpr9dSp3uQpsOMgJ4xQ", "email":"USERNAME", "password":"PASSWORD"}' \
-   https://home-api.eufylife.com/v1/user/email/login \
-   | jq
+   https://home-api.eufylife.com/v1/user/email/login
 ```
 
 replacing USERNAME and PASSWORD with the Eufy username and password. This will give an `access_token`. Then run:
 
 ```bash
 $ curl -H token:TOKEN -H category:Home \
-   https://home-api.eufylife.com/v1/device/list/devices-and-groups | jq
+   https://home-api.eufylife.com/v1/device/list/devices-and-groups
 ```
 
 replacing TOKEN with the `access_token` from the previous command. This will provide the local_code for each device.

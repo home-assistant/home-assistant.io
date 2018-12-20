@@ -36,17 +36,26 @@ media_player:
       16:
         name: Guest Bedroom
     sources:
-      1: 
+      1:
         name: Sonos
       5:
         name: Chromecast
 ```
 
-Configuration variables:
-
-- **port** (*Required*): The serial port to which Monoprice amplifier is connected
-- **zones** (*Required*): This is the list of zones available. Valid zones are 11,12,13,14,15,16. In case multiple Monoprice devices are stacked together the list of valid zones is extended by 21,22,23,24,25,26 for the second device and 31,32,33,34,35,36 for the third device. Each zone must have a name assigned to it.
-- **sources** (*Required*): The list of sources available. Valid source numbers are 1,2,3,4,5,6. Each source number corresponds to the input number on the Monoprice amplifier. Similar to zones, each source must have a name assigned to it.
+{% configuration %}
+port:
+  description: The serial port to which Monoprice amplifier is connected.
+  required: true
+  type: string
+zones:
+  description: This is the list of zones available. Valid zones are 11, 12, 13, 14, 15 or 16. In case multiple Monoprice devices are stacked together the list of valid zones is extended by 21, 22, 23, 24, 25 or 26 for the second device and 31, 32, 33, 34, 35 or 36 for the third device. Each zone must have a name assigned to it.
+  required: true
+  type: integer
+sources:
+  description: The list of sources available. Valid source numbers are 1, 2, 3, 4, 5 or 6. Each source number corresponds to the input number on the Monoprice amplifier. Similar to zones, each source must have a name assigned to it.
+  required: true
+  type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Service `snapshot` %}
 
