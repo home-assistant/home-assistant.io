@@ -43,6 +43,10 @@ name:
   required: false
   type: string
   default: fail2ban
+scan_interval:
+  description: wait time between fail2ban log checks
+  required: true
+  type: integer
 file_path:
   description: Path to the fail2ban log.
   required: false
