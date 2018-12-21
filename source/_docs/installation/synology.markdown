@@ -128,11 +128,7 @@ $ make setup
 $ cd spk/python3
 ```
 
-You need to change "arch-**XXXX**" to the architecture of your Synology (e.g., DS115j = arch-armada370)
-For information about the Arch of your Synology look at the <a href="https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model">list of architectures on spkrc</a>
-Depending on your device, compilation may take a hour or more (significantly less if you have a SSD and a good CPU).
-
-Compile Python 3 for your Synology model
+Compile Python 3 for your Synology model, please replace "arch-**XXXX**" by the apporiate architecture of your Synology. For a list of architectures, look at the [list on architectures spkrc](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model). Depending on your device, compilation may take a hour or more (significantly less if you have a SSD and a good CPU).
 ```bash
 $ make arch-XXXX
 ```
