@@ -116,11 +116,11 @@ Install Git
 ```
 Fork and clone spksrc, this will make a directory named "spksrc".
 ```bash
-git clone https://You@github.com/You/spksrc.git ~/spksrc
+$ git clone https://You@github.com/You/spksrc.git ~/spksrc
 ```
 Download the spksrc Docker container:
 ```bash
-docker pull synocommunity/spksrc
+$ docker pull synocommunity/spksrc
 ```
 
 Now you need to edit 2 files.
@@ -148,10 +148,10 @@ export CFLAGS=-pthread
 ## {% linkable_title Compiling the Python 3 package %}
 Run the container, this will make your terminal run inside the Docker container:
 ```bash
-# docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
-# cd spksrc/
-# make setup
-# cd spk/python3
+$ docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
+$ cd spksrc/
+$ make setup
+$ cd spk/python3
 ```
 
 You need to change "arch-**XXXX**" to the architecture of your Synology (e.g., DS115j = arch-armada370)
@@ -160,7 +160,7 @@ Depending on your device, compilation may take a hour or more (significantly les
 
 Compile Python 3 for your Synology model
 ```bash
-# make arch-XXXX
+$ make arch-XXXX
 ```
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different arch and version.
@@ -168,11 +168,11 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 Now you need to extract your "cross compiled module package" files which you added earlier.
 Run these commands to extract the packages, please replace "python3_**XXXX**.spk" by the apporiate package filename:
 ```bash
-pyspk=python3_armada370-6.1_3.5.5-7.spk
-mkdir ~/Module-Packages
-cd ~/Module-Packages
-tar -x -f ~/spksrc/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
-for file in cffi-1.11.5 bcrypt-3.1.4 cryptography-2.3.1 pycryptodome-3.7.2; do tar -x -f /tmp/package.tar share/wheelhouse/$file-cp35-none-any.whl --strip=2; done
+$ pyspk=python3_armada370-6.1_3.5.5-7.spk
+$ mkdir ~/Module-Packages
+$ cd ~/Module-Packages
+$ tar -x -f ~/spksrc/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
+$ for file in cffi-1.11.5 bcrypt-3.1.4 cryptography-2.3.1 pycryptodome-3.7.2; do tar -x -f /tmp/package.tar share/wheelhouse/$file-cp35-none-any.whl --strip=2; done
 ```
 
 This should give you a directory named "**Module-Packages**" with four .whl files, which you need to install later.
@@ -190,7 +190,7 @@ For ease of use this guide will use p7zip for renaming the files in the archive.
 ```
 Run this command to rename all files containing "x86_64-linux-gnu" to "arm-linux-gnueabihf" inside all `.whl` files found in the current directory:
 ```bash
-for archive in *.whl; do 7z l "$archive" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "$archive" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done; done
+$ for archive in *.whl; do 7z l "$archive" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "$archive" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done; done
 ```
 <p class="note">
 The 7z <b>rn</b> (e.g., rename) parameter was included from 7-Zip 9.30, in the case your distribution only has a older version available, do as follows.
@@ -249,32 +249,32 @@ In the case you turned on the firewall on your Synology device, please config it
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
 Replace "<i>user</i>" with your Synology user and "x.x.x.x" with the its IP-Adress.
 ```bash
-# ssh user@x.x.x.x
+$ ssh user@x.x.x.x
 ```
 Create a virtual Python environment where we will install Home Assistant into.
 This will leave the Python package untouched, makes Home Assistant work better and installable/updateable without sudo.
 Note: After you made a virtual Python envoriment, you cant relocate the folder, else it will break. 
 Make a new one if you need to change it's name, the path or Shared-Folder.
 ```bash
-# /volume1/@appstore/python3/bin/python3 -m venv /volume1/homeassistant/venv-hass
+$ /volume1/@appstore/python3/bin/python3 -m venv /volume1/homeassistant/venv-hass
 ```
 Activate the virtual Python environment
 ```bash
-# source /volume1/homeassistant/venv-hass/bin/activate
+$ source /volume1/homeassistant/venv-hass/bin/activate
 ```
 Install the "cross compiled module package" files we compiled earlier.
 This command expects you have copied the "*Module-Packages*" directory to your "*homeassistant*" Shared-Folder.
 ```bash
-# cd /volume1/homeassistant/Module-Packages
-# pip3 install cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl
+$ cd /volume1/homeassistant/Module-Packages
+$ pip3 install cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl
 ```
 Install Home Assistant
 ```bash
-# pip3 install homeassistant
+$ pip3 install homeassistant
 ```
 Leave the virtual Python environment
 ```bash
-# deactivate
+$ deactivate
 ```
 
 Create a file named "hass-daemon" in the "homeassistant" Shared-Folder with the script below as it's content.
@@ -387,19 +387,19 @@ esac
 
 * Start Home Assistant:
 ```bash
-# /volume1/homeassistant/hass-daemon start
+$ /volume1/homeassistant/hass-daemon start
 ```
 * Stop Home Assistant:
 ```bash
-# /volume1/homeassistant/hass-daemon stop
+$ /volume1/homeassistant/hass-daemon stop
 ```
 * Restart Home Assistant:
 ```bash
-# /volume1/homeassistant/hass-daemon restart
+$ /volume1/homeassistant/hass-daemon restart
 ```
 * Upgrade Home Assistant:
 ```bash
-# source /volume1/homeassistant/venv-hass/bin/activate
-# pip3 install --upgrade homeassistant
-# deactivate
+$ source /volume1/homeassistant/venv-hass/bin/activate
+$ pip3 install --upgrade homeassistant
+$ deactivate
 ```
