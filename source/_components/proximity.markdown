@@ -33,6 +33,11 @@ The Proximity entity which is created has the following values:
   - 'unknown'
   - 'stationary'
 - `dist_to_zone`: Distance from the monitored zone (in km)
+- `unit_of_measurement`: Measurement of distance. Values are:
+  - 'km'
+  - 'm'
+  - 'mi'
+  - 'ft'
 
 To enable this component in your installation, add the following to your `configuration.yaml` file:
 
