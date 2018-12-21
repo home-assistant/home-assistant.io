@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Logitech's stance on local APIs"
-description: "Logitech states that it does not intend to make a local API available."
+description: "Change of mind, Logitech is now committed to maintaining their local XMPP API for the Harmony Hub."
 date: 2018-12-19 00:01:00
 date_formatted: "December 19, 2018"
 author: Paulus Schoutsen
@@ -9,6 +9,8 @@ author_twitter: balloob
 comments: true
 categories: Public-Service-Announcement
 ---
+
+#### This post originally talked about Logitech not willing to support local APIs after removing their private, but widely used, local API. This decision has been reversed and this blog post is no longer applicable to Logitech. More information on the events can be found [in this blogpost][blog-remove-api].
 
 Logitech has decided to remove a widely used local API of their Logitech Harmony hub. We've been tracking the story [here][blog-remove-api]. This has caused a lot of commotion among our users, and users of other smart home solutions, that integrated with the Logitech Harmony hub and all of a sudden were surprised with a broken smart home. Not a nice way to start the already busy holiday season!
 
