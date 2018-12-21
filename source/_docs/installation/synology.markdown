@@ -45,7 +45,6 @@ Do not worry though, were gonna try keep this as painless as possible.
 ## {% linkable_title Preparing prerequisites %}
 
 In this guide we are going to use a Linux based Operating System such as [Ubuntu](https://www.ubuntu.com/), [Mint](https://linuxmint.com/) or [Solus](https://getsol.us) to minimize difficulty. You will also need [Docker](https://docs.docker.com/install/).
-You can think of [Docker](https://docs.docker.com/install/) as a way more powerful [Chroot](https://help.ubuntu.com/community/BasicChroot) and containers as ready made mini operating systems.
 
 
 ### {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
