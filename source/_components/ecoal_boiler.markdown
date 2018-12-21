@@ -22,9 +22,21 @@ To use your eCoal pumps or sensors in your installation, add the following to yo
 ```yaml
 # Example configuration.yaml entry
 ecoal_boiler:
-  host: 192.168.9.2
-  username: admin
-  password: admin
+    host: 192.168.X.Y
+    username: admin
+    password: admin
+    switches:
+        monitored_conditions:
+        - central_heating_pump
+        - central_heating_pump2
+    sensors:
+        monitored_conditions:
+        - outdoor_temp
+        - indoor_temp
+        - indoor2_temp
+        - domestic_hot_water_temp
+        - feedwater_out_temp
+  
 ```
 {% configuration %}
 host:
@@ -41,4 +53,30 @@ password:
   required: false 
   default: admin
   type: string
+
+switches:
+  description: switch-related configuration options
+  required: false
+  type: map
+  keys:
+    monitored_conditions:
+      description: controller available source of switches
+      required: false
+      type: list
+      default: all (`central_heating_pump`, `central_heating_pump2`, `domestic_hot_water_pump`)
+
+sensors:
+  description: sensor-related configuration options
+  required: false
+  type: map
+  keys:
+    monitored_conditions:
+      description: controller available source of sensors
+      required: false
+      type: list
+      default: all (`outdoor_temp`, `indoor_temp`, `indoor2_temp`, `domestic_hot_water_temp`, `target_domestic_hot_water_temp`, 
+                    `feedwater_in_temp`, `feedwater_out_temp`, `target_feedwater_temp`,
+                    `fuel_feeder_temp`, `exhaust_temp`)
+      
+      
 {% endconfiguration %}
