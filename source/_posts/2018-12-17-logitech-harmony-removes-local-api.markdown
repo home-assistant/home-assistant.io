@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Update: resolved] Logitech Harmony removes local API"
+title: "[Update: resolved, API reinstated and commitment to keep it around] Logitech Harmony removes local API"
 description: "Logitech has disabled the local API of the Harmony Hub with their latest software update. For privacy and speed it is important that home automation devices communicate locally, without data leaving the network."
 date: 2018-12-17 00:01:00
 date_formatted: "December 17, 2018"
@@ -14,8 +14,6 @@ categories: Public-Service-Announcement
 
 Logitech is also working on a new version of the hub firmware that fixes the vulnerabilities. This is great and this restores our trust in Logitech. Thanks Logitech for turning around and working with your users.
 
-Home Assistant users are suggested to update to the latest Home Assistant version instead. Starting with version 0.84.5, we have migrated to the websockets API and no longer rely on the XMPP API.
-
 <p class='img'>
   <img src='/images/blog/2018-12-logitech-harmony-removes-local-api/firmware.png' alt='Screenshot of the developer-only firmware reinstating the local XMPP API. Also includes a disclaimer that it voids your warranty.'>
   The developer-only firmware that reinstates the local XMPP API. Voids warranty if installed.
@@ -23,9 +21,11 @@ Home Assistant users are suggested to update to the latest Home Assistant versio
 
 Tenable, the cyber security firm that discovered the security vulnerabilities, has released [a Research Advisory](https://www.tenable.com/security/research/tra-2018-47) detailing the issues and the disclosure timeline.
 
+**Update 7 (21 dec):** Even better news! Someone from Harmony posted [in our forums](https://community.home-assistant.io/t/logitechs-stance-on-local-apis/85842/18?u=balloob) and stated that they are now committed to maintaining their local XMPP API.
+
 <p class='img'>
-  <a href='https://www.tenable.com/security/research/tra-2018-47'><img src='/images/blog/2018-12-logitech-harmony-removes-local-api/vuln-timeline.png' alt='The vulnerability disclosure timeline from Tenable.'></a>
-  Vulnerability Disclosure Timeline
+  <a href='https://community.home-assistant.io/t/logitechs-stance-on-local-apis/85842/18?u=balloob'><img src='/images/blog/2018-12-logitech-harmony-removes-local-api/forum-post-5.png' alt='Screenshot of someone from Harmony stating that they are going to keep the local XMPP API around.'></a>
+  Forum post by Harmony employee on the Home Assistant forums.
 </p>
 
 _Original Post:_
