@@ -90,7 +90,7 @@ Install Git
 ```
 Fork and clone spksrc, this will make a directory named "spksrc".
 ```bash
-$ git clone https://You@github.com/You/spksrc.git ~/spksrc
+$ git clone https://github.com/SynoCommunity/spksrc.git
 ```
 Download the spksrc Docker container:
 ```bash
