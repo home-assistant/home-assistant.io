@@ -42,7 +42,11 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 Like you might have read above, at this time of writing, Synology has not provided a recent [Python 3](https://www.synology.com/nl-nl/dsm/packages/py3k) package, so we have to create a recent Python 3 package ourself.
 Do not worry though, were gonna try keep this as painless as possible.
 
-## {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
+Small summary: In this guide you will install [Docker](https://opensource.com/resources/what-docker) and run the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment. You will be using that to compile the new Python 3 package. Through the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM/help), you will install the package, configure settings and enable SSH, which you need to install Home Assistant on your Synology. Lastly you can autostart Home Assistant.
+
+## {% linkable_title Installing prerequisites) %}
+
+#### {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
 
 Refresh package lists:
 ```bash
