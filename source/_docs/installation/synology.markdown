@@ -172,7 +172,7 @@ Run these commands to extract the packages, please replace "python3_**XXXX**.spk
 pyspk=python3_armada370-6.1_3.5.5-7.spk
 mkdir ~/Module-Packages
 cd ~/Module-Packages
-tar -x -f ~/spksrc/spksrc/packages/$pyspk -C /tmp package.tgz; gunzip /tmp/package.tgz
+tar -x -f ~/spksrc/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
 for file in cffi-1.11.5 bcrypt-3.1.4 cryptography-2.3.1 pycryptodome-3.7.2; do tar -x -f /tmp/package.tar share/wheelhouse/$file-cp35-none-any.whl --strip=2; done
 ```
 
