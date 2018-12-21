@@ -180,6 +180,8 @@ Extract the .whl (these are zip archives), rename all files as described above, 
 
 ## {% linkable_title Using the Synology webadmin %}
 
+
+Install the Python 3 package as follows:
 * Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
 * Press the "*Manual Install*" button on the top right of the window
 * Click on "*Browse*" and select the Python 3 package you created earlier
@@ -211,6 +213,12 @@ Next setup the user:
 * Set the permission "*Read/Write*" for "*homeassistant*" and the all the other Shared-Folders to "*No access*"
 * Click on "*Next*"
 * Click on "*Next*" again
+* Click on "*Apply*"
+
+Next you need to enable SSH:
+* Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
+* Go to "[*Terminal & SNMP*](https://www.synology.com/nl-nl/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal)" settings
+* Click on the checkbox next to "*Enable SSH service*"
 * Click on "*Apply*"
 
 In the case you turned on the firewall on your Synology device, please config it to allow connections for Home Assistant:
