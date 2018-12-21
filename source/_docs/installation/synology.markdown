@@ -32,22 +32,17 @@ Running these commands will:
 * Install Home Assistant
 * Enable Home Assistant to be launched on http://*Synology_IP*:8123
 
-Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM):
+Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM/help):
 * Install compiled Python 3 package using the [Synology Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
-* Create "homeassistant" user and add to the "users" group
-* Create "homeassistant" "Shared-Folder"
-* Optionally Start Home Assistant on Bootup of Synology
+* Create "homeassistant" user
+* Create "homeassistant" [Shared-Folder](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/file_share_desc)
+* Optionally start Home Assistant on bootup of your Synology
 
 
 Like you might have read above, at this time of writing, Synology has not provided a recent [Python 3](https://www.synology.com/nl-nl/dsm/packages/py3k) package, so we have to create a recent Python 3 package ourself.
 Do not worry though, were gonna try keep this as painless as possible.
 
-## {% linkable_title Preparing prerequisites %}
-
-In this guide we are going to use a Linux based Operating System such as [Ubuntu](https://www.ubuntu.com/), [Mint](https://linuxmint.com/) or [Solus](https://getsol.us) to minimize difficulty. You will also need [Docker](https://docs.docker.com/install/).
-
-
-### {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
+## {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
 
 Refresh package lists:
 ```bash
@@ -78,26 +73,6 @@ Install Docker:
 ```bash
 # sudo apt-get install docker-ce
 ```
----
-### {% linkable_title Installing Docker on [Solus](https://getsol.us) %}
-
-Update package lists:
-```bash
-# sudo eopkg update-repo
-```
-Install Docker:
-```bash
-# sudo eopkg install docker
-```
-Enable the docker service at system boot:
-```bash
-# sudo systemctl enable docker
-```
-Start the docker service:
-```bash
-# sudo systemctl start docker
-```
----
 To enable your user account to manage Docker without superuser privileges, add your user account to the "docker" group:
 ```bash
 # sudo gpasswd -a YOUR_USER_ACCOUNT docker
@@ -106,13 +81,8 @@ To enable your user account to manage Docker without superuser privileges, add y
 You will now need to get the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment.
 
 Install Git
-#### Ubuntu/Mint
 ```bash
 # sudo apt-get install git
-```
-#### Solus
-```bash
-# sudo eopkg install git
 ```
 Fork and clone spksrc, this will make a directory named "spksrc".
 ```bash
@@ -180,13 +150,8 @@ Inside some of the .whl archives you need to rename all files containing the tex
 If you do not, these will be ignored by Python 3 on ARM based Synology's, causing Home Assistant to not function.
 
 For ease of use this guide will use p7zip for renaming the files in the archive.
-#### Ubuntu/Mint
 ```bash
 # sudo apt-get install p7zip
-```
-#### Solus
-```bash
-# sudo eopkg install p7zip
 ```
 Run this command to rename all files containing "x86_64-linux-gnu" to "arm-linux-gnueabihf" inside all `.whl` files found in the current directory:
 ```bash
@@ -197,7 +162,7 @@ The 7z <b>rn</b> (e.g., rename) parameter was included from 7-Zip 9.30, in the c
 Extract the .whl (these are zip archives), rename all files as described above, then rearchive as zip (use the same full name with `.whl` as extension and not `.zip`).
 </p>
 
-## {% linkable_title Using the Synology webadmin: %}
+## {% linkable_title Using the Synology webadmin %}
 
 * Open [Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
 * Press the "*Manual Install*" button on the top right of the window
@@ -253,7 +218,7 @@ $ ssh user@x.x.x.x
 ```
 Create a virtual Python environment where we will install Home Assistant into.
 This will leave the Python package untouched, makes Home Assistant work better and installable/updateable without sudo.
-Note: After you made a virtual Python envoriment, you cant relocate the folder, else it will break. 
+Note: After you made a virtual Python environment, you can't relocate the folder, else it will break. 
 Make a new one if you need to change it's name, the path or Shared-Folder.
 ```bash
 $ /volume1/@appstore/python3/bin/python3 -m venv /volume1/homeassistant/venv-hass
@@ -383,7 +348,7 @@ case $1 in
 esac
 ```
 
-## {% linkable_title Controlling Home Assistent %}
+## {% linkable_title Controlling Home Assistant %}
 
 * Start Home Assistant:
 ```bash
@@ -403,3 +368,5 @@ $ source /volume1/homeassistant/venv-hass/bin/activate
 $ pip3 install --upgrade homeassistant
 $ deactivate
 ```
+
+## {% linkable_title Controlling Home Assistant %}
