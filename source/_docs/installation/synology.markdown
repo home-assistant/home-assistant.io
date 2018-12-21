@@ -142,7 +142,7 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 Now you need to extract your "cross compiled module package" files which you added earlier.
 Run these commands to extract the packages, please replace "python3_**XXXX**.spk" by the apporiate package filename:
 ```bash
-$ pyspk=python3_armada370-6.1_3.5.5-7.spk
+$ pyspk=python3_XXXX.spk
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
 $ tar -x -f ~/spksrc/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
