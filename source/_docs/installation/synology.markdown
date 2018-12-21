@@ -102,7 +102,7 @@ You need to do this to get "cross compiled module package" files, which you requ
 These edits also enable you to use the "[Cloud](/components/cloud/)" component and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
 
 
-Edit "*~/spksrc/spksrc/spk/python3/src/requirements.txt*", add at the end of the file:
+Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file:
 ```
 ##Cross compilation requirements for installing Home Assistant (Tested to work on 83.3).
 ##In the future, the requirements may change (e.g., need newer version to work), modify as needed.
@@ -113,7 +113,7 @@ cryptography==2.3.1
 pycryptodome==3.7.2
 ```
 
-Edit "*~/spksrc/spksrc/spk/python3/src/Makefile*", add above the line that says "<b>include ../../mk/spksrc.spk.mk</b>":
+Edit "*~/spksrc/spk/python3/src/Makefile*", add above the line that says "<b>include ../../mk/spksrc.spk.mk</b>":
 ```makefile
 # Needed to fix "_openssl.so: undefined symbol: pthread_atfork" error caused by lack of libpthread linkage on Synology (Needed for SSL and "xiaomi_aqara" component)
 export CFLAGS=-pthread
@@ -141,7 +141,7 @@ Run these commands to extract the packages, please replace "python3_**XXXX**.spk
 $ pyspk=python3_XXXX.spk
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
-$ tar -x -f ~/spksrc/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
+$ tar -x -f ~/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
 $ for file in cffi-1.11.5 bcrypt-3.1.4 cryptography-2.3.1 pycryptodome-3.7.2; do tar -x -f /tmp/package.tar share/wheelhouse/$file-cp35-none-any.whl --strip=2; done
 ```
 
