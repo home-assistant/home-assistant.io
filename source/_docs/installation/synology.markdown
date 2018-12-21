@@ -164,9 +164,9 @@ Extract the .whl (these are zip archives), rename all files as described above, 
 
 ## {% linkable_title Using the Synology webadmin %}
 
-* Open [Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
+* Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
 * Press the "*Manual Install*" button on the top right of the window
-* Click on "*Browse*" and select the Python 3 spk package you created earlier
+* Click on "*Browse*" and select the Python 3 package you created earlier
 * Click on "*Next*"
 * You will most likely get a unverified signature warning, click on "*Yes*"
 * Click on "*Apply*"
@@ -195,7 +195,7 @@ Next setup the user:
 * Set the permission "*Read/Write*" for "*homeassistant*" and the all the other Shared-Folders to "*No access*"
 * Click on "*Next*"
 * Click on "*Next*" again
-* Click on "*Apply*".
+* Click on "*Apply*"
 
 In the case you turned on the firewall on your Synology device, please config it to allow connections for Home Assistant:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
@@ -212,7 +212,7 @@ In the case you turned on the firewall on your Synology device, please config it
 ## {% linkable_title Installing Home Assistant %}
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
-Replace "<i>user</i>" with your Synology user and "x.x.x.x" with the its IP-Adress.
+Replace "<i>user</i>" with your Synology user and "x.x.x.x" with the its IP adress.
 ```bash
 $ ssh user@x.x.x.x
 ```
@@ -242,7 +242,7 @@ Leave the virtual Python environment
 $ deactivate
 ```
 
-Create a file named "hass-daemon" in the "homeassistant" Shared-Folder with the script below as it's content.
+Create a file named "hass-daemon" in the "homeassistant" Shared-Folder with the script below as its content.
 You can use it to easily start, stop and restart Home Assistant like a service/daemon.
 
 ```sh
@@ -369,4 +369,14 @@ $ pip3 install --upgrade homeassistant
 $ deactivate
 ```
 
-## {% linkable_title Controlling Home Assistant %}
+## {% linkable_title Starting Home Assistant on bootup %}
+To have Home Assistant start on bootup of your Synology, do as follows:
+* Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
+* Go to "[*Task Scheduler*](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/system_taskscheduler)" settings
+* Click on "*Create*" > "*Triggered Task*" > "*User-defined script*"
+* In "*Task*" write "**Home Assistant**"
+* Click on the checkbox next to "*Enabled*"
+* Make sure "*root*" is selected in "*User*"
+* Go to "*Task Settings* settings
+* in "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
+* Click on "*OK*".
