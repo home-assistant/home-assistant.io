@@ -101,7 +101,7 @@ Start the docker service:
 ---
 To enable your user account to manage Docker without superuser privileges, add your user account to the "docker" group:
 ```bash
-# sudo gpasswd -a YOUR_USER_ACCOUNT docker
+# sudo gpasswd -a *YOUR_USER_ACCOUNT* docker
 ```
 
 You will now need to get the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment.
@@ -154,21 +154,33 @@ Run the container, this will make your terminal run inside the Docker container:
 # make setup
 # cd spk/python3
 ```
-<p class='note'>
-You need to change the arch-XXXX to the architecture of your Synology (e.g., DS115j = arch-armada370)
+
+You need to change "arch-**XXXX**" to the architecture of your Synology (e.g., DS115j = arch-armada370)
 For information about the Arch of your Synology look at the <a href="https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model">list of architectures on spkrc</a>
 Depending on your device, compilation may take a hour or more (significantly less if you have a SSD and a good CPU).
-</p>
 
 Compile Python 3 for your Synology model
 ```bash
 # make arch-XXXX
 ```
-After the compilation is done, you can find the Python package at "*~/spksrc/spksrc/packages/python3_XXXX.spk*".
+After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different arch and version.
 
 Now you need to extract your "cross compiled module package" files which you added earlier.
-For ease of use this guide will use p7zip for extracting from these archives.
+Run these commands to extract the packages, please replace "python3_**XXXX**.spk" by the apporiate package filename:
+```bash
+pyspk=python3_armada370-6.1_3.5.5-7.spk
+mkdir ~/Module-Packages
+cd ~/Module-Packages
+tar -x -f ~/spksrc/spksrc/packages/$pyspk -C /tmp package.tgz; gunzip /tmp/package.tgz
+for file in cffi-1.11.5 bcrypt-3.1.4 cryptography-2.3.1 pycryptodome-3.7.2; do tar -x -f /tmp/package.tar share/wheelhouse/$file-cp35-none-any.whl --strip=2; done
+```
+
+This should give you a directory named "**Module-Packages**" with four .whl files, which you need to install later.
+Inside some of the .whl archives you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**".
+If you do not, these will be ignored by Python 3 on ARM based Synology's, causing Home Assistant to not function.
+
+For ease of use this guide will use p7zip for renaming the files in the archive.
 #### Ubuntu/Mint
 ```bash
 # sudo apt-get install p7zip
@@ -177,27 +189,14 @@ For ease of use this guide will use p7zip for extracting from these archives.
 ```bash
 # sudo eopkg install p7zip
 ```
-Run these commands to extract the packages
+Run this command to rename all files containing "x86_64-linux-gnu" to "arm-linux-gnueabihf" inside all `.whl` files found in the current directory:
 ```bash
-# 7z e python3_XXXX.spk package.tgz
-# 7z e package.tgz package.tar
-# 7z e package.tar -o"Module-Packages" "share/wheelhouse/cffi-1.11.5-cp35-none-any.whl"
-# 7z e package.tar -o"Module-Packages" "share/wheelhouse/bcrypt-3.1.4-cp35-none-any.whl"
-# 7z e package.tar -o"Module-Packages" "share/wheelhouse/cryptography-2.3.1-cp35-none-any.whl"
-# 7z e package.tar -o"Module-Packages" "share/wheelhouse/pycryptodome-3.7.2-cp35-none-any.whl"
+for archive in *.whl; do 7z l "$archive" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "$archive" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done; done
 ```
-This should give you a directory named "**Module-Packages**" with four .whl files, which you need to install later.
-Inside some of the .whl archives you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**".
-If you do not, these will be ignored by Python 3 on ARM based Synology's, causing Home Assistant to not function.
-```bash
-# 7z rn "Module-Packages/cffi-1.11.5-cp35-none-any.whl" "_cffi_backend.cpython-35m-x86_64-linux-gnu.so" "_cffi_backend.cpython-35m-arm-linux-gnueabihf.so"
-# 7z l "Module-Packages/pycryptodome-3.7.2-cp35-none-any.whl" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "Module-Packages/pycryptodome-3.7.2-cp35-none-any.whl" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done
-```
-<p class='note'>
-The 7z <b>rn</b> (e.g., rename) parameter was included from 7-Zip 9.30, in the case you are pitifully stuck on a older version, do as follows.
-Extract the .whl (these are zip archives), rename all files as described above, then rearchive as zip (ofcourse the same full name with .whl and without .zip).
+<p class="note">
+The 7z <b>rn</b> (e.g., rename) parameter was included from 7-Zip 9.30, in the case your distribution only has a older version available, do as follows.
+Extract the .whl (these are zip archives), rename all files as described above, then rearchive as zip (use the same full name with `.whl` as extension and not `.zip`).
 </p>
-
 
 ## {% linkable_title Using the Synology webadmin: %}
 
