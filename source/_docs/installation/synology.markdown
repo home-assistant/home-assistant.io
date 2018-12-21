@@ -15,7 +15,7 @@ Synology only provide <a href="https://www.synology.com/nl-nl/dsm/packages/py3k"
 </p>
 
 <p class="note">
-Update: You can install a more recent Home Assistant (e.g, 0.84.2) by manually compiling a Python 3 package using the <a href="https://github.com/SynoCommunity/spksrc">spksrc compilation framework</a>. The new installation guide will be a little different though, but the upside is most failing components will now work, such as "<a href="/components/discovery/">Discovery</a>", "<a href="/components/cloud/">Cloud</a>" and "<a href="/components/Xiaomi_Aqara/">Xiaomi_Aqara</a>". Thread for more info: <a href="https://community.home-assistant.io/t/python-3-5-3-on-synology/46372/27">Python >=3.5.3 on Synology</a>.
+Update: You can install a more recent Home Assistant (e.g, 0.84.2) by manually compiling a Python 3 package using the <a href="https://github.com/SynoCommunity/spksrc">spksrc compilation framework</a>. The new installation guide will be a little different though, but the upside is most failing components will now work, such as "<a href="/components/discovery/">Discovery</a>", "<a href="/components/cloud/">Cloud</a>" and "<a href="/components/Xiaomi_Aqara/">Xiaomi_Aqara</a>". Thread for more info: <a href="https://community.home-assistant.io/t/python-3-5-3-on-synology/46372">Python >=3.5.3 on Synology</a>.
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
