@@ -81,6 +81,7 @@ To enable your user account to manage Docker without superuser privileges, add y
 ```bash
 # sudo gpasswd -a YOUR_USER_ACCOUNT docker
 ```
+#### {% linkable_title Preparing compiling environment %}
 
 You will now need to get the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment.
 
@@ -115,6 +116,10 @@ cryptography==2.3.1
 
 ## Cross compilation requirement for installing "Warrent" module (Needed by "Cloud" Component)
 pycryptodome==3.7.2
+
+## A example when using "Homekit" component and needing cross compilation requirements for "HAP_python" module
+#curve25519-donna==1.3
+#ed25519==1.4
 ```
 
 Edit "*~/spksrc/spk/python3/Makefile*", add above the line that says "<b>include ../../mk/spksrc.spk.mk</b>":
@@ -123,7 +128,7 @@ Edit "*~/spksrc/spk/python3/Makefile*", add above the line that says "<b>include
 export CFLAGS=-pthread
 ```
 
-## {% linkable_title Compiling the Python 3 package %}
+#### {% linkable_title Compiling the Python 3 package %}
 Run the container, this will make your terminal run inside the Docker container:
 ```bash
 $ docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
@@ -133,19 +138,28 @@ $ cd spk/python3
 Compile Python 3 for your Synology model, please replace "arch-**XXXX**" by the apporiate architecture of your Synology. For a list of architectures, look at the [list on architectures spkrc](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model). Depending on your device, compilation may take a hour or more (significantly less if you have a SSD and a good CPU).
 ```bash
 $ make arch-XXXX
+$ exit
 ```
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different arch and version.
 
+#### {% linkable_title Extracting cross compiled packages %}
+
 Now you need to extract your "cross compiled module package" files which you added earlier.
 Run these commands to extract the packages, please replace "python3_**XXXX**.spk" by the apporiate package filename:
+
 ```bash
 $ pyspk=python3_XXXX.spk
+$ pyreq="cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl"
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
 $ tar -x -f ~/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
-$ for file in cffi-1.11.5 bcrypt-3.1.4 cryptography-2.3.1 pycryptodome-3.7.2; do tar -x -f /tmp/package.tar share/wheelhouse/$file-cp35-none-any.whl --strip=2; done
+$ for file in $pyreq; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
 ```
+<p class="note">
+If you added anything to "<i>requirements.txt</i>", modify the "<i>pyreq</i>" command to add the module filenames.
+You can find the modules at "<i>share/wheelhouse/XXXX.whl</i>" inside "<i>package.tar</i>", inside "<i>python3_XXXX.spk</i>".
+</p>
 
 This should give you a directory named "**Module-Packages**" with four .whl files, which you need to install later.
 Inside some of the .whl archives you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**".
@@ -225,15 +239,14 @@ Make a new one if you need to change it's name, the path or Shared-Folder.
 ```bash
 $ /volume1/@appstore/python3/bin/python3 -m venv /volume1/homeassistant/venv-hass
 ```
-Activate the virtual Python environment
+Activate the virtual Python environment:
 ```bash
 $ source /volume1/homeassistant/venv-hass/bin/activate
 ```
 Install the "cross compiled module package" files we compiled earlier.
 This command expects you have copied the "*Module-Packages*" directory to your "*homeassistant*" Shared-Folder.
 ```bash
-$ cd /volume1/homeassistant/Module-Packages
-$ pip3 install cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl
+$ pip3 install /volume1/homeassistant/Module-Packages/*.whl
 ```
 Install Home Assistant
 ```bash
@@ -370,6 +383,9 @@ $ source /volume1/homeassistant/venv-hass/bin/activate
 $ pip3 install --upgrade homeassistant
 $ deactivate
 ```
+<p class="note">
+If ever you need to update Python 3 or added a component of which the python modules requirements fail to install/compile on your Synology, delete the "spksrc" directory, redo the steps from [Preparing compiling environment](#Preparing compiling environment), add the failed python modules to "*requirements.txt*" file, compile and add the new "cross compiled module package" names to the extracting commands.
+</p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
 To have Home Assistant start on bootup of your Synology, do as follows:
