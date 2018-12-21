@@ -104,16 +104,20 @@ These edits also enable you to use the "[Cloud](/components/cloud/)" component a
 
 Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file:
 ```
-##Cross compilation requirements for installing Home Assistant (Tested to work on 83.3).
-##In the future, the requirements may change (e.g., need newer version to work), modify as needed.
+## It may happen you want to add components to Home Assistant, but you find these to fail requirements.
+## Add the Python modules that fail to install/compile on the synology here for cross compilation.
+## In the future, the requirements may change (e.g., need newer version to work), modify as needed.
+
+## Cross compilation requirements for installing Home Assistant (Tested to work on 84.3).
 cffi==1.11.5
 bcrypt==3.1.4
 cryptography==2.3.1
-#Cross compilation requirement for installing "Warrent" module (Needed by "Cloud" Component)
+
+## Cross compilation requirement for installing "Warrent" module (Needed by "Cloud" Component)
 pycryptodome==3.7.2
 ```
 
-Edit "*~/spksrc/spk/python3/src/Makefile*", add above the line that says "<b>include ../../mk/spksrc.spk.mk</b>":
+Edit "*~/spksrc/spk/python3/Makefile*", add above the line that says "<b>include ../../mk/spksrc.spk.mk</b>":
 ```makefile
 # Needed to fix "_openssl.so: undefined symbol: pthread_atfork" error caused by lack of libpthread linkage on Synology (Needed for SSL and "xiaomi_aqara" component)
 export CFLAGS=-pthread
