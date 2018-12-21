@@ -131,6 +131,17 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [ihc docs]: /components/ihc/
 [remote.harmony docs]: /components/remote.harmony/
 
+## {% linkable_title Release 0.84.5 - December 19 %}
+
+- Fix Harmony for people not running Home Assistant in Docker ([@ehendrix23])
+
+## {% linkable_title Release 0.84.6 - December 21 %}
+
+- Fix incorrect local check when creating webhooks via a config flow (impacted all but Owntracks) ([@balloob] - [#19494])
+
+[#19494]: https://github.com/home-assistant/home-assistant/pull/19494
+[@balloob]: https://github.com/balloob
+
 #### Frontend
 
 - Fix setting aspect ratio in percentage ([#2289](https://github.com/home-assistant/home-assistant-polymer/pull/2289)) [@balloob]
