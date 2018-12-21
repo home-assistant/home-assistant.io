@@ -127,11 +127,9 @@ export CFLAGS=-pthread
 Run the container, this will make your terminal run inside the Docker container:
 ```bash
 $ docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
-$ cd spksrc/
 $ make setup
 $ cd spk/python3
 ```
-
 Compile Python 3 for your Synology model, please replace "arch-**XXXX**" by the apporiate architecture of your Synology. For a list of architectures, look at the [list on architectures spkrc](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model). Depending on your device, compilation may take a hour or more (significantly less if you have a SSD and a good CPU).
 ```bash
 $ make arch-XXXX
