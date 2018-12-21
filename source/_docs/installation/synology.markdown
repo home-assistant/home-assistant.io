@@ -11,7 +11,7 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provide <a href="https://www.synology.com/nl-nl/dsm/packages/py3k">Python 3.5.1</a>, which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./Python 3 -m pip install homeassistant==0.64.3`
+Synology only provide <a href="https://www.synology.com/nl-nl/dsm/packages/py3k">Python 3.5.1</a>, which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python 3 -m pip install homeassistant==0.64.3`
 </p>
 
 <p class="note">
