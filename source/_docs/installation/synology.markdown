@@ -228,7 +228,7 @@ In the case you turned on the firewall on your Synology device, please config it
 ## {% linkable_title Installing Home Assistant %}
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
-Replace "<i>user</i>" with your Synology user and "x.x.x.x" with the its IP adress.
+Replace "<i>user</i>" with your Synology user and "x.x.x.x" with the its IP adress:
 ```bash
 $ ssh user@x.x.x.x
 ```
@@ -248,18 +248,17 @@ This command expects you have copied the "*Module-Packages*" directory to your "
 ```bash
 $ pip3 install /volume1/homeassistant/Module-Packages/*.whl
 ```
-Install Home Assistant
+Install Home Assistant:
 ```bash
 $ pip3 install homeassistant
 ```
-Leave the virtual Python environment
+Leave the virtual Python environment:
 ```bash
 $ deactivate
 ```
 
 Create a file named "hass-daemon" in the "homeassistant" Shared-Folder with the script below as its content.
 You can use it to easily start, stop and restart Home Assistant like a service/daemon.
-
 ```sh
 #!/bin/sh
 
@@ -384,7 +383,7 @@ $ pip3 install --upgrade homeassistant
 $ deactivate
 ```
 <p class="note">
-If ever you need to update Python 3 or added a component of which the python modules requirements fail to install/compile on your Synology, delete the "spksrc" directory, redo the steps from [Preparing compiling environment](#Preparing compiling environment), add the failed python modules to "*requirements.txt*" file, compile and add the new "cross compiled module package" names to the extracting commands.
+If ever you need to update Python 3 or added a component of which the python modules requirements fail to install/compile on your Synology, delete the "spksrc" directory, redo the steps from "[*Preparing compiling environment*](#Preparing compiling environment)", add the failed python modules to "*requirements.txt*" file, compile and add the new "cross compiled module package" names to the extracting commands.
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
