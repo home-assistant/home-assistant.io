@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Update: not a mistake] Logitech Harmony removes local API"
+title: "[Update: resolved] Logitech Harmony removes local API"
 description: "Logitech has disabled the local API of the Harmony Hub with their latest software update. For privacy and speed it is important that home automation devices communicate locally, without data leaving the network."
 date: 2018-12-17 00:01:00
 date_formatted: "December 17, 2018"
@@ -9,6 +9,28 @@ author_twitter: balloob
 comments: true
 categories: Public-Service-Announcement
 ---
+
+**Update 6 (21 dec):** Great news! Logitech has [announced in a forum post](https://community.logitech.com/s/question/0D55A00008D4bZ4SAJ/harmony-hub-firmware-update-fixes-vulnerabilities) that it has introduced an XMPP Beta Program that makes it possible to install a developer firmware version which reinstates the XMPP API as it was, including the security vulnerabilties. Note that installing this version voids your warranty.
+
+Logitech is also working on a new version of the hub firmware that fixes the vulnerabilities. This is great and this restores our trust in Logitech. Thanks Logitech for turning around and working with your users.
+
+Home Assistant users are suggested to update to the latest Home Assistant version instead. Starting with version 0.84.5, we have migrated to the websockets API and no longer rely on the XMPP API.
+
+<p class='img'>
+  <img src='/images/blog/2018-12-logitech-harmony-removes-local-api/firmware.png' alt='Screenshot of the developer-only firmware reinstating the local XMPP API. Also includes a disclaimer that it voids your warranty.'>
+  The developer-only firmware that reinstates the local XMPP API. Voids warranty if installed.
+</p>
+
+Tenable, the cyber security firm that discovered the security vulnerabilities, has released [a Research Advisory](https://www.tenable.com/security/research/tra-2018-47) detailing the issues and the disclosure timeline.
+
+<p class='img'>
+  <a href='https://www.tenable.com/security/research/tra-2018-47'><img src='/images/blog/2018-12-logitech-harmony-removes-local-api/vuln-timeline.png' alt='The vulnerability disclosure timeline from Tenable.'></a>
+  Vulnerability Disclosure Timeline
+</p>
+
+_Original Post:_
+
+<!--more-->
 
 Logitech has disabled the local API of the Harmony Hub with their latest software update (v4.15.206). For privacy and speed it is important that home automation devices communicate locally, without data leaving the network. With the latest update to the Logitech Harmony Hub, this is no longer possible.
 
@@ -54,8 +76,6 @@ We will be releasing a hot fix today to migrate our integration to another local
 </p>
 
 **Update 6 (19 dec):** Home Assistant 0.84.4 has been released with a fix. The Logitech Harmony integration works again (for now?). We switched to their local websocket API.
-
-<!--more-->
 
 ### {% linkable_title Reverting the software update %}
 
