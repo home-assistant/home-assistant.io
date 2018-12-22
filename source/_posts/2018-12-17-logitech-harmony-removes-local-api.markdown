@@ -23,7 +23,7 @@ Tenable, the cyber security firm that discovered the security vulnerabilities, h
 
 **Update 7 (21 dec):** Even better news! Someone from Harmony posted [in our forums](https://community.home-assistant.io/t/logitechs-stance-on-local-apis/85842/18?u=balloob) and stated that they are now committed to maintaining their local XMPP API.
 
-We will verify with Logitech if this post is official, and if so, we will revert the Home Assistant implementation back to using the XMPP API. Until then, we don't expect the websocket API that we are using since 0.84.3 to go away or change until we migrate back, so if your Harmony setup works today, don't change anything.
+We will verify with Logitech if this post is official, and if so, we will revert the Home Assistant implementation back to using the XMPP API. Until then, we don't expect the websocket API that we are using since 0.84.3 to go away or change until we migrate back, so if your Harmony setup works today, don't change anything. (Verified, it's from an account connected to a logitech.com email address)
 
 <p class='img'>
   <a href='https://community.home-assistant.io/t/logitechs-stance-on-local-apis/85842/18?u=balloob'><img src='/images/blog/2018-12-logitech-harmony-removes-local-api/forum-post-5.png' alt='Screenshot of someone from Harmony stating that they are going to keep the local XMPP API around.'></a>
