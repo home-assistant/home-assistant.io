@@ -30,7 +30,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Logitech Harmony Hub](/components/remote.harmony/)
  * [Logitech media server (Squeezebox)](/components/media_player.squeezebox/)
  * [Netgear routers](/components/device_tracker.netgear/)
- * [Octoprint](/components/octoprint/)
  * [Panasonic Viera](/components/media_player.panasonic_viera/)
  * [Philips Hue](/components/light.hue/)
  * [Plex media server](/components/media_player.plex/)
