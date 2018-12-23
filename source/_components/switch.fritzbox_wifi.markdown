@@ -11,7 +11,7 @@ logo: avm.png
 ha_category: Switch
 ha_iot_class: "Local Polling"
 ---
-
+{% linkable_title %}
 
 The `fritzbox_wifi` switch allows you to switch on/off your AVM FRITZBOX 2,4GHz/5GHz/Guest-WiFi.
 
@@ -26,8 +26,8 @@ To use your AVM FRITZBOX WiFi switch(es) in your installation, add the following
 switch:
   - platform: fritzbox_wifi
     host: 192.168.XXX.XXX
-    password: "YOURPASSWORD"
-    name: "NAME-OF-THE-SWITCH-SHOW-UP-IN-HA"
+    password: "YOUR_PASSWORD"
+    name: "NAME_OF_THE_SWITCH_SHOW_UP_IN_HA"
     interface: 3
 ```
 
