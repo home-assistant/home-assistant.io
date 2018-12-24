@@ -33,7 +33,7 @@ switch:
 {% configuration %}
 host:
   description: The IP for your Fritz!Box.
-  required: false
+  required: true
   type: string
   default: fritz.box
 password:
