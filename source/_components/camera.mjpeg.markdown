@@ -75,7 +75,7 @@ camera:
   - platform: mjpeg
     name: Livingroom Camera
     mjpeg_url: http://IP:PORT/mjpg/CAMERASHORTNAME/video.mjpeg
-    username: Blue Iris Username
-    password: Blue Iris Password
+    username: BLUE_IRIS_USERNAME
+    password: BLUE_IRIS_PASSWORD
     authentication: basic
 ```
