@@ -70,7 +70,7 @@ camera:
 
 Example of integrating Blue Iris Cameras from a Blue Iris server.
 
-```
+```yaml
 camera:
   - platform: mjpeg
     name: Livingroom Camera
