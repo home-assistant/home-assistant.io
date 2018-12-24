@@ -23,6 +23,23 @@ You will need your GitHub username and password. You can also create an access t
 
 To enable this platform, please add the following to your `configuration.yaml` file:
 
+### {% linkable_title Username / Password %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: github
+    username: 'githubusername'
+    password: !secret github_password
+    repositories:
+      - path: 'home-assistant/home-assistant'
+        name: 'Home Assistant'
+      - path: 'hassio-addons/addon-ide'
+        name: 'IDE add-on'
+```
+
+### {% linkable_title Access Token %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -36,16 +53,16 @@ sensor:
 ```
 
 {% configuration %}
-access_token:
-  description: Your GitHub Access Token
-  required: false
-  type: string
 username:
   description: Your GitHub Username
   required: false
   type: string
 password:
   description: Your GitHub Password
+  required: false
+  type: string
+access_token:
+  description: Your GitHub Access Token
   required: false
   type: string
 repositories:
