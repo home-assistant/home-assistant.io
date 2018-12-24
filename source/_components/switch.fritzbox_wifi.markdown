@@ -28,8 +28,6 @@ switch:
   - platform: fritzbox_wifi
     host: 192.168.XXX.XXX
     password: "YOUR_PASSWORD"
-    name: "NAME_OF_THE_SWITCH_SHOW_UP_IN_HA"
-    interface: 3
 ```
 
 {% configuration %}
