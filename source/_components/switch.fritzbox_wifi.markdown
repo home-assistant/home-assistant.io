@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: avm.png
 ha_category: Switch
-ha_release: 
+ha_release: ""
 ha_iot_class: "Local Polling"
 ---
 {% linkable_title FRITZBOX WiFi Switch %}
