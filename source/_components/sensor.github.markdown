@@ -58,7 +58,7 @@ repositories:
       required: true
       type: string
     name:
-      description: Name of repository Gives the sensor a custom name in Home Assistant. Defaults to the repository name from the path.
+      description: Name of repository Gives the sensor a custom name in Home Assistant. Defaults to the repository name from GitHub.
       required: false
       type: string
 {% endconfiguration %}
