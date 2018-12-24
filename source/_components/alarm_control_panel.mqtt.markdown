@@ -75,6 +75,11 @@ code:
   description: If defined, specifies a code to enable or disable the alarm in the frontend.
   required: false
   type: string
+code_arm_required:
+  description: If true the code is required to arm the alarm
+  required: false
+  type: boolean  
+  default: true
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -89,4 +94,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+value_template:
+  description: >
+    Defines a [template](/docs/configuration/templating/#processing-incoming-data)
+    to extract a value from the payload.
+  required: false
+  type: string  
 {% endconfiguration %}
