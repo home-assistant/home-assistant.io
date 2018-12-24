@@ -38,15 +38,15 @@ sensor:
 {% configuration %}
 access_token:
   description: Your GitHub Access Token
-  required: true
+  required: false
   type: string
 username:
   description: Your GitHub Username
-  required: true
+  required: false
   type: string
 password:
   description: Your GitHub Password
-  required: true
+  required: false
   type: string
 repositories:
   description: A list of repository paths and optionally a name
