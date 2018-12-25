@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Lutron Scene"
-description: "Instructions on how to setup the Lutron scenes within Home Assistant."
+description: "Instructions on how to set up the Lutron scenes within Home Assistant."
 date: 2018-10-09 09:00
 sidebar: true
 comments: false
@@ -10,6 +10,7 @@ footer: true
 logo: lutron.png
 ha_category: Scene
 ha_iot_class: "Local Polling"
+ha_release: 0.85
 ---
 
 To get your Lutron scenes working with Home Assistant, follow the instructions for the general [Lutron component](/components/lutron/).
