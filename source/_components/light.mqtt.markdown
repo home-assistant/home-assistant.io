@@ -717,7 +717,7 @@ For a JSON payload with the format `{"state": "on", "brightness": 255, "color": 
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_template
+  - platform: mqtt
     schema: template
     effect_list:
       - rainbow
