@@ -25,7 +25,7 @@ device_tracker:
 
 {% configuration %}
 request_rssi:
-  description: Performs a request for the "Received signal strength indication" (RSSI) of each tracked device. 
+  description: Performs a request for the "Received signal strength indication" (RSSI) of each tracked device.
   required: false
   type: boolean
   default: false
