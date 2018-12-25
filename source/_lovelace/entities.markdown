@@ -30,6 +30,10 @@ show_header_toggle:
   description: Button to turn on/off all entities.
   type: boolean
   default: true
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`.
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
@@ -56,6 +60,10 @@ icon:
 secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`."
+  type: string
+format:
+  required: false
+  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
   type: string
 {% endconfiguration %}
 

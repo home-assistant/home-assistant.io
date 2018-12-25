@@ -14,10 +14,6 @@ ha_release: 0.56
 redirect_from: /components/apiai/
 ---
 
-<p class='note'>
-Before 0.56 this component was named `apiai`.
-</p>
-
 The `dialogflow` component is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
 
 To be able to receive messages from DialogFlow, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
@@ -40,9 +36,9 @@ Using Dialogflow will be easy to create conversations like:
 
 To use this integration, you should define a conversation (intent) in Dialogflow, configure Home Assistant with the speech to return and, optionally, the action to execute.
 
-To get the webhook url, go to the integrations page in the configuration screen and find Dialogflow. Click on configure. Follow the instructions on the screen.
-
 ### {% linkable_title Configuring your Dialogflow account %}
+
+To get the webhook URL, go to the integrations page in the configuration screen and find "Dialogflow". Click on "configure". Follow the instructions on the screen.
 
 - [Login](https://console.dialogflow.com/) with your Google account
 - Click on "Create Agent"
@@ -61,7 +57,6 @@ To get the webhook url, go to the integrations page in the configuration screen 
 - Dialogflow has send a request to your Home Assistant server
 
 Take a look to "Integrations", in the left menu, to configure third parties.
-
 
 ### {% linkable_title Configuring Home Assistant %}
 

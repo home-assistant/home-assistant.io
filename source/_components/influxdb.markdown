@@ -14,6 +14,10 @@ ha_release: 0.9
 
 The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
+<p class='note'>
+The `influxdb` database component runs parallel to the Home Assistant database. It does not replace it.
+</p>
+
 ## {% linkable_title Configuration %}
 
 The default InfluxDB configuration doesn't enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven't made any configuration changes, add the following to your `configuration.yaml` file:

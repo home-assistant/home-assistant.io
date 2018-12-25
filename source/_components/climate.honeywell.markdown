@@ -14,7 +14,7 @@ ha_iot_class: "Cloud Polling"
 ---
 
 
-The `honeywell` climate platform let you control [Honeywell Connected](http://getconnected.honeywell.com/en/) thermostats from Home Assistant.
+The `honeywell` climate platform let you control Honeywell Connected thermostats from Home Assistant.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -26,7 +26,7 @@ climate:
     scan_interval: 600
 ```
 <p class='note'>
-Scan interval is expressed in seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
+Scan interval is expressed in seconds. Omitting or mis-configuring `scan_interval` may result in too-frequent polling and cause you to be rate-limited by Honeywell.
 </p>
 
 {% configuration %}
@@ -39,7 +39,7 @@ password:
   required: true
   type: string
 region:
-  description: Region identifier (either 'eu' or 'us').
+  description: Region identifier (either 'eu' or 'us').  Use the `somecomfort` client library for `us`, and evohome-client for `eu`.
   required: false
   default: eu
   type: string

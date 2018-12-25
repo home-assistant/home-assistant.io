@@ -10,8 +10,13 @@ footer: true
 logo: ruter.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: "0.83"
+ha_release: 0.83
 ---
+
+<p class='note warning'>
+The API used for this sensor is shutting down soon, you should consider starting to use the [`entur_public_transport`](https://www.home-assistant.io/components/sensor.entur_public_transport/) sensor before that happen.
+To read the deprecation warning visit [ruter.no/labs](https://ruter.no/labs/),
+</p>
 
 The `ruter` sensor will provide you departure information for the larger Oslo area in Norway from the [Ruter][ruter] public transportation service.
 
@@ -39,14 +44,15 @@ destination:
   required: false
   type: string
 offset:
-  description: An offset for the next departure time.
+  description: An offset for the next departure, 0 will give the first one.
   required: false
-  default: 0
   type: integer
+  default: 0
 name:
   description: Name of the sensor.
   required: false
   type: string
+  default: Ruter
 {% endconfiguration %}
 
 [ruter]: https://ruter.no/reiseplanlegger/Stoppested

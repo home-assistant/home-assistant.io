@@ -29,23 +29,26 @@ be found in the IHC project and setup as binary sensors:
 
 ## {% linkable_title Manual configuration %}
 
-To manually configure IHC Binary Sensors
-insert this section in your configuration:
+To manually configure IHC Binary Sensors insert the "binary_sensor" section in your IHC configuration:
 
 ```yaml
-binary_sensor:
-  - platform: ihc
-    binary_sensors:
+# Example configuration.yaml entry
+ihc:
+  - url: 'http://192.168.1.3'
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    info: true
+    binary_sensor:
       - id: 12345
-        name: mysensor
-        type: opening
-        inverting: True
-      - id: 12346
-           ...
+        name: switch_front_door
+        inverting: false
+        note: Magnet contact
+        position: Switch in door
+        type: door
 ```
 
 {% configuration %}
-binary_sensors:
+binary_sensor:
   description: List of binary sensors to setup manually.
   required: false
   type: map
@@ -60,7 +63,7 @@ binary_sensors:
       type: boolean
       default: false
     name:
-      description: The name of the component
+      description: The name of the sensor.
       required: false
       type: string
     type:
@@ -68,6 +71,14 @@ binary_sensors:
         The binary sensor type.
         See [Home Assistant binary sensor](/components/binary_sensor/)
         for available types.
+      required: false
+      type: string
+    note:
+      description: Descriptive note
+      required: false
+      type: string
+    position:
+      description: Where is it placed
       required: false
       type: string
 {% endconfiguration %}

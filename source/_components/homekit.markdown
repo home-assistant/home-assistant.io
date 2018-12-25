@@ -12,7 +12,7 @@ ha_release: 0.64
 logo: apple-homekit.png
 ---
 
-The `HomeKit` component allows you to forward entities from Home Assistant to Apple `HomeKit`, so they can be controlled from Apple's `Home` app and `Siri`. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The `homekit` component allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <p class="note">
   If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/components/homekit_controller/) component.
@@ -137,14 +137,15 @@ homekit:
 
 ## {% linkable_title Setup %}
 
-To enable the `HomeKit` component in Home Assistant, add the following to your configuration file:
+To enable the HomeKit component in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
 homekit:
 ```
 
-After Home Assistant has started, the entities specified by the filter are exposed to `HomeKit` if they are [supported](#supported-components). To add them:
+After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
+
 1. Open the Home Assistant frontend. A new card will display the `pin code`.
 1. Open the `Home` app.
 2. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
@@ -153,7 +154,7 @@ After Home Assistant has started, the entities specified by the filter are expos
 6. Follow the setup by clicking on `Next` and lastly `Done` in the top right-hand corner.
 7. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
 
-After the setup is completed, you should be able to control your Home Assistant components through `Home` and `Siri`.
+After the setup is completed, you should be able to control your Home Assistant components through Apple's Home and Siri.
 
 ## {% linkable_title Move Home Assistant install %}
 
@@ -310,13 +311,15 @@ The following components are currently supported:
 ### {% linkable_title Deleting the `.homekit.state` file %}
 
 The `.homekit.state` file can be found in the configurations directory. You might need to enable `view hidden files` to see it.
+
  1. **Stop** Home Assistant
  2. Delete the `.homekit.state` file
  3. **Start** Home Assistant
 
 ### {% linkable_title Errors during pairing %}
 
-If you encounter any issues during pairing, make sure to
+If you encounter any issues during pairing, make sure to:
+
  1. **Stop** Home Assistant
  2. Delete the `.homekit.state` file
  3. Edit your configuration (see below)

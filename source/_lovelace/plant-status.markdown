@@ -26,6 +26,11 @@ entity:
   required: true
   description: "Entity id of `plant` domain"
   type: string
+name:
+  required: false
+  description: Overwrites Friendly Name
+  type: string
+  default: Entity Name
 {% endconfiguration %}
 
 ## {% linkable_title Example %}

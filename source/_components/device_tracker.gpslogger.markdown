@@ -68,10 +68,7 @@ Right after enabling, the app will take you to the **Log to custom URL** setting
 The relevant endpoint is: `/api/gpslogger`
 
 ```text
-https://YOUR.DNS.HOSTNAME:PORT/api/gpslogger?
-   latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC
-   &battery=%BATT&speed=%SPD&direction=%DIR
-   &altitude=%ALT&provider=%PROV&activity=%ACT
+https://YOUR.DNS.HOSTNAME:PORT/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
 ```
 
 Add the above URL after you modified it with your settings into the **URL** field. Remove the line breaks as they are only there to make the URL readable here.

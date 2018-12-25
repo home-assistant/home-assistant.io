@@ -25,7 +25,7 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
 If you do not want to combine AND and OR conditions, you can also just list them sequentially, by default all conditions have to be true. 
@@ -38,7 +38,7 @@ condition:
     state: 'home'
   - condition: numeric_state
     entity_id: 'sensor.temperature'
-    below: '20'
+    below: 20
 ```
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
@@ -56,7 +56,7 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
 ### {% linkable_title MIXED  AND and OR conditions %}
@@ -78,7 +78,7 @@ condition:
           state: 'rain'
         - condition: numeric_state
           entity_id: 'sensor.temperature'
-          below: '20'
+          below: 20
 ```
 
 ### {% linkable_title Numeric state condition %}

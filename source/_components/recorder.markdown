@@ -131,32 +131,23 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
 | `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
 
-### {% linkable_title Restore State %}
-
-If the `recorder` component is activated then some components support `restore_state`, which will restore the state of the entity after Home Assistant is started to the state before Home Assistant was stopped. Please make sure that you do not exclude the entities for which you want the state to be restored from your recordings. An incomplete list of components that currently support `restore_state`:
-
-* [`input_boolean`](/components/input_boolean/#restore-state)
-* [`input_number`](/components/input_number/#restore-state)
-* [`input_select`](/components/input_select/#restore-state)
-* [`input_datetime`](/components/input_datetime/#restore-state)
-* [`input_text`](/components/input_text/#restore-state)
-
+<p class='note'>
+Purging does not necessarily remove all entries before a given date. For example, to be able to recover after startup, the last known state for each entry is never purged. This is true even if the entry is already removed from your configuration.
+</p>
 
 ## {% linkable_title Custom database engines %}
 
 | Database engine | `db_url`                                                 |
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
-| MariaDB         | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MariaDB         | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL (pymysql) | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`         |
-| MySQL (pymysql) | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
+| MariaDB         | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                 |
+| MariaDB         | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`         |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
-| PostgreSQL      | `postgresql://scott:tiger@SERVER_IP/DB_NAME`             |
+| PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
-| MS SQL Server   | `mssql+pymssql://user:pass@SERVER_IP/DB_NAME?charset=utf8` |
+| MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
 If you use MariaDB 10 you need to add port 3307 (or another port depending on which port is used by, for example: your hosting provider.) to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.

@@ -27,7 +27,7 @@ Open garage door
 What is on my shopping list
 ```
 
-To get started creating your own configuration, follow [their tutorial](https://snips.gitbook.io/documentation/console) to create an assistant and download the training data. You can also add the Home Assistant Skill to your assistant to enable the built-in intents, and add or create your own intents to do more complex tasks.
+To get started creating your own configuration, follow [their tutorial](https://docs.snips.ai/getting-started/quick-start-console) to create an assistant and download the training data. You can also add the Home Assistant Skill to your assistant to enable the built-in intents, and add or create your own intents to do more complex tasks.
 
 Now install and activate the [Samba](/addons/samba/) add-on so you can upload your training data. Connect to the "share" Samba share and copy your assistant over. Name the file `assistant.zip` or whatever you have configured in the configuration options.
 
