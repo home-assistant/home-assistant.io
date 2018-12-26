@@ -2,7 +2,7 @@
 layout: page
 title: "LG Netcast Remote"
 description: "Instructions on how to integrate LG Netcast (Netcast 3.0 & 4.0) remotes into Home Assistant."
-date: 2016-11-05 17:00
+date: 2018-11-26 11:00
 sidebar: true
 comments: false
 sharing: true
