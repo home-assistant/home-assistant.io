@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Sony Playstation 4"
+title: "Sony PlayStation 4"
 description: "Instructions on how to integrate a Sony PlayStation 4 into Home Assistant."
 date: 2018-12-16 12:02
 sidebar: true
