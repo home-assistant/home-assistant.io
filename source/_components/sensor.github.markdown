@@ -33,9 +33,6 @@ sensor:
     password: !secret github_password
     repositories:
       - path: 'home-assistant/home-assistant'
-        name: 'Home Assistant'
-      - path: 'hassio-addons/addon-ide'
-        name: 'IDE add-on'
 ```
 
 ### {% linkable_title Access Token %}
@@ -47,9 +44,6 @@ sensor:
     access_token: !secret github_access_token
     repositories:
       - path: 'home-assistant/home-assistant'
-        name: 'Home Assistant'
-      - path: 'hassio-addons/addon-ide'
-        name: 'IDE add-on'
 ```
 
 {% configuration %}
