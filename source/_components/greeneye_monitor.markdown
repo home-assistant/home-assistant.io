@@ -53,7 +53,7 @@ monitors:
   type: list
   keys:
     serial_number:
-      description: The last five digits (omitting leading zeroes) of your GEM serial number.
+      description: Your 8-digit GEM serial number, as it appears in the UI (omitting leading zeroes).
       required: true
       type: integer
     channels:
