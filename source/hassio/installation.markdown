@@ -38,7 +38,7 @@ The following will take you through the steps required to install Hass.io.
 
 3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
 
-4. For image based installs insert the SD card (and optional USB stick) into the device.
+4. For image-based installs insert the SD card (and optional USB stick) into the device.
 
 5. Turn on your device or virtual appliance. On first boot, it downloads the latest version of Home Assistant which takes around 20 minutes (slower/faster depending on the platform and your Internet connection).
 
@@ -65,6 +65,7 @@ If you copy over your existing Home Assistant configuration, make sure to enable
 ## {% linkable_title Alternative: install on generic Linux server %}
 
 For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
+Examples given here are tested on Ubuntu, but the instructions should work as a guideline for installing on other Linux distrubutions.
 
 This is the list of packages you need to have available on your system that will run Hass.io if you are using Debian/Ubuntu:
 
@@ -74,16 +75,30 @@ This is the list of packages you need to have available on your system that will
  - ca-certificates
  - curl
  - dbus
- - docker
  - jq
  - network-manager
  - socat
  - software-properties-common
 
-To perform the Hass.io installation, run the following command as root:
+You also need to have Docker-CE installed. There is well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+
+<p class='note warning'>
+  Some distributions, like Ubuntu, have a `docker.io` package available. Using that packages will cause issues!
+  Be sure to install the official Docker-CE from the above listed URL.
+</p>
+
+To perform the Hass.io installation, run the following commands:
 
 ```bash
-$ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s
+sudo -i
+
+add-apt-repository universe
+
+apt-get update
+
+apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common
+
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install" | bash -s
 ```
 
 <p class='note'>
