@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Ambient"
-description: "Instructions on how to integrate Ambient weather network within Home Assistant."
+title: "Ambient Weather"
+description: "Instructions on how to integrate Ambient Weather Network within Home Assistant."
 date: 2018-11-24 09:00
 sidebar: true
 comments: false
@@ -9,17 +9,17 @@ sharing: true
 footer: true
 logo: ambient-weather-logo.png
 ha_category: Weather
-ha_release: 0.32
+ha_release: 0.85
 ha_iot_class: "Cloud Polling"
 ---
 
-The `ambient` weather platform uses [Ambient Weather](https://ambientweather.net/) as a source for information from a local weather station. To use this platform you must have an Ambient weather station installed at your location and the station must support sending weather data over the Internet to Ambient.
+The `ambient` weather platform uses [Ambient Weather](https://ambientweather.net/) as a source for information from a local weather station. To use this platform you must have an Ambient Weather station installed at your location and the station must support sending weather data over the Internet to Ambient Weather.
 
 ## {% linkable_title Configuration %}
 
 You need an API key which is free but requires a [registration](https://ambientweather.net/).
 
-To add ambientweather to your installation, add the following to your `configuration.yaml` file:
+To add Ambient Weather to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -30,7 +30,7 @@ weather:
 
 {% configuration %}
 api_key:
-  description: Your API key for [Ambient](https://ambientweather.net/).
+  description: Your API key for [Ambient Weather](https://ambientweather.net/).
   required: true
   type: string
 name:
