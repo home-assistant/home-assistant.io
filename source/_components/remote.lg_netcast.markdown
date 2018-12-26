@@ -10,7 +10,7 @@ footer: true
 logo: lg.png
 ha_category: Remote
 ha_iot_class: "Local Push"
-ha_release: "0.82.0"
+ha_release: 0.85
 ---
 
 The `lg_netcast` remote platform allows you to control the state of your LG Netcast TV, NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013).
