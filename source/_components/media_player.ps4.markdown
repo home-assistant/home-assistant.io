@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 The `ps4` component allows you to control a
-[Sony Playstation 4 console](httpswww.playstation.com/en-us/explore/ps4/).
+[Sony PlayStation 4 console](httpswww.playstation.com/en-us/explore/ps4/).
 
 Requirements:
 - Android or iOS device
@@ -26,7 +26,7 @@ After credentials are fetched, a second configuration entity will be shown which
 
 ## {% linkable_title Granting Port Access %}
 
-The PS4 component requires the use of priveleged ports to work correctly. Depending on your OS of your Home Assistant instance you may need to manually allow usage of priveleged ports.
+The PS4 component requires the use of privileged ports to work correctly. Depending on your OS of your Home Assistant instance you may need to manually allow usage of privileged ports.
 Home Assistant installed on a Debian-type OS for example, such as Hassbian, Rassbian, and Armbian may require configuration.
 There are varying methods to perform this, dependent on your OS running Home Assistant.
 
