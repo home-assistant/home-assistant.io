@@ -80,7 +80,7 @@ This is the list of packages you need to have available on your system that will
  - socat
  - software-properties-common
 
-You also need to have Docker-CE installed. There is well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
 
 <p class='note warning'>
   Some distributions, like Ubuntu, have a `docker.io` package available. Using that packages will cause issues!
