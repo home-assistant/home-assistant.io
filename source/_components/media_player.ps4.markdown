@@ -56,5 +56,5 @@ name:
   description: Name for PS4 entity.
   required: false
   type: string
-  default: Playstation 4
+  default: PlayStation 4
 {% endconfiguration %}
