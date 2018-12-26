@@ -20,7 +20,6 @@ The `lg_netcast` remote platform allows you to control the state of your LG Netc
 # Example configuration.yaml entry
 remote:
   - platform: lg_netcast
-    name: tv_room
     host: 192.168.0.20
 ```
 
