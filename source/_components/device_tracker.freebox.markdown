@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: freebox.svg
 ha_category: Presence Detection
-ha_release: "0.84"
+ha_release: "0.85"
 ha_iot_class: "Local Polling"
 ---
 
