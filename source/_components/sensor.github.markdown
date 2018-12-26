@@ -17,7 +17,7 @@ The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor 
 
 ## {% linkable_title Setup %}
 
-You will need your GitHub username and password. You can also create an access token [here](https://github.com/settings/tokens). An access token is required if you use two factor authentication with your account.
+You will need your GitHub username and password. You can also create an access token [here](https://github.com/settings/tokens). An access token is required if you use two-factor authentication with your account.
 
 ## {% linkable_title Configuration %}
 
