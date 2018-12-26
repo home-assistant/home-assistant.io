@@ -12,7 +12,6 @@ ha_category: Presence Detection
 ha_release: 0.44
 ---
 
-
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
 
 ## {% linkable_title Configuring `mikrotik` device tracker %}
@@ -60,7 +59,7 @@ password:
 port:
   description: RouterOS API port.
   required: false
-  default: 8728 (or 8729 if ssl is true)
+  default: 8728 (or 8729 if SSL is enabled)
   type: integer
 ssl:
   description: Use SSL to connect to the API.
@@ -75,7 +74,7 @@ method:
 
 ## {% linkable_title Use a certificate %}
 
-To use SSL to connect to the API (via `api-ssl` instead of `api` service) further configuration is required at RouterOS side. You have to upload or generate a certificate and configure `api-ssl` service to use it. Here is an example for a self signed certificate:
+To use SSL to connect to the API (via `api-ssl` instead of `api` service) further configuration is required at RouterOS side. You have to upload or generate a certificate and configure `api-ssl` service to use it. Here is an example of a self-signed certificate:
 
 ```bash
 /certificate add common-name="Self signed demo certificate for API" days-valid=3650 name="Self signed demo certificate for API" key-usage=digital-signature,key-encipherment,tls-server,key-cert-sign,crl-sign
@@ -115,4 +114,4 @@ device_tracker:
     method: capsman
 ```
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
