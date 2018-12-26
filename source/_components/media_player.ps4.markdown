@@ -49,7 +49,7 @@ media_player:
 ```
 {% configuration %}
 host: 
-  description: IP of the PS4 eg. `192.168.0.11`.
+  description: IP of the PS4, e.g., `192.168.0.11`.
   required: true
   type: string
 name:
