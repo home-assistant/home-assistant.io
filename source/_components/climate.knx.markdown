@@ -54,22 +54,12 @@ attributes of the climate device to avoid issues with increasing the temperature
 
 The following values are valid for the `operation_modes` attribute:
 
-- Auto
 - Comfort
 - Standby
 - Night
 - Frost Protection
-- Heat
-- Morning Warmup
-- Cool
-- Night Purge
-- Precool
-- Off
-- Emergency Heat
 - Fan only
-- Ice
 - Dry
-- NoDem
 
 
 {% configuration %}
@@ -123,6 +113,14 @@ controller_status_address:
   type: string
 controller_status_state_address:
   description: Explicit KNX address for reading HVAC controller status.
+  required: false
+  type: string
+controller_mode_address:
+  description: KNX address for handling controller modes.
+  required: false 
+  type: string
+controller_mode_state_address:
+  description: Explicit KNX address for reading HVAC Control Mode.
   required: false
   type: string
 operation_mode_frost_protection_address:
