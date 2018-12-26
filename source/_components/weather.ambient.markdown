@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ambient"
-description: "Instructions on how to integrate Ambient weather network within Home Assistant."
+description: "Instructions on how to integrate Ambient Weather Network within Home Assistant."
 date: 2018-11-24 09:00
 sidebar: true
 comments: false
