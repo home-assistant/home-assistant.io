@@ -82,7 +82,7 @@ Run a flash effect by changing to a color and then back.
 | `brightness` | Integer between 0 and 255 for how bright the color should be.
 | `period` | The duration of a single pulse (in seconds).
 | `cycles` | The total number of pulses.
-| `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (ligth turns off between color changes), `solid`(light does not return to original color beween cycles).
+| `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
 ### {% linkable_title Service `light.lifx_effect_colorloop` %}
