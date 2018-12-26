@@ -26,7 +26,7 @@ remote:
 
 {% configuration %}
 host:
-  description: The IP address of the LG Smart TV, e.g., 192.168.0.20.
+  description: The IP address of the LG Smart TV, e.g., `192.168.0.20`.
   required: true
   type: string
 access_token:
@@ -40,8 +40,8 @@ name:
   type: string
 {% endconfiguration %}
 
-To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
-After starting Home Assistant the TV will display the access token on screen.
+To get the access token for your TV, configure the `lg_netcast` platform in Home Assistant without the `access_token`.
+After starting Home Assistant, the TV will display the access token on screen.
 Just add the token to your configuration and restart Home Assistant and the media player component for your LG TV will show up.
 
 <p class='note'>
@@ -50,7 +50,7 @@ The access token will not change until you factory reset your TV.
 
 ### {% linkable_title Service `remote.turn_off` %}
 
-Turn off device.
+Turn off the device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
