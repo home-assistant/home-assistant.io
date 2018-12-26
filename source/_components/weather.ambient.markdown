@@ -19,7 +19,7 @@ The `ambient` weather platform uses [Ambient Weather](https://ambientweather.net
 
 You need an API key which is free but requires a [registration](https://ambientweather.net/).
 
-To add ambientweather to your installation, add the following to your `configuration.yaml` file:
+To add Ambient Weather to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
