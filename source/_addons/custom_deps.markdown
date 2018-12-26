@@ -13,12 +13,14 @@ This add-on allows you to run custom python modules in Home Assistant deps. "Sta
 
 Configuration Example:
 
-```{
+```
+{
   "pypi": [
     "hap_python==2.4.1"
   ],
   "apk": []
-}```
+}
+```
 
 {% configuration %}
 
