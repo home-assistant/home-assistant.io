@@ -13,7 +13,7 @@ ha_release: 0.32
 ha_iot_class: "Cloud Polling"
 ---
 
-The `ambient` weather platform uses [Ambient Weather](https://ambientweather.net/) as a source for information from a local weather station. To use this platform you must have an Ambient weather station installed at your location and the station must support sending weather data over the Internet to Ambient.
+The `ambient` weather platform uses [Ambient Weather](https://ambientweather.net/) as a source for information from a local weather station. To use this platform you must have an Ambient Weather station installed at your location and the station must support sending weather data over the Internet to Ambient Weather.
 
 ## {% linkable_title Configuration %}
 
