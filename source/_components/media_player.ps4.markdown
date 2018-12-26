@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Playstation 4"
+title: "Sony Playstation 4"
 description: "Instructions on how to integrate a Sony Playstation 4 into Home Assistant."
 date: 2018-12-16 12:02
 sidebar: true
@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 The `ps4` component allows you to control a
-[Playstation 4](httpswww.playstation.com/en-us/explore/ps4/).
+[Sony Playstation 4 console](httpswww.playstation.com/en-us/explore/ps4/).
 
 Requirements:
 - Android or iOS device
@@ -26,13 +26,13 @@ After credentials are fetched, a second configuration entity will be shown which
 
 ## {% linkable_title Granting Port Access %}
 
-The PS4 component requires the use of priveleged ports to work correctly. Depending on your OS of your Home Assistant instance you may need to allow usage of priveleged ports.
+The PS4 component requires the use of priveleged ports to work correctly. Depending on your OS of your Home Assistant instance you may need to manually allow usage of priveleged ports.
+Home Assistant installed on a Debian-type OS for example, such as Hassbian, Rassbian, and Armbian may require configuration.
 There are varying methods to perform this, dependent on your OS running Home Assistant.
-Home Assistant installed on a Debian OS may require configuration.
 
-Hass.io on HassOS does not need additional configuration.
+- Note: Hass.io on HassOS does not require additional configuration.
 
-Example for Debian:
+- Example for Debian:
 `sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
 Replace "/usr/bin/python3.5" with your path to Python that is running Home Assistant.
 
