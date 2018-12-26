@@ -30,7 +30,7 @@ weather:
 
 {% configuration %}
 api_key:
-  description: Your API key for [Ambient](https://ambientweather.net/).
+  description: Your API key for [Ambient Weather](https://ambientweather.net/).
   required: true
   type: string
 name:
