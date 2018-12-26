@@ -73,7 +73,7 @@ devices:
         motion:
           description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app).
         relay:
-          description: Monitor relay events.  This event is fired even if a relay is not physically connected to the door station.  Can be used to lock/unlock any smart lock present in Home Assistant via the Doorbird app.
+          description: Monitor relay events. This event is fired even if a relay is not physically connected to the door station.  Can be used to lock/unlock any smart lock present in Home Assistant via the Doorbird app.
 
 {% endconfiguration %}
 
