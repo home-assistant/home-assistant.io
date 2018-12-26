@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: pencom.png
 ha_category: Switch 
-featured: False
-ha_release: 0.01
+ha_release: 0.85
 ha_iot_class: "Local Polling"
 ---
 
@@ -39,7 +38,7 @@ switch:
 
 {% configuration %}
 host:
-  description: The IP address of the ethernet to serial adapter.  It is assumed that the adaptor has been preconfigured.
+  description: The IP address of the ethernet to serial adapter.  It is assumed that the adapter has been preconfigured.
   required: true
   type: string
 port:
@@ -51,7 +50,7 @@ boards:
   required: false
   type: int between 1 and 8
 relays:
-  description: The of relays. 
+  description: List of relays. 
   required: true
   type: list 
   keys:
