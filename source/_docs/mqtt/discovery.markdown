@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ---
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). The basic idea is that the device itself adds its configuration into your `configuration.yaml` automatically. To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). The basic idea is that the device itself adds its configuration into your `configuration.yaml` automatically. To prevent multiple identical entries if a device reconnects a unique identifier is necessary, without providing one the discovery won't be able to find the device. Two parts are required on the device side: The configuration topic which contains the necessary device type (including the unique identifier) and the remaining device configuration.
 
 Supported by MQTT discovery:
 
@@ -197,12 +197,12 @@ A motion detection device which can be represented by a [binary sensor](/compone
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Payload:  `{"name": "garden", "device_class": "motion"}`
+- Payload:  `{"name": "garden", "device_class": "motion", "unique_id": "..abc1.."}`
 
 To create a new sensor manually. For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
 
 ```bash
-$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion"}'
+$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "unique_id": "..abc1.."}'
 ```
 Update the state.
 
@@ -220,11 +220,11 @@ Setting up a switch is similar but requires a `command_topic` as mentioned in th
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
-- Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set"}`
+- Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "unique_id": "..abc2.."}`
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set"}'
+  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "unique_id": "..abc2.."}'
 ```
 Set the state.
 
@@ -235,9 +235,9 @@ $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "sensor", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration payload no1: `{"device_class": "sensor", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}", "unique_id": "..abc3.." }`
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}", "unique_id": "..abc3.." }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
 Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
@@ -245,7 +245,7 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", , "stat_t": "~/state"}`
+- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", , "stat_t": "~/state", "uniq_id": "..abc4.."}`
 
 Setting up a climate component (heat only) with abbreviated configuration variable names to reduce payload length.
 
@@ -269,7 +269,8 @@ Setting up a climate component (heat only) with abbreviated configuration variab
   "min_temp":"15",
   "max_temp":"25",
   "temp_step":"0.5",
-  "modes":["off", "heat"]
+  "modes":["off", "heat"], 
+  "uniq_id": "..abc5.."
 }
 ```
 
