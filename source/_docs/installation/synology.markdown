@@ -11,11 +11,11 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provide <a href="https://www.synology.com/nl-nl/dsm/packages/py3k">Python 3.5.1</a>, which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python 3 -m pip install homeassistant==0.64.3`
+Synology only provide [Python 3.5.1](https://www.synology.com/nl-nl/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python 3 -m pip install homeassistant==0.64.3`
 </p>
 
 <p class="note">
-Update: You can install a more recent Home Assistant (e.g, 0.84.2) by manually compiling a Python 3 package using the <a href="https://github.com/SynoCommunity/spksrc">spksrc compilation framework</a>. The new installation guide will be a little different though, but the upside is most failing components will now work, such as "<a href="/components/discovery/">Discovery</a>", "<a href="/components/cloud/">Cloud</a>" and "<a href="/components/Xiaomi_Aqara/">Xiaomi_Aqara</a>". Thread for more info: <a href="https://community.home-assistant.io/t/python-3-5-3-on-synology/46372">Python >=3.5.3 on Synology</a>.
+Update: You can install a more recent Home Assistant (e.g, 0.84.2) by manually compiling a Python 3 package using the [spksrc compilation framework](https://github.com/SynoCommunity/spksrc). The new installation guide will be a little different though, but the upside is most failing components will now work, such as "[Discovery](/components/discovery/)", "[Cloud](/components/cloud/)" and "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)". Thread for more info: [Python >=3.5.3 on Synology](https://community.home-assistant.io/t/python-3-5-3-on-synology/46372).
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -63,7 +63,7 @@ Add GPG key for the official Docker repository to your system:
 <p class="note">
 The "lsb_release -cs" sub-command below returns the name of your Ubuntu distribution, such as xenial.
 Sometimes, in a distribution like Linux Mint, you might need to change "lsb_release -cs" to your parent Ubuntu distribution.
-For example, if you are using Linux Mint <b>Tara</b> (e.g., 19), you could use <b>Bionic</b> (e.g., 18.04).
+For example, if you are using Linux Mint **Tara** (e.g., 19), you could use **Bionic** (e.g., 18.04).
 </p>
 
 ```bash
@@ -157,8 +157,8 @@ $ tar -x -f ~/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.
 $ for file in $pyreq; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
 ```
 <p class="note">
-If you added anything to "<i>requirements.txt</i>", modify the "<i>pyreq</i>" command to add the module filenames.
-You can find the modules at "<i>share/wheelhouse/XXXX.whl</i>" inside "<i>package.tar</i>", inside "<i>python3_XXXX.spk</i>".
+If you added anything to "*requirements.txt*", modify the "*pyreq*" command to add the module filenames.
+You can find the modules at "*share/wheelhouse/XXXX.whl*" inside "*package.tar*", inside "*python3_XXXX.spk*".
 </p>
 
 This should give you a directory named "**Module-Packages**" with four .whl files, which you need to install later.
@@ -174,7 +174,7 @@ Run this command to rename all files containing "x86_64-linux-gnu" to "arm-linux
 $ for archive in *.whl; do 7z l "$archive" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "$archive" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done; done
 ```
 <p class="note">
-The 7z <b>rn</b> (e.g., rename) parameter was included from 7-Zip 9.30, in the case your distribution only has a older version available, do as follows.
+The 7z **rn** (e.g., rename) parameter was included from 7-Zip 9.30, in the case your distribution only has a older version available, do as follows.
 Extract the .whl (these are zip archives), rename all files as described above, then rearchive as zip (use the same full name with `.whl` as extension and not `.zip`).
 </p>
 
@@ -236,7 +236,7 @@ In the case you turned on the firewall on your Synology device, please config it
 ## {% linkable_title Installing Home Assistant %}
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
-Replace "<i>user</i>" with your Synology user and "x.x.x.x" with the its IP adress:
+Replace "*user*" with your Synology user and "x.x.x.x" with the its IP adress:
 ```bash
 $ ssh user@x.x.x.x
 ```
