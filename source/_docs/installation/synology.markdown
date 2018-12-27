@@ -392,6 +392,8 @@ $ deactivate
 ```
 <p class="note">
 If ever you need to update Python 3 or added a component of which the python modules requirements fail to install/compile on your Synology, delete the "spksrc" directory, redo the steps from "[*Preparing compiling environment*](#Preparing compiling environment)", add the failed python modules to "*requirements.txt*" file, compile and add the new "cross compiled module package" names to the extracting commands.
+   
+You might also have to reinstall Home Assiatant, which can be done by deleting the '*venv-hass*' directory through SSH and redoing "[*Installing Home Assistant*](#Installing Home Assistant)".
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
