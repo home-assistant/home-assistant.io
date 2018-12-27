@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "iFrame Card"
-sidebar_label: iFrame
+title: "Iframe Card"
+sidebar_label: Iframe
 description: "Embed data from other webservices in your dashboard."
 date: 2018-07-01 10:28 +00:00
 sidebar: true

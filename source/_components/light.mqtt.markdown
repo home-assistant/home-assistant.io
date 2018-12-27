@@ -182,6 +182,11 @@ white_value_command_topic:
   description: "The MQTT topic to publish commands to change the light's white value."
   required: false
   type: string
+white_value_scale:
+  description: "Defines the maximum white value (i.e. 100%) of the MQTT device."
+  required: false
+  type: integer
+  default: 255
 white_value_state_topic:
   description: The MQTT topic subscribed to receive white value updates.
   required: false
@@ -712,7 +717,7 @@ For a JSON payload with the format `{"state": "on", "brightness": 255, "color": 
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_template
+  - platform: mqtt
     schema: template
     effect_list:
       - rainbow

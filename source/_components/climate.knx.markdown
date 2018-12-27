@@ -47,6 +47,25 @@ climate:
     operation_mode_comfort_address: '5/1/7'
 ```
 
+If you want to overwrite the supported operation modes use:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: knx
+    name: HASS-Kitchen.Temperature
+    temperature_address: '5/1/1'
+    setpoint_shift_address: '5/1/2'
+    setpoint_shift_state_address: '5/1/3'
+    target_temperature_address: '5/1/4'
+    operation_mode_frost_protection_address: '5/1/5'
+    operation_mode_comfort_address: '5/1/7'
+    override_supported_operation_modes:
+      - "Night"
+      - "Standby"
+      - "Comfort"
+```
+
 {% configuration %}
 name:
   description: A name for this device used within Home Assistant.
@@ -112,6 +131,41 @@ operation_mode_comfort_address:
   description: KNX address for switching on/off comfort mode.
   required: false
   type: string
+override_supported_operation_modes:
+  description: Defines the supported operation modes.
+  required: false
+  type: array
+on_off_address:
+  description: KNX address for switching the device on/off.
+  required: false
+  type: string
+on_off_state_address:
+  description: Explicit KNX address for reading the current on/off status.
+  required: false
+  type: string
 {% endconfiguration %}
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
+
+`override_supported_operation_modes` is an array that can contain any of the following values:
+
+- Auto
+- Comfort
+- Standby
+- Night
+- Frost Protection
+- Heat
+- Morning Warmup
+- Cool
+- Night Purge
+- Precool
+- Off
+- Test
+- Emergency Heat
+- Fan only
+- Ice
+- Dry
+- NoDem
+
+Also check [this](https://github.com/XKNX/xknx/blob/master/xknx/knx/dpt_hvac_mode.py#L13-L30) page for more information.
+
