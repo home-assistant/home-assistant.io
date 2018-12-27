@@ -20,16 +20,18 @@ The `lcn` light platform allows the control of the following [LCN](http://www.lc
 ## {% linkable_title Configuration %}
 
 The `lcn` component must be configured correctly, see [LCN component](/components/lcn).
+This platform is configured within the `lcn` component.
+
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: lcn
-    name: Bedroom light
-    address: myhome.s0.m7
-    output: output1
-    dimmable: true
-    transition: 5
+lcn:
+  lights:
+    - name: Bedroom light
+      address: myhome.s0.m7
+      output: output1
+      dimmable: true
+      transition: 5
 ```
 
 {% configuration %}

@@ -39,6 +39,9 @@ lcn:
       port: 4114
       username: lcn
       password: lcn
+  
+  lights:
+    [light platform configuration]
 ```
 
 {% configuration %}
