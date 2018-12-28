@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: lcn.png
 ha_category: Hub
-ha_release: 0.83
+ha_release: 0.85
 ha_iot_class: "Local Push"
 ---
 
@@ -41,7 +41,11 @@ lcn:
       password: lcn
   
   lights:
-    [light platform configuration]
+    - name: Bedroom light
+      address: myhome.s0.m7
+      output: output1
+      dimmable: true
+      transition: 5
 ```
 
 {% configuration %}
@@ -52,15 +56,19 @@ connections:
   keys:
     host:
       description: IP address of the LCN-PCHK host.
+      required: true
       type: string
     port:
       description: Port of the LCN-PCHK host.
+      required: true
       type: integer
     username:
       description: Login username for the LCN-PCHK host.
+      required: true
       type: string
     password:
       description: Login password for the LCN-PCHK host.
+      required: true
       type: string
     name:
       description: Optional connection identifier. If omited, the connections will be named consecutively as _pchk_, _pchk1_, _pchk2_, ...
@@ -74,9 +82,37 @@ connections:
       type: integer
     dim_mode:
       description: "Dimming mode for connected modules. The operation mode is programmed into the LCN modules by the LCN-PRO software and depends on their firmware. If you experience unexpected dimming behavior, the connection is probably in the wrong operation mode. Possible values: _steps50_, _steps200_"
-      requried: false
+      required: false
       default: steps50
       type: string
+
+lights:
+  description: List of your lights.
+  required: true
+  type: map
+  keys:
+    name:
+      description: Name of the light.
+      required: true
+      type: string
+    address:
+      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    output:
+      description: "Light source ([OUTPUT_PORT](/components/lcn#ports))."
+      required: true
+      type: string
+    dimmable:
+      description: Enable the dimming feature for this light
+      required: false
+      type: bool
+      default: false
+    transition:
+      description: Transition (ramp) time in seconds.
+      required: false
+      type: int
+      default: 0
 {% endconfiguration %}
 
 
