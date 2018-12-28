@@ -157,7 +157,7 @@ $ tar -x -f ~/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.
 $ for file in $pyreq; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
 ```
 <p class="note">
-If you added any other modules to "*requirements.txt*", you can modify the "*pyreq*" command and add these modules filenames.
+If you added any other modules to "*requirements.txt*", you can modify the "*pyreq*" command and add those modules filenames.
 You can find the modules inside "*python3_XXXX.spk*" > "*package.tgz*" > "*share/wheelhouse/XXXX.whl*".
 </p>
 
