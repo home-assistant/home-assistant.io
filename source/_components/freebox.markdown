@@ -60,6 +60,6 @@ prompted to do so.
 
 ### {% linkable_title Supported routers %}
 
-Only the routers with Freebox OS are supported :
+Only the routers with Freebox OS are supported:
 * Freebox V6 also known as Freebox Revolution
 * Freebox mini 4k
