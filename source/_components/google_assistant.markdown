@@ -136,7 +136,8 @@ api_key:
   required: false
   type: string
 expose_by_default:
-  description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
+  description: "Only works in versions before 0.80. If you have 0.80 or newer do not use this variable!
+Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
   required: false
   default: True
   type: boolean
