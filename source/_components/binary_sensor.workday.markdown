@@ -65,7 +65,7 @@ excludes:
   type: list
   default: "[sat, sun, holiday]"
 days_offset:
-  description: Set days offset.
+  description: Set days offset (e.g., -1 for yesterday, 1 for tomorrow).
   required: false
   type: integer
   default: 0
