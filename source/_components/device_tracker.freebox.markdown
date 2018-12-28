@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Freebox Device Tracker"
-description: "Instructions on how to track devices connected to a Freebox router into Home Assistant."
+description: "Instructions on how to track devices connected to a Freebox router in Home Assistant."
 date: 2018-05-16 23:00
 sidebar: true
 comments: false
