@@ -39,7 +39,7 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 * Optionally start Home Assistant on bootup of your Synology
 
 
-Like you might have read above, at this time of writing, Synology has not provided a recent [Python 3](https://www.synology.com/nl-nl/dsm/packages/py3k) package, so we have to create a recent Python 3 package ourself.
+As you might have read in the note above, at this time of writing, Synology has not provided a recent [Python 3](https://www.synology.com/nl-nl/dsm/packages/py3k) package, so we have to create a recent Python 3 package ourself.
 Do not worry though, were gonna try keep this as painless as possible.
 
 Small summary: In this guide you will install [Docker](https://opensource.com/resources/what-docker) and run the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment. You will be using that to compile the new Python 3 package. Through the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM/help), you will install the package, configure settings and enable SSH, which you need to install Home Assistant on your Synology. Lastly you can autostart Home Assistant.
@@ -62,7 +62,7 @@ Add GPG key for the official Docker repository to your system:
 ```
 <p class="note">
 The "lsb_release -cs" sub-command below returns the name of your Ubuntu distribution, such as xenial.
-Sometimes, in a distribution like Linux Mint, you might need to change "lsb_release -cs" to your parent Ubuntu distribution.
+Sometimes, in a distribution like Linux Mint, you might need to change "*lsb_release -cs*" to your parent Ubuntu distribution.
 For example, if you are using Linux Mint **Tara** (e.g., 19), you could use **Bionic** (e.g., 18.04).
 </p>
 
@@ -103,7 +103,7 @@ You need to do this to get "cross compiled module package" files, which you requ
 These edits also enable you to use the "[Cloud](/components/cloud/)" component and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
 
 
-Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file:
+Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file this text:
 ```
 ## It may happen you want to add components to Home Assistant, but you find these to fail requirements.
 ## Add the Python modules that fail to install/compile on the synology here for cross compilation.
@@ -122,7 +122,7 @@ pycryptodome==3.7.2
 #ed25519==1.4
 ```
 
-Edit "*~/spksrc/spk/python3/Makefile*", add above the line that says "<b>include ../../mk/spksrc.spk.mk</b>":
+Edit "*~/spksrc/spk/python3/Makefile*", above the line that says "**include ../../mk/spksrc.spk.mk**" add this text:
 ```makefile
 # Needed to fix "_openssl.so: undefined symbol: pthread_atfork" error caused by lack of libpthread linkage on Synology (Needed for SSL and "xiaomi_aqara" component)
 export CFLAGS=-pthread
@@ -145,8 +145,8 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 
 #### {% linkable_title Extracting cross compiled packages %}
 
-Now you need to extract your "cross compiled module package" files which you added earlier.
-Run these commands to extract the packages, please replace "python3_**XXXX**.spk" by the apporiate package filename:
+Now you need to extract your "cross compiled module package" files which you added earlier to "*requirements.txt*".
+Run these commands to extract the .whl files, please replace "python3_**XXXX**.spk" by the appropriate package filename:
 
 ```bash
 $ pyspk=python3_XXXX.spk
@@ -157,8 +157,8 @@ $ tar -x -f ~/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.
 $ for file in $pyreq; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
 ```
 <p class="note">
-If you added anything to "*requirements.txt*", modify the "*pyreq*" command to add the module filenames.
-You can find the modules at "*share/wheelhouse/XXXX.whl*" inside "*package.tar*", inside "*python3_XXXX.spk*".
+If you added any other modules to "*requirements.txt*", you can modify the "*pyreq*" command and add these modules filenames.
+You can find the modules inside "*python3_XXXX.spk*" > "*package.tgz*" > "*share/wheelhouse/XXXX.whl*".
 </p>
 
 This should give you a directory named "**Module-Packages**" with four .whl files, which you need to install later.
@@ -228,7 +228,7 @@ In the case you turned on the firewall on your Synology device, please config it
 * Go to "*Edit Rules*"
 * Click on "*Create*"
 * Select Custom: Destination port "TCP"
-* Type "8123" in port (e.g., setting in [*server_port*](/components/http/#server_port))
+* Type "8123" in port (e.g., setting of "[*server_port*](/components/http/#server_port)" in configuration.yaml)
 * Click on "*OK*"
 * Click on "*OK*" again
 
@@ -241,12 +241,15 @@ Replace "*user*" with your Synology user and "x.x.x.x" with the its IP adress:
 $ ssh user@x.x.x.x
 ```
 Create a virtual Python environment where we will install Home Assistant into.
-This will leave the Python package untouched, makes Home Assistant work better and installable/updateable without sudo.
-Note: After you made a virtual Python environment, you can't relocate the folder, else it will break. 
-Make a new one if you need to change it's name, the path or Shared-Folder.
+This will leave the Python package untouched and make Home Assistant installable/updateable without superuser:
 ```bash
 $ /volume1/@appstore/python3/bin/python3 -m venv /volume1/homeassistant/venv-hass
 ```
+<p class="note">
+After you made a virtual Python environment, you can't relocate the folder, else it will break. 
+Make a new one if you need to change it's name, the path or Shared-Folder.
+</p>
+
 Activate the virtual Python environment:
 ```bash
 $ source /volume1/homeassistant/venv-hass/bin/activate
