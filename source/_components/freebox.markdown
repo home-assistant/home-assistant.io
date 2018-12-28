@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `freebox` component allow you to observe and control [Freebox router](http://www.free.fr/).
+The `freebox` component allows you to observe and control [Freebox router](http://www.free.fr/).
 
 The integration provides:
 
