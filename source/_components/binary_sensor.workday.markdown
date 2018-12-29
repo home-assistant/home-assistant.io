@@ -14,19 +14,16 @@ ha_release: 0.41
 ha_qa_scale: internal
 ---
 
-The `workday` binary sensor indicates, whether the current day is a workday or
-not. It allows specifying, which days of the week counts as workdays and also
-uses the python module [holidays](https://pypi.python.org/pypi/holidays)
-to incorporate information about region-specific public holidays.
+The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also
+uses the python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
+
+## {% linkable_title Setup %}
+
+Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province.
 
 ## {% linkable_title Configuration %}
 
-Check the
-[country list](https://github.com/dr-prodigy/python-holidays#available-countries)
-for available province.
-
-To enable the `workday` sensor in your installation,
-add the following to your `configuration.yaml` file:
+To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,14 +41,11 @@ name:
   default: Workday Sensor
 country:
   description: >
-    Country code according to
-    [holidays](https://pypi.org/project/holidays/) notation.
+    Country code according to [holidays](https://pypi.org/project/holidays/) notation.
   required: true
   type: string
 province:
-  description: >
-    Province code according to
-    [holidays](https://pypi.org/project/holidays/) notation.
+  description: Province code according to [holidays](https://pypi.org/project/holidays/) notation.
   required: false
   type: string
 workdays:
@@ -102,7 +96,6 @@ automation:
 ```
 
 <p class='note'>
-Please remember that [as explained here][devices] you can only have a single `automation:` entry. Add the automation to your existing automations.
+Please remember that [as explained here](https://www.home-assistant.io/docs/configuration/devices/) you can only have a single `automation:` entry. Add the automation to your existing automations.
 </p>
 
-[devices]: https://www.home-assistant.io/docs/configuration/devices/
