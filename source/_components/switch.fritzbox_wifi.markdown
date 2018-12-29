@@ -50,7 +50,7 @@ username:
   required: false
   type: string
 interface:
-  description: "The WiFi interface you want to control. Most modern Fritzboxes have 3 Network-Interfaces: 2,4GHz -> 1, 5GHz -> 2, Guest Wifi -> 3. If you have no 5GHz, Guest Wifi should be interface: 2."
+  description: "The WiFi interface you want to control. Most modern Fritzboxes have 3 network interfaces: 2,4GHz -> 1, 5GHz -> 2, Guest Wifi -> 3. If you have no 5GHz, Guest Wifi should be interface: 2."
   required: false
   type: integer
   default: 3
