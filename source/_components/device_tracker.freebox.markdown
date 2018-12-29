@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Freebox"
-description: "Instructions on how to integrate Freebox routers into Home Assistant."
+title: "Freebox Device Tracker"
+description: "Instructions on how to track devices connected to a Freebox router in Home Assistant."
 date: 2018-05-16 23:00
 sidebar: true
 comments: false
@@ -14,42 +14,10 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `freebox` platform offers presence detection by keeping track of the
+This platform offers presence detection by keeping track of the
 devices connected to a [Freebox](http://www.free.fr/) router.
 
-### {% linkable_title Configuration %}
-
-If you have enabled the [discovery component](/components/discovery/),
-your Freebox should be detected automatically. Otherwise, you can set it
-up manually in your `configuration.yaml` file:
-
-```yaml
-device_tracker:
-  - platform: freebox
-    host: foobar.fbox.fr
-    port: 1234
-```
-
-{% configuration %}
-host:
-  description: The url of the Freebox.
-  required: true
-  type: string
-port:
-  description: The https port the Freebox is listening on.
-  required: true
-  type: string
-{% endconfiguration %}
-
-You can find out your Freebox host and port by opening
-[this address](http://mafreebox.freebox.fr/api_version) in your browser. The
-returned json should contain an api_domain (`host`) and a https_port (`port`).
-
-### {% linkable_title Initial setup %}
-
-The first time Home Assistant will connect to your Freebox, you will need to
-authorize it by pressing the right button on the facade of the Freebox when
-prompted to do so.
+This requires you to have set up the [Freebox component](/components/freebox/)
 
 ### {% linkable_title Notes %}
 
