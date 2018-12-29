@@ -17,7 +17,7 @@ ha_iot_class: "Local Polling"
 The `fritzbox_wifi` switch allows you to switch on/off your AVM FRITZBOX 2,4GHz/5GHz/Guest-WiFi.
 
 If you have more than one Fritzbox, multiple Fritzboxes ar supported.
-If you want to controll 2,4GHz an Guest-Wifi setup 2 switches (and so on)...
+If you want to control 2,4GHz and Guest-Wifi setup 2 switches (and so on)...
 
 
 To use your AVM FRITZBOX WiFi switch(es) in your installation, add the following to your `configuration.yaml` file:
