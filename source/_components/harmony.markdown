@@ -67,6 +67,11 @@ delay_secs:
   description: Default duration in seconds between sending commands to a device.
   required: false
   type: float
+  default: 0.4
+hold_secs:
+  description: Default duration in seconds between sending the "press" command and sending the "release" command
+  required: false
+  default: 0
 {% endconfiguration %}
 
 ### {% linkable_title Configuration file %}
