@@ -255,7 +255,6 @@ Setting up a climate component (heat only) with abbreviated configuration variab
 ```yaml
 {
   "name":"Livingroom",
-  "dev_cla":"climate",
   "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
   "mode_stat_t":"homeassistant/climate/livingroom/state",
   "mode_stat_tpl":"{{value_json.mode}}",
