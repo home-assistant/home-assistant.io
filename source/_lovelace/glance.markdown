@@ -155,4 +155,7 @@ Define entities as objects and apply a custom name:
     - light.ceiling_lights
     - switch.ac
     - lock.kitchen_door
+    - entity: switch.wall_plug_switch
+      tap_action:
+        action: toggle
 ```
