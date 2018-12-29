@@ -75,7 +75,7 @@ devicename:
   mac: EA:AA:55:E7:C6:94
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   track: yes
-  hide_if_away: no
+  hide_if_away: false
 ```
 
 <p class='note warning'>
@@ -106,7 +106,7 @@ USERNAME_DEVICE_ID:
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   gravatar: test@example.com
   track: yes
-  hide_if_away: no
+  hide_if_away: false
 ```
 
 If you want to track whether either your GPS based tracker or your local network tracker, identify you as being at home, use [a group](/components/group/) instead.
