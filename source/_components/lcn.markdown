@@ -100,11 +100,11 @@ lights:
       required: true
       type: string
     output:
-      description: "Light source ([OUTPUT_PORT](/components/lcn#ports))."
+      description: "Light source ([OUTPUT_PORT](/components/lcn#ports), [RELAY_PORT](/components/lcn#ports))."
       required: true
       type: string
     dimmable:
-      description: Enable the dimming feature for this light
+      description: Enable the dimming feature for this light.
       required: false
       type: bool
       default: false
@@ -155,3 +155,4 @@ The platforms and service calls use several predefined constants as parameters.
 | Constant | Values |
 | -------- | ------ |
 | OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
+| RELAY_PORT | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8` |
