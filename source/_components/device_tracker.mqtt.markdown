@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt` device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.
 
+## {% linkable_title Configuration %}
+
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -36,6 +38,8 @@ qos:
   required: false
   type: integer
 {% endconfiguration %}
+
+## {% linkable_title Usage %}
 
 Example JSON you can publish to the topic (e.g., via mqtt.publish service):
 
