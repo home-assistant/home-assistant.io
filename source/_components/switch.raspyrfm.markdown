@@ -14,7 +14,7 @@ ha_release: 0.85
 
 The `raspyrfm` component adds support for cheap RC 433 MHz outlets via one of the supported gateways.
 
-Initially this component was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir though like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM/blob/master/connair.py) wich can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) rc module for a Raspberry Pi which can be used.
+Initially this component was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir though like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM/blob/master/connair.py) which can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) rc module for a Raspberry Pi.
 
 Other vendors of 433 MHz rc outlets have also created gateways that use a very similar protocol and can also be used with this component like the Intertechno [ITGW-433 LAN Gateway](https://www.intertechno24.de/LAN-Gateway/Gateway-ITGW-433.html) 
  
