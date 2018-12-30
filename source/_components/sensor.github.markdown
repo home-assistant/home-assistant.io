@@ -62,6 +62,10 @@ access_token:
   description: Your GitHub Access Token
   required: false
   type: string
+server_url:
+  description: If you are using a GitHub Enterprise server, add it's URL here. For example, `https://mygithubserver.com`
+  required: false
+  type: string
 repositories:
   description: A list of repository paths and optionally a name
   required: true
