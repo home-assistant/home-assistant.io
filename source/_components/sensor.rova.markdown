@@ -78,12 +78,11 @@ sensor:
 
 To have your Home Assistant installation remind you of upcoming waste collections, combine the `rova` platform with some [Automations](/docs/automation/) and a [notification platform](/components/notify/).
 
-{% raw %}
 ```yaml
-# Example configuration.yaml entry for ROVA waste collection reminder
+# Example configuration.yaml entry for Rova waste collection reminder
 automation:
-  - id: rova-garbage-gft-reminder
-    alias: 'Send ROVA GFT waste collection reminder'
+  - id: rova-garbage-bio-reminder
+    alias: 'Send Rova Bio waste collection reminder'
     hide_entity: true
     trigger:
       - platform: time
@@ -94,7 +93,6 @@ automation:
     action:
       - service: NOTIFICATION_SERVICE
         data:
-          message: 'Reminder: put out GFT bin'
+          message: 'Reminder: put out biowaste bin'
 
 ```
-{% endraw %}
