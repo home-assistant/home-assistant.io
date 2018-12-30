@@ -182,13 +182,13 @@ data:
   delay_secs: 0.6
 ```
 
-### {% linkable_title Service `remote.change_channel` %}
+### {% linkable_title Service `remote.harmony_change_channel` %}
 
 Sends the change channel command to the Harmony HUB 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `entity_id`            |       no | Only act on a specific remote, else target all.
 | `channel`              |       no | Channel number to change to
 
 A typical service call for changing the channel would be::
