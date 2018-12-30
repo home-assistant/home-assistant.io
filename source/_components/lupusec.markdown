@@ -13,13 +13,15 @@ ha_release: 0.83
 ha_iot_class: "Local Polling"
 ---
 
-The `Lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
+The `lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
 
-The following devices are supported by the underlying `lupupy` python library and integrated into hass.
+The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 
 - [Alarm Control Panel](/components/alarm_control_panel.lupusec/): Displays the alarm status and controls arming, disarming and home modus.
 - [Binary Sensor](/components/binary_sensor.lupusec/): Displays the status of binary sensors. Currently only Door and window sensors are supported.
 - [Switch](/components/switch.lupusec/): Turn off and on your Lupus power switches.
+
+## {% linkable_title Configuration %}
 
 To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
 
