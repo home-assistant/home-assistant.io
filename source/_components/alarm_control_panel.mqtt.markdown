@@ -17,11 +17,11 @@ The `mqtt` alarm panel platform enables the possibility to control MQTT capable 
 
 The component will accept the following states from your Alarm Panel (in lower case):
 
-- 'disarmed'
-- 'armed_home'
-- 'armed_away'
-- 'pending'
-- 'triggered'
+- `disarmed`
+- `armed_home`
+- `armed_away`
+- `pending`
+- `triggered`
 
 The component can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
