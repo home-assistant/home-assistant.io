@@ -13,7 +13,6 @@ ha_release: 0.85
 ha_iot_class: "Local Polling"
 ---
 
-
 The `velux` cover platform allows you to control your [VELUX](http://www.velux.com/) windows.
 
-The requirement is that you have setup the [VELUX](/components/velux/) component.
+The requirement is that you have set up the [VELUX](/components/velux/) component.
