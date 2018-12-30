@@ -14,7 +14,7 @@ ha_release: 0.85
 
 The `raspyrfm` component adds support for cheap RC 433 MHz outlets via one of the supported gateways.
 
-Initially this component was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir though like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM/blob/master/connair.py) wich can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) rc module for a Raspberry Pi.
+Initially this component was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir though like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM/blob/master/connair.py) wich can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) rc module for a Raspberry Pi which can be used.
 
 Other vendors of 433 MHz rc outlets have also created gateways that use a very similar protocol and can also be used with this component like the Intertechno [ITGW-433 LAN Gateway](https://www.intertechno24.de/LAN-Gateway/Gateway-ITGW-433.html) 
  
@@ -25,18 +25,12 @@ switch:
   platform: raspyrfm
   gateway_manufacturer: Seegel Systeme
   gateway_model: RaspyRFM
-  host: 127.0.0.1              # Optional
-  port: 49880                  # Optional
   switches:
-    - name: My Switch
-      controlunit_manufacturer: Intertechno
+    - controlunit_manufacturer: Intertechno
       controlunit_model: CMR 1000
       channel_config:  # note that keys used here vary between controlunits
         master: A
         slave: 1
-    
-  
-
 ```
 
 {% configuration %}
@@ -62,8 +56,7 @@ host:
   type: integer
 switches:
   description: List of switches that can be controlled with this gateway.
-  required: false
-  default: []
+  required: true
   type: list
   keys:
     name:
