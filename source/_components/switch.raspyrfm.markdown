@@ -24,8 +24,6 @@ Other vendors of 433 MHz RC outlets have also created gateways that use a very s
 # Example configuration.yaml entry
 switch:
   platform: raspyrfm
-  gateway_manufacturer: Seegel Systeme
-  gateway_model: RaspyRFM
   switches:
     - controlunit_manufacturer: Intertechno
       controlunit_model: CMR 1000
