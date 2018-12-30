@@ -9,28 +9,23 @@ sharing: true
 footer: true
 logo: rova.jpg
 ha_category: Sensor
-ha_release: 
+ha_release: 0.85
 ha_iot_class: "Cloud Polling"
 ---
 
-[ROVA](https://rova.nl) is a waste collection company that operates in the center and east of the Netherlands. The `rova` platform uses an unofficial [ROVA](https://rova.nl) API to allow you to get your waste collection schedule and integrate this in you Home Assistant installation.
+[ROVA](https://rova.nl) is a waste collection company that operates in the center and east of the Netherlands. The `rova` platform uses an unofficial [ROVA](https://rova.nl) API to allow you to get your waste collection schedule and integrate this in your Home Assistant installation.
 
 ## {% linkable_title Configuration %}
 
 To use the ROVA sensor in your installation, add the following to your configuration.yaml file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
-    monitored_conditions:
-      - gft
-      - papier
 ```
-{% endraw %}
 
 {% configuration %}
 zip_code:
@@ -51,23 +46,22 @@ monitored_conditions:
   required: false
   type: list
   keys:
-    gft:
+    bio:
       description: Upcoming collection date of your biodegradable waste
-    papier:
+    paper:
       description: Upcoming collection date of your paper waste
-    plasticplus:
+    plastic:
       description: upcoming collection date of your plastic waste
-    rest:
+    residual:
       description: Upcoming collection date of your general waste
 {% endconfiguration %}
 
-If no **monitored_conditions** are specified, only **gft** will be enabled.
+If no **monitored_conditions** are specified, only **bio** will be enabled.
 
 ### {% linkable_title Full configuration sample %}
 
 A full configuration entry would look like the sample below.
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -76,12 +70,11 @@ sensor:
     house_number: HOUSE_NUMBER
     name: Rova
     monitored_conditions:
-      - gft
-      - papier
-      - plasticplus
-      - rest
+      - bio
+      - paper
+      - plastic
+      - residual
 ```
-{% endraw %}
 
 To have your Home Assistant installation remind you of upcoming waste collections, combine the `rova` platform with some [Automations](/docs/automation/) and a [notification platform](/components/notify/).
 
