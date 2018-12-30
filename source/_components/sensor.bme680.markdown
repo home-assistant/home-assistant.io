@@ -154,12 +154,16 @@ customize:
   sensor.bme680_sensor_humidity:
     icon: mdi:water
     friendly_name: Humidity
+    device_class: humidity
+    unit_of_measurement: "%"
   sensor.bme680_sensor_pressure:
     icon: mdi:gauge
     friendly_name: Pressure
   sensor.bme680_sensor_air_quality:
     icon: mdi:blur
     friendly_name: Air Quality
+    device_class: pm25
+    unit_of_measurement: "%"
 ```
 
 To create a group, add the following to your `group` section.
