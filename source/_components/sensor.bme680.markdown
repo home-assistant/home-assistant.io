@@ -175,6 +175,59 @@ group:
       - sensor.bme680_sensor_pressure
       - sensor.bme680_sensor_air_quality
 ```
+## {% linkable_title Directions for enabling I2C interface on Hass.Io %}
+The BME680 sensor requires you to enable the I2C interface in the hass.io configuration via the command prompt.  **NOTE**: this will not work via an ssh connection.
+ 
+You will need: 
+* hdmi cable 
+* usb keyboard
+ 
+Power down your hass.io server.  Connect your hdmi cable and keyboard.  Power on the hass.io server.  When you see a login prompt, login as: `root` with no password.  
+ 
+After you login, you will see the Hass.IO command line welcome prompt.  You will need to access the shell by typing `shell`.  
+ 
+After you see the shell prompt, type `vi /etc/modules-load.d/rpi-i2c.conf` to create a new config file.  Add these two lines by typing: `i` then paste in:
+```bash
+i2c-bcm2708
+i2c-dev
+```
+
+Save and exit by typing `:wq`
+
+Now type `vi /boot/config.txt` to edit the boot configuration file. Add these two lines by typing `i` then:
+
+```bash
+dtparam=i2c1=on 
+dtparam=i2c_arm=on
+```
+Now reboot your hass.io.
+
+## {% linkable_title Directions for enabling I2C interface on Hass.Io %}
+The BME680 sensor requires you to enable the I2C interface in the hass.io configuration via the command prompt.  **NOTE**: this will not work via an ssh connection.
+
+You will need: 
+* hdmi cable 
+* usb keyboard
+
+Power down your hass.io server.  Connect your hdmi cable and keyboard.  Power on the hass.io server.  When you see a login prompt, login as: `root` with no password.  
+
+After you login, you will see the Hass.IO command line welcome prompt.  You will need to access the shell by typing `shell`.  
+
+After you see the shell prompt, type `vi /etc/modules-load.d/rpi-i2c.conf` to create a new config file.  Add these two lines by typing: `i` then paste in:
+```bash
+i2c-bcm2708
+i2c-dev
+```
+
+Save and exit by typing `:wq`
+
+Now type `vi /boot/config.txt` to edit the boot configuration file. Add these two lines by typing `i` then:
+
+```bash
+dtparam=i2c1=on 
+dtparam=i2c_arm=on
+```
+Now reboot your hass.io.  
 
 ## {% linkable_title Directions for installing SMBus support on Raspberry Pi %}
 

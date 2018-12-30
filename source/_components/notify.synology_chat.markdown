@@ -31,6 +31,11 @@ name:
   description: "Setting the  parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`."
   required: true
   type: string
+verify_ssl:
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.).
+  required: false
+  type: boolean
+  default: true
 resource:
   description: The incoming webhook URL.
   required: true

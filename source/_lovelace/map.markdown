@@ -24,7 +24,11 @@ type:
   type: string
 entities:
   required: true
-  description: List of entity IDs.
+  description: List of entity IDs. Either this or the `geo_location_sources` configuration option is required.
+  type: list
+geo_location_sources:
+  required: true
+  description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geo Location](/components/geo_location/) platform for valid sources. Either this or the `entities` configuration option is required.
   type: list
 title:
   required: false
@@ -59,5 +63,13 @@ default_zoom:
   default_zoom: 8
   entities:
     - device_tracker.demo_paulus
+    - zone.home
+```
+
+```yaml
+- type: map
+  geo_location_sources:
+    - nsw_rural_fire_service_feed
+  entities:
     - zone.home
 ```

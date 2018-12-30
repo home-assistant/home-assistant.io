@@ -13,14 +13,13 @@ ha_release: 0.59
 ha_iot_class: "Local Polling"
 ---
 
-
 The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
 
 ## {% linkable_title Supported hardware %}
 
-**Only** the european versions of Daikin ACs (models BRP069A41, 42, 43, 45).
+**Only** the European versions of Daikin AC (models BRP069A41, 42, 43, 45).
 
-The model BRP069A42 does not support setting of fan speed or fan swing mode.
+Some models do not support setting of fan speed or fan swing mode.
 
 Please note that some AC devices may report outside temperature only when they are turned on.
 
@@ -33,9 +32,6 @@ To automatically add all your Daikin devices (ACs and associated sensors) into y
 daikin:
   hosts:
     - 192.168.4.161
-  monitored_conditions:
-    - inside_temperature
-    - outside_temperature
 ```
 
 {% configuration %}
@@ -43,16 +39,5 @@ hosts:
   description: List of IP addresses or hostnames.
   required: false
   default: All discovered hosts
-  type: list
-monitored_conditions:
-  description: List of items you want to monitor for each device.
-  required: false
-  default: All conditions
-  type: list
-  keys:
-    inside_temperature:
-      description: The current temperature measured inside the house.
-    outside_temperature:
-      description: The current temperature measured outside the house.      
+  type: list     
 {% endconfiguration %}
-

@@ -150,7 +150,7 @@ Example of adding a tag to your notification. This won't create new notification
       - platform: state
         entity_id: sensor.sensor
     action:
-      service: notify.html5
+      service: notify.notify
       data_template:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:

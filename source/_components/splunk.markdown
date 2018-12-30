@@ -42,6 +42,11 @@ ssl:
   required: false
   default: false
   type: boolean
+verify_ssl:
+  description: Allows you do disable checking of the SSL certificate.
+  required: false
+  default: false
+  type: boolean
 name:
   description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
   required: false

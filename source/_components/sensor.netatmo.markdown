@@ -89,6 +89,8 @@ modules:
           description: Wifi status per Base station
         battery_vp:
           description: Current battery status per module.
+        battery_percent:
+          description: Percentage of battery remaining per module.
 {% endconfiguration %}
 
 ### {% linkable_title Find your modules name %}
