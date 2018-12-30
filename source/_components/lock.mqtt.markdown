@@ -15,6 +15,8 @@ ha_iot_class: depends
 
 The `mqtt` lock platform lets you control your MQTT enabled locks.
 
+## {% linkable_title Configuration %}
+
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be `false` / unlocked.
 
 When a `state_topic` is not available, the lock will work in optimistic mode. In this mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from the device (message from `state_topic`).
@@ -31,15 +33,6 @@ lock:
 ```
 
 {% configuration %}
-name:
-  description: The name of the lock.
-  required: false
-  type: string
-  default: MQTT Lock
-unique_id:
-   description: An ID that uniquely identifies this lock. If two locks have the same unique ID, Home Assistant will raise an exception.
-   required: false
-   type: string
 command_topic:
   description: The MQTT topic to publish commands to change the lock state.
   required: true
@@ -48,6 +41,11 @@ state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
   type: string
+name:
+  description: The name of the lock.
+  required: false
+  type: string
+  default: MQTT Lock
 payload_lock:
   description: The payload that represents enabled/locked state.
   required: false
@@ -91,6 +89,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+unique_id:
+   description: An ID that uniquely identifies this lock. If two locks have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 device:
   description: 'Information about the device this lock is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false
