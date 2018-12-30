@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.85
 ---
 
-
 The `iliad_italy` sensor will give you the data from Iliad Italy's website inside Home Assistant.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
@@ -25,13 +24,14 @@ sensor:
     username: USERNAME
     password: PASSWORD
 ```
+
 {% configuration %}
 username:
-  description: The username you use to check Iliad.it
+  description: The username you use to check Iliad.it.
   required: true
   type: string
 password:
-  description: The password you use to check Iliad.it
+  description: The password you use to check Iliad.it.
   required: true
   type: string
 {% endconfiguration %}
