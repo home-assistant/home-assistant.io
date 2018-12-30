@@ -19,13 +19,14 @@ The platform currently works in optimistic mode, which means it does not obtain 
 
 It uses a sensor under the hood to obtain the current temperature.
 
+## {% linkable_title Configuration %}
+
+To enable this camera in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 climate:
   - platform: mqtt
-    name: Study
-    current_temperature_topic: sensors/hvac_study/current_temp
-    temperature_command_topic: sensors/hvac_study/target_temp
 ```
 
 {% configuration %}
@@ -194,15 +195,15 @@ aux_state_template:
   required: false
   type: template
 min_temp:
-  description: Minimum set point available
+  description: Minimum set point available.
   type: number
   required: false
 max_temp:
-  description: Maximum set point available
+  description: Maximum set point available.
   type: number
   required: false
 temp_step:
-  description: Step size for temperature set point
+  description: Step size for temperature set point.
   type: number
   required: false
   default: 1
