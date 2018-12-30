@@ -10,7 +10,7 @@ footer: true
 logo: lutron.png
 ha_category: Light
 featured: false
-ha_release: 0.01
+ha_release: 0.85
 ha_iot_class: "Local Push"
 ---
 
