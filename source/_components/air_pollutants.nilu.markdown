@@ -54,9 +54,9 @@ air_pollutants:
 
 
 ## {% linkable_title Health risk index explainations %}
-Explainations for the `state`'s which can be showed. 
+Under the attributes from a nilu station there will be a `nilu pollution index`. This indicates how polluted the air is in the area around the sensor station. Following is a longer explaination of what the indexes means. 
 
-### {% linkable_title Low  %}
+### {% linkable_title Low %}
 Low or no health risk linked to measured air pollution. Outdoor activites are recommended. 
 
 ### {% linkable_title Moderate %}
