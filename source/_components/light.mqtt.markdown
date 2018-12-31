@@ -83,7 +83,7 @@ brightness_value_template:
   required: false
   type: string
 color_temp_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
   required: false
   type: string
 color_temp_command_topic:
@@ -95,7 +95,7 @@ color_temp_state_topic:
   required: false
   type: string
 color_temp_value_template:
-  description: "Defines a [template](/topics/templating/) to extract the color temperature value."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the color temperature value."
   required: false
   type: string
 effect_command_topic:
@@ -171,7 +171,7 @@ rgb_state_topic:
   required: false
   type: string
 rgb_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value."
+  description: "Defines a [template](/docs/configuration/templating/) to extract the RGB value."
   required: false
   type: string
 state_topic:
