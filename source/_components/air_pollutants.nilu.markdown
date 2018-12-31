@@ -41,7 +41,7 @@ air_pollutants:
     description: Name of an area to get sensor stations from. See available areas below.
     required: exclusive
     type: string
-  station: 
+  stations: 
     description: Name of a specific station to get measurements from.
     required: exclusive
     type: string
@@ -134,7 +134,8 @@ Exapmle of specific station.
 # Example configuration.yaml entry
 # Monitors stations 'Alnabru'
 - platform: nilu_air_quality
-  station: Alnabru
+  stations: 
+    - Alnabru
 ```
 
 Example of getting stations from a specified area, giving the sensors a custom name.
