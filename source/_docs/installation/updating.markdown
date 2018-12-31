@@ -63,3 +63,18 @@ If you want to stay on the bleeding-edge Home Assistant development branch, you 
 ```bash
 $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
 ```
+
+### {% linkable_title Update Hass.io installation %}
+
+Best practise for updating a Hass.io installation:
+
+1. Backup your installation
+    - Use the snapshot functionallity by Hass.io
+2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases)
+    - Use the search function in your browser (`STRG + f`) and search for **Breaking Changes**
+3. Check your configuration via the [Check Home Assistant configuration](/addons/check_config/) add-On
+    - If this works you can safly update
+    - If this does not work change your config accordingly
+4. If necassary change your Home Assistant configuration accordingly
+5. Update Home Assistant
+6. Restart Home Assistant
