@@ -11,7 +11,7 @@ footer: true
 
 You can use this add-on to check whether your configuration files are valid against the new version of Home Assistant before you actually update your Home Assistant installation. This add-on will help you avoid errors due to breaking changes, resulting in a smooth update.
 
-### How to use this Add-On
+### {% linkable_title How to use this Add-On %} 
 
 1. Just start the Add-On
 2. Wait (On a Raspberry Pi it can take several minutes)
