@@ -112,21 +112,33 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 There are some manual configuration options available. These should only be needed if you have more than one network interface and automatic configuration does not find your LIFX devices.
 
+You can specify interfaces to discover lights on by adding an entry with `server` and `broadcast` keys, or a light to connect to directly by specifying `host` and `mac`.
+
 ```yaml
 # Example configuration.yaml entry
 lifx:
   light:
-    server: IP_ADDRESS
-    broadcast: IP_ADDRESS
+    - server: IP_ADDRESS
+      broadcast: IP_ADDRESS
+    - host: IP_ADDRESS
+      mac: MAC_ADDRESS
 ```
 
 {% configuration %}
 server:
-  description: Your server address. Will listen on all interfaces if omitted.
+  description: Your server address to discover bulbs on. Will listen on all interfaces if omitted.
   required: false
   type: string
 broadcast:
   description: The broadcast address for discovering lights.
+  required: false
+  type: string
+host:
+  description: IP address of a bulb to connect to
+  required: false
+  type: string
+mac:
+  description: MAC address of a bulb to connect to
   required: false
   type: string
 {% endconfiguration %}
