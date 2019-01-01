@@ -63,7 +63,7 @@ options:
       default: car
       type: string
     departAt:
-      description: Can be iso timestamp, or a 24 hour time string like `08:00`. If you provide a time string, it will be combined with the current date to get travel time for that moment or the next day.
+      description: "Can be iso timestamp, or a 24 hour time string like `08:00`. If you provide a time string, it will be combined with the current date to get travel time for that moment or the next day."
       required: exclusive
       type: [time, string]
     arriveAt:
