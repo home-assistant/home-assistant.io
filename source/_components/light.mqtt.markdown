@@ -159,7 +159,7 @@ retain:
   type: boolean
   default: false
 rgb_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
   required: false
   type: string
 rgb_command_topic:
@@ -171,7 +171,7 @@ rgb_state_topic:
   required: false
   type: string
 rgb_value_template:
-  description: "Defines a [template](/docs/configuration/templating/) to extract the RGB value."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the RGB value."
   required: false
   type: string
 state_topic:
