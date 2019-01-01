@@ -15,6 +15,4 @@ ha_iot_class: "Local Push"
 
 The `wemo` platform allows you to control your [Belkin WeMo](http://www.belkin.com/us/p/P-F7C027/) switches from within Home Assistant. This includes support for Wemo enabled [Mr. Coffee](http://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.
 
-They will be automatically discovered if the discovery component is enabled.
-
-For more configuration information see the [WeMo component](/components/wemo/) documentation.
+WeMo devices are automatically discovered if the `discovery` component is enabled. For more configuration information, see the [WeMo component](/components/wemo/) documentation.
