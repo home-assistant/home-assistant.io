@@ -186,7 +186,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
 - media_player (on/off/set volume (via set brightness)/source (via set input source))
-- climate (temperature setting)
+- climate (temperature setting, operation_mode)
 - vacuum (dock/start/stop/pause)
 
 ### {% linkable_title Media Player Sources %}
@@ -196,7 +196,21 @@ There is currently a limitation with this feature that requires a hard-coded set
 https://developers.google.com/actions/reference/smarthome/traits/modes
 
 #### Example Command:
+
 "Hey Google, change input source to TV on Living Room Receiver"
+
+### {% linkable_title Climate Operation Modes %}
+
+There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  
+Here are the modes that are currently available:
+
+- off
+- heat
+- cool
+- heatcool (auto)
+- fan-only
+- dry
+- eco
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 
