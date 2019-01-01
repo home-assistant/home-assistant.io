@@ -49,7 +49,7 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 2. Change your `configuration.yaml` file:
     - Remove `client_id`, `access_token`, `agent_user_id` config from `google_assistant:` since they are no longer needed.
 3. Restart Home Assistant, open the `Google Home` app on your mobile phone then go to `Account > Settings > Assistant > Home Control`, press the `3 dot icon in the top right > Manage accounts > [test] your app name > Unlink account` Then relink your account by selecting `[test] your app name` again.
-4. A browser will be open and asking you to login to your Home Assistant instance, it will redirect back to `Google Assistant` app right afterward.
+4. A browser will open and ask you to login to your Home Assistant instance and will redirect back to the `Google Assistant` app right afterward.
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
@@ -89,7 +89,7 @@ If you've added Home Assistant to the home screen, you have to first remove it f
     2. Click `Test -> Simulator`, then click `Share` icon in the right top corner. Follow the on-screen instruction:
         1. Add team members: Got to `Settings -> Permission`, click `Add`, type the new user's e-mail address and choose `Project -> Viewer` role.
         2. Copy and share the link with the new user.
-        3. New user clicks the link with their own Google account, it will enable our draft test app under their account.
+        3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
@@ -185,13 +185,25 @@ Currently, the following domains are available to be used with Google Assistant,
 - light (on/off/brightness/rgb color/color temp)
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
-- media_player (on/off/set volume (via set brightness))
+- media_player (on/off/set volume (via set brightness)/source (via set input source))
 - climate (temperature setting, operation_mode)
 - vacuum (dock/start/stop/pause)
 
+### {% linkable_title Media Player Sources %}
+
+Media Player sources are sent via the Modes trait in Google Assistant.  
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:  
+https://developers.google.com/actions/reference/smarthome/traits/modes
+
+#### Example Command:
+
+"Hey Google, change input source to TV on Living Room Receiver"
+
 ### {% linkable_title Climate Operation Modes %}
+
 There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  
 Here are the modes that are currently available:
+
 - off
 - heat
 - cool

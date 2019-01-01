@@ -83,6 +83,21 @@ Double check this configuration to ensure all settings are correct and start ngi
 
 Forward ports 443 and 80 to your server on your router. Do not forward port 8123.
 
+### {% linkable_title 9. Configure Home Assistant %}
+
+Home Assistant is still available without using the NGINX proxy. Restricting it to only listen to `127.0.0.1` will forbid direct accesses. Also, Home Assistant should be told to trust headers coming from the NGINX proxy only. Otherwise, incoming requests will always come from `127.0.0.1` and not the real IP address.
+
+On your `configuration.yaml` file, edit the `http` component.
+
+{% configuration %}
+http:
+  server_host: 127.0.0.1
+  # Update this line to be your domain
+  base_url: https://exemple.com
+  use_x_forwarded_for: true
+  trusted_proxies: 127.0.0.1
+{% endconfiguration %}
+
 ### {% linkable_title NGINX Config %}
 
 ```nginx

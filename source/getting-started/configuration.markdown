@@ -82,7 +82,7 @@ panel_iframe:
     url: http://hassio.local:3218
 ```
 
- - Click the save icon in the top right to comit changes.
+ - Click the save icon in the top right to commit changes.
  - Verify the configuration by going to the config panel (Configuration in the sidebar) -> General -> Click the "Check Config" button and you should get "Configuration valid!"
  - Now Restart Home Assistant using the "restart" in the Server management section.
 

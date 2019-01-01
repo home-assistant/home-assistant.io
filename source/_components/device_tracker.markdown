@@ -31,7 +31,11 @@ device_tracker:
       hide_if_away: false
 ```
 
-The following optional parameters can be used with any platform. However device tracker will only look for global settings under the configuration of the first configured platform:
+The following optional parameters can be used with any platform:
+
+<p class='note'>
+  Device tracker will only look for global settings under the configuration of the first configured platform.
+</p>
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,7 +57,8 @@ device_tracker:
     username: admin
     interval_seconds: 10
     consider_home: 180
-    track_new_devices: yes
+    new_device_defaults:
+      track_new_devices: true
 ```
 
 Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
@@ -70,7 +75,7 @@ devicename:
   mac: EA:AA:55:E7:C6:94
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   track: yes
-  hide_if_away: no
+  hide_if_away: false
 ```
 
 <p class='note warning'>
@@ -101,7 +106,7 @@ USERNAME_DEVICE_ID:
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   gravatar: test@example.com
   track: yes
-  hide_if_away: no
+  hide_if_away: false
 ```
 
 If you want to track whether either your GPS based tracker or your local network tracker, identify you as being at home, use [a group](/components/group/) instead.
