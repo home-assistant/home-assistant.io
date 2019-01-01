@@ -10,6 +10,7 @@ footer: true
 ha_category: Switch
 ha_iot_class: "Local Push"
 featured: true
+logo: plum.png
 ha_release: 0.85
 ---
 
