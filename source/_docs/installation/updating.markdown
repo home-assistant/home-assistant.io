@@ -66,15 +66,10 @@ $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@
 
 ### {% linkable_title Update Hass.io installation %}
 
-Best practise for updating a Hass.io installation:
+Best practice for updating a Hass.io installation:
 
-1. Backup your installation
-    - Use the snapshot functionallity by Hass.io
-2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases)
-    - Use the search function in your browser (`STRG + f`) and search for **Breaking Changes**
-3. Check your configuration via the [Check Home Assistant configuration](/addons/check_config/) add-On
-    - If this works you can safly update
-    - If this does not work change your config accordingly
-4. If necassary change your Home Assistant configuration accordingly
-5. Update Home Assistant
-6. Restart Home Assistant
+1. Backup your installation, using the snapshot functionality Hass.io offers.
+2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on. 
+4. If the check passes, you can safely update. If not, update your configuration accordingly.
+5. Update Home Assistant.
