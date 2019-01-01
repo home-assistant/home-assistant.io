@@ -53,6 +53,8 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
+    
+If you're still having trouble, make sure that you're not connected to the same network Home Assistant is running on, e.g., use 4G/LTE instead.
 </p>
 
 ## {% linkable_title First time setup %}
