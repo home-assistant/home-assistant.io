@@ -23,7 +23,7 @@ To use the monitoring, your transmission client needs to allow remote access. If
   <img src='{{site_root}}/images/components/transmission/transmission_perf.png' />
 </p>
 
-If everything is setup correctly, the details will show up in the frontend.
+If everything is set up correctly, the details will show up in the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/components/transmission/transmission.png' />
@@ -36,13 +36,6 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 ```yaml
 transmission:
   host: 192.168.1.1
-  username: user
-  password: psw
-  port: 8181
-  monitored_variables:
-  - current_status
-  - completed_torrents
-  - started_torrents
 ```
 
 
@@ -69,7 +62,7 @@ password:
   required: false
   type: string
 monitored_variables:
-  description: Conditions to display in the frontend. Everyone of them will act as sensor.
+  description: Conditions to display in the frontend. Every one of them will act as sensor.
   required: false
   type: map
   keys:
