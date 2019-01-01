@@ -10,8 +10,9 @@ footer: true
 ha_category: Switch
 ha_iot_class: "Local Push"
 featured: true
-ha_release: "0.80"
+ha_release: 0.85
 ---
+
 Configurable/Dimmable WiFi Lightswitch
 - Cloud registered, Local API communication (both RESTful and TCP pushed events)
 - Motion Sensor
@@ -25,7 +26,6 @@ Configurable/Dimmable WiFi Lightswitch
 > The Lightpad’s elegant design compliments any decor and provides amazing control of your lights. The Lightpad allows you to control a single light, group of lights, or all of your lights in a natural and intuitive way. 
 
 > Control your lights, not just with your smartphone and your voice (with Alexa and Google Assistant), but with your fingertips too. While most home automation devices today force you to use your smartphone, Plum Lightpads feature Multi-Touch allowing you to use simple gestures to control any light in the house from any Lightpad. 
-
 
 ## {% linkable_title Configuration %}
 
@@ -41,10 +41,10 @@ plum_lightpad:
 {% configuration %}
 username:
   required: true
-  description: Your Plum Cloud username
+  description: Your Plum Cloud username.
   type: string
 password:
   required: true
-  description: Your Plum Cloud password
+  description: Your Plum Cloud password.
   type: string
 {% endconfiguration %}
