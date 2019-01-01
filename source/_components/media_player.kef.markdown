@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: kef.png
 ha_category: Media Player
-ha_release: 0.83
+ha_release: 0.85
 ---
 
 The `Kef` platform allows you to control a KEF LS50 Wireless speaker from Home Assistant.
@@ -23,19 +23,6 @@ To setup your KEF speaker, update your `configuration.yaml` file:
 media_player:
   - platform: kef
     host: <ip-address-to-kef-speaker>
-    name: My KEF Speaker
-```
-
-Becase the KEF LS50 Wireless speaker disconnects the wifi autmatically when turned off/standby, another service can be configured to turn on the speaker. This service should turn on the speaker using IR.
-
-```yaml
-# Example configuration.yaml entry with turn on service
-media_player:
-  - platform: kef
-    host: <ip-address-to-kef-speaker>
-    name: My KEF Speaker
-    turn_on_service: switch.turn_on
-    turn_on_data: '{"entity_id": "switch.some_switch"}'
 ```
 
 {% configuration %}
@@ -65,3 +52,15 @@ turn_on_data:
   default: None
   type: string
 {% endconfiguration %}
+
+Because the KEF LS50 Wireless speaker disconnects the wifi automatically when turned off/standby, another service can be configured to turn on the speaker. This service should turn on the speaker using IR.
+
+```yaml
+# Example configuration.yaml entry with turn on service
+media_player:
+  - platform: kef
+    host: <ip-address-to-kef-speaker>
+    name: My KEF Speaker
+    turn_on_service: switch.turn_on
+    turn_on_data: '{"entity_id": "switch.some_switch"}'
+```
