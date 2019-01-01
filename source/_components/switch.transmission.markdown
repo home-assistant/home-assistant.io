@@ -14,38 +14,4 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `transmission` switch platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting.
-
-To add Transmission to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  platform: transmission
-  host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  required: true
-  type: string
-  description: This is the IP address of your Transmission daemon, e.g., 192.168.1.32.
-port:
-  required: false
-  type: integer
-  default: 9091
-  description: The port your Transmission daemon uses.
-name:
-  required: false
-  type: string
-  default: Transmission Turtle Mode
-  description: The name to use when displaying this Transmission instance.
-username:
-  required: false
-  type: string
-  description: Your Transmission username, if you use authentication.
-password:
-  required: false
-  type: string
-  description: Your Transmission password, if you use authentication.
-{% endconfiguration %}
+The `transmission` switch platform allows you to control your [Transmission](http://www.transmissionbt.com/) client from within Home Assistant. The platform enables you switch to your 'Alternative Speed Limits' (aka 'Turtle mode') setting. To get your Transmission switch working with Home Assistant, follow the instructions for the general [Transmission component](/components/transmission/).

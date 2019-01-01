@@ -61,6 +61,10 @@ password:
   description: Your Transmission password, if you use authentication.
   required: false
   type: string
+turtle_mode:
+  description; If enabled, it create a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
+  required: false
+  type: boolean
 monitored_variables:
   description: Conditions to display in the frontend. Every one of them will act as sensor.
   required: false
@@ -78,10 +82,10 @@ monitored_variables:
       description: The current number of paused torrents.
     total_torrents:
       description: The total number of torrents present in the client.
-	started_torrents:
-	  description: The current number of started torrents (downloading).
-	completed_torrents:
-	  description: The current number of completed torrents (seeding)
+    started_torrents:
+      description: The current number of started torrents (downloading).
+    completed_torrents:
+      description: The current number of completed torrents (seeding)
 {% endconfiguration %}
 
 ## {% linkable_title Event Automation %}
