@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Mochad"
-description: "Instructions on how to integrate Mochad into Home Assistant."
+title: "mochad"
+description: "Instructions on how to integrate mochad into Home Assistant."
 date: 2016-10-20 17:09
 sidebar: true
 comments: false
@@ -11,9 +11,7 @@ ha_category: Hub
 ha_release: 0.32
 ---
 
-The `mochad` component is the main component to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this component you will have to setup your X10 devices separately. From 0.85 version, home-assistant added support for X10 sensors. X10 messages are
-received by mochad service and published to mqtt topics. Autmations can be created using events in mqtt componnet of home-assistant. You will have to have a properly configured mqtt broker. mochad component 
-requires a working mqtt broker configuration in order to receive and publish events from X10 sensors.
+The `mochad` component integrates all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this component, you will have to set up your X10 devices separately. From 0.85 version, Home Assistant has added support for X10 sensors. X10 messages are received by the mochad service and published to MQTT topics. Automations can be created using events in the MQTT component of Home Assistant. You need to have a properly configured MQTT broker to receive and publish events from X10 sensors.
 
 ## {% linkable_title Configuration %}
 
@@ -47,10 +45,12 @@ mochad:
   host: localhost
   port: 1099
 ```
+
 ## {% linkable_title Events %}
 
 There are a number of events that can be triggered from mochad X10 sensors. Starting with simple
 motion detectors and window/door sensors, to remote controls and buttons. Run home-assisstant in a debug mode or without a confugured mqtt broker. All events received by mochad controller will be logged. For example:
+
 ```
 2018-11-29 21:23:44 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/button/F8 : on to mqtt
 2018-11-29 21:23:44 DEBUG (Thread-25) [pymochad_mqtt.controller] Publish X10/button/B8 : off to mqtt
@@ -96,4 +96,3 @@ automation:
         entity_id: input_number.event_counter
         value: '{{ (states.input_number.event_counter.state | int) + 1 }}'
 ```
-
