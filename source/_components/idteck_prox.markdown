@@ -10,7 +10,7 @@ footer: true
 logo: idteck.jpg 
 ha_category: Other
 featured: false
-ha_release: 0.01
+ha_release: 0.85
 ha_iot_class: "Local Push"
 ---
 
@@ -28,12 +28,12 @@ idteck_prox:
     name: "Lower Door"
   - host: host2.domain.com
     port: 4001
-    name "Upper Door"
+    name: "Upper Door"
 ```
 
 {% configuration %}
 host:
-  description: The host name or IP address of the ethernet to serial adapter that is connected to the proximity reader.  It is assumed that the adapter has been preconfigured.
+  description: The hostname or IP address of the ethernet to serial adapter that is connected to the proximity reader.  It is assumed that the adapter has been preconfigured.
   required: true
   type: string
 port:
