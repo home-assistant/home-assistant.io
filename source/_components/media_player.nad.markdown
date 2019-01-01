@@ -27,8 +27,11 @@ media_player:
 {% configuration %}
 serial_port:
   description: The serial port.
-  required: true
-  default: "/dev/ttyUSB0"
+  required: false
+  type: string
+host:
+  description: The IP address of your amplifier.
+  required: false
   type: string
 name:
   description: Name of the device.
@@ -50,6 +53,8 @@ sources:
   required: false
   type: [list, string]
 {% endconfiguration %}
+
+Either serial_port or host must be provided. If serial_port is provided RS-232 connection is established. If host is provided Telnet communication is established.
 
 The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.
 
