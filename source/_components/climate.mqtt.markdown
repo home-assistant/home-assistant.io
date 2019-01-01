@@ -19,13 +19,14 @@ The platform currently works in optimistic mode, which means it does not obtain 
 
 It uses a sensor under the hood to obtain the current temperature.
 
+## {% linkable_title Configuration %}
+
+To enable this camera in your installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 climate:
   - platform: mqtt
-    name: Study
-    current_temperature_topic: sensors/hvac_study/current_temp
-    temperature_command_topic: sensors/hvac_study/target_temp
 ```
 
 {% configuration %}
@@ -34,6 +35,10 @@ name:
   required: false
   type: string
   default: MQTT HVAC
+unique_id:
+   description: An ID that uniquely identifies this HVAC device. If two HVAC devices have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -194,18 +199,47 @@ aux_state_template:
   required: false
   type: template
 min_temp:
-  description: Minimum set point available
+  description: Minimum set point available.
   type: number
   required: false
 max_temp:
-  description: Maximum set point available
+  description: Maximum set point available.
   type: number
   required: false
 temp_step:
-  description: Step size for temperature set point
+  description: Step size for temperature set point.
   type: number
   required: false
   default: 1
+device:
+  description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 #### {% linkable_title Optimistic mode %}

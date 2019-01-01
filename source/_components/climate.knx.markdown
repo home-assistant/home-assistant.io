@@ -61,7 +61,6 @@ The following values are valid for the `operation_modes` attribute:
 - Fan only
 - Dry
 
-
 {% configuration %}
 name:
   description: A name for this device used within Home Assistant.

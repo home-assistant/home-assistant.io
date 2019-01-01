@@ -70,6 +70,9 @@ Field | Description
 ----- | -----------
 `service_call_id` | String with the unique call id of the service call that was executed. Example: `23123-4`.
 
+<p class='note warning'>
+  Starting with 0.84, it is no longer possible to listen for event `service_executed`.
+</p>
 
 ### {% linkable_title Event `platform_discovered` %}
 Event `platform_discovered` is fired when a new platform has been discovered by the [`discovery`](/components/discovery/) component.

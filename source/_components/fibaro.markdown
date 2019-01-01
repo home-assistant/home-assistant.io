@@ -17,11 +17,11 @@ redirect_from:
 
 The [Fibaro](http://fibaro.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Binary sensors, Covers, Lights (including Dimmers), Sensors, Scenes and Switches are supported - and will be automatically added when HA connects to your Fibaro controller.
+Binary sensors, switches, lights (including Dimmers), locks, sensors, binary sensors and covers are supported and will be automatically added when Home Assistant connects to your Fibaro controller.
 
 ## {% linkable_title Configuration %}
 
-To use Fibaro devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Fibaro controller:
+To use Fibaro devices in your installation, add the following to your `configuration.yaml` file using the IP and port number of your Fibaro controller:
 
 ```yaml
 fibaro:
@@ -44,13 +44,14 @@ password:
   required: true
   type: string
 plugins:
-  description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc. Default is false.
+  description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc.
   required: false
   type: bool
+  default: false
 {% endconfiguration %}
 
 <p class='note'>
-  It is recommended to assign a static IP address to your Fibaro Controller. This ensures that it won't change IP addresses, so you won't have to change the 'url' if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
+  It is recommended to assign a static IP address to your Fibaro controller. This ensures that it won't change its IP address, so you won't have to change the `url` if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
 </p>
 
 ### {% linkable_title Using Z-Wave devices in automation %}

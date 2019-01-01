@@ -142,8 +142,8 @@ Purging does not necessarily remove all entries before a given date. For example
 | SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
 | MariaDB         | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                 |
 | MariaDB         | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
-| MySQL           | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`         |
-| MySQL           | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
+| MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`         |
+| MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
 | PostgreSQL      | `postgresql://user:password@SERVER_IP/DB_NAME`             |
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |

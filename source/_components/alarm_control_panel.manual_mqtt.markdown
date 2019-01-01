@@ -12,7 +12,7 @@ ha_category: Alarm
 ha_release: "0.50"
 ---
 
-This platform extends the [manual alarm](/components/alarm_control_panel.manual/) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
+The `mqtt` platform extends the [manual alarm](/components/alarm_control_panel.manual/) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
 
 It's essentially the opposite of the [MQTT Alarm Panel](/components/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
@@ -91,15 +91,15 @@ armed_home/armed_away/armed_night/disarmed/triggered:
   type: list
   keys:
     delay_time:
-      description: State specific setting for **delay_time** (all states except **triggered**)
+      description: State specific setting for **delay_time** (all states except **triggered**).
       required: false
       type: integer
     pending_time:
-      description: State specific setting for **pending_time** (all states except **disarmed**)
+      description: State specific setting for **pending_time** (all states except **disarmed**).
       required: false
       type: integer
     trigger_time:
-      description: State specific setting for **trigger_time** (all states except **triggered**)
+      description: State specific setting for **trigger_time** (all states except **triggered**).
       required: false
       type: integer
 {% endconfiguration %}
@@ -110,11 +110,11 @@ Additionally, the following MQTT configuration variables are also available.
 
 {% configuration %}
 state_topic:
-  description: The MQTT topic HA will publish state updates to.
+  description: The MQTT topic Home Assistant will publish state updates to.
   required: true
   type: string
 command_topic:
-  description: The MQTT topic HA will subscribe to, to receive commands from a remote device to change the alarm state.
+  description: The MQTT topic Home Assistant will subscribe to, to receive commands from a remote device to change the alarm state.
   required: true
   type: string
 qos:
@@ -148,9 +148,9 @@ payload_arm_night:
 
 In the configuration example below:
 
-- The disarmed state never triggers the alarm;
-- The armed_home state will leave no time to leave the building or disarm the alarm;
-- While other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back;
+- The disarmed state never triggers the alarm
+- The armed_home state will leave no time to leave the building or disarm the alarm
+- While other states state will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back
 - Setting pending_time to 0 for triggered state allows the alarm to trigger after previous state's delay time only. If not set, the alarm will be pending for previous state's delay_time plus the default pending_time before triggering.
 
 ```yaml
