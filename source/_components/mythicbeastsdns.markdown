@@ -8,8 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Network
-featured: false
-ha_release: 0.82
+ha_release: 0.85
 ---
 
 With the `mythicbeastsdns` component you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).
@@ -32,7 +31,7 @@ mythicbeastsdns:
     required: true
     type: string
   domain:
-    description: Your TLD (example.com).
+    description: Your domain, e.g., `example.com`.
     required: true
     type: string
   password:
