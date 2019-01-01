@@ -9,13 +9,14 @@ sharing: true
 footer: true
 logo: ledworks.png
 ha_category: Light
-ha_release: "0.85"
+ha_release: 0.85
 ha_iot_class: "Local Push"
 ---
 
 The `twinkly` component allows you to integrate LEDWORKS [Twinkly](https://www.twinkly.com/) devices into Home Assistant.
 
 ### {% linkable_title Initial setup %}
+
 <p class='note'>
 Before trying to control your light through Home Assistant, you have to setup your lights using Twinkly app. ( [Android](https://play.google.com/store/apps/details?id=com.twinkly), [IOS](https://itunes.apple.com/us/app/twinkly/id1132187056?mt=8) ).
 Configure lights to connect to your Wi-Fi network.
@@ -27,7 +28,7 @@ Twinkly devices will be automatically discovered if you enable [the discovery co
 
 ### {% linkable_title Example configuration %}
 
-If you don't have discovery component enabled add the following lines to your
+If you don't have discovery component enabled, add the following lines to your
 `configuration.yaml` file:
 
 ```yaml
@@ -60,6 +61,7 @@ devices:
           required: true
           type: map
 {% endconfiguration %}
+
 #### {% linkable_title Supported Devices %}
 
 - LEDWORKS Twinkly Strings
