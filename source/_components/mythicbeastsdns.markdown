@@ -20,9 +20,9 @@ To use the component in your installation, add the following to your `configurat
 ```yaml
 # Example configuration.yaml entry
 mythicbeastsdns:
-  host: hostname
-  domain: your.domain
-  password: APIKEYFORMYTHICBEASTS
+  host: YOUR_HOST
+  domain: YOUR_DOMAIN
+  password: YOUR_API_KEY
 ```
 
 {% configuration %}
