@@ -33,6 +33,8 @@ We have a new more reliable way of state restoration introduced by [@armills]. I
 
 This comes with a downside: we will be unable to restore states the first time you start 0.84.
 
+*This includes restoring the state of your automations.* All your automations that don't have the `initial_state` defined will be turned off when you upgrade.
+
 ## {% linkable_title Improved service calling %}
 
 We have improved how we call services with better validation checks. This means that if you have an automation or a script that sends invalid data, we will now stop the execution and be better able to point out where your incorrect calls are coming from.
