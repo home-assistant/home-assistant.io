@@ -65,6 +65,10 @@ command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
   type: string
+brightness_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `brightness_command_topic`. Available variables: `brightness`."
+  required: false
+  type: string
 brightness_command_topic:
   description: The MQTT topic to publish commands to change the light’s brightness.
   required: false
