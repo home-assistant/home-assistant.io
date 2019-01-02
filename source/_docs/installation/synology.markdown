@@ -104,7 +104,7 @@ After the compilation is done, you can find the Python 3 package at "*~/spksrc/p
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different arch and version.
 
 #### {% linkable_title Extracting cross compiled packages %}
-Now you need to extract the cross compiled module packages which you added earlier to "*requirements.txt*".
+Now you need to extract the cross compiled module `.whl` packages which you added earlier to "*requirements.txt*".
 Run these commands to extract the `.whl` files to a directory named "**Module-Packages**", please replace "python3_**XXXX**.spk" with the appropriate package filename:
 ```bash
 $ mkdir ~/Module-Packages
@@ -112,12 +112,13 @@ $ cd ~/Module-Packages
 $ tar -x -f ~/spksrc/packages/python3_XXXX.spk -C /tmp package.tgz; gzip -df /tmp/package.tgz
 $ for file in cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl curve25519_donna-1.3-cp35-none-any.whl ed25519-1.4-cp35-none-any.whl; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
 ```
-Inside some of the .whl archives you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is required for ARM based Synology's.
+Inside some of the `.whl` archives you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is required for ARM based Synology's.
+Run this command to patch `.whl` files found in the current directory:
 ```bash
 $ rand=$RANDOM; for module in *.whl; do unzip "$module" -d "temp$rand" && find "temp$rand" -name "*x86_64-linux-gnu*" -type f | while read -r file; do mv "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done && rm "$module" && (cd "temp$rand" && zip -r0 "../$module" ./) && rm -r "temp$rand"; done
 ```
 <p class="note">
-If you added any modules to "*requirements.txt*", you can find the modules `.whl` packages at "**~/spksrc/packages/python3_XXXX.spk*" > "*package.tgz*" > "*share/wheelhouse/XXXX.whl*".d
+If you added any modules to "*requirements.txt*", you can find the module `.whl` package files using a archive program in "**~/spksrc/packages/python3_XXXX.spk*" > "*package.tgz*" > "*share/wheelhouse/XXXX.whl*".d
 </p>
 
 ## {% linkable_title Using the Synology webadmin %}
