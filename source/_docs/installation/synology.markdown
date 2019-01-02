@@ -101,7 +101,7 @@ $ make arch-XXXX
 $ exit
 ```
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
-It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different arch and version.
+It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
 #### {% linkable_title Extracting cross compiled packages %}
 Now you need to extract the cross compiled module `.whl` packages which you added earlier to "*requirements.txt*".
