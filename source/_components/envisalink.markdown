@@ -41,6 +41,7 @@ envisalink:
   evl_version: 3
   keepalive_interval: 60
   zonedump_interval: 30
+  timeout: 10
   panic_type: Police
   zones:
     11:
@@ -72,8 +73,8 @@ password:
   required: true
   type: string
 code:
-  description: Your alarm panel's code, for authenticating user input during arm/disarm.
-  required: true
+  description: Your alarm panel's code, for authenticating user input during arm/disarm.  If you do not provide this value, the component will prompt the user to enter the code at runtime.
+  required: false
   type: string
 port:
   description: Which network port to connect with.
@@ -94,6 +95,11 @@ zonedump_interval:
   description: This is an interval (measured in seconds) where Envisalink will dump out all zone statuses. This is required for Honeywell systems, which do not properly send zone closure events. DSC boards do not technically need this.
   required: false
   default: 30
+  type: integer
+timeout:
+  description: A network connectivity timeout when communicating with the envisalink. If connection is not obtained by this time (in seconds) the component will stop trying to connect.
+  required: false
+  default: 10
   type: integer
 panic_type:
   description: "Both DSC and Honeywell boards support a panic alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance."
@@ -134,3 +140,4 @@ The following services are supported by Envisalink and can be used to script or 
 - **alarm_arm_away**: Arms the alarm in standard away mode.
 - **alarm_trigger**: Trigger an alarm on the Envisalink connected alarm system. For example, a newer zwave/zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 - **envisalink_alarm_keypress**: Sends a string of up to 6 characters to the alarm. *DSC alarms only*
+- **invoke_custom_function**: Invokes a custom PGM function. *DSC alarms only*
