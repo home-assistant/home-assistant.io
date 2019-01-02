@@ -86,7 +86,7 @@ device_class:
   required: false
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Available variables: `entity_id`."
   required: false
   type: string
 force_update:
@@ -163,13 +163,24 @@ binary_sensor:
 ```
 {% endraw %}
 
+### {% linkable_title Toggle the binary sensor each time a message is received on state_topic %}
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: mqtt
+    state_topic: "lab_button/cmnd/POWER"
+    value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
+```
+{% endraw %}
+
 ### {% linkable_title Get the state of a device with ESPEasy %}
 
 Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example, the topics are prefixed with "home". Also, add a "Switch Input" in the "Devices" tap with the name "switch" and "button" as value.
 
 As soon as the unit is online, you will get the state of the attached button.
 
-```bash
+```
 home/bathroom/status Connected
 ...
 home/bathroom/switch/button 1
@@ -186,4 +197,3 @@ binary_sensor:
     payload_on: "1"
     payload_off: "0"
 ```
-
