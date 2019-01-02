@@ -34,7 +34,7 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 * Create "homeassistant" [Shared-Folder](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/file_share_desc)
 * Optionally start Home Assistant on bootup of your Synology
 
-## {% linkable_title Installing prerequisites) %}
+## {% linkable_title Getting prerequisites) %}
 
 #### {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
 
