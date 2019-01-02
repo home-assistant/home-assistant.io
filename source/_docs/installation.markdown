@@ -27,7 +27,7 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />
     </div>
-    <div class='title'>Hass.io on HassOS<br>(Beginner friendly)</div>
+    <div class='title'>Hass.io<br>(Beginner friendly)</div>
   </a>
   <a class='option-card' href='/hassio/installation/#alternative-install-on-generic-linux-server'>
     <div class='img-container'>
