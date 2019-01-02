@@ -304,9 +304,7 @@ $ /volume1/homeassistant/hass-daemon restart
 ```
 * Upgrade Home Assistant:
 ```bash
-$ source /volume1/homeassistant/venv-hass/bin/activate
-$ pip3 install --upgrade homeassistant
-$ deactivate
+$ /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
 If you need a to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory, redo the steps from "[*Preparing compiling environment*](#Preparing compiling environment)", add the failed python modules to "*requirements.txt*" file, compile, extract and install the new cross compiled module `.whl` package files to your Synology.
