@@ -180,7 +180,7 @@ $ ssh user@x.x.x.x
 Install the cross compiled module `.whl` package files we compiled earlier.
 This command expects you have copied the "*Module-Packages*" directory to your "*homeassistant*" Shared-Folder.
 ```bash
-$ pip3 install /volume1/homeassistant/Module-Packages/*.whl
+$ /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
 ```
 Install Home Assistant:
 ```bash
