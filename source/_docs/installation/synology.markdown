@@ -182,8 +182,8 @@ $ ssh user@x.x.x.x
 Install the cross compiled module `.whl` package files we compiled earlier and Home Assistant.
 This command expects you have copied the "*Module-Packages*" directory to your "*homeassistant*" Shared-Folder.
 ```bash
-$ /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
-$ /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
+# sudo /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
+# sudo /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
 ```
 Create a file named "hass-daemon" in the "homeassistant" Shared-Folder with the script below as its content.
 You can use it to easily start, stop and restart Home Assistant like a service/daemon.
