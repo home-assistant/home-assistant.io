@@ -54,7 +54,7 @@ sources:
   type: [list, string]
 {% endconfiguration %}
 
-Either serial_port or host must be provided. If serial_port is provided RS-232 connection is established. If host is provided Telnet communication is established.
+Either `serial_port` or `host` must be provided. If a `serial_port` is provided, an RS-232 connection is established. If a `host` is provided, Telnet communication is established.
 
 The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.
 
