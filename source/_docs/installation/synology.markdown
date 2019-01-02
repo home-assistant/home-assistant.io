@@ -65,7 +65,7 @@ $ git clone https://github.com/SynoCommunity/spksrc.git
 
 Now you need to edit 2 files.
 Doing this will cross compile python modules, which are needed for Home Assistant to able to install.
-These edits also enable you to use the "[Cloud](/components/cloud/)" component and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
+These edits also enable you to use the "[Cloud](/components/cloud/)", [Homekit](/components/homekit/) component and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
 
 
 Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file this text:
