@@ -196,7 +196,9 @@ DNAME="Home Assistant"
 
 # Others
 USER="homeassistant"
-PYTHON="/volume1/@appstore/py3k/usr/local/bin/python3"
+PYTHON_DIR="/volume1/@appstore/python3/bin"
+PYTHON="$PYTHON_DIR/python3"
+HASS="$PYTHON_DIR/hass"
 INSTALL_DIR="/volume1/homeassistant"
 PID_FILE="$INSTALL_DIR/home-assistant.pid"
 FLAGS="-v --config $INSTALL_DIR --pid-file $PID_FILE --daemon"
