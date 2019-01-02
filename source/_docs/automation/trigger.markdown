@@ -44,6 +44,29 @@ automation:
     event: start
 ```
 
+### {% linkable_title Interval trigger %}
+
+With the interval trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number.
+
+```yaml
+automation:
+  trigger:
+    platform: interval
+    # Matches every hour at 5 minutes past whole
+    minutes: 5
+    seconds: 00
+
+automation 3:
+  trigger:
+    platform: interval
+    # You can also match on interval. This will match every 5 minutes
+    minutes: '/5'
+    seconds: 00
+```
+<p class='note warning'>
+  Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute.
+</p>
+
 ### {% linkable_title MQTT trigger %}
 
 Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
@@ -165,33 +188,15 @@ Rendering templates with time (`now()`) is dangerous as trigger templates only u
 
 ### {% linkable_title Time trigger %}
 
-Time can be triggered in many ways. The most common is to specify `at` and trigger at a specific point in time each day. Alternatively, you can also match if the hour, minute or second of the current time has a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You cannot use `at` together with hour, minute or second.
+The time trigger is configured to run once at a specific point in time each day.
 
 ```yaml
 automation:
   trigger:
     platform: time
-    # Matches every hour at 5 minutes past whole
-    minutes: 5
-    seconds: 00
-
-automation 2:
-  trigger:
-    platform: time
-    # When 'at' is used, you cannot also match on hour, minute, seconds.
-    # Military time format.
+    # Military time format. This trigger will fire at 3:32 PM
     at: '15:32:00'
-
-automation 3:
-  trigger:
-    platform: time
-    # You can also match on interval. This will match every 5 minutes
-    minutes: '/5'
-    seconds: 00
 ```
-<p class='note warning'>
-  Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute.
-</p>
 
 ### {% linkable_title Webhook trigger %}
 
