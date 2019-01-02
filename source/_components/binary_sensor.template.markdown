@@ -115,7 +115,7 @@ determine if the furnace is running by checking that it is over some threshold:
 
 {% raw %}
 ```yaml
-sensor:
+binary_sensor:
   - platform: template
     sensors:
       furnace_on:
