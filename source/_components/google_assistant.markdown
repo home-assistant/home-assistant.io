@@ -64,7 +64,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Add/Import a project and give it a name.
     2. Click on the `Home Control` card, select the `Smart home` recommendation.
-    3. Create an Action, under the build section. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    3. Click `Build your Action`, select `Add Action(s)`, and click `Add your first action`. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
     4. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
     1. Leave it at the default `No, I only want to allow account creation on my website` and select Next.
@@ -73,7 +73,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     4. Client Secret: Anything you like, Home Assistant doesn't need this field.
     5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
     6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
-    7. Configure your client. Add scopes for `email` and `name`.
+    7. Configure your client: Type `email` and click `Add scope`, then type `name` and click `Add scope` again.
     8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 
