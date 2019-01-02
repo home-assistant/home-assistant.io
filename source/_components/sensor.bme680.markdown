@@ -111,6 +111,11 @@ aq_humidity_bias:
   required: false
   default: 25
   type: integer
+temp_offset:
+  description: "The temperature for the sensor will always be too high as it pulls heat from the components around it.  Consider adding a negative offset to ensure the sensor returns an accurate temperature. Note: This value is in celsius."
+  required: false
+  default: 0
+  type: float
 {% endconfiguration %}
 
 ## {% linkable_title Full Examples %}
@@ -139,6 +144,7 @@ sensor:
     aq_burn_in_time: 300
     aq_humidity_baseline: 40
     aq_humidity_bias: 25
+    temp_offset: -5.5
 ```
 
 ## {% linkable_title Customizing the sensor data %}
