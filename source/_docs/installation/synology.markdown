@@ -175,7 +175,7 @@ In the case you turned on the firewall on your Synology device, please config it
 
 ## {% linkable_title Installing Home Assistant %}
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
-Replace "*user*" with your Synology user and "x.x.x.x" with the its IP adress:
+Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
 ```bash
 $ ssh user@x.x.x.x
 ```
