@@ -38,51 +38,26 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 * Create "homeassistant" [Shared-Folder](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/file_share_desc)
 * Optionally start Home Assistant on bootup of your Synology
 
-
-As you might have read in the note above, at this time of writing, Synology has not provided a recent [Python 3](https://www.synology.com/nl-nl/dsm/packages/py3k) package, so we have to create a recent Python 3 package ourself.
-Do not worry though, were gonna try keep this as painless as possible.
-
-Small summary: In this guide you will install [Docker](https://opensource.com/resources/what-docker) and run the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment. You will be using that to compile the new Python 3 package. Through the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM/help), you will install the package, configure settings and enable SSH, which you need to install Home Assistant on your Synology. Lastly you can autostart Home Assistant.
-
 ## {% linkable_title Installing prerequisites) %}
 
 #### {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
 
-Refresh package lists:
+Install Docker
 ```bash
 # sudo apt-get update
+# sudo apt install docker.io
 ```
-Install prerequisite packages which lets APT get packages over HTTPS:
+Start Docker and enable start on system boot
 ```bash
-# sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+# sudo systemctl start docker
+# sudo systemctl enable docker
 ```
-Add GPG key for the official Docker repository to your system:
+Download the spksrc Docker container:
 ```bash
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# sudo docker pull synocommunity/spksrc
 ```
-<p class="note">
-The "lsb_release -cs" sub-command below returns the name of your Ubuntu distribution, such as xenial.
-Sometimes, in a distribution like Linux Mint, you might need to change "*lsb_release -cs*" to your parent Ubuntu distribution.
-For example, if you are using Linux Mint **Tara** (e.g., 19), you could use **Bionic** (e.g., 18.04).
-</p>
 
-```bash
-# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-```
-Refresh package lists for newly added Docker repository:
-```bash
-# sudo apt-get update
-```
-Install Docker:
-```bash
-# sudo apt-get install docker-ce
-```
-To enable your user account to manage Docker without superuser privileges, add your user account to the "docker" group:
-```bash
-# sudo gpasswd -a YOUR_USER_ACCOUNT docker
-```
 #### {% linkable_title Preparing compiling environment %}
-
 You will now need to get the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment.
 
 Install Git
@@ -93,13 +68,9 @@ Fork and clone spksrc, this will make a directory named "spksrc".
 ```bash
 $ git clone https://github.com/SynoCommunity/spksrc.git
 ```
-Download the spksrc Docker container:
-```bash
-$ docker pull synocommunity/spksrc
-```
 
 Now you need to edit 2 files.
-You need to do this to get "cross compiled module package" files, which you require for Home Assistant to able to be installed.
+Doing this will cross compile python modules, which are needed for Home Assistant to able to install.
 These edits also enable you to use the "[Cloud](/components/cloud/)" component and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
 
 
@@ -117,11 +88,10 @@ cryptography==2.3.1
 ## Cross compilation requirement for installing "Warrent" module (Needed by "Cloud" Component)
 pycryptodome==3.7.2
 
-## A example when using "Homekit" component and needing cross compilation requirements for "HAP_python" module
-#curve25519-donna==1.3
-#ed25519==1.4
+## Cross compilation requirement for installing "HAP_python" module (Needed by "Homekit" Component)
+curve25519-donna==1.3
+ed25519==1.4
 ```
-
 Edit "*~/spksrc/spk/python3/Makefile*", above the line that says "**include ../../mk/spksrc.spk.mk**" add this text:
 ```makefile
 # Needed to fix "_openssl.so: undefined symbol: pthread_atfork" error caused by lack of libpthread linkage on Synology (Needed for SSL and "xiaomi_aqara" component)
@@ -131,7 +101,7 @@ export CFLAGS=-pthread
 #### {% linkable_title Compiling the Python 3 package %}
 Run the container, this will make your terminal run inside the Docker container:
 ```bash
-$ docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
+# sudo docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
 $ make setup
 $ cd spk/python3
 ```
@@ -146,40 +116,21 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 #### {% linkable_title Extracting cross compiled packages %}
 
 Now you need to extract your "cross compiled module package" files which you added earlier to "*requirements.txt*".
-Run these commands to extract the .whl files, please replace "python3_**XXXX**.spk" by the appropriate package filename:
-
+Run these commands to extract the `.whl` files to a directory named "**Module-Packages**", please replace "python3_**XXXX**.spk" with the appropriate package filename:
 ```bash
-$ pyspk=python3_XXXX.spk
+$ pyspk="$HOME/spksrc/packages/python3_XXXX.spk"
 $ pyreq="cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl"
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
-$ tar -x -f ~/spksrc/packages/$pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
+$ tar -x -f $pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
 $ for file in $pyreq; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
+$ rand=$RANDOM; for module in *.whl; do unzip "$module" -d "temp$rand" && find "temp$rand" -name "*x86_64-linux-gnu*" -type f | while read -r file; do mv "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done && rm "$module" && (cd "temp$rand" && zip -r0 "../$module" ./) && rm -r "temp$rand"; done
 ```
 <p class="note">
-If you added any other modules to "*requirements.txt*", you can modify the "*pyreq*" command and add those modules filenames.
-You can find the modules inside "*python3_XXXX.spk*" > "*package.tgz*" > "*share/wheelhouse/XXXX.whl*".
-</p>
-
-This should give you a directory named "**Module-Packages**" with four .whl files, which you need to install later.
-Inside some of the .whl archives you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**".
-If you do not, these will be ignored by Python 3 on ARM based Synology's, causing Home Assistant to not function.
-
-For ease of use this guide will use p7zip for renaming the files in the archive.
-```bash
-# sudo apt-get install p7zip
-```
-Run this command to rename all files containing "x86_64-linux-gnu" to "arm-linux-gnueabihf" inside all `.whl` files found in the current directory:
-```bash
-$ for archive in *.whl; do 7z l "$archive" | grep "x86_64-linux-gnu" | cut -c54- | while read -r file; do 7z rn "$archive" "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done; done
-```
-<p class="note">
-The 7z **rn** (e.g., rename) parameter was included from 7-Zip 9.30, in the case your distribution only has a older version available, do as follows.
-Extract the .whl (these are zip archives), rename all files as described above, then rearchive as zip (use the same full name with `.whl` as extension and not `.zip`).
+If you added any other modules to "*requirements.txt*", you can find the modules inside "**~/spksrc/packages/python3_XXXX.spk*" > "*package.tgz*" > "*share/wheelhouse/XXXX.whl*".
 </p>
 
 ## {% linkable_title Using the Synology webadmin %}
-
 
 Install the Python 3 package as follows:
 * Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
@@ -240,7 +191,7 @@ Replace "*user*" with your Synology user and "x.x.x.x" with the its IP adress:
 ```bash
 $ ssh user@x.x.x.x
 ```
-Create a virtual Python environment where we will install Home Assistant into.
+Create a virtual Python environment where you will install Home Assistant into.
 This will leave the Python package untouched and make Home Assistant installable/updateable without superuser:
 ```bash
 $ /volume1/@appstore/python3/bin/python3 -m venv /volume1/homeassistant/venv-hass
