@@ -29,12 +29,6 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     </div>
     <div class='title'>Hass.io<br>(Beginner friendly)</div>
   </a>
-  <a class='option-card' href='/hassio/installation/#alternative-install-on-generic-linux-server'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
-    </div>
-    <div class='title'>Hass.io <br> on generic Linux host</div>
-  </a>
   <a class='option-card' href='/docs/hassbian/installation/'>
     <div class='img-container'>
       <img src='/images/supported_brands/home-assistant.png' />
@@ -54,6 +48,12 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
 The following installs are only recommended for experienced users of those platforms.
 
 <div class="text-center hass-option-cards" markdown="0">
+  <a class='option-card' href='/hassio/installation/#alternative-install-on-generic-linux-server'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/home-assistant.png' />
+    </div>
+    <div class='title'>Hass.io <br> on generic Linux server</div>
+  </a>
   <a class='option-card' href='/docs/installation/raspberry-pi/'>
     <div class='img-container'>
       <img src='/images/supported_brands/raspberry-pi.png' />
