@@ -29,8 +29,6 @@ To enable Energy Sensor in your installation, add the following to your `configu
 sensor:
   - platform: energy 
     source: sensor.current_power
-    name: "energy consumed"
-    round: 2
 ```
 
 {% configuration %}
@@ -41,9 +39,11 @@ source:
 name:
   description: Name to use in the frontend.
   required: false
+  default: "source entity ID" meter
   type: string
 round:
   description: Round the calculated energy value to at most N decimal places.
   required: false
+  default: 3
   type: integer
 {% endconfiguration %}
