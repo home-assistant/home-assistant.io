@@ -24,19 +24,16 @@ Enable the sensor by adding the following to your `configuration.yaml` file:
 ebusd:
   host: 127.0.0.1
   circuit: '700'
-  monitored_conditions:
-    - 'MaxFlowTemperatureDesired'
-    - 'WaterPressure'
-    - 'PumpStatus'
+
 ```
 
 {% configuration %}
 host:
-  description: This is the IP address of your ebus daemon, eg. 127.0.0.1.
+  description: This is the IP address of your ebus daemon, e.g., `127.0.0.1`.
   required: true
   type: string
 circuit: 
-  description: The heating circuit name to monitor, eg. 700.
+  description: The heating circuit name to monitor, e.g., 700.
   required: true
   type: string
 port:
