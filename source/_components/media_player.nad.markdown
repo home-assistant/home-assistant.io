@@ -27,7 +27,7 @@ media_player:
 {% configuration %}
 serial_port:
   description: The serial port.
-  required: false
+  required: exclusive
   type: string
 host:
   description: The IP address of your amplifier.
