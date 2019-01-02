@@ -86,7 +86,7 @@ device_class:
   required: false
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Available variables: `entity_id`.
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Available variables: `entity_id`."
   required: false
   type: string
 force_update:
