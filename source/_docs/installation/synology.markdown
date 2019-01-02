@@ -107,12 +107,13 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 Now you need to extract the cross compiled module packages which you added earlier to "*requirements.txt*".
 Run these commands to extract the `.whl` files to a directory named "**Module-Packages**", please replace "python3_**XXXX**.spk" with the appropriate package filename:
 ```bash
-$ pyspk="$HOME/spksrc/packages/python3_XXXX.spk"
-$ pyreq="cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl"
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
-$ tar -x -f $pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
-$ for file in $pyreq; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
+$ tar -x -f ~/spksrc/packages/python3_XXXX.spk -C /tmp package.tgz; gzip -df /tmp/package.tgz
+$ for file in cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl curve25519_donna-1.3-cp35-none-any.whl ed25519-1.4-cp35-none-any.whl; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
+```
+Inside some of the .whl archives you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is required for ARM based Synology's.
+```bash
 $ rand=$RANDOM; for module in *.whl; do unzip "$module" -d "temp$rand" && find "temp$rand" -name "*x86_64-linux-gnu*" -type f | while read -r file; do mv "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done && rm "$module" && (cd "temp$rand" && zip -r0 "../$module" ./) && rm -r "temp$rand"; done
 ```
 <p class="note">
@@ -307,7 +308,7 @@ $ /volume1/homeassistant/hass-daemon restart
 $ /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
-If you need a to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory, redo the steps from "[*Preparing compiling environment*](#Preparing compiling environment)", add the failed python modules to "*requirements.txt*" file, compile, extract and install the new cross compiled module `.whl` package files to your Synology.
+If you need to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory, redo the steps from "[*Preparing compiling environment*](#Preparing compiling environment)", add the failed python modules to "*requirements.txt*" file, extract and install the new cross compiled module `.whl` package files to your Synology.
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
