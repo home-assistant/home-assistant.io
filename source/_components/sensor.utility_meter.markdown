@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Utility Meter Sensor"
-description: "Instructions on how to integrate Utility Meter Sensor into Home Assistant."
+description: "Instructions on how to integrate the Utility Meter Sensor into Home Assistant."
 date: 2019-01-02
 sidebar: true
 comments: false
@@ -14,11 +14,11 @@ logo: energy_meter.png
 ha_qa_scale: internal
 ---
 
-An `utility meter` sensor provides functionality to track consumptions of various utilities (e.g. energy, gas, water, heating). 
+A `utility meter` sensor provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating). 
 
-From an user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g. "did I spend more or less this month?") or billing estimation (e.g. through a sensor template that multiplies the metered value per the charged unit amount).
+From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
-Services to reset and start/pause the meter support complex scenarios such as peak energy tariffs in which during the operation cycle the meter might need to be paused for some time. In these complex scenarios you might need more then one utility meter (e.g. an utility meter for peak hours and a different one for off peak hours).
+Services to reset and start/pause the meter support complex scenarios such as peak energy tariffs in which during the operation cycle the meter might need to be paused for some time. In these complex scenarios, you might need more than one utility meter (e.g. a utility meter for peak hours and a different one for off-peak hours).
 
 ## {% linkable_title Configuration %}
 
@@ -47,7 +47,7 @@ cycle:
   required: true
   type: string
 offset:
-  description: Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, monday, day 1, January). This option enables the offsetting of these beginnigs.
+  description: Cycle reset occurs at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings.
   required: false
   default: 0
   type: integer
@@ -70,9 +70,8 @@ Reset the Utility Meter.
 
 ### {% linkable_title Service `utility_meter_start_pause` %}
 
-This service will toggle the utility meter (collecting vs paused).
+This service will toggle the utility meter (collecting vs. paused).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_ids` | no | list of entity_ids of utility_meter's to start/pause 
-
