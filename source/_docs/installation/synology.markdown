@@ -11,11 +11,7 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provide [Python 3.5.1](https://www.synology.com/nl-nl/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. You can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python 3 -m pip install homeassistant==0.64.3`
-</p>
-
-<p class="note">
-Update: You can install a more recent Home Assistant (e.g, 0.84.2) by manually compiling a Python 3 package using the [spksrc compilation framework](https://github.com/SynoCommunity/spksrc). The new installation guide will be a little different though, but the upside is most failing components will now work, such as "[Discovery](/components/discovery/)", "[Cloud](/components/cloud/)" and "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)". Thread for more info: [Python >=3.5.3 on Synology](https://community.home-assistant.io/t/python-3-5-3-on-synology/46372).
+Synology only provides [Python 3.5.1](https://www.synology.com/nl-nl/dsm/packages/py3k), which is not which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed on their Python version. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python 3 -m pip install homeassistant==0.64.3`
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -52,14 +48,11 @@ Start Docker and enable start on system boot
 # sudo systemctl start docker
 # sudo systemctl enable docker
 ```
-Download the spksrc Docker container:
+Download the [spksrc Docker container](https://github.com/SynoCommunity/spksrc#docker):
 ```bash
 # sudo docker pull synocommunity/spksrc
 ```
-
 #### {% linkable_title Preparing compiling environment %}
-You will now need to get the [spksrc framework and Docker container](https://github.com/SynoCommunity/spksrc#docker) for the compiling environment.
-
 Install Git
 ```bash
 # sudo apt-get install git
@@ -97,7 +90,6 @@ Edit "*~/spksrc/spk/python3/Makefile*", above the line that says "**include ../.
 # Needed to fix "_openssl.so: undefined symbol: pthread_atfork" error caused by lack of libpthread linkage on Synology (Needed for SSL and "xiaomi_aqara" component)
 export CFLAGS=-pthread
 ```
-
 #### {% linkable_title Compiling the Python 3 package %}
 Run the container, this will make your terminal run inside the Docker container:
 ```bash
@@ -114,7 +106,6 @@ After the compilation is done, you can find the Python 3 package at "*~/spksrc/p
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different arch and version.
 
 #### {% linkable_title Extracting cross compiled packages %}
-
 Now you need to extract your "cross compiled module package" files which you added earlier to "*requirements.txt*".
 Run these commands to extract the `.whl` files to a directory named "**Module-Packages**", please replace "python3_**XXXX**.spk" with the appropriate package filename:
 ```bash
@@ -131,7 +122,6 @@ If you added any other modules to "*requirements.txt*", you can find the modules
 </p>
 
 ## {% linkable_title Using the Synology webadmin %}
-
 Install the Python 3 package as follows:
 * Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
 * Press the "*Manual Install*" button on the top right of the window
@@ -185,7 +175,6 @@ In the case you turned on the firewall on your Synology device, please config it
 
 
 ## {% linkable_title Installing Home Assistant %}
-
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
 Replace "*user*" with your Synology user and "x.x.x.x" with the its IP adress:
 ```bash
