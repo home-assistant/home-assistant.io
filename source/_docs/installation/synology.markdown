@@ -43,7 +43,7 @@ Install Docker
 # sudo apt-get update
 # sudo apt install docker.io
 ```
-Start Docker and enable start on system boot
+Start Docker and enable start on system bootup
 ```bash
 # sudo systemctl start docker
 # sudo systemctl enable docker
