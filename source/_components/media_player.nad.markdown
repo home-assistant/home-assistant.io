@@ -31,7 +31,7 @@ serial_port:
   type: string
 host:
   description: The IP address of your amplifier.
-  required: false
+  required: exclusive
   type: string
 name:
   description: Name of the device.
