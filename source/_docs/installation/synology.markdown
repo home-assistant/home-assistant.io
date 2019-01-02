@@ -19,6 +19,7 @@ There are 2 alternatives, when using Home Assistant on Synology NAS:
 2. Directly running on DSM
 
 Option 1 is described on the [Docker installation page](/docs/installation/docker/#synology-nas), whereas Option 2 is described below.
+
 Our recommendation is you run Home Assistant on a Raspberri Pi, as this setup might be a bit more involved than you will like.
 
 
