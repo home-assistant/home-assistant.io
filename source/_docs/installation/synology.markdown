@@ -196,16 +196,15 @@ DNAME="Home Assistant"
 
 # Others
 USER="homeassistant"
+PYTHON="/volume1/@appstore/py3k/usr/local/bin/python3"
 INSTALL_DIR="/volume1/homeassistant"
-VIRTENV_DIR="$INSTALL_DIR/venv-hass"
 PID_FILE="$INSTALL_DIR/home-assistant.pid"
 FLAGS="-v --config $INSTALL_DIR --pid-file $PID_FILE --daemon"
 REDIRECT="> $INSTALL_DIR/home-assistant.log 2>&1"
 
 start_daemon ()
 {
-   source "$VIRTENV_DIR/bin/activate"
-   sudo -u ${USER} /bin/sh -c "hass $FLAGS $REDIRECT;"
+    sudo -u ${USER} /bin/sh -c "$PYTHON $HASS $FLAGS $REDIRECT;"
 }
 
 stop_daemon ()
