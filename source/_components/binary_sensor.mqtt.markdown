@@ -164,6 +164,7 @@ binary_sensor:
 {% endraw %}
 
 ### {% linkable_title Toggle the binary sensor each time a message is received on state_topic %}
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -171,6 +172,7 @@ binary_sensor:
     state_topic:lab_button/cmnd/POWER"
     value_template:"{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"}
 ```
+{% endraw %}
 
 ### {% linkable_title Get the state of a device with ESPEasy %}
 
