@@ -15,7 +15,11 @@ ha_release: pre 0.7
 
 The `asuswrt` platform offers presence detection by looking at connected devices to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
-The platform will be automatically configured if Asuswrt component is configured.
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  - platform: asuswrt
+```
 
 For more configuration information see the [Asuswrt component](/components/asuswrt/) documentation.
 
