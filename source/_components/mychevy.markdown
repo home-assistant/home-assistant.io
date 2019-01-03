@@ -41,8 +41,9 @@ password:
   required: true
   type: string
 country:
-  description: Which country's servers to contact. Defaults to 'us', also supports 'ca'.
+  description: Which country's servers to contact. Supports 'us' or 'ca'.
   required: false
+  default: us
   type: string
 {% endconfiguration %}
 
