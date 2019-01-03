@@ -37,11 +37,12 @@ sensor:
     monitored_variables:
       - type: instant_readings
       - type: budget
-      - type: cost
-        period: day
+      - type: cost_day
         currency: $
-      - type: amount
-        period: day
+      - type: amount_day
+      - type: cost_week
+        currency: $
+      - type: amount_week
       - type: current_values
 ```
 
@@ -53,8 +54,7 @@ Configuration variables:
   - **type** (*Required*): Name of the variable.
     - **instant_readings**: Instant energy consumption.
     - **budget**: Monthly budget.
-    - **cost**: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period.
-    - **amount**: The amount of energy consumed over a given period.
+    - **cost**: The cost for energy consumption (with the tariff that has been set in Efergy) over a given period, cost_day, _week, _month, _year. Multiple periods can be defined.
+    - **amount**: The amount of energy consumed over a given period, amount_day, _week, _month, _year. Multiple periods can be defined.
     - **current_values**: This returns the current energy usage of each device on your account, as `efergy_\<sid of device\>`. If you only have one device in your account, this is effectively the same as instant_readings.
-  - **period** (*Optional*): Some variables take a period argument. Valid options are "day", "week", "month", and "year".
   - **currency** (*Optional*): This is used to display the cost/period as the unit when monitoring the cost. It should correspond to the actual currency used in your dashboard.
