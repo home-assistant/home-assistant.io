@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by yFiles for HTML 2.1.0.6-->
+<graphml xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml.html/2.0/ygraphml.xsd " xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:demostyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoStyle/1.0" xmlns:bpmn="http://www.yworks.com/xml/yfiles-for-html/bpmn/2.0" xmlns:demotablestyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoTableStyle/1.0" xmlns:uml="http://www.yworks.com/yFilesHTML/demos/UMLDemoStyle/1.0" xmlns:compat="http://www.yworks.com/xml/yfiles-compat-arrows/1.0" xmlns:GraphvizNodeStyle="http://www.yworks.com/yFilesHTML/graphviz-node-style/1.0" xmlns:VuejsNodeStyle="http://www.yworks.com/demos/yfiles-vuejs-node-style/1.0" xmlns:y="http://www.yworks.com/xml/yfiles-common/3.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/3.0" xmlns:yjs="http://www.yworks.com/xml/yfiles-for-html/2.0/xaml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<key id="d0" for="node" attr.type="boolean" attr.name="Expanded" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/Expanded">
+		<default>true</default>
+	</key>
+	<key id="d1" for="node" attr.type="string" attr.name="url"/>
+	<key id="d2" for="node" attr.type="string" attr.name="description"/>
+	<key id="d3" for="node" attr.name="NodeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeLabels"/>
+	<key id="d4" for="node" attr.name="NodeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeGeometry"/>
+	<key id="d5" for="all" attr.name="UserTags" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/UserTags"/>
+	<key id="d6" for="node" attr.name="NodeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeStyle"/>
+	<key id="d7" for="node" attr.name="NodeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/NodeViewState"/>
+	<key id="d8" for="edge" attr.type="string" attr.name="url"/>
+	<key id="d9" for="edge" attr.type="string" attr.name="description"/>
+	<key id="d10" for="edge" attr.name="EdgeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeLabels"/>
+	<key id="d11" for="edge" attr.name="EdgeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeGeometry"/>
+	<key id="d12" for="edge" attr.name="EdgeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeStyle"/>
+	<key id="d13" for="edge" attr.name="EdgeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/EdgeViewState"/>
+	<key id="d14" for="port" attr.name="PortLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLabels"/>
+	<key id="d15" for="port" attr.name="PortLocationParameter" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLocationParameter">
+		<default>
+			<x:Static Member="y:FreeNodePortLocationModel.NodeCenterAnchored"/>
+		</default>
+	</key>
+	<key id="d16" for="port" attr.name="PortStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortStyle">
+		<default>
+			<x:Static Member="y:VoidPortStyle.Instance"/>
+		</default>
+	</key>
+	<key id="d17" for="port" attr.name="PortViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/PortViewState"/>
+	<key id="d18" attr.name="SharedData" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/SharedData"/>
+	<data key="d18">
+		<y:SharedData>
+			<yjs:Font x:Key="1" fontSize="12"/>
+			<yjs:Color x:Key="2" value="LightSkyBlue"/>
+		</y:SharedData>
+	</data>
+	<graph id="G" edgedefault="directed">
+		<node id="n0">
+			<data key="d3">
+				<x:List>
+					<y:Label>
+						<y:Label.Text>Hass.io</y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:InteriorStretchLabelModelParameter>
+								<y:InteriorStretchLabelModelParameter.Model>
+									<y:InteriorStretchLabelModel Insets="4,4,18,4"/>
+								</y:InteriorStretchLabelModelParameter.Model>
+							</y:InteriorStretchLabelModelParameter>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<yjs:DefaultLabelStyle font="{y:GraphMLReference 1}" textFill="WHITE"/>
+						</y:Label.Style>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="-602.125" Y="-516.25" Width="518.5" Height="220.5"/>
+			</data>
+			<data key="d6">
+				<demostyle:DemoGroupStyle isCollapsible="true" borderColor="#68B0E3" folderFrontColor="#68B0E3" folderBackColor="#3C679B"/>
+			</data>
+			<graph id="n0:" edgedefault="directed">
+				<node id="n0::n0">
+					<data key="d3">
+						<x:List>
+							<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
+								<y:Label.Text>HassOS</y:Label.Text>
+								<y:Label.Style>
+									<yjs:DefaultLabelStyle verticalTextAlignment="BOTTOM" wrapping="WORD" font="{y:GraphMLReference 1}" textFill="BLACK"/>
+								</y:Label.Style>
+							</y:Label>
+						</x:List>
+					</data>
+					<data key="d4">
+						<y:RectD X="-587.625" Y="-341.25" Width="483.25" Height="30"/>
+					</data>
+					<data key="d6">
+						<yjs:ShapeNodeStyle stroke="#FF69BCEE" fill="#FF69BCEE"/>
+					</data>
+				</node>
+				<node id="n0::n1">
+					<data key="d3">
+						<x:List>
+							<y:Label>
+								<y:Label.Text>Docker</y:Label.Text>
+								<y:Label.LayoutParameter>
+									<y:InteriorStretchLabelModelParameter>
+										<y:InteriorStretchLabelModelParameter.Model>
+											<y:InteriorStretchLabelModel Insets="18,0,2,0"/>
+										</y:InteriorStretchLabelModelParameter.Model>
+									</y:InteriorStretchLabelModelParameter>
+								</y:Label.LayoutParameter>
+								<y:Label.Style>
+									<yjs:DefaultLabelStyle font="{y:GraphMLReference 1}" textFill="BLACK"/>
+								</y:Label.Style>
+							</y:Label>
+						</x:List>
+					</data>
+					<data key="d4">
+						<y:RectD X="-587.625" Y="-478.375" Width="483.25" Height="116.75"/>
+					</data>
+					<data key="d6">
+						<yjs:CollapsibleNodeStyleDecorator>
+							<yjs:PanelNodeStyle color="{y:GraphMLReference 2}" labelInsetsColor="{y:GraphMLReference 2}"/>
+						</yjs:CollapsibleNodeStyleDecorator>
+					</data>
+					<graph id="n0::n1:" edgedefault="directed">
+						<node id="n0::n1::n0">
+							<data key="d3">
+								<x:List>
+									<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
+										<y:Label.Text>Hassio-Community-Add-On-1</y:Label.Text>
+										<y:Label.Style>
+											<yjs:DefaultLabelStyle textFill="BLACK">
+												<yjs:DefaultLabelStyle.font>
+													<yjs:Font fontSize="12"/>
+												</yjs:DefaultLabelStyle.font>
+											</yjs:DefaultLabelStyle>
+										</y:Label.Style>
+									</y:Label>
+								</x:List>
+							</data>
+							<data key="d4">
+								<y:RectD X="-296.375" Y="-451.375" Width="179" Height="30"/>
+							</data>
+							<data key="d6">
+								<yjs:ShapeNodeStyle fill="#826E00FF">
+									<yjs:ShapeNodeStyle.stroke>
+										<yjs:Stroke fill="#FC000000" lineCap="SQUARE" dashStyle="Dash"/>
+									</yjs:ShapeNodeStyle.stroke>
+								</yjs:ShapeNodeStyle>
+							</data>
+						</node>
+						<node id="n0::n1::n1">
+							<data key="d3">
+								<x:List>
+									<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
+										<y:Label.Text>Hassio-Community-Add-On-2</y:Label.Text>
+										<y:Label.Style>
+											<yjs:DefaultLabelStyle wrapping="WORD" font="{y:GraphMLReference 1}" textFill="BLACK"/>
+										</y:Label.Style>
+									</y:Label>
+								</x:List>
+							</data>
+							<data key="d4">
+								<y:RectD X="-296.375" Y="-406.875" Width="179" Height="30"/>
+							</data>
+							<data key="d6">
+								<yjs:ShapeNodeStyle fill="#826E00FF">
+									<yjs:ShapeNodeStyle.stroke>
+										<yjs:Stroke fill="#FC000000" lineCap="SQUARE" dashStyle="Dash"/>
+									</yjs:ShapeNodeStyle.stroke>
+								</yjs:ShapeNodeStyle>
+							</data>
+						</node>
+						<node id="n0::n1::n2">
+							<data key="d3">
+								<x:List>
+									<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
+										<y:Label.Text>Hassio-Core-Add-On-2</y:Label.Text>
+										<y:Label.Style>
+											<yjs:DefaultLabelStyle wrapping="WORD" font="{y:GraphMLReference 1}" textFill="BLACK"/>
+										</y:Label.Style>
+									</y:Label>
+								</x:List>
+							</data>
+							<data key="d4">
+								<y:RectD X="-461.5" Y="-406.875" Width="149" Height="30"/>
+							</data>
+							<data key="d6">
+								<yjs:ShapeNodeStyle fill="#3A0014FF">
+									<yjs:ShapeNodeStyle.stroke>
+										<yjs:Stroke fill="#FF000000" lineCap="SQUARE" dashStyle="Dash"/>
+									</yjs:ShapeNodeStyle.stroke>
+								</yjs:ShapeNodeStyle>
+							</data>
+						</node>
+						<node id="n0::n1::n3">
+							<data key="d3">
+								<x:List>
+									<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
+										<y:Label.Text>Hassio-Core-Add-On-1</y:Label.Text>
+										<y:Label.Style>
+											<yjs:DefaultLabelStyle wrapping="WORD" font="{y:GraphMLReference 1}" textFill="BLACK"/>
+										</y:Label.Style>
+									</y:Label>
+								</x:List>
+							</data>
+							<data key="d4">
+								<y:RectD X="-461.5" Y="-451.375" Width="149" Height="30"/>
+							</data>
+							<data key="d6">
+								<yjs:ShapeNodeStyle fill="#3A0014FF">
+									<yjs:ShapeNodeStyle.stroke>
+										<yjs:Stroke fill="#FF000000" lineCap="SQUARE" dashStyle="Dash"/>
+									</yjs:ShapeNodeStyle.stroke>
+								</yjs:ShapeNodeStyle>
+							</data>
+						</node>
+						<node id="n0::n1::n4">
+							<data key="d3">
+								<x:List>
+									<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
+										<y:Label.Text>Hassio-supervisor</y:Label.Text>
+										<y:Label.Style>
+											<yjs:DefaultLabelStyle verticalTextAlignment="CENTER" horizontalTextAlignment="CENTER" font="{y:GraphMLReference 1}" textFill="BLACK"/>
+										</y:Label.Style>
+									</y:Label>
+								</x:List>
+							</data>
+							<data key="d4">
+								<y:RectD X="-582.625" Y="-406.875" Width="105" Height="30"/>
+							</data>
+							<data key="d6">
+								<yjs:ShapeNodeStyle stroke="#FF000000" fill="#FFFF0000"/>
+							</data>
+						</node>
+						<node id="n0::n1::n5">
+							<data key="d3">
+								<x:List>
+									<y:Label LayoutParameter="{x:Static y:InteriorLabelModel.North}">
+										<y:Label.Text><![CDATA[Home Assistant]]></y:Label.Text>
+										<y:Label.Style>
+											<yjs:DefaultLabelStyle font="{y:GraphMLReference 1}" textFill="BLACK"/>
+										</y:Label.Style>
+									</y:Label>
+								</x:List>
+							</data>
+							<data key="d4">
+								<y:RectD X="-582.625" Y="-451.375" Width="105" Height="30"/>
+							</data>
+							<data key="d6">
+								<yjs:ShapeNodeStyle stroke="#FF000000" fill="#FF69BCEE"/>
+							</data>
+						</node>
+					</graph>
+				</node>
+			</graph>
+		</node>
+	</graph>
+</graphml>

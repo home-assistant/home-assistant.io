@@ -131,3 +131,124 @@ For more details about `hass`, please refer to the [tools section](/docs/tools/h
 If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
 
 You may need to install additional libraries depending on the platforms/components you want to use.
+
+## {% linkable_title Characteristics of different install methods for Home Assistant %}
+
+You always get the full Home Assistant expirience despite the installation method you choose to use.
+How you would like to run Home Assistant is a choice of taste, the setup you already have, knowlede and what you want to accomplish with home assistant.
+
+<p class='note'>
+Add-Ons provide an easy way to add more functionality to your setup through the gui.
+Add-Ons in Hass.io are just docker containers containing some software.
+They are configured to for Home Assistant for easy setup.
+You always can add the functionaliy provided by an Add-On by yourself if you are **not** running Hass.io.
+You just have to configure it by yourself accordingly to your setup.
+</p>
+
+
+
+| Installation method                           | Access to OS | Hass.io Add-Ons |
+|:----------------------------------------------|:------------:|:--------------------------:|
+| Hass.io on HassOS                             |      no      |            yes             |
+| Hass.io on generic Linux server               |     yes      |            yes             |
+| Hassbian                                      |     yes      |            no             |
+| Home Assistant with Docker                    |     yes      |             no             |
+| Home Assistant on Vagrant                     |     yes      |             no             |
+| Home Assistant on different operating Systems |     yes      |             no             |
+
+
+### Hass.io on HassOS
+
+<div class="text-center" markdown="0">
+    <div class='img-container'>
+      <img src='/images/docs/architecture/hassio_on_hassos.svg' />
+    </div>
+</div>
+
+This is a full appliance for running Home Assistant on your hardware using docker images running on HassOS.
+Home Assistant is running as a docker container as well as Add-Ons.
+You can add additional functionality through Add-Ons which are just preconfigured docker images to run with Home Assistant.
+
+You will get:
+- You can use Add-Ons from the core team
+- You can use Add-Ons from the community
+- You can use any other Add-Ons
+- You can build your own Add-Ons (building and configuring docker images)
+- HassOS will run on the underling hardware
+- You do/can not need to touch the operating system
+- You can update HassOS via Hass.io GUI
+  
+### Hass.io on generic Linux server
+
+<div class="text-center" markdown="0">
+    <div class='img-container'>
+      <img src='/images/docs/architecture/hassio_on_generic_linux_server.svg' />
+    </div>
+</div>
+
+It is almost the same like Hass.io on HassOS but you do run Hass.io on your own operating system of choice instead of HassOS.
+
+You will get:
+- full Home Assistant
+- Hass.io Add-Ons (some may not work properly)
+- Add-Ons from the core team
+- Add-Ons from the community
+- Third party Add-Ons
+- Availabilty to build your own Add-Ons (docker knowledge needed)
+- Hass.io Gui
+- full control and responsibilty for your operating system
+
+### Hassbian
+
+<div class="text-center" markdown="0">
+    <div class='img-container'>
+      <img src='/images/docs/architecture/home_assistant_with_hassbian.svg' />
+    </div>
+</div>
+
+Easy setup through an image which contains the operating system and automatic Home Assistant installation.
+Hassbian is based on Rasbian.
+
+It is like any other linux distribution where you can install software via packages.
+
+You will get:
+- full Home Assistant
+- full control and responsibilty for your operating system
+- adding functionlaty will need installation and configuration (no docker knowledge needed)
+- no Hass.io Add-Ons
+- no Hass.io GUI
+
+### Home Assistant with Docker
+
+<div class="text-center" markdown="0">
+    <div class='img-container'>
+      <img src='/images/docs/architecture/home_assistant_with_docker.svg' />
+    </div>
+</div>
+
+You are installaing the Home Assistant docker container on a existing linux server.
+
+You will get:
+- full Home Assistant
+- full control and responsibilty for your operating system
+- adding functionalty will need installation and configuration (with or without docker)
+- no Hass.io Add-Ons
+- no Hass.io GUI
+
+### Home Assistant on different operating Systems
+
+<div class="text-center" markdown="0">
+    <div class='img-container'>
+      <img src='/images/docs/architecture/homeassistant_on_generic_linux_server.svg' />
+    </div>
+</div>
+
+You install Home Assistant as any software on your operating system of your choice.
+If you want to have extra functionality you add more software and configure it by yourself.
+
+What you will get:
+- full control and responsibilty for your operating system
+- adding functionlaty will need installation and configuration (no docker knowledge needed)
+- no Hass.io Add-Ons
+- no Hass.io GUI
+- setup everything by yourself
