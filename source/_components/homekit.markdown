@@ -235,11 +235,13 @@ In some cases it might be desirable to check that all entities are available bef
 homekit:
   auto_start: False
 
-binary_sensor:
-  - platform: template
-    sensors:
-      homekit_entity_status:
-        value_template: >-
+automation:
+  - alias: 'Start HomeKit'
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - wait_template: >-
           {% if not states.light.kitchen_lights %}
             false
           {% elif not states.sensor.outside_temperature %}
@@ -248,14 +250,6 @@ binary_sensor:
           {% else %}
             true
           {% endif %}
-
-automation:
-  - alias: 'Start HomeKit'
-    trigger:
-      - platform: homeassistant
-        event: start
-    action:
-      - wait_template: "{{ is_state('binary_sensor.homekit_entity_status', 'on') }}"
         timeout: 00:15  # Waits 15 minutes
         continue_on_timeout: false
       - service: homekit.start
