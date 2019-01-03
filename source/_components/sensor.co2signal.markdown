@@ -1,0 +1,92 @@
+---
+layout: page
+title: "CO2Signal"
+description: "Instructions on how to use CO2Signal data within Home Assistant"
+date: 2019-01-01 21:47
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: co2signal.png
+ha_category: Health
+ha_release: 0.85
+ha_iot_class: "Cloud Polling"
+---
+
+The `co2signal` sensor platform queries the [CO2Signal](https://www.co2signal.com/) API for the CO2 intensity of a specific region. Data can be collected via latitude/longitude or by country code. This API uses the same data as https://www.electricitymap.org/.
+
+This platform requires an CO2Signal API key, which can be obtained [here](https://www.co2signal.com/). Note that this API key is for personal use only and other options exist when the data is used commercially.
+
+At the moment, the free CO2Signal API only supports the average carbon intensity of a country and not the marginal carbon intensity.
+
+<p class='note warning'>
+The "free" API key is limited to a limited number of calls. Too many requests can result in data loss.
+</p>
+
+## {% linkable_title Configuration %}
+
+To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    latitude: YOUR_LATITUDE
+    longitude: YOUR_LONGITUDE
+```
+
+A similar result can be achieved by using the country code. In that case, use the following lines in your `configuration.yaml` file:
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    country_code: YOUR_COUNTRY_CODE
+```
+
+{% configuration %}
+token:
+  description: Your CO2Signal API key.
+  required: required
+  type: string
+latitude:
+  description: The latitude of the location to monitor.
+  required: optional
+  type: string
+  default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
+longitude:
+  description: The longitude of the location to monitor.
+  required: optional
+  type: string
+  default: "The longitude defined under the `homeassistant` key in `configuration.yaml`."
+country_code:
+  description: The country code or region code.
+  required: optional
+  type: string
+{% endconfiguration %}
+
+## {% linkable_title Example Configurations %}
+
+Configuration using custom latitude and longitude:
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    latitude: 55.4
+    longitude: 5.5
+```
+
+Configuration using a country code:
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    country_code: BE
+```
+
+## {% linkable_title Sensor Types %}
+
+When configured, the platform will create one sensor for each configured location.
+
