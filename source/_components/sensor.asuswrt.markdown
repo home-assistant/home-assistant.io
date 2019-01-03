@@ -14,7 +14,11 @@ ha_release: 0.83
 ---
 
 The `asuswrt` platform allows you to get data from your [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) sensors from within Home Assistant.
-  
-The sensor platform will be automatically configured if Asuswrt component is configured.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+    - platform: asuswrt
+```
 
 For more configuration information see the [Asuswrt component](/components/asuswrt/) documentation.
