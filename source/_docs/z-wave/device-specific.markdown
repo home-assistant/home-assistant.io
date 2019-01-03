@@ -45,6 +45,16 @@ Turn on "Disco lights":
 $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
 ```
 
+If on HASS.IO add the below to your configuration.yaml:
+
+```yaml
+#Turn off Aeotec Disco Lights                                                                                                                                                                                                     
+shell_command:                                                                                                                                                                                                                    
+  disco_off: echo -e -n "\x01\x08\x00\xF2\x51\x01\x00\x05\x01\x51" > /dev/ttyACM0                                                                                                                                                 
+  disco_on: echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/ttyACM0   
+```  
+You will then be able to call "shell_command.disco_off" from  Developer Tools / Services
+
 ### {% linkable_title Razberry Board %}
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
