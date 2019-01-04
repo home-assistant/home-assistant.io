@@ -180,8 +180,7 @@ Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
 $ ssh user@x.x.x.x
 ```
 Install the `.whl` module package files you made earlier and Home Assistant.  
-This command expects you have copied the "*Module-Packages*" directory from "[Extracting cross compiled packages]({https://github.com/home-assistant/home-assistant.io/blob/c41d2091e00ec4e93211331fdef910587dfceb22/source/_docs/installation/synology.markdown#-linkable_title-controlling-home-assistant-)" to your "*homeassistant*" Shared-Folder.
-[Extracting cross compiled packages](#-linkable_title-controlling-home-assistant-)
+This command expects you have copied the "*Module-Packages*" directory from "[Extracting cross compiled packages](#-linkable_title-controlling-home-assistant-)" to your "*homeassistant*" Shared-Folder.
 
 ```bash
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
@@ -312,7 +311,7 @@ $ /volume1/homeassistant/hass-daemon restart
 $ /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
-If you need to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory, redo the steps from "[*Preparing compiling environment*](#Preparing compiling environment)", add the failed python modules to "*requirements.txt*" file, extract and install the new `.whl` module package files to your Synology.
+If you need to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory, redo the steps from "[Preparing compiling environment](#-linkable_title-preparing-compiling-environment-)", add the failed python modules to "*requirements.txt*" file, extract and install the new `.whl` module package files to your Synology.
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
