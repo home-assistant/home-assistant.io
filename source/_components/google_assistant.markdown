@@ -53,6 +53,8 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
+    
+If you're still having trouble, make sure that you're not connected to the same network Home Assistant is running on, e.g., use 4G/LTE instead.
 </p>
 
 ## {% linkable_title First time setup %}
@@ -62,7 +64,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Add/Import a project and give it a name.
     2. Click on the `Home Control` card, select the `Smart home` recommendation.
-    3. Create an Action, under the build section. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    3. Click `Build your Action`, select `Add Action(s)`, and click `Add your first action`. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
     4. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
     1. Leave it at the default `No, I only want to allow account creation on my website` and select Next.
@@ -71,7 +73,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     4. Client Secret: Anything you like, Home Assistant doesn't need this field.
     5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
     6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
-    7. Configure your client. Add scopes for `email` and `name`.
+    7. Configure your client: Type `email` and click `Add scope`, then type `name` and click `Add scope` again.
     8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 
@@ -186,7 +188,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
 - media_player (on/off/set volume (via set brightness)/source (via set input source))
-- climate (temperature setting)
+- climate (temperature setting, operation_mode)
 - vacuum (dock/start/stop/pause)
 
 ### {% linkable_title Media Player Sources %}
@@ -196,7 +198,21 @@ There is currently a limitation with this feature that requires a hard-coded set
 https://developers.google.com/actions/reference/smarthome/traits/modes
 
 #### Example Command:
+
 "Hey Google, change input source to TV on Living Room Receiver"
+
+### {% linkable_title Climate Operation Modes %}
+
+There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  
+Here are the modes that are currently available:
+
+- off
+- heat
+- cool
+- heatcool (auto)
+- fan-only
+- dry
+- eco
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 

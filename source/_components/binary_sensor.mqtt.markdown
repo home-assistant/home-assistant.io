@@ -197,3 +197,7 @@ binary_sensor:
     payload_on: "1"
     payload_off: "0"
 ```
+<<<<<<< HEAD
+=======
+
+>>>>>>> current

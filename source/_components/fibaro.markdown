@@ -17,7 +17,7 @@ redirect_from:
 
 The [Fibaro](http://fibaro.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Binary sensors, switches, lights (including Dimmers), locks, sensors, binary sensors and covers are supported and will be automatically added when Home Assistant connects to your Fibaro controller.
+Binary sensors, switches, lights (including Dimmers), locks, sensors and covers are supported and will be automatically added when Home Assistant connects to your Fibaro controller.
 
 ## {% linkable_title Configuration %}
 
