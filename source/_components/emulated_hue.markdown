@@ -19,7 +19,7 @@ Be aware that `emulated_hue` doesn't work for new **Google Home** users. If you'
 </p>
 
 The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
-entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
+entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo, Google Home or Sleep Cycle with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
 <p class='note'>
@@ -31,7 +31,7 @@ It is recommended to assign a static IP address to the computer running Home Ass
 </p>
 
 <p class='note'>
-Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
+Both Google Home, Alexa and Sleep Cycle use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
 </p>
 
 ### {% linkable_title Configuration %}
@@ -50,9 +50,16 @@ emulated_hue:
 emulated_hue:
 ```
 
+```yaml
+# Sleep Cycle example configuration.yaml entry
+emulated_hue:
+  listen_port: 80
+  # Sleep Cycle does not work on different ports.
+```
+
 {% configuration %}
 type:
-  description: The type of assistant which we are emulating. Either `alexa` or `google_home`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
+  description: The type of assistant which we are emulating. Either `alexa`, `google_home` or `sleep_cycle`. **This configuration option is deprecated and will be removed in a future release. It is no longer necessary to define type.**
   required: false
   type: string
   default: google_home
@@ -137,7 +144,7 @@ You can verify that the `emulated_hue` component has been loaded and is respondi
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
-For Google Home, verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
+For Google Home and Sleep Cycle, verify that the URLs above are using port 80, rather than port 8300 (i.e. `http://<HA IP Address>:80/description.xml`).
 
 An additional step is required to run Home Assistant as a non-root user and use port 80 when using the AiO script.  Execute the following command to allow `emulated_hue` to use port 80 as a non-root user.
 
