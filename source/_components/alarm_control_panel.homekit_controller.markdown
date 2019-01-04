@@ -10,7 +10,7 @@ footer: true
 logo: apple-homekit.png
 ha_category: Alarm Control Panel
 ha_iot_class: "Local Polling"
-ha_release: 0.85
+ha_release: 0.86
 ---
 
 To get your HomeKit security system working with Home Assistant, follow the instructions for the general [HomeKit controller component](/components/homekit_controller/).
