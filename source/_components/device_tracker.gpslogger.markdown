@@ -13,32 +13,15 @@ ha_release: 0.34
 
 The `gpslogger` device tracker platform allows you to detect presence using [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `GET` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
 
-## {% linkable_title Auth change release 0.77 and above %}
+## {% linkable_title Configuration %}
 
-Since release 0.77, we now have long-lived access tokens. These are setup under your profile and configured in the GPSLogger application on your smartphone as explained below.
+GPSLogger uses long-lived access tokens for authentication. These are setup [under your profile](/docs/authentication/#your-account-profile) and configured in the GPSLogger application on your smartphone as explained below.
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
   - platform: gpslogger
 ```
-
-## {% linkable_title Before release 0.77 %}
-
-To integrate GPSLogger in Home Assistant, add the following section to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: gpslogger
-    password: !secret gpslogger_password
-```
-{% configuration %}
-password:
-  description: Separate password for GPS Logger endpoint. If provided using regular API password to contact endpoint will result in 401 response.
-  required: false
-  type: string
-{% endconfiguration %}
 
 ## {% linkable_title Setup on your smartphone %}
 
@@ -77,11 +60,10 @@ Add the above URL after you modified it with your settings into the **URL** fiel
 - Use the domain that Home Assistant is available on the internet (or the public IP address if you have a static IP address). This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
 - Only remove `PORT` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
 - For Home Assistant only the above URL, as written, will work - do not add, remove, or change the order of any of the parameters.
-- **0.77+** If you are using Long-Lived access tokens, then add `Authorization: Bearer LLAT` to the HTTP Headers setting (replace `LLAT` with your Long Lived Access Token).
-- **<0.77** Make sure to include your [API password](/components/http/) if you have configured a password. Add `&api_password=YOUR_PASSWORD` to the end of the URL.
+- Add `Authorization: Bearer LLAT` to the HTTP Headers setting (replace `LLAT` with your Long Lived Access Token).
 - You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`.
 
-If your battery drains fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers**
+If your battery drains too fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers**
 
 <p class='img'>
   <img width='300' src='/images/components/gpslogger/performance.png' />
