@@ -25,6 +25,7 @@ Currently supported services are:
 - `clean_spot`
 - `set_fan_speed`
 - remote control of your robot.
+- `xiaomi_clean_zone_start`
 
 ## {% linkable_title Configuration %}
 
