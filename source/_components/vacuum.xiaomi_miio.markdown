@@ -112,7 +112,7 @@ Start the cleaning operation in the areas selected for the number of reps indica
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
-| `zone`                    |       no | Array of zones. Each zone is an array of 4 integer value. example: [[23510,25311,25110,26361]]|
+| `zone`                    |       no | Array of zones. Each zone is an array of 4 integer value. \n Example: [[23510,25311,25110,26361]]|
 | `reps`                    |       no | Number of cleaning reps for each zone between 1 and 3. |
 
 ## {% linkable_title Attributes %}
