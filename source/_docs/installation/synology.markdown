@@ -180,8 +180,7 @@ Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
 $ ssh user@x.x.x.x
 ```
 Install the `.whl` module package files you made earlier and Home Assistant.  
-This command expects you have copied the "*Module-Packages*" directory from "[Extracting cross compiled packages](#-linkable_title-controlling-home-assistant-)" to your "*homeassistant*" Shared-Folder.
-
+This command expects you have copied the "*Module-Packages*" directory from "[Extracting cross compiled packages](#-linkable_title-extracting-cross-compiled-packages-)" to your "*homeassistant*" "[*Shared-Folder*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_desc)".
 ```bash
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
