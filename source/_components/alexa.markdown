@@ -358,6 +358,9 @@ the integration work easier. Example configuration:
 ```yaml
 alexa:
   smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_client_id
+    client_secret: !secret alexa_client_secret
     filter:
       include_entities:
         - light.kitchen
@@ -373,13 +376,17 @@ alexa:
       switch.stairs:
         display_categories: LIGHT
 ```
-
 This exposes an HTTP POST endpoint at `http://your_hass_ip/api/alexa/smart_home`
 which accepts and returns messages conforming to the
 [Smart Home v3 payload](https://developer.amazon.com/docs/smarthome/smart-home-skill-api-message-reference.html).
 You must then create an Amazon developer account with an Alexa skill and Lambda
 function to integrate this endpoint. See
 [Haaska](https://github.com/mike-grant/haaska) for an example.
+The `endpoint`, `client_id` and `client_secret` are optional, and are only required if  you want to enable Alexa's proactive mode. Please note the following if you want to enable proactive mode:
+
+- There are different endpoint urls, depending on the region of your skill. Please check the available endpoints at https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints
+- The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the Alexa Developer Console: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
+- If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available."
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing
