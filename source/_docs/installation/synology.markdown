@@ -65,14 +65,17 @@ $ git clone https://github.com/SynoCommunity/spksrc.git
 
 Now you need to edit 2 files.
 Doing this will cross compile python modules, which are needed for Home Assistant to able to install.
-These edits also enable you to use the "[Cloud](/components/cloud/)", [Homekit](/components/homekit/) component and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
-
+These edits also enable you to use the "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)" components and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
 
 Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file this text:
 ```
-## It may happen you want to add components to Home Assistant, but you find these to fail requirements.
-## Add the Python modules that fail to install/compile on the synology here for cross compilation.
-## In the future, the requirements may change (e.g., need newer version to work), modify as needed.
+## It may happen you want to add a component to Home Assistant, but it fails to install a package.
+## In the logs you see "Unable to install package *Module_Name*", if you install that
+# package with pip, some of its required packages fail with "Failed building wheel for *module_name*"
+## Add the Python modules/packages that error with that "building wheel" error in to the list below.
+
+# Example format of module:
+#pythonmodule==version
 
 ## Cross compilation requirements for installing Home Assistant (Tested to work on 84.3).
 cffi==1.11.5
@@ -92,7 +95,7 @@ Edit "*~/spksrc/spk/python3/Makefile*", above the line that says "**include ../.
 export CFLAGS=-pthread
 ```
 #### {% linkable_title Compiling the Python 3 package %}
-Compile Python 3 for your Synology model, please replace "arch-**XXXX**" by the apporiate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spkrc. Depending on your computer, compilation may take a hour or more (significantly less if you have a SSD and a good CPU).
+Make the Python 3 package for your Synology model, please replace "arch-**XXXX**" by the apporiate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spkrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU).
 ```bash
 # sudo docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
 $ make setup
@@ -104,28 +107,25 @@ After the compilation is done, you can find the Python 3 package at "*~/spksrc/p
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
 #### {% linkable_title Extracting cross compiled packages %}
-Now you need to extract the `.whl` module packages which you added earlier to "*requirements.txt*".
-Run these commands to extract the `.whl` files to a directory named "**Module-Packages**", please replace "python3_**XXXX**.spk" with the appropriate package filename:
+Now you need to extract the `.whl` module packages files which you added earlier to "*requirements.txt*".
+Run these commands to extract the `.whl` files to a directory named "**Module-Packages**", please modify `pyspk` command so the "**XXXX**" in `python3_XXXX.spk` points to the package file you made earlier.
 ```bash
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
-$ tar -x -f ~/spksrc/packages/python3_XXXX.spk -C /tmp package.tgz; gzip -df /tmp/package.tgz
-$ for file in cffi-1.11.5-cp35-none-any.whl bcrypt-3.1.4-cp35-none-any.whl cryptography-2.3.1-cp35-none-any.whl pycryptodome-3.7.2-cp35-none-any.whl curve25519_donna-1.3-cp35-none-any.whl ed25519-1.4-cp35-none-any.whl; do tar -x -f /tmp/package.tar share/wheelhouse/$file --strip=2; done
+$ pyspk="$HOME/spksrc/packages/python3_XXXX.spk"
+$ tar -x -f $pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
+$ tar -x -f /tmp/package.tar --wildcards share/wheelhouse/$file --strip=2
 ```
-Inside some of the `.whl` files (These are zip archives) you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is required for ARM based Synology's.  
+Inside some of the `.whl` files (These are zip archives) you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is only required for ARM based Synology's.  
 Run this command to patch all `.whl` files found in the current directory:
 ```bash
 $ rand=$RANDOM; for module in *.whl; do unzip "$module" -d "temp$rand" && find "temp$rand" -name "*x86_64-linux-gnu*" -type f | while read -r file; do mv "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done && rm "$module" && (cd "temp$rand" && zip -r0 "../$module" ./) && rm -r "temp$rand"; done
 ```
-<p class="note">
-If you added any modules to "*requirements.txt*", you can find the `.whl` module package files using a archive program and browsing to: "**~/spksrc/packages/python3_XXXX.spk*" > "*package.tgz*" > "*share/wheelhouse/XXXX.whl*".d
-</p>
-
 ## {% linkable_title Using the Synology webadmin %}
 Install the Python 3 package as follows:
 * Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
 * Press the "*Manual Install*" button on the top right of the window
-* Click on "*Browse*" and select the Python 3 package you created earlier
+* Click on "*Browse*" and select the Python 3 package you made earlier (e.g., "*~/spksrc/packages/python3_XXXX.spk*")
 * Click on "*Next*"
 * You will most likely get a unverified signature warning, click on "*Yes*"
 * Click on "*Apply*"
@@ -179,8 +179,8 @@ Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
 ```bash
 $ ssh user@x.x.x.x
 ```
-Install the cross compiled module `.whl` package files we compiled earlier and Home Assistant.
-This command expects you have copied the "*Module-Packages*" directory to your "*homeassistant*" Shared-Folder.
+Install the `.whl` module package files you made earlier and Home Assistant.  
+This command expects you have copied the "*Module-Packages*" directory from "[Extracting cross compiled packages]({#% linkable_title Extracting cross compiled packages %})" to your "*homeassistant*" Shared-Folder.
 ```bash
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
