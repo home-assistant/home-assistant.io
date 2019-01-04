@@ -181,8 +181,7 @@ $ ssh user@x.x.x.x
 ```
 Install the `.whl` module package files you made earlier and Home Assistant.  
 This command expects you have copied the "*Module-Packages*" directory from "[Extracting cross compiled packages]({https://github.com/home-assistant/home-assistant.io/blob/c41d2091e00ec4e93211331fdef910587dfceb22/source/_docs/installation/synology.markdown#-linkable_title-controlling-home-assistant-)" to your "*homeassistant*" Shared-Folder.
-
-[Test](#test)
+[Extracting cross compiled packages](#-linkable_title-controlling-home-assistant-)
 
 ```bash
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
