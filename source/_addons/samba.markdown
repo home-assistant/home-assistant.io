@@ -13,7 +13,7 @@ featured: true
 This add-on allows you to set up a [Samba](https://samba.org/) server to access Hass.io folders using Windows network shares.
 
 <p class='note warning'>
-Be careful when setting up port forwarding for remote access. If you don't restrict access by setting a username and strong password, your configuration could be exposed to the entire internet!
+Be careful when setting up port forwarding for remote access. If you don't restrict access by setting a username and strong password, your configuration could be exposed to the entire Internet!
 </p>
 
 ```json
