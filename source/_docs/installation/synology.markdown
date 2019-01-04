@@ -70,9 +70,9 @@ These edits also enable you to use the "[Cloud](/components/cloud/)" and [Homeki
 Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file this text:
 ```
 ## It may happen you want to add a component to Home Assistant, but it fails to install a package.
-## In the logs you see "Unable to install package *Module_Name*", if you install that
-# package with pip, some of its required packages fail with "Failed building wheel for *module_name*"
-## Add the Python modules/packages that error with that "building wheel" error in to the list below.
+## In the logs you see a error "Unable to install package *Module_Name*", if you install that
+# package with pip, some of its required packages fail with error "Failed building wheel for *module_name*"
+## Add these Python modules/packages that error with that "building wheel" error in to the list below.
 
 # Example format of module:
 #pythonmodule==version
