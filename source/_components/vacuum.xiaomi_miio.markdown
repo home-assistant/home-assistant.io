@@ -64,6 +64,7 @@ In addition to all of the services provided by the `vacuum` component (`start`, 
 - `xiaomi_remote_control_stop`
 - `xiaomi_remote_control_move`
 - `xiaomi_remote_control_move_step`
+- `xiaomi_clean_zone_start`
 
 ### {% linkable_title Service `vacuum.xiaomi_remote_control_start` %}
 
@@ -102,6 +103,16 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 | `velocity`                |       no | Speed: between -0.29 and 0.29                             |
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
+
+### {% linkable_title Service `vacuum.xiaomi_clean_zone_start` %}
+
+Start the cleaning operation in the areas selected for the number of reps indicated.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific robot; default targets all       |
+| `zone`                    |       no | Array of zones. Each zone is an array of 4 integer value. example: [[23510,25311,25110,26361]]|
+| `reps`                    |       no | Number of cleaning reps for each zone between 1 and 3. |
 
 ## {% linkable_title Attributes %}
 
