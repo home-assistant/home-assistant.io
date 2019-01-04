@@ -91,7 +91,7 @@ ed25519==1.4
 ```
 Edit "*~/spksrc/spk/python3/Makefile*", above the line that says "**include ../../mk/spksrc.spk.mk**" add this text:
 ```makefile
-# Needed to fix "_openssl.so: undefined symbol: pthread_atfork" error caused by lack of libpthread linkage on Synology (Needed for SSL and "xiaomi_aqara" component)
+## Fix needed to stop "_openssl.so: undefined symbol: pthread_atfork" error (Needed to use SSL and the "xiaomi_aqara" component)
 export CFLAGS=-pthread
 ```
 #### {% linkable_title Compiling the Python 3 package %}
