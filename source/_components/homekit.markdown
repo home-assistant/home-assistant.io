@@ -323,6 +323,7 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | device_tracker | Sensor | Support for `occupancy` device class. |
 | fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
+| fan | Fan | All fans that support `speed` and `speed_list` through value mapping. (first entry of `speed_list` -> `0`; last entry of `speed_list` -> `100`; entry in between -> patching percentage) |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
