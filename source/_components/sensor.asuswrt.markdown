@@ -13,12 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: 0.83
 ---
 
-The `asuswrt` platform allows you to get data from your [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) sensors from within Home Assistant.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-    - platform: asuswrt
-```
+The `asuswrt` sensor platform allows you to get upload and download data from your [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) within Home Assistant.
 
 For more configuration information see the [Asuswrt component](/components/asuswrt/) documentation.
