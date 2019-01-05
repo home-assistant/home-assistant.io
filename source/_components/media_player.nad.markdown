@@ -25,14 +25,25 @@ media_player:
 ```
 
 {% configuration %}
+type:
+  description: Type of communication. Valid types are `RS232`, `Telnet` or `TCP`
+  required: false
+  default: RS232
+  type: string
 serial_port:
-  description: The serial port.
-  required: exclusive
+  description: The serial port. (for `RS232` type only)
+  required: false
+  default: /dev/ttyUSB0
   type: string
 host:
-  description: The IP address of your amplifier.
-  required: exclusive
+  description: The IP address of your amplifier. (for `TCP` and `Telnet` types)
+  required: false
   type: string
+port:
+  description: The port number of the device. (for `Telnet` type only)
+  required: false
+  default: 53
+  type: integer
 name:
   description: Name of the device.
   required: false
@@ -49,12 +60,15 @@ max_volume:
   default: -20
   type: integer
 sources:
-  description: A list of mappings from source to source name. Valid sources are `1 to 10`.
+  description: A list of mappings from source to source name. Valid sources are `1 to 10`. (for `RS232` and `Telnet` types)
   required: false
   type: [list, string]
+volume_step:
+  description: The amount in dB you want to increase the volume with when pressing volume up/down. (for `TCP` type only)
+  required: false
+  default: 4
+  type: integer
 {% endconfiguration %}
-
-Either `serial_port` or `host` must be provided. If a `serial_port` is provided, an RS-232 connection is established. If a `host` is provided, Telnet communication is established.
 
 The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.
 
