@@ -54,12 +54,12 @@ attributes of the climate device to avoid issues with increasing the temperature
 
 The following values are valid for the `operation_modes` attribute:
 
-- Comfort
-- Standby
-- Night
-- Frost Protection
-- Fan only
-- Dry
+- Comfort (maps internally to STATE_HEAT within Home Assistant)
+- Standby (maps internally to STATE_ECO within Home Assistant)
+- Night (maps internally to STATE_IDLE within Home Assistant)
+- Frost Protection (maps internally to STATE_MANUAL within Home Assistant)
+- Fan only (maps internally to STATE_FAN_ONLY within Home Assistant)
+- Dehumidification (maps internally to STATE_DRY within Home Assistant)
 
 {% configuration %}
 name:
