@@ -11,6 +11,11 @@ logo: esphome.png
 ha_category: DIY
 ha_release: 0.85
 ha_iot_class: "Local Push"
+redirect_from: /components/binary_sensor.esphome/
+redirect_from: /components/cover.esphome/
+redirect_from: /components/fan.esphome/
+redirect_from: /components/light.esphome/
+redirect_from: /components/switch.esphome/
 ---
 
 This component allows you to connect your [ESPHome](https://esphomelib.com/esphomeyaml/index.html) devices directly into Home Assistant with the [native ESPHome API](https://esphomelib.com/esphomeyaml/components/api.html).
