@@ -106,17 +106,6 @@ sudo docker run -it --rm -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bas
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
-#### {% linkable_title Extracting cross compiled packages %}
-Now you need to extract the Python module packages which you added earlier to "*requirements.txt*".
-Run these commands to extract the `.whl` files to the directory "**~/Module-Packages**", please modify `tar` command so the "**XXXX**" in "*python3_**XXXX**.spk*" points to the package file you made earlier:
-```bash
-$ mkdir -p ~/Module-Packages && cd ~/Module-Packages
-$ tar -x -f ~/spksrc/packages/python3_XXXX.spk -C /tmp package.tgz && gzip -df /tmp/package.tgz && tar -x -f /tmp/package.tar --wildcards share/wheelhouse/$file --strip=2
-```
-Inside some of the `.whl` files (These are zip archives) you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is only required for ARM based Synology NAS.  
-Run this command to patch all `.whl` files found in the current directory:
-```bash
-$ rand=$RANDOM; for module in *.whl; do unzip "$module" -d "temp$rand" && find "temp$rand" -name "*x86_64-linux-gnu*" -type f | while read -r file; do mv "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done && rm "$module" && (cd "temp$rand" && zip -r0 "../$module" ./) && rm -r "temp$rand"; done
 ```
 ## {% linkable_title Using the Synology webadmin %}
 Install the Python 3 package as follows:
@@ -176,10 +165,8 @@ Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
 ```bash
 $ ssh user@x.x.x.x
 ```
-Install the `.whl` module package files you made earlier and Home Assistant.  
-This command expects you have copied the "*~/Module-Packages*" directory from "[Extracting cross compiled packages](#-linkable_title-extracting-cross-compiled-packages-)" to your "*homeassistant*" "[*Shared-Folder*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_desc)":
+Install Home Assistant.
 ```bash
-# sudo /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
 ```
 Create a file named "**hass-daemon**" in your "*homeassistant*" Shared-Folder with the script below as its content.
@@ -307,7 +294,7 @@ $ /volume1/homeassistant/hass-daemon restart
 $ /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
-If you need to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory, redo the steps from "[Preparing compiling environment](#-linkable_title-preparing-compiling-environment-)", add the failed python modules to "*requirements.txt*" file, extract and install the new `.whl` module package files to your Synology.
+If you need to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory and redo the steps from "[Preparing compiling environment](#-linkable_title-preparing-compiling-environment-)", add the failed python modules to "*requirements.txt*" file, compile and reinstall the Python 3 package on your Synology.
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
