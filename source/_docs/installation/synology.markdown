@@ -63,15 +63,16 @@ Fork and clone spksrc, this will make a directory named "spksrc".
 $ git clone https://github.com/SynoCommunity/spksrc.git
 ```
 
-Now you need to edit 2 files.
-Doing this will cross compile python modules, which are needed for Home Assistant to able to install.
-These edits also enable you to use the "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)" components and fix the OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.
+Edit the following 2 files.
 
-Edit "*~/spksrc/spk/python3/src/requirements.txt*", add at the end of the file this text:
+These edits will make cross compiled Python module packages, which Home Assistant needs to install. These edits also enable use of the "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)" components.
+Most components will setup just fine, but certain components need a python package that compiles on installation, which will fail as Synology did not provide a compiler, causing said need for cross compilation.
+
+Edit "*~/spksrc/spk/python3/src/requirements.txt*" and add the following text to the end of the file:
 ```
 ## It may happen you want to add a component to Home Assistant, but it fails to install a package.
 ## In the logs you see a error "Unable to install package *Module_Name*", if you install that
-# package with pip, some of its required packages fail with error "Failed building wheel for *module_name*"
+# package with pip, some of its required packages fail with error "Failed building wheel for *Module_Name*"
 ## Add these Python modules/packages that error with that "building wheel" error in to the list below.
 
 # Example format of module:
@@ -89,9 +90,11 @@ pycryptodome==3.7.2
 curve25519-donna==1.3
 ed25519==1.4
 ```
-Edit "*~/spksrc/spk/python3/Makefile*", above the line that says "**include ../../mk/spksrc.spk.mk**" add this text:
+
+Add these edits to fix OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.  
+Edit "*~/spksrc/spk/python3/Makefile*" and add the following text above the text "**include ../../mk/spksrc.spk.mk**":
 ```makefile
-## Fix needed to stop "_openssl.so: undefined symbol: pthread_atfork" error (Needed to use SSL and the "xiaomi_aqara" component)
+## Fix needed to fix "_openssl.so: undefined symbol: pthread_atfork" error when using "xiaomi_aqara" component.
 export CFLAGS=-pthread
 ```
 #### {% linkable_title Compiling the Python 3 package %}
@@ -107,8 +110,8 @@ After the compilation is done, you can find the Python 3 package at "*~/spksrc/p
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
 #### {% linkable_title Extracting cross compiled packages %}
-Now you need to extract the `.whl` module packages files which you added earlier to "*requirements.txt*".
-Run these commands to extract the `.whl` files to a directory named "**Module-Packages**", please modify `pyspk` command so the "**XXXX**" in `python3_XXXX.spk` points to the package file you made earlier.
+Now you need to extract the Python module packages which you added earlier to "*requirements.txt*".
+Run these commands to extract the `.whl` files to a directory the "**~/Module-Packages**", please modify `pyspk` command so the "**XXXX**" in `python3_XXXX.spk` points to the package file you made earlier.
 ```bash
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
@@ -140,7 +143,7 @@ Now while it's installing, you may setup the Shared-Folder for Home Assistant:
 * Click on "*Next*" again
 * Click on "*Apply*"
 
-As the "*homeassistant*" Shared-Folder has been made, copy the (previously created) "*Module-Packages*" directory there.
+As the "*homeassistant*" Shared-Folder has been made, copy the (previously created) "*~/Module-Packages*" directory there.
 
 Next setup the user:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
@@ -180,7 +183,7 @@ Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
 $ ssh user@x.x.x.x
 ```
 Install the `.whl` module package files you made earlier and Home Assistant.  
-This command expects you have copied the "*Module-Packages*" directory from "[Extracting cross compiled packages](#-linkable_title-extracting-cross-compiled-packages-)" to your "*homeassistant*" "[*Shared-Folder*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_desc)".
+This command expects you have copied the "*~/Module-Packages*" directory from "[Extracting cross compiled packages](#-linkable_title-extracting-cross-compiled-packages-)" to your "*homeassistant*" "[*Shared-Folder*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_desc)".
 ```bash
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install /volume1/homeassistant/Module-Packages/*.whl
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
