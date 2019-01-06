@@ -11,7 +11,7 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provides [Python 3.5.1](https://www.synology.com/nl-nl/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python 3 -m pip install homeassistant==0.64.3`
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `./python 3 -m pip install homeassistant==0.64.3`
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -32,7 +32,8 @@ Running these commands will:
 Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM/help):
 * Install compiled Python 3 package using the [Synology Package Center](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)
 * Create "homeassistant" user
-* Create "homeassistant" [Shared-Folder](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/file_share_desc)
+* Create "homeassistant" [Shared-Folder](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_share_desc)
+* Enable [SSH](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal) service
 * Optionally start Home Assistant on bootup of your Synology
 
 ## {% linkable_title Getting prerequisites) %}
@@ -161,7 +162,7 @@ Next setup the user:
 
 Next you need to enable SSH:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
-* Go to "[*Terminal & SNMP*](https://www.synology.com/nl-nl/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal)" settings
+* Go to "[*Terminal & SNMP*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal)" settings
 * Click on the checkbox next to "*Enable SSH service*"
 * Click on "*Apply*"
 
@@ -319,7 +320,7 @@ If you need to update Python 3 or added a component which fails caused by python
 ## {% linkable_title Starting Home Assistant on bootup %}
 To have Home Assistant start on bootup of your Synology, do as follows:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
-* Go to "[*Task Scheduler*](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/system_taskscheduler)" settings
+* Go to "[*Task Scheduler*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_taskscheduler)" settings
 * Click on "*Create*" > "*Triggered Task*" > "*User-defined script*"
 * In "*Task*" write "**Home Assistant**"
 * Click on the checkbox next to "*Enabled*"
