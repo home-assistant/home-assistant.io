@@ -54,7 +54,9 @@ Download the [spksrc Docker container](https://github.com/SynoCommunity/spksrc#d
 ```bash
 # sudo docker pull synocommunity/spksrc
 ```
+
 #### {% linkable_title Preparing compiling environment %}
+
 Install Git:
 ```bash
 # sudo apt-get install git
@@ -98,7 +100,9 @@ Edit "*~/spksrc/spk/python3/Makefile*" and add the following text above the text
 ## Makefile variable needed to fix "_openssl.so: undefined symbol: pthread_atfork" error when using "xiaomi_aqara" component.
 export CFLAGS=-pthread
 ```
+
 #### {% linkable_title Compiling the Python 3 package %}
+
 Make the Python 3 package for your Synology model, please modify `docker run` command so the "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spksrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
 ```bash
 sudo docker run -it --rm -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make setup && make -C spk/python3 arch-XXXX'
@@ -106,8 +110,8 @@ sudo docker run -it --rm -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bas
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
-```
 ## {% linkable_title Using the Synology webadmin %}
+
 Install the Python 3 package as follows:
 * Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
 * Press the "*Manual Install*" button on the top right of the window
@@ -160,6 +164,7 @@ In the case you turned on the firewall on your Synology device, please config it
 * Click on "*OK*" again
 
 ## {% linkable_title Installing Home Assistant %}
+
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
 Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
 ```bash
@@ -298,6 +303,7 @@ If you need to update Python 3 or added a component which fails caused by python
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
+
 To have Home Assistant start on bootup of your Synology, do as follows:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
 * Go to "[*Task Scheduler*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_taskscheduler)" settings
