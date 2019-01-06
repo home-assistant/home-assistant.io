@@ -112,7 +112,7 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 
 #### {% linkable_title Extracting cross compiled packages %}
 Now you need to extract the Python module packages which you added earlier to "*requirements.txt*".
-Run these commands to extract the `.whl` files to a directory the "**~/Module-Packages**", please modify `pyspk` command so the "**XXXX**" in `python3_XXXX.spk` points to the package file you made earlier.
+Run these commands to extract the `.whl` files to the directory "**~/Module-Packages**", please modify `pyspk` command so the "**XXXX**" in `python3_XXXX.spk` points to the package file you made earlier.
 ```bash
 $ mkdir ~/Module-Packages
 $ cd ~/Module-Packages
