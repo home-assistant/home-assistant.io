@@ -99,7 +99,7 @@ Edit "*~/spksrc/spk/python3/Makefile*" and add the following text above the text
 export CFLAGS=-pthread
 ```
 #### {% linkable_title Compiling the Python 3 package %}
-Make the Python 3 package for your Synology model, please replace "arch-**XXXX**" by the apporiate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spksrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU).
+Make the Python 3 package for your Synology model, please modify `docker run` command so the "**XXXX**" in "arch-**XXXX**" contains the appropriate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spksrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU).
 ```bash
 sudo docker run -it --rm -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make setup && make -C spk/python3 arch-XXXX'
 ```
