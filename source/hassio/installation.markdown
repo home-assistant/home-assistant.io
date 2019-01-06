@@ -26,7 +26,7 @@ The following will take you through the steps required to install Hass.io.
     
    - As a virtual appliance: 
   
-     - [VMDK][vmdk]
+     - [VMDK][vmdk] (VMWare Workstation)
      - [VHDX (beta)][vhdx]
      - [VDI (beta)][vdi]
      - [OVA][Virtual Appliance] (not available at this time!)
