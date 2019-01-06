@@ -118,6 +118,9 @@ Known limitations:
 * Some Android remotes send key up/down events instead of key presses.
 * Functionality other than key presses and app launches are not implemented yet.
 * App ids are limited between 1-10. (The emulated API reports 10 dummy apps)
+* Harmony uses UPnP discovery (UPnP is not needed after pairing), which might not work in Docker. You can:
+  * Change Docker to host networking temporarily, then revert after pairing.
+  * Run the `advertise.py` helper script from the emulated_roku library directly somewhere else and point it to the emulated Roku API.
 * Harmony cannot launch apps as it uses IR instead of the WiFi API and will not display the custom dummy app list. 
 * Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
 * Harmony will not set the name of the added emulated Roku device to the specified `name`.
