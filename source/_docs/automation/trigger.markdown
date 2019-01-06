@@ -46,7 +46,7 @@ automation:
 
 ### {% linkable_title Interval trigger %}
 
-With the interval trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number.
+With the interval trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value.
 
 ```yaml
 automation:
@@ -54,18 +54,20 @@ automation:
     platform: interval
     # Matches every hour at 5 minutes past whole
     minutes: 5
-    seconds: 00
+
+automation 2:
+  trigger:
+    platform: interval
+    # Trigger once per minute during the hour of 3
+    hours: '3'
+    minutes: '*'
 
 automation 3:
   trigger:
     platform: interval
     # You can also match on interval. This will match every 5 minutes
     minutes: '/5'
-    seconds: 00
 ```
-<p class='note warning'>
-  Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute.
-</p>
 
 ### {% linkable_title MQTT trigger %}
 
