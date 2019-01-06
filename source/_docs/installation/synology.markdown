@@ -61,7 +61,7 @@ Install Git
 ```
 Fork and clone spksrc, this will make a directory named "spksrc".
 ```bash
-$ git clone https://github.com/SynoCommunity/spksrc.git
+$ git clone https://github.com/SynoCommunity/spksrc.git ~/spksrc
 ```
 
 Edit the following 2 files.
@@ -84,7 +84,7 @@ cffi==1.11.5
 bcrypt==3.1.4
 cryptography==2.3.1
 
-## Cross compilation requirement for installing "Warrent" module (Needed by "Cloud" Component)
+## Cross compilation requirement for installing "Warrant" module (Needed by "Cloud" Component)
 pycryptodome==3.7.2
 
 ## Cross compilation requirement for installing "HAP_python" module (Needed by "Homekit" Component)
@@ -101,11 +101,7 @@ export CFLAGS=-pthread
 #### {% linkable_title Compiling the Python 3 package %}
 Make the Python 3 package for your Synology model, please replace "arch-**XXXX**" by the apporiate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spksrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU).
 ```bash
-# sudo docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash
-$ make setup
-$ cd spk/python3
-$ make arch-XXXX
-$ exit
+sudo docker run -it --rm -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make setup && make -C spk/python3 arch-XXXX'
 ```
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
@@ -120,7 +116,7 @@ $ pyspk="$HOME/spksrc/packages/python3_XXXX.spk"
 $ tar -x -f $pyspk -C /tmp package.tgz; gzip -df /tmp/package.tgz
 $ tar -x -f /tmp/package.tar --wildcards share/wheelhouse/$file --strip=2
 ```
-Inside some of the `.whl` files (These are zip archives) you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is only required for ARM based Synology's.  
+Inside some of the `.whl` files (These are zip archives) you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is only required for ARM based Synology NAS.  
 Run this command to patch all `.whl` files found in the current directory:
 ```bash
 $ rand=$RANDOM; for module in *.whl; do unzip "$module" -d "temp$rand" && find "temp$rand" -name "*x86_64-linux-gnu*" -type f | while read -r file; do mv "$file" "$(echo $file | sed "s/x86_64-linux-gnu/arm-linux-gnueabihf/")"; done && rm "$module" && (cd "temp$rand" && zip -r0 "../$module" ./) && rm -r "temp$rand"; done
