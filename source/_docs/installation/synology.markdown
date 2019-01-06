@@ -110,6 +110,11 @@ sudo docker run -it -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
+If you want to remove the spksrc Docker container to save space, run the following command:
+```bash
+sudo docker rmi synocommunity/spksrc
+```
+
 ## {% linkable_title Using the Synology webadmin %}
 
 Install the Python 3 package as follows:
