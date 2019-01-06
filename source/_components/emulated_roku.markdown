@@ -18,10 +18,15 @@ This component integrates an emulated Roku API into Home Assistant,
 so remotes such as Harmony and Android apps can connect to it through WiFi as it were a Roku player.  
 Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.  
 Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.  
-When using multiple servers, you can filter the Roku USN which is specified via the `name` attribute.
 
 <p class='note'>  
 Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
+</p>  
+
+<p class='note warning'>  
+This component opens an unauthenticated API on the host, allowing anything on the local network to access
+your Home Assistant instance through the automations you create with emulated Roku as the trigger.
+Using a proxy with whitelist for IP addresses is recommended. (set `advertise_ip` to the proxy's ip or DNS name)
 </p>  
 
 ## {% linkable_title Configuration %}
@@ -34,13 +39,13 @@ If you wish to configure advanced options, you can add the following entry in `c
 # Example configuration.yaml entry
 emulated_roku:
   servers:
-    - name: hass roku
+    - name: Home Assistant
       listen_port: 8060
 ```
 
 {% configuration %}
 name:
-  description: Name of the Roku that will be displayed as USN in Harmony.
+  description: Name of the Roku that will be displayed as the serial number in Harmony.
   required: true
   type: string
 listen_port:
@@ -52,7 +57,7 @@ host_ip:
   required: false
   type: string
 advertise_ip:
-  description: If you need to override the IP address used for UPnP discovery. (For example, using network isolation in Docker)
+  description: If you need to override the IP address or DNS name used for UPnP discovery. (For example, using network isolation in Docker or using a proxy)
   required: false
   type: string
 advertise_port:
@@ -66,8 +71,7 @@ upnp_bind_multicast:
   default: true
 {% endconfiguration %}
 
-After starting up, you can check if the Emulated Roku is reachable at the specified ports on your Home Assistant instance (eg.: `http://192.168.1.101:8060/`).
-If you change your advertised IP or ports, you will have to re-add your Roku in Harmony.
+After starting up, you can check if the emulated Roku is reachable at the specified ports on your Home Assistant instance (eg.: `http://192.168.1.101:8060/`).
 
 ## {% linkable_title Events %}
 
@@ -77,8 +81,8 @@ All Roku commands are sent as `roku_command` events.
 
 Field | Description
 ----- | -----------
-`source_name` | Name of the that sent the event Roku. Not required for when using one Emulated Roku instance.
-`type` | The type of the event that was called on the Roku API.
+`source_name` | Name of the emulated Roku instance that sent the event. Only required when using multiple instances to filter event sources.
+`type` | The type of the event that was called on the API.
 `key` | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.
 `app_id` | the id of the app that was launched when command `type` is `launch`.  
 
@@ -96,7 +100,7 @@ The following is an example implementation of an automation:
   - platform: event
     event_type: roku_command
     event_data:
-      source_name: hass roku
+      source_name: Home Assistant
       type: keypress
       key: Fwd
   action:
@@ -106,8 +110,14 @@ The following is an example implementation of an automation:
 
 ## {% linkable_title Troubleshooting %}
 
+If you change your advertised IP or ports, you will have to re-add the emulated Roku in your app.
+When using Harmony, the app should auto-discover any changes via UPnP discovery (if `name` is unchanged) once it detects that the device is unreachable.
+Alternatively, you can trigger the 'Fix' page by pressing a button on the unreachable device's remote in the app and wait ~10 seconds, then click 'Fix it'.
+
 Known limitations:
 * Some Android remotes send key up/down events instead of key presses.
 * Functionality other than key presses and app launches are not implemented yet.
-* Harmony cannot launch apps as it uses IR instead of the WiFi API
-* App ids are limited between 1-10. (The Emulated API reports 10 dummy apps)
+* App ids are limited between 1-10. (The emulated API reports 10 dummy apps)
+* Harmony cannot launch apps as it uses IR instead of the WiFi API and will not display the custom dummy app list. 
+* Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
+* Harmony will not set the name of the added emulated Roku device to the specified `name`.
