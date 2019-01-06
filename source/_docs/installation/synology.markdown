@@ -110,7 +110,7 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 Now you need to extract the Python module packages which you added earlier to "*requirements.txt*".
 Run these commands to extract the `.whl` files to the directory "**~/Module-Packages**", please modify `tar` command so the "**XXXX**" in "*python3_**XXXX**.spk*" points to the package file you made earlier:
 ```bash
-$ mkdir ~/Module-Packages && cd ~/Module-Packages
+$ mkdir -p ~/Module-Packages && cd ~/Module-Packages
 $ tar -x -f ~/spksrc/packages/python3_XXXX.spk -C /tmp package.tgz && gzip -df /tmp/package.tgz && tar -x -f /tmp/package.tar --wildcards share/wheelhouse/$file --strip=2
 ```
 Inside some of the `.whl` files (These are zip archives) you need to rename all files containing the text "**x86_64-linux-gnu**" to "**arm-linux-gnueabihf**", this is only required for ARM based Synology NAS.  
