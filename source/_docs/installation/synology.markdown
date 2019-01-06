@@ -70,10 +70,10 @@ Most components will setup just fine, but certain components need a python packa
 
 Edit "*~/spksrc/spk/python3/src/requirements.txt*" and add the following text to the end of the file:
 ```
-## It may happen you want to add a component to Home Assistant, but it fails to install a package.
+## It may happen you want to add a component to Home Assistant, but it fails to install a Python package.
 ## In the logs you see a error "Unable to install package *Module_Name*", if you install that
 # package with pip, some of its required packages fail with error "Failed building wheel for *Module_Name*"
-## Add these Python modules/packages that error with that "building wheel" error in to the list below.
+## Add these Python modules/packages that fail with that "building wheel" error in to the list below.
 
 # Example format of module:
 #pythonmodule==version
