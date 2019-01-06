@@ -94,7 +94,7 @@ ed25519==1.4
 Add these edits to fix OpenSSL errors when using the "[Xiaomi_Aqara](/components/Xiaomi_Aqara/)" component.  
 Edit "*~/spksrc/spk/python3/Makefile*" and add the following text above the text "**include ../../mk/spksrc.spk.mk**":
 ```makefile
-## Fix needed to fix "_openssl.so: undefined symbol: pthread_atfork" error when using "xiaomi_aqara" component.
+## Makefile variable needed to fix "_openssl.so: undefined symbol: pthread_atfork" error when using "xiaomi_aqara" component.
 export CFLAGS=-pthread
 ```
 #### {% linkable_title Compiling the Python 3 package %}
