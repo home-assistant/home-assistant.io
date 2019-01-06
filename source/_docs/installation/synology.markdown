@@ -59,7 +59,7 @@ Install Git
 ```bash
 # sudo apt-get install git
 ```
-Fork and clone spksrc, this will make a directory named "spksrc".
+Fork and clone spksrc, this will make a directory "~/spksrc".
 ```bash
 $ git clone https://github.com/SynoCommunity/spksrc.git ~/spksrc
 ```
