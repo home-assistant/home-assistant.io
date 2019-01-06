@@ -21,15 +21,16 @@ OwnTracks is a free and open source application for iOS and Android that allow y
 By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT.
 
 ### {% linkable_title Configuring the component %}
-  - Open HA in the browser
-  - Open Settings -> integrations
-  - If you see an Owntracks component under 'Configured', delete it.
-    - CLick on it
-    - click o the trashcan icon in the upper right corner.
-  - Now, look for Owntracks in 'setup new integration' and click on CONFIGURE.
-  - The login credentials and configuration for owntracks will be presented to you
-    in a popup window. You will need these in the configuration for the app as mentioned below.
-  - Save these credentials somewhere, as there is no way to get it back at a later point in time if it is lost, besides         repeating step 1-5
+
+1. Open the Home Assistant frontend 
+1. Open Settings -> integrations
+1. If you see an Owntracks component under 'Configured', delete it.
+   - CLick on it.
+   - Click o the trashcan icon in the upper right corner.
+1. Now, look for Owntracks in 'Setup new integration' and click on CONFIGURE.
+1. The login credentials and configuration for owntracks will be presented to you.
+   in a popup window. You will need these in the configuration for the app as mentioned below.
+1. Save these credentials somewhere, as there is no way to get it back at a later point in time if it is lost, besides         repeating step 1-5
   
 ### {% linkable_title Configuring the app - Android %}
 
