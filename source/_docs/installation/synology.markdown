@@ -144,7 +144,7 @@ Now while it's installing, you may setup the Shared-Folder for Home Assistant:
 * Click on "*Next*" again
 * Click on "*Apply*"
 
-As the "*homeassistant*" Shared-Folder has been made, copy the (previously created) "*~/Module-Packages*" directory there.
+As the "*homeassistant*" Shared-Folder has been made, copy the previously created "*~/Module-Packages*" directory there.
 
 Next setup the user:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
