@@ -20,7 +20,7 @@ redirect_from:
 
 The `nissan_leaf` component offers integration with the 
 [NissanConnect EV](http://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud 
-service. NissanConnect EV was previously known as Nissan Car Wings. It offers:
+service. NissanConnect EV was previously known as Nissan Carwings. It offers:
 
  * sensors for the battery status and range
  * a switch to start and stop the climate control  
@@ -71,7 +71,7 @@ region:
   required: true
   type: string
 nissan_connect:
-  description: If your car has the updated head unit (Nissan Connect rather than Car Wings) then you can acquire the location (and maybe climate control). This will be exposed as a device tracker.  If you have a pre-2014 24kWh Leaf then you will have Car Wings and this should be set to false, or it will crash the component.
+  description: If your car has the updated head unit (NissanConnect rather than Carwings) then you can acquire the location (and maybe climate control). This will be exposed as a device tracker.  If you have a pre-2014 24kWh Leaf then you will have Carwings and this should be set to false, or it will crash the component.
   required: false
   type: boolean
 update_interval:
