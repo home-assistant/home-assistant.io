@@ -99,7 +99,7 @@ Edit "*~/spksrc/spk/python3/Makefile*" and add the following text above the text
 export CFLAGS=-pthread
 ```
 #### {% linkable_title Compiling the Python 3 package %}
-Make the Python 3 package for your Synology model, please modify `docker run` command so the "**XXXX**" in "_arch-_**XXXX**" contains the appropriate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spksrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
+Make the Python 3 package for your Synology model, please modify `docker run` command so the "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spksrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
 ```bash
 sudo docker run -it --rm -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make setup && make -C spk/python3 arch-XXXX'
 ```
@@ -108,7 +108,7 @@ It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course
 
 #### {% linkable_title Extracting cross compiled packages %}
 Now you need to extract the Python module packages which you added earlier to "*requirements.txt*".
-Run these commands to extract the `.whl` files to the directory "**~/Module-Packages**", please modify `tar` command so the "**XXXX**" in "*python3_*__XXXX__*.spk*" points to the package file you made earlier:
+Run these commands to extract the `.whl` files to the directory "**~/Module-Packages**", please modify `tar` command so the "**XXXX**" in "*python3_**XXXX**.spk*" points to the package file you made earlier:
 ```bash
 $ mkdir ~/Module-Packages && cd ~/Module-Packages
 $ tar -x -f ~/spksrc/packages/python3_XXXX.spk -C /tmp package.tgz && gzip -df /tmp/package.tgz && tar -x -f /tmp/package.tar --wildcards share/wheelhouse/$file --strip=2
