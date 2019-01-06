@@ -20,6 +20,18 @@ OwnTracks is a free and open source application for iOS and Android that allow y
 
 By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT.
 
+### {% linkable_title Configuring the component %}
+
+1. Open the Home Assistant frontend 
+1. Open Settings -> integrations
+1. If you see an Owntracks component under 'Configured', delete it.
+   - CLick on it.
+   - Click o the trashcan icon in the upper right corner.
+1. Now, look for Owntracks in 'Setup new integration' and click on CONFIGURE.
+1. The login credentials and configuration for owntracks will be presented to you.
+   in a popup window. You will need these in the configuration for the app as mentioned below.
+1. Save these credentials somewhere, as there is no way to get it back at a later point in time if it is lost, besides         repeating step 1-5
+  
 ### {% linkable_title Configuring the app - Android %}
 
 [Install the OwnTracks application for Android.](https://play.google.com/store/apps/details?id=org.owntracks.android)
@@ -27,10 +39,14 @@ By default the integration will listen for incoming messages from OwnTracks via 
 In the OwnTracks app, open sidebar and click on preferences, then on connection. Change the following settings:
 
  - Mode: Private HTTP
- - Host: `<url given to you when setting up the integration>`
+ - Host: `<url given to you when setting up the integration above>`
  - Identification:
-   - Username: `<Your name>`
-   - Device ID: `<Your device name>`
+   - Username:<Username>
+   - Password: Can be left blank.
+   - Device ID: `<Device name>
+   - Tracker ID: <xx> Two character tracker ID. (can be left blank)
+
+Your tracker device will be known in home assistant as <Username>_<Device name>. If you entered a Tracker ID the tid attribute will  be set to that ID.
 
 ### {% linkable_title Configuring the app - iOS %}
 
