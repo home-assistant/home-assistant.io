@@ -11,7 +11,7 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `/volume1/@appstore/py3k/usr/local/bin/python3 -m pip install homeassistant==0.64.3`
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can follow the instructions "[Using older Python 3 provided by Synology](#-linkable_title-using-older-python-3-provided-by-synology-)" way below of the document.
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -318,9 +318,9 @@ To have Home Assistant start on bootup of your Synology NAS, do as follows:
 
 ## {% linkable_title Using older Python 3 provided by Synology %}
 
-
-Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. The instructions above describes how to install newer Home Assistant on your Synology NAS. If you want to proceed with a older version of Home Assistant, follow the instructions below. Please note that you may not be able to use certain components, such as "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)".
-
+<p class="note warning">
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. The instructions above describes how to install newer Home Assistant on your Synology NAS. If you want to proceed with a older version of Home Assistant, follow the instructions below. Please note that you may not be able to use certain components, such as "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)"
+</p>
 
 Running these commands will:
 * Install Home Assistant 0.64.3
