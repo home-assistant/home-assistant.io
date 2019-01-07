@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: us-geological-survey.png
-ha_category: Geo Location
+ha_category: Geolocation
 ha_iot_class: "Cloud Polling"
 ha_release: 0.84
 ---
