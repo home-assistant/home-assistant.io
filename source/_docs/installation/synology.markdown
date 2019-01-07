@@ -340,7 +340,7 @@ Install Python 3 as follows:
 * Go to "*All Packages*"
 * Scroll all the way down until you find "*Python3*" and click on "*Install*"
 
-Follow the other instructions from "[Using the Synology webadmin](#-linkable_title-using-the-synology-webadmin-)".
+Follow the other instructions at "[Using the Synology webadmin](#-linkable_title-using-the-synology-webadmin-)", ignore the  "Python 3 package" part.
 
 ### Installing Home Assistant
 
@@ -462,4 +462,20 @@ case $1 in
         ;;
 esac
 ```
+### Starting Home Assistant on bootup
 To have Home Assistant start on bootup of your Synology NAS, follow "[Starting Home Assistant on bootup](#-linkable_title-starting-home-assistant-on-bootup-)".
+
+### Controlling Home Assistant
+
+* Start Home Assistant:
+```bash
+$ /volume1/homeassistant/hass-daemon start
+```
+* Stop Home Assistant:
+```bash
+$ /volume1/homeassistant/hass-daemon stop
+```
+* Restart Home Assistant:
+```bash
+$ /volume1/homeassistant/hass-daemon restart
+```
