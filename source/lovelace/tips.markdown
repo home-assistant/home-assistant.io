@@ -21,6 +21,8 @@ top of this page to share it with everyone!*
 
 Home Assistant allows you to make files in `<config dir>/www/example_image.jpg` available to Lovelace as  `/local/example_image.jpg`. When you create the `www` directory, you will need to once restart Home Assistant to pick it up. After that, any new file placed in the directory will automatically be available.
 
+Check out [Share the love][sharethelove] for a few great examples of what you can do with lovelace (no affiliation).
+
 ### {% linkable_title Disable Click on Elements %}
 
 If you do not want an element to be clickable you can add `pointer-events: none`
@@ -64,3 +66,4 @@ The [Lovelace Jinja2 Script][lovelace-jinja] by [@skalavala] is a simple Jinja2 
 [picture-elements]: /lovelace/picture-elements/
 [vertical-stack]: /lovelace/vertical-stack/
 [lovelace-jinja]: https://sharethelove.io/tools/jinja-magic-scripts
+[sharethelove]: https://sharethelove.io/
