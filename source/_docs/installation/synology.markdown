@@ -50,10 +50,6 @@ Start Docker and enable start on system bootup:
 # sudo systemctl start docker
 # sudo systemctl enable docker
 ```
-Download the [spksrc Docker container](https://github.com/SynoCommunity/spksrc#docker):
-```bash
-# sudo docker pull synocommunity/spksrc
-```
 
 #### {% linkable_title Preparing compiling environment %}
 
@@ -61,7 +57,7 @@ Install Git:
 ```bash
 # sudo apt-get install git
 ```
-Fork and clone spksrc, this will make a directory "~/spksrc":
+Fork and clone [spksrc](https://github.com/SynoCommunity/spksrc), this will make a directory "~/spksrc":
 ```bash
 $ git clone https://github.com/SynoCommunity/spksrc.git ~/spksrc
 ```
@@ -103,14 +99,14 @@ export CFLAGS=-pthread
 
 #### {% linkable_title Compiling the Python 3 package %}
 
-Make the Python 3 package for your Synology model, please modify `docker run` command so the "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by spksrc. Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
+Make the Python 3 package for your Synology model, please modify `docker run` command so the "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by [spksrc](https://github.com/SynoCommunity/spksrc). Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
 ```bash
-sudo docker run -it -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make setup && make -C spk/python3 arch-XXXX'
+$ sudo docker run -it -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make setup && make -C spk/python3 arch-XXXX'
 ```
 After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
 It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
 
-If you want to remove the spksrc Docker container to save space, run the following command:
+If you want to remove the Docker container downloaded by `docker run` to save drive space, run the following command:
 ```bash
 sudo docker rmi synocommunity/spksrc
 ```
