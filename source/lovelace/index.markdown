@@ -19,3 +19,8 @@ Note that this is a per-device setting and will need to be changed on each devic
 ## {% linkable_title Discuss Lovelace %}
 
 Lovelace is still under development and we're always looking at making things better. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.
+
+## {% linkable_title Additional Lovelace Resources %}
+
+* [Awesome HA](https://www.awesome-ha.com/#lovelace-ui)
+* [Community Custom Cards](https://github.com/custom-cards)
