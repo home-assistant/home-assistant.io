@@ -297,7 +297,7 @@ $ /volume1/homeassistant/hass-daemon restart
 ```
 * Upgrade Home Assistant:
 ```bash
-$ /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
+# sudo /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
 If you need to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory and redo the steps from "[Preparing compiling environment](#-linkable_title-preparing-compiling-environment-)", add the failed python modules to "*requirements.txt*" file, compile and reinstall the Python 3 package on your Synology.
