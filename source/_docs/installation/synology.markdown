@@ -171,7 +171,7 @@ Replace "*user*" with your Synology NAS user and "x.x.x.x" with the its IP addre
 ```bash
 $ ssh user@x.x.x.x
 ```
-Install Home Assistant.
+Use `pip` to install Home Assistant.
 ```bash
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
 ```
@@ -342,18 +342,18 @@ Install Python 3 as follows:
 
 Follow the other instructions at "[Using the Synology webadmin](#-linkable_title-using-the-synology-webadmin-)", ignore the  "Python 3 package" part.
 
-### Installing Home Assistant
+### Installing Home Assistant 0.64.3
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
 Replace "*user*" with your Synology NAS user and "x.x.x.x" with the its IP address:
 ```bash
 $ ssh user@x.x.x.x
 ```
-Install PIP (Python’s package management system)
+Install `pip` (Python’s package management system)
 ```bash
 # sudo /volume1/@appstore/py3k/usr/local/bin/python3 -m ensurepip
 ```
-Use PIP to install Homeassistant package 0.64.3
+Use `pip` to install Homeassistant package 0.64.3
 ```bash
 # sudo /volume1/@appstore/py3k/usr/local/bin/python3 -m pip install homeassistant==0.64.3
 ```
@@ -463,7 +463,17 @@ case $1 in
 esac
 ```
 ### Starting Home Assistant on bootup
-To have Home Assistant start on bootup of your Synology NAS, follow "[Starting Home Assistant on bootup](#-linkable_title-starting-home-assistant-on-bootup-)".
+
+To have Home Assistant start on bootup of your Synology NAS, do as follows:
+* Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
+* Go to "[*Task Scheduler*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_taskscheduler)" settings
+* Click on "*Create*" > "*Triggered Task*" > "*User-defined script*"
+* In "*Task*" write "**Home Assistant**"
+* Click on the checkbox next to "*Enabled*"
+* Make sure "*root*" is selected in "*User*"
+* Go to "*Task Settings* settings
+* in "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
+* Click on "*OK*".
 
 ### Controlling Home Assistant
 
