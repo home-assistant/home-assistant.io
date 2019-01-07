@@ -114,6 +114,64 @@ Start the cleaning operation in the areas selected for the number of reps indica
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 | `zone`                    |       no | Array of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
 | `reps`                    |       no | Number of cleaning reps for each zone between 1 and 3. |
+| `reps_template`           |       no | Template that rapresents the number of cleaning reps for each zone between 1 and 3. |
+
+Example of `vacuum.xiaomi_clean_zone_start` use:
+Inline array:
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone_start
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        reps_template: '{{states.input_number.vacuum_passes.state|int}}'
+        zone: [[2555, 2555, 2555, 2555], [2300, 2300, 2300, 2300]]
+```
+Array with inline zone:
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone_start
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        reps_template: '{{states.input_number.vacuum_passes.state|int}}'
+        zone: 
+        - [2555, 2555, 2555, 2555]
+        - [2300, 2300, 2300, 2300]
+```
+Array mode:
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone_start
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        reps: 1
+        zone: 
+        - - 2555
+          - 2555
+          - 2555
+          - 2555
+        - - 2300
+          - 2300
+          - 2300 
+          - 2300
+```
 
 ## {% linkable_title Attributes %}
 
