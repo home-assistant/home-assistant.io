@@ -11,7 +11,7 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `/volume1/@appstore/python3/bin/python3 -m pip install homeassistant==0.64.3`
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can manually specify the version of Home Assistant to install, for example to install version 0.64.3 you would do `/volume1/@appstore/py3k/usr/local/bin/python3 -m pip install homeassistant==0.64.3`
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -34,7 +34,7 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 * Create "homeassistant" user
 * Create "homeassistant" [Shared-Folder](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_share_desc)
 * Enable [SSH](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal) service
-* Optionally start Home Assistant on bootup of your Synology
+* Optionally start Home Assistant on bootup of your Synology NAS
 
 ## {% linkable_title Getting prerequisites) %}
 
@@ -99,7 +99,7 @@ export CFLAGS=-pthread
 
 #### {% linkable_title Compiling the Python 3 package %}
 
-Make the Python 3 package for your Synology model, please modify `docker run` command so the "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by [spksrc](https://github.com/SynoCommunity/spksrc). Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
+Make the Python 3 package for your Synology NAS model, please modify `docker run` command so the "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology NAS. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by [spksrc](https://github.com/SynoCommunity/spksrc). Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
 ```bash
 # sudo docker run -it -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean && make setup && make -C spk/python3 arch-XXXX'
 ```
@@ -153,7 +153,7 @@ Next you need to enable SSH:
 * Click on the checkbox next to "*Enable SSH service*"
 * Click on "*Apply*"
 
-In the case you turned on the firewall on your Synology device, please config it to allow connections for Home Assistant:
+In the case you turned on the firewall on your Synology NAS, please config it to allow connections for Home Assistant:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
 * Go to "[*Security*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_desc)" settings
 * Go to "[*Firewall*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_firewall)" settings
@@ -167,7 +167,7 @@ In the case you turned on the firewall on your Synology device, please config it
 ## {% linkable_title Installing Home Assistant %}
 
 After the Python 3 package has been installed, open terminal and open SSH to the synology.
-Replace "*user*" with your Synology user and "x.x.x.x" with the its IP address:
+Replace "*user*" with your Synology NAS user and "x.x.x.x" with the its IP address:
 ```bash
 $ ssh user@x.x.x.x
 ```
@@ -300,12 +300,12 @@ $ /volume1/homeassistant/hass-daemon restart
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
-If you need to update Python 3 or added a component which fails caused by python modules not installing on your Synology, delete the "spksrc" directory and redo the steps from "[Preparing compiling environment](#-linkable_title-preparing-compiling-environment-)", add the failed python modules to "*requirements.txt*" file, compile and reinstall the Python 3 package on your Synology.
+If you need to update Python 3 or added a component which fails caused by a Python module not installing on your on your Synology NAS with error code "*Failed building wheel for *Module_Name**", delete the "*~/spksrc*" directory and redo the guide, but add the failed python modules to "*requirements.txt*" from "[Preparing compiling environment](#-linkable_title-preparing-compiling-environment-)".
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
 
-To have Home Assistant start on bootup of your Synology, do as follows:
+To have Home Assistant start on bootup of your Synology NAS, do as follows:
 * Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
 * Go to "[*Task Scheduler*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_taskscheduler)" settings
 * Click on "*Create*" > "*Triggered Task*" > "*User-defined script*"
@@ -315,3 +315,151 @@ To have Home Assistant start on bootup of your Synology, do as follows:
 * Go to "*Task Settings* settings
 * in "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
 * Click on "*OK*".
+
+## {% linkable_title Using older Python 3 provided by Synology %}
+
+
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. The instructions above describes how to install newer Home Assistant on your Synology NAS. If you want to proceed with a older version of Home Assistant, follow the instructions below. Please note that you may not be able to use certain components, such as "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)".
+
+
+Running these commands will:
+* Install Home Assistant 0.64.3
+* Enable Home Assistant to be launched on http://*Synology_IP*:8123
+
+Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/DSM/help):
+* Install Python 3 using the Synology Package Center
+* Create "homeassistant" user
+* Create "homeassistant" [Shared-Folder](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_share_desc)
+* Enable [SSH](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal) service
+* Optionally start Home Assistant on bootup of your Synology NAS
+
+### Install Synology provided Python 3
+
+Install Python 3 as follows:
+* Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
+* Go to "*All Packages*"
+* Scroll all the way down until you find "*Python3*" and click on "*Install*"
+
+Follow the other instructions from "[Using the Synology webadmin](#-linkable_title-using-the-Synology-webadmin)".
+
+### Installing Home Assistant
+
+After the Python 3 package has been installed, open terminal and open SSH to the synology.
+Replace "*user*" with your Synology NAS user and "x.x.x.x" with the its IP address:
+```bash
+$ ssh user@x.x.x.x
+```
+Install PIP (Python’s package management system)
+```bash
+# sudo /volume1/@appstore/py3k/usr/local/bin/python3 -m ensurepip
+```
+Use PIP to install Homeassistant package 0.64.3
+```bash
+# sudo /volume1/@appstore/py3k/usr/local/bin/python3 -m pip install homeassistant==0.64.3
+```
+Create a file named "**hass-daemon**" in your "*homeassistant*" Shared-Folder with the script below as its content.
+You can use it to easily start, stop and restart Home Assistant like a service/daemon.
+```sh
+#!/bin/sh
+
+# Package
+PACKAGE="homeassistant"
+DNAME="Home Assistant"
+
+# Others
+USER="homeassistant"
+PYTHON_DIR="/volume1/@appstore/py3k/usr/local/bin"
+PYTHON="$PYTHON_DIR/python3"
+HASS="$PYTHON_DIR/hass"
+INSTALL_DIR="/volume1/homeassistant"
+PID_FILE="$INSTALL_DIR/home-assistant.pid"
+FLAGS="-v --config $INSTALL_DIR --pid-file $PID_FILE --daemon"
+REDIRECT="> $INSTALL_DIR/home-assistant.log 2>&1"
+
+start_daemon ()
+{
+    sudo -u ${USER} /bin/sh -c "$PYTHON $HASS $FLAGS $REDIRECT;"
+}
+
+stop_daemon ()
+{
+    sudo kill `cat ${PID_FILE}`
+    wait_for_status 1 20 || sudo kill -9 `cat ${PID_FILE}`
+    rm -f ${PID_FILE}
+}
+
+daemon_status ()
+{
+    if [ -f ${PID_FILE} ] && sudo kill -0 `cat ${PID_FILE}` > /dev/null 2>&1; then
+        return
+    fi
+    rm -f ${PID_FILE}
+    return 1
+}
+
+wait_for_status ()
+{
+    counter=$2
+    while [ ${counter} -gt 0 ]; do
+        daemon_status
+        [ $? -eq $1 ] && return
+        let counter=counter-1
+        sleep 1
+    done
+    return 1
+}
+
+case $1 in
+    start)
+        if daemon_status; then
+            echo ${DNAME} is already running
+            exit 0
+        else
+            echo Starting ${DNAME} ...
+            start_daemon
+            exit $?
+        fi
+        ;;
+    stop)
+        if daemon_status; then
+            echo Stopping ${DNAME} ...
+            stop_daemon
+            exit $?
+        else
+            echo ${DNAME} is not running
+            exit 0
+        fi
+        ;;
+        restart)
+        if daemon_status; then
+            echo Stopping ${DNAME} ...
+            stop_daemon
+            echo Starting ${DNAME} ...
+            start_daemon
+            exit $?
+        else
+            echo ${DNAME} is not running
+            echo Starting ${DNAME} ...
+            start_daemon
+            exit $?
+        fi
+        ;;
+    status)
+        if daemon_status; then
+            echo ${DNAME} is running
+            exit 0
+        else
+            echo ${DNAME} is not running
+            exit 1
+        fi
+        ;;
+    log)
+        echo ${LOG_FILE}
+        exit 0
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+```
+To have Home Assistant start on bootup of your Synology NAS, follow "[Starting Home Assistant on bootup](#-linkable_title-starting-home-assistant-on-bootup)".
