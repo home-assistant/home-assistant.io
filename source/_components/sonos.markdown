@@ -134,3 +134,10 @@ sonos:
       - 192.0.2.26
       - 192.0.2.27
 ```
+
+## {% linkable_title Additional information %}
+
+This component is using the SoCo project internally, see more details about it on [SoCo](https://github.com/SoCo/SoCo) 
+
+To be able to support the Sonos components and features it is mandatory to have port 1400 opened. This is used to receive events about changes on the Sonos network. For more details please see the official documentation and source code of the SoCo project.
+
