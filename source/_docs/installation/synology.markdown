@@ -316,6 +316,8 @@ To have Home Assistant start on bootup of your Synology NAS, do as follows:
 * in "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
 * Click on "*OK*".
 
+---
+
 ## {% linkable_title Using older Python 3 provided by Synology %}
 
 <p class="note warning">
