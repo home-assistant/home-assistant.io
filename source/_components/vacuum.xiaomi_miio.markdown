@@ -25,7 +25,7 @@ Currently supported services are:
 - `clean_spot`
 - `set_fan_speed`
 - remote control of your robot.
-- `xiaomi_clean_zone_start`
+- `xiaomi_clean_zone`
 
 ## {% linkable_title Configuration %}
 
@@ -65,7 +65,7 @@ In addition to all of the services provided by the `vacuum` component (`start`, 
 - `xiaomi_remote_control_stop`
 - `xiaomi_remote_control_move`
 - `xiaomi_remote_control_move_step`
-- `xiaomi_clean_zone_start`
+- `xiaomi_clean_zone`
 
 ### {% linkable_title Service `vacuum.xiaomi_remote_control_start` %}
 
@@ -105,7 +105,7 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
 
-### {% linkable_title Service `vacuum.xiaomi_clean_zone_start` %}
+### {% linkable_title Service `vacuum.xiaomi_clean_zone` %}
 
 Start the cleaning operation in the areas selected for the number of repeats indicated.
 
@@ -116,7 +116,7 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 | `repeats`                    |       no | Number of cleaning repeats for each zone between 1 and 3. |
 | `repeats_template`           |       no | Template that rapresents the number of cleaning repeats for each zone between 1 and 3. |
 
-Example of `vacuum.xiaomi_clean_zone_start` use:
+Example of `vacuum.xiaomi_clean_zone` use:
 Inline array:
 ```yaml
 automation:
@@ -126,7 +126,7 @@ automation:
       platform: homeassistant
     condition: []
     action:
-    - service: vacuum.xiaomi_clean_zone_start
+    - service: vacuum.xiaomi_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
         repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
@@ -141,7 +141,7 @@ automation:
       platform: homeassistant
     condition: []
     action:
-    - service: vacuum.xiaomi_clean_zone_start
+    - service: vacuum.xiaomi_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
         repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
@@ -158,7 +158,7 @@ automation:
       platform: homeassistant
     condition: []
     action:
-    - service: vacuum.xiaomi_clean_zone_start
+    - service: vacuum.xiaomi_clean_zone
       data:
         entity_id: vacuum.xiaomi_vacuum
         repeats: 1
