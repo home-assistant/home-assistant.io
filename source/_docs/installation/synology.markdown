@@ -298,7 +298,7 @@ esac
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
-If you need to update Python 3 or added a component which fails caused by a Python module not installing on your on your Synology NAS with error code "*Failed building wheel for *Module_Name**", delete the "*~/spksrc*" directory and redo the guide, but add the failed python modules to "*requirements.txt*" from "[Preparing compiling environment](#title-preparing-compiling-environment)".
+If you need to update Python 3 or added a component which fails caused by a Python module not installing on your on your Synology NAS with error code "*Failed building wheel for *Module_Name**", delete the "*~/spksrc*" directory and redo the guide, but add the failed python modules to "*requirements.txt*" from "[Preparing compiling environment](#preparing-compiling-environment)".
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
@@ -340,7 +340,7 @@ Install Python 3 as follows:
 1. Go to "*All Packages*"
 1. Scroll all the way down until you find "*Python3*" and click on "*Install*"
 
-Follow the other instructions at "[Using the Synology webadmin](#title-using-the-synology-webadmin)", ignore the  "Python 3 package" part.
+Follow the other instructions at "[Using the Synology webadmin](#using-the-synology-webadmin)", ignore the  "Python 3 package" part.
 
 ### {% linkable_title Installing Home Assistant 0.64.3 %}
 
