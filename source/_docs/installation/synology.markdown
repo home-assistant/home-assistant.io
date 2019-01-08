@@ -11,7 +11,8 @@ redirect_from: /getting-started/installation-synology/
 ---
 
 <p class="note warning">
-Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. Until Synology offer an updated version of Python, Home Assistant 0.64 is the most recent version that will be able to be installed. If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide. Otherwise you can follow the instructions "[Using older Python 3 provided by Synology](#using-older-python-3-provided-by-synology)" at the bottom of this page.
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later.<br/>
+If you want to run newer Home Assistant versions, you will need to make a new Python 3 package, which will be detailed in this guide, otherwise you can follow the instructions "[Using older Python 3 provided by Synology](#using-older-python-3-provided-by-synology)" at the bottom of this page.
 </p>
 
 There are 2 alternatives, when using Home Assistant on Synology NAS:
@@ -97,14 +98,15 @@ export CFLAGS=-pthread
 
 #### {% linkable_title Compiling the Python 3 package %}
 
-Make the Python 3 package for your Synology NAS model, please modify `docker run` command so the "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology NAS. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by [spksrc](https://github.com/SynoCommunity/spksrc). Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
+Modify the `docker run` command so "**XXXX**" in "*arch-**XXXX***" contains the appropriate architecture of your Synology NAS. For a list of architectures, look at this [list of architectures](https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model) accepted by [spksrc](https://github.com/SynoCommunity/spksrc).<br/>
+Depending on your computer, compilation may take a hour or more (Significantly less if you have a SSD and a moderately good CPU):
 ```bash
 # sudo docker run -it -v ~/spksrc:/spksrc -w /spksrc synocommunity/spksrc bash -c 'make clean && make setup && make -C spk/python3 arch-XXXX'
 ```
-After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".
-It should be named something like "python3_armada370-6.1_3.5.5-7.spk", of course with a possibly different architecture and version.
+After the compilation is done, you can find the Python 3 package at "*~/spksrc/packages/python3_XXXX.spk*".<br/>
+It should be named something like "python3_armada370-6.1_3.5.5-7.spk" with a possibly different architecture and version.
 
-If you want to remove the Docker container downloaded by `docker run` to save drive space, run the following command:
+To remove the Docker container downloaded by `docker run` to save drive space, run the following command:
 ```bash
 # sudo docker rmi synocommunity/spksrc
 ```
@@ -114,7 +116,7 @@ If you want to remove the Docker container downloaded by `docker run` to save dr
 Install the Python 3 package as follows:
 1. Open "[*Package Center*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/PkgManApp/PackageCenter_desc)"
 1. Press the "*Manual Install*" button on the top right of the window
-1. Click on "*Browse*" and select the Python 3 package you made earlier (e.g., "*~/spksrc/packages/python3_XXXX.spk*")
+1. Click on "*Browse*" and select the Python 3 package you made at "[Compiling the Python 3 package](#compiling-the-python-3-package)"
 1. Click on "*Next*"
 1. You will most likely get a unverified signature warning, click on "*Yes*"
 1. Click on "*Apply*"
@@ -129,8 +131,6 @@ Now while it's installing, you may setup the Shared-Folder for Home Assistant:
 1. Click on "*Next*" again
 1. Click on "*Apply*"
 
-As the "*homeassistant*" Shared-Folder has been made, copy the previously created "*~/Module-Packages*" directory there.
-
 Next setup the user:
 1. Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
 1. Go to "[*User*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/file_user_desc)" settings
@@ -140,7 +140,7 @@ Next setup the user:
 1. The "*Password*" is up to your choice
 1. Click on "*Next*"
 1. Make sure only "*users*" group is checked and click "*Next*"
-1. Set the permission "*Read/Write*" for "*homeassistant*" and the all the other Shared-Folders to "*No access*"
+1. Set the permission "*Read/Write*" for "*homeassistant*" and all other Shared-Folders to "*No access*"
 1. Click on "*Next*"
 1. Click on "*Next*" again
 1. Click on "*Apply*"
@@ -151,7 +151,7 @@ Next you need to enable SSH:
 1. Click on the checkbox next to "*Enable SSH service*"
 1. Click on "*Apply*"
 
-In the case you turned on the firewall on your Synology NAS, please config it to allow connections for Home Assistant:
+If you turned on the firewall on your Synology NAS, please config it to allow connections for Home Assistant:
 1. Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
 1. Go to "[*Security*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_desc)" settings
 1. Go to "[*Firewall*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/connection_security_firewall)" settings
@@ -164,16 +164,16 @@ In the case you turned on the firewall on your Synology NAS, please config it to
 
 ## {% linkable_title Installing Home Assistant %}
 
-After the Python 3 package has been installed, open terminal and open SSH to the synology.
+After the Python 3 package has been installed, open terminal and open SSH to the synology.<br/>
 Replace "*user*" with your Synology NAS user and "x.x.x.x" with the its IP address:
 ```bash
 ssh user@x.x.x.x
 ```
-Use `pip` to install Home Assistant.
+Use `pip` to install Home Assistant:
 ```bash
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install homeassistant
 ```
-Create a file named "**hass-daemon**" in your "*homeassistant*" Shared-Folder with the script below as its content.
+Create a file named "**hass-daemon**" in your "*homeassistant*" Shared-Folder with the script below as its content.<br/>
 You can use it to easily start, stop and restart Home Assistant like a service/daemon.
 ```sh
 #!/bin/sh
@@ -298,7 +298,7 @@ esac
 # sudo /volume1/@appstore/python3/bin/python3 -m pip install --upgrade homeassistant
 ```
 <p class="note">
-If you need to update Python 3 or added a component which fails caused by a Python module not installing on your on your Synology NAS with error code "*Failed building wheel for *Module_Name**", delete the "*~/spksrc*" directory and redo the guide, but add the failed python modules to "*requirements.txt*" from "[Preparing compiling environment](#preparing-compiling-environment)".
+If you need a update for Python 3 or added a component which failed because of a Python module not installing on your Synology NAS with error code "_Failed building wheel for *Module_Name*_", delete the "*~/spksrc*" directory and redo the guide, but add the failed python module to "*requirements.txt*" from "[Preparing compiling environment](#preparing-compiling-environment)".
 </p>
 
 ## {% linkable_title Starting Home Assistant on bootup %}
@@ -319,7 +319,9 @@ To have Home Assistant start on bootup of your Synology NAS, do as follows:
 ## {% linkable_title Using older Python 3 provided by Synology %}
 
 <p class="note warning">
-Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later. The instructions above describes how to install newer Home Assistant on your Synology NAS. If you want to proceed with a older version of Home Assistant, follow the instructions below. Please note that you may not be able to use certain components, such as "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)"
+Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later.<br/>
+The instructions above describes how to install newer Home Assistant on your Synology NAS.<br/>
+If you want to proceed with a older version of Home Assistant, follow the instructions below. Please note that you may not be able to use certain components, such as "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)"
 </p>
 
 Running these commands will:
@@ -344,16 +346,16 @@ Follow the other instructions at "[Using the Synology webadmin](#using-the-synol
 
 ### {% linkable_title Installing Home Assistant 0.64.3 %}
 
-After the Python 3 package has been installed, open terminal and open SSH to the synology.
+After the Python 3 package has been installed, open terminal and open SSH to the synology.<br/>
 Replace "*user*" with your Synology NAS user and "x.x.x.x" with the its IP address:
 ```bash
 $ ssh user@x.x.x.x
 ```
-Install `pip` (Python’s package management system)
+Install `pip` (Python’s package management system):
 ```bash
 # sudo /volume1/@appstore/py3k/usr/local/bin/python3 -m ensurepip
 ```
-Use `pip` to install Homeassistant package 0.64.3
+Use `pip` to install Homeassistant 0.64.3:
 ```bash
 # sudo /volume1/@appstore/py3k/usr/local/bin/python3 -m pip install homeassistant==0.64.3
 ```
