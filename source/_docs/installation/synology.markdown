@@ -35,7 +35,7 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 * Enable [SSH](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal) service
 * Optionally start Home Assistant on bootup of your Synology NAS
 
-## {% linkable_title Getting prerequisites) %}
+## {% linkable_title Making new Python 3 package %}
 
 #### {% linkable_title Installing Docker on [Mint, Ubuntu or derivatives](https://docs.docker.com/install/linux/docker-ce/ubuntu/) %}
 
