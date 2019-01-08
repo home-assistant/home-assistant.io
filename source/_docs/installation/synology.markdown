@@ -479,7 +479,7 @@ esac
 /volume1/homeassistant/hass-daemon restart
 ```
 
-### {% linkable_title Starting Home Assistant on bootup %}
+### {% linkable_title Starting Home Assistant 0.64.3 on bootup %}
 
 To have Home Assistant start on bootup of your Synology NAS, do as follows:
 1. Open "[*Control Panel*](https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/ControlPanel_desc)"
