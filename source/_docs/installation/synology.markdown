@@ -321,7 +321,7 @@ To have Home Assistant start on bootup of your Synology NAS, do as follows:
 <p class="note warning">
 Synology only provides [Python 3.5.1](https://www.synology.com/en-global/dsm/packages/py3k), which is not compatible with Home Assistant 0.65.0 or later.<br/>
 The instructions above describes how to install newer Home Assistant on your Synology NAS.<br/>
-If you want to proceed with a older version of Home Assistant, follow the instructions below. Please note that you may not be able to use certain components, such as "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)"
+If you want to proceed with a older version of Home Assistant, follow the instructions below. Please note that you may not be able to use certain components, such as "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)".
 </p>
 
 Running these commands will:
