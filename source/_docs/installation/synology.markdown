@@ -63,9 +63,7 @@ git clone https://github.com/SynoCommunity/spksrc.git ~/spksrc
 
 Edit the following 2 files.
 
-These edits will make cross compiled Python module packages, which Home Assistant needs to install. These edits also enable use of the "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)" components.
-Most components will setup just fine, but certain components need a python package that compiles on installation, which will fail as Synology did not provide a compiler, causing said need for cross compilation.
-
+Add these edits to make cross compiled Python module packages which Home Assistant needs to install and enable usage of the "[Cloud](/components/cloud/)" and [Homekit](/components/homekit/)" components. Most components will setup just fine, but certain components need a python package that compiles on installation, which will fail as Synology did not provide a compiler, causing said need for cross compilation.<br/>
 Edit "*~/spksrc/spk/python3/src/requirements.txt*" and add the following text to the end of the file:
 ```
 ## It may happen you want to add a component to Home Assistant, but it fails to install a Python package.
