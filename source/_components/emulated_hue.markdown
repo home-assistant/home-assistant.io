@@ -53,6 +53,7 @@ emulated_hue:
 ```yaml
 # Sleep Cycle example configuration.yaml entry
 emulated_hue:
+  type: sleep_cycle
   listen_port: 80
   # Sleep Cycle does not work on different ports.
 ```
