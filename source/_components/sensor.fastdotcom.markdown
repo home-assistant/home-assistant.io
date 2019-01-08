@@ -70,3 +70,4 @@ There is also a service named `sensor.update_fastdotcom` that you can use to run
 ## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- This entity will return the maximum measured speed during an 15 second test.
