@@ -44,7 +44,7 @@ $ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/sit
 
 ##### {% linkable_title Symlinking examples: %}
 
-For the default virtual environment of a [HASSbian Image for Raspberry Pi](/getting-started/installation-raspberry-pi-image/) the command would be as follows.
+For the default virtual environment of a [HASSbian Image for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
 
 ```bash
 $ ln -s /usr/local/lib/python*/dist-packages/cec /srv/homeassistant/lib/python*/site-packages
