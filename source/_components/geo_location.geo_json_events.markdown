@@ -53,6 +53,17 @@ longitude:
   default: Longitude defined in your `configuration.yaml`
 {% endconfiguration %}
 
+## {% linkable_title State Attributes %}
+
+The following state attributes are available for each entity in addition to the standard ones:
+
+| Attribute   | Description |
+|-------------|-------------|
+| latitude    | Latitude of the event. |
+| longitude   | Longitude of the event. |
+| source      | `geo_json_events` to be used in conjunction with `geo_location` automation trigger. |
+| external_id | The external ID used in the feed to identify the event in the feed. |
+
 ## {% linkable_title Advanced Configuration Example %}
 
 When integrating several GeoJSON feeds, it may be useful to distinguish the entities of different feeds. The easiest way to do that is by defining an [`entity_namespace`](/docs/configuration/platform_options/#entity-namespace/) for each platform which will prefix each entity ID with the defined value.
