@@ -20,7 +20,7 @@ The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
-- [Eurotronic Comet DECT](https://www.eurotronic.org/en/products/comet-dect.html)
+- [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
 
 
 ## {% linkable_title Setup %}

@@ -70,7 +70,7 @@ include:
       type: list
 {% endconfiguration %}
 
-## Operation
+## {% linkable_title Operation %}
 
 When any Home Assistant entity changes, this component will publish that change to MQTT.
 
@@ -83,9 +83,9 @@ If that entity also has an attribute called `brightness`, the component will als
 
 All states and attributes are passed through JSON serialization before publishing. **Please note** that this causes strings to be quoted (e.g., the string 'on' will be published as '"on"'). You can access the JSON deserialized values (as well as unquoted strings) at many places by using `value_json` instead of `value`.
 
-The last_updated and last_changed values for the entity will be published to `homeassistant/light/master_bedroom_dimmer/last_updated` and `homeassistant/light/master_bedroom_dimmer/last_changed`, respectively.  The timestamps are in ISO 8601 format - for example, `2017-10-01T23:20:30.920969+00:00`.
+The last_updated and last_changed values for the entity will be published to `homeassistant/light/master_bedroom_dimmer/last_updated` and `homeassistant/light/master_bedroom_dimmer/last_changed`, respectively. The timestamps are in ISO 8601 format - for example, `2017-10-01T23:20:30.920969+00:00`.
 
-## Include/exclude
+## {% linkable_title Include/exclude %}
 
 The **exclude** and **include** configuration variables can be used to filter the items that are published to MQTT.
 

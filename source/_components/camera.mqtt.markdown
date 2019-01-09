@@ -30,17 +30,15 @@ camera:
 
 {% configuration %}
 topic:
-  description: MQTT topic to subscribe to.
+  description: The MQTT topic to subscribe to.
   required: true
   type: string
 name:
-  description: Name of the camera.
+  description: The name of the camera.
   required: false
   type: string
 unique_id:
-  description: >
-    An ID that uniquely identifies this camera. If two cameras
-    have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this camera. If two cameras have the same unique ID Home Assistant will raise an exception.
   required: false
   type: string
 {% endconfiguration %}

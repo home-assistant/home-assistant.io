@@ -33,6 +33,8 @@ We have a new more reliable way of state restoration introduced by [@armills]. I
 
 This comes with a downside: we will be unable to restore states the first time you start 0.84.
 
+This means that on upgrade to 0.84 any automation that doesn't have an `initial_state` defined **will be disabled**.
+
 ## {% linkable_title Improved service calling %}
 
 We have improved how we call services with better validation checks. This means that if you have an automation or a script that sends invalid data, we will now stop the execution and be better able to point out where your incorrect calls are coming from.
@@ -117,6 +119,30 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 - Set lock status correctly for Schlage BE469 Z-Wave locks ([@ahayworth] - [#18737]) ([lock.zwave docs])
 - Fix restore state for manual alarm control panel ([@liaanvdm] - [#19284]) ([alarm_control_panel.manual docs])
 - Fix not being able to update entities ([@glentakahashi] - [#19344]) ([config docs])
+
+## {% linkable_title Release 0.84.4 - December 19 %}
+
+- Fix parts of the frontend not picking up translations ([@balloob])
+- Fix IHC config schema ([@mopolus] - [#19415]) ([ihc docs])
+- Use web sockets for Harmony HUB ([@ehendrix23] - [#19440]) ([remote.harmony docs])
+
+[#19415]: https://github.com/home-assistant/home-assistant/pull/19415
+[#19440]: https://github.com/home-assistant/home-assistant/pull/19440
+[@ehendrix23]: https://github.com/ehendrix23
+[@mopolus]: https://github.com/mopolus
+[ihc docs]: /components/ihc/
+[remote.harmony docs]: /components/remote.harmony/
+
+## {% linkable_title Release 0.84.5 - December 19 %}
+
+- Fix Harmony for people not running Home Assistant in Docker ([@ehendrix23])
+
+## {% linkable_title Release 0.84.6 - December 21 %}
+
+- Fix incorrect local check when creating webhooks via a config flow (impacted all but Owntracks) ([@balloob] - [#19494])
+
+[#19494]: https://github.com/home-assistant/home-assistant/pull/19494
+[@balloob]: https://github.com/balloob
 
 #### Frontend
 

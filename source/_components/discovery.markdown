@@ -85,6 +85,7 @@ Valid values for ignore are:
  * `ikea_tradfri`: IKEA Trådfri (Tradfri)
  * `logitech_mediaserver`: Logitech media server (Squeezebox)
  * `netgear_router`: Netgear routers
+ * `octoprint`: Octoprint
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue

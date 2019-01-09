@@ -77,13 +77,14 @@ automation:
         operation_mode: eco
 ```
 
-### {% linkable_title Service `water_heater.turn_away_mode_on` %}
+### {% linkable_title Service `water_heater.set_away_mode` %}
 
-Turn away mode on for water heater device
+Turn away mode on or off for water heater device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
+| `away_mode` | no | New value of away mode. 'on'/'off' or True/False
 
 #### {% linkable_title Automation example  %}
 
@@ -93,28 +94,8 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: water_heater.turn_away_mode_on
+    - service: water_heater.set_away_mode
       data:
         entity_id: water_heater.demo
-```
-
-### {% linkable_title Service `water_heater.turn_away_mode_off` %}
-
-Trun away mode off for water heater device
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
-
-#### {% linkable_title Automation example  %}
-
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: water_heater.turn_away_mode_off
-      data:
-        entity_id: water_heater.demo
+        away_mode: True
 ```

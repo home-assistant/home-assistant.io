@@ -137,7 +137,7 @@ terminology used around Home Assistant. Home Assistant's
 ## {% linkable_title HTTP sensors %}
 
 To use those kind of [sensors](/components/sensor.http/) or
-[binary sensors](components/binary_sensor.http/) in your installation no
+[binary sensors](/components/binary_sensor.http/) in your installation no
 configuration in Home Assistant is needed. All configuration is done on the
 devices themselves. This means that you must be able to edit the target URL or
 endpoint and the payload.
