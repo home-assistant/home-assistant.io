@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Air Pollutants"
-description: "Instructions on how to air pollutants sensors with Home Assistant"
+title: "Air Quality"
+description: "Instructions on how to add air quality sensors with Home Assistant"
 date: 2018-11-25 08:00
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The `air_pollutants` gather information about the air quality and pollution details.
+The `air_quality` gather information about the air quality and pollution details.
 
 The platforms cover the following levels (if they are available):
 
