@@ -42,7 +42,7 @@ Using the [Synology webadmin](https://www.synology.com/en-global/knowledgebase/D
 Install Docker:
 ```bash
 # sudo apt-get update
-# sudo apt install docker.io
+# sudo apt-get install docker.io
 ```
 Start Docker and enable start on system bootup:
 ```bash
@@ -308,8 +308,8 @@ To have Home Assistant start on bootup of your Synology NAS, do as follows:
 1. Click on the checkbox next to "*Enabled*"
 1. Make sure "*root*" is selected in "*User*"
 1. Go to "*Task Settings* settings
-1. in "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
-1. Click on "*OK*".
+1. In "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
+1. Click on "*OK*"
 
 ---
 
@@ -487,5 +487,5 @@ To have Home Assistant start on bootup of your Synology NAS, do as follows:
 1. Click on the checkbox next to "*Enabled*"
 1. Make sure "*root*" is selected in "*User*"
 1. Go to "*Task Settings* settings
-1. in "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
-1. Click on "*OK*".
+1. In "*User-defined script*" write "**/volume1/homeassistant/hass-daemon start**"
+1. Click on "*OK*"
