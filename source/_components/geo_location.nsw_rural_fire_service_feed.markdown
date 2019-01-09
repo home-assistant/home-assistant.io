@@ -70,6 +70,7 @@ The following state attributes are available for each entity in addition to the 
 |--------------------|-------------|
 | latitude           | Latitude of the incident. |
 | longitude          | Longitude of the incident. |
+| source             | `nsw_rural_fire_service_feed` to be used in conjunction with `geo_location` automation trigger. |
 | external_id        | The external ID used in the feed to identify the incident in the feed. |
 | category           | One of 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'. |
 | location           | Location details of where the incident takes place. |
