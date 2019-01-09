@@ -39,7 +39,7 @@ url:
 radius:
   description: The distance in kilometers around the Home Assistant's coordinates in which events are considered.
   required: false
-  type: string
+  type: float
   default: 20km
 latitude:
   description: Latitude of the coordinates around which events are considered.
