@@ -13,7 +13,7 @@ ha_release: 0.85
 ha_iot_class: "Cloud Polling"
 ---
 
-The `opensensemap` air pollutants platform will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
+The `opensensemap` air quality platform will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
 
 ## {% linkable_title Setup %}
 
@@ -25,7 +25,7 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 
 ```yaml
 # Example configuration.yaml entry
-air_pollutants:
+air_quality:
   - platform: opensensemap
     station_id: STATION_ID
 ```
