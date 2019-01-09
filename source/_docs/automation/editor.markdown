@@ -72,8 +72,8 @@ You can use the `automation:` and `automation old:` sections at the same time:
  - `automation:` to save the automation created by the online editor
 
 ```yaml
-automation: !include automations.yaml
-automation old: !include_dir_merge_list automations
+automation: !include_dir_merge_list automations/
+automation old: !include automations.yaml
 ```
 
 
