@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ness.jpg
 ha_category: Alarm
-ha_release: 0.84
+ha_release: 0.85
 ha_iot_class: "Local Push"
 ---
 
