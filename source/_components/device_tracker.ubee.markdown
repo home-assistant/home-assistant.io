@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Ubee"
+title: "Ubee Router"
 description: "Instructions on how to integrate Ubee routers into Home Assistant."
 date: 2018-12-26 18:00
 sidebar: true
@@ -12,7 +12,7 @@ ha_category: Presence Detection
 ha_release: pre 0.85
 ---
 
-This platform offers presence detection by looking at connected devices to a [Ubee router](http://www.ubeeinteractive.com/products).
+This platform offers presence detection by looking at connected devices to a [Ubee Router](http://www.ubeeinteractive.com/products).
 
 To use a Ubee router in your installation, add the following to your `configuration.yaml` file:
 
