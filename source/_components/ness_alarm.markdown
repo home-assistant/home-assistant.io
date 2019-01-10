@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: ness.jpg
+logo: ness.png
 ha_category: Alarm
 ha_release: 0.85
 ha_iot_class: "Local Push"
