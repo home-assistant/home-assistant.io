@@ -49,7 +49,7 @@ name:
   required: false
   type: string
 brightness_address:
-  description: KNX group address for dimming light. *DPT 5.001*
+  description: KNX group address for setting the brightness of the light in percent (absolute dimming). *DPT 5.001*
   required: false
   type: string
 brightness_state_address:
@@ -64,29 +64,31 @@ color_state_address:
   description: KNX group address for retrieving the RGB color of the light. *DPT 232.600*
   required: false
   type: string
-white_value_address:
-  description: KNX group address for setting the relative color temperature of the light in percent cold white (0% warmest; 100% coldest). *DPT 5.001*
-  required: false
-  type: string
-white_value_state_address:
-  description: KNX group address for retrieving the relative color temperature of the light in percent. *DPT 5.001*
-  required: false
-  type: string
 color_temperature_address:
-  description: KNX group address for setting the absolute color temperature of the light in Kelvin.  *DPT 7.600*
+  description: KNX group address for setting the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
   required: false
   type: string
 color_temperature_state_address:
-  description: KNX group address for retrieving the absolute color temperature of the light in Kelvin. *DPT 7.600*
+  description: KNX group address for retrieving the color temperature of the light. *DPT 5.001 or 7.600 based on color_temperature_mode*
   required: false
   type: string
+color_temperature_mode:
+  description: Color temperature group address data type.
+  keys:
+    absolute: 
+      description: color temperature in Kelvin. *color_temperature_address -> DPT 7.600*
+    relative:
+      description: color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  required: false
+  type: string
+  default: absolute
 min_kelvin:
-  description: Warmest possible color temperature in Kelvin. (Set in combination with *color_temperature_address*)
+  description: Warmest possible color temperature in Kelvin. (Used in combination with *color_temperature_address*)
   required: false
   type: integer
   default: 2700
 max_kelvin:
-  description: Coldest possible color temperature in Kelvin. (Set in combination with *color_temperature_address*)
+  description: Coldest possible color temperature in Kelvin. (Used in combination with *color_temperature_address*)
   required: false
   type: integer
   default: 6000
@@ -128,6 +130,7 @@ light:
     brightness_state_address: '1/3/21'
     color_temperature_address: '1/4/21'
     color_temperature_state_address: '1/5/21'
+    color_temperature_mode: absolute
     min_kelvin: 2550
     max_kelvin: 6200
   #
