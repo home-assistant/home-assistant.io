@@ -28,7 +28,7 @@ footer: true
 - 📣 UI Editor for [map card]
 - 🔧 [thermostat card] Step logic updated to match more-info behavior
 - 🔧 [weather forecast card] Proper RTL support
-- 🔧 [thermostat car] Set minimum height of card
+- 🔧 [thermostat card] Set minimum height of card
 - 🔧 Fix incorrect state display being cached
 - 🔧 Fix `service-button` element `service_data` usage
 - 🔧 Fix `picture-elements` element positioning to account for card title
