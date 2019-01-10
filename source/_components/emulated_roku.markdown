@@ -2,14 +2,14 @@
 layout: page
 title: "Emulated Roku"
 description: "Instructions on how to set up Emulated Roku within Home Assistant."
-date: 2018-10-03 08:00
+date: 2019-01-10 08:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Hub
-ha_release: 0.85.0
+ha_release: 0.86.0
 ha_iot_class: "Local Push"
 ha_qa_scale: internal
 ---
