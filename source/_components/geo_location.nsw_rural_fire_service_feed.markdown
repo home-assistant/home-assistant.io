@@ -44,7 +44,7 @@ radius:
   description: The distance in kilometers around Home Assistant's coordinates in which incidents are included.
   required: false
   type: float
-  default: 20km
+  default: 20.0
 categories:
   description: List of incident category names found in the feed. Only incidents from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Not Applicable'.
   required: false
