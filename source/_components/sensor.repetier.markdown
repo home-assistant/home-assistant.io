@@ -42,7 +42,7 @@ decimals:
   default: 1
 {% endconfiguration %}
 
-### {% retrieve_api_key Retrieve API-key %}
+### {% linkable_title Retrieve API-key %}
 
 To generate the needed API-key, go into your Repetier Server web-console, push the settings icon (the gear icon) and select User Profiles.
 Create a new user, deselect all options and click Create User.
