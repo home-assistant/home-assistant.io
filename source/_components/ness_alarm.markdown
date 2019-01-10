@@ -57,7 +57,7 @@ port:
 zones:
   description: List of zones to add
   required: false
-  type: [integer, list]
+  type: list
   keys:
     zone_id:
       description: ID of the zone on the alarm system (i.e Zone 1 -> Zone 16).
