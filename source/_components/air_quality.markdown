@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /components/air_pollutants/
 ---
 
 The `air_quality` gather information about the air quality and pollution details.
