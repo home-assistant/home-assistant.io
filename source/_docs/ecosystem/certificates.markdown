@@ -2,7 +2,7 @@
 layout: page
 title: "Certificates"
 description: "Protect your communication with Home Assistant."
-release_date: 2016-11-13 15:00:00
+date: 2016-11-13 15:00:00
 sidebar: true
 comments: false
 sharing: true
