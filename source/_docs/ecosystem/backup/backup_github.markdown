@@ -10,7 +10,7 @@ footer: true
 redirect_from: /cookbook/githubbackup/
 ---
 
-Backing up and regularly syncing your Home Assistant configuration to [GitHub](http://GitHub.com) has several benefits:
+Backing up and regularly syncing your Home Assistant configuration to [GitHub](https://github.com/) has several benefits:
 
 - A remote copy of your Home Assistant YAML files in case you need to recover.
 - A documented history of your changes for troubleshooting purposes.
@@ -95,7 +95,7 @@ $ git add .
 $ git commit
 ```
 
-After the `git commit` command, you will be asked to enter a message for the commit.  This will add a comment beside each file on GitHub describing the purpose for the commit. In this case, you can enter something like "Initial commit of my Home Assistant configuration". To exit the editor, press `CTRL + C` and then `:wq` which will exit and save the changes. 
+After the `git commit` command, you will be asked to enter a message for the commit.  This will add a comment beside each file on GitHub describing the purpose for the commit. In this case, you can enter something like "Initial commit of my Home Assistant configuration". To exit the editor, press `CTRL + C` and then `:wq` which will exit and save the changes.
 
 ### {% linkable_title Step 4: Creating Repository on GitHub %}
 
