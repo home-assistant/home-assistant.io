@@ -54,6 +54,11 @@ authentication:
   required: false
   type: string
   default: basic
+verify_ssl:
+  description: Validate the ssl certificate for this camera.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}

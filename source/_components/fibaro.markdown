@@ -17,7 +17,7 @@ redirect_from:
 
 The [Fibaro](http://fibaro.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Switches, lights (including Dimmers), locks, sensors, binary sensors and covers are supported and will be automatically added when Home Assistant connects to your Fibaro controller.
+Binary sensors, switches, lights (including Dimmers), locks, sensors and covers are supported and will be automatically added when Home Assistant connects to your Fibaro controller.
 
 ## {% linkable_title Configuration %}
 
@@ -56,4 +56,4 @@ plugins:
 
 ### {% linkable_title Using Z-Wave devices in automation %}
 
-If you want to use a Z-Wave device from the Fibaro controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'Fibaro Device Id' in their attributes, and you'll find the entity id on the left.
+If you want to use a Z-Wave device from the Fibaro controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'fibaro_id' in their attributes, and you'll find the entity id on the left.

@@ -13,8 +13,6 @@ ha_iot_class: "Local Push"
 ha_release: 0.14
 ---
 
-The `wemo` platform allows you to integrate your Belkin WeMo Binary Sensor from within Home Assistant.
+The `wemo` platform allows you to monitor your Belkin WeMo Binary Sensor from within Home Assistant.
 
-They will be automatically discovered if the discovery component is enabled.
-
-For more configuration information see the [WeMo component](/components/wemo/) documentation.
+WeMo devices are automatically discovered if the `discovery` component is enabled. For more configuration information, see the [WeMo component](/components/wemo/) documentation.

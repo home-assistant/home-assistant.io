@@ -52,8 +52,13 @@ excluded_entities:
 views:
     # View tab title.
   - title: Example
+<<<<<<< HEAD
+    # Unique id for direct access /lovelace/${id} and editing it from the UI.
+    id: example
+=======
     # Unique path for direct access /lovelace/${path}
     path: example
+>>>>>>> origin/current
     # Optional background (overwrites the global background).
     background: radial-gradient(crimson, skyblue)
     # Each view can have a different theme applied. Theme should be defined in the frontend.
@@ -61,7 +66,12 @@ views:
     # The cards to show on this view.
     cards:
         # The filter card will filter entities for their state
+<<<<<<< HEAD
+      - id: peoplehome # Every card needs an ID, for it to be edited from the UI.
+        type: entity-filter
+=======
       - type: entity-filter
+>>>>>>> origin/current
         entities:
           - device_tracker.paulus
           - device_tracker.anne_there

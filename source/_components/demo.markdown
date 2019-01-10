@@ -17,6 +17,7 @@ The `demo` platform allows you to use components which are providing a demo of t
 
 Available demo platforms:
 
+- [Air Pollutants]((/components/air_pollutants/) (`air_pollutants`)
 - [Alarm control panel](/components/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/components/binary_sensor/) (`binary_sensor`)
 - [Camera](/components/camera/) (`camera`)

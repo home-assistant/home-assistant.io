@@ -46,6 +46,10 @@ name:
   description: Name of device in Home Assistant.
   required: false
   type: string
+code:
+  description: Specifies a code to enable or disable the alarm in the frontend.
+  required: false
+  type: integer
 {% endconfiguration %}
 
 This platform has also been confirmed to work with the alarm system brands Meian and Emooluxr.
