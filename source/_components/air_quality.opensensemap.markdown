@@ -11,6 +11,7 @@ logo: opensensemap.png
 ha_category: Health
 ha_release: 0.85
 ha_iot_class: "Cloud Polling"
+redirect_from: /components/air_pollutants.opensensemap/
 ---
 
 The `opensensemap` air quality platform will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
