@@ -55,13 +55,9 @@ port:
   required: true
   type: integer
 zones:
-<<<<<<< HEAD
   description: List of zones to add
-=======
-  description: List of zones to add
->>>>>>> current
   required: false
-  type: [integer, list]
+  type: list
   keys:
     zone_id:
       description: ID of the zone on the alarm system (i.e Zone 1 -> Zone 16).
@@ -76,8 +72,4 @@ zones:
       required: false
       default: motion
       type: string
-<<<<<<< HEAD
 {% endconfiguration %}
-=======
-{% endconfiguration %}
->>>>>>> current
