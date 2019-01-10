@@ -23,10 +23,12 @@ The following will take you through the steps required to install Hass.io.
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
      - [Tinkerboard (Beta)][tinker]
      - [Odroid-C2 (Beta)][odroid-c2]
+     - [OrangePi-Prime (Beta)][opi-prime]
+     - [Intel-Nuc (Beta)][intel-nuc]
     
    - As a virtual appliance: 
   
-     - [VMDK][vmdk]
+     - [VMDK][vmdk] (VMWare Workstation)
      - [VHDX (beta)][vhdx]
      - [VDI (beta)][vdi]
      - [OVA][Virtual Appliance] (not available at this time!)
@@ -115,11 +117,13 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_rpi2-1.13.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_rpi3-1.13.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_rpi3-64-1.13.img.gz
-[tinker]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_tinker-2.4.img.gz
-[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_odroid-c2-2.4.img.gz
+[tinker]: https://github.com/home-assistant/hassos/releases/download/2.5/hassos_tinker-2.5.img.gz
+[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.5/hassos_odroid-c2-2.5.img.gz
+[opi-prime]: https://github.com/home-assistant/hassos/releases/download/2.5/hassos_opi-prime-2.5.img.gz
+[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/2.5/hassos_intel-nuc-2.5.img.gz
 [vmdk]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_ova-1.13.vmdk.gz
-[vhdx]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_ova-2.4.vhdx.gz
-[vdi]: https://github.com/home-assistant/hassos/releases/download/2.4/hassos_ova-2.4.vdi.gz
+[vhdx]: https://github.com/home-assistant/hassos/releases/download/2.5/hassos_ova-2.5.vhdx.gz
+[vdi]: https://github.com/home-assistant/hassos/releases/download/2.5/hassos_ova-2.5.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/

@@ -12,6 +12,8 @@ ha_category: Hub
 featured: False
 ha_release: 0.85
 ha_iot_class: "Local Push"
+redirect_from:
+ - /components/binary_sensor.homeworks/
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. The Lutron Homeworks Series 4 & 8 systems are relatively old (~2003), and use RS-232 connections to communicate with home automation systems.  The `homeworks` component in Home Assistant is responsible for communicating with the main controller for these systems.  Communication is through an ethernet to serial converter (NPort, for example).
@@ -37,7 +39,7 @@ homeworks:
     - addr: "[02:08:01:02]"
       name: "Foyer Downlights"
       rate: 2
-      
+
   keypads:
     - addr: "[02:08:02:01]"
       name: "Foyer Keypad"

@@ -26,7 +26,7 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 ### {% linkable_title libcec %}
 
-[libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/getting-started/installation-virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
+[libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/docs/installation/virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
 
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
@@ -44,7 +44,7 @@ $ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/sit
 
 ##### {% linkable_title Symlinking examples: %}
 
-For the default virtual environment of a [HASSbian Image for Raspberry Pi](/getting-started/installation-raspberry-pi-image/) the command would be as follows.
+For the default virtual environment of a [HASSbian Image for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
 
 ```bash
 $ ln -s /usr/local/lib/python*/dist-packages/cec /srv/homeassistant/lib/python*/site-packages

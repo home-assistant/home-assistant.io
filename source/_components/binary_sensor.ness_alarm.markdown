@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: ness.jpg
+logo: ness.png
 ha_category: Binary Sensor
-ha_release: 0.84
+ha_release: 0.85
 ha_iot_class: "Local Push"
 ---
 

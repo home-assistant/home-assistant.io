@@ -237,15 +237,17 @@ It may happen that "your_nice_name" is not resolved correctly; the according mes
 
 #### {% linkable_title `homematic.keypress` events for HomeMatic IP devices %}
 
-To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / WRC6 (wall switch) or SPDR (passage sensor) you have to temporary create an empty program for each channel in the CCU:
+To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / WRC6 (wall switch) or SPDR (passage sensor) or the KRC4 (key ring remote control) you have to temporary create an empty program for each channel in the CCU:
 
 1. In the menu of your CCU's admin panel go to `Programs and connections` > `Programs & CCU connection`
 2. Go to `New` in the footer menu
 3. Click the plus icon below `Condition: If...` and press the button `Device selection`
 4. Select one of the device's channels you need (1-2 / 1-6 for WRC2 / WRC6 and 2-3 for SPDR)
-5. Save the program with the `OK` button
-6. When your channel is working now, you can edit it to select the other channels one by one
-7. At the end, you can delete this program from the CCU
+5. Select short or long key press
+6. Save the program with the `OK` button
+7. Trigger the program by pressing the button as configured in step 5. Your device might indicate success via a green LED or similar. When you select the device in `Status and control` > `Devices` on the CCU, the `Last Modified` field should no longer be empty
+8. When your channel is working now, you can edit it to select the other channels one by one
+9. At the end, you can delete this program from the CCU
 
 ### {% linkable_title Services %}
 

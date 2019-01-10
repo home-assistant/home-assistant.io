@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: ness.jpg
+logo: ness.png
 ha_category: Alarm
-ha_release: 0.84
+ha_release: 0.85
 ha_iot_class: "Local Push"
 ---
 
@@ -55,7 +55,11 @@ port:
   required: true
   type: integer
 zones:
-  description: List of zones to add 
+<<<<<<< HEAD
+  description: List of zones to add
+=======
+  description: List of zones to add
+>>>>>>> current
   required: false
   type: [integer, list]
   keys:
@@ -72,4 +76,8 @@ zones:
       required: false
       default: motion
       type: string
-{% endconfiguration %}  
+<<<<<<< HEAD
+{% endconfiguration %}
+=======
+{% endconfiguration %}
+>>>>>>> current

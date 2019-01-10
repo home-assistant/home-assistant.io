@@ -72,6 +72,7 @@ Currently known supported models:
 - LC-46LE830U
 - LC-52LE830U
 - LC-60LE830U
+- LC-60LE635 (no volume control)
 - LC-52LE925UN
 - LC-60LE925UN
 - LC-60LE857U
