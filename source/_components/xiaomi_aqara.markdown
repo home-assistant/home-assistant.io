@@ -18,30 +18,30 @@ The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/
 
 #### {% linkable_title Supported Devices %}
 
-- Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
 - Aqara Intelligent Door Lock (lock.aq1)
-- Temperature and Humidity Sensor (1st and 2nd generation)
-- Motion Sensor (1st and 2nd generation)
-- Door and Window Sensor (1st and 2nd generation)
-- Button 1st generation (Single, Double, long_click_press)
-- Button 2nd generation (Single, Double)
-- Plug aka Socket (Zigbee version, reports power consumed, power load, state and if device in use)
-- Wall Plug (reports power consumed, power load and state)
-- Aqara Wall Switch (Single)
 - Aqara Wall Switch (Double)
-- Aqara Wall Switch LN (Single)
+- Aqara Wall Switch (Single)
 - Aqara Wall Switch LN (Double)
-- Aqara Wireless Switch (Single)
+- Aqara Wall Switch LN (Single)
 - Aqara Wireless Switch (Double)
+- Aqara Wireless Switch (Single)
+- Battery
+- Button 1st generation (Single, Double, Long Click)
+- Button 2nd generation (Single, Double)
 - Cube
+- Door and Window Sensor (1st and 2nd generation)
 - Gas Leak Detector (reports alarm and density)
-- Smoke Detector (reports alarm and density)
 - Gateway (Light, Illumination Sensor, Ringtone play)
 - Intelligent Curtain
-- Water Leak Sensor
+- Motion Sensor (1st and 2nd generation)
+- Plug aka Socket (Zigbee version, reports power consumed, power load, statem and if device in use)
+- Smoke Detector (reports alarm and density)
+- Temperature and Humidity Sensor (1st and 2nd generation)
 - Vibration Sensor
-- Battery
+- Wall Plug (reports power consumed, power load, and state)
+- Water Leak Sensor
+- Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 
 #### {% linkable_title Unsupported Devices %}
 
