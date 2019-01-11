@@ -51,6 +51,21 @@ This release also features native support for [ESPHome](https://esphomelib.com/e
 - Add IDTECK proximity card component ([@dubnom] - [#18309]) ([idteck_prox docs]) (new-platform)
 - Add ness alarm control panel using nessclient ([@nickw444] - [#18463]) ([ness_alarm docs]) ([alarm_control_panel.ness_alarm docs]) ([binary_sensor.ness_alarm docs]) (new-platform)
 
+## {% linkable_title Release 0.85.1 - January 11 %}
+
+- check config instead of config_entry for quirks flag ([@dmulcahey] - [#19730]) ([zha docs])
+- Don't map LevelControl to light for single cluster devices. ([@Adminiuga] - [#19929]) ([zha docs])
+- Fix entity_id: all warning ([@balloob] - [#19946])
+- Lovelace: Fix resources being dropped in inline editor
+
+[#19730]: https://github.com/home-assistant/home-assistant/pull/19730
+[#19929]: https://github.com/home-assistant/home-assistant/pull/19929
+[#19946]: https://github.com/home-assistant/home-assistant/pull/19946
+[@Adminiuga]: https://github.com/Adminiuga
+[@balloob]: https://github.com/balloob
+[@dmulcahey]: https://github.com/dmulcahey
+[zha docs]: /components/zha/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
