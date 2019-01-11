@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: fibaro.png
 ha_category: Hub
-ha_release: Next
+ha_release: "0.83"
 ha_iot_class: "Local Push"
 redirect_from:
  - /components/scene.fibaro/
