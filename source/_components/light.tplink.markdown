@@ -22,6 +22,9 @@ Supported units:
 - LB120
 - LB130
 - LB230
+- KL110
+- KL120
+- KL130
 
 To use your TP-Link light in your installation, add the following to your `configuration.yaml` file:
 
