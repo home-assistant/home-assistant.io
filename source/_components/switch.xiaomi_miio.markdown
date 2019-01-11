@@ -21,7 +21,7 @@ Please follow the instructions on [Retrieving the Access Token](/components/vacu
 
 ### Xiaomi Smart WiFi Socket
 
-Supported models: `chuangmi.plug.m1`, `chuangmi.plug.v2`, `chuangmi.plug.hmi205`
+Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.hmi205`
 
 * Power (on, off)
 * Attributes
@@ -78,7 +78,7 @@ name:
   type: string
   default: Xiaomi Miio Switch
 model:
-  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1`, `chuangmi.plug.v2`, `chuangmi.plug.v3` and `chuangmi.plug.hmi205`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.v3` and `chuangmi.plug.hmi205`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}
