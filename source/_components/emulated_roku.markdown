@@ -11,7 +11,6 @@ logo: home-assistant.png
 ha_category: Hub
 ha_release: 0.86.0
 ha_iot_class: "Local Push"
-ha_qa_scale: internal
 ---
 
 This component integrates an emulated Roku API into Home Assistant,  
