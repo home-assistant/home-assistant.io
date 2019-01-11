@@ -21,7 +21,7 @@ The ZoneMinder component sets up the integration with your [ZoneMinder](https://
 ```yaml
 # Example configuration.yaml entry
 zoneminder:
-  host: ZM_HOST
+  - host: ZM_HOST
 ```
 
 {% configuration %}
@@ -64,13 +64,13 @@ password:
 ```yaml
 # Example configuration.yaml entry
 zoneminder:
-  host: ZM_HOST
-  path: ZM_PATH
-  path_zms: ZM_PATH_ZMS
-  ssl: true
-  verify_ssl: true
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  - host: ZM_HOST
+    path: ZM_PATH
+    path_zms: ZM_PATH_ZMS
+    ssl: true
+    verify_ssl: true
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 ### {% linkable_title Service %}
@@ -79,6 +79,7 @@ Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) t
 
 | Service data attribute | Optional | Description                       |
 |:-----------------------|:---------|:----------------------------------|
+| `id`                   | no       | Host of the ZoneMinder instance.  |
 | `name`                 | no       | Name of the new run state to set. |
 
 For example, if your ZoneMinder instance was configured with a run state called "Home", you could write an [automation](/getting-started/automation/) that changes ZoneMinder to the "Home" run state by including the following [action](/getting-started/automation-action/):
@@ -86,5 +87,6 @@ For example, if your ZoneMinder instance was configured with a run state called 
 action:
   service: zoneminder.set_run_state
   data:
+    id: ZM_HOST
     name: Home
 ```
