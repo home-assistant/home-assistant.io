@@ -2,14 +2,14 @@
 layout: page
 title: "Fibaro"
 description: "Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant."
-date: 2018-11-14 20:04
+date: 2019-01-10 20:04
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: fibaro.png
 ha_category: Hub
-ha_release: 0.83
+ha_release: "0.83"
 ha_iot_class: "Local Push"
 redirect_from:
  - /components/scene.fibaro/
@@ -25,12 +25,25 @@ To use Fibaro devices in your installation, add the following to your `configura
 
 ```yaml
 fibaro:
-  url: http://192.168.1.161/api/
-  username: your_username
-  password: your_password
+  gateways:
+    - url: http://192.168.1.161/api/
+      username: your_username
+      password: your_password
+      device_config:
+        light_device_name_123:
+          color: false
+          white_value: false
+          reset_color: true
+        binary_device_name_123:
+          device_class: "garage_door"
+          icon: mdi:open
 ```
 
 {% configuration %}
+gateways:
+  description: List of gateway configurations.
+  requires: true
+  type: list
 url:
   description: The URL for your Fibaro HomeCenter device.
   required: true
@@ -48,6 +61,11 @@ plugins:
   required: false
   type: bool
   default: false
+device_config:
+  description: Lists device specific parameter or behaviour overrides.
+  required: false
+  type: list
+  default: None
 {% endconfiguration %}
 
 <p class='note'>
