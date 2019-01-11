@@ -107,7 +107,7 @@ Note that the SQL sensor state corresponds to the last row of the SQL result set
 This example only works with *binary_sensors*:
 
 ```sql
-SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
+SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
 ```
 
 ### {% linkable_title Database size %}
@@ -116,7 +116,8 @@ SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER
 
 {% raw %}
 ```yaml
-- platform: sql
+sensor:
+  - platform: sql
     db_url: postgresql://user:password@host/dbname
     queries:
       - name: DB size
@@ -131,12 +132,12 @@ SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER
 {% raw %}
 ```yaml
 sensor:
-- platform: sql
-  db_url: mysql://user:password@localhost/hass
-  queries:
-    - name: DB size
-      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
-      column: 'value'
-      unit_of_measurement: kB
+  - platform: sql
+    db_url: mysql://user:password@localhost/hass
+    queries:
+      - name: DB size
+        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
+        column: 'value'
+        unit_of_measurement: kB
 ```
 {% endraw %}
