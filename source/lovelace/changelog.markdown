@@ -10,7 +10,8 @@ footer: true
 ---
 ## {% linkable_title Changes in 0.85.1 %}
 - 🔧 Fix removal of `resources` on save in Raw Config Editor
-- 🔧 [weblink row] Correctly wrap rows
+- 🔧 Auto-gen correctly converts weblink entities to [weblink row]
+- 🔧 The [weblink row] opens links in new tabs
 
 ## {% linkable_title Changes in 0.85.0 %}
 - 📣 [map card]: New config `geo_location_sources`
