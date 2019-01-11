@@ -20,6 +20,7 @@ The integration provides:
 
 * a sensor with traffic metrics
 * a device tracker for connected devices
+* a switch to control WiFi access point
 
 ### {% linkable_title Configuration %}
 
@@ -52,6 +53,10 @@ returned json should contain an api_domain (`host`) and a https_port (`port`).
 
 <p class='note warning'>
 You must have set a password for your Freebox router web administration page and enabled the option "Permettre les nouvelles demandes d'associations".
+</p>
+
+<p class='note warning'>
+By default the permissions granted to applications on the Freebox router are not correct to make switch platform available. You will need to add the permission "Modification des réglages de la Freebox" in "Gestion des accès", "Applications".
 </p>
 
 The first time Home Assistant will connect to your Freebox, you will need to
