@@ -20,28 +20,30 @@ The `ps4` component allows you to control a
 
 Requirements:
 - Android or iOS device
-- [PS4 Second Screen App](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen&hl=en_US) 
+- [PS4 Second Screen App](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen&hl=en_US) installed on device.
 
 ## {% linkable_title Setup %}
 1. Download the Second Screen App and make sure that you can find and control your PlayStation 4 normally.
+
 2. Add the PS4 component to configuration.yaml, then restart Home Assistant.
-- Important: Read section "Granting Port Access" below before continuing.
-3. Retrieve access credentials.
-  a. A configuration entity notification will be added to the frontend. This will fetch the credentials needed to allow Home Assistant to control the PS4. You will need to use the Second Screen app to do this. Click the notification and then the "Start" button in the configurator window. Then press refresh in the Second Screen App. 
-  b. A device named 'Home-Assistant' will appear in the list. Select the above device and the app will attempt to connect with your Home Assistant instance. The connection process in the app will not complete. This is normal and you can now exit the app. If your credentials are retrieved successfully, the configurator will close in your frontend and a second configuration entity will be shown.
-4. Pair Home Assistant to your PlayStation 4.
-  a. After completing Step 3, A second configuration entity will appear in your frontend, which allows you to pair Home Assistant to your PS4. Click on the notification as in Step 3.
-  b. On your PlayStation 4 console, navigate to Settings > Mobile App Connection Settings > Add Device.
-  c. Enter the PIN that is displayed on your PlayStation 4 into the configurator. If successful, the configurator in your frontend will close and you will see a notification popup in your PlayStation 4 which will say that you have logged in with your mobile app.
-- Note: If there are any errors while setting up the component, you will have to navigate to your `/config` directory for your instance. This will be the same directory which your `configuration.yaml` is stored. Next you will have to delete the file named `.ps4.conf` if it is present. Now you will have to repeat Steps 3 and 4 again.
+
+- **Important:** Read section "Granting Port Access" below before continuing.
+
+3. Start the configuration using the configurator.
+
+4. Follow instructions displayed to generate user credentials. You will know this step is completed when the configuration disappears and a configuration entity named "Pair PS4" appears.
+
+5. Pair Home Assistant to your PlayStation 4 by following the instructions. The pairing process is complete if a notification popup appears on your PS4 and the configuration window disappears.
+
+- **Note:** If there are any errors while setting up the component, you will have to navigate to your `/config` directory for your instance. This will be the same directory which your `configuration.yaml` is stored. Next you will have to delete the file named `.ps4.conf` if it is present. Now you will have to restart your Home Assistant instance and repeat Steps 3-5 again.
 
 ## {% linkable_title Granting Port Access %}
 
 The PS4 component requires the use of privileged ports to work correctly. Depending on your OS of your Home Assistant instance you may need to manually allow usage of privileged ports.
-Home Assistant installed on a Debian-type OS for example, such as Hassbian, Rassbian, and Armbian may require configuration.
+Home Assistant installed on a Debian-type OS for example, such as `Hassbian`, `Rassbian`, and `Armbian` may require configuration.
 There are varying methods to perform this, dependent on your OS running Home Assistant.
 
-- Note: Hass.io on HassOS does not require additional configuration.
+- **Note:** Hass.io on HassOS does not require additional configuration.
 
 - Example for Debian:
 `sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
