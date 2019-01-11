@@ -8,6 +8,11 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.85.1 %}
+- 🔧 Fix removal of `resources` on save in Raw Config Editor
+- 🔧 Auto-gen correctly converts weblink entities to [weblink row]
+- 🔧 The [weblink row] opens links in new tabs
+
 ## {% linkable_title Changes in 0.85.0 %}
 - 📣 [map card]: New config `geo_location_sources`
 - 📣 [alarm panel card]: Hide keypad if `code_format` attribute is not "Number"
@@ -259,3 +264,5 @@ footer: true
 [thermostat card]: /lovelace/thermostat/
 [vertical stack card]: /lovelace/vertical-stack/
 [weather forecast card]: /lovelace/weather-forecast/
+
+[weblink row]: /lovelace/entities/#weblink
