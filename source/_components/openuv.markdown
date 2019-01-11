@@ -20,7 +20,15 @@ The `openuv` component displays UV and Ozone data from [openuv.io](http://openuv
 To generate an API key, [simply log in to the OpenUV website](https://www.openuv.io/auth/google).
 
 <p class='note warning'>
-The "Limited" plan (which is what new users are given by default) is limited to 500 API requests per day. In order to leave a buffer, the `openuv` component queries the API every 30 minutes by default. This value can be modifed (via the `scan_interval` key), but please note that over-running the API will require you to upgrade to a paid plan (and may disable your access in the meantime).
+The "Limited" plan (which is what new users are given by default) is limited
+to 50 API requests per day. In order to leave a buffer, the `openuv` component
+queries the API every 30 minutes by default and stops querying the API after
+the sun has set (and resumes when the sun has risen).
+
+The 30-minute interval can be altered via the `scan_interval` key in the
+`configuration.yaml` file, but please note that over-running the API will
+require you to upgrade to a paid plan (and may disable your access in the
+meantime).
 </p>
 
 ## {% linkable_title Configuration %}
