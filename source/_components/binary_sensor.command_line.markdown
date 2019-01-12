@@ -25,7 +25,9 @@ binary_sensor:
   - platform: command_line
     command: 'cat /proc/sys/net/ipv4/ip_forward'
 ```
-
+<p class='note'>
+It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
+</p>
 {% configuration %}
 command:
   description: The action to take to get the value. It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
