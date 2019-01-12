@@ -186,6 +186,13 @@ group:
       - sensor.bme680_sensor_air_quality
 ```
 
+## {% linkable_title Directions for enabling I2C interface on Hass.io %}
+Follow the instructions here to [enable I2C on Hass.io.][enable-i2c-hassio]  
+
+OR
+
+If you're installing on system that doesn't have Hass.io follow the instructions below.
+
 ## {% linkable_title Directions for installing SMBus support on Raspberry Pi %}
 
 Enable I2C interface with the Raspberry Pi configuration utility:
@@ -232,3 +239,6 @@ It will output a table like this:
 ```
 
 So you can see the sensor address that you are looking for is **0x76** (there is another I2C device on that Raspberry Pi).
+
+
+[enable-i2c-hassio]: /hassio/enable_i2c/
