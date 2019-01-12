@@ -30,7 +30,7 @@ It's highly recommended to enclose the command in single quotes `'` as it ensure
 </p>
 {% configuration %}
 command:
-  description: The action to take to get the value. It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
+  description: The action to take to get the value.
   required: true
   type: string
 name:
