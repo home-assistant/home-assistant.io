@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Google Reverse Geocode Sensor"
+title: "Google Reverse Geocode"
 description: "Instructions on how to use reverse geocode device_trackers"
 date: 2019-01-11 22:00
 sidebar: true
