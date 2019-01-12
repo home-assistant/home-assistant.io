@@ -24,6 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](/components/climate.homekit_controller/)
 - [Light](/components/light.homekit_controller/)
+- [Lock](/components/lock.homekit_controller/)
 - [Switch](/components/switch.homekit_controller/)
 
 The component will be automatically configured if the [`discovery:`](/components/discovery/) component is enabled and an enable entry added for HomeKit:
