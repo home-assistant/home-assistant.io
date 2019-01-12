@@ -213,7 +213,7 @@ $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/stat
 Delete the sensor by sending an empty message.
 
  ```bash
-$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ''
+$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
 Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/components/switch.mqtt/).
