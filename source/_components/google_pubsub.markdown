@@ -12,7 +12,7 @@ ha_category: Component
 ha_release: 0.86
 ---
 
-The `google_pubsub` component allows you to hook into the Home Assistant event bus and send events to (Google Cloud Pub/Sub)[https://cloud.google.com/pubsub/docs/overview]
+The `google_pubsub` component allows you to hook into the Home Assistant event bus and send events to (Google Cloud Pub/Sub)[https://cloud.google.com/pubsub/docs/overview]. The current [free tier](https://cloud.google.com/free/) of GCP should allow you sync about 1 event every 2 seconds on average (2 million invocations per month).
 
 ## {% linkable_title First time setup %}
 
@@ -85,4 +85,7 @@ filter:
       type: list
 {% endconfiguration %}
 
+### {% linkable_title Saving the data using a Google Cloud Function %}
+
+To save your data automatically to BigQuery, follow the [instructions here](https://github.com/timvancann/home-assistant-pubsub-cloud-function). The current [free tier](https://cloud.google.com/free/) of GCP should allow to store up to 10GB of data.
 
