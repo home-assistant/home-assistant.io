@@ -92,6 +92,11 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+timeout:
+  description: Defines max time to wait data from the endpoint.
+  required: false
+  type: positive integer
+  default: 10
 authentication:
   description: "Type of the HTTP authentication. `basic` or `digest`."
   required: false
