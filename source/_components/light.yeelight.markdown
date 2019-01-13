@@ -13,10 +13,10 @@ ha_release: 0.32
 ha_iot_class: "Local Polling"
 ---
 
-The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight; Manual or Automatic.
+The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
 
 ### {% linkable_title Example configuration (Automatic) %}
-After the lights are connected to the WiFi network and have been detected in `Home Assistant`, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your customize.yaml file:
+After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
 
 ```yaml
 # Example customize.yaml entry
