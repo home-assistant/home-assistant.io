@@ -10,28 +10,28 @@ footer: true
 logo: nilu_logo.png
 ha_category: Health
 ha_iot_class: "Cloud Polling"
-ha_release: 0.85
+ha_release: 0.86
 ---
 
-The `nilu` air pollutants platform shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open api at [luftkvalitet.info](http://luftkvalitet.info/) and [nilu.no](https://nilu.no/) available in Home Assistant.
+The `nilu` air quality platform shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](http://luftkvalitet.info/) and [nilu.no](https://nilu.no/) available in Home Assistant.
 
 ```yaml
 # Example configuration.yaml entry
-air_pollutants:
+air_quality:
   - platform: nilu
 ```
 
 {% configuration %}
   latitude:
-    description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
+    description: Manually specify latitude. By default, the value will be taken from the Home Assistant configuration.
     required: false
     type: number
-    default: Provided by Home Assistant configuration
+    default: Provided by Home Assistant configuration.
   longitude:
-    description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
+    description: Manually specify longitude. By default, the value will be taken from the Home Assistant configuration.
     required: false
     type: number
-    default: Provided by Home Assistant configuration
+    default: Provided by Home Assistant configuration.
   name:
     description: Name of the sensor to use in the frontend.
     required: false
@@ -47,31 +47,37 @@ air_pollutants:
     type: string
   show_on_map:
     description: Option to show the position of the sensor station on the map.
-    required: optional
+    required: false
     default: false
     type: boolean
 {% endconfiguration %}
 
-
 ## {% linkable_title Health risk index explainations %}
-Under the attributes from a nilu station there will be a `nilu pollution index`. This indicates how polluted the air is in the area around the sensor station. Following is a longer explaination of what the indexes means. 
+
+Under the attributes from a NILU station, there will be a `nilu pollution index`. This indicates how polluted the air is in the area around the sensor station. Following is a longer explanation of what the indexes mean. 
 
 ### {% linkable_title Low %}
+
 Low or no health risk linked to measured air pollution. Outdoor activites are recommended. 
 
 ### {% linkable_title Moderate %}
+
 Health effects may occur in some asthmatics and people with other respiratory diseases, as well as serious cardiovascular diseases. Outdoor activity can be recommended for the vast majority, but some should consider their activity in areas with high traffic or high emissions.
 
 ### {% linkable_title High %}
+
 Health effects may occur in asthmatics and people with other respiratory diseases, as well as serious cardiovascular disease. Children with respiratory distress (asthma, bronchitis) and adults with severe cardiac or respiratory distress should reduce outdoor activity and not stay in the most polluted areas.
 
-### {% linkable_title Extreamly high %}
+### {% linkable_title Extremely high %}
+
 Sensitive groups in the population can have health effects. Respiratory irritation and discomfort may occur in healthy subjects. People with heart or respiratory distress should reduce outdoor activity and not stay in the most polluted areas. 
 
 Source: [Explainations in Norwegian](http://www.luftkvalitet.info/home/Varslingsklasser.aspx)
 
 ## {% linkable_title Available areas %}
+
 The `area` configuration is restricted to the areas NILU has defined. Here is the list of available areas:
+
 - `Bergen`
 - `Birkenes`
 - `Bodø`
@@ -110,12 +116,13 @@ The `area` configuration is restricted to the areas NILU has defined. Here is th
 
 ## {% linkable_title Configuration examples %}
 
-Example of adding health risk monitoring from sensor stations around home assistant location.
+Example of adding health risk monitoring from sensor stations around the Home Assistant location.
 
 ```yaml
 # Example configuration.yaml entry
 # Adds all sensor stations within 20km.
-- platform: nilu_air_quality
+air_quality:
+  - platform: nilu
 ```
 
 Example where the sensors are also added to the map.
@@ -124,18 +131,20 @@ Example where the sensors are also added to the map.
 # Example configuration.yaml entry
 # Adds all sensor stations within 20km.
 # Additionally adds the sensors to the map.
-- platform: nilu_air_quality
-  show_on_map: True
+air_quality:
+  - platform: nilu
+    show_on_map: True
 ```
 
-Exapmle of specific station.
+Example of a specific station.
 
 ```yaml
 # Example configuration.yaml entry
 # Monitors stations 'Alnabru'
-- platform: nilu_air_quality
-  stations: 
-    - Alnabru
+air_quality:
+  - platform: nilu
+    stations: 
+      - Alnabru
 ```
 
 Example of getting stations from a specified area, giving the sensors a custom name.
@@ -144,7 +153,8 @@ Example of getting stations from a specified area, giving the sensors a custom n
 # Example configuration.yaml entry
 # Stations from specific area, 'Bergen'
 # Custom name for the sensors. 
-- platform: nilu_air_quality
-  area: Bergen
-  name: Forurensing Bergen
+air_quality:
+  - platform: nilu
+    area: Bergen
+    name: Forurensing Bergen
 ```
