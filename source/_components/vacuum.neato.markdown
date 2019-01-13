@@ -32,3 +32,4 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 - `locate`
+- `spot_clean`
