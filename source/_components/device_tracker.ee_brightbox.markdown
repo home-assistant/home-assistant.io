@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ee.png
 ha_category: Presence Detection
-ha_release: "0.85"
+ha_release: "0.86"
 ha_iot_class: "Local Polling"
 ---
 
