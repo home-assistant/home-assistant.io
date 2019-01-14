@@ -86,31 +86,6 @@ Listing above and below together means the numeric_state has to be between the t
 In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
 </p>
 
-### {% linkable_title Schedule trigger %}
-
-With the schedule trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value.
-
-```yaml
-automation:
-  trigger:
-    platform: schedule
-    # Matches every hour at 5 minutes past whole
-    minutes: 5
-
-automation 2:
-  trigger:
-    platform: schedule
-    # Trigger once per minute during the hour of 3
-    hours: '3'
-    minutes: '*'
-
-automation 3:
-  trigger:
-    platform: schedule
-    # You can also match on interval. This will match every 5 minutes
-    minutes: '/5'
-```
-
 ### {% linkable_title State trigger %}
 
 Triggers when the state of a given entity changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
@@ -198,6 +173,31 @@ automation:
     platform: time
     # Military time format. This trigger will fire at 3:32 PM
     at: '15:32:00'
+```
+
+### {% linkable_title Time pattern trigger %}
+
+With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value.
+
+```yaml
+automation:
+  trigger:
+    platform: time_pattern
+    # Matches every hour at 5 minutes past whole
+    minutes: 5
+
+automation 2:
+  trigger:
+    platform: time_pattern
+    # Trigger once per minute during the hour of 3
+    hours: '3'
+    minutes: '*'
+
+automation 3:
+  trigger:
+    platform: time_pattern
+    # You can also match on interval. This will match every 5 minutes
+    minutes: '/5'
 ```
 
 ### {% linkable_title Webhook trigger %}
