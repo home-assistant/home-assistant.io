@@ -47,7 +47,7 @@ filename:
   required: false
   type: string
 allow_hue_groups:
-  description: Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+  description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
   type: boolean
 {% endconfiguration %}
