@@ -16,5 +16,3 @@ The `gpslogger` device tracker platform allows you to detect presence using [GPS
 <p class='note'>
 You must have the [Geofency component](/components/geofency/) configured to use this device tracker.
 </p>
-
-A request can be forced from the app to test if everything is working fine. A successful request will update the `known_devices.yaml` file with the device's serial number.
