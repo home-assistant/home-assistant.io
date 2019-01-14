@@ -41,7 +41,7 @@ server_port:
   type: integer
   default: 8123
 base_url:
-  description: "The URL that Home Assistant is available on the internet. For example: `hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app."
+  description: "The URL that Home Assistant is available on the internet. For example: `https://hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app."
   required: false
   type: string
   default: Your local IP address
@@ -137,7 +137,7 @@ terminology used around Home Assistant. Home Assistant's
 ## {% linkable_title HTTP sensors %}
 
 To use those kind of [sensors](/components/sensor.http/) or
-[binary sensors](components/binary_sensor.http/) in your installation no
+[binary sensors](/components/binary_sensor.http/) in your installation no
 configuration in Home Assistant is needed. All configuration is done on the
 devices themselves. This means that you must be able to edit the target URL or
 endpoint and the payload.

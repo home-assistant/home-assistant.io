@@ -20,7 +20,7 @@ The Home Assistant Cloud allows you to quickly integrate your local Home Assista
 cloud:
 ```
 
-Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your configuration.yaml` file.
+Once activated, go to the configuration panel in Home Assistant and create an account and log in. If you are not seeing the **Configuration** panel, make sure you have the following option enabled in your `configuration.yaml` file.
 
 ```yaml
 config:

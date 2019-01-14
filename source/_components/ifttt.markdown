@@ -29,7 +29,7 @@ For example, set the body of the IFTTT webhook to:
 { "action": "call_service", "service": "light.turn_on", "entity_id": "light.living_room" }
 ```
 
-You can then consume that information with the following automation:
+You then need to consume that incoming information with the following automation:
 
 ```yaml
 automation:

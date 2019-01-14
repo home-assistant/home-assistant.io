@@ -13,8 +13,8 @@ ha_release: 0.83
 ha_iot_class: "Local Polling"
 ---
 
-The `LUPUS-Electronics` security control panel platform allows you to control your [Lupusec](https://www.lupus-electronics.de) devices.
+The `lupusec` security control panel platform allows you to control your [Lupusec](https://www.lupus-electronics.de) devices.
 
-This component will add `door contacts` and `window contacts` to your home-assistant setup
+This platform will add `door contacts` and `window contacts` to your Home Assistant setup.
 
-For the sensors to work you have to setup your [Lupusec component](/components/lupusec/).
+For the sensors to work you have to setup your [`lupusec` component](/components/lupusec/).

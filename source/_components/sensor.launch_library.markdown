@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Polling"
 ha_release: "0.83"
 ---
 
-The `launch_library` sensor will provide you with information about the next planed space launch.
+The `launch_library` sensor will provide you with information about the next planned space launch.
 
 ## {% linkable_title Configuration %}
 
@@ -32,6 +32,6 @@ name:
   type: string
 {% endconfiguration %}
 
-The data this platform are presenting are coming from [launchlibrary.net][launchlibrary].
+The data this platform presents comes from [launchlibrary.net][launchlibrary].
 
 [launchlibrary]: http://launchlibrary.net/

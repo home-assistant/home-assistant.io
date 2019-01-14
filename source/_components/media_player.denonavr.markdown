@@ -21,10 +21,12 @@ Supported devices:
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X4100W
+- Denon AVR-X4300H
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI
 - Denon AVR-4810
+- Marantz M-CR510
 - Marantz M-CR603
 - Marantz M-RC610
 - Marantz SR5008

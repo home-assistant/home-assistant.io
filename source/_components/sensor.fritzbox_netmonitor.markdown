@@ -58,3 +58,7 @@ The following statistics will be exposed as attributes.
 |max_byte_rate_down     |Maximum downstream-rate in bytes/s                           |
 
 The sensor's state corresponds to the `is_linked` attribute and is either `online`, `offline`, or `unavailable` (in case connection to the router is lost).
+
+<p class='note info'>
+This component does not support "Fritz!Box 6490 Cable" with FritzOS 6.87 installed.
+</p>

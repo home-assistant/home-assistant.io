@@ -21,18 +21,20 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 
 | Name | Zigbee entity | Model no. | States | Event | Event key | Event values |
 | ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
-| Motion Sensor (1st gen) | motion | RTCGQ01LM | on, off | `motion` | | |
-| Motion Sensor (2nd gen) | sensor_motion.aq2 | RTCGQ11LM | on, off | `motion` | | |
+| Motion Sensor (1st gen) | motion | RTCGQ01LM | on, off | `xiaomi_aqara.motion` | | |
+| Motion Sensor (2nd gen) | sensor_motion.aq2 | RTCGQ11LM | on, off | `xiaomi_aqara.motion` | | |
 | Door and Window Sensor (1st gen) | magnet | WSDCGQ01LM | on, off | | | |
 | Door and Window Sensor (2nd gen) | sensor_magnet.aq2 | MCCGQ11LM | on, off | | | |
 | Smoke Detector | smoke | JTYJ-GD-01LM/BW | on, off | | | |
 | Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
-| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
-| Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | off (always) | `click` | `click_type` | `single`, `double` |
-| Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `click` | `click_type` | `single` |
-| Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `click` | `click_type` | `single`, `both` |
-| Cube | cube | MFKZQ01LM | off (always) | `cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
+| Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double` |
+| Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single` |
+| Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `both` |
+| Aqara Wireless Switch (Single) (2nd gen) | remote.b186acn01 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long` |
+| Aqara Wireless Switch (Double) (2nd gen) | remote.b286acn01 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long`, `both`, `double_both`, `long_both` |
+| Cube | cube | MFKZQ01LM | off (always) | `xiaomi_aqara.cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
 | Vibration Sensor | vibration | DJT11LM | off (always) | `xiaomi_aqara.movement` | `movement_type` | `vibrate`, `tilt`, `free_fall` |
 
 ### {% linkable_title Automation examples %}
@@ -148,7 +150,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
 - alias: Toggle dining light on single press
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
@@ -158,7 +160,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
 - alias: Toggle couch light on double click
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
@@ -168,7 +170,7 @@ Available events are `single`, `double`, `hold`, `long_click_press` and `long_cl
 - alias: Let a dog bark on long press
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
@@ -188,7 +190,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event flip90
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: flip90
@@ -200,7 +202,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event flip180
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: flip180
@@ -212,7 +214,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event move
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: move
@@ -224,7 +226,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event tap_twice
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: tap_twice
@@ -236,7 +238,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
 - alias: Cube event shake_air
   trigger:
     platform: event
-    event_type: cube_action
+    event_type: xiaomi_aqara.cube_action
     event_data:
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: shake_air
@@ -255,7 +257,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 - alias: Decrease brightness of the gateway light
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_left_158xxxxxxxxx12
       click_type: single
@@ -277,7 +279,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 - alias: Increase brightness of the gateway light
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_right_158xxxxxxxxx12
       click_type: single
@@ -299,7 +301,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
 - alias: Turn off the gateway light
   trigger:
     platform: event
-    event_type: click
+    event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.wall_switch_both_158xxxxxxxxx12
       click_type: both

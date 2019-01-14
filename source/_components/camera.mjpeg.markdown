@@ -54,6 +54,11 @@ authentication:
   required: false
   type: string
   default: basic
+verify_ssl:
+  description: Validate the ssl certificate for this camera.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -66,4 +71,16 @@ camera:
     name: Livingroom Camera
     still_image_url: http://IP/image.jpg
     mjpeg_url: http://IP/video/mjpg.cgi
+```
+
+Example of integrating Blue Iris Cameras from a Blue Iris server.
+
+```yaml
+camera:
+  - platform: mjpeg
+    name: Livingroom Camera
+    mjpeg_url: http://IP:PORT/mjpg/CAMERASHORTNAME/video.mjpeg
+    username: BLUE_IRIS_USERNAME
+    password: BLUE_IRIS_PASSWORD
+    authentication: basic
 ```

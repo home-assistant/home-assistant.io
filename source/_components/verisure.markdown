@@ -24,7 +24,7 @@ We support:
  * [Locks](/components/lock.verisure/)
  * [Door & Window](/components/binary_sensor.verisure/)
 
- ## {% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -64,6 +64,10 @@ locks:
   required: false
   type: boolean
   default: true
+default_lock_code:
+  description: Code that will be used to lock or unlock, if none is supplied.
+  required: false
+  type: string
 thermometers:
   description: Set to `true` to show thermometers, `false` to disable.
   required: false

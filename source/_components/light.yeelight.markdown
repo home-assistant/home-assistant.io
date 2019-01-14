@@ -59,7 +59,7 @@ devices:
           type: boolean
           default: False
         model:
-          description: "Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
 {% endconfiguration %}
@@ -91,6 +91,7 @@ This component is tested to work with the following models. If you have a differ
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
+| ?          | YLDD04YL     | Lightstrip (Color)
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |

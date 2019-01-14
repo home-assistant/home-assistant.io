@@ -56,7 +56,7 @@ pin:
 Call the `sensor.mopar_remote_command` service to perform a remote command on your vehicle.
 
 - **vehicle_index** (*Required*): `vehicle_index` attribute found on sensor.
-- **command** (*Required*): One of `lock/unlock/engineon/engineoff/horn`.
+- **command** (*Required*): One of `LOCK/UNLOCK/START/STOP/HORN_LIGHT`.
 
 Example data:
 

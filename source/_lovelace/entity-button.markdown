@@ -47,23 +47,54 @@ icon:
   default: Entity Domain Icon
 tap_action:
   required: false
-  description: "Set to `toggle` or `call-service` for direct actions."
-  type: string
-  default: more-info
+  description: Action to take on tap
+  type: object
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
-  type: string
-  default: none
-service:
-  required: false
-  description: "For `call-service`, e.g., `media_player.media_play_pause`"
-  type: string
-service_data:
-  required: false
-  description: The service data to use.
+  description: Action to take on tap-and-hold
   type: object
-  default: "entity_id: entity_id"
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
 theme:
   required: false
   description: "Set to any theme within `themes.yaml`"
@@ -77,8 +108,12 @@ Title and Script Service Example:
 ```yaml
 - type: entity-button
   name: Turn Off Lights
+  tap_action:
+    action: call-service
+    service: script.turn_on
+    service_data:
+      entity_id: script.turn_off_lights
   entity: script.turn_off_lights
-  service: script.turn_on
 ```
 
 <p class='img'>

@@ -45,11 +45,6 @@ sensor_id:
   description: The ID of the sensor.
   required: true
   type: string
-name:
-  description: Name of the sensor to use in the frontend.
-  required: false
-  default: Luftdaten Sensor
-  type: string
 show_on_map:
   description: Option to show the position of the sensor on the map.
   required: optional
@@ -105,4 +100,4 @@ luftdaten:
     monitored_conditions:
       - temperature
       - humidity
-``
+```

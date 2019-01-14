@@ -22,12 +22,8 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: mqtt_room
-  device_id: 123testid
-  name: 'Cool device'
-  state_topic: 'room_presence'
-  timeout: 5
-  away_timeout: 60
+  - platform: mqtt_room
+    device_id: 123testid
 ```
 
 {% configuration %}
@@ -57,6 +53,8 @@ away_timeout:
   type: integer
 {% endconfiguration %}
 
+## {% linkable_title Usage %}
+
 Example JSON that should be published to the room topics:
 
 ```json
@@ -69,8 +67,7 @@ Example JSON that should be published to the room topics:
 
 ### {% linkable_title Setting up clients %}
 
-This component works with any software that is sending data in the given format.
-Each client should post the discovered devices in its own subtopic of the configured topic.
+This component works with any software that is sending data in the given format. Each client should post the discovered devices in its own subtopic of the configured topic.
 Instead of developing your own application, you can also use any of these already existing clients:
 
 - [**room-assistant**](https://github.com/mKeRix/room-assistant): looks for Bluetooth LE beacons, based on Node.js

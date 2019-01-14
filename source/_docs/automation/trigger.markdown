@@ -201,8 +201,10 @@ Webhook triggers are triggered by web requests made to the webhook endpoint: `/a
 automation:
   trigger:
     platform: webhook
-    webhook_id:
+    webhook_id: some_hook_id
 ```
+
+You could test triggering above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`.
 
 ### {% linkable_title Zone trigger %}
 
@@ -218,10 +220,10 @@ automation:
     event: enter  # or "leave"
 ```
 
-### {% linkable_title Geo Location trigger %}
+### {% linkable_title Geolocation trigger %}
 
-Geo Location triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geo Location](/components/geo_location/) platform support reporting GPS coordinates.
-Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source` which is directly linked to one of the Geo Location platforms.
+Geolocation triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geolocation](/components/geo_location/) platform support reporting GPS coordinates.
+Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source` which is directly linked to one of the Geolocation platforms.
 
 ```yaml
 automation:

@@ -106,7 +106,7 @@ device_config / device_config_domain / device_config_glob:
       description: Specify the delay for refreshing of node value. Only the light component uses this.
       required: false
       type: integer
-      default: 2
+      default: 5
     invert_openclose_buttons:
       description: Inverts function of the open and close buttons for the cover domain. This will not invert the position and state reporting.
       required: false
@@ -148,7 +148,7 @@ $ dmesg | grep USB
 If Home Assistant (`hass`) runs with another user (e.g., *homeassistant* on Hassbian) give access to the stick with:
 
 ```bash
-$ sudo usermod -a -G dialout homeassistant
+$ sudo usermod -aG dialout homeassistant
 ```
 
 <p class='Note'>
@@ -249,7 +249,7 @@ $ groups homeassistant
 That should include `dialout`, if it doesn't then:
 
 ```bash
-$ sudo usermod -G dialout homeassistant
+$ sudo usermod -aG dialout homeassistant
 ```
 
 ### {% linkable_title Device path changes %}

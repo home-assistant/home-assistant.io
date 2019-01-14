@@ -18,6 +18,7 @@ The `tplink` switch platform allows you to control the state of your [TP-Link sm
 Supported units:
 
 - HS100
+- HS103
 - HS105
 - HS110
 - HS200
@@ -88,7 +89,7 @@ sensor:
         value_template: '{{ states.switch.my_tp_switch.attributes["voltage"] | float }}'
         unit_of_measurement: 'V'
       my_tp_switch_today_kwh:
-        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Today's Consuption"
+        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Today's Consumption"
         value_template: '{{ states.switch.my_tp_switch.attributes["today_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
 ```
