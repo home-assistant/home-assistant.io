@@ -9,18 +9,18 @@ sharing: true
 footer: true
 logo: roku.png
 ha_category: Hub
-ha_iot_class: "Local Push"
-ha_release: 0.81
+ha_iot_class: "Local Polling"
+ha_release: 0.86
 ---
 
-The [Roku](http://www.roku.com/) platform allows integration of Roku [media players](/components/media_player.roku) and [remotes](/components/remote.roku/) which will be automatically discovered if you enable the [discovery component](/components/discovery/).
+The [Roku](http://www.roku.com/) component allows integration of Roku [media players](/components/media_player.roku) and [remotes](/components/remote.roku/) which will be automatically discovered if you enable the [discovery component](/components/discovery/).
 
-The `roku` platform can also be forced to load by adding the following lines to your `configuration.yaml`:
+The `roku` component can also be forced to load by adding the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
 roku:
-  host: 192.168.1.100
+  - host: 192.168.1.100
 ```
 
 {% configuration %}

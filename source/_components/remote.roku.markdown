@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: roku.png
 ha_category: Remote
-ha_release: 0.81
+ha_release: 0.86
 ha_iot_class: "Local Polling"
 ---
  
@@ -47,7 +47,7 @@ At the moment, the following buttons are supported:
 - volume_mute
 - volume_up
 
-A typical service call for press several buttons looks like this.
+A typical service call for pressing several buttons looks like this.
 
 ```yaml
 service: remote.send_command
