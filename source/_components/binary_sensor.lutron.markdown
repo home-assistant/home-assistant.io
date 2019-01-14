@@ -2,7 +2,7 @@
 layout: page
 title: "Lutron Binary Sensor"
 description: "Description of Lutron binary sensor component in Home Assistant."
-date: 2019-01-22 09:00
+date: 2019-01-12 09:00
 sidebar: true
 comments: false
 sharing: true
