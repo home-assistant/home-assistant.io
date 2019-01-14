@@ -17,9 +17,9 @@ The `gitlab_ci` sensor platform integrates results reported by CI/CD Pipeline Jo
 
 ## {% linkable_title Setup %}
 
-You will need a GitLab repository ID. On the "Details" page for your GitLab repo, just below the project name is "Project ID:"
+You will need a GitLab repository ID. On the **Details** page for your GitLab repo, just below the project name is **Project ID:**.
 
-Alternatively, you can use "{GitLab_Username}/{GitLab_RepositoryName}", ex: "MyCoolUsername/MyCoolRepository"
+Alternatively, you can use `GitLab_Username/GitLab_RepositoryName`, e.g., `MyCoolUsername/MyCoolRepository`.
 
 A GitLab token with at least the API permission scope is needed, which can be created on the [GitLab Personal Access Tokens](https://gitlab.com/profile/personal_access_tokens) page of your GitLab User Settings.
 
@@ -31,13 +31,13 @@ To enable this platform, please add the following to your `configuration.yaml` f
 # Example configuration.yaml entry
 sensor:
   - platform: gitlab_ci
-    gitlab_id: '1234567'
-    token: 'aaaaaaaaaaAAAAAAAAAA'
+    gitlab_id: YOUR_GITLAB_ID
+    token: YOUR_GITLAB_TOKEN
 ```
 
 {% configuration %}
 gitlab_id:
-  description: "The GitLab repository ID or `username/repository`".
+  description: The GitLab repository identifier.
   required: true
   type: string
 token:
