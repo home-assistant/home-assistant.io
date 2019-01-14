@@ -52,7 +52,7 @@ radius:
   description: The distance in kilometers around Home Assistant's coordinates in which seismic events are included.
   required: false
   type: float
-  default: 50
+  default: 50.0
 latitude:
   description: Latitude of the coordinates around which events are considered.
   required: false
