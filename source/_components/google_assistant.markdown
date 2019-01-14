@@ -179,7 +179,7 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - group (on/off)
-- input boolean (on/off)
+- input_boolean (on/off)
 - scene (on)
 - script (on)
 - switch (on/off)
