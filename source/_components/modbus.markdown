@@ -26,8 +26,7 @@ The configuration for adding modbus to your installation depends on the connecti
 For a network connection, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example c
-onfiguration.yaml entry for a TCP connection
+# Example configuration.yaml entry for a TCP connection
 modbus:
   name: hub1
   type: tcp
