@@ -13,7 +13,7 @@ ha_iot_class: "Local Polling"
 ha_release: 0.57
 ---
 
-The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and Xiaomi Air Humidifier.
+The `xiaomi_miio` fan platform allows you to control the Xiaomi Mi Air Purifier 2, Air Purifier 2S, Air Purifier Pro, Air Humidifier and Air Fresh.
 
 ## Features
 
@@ -79,6 +79,37 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and
   - turbo_mode_supported
   - auto_detect
   - use_time
+  - button_pressed
+  - filter_rfid_product_id
+  - filter_rfid_tag
+  - filter_type
+  - illuminance
+  - motor2_speed
+  - volume
+
+### Air Purifier Pro V7 (zhimi.airpurifier.v7)
+
+- Power (on, off)
+- Operation modes (auto, silent, favorite)
+- Child lock (on, off)
+- LED (on, off)
+- Favorite Level (0...16)
+- Attributes
+  - model
+  - temperature
+  - humidity
+  - aqi
+  - mode
+  - filter_hours_used
+  - filter_life_remaining
+  - favorite_level
+  - child_lock
+  - led
+  - motor_speed
+  - average_aqi
+  - learn_mode
+  - extra_features
+  - turbo_mode_supported
   - button_pressed
   - filter_rfid_product_id
   - filter_rfid_tag
@@ -167,6 +198,31 @@ The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier and
   - depth
   - dry
 
+### Air Fresh VA2
+
+* Power (on, off)
+* Operation modes (auto, silent, interval, low, middle, strong)
+* Buzzer (on, off)
+* Child lock (on, off)
+* LED (on, off), LED brightness (bright, dim, off)
+* Attributes
+  - model
+  - aqi
+  - average_aqi
+  - temperature
+  - humidity
+  - co2
+  - mode
+  - led
+  - led_brightness
+  - buzzer
+  - child_lock
+  - filter_life_remaining
+  - filter_hours_used
+  - use_time
+  - motor_speed
+  - extra_features
+
 Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
 To add a Xiaomi Air Purifier to your installation, add the following to your `configuration.yaml` file:
@@ -194,7 +250,7 @@ name:
   type: string
   default: Xiaomi Air Purifier
 model:
-  description: The model of your miio fan. Valid values are `zhimi.airpurifier.v6`, `zhimi.airpurifier.v3`, `zhimi.humidifier.v1` and `zhimi.humidifier.ca1`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+  description: The model of your miio fan. Valid values are `zhimi.airpurifier.v1`, `zhimi.airpurifier.v2`, `zhimi.airpurifier.v3`, `zhimi.airpurifier.v5`, `zhimi.airpurifier.v6`, `zhimi.airpurifier.v7`, `zhimi.airpurifier.m1`, `zhimi.airpurifier.m2`, `zhimi.airpurifier.ma1`, `zhimi.airpurifier.ma2`, `zhimi.airpurifier.sa1`, `zhimi.airpurifier.sa2`, `zhimi.airpurifier.mc1`, `zhimi.humidifier.v1`, `zhimi.humidifier.ca1` and `zhimi.airfresh.va2`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}
