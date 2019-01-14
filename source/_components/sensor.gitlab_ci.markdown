@@ -13,11 +13,12 @@ ha_release: 0.80
 ha_iot_class: "Cloud Polling"
 ---
 
-The GitLab_CI sensor integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).
+The `gitlab_ci` sensor platform integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).
 
 ## {% linkable_title Setup %}
 
 You will need a GitLab repository ID. On the "Details" page for your GitLab repo, just below the project name is "Project ID:"
+
 Alternatively, you can use "{GitLab_Username}/{GitLab_RepositoryName}", ex: "MyCoolUsername/MyCoolRepository"
 
 A GitLab token with at least the API permission scope is needed, which can be created on the [GitLab Personal Access Tokens](https://gitlab.com/profile/personal_access_tokens) page of your GitLab User Settings.
@@ -36,19 +37,21 @@ sensor:
 
 {% configuration %}
 gitlab_id:
-  description: GitLab repository ID or "username/repository"
+  description: "The GitLab repository ID or `username/repository`".
   required: true
   type: string
 token:
-  description: GitLab API Token
+  description: The GitLab API token.
   required: true
   type: string
 name:
-  description: Sensor name as it appears in Home Assistant. Defaults to 'GitLab CI Status'.
+  description: Sensor name as it appears in Home Assistant.
   required: false
   type: string
+  default: GitLab CI Status
 url:
-  description: GitLab repository URL. Defaults to 'https://gitlab.com'. Used for self-hosted repositories.
+  description: The GitLab repository URL. Used for self-hosted repositories.
   required: false
   type: string
+  default: https://gitlab.com
 {% endconfiguration %}
