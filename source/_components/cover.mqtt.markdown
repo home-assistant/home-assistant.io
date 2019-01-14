@@ -81,7 +81,7 @@ state_closed:
   type: string
   default: closed
 position_topic:
-  description: The MQTT topic subscribed to receive cover position messages. If position_topic is set state_topic is ignored.
+  description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
   required: false
   type: integer
 position_open:
