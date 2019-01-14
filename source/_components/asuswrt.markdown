@@ -63,6 +63,20 @@ require_ip:
   required: false
   type: boolean
   default: true
+sensors:
+  description: List of enabled sensors
+  required: false
+  type: list
+  default: all (`upload`, `download`, `upload_speed`, `download_speed`)
+  keys:
+    "upload":
+      description: TX upload sensor
+    "download":
+      description: RX download sensor
+    "download_speed":
+      description: download mbit/s sensor
+    "upload_speed":
+      description: upload mbit/s sensor
 {% endconfiguration %}
 
 <p class='note warning'>
