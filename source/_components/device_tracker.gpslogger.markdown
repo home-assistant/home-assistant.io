@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "GPSLogger"
+title: "GPSLogger Device Tracker"
 description: "Instructions on how to use GPSLogger to track devices in Home Assistant."
 date: 2016-11-25 15:00
 sidebar: true
@@ -14,5 +14,5 @@ ha_release: 0.34
 The `gpslogger` device tracker platform allows you to detect presence using [GPSLogger](http://code.mendhak.com/gpslogger/).
 
 <p class='note'>
-You must have the [Geofency component](/components/geofency/) configured to use this device tracker.
+You must have the [GPSLogger component](/components/gpslogger/) configured to use this device tracker.
 </p>
