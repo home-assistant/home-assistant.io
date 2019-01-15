@@ -33,7 +33,7 @@ Inside an intent we can define these variables:
 intent:
   description: Name of the intent. Multiple entries are possible.
   required: true
-  type: list
+  type: map
   keys:
     action:
       description: Defines an action to run to intents.
@@ -47,7 +47,7 @@ intent:
     card:
       description: Card
       required: false
-      type: list
+      type: map
       keys:
         type:
           description: Type of card to display.
@@ -65,7 +65,7 @@ intent:
     speech:
       description: Text or template to return.
       required: false
-      type: list
+      type: map
       keys:
         type:
           description: Type of speech.
