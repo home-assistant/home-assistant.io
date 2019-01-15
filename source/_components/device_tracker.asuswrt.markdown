@@ -19,4 +19,17 @@ The platform will be automatically configured if Asuswrt component is configured
 
 For more configuration information see the [Asuswrt component](/components/asuswrt/) documentation.
 
+## {% linkable_title Padavan custom firmware (The rt-n56u project) %}
+The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this component can still be used for the rt-n56u project by linking `dnsmasq.leases` at the router boot.
+
+Follow these steps to setup the link.
+1. SSH or Telnet into the router. (default ssh admin@my.router)
+2. Run the following command: `find / -name "dnsmasq.leases"`
+3. Copy the full path of, example: `/tmp/dnsmasq.leases`
+4. Create the folder if it does not exist: `mkdir -p /var/lib/misc`
+5. Add the linking process to the routers after started script: `echo "/bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases" >> /etc/storage/started_script.sh`
+6. Reboot the router or link the file: `/bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases`
+
+Note: The script is also accessable and editable in the web gui. `Advanced Settings -> Customization -> Scripts -> Custom User Script -> Run After Router Started`
+
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
