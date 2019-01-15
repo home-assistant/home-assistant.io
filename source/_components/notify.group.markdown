@@ -15,12 +15,12 @@ ha_qa_scale: internal
 
 The `group` notification platform allows you to combine multiple `notify` platforms into a single service.
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
 notify:
-  - name: NOTIFIER_NAME
+  - name: NAME_OF_NOTIFIER_GROUP
     platform: group
     services:
       - service: html5
@@ -48,3 +48,14 @@ services:
       required: false
       type: string
 {% endconfiguration %}
+
+## {% linkable_title Example %}
+
+An example on how to use it in an automation:
+
+```yaml
+action:
+  service: notify.NAME_OF_NOTIFIER_GROUP
+  data:
+    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
+```
