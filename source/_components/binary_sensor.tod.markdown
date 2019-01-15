@@ -83,7 +83,7 @@ If `after` time is later than `before` then the next day is considered, i.e.:
 
 ```yaml
 binary_sensor:
-  - plartform: tod
+  - platform: tod
     sensors:
       night:
         after: sunset
