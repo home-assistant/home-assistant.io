@@ -27,7 +27,7 @@ http:
 
 {% configuration %}
 api_password:
-  description: Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where possible you should use a long lasting access token instead of this.
+  description: Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where your client or other software supports it, you should use [long lasting access token](/docs/authentication/#your-account-profile) instead, as [shown in the REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) and [websocket API](https://developers.home-assistant.io/docs/en/external_api_websocket.html) documentation.
   required: false
   type: string
 server_host:
