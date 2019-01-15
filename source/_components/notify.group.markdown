@@ -51,7 +51,7 @@ services:
 
 ## {% linkable_title Example %}
 
-An example on how to use it inside of an automation:
+An example on how to use it in an automation:
 
 ```yaml
 action:
