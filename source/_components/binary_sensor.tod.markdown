@@ -36,6 +36,7 @@ binary_sensor:
         after: sunrise
         after_offset: '-02:00'
         before: '07:00'
+        friendly_name: Very Early Morning
 ```
 {% endraw %}
 
