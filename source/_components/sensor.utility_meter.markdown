@@ -26,6 +26,9 @@ To enable the Utility Meter Sensor in your installation, add the following to yo
 
 ```yaml
 # Example configuration.yaml entry
+
+utility_meter:
+
 sensor:
   - platform: utility_meter 
     source: sensor.energy
@@ -60,7 +63,7 @@ paused:
 
 # {% linkable_title Services %}
 
-### {% linkable_title Service `utility_meter_reset` %}
+### {% linkable_title Service `utility_meter.reset` %}
 
 Reset the Utility Meter.
 
@@ -68,7 +71,7 @@ Reset the Utility Meter.
 | ---------------------- | -------- | ----------- |
 | `entity_ids` | no | list of entity_id from utility_meter's to reset 
 
-### {% linkable_title Service `utility_meter_start_pause` %}
+### {% linkable_title Service `utility_meter.start_pause` %}
 
 This service will toggle the utility meter (collecting vs. paused).
 
