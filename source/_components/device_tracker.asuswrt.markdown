@@ -28,15 +28,13 @@ Follow these steps to setup the link.
 ```
 $ find / -name "dnsmasq.leases" 
 ```
-3. Copy the full path of, example: 
-```
-$ /tmp/dnsmasq.leases
-```
+3. Copy or remember the full path of, example: 
+`/tmp/dnsmasq.leases`
 4. Create the folder if it does not exist: 
 ```
 $ mkdir -p /var/lib/misc
 ```
-5. Add the linking process to the routers after started script (one line): 
+5. Add the linking process to the routers started script (one line): 
 ```
 $ echo "/bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases" >> /etc/storage/started_script.sh
 ```
@@ -45,6 +43,6 @@ $ echo "/bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases" >> /etc/st
 $ /bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases
 ```
 
-Note: The script is also accessable and editable in the web gui. `Advanced Settings -> Customization -> Scripts -> Custom User Script -> Run After Router Started`
+Note: The started script is also accessable and editable in the web gui. `Advanced Settings -> Customization -> Scripts -> Custom User Script -> Run After Router Started`
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
