@@ -36,9 +36,9 @@ intent:
   type: list
   keys:
     action:
-      description: "[Script syntax](/docs/scripts/)."
+      description: Defines an action to run to intents.
       required: false
-      type: list
+      type: action
     async_action:
       description: Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
       required: false
@@ -50,16 +50,16 @@ intent:
       type: list
       keys:
         type:
-          description: Type
+          description: Type of card to display.
           required: false
           default: simple
           type: string
         title:
-          description: Title
+          description: Title of the card to display.
           required: true
           type: template
         content:
-          description: Content
+          description: Contents of the card to display.
           required: true
           type: template
     speech:
@@ -68,12 +68,12 @@ intent:
       type: list
       keys:
         type:
-          description: Type
+          description: Type of speech.
           required: false
           default: plain
           type: string
         text:
-          description: Text
+          description: Text to speech.
           required: true
           type: template
 {% endconfiguration %}
