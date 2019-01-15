@@ -16,7 +16,7 @@ ha_qa_scale: internal
 
 The `tod` platform supports binary sensors which get their values by checking
 if the current time is within defined time ranges.
-The time ranges can be provided as absolute local time, or
+The time ranges can be provided as absolute local time or
 using the `sunrise` or `sunset` keyword calcuated based on the sun position
 for location defined in HA config. The location must be provided in the configuration.
 
