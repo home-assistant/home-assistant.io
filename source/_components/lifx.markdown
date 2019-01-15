@@ -111,14 +111,14 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 ## {% linkable_title Advanced configuration %}
 
-There are some manual configuration options available. These should only be needed if you have more than one network interface and automatic configuration does not find your LIFX devices.
+There are some manual configuration options available. These are only needed with unusual network setups where automatic configuration does not find your LIFX devices.
 
 ```yaml
 # Example configuration.yaml entry
 lifx:
   light:
-    server: IP_ADDRESS
-    broadcast: IP_ADDRESS
+    - server: IP_ADDRESS
+      broadcast: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -127,7 +127,7 @@ server:
   required: false
   type: string
 broadcast:
-  description: The broadcast address for discovering lights.
+  description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
   required: false
   type: string
 {% endconfiguration %}
