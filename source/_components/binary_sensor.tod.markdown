@@ -73,7 +73,7 @@ sensors:
 
 ## {% linkable_title Considerations %}
 
-The major purpose of this sensor is to use simple time range definition instead of creating a complex 
+The primary purpose of this sensor is to use a simple time range definition instead of creating a complex
 templates with references to `sun.sun` component attributes.
 
 
