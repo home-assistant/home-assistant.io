@@ -57,5 +57,5 @@ An example on how to use inside of an automation:
 action:
   service: notify.NAME_OF_NOTIFIER_GROUP
   data:
-    message: "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
+    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
