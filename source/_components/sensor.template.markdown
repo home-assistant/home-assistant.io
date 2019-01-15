@@ -55,7 +55,7 @@ sensor:
         required: false
         type: string, list
       unit_of_measurement:
-        description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualisation as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
+        description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
         required: false
         type: string
         default: None
@@ -80,18 +80,19 @@ sensor:
 
 ## {% linkable_title Considerations %}
 
-### Startup
+### {% linkable_title Startup %}
 
 If you are using the state of a platform that takes extra time to load, the Template Sensor may get an `unknown` state during startup. To avoid this (and the resulting error messages in your log file), you can use `is_state()` function in your template. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### Entity IDs
+### {% linkable_title Entity IDs %}
 
-The template engine will attempt to work out what entities should trigger an update of the sensor. This can fail, for example if your template loops over the contents of a group. In this case you can use `entity_id` to provide a list of entity IDs that will cause the sensor to update or you can run the service `homeassistant.update_entity` to update the sensor at will.
+The template engine will attempt to work out what entities should trigger an update of the sensor. This can fail, for example, if your template loops over the contents of a group. In this case, you can use `entity_id` to provide a list of entity IDs that will cause the sensor to update or you can run the service `homeassistant.update_entity` to update the sensor at will.
 
 ## {% linkable_title Examples %}
 
-In this section you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Sun Angle %}
 
@@ -111,7 +112,7 @@ sensor:
 
 ### {% linkable_title Renaming Sensor Output %}
 
-If you don't like the wording of a sensor output then the Template Sensor can help too. Let's rename the output of the [Sun component](/components/sun/) as
+If you don't like the wording of a sensor output, then the Template Sensor can help too. Let's rename the output of the [Sun component](/components/sun/) as
 a simple example:
 
 {% raw %}
@@ -156,7 +157,7 @@ sensor:
 
 ### {% linkable_title Change The Unit of Measurement %}
 
-With a Template Sensor it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
+With a Template Sensor, it's easy to convert given values into others if the unit of measurement doesn't fit your needs.
 
 {% raw %}
 ```yaml
@@ -267,7 +268,7 @@ sensor:
 ```
 {% endraw %}
 
-Useful entities to choose might be `sensor.date` which update once per day, or `sensor.time` which updates once per minute.
+Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.
 
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
