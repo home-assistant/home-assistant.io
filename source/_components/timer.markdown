@@ -18,7 +18,7 @@ The `timer` component aims to simplify automations based on (dynamic) durations.
 When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
 <p class='note warning'>
-With the current implementation timers don't persist over restarts. After a restart they will be idle again, together with their initial configuration.
+  With the current implementation timers don't persist over restarts. After a restart, they will be idle again, together with their initial configuration.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -67,7 +67,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 ## {% linkable_title Services %}
 
-#### {% linkable_title Service `timer.start` %}
+### {% linkable_title Service `timer.start` %}
 
 Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
 If no `entity_id` is given all active timers will be started.
@@ -77,7 +77,7 @@ If no `entity_id` is given all active timers will be started.
 | `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
 | `duration`             |      yes | Duration in seconds or `00:00:00` until the timer finishes. |
 
-#### {% linkable_title Service `timer.pause` %}
+### {% linkable_title Service `timer.pause` %}
 
 Pause a running timer. This will retain the remaining duration for later continuation. If no `entity_id` is given all active timers will be paused.
 
@@ -151,7 +151,7 @@ timer:
       message: "Timer stop"
 ```
 
-### {% linkable_title Control a timer from the frontend %}
+### {% linkable_title Control a timer manually %}
 
 With the [`script`](/components/script/) component you would be able to control a timer (see above for a `timer` configuration sample) manually.
 
