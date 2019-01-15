@@ -45,7 +45,7 @@ intent:
       default: false
       type: boolean
     card:
-      description: Card
+      description: Card to display.
       required: false
       type: map
       keys:
