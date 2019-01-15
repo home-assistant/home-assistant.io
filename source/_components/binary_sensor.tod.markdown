@@ -91,4 +91,3 @@ binary_sensor:
 
 In above example the next day `sunrise` is calculated as a time range end.
 
-
