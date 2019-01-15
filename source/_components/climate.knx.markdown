@@ -47,19 +47,12 @@ climate:
     operation_mode_comfort_address: '5/1/7'
 ```
 
+This climate component doesn't support the lovelace climate card.
+
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
 
 If your device doesn't support setpoint_shift calculations (i.e. if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
 attributes of the climate device to avoid issues with increasing the temperature in the frontend.
-
-The following values are valid for the `operation_modes` attribute:
-
-- Comfort (maps internally to STATE_HEAT within Home Assistant)
-- Standby (maps internally to STATE_ECO within Home Assistant)
-- Night (maps internally to STATE_IDLE within Home Assistant)
-- Frost Protection (maps internally to STATE_MANUAL within Home Assistant)
-- Fan only (maps internally to STATE_FAN_ONLY within Home Assistant)
-- Dehumidification (maps internally to STATE_DRY within Home Assistant)
 
 {% configuration %}
 name:
