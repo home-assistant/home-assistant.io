@@ -26,7 +26,6 @@ be configured.
 ## {% linkable_title Configuration %}
 
 Here is an example of adding a Template Binary Sensor to the `configuration.yaml` file:
-
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
