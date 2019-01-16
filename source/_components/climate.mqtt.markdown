@@ -21,7 +21,7 @@ It uses a sensor under the hood to obtain the current temperature.
 
 ## {% linkable_title Configuration %}
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
