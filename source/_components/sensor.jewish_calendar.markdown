@@ -22,6 +22,7 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   - platform: jewish_calendar
+    language: english
 ```
 
 {% configuration %}
