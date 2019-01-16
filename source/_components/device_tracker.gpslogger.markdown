@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: gpslogger.png
 ha_category: Presence Detection
 ha_release: 0.34
 ---

@@ -7,23 +7,19 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: gpslogger.png
 ha_category: Presence Detection
 ha_release: 0.86
 ha_iot_class: "Cloud Push"
 ---
 
-This component sets up integration with [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `GET` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
+This component sets up integration with [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `POST` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
 
 Enabling this component will automatically enable the [GPSLogger Device Tracker](/components/device_tracker.gpslogger/).
 
 ## {% linkable_title Configuration %}
 
-GPSLogger uses long-lived access tokens for authentication. These are setup [under your profile](/docs/authentication/#your-account-profile) and configured in the GPSLogger application on your smartphone as explained below.
-
-```yaml
-# Example configuration.yaml entry
-gpslogger:
-```
+To configure GPSLogger, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration (below).
 
 ## {% linkable_title Setup on your smartphone %}
 
@@ -50,19 +46,19 @@ Right after enabling, the app will take you to the **Log to custom URL** setting
   Log to custom URL details
 </p>
 
-The relevant endpoint is: `/api/gpslogger`
+The relevant endpoint starts with: `/api/webhook/` and ends with a unique sequence of characters. This is provided by the integrations panel in the configuration screen (configured above).
 
 ```text
-https://YOUR.DNS.HOSTNAME:PORT/api/gpslogger?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
+https://YOUR.DNS.HOSTNAME:PORT/api/webook/WEBHOOK_ID?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
 ```
 
 Add the above URL after you modified it with your settings into the **URL** field. Remove the line breaks as they are only there to make the URL readable here.
 
+- Make sure to check the `Use POST method` checkbox.
 - It's HIGHLY recommended to use SSL/TLS.
 - Use the domain that Home Assistant is available on the internet (or the public IP address if you have a static IP address). This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
 - Only remove `PORT` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
 - For Home Assistant only the above URL, as written, will work - do not add, remove, or change the order of any of the parameters.
-- Add `Authorization: Bearer LLAT` to the HTTP Headers setting (replace `LLAT` with your Long Lived Access Token).
 - You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`.
 
 If your battery drains too fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers**
