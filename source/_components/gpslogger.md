@@ -13,7 +13,7 @@ ha_release: 0.86
 ha_iot_class: "Cloud Push"
 ---
 
-This component sets up integration with [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `GET` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
+This component sets up integration with [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `POST` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
 
 Enabling this component will automatically enable the [GPSLogger Device Tracker](/components/device_tracker.gpslogger/).
 
