@@ -14,7 +14,7 @@ ha_release: ""
 ha_iot_class: "Cloud Push"
 ---
 
-Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings component is the main component to integrate all SmartThings related platforms.  The basic features of this integration include:
+Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings component is the main component to integrate all SmartThings related platforms. The basic features of this integration include:
 1. Controlling SmartThings devices with pushed state updates from SmartThings.
 2. Entities automatically added, removed, or updated when changed in SmartThings (upon Home Assistant restart).
 3. Support for multiple SmartThings accounts and locations, each represented as a unique integration in the front-end configuration.
@@ -46,14 +46,14 @@ The SmartThings component is configured exclusively through the front-end. Manua
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'SmartThings' and click 'Configure'.
 2. Enter the personal access token created above and click 'Submit'
 3. When prompted, install the SmartApp:
-    1. Open the SmartThings mobile app.  Navigate to 'Automation' and select the 'SmartApps' tab.
+    1. Open the SmartThings mobile app. Navigate to 'Automation' and select the 'SmartApps' tab.
     2. Click 'Add a SmartApp', scroll to the bottom, and select 'My Apps', then choose 'Home Assistant'.
     3. Optionally change the display name and press 'Done'
     4. Authorize the app by pressing 'Allow'
 4. Return to Home Assistant and click 'Submit'.
 
 <p class='note info'>
-Advanced: If you have multiple locations in SmartThings, each can be integrated into Home Assistant.  Follow the steps above, then for each subsequent location, install the SmartApp and it will automatically add to Home Assistant.  This can be completed during step 3 (install SmartApp) above or at any time thereafter.
+Advanced: If you have multiple locations in SmartThings, each can be integrated into Home Assistant. Follow the steps above, then for each subsequent location, install the SmartApp and it will automatically add to Home Assistant. This can be completed during step 3 (install SmartApp) above or at any time thereafter.
 </p>
 
 ## {% linkable_title Additional information %}
