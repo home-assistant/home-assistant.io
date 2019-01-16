@@ -160,7 +160,6 @@ payload_not_available:
   default: offline
 {% endconfiguration %}
 
-
 ### {% linkable_title Full configuration example %}
 
 {% raw %}
