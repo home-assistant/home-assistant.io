@@ -70,5 +70,5 @@ By default, this component will count unread emails.  By configuring the search 
 
 * `ALL` to count all emails in a folder
 * `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
-* [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox.  Not that raw Gmail searches are no longer constrained to configured folder.
+* [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox.  Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
 
