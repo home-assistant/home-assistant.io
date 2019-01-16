@@ -196,6 +196,22 @@ data:
 
 If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e. `/map` would turn into `https://192.168.1.2:8123/map`.
 
+### {% linkable_title Dismiss %}
+
+You can dismiss notifications by using service notify.html5_dismiss like so:
+
+```json
+{
+  "target": ["my phone"],
+  "data": {
+    "tag": "notification_tag"
+  }
+}
+```
+
+If no target is provided, it dismisses for all.
+If no tag is provided, it dismisses all notifications.
+
 ### {% linkable_title Automating notification events %}
 
 During the lifespan of a single push notification, Home Assistant will emit a few different events to the event bus which you can use to write automations against.
