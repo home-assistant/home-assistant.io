@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "Raspberry Pi GPIO Binary Sensor"
-description: "Instructions on how to integrate the GPIO sensor capability of a Raspberry Pi into Home Assistant."
-date: 2015-08-30 19:00
+description: "Instructions on how to integrate the GPIO sensor capability of a Raspberry Pi or Orange Pi into Home Assistant."
+date: 2018-01-16 13:00
 sidebar: true
 comments: false
 sharing: true
@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ha_iot_class: "Local Push"
 ---
 
-The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/) or [Orange Pi](http://www.orangepi.org/).
 
 ## {% linkable_title Configuration %}
 
@@ -35,7 +35,7 @@ ports:
   type: map
   keys:
     "port: name":
-      description: The port numbers (BCM mode pin numbers) and corresponding names.
+      description: Port numbers and corresponding names (GPIO number). For Raspberry Pi boards this is the BCM style pin numbering, for Orange Pi it is the SUNXI style pin numbering (i.e. PA7).
       required: true
       type: string
 bouncetime:

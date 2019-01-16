@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "Raspberry Pi GPIO Switch"
-description: "Instructions on how to integrate the GPIO of a Raspberry Pi into Home Assistant as a switch."
-date: 2015-08-07 14:00
+description: "Instructions on how to integrate the GPIO of a Raspberry Pi or Orange Pi into Home Assistant as a switch."
+date: 2018-01-16 13:00
 sidebar: true
 comments: false
 sharing: true
@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 
-The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/) or [Orange Pi](http://www.orangepi.org/).
 
 ## {% linkable_title Configuration %}
 
@@ -36,7 +36,7 @@ ports:
   type: list
   keys:
     port:
-      description:  Port numbers and corresponding names (GPIO #).
+      description: Port numbers and corresponding names (GPIO number). For Raspberry Pi boards this is the BCM style pin numbering, for Orange Pi it is the SUNXI style pin numbering (i.e. PA7).
       required: true
       type: [integer, string]
 invert_logic:
