@@ -37,9 +37,9 @@ This component is known to work for:
 USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- https://sites.google.com/site/nta8130p1smartmeter/webshop
-- https://www.sossolutions.nl/slimme-meter-kabel
-- https://tweakers.net/gallery/269738/aanbod/
+- <a href="https://sites.google.com/site/nta8130p1smartmeter/webshop">https://sites.google.com/site/nta8130p1smartmeter/webshop</a>
+- <a href="https://www.sossolutions.nl/slimme-meter-kabel">https://www.sossolutions.nl/slimme-meter-kabel</a>
+- <a href="https://tweakers.net/gallery/269738/aanbod/">https://tweakers.net/gallery/269738/aanbod/</a>
 
 Serial to network proxies:
 
