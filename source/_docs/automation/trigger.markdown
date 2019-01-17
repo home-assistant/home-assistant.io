@@ -115,7 +115,7 @@ automation:
 
 Triggers when the sun is setting or rising. An optional time offset can be given to have it trigger a set time before or after the sun event (i.e. 45 minutes before sunset, when dusk is setting in).
 
->Note: Sunrise as a trigger may need special attention as explained in time triggers below.  This is due to the date changing at midnight and sunrise is at an earlier time on the following day.
+Sunrise as a trigger may need special attention as explained in time triggers below. This is due to the date changing at midnight and sunrise is at an earlier time on the following day.
 
 ```yaml
 automation:
@@ -143,16 +143,15 @@ automation:
     service: switch.turn_on
     entity_id: switch.exterior_lighting
 ```
-}{% endraw %}
+{% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time. Then from this you can select from the defined twilight numbers.  Although the actual amount of light depends on weather, topography, and land cover, they are defined as:
+If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time. Then from this you can select from the defined twilight numbers. Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 
-   *Civil twilight: Solar angle > -6°
-   *Nautical twilight: Solar angle > -12°
-   *Astronomical twilight: Solar angle > -18°
+- Civil twilight: Solar angle > -6°
+- Nautical twilight: Solar angle > -12°
+- Astronomical twilight: Solar angle > -18°
     
-A very thorough explanation of this is on [Wikipedia - Twilight](https://en.wikipedia.org/wiki/Twilight).
-
+A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
 ### {% linkable_title Template trigger %}
 
