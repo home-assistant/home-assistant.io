@@ -45,7 +45,7 @@ station_live:
   required: false
   type: string
 exclude_vias:
-  description: Setting this will not show connections for which you have to transfer in another station
+  description: Setting this will not show connections for which you have to transfer to another station.
   required: false
   type: boolean
   default: false
@@ -55,7 +55,7 @@ name:
   type: string
   default: "`NMBS`, `NMBS Live` for the liveboard sensor when set."
 show_on_map:
-  description: Show the station on the map
+  description: Show the station on the map.
   required: false
   type: boolean
   default: false
