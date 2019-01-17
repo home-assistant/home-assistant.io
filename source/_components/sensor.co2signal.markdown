@@ -13,9 +13,9 @@ ha_release: 0.85
 ha_iot_class: "Cloud Polling"
 ---
 
-The `co2signal` sensor platform queries the [CO2Signal](https://www.co2signal.com/) API for the CO2 intensity of a specific region. Data can be collected via latitude/longitude or by country code. This API uses the same data as https://www.electricitymap.org/.
+The `co2signal` sensor platform queries the [CO2Signal](https://www.co2signal.com/) API for the CO2 intensity of a specific region. Data can be collected via latitude/longitude or by country code. This API uses the same data as https://www.electricitymap.org/. Not all countries/regions in the world are supported so please consult this website to check local availability.
 
-This platform requires an CO2Signal API key, which can be obtained [here](https://www.co2signal.com/). Note that this API key is for personal use only and other options exist when the data is used commercially.
+This platform requires a CO2Signal API key, which can be obtained [here](https://www.co2signal.com/). Note that this API key is for personal use only and other options exist when the data is used commercially.
 
 At the moment, the free CO2Signal API only supports the average carbon intensity of a country and not the marginal carbon intensity.
 
@@ -25,24 +25,15 @@ The "free" API key is limited to a limited number of calls. Too many requests ca
 
 ## {% linkable_title Configuration %}
 
-To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
+To set up this platform, get your [API key](https://www.co2signal.com/) and add the following lines to your `configuration.yaml` file:
 
 ```yaml
 sensor:
   - platform: co2signal
     token: YOUR_CO2SIGNAL_API_KEY
-    latitude: YOUR_LATITUDE
-    longitude: YOUR_LONGITUDE
 ```
 
-A similar result can be achieved by using the country code. In that case, use the following lines in your `configuration.yaml` file:
-
-```yaml
-sensor:
-  - platform: co2signal
-    token: YOUR_CO2SIGNAL_API_KEY
-    country_code: YOUR_COUNTRY_CODE
-```
+By default, the sensor will use your Home Assistant longitude and lattitude. More detailed configurations to overwrite this can be found below.
 
 {% configuration %}
 token:
@@ -64,6 +55,25 @@ country_code:
   required: optional
   type: string
 {% endconfiguration %}
+
+To enable the platform and gather data via a specific latitude/longitude, add the following lines to your `configuration.yaml` file:
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    latitude: YOUR_LATITUDE
+    longitude: YOUR_LONGITUDE
+```
+
+A similar result can be achieved by using the country code. In that case, use the following lines in your `configuration.yaml` file:
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    country_code: YOUR_COUNTRY_CODE
+```
 
 ## {% linkable_title Example Configurations %}
 
