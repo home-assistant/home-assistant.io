@@ -272,7 +272,7 @@ name:
   type: string
   default: Xiaomi Air Purifier
 model:
-  description: The model of your miio fan. Valid values are `zhimi.airpurifier.v1`, `zhimi.airpurifier.v2`, `zhimi.airpurifier.v3`, `zhimi.airpurifier.v5`, `zhimi.airpurifier.v6`, `zhimi.airpurifier.v7`, `zhimi.airpurifier.m1`, `zhimi.airpurifier.m2`, `zhimi.airpurifier.ma1`, `zhimi.airpurifier.ma2`, `zhimi.airpurifier.sa1`, `zhimi.airpurifier.sa2`, `zhimi.airpurifier.mc1`, `zhimi.humidifier.v1`, `zhimi.humidifier.ca1` and `zhimi.airfresh.va2`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+  description: The model of your miio fan. See the table above for valid values (f.e. `zhimi.airpurifier.v2`). This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}
