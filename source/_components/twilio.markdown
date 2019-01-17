@@ -14,7 +14,7 @@ ha_release: "0.40"
 
 The `twilio` component enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
 
-Free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
+A free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
 Calls are limited to 10 minutes and will play a short trial message before your message runs. Upgraded accounts have no limitation.
 
 ## {% linkable_title Configuration %}
@@ -40,6 +40,7 @@ auth_token:
 {% endconfiguration %}
 
 ### {% linkable_title Usage %}
+
 After configuring the base Twilio component, add and configure either or both of the [twilio SMS](/components/notify.twilio_sms/) and [twilio Phone](/components/notify.twilio_call) components to utilize the notification functionality.
 
 To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)).
@@ -63,4 +64,3 @@ automation:
     service: light.turn_on
     entity_id: light.office
 ```
-

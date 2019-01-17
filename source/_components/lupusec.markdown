@@ -7,13 +7,17 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: lupusec.jpg
+logo: lupusec.png
 ha_category: Hub
 ha_release: 0.83
 ha_iot_class: "Local Polling"
 ---
 
 The `lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
+
+Supported units:
+
+- Lupusec XT1
 
 The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 
@@ -30,7 +34,7 @@ To use Lupusec devices in your installation, add the following `lupusec` section
 lupusec:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  ip_address: 192.168.178.35
+  ip_address: YOUR_IP_ADDRESS
 ```
 
 {% configuration %}
@@ -43,7 +47,7 @@ password:
   required: true
   type: string
 ip_address:
-  description: The IP-address of your Lupusec alarm panel.
+  description: The IP address of your Lupusec alarm panel.
   required: true
   type: string
 name:

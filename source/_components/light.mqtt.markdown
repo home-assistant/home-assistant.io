@@ -82,6 +82,10 @@ brightness_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the brightness value."
   required: false
   type: string
+color_temp_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
+  required: false
+  type: string
 color_temp_command_topic:
   description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 153 to 500 mireds (micro reciprocal degrees).
   required: false
@@ -91,7 +95,7 @@ color_temp_state_topic:
   required: false
   type: string
 color_temp_value_template:
-  description: "Defines a [template](/topics/templating/) to extract the color temperature value."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the color temperature value."
   required: false
   type: string
 effect_command_topic:
@@ -155,7 +159,7 @@ retain:
   type: boolean
   default: false
 rgb_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
   required: false
   type: string
 rgb_command_topic:

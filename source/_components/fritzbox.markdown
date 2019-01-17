@@ -43,7 +43,7 @@ devices:
     host:
       description: The hostname or IP address of the Fritzbox.
       required: true
-      type: optional
+      type: string
     username:
       description: The username for Smart Home access.
       required: true

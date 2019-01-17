@@ -43,6 +43,7 @@ If you use the PhantomJS option, specify `driver: phantomjs` in your `usps` conf
 Install Chrome 59 or greater (preferably the most recent). Install the latest [Chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads). Ensure both executables are on your `PATH`. `google-chrome --version` and `chromedriver --version` should work and report the correct version.
 
 OS-specific instructions:
+
 - [Ubuntu 16](https://gist.github.com/ziadoz/3e8ab7e944d02fe872c3454d17af31a5) (Selenium server portion *not* necessary)
 - [RHEL/Centos 7](https://stackoverflow.com/a/46686621)
 

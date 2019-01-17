@@ -26,12 +26,6 @@ Configurable/Dimmable WiFi Lightswitch
 - Wifi & Bluetooth connectivity
 - Phone Apps for iOS & Android
 
-"The most advanced smart dimmer. Ever."  - [https://plumlife.com/](https://plumlife.com/)
-
-> The Lightpad’s elegant design compliments any decor and provides amazing control of your lights. The Lightpad allows you to control a single light, group of lights, or all of your lights in a natural and intuitive way.
-
-> Control your lights, not just with your smartphone and your voice (with Alexa and Google Assistant), but with your fingertips too. While most home automation devices today force you to use your smartphone, Plum Lightpads feature Multi-Touch allowing you to use simple gestures to control any light in the house from any Lightpad.
-
 ## {% linkable_title Configuration %}
 
 To enable Plum Lightpad support, add the following lines to your `configuration.yaml` file:

@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: lupusec.jpg
+logo: lupusec.png
 ha_category: Switch
 ha_release: 0.83
 ha_iot_class: "Local Polling"
