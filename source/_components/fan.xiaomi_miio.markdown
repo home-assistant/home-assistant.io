@@ -19,11 +19,11 @@ Supported devices:
 
 | Name                | Model                  | Model no. |
 | ------------------- | ---------------------- | --------- |
-Air Purifier V1       | zhimi.airpurifier.v1   | |
-Air Purifier V2       | zhimi.airpurifier.v2   | |
+Air Purifier          | zhimi.airpurifier.v1   | |
+Air Purifier 2        | zhimi.airpurifier.v2   | FJY4006CN |
 Air Purifier V3       | zhimi.airpurifier.v3   | |
 Air Purifier V5       | zhimi.airpurifier.v5   | |
-Air Purifier Pro V6   | zhimi.airpurifier.v6   | |
+Air Purifier Pro      | zhimi.airpurifier.v6   | |
 Air Purifier Pro V7   | zhimi.airpurifier.v7   | |
 Air Purifier 2 (mini) | zhimi.airpurifier.m1   | |
 Air Purifier (mini)   | zhimi.airpurifier.m2   | |
