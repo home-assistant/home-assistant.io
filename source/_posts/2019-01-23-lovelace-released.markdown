@@ -32,3 +32,4 @@ Thank a ton to the current and former members of the Lovelace team:
 Because of the ease to customize and share customizations, we've seen a big community be created around Lovelace. They are very active in the #lovelace channel on our chat, and work is shared on [ShareTheLove.io](https://sharethelove.io/) and the [Lovelace section on Awesome HA](https://www.awesome-ha.com/#lovelace-ui).
 
 
+Interview with Zac about the Lovelace release on the Home Assistant Podcast: https://hasspodcast.io/ha042 .
