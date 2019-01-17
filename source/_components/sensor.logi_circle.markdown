@@ -61,5 +61,5 @@ sensor:
 The `last_activity_time` sensor exposes these additional state properties:
 * `activity_id`: An internal ID that uniquely identifies this activity.
 * `relevance_level`: A score between 0-1 that determines the level of activity. 0 refers to low activity, 1 to high.
-* `start_time`: An ISO8601 date time string that corrosponds to when relevant motion was first detected, casted to your [configured time zone](https://www.home-assistant.io/docs/configuration/basic/#time_zone).
+* `start_time`: An ISO8601 date time string that corrosponds to when relevant motion was first detected, casted to your [configured time zone](/docs/configuration/basic/#time_zone).
 * `duration`: The activity duration, in seconds.

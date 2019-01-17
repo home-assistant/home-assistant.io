@@ -32,9 +32,9 @@ The camera's live stream does not function with FFMPEG 3.2 - which is distribute
     * `circle:notifications`
     * `circle:summaries`
 4. Request the `authorization_code` grant type.
-5. For the redirect URI, specify your Home Assistant URL followed by `/api/logi_circle`. For example, if your Home Assistant URL is `https://homeassistant.local`, then request `https://homeassistant.local/api/logi_circle`
+5. For the redirect URI, specify your Home Assistant URL followed by `/api/logi_circle`. For example, if your Home Assistant URL is `https://homeassistant.local`, then request `https://homeassistant.local/api/logi_circle`. The redirect URI _must_ be HTTPS.
 
-Please note that the turn-around time for API access is not immediate. 
+Please note that the turn-around time for API access takes a few business days after which you will be contacted by Logitech using the email address you provided in the form.
 
 ### {% linkable_title Configuration %}
 
@@ -70,5 +70,3 @@ redirect_uri:
   required: true
   type: string
 {% endconfiguration %}
-
-

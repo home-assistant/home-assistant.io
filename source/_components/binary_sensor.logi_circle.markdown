@@ -29,12 +29,12 @@ logi_circle:
   binary_sensors:
     monitored_conditions:
       - activity
-      - is_charging
-      - privacy_mode
-      - streaming_enabled
+      - charging
+      - recording
+      - streaming
 ```
 
-By default, all binary sensors available from your Logi Circle devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the Logi Circle component. Devices without an internal battery will not expose a `is_charging` sensor.
+By default, all binary sensors available from your Logi Circle devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the Logi Circle component. Devices without an internal battery will not expose a `charging` sensor.
 
 {% configuration variables %}
 binary_sensor:
@@ -50,11 +50,11 @@ binary_sensor:
       keys:
         activity:
           description: Indicates whether there is an activity in-progress.
-        is_charging:
+        charging:
           description: Indicates whether the camera is currently charging.
-        privacy_mode:
-          description: The configured privacy mode. If true, the camera will not capture activities.
-        streaming_enabled:
+        recording:
+          description: The camera's recording mode. If false, the camera will not capture activities.
+        streaming:
           description: The soft on/off status of the camera.
 {% endconfiguration %}
 
@@ -66,7 +66,7 @@ When an activity is detected, the following metadata will be available from the 
 
 * `activity_id`: An internal ID that uniquely identifies this activity.
 * `relevance_level`: A score between 0-1 that determines the level of activity. This can change during the activity event lifecycle. 0 refers to low activity, 1 to high.
-* `start_time`: An ISO8601 date time string that corrosponds to when relevant motion was first detected, casted to your [configured time zone](https://www.home-assistant.io/docs/configuration/basic/#time_zone).
+* `start_time`: An ISO8601 date time string that corrosponds to when relevant motion was first detected, casted to your [configured time zone](/docs/configuration/basic/#time_zone).
 * `duration`: The activity duration, in seconds. This can change during the activity event lifecycle.
 
 Activities cannot exceed 3 minutes. Should actual activity exceed 3 minutes, the binary sensor may briefly switch off until a new activity is generated and pushed by the Logi Circle API.
