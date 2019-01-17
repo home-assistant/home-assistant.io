@@ -13,7 +13,29 @@ ha_iot_class: "Local Polling"
 ha_release: 0.57
 ---
 
-The `xiaomi_miio` fan platform allows you to control the Xiaomi Mi Air Purifier 2, Air Purifier 2S, Air Purifier Pro, Air Humidifier and Air Fresh.
+The `xiaomi_miio` fan platform allows you to control the Xiaomi Air Purifier, Air Humidifier and Air Fresh.
+
+Supported devices:
+
+| Name                | Model                  | Model no. |
+| ------------------- | ---------------------- | --------- |
+Air Purifier V1       | zhimi.airpurifier.v1   | |
+Air Purifier V2       | zhimi.airpurifier.v2   | |
+Air Purifier V3       | zhimi.airpurifier.v3   | |
+Air Purifier V5       | zhimi.airpurifier.v5   | |
+Air Purifier Pro V6   | zhimi.airpurifier.v6   | |
+Air Purifier Pro V7   | zhimi.airpurifier.v7   | |
+Air Purifier 2 (mini) | zhimi.airpurifier.m1   | |
+Air Purifier (mini)   | zhimi.airpurifier.m2   | |
+Air Purifier MA1      | zhimi.airpurifier.ma1  | |
+Air Purifier 2S       | zhimi.airpurifier.ma2  | |
+Air Purifier 2S       | zhimi.airpurifier.mc1  | |
+Air Purifier Super    | zhimi.airpurifier.sa1  | |
+Air Purifier Super 2  | zhimi.airpurifier.sa2  | |
+Air Humidifier        | zhimi.humidifier.v1    | |
+Air Humidifier CA1    | zhimi.humidifier.ca1   | |
+Air Fresh VA2         | zhimi.airfresh.va2     | |
+
 
 ## Features
 
