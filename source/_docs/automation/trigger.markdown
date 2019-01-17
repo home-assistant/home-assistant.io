@@ -127,7 +127,7 @@ automation:
     offset: '-00:45:00'
 ```
 
-Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most things a general number like -4 degrees is suitable and is used in this example
+Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most things, a general number like -4 degrees is suitable and is used in this example:
 
 {% raw %}
 ```yaml
@@ -145,7 +145,7 @@ automation:
 ```
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time. Then from this you can select from the defined twilight numbers. Although the actual amount of light depends on weather, topography and land cover, they are defined as:
+If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time. Then from this, you can select from the defined twilight numbers. Although the actual amount of light depends on weather, topography and land cover, they are defined as:
 
 - Civil twilight: Solar angle > -6°
 - Nautical twilight: Solar angle > -12°
@@ -201,7 +201,7 @@ automation 3:
   Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute.
 </p>
 
-As mentioned in the Sun trigger section, sunrise is a different day than any time prior to midnight.  If you want to trigger an action with a large enough amout of time before sunrise that it precedes midnight, this must be accounted for properly.  One way is to convert the sunrise time to a timestamp (seconds since 1 Jan 1970). Then do the same for the offset desired (in seconds). This is done with the _as_timestamp_ method explained in the [Templating - Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) section.
+As mentioned in the Sun trigger section, sunrise is a different day than any time prior to midnight.  If you want to trigger an action with a large enough amount of time before sunrise that it precedes midnight, this must be accounted for properly.  One way is to convert the sunrise time to a timestamp (seconds since 1 Jan 1970). Then do the same for the offset desired (in seconds). This is done with the _as_timestamp_ method explained in the [Templating - Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) section.
 
 
 ### {% linkable_title Webhook trigger %}
