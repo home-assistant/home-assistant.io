@@ -36,7 +36,7 @@ logi_circle:
 
 By default, all binary sensors available from your Logi Circle devices will be monitored. Leave `monitored_conditions` blank to disable all binary sensors for the Logi Circle component. Devices without an internal battery will not expose a `charging` sensor.
 
-{% configuration variables %}
+{% configuration %}
 binary_sensor:
   description: Configuration to pass to all binary sensors.
   required: false

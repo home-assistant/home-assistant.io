@@ -36,7 +36,7 @@ logi_circle:
 
 By default, all sensors available from your Logi Circle devices will be monitored. Leave `monitored_conditions` blank to disable all sensors for the Logi Circle component. Devices without an internal battery will not expose a `battery_level` sensor.
 
-{% configuration variables %}
+{% configuration %}
 sensor:
   description: Configuration to pass to all sensors.
   required: false

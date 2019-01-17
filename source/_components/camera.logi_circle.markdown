@@ -32,7 +32,7 @@ logi_circle:
     ffmpeg_arguments: "-vf eq=brightness=0.06:saturation=2"
 ```
 
-{% configuration variables %}
+{% configuration %}
 camera:
   description: Configuration to pass to all cameras.
   required: false

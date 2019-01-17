@@ -49,7 +49,7 @@ logi_circle:
   redirect_uri: YOUR_REDIRECT_URI
 ```
 
-{% configuration variables %}
+{% configuration %}
 client_id:
   description: The client ID issued to you by Logitech.
   required: true
