@@ -73,14 +73,14 @@ Please note that new snapshots will only be generated if the cached snapshot is 
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
-### {% linkable_title Service `camera.logi_circle_set_privacy_mode` %}
+### {% linkable_title Service `camera.logi_circle_set_recording_mode` %}
 
-Sets the privacy mode of your camera. If set to true, the camera will not capture activities.
+Sets the recording mode of your camera. If set to false, the camera will not capture activities.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to set the privacy mode for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
-| `value`                |      no  | Privacy mode value. Allowed values: `true`, `false` |
+| `entity_id`            |      yes | Name(s) of entities to set the recording mode for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
+| `value`                |      no  | Recording mode value. Allowed values: `true`, `false` |
 
 ## {% linkable_title Resolving FFMPEG issues %}
 
