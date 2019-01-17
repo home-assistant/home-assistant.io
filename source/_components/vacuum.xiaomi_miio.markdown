@@ -134,7 +134,7 @@ The following table shows the units of measurement for each attribute:
 ## {% linkable_title Retrieving the Access Token %}
 
 <p class='note'>
-As per Version 5.4.49 the Android Mi Home app stores the token readable in the log files. It can easily be retrieved in the folder Smarthome on in the Android device. Just open the text file inside the Smarthome/logs folder and search for token.
+As per Version 5.4.49 the Android Mi Home app stores the token readable in the log files. It can easily be retrieved in the folder Smarthome on in the Android device. Just open the text file inside the Smarthome/logs folder and search for the token.
 <br/> <br/>
 The iPhone app still stores the token in the SQLite db as of v4.10.2 (Dec 22, 2018).
 <br/> <br/>
