@@ -61,8 +61,8 @@ Advanced: If you have multiple locations in SmartThings, each can be integrated 
 ### Supported capabilities / device mapping
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component follows the following rules to represent those as entities in Home Assistant:
 
-| Capability        |Component/Platform
+| Capability        |Platform
 |-------------------|------------------------------------------------------------|
-| [switch](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch)            | [switch.smartthings](/components/switch.smartthings)
+| [switch](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch)            | [switch](/components/smartthings.switch)
 
 Support for additional capabilities will be added in the future.
