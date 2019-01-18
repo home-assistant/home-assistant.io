@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Push"
 The `logi_circle` implementation allows you to integrate your [Logi Circle](https://circle.logi.com/) cameras in Home Assistant. To connect Logi Circle, you will have to [sign up for API access](#requesting-api-access) and get a `client_id`, `client_secret` and `api_key`.
 
 <p class='note warning'>
-The camera's live stream does not function with FFMPEG 3.2 - which is distributed by default with Home Assistant's docker container. Refer to [Resolving FFMPEG issues](/components/camera.logi_circle/#resolving-ffmpeg-issues) for instructions on updating FFMPEG.
+The camera's live stream does not function with FFMPEG 3.2 - which is distributed by default with Home Assistant's docker container. Refer to [Resolving FFMPEG issues](/components/logi_circle.camera/#resolving-ffmpeg-issues) for instructions on updating FFMPEG.
 </p>
 
 ### {% linkable_title Requesting API access %}
