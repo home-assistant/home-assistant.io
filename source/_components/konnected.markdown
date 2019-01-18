@@ -21,7 +21,7 @@ The component currently supports the following device types in Home Assistant:
 - [Binary Sensor](/components/binary_sensor.konnected/): Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
 - [Switch](/components/switch.konnected/): Actuate a siren, strobe, buzzer or relay module.
 
-This component requires the [`discovery`](https://www.home-assistant.io/components/discovery) component to be enabled.
+This component requires the [`discovery`](/components/discovery) component to be enabled.
 
 ### {% linkable_title Configuration %}
 

@@ -96,6 +96,6 @@ automation:
 ```
 
 <p class='note'>
-Please remember that [as explained here](https://www.home-assistant.io/docs/configuration/devices/) you can only have a single `automation:` entry. Add the automation to your existing automations.
+Please remember that [as explained here](/docs/configuration/devices/) you can only have a single `automation:` entry. Add the automation to your existing automations.
 </p>
 
