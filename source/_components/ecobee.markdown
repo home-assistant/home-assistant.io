@@ -57,9 +57,9 @@ api_key:
   required: true
   type: string
 hold_temp:
-  description: True/False whether or not to hold changes indefinitely (True) or until the next scheduled event.
+  description: Whether or not to hold changes indefinitely (`true`) or until the next scheduled event.
   required: false
-  default: "`false`"
+  default: false
   type: boolean
 {% endconfiguration %}
 

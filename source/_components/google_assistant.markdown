@@ -132,7 +132,7 @@ allow_unlock:
   description: "When True, allows Google Assistant to unlock locks."
   required: false
   type: boolean
-  default: False
+  default: false
 api_key:
   description: Your Homegraph API key (for the `google_assistant.request_sync` service)
   required: false
@@ -140,7 +140,7 @@ api_key:
 expose_by_default:
   description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
   required: false
-  default: True
+  default: true
   type: boolean
 exposed_domains:
   description: List of entity domains to expose to Google Assistant.

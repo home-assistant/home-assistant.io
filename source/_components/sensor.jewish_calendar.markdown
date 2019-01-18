@@ -43,7 +43,7 @@ longitude:
 diaspora:
   required: false
   description: Consider the location as diaspora or not for calculation of the weekly portion and holidays.
-  default: False
+  default: false
   type: string
 sensors:
   required: false

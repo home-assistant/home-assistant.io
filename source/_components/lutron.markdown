@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: lutron.png
 ha_category: Hub
-featured: False
+featured: false
 ha_release: 0.37
 ha_iot_class: "Local Polling"
 ---
