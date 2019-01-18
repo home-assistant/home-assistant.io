@@ -30,9 +30,6 @@ sensor:
   - platform: solaredge
     api_key: API_KEY
     site_id: SITE_ID
-    monitored_conditions:
-      - current_power
-      - last_day_data
 ```
 {% endraw %}
 
@@ -66,6 +63,19 @@ monitored_conditions:
       description: Energy generated today at your SolarEdge Site in Wh
     current_power:
       description: Current generated power in W
+    site_details:
+      description: Site details such as name, location, status, etc.
+    inventory_meters:
+      description: Site equipment details of connected meters. The sensor value shows the number of meters. Each meter is available as an attribute
+    inventory_sensors:
+      description: Site equipment details of connected sensors. The sensor value shows the number of sensors. Each sensor is available as an attribute
+    inventory_gateways:
+      description: Site equipment details of connected gateways. The sensor value shows the number of gateways. Each gateway is available as an attribute
+    inventory_batteries:
+      description: Site equipment details of connected batteries. The sensor value shows the number of batteries. Each battery is available as an attribute
+    inventory_inverters:
+      description: Site equiment details of connected inverters. The sensor values shows the number of inverters. Each inverter is available as an attribute
+    
 {% endconfiguration %}
 
 If no **monitored_conditions** are specified, only **current_power** will be enabled.
@@ -88,6 +98,12 @@ sensor:
       - last_month_data
       - last_year_data
       - life_time_data
+      - site_details
+      - inventory_meters
+      - inventory_sensors
+      - inventory_gateways
+      - inventory_batteries
+      - inventory_inverters
 ```
 {% endraw %}
 
