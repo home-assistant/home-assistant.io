@@ -17,7 +17,7 @@ The `rainmachine` switch platform allows you to control programs and zones
 within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/). 
 
 <p class='note'>
-You must have the [RainMachine component](https://www.home-assistant.io/components/rainmachine/)
+You must have the [RainMachine component](/components/rainmachine/)
 configured to use this platform. After configuring that component, switches will
 automatically appear.
 </p>

@@ -41,5 +41,5 @@ client_secret:
 
 <p class='note'>
 The Point is just active occasionally so the sensors are only updated every hour or so.
-The events sent from the Point is sent as a webhook back to Home Assistant with `event_type` as `point_webhook_received`, please consider the documentation for the [IFTT](https://www.home-assistant.io/components/ifttt/) component on how to write automations for webhooks.
+The events sent from the Point is sent as a webhook back to Home Assistant with `event_type` as `point_webhook_received`, please consider the documentation for the [IFTT](/components/ifttt/) component on how to write automations for webhooks.
 </p>

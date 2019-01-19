@@ -91,7 +91,7 @@ zones:
       required: true
       type: string
     type:
-      description: "A type for the zone. Here you can find a list of [Device Classes](https://www.home-assistant.io/components/binary_sensor/#device-class)."
+      description: "A type for the zone. Here you can find a list of [Device Classes](/components/binary_sensor/#device-class)."
       required: false
       default: opening
       type: string

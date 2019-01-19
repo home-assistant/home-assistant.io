@@ -38,7 +38,7 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect. You can load changes to [automations](/docs/automation/), [customize](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting if you're not using [packages](/docs/configuration/packages/).
 
 <p class='note warning'>
-If you've made any changes, remember to [check your configuration](https://www.home-assistant.io/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
+If you've made any changes, remember to [check your configuration](/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
 </p>
 
 ## {% linkable_title Migrating to a new system %}

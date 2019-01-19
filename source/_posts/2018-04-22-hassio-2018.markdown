@@ -58,7 +58,7 @@ Once our new installation images with HassioOS are released, you have to reflash
 - Restore your snapshot.
 - Enjoy a new and improved Hass.io
 
-[last July]: https://www.home-assistant.io/blog/2017/07/25/introducing-hassio/
+[last July]: /blog/2017/07/25/introducing-hassio/
 [the conclusion]: #what-hassio-users-should-do-to-prepare-for-these-updates
 [Buildroot]: https://buildroot.org/
 [RAUC]: https://www.rauc.io/
