@@ -101,7 +101,7 @@ To enable "night mode":
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: True
+    initial_state: true
     trigger:
       - platform: time
         at: '21:00'

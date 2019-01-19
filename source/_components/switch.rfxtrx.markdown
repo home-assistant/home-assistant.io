@@ -21,7 +21,7 @@ The easiest way to find your switches is to add this to your `configuration.yaml
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: True
+  automatic_add: true
 ```
 
 Launch your Home Assistant and go the website.
@@ -70,7 +70,7 @@ signal_repetitions:
 {% endconfiguration %}
 
 <p class='note warning'>
-This component and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `False`.
+This component and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
 </p>
 
 <p class='note warning'>
@@ -102,7 +102,7 @@ Basic configuration with 3 devices:
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: False
+  automatic_add: false
   signal_repetitions: 2
   devices:
     0b1100ce3213c7f210010f70:
@@ -111,7 +111,7 @@ switch:
       name: Movment2
     0b1111e003af16aa10000060:
       name: Door
-      fire_event: True
+      fire_event: true
 ```
 
 Light hallway if doorbell is pressed (when is sun down):
@@ -120,7 +120,7 @@ Light hallway if doorbell is pressed (when is sun down):
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: False
+  automatic_add: false
   devices:
     0710014c440f0160:
       name: Hall
@@ -154,7 +154,7 @@ Use remote to enable scene (using event_data):
 # Example configuration.yaml entry
 switch:
   platform: rfxtrx
-  automatic_add: False
+  automatic_add: false
   devices:
     0b1100ce3213c7f210010f70:
       name: Light1

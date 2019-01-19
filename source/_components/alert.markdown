@@ -245,8 +245,8 @@ alert:
       - 30
       - 60
       - 120
-    can_acknowledge: True
-    skip_first: True
+    can_acknowledge: true
+    skip_first: true
     notifiers:
       - ryans_phone
 ```
