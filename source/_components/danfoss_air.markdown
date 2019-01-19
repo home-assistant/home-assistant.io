@@ -7,8 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Hub
+ha_category: Climate
 ha_release: "0.86"
+logo: danfoss_air.png 
 ha_iot_class: "Local Polling"
 ---
 
