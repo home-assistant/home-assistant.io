@@ -140,6 +140,37 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
   - motor2_speed
   - volume
 
+### Air Purifier 2S (zhimi.airpurifier.mc1)
+
+- Power (on, off)
+- Operation modes (auto, silent, favorite)
+- Buzzer (on, off)
+- Child lock (on, off)
+- LED (on, off)
+- Favorite Level (0...16)
+- Attributes
+  - model
+  - temperature
+  - humidity
+  - aqi
+  - mode
+  - filter_hours_used
+  - filter_life_remaining
+  - favorite_level
+  - child_lock
+  - led
+  - motor_speed
+  - average_aqi
+  - learn_mode
+  - extra_features
+  - turbo_mode_supported
+  - button_pressed
+  - filter_rfid_product_id
+  - filter_rfid_tag
+  - filter_type
+  - illuminance
+  - buzzer
+
 ### Air Purifier V3 (zhimi.airpurifier.v3)
 
 - Power (on, off)
@@ -304,7 +335,7 @@ Turn the buzzer off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
-### {% linkable_title Service `fan.xiaomi_miio_set_led_on` %} (Air Purifier only)
+### {% linkable_title Service `fan.xiaomi_miio_set_led_on` %} (Air Purifiers only)
 
 Turn the led on.
 
@@ -312,7 +343,7 @@ Turn the led on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
-### {% linkable_title Service `fan.xiaomi_miio_set_led_off` %} (Air Purifier only)
+### {% linkable_title Service `fan.xiaomi_miio_set_led_off` %} (Air Purifiers only)
 
 Turn the led off.
 
@@ -336,7 +367,7 @@ Turn the child lock off.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
-### {% linkable_title Service `fan.xiaomi_miio_set_led_brightness` %} (Air Purifier Pro excluded)
+### {% linkable_title Service `fan.xiaomi_miio_set_led_brightness` %} (Air Purifier 2S and Air Purifier Pro excluded)
 
 Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 
@@ -345,7 +376,7 @@ Set the led brightness. Supported values are 0 (Bright), 1 (Dim), 2 (Off).
 | `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 | `brightness`              |       no | Brightness, between 0 and 2.                            |
 
-### {% linkable_title Service `fan.xiaomi_miio_set_favorite_level` %} (Air Purifier only)
+### {% linkable_title Service `fan.xiaomi_miio_set_favorite_level` %} (Air Purifiers only)
 
 Set the favorite level of the operation mode "favorite".
 
@@ -354,7 +385,7 @@ Set the favorite level of the operation mode "favorite".
 | `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 | `level`                   |       no | Level, between 0 and 16.                                |
 
-### {% linkable_title Service `fan.xiaomi_miio_set_auto_detect_on` %} (Air Purifier Pro only)
+### {% linkable_title Service `fan.xiaomi_miio_set_auto_detect_on` %} (Air Purifier 2S and Air Purifier Pro only)
 
 Turn the auto detect on.
 
@@ -362,7 +393,7 @@ Turn the auto detect on.
 |---------------------------|----------|---------------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific Xiaomi miIO fan entity. Else targets all. |
 
-### {% linkable_title Service `fan.xiaomi_miio_set_auto_detect_off` %} (Air Purifier Pro only)
+### {% linkable_title Service `fan.xiaomi_miio_set_auto_detect_off` %} (Air Purifier 2S and Air Purifier Pro only)
 
 Turn the auto detect off.
 
