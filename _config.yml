@@ -32,8 +32,12 @@ destination: public/
 plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
+
 markdown: kramdown
+highlighter: rouge
 timezone: UTC
+liquid:
+  error_mode: strict
 
 kramdown:
   input: GFM
@@ -43,8 +47,6 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   parse_block_html: true
-
-highlighter: rouge
 
 plugins:
   - jekyll-redirect-from
