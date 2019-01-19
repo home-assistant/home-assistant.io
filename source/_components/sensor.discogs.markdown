@@ -30,7 +30,13 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 sensor:
   - platform: discogs
     token: YOUR_TOKEN
+    monitored_conditions:
+      - collection
+      - wantlist
+      - random_record
 ```
+
+The monitored conditions can create a sensor which displays the amount of records currently in your collection and/or wantlist, and an option to pick a random record from your collection.
 
 {% configuration %}
 token:
@@ -41,4 +47,8 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
+monitored_conditions:
+  description: A list of sensor to include.
+  required: false
+  type: list
 {% endconfiguration %}
