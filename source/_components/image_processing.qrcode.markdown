@@ -15,7 +15,9 @@ ha_release: 0.87
 
 The `qrcode` image processing platform enables QR code recognition from cameras.
 
-### {% linkable_title Configuration Home Assistant %}
+## {% linkable_title Configuration %}
+
+To enable this, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
