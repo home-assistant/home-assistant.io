@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: github.png
 ha_category: Sensor
-ha_release: 0.85
+ha_release: 0.86
 ha_iot_class: "Cloud Polling"
 ---
 
