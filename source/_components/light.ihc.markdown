@@ -58,13 +58,13 @@ light:
       required: true
       type: integer
     on_id:
-       description: Optional IHC resource id that will be pulsed to turn ON this light.
-       required: false
-       type: integer
-     off_id:
-       description: Optional IHC resource id that will be pulsed to turn OFF this light.
-       required: false
-       type: integer
+      description: Optional IHC resource id that will be pulsed to turn ON this light.
+      required: false
+      type: integer
+    off_id:
+      description: Optional IHC resource id that will be pulsed to turn OFF this light.
+      required: false
+      type: integer
     name:
       description: The name of the component
       required: false
