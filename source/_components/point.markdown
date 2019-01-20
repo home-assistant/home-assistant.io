@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: minut.svg
 ha_category: Hub
-featured: true
+featured: false
 ha_release: "0.83"
 ha_iot_class: "Cloud Polling"
 ha_qa_scale: silver
