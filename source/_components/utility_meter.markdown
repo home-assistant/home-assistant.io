@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor 
-ha_release: 0.85
+ha_release: 0.87
 ha_iot_class: "Local Push"
 logo: energy_meter.png
 ha_qa_scale: internal
