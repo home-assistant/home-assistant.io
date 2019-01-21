@@ -147,7 +147,8 @@ And the template sensor for viewing the next bus attributes.
       value_template: {% raw %}'{{states.sensor.next_bus_to_wantage.attributes.next_buses[0].estimated}}'{% endraw %}
 ```
 
-## Managing API requests
-If you wish to manage the rate of API requests (e.g. to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` in the config options, and use the service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update.
+## {% linkable_title Managing API requests %}
+
+If you wish to manage the rate of API requests (e.g., to disable requests when you aren't interested in travel, so that you can request updates more frequently when you do travel) set a really long `scan_interval` in the config options, and use the service `homeassistant.update_entity` to request the update of an entity, rather than waiting for the next scheduled update.
 
 Powered by [transportAPI](http://www.transportapi.com/)
