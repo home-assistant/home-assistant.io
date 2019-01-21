@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: everlights.png
 ha_category: Light
 ha_iot_class: "Local Polling"
 ha_release: 0.87
