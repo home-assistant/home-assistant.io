@@ -13,7 +13,6 @@ ha_release: "0.85"
 ha_iot_class: "Local Polling"
 ---
 
-
 The `freebox` component allows you to observe and control [Freebox router](http://www.free.fr/).
 
 The integration provides:
@@ -56,7 +55,7 @@ You must have set a password for your Freebox router web administration page and
 </p>
 
 <p class='note warning'>
-By default the permissions granted to applications on the Freebox router are not correct to make switch platform available. You will need to add the permission "Modification des réglages de la Freebox" in "Gestion des accès", "Applications".
+By default, the permissions granted to applications on the Freebox router are not correct to make switch platform available. You will need to add the permission "Modification des réglages de la Freebox" in "Gestion des accès", "Applications".
 </p>
 
 The first time Home Assistant will connect to your Freebox, you will need to
