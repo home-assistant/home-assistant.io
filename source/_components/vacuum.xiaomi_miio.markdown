@@ -54,6 +54,11 @@ name:
   required: false
   type: string
   default: Xiaomi Vacuum cleaner
+new_fan_speeds:
+  description: Use Cleanup Mode mappings for newer V2 vacuums. If your Fan Speed is displayed incorrectly, try setting this to true.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## {% linkable_title Platform Services %}
