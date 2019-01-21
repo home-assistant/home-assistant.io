@@ -38,10 +38,9 @@ transmission:
   host: 192.168.1.1
 ```
 
-
 {% configuration %}
 host:
-  description: This is the IP address of your Transmission daemon, e.g., 192.168.1.1.
+  description: This is the IP address of your Transmission daemon, e.g., `192.168.1.1`.
   required: true
   type: string
 port:
@@ -62,11 +61,11 @@ password:
   required: false
   type: string
 turtle_mode:
-  description; If enabled, it create a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
+  description; If enabled, it creates a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
   required: false
   type: boolean
 monitored_variables:
-  description: Conditions to display in the frontend. Every one of them will act as sensor.
+  description: Conditions to display in the frontend. Every one of them will act as a sensor.
   required: false
   type: map
   keys:
@@ -89,6 +88,7 @@ monitored_variables:
 {% endconfiguration %}
 
 ## {% linkable_title Event Automation %}
+
 The Transmission component is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, allows to implement any kind of automation.
 
 Possible events are:
@@ -98,6 +98,7 @@ Possible events are:
 Inside of the event, there is the name of the torrent that is started or completed, as it is seen in the Transmission User Interface.
 
 Example of configuration of an automation with completed torrents:
+
 ```yaml
 - alias: Completed Torrent
     trigger:
@@ -109,4 +110,3 @@ Example of configuration of an automation with completed torrents:
         title: "Torrent completed!"
         message: "{{trigger.event.data.name}}"
 ```
-
