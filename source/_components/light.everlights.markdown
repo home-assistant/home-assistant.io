@@ -41,4 +41,4 @@ EverLights patterns saved to the control box can be activated using the effect p
 
 ### Limitations
 
-The EverLights control box status indicates if a zone is active but does not indicate the current color or pattern. The color and effect in the state attributes is based on the last execution of light.turn_on. If the control box scheduler or another app make a change then the state attributes are not updated.
+The EverLights control box status indicates if a zone is active but does not indicate the current color or pattern. The color and effect in the state attributes is based on the last execution of light.turn_on. If the control box scheduler or another app makes a change then the state attributes are not updated.
