@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Owlet"
+title: "Owlet Sensor"
 description: "Instructions on how to integrate Owlet baby monitor into Home Assistant."
 date: 2019-01-19
 sidebar: true
