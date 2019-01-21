@@ -67,7 +67,7 @@ payload:
   required: false
   type: string
 verify_ssl:
-  description: Verify the certification of the endpoint.
+  description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
   default: True
@@ -173,7 +173,7 @@ sensor:
       Content-Type: application/json
 ```
 
-The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens. 
+The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens.
 
 ```bash
 Content-Length: 1024
@@ -234,7 +234,7 @@ This sample fetches a weather report from [OpenWeatherMap](http://openweathermap
 sensor:
   - platform: rest
     name: OWM_report
-    json_attributes: 
+    json_attributes:
       - main
       - weather
     value_template: '{{ value_json["weather"][0]["description"].title() }}'
