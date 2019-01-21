@@ -24,8 +24,8 @@ To enable EverLights, add the following lines to your `configuration.yaml` file:
 light:
   - platform: everlights
     hosts:
-    - 192.168.1.123
-    - 192.168.1.124
+      - 192.168.1.123
+      - 192.168.1.124
 ```
 
 {% configuration %}
@@ -37,8 +37,8 @@ hosts:
 
 ### {% linkable_title Effects %}
 
-EverLights patterns saved to the control box can be activated using the effect parameter to the light.turn_on service. If an effect is specified, then the color and brightness are ignored.
+EverLights patterns saved to the control box can be activated using the effect parameter to the `light.turn_on` service. If an effect is specified, then the color and brightness are ignored.
 
 ### Limitations
 
-The EverLights control box status indicates if a zone is active but does not indicate the current color or pattern. The color and effect in the state attributes are based on the last execution of light.turn_on. If the control box scheduler or another app makes a change, then the state attributes are not updated.
+The EverLights control box status indicates if a zone is active but does not indicate the current color or pattern. The color and effect in the state attributes are based on the last execution of `light.turn_on`. If the control box scheduler or another app makes a change, then the state attributes are not updated.
