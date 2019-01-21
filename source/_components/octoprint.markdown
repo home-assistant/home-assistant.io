@@ -53,7 +53,7 @@ octoprint:
       description: The URL path of the Octoprint instance.
       required: false
       type: string
-      default: 80
+      default: /
     ssl:
       description: Enable or disable SSL/TLS.
       required: false
