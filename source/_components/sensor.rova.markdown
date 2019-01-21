@@ -78,6 +78,7 @@ sensor:
 
 To have your Home Assistant installation remind you of upcoming waste collections, combine the `rova` platform with some [Automations](/docs/automation/) and a [notification platform](/components/notify/).
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry for Rova waste collection reminder
 automation:
@@ -94,5 +95,5 @@ automation:
       - service: NOTIFICATION_SERVICE
         data:
           message: 'Reminder: put out biowaste bin'
-
 ```
+{% endraw %}
