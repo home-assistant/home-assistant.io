@@ -12,7 +12,6 @@ ha_category: Health
 featured: true
 ha_release: "0.87"
 ha_iot_class: "Cloud Polling"
-ha_qa_scale:
 ---
 
 Enables base station power status and sock movement status from Owlet baby monitor sock.
@@ -20,7 +19,7 @@ Enables base station power status and sock movement status from Owlet baby monit
 <p class='warning'>
 The intended purpose of this component is to enable data logging and automations
 such as battery status updates and charging reminders.  This component should not
-replace the Owlet app nor should it be used for for life critical notifications.
+replace the Owlet app nor should it be used for life-critical notifications..
 </p>
 
 <p class='note'>

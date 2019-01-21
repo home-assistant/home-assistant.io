@@ -12,7 +12,6 @@ ha_category: Health
 featured: true
 ha_release: "0.87"
 ha_iot_class: "Cloud Polling"
-ha_qa_scale:
 ---
 
 ### {% linkable_title Configuration %}
@@ -22,7 +21,6 @@ ha_qa_scale:
 owlet:
   username: OWLET_USER
   password: OWLET_PASSWORD
-  name: CUSTOM_NAME
 ```
 
 {% configuration %}
@@ -43,7 +41,7 @@ name:
 <p class='warning'>
 The intended purpose of this component is to enable data logging and automations
 such as battery status updates and charging reminders.  This component should not
-replace the Owlet app nor should it be used for for life critical notifications.
+replace the Owlet app nor should it be used for life-critical notifications.
 </p>
 
 Owlet Care baby monitors check your baby's oxygen level and heart rate while
