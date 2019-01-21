@@ -21,8 +21,7 @@ To enable this sensor in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: jewish_calendar
-    language: english
+  platform: jewish_calendar
 ```
 
 {% configuration %}
@@ -48,16 +47,12 @@ diaspora:
   type: string
 candle_lighting_minutes_before_sunset:
   required: false
-  description: Number of minutes before sunset to report as candle lighting
-  time.
+  description: Number of minutes before sunset to report as candle lighting time.
   default: 18
   type: integer
 havdalah_minutes_after_sunset:
   required: false
-  description: Number of minutes after sunset to report as havdalah time. If
-  this is set to 0, uses the time that the sun is 8.5 degrees below the horizon
-  (same as the 'three_stars' sensor). If non-zero, this value is added as an
-  offset to the time of sunset to report havdalah.
+  description: Number of minutes after sunset to report as havdalah time. If this is set to 0, uses the time that the sun is 8.5 degrees below the horizon (same as the 'three_stars' sensor). If non-zero, this value is added as an offset to the time of sunset to report havdalah.
   default: 0
   type: integer
 sensors:
@@ -84,33 +79,15 @@ sensors:
     first_stars:
       description: Time at which the first stars are visible (Tset Hakochavim - צאת הכוכבים).
     upcoming_shabbat_candle_lighting:
-      description: The time of candle lighting for either the current Shabbat
-      (if it is currently Shabbat) or the immediately upcoming Shabbat.
+      description: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
     upcoming_shabbat_havdalah:
-      description: The time of havdalah for either the current Shabbat
-      (if it is currently Shabbat) or the immediately upcoming Shabbat.
-      If it is currently a three-day holiday, this value *could* be None (i.e.
-      if holiday is Sat./Sun./Mon. and it's Saturday, there will be no
-      shabbat_havdalah value. See comments in hdate library for details.)
+      description: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e. if holiday is Sat./Sun./Mon. and it's Saturday, there will be no shabbat_havdalah value. See comments in hdate library for details.)
     upcoming_candle_lighting:
-      description: The time of candle lighting for either the current Shabbat
-      OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example,
-      today is Sunday, and Rosh Hashana is Monday night through Wednesday night,
-      this reports the candle lighting for Rosh Hashana on Monday night. This
-      avoids a situation of triggering pre-candle-lighting automations while it
-      is currently Yom Tov.
-      To always get the Shabbat times, use the upcoming_shabbat_candle_lighting
-      sensor.
+      description: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the upcoming_shabbat_candle_lighting sensor.
     upcoming_havdalah:
-      description: The time of havdalah for either the current Shabbat
-      OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example,
-      today is Sunday, and Rosh Hashana is Monday night through Wednesday night,
-      this reports the havdalah for Rosh Hashana on Wednesday night. To always
-      get the Shabbat times, use the upcoming_shabbat_havdalah sensor.
+      description: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the upcoming_shabbat_havdalah sensor.
     issur_melacha_is_in_effect:
-      description: A boolean sensor indicating if melacha is currently not
-      permitted. The value is true when it is currently Shabbat or Yom Tov and
-      false otherwise.
+      description: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
 
 {% endconfiguration %}
 
