@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "EverLights Light"
-description: "Instructions on how to setup EverLights within Home Assistant."
+description: "Instructions on how to set up EverLights within Home Assistant."
 date: 2018-12-29
 sidebar: true
 comments: false
@@ -37,8 +37,8 @@ hosts:
 
 ### {% linkable_title Effects %}
 
-EverLights patterns saved to the control box can be activated using the effect parameter to the light.turn_on service. If an effect is specified then the color and brightness are ignored.
+EverLights patterns saved to the control box can be activated using the effect parameter to the light.turn_on service. If an effect is specified, then the color and brightness are ignored.
 
 ### Limitations
 
-The EverLights control box status indicates if a zone is active but does not indicate the current color or pattern. The color and effect in the state attributes is based on the last execution of light.turn_on. If the control box scheduler or another app makes a change then the state attributes are not updated.
+The EverLights control box status indicates if a zone is active but does not indicate the current color or pattern. The color and effect in the state attributes are based on the last execution of light.turn_on. If the control box scheduler or another app makes a change, then the state attributes are not updated.
