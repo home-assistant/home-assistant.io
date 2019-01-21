@@ -12,7 +12,7 @@ ha_category: Component
 ha_release: 0.86
 ---
 
-The `google_pubsub` component allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you sync about 1 event every 2 seconds on average (2 million invocations per month).
+The `google_pubsub` component allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).
 
 ## {% linkable_title First time setup %}
 
@@ -22,7 +22,7 @@ You need to create a Service Account key in the [Google Cloud API Console](https
 - Choose a new "New Service Account", give it a name and leave the key type as JSON
 - Select the role: Pub/Sub Publisher 
 
-This will download the Service Account json key to your machine. Do NOT share this with anyone. Place this file in your Home Assistant config folder.
+This will download the Service Account JSON key to your machine. Do NOT share this with anyone. Place this file in your Home Assistant config folder.
 
 Next, create a Google Pub/Sub topic in the [Google Cloud API Console](https://console.cloud.google.com/cloudpubsub/topicList). The topic name will become something like `projects/project-198373/topics/topic-name`. Note the last part only (the name you chose): `topic-name`.
 
@@ -51,36 +51,36 @@ google_pubsub:
 
 {% configuration %}
 project_id:
-  description: Project ID from the Google console (looks like `words-2ab12`)
+  description: Project ID from the Google console (looks like `words-2ab12`).
   required: true
   type: string
 topic_name:
-  description: The Pub/Sub topic name
+  description: The Pub/Sub topic name.
   required: true
   type: string
 credentials_json:
-  description: The filename of the Google Service Account JSON file
+  description: The filename of the Google Service Account JSON file.
   required: true
   type: string
 filter:
-  description: Filter domains and entities for Google Cloud Pub/Sub
+  description: Filter domains and entities for Google Cloud Pub/Sub.
   required: false
   type: map
   keys:
     include_domains:
-      description: List of domains to include (e.g. `light`)
+      description: List of domains to include (e.g., `light`).
       required: false
       type: list
     exclude_domains:
-      description: List of domains to exclude (e.g. `light`)
+      description: List of domains to exclude (e.g., `light`).
       required: false
       type: list
     include_entities:
-      description: List of entities to include (e.g. `light.attic`)
+      description: List of entities to include (e.g., `light.attic`).
       required: false
       type: list
     exclude_entities:
-      description: List of entities to include (e.g. `light.attic`)
+      description: List of entities to include (e.g., `light.attic`).
       required: false
       type: list
 {% endconfiguration %}
