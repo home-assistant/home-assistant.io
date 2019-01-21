@@ -56,7 +56,20 @@ calculation_method:
   required: false
   default: 'isna'
   type: string
-  description: "The calculation method used for prayer times.  Must be one of: `karachi`, `isna`, `mwl`, `makkah`."
+  description: "The calculation method used for prayer times.  Must be one of: 
+  `shia` - Shia Ithna-Ansari.
+  `karachi` - University of Islamic Sciences, Karachi.
+  `isna` - Islamic Society of North America.
+  `mwl` - Muslim World League.
+  `makkah` - Umm Al-Qura University, Makkah.
+  `egas` - Egyptian General Authority of Survey.
+  `igut` - Institute of Geophysics, University of Tehran.
+  `gulf` - Gulf Region.
+  `kuwait` - Kuwait.
+  `qatar` - Qatar.
+  `muss` - Majlis Ugama Islam Singapura, Singapore.
+  `uoisdf` - Union Organization islamic de France.
+  `dibt`- Diyanet İşleri Başkanlığı, Turkey."
 {% endconfiguration %}
 
 ```yaml
