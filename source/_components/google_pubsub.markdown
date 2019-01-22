@@ -37,16 +37,6 @@ google_pubsub:
   project_id: YOUR_PROJECT_ID
   topic_name: YOUR_TOPIC_NAME
   credentials_json: CREDENTIALS_FILENAME
-    - switch
-    - light
-    - group
-  filter:
-    include_domains:
-    - light
-    exclude_entities:
-    - light.attic
-    include_entities:
-    - sun.sun
 ```
 
 {% configuration %}
@@ -66,6 +56,7 @@ filter:
   description: Filter domains and entities for Google Cloud Pub/Sub
   required: false
   type: map
+  default: Includes all entities from all domains
   keys:
     include_domains:
       description: List of domains to include (e.g. `light`)
@@ -84,6 +75,10 @@ filter:
       required: false
       type: list
 {% endconfiguration %}
+
+<p class='note warning'>
+  Not filtering domains and / or entities will send every event to Google PubSub, thus hitting the free tier limit very fast. Be sure to fill in this configuration parameter or have a paid subsription for Google Cloud.
+</p>
 
 ### {% linkable_title Saving the data using a Google Cloud Function %}
 
