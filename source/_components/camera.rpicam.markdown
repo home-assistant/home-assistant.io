@@ -22,7 +22,7 @@ It can be configured like a `generic` IP camera and supports the same configurat
 
     https://www.home-assistant.io/components/camera.generic/
 
-Set `rpicam` (instead of `generic`) as platform and follow the link above for further configuration details.
+Set `rpicam` (instead of `generic`) as a platform and follow the link above for further configuration details.
 
 Configuration example:
 
