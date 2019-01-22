@@ -14,9 +14,9 @@ ha_iot_class: "Assumed State"
 ha_release: pre 0.7
 ---
 
-`limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, [MiLight](http://www.milight.com/), LEDme, dekolight, or iLight. 
+`limitlessled` can control your LimitlessLED lights from within Home Assistant. The lights are also known as EasyBulb, AppLight, AppLamp, [MiLight](http://www.milight.com/), LEDme, dekolight, or iLight.
 
-LimitlessLED bulbs are controlled via groups, so you can only control an individual bulb via the bridge if it is in a group by itself. 
+LimitlessLED bulbs are controlled via groups, so you can only control an individual bulb via the bridge if it is in a group by itself.
 
 Note: you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same group number, effectively allowing up to 16 groups (4 `rgbww`, 4 `rgbw`, 4 `white` and 4 `dimmer`) per bridge.
 
@@ -24,7 +24,7 @@ An archive of the extensive API can be found [here](https://github.com/Fantasmos
 
 ### {% linkable_title Setup %}
 
-Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)). 
+Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
 
 To add `limitlessled` to your installation, add the following to your `configuration.yaml` file:
 
@@ -43,7 +43,7 @@ light:
       - number: 3
         type: rgbw
         name: Kitchen
-        fade: on
+        fade: true
       - number: 4
         type: dimmer
         name: Livingroom
@@ -56,17 +56,50 @@ light:
         name: Bridge Light
 ```
 
-Configuration variables:
-
-- **bridges** array (*Required*):
-  - **host** (*Required*): IP address of the device, eg. `192.168.1.32`
-  - **version** (*Optional*): Bridge version (default is `6`).
-  - **port** (*Optional*): Bridge port. Defaults to `5987`. For older bridges than `v6` choose `8899`.
-  - **groups** array (*Required*): The list of available groups.
-    - **number** (*Required*): Group number (`1`-`4`). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.
-    - **name** (*Required*): Any name you'd like. Must be unique among all configured groups.
-    - **type** (*Optional*): Type of group. Choose either `rgbww`, `rgbw`, `white`, `bridge-led` or `dimmer`. `rgbw` is the default if you don't specify this entry. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
-    - **fade** (*Optional*): Fade behavior. Defaults to `off`. If turned on, the group is faded out before being turned off. This makes for a more pleasing transition at the expense of wall switch usability since the light will turn back on at the lowest brightness if it is power cycled.
+{% configuration %}
+bridges:
+  description: A list of bridges.
+  required: true
+  type: list
+  keys:
+    host:
+      description: IP address of the device, e.g., `192.168.1.32`.
+      required: true
+      type: string
+    version:
+      description: Bridge version.
+      required: false
+      default: 6
+      type: integer
+    port:
+      description: Bridge port. For older bridges than `v6` choose `8899`.
+      required: false
+      default: 5987
+      type: integer
+    groups:
+      description: The list of available groups.
+      required: true
+      type: list
+      keys:
+        number:
+          description: Group number (`1`-`4`). Corresponds to the group number on the remote. These numbers may overlap only if the type is different.
+          required: true
+          type: integer
+        name:
+          description: Any name you'd like. Must be unique among all configured groups.
+          required: true
+          type: string
+        type:
+          description: Type of group. Choose either `rgbww`, `rgbw`, `white`, `bridge-led` or `dimmer`. Use `bridge-led` to control the built-in LED of newer WiFi bridges.
+          required: false
+          default: rgbw
+          type: string
+        fade:
+          description: Fade behavior. If turned on (true), the group is faded out before being turned off. This makes for a more pleasing transition at the expense of wall switch usability since the light will turn back on at the lowest brightness if it is power cycled.
+          required: false
+          default: false
+          type: boolean
+{% endconfiguration %}
 
 ### {% linkable_title Night Effect %}
 
@@ -102,8 +135,8 @@ Refer to the [light]({{site_root}}/components/light/) documentation for general 
   - *Temperature*: Wifi bridge v6 supports 101 temperature steps; older versions only 10.
   - *Brightness*: Wifi bridge v6 supports 101 brightness steps; older versions only 10.
 - **Dimmer** (Only supported on v6 bridges)
-    - This type is for a single color LED dimmer like the 1CH MiLight dimmer module or similar. This type is only supported by the version 6 Wifi bridges.
-    - *Brightness*: Wifi bridge v6 supports 101 brightness steps.
+  - This type is for a single color LED dimmer like the 1CH MiLight dimmer module or similar. This type is only supported by the version 6 Wifi bridges.
+  - *Brightness*: Wifi bridge v6 supports 101 brightness steps.
 - **Transitions**
   - If a transition time is set, the group will transition between the current settings and the target settings for the duration specified. Transitions from or to white are not possible - the color will change immediately.
 

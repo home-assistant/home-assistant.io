@@ -42,30 +42,20 @@ unit:
   required: false
   description: The unit of measurement
   type: string
-height:
+detail:
   required: false
-  description: Height of the graph
+  description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
   type: integer
-  default: 100
-line_width:
-  required: false
-  description: Width of the line stroke
-  type: integer
-  default: 5
-line_color:
-  required: false
-  description: Color of the line stroke
-  type: string
-accuracy:
-  required: false
-  description: Amount of data points on the graph
-  type: integer
-  default: 10
+  default: 1
 hours_to_show:
   required: false
   description: Hours to show in graph
   type: integer
   default: 24
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example %}
@@ -74,6 +64,4 @@ hours_to_show:
 - type: sensor
   entity: sensor.illumination
   name: Illumination
-  height: 75
-  line_color: "#3498db"
 ```

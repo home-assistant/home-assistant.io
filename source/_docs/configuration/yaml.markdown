@@ -105,3 +105,9 @@ found character '\t' that cannot start any token
 ```
 
 This means that you've mistakenly entered a tab character, instead of spaces. 
+
+### {% linkable_title Upper and lower case %}
+
+Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
+
+If you're having trouble, check the case that Home Assistant is reporting in the dev-state menu, under *Developer tools*.

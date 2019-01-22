@@ -26,6 +26,11 @@ entity:
   required: true
   description: Entity id of `climate` domain
   type: string
+name:
+  required: false
+  description: Overwrites friendly name.
+  type: string
+  default: Name of Entity.
 {% endconfiguration %}
 
 ## {% linkable_title Example %}

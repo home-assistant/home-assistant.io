@@ -32,14 +32,34 @@ notify:
     region_name: 'us-east-1'
 ```
 
-Configuration variables:
-
-- **aws_access_key_id** (*Required if aws_secret_access_key is provided*): Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`.
-- **aws_secret_access_key** (*Required if aws_access_key_id is provided*): Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`.
-- **profile_name** (*Optional*): A credentials profile name.
-- **region_name** (*Required*): The region identifier to connect to. The default is `us-east-1`.
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **context** (*Optional*): An optional dictionary you can provide to pass custom context through to the Lambda function. The `context` dictionary (if any) is combined with the same data available at the `/api/config` HTTP API route.
+{% configuration %}
+aws_access_key_id:
+  description: Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`.
+  required: Required if aws_secret_access_key is provided
+  type: string
+aws_secret_access_key:
+  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`.
+  required: Required if aws_access_key_id is provided
+  type: string
+profile_name:
+  description: A credentials profile name.
+  required: false
+  type: string
+region_name:
+  description: The region identifier to connect to.
+  required: true
+  default: "`us-east-1`"
+  type: string
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+context:
+  description: An optional dictionary you can provide to pass custom context through to the Lambda function. The `context` dictionary (if any) is combined with the same data available at the `/api/config` HTTP API route.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Usage %}
 

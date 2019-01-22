@@ -45,26 +45,63 @@ Follow devices will be supported and tested:
 }
 ```
 
-Configuration variables:
-
-- **rf_enable** (*Required*): Boolean. Enable or disable BidCoS-RF.
-- **wired_enable** (*Required*): Boolean. Enable or disable BidCoS-Wired.
-
-For RF devices:
-
-- **type** (*Required*): Device type for RFD service. Look into the manual of your device.
-- **device** (*Required*): Device on the host.
-
-For wired devices:
-
-- **serial** (*Required*): Serial number of the device.
-- **key** (*Required*): Encrypted key.
-- **ip** (*Required*): IP address of LAN gateway.
-
-For HmIP devices:
-
-- **type** (*Required*): Device type for RFD service. Look into the manual of your device.
-- **device** (*Required*): Device on the host.
+{% configuration %}
+rf_enable:
+  description: Enable or disable BidCoS-RF.
+  required: true
+  type: boolean
+rf:
+  description: RF devices.
+  required: true
+  type: list
+  keys:
+    type:
+      description: Device type for RFD service. Look into the manual of your device.
+      required: true
+      type: string
+    device:
+      description: Device on the host.
+      required: true
+      type: string
+wired_enable:
+  description: Enable or disable BidCoS-Wired.
+  required: true
+  type: boolean
+wired:
+  description: Wired devices.
+  required: true
+  type: list
+  keys:
+    serial:
+      description: Serial number of the device.
+      required: true
+      type: string
+    key:
+      description: Encrypted key.
+      required: true
+      type: string
+    ip:
+      description: IP address of LAN gateway.
+      required: true
+      type: string
+hmip_enable:
+  description: Enable or disable hmip.
+  required: true
+  type: boolean
+hmip:
+  description: HMIP devices.
+  required: true
+  type: list
+  keys:
+    type:
+      description: Device type for RFD service. Look into the manual of your device.
+      required: true
+      type: string
+    device:
+      description: Device on the host.
+      required: true
+      type: string
+{% endconfiguration %}
 
 ## {% linkable_title Home Assistant configuration %}
 
@@ -76,6 +113,12 @@ homematic:
     rf:
       host: core-homematic
       port: 2001
+    wired:
+      host: core-homematic
+      port: 2000
+    hmip:
+      host: core-homematic
+      port: 2010
 ```
 
 ## {% linkable_title Raspberry Pi3 %}
@@ -85,3 +128,7 @@ With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partit
 ```text
 dtoverlay=pi3-miniuart-bt
 ```
+
+## {% linkable_title HmIP-RFUSB %}
+
+HassOS > 1.11 support HmIP-RFUSB default and don't need any configuration. If you run a Linux, you need to follow the installation guide from documentation to set up the UART USB interface on your computer.

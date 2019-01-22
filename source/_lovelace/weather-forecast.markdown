@@ -26,13 +26,18 @@ entity:
   required: true
   description: "The `entity_id` of the `weather` platform to use."
   type: string
+name:
+  required: false
+  description: Overwrites the friendly name.
+  type: string
+  default: Entity Name
 {% endconfiguration %}
 
 {% linkable_title Example %}
 
 ```yaml
 - type: weather-forecast
-  entity: weather.demo_weather_north
+  entity: weather.dark_sky
 ```
 
 <p class="note">

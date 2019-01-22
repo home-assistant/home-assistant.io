@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: true
 logo: smhi.png
 ha_category: Weather
 ha_release: 0.81

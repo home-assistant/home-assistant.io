@@ -34,9 +34,9 @@ views:
       required: false
       description: Cards to display in this view.
       type: list
-    id:
+    path:
       required: false
-      description: IDs are used in the URL, more info below. If you don't specify an ID, a random one will be added automatically.
+      description: Paths are used in the URL, more info below.
       type: string
       default: view index
     icon:
@@ -58,11 +58,9 @@ views:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title IDs %}
+## {% linkable_title Paths %}
 
-You can link to one view from another view by its ID. For this use cards that support navigation (`navigation_path`). Do not use special characters in IDs.
-
-IDs are also used to identify a view for editing in the Home Assistant frontend (not yet released), we will add a randomly generated ID to your view if you don't specify one. You can change this ID, as long as every view has a unique ID.
+You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths.
 
 ### {% linkable_title Example %}
 
@@ -71,7 +69,7 @@ View config:
 ```yaml
 - title: Living room
   # the final path is /lovelace/living_room
-  id: living_room
+  path: living_room
 ```
 
 Picture card config:
@@ -79,7 +77,9 @@ Picture card config:
 ```yaml
 - type: picture
   image: /local/living_room.png
-  navigation_path: /lovelace/living_room
+  tap_action:
+    action: navigate
+    navigation_path: /lovelace/living_room
 ```
 
 ## {% linkable_title Icons %}

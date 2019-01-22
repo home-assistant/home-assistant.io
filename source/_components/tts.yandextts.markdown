@@ -41,7 +41,7 @@ codec:
   type: string
   default: "`mp3`"
 voice:
-  description: "The speaker voice. Supported female voices are `jane`, `oksana`, `alyss`, `omazh` and male voices are `zahar` and `ermil`."
+  description: "The speaker voice. Supported female voices are `jane`, `oksana`, `alyss`, `omazh`, `silaerkan`, `nastya`, `sasha`, `tanya`, `tatyana_abramova`, `voicesearch`, and `zombie`. Male voices are `zahar`, `ermil`, `levitan`, `ermilov`, `kolya`, `kostya`, `nick`, `erkanyavas`, `zhenya`, `anton_samokhvalov`, `ermil_with_tuning`, `robot`, `dude`, and `smoky`."
   required: false
   type: string
   default: "`zahar`"

@@ -42,8 +42,8 @@ alert:
     entity_id: input_boolean.garage_door
     state: 'on'
     repeat: 30
-    can_acknowledge: True
-    skip_first: True
+    can_acknowledge: true
+    skip_first: true
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -54,15 +54,15 @@ name:
   description: The friendly name of the alert.
   required: true
   type: string
-title:
-  description: >
-    A title to be used for the notification if the notifier supports it.
-  required: false
-  type: string
 entity_id:
   description: The ID of the entity to watch.
   required: true
   type: string
+title:
+  description: >
+    A title to be used for the notification if the notifier supports it.
+  required: false
+  type: string  
 state:
   description: The problem condition for the entity.
   required: false
@@ -88,14 +88,14 @@ skip_first:
   default: false
 message:
   description: >
-    A message to be sent after an alert transitions from `of` to `on`
+    A message to be sent after an alert transitions from `off` to `on`
     with [template][template] support.
   required: false
   type: template
 done_message:
   description: >
-    A message sent after an alert transitions from `on` to `off` with
-    [template][template] support. Is only sent if an alert notification
+    A message sent after an alert transitions from `on` to `off` with 
+    [template][template] support. Is only sent if an alert notification 
     was sent for transitioning from `off` to `on`.
   required: false
   type: template
@@ -106,13 +106,13 @@ notifiers:
 data:
   description: "Dictionary of extra parameters to send to the notifier."
   required: false
-  type: list
+  type: list  
 {% endconfiguration %}
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched
 and this alert will be triggered when its status is equal to `on`.
 This indicates that the door has been opened. Because the `skip_first` option
-was set to `True`, the first notification will not be delivered immediately.
+was set to `true`, the first notification will not be delivered immediately.
 However, every 30 minutes, a notification will be delivered until either
 `input_boolean.garage_door` no longer has a state of `on` or until the alert is
 acknowledged using the Home Assistant frontend.
@@ -134,15 +134,16 @@ provided by the `alert` component:
 ```
 
 ```yaml
-freshwater_temp_alert:
-  name: "Warning: I have detected a problem with the freshwater tank temperature"
-  entity_id: binary_sensor.freshwater_temperature_status
-  state: 'on'
-  repeat: 5
-  can_acknowledge: true
-  skip_first: false
-  notifiers:
-    - john_phone_sms
+alert:
+  freshwater_temp_alert:
+    name: "Warning: I have detected a problem with the freshwater tank temperature"
+    entity_id: binary_sensor.freshwater_temperature_status
+    state: 'on'
+    repeat: 5
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - john_phone_sms
 ```
 
 ### {% linkable_title Complex Alert Criteria %}
@@ -155,12 +156,13 @@ disable the alert on certain days. Maybe the alert firing should depend on more
 than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
+{% raw %}
 ```yaml
 binary_sensor:
   - platform: template
     sensors:
       motion_battery_low:
-        value_template: {% raw %}'{{ states.sensor.motion.attributes.battery < 15 }}'{% endraw %}
+        value_template: '{{ states.sensor.motion.attributes.battery < 15 }}'
         friendly_name: 'Motion battery is low'
 
 alert:
@@ -172,6 +174,7 @@ alert:
       - ryans_phone
       - kristens_phone
 ```
+{% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
@@ -195,8 +198,8 @@ alert:
       - 15
       - 30
       - 60
-    can_acknowledge: True  # Optional, default is True
-    skip_first: True  # Optional, false is the default
+    can_acknowledge: true  # Optional, default is true
+    skip_first: true  # Optional, false is the default
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -211,27 +214,54 @@ sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 ### {% linkable_title Message Templates %}
 
 It may be desirable to have the alert notifications include information
-about the state of the entity.
+about the state of the entity. [Templates](/docs/configuration/templating/)
+can be used in the message or name of the alert to make it more relevant.
 The following will show for a plant how to include the problem `attribute`
 of the entity.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
+alert:
   office_plant:
     name: Plant in office needs help
     entity_id: plant.plant_office
     state: 'problem'
     repeat: 30
-    can_acknowledge: True
-    skip_first: True
+    can_acknowledge: true
+    skip_first: true
     message: "Plant {{ states.plant.plant_office }} needs help ({{ state_attr('plant.plant_office', 'problem') }})"
     done_message: Plant in office is fine
     notifiers:
       - ryans_phone
       - kristens_phone
 ```
+{% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
+
+The next example uses a template for the alert name.
+
+{% raw %}
+```yaml
+alert:
+  garage_door:
+    name: Garage has been open for {{ relative_time(states.binary_sensor.garage.last_changed) }}
+    done_message: Garage is closed
+    entity_id: binary_sensor.garage
+    state: 'on'
+    repeat:
+      - 30
+      - 60
+      - 120
+    can_acknowledge: True
+    skip_first: True
+    notifiers:
+      - ryans_phone
+```
+{% endraw %}
+
+The resulting title of the alert could be `Garage has been open for 30 min`.
 
 ### {% linkable_title Additional parameters for notifiers  %}
 
@@ -257,7 +287,6 @@ alert:
     notifiers:
       - frank_telegram
 ```
-
 This particular example relies on the `inline_keyboard` functionality of
 Telegram, where the user is presented with buttons to execute certain actions.
 

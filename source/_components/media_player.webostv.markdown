@@ -128,7 +128,7 @@ media_player:
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: "B4-E6-2A-1E-11-0F"
+        mac: "B4:E6:2A:1E:11:0F"
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be
@@ -145,7 +145,7 @@ remembering to split them per line into your `sources:` configuration.
 ### {% linkable_title Change channel through play_media service %}
 
 The `play_media` service can be used in a script to switch to the specified tv
-channel. It selects the best matching cannel according to the `media_content_id`
+channel. It selects the best matching channel according to the `media_content_id`
 parameter:
 
  1. Channel number *(i.e. '1' or '6')*

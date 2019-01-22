@@ -11,6 +11,7 @@ logo: lifx.png
 ha_category: Light
 ha_iot_class: "Local Polling"
 ha_release: 0.81
+redirect_from: /components/light.lifx/
 ---
 
 The `lifx` component allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
@@ -82,7 +83,7 @@ Run a flash effect by changing to a color and then back.
 | `brightness` | Integer between 0 and 255 for how bright the color should be.
 | `period` | The duration of a single pulse (in seconds).
 | `cycles` | The total number of pulses.
-| `mode` | The way to change between colors. Valid modes: `blink` (default), `breathe`, `ping`, `strobe`, `solid`.
+| `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
 ### {% linkable_title Service `light.lifx_effect_colorloop` %}
@@ -110,14 +111,14 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 
 ## {% linkable_title Advanced configuration %}
 
-There are some manual configuration options available. These should only be needed if you have more than one network interface and automatic configuration does not find your LIFX devices.
+There are some manual configuration options available. These are only needed with unusual network setups where automatic configuration does not find your LIFX devices.
 
 ```yaml
 # Example configuration.yaml entry
 lifx:
   light:
-    server: IP_ADDRESS
-    broadcast: IP_ADDRESS
+    - server: IP_ADDRESS
+      broadcast: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -126,7 +127,7 @@ server:
   required: false
   type: string
 broadcast:
-  description: The broadcast address for discovering lights.
+  description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
   required: false
   type: string
 {% endconfiguration %}

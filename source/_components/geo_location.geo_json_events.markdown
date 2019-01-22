@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: geo_location.png
-ha_category: Geo Location
+ha_category: Geolocation
 ha_iot_class: "Cloud Polling"
 ha_release: "0.79"
 ---
@@ -39,9 +39,30 @@ url:
 radius:
   description: The distance in kilometers around the Home Assistant's coordinates in which events are considered.
   required: false
+  type: float
+  default: 20.0
+latitude:
+  description: Latitude of the coordinates around which events are considered.
+  required: false
   type: string
-  default: 20km
+  default: Latitude defined in your `configuration.yaml`
+longitude:
+  description: Longitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Longitude defined in your `configuration.yaml`
 {% endconfiguration %}
+
+## {% linkable_title State Attributes %}
+
+The following state attributes are available for each entity in addition to the standard ones:
+
+| Attribute   | Description |
+|-------------|-------------|
+| latitude    | Latitude of the event. |
+| longitude   | Longitude of the event. |
+| source      | `geo_json_events` to be used in conjunction with `geo_location` automation trigger. |
+| external_id | The external ID used in the feed to identify the event in the feed. |
 
 ## {% linkable_title Advanced Configuration Example %}
 

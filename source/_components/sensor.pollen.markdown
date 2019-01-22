@@ -13,10 +13,11 @@ ha_release: 0.63
 ha_iot_class: "Cloud Polling"
 ---
 
-The `pollen` sensor platform collects and displays allergy and disease
-information (based on a U.S. ZIP code) from [Pollen.com](https://www.pollen.com/). Data measured includes:
+The `pollen` sensor platform collects and displays allergy, asthma, and disease
+information (based on a U.S. ZIP code) from
+[Pollen.com](https://www.pollen.com/). Data measured includes:
 
-* Indicies for allergies and cold/flu measurements
+* Indicies for allergies, asthma and cold/flu indices
 * Trends
 * Current outlook
 * more!
@@ -37,6 +38,11 @@ sensor:
     - allergy_index_today
     - allergy_index_tomorrow
     - allergy_index_yesterday
+    - asthma_average_forecasted
+    - asthma_average_historical
+    - asthma_index_today
+    - asthma_index_tomorrow
+    - asthma_index_yesterday
     - disease_average_forecasted
 ```
 
@@ -69,6 +75,15 @@ historical allergy index over the past 30 days
 tomorrow
 * Allergy Index: Yesterday (`allergy_index_yesterday`): the allergy index for
 yesterday
+* Asthma Index: Forecasted Average (`asthma_average_forecasted`): the average
+forecasted asthma index over the next 5 days
+* Asthma Index: Historical Average (`asthma_average_historical`): the average
+historical asthma index over the past 30 days
+* Asthma Index: Today (`asthma_index_today`): the asthma index for today
+* Asthma Index: Tomorrow (`asthma_index_tomorrow`): the asthma index for
+tomorrow
+* Asthma Index: Yesterday (`asthma_index_yesterday`): the asthma index for
+yesterday
 * Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average
 forecasted cold/flu index over the next 5 days
 
@@ -84,3 +99,17 @@ Range      | Rating
 4.9 - 7.2  | Medium
 7.3 - 9.6  | Medium/High
 9.7 - 12.0 | High
+
+## {% linkable_title Understanding Asthma Allergens %}
+
+Several asthma-related sensors carry information regarding the top three
+"asthma allergens" (i.e., irritants that may exacerbate asthma symptoms).
+Example values include:
+
+Pollutant | Symbol | More Info
+--------- | ------ | ---------
+Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
+Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
+Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
+Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
+Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)
