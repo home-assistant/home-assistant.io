@@ -12,11 +12,9 @@ ha_category: Switch
 ha_release: 0.38
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-## {% linkable_title Configuration %}
-
-First, you have to set up your [rflink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/components/rflink/).
 
 The RFLink component does not know the difference between a `switch`, a `binary_sensor` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
 
@@ -30,14 +28,9 @@ Configuring devices as switch :
 # Example configuration.yaml entry
 switch:
   - platform: rflink
-    device_defaults:
-      fire_event: true
-      signal_repetitions: 2
     devices:
-      newkaku_0000c6c2_1:
-        name: Ceiling fan
-      conrad_00785c_0a:
-        name: Motion sensor kitchen
+      newkaku_0000c6c2_1: {}
+      conrad_00785c_0a: {}
 ```
 
 {% configuration %}
