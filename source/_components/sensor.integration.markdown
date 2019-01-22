@@ -14,7 +14,7 @@ logo: integral.png
 ha_qa_scale: internal
 ---
 
-The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. In this implementation we follow the Trapezoidal rule.
+The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. In this implementation, we follow the Trapezoidal rule.
 
 ## {% linkable_title Configuration %}
 
@@ -60,9 +60,9 @@ unit:
 
 If 'unit' is set then 'unit_prefix' and 'unit_time' are ignored.
 
-## Energy
+## {% linkable_title Energy %}
 
-An `integration` sensor is quite useful in energy billing scenarios, since energy is generally billed in kWh and many sensors provide power in W (Watts).
+An `integration` sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 
 If you have a sensor that provides you with power readings in Watts (uses W as `unit_of_measurement`), then you can use the `integration` sensor to track how much energy is being spent. Take the next configuration as an example:
 
