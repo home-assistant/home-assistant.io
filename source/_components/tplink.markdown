@@ -45,6 +45,9 @@ The following devices are known to work with this component.
 - LB110
 - LB120
 - LB130
+- KL110
+- KL120
+- KL130
 
 ## {% linkable_title Configuration %}
 
