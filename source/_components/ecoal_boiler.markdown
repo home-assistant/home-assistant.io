@@ -11,6 +11,9 @@ footer: true
 ha_category: Water heater
 ha_release: 0.87
 ha_iot_class: "Local Polling"
+redirect_from:
+ - /components/sensor.ecoal_boiler/
+ - /components/switch.ecoal_boiler/
 ---
 
 The `ecoal_boiler` component is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
