@@ -21,7 +21,7 @@ To enable this sensor in your installation, add the following to your `configura
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: jewish_calendar
+  - platform: jewish_calendar
 ```
 
 {% configuration %}
@@ -86,7 +86,7 @@ sensors:
       description: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the upcoming_shabbat_candle_lighting sensor.
     upcoming_havdalah:
       description: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the upcoming_shabbat_havdalah sensor.
-    issur_melacha_is_in_effect:
+    issur_melacha_in_effect:
       description: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
 
 {% endconfiguration %}
