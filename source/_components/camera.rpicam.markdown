@@ -46,7 +46,7 @@ You can:
     - change exposure mode
     - pan/tilt the camera
 
-## {% linkable_title What it dosn't provide %}
+## {% linkable_title What it doesn't provide %}
 
 ha-rpicam doesn't send or receive streaming data through MQTT. This is a specific solution to only control the behaviour of the camera as an automation component under HA. Commands to capture images/videos are equivalent to pushing the camera web interface buttons. The captured media content would still be accessible as normal from the download area of the web interface itself.
 
