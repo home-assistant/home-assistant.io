@@ -30,8 +30,6 @@ Configuration example:
       - platform: rpicam
         name: backyard
         still_image_url: http://192.168.1.12/cam.jpg
-        username: <USER>
-        password: !secret <USER_PASS>
 ```
 
 
