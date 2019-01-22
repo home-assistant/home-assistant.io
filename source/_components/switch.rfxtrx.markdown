@@ -14,6 +14,8 @@ ha_release: 0.7.5
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
 
+## {% linkable_title Configuration %}
+
 First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 The easiest way to find your switches is to add this to your `configuration.yaml`:
 
@@ -24,7 +26,7 @@ switch:
   automatic_add: true
 ```
 
-Launch your Home Assistant and go the website.
+Launch your Home Assistant and go to the website.
 Push your remote and your device should be added:
 
 <p class='img'>
@@ -54,7 +56,7 @@ devices:
       required: true
       type: string
     fire_event:
-      description: Fires an event even if the state is the same as before, for example a doorbell switch. Can also be used for automations.
+      description: Fires an event even if the state is the same as before, for example, a doorbell switch. Can also be used for automations.
       required: false
       default: false
       type: boolean
@@ -64,7 +66,7 @@ automatic_add:
   default: false
   type: boolean
 signal_repetitions:
-  description: Because the RFXtrx device sends its actions via radio and from most receivers it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
+  description: Because the RFXtrx device sends its actions via radio and from most receivers, it's impossible to know if the signal was received or not. Therefore you can configure the switch to try to send each signal repeatedly.
   required: false
   type: integer
 {% endconfiguration %}
@@ -74,7 +76,7 @@ This component and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/)
 </p>
 
 <p class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes. 
+If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </p>
 
@@ -90,7 +92,7 @@ If you need to generate codes for switches you can use a template (useful for ex
 ```
 
 - Use this code to add a new switch in your configuration.yaml
-- Launch your Home Assistant and go the website.
+- Launch your Home Assistant and go to the website.
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
 
@@ -129,7 +131,7 @@ switch:
       fire_event: true
 
 automation:
-  - alias: Switch light on when door bell rings if sun is below horizon and light was off
+  - alias: Switch the light on when doorbell rings if the sun is below the horizon and the light was off
     trigger:
       platform: event
       event_type: button_pressed
