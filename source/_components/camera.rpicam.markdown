@@ -14,7 +14,7 @@ ha_iot_class: "depends"
 ---
 
 The `rpicam` camera platform allows controlling a raspberry pi camera through MQTT commands.
-This is a third-party integration for homeassistant that provides further control from HA for a raspberry PI camera based on RPi-Cam-Web-Interface (`https://elinux.org/RPi-Cam-Web-Interface`).
+This is a third-party integration for Home Assistant that provides further control from HA for a raspberry PI camera based on RPi-Cam-Web-Interface (`https://elinux.org/RPi-Cam-Web-Interface`).
 
 ## {% linkable_title Configuration %}
 
