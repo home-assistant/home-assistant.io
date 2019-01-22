@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Foobot Air Quality Monitor"
-description: "Instructions on how to setup Foobot Air Quality sensor in Home Assistant."
+description: "Instructions on how to setup Foobot Air Quality Monitor in Home Assistant."
 date: 2018-02-14 06:00
 sidebar: true
 comments: false
@@ -13,16 +13,16 @@ ha_release: 0.66
 ha_iot_class: "Cloud Polling"
 ---
 
-The `foobot` sensor platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
+The `foobot` air quality platform will fetch air quality data from your or yours [Foobot device(s)](https://foobot.io/features/).
 
-This sensor requires an API token. Please obtain one at [Foobot API site](https://api.foobot.io/apidoc/index.html).
+This requires an API token. Please obtain one at [Foobot API site](https://api.foobot.io/apidoc/index.html).
 
 ## {% linkable_title Configuring the Platform %}
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this component, add the following lines to your `configuration.yaml` file:
 
 ```yaml
-sensor:
+air_quality:
   - platform: foobot
     token: FOOBOT_SECRET_KEY
     username: FOOBOT_USERNAME
@@ -43,6 +43,7 @@ sensor:
 
 Every ten minutes, it'll fetch the last ten minutes average of the following measurements:
 
+  * AQI
   * Temperature
   * Humidity
   * Co2
