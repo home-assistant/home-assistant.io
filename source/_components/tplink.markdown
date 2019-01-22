@@ -46,6 +46,13 @@ The following devices are known to work with this component.
 - LB120
 - LB130
 
+## {% linkable_title Configuration %}
+
+```yaml
+# Example configuration.yaml
+tplink:
+```
+
 {% configuration %}
 discovery:
   description: Whether to do automatic discovery of devices.
@@ -72,7 +79,7 @@ switch:
         type: string
 {% endconfiguration %}
 
-## {% linkable_title Configuration %}
+## {% linkable_title Manual configuration example %}
 
 ```yaml
 # Example configuration.yaml entry with manually specified addresses
