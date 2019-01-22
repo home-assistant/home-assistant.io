@@ -31,10 +31,7 @@ The `ios` component is the companion component for the Home Assistant iOS app. W
 
 Loading the `ios` component will also load the [`device_tracker`](/components/device_tracker), [`zeroconf`](/components/zeroconf) and [`notify`](/components/notify) platforms.
 
-Home Assistant for iOS app supports the new authentication system introduced in Home Assistant 0.77.
-
-In order to save credentials and adjust settings within the Home Assistant for iOS app prior to version 1.5.0, the optional [`api_password`](/components/http/#api_password) must be set. Using legacy authentication is not recommended.
-
+The Home Assistant for iOS app supports the new authentication system introduced in Home Assistant 0.77.
 
 ## {% linkable_title Setup %}
 
