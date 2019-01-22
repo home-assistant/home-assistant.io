@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: homematicip_cloud.png
 ha_category: Cover
-ha_release: 0.86
+ha_release: 0.87
 ha_iot_class: "Cloud Push"
 ---
 
