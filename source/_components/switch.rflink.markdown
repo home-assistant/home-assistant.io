@@ -12,9 +12,11 @@ ha_category: Switch
 ha_release: 0.38
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First, you have to set up your [RFLink hub](/components/rflink/).
+## {% linkable_title Configuration %}
+
+First, you have to set up your [rflink hub](/components/rflink/).
 
 The RFLink component does not know the difference between a `switch`, a `binary_sensor` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
 
@@ -28,9 +30,14 @@ Configuring devices as switch :
 # Example configuration.yaml entry
 switch:
   - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
     devices:
-      newkaku_0000c6c2_1: {}
-      conrad_00785c_0a: {}
+      newkaku_0000c6c2_1:
+        name: Ceiling fan
+      conrad_00785c_0a:
+        name: Motion sensor kitchen
 ```
 
 {% configuration %}
@@ -105,9 +112,9 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-### {% linkable_title Switch state %}
+## {% linkable_title Switch state %}
 
-Initially the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
+Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
 
 Sometimes a switch is controlled by multiple wireless remotes, each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliases:
 
@@ -123,9 +130,9 @@ switch:
           - kaku_000001_a
 ```
 
-Any on/off command from any alias ID updates the current state of the switch. However when sending a command through the frontend only the primary ID is used.
+Any on/off command from any alias ID updates the current state of the switch. However, when sending a command through the frontend only the primary ID is used.
 
-### {% linkable_title Device support %}
+## {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
 

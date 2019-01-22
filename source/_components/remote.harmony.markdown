@@ -75,6 +75,8 @@ Upon startup one file will be written to your Home Assistant configuration direc
 - List of all programmed device names and ID numbers
 - List of all available commands per programmed device
 
+This file will be overwritten whenever the Harmony HUB has a new configuration, there is no need to restart HASS.
+
 ### {% linkable_title Service `remote.turn_off` %}
 
 Turn off all devices that were switched on from the start of the current activity.
@@ -97,8 +99,14 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
 
 ```text
-Activities
-  22054907 - Watch TV
+{
+    "Activities": {
+        "-1": "PowerOff",
+        "20995306": "Watch TV",
+        "20995307": "Play Games",
+        "20995308": "Listen Music"
+    }
+}
 ```
 
 Using the activity name 'Watch TV', you can call a service via automation to switch this activity on:
@@ -118,10 +126,37 @@ Send a single command or a set of commands to one device, device ID and availabl
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
-| `device`               |       no | Device ID to send the command to.
+| `device`               |       no | Device ID or Device Name to send the command to.
 | `command`              |       no | A single command or a list of commands to send.
 | `num_repeats`          |      yes | The number of times to repeat the command(s).
 | `delay_secs`           |      yes | The number of seconds between sending each command.
+
+In the file 'harmony_REMOTENAME.conf' you can find the available devices and commands, for example:
+
+```text
+{
+    "Devices": {
+        "TV": {
+            "commands": [
+                "PowerOff",
+                "PowerOn"
+            ],
+            "id": "327297814"
+        },
+        "Receiver": {
+            "commands": [
+                "PowerOff",
+                "PowerOn",
+                "VolumeUp",
+                "VolumeDown",
+                "Mute"
+            ],
+            "id": "428297615"
+        }        
+    }
+}
+```
+
 
 A typical service call for sending several button presses looks like this:
 
@@ -130,16 +165,26 @@ service: remote.send_command
 data:
   entity_id: remote.tv_room
   command:
-    - home
-    - 1
-    - 2
-  device: 4576546
+    - PowerOn
+    - Mute
+  device: Receiver
+  delay_secs: 0.6
+```
+OR
+```yaml
+service: remote.send_command
+data:
+  entity_id: remote.tv_room
+  command:
+    - PowerOn
+    - Mute
+  device: 428297615
   delay_secs: 0.6
 ```
 
 ### {% linkable_title Service `remote.harmony_sync` %}
 
-Synchronize the Harmony device with the Harmony web service if any changes are made from the web portal or app.
+Force synchronization between the Harmony device and the Harmony cloud.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

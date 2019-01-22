@@ -26,17 +26,22 @@ entity:
   required: true
   description: "The `entity_id` of the `weather` platform to use."
   type: string
+name:
+  required: false
+  description: Overwrites the friendly name.
+  type: string
+  default: Entity Name
 {% endconfiguration %}
 
 {% linkable_title Example %}
 
 ```yaml
 - type: weather-forecast
-  entity: weather.demo_weather_north
+  entity: weather.dark_sky
 ```
 
 <p class="note">
   This card works only with platforms that define a `weather` entity.
   
-  E.g., it works with [Dark Sky](https://www.home-assistant.io/components/weather.darksky/) but not [Dark Sky Sensor](https://www.home-assistant.io/components/sensor.darksky/)
+  E.g., it works with [Dark Sky](/components/weather.darksky/) but not [Dark Sky Sensor](/components/sensor.darksky/)
 </p>

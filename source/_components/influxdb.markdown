@@ -12,7 +12,11 @@ ha_category: History
 ha_release: 0.9
 ---
 
-The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.6/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
+The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
+
+<p class='note'>
+The `influxdb` database component runs parallel to the Home Assistant database. It does not replace it.
+</p>
 
 ## {% linkable_title Configuration %}
 
@@ -136,11 +140,6 @@ component_config_glob:
       description:  Measurement name to use instead of unit or default measurement. This will store all data points in a single measurement.
       required: false
 {% endconfiguration %}
-
-## {% linkable_title Helper scripts %}
-
-- [Helper script `influxdb_import`](/docs/tools/influxdb_import/)
-- [Helper script `db_migrator`](/docs/tools/db_migrator/) (only used for [Home Assistant 0.36](/blog/2017/01/14/iss-usps-images-packages/#influxdb-export))
 
 ## {% linkable_title Examples %}
 

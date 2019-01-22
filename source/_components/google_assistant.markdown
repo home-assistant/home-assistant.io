@@ -19,6 +19,8 @@ The `google_assistant` component allows you to control things via Google Assista
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 
+For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
+
 ## {% linkable_title Manual setup %}
 
 The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
@@ -46,11 +48,13 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
     - Click 'Save' at the top right corner, then click 'Test' to generate a new draft version of the Test App.
 2. Change your `configuration.yaml` file:
     - Remove `client_id`, `access_token`, `agent_user_id` config from `google_assistant:` since they are no longer needed.
-3. Restart Home Assistant, open the `Google Assistant` app on your mobile phone then go to `Settings > Home Control`, re-link `[test] your app name`.
-4. A browser will be open and asking you to login to your Home Assistant instance, it will redirect back to `Google Assistant` app right afterward.
+3. Restart Home Assistant, open the `Google Home` app on your mobile phone then go to `Account > Settings > Assistant > Home Control`, press the `3 dot icon in the top right > Manage accounts > [test] your app name > Unlink account` Then relink your account by selecting `[test] your app name` again.
+4. A browser will open and ask you to login to your Home Assistant instance and will redirect back to the `Google Assistant` app right afterward.
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
+    
+If you're still having trouble, make sure that you're not connected to the same network Home Assistant is running on, e.g., use 4G/LTE instead.
 </p>
 
 ## {% linkable_title First time setup %}
@@ -60,7 +64,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
 1. Create a new project in the [Actions on Google console](https://console.actions.google.com/).
     1. Add/Import a project and give it a name.
     2. Click on the `Home Control` card, select the `Smart home` recommendation.
-    3. Create an Action, under the build section. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
+    3. Click `Build your Action`, select `Add Action(s)`, and click `Add your first action`. Add your Home Assistant URL: `https://[YOUR HOME ASSISTANT URL:PORT]/api/google_assistant`, replace the `[YOUR HOME ASSISTANT URL:PORT]` with the domain / IP address and the port under which your Home Assistant is reachable.
     4. Click `Done`. Then click on `Overview`, which will lead you back to the app details screen.
 2. `Account linking` is required for your app to interact with Home Assistant. Set this up under the `Quick Setup` section.
     1. Leave it at the default `No, I only want to allow account creation on my website` and select Next.
@@ -69,16 +73,16 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     4. Client Secret: Anything you like, Home Assistant doesn't need this field.
     5. Authorization URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/authorize`.
     6. Token URL (replace with your actual URL): `https://[YOUR HOME ASSISTANT URL:PORT]/auth/token`.
-    7. Configure your client. Add scopes for `email` and `name`.
+    7. Configure your client: Type `email` and click `Add scope`, then type `name` and click `Add scope` again.
     8. Do **NOT** check `Google to transmit clientID and secret via HTTP basic auth header`.
     9. Testing instructions: Enter anything. It doesn't matter since you won't submit this app.
 
     <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
-4. If you haven't already added the component configuration to `configuration.yaml` file and restarted Home Assistant, you'll be unable to continue until you have.
-5. Open the Google Assistant app and go into `Settings > Home Control`.
-6. Click the `+` sign, and near the bottom, you should have `[test] your app name`. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
+4. Add the `google_assistant` component configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
+5. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
+6. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
 </p>
@@ -87,7 +91,7 @@ If you've added Home Assistant to the home screen, you have to first remove it f
     2. Click `Test -> Simulator`, then click `Share` icon in the right top corner. Follow the on-screen instruction:
         1. Add team members: Got to `Settings -> Permission`, click `Add`, type the new user's e-mail address and choose `Project -> Viewer` role.
         2. Copy and share the link with the new user.
-        3. New user clicks the link with their own Google account, it will enable our draft test app under their account.
+        3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
 8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
@@ -105,9 +109,9 @@ google_assistant:
   project_id: YOUR_PROJECT_ID
   api_key: YOUR_API_KEY
   exposed_domains:
-    - SWITCH
-    - LIGHT
-    - GROUP
+    - switch
+    - light
+    - group
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -124,14 +128,19 @@ project_id:
   description: Project ID from the Actions on Google console (looks like `words-2ab12`)
   required: true
   type: string
+allow_unlock:
+  description: "When True, allows Google Assistant to unlock locks."
+  required: false
+  type: boolean
+  default: false
 api_key:
-  description: Your API key.
+  description: Your Homegraph API key (for the `google_assistant.request_sync` service)
   required: false
   type: string
 expose_by_default:
   description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
   required: false
-  default: True
+  default: true
   type: boolean
 exposed_domains:
   description: List of entity domains to expose to Google Assistant.
@@ -170,15 +179,40 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - group (on/off)
-- input boolean (on/off)
+- input_boolean (on/off)
 - scene (on)
 - script (on)
 - switch (on/off)
-- fan (on/off)
+- fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
+- lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position (via set brightness))
-- media_player (on/off/set volume (via set brightness))
-- climate (temperature setting)
+- media_player (on/off/set volume (via set brightness)/source (via set input source))
+- climate (temperature setting, operation_mode)
+- vacuum (dock/start/stop/pause)
+
+### {% linkable_title Media Player Sources %}
+
+Media Player sources are sent via the Modes trait in Google Assistant.  
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:  
+https://developers.google.com/actions/reference/smarthome/traits/modes
+
+#### Example Command:
+
+"Hey Google, change input source to TV on Living Room Receiver"
+
+### {% linkable_title Climate Operation Modes %}
+
+There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  
+Here are the modes that are currently available:
+
+- off
+- heat
+- cool
+- heatcool (auto)
+- fan-only
+- dry
+- eco
 
 ### {% linkable_title Troubleshooting the request_sync service %}
 

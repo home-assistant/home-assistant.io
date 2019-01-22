@@ -13,7 +13,7 @@ ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
-The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler then the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter then the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
+The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,6 +82,11 @@ away_temp:
   description: Set the temperature used by "away_mode". If this is not specified, away_mode feature will not get activated.
   required: false
   type: float
+precision:
+  description: "The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`."
+  required: false
+  type: float
+  default: "`0.5` for Celsius and `1.0` for Fahrenheit."
 {% endconfiguration %}
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
@@ -99,7 +104,7 @@ climate:
     target_sensor: sensor.study_temperature
     min_temp: 15
     max_temp: 21
-    ac_mode: False
+    ac_mode: false
     target_temp: 17
     cold_tolerance: 0.3
     hot_tolerance: 0
@@ -109,4 +114,5 @@ climate:
       minutes: 3
     initial_operation_mode: "off"
     away_temp: 16
+    precision: 0.1
 ```

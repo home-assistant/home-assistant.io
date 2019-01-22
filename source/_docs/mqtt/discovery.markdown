@@ -33,10 +33,19 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 ```
-Configuration variables:
 
-- **discovery** (*Optional*): If the MQTT discovery should be enabled or not. Defaults to `False`.
-- **discovery_prefix** (*Optional*): The prefix for the discovery topic. Defaults  to `homeassistant`.
+{% configuration %}
+discovery:
+  description: If the MQTT discovery should be enabled or not.
+  required: false
+  default: false
+  type: boolean
+discovery_prefix:
+  description: The prefix for the discovery topic.
+  required: false
+  default: homeassistant
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.
@@ -173,12 +182,14 @@ Supported abbreviations:
 
 ### {% linkable_title Support by third-party tools %}
 
-The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
+The following software has built-in support for MQTT discovery:
 
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
 - [esphomeyaml](https://esphomelib.com/esphomeyaml/index.html)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
+- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
+- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 
 ### {% linkable_title Examples %}
 
@@ -235,3 +246,40 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
 - Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", , "stat_t": "~/state"}`
+
+Setting up a climate component (heat only) with abbreviated configuration variable names to reduce payload length.
+
+- Configuration topic: `homeassistant/climate/livingroom/config`
+- Configuration payload:
+
+```yaml
+{
+  "name":"Livingroom",
+  "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
+  "mode_stat_t":"homeassistant/climate/livingroom/state",
+  "mode_stat_tpl":"{{value_json.mode}}",
+  "avty_t":"homeassistant/climate/livingroom/available",
+  "pl_avail":"online",
+  "pl_not_avail":"offline",
+  "temp_cmd_t":"homeassistant/climate/livingroom/targetTempCmd",
+  "temp_stat_t":"homeassistant/climate/livingroom/state",
+  "temp_stat_tpl":"{{value_json.target_temp}}",
+  "curr_temp_t":"homeassistant/climate/livingroom/state",
+  "current_temperature_template":"{{value_json.current_temp}}",
+  "min_temp":"15",
+  "max_temp":"25",
+  "temp_step":"0.5",
+  "modes":["off", "heat"]
+}
+```
+
+- State topic: `homeassistant/climate/livingroom/state`
+- State payload:
+
+```yaml
+{
+  "mode":"off",
+  "target_temp":"21.50",
+  "current_temp":"23.60",
+}
+```

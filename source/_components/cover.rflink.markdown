@@ -81,7 +81,7 @@ device_defaults:
     fire_event:
       description: Set default `fire_event` for RFLink cover devices.
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: Set default `signal_repetitions` for RFLink cover devices.
@@ -119,7 +119,7 @@ devices:
         group:
           description: Allow light to respond to group commands (ALLON/ALLOFF).
           required: false
-          default: True
+          default: true
           type: boolean
         group_aliases:
           description: The `aliases` which only respond to group commands.

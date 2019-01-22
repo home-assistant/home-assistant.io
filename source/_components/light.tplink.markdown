@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: "0.50"
 ---
 
-
 The `tplink` light platform allows you to control the state of your [TP-Link smart bulb](http://www.tp-link.com/en/products/list-5609.html).
 
 Supported units:
@@ -22,6 +21,10 @@ Supported units:
 - LB110
 - LB120
 - LB130
+- LB230
+- KL110
+- KL120
+- KL130
 
 To use your TP-Link light in your installation, add the following to your `configuration.yaml` file:
 
@@ -44,3 +47,15 @@ host:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Adding multiple lights %}
+
+You may need to add [multiple lights](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple lights separately.
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: tplink
+    host: FIRST_IP_ADDRESS
+  - platform: tplink
+    host: SECOND_IP_ADDRESS
+```

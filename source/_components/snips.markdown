@@ -167,8 +167,6 @@ In the above example, the slots are plain strings. However, Snips has a duration
 
 In this example if we had an intent triggered with 'Set a timer for five minutes', `duration:` would equal 300 and `duration_raw:` would be set to 'five minutes'. The duration can be easily used to trigger Home Assistant events and the `duration_raw:` could be used to send a human readable response or alert. 
 
-In this example if we had an intent triggered with 'Set a timer for five minutes', duration would equal 300 and duration_raw would be set to 'five minutes'. The duration can be easily used to trigger HA events, and the duration_raw could be used to send a human readable response or alert.
-
 {% raw %}
 ```yaml
 SetTimer:

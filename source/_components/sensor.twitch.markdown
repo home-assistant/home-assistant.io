@@ -35,7 +35,7 @@ sensor:
 ```
 
 {% configuration %}
-clientid:
+client_id:
   description: Your Twitch client ID.
   required: true
   type: string

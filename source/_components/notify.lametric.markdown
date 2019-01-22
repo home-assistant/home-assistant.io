@@ -45,7 +45,7 @@ cycles:
   default: 1
 priority:
   description: Defines the priority of the notification.
-  required: False
+  required: false
   type: string
   default: warning
 {% endconfiguration %}

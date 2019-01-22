@@ -11,6 +11,9 @@ ha_category: Automation
 logo: hdmi.png
 ha_release: 0.23
 ha_iot_class: "Local Push"
+redirect_from:
+ - /components/media_player.hdmi_cec/
+ - /components/switch.hdmi_cec/
 ---
 
 The `hdmi_cec` component provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
@@ -23,7 +26,7 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 ### {% linkable_title libcec %}
 
-[libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/getting-started/installation-virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
+[libcec](https://github.com/Pulse-Eight/libcec) must be installed for this component to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/docs/installation/virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
 
 <p class='note'>
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
@@ -32,7 +35,7 @@ If you are using [Hass.io](/hassio/) then just move forward to the configuration
 #### {% linkable_title Symlinking into virtual environment %}
 
 Create a symlink to the `cec` installation including the _cec.so file. Keep in mind different installation methods will result in different locations of cec.
- 
+
 ```bash
 $ ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python*/site-packages
 $ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-packages
@@ -41,7 +44,7 @@ $ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/sit
 
 ##### {% linkable_title Symlinking examples: %}
 
-For the default virtual environment of a [HASSbian Image for Raspberry Pi](/getting-started/installation-raspberry-pi-image/) the command would be as follows.
+For the default virtual environment of a [HASSbian Image for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
 
 ```bash
 $ ln -s /usr/local/lib/python*/dist-packages/cec /srv/homeassistant/lib/python*/site-packages
@@ -49,19 +52,19 @@ $ ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/pyth
 
 ```
 
-<p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs, 
+<p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs,
 `* failed to open vchiq instance` you will also need to add the user account Home Assistant runs under, to the `video` group. To add the Home Assistant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
 </p>
 
 ## {% linkable_title Testing your installation %}
 
-*  Login to Raspberry Pi 
+*  Login to Raspberry Pi
 
 ```bash
 ssh pi@your_raspberry_pi_ip
 ```
 
-*  at the command line type: 
+*  at the command line type:
 
 ```bash
 echo scan | cec-client -s -d 1
@@ -169,7 +172,7 @@ action:
     data:
       device: Chromecast
 ```
-      
+
 ### {% linkable_title Power On %}
 
 Call the `hdmi_cec.power_on` service (no arguments) to power on any devices that support this function.

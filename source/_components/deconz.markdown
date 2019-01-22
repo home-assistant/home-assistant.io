@@ -11,6 +11,7 @@ logo: deconz.jpeg
 ha_category: Hub
 ha_release: "0.61"
 ha_iot_class: "Local Push"
+ha_qa_scale: platinum
 ---
 
 [deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) by [Dresden Elektronik](https://www.dresden-elektronik.de) is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.
@@ -59,11 +60,13 @@ Set attribute of device in deCONZ using [Rest API](http://dresden-elektronik.git
 | `entity` | No | String representing a specific Home Assistant entity of a device in deCONZ. |
 | `data` | No | Data is a JSON object with what data you want to alter. |
 
-Field and entity are exclusive, i.e you can only use one in a request.
+Either `entity` or `field` must be provided. If both are present, `field` will be interpreted as a subpath under the device path corresponding to the specified `entity`:
 
 { "field": "/lights/1", "data": {"name": "light2"} }
 
 { "entity": "light.light1", "data": {"name": "light2"} }
+
+{ "entity": "light.light1", "field: "/state", "data": {"on": true} }
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
@@ -150,6 +153,7 @@ automation:
 #### {% linkable_title Appdaemon event helper %}
 Helper app that creates a sensor `sensor.deconz_event` with a state that represents the id from the last event and an attribute to show the event data.
 
+Put this in `apps.yaml`:
 {% raw %}
 ```yaml
 deconz_helper:
@@ -157,6 +161,7 @@ deconz_helper:
   class: DeconzHelper
 ```
 
+Put this in `deconz_helper.py`:
 ```python
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
@@ -176,6 +181,7 @@ class DeconzHelper(hass.Hass):
 ```
 {% endraw %}
 
+Note: the event will not be visible before one event gets sent.
 
 #### {% linkable_title Appdaemon remote template %}
 

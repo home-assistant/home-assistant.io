@@ -17,33 +17,41 @@ The `xiaomi_miio` switch platform allows you to control the state of your Xiaomi
 
 Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
 
-## Features
+## {% linkable_title Features %}
 
-### Xiaomi Smart WiFi Socket
+### {% linkable_title Xiaomi Smart WiFi Socket %}
 
-* Power (on, off)
-* Attributes
+Supported models: `chuangmi.plug.m1`, `chuangmi.plug.v2`, `chuangmi.plug.hmi205`
+
+- Power (on, off)
+- Attributes
   - Temperature
 
-### Xiaomi Chuangmi Plug V1
+### {% linkable_title Xiaomi Chuangmi Plug V1 %}
 
-* Power (on, off)
-* USB (on, off)
-* Attributes
+Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`
+
+- Power (on, off)
+- USB (on, off)
+- Attributes
   - Temperature
 
-### Xiaomi Smart Power Strip
+### {% linkable_title Xiaomi Smart Power Strip %}
 
-* Power (on, off)
-* Wifi LED (on, off)
-* Power Price (0...999)
-* Power Mode (green, normal) (Power Strip V1 only)
-* Attributes
+Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
+
+- Power (on, off)
+- Wifi LED (on, off)
+- Power Price (0...999)
+- Power Mode (green, normal) (Power Strip V1 only)
+- Attributes
   - Temperature
   - Current
   - Load power
   - Wifi LED
   - Mode (Power Strip V1 only)
+
+## {% linkable_title Configuration %}
 
 To add a plug to your installation, add the following to your `configuration.yaml` file:
 
@@ -51,10 +59,8 @@ To add a plug to your installation, add the following to your `configuration.yam
 # Example configuration.yaml entries
 switch:
   - platform: xiaomi_miio
-    name: Original Xiaomi Mi Smart WiFi Socket
-    host: 192.168.130.59
+    host: MIIO_IP_ADDRESS
     token: YOUR_TOKEN
-    model: chuangmi.plug.m1
 ```
 
 {% configuration %}
@@ -72,7 +78,7 @@ name:
   type: string
   default: Xiaomi Miio Switch
 model:
-  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1` and `chuangmi.plug.v2`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
+  description: The model of your miio device. Valid values are `chuangmi.plug.v1`, `qmi.powerstrip.v1`, `zimi.powerstrip.v2`, `chuangmi.plug.m1`, `chuangmi.plug.v2`, `chuangmi.plug.v3` and `chuangmi.plug.hmi205`. This setting can be used to bypass the device model detection and is recommended if your device isn't always available.
   required: false
   type: string
 {% endconfiguration %}
@@ -85,7 +91,7 @@ Turn the wifi led on.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miio switch entity. Else targets all.  |
 
 ### {% linkable_title Service `switch.xiaomi_miio_set_wifi_led_off` %} (Power Strip only)
 
@@ -93,7 +99,7 @@ Turn the wifi led off.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miio switch entity. Else targets all.  |
 
 ### {% linkable_title Service `switch.xiaomi_miio_set_power_price` %} (Power Strip)
 
@@ -101,7 +107,7 @@ Set the power price.
 
 | Service data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miio switch entity. Else targets all.  |
 | `price`                   |       no | Power price, between 0 and 999.                         |
 
 ### {% linkable_title Service `switch.xiaomi_miio_set_power_mode` %} (Power Strip V1 only)
@@ -110,5 +116,5 @@ Set the power mode.
 
 | Service data attribute    | Optional | Description                                                   |
 |---------------------------|----------|---------------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific xiaomi miio switch entity. Else targets all.  |
+| `entity_id`               |      yes | Only act on a specific Xiaomi miio switch entity. Else targets all.  |
 | `mode`                    |       no | Power mode, valid values are 'normal' and 'green'             |

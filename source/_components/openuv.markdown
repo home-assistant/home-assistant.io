@@ -20,7 +20,7 @@ The `openuv` component displays UV and Ozone data from [openuv.io](http://openuv
 To generate an API key, [simply log in to the OpenUV website](https://www.openuv.io/auth/google).
 
 <p class='note warning'>
-The "Limited" plan (which is what new users are given by default) is limited to 500 API requests per day. In order to leave a buffer, the `openuv` component queries the API every 30 minutes by default. This value can be modifed (via the `scan_interval` key), but please note that over-running the API will require you to upgrade to a paid plan (and may disable your access in the meantime).
+The "Limited" plan (which is what new users are given by default) is limited to 50 API requests per day. In order to leave a buffer, the `openuv` component queries the API every 30 minutes by default. This value can be modifed (via the `scan_interval` key), but please note that over-running the API will require you to upgrade to a paid plan (and may disable your access in the meantime).
 </p>
 
 ## {% linkable_title Configuration %}
@@ -98,18 +98,20 @@ To configure additional functionality, add configuration options beneath a `bina
 openuv:
   api_key: YOUR_OPENUV_API_KEY
   binary_sensors:
-    - uv_protection_window
+    monitored_conditions:
+      - uv_protection_window
   sensors:
-    - current_ozone_level
-    - current_uv_index
-    - current_uv_level
-    - max_uv_index
-    - safe_exposure_time_type_1
-    - safe_exposure_time_type_2
-    - safe_exposure_time_type_3
-    - safe_exposure_time_type_4
-    - safe_exposure_time_type_5
-    - safe_exposure_time_type_6
+    monitored_conditions:
+      - current_ozone_level
+      - current_uv_index
+      - current_uv_level
+      - max_uv_index
+      - safe_exposure_time_type_1
+      - safe_exposure_time_type_2
+      - safe_exposure_time_type_3
+      - safe_exposure_time_type_4
+      - safe_exposure_time_type_5
+      - safe_exposure_time_type_6
 ```
 
 <p class='note warning'>

@@ -17,11 +17,15 @@ ha_iot_class: "Cloud Polling"
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
 
+## {% linkable_title Setup %}
+
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
 <p class='note warning'>
 [Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
+
+## {% linkable_title Configuration %}
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
 
@@ -30,102 +34,184 @@ To add Dark Sky to your installation, add the following to your `configuration.y
 sensor:
   - platform: darksky
     api_key: YOUR_API_KEY
+    forecast:
+      - 0
     monitored_conditions:
       - summary
       - icon
-      - nearest_storm_distance
+      - temperature
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: Your API key.
+  required: true
+  type: string
+name:
+  description: Additional name for the sensors.
+  required: false
+  default: Dark Sky
+  type: string
+forecast:
+  description: List of days in the 7-day forecast you would like to receive data on, starting with today as day 0 and ending with day 7. Any condition from `monitored_conditions` with a daily forecast by Dark Sky will generate a sensor with entity_id `<condition>_<day>`.
+  required: false
+  type: list
+language:
+  description: The desired language of the summary properties. The valid options are further down in a table.
+  required: false
+  default: "`en`"
+  type: string
+latitude:
+  description: Latitude coordinate to monitor weather of (required if **longitude** is specified).
+  required: false
+  default: coordinates defined in your `configuration.yaml`
+  type: float
+longitude:
+  description: Longitude coordinate to monitor weather of (required if **latitude** is specified).
+  required: false
+  default: coordinates defined in your `configuration.yaml`
+  type: float
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    summary:
+      description: A human-readable text summary.
+    icon:
+      description: A machine-readable text summary, suitable for selecting an icon for display. See [Dark Sky API documentation][] for the list of possible values.
+    precip_type:
+      description: The type of precipitation occurring at the given time. If `precip_intensity` is zero, then this property will be `unknown`. See [Dark Sky API documentation][] for the list of possible values.
+    precip_intensity:
+      description: The intensity of precipitation occurring at the given time. This value is conditional on probability (that is, assuming any precipitation occurs at all).
+    precip_probability:
+      description: The probability of precipitation occurring, in percents.
+    precip_accumulation:
+      description: The amount of snowfall accumulation expected to occur. If no snowfall is expected, this property will be `undefined`.
+    temperature:
+      description: The air temperature.
+    apparent_temperature:
+      description: The apparent (or "feels like") temperature.
+    dew_point:
+      description: The dew point.
+    wind_speed:
+      description: The wind speed.
+    wind_gust:
+      description: The wind gust speed.
+    wind_bearing:
+      description: The direction that the wind is coming **from** in degrees, with true north at 0° and progressing clockwise. If `wind_speed` is 0, then this value is `unknown`.
+    cloud_cover:
+      description: The percentage of sky occluded by clouds.
+    humidity:
+      description: The relative humidity.
+    pressure:
+      description: The sea-level air pressure in millibars.
+    visibility:
+      description: The average visibility.
+    ozone:
+      description: The columnar density of total atmospheric ozone at the given time in Dobson units.
+    minutely_summary:
+      description: A human-readable text summary for the next hour.
+    hourly_summary:
+      description: A human-readable text summary for the next two days.
+    daily_summary:
+      description: A human-readable text summary for the next week.
+    temperature_high:
+      description: The daytime high temperature.
+    temperature_low:
+      description: The overnight low temperature.
+    apparent_temperature_high:
+      description: The daytime high apparent temperature.
+    apparent_temperature_low:
+      description: The overnight low apparent temperature.
+    precip_intensity_max:
+      description: The maximum value of `precip_intensity` during a given day.
+    uv_index:
+      description: The UV index.
+    moon_phase:
+      description: "The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon, and 0.75 to a last quarter moon."
+    sunrise_time:
+      description: The time of when the sun will rise during a given day.
+    sunset_time:
+      description: The time of when the sun will set during a given day.
+    nearest_storm_distance:
+      description: The approximate distance to the nearest storm in miles.
+    nearest_storm_bearing:
+      description: The approximate direction of the nearest storm in degrees, with true north at 0° and progressing clockwise.
+units:
+  description: Specify the unit system. Valid options are `auto`, `us`, `si`, `ca` and `uk2`. `auto` will let Dark Sky decide the unit system based on location.
+  required: false
+  default: "`si` or `us`, based on the temperature preference in Home Assistant."
+  type: string
+update_interval:
+  description: "Minimum time interval between updates. Supported formats: `update_interval: 'HH:MM:SS'`, `update_interval: 'HH:MM'` and Time period dictionary (see example below)."
+  required: false
+  default: 2 minutes
+  type: time
+{% endconfiguration %}
 
-- **api_key** (*Required*): Your API key.
-- **name** (*Optional*): Additional name for the sensors. Default to platform name.
-- **forecast** array (*Optional*): List of days in the 7 day forecast you would like to receive data on, starting with tomorrow as day 1. Any `monitored_condition` with a daily forecast by DarkSky will generate a sensor tagged with `_<day>`.
-- **language** (*Optional*): The desired language of the summary properties. Valid options are
-  - `ar`: Arabic
-  - `az`: Azerbaijani
-  - `be`: Belarusian
-  - `bg`: Bulgarian
-  - `bs`: Bosnian
-  - `ca`: Catalan
-  - `cs`: Czech
-  - `da`: Danish
-  - `de`: German
-  - `el`: Greek
-  - `en`: English (which is the default)
-  - `es`: Spanish
-  - `et`: Estonian
-  - `fi`: Finnish
-  - `fr`: French
-  - `hr`: Croatian
-  - `hu`: Hungarian
-  - `id`: Indonesian
-  - `is`: Icelandic
-  - `it`: Italian
-  - `ja`: Japanese
-  - `ka`: Georgian
-  - `kw`: Cornish
-  - `nb`: Norwegian Bokmål
-  - `nl`: Dutch
-  - `pl`: Polish
-  - `pt`: Portuguese
-  - `ro`: Romanian
-  - `ru`: Russian
-  - `sk`: Slovak
-  - `sl`: Slovenian
-  - `sr`: Serbian
-  - `sv`: Swedish
-  - `tet`: Tetum
-  - `tr`: Turkish
-  - `uk`: Ukrainian
-  - `x-pig-latin`: Igpay Atinlay
-  - `zh`: simplified Chinese
-  - `zh-tw`: traditional Chinese
-- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`
-- **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **summary**: A human-readable text summary of the current conditions.
-  - **precip_type**: The type of precipitation occurring.
-  - **precip_intensity**: The average expected intensity of precipitation occurring.
-  - **precip_probability**: A value between 0 and 1 which is representing the probability of precipitation.
-  - **precip_accumulation**: Daily snow accumulation. Returns unknown if no snow accumulation available.
-  - **temperature**: The current temperature.
-  - **apparent_temperature**: A numerical value representing the apparent (or "feels like") temperature.
-  - **dew_point**: The dew point.
-  - **wind_speed**: The wind speed.
-  - **wind_bearing**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
-  - **cloud_cover**: The percentage of sky occluded by clouds.
-  - **humidity**: The relative humidity.
-  - **pressure**: The sea-level air pressure in millibars.
-  - **visibility**: The average visibility.
-  - **ozone**: The columnar density of total atmospheric ozone in Dobson.
-  - **minutely_summary**: A human-readable text summary for the next hour.
-  - **hourly_summary**: A human-readable text summary for the next 24 hours.
-  - **daily_summary**: A human-readable text summary for the next 7 days.
-  - **temperature_high**: Today's daytime expected high temperature.
-  - **temperature_low**: Today's overnight expected low temperature.
-  - **apparent_temperature_high**: Today's daytime expected apparent high temperature.
-  - **apparent_temperature_low**: Today's overnight expected apparent low temperature.
-  - **precip_intensity_max**: Today's expected maximum intensity of precipitation.
-  - **uv_index**: The current UV index.
-  - **moon_phase**: The fractional part of the lunation number during the given day.
-- **units** (*Optional*): Specify the unit system. Default to `si` or `us` based on the temperature preference in Home Assistant. Other options are `auto`, `us`, `si`, `ca`, `uk` and `uk2`.
-`auto` will let Dark Sky decide the unit system based on location.
-- **update_interval** (*Optional*): Minimum time interval between updates. Default is 2 minutes. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
-  - Time period dictionary, e.g.:
-    <pre>update_interval:
-        # At least one of these must be specified:
-        days: 0
-        hours: 0
-        minutes: 3
-        seconds: 30
-        milliseconds: 0
-    </pre>
+#### {% linkable_title Time period dictionary example %}
+
+```yaml
+update_interval:
+  # At least one of these must be specified:
+  days: 0
+  hours: 0
+  minutes: 3
+  seconds: 30
+  milliseconds: 0
+```
+
+#### {% linkable_title Language options %}
+
+All language options are described in this table that you can use for the dark sky sensor.
+
+|Language|Variable Code|
+|---|---|
+|Arabic|`ar`|
+|Azerbaijani|`az`|
+|Belarusian|`be`|
+|Bulgarian|`bg`|
+|Bosnian|`bs`|
+|Catalan|`ca`|
+|Czech|`cs`|
+|Danish|`da`|
+|German|`de`|
+|Greek|`el`|
+|English|`en`|
+|Spanish|`es`|
+|Estonian|`et`|
+|Finnish|`fi`|
+|French|`fr`|
+|Croatian|`hr`|
+|Hungarian|`hu`|
+|Indonesian|`id`|
+|Icelandic|`is`|
+|Italian|`it`|
+|Japanese|`ja`|
+|Georgian|`ka`|
+|Cornish|`kw`|
+|Norwegian Bokmål|`nb`|
+|Dutch|`nl`|
+|Polish|`pl`|
+|Portuguese|`pt`|
+|Romanian|`ro`|
+|Russian|`ru`|
+|Slovak|`sk`|
+|Slovenian|`sl`|
+|Serbian|`sr`|
+|Swedish|`sv`|
+|Tetum|`tet`|
+|Turkish|`tr`|
+|Ukrainian|`uk`|
+|Igpay Atinlay|`x-pig-latin`|
+|simplified Chinese|`zh`|
+|traditional Chinese|`zh-tw`|
 
 <p class='note warning'>
 While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
 </p>
 
-Details about the API are available in the [Dark Sky documentation](https://darksky.net/dev/docs).
+More details about the API are available in the [Dark Sky API documentation][].
+
+[Dark Sky API documentation]: https://darksky.net/dev/docs

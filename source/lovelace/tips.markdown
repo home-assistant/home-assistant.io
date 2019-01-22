@@ -15,6 +15,27 @@ might help you when working with Lovelace.
 *Have a tip or trick of your own? Click the "Edit this page on GitHub" at the
 top of this page to share it with everyone!*
 
+## {% linkable_title Tips & Tricks %}
+
+### {% linkable_title Add your your own image to Lovelace %}
+
+Home Assistant allows you to make files in `<config dir>/www/example_image.jpg` available to Lovelace as  `/local/example_image.jpg`. When you create the `www` directory, you will need to once restart Home Assistant to pick it up. After that, any new file placed in the directory will automatically be available.
+
+Check out [Share the love][sharethelove] for a few great examples of what you can do with lovelace (no affiliation).
+
+### {% linkable_title Disable Click on Elements %}
+
+If you do not want an element to be clickable you can add `pointer-events: none`
+to the element's `style:` configuration. This is quite useful when building a
+[Picture Elements][picture-elements] card that will be viewed mostly in a
+mobile browser. (@Toast)
+
+### {% linkable_title Header Using Panel and Stacks %}
+
+You can create a header by using `panel: true` with nested
+[Vertical Stack][vertical-stack] and [Horizontal Stack][horizontal-stack]
+cards. See the code [here][header-stacks]. ([@dale3h])
+
 ## {% linkable_title Tools %}
 
 We have some amazing users that have created various tools to help you get
@@ -33,28 +54,7 @@ you with the ability to split your Lovelace configuration into multiple files.
 
 ### {% linkable_title Lovelace Config Generator (Jinja2 Script) %}
 
-The [Lovelace Jinja2 Script][lovelace-jinja] by [@skalavala] is a simple Jinja2 script that you run in the template editor to generate lovelace configuration based on the entities that are already setup. 
-
-<p class='note'>
-  Split configuration is no longer possible directly in Lovelace,
-  due to fact that Home Assistant writes directly to the `ui-lovelace.yaml` file.
-  Use one of the above generators if you would like to contintue to have such functionality.
-</p>
-
-## {% linkable_title Tips and Tricks %}
-
-### {% linkable_title Header Using Panel and Stacks %}
-
-You can create a header by using `panel: true` with nested
-[Vertical Stack][vertical-stack] and [Horizontal Stack][horizontal-stack]
-cards. See the code [here][header-stacks]. ([@dale3h])
-
-### {% linkable_title Disable Click on Elements %}
-
-If you do not want an element to be clickable you can add `pointer-events: none`
-to the element's `style:` configuration. This is quite useful when building a
-[Picture Elements][picture-elements] card that will be viewed mostly in a
-mobile browser. (@Toast)
+The [Lovelace Jinja2 Script][lovelace-jinja] by [@skalavala] is a simple Jinja2 script that you run in the template editor to generate lovelace configuration based on the entities that are already setup.
 
 [@dale3h]: https://github.com/dale3h
 [@thomasloven]: https://github.com/thomasloven
@@ -66,3 +66,4 @@ mobile browser. (@Toast)
 [picture-elements]: /lovelace/picture-elements/
 [vertical-stack]: /lovelace/vertical-stack/
 [lovelace-jinja]: https://sharethelove.io/tools/jinja-magic-scripts
+[sharethelove]: https://sharethelove.io/

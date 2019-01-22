@@ -115,6 +115,8 @@ automation:
 
 Triggers when the sun is setting or rising. An optional time offset can be given to have it trigger a set time before or after the sun event (i.e. 45 minutes before sunset, when dusk is setting in).
 
+Sunrise as a trigger may need special attention as explained in time triggers below. This is due to the date changing at midnight and sunrise is at an earlier time on the following day.
+
 ```yaml
 automation:
   trigger:
@@ -125,7 +127,7 @@ automation:
     offset: '-00:45:00'
 ```
 
-Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting.
+Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most things, a general number like -4 degrees is suitable and is used in this example:
 
 {% raw %}
 ```yaml
@@ -141,9 +143,15 @@ automation:
     service: switch.turn_on
     entity_id: switch.exterior_lighting
 ```
-}{% endraw %}
+{% endraw %}
 
-The US Naval Observatory has a [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time.
+If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time. Then from this, you can select from the defined twilight numbers. Although the actual amount of light depends on weather, topography and land cover, they are defined as:
+
+- Civil twilight: Solar angle > -6°
+- Nautical twilight: Solar angle > -12°
+- Astronomical twilight: Solar angle > -18°
+    
+A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
 ### {% linkable_title Template trigger %}
 
@@ -193,6 +201,9 @@ automation 3:
   Remember that if you are using matching to include both `minutes` and `seconds`.  Without `seconds`, your automation will trigger 60 times during the matching minute.
 </p>
 
+As mentioned in the Sun trigger section, sunrise is a different day than any time prior to midnight.  If you want to trigger an action with a large enough amount of time before sunrise that it precedes midnight, this must be accounted for properly.  One way is to convert the sunrise time to a timestamp (seconds since 1 Jan 1970). Then do the same for the offset desired (in seconds). This is done with the _as_timestamp_ method explained in the [Templating - Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) section.
+
+
 ### {% linkable_title Webhook trigger %}
 
 Webhook triggers are triggered by web requests made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`.
@@ -201,8 +212,10 @@ Webhook triggers are triggered by web requests made to the webhook endpoint: `/a
 automation:
   trigger:
     platform: webhook
-    webhook_id:
+    webhook_id: some_hook_id
 ```
+
+You could test triggering above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`.
 
 ### {% linkable_title Zone trigger %}
 
@@ -214,6 +227,21 @@ automation:
     platform: zone
     entity_id: device_tracker.paulus
     zone: zone.home
+    # Event is either enter or leave
+    event: enter  # or "leave"
+```
+
+### {% linkable_title Geo Location trigger %}
+
+Geo Location triggers can trigger when an entity is appearing in or disappearing from a zone. Entities that are created by a [Geo Location](/components/geo_location/) platform support reporting GPS coordinates.
+Because entities are generated and removed by these platforms automatically, the entity id normally cannot be predicted. Instead, this trigger requires the definition of a `source` which is directly linked to one of the Geo Location platforms.
+
+```yaml
+automation:
+  trigger:
+    platform: geo_location
+    source: nsw_rural_fire_service_feed
+    zone: zone.bushfire_alert_zone
     # Event is either enter or leave
     event: enter  # or "leave"
 ```

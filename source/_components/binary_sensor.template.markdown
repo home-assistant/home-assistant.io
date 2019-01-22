@@ -14,14 +14,13 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform supports sensors which break out the `state` and
-`state_attributes` from other entities. The state of a Template Binary Sensor
-can only be `on` or `off`.
+The `template` platform supports binary sensors which get their values from
+other entities. The state of a Template Binary Sensor can only be `on` or
+`off`.
 
 ## {% linkable_title Configuration %}
 
-To enable Template Binary Sensors in your installation, add the following to
-your `configuration.yaml` file:
+Here is an example of adding a Template Binary Sensor to the `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -84,6 +83,8 @@ sensors:
 
 ## {% linkable_title Considerations %}
 
+### Startup
+
 If you are using the state of a platform that takes extra time to load, the
 Template Binary Sensor may get an `unknown` state during startup. This results
 in error messages in your log file until that platform has completed loading.
@@ -93,6 +94,14 @@ For example, you would replace
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+
+### Entity IDs
+
+The template engine will attempt to work out what entities should trigger an
+update of the sensor. This can fail, for example if your template loops over
+the contents of a group. In this case you can use `entity_id` to provide a
+list of entity IDs that will cause the sensor to update or you can run the
+service `homeassistant.update_entity` to update the sensor at will.
 
 ## {% linkable_title Examples %}
 
@@ -106,7 +115,7 @@ determine if the furnace is running by checking that it is over some threshold:
 
 {% raw %}
 ```yaml
-sensor:
+binary_sensor:
   - platform: template
     sensors:
       furnace_on:

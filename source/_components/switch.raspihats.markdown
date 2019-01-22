@@ -13,12 +13,11 @@ ha_release: 0.45
 ha_iot_class: "Local Push"
 ---
 
-
-The `raspihats` switch platform allows you to control the digital outputs of your [raspihats](http://www.raspihats.com/) boards.
+The `raspihats` switch platform allows you to control the digital outputs of your [Raspihats](http://www.raspihats.com/) boards.
 
 ## {% linkable_title Configuration %}
 
-To use your raspihats boards in your installation, add the following to your `configuration.yaml` file:
+To use your Raspihats boards in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,12 +95,12 @@ $ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-de
 $ sudo usermod -a -G i2c homeassistant
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+## {% linkable_title Check the i2c address of the sensor %}
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors, so you can see the sensor address:
 
 ```bash
-$ /usr/sbin/i2cdetect -y 1
+/usr/sbin/i2cdetect -y 1
 ```
 
 It will output a table like this:

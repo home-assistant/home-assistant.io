@@ -27,8 +27,18 @@ media_player:
     name: Russound
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the TCP gateway
-- **port** (*Optional*): The port of the TCP gateway (default: 9621)
-- **name** (*Required*): The name of the device
+{% configuration %}
+host:
+  description: The IP of the TCP gateway.
+  required: true
+  type: string
+port:
+  description: The port of the TCP gateway.
+  required: false
+  default: 9621
+  type: integer
+name:
+  description: The name of the device.
+  required: true
+  type: string
+{% endconfiguration %}
