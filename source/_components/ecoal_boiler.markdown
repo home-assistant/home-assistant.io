@@ -9,7 +9,7 @@ sharing: true
 footer: true
 # logo: raspberry-pi.png
 ha_category: Water heater
-ha_release: not yet
+ha_release: 0.87
 ha_iot_class: "Local Polling"
 ---
 
@@ -40,7 +40,7 @@ ecoal_boiler:
 ```
 {% configuration %}
 host:
-  description: IP# / hostname of eCoal controller.
+  description: The IP address or the hostname of eCoal controller.
   required: true
   type: string
 username:
