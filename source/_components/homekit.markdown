@@ -227,6 +227,35 @@ automation:
 ```
 {% endraw %}
 
+In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding and additional `binary_sensor` as follows:
+
+{% raw %}
+```yaml
+# Example checking specific entities to be available before start
+homekit:
+  auto_start: False
+
+automation:
+  - alias: 'Start HomeKit'
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - wait_template: >-
+          {% if not states.light.kitchen_lights %}
+            false
+          {% elif not states.sensor.outside_temperature %}
+            false
+          # Repeat for every entity
+          {% else %}
+            true
+          {% endif %}
+        timeout: 00:15  # Waits 15 minutes
+        continue_on_timeout: false
+      - service: homekit.start
+```
+{% endraw %}
+
 ## {% linkable_title Configure Filter %}
 
 By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
