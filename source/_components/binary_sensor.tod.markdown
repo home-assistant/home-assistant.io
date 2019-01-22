@@ -20,12 +20,13 @@ The time ranges can be provided as absolute local time or
 using the `sunrise` or `sunset` keyword calculated based on the sun position
 for location defined in HA config. The location must be provided in the configuration.
 
-In addition for sun position based ranges the negative or positive offset can 
+In addition for sun position based ranges, the negative or positive offset can 
 be configured.
 
 ## {% linkable_title Configuration %}
 
 Here is an example of adding a Template Binary Sensor to the `configuration.yaml` file:
+
 {% raw %}
 ```yaml
 # Example configuration.yaml entry
@@ -56,18 +57,18 @@ sensors:
           required: false
           type: string
         before:
-          description: The absolute local time value or sun event for begnining of the time range
+          description: The absolute local time value or sun event for beginning of the time range.
           required: true
           type: string or time
         before_offset:
-          description: The time offset of the beginig time range
+          description: The time offset of the beginning time range.
           type: time
         after:
-          description: The absolute local time value or sun event for ending of the time range
+          description: The absolute local time value or sun event for ending of the time range.
           required: true
           type: string or time
         after_offset:
-          description: The time offset of the beginig time range
+          description: The time offset of the beginning time range.
           type: time
 {% endconfiguration %}
 
@@ -90,5 +91,4 @@ binary_sensor:
         before: sunrise
 ```
 
-In above example the next day `sunrise` is calculated as a time range end.
-
+In the above example, the next day `sunrise` is calculated as a time range end.
