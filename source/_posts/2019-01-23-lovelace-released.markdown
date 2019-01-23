@@ -37,7 +37,7 @@ As this kept growing, I realized that we had made a mistake: the backend shouldn
 
 At the same time as this was happening, we also had some discussions about the development of the frontend. Users wanted more control on what is shown, when it's shown and how it's shown. Eventually, [@andrey-git] came up with Custom UI for the old interface. This allowed users to do whatever they wanted.
 
-Lovelace was built [from the start](https://github.com/home-assistant/architecture/issues/14) to tackle these problems. The inital version completely dropped the algorithm and required users to add each card to their configuration. We went from afully automatic UI to nothing. We launched it under the nomer "experimental UI" and it quickly gained traction. People loved the control and the ability to inject custom cards or entity rows at will.
+Lovelace was built [from the start](https://github.com/home-assistant/architecture/issues/14) to tackle these problems. The inital version completely dropped the algorithm and required users to add each card to their configuration. We went from a fully automatic UI to nothing. We launched it under the nomer "experimental UI" and it quickly gained traction. People loved the control and the ability to inject custom cards or entity rows at will.
 
 The enthusiasm was great among our power users, however switching away from an automatic UI, we were no longer beginner-friendly. A new user would open Home Assistant and they would see a blank, unconfigured UI. This had to be solved or else we would not be able to retain any new users.
 
