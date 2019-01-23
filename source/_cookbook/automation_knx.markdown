@@ -10,19 +10,15 @@ footer: true
 ha_category: Automation Examples
 ---
 
-Attention, this is work in progress of a HA beginner. Please contribute and improve.
+This cookbook shows a general KNX setup and communication with other systems like the Philips Hue.
 
-# KNX automation and interaction with other systems
+## {% linkable_title General KNX setup %}
 
-General KNX setup and communication with other systems like Philips Hue.
-
-### General KNX setup
-config.yaml
 ``` yaml
 knx:
   # This is all you need to get the KNX component up and running.
-  # Auto config works nicely and usually no config data for your knx ip tunnel is needed. 
-  # If the KNX router is not found automatically, check the docs and add the ip config here.
+  # Auto config works nicely and usually no config data for your KNX ip tunnel is needed. 
+  # If the KNX router is not found automatically, check the docs and add the IP config here.
 
 # get some sensor data from KNX to HA
 sensor:
@@ -31,7 +27,7 @@ sensor:
     address: '6/1/0'
     type: 'illuminance'
     # The entity_id of this sensor will be generated from the name by a slug function.
-    # In this case it will be sensor.helligkeit_treppe_oben
+    # In this case, it will be sensor.helligkeit_treppe_oben
     # See dev tools' state page (icons at the bottom of left side menu) for a list of all entity_ids
 
 light:
@@ -79,9 +75,10 @@ cover:
     invert_position: true
 ```
 
-### Using some values from HA within KNX
-config.yaml
+## {% linkable_title Using some values from HA within KNX %}
+
 ``` yaml
+# configuration.yaml example
 sensor:
 # Register with Dark Sky to retrieve current environment data.
 # Registration is free for the amount of requests we need here.
@@ -125,15 +122,14 @@ knx:
     address: '0/1/14'
 ```
 
-### Basic KNX automation
+## {% linkable_title Basic KNX automation %}
 
 This example uses an automation that is activated by a KNX switch.
 
-The automation then triggers a script that controls a KNX light and dimms it down in 5 steps from 80% to 0% over a time span of 5 minutes.
+The automation then triggers a script that controls a KNX light and dims it down in 5 steps from 80% to 0% over a time span of 5 minutes.
 
-Care must be taken to stop the script, when the light is otherwise switched (i.e. by its normal on/off KNX switch). If we don't do that, the light will first switch correctly, but then the script will continue to run in background and after the next delay has passed it will kick in again and activate its next dimm level.
+Care must be taken to stop the script, when the light is otherwise switched (i.e., by its normal on/off KNX switch). If we don't do that, the light will first switch correctly, but then the script will continue to run in the background and after the next delay has passed it will kick in again and activate its next dim level.
 
-config.yaml
 ```yaml
 knx: 
 
@@ -143,13 +139,13 @@ switch:
   name: "Licht, Eltern Bett"
   address: '1/2/12'
 - platform: knx
-  # The switch that triggers the dimm script
+  # The switch that triggers the dim script
   # This switch must be configured in ETS to send on when pressed and off when released
   name: "Licht, Eltern Bett, Fadeout"
   address: '1/2/17'
 
 light:
-  # This is the light that we want to dimm (more precisely it is the dimming actuator of the light).
+  # This is the light that we want to dim (more precisely it is the dimming actuator of the light).
   # It is directly controlled through the first switch above.
   # (Note that the switch shares its group address with this light and thus controls it over the KNX bus.)
   - platform: knx
@@ -160,7 +156,7 @@ light:
     brightness_state_address: '1/2/16' 
 
 automation:
-# start the dimm script, if the dimm switch is pressed
+# start the dim script, if the dim switch is pressed
 - id: light_eltern_bett_fadeout
   alias: Licht Eltern Bett Fade-Out
   trigger:
@@ -175,7 +171,7 @@ automation:
   - service: script.turn_on
     entity_id: script.light_eltern_bett_fadeout
 
-# stop the dimm script, if light is switched manually
+# stop the dim script, if light is switched manually
 - id: light_eltern_bett_fadeout_stop
   alias: Licht Eltern Bett Fade-Out STOP
   trigger:
@@ -219,9 +215,3 @@ script:
       - service: light.turn_off
         entity_id: light.eltern_bett
 ```
-
-
-
-### Coming soon:
-* Controlling Philips Hue from KNX switches and sensors
-* How to debug the communication between HA and KNX
