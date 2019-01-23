@@ -51,8 +51,8 @@ name:
   required: false
   type: string
 scan_interval:
-  description: Time interval between updates. Minimum time interval between updates. Supported formats: `'HH:MM:SS'`, `'HH:MM'`.
-  default: 24:00:00
+  description: Time interval between updates. Supported formats: 'HH:MM:SS', 'HH:MM' and time period dictionary.
+  default: 1 day
   required: false
   type: string
 {% endconfiguration %}
