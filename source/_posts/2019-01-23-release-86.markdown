@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.86: New Lovelace UI! - TBD UPDATE DATE"
-description: "Lovelace is in, Zigbee Control Panel is in."
+title: "0.86: New Lovelace UI and Zigbee Management Panel! - TBD UPDATE DATE"
+description: "Lovelace is in, Zigbee Control Panel is in. New demo is in."
 date: 2019-01-16 00:01:00
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
@@ -11,9 +11,23 @@ categories: Release-Notes
 og_image: /images/blog/2019-01-release-86/components.png
 ---
 
-Lovelace is the default! Such a great achievement that it warranted it's own [blog post](#).
+Today we're releasing Home Assistant 0.86. And oh boy, this is an amazing release. First awesome thing: Lovelace is now the default. We have a lot to talk about, so we created a separate blog post just for the Lovelace release [here](/2019/01/16/lovelace-released/).
 
-New Zigbee control panel.
+Next up, we've updated the [Home Assistant demo](https://demo.home-assistant.io). It's snappier, it's sazzier, and best of all: it contains four fully functional Lovelace user interfaces that you can play with: change the states or go in config mode and add, edit or re-organize the cards. We've set it up in such a way now that the demo will be build on every release of the frontend. Right now the demo only includes Lovelace, but we'll add support for the other panels in the future.
+
+Talking about panels in the frontend. This release includes a brand new Zigbee Management panel to manage your Zigbee network thanks to the hard work by [@dmulcahey] and [@Adminiuga]. XXX-PLACEHOLDER-XXX.
+
+<p class='img'>
+  <img src='/images/blog/2019-01-release-86/zha.png' alt='Screenshot of the Zigbee management panel.'>
+  Screenshot of the Zigbee management panel.
+</p>
+
+This release also includes two noteworthy breaking changes. One is a follow-up on the slugify breaking change from last release. We did not update the validation check for config options that need to be valid slugs. This means that some of your config values might be invalid. Keep an eye at the console as we have a new message to tell you which ones are wrong.
+
+This issue also impacts the entity registry, which could contain in some rare cases invalid entity IDs. Expect entity IDs to change if they contained a double underscore (which becomes 1) or if they ended in an underscore (which will be removed).
+
+Another noteworthy breaking change (sorry!), is that the automation `time` trigger has been split into two: `time` and `time_pattern`. If you had a time trigger containing the keys `hours`, `minutes` or `seconds`, update the platform from `name` to `time_pattern`.
+
 
 ## {% linkable_title New Platforms %}
 
