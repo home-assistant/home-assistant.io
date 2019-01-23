@@ -1,43 +1,55 @@
 ---
 layout: post
-title: "0.86: New Lovelace UI and Zigbee Management Panel! - TBD UPDATE DATE"
+title: "0.86: New Lovelace UI and Zigbee Management Panel!"
 description: "Lovelace is in, Zigbee Control Panel is in. New demo is in."
-date: 2019-01-16 00:01:00
+date: 2019-01-23 00:01:00
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-01-release-86/components.png
+og_image: /images/blog/2019-01-release-86/zha.png
 ---
 
-Today we're releasing Home Assistant 0.86. And oh boy, this is an amazing release. First awesome thing: Lovelace is now the default. We have a lot to talk about, so we created a separate blog post just for the Lovelace release [here](/2019/01/16/lovelace-released/).
+Today we're releasing Home Assistant 0.86. And oh wow, this is an amazing release. First awesome thing: the Lovelace user interface, which we've been working on for the last 8 months, is now the default in Home Assistant. We have a lot to talk about, so we created a separate blog post just for the Lovelace release [here](/blog/2019/01/23/lovelace-released/).
 
-Next up, we've updated the [Home Assistant demo](https://demo.home-assistant.io). It's snappier, it's snazzier, and best of all: it contains four fully functional Lovelace user interfaces that you can play with: change the states or go in config mode and add, edit or re-organize the cards. We've set it up in such a way now that the demo will be built on every release of the frontend. Right now the demo only includes Lovelace, but we'll add support for the other panels in the future.
+Next up, we've updated the [Home Assistant demo](https://demo.home-assistant.io). It's snappier, it's snazzier, and best of all: it contains four fully functional Lovelace user interfaces that you can play with! Change the states or go in config mode and add, edit or re-organize the cards. We've set it up in such a way now that the demo will be automatically updated with the latest release of Home Assistant, so it will always feature the latest things.
 
-Talking about panels in the frontend. This release includes a brand new Zigbee Management panel to manage your Zigbee network thanks to the hard work by [@dmulcahey] and [@Adminiuga]. XXX-PLACEHOLDER-XXX.
+<p class='img'>
+  <a href="https://demo.home-assistant.io"><img src='/images/blog/2019-01-release-86/demo.png' alt='Screenshot of the new demo.'></a>
+  Screenshot of Lovelace in the new demo.
+</p>
+
+## {% linkable_title Zigbee management panel %}
+
+This release includes a brand new Zigbee management panel to manage your Zigbee network thanks to the hard work by [@dmulcahey] with the help of [@Adminiuga] and [@damarco]. The new panel makes it easy to:
+
+ - Issue Permit and Remove operations
+ - Reconfigure Node, which will rebind and reconfigure the reporting for a device. Which can help solve issues.
+ - Reading and setting cluster attributes. This is useful for viewing and setting things such as device sensitivity levels.
+ - View and issue cluster commands. Note on this feature: support for commands with arguments is coming soon.
+
+The Zigbee team is also planning a bunch of cool things for 2019. Direct device binding (directly pairing remotes to lights) is already in development and they are planning support for group management as well. Targeted and broadcast joins are also right around the corner (we’re waiting for a new Zigpy release). Exciting times for Zigbee users!
 
 <p class='img'>
   <img src='/images/blog/2019-01-release-86/zha.png' alt='Screenshot of the Zigbee management panel.'>
   Screenshot of the Zigbee management panel.
 </p>
 
+## {% linkable_title Noteworthy breaking changes %}
+
 This release also includes two noteworthy breaking changes. One is a follow-up on the slugify breaking change from last release. We did not update the validation check for config options that need to be valid slugs. This means that some of your config values might be invalid. Keep an eye at the console as we have a new message to tell you which ones are wrong.
 
-This issue also impacts the entity registry, which could contain in some rare cases invalid entity IDs. Expect entity IDs to change if they contained a double underscore (which becomes 1) or if they ended in an underscore (which will be removed).
+This issue also impacts the entity registry, which could contain in some rare cases invalid entity IDs. Expect entity IDs to change if they contained a double underscore (which becomes 1) or if they started/ended in an underscore (which will be removed).
 
 Another noteworthy breaking change (sorry!), is that the automation `time` trigger has been split into two: `time` and `time_pattern`. If you had a time trigger containing the keys `hours`, `minutes` or `seconds`, update the platform from `name` to `time_pattern`.
-
 
 ## {% linkable_title New Platforms %}
 
 - Support for Homekit controller/alarm control panel ([@adrum] - [#19612]) ([homekit_controller docs]) ([alarm_control_panel.homekit_controller docs]) (new-platform)
-- Split locative to a separate component ([@rohankapoorcom] - [#19964]) ([device_tracker docs]) ([locative docs]) (breaking change) (new-platform)
 - Add support for HomeKit Controller Locks ([@adrum] - [#19867]) ([homekit_controller docs]) ([lock.homekit_controller docs]) (new-platform)
 - Add support for HomeKit Controller covers ([@adrum] - [#19866]) ([homekit_controller docs]) ([cover.homekit_controller docs]) (new-platform)
-- Split out gpslogger into a separate component and platform ([@rohankapoorcom] - [#20044]) ([device_tracker docs]) ([gpslogger docs]) (breaking change) (new-platform)
 - Add Roku hub and remote ([@soberstadt] - [#17548]) ([roku docs]) ([media_player.roku docs]) ([remote.roku docs]) (breaking change) (new-platform)
-- Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -56,17 +68,38 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add nad telnet ([@rymsha] - [#19704]) ([media_player.nad docs]) (breaking change)
 - add service type in name ([@eliseomartelli] - [#19980]) ([sensor.prezzibenzina docs]) (breaking change)
 - Expose more information about shipments by PostNL ([@basbl] - [#18334]) ([sensor.postnl docs]) (breaking change)
-- Split locative to a separate component ([@rohankapoorcom] - [#19964]) ([device_tracker docs]) ([locative docs]) (breaking change) (new-platform)
+- Split locative to a separate component ([@rohankapoorcom] - [#19964]) ([device_tracker docs]) ([locative docs]) (breaking change)
 - Support for multiple Fibaro gateways ([@pbalogh77] - [#19705]) ([fibaro docs]) ([binary_sensor.fibaro docs]) ([cover.fibaro docs]) ([light.fibaro docs]) ([scene.fibaro docs]) ([sensor.fibaro docs]) ([switch.fibaro docs]) (breaking change)
 - Upgrade greeneye_monitor to 1.0 ([@jkeljo] - [#19631]) ([greeneye_monitor docs]) (breaking change)
-- Split out gpslogger into a separate component and platform ([@rohankapoorcom] - [#20044]) ([device_tracker docs]) ([gpslogger docs]) (breaking change) (new-platform)
+- Split out gpslogger into a separate component and platform ([@rohankapoorcom] - [#20044]) ([device_tracker docs]) ([gpslogger docs]) (breaking change)
 - Add Roku hub and remote ([@soberstadt] - [#17548]) ([roku docs]) ([media_player.roku docs]) ([remote.roku docs]) (breaking change) (new-platform)
 - Lowercase code format ([@balloob] - [#20077]) ([alarm_control_panel docs]) (breaking change)
 - Adjust OpenUV integration for upcoming API limit changes ([@bachya] - [#19949]) ([openuv docs]) (breaking change)
-- Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change) (new-platform)
+- Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change)
 - Add support for connecting to multiple zoneminder instances ([@rohankapoorcom] - [#19955]) ([zoneminder docs]) ([camera.zoneminder docs]) ([sensor.zoneminder docs]) ([switch.zoneminder docs]) (breaking change)
 - Migrate gpslogger to the automatically generated webhook ([@rohankapoorcom] - [#20079]) ([gpslogger docs]) (breaking change)
 - Switch locative to use the webhook component ([@rohankapoorcom] - [#20043]) ([locative docs]) (breaking change)
+- Sensibo to use HA operation modes ([@balloob] - [#20180]) ([climate.sensibo docs]) (breaking change) (beta fix)
+- Fix invalid entity ID in entity registry ([@balloob] - [#20328]) (breaking change) (beta fix)
+
+## {% linkable_title Beta Fixes %}
+
+- Sensibo to use HA operation modes ([@balloob] - [#20180]) ([climate.sensibo docs]) (breaking change) (beta fix)
+- Distribute reconnect ([@balloob] - [#20181]) ([cloud docs]) (beta fix)
+- Add command to refresh auth ([@balloob] - [#20183]) ([cloud docs]) (beta fix)
+- Improve Sonos discovery ([@amelchio] - [#20196]) ([sonos docs]) (beta fix)
+- Handle non-string values in JSON renderer ([@pnbruckner] - [#20233]) (beta fix)
+- Bump aioesphomeapi to 1.4.2 ([@OttoWinter] - [#20247]) ([esphome docs]) (beta fix)
+- Remove double logging of automation action ([@amelchio] - [#20264]) (beta fix)
+- Allow 'all' entity_id in service schema ([@amelchio] - [#20278]) (beta fix)
+- Fix 'all' entity_id in service call extraction ([@amelchio] - [#20281]) (beta fix)
+- Align valid_entity_id with new slugify ([@kellerza] - [#20231]) (beta fix)
+- Config Validator: schema_with_slug_keys ([@kellerza] - [#20298]) (beta fix)
+- Bugfix: prevent error notification when octoprint server auto detected but no configuration present. ([@reefab] - [#20303]) ([octoprint docs]) (beta fix)
+- Should require the 'GATTOOL' setup extras which includes pexpect. ([@mitchellrj] - [#20263]) ([device_tracker docs]) (beta fix)
+- Fix xiaomi speed attribute name clash ([@syssi] - [#20312]) ([fan.xiaomi_miio docs]) (beta fix)
+- Update locationsharinglib to version 3.0.11 ([@rolfberkenbosch] - [#20322]) ([device_tracker docs]) (beta fix)
+- Fix invalid entity ID in entity registry ([@balloob] - [#20328]) (breaking change) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -148,7 +181,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for 'via_hub' for device_info ([@fredrike] - [#19454]) ([mqtt docs])
 - Fix the anthemav component by removing a debugging line. ([@achatham] - [#19979]) ([media_player.anthemav docs])
 - Expose more information about shipments by PostNL ([@basbl] - [#18334]) ([sensor.postnl docs]) (breaking change)
-- Split locative to a separate component ([@rohankapoorcom] - [#19964]) ([device_tracker docs]) ([locative docs]) (breaking change) (new-platform)
+- Split locative to a separate component ([@rohankapoorcom] - [#19964]) ([device_tracker docs]) ([locative docs]) (breaking change)
 - Support for multiple Fibaro gateways ([@pbalogh77] - [#19705]) ([fibaro docs]) ([binary_sensor.fibaro docs]) ([cover.fibaro docs]) ([light.fibaro docs]) ([scene.fibaro docs]) ([sensor.fibaro docs]) ([switch.fibaro docs]) (breaking change)
 - Add Hass.io user headers to supervisor proxy ([@balloob] - [#19395]) ([hassio docs])
 - Upgrade huawei-lte-api to 1.1.3 ([@scop] - [#19987])
@@ -176,7 +209,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Show persistent notification on Doorbird schedule failure ([@oblogic7] - [#20033]) ([doorbird docs])
 - Add support for HomeKit Controller covers ([@adrum] - [#19866]) ([homekit_controller docs]) ([cover.homekit_controller docs]) (new-platform)
 - warning -> debug, this should not have been visible to users ([@rytilahti] - [#20061]) ([media_player.songpal docs])
-- Split out gpslogger into a separate component and platform ([@rohankapoorcom] - [#20044]) ([device_tracker docs]) ([gpslogger docs]) (breaking change) (new-platform)
+- Split out gpslogger into a separate component and platform ([@rohankapoorcom] - [#20044]) ([device_tracker docs]) ([gpslogger docs]) (breaking change)
 - Add Roku hub and remote ([@soberstadt] - [#17548]) ([roku docs]) ([media_player.roku docs]) ([remote.roku docs]) (breaking change) (new-platform)
 - Upgrade pytest to 4.1.1 ([@scop] - [#20088])
 - Lowercase code format ([@balloob] - [#20077]) ([alarm_control_panel docs]) (breaking change)
@@ -195,7 +228,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use voluptuous to perform validation for the geofency webhook ([@rohankapoorcom] - [#20067]) ([geofency docs])
 - fixed gtt to report isotime ([@eliseomartelli] - [#20128]) ([sensor.gtt docs])
 - Move MQTT platforms under the component ([@emontnemery] - [#20050]) ([mqtt docs])
-- Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change) (new-platform)
+- Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change)
 - Change deCONZ to embedded platforms ([@Kane610] - [#20113]) ([deconz docs])
 - Improve Philips Hue color conversion 2 ([@starkillerOG] - [#20118])
 - Minor refactoring of MQTT availability ([@emontnemery] - [#20136]) ([mqtt docs])
@@ -226,6 +259,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump pynuki to 1.3.2 ([@damarco] - [#20173]) ([lock.nuki docs])
 - Add Xiaomi Airpurifier Pro V7 support ([@syssi] - [#20093]) ([fan.xiaomi_miio docs])
 - Add support for deconz radios to zha component ([@damarco] - [#20167]) ([zha docs])
+- Sensibo to use HA operation modes ([@balloob] - [#20180]) ([climate.sensibo docs]) (breaking change) (beta fix)
+- Distribute reconnect ([@balloob] - [#20181]) ([cloud docs]) (beta fix)
+- Add command to refresh auth ([@balloob] - [#20183]) ([cloud docs]) (beta fix)
+- Improve Sonos discovery ([@amelchio] - [#20196]) ([sonos docs]) (beta fix)
+- Handle non-string values in JSON renderer ([@pnbruckner] - [#20233]) (beta fix)
+- Bump aioesphomeapi to 1.4.2 ([@OttoWinter] - [#20247]) ([esphome docs]) (beta fix)
+- Remove double logging of automation action ([@amelchio] - [#20264]) (beta fix)
+- Allow 'all' entity_id in service schema ([@amelchio] - [#20278]) (beta fix)
+- Fix 'all' entity_id in service call extraction ([@amelchio] - [#20281]) (beta fix)
+- Align valid_entity_id with new slugify ([@kellerza] - [#20231]) (beta fix)
+- Config Validator: schema_with_slug_keys ([@kellerza] - [#20298]) (beta fix)
+- Bugfix: prevent error notification when octoprint server auto detected but no configuration present. ([@reefab] - [#20303]) ([octoprint docs]) (beta fix)
+- Should require the 'GATTOOL' setup extras which includes pexpect. ([@mitchellrj] - [#20263]) ([device_tracker docs]) (beta fix)
+- Fix xiaomi speed attribute name clash ([@syssi] - [#20312]) ([fan.xiaomi_miio docs]) (beta fix)
+- Update locationsharinglib to version 3.0.11 ([@rolfberkenbosch] - [#20322]) ([device_tracker docs]) (beta fix)
+- Fix invalid entity ID in entity registry ([@balloob] - [#20328]) (breaking change) (beta fix)
 
 [#17548]: https://github.com/home-assistant/home-assistant/pull/17548
 [#17596]: https://github.com/home-assistant/home-assistant/pull/17596
@@ -383,6 +432,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20160]: https://github.com/home-assistant/home-assistant/pull/20160
 [#20167]: https://github.com/home-assistant/home-assistant/pull/20167
 [#20173]: https://github.com/home-assistant/home-assistant/pull/20173
+[#20180]: https://github.com/home-assistant/home-assistant/pull/20180
+[#20181]: https://github.com/home-assistant/home-assistant/pull/20181
+[#20183]: https://github.com/home-assistant/home-assistant/pull/20183
+[#20196]: https://github.com/home-assistant/home-assistant/pull/20196
+[#20231]: https://github.com/home-assistant/home-assistant/pull/20231
+[#20233]: https://github.com/home-assistant/home-assistant/pull/20233
+[#20247]: https://github.com/home-assistant/home-assistant/pull/20247
+[#20263]: https://github.com/home-assistant/home-assistant/pull/20263
+[#20264]: https://github.com/home-assistant/home-assistant/pull/20264
+[#20278]: https://github.com/home-assistant/home-assistant/pull/20278
+[#20281]: https://github.com/home-assistant/home-assistant/pull/20281
+[#20298]: https://github.com/home-assistant/home-assistant/pull/20298
+[#20303]: https://github.com/home-assistant/home-assistant/pull/20303
+[#20312]: https://github.com/home-assistant/home-assistant/pull/20312
+[#20322]: https://github.com/home-assistant/home-assistant/pull/20322
+[#20328]: https://github.com/home-assistant/home-assistant/pull/20328
 [@Adminiuga]: https://github.com/Adminiuga
 [@Anonym-tsk]: https://github.com/Anonym-tsk
 [@BaQs]: https://github.com/BaQs
@@ -438,9 +503,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mxworm]: https://github.com/mxworm
 [@oblogic7]: https://github.com/oblogic7
 [@pbalogh77]: https://github.com/pbalogh77
+[@pnbruckner]: https://github.com/pnbruckner
 [@pvizeli]: https://github.com/pvizeli
 [@quazzie]: https://github.com/quazzie
+[@reefab]: https://github.com/reefab
 [@rohankapoorcom]: https://github.com/rohankapoorcom
+[@rolfberkenbosch]: https://github.com/rolfberkenbosch
 [@royduin]: https://github.com/royduin
 [@rymsha]: https://github.com/rymsha
 [@rytilahti]: https://github.com/rytilahti
@@ -483,6 +551,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.zoneminder docs]: /components/camera.zoneminder/
 [climate.hive docs]: /components/climate.hive/
 [climate.mqtt docs]: /components/climate.mqtt/
+[climate.sensibo docs]: /components/climate.sensibo/
+[cloud docs]: /components/cloud/
 [cover.fibaro docs]: /components/cover.fibaro/
 [cover.homekit_controller docs]: /components/cover.homekit_controller/
 [cover.mqtt docs]: /components/cover.mqtt/
@@ -526,6 +596,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mysensors docs]: /components/mysensors/
 [neato docs]: /components/neato/
 [notify docs]: /components/notify/
+[octoprint docs]: /components/octoprint/
 [openuv docs]: /components/openuv/
 [plant docs]: /components/plant/
 [rainmachine docs]: /components/rainmachine/
@@ -561,6 +632,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.vasttrafik docs]: /components/sensor.vasttrafik/
 [sensor.zoneminder docs]: /components/sensor.zoneminder/
 [simplisafe docs]: /components/simplisafe/
+[sonos docs]: /components/sonos/
 [switch.fibaro docs]: /components/switch.fibaro/
 [switch.hive docs]: /components/switch.hive/
 [switch.mqtt docs]: /components/switch.mqtt/
