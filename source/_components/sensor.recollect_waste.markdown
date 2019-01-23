@@ -51,7 +51,7 @@ name:
   required: false
   type: string
 scan_interval:
-  description: Time interval between updates. Supported formats: 'HH:MM:SS', 'HH:MM' and time period dictionary.
+  description: "Time interval between updates. Supported formats: 'HH:MM:SS', 'HH:MM' and time period dictionary."
   default: 1 day
   required: false
   type: string
