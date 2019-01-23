@@ -13,7 +13,7 @@ og_image: /images/blog/2019-01-release-86/components.png
 
 Today we're releasing Home Assistant 0.86. And oh boy, this is an amazing release. First awesome thing: Lovelace is now the default. We have a lot to talk about, so we created a separate blog post just for the Lovelace release [here](/2019/01/16/lovelace-released/).
 
-Next up, we've updated the [Home Assistant demo](https://demo.home-assistant.io). It's snappier, it's sazzier, and best of all: it contains four fully functional Lovelace user interfaces that you can play with: change the states or go in config mode and add, edit or re-organize the cards. We've set it up in such a way now that the demo will be build on every release of the frontend. Right now the demo only includes Lovelace, but we'll add support for the other panels in the future.
+Next up, we've updated the [Home Assistant demo](https://demo.home-assistant.io). It's snappier, it's snazzier, and best of all: it contains four fully functional Lovelace user interfaces that you can play with: change the states or go in config mode and add, edit or re-organize the cards. We've set it up in such a way now that the demo will be built on every release of the frontend. Right now the demo only includes Lovelace, but we'll add support for the other panels in the future.
 
 Talking about panels in the frontend. This release includes a brand new Zigbee Management panel to manage your Zigbee network thanks to the hard work by [@dmulcahey] and [@Adminiuga]. XXX-PLACEHOLDER-XXX.
 
