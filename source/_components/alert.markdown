@@ -60,9 +60,10 @@ entity_id:
   type: string
 title:
   description: >
-    A title to be used for the notification if the notifier supports it.
+    A title to be used for the notification if the notifier supports it
+    with [template][template] support.
   required: false
-  type: string  
+  type: template
 state:
   description: The problem condition for the entity.
   required: false
