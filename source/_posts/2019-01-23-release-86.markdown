@@ -42,7 +42,7 @@ This release also includes two noteworthy breaking changes. One is a follow-up o
 
 This issue also impacts the entity registry, which could contain in some rare cases invalid entity IDs. Expect entity IDs to change if they contained a double underscore (which becomes 1) or if they started/ended in an underscore (which will be removed).
 
-Another noteworthy breaking change (sorry!), is that the automation `time` trigger has been split into two: `time` and `time_pattern`. If you had a time trigger containing the keys `hours`, `minutes` or `seconds`, update the platform from `name` to `time_pattern`.
+Another noteworthy breaking change (sorry!), is that the automation `time` trigger has been split into two: `time` and `time_pattern`. If you had a time trigger containing the keys `hours`, `minutes` or `seconds`, update the platform from `time` to `time_pattern`.
 
 ## {% linkable_title New Platforms %}
 
