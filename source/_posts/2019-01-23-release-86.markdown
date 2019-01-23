@@ -2,7 +2,7 @@
 layout: post
 title: "0.86: New Lovelace UI and Zigbee Management Panel!"
 description: "Lovelace is in, Zigbee Control Panel is in. New demo is in."
-date: 2019-01-23 00:01:00
+date: 2019-01-23 00:01:03
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob

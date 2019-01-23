@@ -37,13 +37,13 @@ For a deep dive into all the new features, check out the [latest episode of the 
 
 With Lovelace we've built a foundation that not only provides a lean and sleek interface, but will also allow us to add many new exciting features in the future. The main difference with the old UI is that we no longer store any UI concerns in the state machine.
 
-When Home Assistant was started, I came up with an algorithm that would automatically organize the available entities in badges, cards and tabs; and then show that on the screen. Users demanded more influence; so over time, we've added a bunch of components and features ot the backend who'se main or sole purpose were to influence how the algorithm in the UI shows and organizes entities.
+When Home Assistant was started, I came up with an algorithm that would automatically organize the available entities in badges, cards and tabs; and then show that on the screen. Users demanded more influence; so over time, we've added a bunch of components and features of the backend whose main or sole purpose were to influence how the algorithm in the UI shows and organizes entities.
 
 As this kept growing, I realized that we were on the wrong path. It was impossible to get an algorithm that would fulfill all needs and the backend shouldn't be aware of anything in the frontend. It should just deliver the entities and the frontend should figure out how to display things together with the user.
 
 At the same time as this was happening, we also had some discussions about the development of the frontend. Users wanted more control on what is shown, when it's shown and how it's shown. Eventually, [@andrey-git] came up with Custom UI for the old interface. This allowed users to do whatever they wanted. However, it was limited to power users.
 
-Lovelace was built [from the start](https://github.com/home-assistant/architecture/issues/14) to tackle these problems. The inital version completely dropped the algorithm and required users to add each card to their configuration. We went from a fully automatic UI to nothing. We launched it under the nomer "experimental UI" and it quickly gained traction. People loved the control and the ability to inject custom cards or entity rows at will.
+Lovelace was built [from the start](https://github.com/home-assistant/architecture/issues/14) to tackle these problems. The initial version completely dropped the algorithm and required users to add each card to their configuration. We went from a fully automatic UI to nothing. We launched it under the nomer "experimental UI" and it quickly gained traction. People loved the control and the ability to inject custom cards or entity rows at will.
 
 The enthusiasm was great among our power users, however by switching away from an automatic UI, we were no longer beginner-friendly. A new user would open Home Assistant and they would see a blank, unconfigured UI. We realized that this had to be solved if we were to make Lovelace the default.
 
