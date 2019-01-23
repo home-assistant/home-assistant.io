@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: danfoss_air.png
 ha_category: Binary Sensor
-ha_release: "0.86"
+ha_release: "0.87"
 ha_iot_class: "Local Polling"
 ---
 
@@ -18,4 +18,4 @@ To get your Danfoss Air binary sensors working with Home Assistant, follow the i
 </p>
 
 The following binary sensor is supported.
-* **Bypass active:** Indicator if heat recovery is currrently bypassed. 
+* **Bypass active:** Indicator if heat recovery is currrently bypassed.
