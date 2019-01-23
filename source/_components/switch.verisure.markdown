@@ -12,8 +12,6 @@ ha_category: Switch
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The Verisure switch platform allows you to control your [Verisure](https://www.verisure.com/) SmartPlugs.
 
-The requirement is that you have setup your [Verisure hub](/components/verisure/).
-
+The requirement is that you have set up your [Verisure hub](/components/verisure/).

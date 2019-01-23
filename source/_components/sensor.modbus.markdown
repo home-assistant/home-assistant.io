@@ -78,7 +78,7 @@ registers:
     reverse_order:
       description: Reverse the order of registers when count >1.
       required: false
-      default: False
+      default: false
       type: boolean
     scale:
       description: Scale factor (output = scale * value + offset).

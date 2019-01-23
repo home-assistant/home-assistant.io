@@ -57,7 +57,7 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the int
 
 #### {% linkable_title Using Mosquitto with Hass.io %}
 
-1. Install the [Mosquitto add-on](https://www.home-assistant.io/addons/mosquitto/) with the default configuration via 'Hass.io > ADD-ON STORE'. (Don't forget to start the add-on & verify that 'Start on boot' is enabled.)
+1. Install the [Mosquitto add-on](/addons/mosquitto/) with the default configuration via 'Hass.io > ADD-ON STORE'. (Don't forget to start the add-on & verify that 'Start on boot' is enabled.)
 
 2. Create a new user for MQTT via the `Configuration > Users (manage users)`. (Note: This name cannot be "homeassistant" or "addon")
 
@@ -71,7 +71,7 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the int
 ```
 
 Note: .yaml modifications are not required. 
-See [testing your setup](https://www.home-assistant.io/docs/mqtt/testing/) to verify the steps above.
+See [testing your setup](/docs/mqtt/testing/) to verify the steps above.
 
 ### {% linkable_title Disable listening on insecure (1883) ports %}
 

@@ -16,7 +16,7 @@ redirect_from: /components/apiai/
 
 The `dialogflow` component is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
 
-To be able to receive messages from DialogFlow, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
+To be able to receive messages from DialogFlow, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](/components/http/#base_url)). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 
 Dialogflow could be [integrated](https://dialogflow.com/docs/integrations/) with many popular messaging, virtual assistant and IoT platforms.
 

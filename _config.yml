@@ -32,8 +32,12 @@ destination: public/
 plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
+
 markdown: kramdown
+highlighter: rouge
 timezone: UTC
+liquid:
+  error_mode: strict
 
 kramdown:
   input: GFM
@@ -43,8 +47,6 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   parse_block_html: true
-
-highlighter: rouge
 
 plugins:
   - jekyll-redirect-from
@@ -141,9 +143,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 85
-current_patch_version: 1
-date_released: 2019-01-11
+current_minor_version: 86
+current_patch_version: 0
+date_released: 2019-01-23
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

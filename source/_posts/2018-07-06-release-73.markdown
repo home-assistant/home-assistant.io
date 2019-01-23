@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2018-07-0.73/lovelace-elements.png
 ---
 
-Today we're releasing Home Assistant 0.73. First, let's talk security. Home Assistant has a lot of power. It can control all devices in your house and know what you're up to. That's why securing it is very important. It's absolutely wrong to connect your instance unsecured to the internet and hope no one will find it. All ports on all computers are regularly scanned by bad actors. Please read [our guidelines thoroughly](https://www.home-assistant.io/docs/configuration/securing/) and follow them.
+Today we're releasing Home Assistant 0.73. First, let's talk security. Home Assistant has a lot of power. It can control all devices in your house and know what you're up to. That's why securing it is very important. It's absolutely wrong to connect your instance unsecured to the internet and hope no one will find it. All ports on all computers are regularly scanned by bad actors. Please read [our guidelines thoroughly](/docs/configuration/securing/) and follow them.
 
 In the meanwhile, we're also working hard on the new authentication system. A preview version is included in this release, more info on [our developer blog](https://developers.home-assistant.io/blog/2018/07/02/trying-new-auth.html).
 

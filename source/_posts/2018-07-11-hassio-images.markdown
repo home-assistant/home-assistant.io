@@ -60,5 +60,5 @@ Feel free to jump into the project and help us to improve the documentation or o
 [Buildroot]: https://buildroot.org/
 [AppArmor]: https://gitlab.com/apparmor/apparmor/wikis/home/
 [USB stick]: https://github.com/home-assistant/hassos/blob/rel-1/Documentation/configuration.md#automatic
-[installation]: https://www.home-assistant.io/hassio/installation/
+[installation]: /hassio/installation/
 [Etcher]: https://etcher.io/
