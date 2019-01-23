@@ -22,16 +22,15 @@ Today we're happy to announce that our new Lovelace UI, which has been in beta f
    - Ability to override names and icons of entities.
    - Custom Cards from our amazing community are fully supported.
 
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XY3R0xI45wA" frameborder="0" allowfullscreen></iframe>
+</div>
+
 In case you're reading this and want to give it a try right now: we've updated [the Home Assistant demo](https://demo.home-assistant.io). It now features multiple Lovelace configuration examples. The demo is fully interactive, including the configuration UI (accessible via the menu in the top right). You can also access it by updating to Home Assistant 0.86.
 
-<sup>1</sup>: If you prefer YAML, Lovelace also includes a [YAML mode](/lovelace/yaml-mode/) that supports the use of `!include` and `!secret`.
-
-<p class='img'>
-  <a href="https://demo.home-assistant.io"><img src='/images/blog/2019-01-lovelace/demo.png' alt='Screenshot of the new demo.'></a>
-  Screenshot of Lovelace in the new demo.
-</p>
-
 For a deep dive into all the new features, check out the [latest episode of the Home Assistant podcast](https://hasspodcast.io/ha042), featuring an interview with [Zack Arnett][@zsarnett] from the Lovelace team.
+
+<sup>1</sup>: If you prefer YAML, Lovelace also includes a [YAML mode](/lovelace/yaml-mode/) that supports the use of `!include` and `!secret`.
 
 ## {% linkable_title History %}
 
