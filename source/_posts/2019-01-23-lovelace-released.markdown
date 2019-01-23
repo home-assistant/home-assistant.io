@@ -59,7 +59,7 @@ Lovelace UI has been 8 months in the making and it has been a big undertaking. W
  - [@balloob] / Paulus Schoutsen
  - [@bramkragten] / Bram Kragten
  - [@c727]
- - [@ciotlosm] / Marius
+ - [@ciotlosm] / Marius Ciotloș
  - [@iantrich] / Ian Richardson
  - [@jeradM] / Jerad Meisner
  - [@thomasloven] / Thomas Lovén
