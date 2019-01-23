@@ -143,9 +143,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 85
-current_patch_version: 1
-date_released: 2019-01-11
+current_minor_version: 86
+current_patch_version: 0
+date_released: 2019-01-23
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

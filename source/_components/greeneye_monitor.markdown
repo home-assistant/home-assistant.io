@@ -22,7 +22,7 @@ Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET"
 greeneye_monitor:
   port: 8000
   monitors:
-    - serial_number: YOUR_SERIAL_NUMBER
+    - serial_number: "YOUR_SERIAL_NUMBER"
       channels:
         - number: 1
           name: total_power
@@ -53,9 +53,9 @@ monitors:
   type: list
   keys:
     serial_number:
-      description: The last five digits (omitting leading zeroes) of your GEM serial number.
+      description: Your 8-digit GEM serial number, as it appears in the UI.
       required: true
-      type: integer
+      type: string
     channels:
       description: The list of channels that should appear in Home Assistant for this monitor. Data from other channels will be ignored.
       required: false

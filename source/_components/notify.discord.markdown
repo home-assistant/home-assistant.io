@@ -18,7 +18,7 @@ In order to get a token you need to go to the [Discord My Apps page](https://dis
 
 Retreive the **Client ID** from the information section and the (hidden) **Token** of your bot for later.
 
-When setting up the application you can use this [icon](/demo/favicon-192x192.png).
+When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
 To use Discord notifications, add the following to your `configuration.yaml` file:
 
@@ -79,7 +79,7 @@ This channel ID has to be used as the target when calling the notification servi
     "0987654321"
   ],
   "data": {
-    "images": [ 
+    "images": [
       "/tmp/garage_cam.jpg"
     ]
   }

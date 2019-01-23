@@ -52,6 +52,12 @@ name:
   required: false
   type: string
   default: REST Sensor
+device_class:
+  description: >
+    The [type/class](/components/sensor/) of
+    the sensor to set the icon in the frontend.
+  required: false
+  type: string
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
   required: false

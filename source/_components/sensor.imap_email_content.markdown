@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: smtp.png
 ha_category: Mailbox
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Push"
 ha_release: 0.25
 ---
 
@@ -28,6 +28,7 @@ sensor:
     port: 993
     username: USERNAME
     password: PASSWORD
+    folder: <Folder>
     senders:
       - example@gmail.com
 ```
@@ -53,6 +54,11 @@ username:
 password:
   description: Password for the IMAP server.
   required: true
+  type: string
+password:
+  description: Folder to get mails from.
+  required: false
+  default: INBOX
   type: string
 senders:
   description: A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.

@@ -72,6 +72,9 @@ devices:
           description: Monitor doorbell events.
         motion:
           description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app).
+        relay:
+          description: Monitor relay events. This event is fired even if a relay is not physically connected to the door station.  Can be used to lock/unlock any smart lock present in Home Assistant via the Doorbird app.
+
 {% endconfiguration %}
 
 The configuration above is also used by the following platforms:
@@ -99,11 +102,12 @@ doorbird:
       monitored_conditions:
         - doorbell
         - motion
+        - relay
 ```
 
-## {% linkable_title Motion and Doorbell Events %}
+## {% linkable_title Events %}
 
-Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Home Assistant log file.
+Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Available Events list on the Events developer view.
 
 <p class="note info">
 Home Assistant will register the monitored conditions with the device as schedule entries that correspond to favorites on startup. If you remove monitored conditions from your configuration, Home Assistant will attempt to remove these items from the device. However, in some cases, such as if the IP address of the machine running Home Assistant changes or if the device is renamed in your configuration, this will not work correctly and some data will be left in device storage.

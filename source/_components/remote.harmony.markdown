@@ -182,6 +182,24 @@ data:
   delay_secs: 0.6
 ```
 
+### {% linkable_title Service `remote.harmony_change_channel` %}
+
+Sends the change channel command to the Harmony HUB 
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Only act on a specific remote, else target all.
+| `channel`              |       no | Channel number to change to
+
+A typical service call for changing the channel would be::
+
+```yaml
+service: remote.change_channel
+data:
+  entity_id: remote.tv_room
+  channel: 200
+```
+
 ### {% linkable_title Service `remote.harmony_sync` %}
 
 Force synchronization between the Harmony device and the Harmony cloud.
