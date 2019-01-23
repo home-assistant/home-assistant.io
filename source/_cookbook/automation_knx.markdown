@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KNX automation and interaction with other systems"
-description: "General KNX setup and communication with other systems like Philips Hue."
+description: "General KNX set up and communication with other systems like the Philips Hue."
 date: 2019-01-20 22:00 +0100
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-This cookbook shows a general KNX setup and communication with other systems like the Philips Hue.
+This cookbook shows a general KNX set up and communication with other systems like the Philips Hue.
 
 ## {% linkable_title General KNX setup %}
 
