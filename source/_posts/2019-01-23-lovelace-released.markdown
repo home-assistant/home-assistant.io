@@ -30,6 +30,8 @@ In case you're reading this and want to give it a try right now: we've updated [
 
 For a deep dive into all the new features, check out the [latest episode of the Home Assistant podcast](https://hasspodcast.io), featuring an interview with [Zack Arnett][@zsarnett] from the Lovelace team.
 
+For an overview of all the different features, check out the [Lovelace documentation](/lovelace/).
+
 <sup>1</sup>: If you prefer YAML, Lovelace also includes a [YAML mode](/lovelace/yaml-mode/) that supports the use of `!include` and `!secret`.
 
 ## {% linkable_title History %}
