@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 To get AVM Fritzbox temperature sensor (e.g. FRITZ!DECT Repeater 100) follow the instructions for the [Fritzbox component](/components/fritzbox/).
 
-### {% linkable_title Attributes %}
+## {% linkable_title Attributes %}
 
 The are several attributes that can be useful for automations and templates.
 
