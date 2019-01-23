@@ -58,6 +58,12 @@ entity_id:
   description: The ID of the entity to watch.
   required: true
   type: string
+title:
+  description: >
+    A title to be used for the notification if the notifier supports it
+    with [template][template] support.
+  required: false
+  type: template
 state:
   description: The problem condition for the entity.
   required: false
@@ -98,6 +104,10 @@ notifiers:
   description: "List of `notification` components to use for alerts."
   required: true
   type: list
+data:
+  description: "Dictionary of extra parameters to send to the notifier."
+  required: false
+  type: list  
 {% endconfiguration %}
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched
@@ -253,5 +263,32 @@ alert:
 {% endraw %}
 
 The resulting title of the alert could be `Garage has been open for 30 min`.
+
+### {% linkable_title Additional parameters for notifiers  %}
+
+Some notifiers support more parameters (e.g., to set text color or action
+  buttons). These can be supplied via the `data` parameter:
+
+```yaml
+# Example configuration.yaml entry
+alert:
+  garage_door:
+    name: Garage is open
+    entity_id: input_boolean.garage_door
+    state: 'on'   # Optional, 'on' is the default value
+    repeat:
+      - 15
+      - 30
+      - 60
+    can_acknowledge: True  # Optional, default is True
+    skip_first: True  # Optional, false is the default
+    data:
+      inline_keyboard:
+        - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
+    notifiers:
+      - frank_telegram
+```
+This particular example relies on the `inline_keyboard` functionality of
+Telegram, where the user is presented with buttons to execute certain actions.
 
 [template]: /docs/configuration/templating/
