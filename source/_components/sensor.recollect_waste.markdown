@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `Recollect Waste` platform allows you to track the next scheduled waste pickup and what type of waste from [Recollect](https://recollect.net/solutions/waste/). To use this sensor your city's waste company must be Recollect and you will need to find your place_id and service_id.
 
-1. In Chrome open developer tools and go to network tab.
+1. In Chrome open developer tools and go to the network tab.
 2. Go to your city's Recollect collection calendar.
 3. Search for and select your address in the UI.
 4. Watch for a request that looks like
@@ -37,22 +37,25 @@ sensor:
 ```
 
 Configuration options for the Recollect Waste Sensor:
-
-- **place_id** (*Required*): The place_id used for your neighbourhood.
-- **service_id** (*Required*): The service_id used for your city.
-- **name** (*Optional*): Name the sensor.
-- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 1 day. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
-  - Time period dictionary, e.g.:
-    <pre>update_interval:
-        # At least one of these must be specified:
-        days: 0
-        hours: 0
-        minutes: 3
-        seconds: 30
-        milliseconds: 0
-    </pre>
+{% configuration %}
+place_id:
+  description: The place_id used for your neighbourhood.
+  required: true
+  type: string
+service_id:
+  description: The service_id used for your city.
+  required: true
+  type: string
+name:
+  description: Name the sensor.
+  required: false
+  type: string
+scan_interval:
+  description: Time interval between updates. Minimum time interval between updates. Supported formats: `'HH:MM:SS'`, `'HH:MM'`.
+  default: 24:00:00
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class='note warning'>
 The Recollect Waste sensor uses the Recollect API <strong>URL</strong> to obtain data not an official API from Recollect. Use at your own risk.
