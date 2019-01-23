@@ -50,6 +50,7 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 - Add support for HomeKit Controller Locks ([@adrum] - [#19867]) ([homekit_controller docs]) ([lock.homekit_controller docs]) (new-platform)
 - Add support for HomeKit Controller covers ([@adrum] - [#19866]) ([homekit_controller docs]) ([cover.homekit_controller docs]) (new-platform)
 - Add Roku hub and remote ([@soberstadt] - [#17548]) ([roku docs]) ([media_player.roku docs]) ([remote.roku docs]) (breaking change) (new-platform)
+- Add emulated_roku component ([@mindigmarton] - [#17596]) ([emulated_roku docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -79,6 +80,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - The locative device_tracker platform no longer takes any configuration. The configuration needs to be applied to the component locative instead. The platform will be automatically loaded with the component and should not be specified in configuration.yaml. Each instance of Home Assistant will now generate it's own unique webhook url for Locative to use. One will need to be generated and provided to the mobile app to replace the existing url: https://myhome.duckdns.org/api/locative?api_password=HA_PASSWORD. Home Assistant only supports using POST (no longer GET) for Locative. ([@rohankapoorcom] - [#19964] - [#20043]) ([device_tracker docs]) ([locative docs]) (breaking change)
 - Sensibo to adhere to the operation mode states in HA climate component. ([@balloob] - [#20180]) ([climate.sensibo docs]) (breaking change) (beta fix)
 - Any registered entity that started/ended with an underscore (will be removed) or had 2 subsequent underscores (1 will be removed) will be updated. ([@balloob] - [#20328]) (breaking change) (beta fix)
+- The SMA sensor can monitor several new sensors. Unfortunately some of the existing sensors were renamed:
+`current_power` is now `grid_power` and `grid_voltage` is now `voltage_l1` (the voltage from all three phases are available). The sensors also support the entity registry, making editing their names a breeze from the frontend. ([@kellerza] - [#19753]) ([sensor.sma docs])
 
 ## {% linkable_title Beta Fixes %}
 
