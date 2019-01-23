@@ -58,6 +58,6 @@ An example on how to use it in an automation:
 action:
   service: notify.NAME_OF_NOTIFIER_GROUP
   data:
-    message: "{% raw %}The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
+    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
 {% endraw %}
