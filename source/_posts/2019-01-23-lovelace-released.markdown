@@ -28,7 +28,7 @@ Today we're happy to announce that our new Lovelace UI, which has been in beta f
 
 In case you're reading this and want to give it a try right now: we've updated [the Home Assistant demo](https://demo.home-assistant.io). It now features multiple Lovelace configuration examples. The demo is fully interactive, including the configuration UI (accessible via the menu in the top right). You can also access it by updating to Home Assistant 0.86.
 
-For a deep dive into all the new features, check out the [latest episode of the Home Assistant podcast](https://hasspodcast.io/ha042), featuring an interview with [Zack Arnett][@zsarnett] from the Lovelace team.
+For a deep dive into all the new features, check out the [latest episode of the Home Assistant podcast](https://hasspodcast.io), featuring an interview with [Zack Arnett][@zsarnett] from the Lovelace team.
 
 <sup>1</sup>: If you prefer YAML, Lovelace also includes a [YAML mode](/lovelace/yaml-mode/) that supports the use of `!include` and `!secret`.
 
@@ -66,6 +66,10 @@ Lovelace UI has been 8 months in the making and it has been a big undertaking. W
  - [@zsarnett] / Zack Arnett
 
 I also want to thank the community for adopting this so eagerly, building a ton of helpful tooling and examples and helping one another to create beautiful UIs for their homes.
+
+## {% linkable_title Old UI %}
+
+The transition to Lovelace should be painless for most users. If you are encountering issues, please [let us know](https://github.com/home-assistant/home-assistant-polymer/issues). For the time being, you will be able to still change back to the old user interface on a per-device basis by going to the info developer tool and following the instructions.
 
 [@andrey-git]: https://github.com/andrey-git
 [@balloob]: https://github.com/balloob
