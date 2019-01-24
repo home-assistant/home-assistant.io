@@ -29,7 +29,7 @@ and automation part to your `configuration.yaml` file.
 automation:
   - alias: Send message at a given time
     trigger:
-      platform: time
+      platform: time_pattern
       hours: 12
       minutes: 15
       seconds: 0
