@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: ebusd.png
-ha_category: Ebusd
+ha_category: Hub
 ha_iot_class: "Local Polling"
 ha_release: "0.85"
 ---
