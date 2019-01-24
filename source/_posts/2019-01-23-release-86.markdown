@@ -52,6 +52,26 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 - Add Roku hub and remote ([@soberstadt] - [#17548]) ([roku docs]) ([media_player.roku docs]) ([remote.roku docs]) (breaking change) (new-platform)
 - Add emulated_roku component ([@mindigmarton] - [#17596]) ([emulated_roku docs])
 
+## {% linkable_title Release 0.86.1 - January 23 %}
+
+- Hotfix for blink initialization failure. Fixes #20335 ([@fronzbot] - [#20351]) ([blink docs])
+- [FIX] Time reporting incorrect in sensor.gtt ([@eliseomartelli] - [#20362]) ([sensor.gtt docs])
+- Fix error when API doesn't return a forecast. ([@dgomes] - [#20365])
+- Fix restore state crashing invalid entity ID ([@balloob] - [#20367])
+- Calling save before load would crash Lovelace storage ([@balloob] - [#20368])
+
+[#20351]: https://github.com/home-assistant/home-assistant/pull/20351
+[#20362]: https://github.com/home-assistant/home-assistant/pull/20362
+[#20365]: https://github.com/home-assistant/home-assistant/pull/20365
+[#20367]: https://github.com/home-assistant/home-assistant/pull/20367
+[#20368]: https://github.com/home-assistant/home-assistant/pull/20368
+[@balloob]: https://github.com/balloob
+[@dgomes]: https://github.com/dgomes
+[@eliseomartelli]: https://github.com/eliseomartelli
+[@fronzbot]: https://github.com/fronzbot
+[blink docs]: /components/blink/
+[sensor.gtt docs]: /components/sensor.gtt/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
