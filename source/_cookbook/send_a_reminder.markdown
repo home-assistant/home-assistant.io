@@ -29,7 +29,7 @@ and automation part to your `configuration.yaml` file.
 automation:
   - alias: Send message at a given time
     trigger:
-      platform: time_pattern
+      platform: time
       at: '12:15:00'
     action:
       service: notify.jabber
