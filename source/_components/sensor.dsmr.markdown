@@ -129,6 +129,12 @@ and after that you need to reboot!
 $ sudo reboot
 ```
 
+Docker users have to allow Docker access to the device by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
+
+```
+$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+```
+
 ### {% linkable_title Technical overview %}
 
 DSMR is a standard to which Dutch smartmeters must comply. It specifies that the smartmeter must send out a 'telegram' every 10 seconds (every second for DSMR 5.0 devices) over a serial port.
