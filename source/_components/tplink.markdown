@@ -96,3 +96,37 @@ tplink:
     - host: 192.168.200.3
     - host: 192.168.200.4
 ```
+
+## {% linkable_title Extracting Energy Sensor data %}
+
+In order to get the power consumption readings from supported devices, you'll have to create a [template sensor](/components/switch.template/).
+In the example below, change all of the `my_tp_switch`'s to match your device's entity ID.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      my_tp_switch_amps:
+        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Current"
+        value_template: '{{ states.switch.my_tp_switch.attributes["current_a"] | float }}'
+        unit_of_measurement: 'A'
+      my_tp_switch_watts:
+        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Current Consumption"
+        value_template: '{{ states.switch.my_tp_switch.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      my_tp_switch_total_kwh:
+        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Total Consumption"
+        value_template: '{{ states.switch.my_tp_switch.attributes["total_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      my_tp_switch_volts:
+        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Voltage"
+        value_template: '{{ states.switch.my_tp_switch.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+      my_tp_switch_today_kwh:
+        friendly_name_template: "{{ states.switch.my_tp_switch.name}} Today's Consumption"
+        value_template: '{{ states.switch.my_tp_switch.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+```
+{% endraw %}
+
