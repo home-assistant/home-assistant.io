@@ -119,14 +119,20 @@ or
 
 [HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
 
-```
+```bash
 $ sudo usermod -a -G dialout homeassistant
 ```
 
 and after that you need to reboot!
 
-```
+```bash
 $ sudo reboot
+```
+
+Docker users have to allow Docker access to the device by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
+
+```hass
+$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
 ### {% linkable_title Technical overview %}

@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Local Push"
 ---
 
-
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
 ## {% linkable_title Configuration %}

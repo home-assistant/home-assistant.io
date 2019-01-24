@@ -12,9 +12,20 @@ redirect_from: /components/lovelace/
 
 Lovelace is the name of the Home Assistant user interface. It is a fast, customizable and powerful way for users to manage their homes, working both on mobile and desktop.
 
-Lovelace is not the default UI just yet, but we're really close. Once you are ready to start using Lovelace UI as your main user interface, click on info, the "i" icon under 'Developer Tools" in the Home Assistant side-bar. Next, locate >>Set Lovelace as default page on this device<< under the Home Assistant version information and click it.
+ - [24 cards](https://www.home-assistant.io/lovelace/alarm-panel/) to place and configure as you like.
+ - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
+ - Fast. Using a static config allows us to build up the UI once.
+ - Customizable.
+   - Cards have numerous options to configure how your data is presented.
+   - Themes; even at a per card basis.
+   - Ability to override names and icons of entities.
+   - Custom Cards from our amazing community are fully supported.
 
-Note that this is a per-device setting and will need to be changed on each device you access the UI from.
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XY3R0xI45wA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
 ## {% linkable_title Discuss Lovelace %}
 

@@ -31,4 +31,3 @@ switch:
     required: true
     type: string
 {% endconfiguration %}
-
