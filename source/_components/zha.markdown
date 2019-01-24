@@ -50,7 +50,7 @@ zha:
 
 {% configuration %}
 radio_type:
-  description: One of `ezsp` or `xbee`.
+  description: One of `ezsp`, `xbee` or `deconz`.
   required: false
   type: string
   default: ezsp
