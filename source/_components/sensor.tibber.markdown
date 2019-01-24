@@ -33,7 +33,6 @@ The electricity price can be used to make automations. The sensor has a `max_pri
   trigger:
     platform: time_pattern
   # Matches every hour at 1 minutes past whole
-    hours: '*'
     minutes: 1
   condition:
     condition: template
