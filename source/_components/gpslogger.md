@@ -49,17 +49,23 @@ Right after enabling, the app will take you to the **Log to custom URL** setting
 The relevant endpoint starts with: `/api/webhook/` and ends with a unique sequence of characters. This is provided by the integrations panel in the configuration screen (configured above).
 
 ```text
-https://YOUR.DNS.HOSTNAME:PORT/api/webook/WEBHOOK_ID?latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
+https://YOUR.DNS.HOSTNAME:PORT/api/webook/WEBHOOK_ID
 ```
 
-Add the above URL after you modified it with your settings into the **URL** field. Remove the line breaks as they are only there to make the URL readable here.
-
-- Make sure to check the `Use POST method` checkbox.
+- Add the above URL (updating YOUR.DNS.HOSTNAME:PORT to your details) into the **URL** field.
 - It's HIGHLY recommended to use SSL/TLS.
 - Use the domain that Home Assistant is available on the internet (or the public IP address if you have a static IP address). This can be a local IP address if you are using an always on VPN from your mobile device to your home network.
 - Only remove `PORT` if your Home Assistant instance is using port 443. Otherwise set it to the port you're using.
-- For Home Assistant only the above URL, as written, will work - do not add, remove, or change the order of any of the parameters.
+- Add the following to **HTTP Body**
+```text
+latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
+```
 - You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`.
+- Check that the **HTTP Headers** setting contains
+```text
+Content-Type: application/x-www-form-urlencoded
+```
+- Make sure that **HTTP Method** is changed to `POST`
 
 If your battery drains too fast then you can tune the performance of GPSLogger under **Performance** -> **Location providers**
 
