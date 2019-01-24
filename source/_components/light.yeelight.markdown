@@ -76,6 +76,30 @@ devices:
           description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
+custom_effects:
+  description: List of custom effects to add. Check examples below.
+  required: false
+  type: array
+  keys:
+    name:
+      description: Name of effect.
+      required: true
+      type: string
+    flow_params:
+       description: Flow params for effect.
+       required: true
+       type: map
+       keys:
+         count:
+           description: The number of times to run this flow (0 to run forever).
+           required: false
+           type: integer
+           default: 0
+         transitions:
+           description: List of transitions, for that effect, check [example](#custom-effects).
+           required: true
+           type: array
+
 {% endconfiguration %}
 
 #### {% linkable_title Music mode  %}
@@ -122,8 +146,19 @@ Set an operation mode.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific yeelight. Else targets all.                                          |
+| `entity_id`               |       no | Only act on a specific lights.                                                              |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
+
+
+### {% linkable_title Service `light.yeelight_start_flow` %}
+
+Start flow with specified transitions
+
+| Service data attribute    | Optional | Description                                                                                 |
+|---------------------------|----------|---------------------------------------------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific lights.                                                              |
+| `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
+| `transitions`             |       no | Array of transitions. See [examples below](#custom-effects).                                |
 
 ## {% linkable_title Examples %}
 
@@ -157,4 +192,30 @@ light:
         name: Living Room
       192.168.1.13:
         name: Front Door
+```
+
+### {% linkable_title Custom effects %}
+
+This example shows how you can add your custom effects in your configuration.
+
+Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
+
+
+More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
+
+
+```yaml
+light:
+  - platform: yeelight
+    devices:
+      192.168.1.25:
+        name: Living Room
+    custom_effects:
+      - name: 'Fire Flicker'
+        flow_params:
+          count: 0
+          transitions:
+            - TemperatureTransition: [1900, 1000, 80]
+            - TemperatureTransition: [1900, 2000, 60]
+            - SleepTransition:       [1000]
 ```
