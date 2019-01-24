@@ -50,8 +50,9 @@ Support for these components is provided by the Home Assistant community.
       <a href='#version/{{ added_two_ago_version }}' class="btn added_two_versions_ago">Added in {{ added_two_ago_version }} ({{ two_ago_version_components_count }})</a>
 
 {%- for category in categories -%}
-  {%- if category and category != 'Other' -%}
-    <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components | where: 'ha_category', category | size }})</a>
+  {%- assign components_count = components | where: 'ha_category', category | size -%}
+  {%- if category and category != 'Other' and components_count != 0 -%}
+    <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components_count }})</a>
   {%- endif -%}
 {%- endfor -%}
 
