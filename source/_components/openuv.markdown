@@ -141,7 +141,7 @@ usage is to only retrieve data during the daytime:
 automation:
   - alias: Update OpenUV every 30 minutes during the daytime
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: "/30"
       seconds: 00
     condition:
@@ -163,7 +163,7 @@ etc.) might be to simply query the API less often:
 automation:
   - alias: Update OpenUV every hour (24 of 50 calls per day)
     trigger:
-      platform: time
+      platform: time_pattern
       minutes: "/60"
       seconds: 00
     action:
