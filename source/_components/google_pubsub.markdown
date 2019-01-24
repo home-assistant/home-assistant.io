@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: google-pubsub.png
 ha_category: Component
-ha_release: 0.86
+ha_release: 0.87
 ---
 
 The `google_pubsub` component allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).
