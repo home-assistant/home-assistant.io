@@ -17,11 +17,11 @@ regenerate: false
 {%- assign tot = 0 -%}
 {%- for comp in site.components -%}
   {%- if comp.ha_category -%}
-    {% if comp.ha_category.first %}
+    {%- if comp.ha_category.first -%}
       {%- assign tot = tot | plus: comp.ha_category.size -%}
-    {% else %}
+    {%- else -%}
       {%- assign tot = tot | plus: 1 -%}
-    {% endif %}
+    {%- endif -%}
   {%- endif %}
 {%- endfor -%}
 
