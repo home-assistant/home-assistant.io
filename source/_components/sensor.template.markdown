@@ -286,9 +286,8 @@ sensor:
 automation:
   - alias: 'nonsmoker_update'
     trigger:
-      - platform: time
+      - platform: time_pattern
         minutes: '/5'
-        seconds: 0
     action:
       - service: homeassistant.update_entity
         entity_id: sensor.nonsmoker
