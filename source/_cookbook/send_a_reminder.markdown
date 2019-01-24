@@ -30,9 +30,7 @@ automation:
   - alias: Send message at a given time
     trigger:
       platform: time
-      hours: 12
-      minutes: 15
-      seconds: 0
+      at: '12:15:00'
     action:
       service: notify.jabber
       data:
