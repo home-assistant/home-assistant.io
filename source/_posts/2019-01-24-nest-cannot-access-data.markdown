@@ -10,7 +10,7 @@ comments: true
 categories: Public-Service-Announcement
 ---
 
-Some sad news for users with a Nest product: Nest is no longer accepting new developer accounts. This means that if you bought a Nest thermostat, you are no longer able access YOUR data.
+Some sad news for users with a Nest product: Nest is no longer accepting new developer accounts. This means that if you bought a Nest thermostat, you are no longer able to access YOUR data.
 
 New Home Assistant users will not be able to integrate their Nest products. Home Assistant users that have already integrated Home Assistant with Nest are not affected.
 
