@@ -29,6 +29,10 @@ notify:
     name: NOTIFIER_NAME
     gcm_api_key: YOUR_API_KEY
     gcm_sender_id: YOUR_SENDER_ID
+    #or
+    vapid_pub_key: YOUR_PUBLIC_KEY
+    vapid_prv_key: YOUR_PRIVATE_KEY
+    vapid_email: YOUR_EMAIL
 ```
 
 {% configuration %}
@@ -54,7 +58,9 @@ gcm_sender_id:
 3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [instructions](#verify-your-domain).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project and select the project you created.
 5. Then, click the cogwheel on top left and select "Project settings".
-6. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component.
+6. Select 'Cloud Messaging' tab
+7a. If using GCM: Listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component.
+7b. If using VAPID: Generate a new key pair under the Web configuration listing at the bottom of the page. To view the private key click the three dots to the right and 'Show private key'. 
 
 #### {% linkable_title Verify your domain %}
 
