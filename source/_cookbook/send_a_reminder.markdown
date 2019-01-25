@@ -36,5 +36,3 @@ automation:
       data:
         message: 'Time for lunch'
 ```
-
-
