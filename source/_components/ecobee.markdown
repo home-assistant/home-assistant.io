@@ -25,9 +25,9 @@ redirect_from:
   - /components/weather.ecobee/
 ---
 
-## {% linkable_title Component %}
-
 The `ecobee` component lets you control a thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats.
+
+## {% linkable_title Configuration %}
 
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this component. To get the key, first you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that perform the following steps. 
 
@@ -83,7 +83,7 @@ hold_temp:
 
 If for whatever reason you delete and re-create your ecobee app at ecobee.com such that your developer API key changes, you will need to delete your `/conf/ecobee.conf file`. You will also need to update the `api_key:` in the `configuration.yaml` or `secrets.yaml` file.
 
-## {% linkable_title Notify %}
+## {% linkable_title Notifications %}
 
 To get your Ecobee notifications working with Home Assistant, you must first have the main Ecobee component loaded and running. Once you have that configured, you can setup this component to send messages to your Ecobee device.
 
