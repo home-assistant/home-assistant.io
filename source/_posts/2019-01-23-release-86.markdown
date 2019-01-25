@@ -72,6 +72,17 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [blink docs]: /components/blink/
 [sensor.gtt docs]: /components/sensor.gtt/
 
+## {% linkable_title Release 0.86.2 - January 24 %}
+
+- Philips Hue - Remove unnessesary warning ([@starkillerOG] - [#20394]) ([hue docs])
+- history allowed to load states with invalid entity IDs ([@balloob] - [#20399])
+
+[#20394]: https://github.com/home-assistant/home-assistant/pull/20394
+[#20399]: https://github.com/home-assistant/home-assistant/pull/20399
+[@balloob]: https://github.com/balloob
+[@starkillerOG]: https://github.com/starkillerOG
+[hue docs]: /components/hue/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
