@@ -40,7 +40,13 @@ The Zigbee team is also planning a bunch of cool things for 2019. Direct device 
 
 This release also includes two noteworthy breaking changes. One is a follow-up on the slugify breaking change from last release. We did not update the validation check for config options that need to be valid slugs. This means that some of your config values might be invalid. Keep an eye at the console as we have a new message to tell you which ones are wrong.
 
-This issue also impacts the entity registry, which could contain in some rare cases invalid entity IDs. Expect entity IDs to change if they contained a double underscore (which becomes 1) or if they started/ended in an underscore (which will be removed).
+The following things are not allowed in entity IDs:
+
+ - No capital letters
+ - No leading or ending underscores
+ - No double underscores
+
+This issue also impacts the entity registry, which could contain in some cases invalid entity IDs. Expect entity IDs to change if they contained a double underscore (which becomes 1) or if they started/ended in an underscore (which will be removed).
 
 Another noteworthy breaking change (sorry!), is that the automation `time` trigger has been split into two: `time` and `time_pattern`. If you had a time trigger containing the keys `hours`, `minutes` or `seconds`, update the platform from `time` to `time_pattern`.
 
