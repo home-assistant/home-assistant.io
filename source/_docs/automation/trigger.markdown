@@ -261,7 +261,7 @@ When your want your automation rule to have multiple triggers, just prefix the f
 automation:
   trigger:
       # first trigger
-    - platform: time
+    - platform: time_pattern
       minutes: 5
       seconds: 00
       # our second trigger is the sunset
