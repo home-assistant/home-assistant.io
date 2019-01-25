@@ -46,7 +46,7 @@ automation:
 
 ### {% linkable_title MQTT trigger %}
 
-Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
+Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
 
 ```yaml
 automation:
@@ -55,6 +55,7 @@ automation:
     topic: living_room/switch/ac
     # Optional
     payload: 'on'
+    encoding: 'utf-8'
 ```
 
 ### {% linkable_title Numeric state trigger %}
