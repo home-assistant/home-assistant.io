@@ -38,6 +38,8 @@ The Zigbee team is also planning a bunch of cool things for 2019. Direct device 
 
 ## {% linkable_title Noteworthy breaking changes %}
 
+Update: the entity ID one was too harsh, it's not a warning.
+
 This release also includes two noteworthy breaking changes. One is a follow-up on the slugify breaking change from last release. We did not update the validation check for config options that need to be valid slugs. This means that some of your config values might be invalid. Keep an eye at the console as we have a new message to tell you which ones are wrong.
 
 The following things are not allowed in entity IDs:
@@ -85,6 +87,17 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 
 [#20394]: https://github.com/home-assistant/home-assistant/pull/20394
 [#20399]: https://github.com/home-assistant/home-assistant/pull/20399
+[@balloob]: https://github.com/balloob
+[@starkillerOG]: https://github.com/starkillerOG
+[hue docs]: /components/hue/
+
+## {% linkable_title Release 0.86.3 - January 26 %}
+
+- Philips Hue, include debug message for color gamut ([@starkillerOG] - [#20455]) ([hue docs])
+- Warn instead of break for old slugs/entity ids ([@balloob] - [#20478])
+
+[#20455]: https://github.com/home-assistant/home-assistant/pull/20455
+[#20478]: https://github.com/home-assistant/home-assistant/pull/20478
 [@balloob]: https://github.com/balloob
 [@starkillerOG]: https://github.com/starkillerOG
 [hue docs]: /components/hue/
