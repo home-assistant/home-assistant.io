@@ -33,7 +33,7 @@ sensor:
     token: YOUR_CO2SIGNAL_API_KEY
 ```
 
-By default, the sensor will use your Home Assistant longitude and lattitude. More detailed configurations to overwrite this can be found below.
+By default, the sensor will use your Home Assistant longitude and latitude. More detailed configurations to overwrite this can be found below.
 
 {% configuration %}
 token:
