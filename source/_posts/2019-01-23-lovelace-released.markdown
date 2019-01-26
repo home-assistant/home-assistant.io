@@ -32,7 +32,7 @@ For a deep dive into all the new features, check out the [latest episode of the 
 
 For an overview of all the different features, check out the [Lovelace documentation](/lovelace/).
 
-<sup>1</sup>: If you prefer YAML, Lovelace also includes a [YAML mode](/lovelace/yaml-mode/) that supports the use of `!include` and `!secret`.
+<sup>1</sup>: If you prefer to write your Lovelace config in YAML, Lovelace also includes an optional [YAML mode](/lovelace/yaml-mode/).
 
 ## {% linkable_title Migrating to Lovelace %}
 
