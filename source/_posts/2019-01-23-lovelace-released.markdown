@@ -34,6 +34,10 @@ For an overview of all the different features, check out the [Lovelace documenta
 
 <sup>1</sup>: If you prefer YAML, Lovelace also includes a [YAML mode](/lovelace/yaml-mode/) that supports the use of `!include` and `!secret`.
 
+## {% linkable_title Migrating to Lovelace %}
+
+You have to do… nothing! If not configured, Lovelace will use the same algorithm to built-up the UI as the old UI did.
+
 ## {% linkable_title History %}
 
 With Lovelace we've built a foundation that not only provides a lean and sleek interface, but will also allow us to add many new exciting features in the future. The main difference with the old UI is that we no longer store any UI concerns in the state machine.
