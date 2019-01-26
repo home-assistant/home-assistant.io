@@ -32,6 +32,8 @@ For a deep dive into all the new features, check out the [latest episode of the 
 
 For an overview of all the different features, check out the [Lovelace documentation](/lovelace/).
 
+If you've not used Lovelace before, then a new default configuration will be generated, based off of your existing configuration. Don't remove any groups until after you've transitioned.
+
 <sup>1</sup>: If you prefer YAML, Lovelace also includes a [YAML mode](/lovelace/yaml-mode/) that supports the use of `!include` and `!secret`.
 
 ## {% linkable_title History %}
