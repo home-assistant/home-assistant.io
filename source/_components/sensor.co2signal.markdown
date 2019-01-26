@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: co2signal.png
-ha_category: Health
-ha_release: 0.85
+ha_category: Environment
+ha_release: 0.87
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -38,21 +38,21 @@ By default, the sensor will use your Home Assistant longitude and lattitude. Mor
 {% configuration %}
 token:
   description: Your CO2Signal API key.
-  required: required
+  required: true
   type: string
 latitude:
   description: The latitude of the location to monitor.
-  required: optional
+  required: false
   type: string
   default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
 longitude:
   description: The longitude of the location to monitor.
-  required: optional
+  required: false
   type: string
   default: "The longitude defined under the `homeassistant` key in `configuration.yaml`."
 country_code:
   description: The country code or region code.
-  required: optional
+  required: false
   type: string
 {% endconfiguration %}
 
