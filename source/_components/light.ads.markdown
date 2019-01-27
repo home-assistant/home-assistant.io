@@ -37,6 +37,10 @@ light:
     type: integer
   name:
     required: false
+    description: Defines the entity ID of the Light. If no Friendly Name given, it is also used as an identifier for the Light in the frontend
+    type: string
+  friendly_name:
+    required: false
     description: An identifier for the Light in the frontend
     type: string
 {% endconfiguration %}
