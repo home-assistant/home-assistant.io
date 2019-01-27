@@ -8,13 +8,39 @@ comments: false
 sharing: true
 footer: true
 logo: universal_devices.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Cover
+  - Fan
+  - Light
+  - Lock
+  - Sensor
+  - Switch
 ha_release: 0.28
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/binary_sensor.isy994/
+  - /components/cover.isy994/
+  - /components/fan.isy994/
+  - /components/light.isy994/
+  - /components/lock.isy994/
+  - /components/sensor.isy994/
+  - /components/switch.isy994/
 ---
 
 The ISY994 is a home automation controller that is capable of controlling Insteon and X10 devices. Some models of the ISY994 can even control Z-Wave devices.
 The ISY994 controller is manufactured by [Universal Devices](https://www.universal-devices.com/residential/isy994i-series/).
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Cover
+- Light
+- Fan
+- Lock
+- Sensor
+- Switch
 
 ### {% linkable_title Basic Configuration %}
 
