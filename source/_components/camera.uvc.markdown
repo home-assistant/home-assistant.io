@@ -34,7 +34,7 @@ camera:
   - platform: uvc
     nvr: IP_ADDRESS
     key: API_KEY
-    ssl: USE_SSL
+    ssl: true
 ```
 
 {% configuration %}
