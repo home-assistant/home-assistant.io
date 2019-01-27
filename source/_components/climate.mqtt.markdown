@@ -212,7 +212,7 @@ temp_step:
   required: false
   default: 1
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Example used can be found in [MQTT sensor](/docs/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/docs/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
 device:
