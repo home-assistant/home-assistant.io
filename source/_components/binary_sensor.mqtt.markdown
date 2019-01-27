@@ -69,8 +69,8 @@ payload_not_available:
   type: string
   default: offline
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes.
-  reqired: false
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
   type: string
 qos:
   description: The maximum QoS level to be used when receiving messages.
