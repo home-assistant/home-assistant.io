@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: lightwave.png
 ha_category:
+  - Hub
   - Light
   - Switch
 ha_release: 0.84
