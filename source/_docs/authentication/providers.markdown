@@ -85,10 +85,9 @@ http:
 
 ### {% linkable_title Command Line %}
 
-The Command Line auth provider executes a configurable shell command to
-perform user authentication. Two environment variables, `username`
-and `password`, are passed to the command. Access is granted when
-the command exits successfully (with exit code 0).
+The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
+
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance.
 
 Here is a configuration example:
 
@@ -103,10 +102,7 @@ homeassistant:
       #meta: true
 ```
 
-When `meta: true` is set in the auth provider's configuration, your
-command can write some variables to standard output to populate the user
-account created in Home Assistant with additional data. These variables
-have to be printed in the form:
+When `meta: true` is set in the auth provider's configuration, your command can write some variables to standard output to populate the user account created in Home Assistant with additional data. These variables have to be printed in the form:
 
 ```
 name = John Doe
