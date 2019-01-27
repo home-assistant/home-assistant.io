@@ -8,10 +8,20 @@ comments: false
 sharing: true
 footer: true
 logo: lutron.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Cover
+  - Light
+  - Scene
+  - Switch
 featured: false
 ha_release: 0.37
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/cover.lutron/
+  - /components/light.lutron/
+  - /components/scene.lutron/
+  - /components/switch.lutron/
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` component in Home Assistant is responsible for communicating with the main hub for these systems.
@@ -50,3 +60,10 @@ password:
 <p class='note'>
 It is recommended to assign a static IP address to your main repeater. This ensures that it won't change IP addresses, so you won't have to change the `host` if it reboots and comes up with a different IP address.
 </p>
+
+## {% linkable_title Scene %}
+
+This component uses keypad programming to identify scenes.  Currently, it only works with SeeTouch keypads.
+The Lutron scene platform allows you to control scenes programmed into your SeeTouch keypads.
+
+After setup, scenes will appear in Home Assistant using the area, keypad, and button name.
