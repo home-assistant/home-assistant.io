@@ -208,8 +208,9 @@ automation 3:
     minutes: '/5'
 ```
 
-As mentioned in the Sun trigger section, sunrise is a different day than any time prior to midnight.  If you want to trigger an action with a large enough amount of time before sunrise that it precedes midnight, this must be accounted for properly.  One way is to convert the sunrise time to a timestamp (seconds since 1 Jan 1970). Then do the same for the offset desired (in seconds). This is done with the _as_timestamp_ method explained in the [Templating - Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) section.
-
+<p class='note warning'>
+  Do not prefix numbers with a zero - using `'00'` instead of '0' for example will result in errors.
+</p>
 
 ### {% linkable_title Webhook trigger %}
 
