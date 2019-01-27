@@ -10,10 +10,12 @@ footer: true
 ha_category: Communication
 logo: iliad.png
 ha_iot_class: "Cloud Polling"
-ha_release: 0.85
+ha_release: 0.87
 ---
 
-The `iliad_italy` sensor will give you the data from Iliad Italy's website inside Home Assistant.
+The `iliad_italy` sensor will give you the data from [Iliad Italy's](https://www.iliad.it/) website inside Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
