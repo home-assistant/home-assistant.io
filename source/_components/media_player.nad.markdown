@@ -28,7 +28,7 @@ media_player:
 media_player:
   - platform: nad
     type: TCP
-    host: 192.168.0.10
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
