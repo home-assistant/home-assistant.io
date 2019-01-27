@@ -39,6 +39,7 @@ light:
     required: false
     description: An identifier for the Light. If no friendly name is given, it is also used as name in the frontend
     type: string
+    default: ADS Light
   friendly_name:
     required: false
     description: Friendly name of the Light in the frontend
