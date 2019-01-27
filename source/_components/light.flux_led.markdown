@@ -67,7 +67,7 @@ devices:
 {% endconfiguration %}
 
 <p class='note'>
-Depending on your controller or bulb type, there are two ways to configure brightness. 
+Depending on your controller or bulb type, there are two ways to configure brightness.
 The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
 </p>
 
@@ -98,7 +98,7 @@ light:
 automation:
   alias: random_flux_living_room_lamp
   trigger:
-    platform: time
+    platform: time_pattern
     seconds: '/45'
   action:
     service: light.turn_on

@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/automation-trigger/
 ---
 
-Triggers are what starts the processing of an automation rule. It is possible to specify multiple triggers for the same rule - when _any_ of the triggers becomes true then the automation will start. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
+Triggers are what starts the processing of an automation rule. It is possible to specify [multiple triggers](/docs/automation/trigger/#multiple-triggers) for the same rule - when _any_ of the triggers becomes true then the automation will start. Once a trigger starts, Home Assistant will validate the conditions, if any, and call the action.
 
 ### {% linkable_title Event trigger %}
 
@@ -209,8 +209,9 @@ automation 3:
     minutes: '/5'
 ```
 
-As mentioned in the Sun trigger section, sunrise is a different day than any time prior to midnight.  If you want to trigger an action with a large enough amount of time before sunrise that it precedes midnight, this must be accounted for properly.  One way is to convert the sunrise time to a timestamp (seconds since 1 Jan 1970). Then do the same for the offset desired (in seconds). This is done with the _as_timestamp_ method explained in the [Templating - Home Assistant template extensions](/docs/configuration/templating/#home-assistant-template-extensions) section.
-
+<p class='note warning'>
+  Do not prefix numbers with a zero - using `'00'` instead of '0' for example will result in errors.
+</p>
 
 ### {% linkable_title Webhook trigger %}
 
@@ -262,9 +263,8 @@ When your want your automation rule to have multiple triggers, just prefix the f
 automation:
   trigger:
       # first trigger
-    - platform: time
+    - platform: time_pattern
       minutes: 5
-      seconds: 00
       # our second trigger is the sunset
     - platform: sun
       event: sunset

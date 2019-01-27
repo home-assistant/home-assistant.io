@@ -29,7 +29,8 @@ To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
 ## {% linkable_title Discuss Lovelace %}
 
-Lovelace is still under development and we're always looking at making things better. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema) and in the [chat](/join-chat/) in #lovelace.
+- Suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema)
+- For help with Lovelace, join the #lovelace channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
 
 ## {% linkable_title Additional Lovelace Resources %}
 

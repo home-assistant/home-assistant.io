@@ -8,15 +8,25 @@ comments: false
 sharing: true
 footer: true
 logo: lutron.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Cover
+  - Light
+  - Scene
+  - Switch
 featured: false
 ha_release: 0.37
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/cover.lutron/
+  - /components/light.lutron/
+  - /components/scene.lutron/
+  - /components/switch.lutron/
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` component in Home Assistant is responsible for communicating with the main hub for these systems.
 
-Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches and dimmers.
+Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches, dimmers, and seeTouch keypad scenes.
 
 ## {% linkable_title Configuration %}
 
@@ -62,3 +72,11 @@ The `action` attribute varies depending on the button type.
 For raise/lower buttons (dimmer buttons, shade controls, etc.) there will be two values, `pressed` and `released`, fired when the button is pressed and when it's released, respectively.
 
 For single-action buttons (scene selection, etc.), `action` will be `single`, and there will only be one event fired. This is a limitation of the Lutron controller which doesn't give Home Assistant any way of knowing when a single-action button is released.
+
+## {% linkable_title Scene %}
+
+This component uses keypad programming to identify scenes.  Currently, it only works with SeeTouch keypads.
+The Lutron scene platform allows you to control scenes programmed into your SeeTouch keypads.
+
+After setup, scenes will appear in Home Assistant using the area, keypad and button name.
+

@@ -49,7 +49,7 @@ Right after enabling, the app will take you to the **Log to custom URL** setting
 The relevant endpoint starts with: `/api/webhook/` and ends with a unique sequence of characters. This is provided by the integrations panel in the configuration screen (configured above).
 
 ```text
-https://YOUR.DNS.HOSTNAME:PORT/api/webook/WEBHOOK_ID
+https://YOUR.DNS.HOSTNAME:PORT/api/webhook/WEBHOOK_ID
 ```
 
 - Add the above URL (updating YOUR.DNS.HOSTNAME:PORT to your details) into the **URL** field.
@@ -60,7 +60,7 @@ https://YOUR.DNS.HOSTNAME:PORT/api/webook/WEBHOOK_ID
 ```text
 latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
 ```
-- You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`.
+- You can change the name of your device name by replacing `&device=%SER` with `&device=%DEVICE_NAME`.
 - Check that the **HTTP Headers** setting contains
 ```text
 Content-Type: application/x-www-form-urlencoded

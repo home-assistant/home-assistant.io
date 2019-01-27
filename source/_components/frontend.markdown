@@ -77,7 +77,7 @@ Check our [community forums](https://community.home-assistant.io/c/projects/them
 There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name. 
+ - `frontend.set_theme(name)`: sets backend-preferred theme name.
 
 Example in automation:
 
@@ -96,7 +96,7 @@ automation:
         name: happy
 ```
 
-To enable "night mode": 
+To enable "night mode":
 
 ```yaml
 automation:
@@ -104,7 +104,7 @@ automation:
     initial_state: true
     trigger:
       - platform: time
-        at: '21:00'
+        at: '21:00:00'
     action:
       - service: frontend.set_theme
         data:

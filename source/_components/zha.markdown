@@ -8,9 +8,20 @@ comments: false
 sharing: true
 footer: true
 logo: zigbee.png
-ha_category: Hub
+ha_category:
+  - Binary Sensor
+  - Fan
+  - Light
+  - Sensor
+  - Switch
 ha_release: 0.44
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.zha/
+  - /components/fan.zha/
+  - /components/light.zha/
+  - /components/sensor.zha/
+  - /components/switch.zha/
 ---
 
 [Zigbee Home Automation](http://www.zigbee.org/zigbee-for-developers/applicationstandards/zigbeehomeautomation/)
@@ -18,11 +29,11 @@ integration for Home Assistant allows you to connect many off-the-shelf Zigbee b
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](../binary_sensor.zha) (e.g., motion and door sensors)
-- [Sensor](../sensor.zha) (e.g., temperature sensors)
-- [Light](../light.zha)
-- [Switch](../switch.zha)
-- [Fan](../fan.zha)
+- Binary Sensor
+- Sensor
+- Light
+- Switch
+- Fan
 
 Known working Zigbee radio modules:
 
