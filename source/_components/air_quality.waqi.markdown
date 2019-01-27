@@ -11,6 +11,8 @@ logo: waqi.png
 ha_category: Health
 ha_release: 0.34
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/sensor.waqi/
 ---
 
 The `waqi` air quality platform will query [World Air Quality Index](http://aqicn.org) service to check AQI value for a specific set of locations. The resulting indexes will be added to the Home Assistant as air quality outputs.
