@@ -15,11 +15,6 @@ ha_iot_class: "Local Polling"
 
 [HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This component should not be confused with the [HomeKit](/components/homekit/) component, which allows you to control Home Assistant devices via HomeKit.
 
-<p class="note warning">
- You may need additional packages to support the HomeKit Python module:
- `$ sudo apt-get install libgmp-dev libmpfr-dev libmpc-dev`
-</p>
-
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm Control Panel](/components/alarm_control_panel.homekit_controller/)
