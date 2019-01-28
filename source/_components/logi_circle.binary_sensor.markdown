@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: logi_circle.png
 ha_category: Binary Sensor
-ha_release: 0.86
+ha_release: 0.87
 ha_iot_class: "Cloud Push"
 ---
 

@@ -46,41 +46,7 @@ camera:
       type: string
 {% endconfiguration %}
 
-These arguments are not used by the [live stream record service](#service-cameralogi_circle_livestream_record).
-
-### {% linkable_title Service `camera.logi_circle_livestream_record` %}
-
-Initiates a recording of the camera's live stream.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to initiate a recording for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
-| `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}.mp4`{% endraw %}. |
-| `duration`             |      no  | Duration of recording, in seconds.
-
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
-
-### {% linkable_title Service `camera.logi_circle_livestream_snapshot` %}
-
-Take a snapshot from a camera's live stream. This differs from the generic [snapshot](/components/camera/#service-snapshot) service in that explicitly requests a fresh image from Logi Circle's API. This will force cameras in a deep sleep state to wake.
-
-Please note that new snapshots will only be generated if the cached snapshot is older than 30s. Requesting multiple snapshots in quick succession will likely return the same image. Likewise, requesting a snapshot from a camera that is actively streaming (ie. is not in deep sleep) will return a cached image no older than 30s.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to create a live stream snapshot from, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}.jpg`{% endraw %}. |
-
-The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
-
-### {% linkable_title Service `camera.logi_circle_set_recording_mode` %}
-
-Sets the recording mode of your camera. If set to false, the camera will not capture activities.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name(s) of entities to set the recording mode for, e.g., `camera.living_room_camera`. If blank, targets all Logi Circle cameras. |
-| `value`                |      no  | Recording mode value. Allowed values: `true`, `false` |
+These arguments are not used by the [live stream record service](/components/logi_circle/#service-logi_circlelivestream_record).
 
 ## {% linkable_title Resolving FFMPEG issues %}
 
