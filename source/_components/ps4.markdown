@@ -2,14 +2,14 @@
 layout: page
 title: "Sony PlayStation 4"
 description: "Instructions on how to integrate a Sony PlayStation 4 into Home Assistant."
-date: 2019-01-12 01:08
+date: 2019-01-28 01:08
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: ps4.png
 ha_category: Media Player
-ha_release: 0.85
+ha_release: 0.87
 ha_iot_class: "Local Polling"
 ---
 
@@ -27,19 +27,16 @@ The `ps4` component allows you to control a
 
 1. Download the Second Screen App and make sure that you can find and control your PlayStation 4 normally.
 
-2. Add the PS4 component to configuration.yaml, then restart Home Assistant.
-
 <p class='note warning'>
   Read the section "Granting Port Access" below before continuing.
 </p>
 
-3. Start the configuration using the configurator.
+2. Navigate to `Configuration -> Integrations` and select `Configure` for `PlayStation 4`.
 
-4. Follow instructions displayed to generate user credentials. You will know this step is completed when the configuration disappears and a configuration entity named "Pair PS4" appears.
+3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
-5. Pair Home Assistant to your PlayStation 4 by following the instructions. The pairing process is complete if a notification popup appears on your PS4 and the configuration window disappears.
-
-- **Note:** If there are any errors while setting up the component, you will have to navigate to your `/config` directory for your instance. This will be the same directory which your `configuration.yaml` is stored. Next, you will have to delete the file named `.ps4.conf` if it is present. Now you will have to restart your Home Assistant instance and repeat Steps 3-5 again.
+4. Pair Home Assistant to your PlayStation 4 by filling in the fields.
+- **Note:** To find your correct region refer to the section below titled "Regions"
 
 ## {% linkable_title Granting Port Access %}
 
@@ -56,31 +53,7 @@ Replace "/usr/bin/python3.5" with your path to Python that is running Home Assis
 
 ## {% linkable_title Configuration %}
 
-Add the following to your configuration.yaml file to add the PS4 component.
-
-```yaml
-# Example configuration.yaml entry
-media_player:
-  platform: ps4
-    host: 192.168.0.11
-```
-
-{% configuration %}
-host: 
-  description: IP of the PS4, e.g., `192.168.0.11`.
-  required: true
-  type: string
-name:
-  description: Name for PS4 entity.
-  required: false
-  type: string
-  default: PlayStation 4
-region:
-  description: Region to use for PlayStation Store data.
-  required: false
-  type: string
-  default: R1
-{% endconfiguration %}
+- **Note:** The PlayStation 4 component does not use entries from `configuration.yaml`. You must configure this component by using `Integrations`
 
 ## {% linkable_title Regions %}
 
@@ -102,5 +75,5 @@ Some titles will have different SKUs in the PlayStation Store database. You must
 |             | the Indian subcontinent, Mongolia, North Korea |
 
 <p class='note warning'>
-  Region 6: Mainland China, is not valid as there is no English database available.
+  Region 6: Mainland China, is not supported as there is no English database available.
 </p>
