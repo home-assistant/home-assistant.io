@@ -2,7 +2,7 @@
 layout: page
 title: "Raspberry Pi GPIO Switch"
 description: "Instructions on how to integrate the GPIO of a Raspberry Pi or Orange Pi into Home Assistant as a switch."
-date: 2018-01-16 13:00
+date: 2015-08-07 14:00
 sidebar: true
 comments: false
 sharing: true
