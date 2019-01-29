@@ -2,7 +2,7 @@
 layout: page
 title: "Raspberry Pi GPIO Binary Sensor"
 description: "Instructions on how to integrate the GPIO sensor capability of a Raspberry Pi or Orange Pi into Home Assistant."
-date: 2018-01-16 13:00
+date: 2015-08-30 19:00
 sidebar: true
 comments: false
 sharing: true
