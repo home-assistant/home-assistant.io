@@ -102,6 +102,21 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [@starkillerOG]: https://github.com/starkillerOG
 [hue docs]: /components/hue/
 
+## {% linkable_title Release 0.86.4 - January 28 %}
+
+- Bumps aioasuswrt ([@kennedyshead] - [#20432]) ([asuswrt docs])
+- Add check to validate gamut ([@starkillerOG] - [#20518])
+- fix #20387 devices without model/protocol ([@fredrike] - [#20530]) ([tellduslive docs])
+
+[#20432]: https://github.com/home-assistant/home-assistant/pull/20432
+[#20518]: https://github.com/home-assistant/home-assistant/pull/20518
+[#20530]: https://github.com/home-assistant/home-assistant/pull/20530
+[@fredrike]: https://github.com/fredrike
+[@kennedyshead]: https://github.com/kennedyshead
+[@starkillerOG]: https://github.com/starkillerOG
+[asuswrt docs]: /components/asuswrt/
+[tellduslive docs]: /components/tellduslive/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
