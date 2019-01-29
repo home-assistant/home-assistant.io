@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: transmission.png
 ha_category: Downloading
-ha_release: 0.85
+ha_release: 0.87
 ha_iot_class: "Local Polling"
 ---
 
@@ -65,7 +65,7 @@ turtle_mode:
   required: false
   type: boolean
 monitored_variables:
-  description: Conditions to display in the frontend. Every one of them will act as a sensor.
+  description: List of monitored conditions. Possible values are:
   required: false
   type: map
   keys:
@@ -89,7 +89,7 @@ monitored_variables:
 
 ## {% linkable_title Event Automation %}
 
-The Transmission component is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, allows to implement any kind of automation.
+The Transmission component is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
 
 Possible events are:
  - transmission_downloaded_torrent
