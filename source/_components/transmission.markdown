@@ -65,7 +65,7 @@ turtle_mode:
   required: false
   type: boolean
 monitored_variables:
-  description: List of monitored conditions. Possible values are:
+  description: "List of monitored conditions. Possible values are:"
   required: false
   type: map
   keys:
