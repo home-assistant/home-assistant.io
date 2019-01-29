@@ -40,7 +40,7 @@ transmission:
 
 {% configuration %}
 host:
-  description: This is the IP address of your Transmission daemon, e.g., `192.168.1.1`.
+  description: "This is the IP address of your Transmission daemon, e.g., `192.168.1.1`."
   required: true
   type: string
 port:
