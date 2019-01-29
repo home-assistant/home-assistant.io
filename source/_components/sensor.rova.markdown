@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rova.jpg
 ha_category: Sensor
-ha_release: 0.85
+ha_release: 0.87
 ha_iot_class: "Cloud Polling"
 ---
 
