@@ -26,6 +26,25 @@ asuswrt:
   username: YOUR_ADMIN_USERNAME
 ```
 
+To enable ASUSWRT sensors as part of your installation, reference the following example configuration:
+```yaml
+# Example configuration.yaml entry
+asuswrt:
+  host: YOUR_ROUTER_IP
+  username: YOUR_ADMIN_USERNAME
+  ssh_key: /config/id_rsa
+  sensors:
+    - upload
+    - download
+    - upload_speed
+    - download_speed
+```
+which creates the following sensors:
+* sensor.asuswrt_download (unit_of_measurement: Gigabyte - *Daily accumulation*)
+* sensor.asuswrt_download_speed (unit_of_measurement: Mbit/s)
+* sensor.asuswrt_upload (unit_of_measurement: Gigabyte - *Daily accumulation*)
+* sensor.asuswrt_upload_speed (unit_of_measurement: Mbit/s)
+
 {% configuration %}
 host:
   description: "The IP address of your router, eg. `192.168.1.1`."
@@ -67,7 +86,7 @@ sensors:
   description: List of enabled sensors
   required: false
   type: list
-  default: all (`upload`, `download`, `upload_speed`, `download_speed`)
+  default: None
   keys:
     "upload":
       description: TX upload sensor
