@@ -38,7 +38,7 @@ The Zigbee team is also planning a bunch of cool things for 2019. Direct device 
 
 ## {% linkable_title Noteworthy breaking changes %}
 
-Update: the entity ID one was too harsh, it's not a warning.
+Update: the entity ID one was too harsh, it's now a warning.
 
 This release also includes two noteworthy breaking changes. One is a follow-up on the slugify breaking change from last release. We did not update the validation check for config options that need to be valid slugs. This means that some of your config values might be invalid. Keep an eye at the console as we have a new message to tell you which ones are wrong.
 
