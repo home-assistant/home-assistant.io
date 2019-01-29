@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Wink"
-description: "Instructions on how to setup the Wink hub within Home Assistant."
+description: "Instructions on how to set up the Wink hub within Home Assistant."
 date: 2015-01-20 22:36
 sidebar: true
 comments: false
@@ -24,17 +24,17 @@ Home Assistant integrates with the Wink API and automatically sets up any switch
 
 Check the related components pages for actual devices that are supported.
 
-### {% linkable_title Authenticate using [developer.wink.com](https://developer.wink.com) %}
+## {% linkable_title Authenticate using [developer.wink.com](https://developer.wink.com) %}
 
-You need to setup a developer account with Wink. This process can take a few days to get approved.
+You need to set up a developer account with Wink. This process can take a few days to get approved.
 
 Wink requests three pieces of information from the user when they sign up for a developer account.
 
-1. `Name:` This can be anything, for example "Home Assistant"
+1. `Name:` This can be anything, for example, "Home Assistant"
 2. `Website:` The external address of your Home Assistant instance. If not externally accessible you can use your email address.
-3. `Redirect URI:` This should be "http://192.168.1.5:8123/auth/wink/callback" replacing the IP with the internal IP of your Home Assistant box.
+3. `Redirect URI:` This should be `http://192.168.1.5:8123/auth/wink/callback` replacing the IP with the internal IP of your Home Assistant box.
 
-No settings are required in the configuration.yaml other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
+No settings are required in the `configuration.yaml` other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
 
 <p class='note'>
 When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
@@ -44,7 +44,7 @@ When using the configurator make sure the initial setup is performed on the same
 wink:
 ```
 
-### {% linkable_title Full oauth authentication (legacy) %}
+## {% linkable_title Full oauth authentication (legacy) %}
 
 This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existence.
 
@@ -87,7 +87,7 @@ Local control:
 - Wink's local control API isn't officially documented and therefore could be broken by a hub update. For these reasons `local_control` defaults to `false`.
 - Using local control doesn't appear to make commands any quicker, but does function in an internet/Wink outage.
 - Local control is also only available for the Wink hub v1 and v2, not the Wink relay.
-- Local control isn't used during start-up of Home Assistant; this means initial setup requires an active internet connection.
+- Local control isn't used during the start-up of Home Assistant; this means initial setup requires an active internet connection.
 - Local control requests are first sent to the controlling hub. If a request fails, that request will attempt to go online.
 
 <p class='note'>
@@ -95,23 +95,23 @@ It is possible for the hub to get into a bad state where it stops accepting loca
 
 The following error will be logged if the hub is rejecting local requests.
 
-```
+```txt
 Error sending local control request. Sending request online
 ```
 
 </p>
 
-### {% linkable_title Service `refresh_state_from_wink` %}
+## {% linkable_title Service `refresh_state_from_wink` %}
 
 The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync.
 
-You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `True` states will be pulled from the devices controlling hub, not the online API.
+You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `true` states will be pulled from the devices controlling hub, not the online API.
 
-### {% linkable_title Service `pull_newly_added_devices_from_wink` %}
+## {% linkable_title Service `pull_newly_added_devices_from_wink` %}
 
 You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
 
-### {% linkable_title Service `delete_wink_device` %}
+## {% linkable_title Service `delete_wink_device` %}
 
 You can use the service wink/delete_wink_device to remove/unpair a device from Wink.
 
@@ -119,7 +119,7 @@ You can use the service wink/delete_wink_device to remove/unpair a device from W
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String that points at the `entity_id` of device to delete.
 
-### {% linkable_title Service `pair_new_device` %}
+## {% linkable_title Service `pair_new_device` %}
 
 You can use the service wink/pair_new_device to pair a new device to your Wink hub/relay
 
@@ -133,7 +133,7 @@ You can use the service wink/pair_new_device to pair a new device to your Wink h
 Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
 </p>
 
-### {% linkable_title Service `rename_wink_device` %}
+## {% linkable_title Service `rename_wink_device` %}
 
 You can use the service wink/rename_wink_device to change the name of a device.
 
@@ -150,17 +150,15 @@ Home Assistant entity_ids for Wink devices are based on the Wink device's name. 
 The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
 </p>
 
-
-### Custom Wink devices and their services
+## {% linkable_title Custom Wink devices and their services %}
 
 - GoControl siren and strobe
 - Dome siren/chime/strobe
 - Quirky Nimbus (Legacy device) These can no longer be officially added to your Wink account
 
-
 ### {% linkable_title Service `set_siren_auto_shutoff` %}
 
-You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shuting off.
+You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shutting off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -189,7 +187,7 @@ You can use the service wink/set_chime_volume to set the volume for the chime on
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `volume` | no | String. One of ["low", "medium", "high"]
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of siren/chime.
+| `entity_id` | yes | String or list of strings that point at `entity_id`s of the siren/chime.
 
 Example:
 
@@ -279,7 +277,7 @@ script:
     sequence:
       - service: wink.set_siren_strobe_enabled
         data:
-          enabled: False
+          enabled: false
 ```
 
 ### {% linkable_title Service `set_chime_strobe_enabled` %}
@@ -299,7 +297,7 @@ script:
     sequence:
       - service: wink.set_chime_strobe_enabled
         data:
-          enabled: False
+          enabled: false
 ```
 
 ### {% linkable_title Service `set_nimbus_dial_state` %}

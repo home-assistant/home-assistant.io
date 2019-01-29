@@ -16,11 +16,6 @@ The `tomato` platform requires an extra config variable called `http_id`. The
 value can be obtained by logging in to the Tomato admin interface and search for
 `http_id` in the page source code.
 
-Because of a limitation in Tomato's API, this platform will only track wireless
-devices. If tracking wired devices like a Philips Hue Hub is necessary, it is
-possible to use another platform like
-[NMAP](/components/device_tracker.nmap_tracker/).
-
 Because of a limitation in Tomato's API, this platform will only track wireless devices.
 If tracking wired devices like a Philips Hue Hub is necessary,
 it is possible to use another platform like [Nmap](/components/device_tracker.nmap_tracker/).
@@ -54,7 +49,7 @@ ssl:
   type: boolean
   default: false
 verify_ssl:
-  description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `False` or `True` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
+  description: "If SSL verification for https resources needs to be turned off (for self-signed certs, etc.) this can take on boolean values `false` or `true` or you can pass a location on the device where a certificate can be used for verification e.g., `/mnt/NAS/router_cert.pem`."
   required: false
   type: [string, boolean]
   default: true

@@ -12,6 +12,8 @@ redirect_from: /getting-started/scripts-conditions/
 
 Conditions can be used within a script or automation to prevent further execution. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
 
+Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
+
 ### {% linkable_title AND condition %}
 
 Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
@@ -25,10 +27,11 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
-If you do not want to combine AND and OR conditions, you can also just list them sequentially, by default all conditions have to be true. 
+If you do not want to combine AND and OR conditions, you can also just list them sequentially.
+
 The following configuration works the same as the one listed above:
 
 ```yaml
@@ -38,7 +41,7 @@ condition:
     state: 'home'
   - condition: numeric_state
     entity_id: 'sensor.temperature'
-    below: '20'
+    below: 20
 ```
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
@@ -56,10 +59,10 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
-### {% linkable_title MIXED  AND and OR conditions %}
+### {% linkable_title MIXED AND and OR conditions %}
 
 Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
 This allows you to mix several AND and OR conditions together.
@@ -78,7 +81,7 @@ condition:
           state: 'rain'
         - condition: numeric_state
           entity_id: 'sensor.temperature'
-          below: '20'
+          below: 20
 ```
 
 ### {% linkable_title Numeric state condition %}
@@ -131,12 +134,22 @@ condition:
 
 ```yaml
 condition:
-    condition: or  # 'when dark' condition: either after sunset or before sunrise
+    condition: or  # 'when dark' condition: either after sunset or before sunrise - equivalent to a state condition on `sun.sun` of `below_horizon`
     conditions:
       - condition: sun
         after: sunset
       - condition: sun
         before: sunrise
+```
+
+```yaml
+condition:
+    condition: and  # 'when light' condition: before sunset and after sunrise - equivalent to a state condition on `sun.sun` of `above_horizon`
+    conditions:
+      - condition: sun
+        before: sunset
+      - condition: sun
+        after: sunrise
 ```
 
 A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.

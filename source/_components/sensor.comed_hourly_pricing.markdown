@@ -28,12 +28,28 @@ sensor:
       - type: current_hour_average
 ```
 
-Configuration variables:
-
-- **monitored_feeds** array (*Required*): Feeds to monitor.
-  - **type** (*Required*): Name of the feed.
-      - **five_minute**: The latest 5-minute price in cents.
-      - **current_hour_average**: The latest current hour average price in cents.
-  - **name** (*Optional*): Custom name for the sensor.
-  - **offset** (*Optional*): The pricing feeds provide only the *supply* cost of the electricity. The offset parameter allows you to provide a fixed constant that will be added to the pricing data to provide a more accurate representation of the total electricity cost per kWh.
-
+{% configuration %}
+monitored_feeds:
+  description: Feeds to monitor.
+  required: true
+  type: list
+  keys:
+    type:
+      description: Name of the feed.
+      required: true
+      type: list
+      keys:
+        five_minute:
+          description: The latest 5-minute price in cents.
+        current_hour_average:
+          description: The latest current hour average price in cents.
+    name:
+      description: Custom name for the sensor.
+      required: false
+      type: string
+    offset:
+      description: The pricing feeds provide only the *supply* cost of the electricity. The offset parameter allows you to provide a fixed constant that will be added to the pricing data to provide a more accurate representation of the total electricity cost per kWh.
+      required: false
+      default: 0.0
+      type: float
+{% endconfiguration %}

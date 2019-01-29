@@ -15,16 +15,15 @@ ha_iot_class: "Cloud Polling"
 
 Integrates Mill heater into Home Assistant.
 
-The component requires that the heater is set as an [independent device](https://millheat.zendesk.com/hc/en-us/articles/115001123491-What-is-an-Independent-device-) in the Mill app.
-
+## {% linkable_title Configuration %}
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 climate:
   - platform: mill
-    username: email@gmail.com
-    password: pswd
+    username: YOUR_EMAIL_ADDRESS
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}
@@ -37,3 +36,17 @@ password:
   required: true
   type: string 
 {% endconfiguration %}
+
+## {% linkable_title Component services %}
+
+This platform supports a service to set the temperature for the room connected to heater in the Mill app:
+
+`climate.mill_set_room_temperature`
+
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `room_name` | no | String with room name.
+| `away_temp` | yes | Integer with temperature
+| `comfort_temp` | yes | Integer with temperature
+| `sleep_temp` | yes | Integer with temperature

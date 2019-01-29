@@ -10,18 +10,24 @@ footer: true
 redirect_from: /getting-started/installation-docker/
 ---
 
-Installation with Docker is straightforward. Adjust the following command so that `/path/to/your/config/` points at the folder where you want to store your configuration and run it:
+Installation with Docker is straightforward. Adjust the following command so that `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it:
 
 ### {% linkable_title Linux %}
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
 ### {% linkable_title Raspberry Pi 3 (Raspbian) %}
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+```
+
+You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration, for example if you choose your configuration path to be `/home/pi/homeassistant`, then command would be:
+ 
+```bash
+$ docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
 ```
 
 ### {% linkable_title macOS %}
@@ -31,12 +37,16 @@ When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the lo
 If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
 ```
 
 Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### {% linkable_title Windows %}
+
+```powershell
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" --net=host homeassistant/home-assistant
+```
 
 When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
 ```
@@ -165,7 +175,7 @@ As the docker command becomes more complex, switching to `docker-compose` can be
       container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
-        - /path/to/your/config:/config
+        - /PATH_TO_YOUR_CONFIG:/config
         - /etc/localtime:/etc/localtime:ro
       restart: always
       network_mode: host
@@ -188,7 +198,7 @@ $ docker-compose restart
 In order to use Z-Wave, Zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config \
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
    -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 \
    --net=host homeassistant/home-assistant
 ```
@@ -202,7 +212,7 @@ or in a `docker-compose.yml` file:
       container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
-        - /path/to/your/config:/config
+        - /PATH_TO_YOUR_CONFIG:/config
         - /etc/localtime:/etc/localtime:ro
       devices:
         - /dev/ttyUSB0:/dev/ttyUSB0

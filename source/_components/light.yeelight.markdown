@@ -13,14 +13,28 @@ ha_release: 0.32
 ha_iot_class: "Local Polling"
 ---
 
-The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant.
+The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
 
-### {% linkable_title Example configuration %}
+### {% linkable_title Example configuration (Automatic) %}
+After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
+
+```yaml
+# Example customize.yaml entry
+light.yeelight_rgb_XXXXXXXXXXXX:
+  friendly_name: Living Room
+light.yeelight_color2_XXXXXXXXXXXX:
+  friendly_name: Downstairs Toilet
+```
+
+### {% linkable_title Example configuration (Manual) %}
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
+discovery:
+  ignore:
+    - yeelight
 light:
   - platform: yeelight
     devices:
@@ -52,14 +66,14 @@ devices:
           description: Enable music mode.
           required: false
           type: boolean
-          default: False
+          default: false
         save_on_change:
           description: Saves the bulb state in its nonvolatile memory when changed from Home Assistant.
           required: false
           type: boolean
-          default: False
+          default: false
         model:
-          description: "Yeelight model. Possible values are `mono1`, `color1`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
+          description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
 {% endconfiguration %}
@@ -91,6 +105,7 @@ This component is tested to work with the following models. If you have a differ
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
+| ?          | YLDD04YL     | Lightstrip (Color)
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
@@ -126,8 +141,8 @@ light:
       192.168.1.25:
         name: Living Room
         transition: 1000
-        use_music_mode: True
-        save_on_change: True
+        use_music_mode: true
+        save_on_change: true
 ```
 
 ### {% linkable_title Multiple bulbs %}

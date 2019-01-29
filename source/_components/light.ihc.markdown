@@ -27,28 +27,29 @@ project and setup as light devices:
 - Wireless mobile dimmer
 - Dataline lamp outlet
 
-To manually configure IHC lights insert this section in your configuration:
+To manually configure IHC lights insert the "light" section in 
+your IHC configuration:
 
 ```yaml
-light:
-  - platform: ihc
-    lights:
+ihc:
+  - url: 'http://192.168.1.3'
+    username: YOUR_USERNAME2
+    password: YOUR_PASSWORD2
+    info: true 
+    light:
       - id: 12345
         name: tablelight
-        dimmable: True
-      - id: 12346
-        name: anotherlight
-      ...
+      - id: 23432
 ```
 
 {% configuration %}
-lights:
+light:
   description: List of lights to setup manually
   required: false
   type: map
   keys:
     dimmable:
-      description: Set to True if the IHC resource is a light level
+      description: Set to True if the IHC resource is a light level.
       required: false
       type: boolean
       default: false
@@ -58,6 +59,14 @@ lights:
       type: integer
     name:
       description: The name of the component
+      required: false
+      type: string
+    note:
+      description: Descriptive note.
+      required: false
+      type: string
+    position:
+      description: Where it is placed.
       required: false
       type: string
 {% endconfiguration %}

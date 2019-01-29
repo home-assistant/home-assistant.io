@@ -14,13 +14,9 @@ ha_release: 0.56
 redirect_from: /components/apiai/
 ---
 
-<p class='note'>
-Before 0.56 this component was named `apiai`.
-</p>
-
 The `dialogflow` component is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
 
-Dialogflow requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
+To be able to receive messages from DialogFlow, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](/components/http/#base_url)). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 
 Dialogflow could be [integrated](https://dialogflow.com/docs/integrations/) with many popular messaging, virtual assistant and IoT platforms.
 
@@ -42,12 +38,14 @@ To use this integration, you should define a conversation (intent) in Dialogflow
 
 ### {% linkable_title Configuring your Dialogflow account %}
 
+To get the webhook URL, go to the integrations page in the configuration screen and find "Dialogflow". Click on "configure". Follow the instructions on the screen.
+
 - [Login](https://console.dialogflow.com/) with your Google account
 - Click on "Create Agent"
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone
 - Click "Save"
 - Go to "Fulfillment" (in the left menu)
-- Enable Webhook and set your Home Assistant URL with the Dialogflow endpoint, e.g., `https://myhome.duckdns.org/api/dialogflow?api_password=HA_PASSWORD`
+- Enable Webhook and set your Dialogflow webhook url as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save"
 - Create a new intent
 - Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g., `What is the temperature at home?`
@@ -59,7 +57,6 @@ To use this integration, you should define a conversation (intent) in Dialogflow
 - Dialogflow has send a request to your Home Assistant server
 
 Take a look to "Integrations", in the left menu, to configure third parties.
-
 
 ### {% linkable_title Configuring Home Assistant %}
 

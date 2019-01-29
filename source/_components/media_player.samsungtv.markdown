@@ -20,8 +20,7 @@ The `samsungtv` platform allows you to control a
 When the TV is first connected,
 you will need to accept Home Assistant on the TV to allow communication.
 
-To add a TV to your installation,
-add the following to your `configuration.yaml` file:
+To add a TV to your installation without relying on the [discovery component](/components/discovery/), add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,7 +66,9 @@ Currently known supported models:
 - EH5300
 - EH5600
 - ES5500
+- ES6300
 - ES6800
+- F4580
 - F6300
 - F6400
 - F6400AF
@@ -80,9 +81,11 @@ Currently known supported models:
 - KS7502 (port must be set to 8001, and `pip3 install websocket-client` must be executed, turn on doesn't work, turn off works fine)
 - KS8000 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KS8005 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- KS8500 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6020 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6100 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU6290 (port must be set to 8001)
+- KU6400U (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - KU7000 (port must be set to 8001)
 - M5620 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - MU6170UXZG (port must be set to 8001, and `pip3 install websocket-client` must be executed)
@@ -91,8 +94,7 @@ Currently known supported models:
 - Q7F (port must be set to 8001, MAC must be specified for Power On)
 - U6000 (port must be set to 8001)
 - U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
-- UE40KU6400U (port must be set to 8001, and `pip3 install websocket-client` must be executed)
-- UE46D7000
+- D7000
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 
@@ -100,6 +102,7 @@ Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
 - J5500 - State is always "on" and unable to control (but port 8001 *is* open)
+- J6200 - State is always "on" and unable to control (but port 8001 *is* open)
 - J6300 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS8005 - State tracking working but unable to control (but port 8001 *is* open)
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
@@ -118,7 +121,7 @@ The first letter (U, P, L, H & K) represent the screen type, e.g., LED or
 Plasma. The second letter represents the region, E is Europe, N is North America
 and A is Asia & Australia.
 The two numbers following that represent the screen size.
-If you add your model remember to remove these before adding them to the list.
+If you add your model remember to remove these first 4 characters before adding to the list.
 
 Changing channels can be done by calling the `media_player.play_media` service
 with the following payload:

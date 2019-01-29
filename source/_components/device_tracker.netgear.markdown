@@ -21,8 +21,6 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: netgear
-    host: YOUR_ROUTER_IP
-    username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
 ```
 

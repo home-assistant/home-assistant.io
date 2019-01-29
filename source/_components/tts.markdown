@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Text-to-Speech (TTS)"
-description: "Instructions on how to setup Text-to-Speech (TTS) with Home Assistant."
+description: "Instructions on how to set up Text-to-Speech (TTS) with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -17,7 +17,7 @@ Text-to-Speech (TTS) enables Home Assistant to speak to you.
 To get started, add the following lines to your `configuration.yaml` (example for Google):
 
 ```yaml
-# Example configuration.yaml entry for google tts service
+# Example configuration.yaml entry for Google TTS service
 tts:
   - platform: google
 ```
@@ -33,7 +33,7 @@ cache:
   description: Allow TTS to cache voice file to local storage.
   required: false
   type: boolean
-  default: True
+  default: true
 cache_dir:
   description: Folder name or path to a folder for caching files.
   required: false
@@ -83,6 +83,8 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * They do not work with URLs that contain hostnames established by local naming means. Let's say your Home Assistant instance is running on a machine made known locally as `ha`. All your machines on your local network are able to access it as `ha`. However, try as you may, your cast device won't download the media files from your `ha` machine. That's because your cast device ignores your local naming setup. In this example, the `say` service creates a URL like `http://ha/path/to/media.mp3` (or `https://...` if you are using SSL). Setting a `base_url` that contains the IP address of your server works around this issue. By using an IP address, the cast device does not have to resolve the hostname.
 
+* An alternative way to force Google cast devices to use internal DNS is to block them from accessing Google DNS at the firewall/router level. This would be useful in the case, for example, where your internal IP of HASS is a private IP and you have your internal DNS server (quite often a split-brain DNS scenario). This method works on both Google Home Mini and Google Chromecasts.
+
 ## {% linkable_title Service say %}
 
 The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`.
@@ -95,6 +97,7 @@ service: tts.google_say
 data:
   message: 'May the Force be with you.'
 ```
+
 Say to the `media_player.floor` device entity:
 
 ```yaml
@@ -129,13 +132,13 @@ The component has two caches. Both caches can be controlled with the `cache` opt
 
 ## {% linkable_title REST Api %}
 
-#### {% linkable_title POST /api/tts_get_url %}
+### {% linkable_title POST /api/tts_get_url %}
 
 Returns an URL to the generated TTS file. Platform and message are required.
 
 ```json
 {
-    "plaform": "amazon_polly",
+    "platform": "amazon_polly",
     "message": "I am speaking now"
 }
 ```

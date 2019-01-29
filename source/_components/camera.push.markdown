@@ -25,7 +25,7 @@ The `push` camera can as an example be used with [motionEye](https://github.com/
 
 In motionEye, under **File Storage -> Run A Command** type in:
 ```bash
-curl -X POST -F "image=@%f" http://my.hass.server.com:8123/api/camera_push/camera.push_camera?token=12345678
+curl -X POST -F "image=@%f" http://my.hass.server.com:8123/api/webhook/my_custom_webhook_id
 ```
 
 Optionally configure motionEye to save only motion triggered images by going into **Still Images -> Capture Mode** and setting **Motion Triggered**. Tune your preferences under **Motion Detection**.
@@ -38,7 +38,7 @@ camera:
     name: MotionEye Outdoor
     buffer: 3
     timeout: 5
-    token: 12345678
+    webhook_id: my_custom_webhook_id 
 ```
 
 ## {% linkable_title Configuration %}
@@ -50,7 +50,7 @@ To enable this camera in your installation, add the following to your `configura
 camera:
   - platform: push
     name: My Push Camera
-    token: 12345678
+    webhook_id: my_custom_webhook_id 
 ```
 
 {% configuration %}
@@ -69,9 +69,9 @@ timeout:
   required: false
   type: time
   default: 5 seconds
-token:
-  description: User provided token acting as access control, should be a large string (more then 8 chars). Required if you can't use HA new auth system (0.77).
-  required: false
+webhook_id:
+  description: User provided string acting as camera identifier and access control, should be a large string (more then 8 chars).
+  required: true 
   type: string
 field:
   description: HTTP POST field containing the image file

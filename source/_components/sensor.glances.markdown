@@ -66,6 +66,24 @@ name:
   required: false
   type: string
   default: Glances
+username:
+  description: Your username for the HTTP connection to Glances.
+  required: false
+  type: string
+password:
+  description: Your password for the HTTP connection to Glances.
+  required: false
+  type: string
+ssl:
+  description: "If `true`, use SSL/TLS to connect to the Glances system."
+  required: false
+  type: boolean
+  default: false
+verify_ssl:
+  description: Verify the certification of the system.
+  required: false
+  type: boolean
+  default: true
 version:
   description: "The version of the Glances API. Supported version: `2` and `3`."
   required: false
