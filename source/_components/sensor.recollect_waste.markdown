@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: recollect-waste.png
 ha_category: Sensor
-ha_release: 0.85
+ha_release: 0.87
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -36,7 +36,6 @@ sensor:
     service_id: YOUR_SERVICE_ID
 ```
 
-Configuration options for the Recollect Waste Sensor:
 {% configuration %}
 place_id:
   description: The place_id used for your neighbourhood.
@@ -50,12 +49,10 @@ name:
   description: Name the sensor.
   required: false
   type: string
-scan_interval:
-  description: Frequency to pull data from Recollect Waste in seconds.
-  default: 86400
-  required: false
-  type: integer
+  default: recollect_waste
 {% endconfiguration %}
+
+The default frequency for pulling data from Recollect Waste is once a day (86400 seconds).
 
 <p class='note warning'>
 The Recollect Waste sensor uses the Recollect API <strong>URL</strong> to obtain data not an official API from Recollect. Use at your own risk.
