@@ -62,7 +62,7 @@ access_token:
   description: Your GitHub Access Token
   required: false
   type: string
-server_url:
+url:
   description: If you are using a GitHub Enterprise server, add it's URL here. For example, `https://mygithubserver.com`
   required: false
   type: string
