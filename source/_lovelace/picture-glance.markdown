@@ -147,6 +147,15 @@ Display a camera image as background:
   camera_image: camera.demo_camera
 ```
 
+Display a camera image without additional entities:
+
+```yaml
+- type: picture-glance
+  title: Front garden
+  entities: []
+  camera_image: camera.front_garden_camera
+```
+
 Use different images based on entity state:
 
 ```yaml

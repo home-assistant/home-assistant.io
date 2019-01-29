@@ -42,9 +42,10 @@ The most important one is the action to call a service. This can be done in vari
 
 ### {% linkable_title Test a Condition %}
 
-While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will finish. There are many different conditions which are documented at the [conditions page].
+While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
 
 ```yaml
+# If paulus is home, continue to execute the script below these lines
 - condition: state
   entity_id: device_tracker.paulus
   state: 'home'

@@ -44,7 +44,7 @@ The following optional parameters can be used with any platform:
 | `new_device_defaults`|         | Default values for new discovered devices. Available options `track_new_devices` (default: `true`), `hide_if_away` (default: `false`)                                                                                                                                                                                                                                                     |
 
 <p class='note'>
-  Note that setting `track_new_devices:false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: no`).
+  Note that setting `track_new_devices: false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: false`).
 </p>
 
 The extended example from above would look like the following sample:
@@ -74,8 +74,8 @@ devicename:
   name: Friendly Name
   mac: EA:AA:55:E7:C6:94
   picture: https://www.home-assistant.io/images/favicon-192x192.png
-  track: yes
-  hide_if_away: no
+  track: true
+  hide_if_away: false
 ```
 
 <p class='note warning'>
@@ -105,8 +105,8 @@ USERNAME_DEVICE_ID:
   mac: EA:AA:55:E7:C6:94
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   gravatar: test@example.com
-  track: yes
-  hide_if_away: no
+  track: true
+  hide_if_away: false
 ```
 
 If you want to track whether either your GPS based tracker or your local network tracker, identify you as being at home, use [a group](/components/group/) instead.

@@ -17,7 +17,7 @@ A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter
 
 - Currently support DSMR V2.2, V3, V4 and V5 through the [dsmr_parser](https://github.com/ndokter/dsmr_parser) module by Nigel Dokter.
 - For official information about DSMR refer to: [DSMR Document](https://www.netbeheernederland.nl/dossiers/slimme-meter-15)
-- For official information about the P1 port refer to: https://www.wijhebbenzon.nl/media/kunena/attachments/3055/DSMRv5.0FinalP1.pdf
+- For official information about the P1 port refer to: <https://www.wijhebbenzon.nl/media/kunena/attachments/3055/DSMRv5.0FinalP1.pdf>
 - For unofficial hardware connection examples refer to: [Domoticx](http://domoticx.com/p1-poort-slimme-meter-hardware/)
 
 <p class='img'>
@@ -37,13 +37,13 @@ This component is known to work for:
 USB serial converters:
 
 - Cheap (Banggood/ebay) Generic PL2303
-- https://sites.google.com/site/nta8130p1smartmeter/webshop
-- https://www.sossolutions.nl/slimme-meter-kabel
-- https://tweakers.net/gallery/269738/aanbod/
+- <https://sites.google.com/site/nta8130p1smartmeter/webshop>
+- <https://www.sossolutions.nl/slimme-meter-kabel>
+- <https://tweakers.net/gallery/269738/aanbod/>
 
 Serial to network proxies:
 
-- ser2net - http://ser2net.sourceforge.net/
+- ser2net - <http://ser2net.sourceforge.net/>
 
 ```yaml
 # Example configuration.yaml entry
@@ -119,14 +119,20 @@ or
 
 [HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
 
-```
+```bash
 $ sudo usermod -a -G dialout homeassistant
 ```
 
 and after that you need to reboot!
 
-```
+```bash
 $ sudo reboot
+```
+
+Docker users have to allow Docker access to the device by adding `--device /dev/ttyUSB21:/dev/ttyUSB21` to the run command:
+
+```hass
+$ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /home/USERNAME/hass:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
 ### {% linkable_title Technical overview %}
@@ -138,4 +144,3 @@ The contents of this telegram differ between version but they generally consist 
 This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this component are create during bootstrap.
 
 Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.
-

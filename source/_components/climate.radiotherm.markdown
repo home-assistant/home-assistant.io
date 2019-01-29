@@ -17,10 +17,20 @@ The `radiotherm` climate platform let you control a thermostat from [Radio Therm
 
 The underlying library supports:
 
+- CT30 v1.75
+- CT30 v1.92
+- CT30 v1.94
+- CT30 v1.99
 - CT50 V1.09
 - CT50 V1.88
+- CT50 V1.92
 - CT50 V1.94 (also known as Filtrete 3M50)
+- CT80 Rev B1 V1.00
+- CT80 Rev B2 V1.00
 - CT80 Rev B2 V1.03
+- CT80 Rev B2 V1.09
+
+New models that are derivatives of the CT30 or CT80 should be detected automatically and basic functionality should work.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -52,7 +62,7 @@ hold_temp:
   type: boolean
 {% endconfiguration %}
 
-Set `hold_temp: True` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
+Set `hold_temp: true` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
 
 The away mode functions similarly to the away mode feature of the website and apps, but cannot detect if you set away mode outside of Home Assistant.
 

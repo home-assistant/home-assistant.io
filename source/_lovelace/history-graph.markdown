@@ -13,8 +13,13 @@ footer: true
 History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config.
 
 <p class='img'>
-<img src='/images/lovelace/lovelace_history_graph.png' alt='Screenshot of the history graph card'>
-Screenshot of the history graph card.
+<img src='/images/lovelace/lovelace_history_graph.png' alt='Screenshot of the history graph card for entities without a unit_of_measurement'>
+Screenshot of the history graph card, when no `unit_of_measurement` is defined.
+</p>
+
+<p class='img'>
+<img src='/images/lovelace/lovelace_history_graph_lines.png' alt='Screenshot of the history graph card for entities with a unit_of_measurement'>
+Screenshot of the history graph card, when a `unit_of_measurement` is defined.
 </p>
 
 {% configuration %}

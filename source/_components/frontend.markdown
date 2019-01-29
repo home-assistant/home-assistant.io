@@ -68,7 +68,7 @@ frontend:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.js](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.js).
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
@@ -77,7 +77,7 @@ Check our [community forums](https://community.home-assistant.io/c/projects/them
 There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name. 
+ - `frontend.set_theme(name)`: sets backend-preferred theme name.
 
 Example in automation:
 
@@ -96,15 +96,15 @@ automation:
         name: happy
 ```
 
-To enable "night mode": 
+To enable "night mode":
 
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: True
+    initial_state: true
     trigger:
       - platform: time
-        at: '21:00'
+        at: '21:00:00'
     action:
       - service: frontend.set_theme
         data:

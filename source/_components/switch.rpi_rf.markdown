@@ -13,7 +13,6 @@ ha_release: 0.19
 ha_iot_class: "Assumed state"
 ---
 
-
 The `rpi_rf` switch platform allows you to control devices over 433/315MHz LPD/SRD signals with generic low-cost GPIO RF modules on a [Raspberry Pi](https://www.raspberrypi.org/).
 
 Interoperable with codes sniffed via [the rpi-rf module](https://pypi.python.org/pypi/rpi-rf) or [rc-switch](https://github.com/sui77/rc-switch).
@@ -72,11 +71,11 @@ switches:
           default: 1
           type: integer
         pulselength:
-          description: Pulselength
+          description: Pulselength.
           required: false
           type: integer
         signal_repetitions:
-          description: Number of times to repeat transmission
+          description: Number of times to repeat transmission.
           required: false
           default: 10
           type: integer

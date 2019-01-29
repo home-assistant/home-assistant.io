@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "MQTT Light - Default schema"
+title: "MQTT Light"
 description: "Instructions on how to setup MQTT lights using default schema within Home Assistant."
 date: 2015-11-13 08:30
 sidebar: true
@@ -82,6 +82,10 @@ brightness_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the brightness value."
   required: false
   type: string
+color_temp_command_template:
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `color_temp_command_topic`. Available variables: `value`."
+  required: false
+  type: string
 color_temp_command_topic:
   description: The MQTT topic to publish commands to change the light’s color temperature state. The color temperature command slider has a range of 153 to 500 mireds (micro reciprocal degrees).
   required: false
@@ -91,7 +95,7 @@ color_temp_state_topic:
   required: false
   type: string
 color_temp_value_template:
-  description: "Defines a [template](/topics/templating/) to extract the color temperature value."
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the color temperature value."
   required: false
   type: string
 effect_command_topic:
@@ -155,7 +159,7 @@ retain:
   type: boolean
   default: false
 rgb_command_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
+  description: "Defines a [template](/docs/configuration/templating/) to compose message which will be sent to `rgb_command_topic`. Available variables: `red`, `green` and `blue`."
   required: false
   type: string
 rgb_command_topic:
@@ -182,6 +186,11 @@ white_value_command_topic:
   description: "The MQTT topic to publish commands to change the light's white value."
   required: false
   type: string
+white_value_scale:
+  description: "Defines the maximum white value (i.e. 100%) of the MQTT device."
+  required: false
+  type: integer
+  default: 255
 white_value_state_topic:
   description: The MQTT topic subscribed to receive white value updates.
   required: false
@@ -216,6 +225,39 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+device:
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -335,7 +377,7 @@ Optimistic mode can be forced, even if state topic is available. Try enabling it
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: json
+  - platform: mqtt
     schema: json
     command_topic: "home/rgb1/set"
 ```
@@ -441,6 +483,39 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+device:
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -521,7 +596,7 @@ light:
     name: mqtt_json_hs_light
     state_topic: "home/light"
     command_topic: "home/light/set"
-    hs: True
+    hs: true
 ```
 
 Home Assistant expects the hue values to be in the range 0 to 360 and the saturation values to be scaled from 0 to 100. For example, the following is a blue color shade:
@@ -599,6 +674,10 @@ name:
   required: false
   type: string
   default: MQTT Template Light
+unique_id:
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   required: false
+   type: string
 effect_list:
   description: List of possible effects.
   required: false
@@ -675,6 +754,39 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+device:
+  description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: 'A list of IDs that uniquely identify the device. For example a serial number.'
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: 'The manufacturer of the device.'
+      required: false
+      type: string
+    model:
+      description: 'The model of the device.'
+      required: false
+      type: string
+    name:
+      description: 'The name of the device.'
+      required: false
+      type: string
+    sw_version:
+      description: 'The firmware version of the device.'
+      required: false
+      type: string
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -712,7 +824,7 @@ For a JSON payload with the format `{"state": "on", "brightness": 255, "color": 
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: mqtt_template
+  - platform: mqtt
     schema: template
     effect_list:
       - rainbow

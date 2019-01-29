@@ -77,7 +77,9 @@ Picture card config:
 ```yaml
 - type: picture
   image: /local/living_room.png
-  navigation_path: /lovelace/living_room
+  tap_action:
+    action: navigate
+    navigation_path: /lovelace/living_room
 ```
 
 ## {% linkable_title Icons %}

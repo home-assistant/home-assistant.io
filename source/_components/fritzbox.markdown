@@ -8,9 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: avm.png
-ha_category: Hub
+ha_category:
+  - Binary Sensor
+  - Climate
+  - Switch
 ha_release: 0.68
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.fritzbox/
+  - /components/switch.fritzbox/
+  - /components/climate.fritzbox/
 ---
 
 The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
@@ -20,8 +27,7 @@ The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
-- [Eurotronic Comet DECT](https://www.eurotronic.org/en/products/comet-dect.html)
-
+- [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
 
 ## {% linkable_title Setup %}
 
@@ -43,7 +49,7 @@ devices:
     host:
       description: The hostname or IP address of the Fritzbox.
       required: true
-      type: optional
+      type: string
     username:
       description: The username for Smart Home access.
       required: true
@@ -53,3 +59,25 @@ devices:
       required: true
       type: string
 {% endconfiguration %}
+
+## {% linkable_title Switch & Thermostat %}
+
+To get AVM Fritzbox switch and thermostat follow the instructions above.
+
+### {% linkable_title Attributes %}
+
+The are several attributes that can be useful for automations and templates.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `device_locked` | The state of the key lock at the device.
+| `locked` | The state of the lock for configuring the device via the app or the Fritzbox web interface.
+| `low_battery` | The low battery state indication.
+| `battery_level` | The battery level (only available since Fritz!OS 7).
+| `holiday_mode` | The state of the holiday mode (only available since Fritz!OS 7).
+| `summer_mode` | The state of the summer mode (only available since Fritz!OS 7).
+| `window_open` | The state of the window open detection (only available since Fritz!OS 7).
+| `temperature_unit` |  The unit of the temperature sensor (only available if the device support temperature sensor).
+| `temperature` | The current temperature sensor reading (only available if the device supports temperature sensor).
+| `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
+| `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).

@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Local Push"
 ---
 
-
 The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
 
 ## {% linkable_title Configuration %}
@@ -52,7 +51,7 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 Note that a pin managed by HASS is expected to be exclusive to HASS.
 </p>
 
-A common question is what does Port refer to, this number is the actual GPIO # not the pin #.
+A common question is what does Port refer to, this number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.
 
 ```yaml

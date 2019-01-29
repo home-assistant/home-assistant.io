@@ -33,9 +33,9 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`call-service`, `navigate`, `none`)"
       type: string
-      default: "`more-info`"
+      default: "`none`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
@@ -58,9 +58,9 @@ hold_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      description: "Action to perform (`call-service`, `navigate`, `none`)"
       type: string
-      default: "`more-info`"
+      default: "`none`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
@@ -85,7 +85,9 @@ Navigate to another view:
 ```yaml
 - type: picture
   image: /local/home.jpg
-  navigation_path: /lovelace/home
+  tap_action:
+    action: navigate
+    navigation_path: /lovelace/home
 ```
 
 Check the [views](/lovelace/views/) setup on how to setup custom IDs.

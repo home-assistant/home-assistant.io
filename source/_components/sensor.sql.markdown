@@ -68,7 +68,7 @@ queries:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Current state of an entity %}
 
@@ -81,7 +81,7 @@ sensor:
     unit_of_measurement: '°C'
 ```
 
-The query will look like this: 
+The query will look like this:
 
 ```sql
 SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;
@@ -99,7 +99,6 @@ sensor:
 ```
 {% endraw %}
 
-
 Note that the SQL sensor state corresponds to the last row of the SQL result set.
 
 ### {% linkable_title Previous state of an entity %}
@@ -107,7 +106,7 @@ Note that the SQL sensor state corresponds to the last row of the SQL result set
 This example only works with *binary_sensors*:
 
 ```sql
-SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
+SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
 ```
 
 ### {% linkable_title Database size %}
@@ -116,13 +115,14 @@ SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER
 
 {% raw %}
 ```yaml
-- platform: sql
+sensor:
+  - platform: sql
     db_url: postgresql://user:password@host/dbname
     queries:
       - name: DB size
         query: "SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;"
         column: "db_size"
-        unit_of_measurement: MB 
+        unit_of_measurement: MB
 ```
 {% endraw %}
 
@@ -131,12 +131,12 @@ SELECT * FROM states WHERE entity_id='binary_sensor.xyz789' GROUP BY state ORDER
 {% raw %}
 ```yaml
 sensor:
-- platform: sql
-  db_url: mysql://user:password@localhost/hass
-  queries:
-    - name: DB size
-      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
-      column: 'value'
-      unit_of_measurement: kB
+  - platform: sql
+    db_url: mysql://user:password@localhost/hass
+    queries:
+      - name: DB size
+        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hass" GROUP BY table_schema;'
+        column: 'value'
+        unit_of_measurement: kB
 ```
 {% endraw %}
