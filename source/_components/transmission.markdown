@@ -61,7 +61,7 @@ password:
   required: false
   type: string
 turtle_mode:
-  description; If enabled, it creates a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
+  description: If enabled, it creates a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
   required: false
   type: boolean
 monitored_variables:
