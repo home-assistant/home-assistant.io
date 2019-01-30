@@ -28,7 +28,7 @@ You must have previously created a myicomfort.com account and connected your the
 
 {% configuration %}
 username:
-  description: "The username for your myicomfort.com account.""
+  description: "The username for your myicomfort.com account."
   required: true
   type: string
 password:
