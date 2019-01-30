@@ -20,7 +20,7 @@ Home Assistant provides multiple ways to be installed. The first start may take 
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
 </p>
 
-## {% linkable_title Tier one - recommended %}
+## {% linkable_title Recommended %}
 
 These install options are fully supported by Home Assistant's documentation. For example, if a component requires that you install something to make it work on one of these methods then the component page will document the steps required.
 
@@ -30,7 +30,7 @@ These install options are fully supported by Home Assistant's documentation. For
 [Docker](https://www.home-assistant.io/docs/installation/docker/)|Docker|Anybody already running Docker
 [Hassbian](https://www.home-assistant.io/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience<BR>and either have experience with Linux, or intend to learn
 
-## {% linkable_title Tier two - alternative installs %}
+## {% linkable_title Alternative installs %}
 
 If you use these install methods, we assume that you know how to manage and administer the operating system you're using. Due to the range of platforms on which these install methods can be used, component documentation may only tell you what you have to install, not how to install it.
 
