@@ -44,12 +44,12 @@ system:
   description: "Select which system to connect to from your myicomfort.com account."
   required: false
   default: 0
-  type: int
+  type: integer
 zone:
   description: "Select the desired zone for the specified system."
   required: false
   default: 0
-  type: int
+  type: integer
 min_temp:
   description: "Set the lowest allowed set point."
   required: false
