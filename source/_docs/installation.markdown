@@ -28,7 +28,7 @@ These install options are fully supported by Home Assistant's documentation. For
 :-----|:-----|:-----
 [Hass.io](https://www.home-assistant.io/hassio/installation/)|Raspberry Pi<br>VM|Anybody
 [Docker](https://www.home-assistant.io/docs/installation/docker/)|Docker|Anybody already running Docker
-[Hassbian](https://www.home-assistant.io/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience<BR>and either have experience with Linux, or intend to learn
+[Hassbian](https://www.home-assistant.io/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
 
 ## {% linkable_title Alternative installs %}
 
@@ -101,13 +101,3 @@ These guides are provided as-is. Some of these install methods are more limited 
     <div class='title'>FreeNAS</div>
   </a>
 </div>
-
-### {% linkable_title After installation %}
-
-Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:
-
-```bash
-$ hass
-```
-
-For more details about `hass`, please refer to the [tools section](/docs/tools/hass/).
