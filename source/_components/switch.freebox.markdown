@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: freebox.svg
 ha_category: Switch
-ha_release: "0.86"
+ha_release: "0.87"
 ha_iot_class: "Local Polling"
 ---
 
