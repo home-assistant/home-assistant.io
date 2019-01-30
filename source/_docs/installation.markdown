@@ -36,8 +36,8 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[Manual<BR>(as another user)](https://www.home-assistant.io/docs/installation/raspberry-pi/)|Any Linux, Python 3.5.3 or later|Those familiar with their operating system
-[Manual<BR>(as your user)](https://www.home-assistant.io/docs/installation/virtualenv/)|Any Python 3.5.3 or later|Developers
+[Virtualenv<BR>(as another user)](https://www.home-assistant.io/docs/installation/raspberry-pi/)|Any Linux, Python 3.5.3 or later|Those familiar with their operating system
+[Virtualenv<BR>(as your user)](https://www.home-assistant.io/docs/installation/virtualenv/)|Any Python 3.5.3 or later|Developers
 
 <HR>
 
