@@ -11,7 +11,6 @@ ha_category: Climate
 ha_iot_class: "Cloud Polling" 
 ---
 
-
 The `myicomfort` climate platform let you control MyiComfort.com connected Lennox iComfort WiFi thermostats from Home Assistant.
 
 To set it up, add the following information to your `configuration.yaml` file:
