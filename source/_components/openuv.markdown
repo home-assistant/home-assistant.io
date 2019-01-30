@@ -8,13 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: openuv.jpg
-ha_category: Health
+ha_category:
+  - Health
+  - Binary Sensor
+  - Sensor
 ha_release: 0.76
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/binary_sensor.openuv/
+  - /components/sensor.openuv/
 ---
 
-The `openuv` component displays UV and Ozone data from
-[openuv.io](http://openuv.io).
+The `openuv` component displays UV and Ozone data from [openuv.io](http://openuv.io).
 
 ## {% linkable_title Generating an API Key %}
 
