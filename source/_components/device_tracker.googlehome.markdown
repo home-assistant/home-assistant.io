@@ -19,7 +19,7 @@ redirect_from:
 
 The `googlehome` component allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
 
-This component will set up a [device_tracker](/components/device_tracker/) plaform to track nearby bluetooth devices.
+This component will set up a [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices.
 
 ## {% linkable_title Configuration %}
 
