@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.
 
 <p class='note'>
-Synology has disabled the livestreaming API and the component is currently broken if you are using Surveillance Station version 8.2.3-5828S.
+Synology has disabled the livestreaming API and the component is currently broken if you are using Surveillance Station version 8.2.3-5828.
 </p>
 
 ## {% linkable_title Configuration %}
