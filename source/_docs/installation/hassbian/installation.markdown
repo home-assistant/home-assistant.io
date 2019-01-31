@@ -13,7 +13,7 @@ redirect_from: /docs/hassbian/installation/
 One of the easiest ways to install Home Assistant on your Raspberry Pi Zero, 2, 3 and 3B+ is by using Hassbian: a Raspberry Pi image with Home Assistant built-in. The image will install the latest version of Home Assistant on initial boot (~10 minutes).
 
  1. [Download the Hassbian image][image-download]
- 2. Use [Etcher][etcher] to flash the image to your SD card. We recommend at least a 32 GB SD card to avoid running out of space.
+ 2. Use [balenaEtcher][balenaEtcher] to flash the image to your SD card. We recommend at least a 32 GB SD card to avoid running out of space.
  3. Ensure your Raspberry Pi has wired access to the internet for the entire process or configure your [wireless network settings](#wireless-network) **before proceeding to step 4**.
  4. Insert SD card to Raspberry Pi and turn it on. Initial installation of Home Assistant will take about 10 minutes.
 
@@ -73,7 +73,7 @@ To unblock it, execute `$ sudo rfkill unblock wifi`.
  - The configuration is located at `/home/homeassistant/.homeassistant`
 
 [image-download]: https://github.com/home-assistant/pi-gen/releases/latest
-[etcher]: https://etcher.io/
+[balenaEtcher]: https://www.balena.io/etcher
 [http://hassbian.local:8123]: http://hassbian.local:8123
 [wifi-setup]: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
 
