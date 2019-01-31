@@ -25,7 +25,7 @@ redirect_from:
 
 The `wemo` component is the main component to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
 
-Here is currently support for the following device types within Home Assistant:
+There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Fan (Belkin WeMo (Holmes) Smart Humidifier)
