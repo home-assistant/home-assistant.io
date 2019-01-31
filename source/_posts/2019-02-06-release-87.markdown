@@ -15,6 +15,12 @@ og_image: /images/blog/2019-02-release-87/smartthings.png
 
 SmartThings
 
+Areas
+
+Entity Registry UI
+
+Material Design Icons upgraded to 3.3.92, some renames: https://dev.materialdesignicons.com/upgrade
+
 ## {% linkable_title New Platforms %}
 
 - Add a Zoneminder availability sensor ([@rohankapoorcom] - [#20184]) ([zoneminder docs]) (new-platform)
