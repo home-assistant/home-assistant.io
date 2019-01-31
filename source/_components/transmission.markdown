@@ -8,7 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: transmission.png
-ha_category: Downloading
+ha_category: 
+  - Downloading
+  - Switch
+  - Sensor
 ha_release: 0.87
 ha_iot_class: "Local Polling"
 ---
