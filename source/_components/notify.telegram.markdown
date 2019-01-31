@@ -86,15 +86,16 @@ telegram_bot:
       - CHAT_ID_3
 
 # Example configuration.yaml entry for the notifier
+# name must be lower case
 notify:
-  - name: NOTIFIER_NAME
+  - name: your_notifier_name
     platform: telegram
     chat_id: CHAT_ID_2
 ```
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.your_notifier_name`.
   required: false
   default: notify
   type: string
@@ -111,7 +112,7 @@ To use notifications, please see the [getting started with automation page](/get
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  service: notify.your_notifier_name
   data:
     title: '*Send a message*'
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
@@ -145,7 +146,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  service: notify.your_notifier_name
   data:
     title: Send an images
     message: "That's an example that sends an image."
@@ -214,7 +215,7 @@ homeassistant:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  service: notify.your_notifier_name
   data:
     title: Send a video
     message: "That's an example that sends a video."
@@ -270,7 +271,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  service: notify.your_notifier_name
   data:
     title: Send a document
     message: "That's an example that sends a document and a custom keyboard."
@@ -325,7 +326,7 @@ inline_keyboard:
 ...
 
 action:
-  service: notify.NOTIFIER_NAME
+  service: notify.your_notifier_name
   data:
     title: Send location
     message: Location updated.
