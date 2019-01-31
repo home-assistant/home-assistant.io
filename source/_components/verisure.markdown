@@ -29,7 +29,7 @@ redirect_from:
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
 
-Here is currently support for the following device types within Home Assistant:
+There is currently support for the following device types within Home Assistant:
 
 - Alarm
 - Camera
