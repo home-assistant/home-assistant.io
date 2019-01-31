@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: samsung_smartthings.png
 ha_category: Switch
-ha_release: ""
+ha_release: "0.87"
 ha_iot_class: "Cloud Push"
 ---
 
