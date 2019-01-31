@@ -69,7 +69,10 @@ turtle_mode:
   description: If enabled, it creates a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
   required: false
   type: boolean
-monitored_conditions:
+scan_interval:
+  description: How frequently to query for new data. Defaults to 120 seconds.
+  required: false
+  type: integer
   description: "List of monitored conditions. Possible values are:"
   required: false
   type: map
