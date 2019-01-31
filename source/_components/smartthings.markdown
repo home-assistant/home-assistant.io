@@ -68,7 +68,7 @@ SmartThings represents devices as a set of [capabilities](https://smartthings.de
 
 | Capabilities        |Platform
 |-------------------|------------------------------------------------------------|
-| `switchLevel`, `colorControl` and `colorTemperature`    | [`light`](/components/smartthings.light)
-| [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch)            | [`switch`](/components/smartthings.switch)
+| `switchLevel`, `colorControl` and `colorTemperature`    | [light](/components/smartthings.light)
+| `switch`          | [switch](/components/smartthings.switch)
 
 Support for additional capabilities will be added in the future.
