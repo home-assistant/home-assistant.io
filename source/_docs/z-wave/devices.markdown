@@ -63,7 +63,7 @@ Where a device doesn't send updates on status changes to the controller, you can
 
 For example, with `polling_interval=60000` (which is the default) if you have 10 devices that are being polled at every interval, and each polling takes one secound (request/response round trip), then it will take 10 seconds to complete the polling list. This only leaves 50 seconds left for normal traffic. The more devices you poll, and the shorter the interval, the less bandwidth that's available for normal traffic.
 
-Polling is by default disabled and needs to be enabled per device. You can also specify the interval by setting the *polling intensity* of the device. See the [Node Management](/docs/z-wave/control-panel#z-wave-node-management) docs for details.
+Polling needs to be enabled per device. You can control this through the *polling intensity* (interval) of the device. See the [Node Management](/docs/z-wave/control-panel#z-wave-node-management) docs for details.
 
 ## {% linkable_title Central Scene support %}
 
