@@ -51,14 +51,15 @@ devices:
       description: Device types that will be tracked [see device types](#device_types), by default all types are tracked.
       required: false
       type: list
-      keys:
-        '1':
-          description: BR/EDR devices
-        '2':
-          description: Low Energy - LE-only
-        '3':
-          description: Dual Mode - BR/EDR/LE
 {% endconfiguration %}
+
+## {% linkable_title Device types %}
+
+Device type | Description
+-- | --
+1 | Classic - BR/EDR devices
+2 | Low Energy - LE-only
+3 | Dual Mode - BR/EDR/LE
 
 ## {% linkable_title Notes %}
 
