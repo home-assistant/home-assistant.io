@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "GitHub Sensor"
-description: "How to integrate the GitHub Sensor into Home Assistant."
+description: "How to integrate the GitHub sensor into Home Assistant."
 date: 2018-12-24 18:00
 sidebar: true
 comments: false
@@ -17,28 +17,11 @@ The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor 
 
 ## {% linkable_title Setup %}
 
-To set up this sensor you will need your GitHub username and password, or an [access token][accesstoken]. 
-
-If you have two-factor authentication enabled on your account an [access token][accesstoken] is required.
-[accesstoken]: https://github.com/settings/tokens
+To set up this sensor you will need a [personal access token][accesstoken]. You will need to check the `repo` scope for the sensor to function.
 
 ## {% linkable_title Configuration %}
 
-To enable this platform, please add the following to your `configuration.yaml` file:
-
-### {% linkable_title Username / Password %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: github
-    username: 'githubusername'
-    password: !secret github_password
-    repositories:
-      - path: 'home-assistant/home-assistant'
-```
-
-### {% linkable_title Access Token %}
+To enable this platform, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,17 +33,9 @@ sensor:
 ```
 
 {% configuration %}
-username:
-  description: Your GitHub Username
-  required: false
-  type: string
-password:
-  description: Your GitHub Password
-  required: false
-  type: string
 access_token:
   description: Your GitHub Access Token
-  required: false
+  required: true
   type: string
 url:
   description: If you are using a GitHub Enterprise server, add it's URL here. For example, `https://mygithubserver.com`
