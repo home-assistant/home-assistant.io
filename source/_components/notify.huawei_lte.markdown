@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: huawei.svg
 ha_category: Notifications
-ha_release: 0.86
+ha_release: 0.88
 ---
 
 The `huawei_lte` platform allows you to use a Huawei LTE router for
