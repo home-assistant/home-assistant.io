@@ -38,7 +38,7 @@ name:
   type: string
 hub:
   description: The name of the hub.
-  required: true
+  required: false
   default: default
   type: string
 slave:

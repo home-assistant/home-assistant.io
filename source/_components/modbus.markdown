@@ -48,8 +48,8 @@ port:
   required: true
   type: integer
 name:
-  description: a name to reference this connection. Required when setting up multiple instances.
-  required: true
+  description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
+  required: false
   default: default
   type: string
 timeout:
@@ -106,8 +106,8 @@ parity:
   required: true
   type: string
 name:
-  description: a name to reference this connection. Required when setting up multiple instances.
-  required: true
+  description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
+  required: false
   default: default
   type: string
 timeout:
@@ -146,7 +146,7 @@ modbus:
 
 | Attribute | Description |
 | --------- | ----------- |
-| hub       | Hub name. Needed when using multiple connections (defaults to 'default' when omitted) |
+| hub       | Hub name (defaults to 'default' when omitted) |
 | unit      | Slave address (set to 255 you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
 | value     | An array of 16-bit values. Might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |

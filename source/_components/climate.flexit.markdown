@@ -36,7 +36,7 @@ name:
   required: false
   type: string
 hub:
-  description: The name of the hub.
+  description: The name of the hub where this slave is located.
   required: false
   default: default
   type: string

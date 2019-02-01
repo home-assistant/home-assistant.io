@@ -49,7 +49,7 @@ coils:
   keys:
     hub:
       description: The name of the hub.
-      required: true
+      required: false
       default: default
       type: string
     slave:
@@ -71,7 +71,7 @@ register:
   keys:
     hub_name:
       description: The hub to use.
-      required: true
+      required: false
       default: default
       type: string
     slave:
