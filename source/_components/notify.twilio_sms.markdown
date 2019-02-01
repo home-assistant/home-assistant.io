@@ -23,12 +23,12 @@ To use this notification platform in your installation, add the following to you
 notify:
   - name: NOTIFIER_NAME
     platform: twilio_sms
-    from_number: E164_PHONE_NUMBER
+    from_number: E164_PHONE_NUMBER or SENDER_ID
 ```
 
 {% configuration %}
 from_number:
-  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like +14151234567. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information.
+  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like +14151234567. See [Twilio's guide to formatting phone numbers](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally) for more information. Alternatively, a sender ID can be used instead of a phone number. The sender ID must be formatted according to Twilio's guidelines. See [Twilio's guide to sender ID](https://support.twilio.com/hc/en-us/articles/223181348-Getting-started-with-Alphanumeric-Sender-ID) for more information.
   required: true
   type: string
 name:

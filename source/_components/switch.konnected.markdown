@@ -15,5 +15,4 @@ ha_iot_class: "Local Push"
 
 The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
-See the [`konnected`](/components/konnected/) component for configuration and setup instructions. 
-
+See the [`konnected`](/components/konnected/) component for configuration and setup instructions.

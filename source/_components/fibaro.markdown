@@ -2,14 +2,14 @@
 layout: page
 title: "Fibaro"
 description: "Instructions on how to setup Fibaro Z-Wave hubs (HCL and HC2) and configure devices within Home Assistant."
-date: 2018-11-14 20:04
+date: 2019-01-10 20:04
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: fibaro.png
 ha_category: Hub
-ha_release: 0.83
+ha_release: "0.83"
 ha_iot_class: "Local Push"
 redirect_from:
  - /components/scene.fibaro/
@@ -17,20 +17,33 @@ redirect_from:
 
 The [Fibaro](http://fibaro.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Binary sensors, Covers, Lights (including Dimmers), Sensors, Scenes and Switches are supported - and will be automatically added when HA connects to your Fibaro controller.
+Binary sensors, switches, lights (including Dimmers), locks, sensors and covers are supported and will be automatically added when Home Assistant connects to your Fibaro controller.
 
 ## {% linkable_title Configuration %}
 
-To use Fibaro devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Fibaro controller:
+To use Fibaro devices in your installation, add the following to your `configuration.yaml` file using the IP and port number of your Fibaro controller:
 
 ```yaml
 fibaro:
-  url: http://192.168.1.161/api/
-  username: your_username
-  password: your_password
+  gateways:
+    - url: http://192.168.1.161/api/
+      username: your_username
+      password: your_password
+      device_config:
+        light_device_name_123:
+          color: false
+          white_value: false
+          reset_color: true
+        binary_device_name_123:
+          device_class: "garage_door"
+          icon: mdi:open
 ```
 
 {% configuration %}
+gateways:
+  description: List of gateway configurations.
+  requires: true
+  type: list
 url:
   description: The URL for your Fibaro HomeCenter device.
   required: true
@@ -44,13 +57,19 @@ password:
   required: true
   type: string
 plugins:
-  description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc. Default is false.
+  description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc.
   required: false
   type: bool
+  default: false
+device_config:
+  description: Lists device specific parameter or behaviour overrides.
+  required: false
+  type: list
+  default: None
 {% endconfiguration %}
 
 <p class='note'>
-  It is recommended to assign a static IP address to your Fibaro Controller. This ensures that it won't change IP addresses, so you won't have to change the 'url' if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
+  It is recommended to assign a static IP address to your Fibaro controller. This ensures that it won't change its IP address, so you won't have to change the `url` if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
 </p>
 
 ### {% linkable_title Using Z-Wave devices in automation %}

@@ -22,11 +22,12 @@ You have to set up the [Dyson component](/components/dyson/) first.
 ### {% linkable_title Component services %}
 
 This component support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
-* [`turn_on`](/components/vacuum/#service-vacuumturn_on)
-* [`turn_off`](/components/vacuum/#service-vacuumturn_off)
-* [`start_pause`](/components/vacuum/#service-vacuumstart_pause)
-* [`stop`](/components/vacuum/#service-vacuumstop)
-* [`return_to_home`](/components/vacuum/#service-vacuumreturn_to_home)
-* [`set_fan_speed`](/components/vacuum/#service-vacuumset_fanspeed). Fan speed values:
-  * `Quiet`
-  * `Max`
+
+- [`turn_on`](/components/vacuum/#service-vacuumturn_on)
+- [`turn_off`](/components/vacuum/#service-vacuumturn_off)
+- [`start_pause`](/components/vacuum/#service-vacuumstart_pause)
+- [`stop`](/components/vacuum/#service-vacuumstop)
+- [`return_to_home`](/components/vacuum/#service-vacuumreturn_to_home)
+- [`set_fan_speed`](/components/vacuum/#service-vacuumset_fanspeed). Fan speed values:
+  - `Quiet`
+  - `Max`

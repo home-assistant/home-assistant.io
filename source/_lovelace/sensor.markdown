@@ -64,6 +64,4 @@ theme:
 - type: sensor
   entity: sensor.illumination
   name: Illumination
-  height: 75
-  line_color: "#3498db"
 ```

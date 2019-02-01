@@ -30,7 +30,7 @@ rest_command:
 {% configuration %}
 service_name:
   description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.service_name'.
-  required: true 
+  required: true
   type: map
   keys:
     url:
@@ -59,7 +59,7 @@ service_name:
       required: false
       type: string
     timeout:
-      description: Timeout for requests in seconds. 
+      description: Timeout for requests in seconds.
       required: false
       type: string
       defaut: 10
@@ -67,6 +67,11 @@ service_name:
       description: Content type for the request.
       required: false
       type: string
+    verify_ssl:
+      description: Verify the SSL certificate of the endpoint.
+      required: false
+      type: boolean
+      default: true
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -80,11 +85,12 @@ rest_command:
   my_request:
     url: https://slack.com/api/users.profile.set
     method: POST
-    headers: 
+    headers:
       authorization: !secret rest_headers_secret
       accept: 'application/json, text/html'
     payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
     content_type:  'application/json; charset=utf-8'
+    verify_ssl: true
 ```
 {% endraw %}
 

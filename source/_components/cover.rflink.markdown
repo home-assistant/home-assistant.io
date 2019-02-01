@@ -91,7 +91,7 @@ devices:
     fire_event:
       description: Fire a `button_pressed` event if this device is turned on or off.
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: The number of times every Rflink command should repeat.
@@ -100,7 +100,7 @@ devices:
     group:
       description: Allow light to respond to group commands (ALLON/ALLOFF).
       required: false
-      default: True
+      default: true
       type: boolean
     group_aliases:
       description: The `aliases` which only respond to group commands.
@@ -118,7 +118,7 @@ device_defaults:
     fire_event:
       description: The default `fire_event` for Rflink cover devices.
       required: false
-      default: False
+      default: false
       type: boolean
     signal_repetitions:
       description: The default `signal_repetitions` for Rflink cover devices.

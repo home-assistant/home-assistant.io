@@ -47,6 +47,20 @@ climate:
     operation_mode_comfort_address: '5/1/7'
 ```
 
+`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
+
+If your device doesn't support setpoint_shift calculations (i.e. if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
+attributes of the climate device to avoid issues with increasing the temperature in the frontend.
+
+The following values are valid for the `operation_modes` attribute:
+
+- Comfort (maps internally to STATE_HEAT within Home Assistant)
+- Standby (maps internally to STATE_ECO within Home Assistant)
+- Night (maps internally to STATE_IDLE within Home Assistant)
+- Frost Protection (maps internally to STATE_MANUAL within Home Assistant)
+- Fan only (maps internally to STATE_FAN_ONLY within Home Assistant)
+- Dehumidification (maps internally to STATE_DRY within Home Assistant)
+
 {% configuration %}
 name:
   description: A name for this device used within Home Assistant.
@@ -100,6 +114,14 @@ controller_status_state_address:
   description: Explicit KNX address for reading HVAC controller status.
   required: false
   type: string
+controller_mode_address:
+  description: KNX address for handling controller modes.
+  required: false 
+  type: string
+controller_mode_state_address:
+  description: Explicit KNX address for reading HVAC Control Mode.
+  required: false
+  type: string
 operation_mode_frost_protection_address:
   description: KNX address for switching on/off frost/heat protection mode.
   required: false
@@ -112,6 +134,24 @@ operation_mode_comfort_address:
   description: KNX address for switching on/off comfort mode.
   required: false
   type: string
+operation_modes:
+  description: Overrides the supported operation modes.
+  required: false
+  type: array
+on_off_address:
+  description: KNX address for switching the climate device on/off.
+  required: false
+  type: string
+on_off_state_address:
+  description: KNX address for gathering the current state (on/off) of the climate device.
+  required: false
+  type: string
+min_temp:
+  description: Override the minimum temperature.
+  required: false
+  type: float
+max_temp:
+  description: Override the maximum temperature.
+  required: false
+  type: float
 {% endconfiguration %}
-
-`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.

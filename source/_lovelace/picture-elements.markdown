@@ -537,9 +537,9 @@ hold_action:
       entity: media_player.living_room
       tap_action:
         action: call-service
-          service: media_player.media_play_pause
-          service_data:
-            entity_id: media_player.living_room
+        service: media_player.media_play_pause
+        service_data:
+          entity_id: media_player.living_room
       image: /local/television.jpg
       filter: brightness(5%)
       state_filter:

@@ -59,7 +59,7 @@ hour:
   required: false
   type: list
 manual:
-  description: True or False to turn manual mode on or off. Manual mode will disable scheduled speedtests.
+  description: Turn manual mode on or off. Manual mode will disable scheduled speedtests.
   required: false
   default: false
   type: boolean
@@ -70,3 +70,4 @@ There is also a service named `sensor.update_fastdotcom` that you can use to run
 ## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- This entity will return the maximum measured speed during an 15 second test.

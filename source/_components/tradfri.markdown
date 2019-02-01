@@ -9,9 +9,17 @@ comments: false
 sharing: true
 footer: true
 logo: ikea.svg
-ha_category: Hub
 ha_iot_class: "Local Polling"
+ha_config_flow: true
 ha_release: 0.43
+ha_category:
+  - Light
+  - Sensor
+  - Switch
+redirect_from:
+  - /components/light.tradfri/
+  - /components/sensor.tradfri/
+  - /components/switch.tradfri/
 ---
 
 The `tradfri` component support the IKEA Trådfri Gateway (a.k.a. IKEA Tradfri hub/bridge). The gateway can control compatible Zigbee-based lights (certified ZigBee Light Link products) connected to it and Home Assistant will automatically discover the gateways presence on your local network, if `discovery:` is present in your `configuration.yaml` file.

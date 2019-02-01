@@ -45,4 +45,4 @@ Devices will appear in the format `devicetracker.<home hub ip>_<device mac addre
 After running this component for a little while, you will likely see many devices appear. It's advisable to set the configuration to not discover new devices once the device you want to track have appeared (see [device tracker configuration][devicetrackerconfig] for details).
 
 [googlehomeapi]: https://rithvikvibhu.github.io/GHLocalApi/
-[devicetrackerconfig]: https://www.home-assistant.io/components/device_tracker/#configuring-a-device_tracker-platform
+[devicetrackerconfig]: /components/device_tracker/#configuring-a-device_tracker-platform

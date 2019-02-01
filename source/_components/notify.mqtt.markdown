@@ -38,10 +38,11 @@ The same will work for automations.
 Using the [REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) to send a message to a given topic.
 
 ```bash
-$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
-       -H "Content-Type: application/json" \
-       -d '{"payload": "Test message from HA", "topic": "home/notification"}' \
-       http://IP_ADDRESS:8123/api/services/mqtt/publish
+$ curl -X POST \
+    -H "Authorization: Bearer ABCDEFGH" \
+    -H "Content-Type: application/json" \
+    -d '{"payload": "Test message from HA", "topic": "home/notification"}' \
+    http://IP_ADDRESS:8123/api/services/mqtt/publish
 ```
 
 ### {% linkable_title Automations %}

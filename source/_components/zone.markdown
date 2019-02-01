@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Zone"
-description: "Instructions on how to setup zones within Home Assistant."
+description: "Instructions on how to set up zones within Home Assistant."
 date: 2015-10-04 09:23
 sidebar: true
 comments: false
@@ -68,7 +68,7 @@ passive:
 
 To find the latitude/longitude of a certain place you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
 
-#### {% linkable_title Home zone %}
+## {% linkable_title Home zone %}
 
 If no configuration is given, the `zone` component will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
 
@@ -76,10 +76,10 @@ If no configuration is given, the `zone` component will create a zone for home. 
 Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI.
 </p>
 
-#### {% linkable_title Icons %}
+## {% linkable_title Icons %}
 
 It is preferred to pick an icon to use for your zone. Pick any icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:worker`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
 
-#### State
+## {% linkable_title State %}
 
 `zoning` is the state a `zone` has when it is configured. A `zone` doesn't have another state; all configured zones are `zoning` all the time.

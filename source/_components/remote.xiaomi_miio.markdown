@@ -54,7 +54,7 @@ hidden:
   description: Hide the entity from UI. There is currently no reason to show the entity in UI as turning it off or on does nothing.
   required: false
   type: boolean
-  default: True
+  default: true
 commands:
   required: false
   type: map

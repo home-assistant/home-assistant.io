@@ -102,6 +102,7 @@ Currently tested but not working models:
 
 - J5200 - Unable to see state and unable to control
 - J5500 - State is always "on" and unable to control (but port 8001 *is* open)
+- J6200 - State is always "on" and unable to control (but port 8001 *is* open)
 - J6300 - State is always "on" and unable to control (but port 8001 *is* open)
 - JS8005 - State tracking working but unable to control (but port 8001 *is* open)
 - JS9000 - State is always "on" and unable to control (but port 8001 *is* open)
