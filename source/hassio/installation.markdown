@@ -36,7 +36,7 @@ The following will take you through the steps required to install Hass.io.
     
 2. Install Hass.io:
 
-   - Flash the downloaded image to an SD card using [Etcher][etcher]. We recommend at least a 32 GB SD card to avoid running out of space.
+   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. We recommend at least a 32 GB SD card to avoid running out of space.
    - Load the appliance image into your virtual machine software.
 
 3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
@@ -112,7 +112,7 @@ When you use this installation method, the core SSH add-on may not function corr
 
 A detailed guide about running Hass.io as a virtual machine is available in the [blog][hassio-vm].
 
-[etcher]: https://etcher.io/
+[balenaEtcher]: https://www.balena.io/etcher
 [Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
 [hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
 [pi0-w]: https://github.com/home-assistant/hassos/releases/download/1.13/hassos_rpi0-w-1.13.img.gz
