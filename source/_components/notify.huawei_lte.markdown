@@ -23,11 +23,11 @@ This requires you to have set up the
 # Example configuration.yaml entry
 notify:
   - platform: huawei_lte
-    target: "+15105550123"
+    recipient: "+15105550123"
 ```
 
 {% configuration %}
-target:
+recipient:
   description: The phone number of a default recipient or a list with multiple recipients.
   required: true
   type: string, list
