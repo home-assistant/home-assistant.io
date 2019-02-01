@@ -52,11 +52,11 @@ devices:
       required: false
       type: list
       keys:
-        1:
+        '1':
           description: BR/EDR devices
-        2:
+        '2':
           description: Low Energy - LE-only
-        3:
+        '3':
           description: Dual Mode - BR/EDR/LE
 {% endconfiguration %}
 
