@@ -55,9 +55,9 @@ devices:
         1:
           description: BR/EDR devices
         2:
-          Low Energy - LE-only
+          description: Low Energy - LE-only
         3:
-          Dual Mode - BR/EDR/LE
+          description: Dual Mode - BR/EDR/LE
 {% endconfiguration %}
 
 ## {% linkable_title Notes %}
