@@ -34,7 +34,7 @@ automation:
   - alias: "Internet Speed Glow Connect Great"
     trigger:
       - platform: template
-        value_template: "{{ states('sensor.speedtest_download')|float > 10 }}"
+        value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
     action:
       - service: shell_command.green
 
