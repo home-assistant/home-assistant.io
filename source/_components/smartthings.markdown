@@ -10,18 +10,22 @@ footer: true
 featured: true
 logo: samsung_smartthings.png
 ha_category:
-  - Hub
-  - Switch
-  - Light
   - Binary Sensor
   - Fan
+  - Hub
+  - Light
+  - Switch
 ha_release: "0.87"
 ha_iot_class: "Cloud Push"
 redirect_from:
-  - /components/smartthings.switch/
-  - /components/smartthings.light/
   - /components/smartthings.binary_sensor/
+  - /components/binary_sensor.smartthings/
   - /components/smartthings.fan/
+  - /components/fan.smartthings/
+  - /components/smartthings.light/
+  - /components/light.smartthings/
+  - /components/smartthings.switch/
+  - /components/switch.smartthings/
 ---
 
 Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings component is the main component to integrate all SmartThings related platforms. The basic features of this integration include:
@@ -74,8 +78,8 @@ Advanced: If you have multiple locations in SmartThings, each can be integrated 
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component follows the following rules to represent those as entities in Home Assistant:
 
-| Platform                                               |Capabilities
-|--------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| Platform                        |Capabilities
+|---------------------------------|--------------------------------------------------------------------------------------------|
 [binary_sensor](#binary-sensor)   | `accelerationSensor`, `contactSensor`, `filterStatus`, `motionSensor`, `presenceSensor`, `tamperAlert`, `valve` and `waterSensor`
 [fan](#fan)                       | `fanSpeed` and `switch`
 [light](#light)                   | `colorControl`, `colorTemperature`, `switch` and `switchLevel`
@@ -100,17 +104,15 @@ The SmartThings Binary Sensor platform lets you view Samsung SmartThings connect
 
 ### {% linkable_title Fan %}
 
-The SmartThings fan platform lets you control Samsung SmartThings connected devices that have fan-control related capabilities.
+The SmartThings fan platform lets you control Samsung SmartThings connected devices that have fan-control related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities above in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
 | Capability        |Fan Features
 |-------------------|------------------------------------------------------------|
 | [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed)            | `speed`
 
-For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities above in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
-
 ### {% linkable_title Light %}
 
-The SmartThings light platform lets you control Samsung SmartThings connected devices that have light-control related capabilities.
+The SmartThings light platform lets you control Samsung SmartThings connected devices that have light-control related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities above in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
 | Capability        |Light Features
 |-------------------|------------------------------------------------------------|
@@ -118,8 +120,6 @@ The SmartThings light platform lets you control Samsung SmartThings connected de
 | [`colorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Control)            | `color`
 | [`colorTemperature`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Temperature)            | `color_temp`
 
-For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities above in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
-
 ### {% linkable_title Switch %}
 
-The SmartThings switch platform lets you control Samsung SmartThings connected devices that have the [switch capability](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch).
+The SmartThings switch platform lets you control Samsung SmartThings connected devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
