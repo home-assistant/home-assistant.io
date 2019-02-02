@@ -2,7 +2,7 @@
 layout: page
 title: "KNX automation and interaction with other systems"
 description: "General KNX set up and communication with other systems like the Philips Hue."
-date: 2019-01-20 22:00 +0100
+date: 2019-02-02 23:45 +0100
 sidebar: true
 comments: false
 sharing: true
