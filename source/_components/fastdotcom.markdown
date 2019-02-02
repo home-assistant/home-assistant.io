@@ -68,7 +68,7 @@ update_interval:
 
 Once loaded, the `fastdotcom` platform will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speedtest on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 
- ```yaml
+```yaml
 action:
-  service: zoneminder.set_run_state
+  service: fastdotcom.speedtest
 ```
