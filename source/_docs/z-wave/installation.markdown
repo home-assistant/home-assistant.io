@@ -18,10 +18,11 @@ Installing the drivers might require some extra packages to be installed. Check 
 
 ### {% linkable_title Linux (except Hass.io) %}
 
-On Linux platforms (other than Hass.io) there is one dependency you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
+On Linux platforms (other than Hass.io) there two dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
 ```bash
 $ sudo apt-get install libudev-dev
+$ sudo apt-get install libopenzwave1.5-dev
 ```
 
 On Python 3.6 you may also have to install `libpython3.6-dev`, and possibly `python3.6-dev`.
