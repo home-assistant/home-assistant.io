@@ -107,3 +107,19 @@ If you receive the error message `Issue: Error while setting up platform firetv`
 3. Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it.  Once you fix the permissions, the component should work.
 
 4. You are already connected to the Fire TV via ADB from another device.  Only one device can be connected, so disconnect the other device, restart the Fire TV (for good measure), and then restart Home Assistant.  
+
+### {% linkable_title Service %}
+
+A service `firetv_key` is provided allowing you to send a keystroke to the Fire TV.
+
+```json
+{
+  "entity_id" : "media_player.fire_tv", 
+  "key" : "HOME"
+}
+```
+
+Service parameters:
+
+- **entity_id**: Entity ID of the Fire TV.
+- **key**: The key that should be sent: `POWER`, `SLEEP`, `HOME`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `ENTER`, `BACK`, `SPACE` or `MENU`
