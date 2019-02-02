@@ -215,3 +215,96 @@ script:
       - service: light.turn_off
         entity_id: light.eltern_bett
 ```
+
+## {% linkable_title Use KNX switches to control Philips Hue or Ikea Trådfri %}
+
+In this example we will use two KNX switches to control the brightness and the color temperature of some Hue White Ambiance bulbs. We will also switch an Osram Smart+ (AKA Lightify) on-off-plug together with the Hues. This code is gerneric and should also work with other Zigbee based systems like Ikea Trådfri.
+
+My personal setup uses two switches programmed on an MDT Glass Push Buttons II Smart device. Both switches are programmed to circle through a set of percent values with each push. One switch sends percent values for the brightness of the Hues (0, 1, 50, 100%), and the other one sends percent values for three different color temperatures (0, 50, 100%), which are mapped to warmest, medium, and coldest light temperature of the Hues. The MDT devices do in fact offer specialized controls to softly dim up and down through brightness and color, but I very much prefer fast switching between some predefined values.
+
+Before you start, make sure that you have activated the Hue integration in HA, paired HA with your Hue bridge and that your Hue bulbs appear in HA's overview page. In the example below the Hues have the entity_ids `light.hue_couch_1`, `...2`, `...3`. These entity_ids are derived from the names that you store in the Hue bridge through the Hue app. As always, use the dev tools' state page (icons at the bottom of the left side menu) to check the available entity_ids in your own system.
+
+```yaml
+knx: 
+
+sensor:
+  - platform: knx
+    name: "Licht, Couch DimAbs"
+    address: '1/1/52'
+    type: "percent"    
+  - platform: knx
+    name: "Licht, Couch FarbTemp"
+    address: '1/1/54'
+    type: "percent"
+
+automation:
+# handle brightness values > 0
+- id: light_knx_to_hue_couch_percent
+  alias: Licht Couch KNX an Hue PROZENT
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: sensor.licht_couch_dimabs
+  condition:
+  - condition: template
+    value_template: "{{ float(trigger.to_state.state) > 0 }}"
+  action:
+  # turn on / set brightness for the Hue bulbs
+  - service: light.turn_on
+    data_template:
+      entity_id: light.hue_couch_1, light.hue_couch_2, light.hue_couch_3
+      brightness: '{{ (float(trigger.to_state.state) * 255 / 100) | round(0) }}'
+  # turn on the Osram on-off-plug
+  - service: light.turn_on
+    entity_id: light.steckdosenschalter_couch
+
+# handle brightness value == 0  (which means OFF)
+- id: light_knx_to_hue_couch_percent_off
+  alias: Licht Couch KNX an Hue PROZENT AUS
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: sensor.licht_couch_dimabs
+    to: '0'
+  condition:
+  action:
+  - service: light.turn_off
+    entity_id: light.hue_couch_1, light.hue_couch_2, light.hue_couch_3, light.steckdosenschalter_couch
+
+# Handle color temp values
+- id: light_knx_to_hue_couch_color
+  alias: Licht Couch KNX an Hue FARBE
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: sensor.licht_couch_farbtemp
+  condition:
+  action:
+  - service: light.turn_on
+    data_template:
+      entity_id: light.hue_couch_1, light.hue_couch_2, light.hue_couch_3
+      # Do some math to convert 0...100% into the min/medium/max color temperature of your bulbs.
+      # The color temperature is defined in Mireds instead of Kelvin (Mired = 1,000,000 / Kelvin).
+      # The lowest and highest available Mired value is read from the attributes of one of the bulbs, 
+      # so this works with Hue as well as Trådfri. 
+      color_temp: '{{ ((1 - float(trigger.to_state.state) / 100) * (states.light.hue_couch_1.attributes.max_mireds - states.light.hue_couch_1.attributes.min_mireds) + states.light.hue_couch_1.attributes.min_mireds) | round(0) }}'
+```
+
+**Remarks:**
+
+It would have been nicer to use numeric_state triggers instead of state triggers for these automations. But I did not have any luck with numeric_state. I guess this is because the percentage values from the KNX bus are read into HA as strings rather than integers. As we cannot use numeric_state, we have to do checks like `above: 0` through conditions and value templates. This makes the automation blocks a bit more complex. On the other hand value templates are much more flexible, if you want to implement more complex behavior.
+
+Instead of naming all of your single bulbs again and again in the above code, you can also group them into a "room" in the Hue app and use the entity_id of that room. This will shorten the code:
+
+```yaml
+  ...
+    data_template:
+      entity_id: light.hue_raum_couch
+  ...
+  - service: light.turn_off
+    entity_id: light.hue_raum_couch, light.steckdosenschalter_couch
+  ...
+    data_template:
+      entity_id: light.hue_raum_couch
+      color_temp: '{{ ((1 - float(trigger.to_state.state) / 100) * (states.light.hue_raum_couch.attributes.max_mireds - states.light.hue_raum_couch.attributes.min_mireds) + states.light.hue_raum_couch.attributes.min_mireds) | round(0) }}'
+```
