@@ -75,9 +75,10 @@ Advanced: If you have multiple locations in SmartThings, each can be integrated 
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component follows the following rules to represent those as entities in Home Assistant:
 
-| Capabilities        |Platform
-|-------------------|------------------------------------------------------------|
-| `switchLevel`, `colorControl` and `colorTemperature`    | [light](/components/smartthings.light)
-| `switch`          | [switch](/components/smartthings.switch)
+| Platform                                               |Capabilities
+|--------------------------------------------------------|--------------------------------------------------------------------------------------------|
+[binary_sensor](/components/smartthings.binary_sensor)   | `accelerationSensor`, `contactSensor`, `filterStatus`, `motionSensor`, `presenceSensor`, `tamperAlert`, `valve` and `waterSensor`
+[light](/components/smartthings.light)                   | `switchLevel`, `colorControl` and `colorTemperature`
+[switch](/components/smartthings.switch)                 | `switch`
 
 Support for additional capabilities will be added in the future.
