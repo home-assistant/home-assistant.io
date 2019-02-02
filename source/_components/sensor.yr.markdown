@@ -69,17 +69,17 @@ monitored_conditions:
     highClouds:
       description: High cloud level.
 latitude:
-  description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
+  description: Manually specify latitude.
   required: false
   type: number
   default: Provided by Home Assistant configuration
 longitude:
-  description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
+  description: Manually specify longitude.
   required: false
   type: number
   default: Provided by Home Assistant configuration
 altitude:
-  description: Manually specify altitude. By default the value will be taken from the Home Assistant configuration.
+  description: Manually specify altitude.
   required: false
   type: number
   default: Provided by Home Assistant configuration
