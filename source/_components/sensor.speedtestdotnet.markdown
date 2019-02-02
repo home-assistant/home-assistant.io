@@ -12,6 +12,7 @@ ha_category: System Monitor
 featured: false
 ha_release: 0.13
 ha_iot_class: "Cloud Polling"
+redirect_from: /components/sensor.speedtest/
 ---
 
 The `speedtest` sensor component uses the [Speedtest.net](https://speedtest.net/)
