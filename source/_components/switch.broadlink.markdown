@@ -68,6 +68,10 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
+        icon:
+          description: The icon used to display the switch in the frontend.
+          required: false
+          type: string
 slots:
   description: Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
   required: false
