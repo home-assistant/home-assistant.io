@@ -49,7 +49,7 @@ host:
   required: false
   type: string
 update_interval:
-  description: Interval (in seconds) for polling the Telldus Live server (or the local server). Minimal value can't be less then 300.
+  description: Interval (in seconds) for polling the Telldus Live server (or the local server).
   required: false
   type: integer
   default: 60
