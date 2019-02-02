@@ -9,9 +9,14 @@ sharing: true
 footer: true
 featured: true
 logo: samsung_smartthings.png
-ha_category: Hub
-ha_release: ""
+ha_category:
+  - Hub
+  - Switch
+ha_release: "0.87"
 ha_iot_class: "Cloud Push"
+redirect_from:
+  - /components/smartthings.switch/
+  - /components/switch.smartthings/
 ---
 
 Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings component is the main component to integrate all SmartThings related platforms. The basic features of this integration include:
@@ -20,6 +25,10 @@ Samsung SmartThings is integrated into Home Assistant through the SmartThings Cl
 2. Entities automatically added, removed, or updated when changed in SmartThings (upon Home Assistant restart).
 3. Support for multiple SmartThings accounts and locations, each represented as a unique integration in the front-end configuration.
 4. No brokers, bridges, or additional dependencies.
+
+There is currently support for the following device types within Home Assistant:
+
+- Switch ([SmartThings switch platform](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch))
 
 ## {% linkable_title Basic requirements %}
 
@@ -50,7 +59,7 @@ The SmartThings component is configured exclusively through the front-end. Manua
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'SmartThings' and click 'Configure'.
 2. Enter the personal access token created above and click 'Submit'
 3. When prompted, install the SmartApp:
-    1. Open the SmartThings mobile app. Navigate to 'Automation' and select the 'SmartApps' tab.
+    1. Open the SmartThings Classic mobile app. Navigate to 'Automation' and select the 'SmartApps' tab.
     2. Click 'Add a SmartApp', scroll to the bottom, and select 'My Apps', then choose 'Home Assistant'.
     3. Optionally change the display name and press 'Done'
     4. Authorize the app by pressing 'Allow'
@@ -66,9 +75,10 @@ Advanced: If you have multiple locations in SmartThings, each can be integrated 
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component follows the following rules to represent those as entities in Home Assistant:
 
-| Capability        |Platform
+| Capabilities        |Platform
 |-------------------|------------------------------------------------------------|
 | `fanControl`      | [fan](/components/smartthings.fan)
-| [switch](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch)            | [switch](/components/smartthings.switch)
+| `switchLevel`, `colorControl` and `colorTemperature`    | [light](/components/smartthings.light)
+| `switch`          | [switch](/components/smartthings.switch)
 
 Support for additional capabilities will be added in the future.

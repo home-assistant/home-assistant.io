@@ -16,6 +16,8 @@
     {%- assign imp_name = file_parts[1] -%}
     {%- assign parent_name = file_parts[0] -%}
     {%- assign parent_url = parent_name | prepend: '/components/' | append: '/' -%}
+    {%- assign embedded_url = imp_name | prepend: '/components/' | append: '/' -%}
+    {%- assign embedded_component = components | where: 'url', embedded_url | first -%}
     {%- assign parent_component = components | where: 'url', parent_url | first -%}
   {%- else -%}
     {%- assign is_platform = false -%}
@@ -59,7 +61,7 @@
   {%- if is_platform -%}
     <div class='section'>
       Source:
-      <a href='{{github_main_repo}}{{parent_url}}{{imp_name}}.py'>{{parent_name}}/{{imp_name}}.py</a>
+      <a href='{{github_main_repo}}{{embedded_url}}{{parent_name}}.py'>{{imp_name}}/{{parent_name}}.py</a>
     </div>
   {%- endif -%}
 
