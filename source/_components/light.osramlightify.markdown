@@ -32,14 +32,14 @@ allow_lightify_nodes:
   default: true
   type: boolean
 allow_lightify_sensors:
-  description: (true/false) Should Home Assistant import contact and motion sensors?  Takes effect only if `allow_lightify_nodes` is `true`.
+  description: (true/false) Should Home Assistant import contact and motion sensors? Takes effect only if `allow_lightify_nodes` is `true`.
   required: false
-  default: false
+  default: true
   type: boolean
 allow_lightify_switches:
-  description: (true/false) Should Home Assistant import switches?  Takes effect only if `allow_lightify_nodes` is `true`.
+  description: (true/false) Should Home Assistant import switches? Takes effect only if `allow_lightify_nodes` is `true`.
   required: false
-  default: false
+  default: true
   type: boolean
 allow_lightify_groups:
   description: (true/false) Should Home Assistant import groups?
@@ -58,9 +58,10 @@ interval_lightify_conf:
   type: integer
 {% endconfiguration %}
 
-At the moment there is not much functionality for Osram Lightify switches and sensors and they are
-not imported by default. The only thing that you can do is to track whether they are available or
-not.
+At the moment there is not much functionality for Osram Lightify switches and sensors.
+The only thing that you can do out of the box is to track whether they are available or not.
+Also for sensors a list of raw values is exposed as `sensor_values` attribute, and you can use them
+in automations, if you know what particular values mean for your sensor.
 
 It is suggested to make [scan_interval](https://www.home-assistant.io/docs/configuration/platform_options/#scan-interval)
 (30 seconds by default) less or equal to `interval_lightify_status`, oherwise the latter won't work
@@ -76,7 +77,7 @@ dropdown on UI. You can apply a scene by clicking an item from the dropdown or b
 
 ```yaml
   - service: light.turn_on
-    entity_id: light.bed
+    entity_id: light.bedroom
     data:
       effect: Romance
 ```
