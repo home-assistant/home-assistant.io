@@ -1,19 +1,19 @@
 ---
 layout: page
-title: "SmartThings binary_sensor"
-description: "Instructions on setting up Samsung SmartThings binary_sensors within Home Assistant."
+title: "SmartThings Binary Sensor"
+description: "Instructions on setting up Samsung SmartThings Binary Sensors within Home Assistant."
 date: 2018-01-30 00:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: samsung_smartthings.png
-ha_category: Light
+ha_category: Binary Sensor
 ha_release: ""
 ha_iot_class: "Cloud Push"
 ---
 
-The SmartThings binary_sensor platform lets you view Samsung SmartThings connected devices that have sensor-reading capabilities. A binary_sensor entity will be created for each attribute (below) supported by the SmartThings device.
+The SmartThings Binary Sensor platform lets you view Samsung SmartThings connected devices that have sensor-reading capabilities. A Binary Sensor entity will be created for each attribute (below) supported by the SmartThings device.
 
 | Capability        |Attribute     |On-Value        |binary_sensor Device Class
 |-------------------|--------------|----------------|---------------------------------|
