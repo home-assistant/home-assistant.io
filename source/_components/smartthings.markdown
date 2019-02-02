@@ -68,6 +68,7 @@ SmartThings represents devices as a set of [capabilities](https://smartthings.de
 
 | Capability        |Platform
 |-------------------|------------------------------------------------------------|
+| `fanControl`      | [fan](/components/smartthings.fan)
 | [switch](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch)            | [switch](/components/smartthings.switch)
 
 Support for additional capabilities will be added in the future.
