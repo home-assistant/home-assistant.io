@@ -13,25 +13,24 @@ ha_release: 0.38
 ha_iot_class: "Local Polling"
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First you have to set up your [rflink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/components/rflink/).
 
-After configuring the RFLink hub sensors will be automatically discovered and added.
+After configuring the RFLink hub, sensors will be automatically discovered and added.
 
-RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own
+RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own.
 
-Once the ID of a sensor is known it can be used to configure the sensor in HA, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a sensor is known, it can be used to configure the sensor in Home Assistant, for example to add it to a different group, hide it or configure a nice name.
 
-Assigning name to a sensor:
+Configuring a device as a sensor:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: rflink
     devices:
-      alectov1_0334_temp:
-        sensor_type: temperature
+      alectov1_0334_temp: {}
 ```
 
 {% configuration %}
@@ -41,28 +40,39 @@ automatic_add:
   default: true
   type: boolean
 devices:
-  description: A list of devices with their name to use in the frontend.
+  description: A list of sensors.
   required: false
   type: list
   keys:
-    name:
-      description: Name for the device.
-      required: false
-      default: RFLink ID
-      type: string
-    sensor_type:
-      description: Override automatically detected type of sensor. For list of values see below.
+    rflink_ids:
+      description: RFLink ID of the device
       required: true
-      type: string
-    unit_of_measurement:
-      description: Override automatically detected unit of sensor.
-      required: false
-      type: string
-    aliases:
-      description: "(deprecated) Alternative RFLink ID's this device is known by."
-      required: false
-      type: [list, string]
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: RFLink ID
+          type: string
+        sensor_type:
+          description: Override automatically detected type of sensor. For list of [values](components/sensor.rflink/#sensors-types) see below.
+          required: true
+          type: string
+        unit_of_measurement:
+          description: Override automatically detected unit of sensor.
+          required: false
+          type: string
+        aliases:
+          description: "Alternative RFLink ID's this device is known by."
+          required: false
+          type: [list, string]
+        aliasses:
+          description: "(**deprecated**) Alternative RFLink ID's this device is known by."
+          required: false
+          type: [list, string]
 {% endconfiguration %}
+
+### {% linkable_title Sensors types%}
 
 Sensor type values:
 
@@ -110,3 +120,32 @@ Sensors are added automatically when the RFLink gateway intercepts a wireless co
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
+
+### {% linkable_title Additional configuration examples %}
+
+Multiple sensors with `automatic_add` disabled and `aliases`
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: rflink
+    automatic_add: false
+    devices:
+      oregontemp_0d93_temp:
+        sensor_type: temperature
+      oregontemp_0d93_bat:
+        sensor_type: battery
+      tunex_c001_temp:
+        sensor_type: temperature
+        aliases:
+          - xiron_4001_temp
+      tunex_c001_hum:
+        sensor_type: humidity
+        aliases:
+          - xiron_4001_hum
+      tunex_c001_bat:
+        sensor_type: battery
+        aliases:
+          - xiron_4001_bat
+```
+
