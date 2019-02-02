@@ -8,7 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: fastdotcom.png
-ha_category: System Monitor
+ha_category: 
+  - System Monitor
+  - Sensor
 featured: false
 ha_release: 0.88
 ha_iot_class: "Cloud Polling"
