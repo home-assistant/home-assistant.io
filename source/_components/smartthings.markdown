@@ -11,12 +11,8 @@ featured: true
 logo: samsung_smartthings.png
 ha_category:
   - Hub
-  - Switch
 ha_release: "0.87"
 ha_iot_class: "Cloud Push"
-redirect_from:
-  - /components/smartthings.switch/
-  - /components/switch.smartthings/
 ---
 
 Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings component is the main component to integrate all SmartThings related platforms. The basic features of this integration include:
@@ -25,10 +21,6 @@ Samsung SmartThings is integrated into Home Assistant through the SmartThings Cl
 2. Entities automatically added, removed, or updated when changed in SmartThings (upon Home Assistant restart).
 3. Support for multiple SmartThings accounts and locations, each represented as a unique integration in the front-end configuration.
 4. No brokers, bridges, or additional dependencies.
-
-There is currently support for the following device types within Home Assistant:
-
-- Switch ([SmartThings switch platform](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch))
 
 ## {% linkable_title Basic requirements %}
 
