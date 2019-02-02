@@ -32,12 +32,10 @@ Here is an example of adding a Template Binary Sensor to the `configuration.yaml
 # Example configuration.yaml entry
 binary_sensor:
   - platform: tod
-    sensors:
-      early_morning:
-        after: sunrise
-        after_offset: '-02:00'
-        before: '07:00'
-        friendly_name: Very Early Morning
+    name: Early Morning
+    after: sunrise
+    after_offset: '-02:00'
+    before: '07:00'
 ```
 {% endraw %}
 
@@ -47,29 +45,24 @@ sensors:
   required: true
   type: map
   keys:
-    sensor_name:
-      description: The slug of the sensor.
+    name:
+      description: Name of the sensor.
       required: true
-      type: map
-      keys:
-        friendly_name:
-          description: Name to use in the frontend.
-          required: false
-          type: string
-        before:
-          description: The absolute local time value or sun event for beginning of the time range.
-          required: true
-          type: string or time
-        before_offset:
-          description: The time offset of the beginning time range.
-          type: time
-        after:
-          description: The absolute local time value or sun event for ending of the time range.
-          required: true
-          type: string or time
-        after_offset:
-          description: The time offset of the beginning time range.
-          type: time
+      type: string
+    before:
+      description: The absolute local time value or sun event for beginning of the time range.
+      required: true
+      type: string or time
+    before_offset:
+      description: The time offset of the beginning time range.
+      type: time
+    after:
+      description: The absolute local time value or sun event for ending of the time range.
+      required: true
+      type: string or time
+    after_offset:
+      description: The time offset of the beginning time range.
+      type: time
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
@@ -85,10 +78,9 @@ If `after` time is later than `before` then the next day is considered, i.e.:
 ```yaml
 binary_sensor:
   - platform: tod
-    sensors:
-      night:
-        after: sunset
-        before: sunrise
+    name: Night
+    after: sunset
+    before: sunrise
 ```
 
 In the above example, the next day `sunrise` is calculated as a time range end.
