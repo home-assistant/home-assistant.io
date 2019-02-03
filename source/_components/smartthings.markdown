@@ -76,11 +76,11 @@ Advanced: If you have multiple locations in SmartThings, each can be integrated 
 
 ## {% linkable_title Events %}
 
-The SmartThings triggeres events for select device capabilities.
+The SmartThings component triggers events for select device capabilities.
 
 ### {% linkable_title smartthings.button %}
 
-The SmartThings component will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is pressed and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
+The component will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is actuated and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
 
 ```json
 {
@@ -94,7 +94,7 @@ The SmartThings component will trigger an event when a device with the [button](
 
 | Attribute                 | Description
 |---------------------------|------------------------------------------------------------------|
-`component_id`              | Describes which component of the device triggered the event. `main` represents the core device. For devices with child-devices, this attribute identifies the child that raised the event.
+`component_id`              | Describes which component of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.
 `device_id`                 | The unique id of the device in SmartThings. This can be located in the HASS device registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `value`                     | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device).
@@ -102,7 +102,7 @@ The SmartThings component will trigger an event when a device with the [button](
 
 ## {% linkable_title Platforms %}
 
-SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component follows the following rules to represent those as entities in Home Assistant:
+SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component mapps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
 
 | Platform                        |Capabilities
 |---------------------------------|--------------------------------------------------------------------------------------------|
@@ -115,9 +115,9 @@ Support for additional capabilities will be added in the future.
 
 ### {% linkable_title Binary Sensor %}
 
-The SmartThings Binary Sensor platform lets you view Samsung SmartThings connected devices that have sensor-reading capabilities. A Binary Sensor entity will be created for each attribute (below) supported by the SmartThings device.
+The SmartThings Binary Sensor platform lets you view devices that have binary sensor-related capabilities. A Binary Sensor entity will be created for each attribute (below) supported by the device.
 
-| Capability        |Attribute     |On-Value        |binary_sensor Device Class
+| Capability        |Attribute     |On-Value        |Binary Sensor Device Class
 |-------------------|--------------|----------------|---------------------------------|
 | [`accelerationSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Acceleration-Sensor) | `acceleration` | `active`   | `moving`
 | [`contactSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Contact-Sensor)           | `contact`      | `open`     | `opening`
@@ -130,15 +130,15 @@ The SmartThings Binary Sensor platform lets you view Samsung SmartThings connect
 
 ### {% linkable_title Fan %}
 
-The SmartThings fan platform lets you control Samsung SmartThings connected devices that have fan-control related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities above in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
+The SmartThings fan platform lets you control devices that have fan-related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
 | Capability        |Fan Features
 |-------------------|------------------------------------------------------------|
-| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed)            | `speed` (off, low, medium, and high)
+| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed)            | `speed` (`off`, `low`, `medium`, and `high`)
 
 ### {% linkable_title Light %}
 
-The SmartThings light platform lets you control Samsung SmartThings connected devices that have light-control related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
+The SmartThings light platform lets you control devices that have light-related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
 | Capability        |Light Features
 |-------------------|------------------------------------------------------------|
@@ -148,4 +148,4 @@ The SmartThings light platform lets you control Samsung SmartThings connected de
 
 ### {% linkable_title Switch %}
 
-The SmartThings switch platform lets you control Samsung SmartThings connected devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
+The SmartThings switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
