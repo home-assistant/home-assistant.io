@@ -91,8 +91,9 @@ The SmartThings component will trigger an event when a device with the [button](
   "name": "Scene Button"
 }
 ```
+
 | Attribute                 | Description
-|---------------------------|-------------------------|
+|---------------------------|------------------------------------------------------------------|
 `component_id`              | Describes which component of the device triggered the event. `main` represents the core device. For devices with child-devices, this attribute identifies the child that raised the event.
 `device_id`                 | The unique id of the device in SmartThings. This can be located in the HASS device registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
