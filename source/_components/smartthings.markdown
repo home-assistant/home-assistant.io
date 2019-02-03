@@ -74,6 +74,31 @@ The SmartThings component is configured exclusively through the front-end. Manua
 Advanced: If you have multiple locations in SmartThings, each can be integrated into Home Assistant. Follow the steps above, then for each subsequent location, install the SmartApp and it will automatically add to Home Assistant. This can be completed during step 3 (install SmartApp) above or at any time after that.
 </p>
 
+## {% linkable_title Events %}
+
+The SmartThings triggeres events for select device capabilities.
+
+### {% linkable_title smartthings.button %}
+
+The SmartThings component will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is pressed and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
+
+```json
+{
+  "component_id": "main",
+  "device_id": "42a16cf2-fef7-4ee8-b4a6-d32cb65474b7",
+  "location_id": "2a54b9fa-f66c-42d9-8488-d8f036b980c8",
+  "value": "pushed",
+  "name": "Scene Button"
+}
+```
+| Attribute                 | Description
+|---------------------------|-------------------------|
+`component_id`              | Describes which component of the device triggered the event. `main` represents the core device. For devices with child-devices, this attribute identifies the child that raised the event.
+`device_id`                 | The unique id of the device in SmartThings. This can be located in the HASS device registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
+`location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
+`value`                     | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device).
+`name`                      | The name given to the device in SmartThings.
+
 ## {% linkable_title Platforms %}
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component follows the following rules to represent those as entities in Home Assistant:
