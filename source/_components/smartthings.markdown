@@ -134,11 +134,11 @@ The SmartThings fan platform lets you control Samsung SmartThings connected devi
 
 | Capability        |Fan Features
 |-------------------|------------------------------------------------------------|
-| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed)            | `speed`
+| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed)            | `speed` (off, low, medium, and high)
 
 ### {% linkable_title Light %}
 
-The SmartThings light platform lets you control Samsung SmartThings connected devices that have light-control related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities above in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
+The SmartThings light platform lets you control Samsung SmartThings connected devices that have light-control related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
 | Capability        |Light Features
 |-------------------|------------------------------------------------------------|
@@ -148,4 +148,4 @@ The SmartThings light platform lets you control Samsung SmartThings connected de
 
 ### {% linkable_title Switch %}
 
-The SmartThings switch platform lets you control Samsung SmartThings connected devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
+The SmartThings switch platform lets you control Samsung SmartThings connected devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
