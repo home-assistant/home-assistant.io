@@ -9,11 +9,11 @@ sharing: true
 footer: true
 logo: google_home.png
 ha_category: Calendar
-ha_release: 0.83.0
+ha_release: 0.87
 ha_iot_class: "Local Polling"
 ---
 
-The `google_home_alarm` sensor platform allows you to show the next alarm and timer from a Google Home on the network.
+The `googlehome` sensor platform allows you to show the next alarm and timer from a Google Home on the network.
 It uses the [GHLocalApi](https://github.com/rithvikvibhu/GHLocalApi) to retrieve the data.
 
 To use the Google Home Alarm sensor in your installation, add the following to your `configuration.yaml` file:
