@@ -114,35 +114,57 @@ A few frequent asked questions we've seen the last months are as follows:
 
 ### Why would anyone use this ? 
 
-This is not removing or trying to compete with existing ways to access Home Assistant - this is a complementary way to access Home Assistant. If you like to use CLI's and its power of auto-completion you'll find `hass-cli` to be awesome; if not and you prefer the browser UI you just continue using it. We still use it for normal interactions, but when we want to be fast or script things `hass-cli` is great.
+This is not removing or trying to compete with existing ways to access Home
+Assistant - this is a complementary way to access Home Assistant. If you like to
+use CLI's and its power of auto-completion you'll find `hass-cli` to be awesome;
+if not and you prefer the browser UI you just continue using it. We still use it
+for normal interactions, but when we want to be fast or script things `hass-cli`
+is great.
 
 ### Why not just use the REST API's directly via curl or similar ?
 
-You can most definitely use `curl` or similar to access REST API directly - its basically what `hass-cli` does behind the scenes. `hass-cli` give though a few advantages. Firstly that you do not need to remember the exact commands, `hass-cli` have contextual help and auto completion to make it super easy to type out. Finally over time as `hass-cli` will get support for utilizing the more extensive websocket API's `hass-cli` will be more consistent and simpler to use than using "raw" access via `curl`.
+You can most definitely use `curl` or similar to access REST API directly - its
+basically what `hass-cli` does behind the scenes. `hass-cli` give though a few
+advantages. Firstly that you do not need to remember the exact commands,
+`hass-cli` have contextual help and auto completion to make it super easy to
+type out. Finally over time as `hass-cli` will get support for utilizing the
+more extensive websocket API's `hass-cli` will be more consistent and simpler to
+use than using "raw" access via `curl`.
 
 ### Does this only work with HTTPS and hass.io ? 
 
-No, it works with *any* Home Assistant that has REST API exposed - something that is done by default. In short - if you can access Home Assistant with your browser and see the UI `hass-cli` can communicate and control it too.
+No, it works with *any* Home Assistant that has REST API exposed - something
+that is done by default. In short - if you can access Home Assistant with your
+browser and see the UI `hass-cli` can communicate and control it too.
 
 Thus http, https, hass.io, non-hass.io, etc. are all supported by `hass-cli`
 
 ### Do I need to install Home Assistant to use this ?
 
-No, `hass-cli` does not require Home Assistant installed on the computer you want to run it on. It should run on any install with Python 3.5 or higher on all major operating systems.
+No, `hass-cli` does not require Home Assistant installed on the computer you
+want to run it on. It should run on any install with Python 3.5 or higher on all
+major operating systems.
 
 ### Does this work with client-generated certificates ? 
 
-It should, but we have not yet been able to verify it. If you would like to help us try it run with `--cert <certificate.pem>` and let us know if it works on issue [#66][client-cert-git].
+It should, but we have not yet been able to verify it. If you would like to help
+us try it run with `--cert <certificate.pem>` and let us know if it works on
+issue [#66][client-cert-git].
 
 ## Next steps
 
-Personally the next feature I would like to add is more specific support for system control commands (like refreshing groups, restarting, etc.) but also for accessing hass.io add-ons.
+Personally the next feature I would like to add is more specific support for
+system control commands (like refreshing groups, restarting, etc.) but also for
+accessing hass.io add-ons. Also having an easy way to hook into the event bus
+(via websocket) to see what is happening live.
 
 What would you like to see ? 
 
 ## Feedback
 
-If you have questions for feedback you can put a comment on this blog, use the [hass-cli forum thread][forum-thread-hasscli] or open issues or pull-requests at [github][github-hass-cli].
+If you have questions for feedback you can put a comment on this blog, use the
+[hass-cli forum thread][forum-thread-hasscli] or open issues or pull-requests at
+[github][github-hass-cli].
 
 Have fun!
 
