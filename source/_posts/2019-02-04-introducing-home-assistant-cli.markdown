@@ -10,14 +10,13 @@ comments: true
 categories: Announcements
 ---
 
-When I started using Home Assistant (HA) I found the browser UI great for casual
-usecases. For my usecases it felt a bit slow when trying to debug/trace what
-was going on. I realized I was missing a way to interact with HA via a command
-line (CLI) with the power of auto-completion and direct access without having to wait
-for pages to load and clicking around.
+When I started using Home Assistant (HA) I was missing a way to interact with HA via a command
+line (CLI). A CLI allows you to utilize the power of auto-completion, scripting and direct access.
 
 Thus I started working on [Home Assistant CLI][github-hass-cli], a project that
 was initially started by [Fabian Affolter][@fabaff].
+
+The great thing about `hass-cli` is that it uses the exact same API's as the other UI's and integration uses thus it makes a great complement to the Home Assistant family of tools.
 
 Last week we released version 0.4, which provides majority of the features I was
 looking for to do from a CLI.
@@ -46,6 +45,10 @@ For the basic intro to `hass-cli` see the docs at https://github.com/home-assist
 Install latest `homeassistant-cli` by pip:
 
     $ pip3 install homeassistant-cli
+    
+or if upgrade use:
+
+    $ pip3 install --upgrade homeassistant-cli
    
 or if you like an isolated install you can use [pipsi][pipsi]
 
@@ -73,11 +76,11 @@ The first thing is that the commands have been cleaned up to be more logcial/exp
     system      System details and operations for Home Assistant.
     template    Render templates on server or locally.
 
-Rather than using generic terms like get, list, etc. The commands are now explicitly
-named what they are about, and then have further sub-command.
+Rather than using generic terms (eg. get, list), the commands are now explicit
+and have further sub-commands.
 
-The biggest behavior change is that most operations by default now uses
-"table" mode. i.e. instead of getting a yaml or json dump you get a more concise view:
+The biggest change is that most operations, by default now use
+"table" mode. i.e., instead of getting a yaml or json dump you get a more concise view:
 
     $ hass-cli entity list winter
     ENTITY                           DESCRIPTION                STATE    
