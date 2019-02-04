@@ -16,7 +16,6 @@ ha_category:
 ha_iot_class: "Local Polling"
 redirect_from:
   - /components/device_tracker.googlehome/
-  - /components/sensor.googlehome/
 ---
 
 The `googlehome` component allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
@@ -59,6 +58,7 @@ devices:
       description: Setting to tell the component to track the alarms of the device.
       required: false
       type: boolean
+      default: false
 {% endconfiguration %}
 
 ## {% linkable_title Device types %}
