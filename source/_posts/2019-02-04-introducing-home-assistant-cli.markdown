@@ -126,6 +126,10 @@ No, it works with *any* Home Assistant that has REST API exposed - something tha
 
 Thus http, https, hass.io, non-hass.io, etc. are all supported by `hass-cli`
 
+### Do I need to install Home Assistant to use this ?
+
+No, `hass-cli` does not require Home Assistant installed on the computer you want to run it on. It should run on any install with Python 3.5 or higher on all major operating systems.
+
 ### Does this work with client-generated certificates ? 
 
 It should, but we have not yet been able to verify it. If you would like to help us try it run with `--cert <certificate.pem>` and let us know if it works on issue [#66][client-cert-git].
