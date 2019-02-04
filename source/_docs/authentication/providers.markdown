@@ -114,8 +114,8 @@ Leading and trailing whitespace, as well as lines starting with `#` are ignored.
 
 Stdaerr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
-<p class='note warning'>
-Make sure the script you configure for authentication doesn't strip whitespace from usernames before matching them. Home Assistant doesn't do this itself, and logins with `"valid-username "` and `"valid-username"` would - if stripped - both succeed, but create two different user accounts.
+<p class='note'>
+Any leading and trailing whitespace is stripped from usernames before they're passed to the configured command. For instance, " hello  " will be rewritten to just "hello".
 </p>
 
 <p class='note'>
