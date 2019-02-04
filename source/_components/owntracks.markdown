@@ -25,8 +25,8 @@ By default the integration will listen for incoming messages from OwnTracks via 
 1. Open the Home Assistant frontend 
 1. Open Settings -> integrations
 1. If you see an Owntracks component under 'Configured', delete it.
-   - CLick on it.
-   - Click o the trashcan icon in the upper right corner.
+   - Click on it.
+   - Click on the trashcan icon in the upper right corner.
 1. Now, look for Owntracks in 'Setup new integration' and click on CONFIGURE.
 1. The login credentials and configuration for owntracks will be presented to you.
    in a popup window. You will need these in the configuration for the app as mentioned below.
