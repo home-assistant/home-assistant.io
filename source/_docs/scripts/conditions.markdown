@@ -14,6 +14,21 @@ Conditions can be used within a script or automation to prevent further executio
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
+### {% linkable_title LOGIC conditions %}
+
+Logic conditions can be used to combine any number of conditions into a single statement.
+All logic conditions require one or more conditions in the list. This means a single and condition can check as many conditions as you wish. No need to and and conditions. The following documentation's truth tables shows only two inputs. But there can be as many inputs as you like.
+
+| Condition Type | Description                                                                       |
+|----------------|-----------------------------------------------------------------------------------|
+| and            | All given conditions must be true.                                                |
+| or             | At least one given condition must be true.                                        |
+| not            | If the given condition is true return false. Else return true (Invert condition). |
+| nand           | At least one condition is false.                                                  |
+| exor           | Exactly one condition is true.                                                    |
+| xnor           | All conditions are false. Or all conditions are true.                             |
+| nor            | No conditions are true.                                                           |
+
 ### {% linkable_title AND condition %}
 
 Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
@@ -29,6 +44,13 @@ condition:
       entity_id: 'sensor.temperature'
       below: 20
 ```
+Truth Table
+| Input A | Input B | Output |
+|---------|---------|--------|
+| False   | False   | False  |
+| False   | True    | False  |
+| True    | False   | False  |
+| True    | True    | True   |
 
 If you do not want to combine AND and OR conditions, you can also just list them sequentially.
 
@@ -60,12 +82,139 @@ condition:
     - condition: numeric_state
       entity_id: 'sensor.temperature'
       below: 20
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      above: 40
 ```
+Truth Table
+| Input A | Input B | Output |
+|---------|---------|--------|
+| False   | False   | False  |
+| False   | True    | True   |
+| True    | False   | True   |
+| True    | True    | True   |
 
-### {% linkable_title MIXED AND and OR conditions %}
 
-Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
-This allows you to mix several AND and OR conditions together.
+### {% linkable_title NOR condition %}
+
+Test multiple conditions in 1 condition statement. Passes if all embedded conditions are not valid.
+
+```yaml
+condition:
+  condition: nor
+  conditions:
+    - condition: state
+      entity_id: 'device_tracker.paulus'
+      state: 'home'
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: 20
+```
+Truth Table
+| Input A | Input B | Output |
+|---------|---------|--------|
+| False   | False   | True   |
+| False   | True    | False  |
+| True    | False   | False  |
+| True    | True    | False  |
+
+
+### {% linkable_title XNOR condition %}
+
+Test multiple conditions in 1 condition statement. Passes if all embedded conditions are not valid or all embedded conditions are valid.
+
+```yaml
+condition:
+  condition: xnor
+  conditions:
+    - condition: state
+      entity_id: 'device_tracker.paulus'
+      state: 'home'
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: 20
+```
+Truth Table
+| Input A | Input B | Output |
+|---------|---------|--------|
+| False   | False   | True   |
+| False   | True    | False  |
+| True    | False   | False  |
+| True    | True    | True   |
+
+
+### {% linkable_title EXOR condition %}
+
+Test multiple conditions in 1 condition statement. Passes if exactly one embedded condition is valid.
+
+```yaml
+condition:
+  condition: exor
+  conditions:
+    - condition: state
+      entity_id: 'device_tracker.paulus'
+      state: 'home'
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: 20
+```
+Truth Table
+| Input A | Input B | Output |
+|---------|---------|--------|
+| False   | False   | False  |
+| False   | True    | True   |
+| True    | False   | True   |
+| True    | True    | False  |
+
+
+### {% linkable_title NAND condition %}
+
+Test multiple conditions in 1 condition statement. Passes if at least one embedded condition is not valid.
+
+```yaml
+condition:
+  condition: nand
+  conditions:
+    - condition: state
+      entity_id: 'device_tracker.paulus'
+      state: 'home'
+    - condition: numeric_state
+      entity_id: 'sensor.temperature'
+      below: 20
+```
+Truth Table
+| Input A | Input B | Output |
+|---------|---------|--------|
+| False   | False   | True   |
+| False   | True    | True   |
+| True    | False   | True   |
+| True    | True    | False  |
+
+
+### {% linkable_title NOT condition %}
+
+Test a single conditions. Passes if condition is not valid.
+Unlike other logic conditions. The not condition only operates on a single condition.
+
+```yaml
+condition:
+  condition: not
+  invert_condition:
+    condition: state
+    entity_id: 'device_tracker.paulus'
+    state: 'home'
+```
+Truth Table
+| Input | Output |
+|-------|--------|
+| False | True   |
+| True  | False  |
+
+
+### {% linkable_title MIXED LOGIC conditions %}
+
+Test multiple AND and OR conditions in 1 condition statement.
+It is allowed to mix several LOGIC conditions together.
 
 ```yaml
 condition:
@@ -82,6 +231,45 @@ condition:
         - condition: numeric_state
           entity_id: 'sensor.temperature'
           below: 20
+```
+
+Another more complex example. This could be a condition for running a goodnight routine depending on bed ocupancy and home state, (if one person home and one person in bed run. But if two people are home wait until two people are in bed to run). But only if you have no guests present.
+
+```yaml
+condition:
+  condition: and
+  conditions:
+    - condition: or
+      conditions:
+        - condition: and
+          conditions:
+            - condition: exor
+              conditions:
+                - condition: state
+                  entity_id: 'device_tracker.paulus'
+                  state: 'home'
+                - condition: state
+                  entity_id: 'device_tracker.alice'
+                  state: 'home'
+            - condition: numeric_state
+              entity_id: sensor.bed_ocupancy
+              above: 0
+        - condition: and
+          conditions:
+              - condition: state
+                entity_id: 'device_tracker.paulus'
+                state: 'home'
+              - condition: state
+                entity_id: 'device_tracker.alice'
+                state: 'home'
+              - condition: numeric_state
+                entity_id: sensor.bed_ocupancy
+                above: 1
+    - condition: not
+      invert_condition:
+        condition: state
+        entity_id: group.guests
+        state: 'home'
 ```
 
 ### {% linkable_title Numeric state condition %}
