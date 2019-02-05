@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ubee.png
 ha_category: Presence Detection
-ha_release: pre 0.85
+ha_release: 0.87
 ---
 
 This platform offers presence detection by looking at connected devices to a [Ubee Router](http://www.ubeeinteractive.com/products).
