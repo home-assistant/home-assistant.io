@@ -20,7 +20,7 @@ To add air quality sensor to your installation, add the following to your `confi
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
+air_quality:
   - platform: norway_air
 ```
 
@@ -35,12 +35,12 @@ forecast:
   required: false
   type: integer
 latitude:
-  description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
+  description: Manually specify latitude.
   required: false
   type: number
   default: Provided by Home Assistant configuration
 longitude:
-  description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
+  description: Manually specify longitude.
   required: false
   type: number
   default: Provided by Home Assistant configuration
