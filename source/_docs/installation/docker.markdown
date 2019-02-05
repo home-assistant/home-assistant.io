@@ -62,17 +62,15 @@ As Synology within DSM now supports Docker (with a neat UI), you can simply inst
 
 The steps would be:
 * Install "Docker" package on your Synology NAS
-* Launch Docker-app and move to "Registry"-section
-* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will make version updates easier later on.
-* Wait for some time until your NAS has pulled the image
-* Move to the "Image"-section of the Docker-app
-* Click on "Launch"
-* Choose a container-name you want (e.g., "homeassistant")
-* Click on "Advanced Settings"
-* Set "Enable auto-restart" if you like
-* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs.
+* Launch Docker-app and click on the "Registry" menu item
+* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag and click on "Select". This will make version updates easier later on.
+* Wait for some time until your NAS has pulled the image. You can follow progress in the "Image" menu item
+* Once Home Assistant has finished downloading in the"Image" section, Click on "Launch" to continue setup
+* Choose a container-name you want to use (e.g., "homeassistant")
+* (optional) Click on "Advanced Settings" and choose "Enable auto-restart" if you like. This will automatically restart the Home Assistant Docker instance if it ever happens to hang
+* Within the "Volume" tab, click on "Add Folder" and choose either an existing folder or add a new folder. Ensure the "mount path" is "/config", so that Home Assistant will use it for the configs and logs.
 * Within "Network" select "Use same network as Docker Host"
-* To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+* To ensure that Home Assistant displays the correct timezone go to the "Environment" tab, click the plus (+) sign then add `variable` = `TZ` & `value` = `Europe/London` or  choose [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 * Confirm the "Advanced Settings"
 * Click on "Next" and then "Apply"
 * Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
