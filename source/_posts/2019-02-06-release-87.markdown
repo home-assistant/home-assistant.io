@@ -26,14 +26,12 @@ Material Design Icons upgraded to 3.3.92, some renames: https://dev.materialdesi
 - Add a Zoneminder availability sensor ([@rohankapoorcom] - [#20184]) ([zoneminder docs]) (new-platform)
 - Add platform image_processing.qrcode ([@zhujisheng] - [#20215]) ([image_processing.qrcode docs]) (new-platform)
 - Add LCN switch platform ([@alengwenus] - [#20267]) ([lcn docs]) ([switch.lcn docs]) (new-platform)
-- Fire events for Lutron RadioRA2 keypad buttons ([@koreth] - [#20090]) ([lutron docs]) ([binary_sensor.lutron docs]) (new-platform)
 - Add EverLights light component ([@joncar] - [#19817]) ([light.everlights docs]) (new-platform)
 - Add device tracker support for EE Brightbox 2 router ([@krygal] - [#19611]) ([device_tracker docs]) (new-platform)
 - HomematicIP add cover FROLL and BROLL devices ([@mxworm] - [#19794]) ([cover.homematicip_cloud docs]) (new-platform)
 - Add Danfoss Air HRV support ([@JonasPed] - [#20138]) ([danfoss_air docs]) ([binary_sensor.danfoss_air docs]) ([sensor.danfoss_air docs]) (new-platform)
 - Utility meter ([@dgomes] - [#19718]) ([sensor.utility_meter docs]) (new-platform)
 - Add Co2signal sensor ([@danielsjf] - [#19204]) ([sensor.co2signal docs]) (new-platform)
-- introduce gateway ([@dmulcahey] - [#20460]) ([zha docs]) (new-platform)
 - Add nilu air_quality platform ([@hfurubotten] - [#19674]) ([air_pollutants docs]) (new-platform)
 - Add Iliad Italy (Mobile Telephony Provider) Sensor ([@eliseomartelli] - [#19645]) ([sensor.iliad_italy docs]) (new-platform)
 - Add support for HomeKit motion sensor devices ([@Jc2k] - [#20555]) ([homekit_controller docs]) (new-platform)
@@ -44,8 +42,10 @@ Material Design Icons upgraded to 3.3.92, some renames: https://dev.materialdesi
 - Add support for FRITZ DECT 100 (temp sensor) ([@choss] - [#20308]) ([fritzbox docs]) ([sensor.fritzbox docs]) (new-platform)
 - RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) ([updater docs]) (new-platform)
 - Add sensor platform for Rova Garbage Collection ([@GidoHakvoort] - [#18868]) ([sensor.rova docs]) (new-platform)
-- ZHA component rewrite part 4 - add device module ([@dmulcahey] - [#20469]) ([zha docs]) (new-platform)
 - Add SmartThings component and switch platform ([@andrewsayre] - [#20148]) ([smartthings docs]) ([switch.smartthings docs]) (new-platform)
+- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -69,7 +69,33 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Split out dovado to a component and sensor platform ([@rohankapoorcom] - [#20339]) ([dovado docs]) ([notify:dovado docs]) ([sensor.dovado docs]) (breaking change)
 - Reset Brottsplatskartan incident types every day ([@chrillux] - [#20117]) ([sensor.brottsplatskartan docs]) (breaking change)
 - Make Ambient PWS async and cloud-push ([@bachya] - [#20332]) ([ambient_station docs]) ([sensor.ambient_station docs]) (breaking change)
+- Add COMPONENT_SCHEMA and use it in alarm_control_panel ([@emontnemery] - [#20224]) ([alarm_control_panel docs]) (breaking change)
 - New Transmission component ([@MatteGary] - [#19230]) ([transmission docs]) ([sensor.transmission docs]) (breaking change) (new-platform)
+- Disable extra=vol.ALLOW_EXTRA for MQTT platforms. ([@emontnemery] - [#20562]) ([mqtt docs]) (breaking change)
+
+## {% linkable_title Beta Fixes %}
+
+- Fix pjlink issue ([@emkay82] - [#20510]) ([media_player.pjlink docs]) (beta fix)
+- Fix geofency requiring a configuration.yaml entry ([@balloob] - [#20631]) ([geofency docs]) (beta fix)
+- Upgrade blinkpy to re-enable motion detection ([@fronzbot] - [#20651]) ([blink docs]) (beta fix)
+- Fix parsing yeelight custom effects, when not present in config ([@zewelor] - [#20658]) ([light.yeelight docs]) (beta fix)
+- Add PLATFORM_SCHEMA_BASE support to check_config.py ([@emontnemery] - [#20663]) (beta fix)
+- InfluxDB - change connection test method ([@magenbrot] - [#20666]) ([sensor.influxdb docs]) (beta fix)
+- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix) (new-platform)
+- Fix allow extra in locative webhook schema validation ([@rohankapoorcom] - [#20657]) ([locative docs]) (beta fix)
+- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix) (new-platform)
+- Add entity_namespace to PLATFORM_SCHEMA ([@emontnemery] - [#20693]) (beta fix)
+- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix) (new-platform)
+- fix test commented in #20678 ([@dgomes] - [#20680]) (beta fix)
+- Add SmartThings button support via events ([@andrewsayre] - [#20707]) ([smartthings docs]) (beta fix)
+- Fix temperature unit conversion in Ambient PWS ([@bachya] - [#20723]) ([ambient_station docs]) (beta fix)
+- Revert pyfoscam back to libpyfoscam ([@davidlie] - [#20727]) ([camera.foscam docs]) (beta fix)
+- Fix ffmpeg v4 stream issue ([@awarecan] - [#20314]) ([ffmpeg docs]) ([camera.amcrest docs]) ([camera.arlo docs]) ([camera.canary docs]) ([camera.ffmpeg docs]) ([camera.onvif docs]) ([camera.ring docs]) ([camera.xiaomi docs]) ([camera.yi docs]) (beta fix)
+- Improve cloud error handling ([@balloob] - [#20729]) ([cloud docs]) (beta fix)
+- Fix cloud webhook body ([@pvizeli] - [#20739]) ([cloud docs]) (beta fix) (new-platform)
+- Fix the line reference in config error message ([@awarecan] - [#20743]) (beta fix)
+- Upgrade to async_upnp_client==0.14.4 ([@StevenLooman] - [#20751]) ([upnp docs]) ([media_player.dlna_dmr docs]) (beta fix)
+- Keep cloud tokens always valid ([@balloob] - [#20762]) ([cloud docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -91,7 +117,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support for relay ports for LCN light platform ([@alengwenus] - [#19632]) ([lcn docs]) ([light.lcn docs])
 - Add LCN switch platform ([@alengwenus] - [#20267]) ([lcn docs]) ([switch.lcn docs]) (new-platform)
 - Updated sense library to 0.6.0 ([@kbickar] - [#20271]) ([sense docs])
-- Fire events for Lutron RadioRA2 keypad buttons ([@koreth] - [#20090]) ([lutron docs]) ([binary_sensor.lutron docs]) (new-platform)
+- Fire events for Lutron RadioRA2 keypad buttons ([@koreth] - [#20090]) ([lutron docs])
 - Update Tibber library ([@Danielhiversen] - [#20273]) ([tibber docs])
 - Make Netatmo battery_percent icon dynamic ([@notoriousbdg] - [#20275]) ([sensor.netatmo docs])
 - Add type hints to helpers.condition ([@scop] - [#20266]) ([zone docs])
@@ -154,7 +180,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Correct minor comments from PR#20138. ([@JonasPed] - [#20454]) ([danfoss_air docs])
 - Utility meter ([@dgomes] - [#19718]) ([sensor.utility_meter docs]) (new-platform)
 - Add Co2signal sensor ([@danielsjf] - [#19204]) ([sensor.co2signal docs]) (new-platform)
-- introduce gateway ([@dmulcahey] - [#20460]) ([zha docs]) (new-platform)
+- introduce gateway ([@dmulcahey] - [#20460]) ([zha docs])
 - Update device registry of MQTT fan ([@emontnemery] - [#20445]) ([mqtt docs])
 - Update device registry of MQTT climate ([@emontnemery] - [#20444]) ([mqtt docs])
 - Update device registry of MQTT sensor ([@emontnemery] - [#20440]) ([mqtt docs])
@@ -186,7 +212,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Make Ambient PWS async and cloud-push ([@bachya] - [#20332]) ([ambient_station docs]) ([sensor.ambient_station docs]) (breaking change)
 - Area registry ([@Kane610] - [#20435])
 - Cleanup if discovered mqtt vacuum can't be added ([@emontnemery] - [#20549]) ([mqtt docs])
-- Add COMPONENT_SCHEMA and use it in alarm_control_panel ([@emontnemery] - [#20224]) ([alarm_control_panel docs])
+- Add COMPONENT_SCHEMA and use it in alarm_control_panel ([@emontnemery] - [#20224]) ([alarm_control_panel docs]) (breaking change)
 - Add discovery update support to MQTT camera ([@emontnemery] - [#20529]) ([mqtt docs])
 - ZHA component rewrite part 3 - update helpers ([@dmulcahey] - [#20463]) ([zha docs])
 - Add missing switch for motion_detect ([@perosb] - [#20540]) ([android_ip_webcam docs])
@@ -199,9 +225,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Treat each player as a 'device' for non-client devices. ([@mitchellrj] - [#20074]) ([media_player.plex docs])
 - Add Recollect Waste ([@stealthhacker] - [#20121]) ([sensor.recollect_waste docs]) (new-platform)
 - New Transmission component ([@MatteGary] - [#19230]) ([transmission docs]) ([sensor.transmission docs]) (breaking change) (new-platform)
+- Fixing the openssl issue ([@kennedyshead] - [#20570]) ([asuswrt docs]) ([sensor.asuswrt docs])
 - Homekit Motion Sensor Review feedback ([@Jc2k] - [#20568]) ([homekit_controller docs])
 - add empy all groups view. Makes Brilliant Lightpad work ([@merc1031] - [#20564]) ([emulated_hue docs])
-- Disable extra=vol.ALLOW_EXTRA for MQTT platforms. ([@emontnemery] - [#20562]) ([mqtt docs])
+- Disable extra=vol.ALLOW_EXTRA for MQTT platforms. ([@emontnemery] - [#20562]) ([mqtt docs]) (breaking change)
 - html5 notifications add VAPID support ([@quazzie] - [#20415]) ([notify docs])
 - Bump pymodbus to 1.5.2 ([@mindakas] - [#20582]) ([modbus docs])
 - Change Unifi timeout ([@arsaboo] - [#20606]) ([unifi docs])
@@ -216,10 +243,32 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add lovelace systeam health ([@balloob] - [#20592]) ([lovelace docs])
 - Add sensor platform for Rova Garbage Collection ([@GidoHakvoort] - [#18868]) ([sensor.rova docs]) (new-platform)
 - Added code to Abode Alarm control panel ([@arsaboo] - [#20611]) ([alarm_control_panel.abode docs])
-- ZHA component rewrite part 4 - add device module ([@dmulcahey] - [#20469]) ([zha docs]) (new-platform)
+- ZHA component rewrite part 4 - add device module ([@dmulcahey] - [#20469]) ([zha docs])
 - Fix duplicate luftdaten entities ([@jvanderneutstulen] - [#20226]) ([luftdaten docs])
 - Add SmartThings component and switch platform ([@andrewsayre] - [#20148]) ([smartthings docs]) ([switch.smartthings docs]) (new-platform)
 - fix #20571 ([@dgomes] - [#20589]) ([sensor.history_stats docs])
+- Fix pjlink issue ([@emkay82] - [#20510]) ([media_player.pjlink docs]) (beta fix)
+- Fix geofency requiring a configuration.yaml entry ([@balloob] - [#20631]) ([geofency docs]) (beta fix)
+- Upgrade blinkpy to re-enable motion detection ([@fronzbot] - [#20651]) ([blink docs]) (beta fix)
+- Fix parsing yeelight custom effects, when not present in config ([@zewelor] - [#20658]) ([light.yeelight docs]) (beta fix)
+- Add PLATFORM_SCHEMA_BASE support to check_config.py ([@emontnemery] - [#20663]) (beta fix)
+- InfluxDB - change connection test method ([@magenbrot] - [#20666]) ([sensor.influxdb docs]) (beta fix)
+- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix) (new-platform)
+- Fix allow extra in locative webhook schema validation ([@rohankapoorcom] - [#20657]) ([locative docs]) (beta fix)
+- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix) (new-platform)
+- Add entity_namespace to PLATFORM_SCHEMA ([@emontnemery] - [#20693]) (beta fix)
+- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix) (new-platform)
+- Remove fingerprint middleware ([@balloob] - [#20682]) ([http docs])
+- fix test commented in #20678 ([@dgomes] - [#20680]) (beta fix)
+- Add SmartThings button support via events ([@andrewsayre] - [#20707]) ([smartthings docs]) (beta fix)
+- Fix temperature unit conversion in Ambient PWS ([@bachya] - [#20723]) ([ambient_station docs]) (beta fix)
+- Revert pyfoscam back to libpyfoscam ([@davidlie] - [#20727]) ([camera.foscam docs]) (beta fix)
+- Fix ffmpeg v4 stream issue ([@awarecan] - [#20314]) ([ffmpeg docs]) ([camera.amcrest docs]) ([camera.arlo docs]) ([camera.canary docs]) ([camera.ffmpeg docs]) ([camera.onvif docs]) ([camera.ring docs]) ([camera.xiaomi docs]) ([camera.yi docs]) (beta fix)
+- Improve cloud error handling ([@balloob] - [#20729]) ([cloud docs]) (beta fix)
+- Fix cloud webhook body ([@pvizeli] - [#20739]) ([cloud docs]) (beta fix) (new-platform)
+- Fix the line reference in config error message ([@awarecan] - [#20743]) (beta fix)
+- Upgrade to async_upnp_client==0.14.4 ([@StevenLooman] - [#20751]) ([upnp docs]) ([media_player.dlna_dmr docs]) (beta fix)
+- Keep cloud tokens always valid ([@balloob] - [#20762]) ([cloud docs]) (beta fix)
 
 [#17616]: https://github.com/home-assistant/home-assistant/pull/17616
 [#18868]: https://github.com/home-assistant/home-assistant/pull/18868
@@ -284,6 +333,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20306]: https://github.com/home-assistant/home-assistant/pull/20306
 [#20308]: https://github.com/home-assistant/home-assistant/pull/20308
 [#20313]: https://github.com/home-assistant/home-assistant/pull/20313
+[#20314]: https://github.com/home-assistant/home-assistant/pull/20314
 [#20318]: https://github.com/home-assistant/home-assistant/pull/20318
 [#20320]: https://github.com/home-assistant/home-assistant/pull/20320
 [#20321]: https://github.com/home-assistant/home-assistant/pull/20321
@@ -344,6 +394,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20502]: https://github.com/home-assistant/home-assistant/pull/20502
 [#20503]: https://github.com/home-assistant/home-assistant/pull/20503
 [#20504]: https://github.com/home-assistant/home-assistant/pull/20504
+[#20510]: https://github.com/home-assistant/home-assistant/pull/20510
 [#20514]: https://github.com/home-assistant/home-assistant/pull/20514
 [#20515]: https://github.com/home-assistant/home-assistant/pull/20515
 [#20526]: https://github.com/home-assistant/home-assistant/pull/20526
@@ -357,6 +408,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20562]: https://github.com/home-assistant/home-assistant/pull/20562
 [#20564]: https://github.com/home-assistant/home-assistant/pull/20564
 [#20568]: https://github.com/home-assistant/home-assistant/pull/20568
+[#20570]: https://github.com/home-assistant/home-assistant/pull/20570
 [#20582]: https://github.com/home-assistant/home-assistant/pull/20582
 [#20589]: https://github.com/home-assistant/home-assistant/pull/20589
 [#20590]: https://github.com/home-assistant/home-assistant/pull/20590
@@ -368,6 +420,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20604]: https://github.com/home-assistant/home-assistant/pull/20604
 [#20606]: https://github.com/home-assistant/home-assistant/pull/20606
 [#20611]: https://github.com/home-assistant/home-assistant/pull/20611
+[#20631]: https://github.com/home-assistant/home-assistant/pull/20631
+[#20651]: https://github.com/home-assistant/home-assistant/pull/20651
+[#20652]: https://github.com/home-assistant/home-assistant/pull/20652
+[#20657]: https://github.com/home-assistant/home-assistant/pull/20657
+[#20658]: https://github.com/home-assistant/home-assistant/pull/20658
+[#20663]: https://github.com/home-assistant/home-assistant/pull/20663
+[#20666]: https://github.com/home-assistant/home-assistant/pull/20666
+[#20680]: https://github.com/home-assistant/home-assistant/pull/20680
+[#20681]: https://github.com/home-assistant/home-assistant/pull/20681
+[#20682]: https://github.com/home-assistant/home-assistant/pull/20682
+[#20693]: https://github.com/home-assistant/home-assistant/pull/20693
+[#20699]: https://github.com/home-assistant/home-assistant/pull/20699
+[#20707]: https://github.com/home-assistant/home-assistant/pull/20707
+[#20723]: https://github.com/home-assistant/home-assistant/pull/20723
+[#20727]: https://github.com/home-assistant/home-assistant/pull/20727
+[#20729]: https://github.com/home-assistant/home-assistant/pull/20729
+[#20739]: https://github.com/home-assistant/home-assistant/pull/20739
+[#20743]: https://github.com/home-assistant/home-assistant/pull/20743
+[#20751]: https://github.com/home-assistant/home-assistant/pull/20751
+[#20762]: https://github.com/home-assistant/home-assistant/pull/20762
 [@Censored3]: https://github.com/Censored3
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@GidoHakvoort]: https://github.com/GidoHakvoort
@@ -400,10 +472,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@dmulcahey]: https://github.com/dmulcahey
 [@ehendrix23]: https://github.com/ehendrix23
 [@eliseomartelli]: https://github.com/eliseomartelli
+[@emkay82]: https://github.com/emkay82
 [@emontnemery]: https://github.com/emontnemery
 [@exxamalte]: https://github.com/exxamalte
 [@fabaff]: https://github.com/fabaff
 [@foxel]: https://github.com/foxel
+[@fronzbot]: https://github.com/fronzbot
 [@gorynychzmey]: https://github.com/gorynychzmey
 [@heytensai]: https://github.com/heytensai
 [@hfurubotten]: https://github.com/hfurubotten
@@ -412,8 +486,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jvanderneutstulen]: https://github.com/jvanderneutstulen
 [@kbickar]: https://github.com/kbickar
 [@kellerza]: https://github.com/kellerza
+[@kennedyshead]: https://github.com/kennedyshead
 [@koreth]: https://github.com/koreth
 [@krygal]: https://github.com/krygal
+[@magenbrot]: https://github.com/magenbrot
 [@merc1031]: https://github.com/merc1031
 [@mindakas]: https://github.com/mindakas
 [@mindigmarton]: https://github.com/mindigmarton
@@ -422,6 +498,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mxworm]: https://github.com/mxworm
 [@notoriousbdg]: https://github.com/notoriousbdg
 [@perosb]: https://github.com/perosb
+[@pvizeli]: https://github.com/pvizeli
 [@quazzie]: https://github.com/quazzie
 [@reefab]: https://github.com/reefab
 [@rohankapoorcom]: https://github.com/rohankapoorcom
@@ -445,14 +522,24 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [alert docs]: /components/alert/
 [ambient_station docs]: /components/ambient_station/
 [android_ip_webcam docs]: /components/android_ip_webcam/
+[asuswrt docs]: /components/asuswrt/
 [automation.mqtt docs]: /docs/automation/trigger/#mqtt-trigger
 [binary_sensor.danfoss_air docs]: /components/binary_sensor.danfoss_air/
 [binary_sensor.homematicip_cloud docs]: /components/binary_sensor.homematicip_cloud/
-[binary_sensor.lutron docs]: /components/binary_sensor.lutron/
 [binary_sensor.trend docs]: /components/binary_sensor.trend/
+[blink docs]: /components/blink/
+[camera.amcrest docs]: /components/camera.amcrest/
+[camera.arlo docs]: /components/camera.arlo/
+[camera.canary docs]: /components/camera.canary/
+[camera.ffmpeg docs]: /components/camera.ffmpeg/
 [camera.foscam docs]: /components/camera.foscam/
+[camera.onvif docs]: /components/camera.onvif/
+[camera.ring docs]: /components/camera.ring/
+[camera.xiaomi docs]: /components/camera.xiaomi/
+[camera.yi docs]: /components/camera.yi/
 [climate.mill docs]: /components/climate.mill/
 [climate.radiotherm docs]: /components/climate.radiotherm/
+[cloud docs]: /components/cloud/
 [config docs]: /components/config/
 [cover.homematicip_cloud docs]: /components/cover.homematicip_cloud/
 [danfoss_air docs]: /components/danfoss_air/
@@ -463,6 +550,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [emulated_roku docs]: /components/emulated_roku/
 [envisalink docs]: /components/envisalink/
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
+[ffmpeg docs]: /components/ffmpeg/
 [fritzbox docs]: /components/fritzbox/
 [geo_location docs]: /components/geo_location/
 [geofency docs]: /components/geofency/
@@ -493,6 +581,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
 [media_player.firetv docs]: /components/media_player.firetv/
 [media_player.mpd docs]: /components/media_player.mpd/
+[media_player.pjlink docs]: /components/media_player.pjlink/
 [media_player.plex docs]: /components/media_player.plex/
 [media_player.songpal docs]: /components/media_player.songpal/
 [media_player.volumio docs]: /components/media_player.volumio/
@@ -504,6 +593,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [rest_command docs]: /components/rest_command/
 [sense docs]: /components/sense/
 [sensor.ambient_station docs]: /components/sensor.ambient_station/
+[sensor.asuswrt docs]: /components/sensor.asuswrt/
 [sensor.brottsplatskartan docs]: /components/sensor.brottsplatskartan/
 [sensor.co2signal docs]: /components/sensor.co2signal/
 [sensor.danfoss_air docs]: /components/sensor.danfoss_air/
@@ -513,6 +603,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.history_stats docs]: /components/sensor.history_stats/
 [sensor.iliad_italy docs]: /components/sensor.iliad_italy/
 [sensor.imap docs]: /components/sensor.imap/
+[sensor.influxdb docs]: /components/sensor.influxdb/
 [sensor.integration docs]: /components/sensor.integration/
 [sensor.islamic_prayer_times docs]: /components/sensor.islamic_prayer_times/
 [sensor.lyft docs]: /components/sensor.lyft/
