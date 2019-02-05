@@ -45,11 +45,6 @@ scan_interval:
   required: false
   type: integer
   default: 3
-show_unavailable:
-  description: Show MTU as unavailable when Power = 0W and Voltage = 0V. If `false`, values of 0W and 0v will be shown.
-  required: false
-  type: boolean
-  default: true
 {% endconfiguration %}
 
 For each configured MTU, using an index starting at 1, the platform creates 2 sensors:
