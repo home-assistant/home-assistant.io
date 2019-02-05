@@ -17,10 +17,11 @@ ha_iot_class: "Local Polling"
 The `recswitch` switch platform allows you to control the Ankuoo Rec Switch devices.
 
 Supported devices (tested):
+
 - Ankuoo RecSwitch MS6126
 - Lumitek CSW201 NEO WiFi
 
-### {% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 To enable this switch, add the following lines to your `configuration.yaml`:
 

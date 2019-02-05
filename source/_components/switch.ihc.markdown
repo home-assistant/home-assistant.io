@@ -24,7 +24,9 @@ project and setup as switch devices:
 - Mobile wireless relay
 - Dataline plug outlet
 
-To manually configure IHC switches insert the "switches" section in your
+## {% linkable_title Configuration %}
+
+To manually configure IHC switches insert the "switch" section in your
 IHC configuration:
 
 ```yaml
@@ -32,14 +34,14 @@ ihc:
   - url: 'http://192.168.1.3'
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    info: true 
-    switches:
+    info: true
+    switch:
       - id: 12345
       - id: 12346
 ```
 
 {% configuration %}
-switches:
+switch:
   description: List of switches to setup manually
   required: false
   type: map

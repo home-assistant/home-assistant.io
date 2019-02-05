@@ -37,7 +37,7 @@ switch:
           data:
             entity_id: switch.skylight_open
         turn_off:
-          service: switch.turn_on
+          service: switch.turn_off
           data:
             entity_id: switch.skylight_close
 ```

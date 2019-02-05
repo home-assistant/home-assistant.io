@@ -132,7 +132,7 @@ You may need to adjust the paths in the script depending on your Home Assistant 
 #!/bin/bash
 
 cd /home/homeassistant/.homeassistant
-source /srv/homeassistant/homeassistant_venv/bin/activate
+source /srv/homeassistant/bin/activate
 hass --script check_config
 
 git add .

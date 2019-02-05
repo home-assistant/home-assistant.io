@@ -9,9 +9,8 @@ sharing: true
 footer: true
 ---
 
-
 The `water_heater` component is built for the controlling and monitoring of hot water heaters.
- 
+
 To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
 
 ```yaml
@@ -23,6 +22,7 @@ water_heater:
 ## {% linkable_title Services %}
 
 ### {% linkable_title Water heater control services %}
+
 Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
 <p class='note'>
@@ -31,13 +31,13 @@ Not all water heater services may be available for your platform. Be sure to che
 
 ### {% linkable_title Service `water_heater.set_temperature` %}
 
-Set target temperature of water heater device
+Sets target temperature of water heater device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
 | `temperature` | no | New target temperature for water heater
-| `operation_mode` | yes | Operation mode to set temperature to. This defaults to current_operation mode if not set, or set incorrectly.
+| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly.
 
 #### {% linkable_title Automation example  %}
 
@@ -63,7 +63,7 @@ Set operation mode for water heater device
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
 | `operation_mode` | no | New value of operation mode
 
-#### {% linkable_title Automation example  %}
+#### {% linkable_title Automation example %}
 
 ```yaml
 automation:
@@ -77,15 +77,16 @@ automation:
         operation_mode: eco
 ```
 
-### {% linkable_title Service `water_heater.turn_away_mode_on` %}
+### {% linkable_title Service `water_heater.set_away_mode` %}
 
-Turn away mode on for water heater device
+Turn away mode on or off for water heater device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
+| `away_mode` | no | New value of away mode. 'on'/'off' or True/False
 
-#### {% linkable_title Automation example  %}
+#### {% linkable_title Automation example %}
 
 ```yaml
 automation:
@@ -93,28 +94,8 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: water_heater.turn_away_mode_on
+    - service: water_heater.set_away_mode
       data:
         entity_id: water_heater.demo
-```
-
-### {% linkable_title Service `water_heater.turn_away_mode_off` %}
-
-Trun away mode off for water heater device
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
-
-#### {% linkable_title Automation example  %}
-
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: water_heater.turn_away_mode_off
-      data:
-        entity_id: water_heater.demo
+        away_mode: true
 ```

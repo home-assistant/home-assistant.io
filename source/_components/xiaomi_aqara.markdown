@@ -16,34 +16,34 @@ redirect_from: /components/xiaomi/
 
 The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
 
-#### {% linkable_title Supported Devices %}
+## {% linkable_title Supported Devices %}
 
-- Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 - Aqara Air Conditioning Companion (lumi.acpartner.v3)
 - Aqara Intelligent Door Lock (lock.aq1)
-- Temperature and Humidity Sensor (1st and 2nd generation)
-- Motion Sensor (1st and 2nd generation)
-- Door and Window Sensor (1st and 2nd generation)
-- Button 1st generation (Single, Double, long_click_press)
-- Button 2nd generation (Single, Double)
-- Plug aka Socket (Zigbee version, reports power consumed, power load, state and if device in use)
-- Wall Plug (reports power consumed, power load and state)
-- Aqara Wall Switch (Single)
 - Aqara Wall Switch (Double)
-- Aqara Wall Switch LN (Single)
+- Aqara Wall Switch (Single)
 - Aqara Wall Switch LN (Double)
-- Aqara Wireless Switch (Single)
+- Aqara Wall Switch LN (Single)
 - Aqara Wireless Switch (Double)
+- Aqara Wireless Switch (Single)
+- Battery
+- Button 1st generation (Single, Double, Long Click)
+- Button 2nd generation (Single, Double)
 - Cube
+- Door and Window Sensor (1st and 2nd generation)
 - Gas Leak Detector (reports alarm and density)
-- Smoke Detector (reports alarm and density)
 - Gateway (Light, Illumination Sensor, Ringtone play)
 - Intelligent Curtain
-- Water Leak Sensor
+- Motion Sensor (1st and 2nd generation)
+- Plug aka Socket (Zigbee version, reports power consumed, power load, state and if the device is in use)
+- Smoke Detector (reports alarm and density)
+- Temperature and Humidity Sensor (1st and 2nd generation)
 - Vibration Sensor
-- Battery
+- Wall Plug (reports power consumed, power load, and state)
+- Water Leak Sensor
+- Xiaomi Mijia Gateway (lumi.gateway.v2, lumi.gateway.v3)
 
-#### {% linkable_title Unsupported Devices %}
+## {% linkable_title Unsupported Devices %}
 
 - Xiaomi Aqara Gateway (lumi.gateway.aqhm01), as it is not possible to activate dev mode in the Mi Home App.
 - Gateway Radio
@@ -250,7 +250,6 @@ This example toggles the living room lamp on a double click of the button.
       entity_id: light.living_room_lamp
 ```
 
-
 ## {% linkable_title Troubleshooting %}
 
 ### {% linkable_title Initial setup problem %}
@@ -265,6 +264,7 @@ If you run into trouble initializing the gateway with your app, try another smar
 ```
 
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
+
 - Make sure you have [enabled LAN access](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 - Turn off the firewall on the system where Home Assistant is running.
 - Ensure your router supports multicast as this is a requirement of the Xiaomi Gateway.
@@ -274,6 +274,6 @@ That means that Home Assistant is not getting any response from your Xiaomi gate
 - Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 - If you are using Home Assistant in [Docker](/docs/installation/docker/), make sure to use `--net=host`.
 - If you receive an `{"error":"Invalid key"}` in your log while trying to control the gateway light
-  - You should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances there is an issue with keys being generated using the iOS application.
+  - You should generate the key again using an Android Phone or alternatively an emulator such as [bluestacks](https://www.bluestacks.com). In some instances, there is an issue with keys being generated using the iOS application.
   - You need to make sure to have multicast support on your network. If you are running Home Assistant in a virtual machine (like Proxmox), try `echo 0 >/sys/class/net/vmbr0/bridge/multicast_snooping` on the host and restart the service or reboot the host.
 - If the required library "PyXiaomiGateway" cannot be installed you will need to install some missing system dependencies `python3-dev`, `libssl-dev`, `libffi-dev` manually (e.g., `$ sudo apt-get install python3-dev libssl-dev libffi-dev`).

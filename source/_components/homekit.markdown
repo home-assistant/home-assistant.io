@@ -180,7 +180,7 @@ A common situation might be if you decide to disable parts of the configuration 
 
 ## {% linkable_title Disable Auto Start %}
 
-Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: False`, you can call the service `homekit.start`.
+Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: false`, you can call the service `homekit.start`.
 
 If you have Z-Wave entities you want to be exposed to HomeKit, then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
 
@@ -192,7 +192,7 @@ Please remember that you can only have a single `automation` entry. Add the auto
 ```yaml
 # Example for Z-Wave
 homekit:
-  auto_start: False
+  auto_start: false
 
 automation:
   - alias: 'Start HomeKit'
@@ -214,7 +214,7 @@ For a general delay where your component doesn't generate an event, you can also
 ```yaml
 # Example using a delay after the start of Home Assistant
 homekit:
-  auto_start: False
+  auto_start: false
 
 automation:
   - alias: 'Start HomeKit'
@@ -223,6 +223,35 @@ automation:
         event: start
     action:
       - delay: 00:05  # Waits 5 minutes
+      - service: homekit.start
+```
+{% endraw %}
+
+In some cases it might be desirable to check that all entities are available before starting `HomeKit`. This can be accomplished by adding and additional `binary_sensor` as follows:
+
+{% raw %}
+```yaml
+# Example checking specific entities to be available before start
+homekit:
+  auto_start: False
+
+automation:
+  - alias: 'Start HomeKit'
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - wait_template: >-
+          {% if not states.light.kitchen_lights %}
+            false
+          {% elif not states.sensor.outside_temperature %}
+            false
+          # Repeat for every entity
+          {% else %}
+            true
+          {% endif %}
+        timeout: 00:15  # Waits 15 minutes
+        continue_on_timeout: false
       - service: homekit.start
 ```
 {% endraw %}
@@ -269,7 +298,7 @@ To use `safe_mode`, add the option to your `homekit` config:
 
 ```yaml
 homekit:
-  safe_mode: True
+  safe_mode: true
 ```
 
 Restart your Home Assistant instance. If you don't see a `pincode`, follow the [guide](#deleting-the-homekitstate-file) here. Now you should be able to pair normally.
@@ -369,7 +398,8 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 
 #### {% linkable_title Pairing hangs - no error %}
 
-Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
+1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
+2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook ups to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable. 
 
 #### {% linkable_title Duplicate AID found when attempting to add accessory %}
 

@@ -61,10 +61,9 @@ You can use the Services Developer Tool to test data to pass in a service call.
 For example, you may test turning on or off a 'group' (See [groups] for more info)
 
 To turn a group on or off, pass the following info:
-Domain: `homeassistant`
-Service: `turn_on`
-Service Data: `{ "entity_id": "group.kitchen" }`
-
+- Domain: `homeassistant`
+- Service: `turn_on`
+- Service Data: `{ "entity_id": "group.kitchen" }`
 
 ### {% linkable_title Use templates to determine the attributes %}
 

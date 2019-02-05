@@ -18,15 +18,15 @@ The `wemo` component is the main component to integrate various [Belkin WeMo](ht
 ## {% linkable_title Configuration %}
 
 {% configuration %}
-  static:
-    description: One or more static IP adresses for WeMo to use
-    required: false
-    type: list
   discovery:
     description: Setting this value to false will prevent the automatic discovery of WeMo devices by the wemo platform and the discovery platform (static devices will still be discovered)
     required: false
     type: boolean
     default: true
+  static:
+    description: One or more static IP adresses for WeMo to use
+    required: false
+    type: list
 {% endconfiguration %}
 
 Supported devices will be automatically discovered if the optional `discovery` configuration item is omitted or set to true or if the `discovery` component is enabled. If the `discovery` configuration item is set to false, then automatic discovery of WeMo devices is disabled both for the `wemo` component and for the `discovery` component. Loading the `wemo` component with the `discovery` configuration item omitted or set to true will scan the local network for WeMo devices, even if you are not using the `discovery` component.

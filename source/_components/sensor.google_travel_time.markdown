@@ -83,7 +83,7 @@ options:
       description: "Indicate what google should avoid when calculating the travel time, you can choose from: `tolls`, `highways`, `ferries`, `indoor`."
       required: false
       type: string
-    transit_model:
+    transit_mode:
       description: "If you opted for `transit` at `travel_mode`, you can use this variable to specify which public transport you want to use: `bus`, `subway`, `train`, `tram` or `rail`."
     transit_routing_preference:
       description: "for the travel time calculation for public transport you can also specify the preference for: `less_walking` or `fewer_transfers`."
@@ -146,9 +146,8 @@ You can also use the `sensor.google_travel_sensor_update` service to update the 
   alias: "Commute - Update morning commute sensor"
   initial_state: 'on'
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/2'
-      seconds: 00
   condition:
     - condition: time
       after: '08:00:00'

@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Local Push"
 ---
 
-
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
 ## {% linkable_title Configuration %}
@@ -86,7 +85,7 @@ register:
     verify_state:
       description: Define if is possible to readback the status of the switch.
       required: false
-      default: True
+      default: true
       type: boolean
     verify_register:
       description: Register to readback.

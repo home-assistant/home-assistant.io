@@ -75,7 +75,7 @@ sensors:
       default: false
       type: string
     class:
-      description: The [class](https://www.home-assistant.io/components/binary_sensor) or binary_sensor. Only applicable to binary_sensors.
+      description: The [class](components/binary_sensor) or binary_sensor. Only applicable to binary_sensors.
       required: false
       default: door
       type: string
