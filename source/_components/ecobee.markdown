@@ -255,7 +255,7 @@ Returns the current operation mode of the thermostat.
 
 ### {% linkable_title Attribute `equipment_running` %}
 
-Returns the list of current equipment that is operating from the thermostat.
+Returns the list of equipment that is currently operating from the thermostat.
 
 | Attribute type | Description |
 | ---------------| ----------- |
