@@ -139,6 +139,7 @@ binary_sensor:
 Finally, here's an example for `template` observation platform,
 as seen in the configuration it requires `value_template` and does not use `entity_id`.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -152,3 +153,4 @@ binary_sensor:
         {{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}
       prob_given_true: 0.95
 ```
+{% endraw %}
