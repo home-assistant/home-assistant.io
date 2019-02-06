@@ -7,7 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Hub
+ha_category:
+- Hub
+- Light
+- Switch
 ha_release: 0.87
 ha_iot_class: "Local Polling"
 ---
@@ -18,11 +21,6 @@ The [Teletask](http://www.teletask.be) integration for Home Assistant allows you
 <p class='note warning'>
   Please note, the `teletask` platform does not support Windows and needs at least python version 3.5. Teletask Micros+/Picos should be enabled with the TDS15132 module.
 </p>
-
-There is currently support for the following device types within Home Assistant:
-
-- [Switch](/components/switch.teletask)
-- [Light](/components/light.teletask)
 
 ## {% linkable_title Configuration %}
 
@@ -42,4 +40,59 @@ host:
 port:
   description: Port of the Teletask Controller device.
   type: integer
+{% endconfiguration %}
+
+
+## {% linkable_title Light Configuration %}
+
+To use your Teletask switch in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+ligiht:
+  - platform: teletask
+    doip_component: relay
+    address: 1
+    name: Lights Kitchen
+```
+
+{% configuration %}
+doip_component:
+  description: Teletask DoIP type for switching the switch on/off.
+  required: true
+  type: string
+address:
+  description: Teletask DoIP address for switching the switch on/off.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: true
+  type: string
+{% endconfiguration %}
+
+## {% linkable_title Switch Configuration %}
+
+To use your Teletask switch in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+switch:
+  - platform: teletask
+    doip_component: relay
+    address: 1
+    name: Power Outlets Garden
+```
+
+{% configuration %}
+doip_component:
+  description: Teletask DoIP type for switching the switch on/off.
+  required: true
+  type: string
+address:
+  description: Teletask DoIP address for switching the switch on/off.
+  required: true
+  type: string
+name:
+  description: A name for this device used within Home Assistant.
+  required: true
+  type: string
 {% endconfiguration %}
