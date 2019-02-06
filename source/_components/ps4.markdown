@@ -21,7 +21,7 @@ The `ps4` component allows you to control a
 ## {% linkable_title Requirements %}
 
 - Android or iOS device
-- [PS4 Second Screen App](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen&hl=en_US) installed on device.
+- PS4 Second Screen App for [Android](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen&hl=en_US) or [iOS](https://itunes.apple.com/us/app/ps4-second-screen/id1201372796?mt=8) installed on device.
 
 ## {% linkable_title Set up %}
 
@@ -40,9 +40,9 @@ The `ps4` component allows you to control a
 
 ## {% linkable_title Granting Port Access %}
 
-The PS4 component requires the use of privileged ports to work correctly. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
+The PS4 component requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
 Home Assistant installed on a Debian-type OS for example, such as *Hassbian*, *Rassbian*, and *Armbian* may require configuration.
-There are varying methods to perform this, dependent on your OS running Home Assistant.
+There are varying methods to perform this, dependent on your OS that is running Home Assistant.
 
 - **Note:** Hass.io on HassOS does not require additional configuration.
 
@@ -57,7 +57,7 @@ Replace "/usr/bin/python3.5" with your path to Python that is running Home Assis
 
 ## {% linkable_title Regions %}
 
-Some titles will have different SKUs in the PlayStation Store database. You must specify your specific region in your `configuration.yaml` in order to retrieve the cover art for such titles. If you do not know your [region](https://www.gamerbraves.com/ps4-games-region-codes-explained/), reference the table below:
+Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. If you do not know your [region](https://www.gamerbraves.com/ps4-games-region-codes-explained/), reference the table below:
 
 |  Region ID  |  Locales                                       |
 | ----------- |:---------------------------------------------- |
