@@ -64,6 +64,7 @@ Currently supported services are:
 - `return_to_base`
 - `locate`
 - `spot_clean`
+- `neato_custom_cleaning`
 
 ## {% linkable_title Camera %}
 
