@@ -17,6 +17,7 @@ ha_iot_class: "Local Polling"
 redirect_from:
   - /components/switch.transmission/
   - /components/sensor.transmission/
+---
 
 The `transmission` component allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
