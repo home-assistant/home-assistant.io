@@ -2,7 +2,7 @@
 layout: page
 title: "HomematicIP Cloud Cover"
 description: "Instructions on how to integrate HomematicIP covers within Home Assistant."
-date: 2019-04-13 13:40
+date: 2019-01-13 13:40
 sidebar: true
 comments: false
 sharing: true
