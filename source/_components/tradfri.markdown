@@ -60,6 +60,10 @@ After updating the firmware of your IKEA Trådfri Gateway it might be necessary 
 
 ### {% linkable_title Compilation issues %}
 
+<p class='note'>
+  This does not apply to Hass.io or Docker
+</p>
+
 Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1 h) on slow devices.
 
 ### {% linkable_title Setting the `api_key` %}
