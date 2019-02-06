@@ -8,9 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: blink.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Alarm
+  - Binary Sensor
+  - Camera
+  - Sensor
 ha_release: "0.40"
 ha_iot_class: "Cloud Polling"
+redirect_form:
+  - /components/alarm_control_panel.blink/
+  - /components/binary_sensor.blink/
+  - /components/camera.blink/
+  - /components/sensor.blink/
 ---
 
 The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.

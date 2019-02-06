@@ -49,10 +49,10 @@ host:
   required: false
   default: 127.0.0.1
   type: string
-host:
+port:
   description: Port of the gateway.
   required: false
-  default: depends on the gateway model
+  default: Depends on the gateway model.
   type: integer
 switches:
   description: List of switches that can be controlled with this gateway.

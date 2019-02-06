@@ -27,7 +27,7 @@ The `tradfri` component support the IKEA Trådfri Gateway (a.k.a. IKEA Tradfri h
 You will be prompted to configure the gateway through the Home Assistant interface. The configuration process is very simple, when prompted, enter the security key printed on the physical sticker that is on the bottom of the IKEA Trådfri Gateway, then click configure.
 
 <p class='note'>
-If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP to your IKEA Trådfri Gateway in your router / DHCP-server.
+If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP address to your IKEA Trådfri Gateway in your router / DHCP-server.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -59,6 +59,10 @@ allow_tradfri_groups:
 After updating the firmware of your IKEA Trådfri Gateway it might be necessary to repeat the configuration process. If you encounter problems, delete the `.tradfri_psk.conf` file in your `.homeassistant` directory, restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup. Possible errors: `Fatal DTLS error: code 115`.
 
 ### {% linkable_title Compilation issues %}
+
+<p class='note'>
+  This does not apply to Hass.io or Docker.
+</p>
 
 Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1 h) on slow devices.
 

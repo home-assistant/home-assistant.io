@@ -30,7 +30,7 @@ elkm1:
 
 {% configuration %}
 host:
-  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`.
+  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with.
   required: true
   type: string
 username:
@@ -251,3 +251,19 @@ elkm1:
     include: [a1-d16, 192]
     exclude: [b12-d5]
 ```
+
+Example for a serial port instance on /dev/ttyS1 at 9600 baud:
+```yaml
+elkm1:
+  host: serial://dev/ttyS1:9600
+  username: USERNAME
+  password: PASSWORD
+  area:
+    exclude: [5-8]
+  zone:
+    exclude: [11-16, 19-192, 199-208]
+  plc:
+    include: [a1-d16, 192]
+    exclude: [b12-d5]
+```
+

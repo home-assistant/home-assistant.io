@@ -55,7 +55,7 @@ password:
   description: Password for the IMAP server.
   required: true
   type: string
-password:
+folder:
   description: Folder to get mails from.
   required: false
   default: INBOX
