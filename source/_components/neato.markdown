@@ -64,7 +64,7 @@ Currently supported services are:
 - `return_to_base`
 - `locate`
 - `spot_clean`
-- `neato_custom_cleaning`
+- `neato_custom_cleaning` (The `zone` parameter is only supported for the Botvac D7)
 
 ## {% linkable_title Camera %}
 
