@@ -233,7 +233,7 @@ condition:
           below: 20
 ```
 
-Another more complex example. This could be a condition for running a goodnight routine depending on bed ocupancy and home state, (if one person home and one person in bed run. But if two people are home wait until two people are in bed to run). But only if you have no guests present.
+Another more complex example. Although complex logic like this is better done by triggering a script, it does work to nest conditions. This could be a condition for running a goodnight routine depending on bed ocupancy and home state, (if one person home and one person in bed run. But if two people are home wait until two people are in bed to run). But only if you have no guests present.
 
 ```yaml
 condition:
