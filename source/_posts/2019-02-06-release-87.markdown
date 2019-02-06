@@ -46,7 +46,7 @@ If you prefer a podcast over release notes, check out [the Hass Podcast](https:/
 - Add Recollect Waste ([@stealthhacker] - [#20121]) ([sensor.recollect_waste docs]) (new-platform)
 - New Transmission component ([@MatteGary] - [#19230]) ([transmission docs]) ([sensor.transmission docs]) (breaking change) (new-platform)
 - Add support for FRITZ DECT 100 (temp sensor) ([@choss] - [#20308]) ([fritzbox docs]) ([sensor.fritzbox docs]) (new-platform)
-- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) ([updater docs]) (new-platform)
+- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) (new-platform)
 - Add sensor platform for Rova Garbage Collection ([@GidoHakvoort] - [#18868]) ([sensor.rova docs]) (new-platform)
 - Add SmartThings component and switch platform ([@andrewsayre] - [#20148]) ([smartthings docs]) ([switch.smartthings docs]) (new-platform)
 - Fix cloud webhook body ([@pvizeli] - [#20739]) ([cloud docs]) (beta fix) (new-platform)
@@ -243,7 +243,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add remove commmand to entity registry ([@balloob] - [#20597]) ([config docs])
 - Fix map icons ([@bramkragten] - [#20602]) ([map docs])
 - Fix LIFX for single-zone strip extensions ([@amelchio] - [#20604]) ([light.lifx docs])
-- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) ([updater docs]) (new-platform)
+- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) (new-platform)
 - Update to the newest python-wink and fix push updates! ([@w1ll1am23] - [#20594]) ([wink docs])
 - Add lovelace systeam health ([@balloob] - [#20592]) ([lovelace docs])
 - Add sensor platform for Rova Garbage Collection ([@GidoHakvoort] - [#18868]) ([sensor.rova docs]) (new-platform)
@@ -471,6 +471,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@boralyl]: https://github.com/boralyl
 [@bramkragten]: https://github.com/bramkragten
+[@thomasloven]: https://github.com/thomasloven
 [@choss]: https://github.com/choss
 [@chrillux]: https://github.com/chrillux
 [@coreGreenberet]: https://github.com/coreGreenberet
