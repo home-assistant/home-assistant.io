@@ -2,7 +2,7 @@
 layout: post
 title: "0.87: SmartThings, Areas and Entity Registry UI."
 description: "Integrate SmartThings without issues"
-date: 2019-01-30 00:01:03
+date: 2019-02-06 00:01:03
 date_formatted: "February 6, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
