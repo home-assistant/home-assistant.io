@@ -72,6 +72,11 @@ headers:
   description: The headers for the request.
   required: false
   type: list, string
+verify_ssl:
+  description: Verify the SSL certificate of the endpoint.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -98,6 +103,7 @@ switch:
     is_on_template: '{{ value_json.is_active }}'
     headers:
       Content-Type: application/json
+    verify_ssl: true
 ```
 {% endraw %}
 

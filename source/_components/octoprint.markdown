@@ -49,6 +49,11 @@ octoprint:
       required: false
       type: integer
       default: 80
+    path:
+      description: The URL path of the Octoprint instance.
+      required: false
+      type: string
+      default: /
     ssl:
       description: Enable or disable SSL/TLS.
       required: false
