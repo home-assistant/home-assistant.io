@@ -15,7 +15,7 @@ og_image: /images/blog/2019-02-release-87/components.png
 
 Today we're releasing Home Assistant 0.87, our third release of the year. Besides a bunch of bugs squashing and performance improvements, we got some cool new features too.
 
-Let's start with the big one: we now support SmartThings. Via a custom app that can be installed inside SmartThings, you can now push the state of each device, as soon as it changes, to Home Assistant. No more fiddling with MQTT bridges or other solutions. Big shoutout to [@andrewsayre] for making this possible. Have a look at the [SmartThings docs] to get started.
+Let's start with the big one: we now support SmartThings. Via a custom app that can be installed inside SmartThings, you can now push the state of each device in SmartThings, as soon as it changes, to Home Assistant. No more fiddling with MQTT bridges or other solutions. Big shoutout to [@andrewsayre] for making this possible. Have a look at the [SmartThings docs] to get started.
 
 New in this release is a new area feature thanks to [@Kane610]. Areas will allow users to organize their devices by their physical area, like kitchen or living room. This will unlock a whole new range of possible new features (of which none are implemented yet). With this release, users will just be able to manage areas in the configuration panel and place devices in areas via the integration page. In the future, we're planning to add area based user permissions and a Lovelace area card. If you can't wait to start leveraging areas today, [@thomasloven] has created [a custom Lovelace card](https://github.com/thomasloven/lovelace-auto-entities) that can leverage areas.
 
