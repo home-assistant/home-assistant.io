@@ -48,7 +48,7 @@ port:
 To use your Teletask switch in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-ligiht:
+light:
   - platform: teletask
     doip_component: relay
     address: 1
