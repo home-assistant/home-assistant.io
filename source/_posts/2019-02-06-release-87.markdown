@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "0.87: SmartThings, TBD UPDATE DATE "
-description: "TBD UPDATE DATE"
+title: "0.87: SmartThings, Areas and Entity Registry UI."
+description: "Integrate SmartThings without issues"
 date: 2019-01-30 00:01:03
 date_formatted: "February 6, 2019"
 author: Paulus Schoutsen
@@ -13,13 +13,19 @@ og_image: /images/blog/2019-02-release-87/smartthings.png
 
 <a href='/components/#version/0.87'><img src='/images/blog/2019-02-release-87/components.png' style='border: 0;box-shadow: none;'></a>
 
-SmartThings
+Today we're releasing Home Assistant 0.87, our third release of the year. Besides a bunch of bugs squashing and performance improvements, we got some cool new features too.
 
-Areas
+Let's start with the big one: we now support SmartThings. Via a custom app that can be installed inside SmartThings, you can now push the state of each device, as soon as it changes, to Home Assistant. No more fiddling with MQTT bridges or other solutions. Big shoutout to [@andrewsayre] for making this possible. Have a look at the [SmartThings docs] to get started.
 
-Entity Registry UI
+New in this release is a new area feature thanks to [@Kane610]. Areas will allow users to organize their devices by their physical area, like kitchen or living room. This will unlock a whole new range of possible new features (of which none are implemented yet). With this release, users will just be able to manage areas in the configuration panel and place devices in areas via the integration page. In the future, we're planning to add area based user permissions and a Lovelace area card. If you can't wait to start leveraging areas today, [@thomasloven] has created [a custom Lovelace card](https://github.com/thomasloven/lovelace-auto-entities) that can leverage areas.
 
-Material Design Icons upgraded to 3.3.92, some renames: https://dev.materialdesignicons.com/upgrade
+This release also includes a UI to manage the entity registry. The entity registry contains all entities with unique IDs that Home Assistant has ever seen. It will allow users to quickly rename entities, change entity IDs or have Home Assistant forget entities that are no longer active.
+
+We didn't forget about the frontend in this release. In the last release we introduced Lovelace, so for this release we focused on bug squashing, performance improvements and usability. The YAML editor is now rendered using a full editor including line numbers thanks to [@bramkragten]. There is also a new system health component that will help users diagnose problems from the "info" developer tool. [See changelog for the frontend.](https://github.com/home-assistant/home-assistant-polymer/releases/tag/20190130.1)
+
+In this release we have also upgraded the Material Design Icons to 3.3.92, which renames some icons. Make sure to check [their changelog](https://dev.materialdesignicons.com/upgrade).
+
+If you prefer a podcast over release notes, check out [the Hass Podcast](https://hasspodcast.io/ha043/) in which Phil and Rohan discuss each new Home Assistant release and keep a tap on what's happening in the home automation space.
 
 ## {% linkable_title New Platforms %}
 
@@ -28,9 +34,9 @@ Material Design Icons upgraded to 3.3.92, some renames: https://dev.materialdesi
 - Add LCN switch platform ([@alengwenus] - [#20267]) ([lcn docs]) ([switch.lcn docs]) (new-platform)
 - Add EverLights light component ([@joncar] - [#19817]) ([light.everlights docs]) (new-platform)
 - Add device tracker support for EE Brightbox 2 router ([@krygal] - [#19611]) ([device_tracker docs]) (new-platform)
-- HomematicIP add cover FROLL and BROLL devices ([@mxworm] - [#19794]) ([cover.homematicip_cloud docs]) (new-platform)
+- HomematicIP add cover FROLL and BROLL devices ([@mxworm] - [#19794]) ([homematicip_cloud docs]) (new-platform)
 - Add Danfoss Air HRV support ([@JonasPed] - [#20138]) ([danfoss_air docs]) ([binary_sensor.danfoss_air docs]) ([sensor.danfoss_air docs]) (new-platform)
-- Utility meter ([@dgomes] - [#19718]) ([sensor.utility_meter docs]) (new-platform)
+- Utility meter ([@dgomes] - [#19718]) ([utility_meter docs]) (new-platform)
 - Add Co2signal sensor ([@danielsjf] - [#19204]) ([sensor.co2signal docs]) (new-platform)
 - Add nilu air_quality platform ([@hfurubotten] - [#19674]) ([air_pollutants docs]) (new-platform)
 - Add Iliad Italy (Mobile Telephony Provider) Sensor ([@eliseomartelli] - [#19645]) ([sensor.iliad_italy docs]) (new-platform)
@@ -43,9 +49,7 @@ Material Design Icons upgraded to 3.3.92, some renames: https://dev.materialdesi
 - RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) ([updater docs]) (new-platform)
 - Add sensor platform for Rova Garbage Collection ([@GidoHakvoort] - [#18868]) ([sensor.rova docs]) (new-platform)
 - Add SmartThings component and switch platform ([@andrewsayre] - [#20148]) ([smartthings docs]) ([switch.smartthings docs]) (new-platform)
-- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix) (new-platform)
-- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix) (new-platform)
-- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix) (new-platform)
+- Fix cloud webhook body ([@pvizeli] - [#20739]) ([cloud docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -66,7 +70,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix unused friendly name for SolarEdge sensor ([@LouisMT] - [#20109]) ([sensor.solaredge docs]) (breaking change)
 - Fix typo C02 to CO2 ([@reefab] - [#20306]) ([air_quality docs]) (breaking change)
 - Remove creation of geolocation default group ([@exxamalte] - [#20338]) ([geo_location docs]) (breaking change)
-- Split out dovado to a component and sensor platform ([@rohankapoorcom] - [#20339]) ([dovado docs]) ([notify:dovado docs]) ([sensor.dovado docs]) (breaking change)
+- Split out dovado to a component and sensor platform ([@rohankapoorcom] - [#20339]) ([dovado docs]) ([sensor.dovado docs]) (breaking change)
 - Reset Brottsplatskartan incident types every day ([@chrillux] - [#20117]) ([sensor.brottsplatskartan docs]) (breaking change)
 - Make Ambient PWS async and cloud-push ([@bachya] - [#20332]) ([ambient_station docs]) ([sensor.ambient_station docs]) (breaking change)
 - Add COMPONENT_SCHEMA and use it in alarm_control_panel ([@emontnemery] - [#20224]) ([alarm_control_panel docs]) (breaking change)
@@ -81,11 +85,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix parsing yeelight custom effects, when not present in config ([@zewelor] - [#20658]) ([light.yeelight docs]) (beta fix)
 - Add PLATFORM_SCHEMA_BASE support to check_config.py ([@emontnemery] - [#20663]) (beta fix)
 - InfluxDB - change connection test method ([@magenbrot] - [#20666]) ([sensor.influxdb docs]) (beta fix)
-- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix)
 - Fix allow extra in locative webhook schema validation ([@rohankapoorcom] - [#20657]) ([locative docs]) (beta fix)
-- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix)
 - Add entity_namespace to PLATFORM_SCHEMA ([@emontnemery] - [#20693]) (beta fix)
-- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix)
 - fix test commented in #20678 ([@dgomes] - [#20680]) (beta fix)
 - Add SmartThings button support via events ([@andrewsayre] - [#20707]) ([smartthings docs]) (beta fix)
 - Fix temperature unit conversion in Ambient PWS ([@bachya] - [#20723]) ([ambient_station docs]) (beta fix)
@@ -96,6 +100,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix the line reference in config error message ([@awarecan] - [#20743]) (beta fix)
 - Upgrade to async_upnp_client==0.14.4 ([@StevenLooman] - [#20751]) ([upnp docs]) ([media_player.dlna_dmr docs]) (beta fix)
 - Keep cloud tokens always valid ([@balloob] - [#20762]) ([cloud docs]) (beta fix)
+- Fix tellduslive responsiveness ([@fredrike] - [#20603]) ([tellduslive docs]) (beta fix)
+- Make sure Locative doesn't submit invalid device IDs ([@balloob] - [#20784]) ([locative docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -138,7 +144,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix typo C02 to CO2 ([@reefab] - [#20306]) ([air_quality docs]) (breaking change)
 - Add git to the development Dockerfile ([@kellerza] - [#20276])
 - Add device tracker support for EE Brightbox 2 router ([@krygal] - [#19611]) ([device_tracker docs]) (new-platform)
-- HomematicIP add cover FROLL and BROLL devices ([@mxworm] - [#19794]) ([cover.homematicip_cloud docs]) (new-platform)
+- HomematicIP add cover FROLL and BROLL devices ([@mxworm] - [#19794]) ([homematicip_cloud docs]) (new-platform)
 - Upgrade python-nest to 4.1.0 ([@awarecan] - [#20313]) ([nest docs])
 - Upgrade youtube_dl to 2019.01.17 ([@fabaff] - [#20318])
 - Add data/data_template/title to alert component ([@syphernl] - [#17616]) ([alert docs])
@@ -178,7 +184,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - ZHA component rewrite part 1 ([@dmulcahey] - [#20456])
 - Upgrade astral to 1.8 ([@fabaff] - [#20459])
 - Correct minor comments from PR#20138. ([@JonasPed] - [#20454]) ([danfoss_air docs])
-- Utility meter ([@dgomes] - [#19718]) ([sensor.utility_meter docs]) (new-platform)
+- Utility meter ([@dgomes] - [#19718]) ([utility_meter docs]) (new-platform)
 - Add Co2signal sensor ([@danielsjf] - [#19204]) ([sensor.co2signal docs]) (new-platform)
 - introduce gateway ([@dmulcahey] - [#20460]) ([zha docs])
 - Update device registry of MQTT fan ([@emontnemery] - [#20445]) ([mqtt docs])
@@ -191,7 +197,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Include exception details in the error log ([@shaan7] - [#20461]) ([media_player.firetv docs])
 - Use HASS latitude/longitude as defaults for Lyft ([@bachya] - [#20491]) ([sensor.lyft docs])
 - Upgrade zm-py to 0.3.1 ([@rohankapoorcom] - [#20489]) ([zoneminder docs])
-- Split out dovado to a component and sensor platform ([@rohankapoorcom] - [#20339]) ([dovado docs]) ([notify:dovado docs]) ([sensor.dovado docs]) (breaking change)
+- Split out dovado to a component and sensor platform ([@rohankapoorcom] - [#20339]) ([dovado docs]) ([sensor.dovado docs]) (breaking change)
 - Add homekit_controller tests ([@Jc2k] - [#20457]) ([homekit_controller docs])
 - Upgrade to async-upnp-client==0.14.3 ([@StevenLooman] - [#20502]) ([upnp docs]) ([media_player.dlna_dmr docs])
 - Upgrade tibber library ([@Danielhiversen] - [#20504]) ([tibber docs])
@@ -253,11 +259,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix parsing yeelight custom effects, when not present in config ([@zewelor] - [#20658]) ([light.yeelight docs]) (beta fix)
 - Add PLATFORM_SCHEMA_BASE support to check_config.py ([@emontnemery] - [#20663]) (beta fix)
 - InfluxDB - change connection test method ([@magenbrot] - [#20666]) ([sensor.influxdb docs]) (beta fix)
-- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Light platform ([@andrewsayre] - [#20652]) ([smartthings docs]) (beta fix)
 - Fix allow extra in locative webhook schema validation ([@rohankapoorcom] - [#20657]) ([locative docs]) (beta fix)
-- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Fan platform ([@andrewsayre] - [#20681]) ([smartthings docs]) (beta fix)
 - Add entity_namespace to PLATFORM_SCHEMA ([@emontnemery] - [#20693]) (beta fix)
-- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix) (new-platform)
+- Add SmartThings Binary Sensor platform ([@andrewsayre] - [#20699]) ([smartthings docs]) (beta fix)
 - Remove fingerprint middleware ([@balloob] - [#20682]) ([http docs])
 - fix test commented in #20678 ([@dgomes] - [#20680]) (beta fix)
 - Add SmartThings button support via events ([@andrewsayre] - [#20707]) ([smartthings docs]) (beta fix)
@@ -269,6 +275,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix the line reference in config error message ([@awarecan] - [#20743]) (beta fix)
 - Upgrade to async_upnp_client==0.14.4 ([@StevenLooman] - [#20751]) ([upnp docs]) ([media_player.dlna_dmr docs]) (beta fix)
 - Keep cloud tokens always valid ([@balloob] - [#20762]) ([cloud docs]) (beta fix)
+- Fix tellduslive responsiveness ([@fredrike] - [#20603]) ([tellduslive docs]) (beta fix)
+- Make sure Locative doesn't submit invalid device IDs ([@balloob] - [#20784]) ([locative docs]) (beta fix)
 
 [#17616]: https://github.com/home-assistant/home-assistant/pull/17616
 [#18868]: https://github.com/home-assistant/home-assistant/pull/18868
@@ -417,6 +425,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20597]: https://github.com/home-assistant/home-assistant/pull/20597
 [#20598]: https://github.com/home-assistant/home-assistant/pull/20598
 [#20602]: https://github.com/home-assistant/home-assistant/pull/20602
+[#20603]: https://github.com/home-assistant/home-assistant/pull/20603
 [#20604]: https://github.com/home-assistant/home-assistant/pull/20604
 [#20606]: https://github.com/home-assistant/home-assistant/pull/20606
 [#20611]: https://github.com/home-assistant/home-assistant/pull/20611
@@ -440,6 +449,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20743]: https://github.com/home-assistant/home-assistant/pull/20743
 [#20751]: https://github.com/home-assistant/home-assistant/pull/20751
 [#20762]: https://github.com/home-assistant/home-assistant/pull/20762
+[#20784]: https://github.com/home-assistant/home-assistant/pull/20784
 [@Censored3]: https://github.com/Censored3
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@GidoHakvoort]: https://github.com/GidoHakvoort
@@ -477,6 +487,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@exxamalte]: https://github.com/exxamalte
 [@fabaff]: https://github.com/fabaff
 [@foxel]: https://github.com/foxel
+[@fredrike]: https://github.com/fredrike
 [@fronzbot]: https://github.com/fronzbot
 [@gorynychzmey]: https://github.com/gorynychzmey
 [@heytensai]: https://github.com/heytensai
@@ -541,7 +552,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.radiotherm docs]: /components/climate.radiotherm/
 [cloud docs]: /components/cloud/
 [config docs]: /components/config/
-[cover.homematicip_cloud docs]: /components/cover.homematicip_cloud/
 [danfoss_air docs]: /components/danfoss_air/
 [device_tracker docs]: /components/device_tracker/
 [device_tracker.gpslogger docs]: /components/device_tracker.gpslogger/
@@ -557,6 +567,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [gpslogger docs]: /components/gpslogger/
 [homekit_controller docs]: /components/homekit_controller/
 [homematic docs]: /components/homematic/
+[homematicip_cloud docs]: /components/homematicip_cloud/
 [http docs]: /components/http/
 [hue docs]: /components/hue/
 [image_processing.opencv docs]: /components/image_processing.opencv/
@@ -589,7 +600,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mqtt docs]: /components/mqtt/
 [nest docs]: /components/nest/
 [notify docs]: /components/notify/
-[notify:dovado docs]: /components/notify:dovado/
 [rest_command docs]: /components/rest_command/
 [sense docs]: /components/sense/
 [sensor.ambient_station docs]: /components/sensor.ambient_station/
@@ -616,18 +626,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
 [sensor.tibber docs]: /components/sensor.tibber/
 [sensor.transmission docs]: /components/sensor.transmission/
-[sensor.utility_meter docs]: /components/sensor.utility_meter/
 [smartthings docs]: /components/smartthings/
 [switch.lcn docs]: /components/switch.lcn/
 [switch.mqtt docs]: /components/switch.mqtt/
 [switch.rest docs]: /components/switch.rest/
 [switch.smartthings docs]: /components/switch.smartthings/
 [system_health docs]: /components/system_health/
+[tellduslive docs]: /components/tellduslive/
 [tibber docs]: /components/tibber/
 [transmission docs]: /components/transmission/
 [unifi docs]: /components/unifi/
 [updater docs]: /components/updater/
 [upnp docs]: /components/upnp/
+[utility_meter docs]: /components/utility_meter/
 [weather.darksky docs]: /components/weather.darksky/
 [webhook docs]: /components/webhook/
 [wemo docs]: /components/wemo/

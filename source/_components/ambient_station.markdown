@@ -62,7 +62,7 @@ monitored_conditions:
     dailyrainin:
       description: Daily rain accumulation
     dewPoint:
-      description: Dewpoint temperature 
+      description: Dewpoint temperature
     eventrainin:
       description: Event Rain accumulation
     feelsLike:
@@ -80,9 +80,9 @@ monitored_conditions:
     monthlyrainin:
       description: Monthly rain accumulation
     solarradiation:
-      description: Solar radiation 
+      description: Solar radiation
     tempf:
-      description: Outdoor temperature 
+      description: Outdoor temperature
     tempinf:
       description: Indoor temperature
     totalrainin:
@@ -94,7 +94,7 @@ monitored_conditions:
     winddir:
       description: Wind direction
     winddir_avg10m:
-      description: Wind direction, 10m moving average 
+      description: Wind direction, 10m moving average
     winddir_avg2m:
       description: Wind direction, 2m moving average
     windgustdir:
