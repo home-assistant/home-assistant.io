@@ -1,0 +1,19 @@
+---
+layout: post
+title: "0.88: TODO - UPDATE DATE."
+description: "TO DO"
+date: 2019-02-06 00:11:03
+date_formatted: "February 20, 2019"
+author: Paulus Schoutsen
+author_twitter: balloob
+comments: true
+categories: Release-Notes
+og_image: /images/blog/2019-02-release-88/smartthings.png
+---
+
+<a href='/components/#version/0.88'><img src='/images/blog/2019-02-release-88/components.png' style='border: 0;box-shadow: none;'></a>
+
+Command line auth provider
+
+Person component
+
