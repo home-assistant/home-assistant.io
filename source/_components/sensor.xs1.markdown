@@ -10,7 +10,7 @@ footer: true
 logo: xs1.jpg
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: 0.85
+ha_release: 0.88
 ---
 
 Sensors are automatically added to Home Assistant. Have a look at the general [XS1 component](/components/xs1/) description for more info.
