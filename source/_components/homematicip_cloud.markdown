@@ -86,7 +86,7 @@ authtoken:
     - Temperature and humidity Sensor with display (*HmIP-STHD*)
     - Outdoor temperature and humidity sensor (*HmIP-STHO*)
     - Illuminance sensor (*HmIP-SMI, 55*)
-    - Light sensor (HmIP-SLO*)
+    - Light sensor Outdoor (HmIP-SLO*)
   
 - homematicip_cloud.switch
     - Pluggable Switch and Meter (*HmIP-PSM*)
