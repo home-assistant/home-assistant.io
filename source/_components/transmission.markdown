@@ -112,12 +112,12 @@ Example of configuration of an automation with completed torrents:
 
 ```yaml
 - alias: Completed Torrent
-    trigger:
-      platform: event
-      event_type: transmission_downloaded_torrent
-    action:
-      service: notify.telegram_notifier
-      data_template:
-        title: "Torrent completed!"
-        message: "{{trigger.event.data.name}}"
+  trigger:
+    platform: event
+    event_type: transmission_downloaded_torrent
+  action:
+    service: notify.telegram_notifier
+    data_template:
+      title: "Torrent completed!"
+      message: "{{trigger.event.data.name}}"
 ```
