@@ -28,6 +28,7 @@ sensor:
     port: 993
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
+    search: FROM <sender@email.com>, SUBJECT <subject here>
 ```
 
 {% configuration %}
