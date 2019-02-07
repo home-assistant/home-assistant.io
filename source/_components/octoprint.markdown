@@ -68,7 +68,7 @@ octoprint:
       description: Number of temperature adjustable tools, e.g., nozzle.
       required: false
       type: integer
-      default: 1
+      default: 0
     sensors:
       description: Configuration for the sensors.
       required: false
