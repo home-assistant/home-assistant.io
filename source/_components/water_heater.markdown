@@ -97,5 +97,5 @@ automation:
     - service: water_heater.set_away_mode
       data:
         entity_id: water_heater.demo
-        away_mode: True
+        away_mode: true
 ```

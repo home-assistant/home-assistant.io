@@ -33,7 +33,7 @@ cache:
   description: Allow TTS to cache voice file to local storage.
   required: false
   type: boolean
-  default: True
+  default: true
 cache_dir:
   description: Folder name or path to a folder for caching files.
   required: false

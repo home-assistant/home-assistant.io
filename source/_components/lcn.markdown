@@ -23,6 +23,8 @@ With this setup sending and receiving commands to and from LCN modules is possib
 There is currently support for the following device types within Home Assistant:
 
 - [Light](/components/light.lcn)
+- [Switch](/components/switch.lcn)
+
 
 ## {% linkable_title Configuration %}
 
@@ -46,6 +48,11 @@ lcn:
       output: output1
       dimmable: true
       transition: 5
+  
+  switches:
+    - name: Sprinkler switch
+      address: myhome.s0.m7
+      output: relay1
 ```
 
 {% configuration %}
@@ -100,11 +107,11 @@ lights:
       required: true
       type: string
     output:
-      description: "Light source ([OUTPUT_PORT](/components/lcn#ports))."
+      description: "Light source ([OUTPUT_PORT](/components/lcn#ports), [RELAY_PORT](/components/lcn#ports))."
       required: true
       type: string
     dimmable:
-      description: Enable the dimming feature for this light
+      description: Enable the dimming feature for this light.
       required: false
       type: bool
       default: false
@@ -113,6 +120,24 @@ lights:
       required: false
       type: int
       default: 0
+
+switches:
+  description: List of your switches.
+  required: false
+  type: map
+  keys:
+    name:
+      description: "Name of the switch."
+      required: true
+      type: string
+    address:
+      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    output:
+      description: "Switch source ([OUTPUT_PORT](/components/lcn#ports), [RELAY_PORT](/components/lcn#ports))."
+      required: true
+      type: string
 {% endconfiguration %}
 
 
@@ -155,3 +180,4 @@ The platforms and service calls use several predefined constants as parameters.
 | Constant | Values |
 | -------- | ------ |
 | OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
+| RELAY_PORT | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8` |

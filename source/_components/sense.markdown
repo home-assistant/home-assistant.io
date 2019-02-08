@@ -27,24 +27,24 @@ sense:
   password: CLIENT_SECRET
 ```
 
+{% configuration %}
+email:
+  description: The email associated with your Sense account/application.
+  required: true
+  type: string
+password:
+  description: The password for your Sense account/application.
+  required: true
+  type: string
+timeout:
+  description: Seconds for timeout of API requests.
+  required: false
+  type: positive_int
+{% endconfiguration %}
+
 Sensors are added for both usage and production with the following names:
 
 - **Active Usage/Production**: Current active power usage/production in Watts. Updated every 60 seconds.
 - **Daily/Weekly/Monthly Usage/Production**: Daily/Weekly/Monthly power usage/production in kWh. Updated every 5 minutes.
 
 Binary sensors are created for each of the devices detected by your Sense monitor to show their power state.
-
-{% configuration %}
-email:
-  description: The email associated with your Sense account/application.
-  required: true
-  type: string  
-password:
-  description: The password for your Sense account/application.
-  required: true
-  type: string
-timeout:
-  description: Seconds for timeout of API requests
-  required: false
-  type: positive_int
-{% endconfiguration %}

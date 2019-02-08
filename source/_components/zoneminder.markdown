@@ -14,7 +14,7 @@ ha_release: 0.31
 ha_iot_class: "Local Polling"
 ---
 
-The ZoneMinder component sets up the integration with your [ZoneMinder](https://www.zoneminder.com) instance so that [cameras](/components/camera.zoneminder/), [sensors](/components/sensor.zoneminder/), and [switches](/components/switch.zoneminder) can use it.
+The ZoneMinder component sets up the integration with your [ZoneMinder](https://www.zoneminder.com) instance so that [cameras](/components/camera.zoneminder/), [sensors](/components/sensor.zoneminder/), and [switches](/components/switch.zoneminder) can use it. Configuring this component will automatically load the [binary_sensor](/components/binary_sensor.zoneminder) which tracks ZoneMinder availability.
 
 ## {% linkable_title Configuration %}
 

@@ -8,8 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: joaoapps_join.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Notify
 ha_release: "0.24"
+redirect_from:
+  - /components/notify.joaoapps_join/
 ---
 
 The `joaoapps_join` component exposes services from

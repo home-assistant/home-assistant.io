@@ -8,13 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: openuv.jpg
-ha_category: Health
+ha_category:
+  - Health
+  - Binary Sensor
+  - Sensor
 ha_release: 0.76
 ha_iot_class: "Cloud Polling"
+ha_config_flow: true
+redirect_from:
+  - /components/binary_sensor.openuv/
+  - /components/sensor.openuv/
 ---
 
-The `openuv` component displays UV and Ozone data from
-[openuv.io](http://openuv.io).
+The `openuv` component displays UV and Ozone data from [openuv.io](http://openuv.io).
 
 ## {% linkable_title Generating an API Key %}
 
@@ -141,9 +147,8 @@ usage is to only retrieve data during the daytime:
 automation:
   - alias: Update OpenUV every 30 minutes during the daytime
     trigger:
-      platform: time
-      minutes: "/30"
-      seconds: 00
+      platform: time_pattern
+      minutes: '/30'
     condition:
       condition: and
       conditions:
@@ -163,9 +168,8 @@ etc.) might be to simply query the API less often:
 automation:
   - alias: Update OpenUV every hour (24 of 50 calls per day)
     trigger:
-      platform: time
-      minutes: "/60"
-      seconds: 00
+      platform: time_pattern
+      minutes: '/60'
     action:
       service: openuv.update_data
 ```

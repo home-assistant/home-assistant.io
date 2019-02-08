@@ -83,6 +83,45 @@ http:
     - fd00::/8
 ```
 
+### {% linkable_title Command Line %}
+
+The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
+
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance.
+
+Here is a configuration example:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: command_line
+      command: /absolute/path/to/command
+      # Optionally, define a list of arguments to pass to the command.
+      #args: ["--first", "--second"]
+      # Uncomment to enable parsing of meta variables (see below).
+      #meta: true
+```
+
+When `meta: true` is set in the auth provider's configuration, your command can write some variables to standard output to populate the user account created in Home Assistant with additional data. These variables have to be printed in the form:
+
+```
+name = John Doe
+```
+
+Leading and trailing whitespace, as well as lines starting with `#` are ignored. The following variables are supported. More may be added in the future.
+
+* `name`: The real name of the user to be displayed in his profile.
+
+Stdaerr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
+
+<p class='note'>
+Any leading and trailing whitespace is stripped from usernames before they're passed to the configured command. For instance, " hello  " will be rewritten to just "hello".
+</p>
+
+<p class='note'>
+For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
+</p>
+
 ### {% linkable_title Legacy API password %}
 
 <p class='note warning'>

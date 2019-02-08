@@ -17,7 +17,7 @@ The `rainmachine` sensor platform allows you to view crucial sensor data within
 a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/). 
 
 <p class='note'>
-You must have the [RainMachine component](https://www.home-assistant.io/components/rainmachine/)
+You must have the [RainMachine component](/components/rainmachine/)
 configured to use this platform. After configuring that component, sensors
 automatically appear.
 </p>

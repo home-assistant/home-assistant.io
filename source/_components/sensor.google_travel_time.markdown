@@ -54,7 +54,7 @@ name:
   required: false
   type: string
 travel_mode:
-  description: "You can choose between: `driving`, `walking`, `bicycling` or `transit`."
+  description: "You can choose between: `driving`, `walking`, `bicycling` or `transit`. This method is now deprecated, use `mode` under `options`."
   required: false
   type: string
 options:
@@ -146,9 +146,8 @@ You can also use the `sensor.google_travel_sensor_update` service to update the 
   alias: "Commute - Update morning commute sensor"
   initial_state: 'on'
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/2'
-      seconds: 00
   condition:
     - condition: time
       after: '08:00:00'

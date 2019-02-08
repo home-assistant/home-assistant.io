@@ -43,5 +43,5 @@ name:
 <p class="note">
   This card works only with platforms that define a `weather` entity.
   
-  E.g., it works with [Dark Sky](https://www.home-assistant.io/components/weather.darksky/) but not [Dark Sky Sensor](https://www.home-assistant.io/components/sensor.darksky/)
+  E.g., it works with [Dark Sky](/components/weather.darksky/) but not [Dark Sky Sensor](/components/sensor.darksky/)
 </p>

@@ -8,9 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: telldus.png
-ha_category: Hub
+ha_category: 
+  - Hub
+  - Binary Sensor
+  - Cover
+  - Light
+  - Sensor
+  - Switch
 featured: false
 ha_release: 0.11
+ha_config_flow: true
+redirect_from:
+  - /components/binary_sensor.tellduslive/
+  - /components/cover.tellduslive/
+  - /components/light.tellduslive/
+  - /components/sensor.tellduslive/
+  - /components/switch.tellduslive/
 ---
 
 The `tellduslive` component let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
@@ -36,7 +49,7 @@ host:
   required: false
   type: string
 update_interval:
-  description: Interval (in seconds) for polling the Telldus Live server (or the local server). Minimal value can't be less then 300.
+  description: Interval (in seconds) for polling the Telldus Live server (or the local server).
   required: false
   type: integer
   default: 60

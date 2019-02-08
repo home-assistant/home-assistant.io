@@ -53,13 +53,13 @@ monitored_conditions:
   type: list
   default: current_power
   keys:
-    life_time_data:
+    lifetime_energy:
       description: Lifetime energy generated at your SolarEdge Site in Wh
-    last_year_data:
+    energy_this_year:
       description: Energy generated this year at your SolarEdge Site in Wh
-    last_month_data:
+    energy_this_month:
       description: Energy generated this month at your SolarEdge Site in Wh
-    last_day_data:
+    energy_today:
       description: Energy generated today at your SolarEdge Site in Wh
     current_power:
       description: Current generated power in W
@@ -115,7 +115,7 @@ In case you would like to convert the values for example to kWh instead of the d
 sensors:
   platform: template
   sensors:
-    solaredge_last_year_data_template:
-      value_template: '{{(states.sensor.solaredge_last_year_data.state | float / 1000) | round(2)}}'
+    solaredge_energy_this_year_template:
+      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | round(2)}}'
 ```
 {% endraw %}
