@@ -78,6 +78,7 @@ authtoken:
 - homematicip_cloud.light
     - Switch actuator and meter for brand switches (*HmIP-BSM*)
     - Dimming actuator for brand switches (*HmIP-BDT*)
+    - Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
   
 - homematicip_cloud.sensor
     - Accesspoint duty-cycle (*HmIP-HAP*)
