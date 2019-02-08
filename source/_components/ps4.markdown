@@ -77,3 +77,30 @@ Some titles will have different SKUs in the PlayStation Store database depending
 <p class='note warning'>
   Region 6: Mainland China, is not supported as there is no English database available.
 </p>
+
+## {% linkable_title Services %}
+
+### {% linkable_title Service `send_command` %}
+
+Emulate button press on PlayStation 4
+
+| Service data attribute | Optional | Example                      | Description                           |
+| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
+| `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
+| `command`              | No       | `ps`                         | The command you want to send.         |
+
+#### {% linkable_title Service `Available Commands` %}
+
+Full list of supported commands.
+
+| Command | Button Emulated |
+| ------- | --------------- |
+| ps      | PS              |
+| option  | Option          |
+| enter   | Enter           |
+| back    | Back            |
+| cancel  | Cancel          |
+| up      | D-Pad Up        |
+| down    | D-Pad Down      |
+| left    | D-Pad Left      |
+| right   | D-pad Right     |
