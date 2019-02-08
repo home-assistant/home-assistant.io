@@ -84,10 +84,8 @@ If you are using climate devices the "current temp" sensor will be automatically
 
 Home Assistant can combine temperature sensors and climate actuators into a single device. The XS1 gateway does not allow this but a sensor and actuator can be configured separately. To make Home Assistant register them in the same climate device just prefix the **sensor** name with the actuator name on the XS1 gateway configuration, f.ex:
 
-```text
-Actuator device name: "Bedroom_Temp"
-Sensor device name: "Bedroom_Temp_Sensor"
-```
+- Actuator device name: "Bedroom_Temp"
+- Sensor device name: "Bedroom_Temp_Sensor"
 
 ## {% linkable_title Examples %}
 
