@@ -10,10 +10,11 @@ footer: true
 featured: true
 logo: samsung_smartthings.png
 ha_category:
+  - Hub
   - Binary Sensor
   - Fan
-  - Hub
   - Light
+  - Sensor
   - Switch
 ha_release: "0.87"
 ha_iot_class: "Cloud Push"
@@ -24,6 +25,8 @@ redirect_from:
   - /components/fan.smartthings/
   - /components/smartthings.light/
   - /components/light.smartthings/
+  - /components/smartthings.sensor/
+  - /components/sensor.smartthings/
   - /components/smartthings.switch/
   - /components/switch.smartthings/
 ---
@@ -102,35 +105,33 @@ The component will trigger an event when a device with the [button](https://smar
 
 ## {% linkable_title Platforms %}
 
-SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component mapps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
+SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
+- [Binary Sensor](#binary-sensor)
+- [Fan](#fan) 
+- [Light](#light) 
+- [Sensor](#sensor) 
+- [Switch](#switch)
 
-| Platform                        |Capabilities
-|---------------------------------|--------------------------------------------------------------------------------------------|
-[binary_sensor](#binary-sensor)   | `accelerationSensor`, `contactSensor`, `filterStatus`, `motionSensor`, `presenceSensor`, `tamperAlert`, `valve` and `waterSensor`
-[fan](#fan)                       | `fanSpeed` and `switch`
-[light](#light)                   | `colorControl`, `colorTemperature`, `switch` and `switchLevel`
-[switch](#switch)                 | `switch`
-
-Support for additional capabilities will be added in the future.
+Support for additional platforms will be added in the future.
 
 ### {% linkable_title Binary Sensor %}
 
 The SmartThings Binary Sensor platform lets you view devices that have binary sensor-related capabilities. A Binary Sensor entity will be created for each attribute (below) supported by the device.
 
-| Capability        |Attribute     |On-Value        |Binary Sensor Device Class
-|-------------------|--------------|----------------|---------------------------------|
-| [`accelerationSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Acceleration-Sensor) | `acceleration` | `active`   | `moving`
-| [`contactSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Contact-Sensor)           | `contact`      | `open`     | `opening`
-| [`filterStatus`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Filter-Status)             | `filterStatus` | `replace`  | `problem`
-| [`motionSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Motion-Sensor)             | `motion`       | `active`   | `motion`
-| [`presenceSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Presence-Sensor)         | `presence`     | `present`  | `presence`
-| [`tamperAlert`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tamper-Alert)               | `tamper`       | `detected` | `problem`
-| [`valve`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Valve)                            | `valve`        | `open`     | `opening`
-| [`waterSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Water-Sensor)               | `water`        | `wet`      | `moisture`
+| Capability        |Attribute     |On-Value
+|-------------------|--------------|----------------|
+| [`accelerationSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Acceleration-Sensor) | `acceleration` | `active`
+| [`contactSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Contact-Sensor)           | `contact`      | `open`
+| [`filterStatus`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Filter-Status)             | `filterStatus` | `replace`
+| [`motionSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Motion-Sensor)             | `motion`       | `active`
+| [`presenceSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Presence-Sensor)         | `presence`     | `present`
+| [`tamperAlert`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tamper-Alert)               | `tamper`       | `detected`
+| [`valve`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Valve)                            | `valve`        | `open`
+| [`waterSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Water-Sensor)               | `water`        | `wet`
 
 ### {% linkable_title Fan %}
 
-The SmartThings fan platform lets you control devices that have fan-related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
+The SmartThings Fan platform lets you control devices that have fan-related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
 | Capability        |Fan Features
 |-------------------|------------------------------------------------------------|
@@ -138,7 +139,7 @@ The SmartThings fan platform lets you control devices that have fan-related capa
 
 ### {% linkable_title Light %}
 
-The SmartThings light platform lets you control devices that have light-related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
+The SmartThings Light platform lets you control devices that have light-related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
 | Capability        |Light Features
 |-------------------|------------------------------------------------------------|
@@ -146,6 +147,67 @@ The SmartThings light platform lets you control devices that have light-related 
 | [`colorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Control)            | `color`
 | [`colorTemperature`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Temperature)            | `color_temp`
 
+### {% linkable_title Sensor %}
+
+The SmartThings Sensor platform lets your view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
+
+| Capability        |Attributes     |
+|-------------------|---------------|
+| [`activityLightingMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Activity-Lighting-Mode)            | `lightingMode`
+| [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode)                | `airConditionerMode`
+| [`airQualitySensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Quality-Sensory)                   | `airQuality`
+| [`alarm`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Alarm)                                            | `alarm`
+| [`audioVolume`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Audio-Volume)                               | `volume`
+| [`battery`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Battery)                                        | `battery`
+| [`bodyMassIndexMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Body-Mass-Index-Measurement)   | `bmiMeasurement`
+| [`bodyWeightMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Body-Weight-Measurement)          | `bodyWeightMeasurement`
+| [`carbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Dioxide-Measurement)    | `carbonDioxide`
+| [`carbonMonoxideDetector`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Monoxide-Detector)        | `carbonMonoxide`
+| [`carbonMonoxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Monoxide-Measurement)  | `carbonMonoxideLevel`
+| [`dishwasherOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dishwasher-Operating-State)    | `machineState`, `dishwasherJobState` and `completionTime`
+| [`doorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Door-Control)                               | `door`
+| [`dryerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dryer-Mode)                                   | `dryerMode`
+| [`dryerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dryer-Operating-State)              | `machineState`, `dryerJobState` and `completionTime`
+| [`dustSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dust-Sensor)                                 | `fineDustLevel` and `dustLevel`
+| [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter)                               | `energy`
+| [`equivalentCarbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Equivalent-Carbon-Dioxide-Measurement) | `equivalentCarbonDioxideMeasurement`
+| [`formaldehydeMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Formaldehyde-Measurement)       | `formaldehydeLevel`
+| [`garageDoorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Garage-Door-Control)                  | `door`
+| [`illuminanceMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Illuminance-Measurement)         | `illuminance`
+| [`infraredLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Infrared-Level)                           | `infraredLevel`
+| [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock)                                              | `lock`
+| [`mediaInputSource`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Input-Source)                    | `inputSource`
+| [`mediaPlaybackRepeat`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Playback-Repeat)              | `playbackRepeatMode`
+| [`mediaPlaybackShuffle`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Playback-Shuffle)            | `playbackShuffle`
+| [`mediaPlayback`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Media-Playback)                           | `playbackStatus`
+| [`odorSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Odor-Sensor)                                 | `odorLevel`
+| [`ovenMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Mode)                                     | `ovenMode`
+| [`ovenOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Operating-State)                | `machineState`, `ovenJobState` and `completionTime`
+| [`ovenSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Oven-Setpoint)                             | `ovenSetpoint`
+| [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter)                                 | `power`
+| [`powerSource`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Source)                               | `powerSource`
+| [`refrigerationSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Refrigeration-Setpoint)           | `refrigerationSetpoint`
+| [`relativeHumidityMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Relative-Humidity-Measurement) | `humidity`
+| [`robotCleanerCleaningMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Robot-Cleaner-CleaningMode)    | `robotCleanerCleaningMode`
+| [`robotCleanerMovement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Robot-Cleaner-Movement)            | `robotCleanerMovement`
+| [`robotCleanerTurboMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Robot-Cleaner-Turbo-Mode)         | `robotCleanerTurboMode`
+| [`signalStrength`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Signal-Strength)                         | `lqi` and `rssi`
+| [`smokeDetector`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Smoke-Detector)                           | `smoke`
+| [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement)         | `temperature`
+| [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint)  | `coolingSetpoint`
+| [`thermostatFanMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Fan-Mode)                  | `thermostatFanMode`
+| [`thermostatHeatingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Heating-Setpoint)  | `heatingSetpoint`
+| [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode)                         | `thermostatMode`
+| [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)    | `thermostatOperatingState`
+| [`thermostatSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Setpoint)                 | `thermostatSetpoint`
+| [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                   | `tvChannel`
+| [`tvocMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tvoc-Measurement)                       | `tvocLevel`
+| [`ultravioletIndex`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Ultraviolet-Index)                     | `ultravioletIndex`
+| [`voltageMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Voltage-Measurement)                 | `voltage`
+| [`washerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Mode)                                 | `washerMode`
+| [`washerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Operating-State)            | `machineState`, `washerJobState` and `completionTime`
+| [`windowShade`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Window-Shade)                               | `windowShade`
+
 ### {% linkable_title Switch %}
 
-The SmartThings switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
+The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
