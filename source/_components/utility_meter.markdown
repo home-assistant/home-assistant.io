@@ -30,6 +30,7 @@ To enable the Utility Meter Sensor in your installation, add the following to yo
 utility_meter:
   energy:
     source: sensor.energy_in_kwh
+    cycle: monthly
 ```
 
 {% configuration %}
