@@ -163,5 +163,3 @@ utility_meter:
     source: sensor.gas_consumption
     cycle: monthly
 ```
-
-6 different sensors will be created, 2 per sensor; `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.daily_gas` to track daily consumption and `sensor.monthly_energy_peak`, `sensor.monthly_energy_offpeak`, `sensor.monthly_gas` for monthly cycles.
