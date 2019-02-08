@@ -99,6 +99,9 @@ Many KNX devices can change their state internally without a message to the swit
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state communication objects you can set `state_address` to the same value as `address`.
 
 
+*Note on tunable white:* Home-Assistant uses Mireds as unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home-Assistant may not align with ones of KNX visualisations. This is expected behaviour.
+
+
 ## {% linkable_title Extended configuration example %}
 
 ```yaml
