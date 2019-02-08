@@ -60,7 +60,7 @@ https://YOUR.DNS.HOSTNAME:PORT/api/webhook/WEBHOOK_ID
 ```text
 latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
 ```
-- You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`. If you do not change it, GpsLogger will use your phone's serial number as the `device_id` in Home Assistant.
+- You can change the name of your device name by replacing `&device=%SER` with `&device=DEVICE_NAME`. If you do not change it, GPSLogger will use your phone's serial number as the `device_id` in Home Assistant.
 - Check that the **HTTP Headers** setting contains
 ```text
 Content-Type: application/x-www-form-urlencoded
