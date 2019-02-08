@@ -12,6 +12,7 @@ ha_release: 0.88
 ha_category:
   - Hub
   - Presence Detection
+  - Sensor
 ha_iot_class: "Local Polling"
 redirect_from:
   - /components/device_tracker.googlehome/
@@ -19,7 +20,9 @@ redirect_from:
 
 The `googlehome` component allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
 
-This component will set up a [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices.
+This component will provide:
+- [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices;
+- [sensor](/components/sensor/) platform to track the alarms and the timers.
 
 ## {% linkable_title Configuration %}
 
@@ -51,6 +54,11 @@ devices:
       description: Device types that will be tracked [see device types](#device_types), by default all types are tracked.
       required: false
       type: list
+    track_alarms:
+      description: Setting to tell the component to track the alarms of the device.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## {% linkable_title Device types %}
