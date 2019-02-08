@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: xs1.jpg
 ha_category: Hub
-featured: true
+ha_release: 0.88
+featured: false
 ha_iot_class: "Local Polling"
 ---
 
@@ -28,33 +29,28 @@ xs1:
 The component will automatically detect the configuration of the XS1 Gateway only **on initialization** which currently means when Home Assistant boots. When you change the configuration of the XS1 you (currently) have to restart Home Assistant to see the effects.
 
 {% configuration %}
-xs1:
+host:
+  description: Host of the XS1 Gateway
   required: true
-  description: Main config entry to use this component
-  type: map
-  keys:
-    host:
-      description: Host of the XS1 Gateway
-      required: true
-      type: string
-    port:
-      description: Custom port if your running your gateway behind some kind of proxy
-      required: false
-      type: integer
-      default: 80
-    ssl:
-      description: Defines if `https` should be used for api requests  (only possible via your own proxy)
-      required: false
-      type: boolean
-      default: false
-    username:
-      description: User to access XS1 web api
-      required: false
-      type: string
-    password:
-      description: Password to access XS1 web api
-      required: false
-      type: string
+  type: string
+port:
+  description: Custom port if your running your gateway behind some kind of proxy
+  required: false
+  type: integer
+  default: 80
+ssl:
+  description: Defines if `https` should be used for api requests  (only possible via your own proxy)
+  required: false
+  type: boolean
+  default: false
+username:
+  description: User to access XS1 web api
+  required: false
+  type: string
+password:
+  description: Password to access XS1 web api
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Supported Device Types %}
