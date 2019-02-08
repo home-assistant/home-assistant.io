@@ -8,7 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: xs1.jpg
-ha_category: Hub
+ha_category: 
+  - Hub
+  - Climate
+  - Sensor
+  - Switch
+redirect_from:
+  - /components/climate.xs1/
+  - /components/sensor.xs1/
+  - /components/switch.xs1/
 ha_release: 0.88
 featured: false
 ha_iot_class: "Local Polling"
