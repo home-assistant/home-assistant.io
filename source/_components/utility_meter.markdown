@@ -117,25 +117,18 @@ a time based automation can be used:
 
 ```yaml
 automation:  
-  - alias: switch_tariff
-    initial_state: true
-    trigger:
-      - platform: homeassistant
-        event: start
-      - platform: time
-        at: '09:00:00'
-      - platform: time
-        at: '21:00:00'
-      - platform: state
-        entity_id: sensor.tariff
-    action:
-      - service: utility_meter.select_tariff
-        data_template:
-          entity_id: 'utility_meter.daily_energy'
-          tariff: '{%- if 9<= (now().strftime("%-H") | int) < 21 -%}peak{%- else -%}offpeak{%- endif -%}'
-      - service: utility_meter.select_tariff
-        data_template:
-          entity_id: 'utility_meter.monthly_energy'
-          tariff: '{%- if 9<= (now().strftime("%-H") | int) < 21 -%}peak{%- else -%}offpeak{%- endif -%}'
-
+  alias: switch_tariff
+  initial_state: true
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: time
+      at: '09:00:00'
+    - platform: time
+      at: '21:00:00'
+  action:
+    - service: utility_meter.select_tariff
+      data_template:
+        entity_id: utility_meter.daily_energy, utility_meter.monthly_energy
+        tariff: '{%- if 9<= (now().strftime("%-H") | int) < 21 -%}peak{%- else -%}offpeak{%- endif -%}'
 ``` 
