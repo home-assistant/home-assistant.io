@@ -8,23 +8,29 @@ comments: false
 sharing: true
 footer: true
 logo: fastdotcom.png
-ha_category: 
+ha_category:
   - System Monitor
   - Sensor
 featured: false
 ha_release: 0.88
 ha_iot_class: "Cloud Polling"
+redirect_form:
+  - /components/sensor.fastdotcom/
 ---
 
 The `fastdotcom` component uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
-Enabling this component will automatically enable the [Fast.com Sensor](/components/sensor.fastdotcom/).
+<p class='note'>
+Currently fast.com only supports measuring download bandwidth. If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [speedtest](/components/sensor.speedtest) component.
+</p>
 
-By default, it will run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speedtest to run.
+Enabling this component will automatically create the Fast.com Sensor.
+
+By default, a speedtest will be run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speedtest to run.
 
 ## {% linkable_title Configuration %}
 
-To add a Fast.com sensor to your installation, add the following to your `configuration.yaml` file:
+To add Fast.com to your installation, add the following to your `configuration.yaml` file:
 
 Once per hour, on the hour (default):
 
@@ -38,7 +44,6 @@ Every half hour of every day:
 fastdotcom:
   update_interval:
       minutes: 30
-
 ```
 
 {% configuration %}
@@ -68,9 +73,14 @@ update_interval:
 
 ### {% linkable_title Service %}
 
-Once loaded, the `fastdotcom` platform will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speedtest on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
+Once loaded, the `fastdotcom` component will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speedtest on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 
 ```yaml
 action:
   service: fastdotcom.speedtest
 ```
+
+## {% linkable_title Notes %}
+
+- When running on Raspberry Pi, the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- The sensor will return the maximum measured speed during an 15 second test.
