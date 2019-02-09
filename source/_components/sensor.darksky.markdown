@@ -183,6 +183,7 @@ All language options are described in this table that you can use for the dark s
 |Estonian|`et`|
 |Finnish|`fi`|
 |French|`fr`|
+|Hebrew|`he`|
 |Croatian|`hr`|
 |Hungarian|`hu`|
 |Indonesian|`id`|
@@ -190,7 +191,9 @@ All language options are described in this table that you can use for the dark s
 |Italian|`it`|
 |Japanese|`ja`|
 |Georgian|`ka`|
+|Korean|`ko`|
 |Cornish|`kw`|
+|Latvian|`lv`|
 |Norwegian Bokmål|`nb`|
 |Dutch|`nl`|
 |Polish|`pl`|
