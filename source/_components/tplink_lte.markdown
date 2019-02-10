@@ -28,9 +28,9 @@ tplink_lte:
     password: SECRET
     notify:
       - name: sms1
-        target: "+15105550123"
+        recipient: "+15105550123"
       - name: sms2
-        target: "+55520525252"
+        recipient: "+55520525252"
 ```
 
 {% configuration %}
