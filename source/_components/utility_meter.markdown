@@ -42,16 +42,26 @@ cycle:
   required: true
   type: string
 offset:
-  description: Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings.
+  description: Cycle reset occur at the beginning of the period (0 minutes, 0h00 hours, Monday, day 1, January). This option enables the offsetting of these beginnings. Supported formats: `offset: 'HH:MM:SS'`, `offset: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: 0
-  type: integer
+  type: time 
 tariffs:
   description: List of tariffs supported by the utility meter.
   required: false
   default: [] 
   type: list 
 {% endconfiguration %}
+
+#### {% linkable_title Time period dictionary example %}
+
+```yaml
+offset:
+  # At least one of these must be specified:
+  days: 1
+  hours: 0
+  minutes: 0 
+```
 
 # {% linkable_title Services %}
 
