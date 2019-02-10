@@ -68,7 +68,11 @@ name:
 - type: history-graph
   title: 'My Graph'
   entities:
-    - sensor.outside_temperature
-    - entity: media_player.lounge_room
-      name: Main player
+name: Blokovače topení
+entities: 
+  - switch.SW1
+  - switch.sw2
+  - SENSOR.TEMP1
+hours_to_show: 24
+refresh: 60
 ```
