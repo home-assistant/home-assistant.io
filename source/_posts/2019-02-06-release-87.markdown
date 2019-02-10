@@ -51,6 +51,33 @@ If you prefer a podcast over release notes, check out [the Hass Podcast](https:/
 - Add SmartThings component and switch platform ([@andrewsayre] - [#20148]) ([smartthings docs]) ([switch.smartthings docs]) (new-platform)
 - Fix cloud webhook body ([@pvizeli] - [#20739]) ([cloud docs]) (beta fix) (new-platform)
 
+## {% linkable_title Release 0.87.1 - February 9 %}
+
+- Fix waze_travel_time component ERROR on startup ([@VirtualL] - [#20316]) ([sensor.waze_travel_time docs])
+- Add Transmission component 'scan_interval' option ([@jonudewux] - [#20575]) ([transmission docs])
+- Fix homekit_controller non-standard hk characteristics ([@Jc2k] - [#20824]) ([homekit_controller docs])
+- Fix STATE_UNLOCKED for verisure ([@Danielhiversen] - [#20858]) ([verisure docs])
+- Use text= instead of body= for creating web responses ([@balloob] - [#20879])
+- Upgrade zm-py to 0.3.3 ([@mnoorenberghe] - [#20886]) ([zoneminder docs])
+
+[#20316]: https://github.com/home-assistant/home-assistant/pull/20316
+[#20575]: https://github.com/home-assistant/home-assistant/pull/20575
+[#20824]: https://github.com/home-assistant/home-assistant/pull/20824
+[#20858]: https://github.com/home-assistant/home-assistant/pull/20858
+[#20879]: https://github.com/home-assistant/home-assistant/pull/20879
+[#20886]: https://github.com/home-assistant/home-assistant/pull/20886
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Jc2k]: https://github.com/Jc2k
+[@VirtualL]: https://github.com/VirtualL
+[@balloob]: https://github.com/balloob
+[@jonudewux]: https://github.com/jonudewux
+[@mnoorenberghe]: https://github.com/mnoorenberghe
+[homekit_controller docs]: /components/homekit_controller/
+[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
+[transmission docs]: /components/transmission/
+[verisure docs]: /components/verisure/
+[zoneminder docs]: /components/zoneminder/
+
 ## {% linkable_title New Features %}
 
 - Add yeelight start_flow service and ability to declare custom effects ([@zewelor] - [#20107]) ([light.yeelight docs]) (new-feature)
