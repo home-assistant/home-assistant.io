@@ -107,8 +107,8 @@ The Presence camera additionally has these attributes:
 
 | Attribute | Description |
 | --------- | ----------- |
-| snapshot_url | URL to a picture of ??????
-| vignette_url | URL to a picture of ??????
+| snapshot_url | URL to a picture of the full frame of the event.
+| vignette_url | URL to a picture cropped down to the area of interest.
 
 The Welcome camera additionally has these attributes for `netatmo_person` events:
 
@@ -120,3 +120,12 @@ The Welcome camera additionally has these attributes for `netatmo_person` events
 | face_url | URL to a picture of the person.
 
 The `netatmo_other` event passes all the webhook data through for all webhook events that don't match any of the above. Set the [level of logging](https://www.home-assistant.io/components/logger/) for the `netatmo` component to `debug` to view the data in the Home Assistant logs.
+
+### {% linkable_title Services (only for webhooks) %}
+
+There are two services to manually add and drop the webhooks. This might be useful if your webhook has been banned and you want to readd the webhook without restarting Home Assistant.
+
+| Service | Description |
+| ------- | ----------- |
+| addwebhook | Subscribe to webhooks. By default the automatically generated URL will be used. But you can pass `{"url": "https://yourdomain.com/yourwebhook/"}` as service data to the service call if you want to use a manually created [webhook trigger](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger). In this case you have to manually process the data that is sent by Netatmo.
+| dropwebhook | Unsubscribe existing webhooks.
