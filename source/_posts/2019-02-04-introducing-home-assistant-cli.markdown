@@ -38,7 +38,7 @@ looking for to do from a CLI.
 
 ## Usage
 
-For the basic intro to `hass-cli` see the docs at https://github.com/home-assistant/home-assistant-cli.
+For the basic intro to `hass-cli` see the docs at [github](github-hass-cli).
 
 ## Installation
 
