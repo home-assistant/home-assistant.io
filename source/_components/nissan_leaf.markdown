@@ -43,7 +43,7 @@ A more advanced example for setting the update interval:
 
 ```yaml
 # Example configuration.yaml entry
-volvooncall:
+nissan_leaf:
   username: "john.smith@somewhere.com"
   password: "mysecurepassword"
   region: "NE"
@@ -71,31 +71,52 @@ region:
   required: true
   type: string
 nissan_connect:
-  description: If your car has the updated head unit (NissanConnect rather than Carwings) then you can acquire the location (and maybe climate control). This will be exposed as a device tracker.  If you have a pre-2014 24kWh Leaf then you will have Carwings and this should be set to false, or it will crash the component.
+  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be aquired and exposed via a device tracker. If you have a pre-2014 24kWh Leaf then you will have Carwings and this should be set to false.
   required: false
   type: boolean
 update_interval:
-  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g. minutes, hours, days!).  Defaults to 1 hour.
+  description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g. minutes, hours, days!).
   required: false
+  default: 1 hour
   type: time
 update_interval_charging:
-  description: The interval between updates if charging.  Defaults to 15 minutes.
+  description: The interval between updates if charging.
   required: false
+  default: 15 minutes
   type: time
 update_interval_climate:
-  description: The interval between updates if climate control on. Defaults to 5 minutes.
+  description: The interval between updates if climate control on.
   required: false
+  default: 5 minutes
   type: time
 {% endconfiguration %}
 
+## {% linkable_title Updating on-demand using Automation %}
+
+You can also use the `nissan_leaf.update` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the component configuration.  The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component, except the device_tracker.
+
+```yaml
+- id: update_when_driver_not_home
+  alias: 'Update when driver not home'
+  initial_state: on
+  trigger:
+    - platform: time_pattern
+      minutes: '/30'
+  condition:
+    - condition: state
+      entity_id: device_tracker.drivername   # replace
+      state: 'not_home'
+  action:
+    - service: nissan_leaf.update
+      data:
+        vin: '1HGBH41JXMN109186'             # replace
+```
+
 _Notes:_ 
-* The update interval will be limited to a minimum of two minutes.
-* Requesting updates uses a small amount of power from the 12V battery. The 12V battery
-  charges from the main traction battery when the car is not plugged in.  If the car is
-  left plugged in for a long time, or if the main traction battery is 
-  very low then the 12V battery may gradually discharge. A low update interval may
-  cause the 12V battery to become flat.  When the 12V battery is flat the car will not
-  start. _Do not set the update interval too low.  Use at your own risk._
+* The update interval has a minimum of two minutes.
+* Requesting updates uses a small amount of power from the 12V battery. The 12V battery charges from the main traction battery when the car is not plugged in.  If the car is left plugged in for a long time, or if the main traction battery is very low then the 12V battery may gradually discharge. A low update interval may cause the 12V battery to become flat.  When the 12V battery is flat the car will not start. _Do not set the update interval too low.  Use at your own risk._
+* This component communicates with the Nissan Servers which then communicate with the car.  The communication between the car and the Nissan Servers is very slow, and takes up to five minutes to get information from the car, therefore the default polling interval is set to one hour to not overwhelm the connection.
+* Responses from the Nissan servers are received separately for the battery/range, climate control and location.  The `updated_on` attribute will show the last time the data was retrieved from the server. There are separate attributes for when the `next_update` is scheduled, and if an `update_inprogress`. The `nissan_leaf.update` service will reset the `next_update` attribute.
 
 Please report bugs using the following logger config.
 
