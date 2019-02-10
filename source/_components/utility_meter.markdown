@@ -20,6 +20,9 @@ From a user perspective, utility meters operate in cycles (usually monthly) for 
 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
+<p class='note'>
+Sensors created with this component are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the component was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant. 
+</p>
 
 ## {% linkable_title Configuration %}
 
@@ -30,6 +33,7 @@ To enable the Utility Meter Sensor in your installation, add the following to yo
 utility_meter:
   energy:
     source: sensor.energy_in_kwh
+    cycle: monthly
 ```
 
 {% configuration %}
@@ -128,3 +132,35 @@ automation:
     - service: utility_meter.next_tariff
       entity_id: utility_meter.monthly_energy
 ``` 
+# {% linkable_title Advanced Configuration for DSMR users %}
+
+When using the [DSMR component](https://www.home-assistant.io/components/sensor.dsmr/) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component. 
+
+If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
+- `sensor.power_consumption_low` for off-peak power 
+- `sensor.power_consumption_normal` for peak power
+- `sensor.gas_consumption` for gas consumption
+
+So, tracking daily and monthly consumption for each sensor, will require setting up 6 entries under the `utility_meter` component.
+
+```yaml
+utility_meter:
+  daily_power_offpeak:
+    source: sensor.power_consumption_low
+    cycle: daily 
+  daily_power_peak:
+    source: sensor.power_consumption_normal
+    cycle: daily
+  daily_gas:
+    source: sensor.gas_consumption
+    cycle: daily 
+  monthly_power_offpeak:
+    source: sensor.power_consumption_low
+    cycle: monthly
+  monthly_power_peak:
+    source: sensor.power_consumption_normal
+    cycle: monthly 
+  monthly_gas:
+    source: sensor.gas_consumption
+    cycle: monthly
+```
