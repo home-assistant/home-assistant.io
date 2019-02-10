@@ -10,7 +10,7 @@ footer: true
 logo: lg.png
 ha_category: Remote
 ha_iot_class: "Local Push"
-ha_release: 0.85
+ha_release: 0.88
 ---
 
 The `lg_netcast` remote platform allows you to control the state of your LG Netcast TV, NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013).
@@ -56,6 +56,11 @@ Turn off the device.
 | `entity_id`            |      yes | Only act on a specific remote, else target all.
 
 
+<p class='note'>
+"Turn on" is not supported by LG Netcast TV.
+</p>
+
+
 ### {% linkable_title Service `remote.send_command` %}
 
 Send a single command or a set of commands to one device. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
@@ -74,13 +79,13 @@ service: remote.send_command
 data:
   entity_id: remote.tv_room
   command:
-    - POWER
-    - 3
-    - 6
+    - NUMBER_1
+    - UP
+    - DOWN
   delay_secs: 0.6
 ```
 
-You can use a string command (POWER, UP, DOWN, etc) or integer ID of the command.
+You have to use a string command (POWER, UP, DOWN, etc).
 Available commands are :
 
 ```python
