@@ -10,7 +10,7 @@ footer: true
 logo: ebusd.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: "0.85"
+ha_release: "0.88"
 ---
 
 Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
