@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nissan.png
 ha_category: Car
-ha_release: 0.85
+ha_release: 0.88
 ha_iot_class: "Cloud Polling"
 redirect_from:
  - /components/binary_sensor.nissan_eaf/
