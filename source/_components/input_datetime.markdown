@@ -118,6 +118,7 @@ To dynamically set the `input_datetime` you can call
 You can use either `strftime("%Y-%m-%d")`/`strftime("%H:%M:%S")` or `timestamp_custom("%Y-%m-%d", true)`/`timestamp_custom("%H:%M:%S", true)` filter respectively.
 The following example can be used in an automation rule:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 # Sets input_datetime to '05:30' when an input_boolean is turned on.
@@ -147,3 +148,4 @@ automation:
       time: >
         {{ now().timestamp() | timestamp_custom("%H:%M:%S", true) }}
 ```
+{% endraw %}
