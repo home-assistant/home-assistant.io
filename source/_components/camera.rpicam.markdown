@@ -20,7 +20,7 @@ This is a third-party integration for Home Assistant that provides further contr
 
 It can be configured like a `generic` IP camera and supports the same configuration parameters:
 
-    https://www.home-assistant.io/components/camera.generic/
+<https://www.home-assistant.io/components/camera.generic/>
 
 Set `rpicam` (instead of `generic`) as a platform and follow the link above for further configuration details.
 
@@ -38,16 +38,15 @@ Configuration example:
 This platform uses MQTT for interaction with the remote raspberry PI where an agent is configured and running (`https://gitlab.com/gbus/rpi-cam-mqtt`).
 You can:
 
-    - enable/disable the camera
-    - take pictures/videos
-    - enable/disable motion detection
-    - change exposure mode
-    - pan/tilt the camera
+- enable/disable the camera
+- take pictures/videos
+- enable/disable motion detection
+- change exposure mode
+- pan/tilt the camera
 
 ## {% linkable_title What it doesn't provide %}
 
 `ha-rpicam` doesn't send or receive streaming data through MQTT. This is a specific solution to only control the behavior of the camera as an automation component under HA. Commands to capture images/videos are equivalent to pushing the camera web interface buttons. The captured media content would still be accessible as normal from the download area of the web interface itself.
-
 
 ## {% linkable_title Automation examples %}
 
