@@ -38,5 +38,15 @@ sensor:
 
 <p class='note'>
 OpenHardwareMonitor must be running on the host, with "Remote web server" active.
-You also need to open an inbound port for (TCP 8085) in the advanced firewall settings.
+You also need to open inbound port(TCP 8085) on host in the advanced firewall settings.
 </p>
+ To open port(on Windows):
+1. Navigate to Control Panel, System and Security and Windows Firewall.
+2. Select Advanced settings and highlight Inbound Rules in the left pane.
+3. Right click Inbound Rules and select New Rule.
+4. Add the port you need to open and click Next.
+5. Add the protocol (TCP) and the port number(8085) into the next window and click Next.
+6. Select Allow the connection in the next window and hit Next.
+7. Select the network type as you see fit and click Next.
+8. Name the rule and click Finish.
+
