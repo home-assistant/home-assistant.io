@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 The `ps4` component allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
 
-- This component supports controlling a single PlayStation 4 for your instance. Additional consoles may work although it has not been tested.
+- This component supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
 
 ## {% linkable_title Requirements %}
 
@@ -82,7 +82,7 @@ Some titles will have different SKUs in the PlayStation Store database depending
 
 ### {% linkable_title Service `send_command` %}
 
-Emulate button press on PlayStation 4
+Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with Dualshock 4 buttons.
 
 | Service data attribute | Optional | Example                      | Description                           |
 | ---------------------- | -------- | ---------------------------- | ------------------------------------- |
@@ -93,14 +93,13 @@ Emulate button press on PlayStation 4
 
 Full list of supported commands.
 
-| Command | Button Emulated |
-| ------- | --------------- |
-| ps      | PS              |
-| option  | Option          |
-| enter   | Enter           |
-| back    | Back            |
-| cancel  | Cancel          |
-| up      | D-Pad Up        |
-| down    | D-Pad Down      |
-| left    | D-Pad Left      |
-| right   | D-pad Right     |
+| Command | Button Emulated  |
+| ------- | ---------------- |
+| ps      | PS (PlayStation) |
+| option  | Option           |
+| enter   | Enter            |
+| back    | Back             |
+| up      | Swipe Up         |
+| down    | Swipe Down       |
+| left    | Swipe Left       |
+| right   | Swipe Right      |
