@@ -12,6 +12,7 @@ logo: samsung_smartthings.png
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Fan
   - Light
   - Sensor
@@ -21,6 +22,8 @@ ha_iot_class: "Cloud Push"
 redirect_from:
   - /components/smartthings.binary_sensor/
   - /components/binary_sensor.smartthings/
+  - /components/smartthings.climate/
+  - /components/climate.smartthings/
   - /components/smartthings.fan/
   - /components/fan.smartthings/
   - /components/smartthings.light/
@@ -107,6 +110,7 @@ The component will trigger an event when a device with the [button](https://smar
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
 - [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
 - [Fan](#fan) 
 - [Light](#light) 
 - [Sensor](#sensor) 
@@ -128,6 +132,21 @@ The SmartThings Binary Sensor platform lets you view devices that have binary se
 | [`tamperAlert`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tamper-Alert)               | `tamper`       | `detected`
 | [`valve`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Valve)                            | `valve`        | `open`
 | [`waterSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Water-Sensor)               | `water`        | `wet`
+
+### {% linkable_title Climate %}
+
+The SmartThings Climate platform lets you control devices that have thermostat-related capabilities. For a SmartThings device to be represented by the climate platform, it must have all the capabilities from either "set a" _or_ "set b":
+
+| Capability                          |Climate Features
+|-------------------------------------|--------------------------------------------|
+| [`thermostat`](https://docs.smartthings.com/en/latest/capabilities-reference.html#thermostat) (set a)                | `operation mode`, `operating state` (state attribute), `target temp high`, `target temp low` and `fan mode`
+| [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode) (set b)            | `operation mode`
+| [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (seb b) | `target temp low`
+| [`thermostatHeatingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Heating-Setpoint) (set b) | `target temp high`
+| [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (set b)    |
+| [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)          | `operating state` (state attribute)
+| [`thermostatFanMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Fan-Mode)                 | `fan mode`
+| [`relativeHumidityMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Relative-Humidity-Measurement)       | `humidity` (state attribute)
 
 ### {% linkable_title Fan %}
 
