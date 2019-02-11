@@ -99,7 +99,7 @@ asuswrt:
     - download_speed
 ```
 
-which creates the following sensors:
+The example above, creates the following sensors:
 
 * sensor.asuswrt_download (unit_of_measurement: Gigabyte - *Daily accumulation*)
 * sensor.asuswrt_download_speed (unit_of_measurement: Mbit/s)
