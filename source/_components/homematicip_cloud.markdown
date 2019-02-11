@@ -11,7 +11,6 @@ logo: homematicip_cloud.png
 ha_category: Hub
 ha_iot_class: "Cloud Push"
 ha_release: 0.66
-last update: 0.87.0
 featured: false
 ---
 
