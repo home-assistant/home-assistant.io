@@ -26,7 +26,7 @@ Currently fast.com only supports measuring download bandwidth. If you want to me
 
 Enabling this component will automatically create the Fast.com Sensor.
 
-By default, a speedtest will be run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speedtest to run.
+By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speed test to run.
 
 ## {% linkable_title Configuration %}
 
@@ -73,7 +73,7 @@ update_interval:
 
 ### {% linkable_title Service %}
 
-Once loaded, the `fastdotcom` component will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speedtest on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
+Once loaded, the `fastdotcom` component will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 
 ```yaml
 action:
@@ -83,4 +83,4 @@ action:
 ## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, the maximum speed is limited by its 100 Mbit/s LAN adapter.
-- The sensor will return the maximum measured speed during an 15 second test.
+- The sensor will return the maximum measured speed during a 15-second test.
