@@ -11,11 +11,6 @@ logo: nissan.png
 ha_category: Car
 ha_release: 0.88
 ha_iot_class: "Cloud Polling"
-redirect_from:
- - /components/binary_sensor.nissan_eaf/
- - /components/sensor.nissan_leaf/
- - /components/switch.nissan_leaf/
- - /components/device_tracker.nissan_leaf/
 ---
 
 The `nissan_leaf` component offers integration with the 
@@ -44,9 +39,9 @@ A more advanced example for setting the update interval:
 ```yaml
 # Example configuration.yaml entry
 nissan_leaf:
-  username: "john.smith@somewhere.com"
-  password: "mysecurepassword"
-  region: "NE"
+  username: "YOUR_USERNAME"
+  password: "YOUR_PASSWORD"
+  region: "YOUR_REGION"
   nissan_connect: true
   update_interval:
     hours: 1
