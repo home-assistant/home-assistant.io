@@ -69,4 +69,9 @@ offset:
   required: false
   default: 0
   type: [integer, time]
+include_tomorrow:
+  description: Also search through tomorrow's schedule if no more departures are set for today.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
