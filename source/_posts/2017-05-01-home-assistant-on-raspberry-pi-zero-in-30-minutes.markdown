@@ -33,7 +33,7 @@ First, download the HASSbian 1.21 image from [here](https://github.com/home-assi
 
 Unzip it.
 
-Flash it to the microSD card. If you need a flash tool, try [Etcher](https://etcher.io/)
+Flash it to the microSD card. If you need a flash tool, try [balenaEtcher](https://www.balena.io/etcher)
 
 When the flashing finishes, remove it and plug it back in. You should see a drive called "boot".
 

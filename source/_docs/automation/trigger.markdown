@@ -46,7 +46,7 @@ automation:
 
 ### {% linkable_title MQTT trigger %}
 
-Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic.
+Triggers when a specific message is received on given topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
 
 ```yaml
 automation:
@@ -55,6 +55,7 @@ automation:
     topic: living_room/switch/ac
     # Optional
     payload: 'on'
+    encoding: 'utf-8'
 ```
 
 ### {% linkable_title Numeric state trigger %}
@@ -73,7 +74,7 @@ automation:
     above: 17
     below: 25
 
-    # If given, will trigger when condition has been for X time.
+    # If given, will trigger when condition has been for X time, can also use days and milliseconds.
     for:
       hours: 1
       minutes: 10
@@ -85,6 +86,25 @@ automation:
 Listing above and below together means the numeric_state has to be between the two values.
 In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
 </p>
+
+The `for:` can also be specified as `HH:MM:SS` like this:
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # Optional
+    value_template: '{{ state.attributes.battery }}'
+    # At least one of the following required
+    above: 17
+    below: 25
+
+    # If given, will trigger when condition has been for X time.
+    for: '01:10:05'
+```
+{% endraw %}
 
 ### {% linkable_title State trigger %}
 
@@ -101,10 +121,7 @@ automation:
     to: 'home'
 
     # If given, will trigger when state has been the to state for X time.
-    for:
-      hours: 1
-      minutes: 10
-      seconds: 5
+    for: '01:10:05'
 ```
 
 <p class='note warning'>

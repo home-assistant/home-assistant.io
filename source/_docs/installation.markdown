@@ -11,55 +11,41 @@ redirect_from: /getting-started/installation/
 ---
 
 <p class='note'>
-Beginners should check our [Getting started guide](/getting-started/) first. This is for users that require advanced installations.
+Beginners should check our [Getting started guide](/getting-started/) first.
 </p>
 
-Home Assistant provides multiple ways to be installed. A requirement is that you have [Python 3.5.3 or later](https://www.python.org/downloads/) installed.
+Home Assistant provides multiple ways to be installed. The first start may take up to 20 minutes because the required packages will be downloaded and installed. The web interface will be served on `http://ip.add.re.ss:8123/` - replace `ip.add.re.ss` with the IP of the computer you installed it on.
 
 <p class='note warning'>
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
 </p>
 
-## {% linkable_title Recommended options %}
+## {% linkable_title Recommended %}
 
-<div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/getting-started/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
-    </div>
-    <div class='title'>Hass.io<br>(Beginner friendly)</div>
-  </a>
-  <a class='option-card' href='/docs/hassbian/installation/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
-    </div>
-    <div class='title'>Hassbian (for the Raspberry Pi)</div>
-  </a>
-  <a class='option-card' href='/docs/installation/docker/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/docker.png' />
-    </div>
-    <div class='title'>Docker</div>
-  </a>
-</div>
+These install options are fully supported by Home Assistant's documentation. For example, if a component requires that you install something to make it work on one of these methods then the component page will document the steps required.
+
+**Method**|**You have**|**Recommended for**
+:-----|:-----|:-----
+[Hass.io](https://www.home-assistant.io/hassio/installation/)|Raspberry Pi<br>VM|Anybody
+[Docker](https://www.home-assistant.io/docs/installation/docker/)|Docker|Anybody already running Docker
+[Hassbian](https://www.home-assistant.io/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
 
 ## {% linkable_title Alternative installs %}
 
-The following installs are only recommended for experienced users of those platforms.
+If you use these install methods, we assume that you know how to manage and administer the operating system you're using. Due to the range of platforms on which these install methods can be used, component documentation may only tell you what you have to install, not how to install it.
+
+**Method**|**You have**|**Recommended for**
+:-----|:-----|:-----
+[Virtualenv<BR>(as another user)](https://www.home-assistant.io/docs/installation/raspberry-pi/)|Any Linux, Python 3.5.3 or later|Those familiar with their operating system
+[Virtualenv<BR>(as your user)](https://www.home-assistant.io/docs/installation/virtualenv/)|Any Python 3.5.3 or later|Developers
+
+<HR>
+
+## {% linkable_title Community provided guides %}
+
+These guides are provided as-is. Some of these install methods are more limited than the methods above - some components may not work due to limitations of the platform or because required Python packages aren't available for that platform.
 
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/installation/raspberry-pi/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/raspberry-pi.png' />
-    </div>
-    <div class='title'>Raspbian (but applies to any Debian based Linux)</div>
-  </a>
-  <a class='option-card' href='/docs/installation/virtualenv/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/python.svg' />
-    </div>
-    <div class='title'>On top of an existing Python 3.5.3+ installation</div>
-  </a>
   <a class='option-card' href='/docs/installation/armbian/'>
     <div class='img-container'>
       <img src='/images/supported_brands/armbian.png' />
@@ -115,19 +101,3 @@ The following installs are only recommended for experienced users of those platf
     <div class='title'>FreeNAS</div>
   </a>
 </div>
-
-## {% linkable_title After installation %}
-
-Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:
-
-```bash
-$ hass
-```
-
-The first start may take up to 20 minutes because the needed packages will be downloaded and installed. The web interface will be served on [http://localhost:8123](http://localhost:8123).
-
-For more details about `hass`, please refer to the [tools section](/docs/tools/hass/).
-
-If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
-
-You may need to install additional libraries depending on the platforms/components you want to use.

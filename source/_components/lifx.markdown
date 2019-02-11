@@ -118,6 +118,7 @@ There are some manual configuration options available. These are only needed wit
 lifx:
   light:
     - server: IP_ADDRESS
+      port: 56700
       broadcast: IP_ADDRESS
 ```
 
@@ -126,6 +127,10 @@ server:
   description: Your server address. Will listen on all interfaces if omitted.
   required: false
   type: string
+port:
+  description: The UDP port for discovery. Will listen on a random port if omitted.
+  required: false
+  type: port
 broadcast:
   description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
   required: false

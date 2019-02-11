@@ -16,6 +16,7 @@ ha_iot_class: "Local Push"
 The `lcn` light platform allows the control of the following [LCN](http://www.lcn.eu) ports:
 
 - (Dimmable) output ports
+- Relays
 
 ## {% linkable_title Configuration %}
 
