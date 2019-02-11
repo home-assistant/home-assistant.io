@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: universal_devices.png
 ha_category: Climate
-ha_release: 0.59
+ha_release: 0.88
 ha_iot_class: "Local Polling"
 ---
 
@@ -23,7 +23,7 @@ The `isy994` climate platform integrates Z-Wave or INSTEON Thermostats from the 
 
 Current temperature, set points, and unit status is displayed.
 
-### Insteon Thermostats
+### {% linkable_title Insteon Thermostats %}
 
 Insteon thermostats have two sub-nodes that display if the device is currently heating or cooling.  These are exposed separately as [binary_sensors](#binary-sensor).
 
