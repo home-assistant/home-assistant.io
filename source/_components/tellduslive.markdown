@@ -18,6 +18,8 @@ ha_category:
 featured: false
 ha_release: 0.11
 ha_config_flow: true
+ha_qa_scale: gold
+ha_iot_class: 'Cloud Polling'
 redirect_from:
   - /components/binary_sensor.tellduslive/
   - /components/cover.tellduslive/
@@ -54,5 +56,9 @@ update_interval:
   type: integer
   default: 60
 {% endconfiguration %}
+
+<p class='note'>  
+It is only possible to configure the `update_interval` when setting up the device. If the polling interval needs to be changed after the device is configured it must be changed manually by changing `"scan_interval": 60,` for the device in the file `.storage/core.config_entries`.
+</p>
 
 The component will offer configuration through the Home Assistant user interface where it will let you associate it with your Telldus Live account.
