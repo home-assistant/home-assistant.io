@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: telldus.png
+logo: tellduslive.svg
 ha_category: 
   - Hub
   - Binary Sensor
