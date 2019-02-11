@@ -26,3 +26,85 @@ camera:
 ```
 
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
+
+### {% linkable_title Service `amcrest_enable_recording` %}
+
+Enable recording.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+
+### {% linkable_title Service `amcrest_disable_recording` %}
+
+Disable recording.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+
+### {% linkable_title Service `amcrest_goto_preset` %}
+
+Go to a preset.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+| `preset` | Preset id. |
+
+### {% linkable_title Service `amcrest_set_color_bw` %}
+
+Set color mode.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+| `color_bw` | True or Talse. |
+
+### {% linkable_title Service `amcrest_audio_on` %}
+
+Turn on audio.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+
+### {% linkable_title Service `amcrest_audio_off` %}
+
+Turn off audio.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+
+### {% linkable_title Service `amcrest_mask_on` %}
+
+Turn on mask.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+
+### {% linkable_title Service `amcrest_mask_off` %}
+
+Turn off mask.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+
+### {% linkable_title Service `amcrest_tour_on` %}
+
+Turn on touring.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
+
+### {% linkable_title Service `amcrest_tour_off` %}
+
+Turn off touring.
+
+| Service data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String of the `entity_id` of the camera. |
