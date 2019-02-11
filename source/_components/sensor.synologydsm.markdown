@@ -140,7 +140,7 @@ This sensor will wake up your Synology NAS if it's in hibernation mode.
 </p>
 
 <p class='note warning'>
-  If you set <b>ssl</b> to <b>false</b>, you <i>have</i> to also explicitly set <b>port</b> to <b>5000</b>
+  If you set `ssl:` to `False`, you *have* to also explicitly set `port:` to **5000**.
 </p>
 
 ## {% linkable_title Separate User Configuration %}
