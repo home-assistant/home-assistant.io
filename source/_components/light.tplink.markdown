@@ -42,7 +42,7 @@ name:
   type: string
   default: TP-Link Light
 host:
-  description: "The IP address of your TP-Link bulb, eg. `192.168.1.32`."
+  description: "The IP address of your TP-Link bulb, e.g., `192.168.1.32`."
   required: true
   type: string
 {% endconfiguration %}

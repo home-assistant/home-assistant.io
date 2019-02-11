@@ -25,7 +25,7 @@ scene:
 
 {% configuration %}
 address:
-  description: IP address of the PowerView Hub, eg. 192.168.1.10.
+  description: IP address of the PowerView Hub, e.g., 192.168.1.10.
   required: true
   type: string
 {% endconfiguration %}

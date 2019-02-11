@@ -32,7 +32,7 @@ time_zone:
   required: true
   type: string
 name:
-  description: The name of the sensor, eg. the city.
+  description: The name of the sensor, e.g., the city.
   required: false
   type: string
   default: Worldclock Sensor

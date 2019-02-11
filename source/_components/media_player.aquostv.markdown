@@ -29,7 +29,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP/Hostname of the Sharp Aquos TV, eg. `192.168.0.10`.
+  description: The IP/Hostname of the Sharp Aquos TV, e.g., `192.168.0.10`.
   required: true
   type: string
 port:

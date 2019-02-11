@@ -30,7 +30,7 @@ camera:
 
 {% configuration %}
 still_image_url:
-  description: "The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a [template](/topics/templating/)."
+  description: "The URL your camera serves the image on, e.g., http://192.168.1.21:2112/. Can be a [template](/topics/templating/)."
   required: true
   type: string
 name:

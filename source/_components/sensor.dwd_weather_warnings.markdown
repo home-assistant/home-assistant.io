@@ -57,7 +57,7 @@ name:
 | ------------ | -------------------------------------- |
 | `last_updated` | Information last update from DWD service. |
 | `region_name` | Requested region name. This should be the same as the region name in the configuration. |
-| `region_state` | State (Bundesland) in abriviated form the requested region is located, eg. "HE" for "Hessen". |
+| `region_state` | State (Bundesland) in abriviated form the requested region is located, e.g., "HE" for "Hessen". |
 | `region_id` | Region ID assigned by DWD. |
 | `warning_count` | *(int)* Number of issued warnings. There can be more than one warning issued at once. |
 | `warning_<x>_level` | *(int)* Issued warning level between 0 and 4. <br/>0: Keine Warnungen <br/>1: Wetterwarnungen <br/>2: Warnungen vor markantem Wetter<br/>3: Unwetterwarnungen<br/>4: Warnungen vor extremem Unwetter |
