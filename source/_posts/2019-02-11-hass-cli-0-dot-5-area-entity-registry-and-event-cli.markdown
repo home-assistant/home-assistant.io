@@ -11,7 +11,7 @@ categories: Announcements
 ---
 
 With [Home Assistant 0.87][hass-087] out we got Areas and Device Registry UI thus
-it is time to do a release of hass-cli that allows you to operate on these in a terminal.
+it is time to do a release of `hass-cli` that allows you to operate on these in a terminal.
 
 This release adds the following features:
 
@@ -21,7 +21,7 @@ This release adds the following features:
  
 To get it run:
 
-    $ pip3 install home-assistant-client
+    $ pip3 install homeassistant-cli
     
 And once you have configured some of the new things you can like:
 
@@ -58,7 +58,7 @@ List devices matching a pattern:
 
 Like with `entity list` you can filter and pipe results to get interesting things.
 
-How about a inventory count ? 
+How about a inventory count? 
 
     $ hass-cli --no-headers --columns manufacturer,model device list | sort | uniq -c | sort -nr
     10 IKEA of Sweden      TRADFRI bulb GU10 WS 400lm
