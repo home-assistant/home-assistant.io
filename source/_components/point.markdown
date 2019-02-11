@@ -11,6 +11,7 @@ logo: minut.svg
 ha_category: Hub
 featured: false
 ha_release: "0.83"
+ha_config_flow: true
 ha_iot_class: "Cloud Polling"
 ha_qa_scale: silver
 ---
