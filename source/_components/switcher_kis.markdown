@@ -16,9 +16,12 @@ ha_iot_class: "Local Push"
 ---
 
 This `Switcher` component allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
+
 There is currently support for the following device types within Home Assistant:
+
   - Switch
   - Sensor
+
 To enable it, add an entry to your `configuration.yaml` according to the following configuration instructions.
 
 To retrieve your device's details, please follow the instructions [here](https://github.com/NightRang3r/Switcher-V2-Python).
