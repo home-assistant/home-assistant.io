@@ -11,7 +11,6 @@ logo: switcher_boiler.png
 ha_category:
   - Switch
   - Sensor
-redirect_from:
   - /components/switch.switcher_kis
   - /components/sensor.switcher_kis
 ha_release: "0.88"
