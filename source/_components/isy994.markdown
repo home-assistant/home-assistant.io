@@ -5,6 +5,7 @@ logo: universal_devices.png
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Cover
   - Fan
   - Light
@@ -29,6 +30,7 @@ The ISY994 controller is manufactured by [Universal Devices](https://www.univers
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
+- [Climate](/components/climate.isy994/)
 - Cover
 - Light
 - Fan
@@ -112,7 +114,7 @@ automation:
       entity_id: light.lr_track_lights_rear
 ```
 
-All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:
+All `isy994_control` events will have an `entity_id`, `control` and `value`parameter in its `event_data`. You'll need to refer to ISY994 documentation for the list of every possible control type, but the common ones are:
 
 - `DON`: On button.
 - `DOF`: Off button.
