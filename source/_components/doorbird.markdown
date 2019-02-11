@@ -118,13 +118,12 @@ Each event includes live image and live video URLs for the Doorbird device that 
 
 The following keys are available on `event_data`:
 
-```
-timestamp
-live_video_url
-live_image_url
-rtsp_live_video_url
-html5_viewer_url
-```
+- `timestamp`
+- `live_video_url`
+- `live_image_url`
+- `rtsp_live_video_url`
+- `html5_viewer_url`
+
 <p class="note">
 The URLs on the event will be based on the configuration used to connect to your Doorbird device.  Ability to connect from outside your network will depend on your configuration.
 </p>
