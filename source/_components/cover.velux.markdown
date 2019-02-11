@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: velux.png
 ha_category: Cover
-ha_release: 0.85
+ha_release: 0.88
 ha_iot_class: "Local Polling"
 ---
 
