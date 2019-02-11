@@ -11,7 +11,7 @@ logo: minut.png
 ha_category: Alarm
 ha_release: 0.88
 ha_iot_class: "Cloud Polling"
-ha_qa_scale: silver
+ha_qa_scale: gold
 ---
 
 The `point` alarm control panel platform gives users the ability to

@@ -11,7 +11,7 @@ logo: minut.svg
 ha_category: Binary Sensor
 ha_release: "0.83"
 ha_iot_class: "Cloud Push"
-ha_qa_scale: silver
+ha_qa_scale: gold
 ---
 
 Each Point exposes the following binary sensors:
