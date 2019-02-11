@@ -205,3 +205,65 @@ automation:
       - service: alarm_control_panel.alarm_disarm
         entity_id: alarm_control_panel.house_alarm
 ```
+
+Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
+
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is Disarmed'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'disarmed'
+  action:
+    - service: notify.notify
+      data:
+        message: "ALARM! The alarm is Disarmed at {{ states('sensor.date__time') }}"
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is in pending status'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'pending'
+  action:
+    - service: notify.notify
+      data:
+        message: "ALARM! The alarm is in pending status at {{ states('sensor.date__time') }}"
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is Armed in Away mode'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed_away'
+  action:
+    - service: notify.notify
+      data:
+        message: "ALARM! The alarm is armed in Away mode {{ states('sensor.date__time') }}"
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is Armed in Home mode'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed_home'
+  action:
+    - service: notify.notify
+      data:
+        message: "ALARM! The alarm is armed in Home mode {{ states('sensor.date__time') }}"
+```
+{% endraw %}
