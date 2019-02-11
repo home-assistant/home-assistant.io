@@ -11,8 +11,6 @@ logo: switcher_boiler.png
 ha_category:
   - Switch
   - Sensor
-  - /components/switch.switcher_kis
-  - /components/sensor.switcher_kis
 ha_release: "0.88"
 ha_iot_class: "Local Push"
 ---
