@@ -16,6 +16,7 @@ ha_release: 0.28
 ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.isy994/
+  - /components/climate.isy994/
   - /components/cover.isy994/
   - /components/fan.isy994/
   - /components/light.isy994/
@@ -30,7 +31,7 @@ The ISY994 controller is manufactured by [Universal Devices](https://www.univers
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
-- [Climate](/components/climate.isy994/)
+- Climate
 - Cover
 - Light
 - Fan
