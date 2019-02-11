@@ -65,7 +65,7 @@ framerate:
   required: false
   type: integer
 verify_ssl:
-  description: Enable or disable SSL certificate verification.  Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
+  description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
   required: false
   default: true
   type: boolean
