@@ -65,7 +65,7 @@ framerate:
   required: false
   type: integer
 verify_ssl:
-  description: Enable or disable SSL certificate verification.
+  description: Enable or disable SSL certificate verification.  Disable this to use a http-only camera or if you have a self-signed or invalid SSL certificate.
   required: false
   default: true
   type: boolean
@@ -113,4 +113,15 @@ camera:
   - platform: generic
     name: Host instance camera feed
     still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
+```
+### {% linkable_title Image from HTTP only camera %}
+
+To access a camera which is only available via HTTP, you must turn off SSL verification.
+
+```yaml
+camera:
+  - platform: generic
+    name: Some Image
+    still_image_url: http://example.org/your_image.png
+    verify_ssl: false
 ```
