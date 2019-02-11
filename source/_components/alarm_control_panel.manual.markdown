@@ -208,7 +208,9 @@ automation:
 
 Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pending Status
 
-```- alias: 'Send notification when alarm is Disarmed'
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is Disarmed'
   initial_state: 'on'
   trigger:
     - platform: state
@@ -219,8 +221,11 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       data:
         message: "ALARM! The alarm is Disarmed at {{ states('sensor.date__time') }}"
 ```
+{% endraw %}
 
-```- alias: 'Send notification when alarm is in pending status'
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is in pending status'
   initial_state: 'on'
   trigger:
     - platform: state
@@ -231,8 +236,11 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       data:
         message: "ALARM! The alarm is in pending status at {{ states('sensor.date__time') }}"
 ```
+{% endraw %}
 
-```- alias: 'Send notification when alarm is Armed in Away mode'
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is Armed in Away mode'
   initial_state: 'on'
   trigger:
     - platform: state
@@ -243,8 +251,11 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       data:
         message: "ALARM! The alarm is armed in Away mode {{ states('sensor.date__time') }}"
 ```
+{% endraw %}
 
-```- alias: 'Send notification when alarm is Armed in Home mode'
+{% raw %}
+```yaml
+- alias: 'Send notification when alarm is Armed in Home mode'
   initial_state: 'on'
   trigger:
     - platform: state
@@ -254,4 +265,5 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
     - service: notify.notify
       data:
         message: "ALARM! The alarm is armed in Home mode {{ states('sensor.date__time') }}"
-```        
+```
+{% endraw %}
