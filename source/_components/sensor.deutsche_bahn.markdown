@@ -14,7 +14,7 @@ ha_release: 0.14
 ---
 
 
-The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about eg. the type of the train, price, and if it is on time.
+The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about, e.g., the type of the train, price, and if it is on time.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -41,7 +41,7 @@ only_direct:
   default: false
 {% endconfiguration %}
 
-This sensor stores a lot of attributes which can be accessed by other sensors eg. a [template sensor](/components/sensor.template/).
+This sensor stores a lot of attributes which can be accessed by other sensors, e.g., a [template sensor](/components/sensor.template/).
 
 ```yaml
 # Example configuration.yaml entry

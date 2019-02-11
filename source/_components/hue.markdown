@@ -35,7 +35,7 @@ hue:
 
 {% configuration %}
 host:
-  description: The IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+  description: The IP address of the device, e.g., 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
   required: true
   type: string
 allow_unreachable:

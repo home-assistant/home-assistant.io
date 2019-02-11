@@ -28,7 +28,7 @@ asuswrt:
 
 {% configuration %}
 host:
-  description: "The IP address of your router, eg. `192.168.1.1`."
+  description: "The IP address of your router, e.g., `192.168.1.1`."
   required: true
   type: string
 username:
@@ -80,5 +80,5 @@ sensors:
 {% endconfiguration %}
 
 <p class='note warning'>
-You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`. 
+You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`.
 </p>

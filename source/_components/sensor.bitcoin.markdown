@@ -29,7 +29,7 @@ sensor:
 
 {% configuration %}
 currency:
-  description: The currency to exchange to, eg. CHF, USD, EUR, etc.
+  description: The currency to exchange to, e.g., CHF, USD, EUR, etc.
   required: false
   type: string
   default: USD

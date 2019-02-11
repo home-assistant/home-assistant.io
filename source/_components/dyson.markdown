@@ -26,7 +26,7 @@ dyson:
   password: YOUR_DYSON_PASSWORD
   language: YOUR_DYSON_ACCOUNT_LANGUAGE
   devices:
-    - device_id: DEVICE_ID_1 # eg. Serial number: XXX-XX-XXXXXXXX
+    - device_id: DEVICE_ID_1 # e.g., Serial number: XXX-XX-XXXXXXXX
       device_ip: DEVICE_IP_1
     - device_id: DEVICE_ID_2
       device_ip: DEVICE_IP_2

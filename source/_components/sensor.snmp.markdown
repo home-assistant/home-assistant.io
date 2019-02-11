@@ -27,7 +27,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: The IP address of your host, eg. `192.168.1.32`.
+  description: The IP address of your host, e.g., `192.168.1.32`.
   required: false
   type: string
   default: 'localhost'
