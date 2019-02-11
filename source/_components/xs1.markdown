@@ -34,25 +34,25 @@ The component will automatically detect the configuration of the XS1 Gateway onl
 
 {% configuration %}
 host:
-  description: Host of the XS1 Gateway
+  description: Host of the XS1 Gateway.
   required: true
   type: string
 port:
-  description: Custom port if your running your gateway behind some kind of proxy
+  description: Custom port if you are running your gateway behind some kind of proxy.
   required: false
   type: integer
   default: 80
 ssl:
-  description: Defines if `https` should be used for api requests  (only possible via your own proxy)
+  description: Defines if `https` should be used for API requests  (only possible via your own proxy).
   required: false
   type: boolean
   default: false
 username:
-  description: User to access XS1 web api
+  description: User to access XS1 web API.
   required: false
   type: string
 password:
-  description: Password to access XS1 web api
+  description: Password to access XS1 web API.
   required: false
   type: string
 {% endconfiguration %}
@@ -82,14 +82,14 @@ If you are using climate devices the "current temp" sensor will be automatically
  
 ### {% linkable_title Climate Actuator/Sensor%}
 
-Home Assistant can combine temperature sensors and climate actuators into a single device. The XS1 gateway does not allow this but a sensor and actuator can be configured separately. To make Home Assistant register them in the same climate device just prefix the **sensor** name with the actuator name on the XS1 gateway configuration, f.ex:
+Home Assistant can combine temperature sensors and climate actuators into a single device. The XS1 gateway does not allow this, but a sensor and actuator can be configured separately. To make Home Assistant register them in the same climate device just prefix the **sensor** name with the actuator name on the XS1 gateway configuration, f.ex:
 
 - Actuator device name: "Bedroom_Temp"
 - Sensor device name: "Bedroom_Temp_Sensor"
 
 ## {% linkable_title Examples %}
 
-In this section you find some real-life examples of how to use this component.
+In this section, you find some real-life examples of how to use this component.
 
 ### {% linkable_title Full configuration %}
 
