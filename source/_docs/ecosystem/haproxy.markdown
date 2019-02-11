@@ -104,7 +104,7 @@ http:
   # Update this line to be your domain
   base_url: https://example.com
   use_x_forwarded_for: true
-  # You must set the trusted proxy IP address so that home-assistant will properly accept connections
+  # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
   # Set this to your HAProxy machine IP, or localhost if hosted on the same machine.
   trusted_proxies: <HAProxy IP address here, 127.0.0.1 if same machine>
 ```
