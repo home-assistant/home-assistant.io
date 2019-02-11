@@ -82,7 +82,7 @@ Some titles will have different SKUs in the PlayStation Store database depending
 
 ### {% linkable_title Service `send_command` %}
 
-Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with Dualshock 4 buttons.
+Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 buttons.
 
 | Service data attribute | Optional | Example                      | Description                           |
 | ---------------------- | -------- | ---------------------------- | ------------------------------------- |
