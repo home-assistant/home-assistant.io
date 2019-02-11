@@ -14,10 +14,9 @@ redirect_from:
 ---
 
 The `Ambient Weather Station` component retrieves local weather information
-via personal weather stations from
-[Ambient Weather](https://ambientweather.net).
+via personal weather stations from [Ambient Weather](https://ambientweather.net).
 
-## {% linkable_title Generating API Keys and Application Keys %}
+## {% linkable_title Setup %}
 
 Using this component requires both an Application Key and an API Key. To
 generate both, simply utilize the profile section of
@@ -31,8 +30,8 @@ following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 ambient_station:
-  api_key: <YOUR API KEY>
-  app_key: <YOUR APPLICATION KEY>
+  api_key: YOUR_API_KEY
+  app_key: YOUR_APPLICATION_KEY
 ```
 
 {% configuration %}
