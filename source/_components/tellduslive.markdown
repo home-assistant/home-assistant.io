@@ -18,7 +18,7 @@ ha_category:
 featured: false
 ha_release: 0.11
 ha_config_flow: true
-ha_qa_scale: silver
+ha_qa_scale: gold
 ha_iot_class: 'Cloud Polling'
 redirect_from:
   - /components/binary_sensor.tellduslive/
