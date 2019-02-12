@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: growatt.png
-ha_category: Sensor
+ha_category: Energy
 ha_release: 0.88.0
 ---
 
