@@ -8,13 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: sabnzbd.png
-ha_category: Downloading
+ha_category:
+  - Downloading
+  - Sensor
 ha_release: 0.70
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/sensor.sabnzbd/
 ---
 
-The `sabnzbd` component will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from 
-within Home Assistant and setup automations based on the information.
+The `sabnzbd` component will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
 
 If SABnzbd is discovered on your network, you can enter your API Key in the Configurator. Press "CONFIGURE" to do it.
 
@@ -23,7 +26,6 @@ If SABnzbd is discovered on your network, you can enter your API Key in the Conf
 </p>
 
 This will create services for interacting with SABnzbd in scripts and automations, but no sensors will be created.
-
 
 To configure SABnzbd, add the following to your `configuration.yaml` file:
 
@@ -66,18 +68,18 @@ ssl:
 
 Available sensors are:
 
- * `current_status`: The current status of SABnzbd (Idle, Paused, etc.)
- * `speed`: The current download speed
- * `queue_size`: The total size of the download queue 
- * `queue_remaining`: The remaining size of the download queue
- * `disk_size`: The total disk size at SABnzbd's download location
- * `disk_free`: The available disk space at SABnzbd's download location
- * `queue_count`: The number of items in the download queue 
- * `day_size`: GB downloaded today
- * `week_size`: GB downloaded this week
- * `month_size`: GB downloaded this month
- * `total_size`: Total GB downloaded 
- 
+- `current_status`: The current status of SABnzbd (Idle, Paused, etc.)
+- `speed`: The current download speed
+- `queue_size`: The total size of the download queue
+- `queue_remaining`: The remaining size of the download queue
+- `disk_size`: The total disk size at SABnzbd's download location
+- `disk_free`: The available disk space at SABnzbd's download location
+- `queue_count`: The number of items in the download queue
+- `day_size`: GB downloaded today
+- `week_size`: GB downloaded this week
+- `month_size`: GB downloaded this month
+- `total_size`: Total GB downloaded
+
 ## {% linkable_title Full examples %}
 
 ```yaml
@@ -101,12 +103,14 @@ sabnzbd:
     - month_size
     - total_size
 ```
+
 This will attempt to access your SABnzbd instance at https://192.168.1.32:9090 and will create sensors named 
 `sensor.sab_status`, `sensor.sab_speed`, etc.
 
 ## {% linkable_title Services %}
 
 ### {% linkable_title Media control services %}
+
 Available services: `pause`, `resume`, `set_speed`.
 
 #### {% linkable_title Service `sabnzbd/set_speed` %}
@@ -114,4 +118,3 @@ Available services: `pause`, `resume`, `set_speed`.
 | Service data attribute | Optional | Description                                                                                                                                                                             |
 |------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `speed`                |      yes | Sets the download speed limit. If specified as a number with no units, will be interpreted as a percent. If units are provided (e.g., 500K) will be interpreted absolutely. Defaults to 100 |
-
