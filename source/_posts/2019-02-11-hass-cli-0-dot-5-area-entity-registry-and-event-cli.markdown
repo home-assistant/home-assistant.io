@@ -15,7 +15,7 @@ it is time to do a release of `hass-cli` that allows you to operate on these in 
 
 This release adds the following features:
 
- - Area `list`, `create`, `delete`, `list` and `rename`
+ - Area `list`, `create`, `delete`, and `rename`
  - Device `list` and `assign`
  - Event `watch`
  
