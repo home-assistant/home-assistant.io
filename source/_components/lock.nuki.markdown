@@ -41,6 +41,16 @@ token:
   description: The token that was defined when setting up the bridge.
   required: true
   type: string
+timeout:
+  description: The amount of time in seconds the connection will wait to be established.
+  required: false
+  default: 5
+  type: integer
+unlatch_to_unlock: 
+  description: If set, the unlock service will unlatch the lock.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Services %}
@@ -62,3 +72,11 @@ See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
 | `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
+
+### {% linkable_title Service `nuki_check_connection` %}
+
+This will force the communication between the bridge and the lock, updating the lock_reachable attribute.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
