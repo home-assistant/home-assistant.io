@@ -10,7 +10,7 @@ footer: true
 logo: egardia.png
 ha_release: 0.65
 ha_category: Binary Sensor
-ha_iot_class: "Polling"
+ha_iot_class: "Cloud Polling"
 ---
 
 The `egardia` platform allows you to get data from your [Egardia](http://www.egardia.com)/[Woonveilig](http://www.woonveilig.nl) binary sensors from within Home Assistant.

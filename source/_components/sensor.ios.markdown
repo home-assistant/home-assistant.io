@@ -11,7 +11,7 @@ logo: apple.png
 ha_category: Sensor
 featured: false
 ha_release: 0.31
-ha_iot_class: push
+ha_iot_class: "Cloud Push"
 ---
 
 The `ios` sensor platform is the Home Assistant part for using the iOS companion app. For further details please check the [iOS section](/docs/ecosystem/ios/) in the documentation for further details.

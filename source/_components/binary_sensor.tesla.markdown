@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: tesla.png
 ha_category: Car
-ha_iot_class: "Cloud polling"
+ha_iot_class: "Cloud Polling"
 ha_release: 0.53
 ---
 
