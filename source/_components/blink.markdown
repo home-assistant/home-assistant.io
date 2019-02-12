@@ -23,6 +23,8 @@ redirect_form:
   - /components/sensor.blink/
 ---
 
+<p class='note warning'>Blink has started blocking Home Assistant users. More info in <a href="https://community.home-assistant.io/t/blink-block-account/98718">the forums</a>.</p>
+
 The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
 
 ## {% linkable_title Setup %}
