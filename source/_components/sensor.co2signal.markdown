@@ -21,6 +21,13 @@ At the moment, the free CO2Signal API only supports the average carbon intensity
 
 <p class='note warning'>
 The "free" API key is limited to a limited number of calls. Too many requests can result in data loss.
+
+To avoid problems with the rate limit add 
+
+```yaml
+refresh_rate: 15 #minutes between polling
+scan_interval: 900
+```
 </p>
 
 ## {% linkable_title Configuration %}
@@ -31,6 +38,8 @@ To set up this platform, get your [API key](https://www.co2signal.com/) and add 
 sensor:
   - platform: co2signal
     token: YOUR_CO2SIGNAL_API_KEY
+    refresh_rate: 15
+    scan_interval: 900
 ```
 
 By default, the sensor will use your Home Assistant longitude and latitude. More detailed configurations to overwrite this can be found below.
