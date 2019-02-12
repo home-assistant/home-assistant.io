@@ -91,6 +91,8 @@ automation:
     condition:
       - condition: template
         value_template: "{% if (as_timestamp(states.sensor.rova_garbage_gft.state) - as_timestamp(now())) < 43200 %}true{% endif %}"
+      - condition: template
+        value_template: "{% if (as_timestamp(states.sensor.rova_garbage_gft.state) - as_timestamp(now())) > 0 %}true{% endif %}"
     action:
       - service: NOTIFICATION_SERVICE
         data:
