@@ -8,17 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: speedtest.png
-ha_category: System Monitor
+ha_category:
+  - System Monitor
+  - Sensor
 featured: false
 ha_release: 0.88
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/sensor.speedtest/
+  - /components/sensor.speedtestdotnet/
 ---
 
-The `speedtest` component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
+The `speedtestdotnet` component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-Enabling this component will automatically enable the [Speedtest.net Sensor](/components/sensor.speedtestdotnet/).
+Enabling this component will automatically create the Speedtest.net Sensors for the monitored conditions (below).
 
-By default, it will run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speedtest to run.
+By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speed test to run.
 
 ## {% linkable_title Configuration %}
 
@@ -31,7 +36,7 @@ Once per hour, on the hour (default):
 
 ```yaml
 # Example configuration.yaml entry
-speedtest:
+speedtestdotnet:
 ```
 
 {% configuration %}
@@ -58,8 +63,7 @@ speedtest:
     type: time
   manual:
     description: >
-      `true` or `false` to turn manual mode on or off.
-      Manual mode will disable scheduled speed tests.
+      `true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests.
     required: false
     type: boolean
     default: false
@@ -79,7 +83,7 @@ update_interval:
 
 ### {% linkable_title Service %}
 
-Once loaded, the `speedtestdotnet` platform will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Fast.com speedtest on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
+Once loaded, the `speedtestdotnet` component will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 
 ```yaml
 action:
@@ -114,6 +118,26 @@ speedtest:
       - ping
       - download
       - upload
+```
+
+### {% linkable_title Using as a trigger in an automation %}
+
+```yaml
+# Example configuration.yaml entry
+automation:
+  - alias: "Internet Speed Glow Connect Great"
+    trigger:
+      - platform: template
+        value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
+    action:
+      - service: shell_command.green
+
+  - alias: "Internet Speed Glow Connect Poor"
+    trigger:
+      - platform: template
+        value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
+    action:
+      - service: shell_command.red
 ```
 
 ## {% linkable_title Notes %}
