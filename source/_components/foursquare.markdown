@@ -11,7 +11,7 @@ logo: foursquare.png
 featured: false
 ha_category: Social
 ha_release: 0.26
-ha_iot_class: "Cloud Polling", "Cloud Push"
+ha_iot_class: Cloud Polling, Cloud Push
 ---
 
 The `foursquare` component accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
