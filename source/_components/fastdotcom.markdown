@@ -14,7 +14,7 @@ ha_category:
 featured: false
 ha_release: 0.88
 ha_iot_class: "Cloud Polling"
-redirect_form:
+redirect_from:
   - /components/sensor.fastdotcom/
 ---
 
