@@ -12,6 +12,7 @@ ha_category: System Monitor
 featured: false
 ha_release: 0.37
 ha_iot_class: "Local Polling"
+ha_tags: self-hosting
 ---
 
 The `zabbix` component is the main component to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.

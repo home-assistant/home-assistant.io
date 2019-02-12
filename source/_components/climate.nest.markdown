@@ -10,6 +10,7 @@ footer: true
 logo: nest.png
 ha_category: Climate
 ha_iot_class: "Cloud Push"
+ha_tags: proprietary, requires-registration
 ---
 
 The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).

@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: google-assistant.png
 ha_category: Voice
+ha_iot_class: "Cloud Polling"
+ha_tags: proprietary
 featured: true
 ha_release: 0.56
 ---
@@ -53,7 +55,7 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
-    
+
 If you're still having trouble, make sure that you're not connected to the same network Home Assistant is running on, e.g., use 4G/LTE instead.
 </p>
 
@@ -193,8 +195,8 @@ Currently, the following domains are available to be used with Google Assistant,
 
 ### {% linkable_title Media Player Sources %}
 
-Media Player sources are sent via the Modes trait in Google Assistant.  
-There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:  
+Media Player sources are sent via the Modes trait in Google Assistant.
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:
 https://developers.google.com/actions/reference/smarthome/traits/modes
 
 #### Example Command:
@@ -203,7 +205,7 @@ https://developers.google.com/actions/reference/smarthome/traits/modes
 
 ### {% linkable_title Climate Operation Modes %}
 
-There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  
+There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.
 Here are the modes that are currently available:
 
 - off

@@ -10,6 +10,8 @@ footer: true
 logo: aws_sns.png
 ha_category: Notifications
 ha_release: "0.20"
+ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ---
 
 The `aws_sns` notification platform enables publishing to an [AWS SNS](https://aws.amazon.com/sns/) topic or application.
@@ -66,7 +68,7 @@ If one exists, the SNS Subject will be set to the title. All attributes from the
 #### {% linkable_title Setting up SNS within AWS %}
 
 - Log into your AWS console and under "Security and Identity", select "Identity & Access Management".
-- On the left hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create". 
+- On the left hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create".
 - You can either download the credentials or click the arrow to display them one time.
 
 <p class='note warning'>

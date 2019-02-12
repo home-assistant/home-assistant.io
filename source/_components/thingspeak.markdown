@@ -10,6 +10,8 @@ footer: true
 logo: thingspeak.png
 ha_category: "History"
 ha_release: 0.32
+ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ---
 
 The `thingspeak` components makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).

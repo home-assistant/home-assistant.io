@@ -12,6 +12,7 @@ ha_category: Media Player
 featured: true
 ha_release: pre 0.7
 ha_iot_class: "Local Push"
+ha_tags: opensource, self-hosting
 ---
 
 

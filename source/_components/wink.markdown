@@ -23,6 +23,7 @@ ha_category:
   - Water heater
 featured: true
 ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ha_release: pre 0.7
 redirect_from:
   - /components/alarm_control_panel.wink/

@@ -12,6 +12,7 @@ ha_category: System Monitor
 ha_release: "0.58"
 logo: vultr.png
 ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ---
 
 The `vultr` component allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.

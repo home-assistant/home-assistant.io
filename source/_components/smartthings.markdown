@@ -18,6 +18,7 @@ ha_category:
   - Switch
 ha_release: "0.87"
 ha_iot_class: "Cloud Push"
+ha_tags: proprietary, registration-required
 redirect_from:
   - /components/smartthings.binary_sensor/
   - /components/binary_sensor.smartthings/
@@ -107,9 +108,9 @@ The component will trigger an event when a device with the [button](https://smar
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
 - [Binary Sensor](#binary-sensor)
-- [Fan](#fan) 
-- [Light](#light) 
-- [Sensor](#sensor) 
+- [Fan](#fan)
+- [Light](#light)
+- [Sensor](#sensor)
 - [Switch](#switch)
 
 Support for additional platforms will be added in the future.

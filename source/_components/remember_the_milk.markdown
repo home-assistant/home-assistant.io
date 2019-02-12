@@ -10,6 +10,7 @@ footer: true
 logo: rememberthemilk.png
 ha_category: Calendar
 ha_release: 0.57
+ha_tags: proprietary, requires-registration
 ---
 
 The `Remember The Milk` (RTM) component allows you to create tasks in [remember_the_milk](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The component allows you to have several RTM accounts in parallel.

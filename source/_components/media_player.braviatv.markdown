@@ -11,6 +11,7 @@ logo: bravia.png
 ha_category: Media Player
 ha_release: 0.23
 ha_iot_class: "Local Polling"
+ha_tags: proprietary
 ---
 
 The `braviatv` platform allows you to control a [Sony Bravia TV](http://www.sony.com).

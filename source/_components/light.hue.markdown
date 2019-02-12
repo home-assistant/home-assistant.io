@@ -10,6 +10,7 @@ footer: true
 logo: philips_hue.png
 ha_category: Light
 ha_iot_class: "Local Polling"
+ha_tags: proprietary
 ha_release: pre 0.7
 ---
 

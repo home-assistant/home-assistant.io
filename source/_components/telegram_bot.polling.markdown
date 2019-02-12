@@ -10,6 +10,8 @@ footer: true
 logo: telegram.png
 ha_category: Notifications
 ha_release: 0.42
+ha_tags: proprietary, requires-registration
+ha_iot_class: "Cloud Polling"
 ---
 
 Telegram chatbot polling implementation.

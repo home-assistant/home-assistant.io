@@ -10,6 +10,7 @@ footer: true
 logo: nest.png
 ha_category: Weather
 ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ---
 
 <p class='note warning'>

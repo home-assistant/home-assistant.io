@@ -11,6 +11,7 @@ logo: octoprint.png
 ha_category: Binary Sensor
 ha_release: 0.19
 ha_iot_class: "Local Polling"
+ha_tags: self-hosted, opensource
 ---
 
 The `octoprint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.

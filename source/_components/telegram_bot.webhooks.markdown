@@ -10,6 +10,7 @@ footer: true
 logo: telegram.png
 ha_category: Notifications
 ha_release: 0.42
+ha_tags: proprietary, requires-registration
 ---
 
 Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).

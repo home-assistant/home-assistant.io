@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: owntracks.png
 ha_category: Presence Detection
+ha_tags: self-hosted
 featured: false
 ha_release: 0.7.4
 redirect_from:
@@ -22,7 +23,7 @@ By default the integration will listen for incoming messages from OwnTracks via 
 
 ### {% linkable_title Configuring the component %}
 
-1. Open the Home Assistant frontend 
+1. Open the Home Assistant frontend
 1. Open Settings -> integrations
 1. If you see an Owntracks component under 'Configured', delete it.
    - Click on it.
@@ -31,7 +32,7 @@ By default the integration will listen for incoming messages from OwnTracks via 
 1. The login credentials and configuration for owntracks will be presented to you.
    in a popup window. You will need these in the configuration for the app as mentioned below.
 1. Save these credentials somewhere, as there is no way to get it back at a later point in time if it is lost, besides         repeating step 1-5
-  
+
 ### {% linkable_title Configuring the app - Android %}
 
 [Install the OwnTracks application for Android.](https://play.google.com/store/apps/details?id=org.owntracks.android)

@@ -10,6 +10,7 @@ footer: true
 logo: xbox-live.png
 ha_category: Social
 ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ha_release: 0.28
 ---
 

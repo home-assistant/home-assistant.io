@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: pushbullet.png
 ha_category: Notifications
+ha_tags: proprietary, requires-registration
 featured: true
 ---
 

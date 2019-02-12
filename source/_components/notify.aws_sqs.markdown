@@ -10,6 +10,8 @@ footer: true
 logo: aws_sqs.png
 ha_category: Notifications
 ha_release: "0.20"
+ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ---
 
 The `aws_sqs` notification platform enables publishing to an [AWS SQS](https://aws.amazon.com/sqs/) message queue.

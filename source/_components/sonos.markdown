@@ -12,6 +12,7 @@ ha_category: Media Player
 featured: true
 ha_release: 0.7.3
 ha_iot_class: "Local Polling"
+ha_tags: proprietary
 redirect_from: /components/media_player.sonos/
 ---
 
@@ -137,7 +138,7 @@ sonos:
 
 ## {% linkable_title Additional information %}
 
-This component is using the [SoCo](https://github.com/SoCo/SoCo) project.  
+This component is using the [SoCo](https://github.com/SoCo/SoCo) project.
 
 To be able to support the Sonos components and features it is mandatory to have TCP port 1400 opened. This port is used to receive events about changes on the Sonos network. For more details please see the [SoCo documentation](https://github.com/SoCo/SoCo)  and source code of the SoCo project.
 

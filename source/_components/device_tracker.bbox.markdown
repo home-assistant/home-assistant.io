@@ -11,6 +11,7 @@ logo: bbox.png
 ha_category: Presence Detection
 ha_release: "0.31"
 ha_iot_class: "Local Polling"
+ha_tags: proprietary
 ---
 
 

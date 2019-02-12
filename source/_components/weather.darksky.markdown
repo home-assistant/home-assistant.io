@@ -12,6 +12,7 @@ logo: dark_sky.png
 ha_category: Weather
 ha_release: 0.61
 ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location.

@@ -12,6 +12,7 @@ ha_category: Media Player
 featured: false
 ha_release: 0.43
 ha_iot_class: "Cloud Polling"
+ha_tags: proprietary, requires-registration
 ---
 
 The `spotify` media player platform allows you to control

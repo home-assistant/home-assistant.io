@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: matrix.png
 ha_category: Notifications
+ha_tags: self-hosted
 ha_release: 0.32
 ---
 

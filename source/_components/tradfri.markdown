@@ -10,6 +10,7 @@ sharing: true
 footer: true
 logo: ikea.svg
 ha_iot_class: "Local Polling"
+ha_tags: proprietary
 ha_config_flow: true
 ha_release: 0.43
 ha_category:

@@ -10,6 +10,8 @@ footer: true
 logo: google_domains.png
 ha_category: Network
 ha_release: 0.57
+ha_iot_class: "Cloud Polling"
+ha_tags: proprietary
 ---
 
 With the Google Domains component you can keep your Google Domains record up to date.

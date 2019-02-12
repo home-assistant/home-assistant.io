@@ -11,6 +11,7 @@ logo: zoneminder.png
 ha_category: Switch
 ha_release: 0.31
 ha_iot_class: "Local Polling"
+ha_tags: self-hosting
 ---
 
 The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.

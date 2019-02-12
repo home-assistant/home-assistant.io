@@ -14,6 +14,7 @@ ha_category:
   - Presence Detection
   - Sensor
 ha_iot_class: "Local Polling"
+ha_tags: proprietary
 redirect_from:
   - /components/device_tracker.googlehome/
 ---

@@ -11,6 +11,7 @@ logo: nest.png
 ha_category: Hub
 featured: true
 ha_iot_class: "Cloud Push"
+ha_tags: proprietary, requires-registration
 ---
 
 The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.

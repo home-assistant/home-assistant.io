@@ -10,6 +10,7 @@ footer: true
 logo: volumio.png
 ha_category: Media Player
 ha_release: 0.41
+ha_tags: opensource, self-hosting
 ---
 
 The `Volumio` platform allows you to control a [Volumio](http://volumio.org) media player from Home Assistant.

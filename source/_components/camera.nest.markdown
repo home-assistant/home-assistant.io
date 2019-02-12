@@ -11,6 +11,7 @@ logo: nest.png
 ha_category: Camera
 ha_release: 0.34
 ha_iot_class: "Cloud Poll"
+ha_tags: proprietary, requires-registration
 ---
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.

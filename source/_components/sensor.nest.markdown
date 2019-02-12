@@ -11,6 +11,7 @@ logo: nest.png
 ha_category: Sensor
 ha_release: pre 0.7
 ha_iot_class: "Cloud Push"
+ha_tags: proprietary, requires-registration
 ---
 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.

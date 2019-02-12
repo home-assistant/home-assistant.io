@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mastodon"
-description: "Instructions on how to add Instapush notifications to Home Assistant."
+description: "Instructions on how to add Mastodon notifications to Home Assistant."
 date: 2018-03-25 18:00
 sidebar: true
 comments: false
@@ -10,6 +10,7 @@ footer: true
 logo: mastodon.png
 ha_category: Notifications
 ha_release: 0.67
+ha_tags: self-hosted
 ---
 
 The `mastodon` platform uses [MAstodon](https://joinmastodon.org/) to delivery notifications from Home Assistant.

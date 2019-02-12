@@ -30,6 +30,12 @@
     </div>
   {%- endif -%}
 
+  {%- if page.ha_tags -%}
+  <div class='section'>
+    Tags: {{ page.ha_tags }}
+  </div>
+  {%- endif -%}
+
   {%- if page.ha_qa_scale -%}
     <div class='section'>
       Quality Scale: <a href='/docs/quality_scale/'>
