@@ -8,12 +8,29 @@ comments: false
 sharing: true
 footer: true
 logo: dyson.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Climate
+  - Fan
+  - Sensor
+  - Vacuum
 ha_iot_class: "Cloud Polling"
 ha_release: 0.47
+redirect_from:
+  - /components/vacuum.dyson/
+  - /components/climate.dyson/
+  - /components/fan.dyson/
+  - /components/sensor.dyson/
 ---
 
-The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms: [Fans](/components/fan.dyson/) and [Robot vacuum cleaners](/components/vacuum.dyson/).
+The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms.
+
+There is currently support for the following device types within Home Assistant:
+
+- Climate
+- Fan
+- Sensor
+- Vacuum
 
 ## {% linkable_title Configuration %}
 
@@ -82,3 +99,61 @@ For example:
 ```bash
 $ nmap -p 1883 192.168.0.0/24 -- open
 ```
+
+## {% linkable_title Vacuum %}
+
+The `dyson` vacuum platform allows you to control your Dyson 360 Eye robot vacuum.
+
+### {% linkable_title Component services %}
+
+This component support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
+
+- [`turn_on`](/components/vacuum/#service-vacuumturn_on)
+- [`turn_off`](/components/vacuum/#service-vacuumturn_off)
+- [`start_pause`](/components/vacuum/#service-vacuumstart_pause)
+- [`stop`](/components/vacuum/#service-vacuumstop)
+- [`return_to_home`](/components/vacuum/#service-vacuumreturn_to_home)
+- [`set_fan_speed`](/components/vacuum/#service-vacuumset_fanspeed). Fan speed values:
+  - `Quiet`
+  - `Max`
+
+## {% linkable_title Climate %}
+
+The `dyson` climate platform allows you to control your Dyson Pure Hot+Cool Fan thermal control. For controlling the fan functionality, see the Dyson fan part on this page.
+
+### {% linkable_title Component services %}
+
+This component supports the following services (see [Climate](/components/climate/)):
+
+- [`turn_on`](/components/climate/#service-climateturn_on)
+- [`turn_off`](/components/climate/#service-climateturn_off)
+- [`set_temperature`](/components/climate/#service-climateset_temperature)
+- [`set_fan_mode`](/components/climate/#service-climateset_fan_mode)
+- [`set_operation_mode`](/components/climate/#service-climateset_operation_mode)
+
+## {% linkable_title Fan %}
+
+The `dyson` fan platform allows you to control your Dyson Purifier fans.
+
+### {% linkable_title Supported fan devices %}
+
+- Pure Cool link (desk and tower)
+- Pure Hot+cool link (see climate part) for thermal control
+
+### {% linkable_title Attributes %}
+
+There are several attributes which can be used for automations and templates.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `is_night_mode` | A boolean that indicates if the night mode of the fan device is on.
+| `is_auto_mode` | A boolean that indicates if the auto mode of the fan device is on.
+
+## {% linkable_title Sensor %}
+
+The `dyson` sensor platform allows you to control your Dyson Purifier's filter life time.
+
+### {% linkable_title Supported fan devices %}
+
+- Pure Cool link (desk and tower)
+- Pure Hot+cool link (see climate part) for thermal control
