@@ -23,7 +23,6 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 
 - platform: teleinfo
-  name: "edf"
   device: "/dev/ttyUSB0"
 ```
 {% endraw %}
