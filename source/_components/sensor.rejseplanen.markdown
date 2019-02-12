@@ -23,11 +23,7 @@ Add a sensor to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: rejseplanen
-    stop_id: '000045740'
-    route: 'Bus 350S'
-    direction:
-      - 'Herlev St.'
-      - 'Ballerup St.'
+    stop_id: 'YOUR_STOP_ID'
 ```
 
 The `stop_id` can be obtained by looking up the name of the stop at this link: 
@@ -64,3 +60,18 @@ departure_type:
   required: false
   type: string|list
 {% endconfiguration %}
+
+## {% linkable_title Examples %}
+
+A more extensive example on how to use this sensor:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: rejseplanen
+    stop_id: '000045740'
+    route: 'Bus 350S'
+    direction:
+      - 'Herlev St.'
+      - 'Ballerup St.'
+```
