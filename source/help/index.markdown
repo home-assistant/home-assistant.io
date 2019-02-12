@@ -46,6 +46,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 - [Home Assistant Support 101 - Getting around in Home Assistant](https://www.youtube.com/watch?v=dRfk9JAlPJk) ([Slides](https://docs.google.com/presentation/d/1PUnOpeFZxNj4LEjaohGqH_1hOGQGuS5yRHD1ThHr6nk/edit?usp=sharing)) - June 2016
 - [Awaken your home: Python and the Internet of Things](https://www.youtube.com/watch?v=Cfasc9EgbMU&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=1) at PyCon 2016 - June 2016
 - [Automating your Home with Home Assistant](https://www.youtube.com/watch?v=4-6rTwKl6ww&list=PLKsVm4cWHDQB9JBcD7_ZfNcvC6xx47QHT&index=2) at OpenIoT 2016 - March 2016
+- [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 
 Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
