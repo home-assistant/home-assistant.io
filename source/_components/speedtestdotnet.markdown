@@ -2,7 +2,7 @@
 layout: page
 title: "Speedtest.net"
 description: "How to integrate Speedtest.net within Home Assistant."
-date: 2019-02-01 22:00
+date: 2016-02-12 9:06
 sidebar: true
 comments: false
 sharing: true
@@ -12,7 +12,7 @@ ha_category:
   - System Monitor
   - Sensor
 featured: false
-ha_release: 0.88
+ha_release: 0.13
 ha_iot_class: "Cloud Polling"
 redirect_from:
   - /components/sensor.speedtest/
@@ -122,6 +122,7 @@ speedtest:
 
 ### {% linkable_title Using as a trigger in an automation %}
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 automation:
@@ -139,6 +140,7 @@ automation:
     action:
       - service: shell_command.red
 ```
+{% endraw %}
 
 ## {% linkable_title Notes %}
 
