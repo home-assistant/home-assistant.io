@@ -64,7 +64,7 @@ authtoken:
     - Security zones (*HmIP-SecurityZone*)
 
 - homematicip_cloud.binary_sensor  
-    - Window and door contact (*HmIP-SWDO*)
+    - Window and door contact (*HmIP-SWDO, HmIP-SWDO-I*)
     - Rotary Handle Sensor (*HmIP-SRH*)
     - Smoke sensor and alarm (*HmIP-SWSD*)
     - Motion detectors (*HmIP-SMI*)
@@ -78,6 +78,7 @@ authtoken:
 - homematicip_cloud.light
     - Switch actuator and meter for brand switches (*HmIP-BSM*)
     - Dimming actuator for brand switches (*HmIP-BDT*)
+    - Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
   
 - homematicip_cloud.sensor
     - Accesspoint duty-cycle (*HmIP-HAP*)
@@ -86,6 +87,8 @@ authtoken:
     - Temperature and humidity Sensor with display (*HmIP-STHD*)
     - Outdoor temperature and humidity sensor (*HmIP-STHO*)
     - Illuminance sensor (*HmIP-SMI, 55*)
+    - Light sensor Outdoor (*HmIP-SLO*)
   
 - homematicip_cloud.switch
     - Pluggable Switch and Meter (*HmIP-PSM*)
+    - Full flush Switch and Meter (*HmIP-FSM, HmIP-FSM16*)
