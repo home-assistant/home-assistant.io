@@ -10,10 +10,12 @@ footer: true
 logo: rejseplanen.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
-ha_release: "0.84.7"
+ha_release: 0.88
 ---
 
-The `rejseplanen` sensor will provide you traveling details for danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
+The `rejseplanen` sensor will provide you with traveling details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
+
+## {% linkable_title Configuration %}
 
 Add a sensor to your `configuration.yaml` file as shown in the example:
 
@@ -28,11 +30,13 @@ sensor:
       - 'Ballerup St.'
 ```
 
-The `stop_id` can be obtained by looking up the name of the stop at this link: [http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME](http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME)
+The `stop_id` can be obtained by looking up the name of the stop at this link: 
+
+<http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME>
 
 find the stop and copy the `id` field with the trailing zeros.
 
-The sensor can filter the time tables by one or more routes, directions and types. The known types are listed in the table below.
+The sensor can filter the timetables by one or more routes, directions and types. The known types are listed in the table below.
 
 | Departure type | Description |
 |--------------|-------------|
@@ -44,19 +48,19 @@ The sensor can filter the time tables by one or more routes, directions and type
 
 {% configuration %}
 stop_id:
-  description: The id of the public transport stop
+  description: The id of the public transport stop.
   required: true
   type: string
 route:
-  description: List of route names
+  description: List of route names.
   required: false
   type: string|list
 direction:
-  description: List of directions to filter by
+  description: List of directions to filter by.
   required: false
   type: string|list
 departure_type:
-  description: List of departure types to filter by
+  description: List of departure types to filter by.
   required: false
   type: string|list
 {% endconfiguration %}
