@@ -11,6 +11,8 @@ ha_category: System Monitor
 logo: google_wifi.png
 ha_iot_class: "Local Polling"
 ha_release: "0.50"
+tosdr_class: C
+tosdr_url: https://tosdr.org/#google
 ---
 
 

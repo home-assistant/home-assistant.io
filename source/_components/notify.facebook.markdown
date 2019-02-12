@@ -10,6 +10,8 @@ footer: true
 logo: facebook.png
 ha_category: Notifications
 ha_release: 0.36
+tosdr_class: false
+tosdr_url: https://tosdr.org/#facebook
 ---
 
 The `facebook` notification platform enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
@@ -57,7 +59,7 @@ automation:
           - '+919784516314'
 ```
 
-You can also send messages to users that do not have stored their phone number on Facebook, but this requires a bit more work. The Messenger platform uses page-specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specific ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 
+You can also send messages to users that do not have stored their phone number on Facebook, but this requires a bit more work. The Messenger platform uses page-specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specific ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID:
 
 ```php
 <?php
@@ -125,7 +127,7 @@ script:
                 payload: DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_BLUE
 ```
 
-You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. Facebook requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all but can be used right away to a selected group of testers of your choice. 
+You can now also use Facebook public beta broadcast API to push messages to ALL users who interacted with your chatbot on your page, without having to collect their number. This will scale to thousands of users. Facebook requires that this only be used for non-commercial purposes and they validate every message you send. Also note, your Facebook bot needs to be authorized for "page_subscritions" if you want to make it to all but can be used right away to a selected group of testers of your choice.
 
 To enable broadcast just use the keyword "BROADCAST" as your target. Only put ONE target BROADCAST as below:
 

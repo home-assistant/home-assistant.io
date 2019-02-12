@@ -10,6 +10,8 @@ footer: true
 logo: aws_sqs.png
 ha_category: Notifications
 ha_release: "0.20"
+tosdr_class: "false"
+tosdr_url: https://tosdr.org/#amazon
 ---
 
 The `aws_sqs` notification platform enables publishing to an [AWS SQS](https://aws.amazon.com/sqs/) message queue.

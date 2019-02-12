@@ -11,6 +11,8 @@ logo: google_maps.png
 ha_category: Transport
 ha_iot_class: "Cloud Polling"
 ha_release: 0.19
+tosdr_class: C
+tosdr_url: https://tosdr.org/#google
 ---
 
 The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).

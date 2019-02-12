@@ -10,6 +10,8 @@ footer: true
 logo: aws_lambda.png
 ha_category: Notifications
 ha_release: "0.20"
+tosdr_class: "false"
+tosdr_url: https://tosdr.org/#amazon
 ---
 
 The `aws_lambda` notification platform enables invoking [AWS Lambda](https://aws.amazon.com/lambda/) functions.

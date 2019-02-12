@@ -11,6 +11,8 @@ logo: amazon-echo.png
 ha_category: Voice
 featured: true
 ha_release: '0.10'
+tosdr_class: "false"
+tosdr_url: https://tosdr.org/#amazon
 ---
 
 ## {% linkable_title Automatic setup via Home Assistant Cloud %}

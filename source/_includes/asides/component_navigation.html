@@ -137,4 +137,13 @@
     </ul>
     </div>
   {%- endif -%}
+
+  {%- if page.tosdr_class and page.tosdr_url -%}
+    <div class='section'>
+      Terms of Service; Didn't Read
+      <sup><a href='https://tosdr.org/about.html#contact'><i class="icon-info-sign"></i></a></sup>
+      :
+      <span class="label {{ page.tosdr_class }}"><a href="{{ page.tosdr_url }}">Class {{ page.tosdr_class }}</a></span>
+    </div>
+  {%- endif -%}
 </section>

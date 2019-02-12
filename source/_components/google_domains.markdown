@@ -10,6 +10,8 @@ footer: true
 logo: google_domains.png
 ha_category: Network
 ha_release: 0.57
+tosdr_class: C
+tosdr_url: https://tosdr.org/#google
 ---
 
 With the Google Domains component you can keep your Google Domains record up to date.

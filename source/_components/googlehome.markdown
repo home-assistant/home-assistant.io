@@ -16,6 +16,8 @@ ha_category:
 ha_iot_class: "Local Polling"
 redirect_from:
   - /components/device_tracker.googlehome/
+tosdr_class: C
+tosdr_url: https://tosdr.org/#google
 ---
 
 The `googlehome` component allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
