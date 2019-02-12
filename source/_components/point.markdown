@@ -8,13 +8,20 @@ comments: false
 sharing: true
 footer: true
 logo: minut.svg
-ha_category: Hub
+ha_category: 
+  - Hub
+  - Alarm
+  - Binary Sensor
+  - Sensor
 featured: false
 ha_release: "0.83"
 ha_config_flow: true
 ha_iot_class: "Cloud Polling"
 ha_qa_scale: gold
----
+There is currently support for the following device types within Home Assistant:
+  - Alarm
+  - Binary Sensor
+  - Sensor
 
 The Point component is the main component to integrate the [Minut Point](https://minut.com/). To connect Point, you will have to [sign up for a developer account](https://minut.com/community/developers/) and get a `client_id` and `client_secret` using the `callback url`  as `base_url` + `/api/minut`, e.g., `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
 
