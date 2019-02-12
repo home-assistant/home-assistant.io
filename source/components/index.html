@@ -27,6 +27,7 @@ regenerate: false
 
 {%- assign components = site.components | sort: 'title' -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign ha_iot_classes = components | map: 'ha_iot_class' | join: ',' | split: ',' | uniq | sort -%}
 {%- capture current_version -%}{{ site.current_major_version }}.{{ site.current_minor_version }}{% endcapture -%}
 {%- assign added_one_ago_minor_version = site.current_minor_version|minus: 1 -%}
 {%- capture added_one_ago_version -%}{{ site.current_major_version }}.{{ added_one_ago_minor_version }}{% endcapture -%}
@@ -35,6 +36,7 @@ regenerate: false
 {%- assign current_version_components_count = site.components | where: 'ha_release', current_version | size -%}
 {%- assign one_ago_version_components_count = site.components | where: 'ha_release', added_one_ago_version | size -%}
 {%- assign two_ago_version_components_count = site.components | where: 'ha_release', added_two_ago_version | size -%}
+{%- assign ha_iot_class_icons = site.data.ha_iot_class -%}
 
 <p class='note'>
 Support for these components is provided by the Home Assistant community.
@@ -48,6 +50,14 @@ Support for these components is provided by the Home Assistant community.
       <a href='#version/{{ current_version }}' class="btn added_in_current_version">Added in {{ current_version }} ({{ current_version_components_count }})</a>
       <a href='#version/{{ added_one_ago_version }}' class="btn added_one_version_ago">Added in {{ added_one_ago_version }} ({{ one_ago_version_components_count }})</a>
       <a href='#version/{{ added_two_ago_version }}' class="btn added_two_versions_ago">Added in {{ added_two_ago_version }} ({{ two_ago_version_components_count }})</a>
+
+    <div class="filter-button-group">
+    {%- for ha_iot_class in ha_iot_classes -%}
+      {%- assign components_count = components | where: 'ha_iot_class', ha_iot_class | size -%}
+      {%- if ha_iot_class and components_count != 0 -%}
+        <a href='#{{ ha_iot_class | slugify }}' class="btn {{ ha_iot_class_icons[ha_iot_class] }}">{{ ha_iot_class }} ({{ components_count }})</a>
+      {%- endif -%}
+    {%- endfor -%}
 
 {%- for category in categories -%}
   {%- assign components_count = components | where: 'ha_category', category | size -%}
@@ -107,7 +117,7 @@ var allComponents = [
 {%- assign major_version = sliced_version[0]|plus: 0 -%}
 {%- assign featured_first = true -%}
       {%- for ha_category in component.ha_category -%}
-{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{ha_category | slugify}}", featured: {% if component.featured and featured_first %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
+{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{ha_category | slugify}}", featured: {% if component.featured and featured_first %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", ha_iot_class:"{{component.ha_iot_class | slugify}}"},
       {%- assign featured_first = false -%}
       {%- endfor -%}
     {% endif -%}
@@ -126,6 +136,7 @@ allComponents.pop(); // remove placeholder element at the end
     for (i=0; i < (allComponents.length); i++) {
       allComponents[i].titleLC = allComponents[i].title.toLowerCase();
       allComponents[i].catLC = allComponents[i].cat.toLowerCase();
+      allComponents[i].ha_iot_class = allComponents[i].ha_iot_class.toLowerCase();
     }
 
     // sort the components alphabetically
@@ -182,7 +193,8 @@ allComponents.pop(); // remove placeholder element at the end
         search = decodeURIComponent(hash).substring(8).toLowerCase();
         filter = function(comp) {
           return (comp.titleLC.indexOf(search) !== -1) ||
-                 (comp.catLC.indexOf(search) !== -1);
+                 (comp.catLC.indexOf(search) !== -1) ||
+                 (comp.ha_iot_class.indexOf(search) !== -1);
         };
 
       } else if(hash === '#featured' || hash === '') {
@@ -203,7 +215,7 @@ allComponents.pop(); // remove placeholder element at the end
         // regular filter categories
         search = hash.substring(1);
         filter = function(comp) {
-          return comp.catLC === search;
+          return comp.catLC === search or comp.ha_iot_class === search;
         };
       }
 
