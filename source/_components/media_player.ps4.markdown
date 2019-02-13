@@ -40,9 +40,14 @@ The `ps4` component allows you to control a
 
 ## {% linkable_title Granting Port Access %}
 
-The PS4 component requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
-Home Assistant installed on a Debian-type OS for example, such as *Hassbian*, *Rassbian*, and *Armbian* may require configuration.
-There are varying methods to perform this, dependent on your OS that is running Home Assistant.
+The PlayStation 4 component requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
+Home Assistant installed on a Debian-type OS for example, such as *Debian*, *Hassbian*, *Rassbian*, and *Armbian* may require configuration.
+
+<p class='note warning'>
+  Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
+</p>
+
+There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter* which runs your Home Assistant instance needs access to the mentioned ports.
 
 - **Note:** Hass.io on HassOS does not require additional configuration.
 
@@ -60,7 +65,7 @@ Replace "/usr/bin/python3.5" with your path to Python that is running Home Assis
 Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. If you do not know your [region](https://www.gamerbraves.com/ps4-games-region-codes-explained/), reference the table below:
 
 |  Region ID  |  Locales                                       |
-| ----------- |:---------------------------------------------- |
+| :---------: |:---------------------------------------------- |
 | R1          | Bermuda, Canada, United States                 |
 |             | and U.S. territories                           |
 | R2          | The Middle East, Western Europe,               |
@@ -82,10 +87,10 @@ Some titles will have different SKUs in the PlayStation Store database depending
 
 ### {% linkable_title Service `send_command` %}
 
-Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 buttons.
+Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
 
 | Service data attribute | Optional | Example                      | Description                           |
-| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
+| :--------------------: | :------: | :--------------------------: | ------------------------------------- |
 | `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
 | `command`              | No       | `ps`                         | The command you want to send.         |
 
