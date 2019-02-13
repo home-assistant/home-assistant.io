@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: yale.png
 ha_category: Alarm
 ha_release: 0.78
 ---
