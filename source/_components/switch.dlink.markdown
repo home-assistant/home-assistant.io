@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: 0.14
 ---
 
-
 The `dlink` switch platform allows you to control the state of your [D-Link Wi-Fi Smart Plugs](http://us.dlink.com/product-category/home-solutions/connected-home/smart-plugs/).
 
 Supported devices (tested):

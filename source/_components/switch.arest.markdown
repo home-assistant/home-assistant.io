@@ -44,9 +44,10 @@ switch:
       function1:
         name: Light Desk
 ```
+
 {% configuration %}
 resource:
-  description: IP address and schema of the device that is exposing an aREST API, e.g., http://192.168.1.10 (no-trailing slash)
+  description: IP address and schema of the device that is exposing an aREST API, e.g., `http://192.168.1.10` (no-trailing slash)
   required: true
   type: string
 name:
@@ -78,9 +79,8 @@ functions:
       type: string
 {% endconfiguration %}
 
-You can still switch your pins with a web browser or a command line tool. Use the URL http://192.168.1.10/digital/8/1 to set pin 8 to high/on, the JSON response will give you the feedback.
+You can still switch your pins with a web browser or a command line tool. Use the URL `http://192.168.1.10/digital/8/1` to set pin 8 to high/on, the JSON response will give you the feedback.
 
 ```json
 {"message": "Pin D8 set to 1", "id": "sensor02", "name": "livingroom", "connected": true}
 ```
-

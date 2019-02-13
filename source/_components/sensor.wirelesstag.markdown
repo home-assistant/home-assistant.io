@@ -43,4 +43,3 @@ monitored_conditions:
     light:
       description: Brightness in lux (if supported by tag).
 {% endconfiguration %}
-

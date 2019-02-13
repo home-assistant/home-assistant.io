@@ -16,4 +16,3 @@ ha_release: 0.68
 The `eufy` platform allows you to control your [Eufy](http://www.eufylife.com) switches from within Home Assistant.
 
 They will be automatically discovered if the [Eufy](/components/eufy/) component is enabled.
-
