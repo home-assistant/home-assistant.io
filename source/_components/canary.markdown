@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: canary.png
 ha_category:
-  - Hub
   - Alarm
   - Camera
   - Sensor
