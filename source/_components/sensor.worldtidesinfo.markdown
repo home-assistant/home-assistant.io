@@ -12,7 +12,7 @@ ha_category: Environment
 ha_release: 0.52
 ---
 
-The `worldtidesinfo` sensor platform uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world. 
+The `worldtidesinfo` sensor platform uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.
 
 ## {% linkable_title Setup %}
 
@@ -50,4 +50,3 @@ longitude:
   type: float
   default: "The longitude in your `configuration.yaml` file."
 {% endconfiguration %}
-

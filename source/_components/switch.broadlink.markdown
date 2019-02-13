@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
 
+## {% linkable_title Configuration %}
+
 To enable it, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -93,7 +95,7 @@ slots:
 
 Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation).
 
-### {% linkable_title How to obtain IR/RF packets? %}
+## {% linkable_title How to obtain IR/RF packets? %}
 
 Choose Call Service from the Developer Tools. Choose the service `switch.broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
@@ -173,7 +175,7 @@ switch:
       slot_4: 'Speaker slot'
 ```
 
-### {% linkable_title Service `broadlink_send_packet` %}
+## {% linkable_title Service `broadlink_send_packet` %}
 
 You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
 
@@ -194,7 +196,7 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
-### {% linkable_title Using E-Control Remotes %}
+## {% linkable_title Using E-Control Remotes %}
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
 
@@ -226,65 +228,71 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 6. Install python-broadlink library:
 
-  1. `git clone https://github.com/mjg59/python-broadlink.git`
-  2. `cd python-broadlink`
-  3. `sudo python setup.py install`
+    ```bash
+    git clone https://github.com/mjg59/python-broadlink.git
+    cd python-broadlink
+    sudo python setup.py install
+    ```
 
-7. Test the codes
-Use the `sendcode` script you have already downloaded to test the codes you got from the device.
-You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
-When run the script, you know the code works when get message .
-Code sent...
-Not every code works.
+7. Test the codes  
+    Use the `sendcode` script you have already downloaded to test the codes you got from the device.  
+    You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.  
+    When run the script, you know the code works when get message.  
+    Code sent...  
+    Not every code works.  
 
-8. Convert the HEX codes to base64
-Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
+8. Convert the HEX codes to base64.  
+    Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
-### {% linkable_title Using iOS and Windows to Obtain Codes %}
+## {% linkable_title Using iOS and Windows to Obtain Codes %}
 
 1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
 
 2. Install Requirements
 
-- Download and install Python 2.7 on your windows PC.
-- Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
-- Download and install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
-- Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
+   - Download and install Python 2.7 on your windows PC.
+   - Run `pip install simplejson`. You must install simplejson in the same python version you will use to run the scripts. You can ensure that the current version is installed by attempting to install again and confirming that you see "Requirement already satisfied".
+   - Download and install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
+   - Download [these](https://github.com/NightRang3r/Broadlink-e-control-db-dump) github files. Make sure you place them in the \Python27 path in Windows. Be sure that the getBroadlinkSharedData.py from the download is in this directory.
 
 3. Plug your iphone into your windows PC, open iTunes and create a non-encrypted backup of your device.
 
 4. Open iBackup viewer then select the iOS backup that you created. Navigate to the App icon and then scroll until you find e-control.app, select this. Select and extract the files jsonButton, jsonIrCode and jsonSublr; they will be located in the Documents/SharedData section. Put these in the same location as the getBroadlinkSharedData.py.
 
 5. Now open a Command Prompt and navigate to the directory where the aforementioned files are located e.g. C:\Python27. Now run the command python getBroadlinkSharedData.py, you should see something like this:
-```C:\Python27>python getBroadlinkSharedData.py
-ID: 1 | Name: TV
-ID: 2 | Name: Upstairs
-ID: 3 | Name: Sort in order
-ID: 4 | Name: Soundbar
-ID: 5 | Name: TV
-ID: 6 | Name: Xbox One
-ID: 7 | Name: User-Defined Aircon
-ID: 8 | Name: Sort in order
-ID: 9 | Name: User-Defined Aircon
-ID: 10 | Name: Kids Fan
-ID: 11 | Name: Downstairs
-ID: 12 | Name: Ceiling Fan
-ID: 13 | Name: Samsung TV
-ID: 14 | Name: Xbox One
-ID: 15 | Name: SONY SoundBar
-ID: 16 | Name: Fire TV
-ID: 17 | Name: New RF Remote
-```
 
-6. Select the remote ID you would like to extract:
-```Select accessory ID: 5
-[+] You selected:  TV
-[+] Dumping codes to TV.txt
-```
+    ```bash
+    C:\Python27>python getBroadlinkSharedData.py
+    ID: 1 | Name: TV
+    ID: 2 | Name: Upstairs
+    ID: 3 | Name: Sort in order
+    ID: 4 | Name: Soundbar
+    ID: 5 | Name: TV
+    ID: 6 | Name: Xbox One
+    ID: 7 | Name: User-Defined Aircon
+    ID: 8 | Name: Sort in order
+    ID: 9 | Name: User-Defined Aircon
+    ID: 10 | Name: Kids Fan
+    ID: 11 | Name: Downstairs
+    ID: 12 | Name: Ceiling Fan
+    ID: 13 | Name: Samsung TV
+    ID: 14 | Name: Xbox One
+    ID: 15 | Name: SONY SoundBar
+    ID: 16 | Name: Fire TV
+    ID: 17 | Name: New RF Remote
+    ```
 
-7. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
+   Select the remote ID you would like to extract:
 
-### {% linkable_title Using Windows to Obtain Codes with Broadlink Manager %}
+    ```bash
+    Select accessory ID: 5
+    [+] You selected:  TV
+    [+] Dumping codes to TV.txt
+    ```
+
+6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
+
+## {% linkable_title Using Windows to Obtain Codes with Broadlink Manager %}
 
 1. Install Broadlink Manager from this SourceForge link [here](https://sourceforge.net/projects/broadlink-manager/).
 2. Open the application and hit "scan" to activate your broadlink device.

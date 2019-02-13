@@ -14,14 +14,14 @@ logo: energy_meter.png
 ha_qa_scale: internal
 ---
 
-The `utility meter` component provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating). 
+The `utility meter` component provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <p class='note'>
-Sensors created with this component are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the component was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant. 
+Sensors created with this component are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the component was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -53,11 +53,11 @@ offset:
 tariffs:
   description: List of tariffs supported by the utility meter.
   required: false
-  default: [] 
-  type: list 
+  default: []
+  type: list
 {% endconfiguration %}
 
-# {% linkable_title Services %}
+## {% linkable_title Services %}
 
 ### {% linkable_title Service `utility_meter.reset` %}
 
@@ -69,7 +69,7 @@ Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 
 ### {% linkable_title Service `utility_meter.next_tariff` %}
 
-Change the current tariff to the next in the list. 
+Change the current tariff to the next in the list.
 This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
 
 | Service data attribute | Optional | Description |
@@ -78,7 +78,7 @@ This service must be called by the user for the tariff switching logic to occur 
 
 ### {% linkable_title Service `utility_meter.select_tariff` %}
 
-Change the current tariff to the given tariff. 
+Change the current tariff to the given tariff.
 This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
 
 | Service data attribute | Optional | Description |
@@ -92,8 +92,8 @@ The following configuration shows an example where 2 utility_meters (`daily_ener
 
 Both track the same sensor (`sensor.energy`) which continously monitors the energy consumed.
 
-4 different sensors will be created, 2 per utility meter and corresponding to each tariff. 
-Sensor `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.monthly_energy_peak` and `sensor.monthly_energy_offpeak` will automatically be created to track the consumption in each tariff for the given cycle. 
+4 different sensors will be created, 2 per utility meter and corresponding to each tariff.
+Sensor `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.monthly_energy_peak` and `sensor.monthly_energy_offpeak` will automatically be created to track the consumption in each tariff for the given cycle.
 
 `utility_meter.daily_energy` and `utility_meter.monthly_energy` entities will track the current tariff and provide a service to change the tariff.
 
@@ -101,7 +101,7 @@ Sensor `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.monthl
 utility_meter:
   daily_energy:
     source: sensor.energy
-    cycle: daily 
+    cycle: daily
     tariffs:
       - peak
       - offpeak
@@ -114,8 +114,9 @@ utility_meter:
 ```
 
 Assuming your energy provider tariffs are time based according to:
+
 - *peak*: from 9h00 to 21h00
-- *offpeak*: from 21h00 to 9h00 next day 
+- *offpeak*: from 21h00 to 9h00 next day
 
 a time based automation can be used:
 
@@ -128,16 +129,18 @@ automation:
       at: '21:00:00'
   action:
     - service: utility_meter.next_tariff
-      entity_id: utility_meter.daily_energy 
+      entity_id: utility_meter.daily_energy
     - service: utility_meter.next_tariff
       entity_id: utility_meter.monthly_energy
-``` 
-# {% linkable_title Advanced Configuration for DSMR users %}
+```
 
-When using the [DSMR component](https://www.home-assistant.io/components/sensor.dsmr/) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component. 
+## {% linkable_title Advanced Configuration for DSMR users %}
+
+When using the [DSMR component](https://www.home-assistant.io/components/sensor.dsmr/) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
-- `sensor.power_consumption_low` for off-peak power 
+
+- `sensor.power_consumption_low` for off-peak power
 - `sensor.power_consumption_normal` for peak power
 - `sensor.gas_consumption` for gas consumption
 
@@ -147,19 +150,19 @@ So, tracking daily and monthly consumption for each sensor, will require setting
 utility_meter:
   daily_power_offpeak:
     source: sensor.power_consumption_low
-    cycle: daily 
+    cycle: daily
   daily_power_peak:
     source: sensor.power_consumption_normal
     cycle: daily
   daily_gas:
     source: sensor.gas_consumption
-    cycle: daily 
+    cycle: daily
   monthly_power_offpeak:
     source: sensor.power_consumption_low
     cycle: monthly
   monthly_power_peak:
     source: sensor.power_consumption_normal
-    cycle: monthly 
+    cycle: monthly
   monthly_gas:
     source: sensor.gas_consumption
     cycle: monthly

@@ -13,7 +13,6 @@ ha_release: 0.57
 ha_iot_class: "Local Polling"
 ---
 
-
 The `deluge` switch platform allows you to control your [Deluge](http://deluge-torrent.org/) client from within Home Assistant. The platform enables you switch all your torrents in pause, and then unpause them all.
 
 To add Deluge to your installation, add the following to your `configuration.yaml` file:

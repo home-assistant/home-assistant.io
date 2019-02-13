@@ -21,6 +21,8 @@ Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). 
 Please consider this when using the following information.
 </p>
 
+{% linkable_title Configuration %}
+
 To add Wunderground to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -181,28 +183,27 @@ monitored_conditions:
       description: Text summary of current wind conditions
 {% endconfiguration %}
 
-
 All the conditions listed above will be updated every 5 minutes.
 
-### {% linkable_title Forecasts %}
+## {% linkable_title Forecasts %}
 
-_12 hour forecasts_
+### {% linkable_title 12 hour forecasts %}
 
 Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour forecasts. To get a forecast for different period/daytime replace the `_1d_` part of the sensor name.  e.g., `weather_2n` will give you forecast for tomorrow night. Valid values for day are `1` to `4` and valid values for daytime are `d` or `n`.
 
-_Daily forecasts_
+### {% linkable_title Daily forecasts %}
 
 Conditions above marked with <a name="1d">[1d]</a> are daily forecasts. To get forecast for different day, replace the number
 in `_1d_` part of the sensor name. Valid values are from `1` to `4`.
 
-_Hourly forecasts_
+### {% linkable_title Hourly forecasts %}
 
 Conditions marked with <a name="1h">[1h]</a> are hourly forecasts. To get forecast for different hour, replace the number
 in the `_1h_` part of the sensor name with `1` to `36`. e.g., `weather_24h` will give you weather in 24 hours.
 
-### {% linkable_title Additional examples %}
+## {% linkable_title Additional examples %}
 
-#### {% linkable_title Daily forecast %}
+### {% linkable_title Daily forecast %}
 
 ```yaml
 sensor:
@@ -234,7 +235,7 @@ group:
 
 ![Daily Forecast](/images/screenshots/wunderground_daily_forecast.png)
 
-#### {% linkable_title Weather overview %}
+### {% linkable_title Weather overview %}
 
 ```yaml
 sensor:
