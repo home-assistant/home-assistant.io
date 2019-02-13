@@ -64,28 +64,35 @@ authtoken:
     - Security zones (*HmIP-SecurityZone*)
 
 - homematicip_cloud.binary_sensor  
-    - Window and door contact (*HmIP-SWDO*)
+    - Window and door contact (*HmIP-SWDO, -I*)
     - Rotary Handle Sensor (*HmIP-SRH*)
     - Smoke sensor and alarm (*HmIP-SWSD*)
     - Motion detectors (*HmIP-SMI*)
-    - Motion detectors and push button (*HmIP-SMI55*)
     - Water detector (*HmIP-SWD*)
   
 - homematicip_cloud.climate
-    - Radiator thermostat (*HmIP-eTRV,-2*)
+    - Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1, -C*)
     - Climate group (*HmIP-HeatingGroup*)
   
 - homematicip_cloud.light
     - Switch actuator and meter for brand switches (*HmIP-BSM*)
     - Dimming actuator for brand switches (*HmIP-BDT*)
+    - Dimming actuator flush-mount (*HmIP-FDT*)
+    - Switch Actuator and Meter – flush-mount (*HmIP-FSM*)
   
 - homematicip_cloud.sensor
-    - Accesspoint duty-cycle (*HmIP-HAP*)
-    - Wall-mounted thermostat (*HmIP-WTH*)
+    - Accesspoint duty-cycle (*HmIP-HAP, -B1*)
+    - Wall-mounted thermostat (*HmIP-WTH, -2*)
     - Temperature and humidity sensor (*HmIP-STH*)
     - Temperature and humidity Sensor with display (*HmIP-STHD*)
-    - Outdoor temperature and humidity sensor (*HmIP-STHO*)
-    - Illuminance sensor (*HmIP-SMI, 55*)
+    - Outdoor temperature and humidity sensor (*HmIP-STHO, -A*)
+    - Illuminance sensor (*HmIP-SMI*)
   
 - homematicip_cloud.switch
-    - Pluggable Switch and Meter (*HmIP-PSM*)
+    - Pluggable Switch (*HmIP-PS*) 
+    - Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
+    
+- homematicip_cloud.shutter
+   - Blind actuator for brand switches (*HmIP-BBL*)
+   - Shutter actuator brand-mount (*HmIP-BROLL*)
+   - Shutter actuator flush-mount (*HmIP-FROLL*)
