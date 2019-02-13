@@ -15,7 +15,7 @@ ha_category:
   - Cover
   - Light
   - Lock
-  - Notify
+  - Notifications
   - Sensor
   - Switch
 ha_iot_class: "Local Push"
@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Light
 - Lock
-- Notify
+- Notifications
 - Sensor
 - Switch
 
