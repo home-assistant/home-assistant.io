@@ -8,17 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: ness.png
-ha_category: Alarm
+ha_category:
+  - Alarm
+  - Binary Sensor
 ha_release: 0.85
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/alarm_control_panel.ness_alarm/
+  - /components/binary_sensor.ness_alarm/
 ---
 
 The `ness_alarm` component will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.ness_alarm/): Reports on zone statuses
-- [Alarm Control Panel](/components/alarm_control_panel.ness_alarm/): Reports on alarm status, and can be used to arm/disarm the system
+- Binary Sensor: Reports on zone statuses
+- Alarm Control Panel: Reports on alarm status, and can be used to arm/disarm the system
 
 The module communicates via the [Ness D8x/D16x ASCII protocol](http://www.nesscorporation.com/Software/Ness_D8-D16_ASCII_protocol.pdf).
 
