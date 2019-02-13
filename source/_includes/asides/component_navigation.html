@@ -1,5 +1,5 @@
 {%- assign components = site.components | sort_natural: 'title' -%}
-{%- assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/master/homeassistant' -%}
+{%- assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/dev/homeassistant' -%}
 <section class="aside-module grid__item one-whole lap-one-half">
   {%- include edit_github.html -%}
 
@@ -14,13 +14,15 @@
   {%- if file_parts.size == 2 -%}
     {%- assign is_platform = true -%}
     {%- assign imp_name = file_parts[1] -%}
+    {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
     {%- assign parent_name = file_parts[0] -%}
     {%- assign parent_url = parent_name | prepend: '/components/' | append: '/' -%}
-    {%- assign parent_component = components | where: 'url', parent_url | first -%}
+    {%- assign parent_component = components | where: 'url', imp_url | first -%}
   {%- else -%}
     {%- assign is_platform = false -%}
     {%- assign imp_name = file_parts | first -%}
-  {%- endif -%}
+    {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
+{%- endif -%}
 
   {%- if page.ha_iot_class -%}
     <div class='section'>
@@ -56,12 +58,13 @@
     </div>
   {%- endif -%}
 
-  {%- if is_platform -%}
-    <div class='section'>
-      Source:
-      <a href='{{github_main_repo}}{{parent_url}}{{imp_name}}.py'>{{parent_name}}/{{imp_name}}.py</a>
-    </div>
-  {%- endif -%}
+  <div class='section'>
+    {%- if is_platform -%}
+      Source: <a href='{{github_main_repo}}{{imp_url}}{{parent_name}}.py'>{{imp_name}}/{{parent_name}}.py</a>
+    {%- else -%}
+      Source: <a href='{{github_main_repo}}{{imp_url}}'>{{imp_url}}</a>
+    {%- endif -%}
+  </div>
 
   {%- if is_platform and parent_name != 'sensor' -%}
     <div class='section'>
