@@ -65,15 +65,15 @@ monitored_conditions:
       description: Current generated power in W
     site_details:
       description: Site details such as name, location, status, etc.
-    inventory_meters:
+    meters:
       description: Site equipment details of connected meters. The sensor value shows the number of meters. Each meter is available as an attribute
-    inventory_sensors:
+    sensors:
       description: Site equipment details of connected sensors. The sensor value shows the number of sensors. Each sensor is available as an attribute
-    inventory_gateways:
+    gateways:
       description: Site equipment details of connected gateways. The sensor value shows the number of gateways. Each gateway is available as an attribute
-    inventory_batteries:
+    batteries:
       description: Site equipment details of connected batteries. The sensor value shows the number of batteries. Each battery is available as an attribute
-    inventory_inverters:
+    inverters:
       description: Site equiment details of connected inverters. The sensor values shows the number of inverters. Each inverter is available as an attribute
     
 {% endconfiguration %}
@@ -99,11 +99,11 @@ sensor:
       - last_year_data
       - life_time_data
       - site_details
-      - inventory_meters
-      - inventory_sensors
-      - inventory_gateways
-      - inventory_batteries
-      - inventory_inverters
+      - meters
+      - sensors
+      - gateways
+      - batteries
+      - inverters
 ```
 {% endraw %}
 
