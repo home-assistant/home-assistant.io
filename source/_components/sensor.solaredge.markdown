@@ -94,10 +94,10 @@ sensor:
     name: SolarEdge
     monitored_conditions:
       - current_power
-      - last_day_data
-      - last_month_data
-      - last_year_data
-      - life_time_data
+      - energy_today
+      - energy_this_month
+      - energy_this_year
+      - lifetime_energy
       - site_details
       - meters
       - sensors
