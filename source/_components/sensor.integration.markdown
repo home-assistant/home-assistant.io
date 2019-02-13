@@ -7,7 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Utility, Energy 
+ha_category: 
+  - Utility 
+  - Energy 
 ha_release: 0.87
 ha_iot_class: "Local Push"
 logo: integral.png
