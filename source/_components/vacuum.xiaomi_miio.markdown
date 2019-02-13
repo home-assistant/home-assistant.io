@@ -114,7 +114,6 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 | `entity_id`               |      yes | Only act on specific robot; default targets all       |
 | `zone`                    |       no | List of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
 | `repeats`                    |       no | Number of cleaning repeats for each zone between 1 and 3. |
-| `repeats_template`           |       no | Template that rapresents the number of cleaning repeats for each zone between 1 and 3. |
 
 Example of `vacuum.xiaomi_clean_zone` use:
 Inline array:
@@ -127,7 +126,7 @@ automation:
     condition: []
     action:
     - service: vacuum.xiaomi_clean_zone
-      data:
+      data_template:
         entity_id: vacuum.xiaomi_vacuum
         repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
@@ -142,7 +141,7 @@ automation:
     condition: []
     action:
     - service: vacuum.xiaomi_clean_zone
-      data:
+      data_template:
         entity_id: vacuum.xiaomi_vacuum
         repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
         zone:
