@@ -50,7 +50,7 @@ password:
   required: true
   type: string
 scan_interval:
-  description: How frequently to query for new data. Defaults to 60 seconds.
+  description: How frequently to query for new data. Defaults to 300 seconds (5 minutes).
   required: false
   type: integer
 binary_sensors:
@@ -93,7 +93,7 @@ Below is an example showing every possible entry:
 blink:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  scan_interval: 60
+  scan_interval: 300
   binary_sensors:
     monitored_conditions:
       - motion_enabled
