@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Communication
+ha_category: Sensor
 logo: iliad.png
 ha_iot_class: "Cloud Polling"
 ha_release: 0.87

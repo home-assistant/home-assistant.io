@@ -8,8 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: bmw.png
-ha_category: Car
+ha_category:
+  - Car
+  - Binary Sensor
+  - Presence Detection
+  - Lock
+  - Sensor
 ha_release: 0.64
+redirect_from:
+  - /components/binary_sensor.bmw_connected_drive/
+  - /components/device_tracker.bmw_connected_drive/
+  - /components/lock.bmw_connected_drive/
+  - /components/sensor.bmw_connected_drive/
 ---
 
 The `bmw_connected_drive` component lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
@@ -18,11 +28,11 @@ For compatibility with your BMW vehicle check the [bimmer_connected page](https:
 
 This component provides the following platforms:
 
- - Binary Sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
- - Device tracker: The location of your car.
- - Lock: Control the lock of your car.
- - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
- - Services: Turn on air condition, sound the horn, flash the lights and update the state. More details can be found [here](/components/bmw_connected_drive/#services).
+- Binary Sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
+- Device tracker: The location of your car.
+- Lock: Control the lock of your car.
+- Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
+- Services: Turn on air condition, sound the horn, flash the lights and update the state. More details can be found [here](/components/bmw_connected_drive/#services).
 
 ## {% linkable_title Configuration %}
 

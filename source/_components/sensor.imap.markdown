@@ -24,8 +24,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: imap
-    server: imap.gmail.com
-    port: 993
+    server: YOUR_IMAP_SERVER
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
@@ -66,9 +65,21 @@ search:
 
 ### {% linkable_title Configuring IMAP Searches %}
 
-By default, this component will count unread emails.  By configuring the search string, you can count other results, for example:
+By default, this component will count unread emails. By configuring the search string, you can count other results, for example:
 
 * `ALL` to count all emails in a folder
 * `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
-* [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox.  Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
+* [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
 
+#### {% linkable_title Full configuration sample with search %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: imap
+    server: imap.gmail.com
+    port: 993
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    search: FROM <sender@email.com>, SUBJECT <subject here>
+```

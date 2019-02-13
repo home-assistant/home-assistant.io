@@ -79,4 +79,26 @@ Use this in your `automations.yaml` to attempt certificate renewal each day at m
       addon: core_letsencrypt
 ```
 
+If you are using the [Nginx Proxy add-on] you will need need to stop this during the renewal process. This can be achieved by stopping the add-on whilst restarting the Let's Encrypt add-on. This can be achieved the following configuration: 
+
+```yaml
+- id: letsencrypt-renewal
+  alias: 'LetsEncrypt renewal'
+  trigger:
+  - platform: time
+    at: '00:00:00'
+  action:
+  - service: hassio.addon_stop
+    data:
+      addon: core_nginx_proxy
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+  - delay: '00:01:30'
+  - service: hassio.addon_start
+    data:
+      addon: core_nginx_proxy
+```
+
 [DuckDNS add-on]: /addons/duckdns/
+[Nginx Proxy add-on]: /addons/nginx_proxy/

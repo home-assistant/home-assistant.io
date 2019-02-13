@@ -15,7 +15,7 @@ ha_category:
   - Cover
   - Light
   - Lock
-  - Notify
+  - Notifications
   - Sensor
   - Switch
 ha_iot_class: "Local Push"
@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Light
 - Lock
-- Notify
+- Notifications
 - Sensor
 - Switch
 
@@ -406,7 +406,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
         service: homematic.reconnect
   ```
 
-- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot), this is a pretty reliable way to detect situations where you need to call *homematic.reconnect*. This is how this can be done:
+- If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferrable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 

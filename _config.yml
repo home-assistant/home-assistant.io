@@ -99,11 +99,6 @@ twitter_tweet_button: true
 google_plus_one: true
 google_plus_one_size: standard
 
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-googleplus_user: +PaulusSchoutsen
-googleplus_hidden: true
-
 # Pinboard
 pinboard_user:
 pinboard_count: 3
@@ -144,8 +139,8 @@ social:
 # Home Assistant release details
 current_major_version: 0
 current_minor_version: 87
-current_patch_version: 0
-date_released: 2019-02-06
+current_patch_version: 1
+date_released: 2019-02-10
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

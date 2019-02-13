@@ -139,6 +139,10 @@ After booting Home Assistant it can take up to 15 minutes for the sensors to sho
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 </p>
 
+<p class='note warning'>
+  If you set `ssl:` to `False`, you *have* to also explicitly set `port:` to **5000**.
+</p>
+
 ## {% linkable_title Separate User Configuration %}
 
 Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.

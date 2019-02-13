@@ -35,7 +35,7 @@ hue:
 
 {% configuration %}
 host:
-  description: The IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+  description: The IP address of the device, e.g., 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
   required: true
   type: string
 allow_unreachable:
@@ -108,7 +108,7 @@ To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2 an
 $ curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
 ```
 
-The `<username>` is the string that is used to register Home Assistant on the bridge, you can find it in the `phue.conf` file in your configuration path. `<bridge>` is the IP address or hostname of your Hue bridge.
+The `<username>` is the string that is used to register Home Assistant on the bridge, you can find it in the `core.config_entries` file in your configuration\.storage path. `<bridge>` is the IP address or hostname of your Hue bridge.
 
 You can find out the ids of your lights by executing the following command:
 
