@@ -66,7 +66,7 @@ name:
   default: GTFS Sensor
   type: string
 mode:
-  description: You can choose how to display the state: `departure` (exact time), `timer` (in H:MM format), `countdown` (in minutes), `auto` (switches between _timer_ and _auto_ at the 1-hour mark). The unit of measurement will be **min** using _countdown_ or _auto_ when under 1 hour, otherwise will be blank.
+  description: "You can choose how to display the state: `departure` (exact time), `timer` (in H:MM format), `countdown` (in minutes), `auto` (switches between _timer_ and _auto_ at the 1-hour mark). The unit of measurement will be **min** using _countdown_ or _auto_ when under 1 hour, otherwise will be blank."
   required: false
   default: countdown
   type: string
