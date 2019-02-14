@@ -31,11 +31,11 @@ The `enocean` component adds support for some of these devices. You will need a 
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor (wall switches)
-- Sensor (power meters)
-- Light (dimmers)
-- Switch
-- Cover (Roller Shutter)
+- [Binary Sensor](#binary-sensor) - wall switches
+- [Sensor](#sensor) - power meters
+- [Light](#light) - dimmers
+- [Switch](#switch)
+- [Cover](#cover) - Roller Shutter
 
 However, only a few devices have been confirmed to work. These are:
 
