@@ -18,7 +18,7 @@ Command line auth provider
 Person component
 
 
-
+Note for Lovelace custom card developers: if you relied on the availability of `<paper-button>` in your code, you will have to update it to `<mwc-button>` to work like before.
 
 ## {% linkable_title New Platforms %}
 
