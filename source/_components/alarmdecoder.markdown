@@ -8,9 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: alarmdecoder.png
-ha_category: Hub
+ha_category:
+  - Alarm
+  - Binary Sensor
+  - Sensor
 ha_release: 0.43
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/alarm_control_panel.alarmdecoder/
+  - /components/binary_sensor.alarmdecoder/
+  - /components/sensor.alarmdecoder/
 ---
 
 The `alarmdecoder` component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Nu Tech Software Solutions, known as the AlarmDecoder. The AlarmDecoder devices provide a serial, TCP/IP socket or USB interface to the alarm panel, where it emulates an alarm keypad.
@@ -19,11 +26,13 @@ Please visit the [AlarmDecoder website](https://www.alarmdecoder.com/) for furth
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.alarmdecoder/): Reports on zone status
-- [Sensor](/components/sensor.alarmdecoder/): Emulates a keypad display
-- [Alarm Control Panel](/components/alarm_control_panel.alarmdecoder/): Reports on alarm status, and can be used to arm/disarm the system
+- Binary Sensor: Reports on zone status
+- Sensor: Emulates a keypad display
+- [Alarm Control Panel](#alarm-control-panel): Reports on alarm status, and can be used to arm/disarm the system
 
 This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
+
+## {% linkable_title Configuration %}
 
 An `alarmdecoder` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -112,3 +121,61 @@ zones:
       required: inclusive
       type: integer
 {% endconfiguration %}
+
+## {% linkable_title Alarm Control Panel %}
+
+There are several attributes available on the alarm panel to give you more information about your alarm.
+
+- `ac_power`: Set to `true` if your system has AC power supplying it.
+- `backlight_on`: Set to `true` if your keypad's backlight is on.
+- `battery_low`: Set to `true` if your system's back-up battery is low.
+- `check_zone`: Set to `true` if your system was recently triggered. When `check_zone` is `true`, it must be cleared by entering your code + 1 before attempting to rearm your alarm.
+- `chime`: Set to `true` if your system's chime is activated. When activated, your system will beep anytime a door or window is faulted while the alarm is disarmed.
+- `entry_delay_off`: Set to `true` if your system is in "Instant" mode, meaning the alarm will sound on any faults.
+- `programming_mode`: Set to `true` if your system is in programming mode.
+- `ready`: Set to `true` if your system is ready to be armed. Any faults, including motions sensors, will make this value `false`.
+- `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
+
+## {% linkable_title Services %}
+
+The Alarm Decoder component gives you access to several services for you to control your alarm with.
+
+- `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
+- `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
+- `alarm_arm_night`: Arms the alarm in instant mode; all faults will trigger the alarm. Additionally, the entry delay is turned off on the doors.
+- `alarm_disarm`: Disarms the alarm from any state. Also clears a `check_zone` flag after an alarm was triggered.
+- `alarmdecoder_alarm_toggle_chime`: Toggles the alarm's chime state.
+
+<p class='note'>
+`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
+</p>
+
+### {% linkable_title Examples %}
+
+Using a combination of the available services and attributes, you can create switch templates.
+
+### {% linkable_title Chime Status and Control %}
+
+{% raw %}
+```yaml
+- platform: template
+  switches:
+    alarm_chime:
+      friendly_name: Chime
+      value_template: "{{ is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) }}"
+      turn_on:
+        service: alarm_control_panel.alarmdecoder_alarm_toggle_chime
+        data:
+          code: !secret alarm_code
+      turn_off:
+        service: alarm_control_panel.alarmdecoder_alarm_toggle_chime
+        data:
+          code: !secret alarm_code
+      icon_template: >-
+          {% if is_state_attr('alarm_control_panel.alarm_panel', 'chime', true) %}
+            mdi:bell-ring
+          {% else %}
+            mdi:bell-off
+          {% endif %}
+```
+{% endraw %}
