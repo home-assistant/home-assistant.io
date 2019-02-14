@@ -77,7 +77,7 @@ To retrieve all available network interfaces on a Linux System, execute the
 `ifconfig` command.
 
 ```bash
-$ ifconfig -a | sed 's/[ \t].*//;/^$/d'
+ifconfig -a | sed 's/[ \t].*//;/^$/d'
 ```
 
 ## {% linkable_title Windows specific %}

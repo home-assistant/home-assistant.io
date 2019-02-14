@@ -13,7 +13,6 @@ ha_release: 0.32
 ha_iot_class: "Local Polling"
 ---
 
-
 The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
 ## {% linkable_title Configuration %}
