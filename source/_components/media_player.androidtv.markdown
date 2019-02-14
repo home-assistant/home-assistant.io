@@ -67,7 +67,7 @@ adb_server_port:
   description: The port of the external ADB server used to communicate to the Android device.
   required: false
   type: port
- apps:
+apps:
   description: "Dictionary of strings containing custom known apps: if a word is contained in the current app's ID, return the known app name's (see Amazon example above)."
   required: false
   default: {}
