@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: fuelcheck.png
 ha_category: Car
 ha_release: 0.72
 ha_iot_class: "Cloud Polling"
