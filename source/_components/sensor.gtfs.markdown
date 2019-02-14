@@ -44,7 +44,6 @@ sensor:
     origin: STOP_ID
     destination: STOP_ID
     data: DATA_SOURCE
-    mode: auto
 ```
 
 {% configuration %}
