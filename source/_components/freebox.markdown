@@ -8,20 +8,25 @@ comments: false
 sharing: true
 footer: true
 logo: freebox.svg
-ha_category: Network
+ha_category:
+  - Network
+  - Presence Detection
+  - Sensor
 ha_release: "0.85"
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/device_tracker.freebox/
+  - /components/sensor.freebox/
 ---
-
 
 The `freebox` component allows you to observe and control [Freebox router](http://www.free.fr/).
 
-The integration provides:
+There is currently support for the following device types within Home Assistant:
 
-* a sensor with traffic metrics
-* a device tracker for connected devices
+* [Sensor](#sensor) with traffic metrics
+* [Device tracker](#presence-detection) for connected devices
 
-### {% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 If you have enabled the [discovery component](/components/discovery/),
 your Freebox should be detected automatically. Otherwise, you can set it
@@ -61,6 +66,28 @@ prompted to do so.
 ### {% linkable_title Supported routers %}
 
 Only the routers with Freebox OS are supported:
+
 * Freebox V7 also known as Freebox Delta
 * Freebox V6 also known as Freebox Revolution
 * Freebox mini 4k
+
+## {% linkable_title Presence Detection %}
+
+This platform offers presence detection by keeping track of the
+devices connected to a [Freebox](http://www.free.fr/) router.
+
+### {% linkable_title Notes %}
+
+Note that the Freebox waits for some time before marking a device as
+inactive, meaning that there will be a small delay (1 or 2 minutes)
+between the time you disconnect a device and the time it will appear
+as "away" in Home Assistant. You should take this into account when specifying
+the `consider_home` parameter.
+On the contrary, the Freebox immediately reports devices newly connected, so
+they should appear as "home" almost instantly, as soon as Home Assistant
+refreshes the devices states.
+
+## {% linkable_title Sensor %}
+
+This platform offers you sensors to monitor a Freebox router. The monitored conditions are
+instant upload and download rates in KB/s.
