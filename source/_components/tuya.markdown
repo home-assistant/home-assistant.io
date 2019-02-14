@@ -8,12 +8,35 @@ comments: false
 sharing: true
 footer: true
 logo: tuya.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Climate
+  - Cover
+  - Fan
+  - Light
+  - Scene
+  - Switch
 ha_iot_class: "Cloud Polling"
 ha_release: 0.74
+redirect_from:
+  - /components/climate.tuya/
+  - /components/cover.tuya/
+  - /components/fan.tuya/
+  - /components/light.tuya/
+  - /components/scene.tuya/
+  - /components/switch.tuya/
 ---
 
 The `tuya` component is the main component to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+
+There is currently support for the following device types within Home Assistant:
+
+- **Climate** - The platform supports the air conditioner and heater.
+- **Cover** - The platform supports curtains.
+- **Fan** - The platform supports most kinds of Tuya fans.
+- **Light** - The platform supports most kinds of Tuya light.
+- **Scene** - The device state in frontend panel will not change immediately after you activate a scene.
+- **Switch** - The platform supports switch and socket.
 
 ## {% linkable_title Configuration %}
 
