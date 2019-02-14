@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: meteo-france.png
 ha_category: Hub
-ha_release: 0.88
+ha_release: 0.89
 ha_iot_class: "Cloud Polling"
 ha_category:
   - Sensor
@@ -21,6 +21,11 @@ redirect_from:
 ---
 
 The `meteo_france` component uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
+
+There is currently support for the following device types within Home Assistant:
+
+- Sensor
+- Weather
 
 It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file.
 
@@ -61,9 +66,8 @@ meteo_france:
       snow_chance:
         description: Probability of snow for the day.
       thunder_chance:
-        description: Probability of thunderstorm for the day.        
+        description: Probability of thunderstorm for the day.
 {% endconfiguration %}
-
 
 ### {% linkable_title About `city` configuration %}
 
@@ -99,7 +103,6 @@ Possible value for each intervals attributes are:
 - 2 Light rain
 - 3 Moderate rain
 - 4 Heavy rain
-
 
 ### {% linkable_title Complete example %}
 
