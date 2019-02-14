@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 The `linode` binary sensor platform allows you to monitor your Linode nodes.
 
+## {% linkable_title Configuration %}
+
 Add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,9 +28,8 @@ binary_sensor:
 ```
 
 {% configuration %}
-  nodes:
-    description:  List of VPSs you want to control.
-    required: true
-    type: string
+nodes:
+  description:  List of VPSs you want to control.
+  required: true
+  type: string
 {% endconfiguration %}
-

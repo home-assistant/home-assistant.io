@@ -14,7 +14,7 @@ Asterisk Voicemail integration allows Home Assistant to view, listen to and dele
 There are two components to the integration:
 
 - A server that runs on the Asterisk PBX host and communicates over an open port.
-- A client which can request inormation from the server.
+- A client which can request information from the server.
 
 Both parts are necessary for Asterisk voicemail integration.
 
@@ -56,14 +56,17 @@ Before beginning make sure that you have the following:
    mbox_path = PATH_TO_VOICEMAIL_FILES
    cache_file = PATH_TO_CACHE_FILE
    google_key = GOOGLE_API_KEY
+   cdr = mysql+pymysql://<mysql-user>:<mysql-password>@localhost/asterisk/cdr
+
    ```
 
    - **host** (*Optional*): The IP address to listen on for client requests. This defaults to all IP addresses on the server. To listen only locally, choose `127.0.0.1`
    - **port** (*Optional*): The port to listen on for client requests. Defaults to 12345.
    - **password** (*Required*): A password shared between client and server.  Use only alpha-numeric characters and spaces
    - **mbox\_path** (*Required*): The path to the storage location of mailbox files. This is typically `/var/spool/asterisk/voicemail/default/<mailbox>/`
-   - **cache\_file** (*Required*): A fully-qualified path to a file thht can be written by the server containing transcriptions of voicemails. Example: `/var/spool/asterisk/transcription.cache`
+   - **cache\_file** (*Required*): A fully-qualified path to a file that can be written by the server containing transcriptions of voicemails. Example: `/var/spool/asterisk/transcription.cache`
    - **google\_key** (*Required*): Your 40 characters Google API key.
+   - **cdr** (*Optional*): Where to find CDR data.  Supports various SQL databases as well as a file log.  Configuring the CDR will enable the `asterisk_cdr` platfom.
 
    Once complete, ensure this file is only accessible by the Asterisk user:
 

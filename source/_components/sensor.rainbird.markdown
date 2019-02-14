@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: rainbird.png
-ha_category: Hub
+ha_category: Irrigation
 ha_release: 0.61
 ha_iot_class: "Local Polling"
 ---
 
 This `rainbird` sensor allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
+
+## {% linkable_title Configuration %}
 
 Once you have enabled the [Rain Bird component](/components/rainbird), add the following to your `configuration.yaml` file to enable the rain sensor:
 
@@ -25,8 +27,12 @@ sensor:
       - rainsensor
 ```
 
-Configuration variables:
-
-- **monitored_conditions**: Currently only rainsensor is supported. Returns the sensor level.
+{% configuration %}
+monitored_conditions:
+  description: Conditions to be monitored. 
+  keys:
+    rainsensor:
+      description: Returns the sensor level.
+{% endconfiguration %}
 
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).

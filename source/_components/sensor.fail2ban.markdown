@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Network
 ha_iot_class: "Local Polling"
 logo: fail2ban.png
 ha_release: 0.57
@@ -19,6 +19,8 @@ The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.o
 <p class='note'>
 Your system must have `fail2ban` installed and correctly configured for this sensor to work. In addition, Home Assistant must be able to read the `fail2ban` log file.
 </p>
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -162,7 +164,7 @@ Once that's added to the nginx configuration, we need to modify the Home Assista
 
 ```yaml
 http:
-  use_x_forwarded_for: True
+  use_x_forwarded_for: true
 ```
 
 At this point, once the Let's Encrypt and Home Assistant dockers are restarted, Home Assistant should be correctly logging the originating IP of any failed login attempt.  Once that's done and verified, we can move onto the final step.

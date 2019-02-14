@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 In addition to the [APCUPSd Sensor](/components/sensor.apcupsd/) devices, you may also create a device which is simply "on" when the UPS status is online and "off" at all other times.
 
+## {% linkable_title Configuration %}
+
 To enable this sensor, you first have to set up [apcupsd](/components/apcupsd/), and add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -23,6 +25,10 @@ binary_sensor:
   - platform: apcupsd
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name to use in the front end.
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+  default: UPS Online Status
+{% endconfiguration %}

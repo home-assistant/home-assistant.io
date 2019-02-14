@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Fuel
+ha_category: Car
 ha_release: 0.72
 ha_iot_class: "Cloud Polling"
 ---

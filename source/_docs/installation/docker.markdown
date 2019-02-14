@@ -10,22 +10,25 @@ footer: true
 redirect_from: /getting-started/installation-docker/
 ---
 
-Installation with Docker is straightforward. Adjust the following command so that `/path/to/your/config/` points at the folder where you want to store your configuration and run it:
+Installation with Docker is straightforward. Adjust the following command so that `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it:
 
 ### {% linkable_title Linux %}
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
 ### {% linkable_title Raspberry Pi 3 (Raspbian) %}
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant:0.XX.x
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
 ```
 
-The Docker container for Raspberry Pi 3 does not have a 'latest' tag so the version number must be specified explicitly, i.e. 0.68.0. This goes for both CLI and Docker Compose.
-
+You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration, for example if you choose your configuration path to be `/home/pi/homeassistant`, then command would be:
+ 
+```bash
+$ docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+```
 
 ### {% linkable_title macOS %}
 
@@ -34,12 +37,16 @@ When using `docker-ce` (or `boot2docker`) on macOS, you are unable to map the lo
 If you wish to browse directly to `http://localhost:8123` from your macOS host, meaning forward ports directly to the container, replace the `--net=host` switch with `-p 8123:8123`. More detail can be found in [the docker forums](https://forums.docker.com/t/should-docker-run-net-host-work/14215/10).
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" -p 8123:8123 homeassistant/home-assistant
 ```
 
 Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
 ### {% linkable_title Windows %}
+
+```powershell
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=America/Los_Angeles" --net=host homeassistant/home-assistant
+```
 
 When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
 ```
@@ -56,14 +63,14 @@ As Synology within DSM now supports Docker (with a neat UI), you can simply inst
 The steps would be:
 * Install "Docker" package on your Synology NAS
 * Launch Docker-app and move to "Registry"-section
-* Find "homeassistant/home-assistant" with registry and click on "Download"
+* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will make version updates easier later on.
 * Wait for some time until your NAS has pulled the image
 * Move to the "Image"-section of the Docker-app
 * Click on "Launch"
 * Choose a container-name you want (e.g., "homeassistant")
 * Click on "Advanced Settings"
 * Set "Enable auto-restart" if you like
-* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount point" has to be "/config", so that Home Assistant will use it for the configs and logs.
+* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs.
 * Within "Network" select "Use same network as Docker Host"
 * To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 * Confirm the "Advanced Settings"
@@ -71,9 +78,9 @@ The steps would be:
 * Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
-* Go to the Docker-app and move to "Image"-section
-* Download the "homeassistant/home-assistant" image - don't care, that it is already there
-* wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
+* Go to the Docker-app and move to "Registry"-section
+* Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will overwrite your current image to the latest version.
+* Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 * Move to "Container"-section
 * Stop your container if it's running
 * Right-click on it and select "Action"->"Clear". You won't lose any data, as all files are stored in your config-directory
@@ -168,7 +175,7 @@ As the docker command becomes more complex, switching to `docker-compose` can be
       container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
-        - /path/to/your/config:/config
+        - /PATH_TO_YOUR_CONFIG:/config
         - /etc/localtime:/etc/localtime:ro
       restart: always
       network_mode: host
@@ -180,12 +187,18 @@ Then start the container with:
 $ docker-compose up -d
 ```
 
-### {% linkable_title Exposing Devices %}
-
-In order to use Z-Wave, ZigBbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+To restart Home Assistant when you have changed configuration:
 
 ```bash
-$ docker run -d --name="home-assistant" -v /path/to/your/config:/config \
+$ docker-compose restart
+```
+
+### {% linkable_title Exposing Devices %}
+
+In order to use Z-Wave, Zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+
+```bash
+$ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
    -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 \
    --net=host homeassistant/home-assistant
 ```
@@ -199,7 +212,7 @@ or in a `docker-compose.yml` file:
       container_name: home-assistant
       image: homeassistant/home-assistant
       volumes:
-        - /path/to/your/config:/config
+        - /PATH_TO_YOUR_CONFIG:/config
         - /etc/localtime:/etc/localtime:ro
       devices:
         - /dev/ttyUSB0:/dev/ttyUSB0

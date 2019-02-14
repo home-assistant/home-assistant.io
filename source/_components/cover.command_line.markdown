@@ -28,20 +28,50 @@ cover:
         command_stop: move_command stop garage
 ```
 
-Configuration variables:
-
-- **covers** (*Required*): The array that contains all command line covers.
-  - **identifier** (*Required*): Name of the command line cover as slug. Multiple entries are possible.
-    - **command_open** (*Required*): The command to open the cover.
-    - **command_close** (*Required*): The action to close the cover.
-    - **command_stop** (*Required*): The action to stop the cover.
-    - **command_state** (*Optional*): If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
-    - **value_template** (*optional - default: '{% raw %}{{ value }}{% endraw%}'*): if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example config above will allow you to translate that into the valid state `100`.
-    - **friendly_name** (*Optional*): The name used to display the cover in the frontend.
+{% configuration %}
+covers:
+  description: The array that contains all command line covers.
+  required: true
+  type: list
+  keys:
+    identifier:
+      description: Name of the command line cover as slug. Multiple entries are possible.
+      required: true
+      type: list
+      keys:
+        command_open:
+          description: The command to open the cover.
+          required: true
+          default: true
+          type: string
+        command_close:
+          description: The action to close the cover.
+          required: true
+          default: true
+          type: string
+        command_stop:
+          description: The action to stop the cover.
+          required: true
+          default: true
+          type: string
+        command_state:
+          description: If given, this will act as a sensor that runs in the background and updates the state of the cover. If the command returns a `0` the indicates the cover is fully closed, whereas a 100 indicates the cover is fully open.
+          required: false
+          type: string
+        value_template:
+          description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example config above will allow you to translate that into the valid state `100`.
+          required: false
+          default: "'{% raw %}{{ value }}{% endraw%}'"
+          type: template
+        friendly_name:
+          description: The name used to display the cover in the frontend.
+          required: false
+          type: string
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Full configuration %}
 

@@ -56,7 +56,7 @@ Initiation will show you two different values:
 Finally, at this point a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-$ pyvizio --ip={ip} pair_finish --token={challenge_token} --pin={tv_pin}
+$ pyvizio --ip={ip} pair-finish --token={challenge_token} --pin={tv_pin}
 ```
 
 You will need the authentication token returned by this command to configure Home Assistant.
@@ -73,10 +73,21 @@ media_player:
     access_token: AUTH_TOKEN
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of your TV.
-- **access_token** (*Required*): Authentication token you received in the last step of the pairing process.
+{% configuration %}
+host:
+  description: IP address of your TV.
+  required: true
+  type: string
+access_token:
+  description: Authentication token you received in the last step of the pairing process.
+  required: true
+  type: string
+suppress_warning:
+  description: Set to `true` to disable self-signed certificate warnings.
+  required: false
+  default: false
+  type: string
+{% endconfiguration %}
 
 ## Notes and limitations
 
@@ -91,13 +102,3 @@ Changing tracks works like channels switching. If you have source other than reg
 ### Sources
 
 Source list shows all external devices connected to the TV through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).
-
-<p class='note'>
-Vizio SmartCast service is accessible through HTTPS with self-signed certificate. If you have low LOGLEVEL in your Home Assistant configuration, you'll see a lot of warnings like this:
-`InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised.`
-
-You can adjust the log level for `media_player` components with the [logger](/components/logger/) component, or if you need to keep a low log level for `media_player` you could proxy calls to your TV through an NGINX reverse proxy.
-
-If you want to only ignore only this specific [python urllib3 SSL warning](https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings), you will need to run Home Assistant with the python flag `-W` or the environment variable `PYTHONWARNINGS` set to:
-`ignore:Unverified HTTPS request is being made`
-</p>

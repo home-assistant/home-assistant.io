@@ -12,7 +12,7 @@ redirect_from: /ecosystem/appdaemon/tutorial/
 
 ## {% linkable_title Another Take on Automation %}
 
-If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a lightswitch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation in bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
+If you haven't yet read Paulus' excellent Blog entry on [Perfect Home Automation](/blog/2016/01/19/perfect-home-automation/) I would encourage you to take a look. As a veteran of several Home Automation systems with varying degrees success, it was this article more than anything else that convinced me that Home Assistant had the right philosophy behind it and was on the right track. One of the most important points made is that being able to control your lights from your phone, 9 times out of 10 is harder than using a light switch - where Home Automation really comes into its own is when you start removing the need to use a phone or the switch - the "Automation" in Home Automation. A surprisingly large number of systems out there miss this essential point and have limited abilities to automate anything which is why a robust and open system such as Home Assistant is such an important part of the equation in bring this all together in the vast and chaotic ecosystem that is the "Internet of Things".
 
 So given the importance of Automation, what should Automation allow us to do? I am a pragmatist at heart so I judge individual systems by the ease of accomplishing a few basic but representative tasks:
 
@@ -82,7 +82,7 @@ This is also fairly easy to achieve with Home Assistant automations, but we are 
 
 ### Motion Light
 
-Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the `initialize()` function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell AppDaemon that we are only interested in state changesd where the motion detector comes on by adding an additional parameter to the callback registration - `new = "on"`. When the motion is detected, the callack function `motion()` is called, and we check whether or not the sun has set using a built-in convenience function: `sun_down()`. Next, we turn the light on with `turn_on()`, then set a timer using `run_in()` to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in `AppDaemon` calling `light_off()` 60 seconds later using the `turn_off()` call to actually turn the light off. This is still pretty simple in code terms:
+Our next example is to turn on a light when motion is detected and it is dark, and turn it off after a period of time. This time, the `initialize()` function registers a callback on a state change (of the motion sensor) rather than a specific time. We tell AppDaemon that we are only interested in state changesd where the motion detector comes on by adding an additional parameter to the callback registration - `new = "on"`. When the motion is detected, the callback function `motion()` is called, and we check whether or not the sun has set using a built-in convenience function: `sun_down()`. Next, we turn the light on with `turn_on()`, then set a timer using `run_in()` to turn the light off after 60 seconds, which is another call to the scheduler to execute in a set time from now, which results in `AppDaemon` calling `light_off()` 60 seconds later using the `turn_off()` call to actually turn the light off. This is still pretty simple in code terms:
 
 ```python
 import appdaemon.appapi as appapi
@@ -132,9 +132,9 @@ class MotionLights(appapi.AppDaemon):
 
 Of course if I wanted to make this App or its predecessor reusable I would have provide parameters for the sensor, the light to activate on motion, the warning light and even the number of flashes and delay between flashes.
 
-In addition, Apps can write to `AppDaemon`'s logfiles, and there is a system of constraints that allows yout to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.
+In addition, Apps can write to `AppDaemon`'s logfiles, and there is a system of constraints that allows you to control when and under what circumstances Apps and callbacks are active to keep the logic clean and simple.
 
-I have spent the last few weeks moving all of my (fairly complex) automations over to `APPDaemon` and so far it is working very reliably.
+I have spent the last few weeks moving all of my (fairly complex) automations over to `AppDaemon` and so far it is working very reliably.
 
 Some people will maybe look at all of this and say "what use is this, I can already do all of this", and that is fine, as I said this is an alternative not a replacement, but I am hopeful that for some users this will seem a more natural, powerful and nimble way of building potentially very complex automations.
 

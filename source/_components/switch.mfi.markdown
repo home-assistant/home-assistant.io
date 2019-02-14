@@ -12,7 +12,6 @@ ha_category: Switch
 ha_iot_class: "Local Polling"
 ---
 
-
 The `mfi` switch platform to allow you to control [mFi Controllable Power Outlets](https://www.ubnt.com/mfi/mpower/).
 
 ## {% linkable_title Configuration %}
@@ -28,11 +27,32 @@ switch:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address or hostname of your mFi controller.
-- **port** (*Optional*): The port of your mFi controller. Defaults to 6443.
-- **username** (*Required*): The mFi admin username.
-- **password** (*Required*): The mFi admin user's password.
-- **ssl** (*Optional*): If `True`, use SSL/TLS to contact the mFi controller. Defaults to `True`.
-- **verify_ssl** (*Optional*): Set this to `False` if your mFi controller has a self-signed certificate. Defaults to `True`.
+{% configuration %}
+host:
+  description: The IP address or hostname of your mFi controller.
+  required: true
+  type: string
+port:
+  description: The port of your mFi controller.
+  required: false
+  default: 6443
+  type: integer
+username:
+  description: The mFi admin username.
+  required: true
+  type: string
+password:
+  description: The mFi admin password.
+  required: true
+  type: string
+ssl:
+  description: If `true`, use SSL/TLS to contact the mFi controller.
+  required: false
+  default: true
+  type: boolean
+verify_ssl:
+  description: Set this to `false` if your mFi controller has a self-signed certificate.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}

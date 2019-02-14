@@ -12,9 +12,7 @@ ha_category: Sensor
 ha_iot_class: "Local Polling"
 ---
 
-
 The `tellstick` sensor platform allows you to get current meteorological data from a [TellStick](http://www.telldus.se/products/tellstick) device.
-
 
 To use your TellStick device, you first have to set up your [Tellstick hub](/components/tellstick/) and then add the following to your `configuration.yaml` file:
 
@@ -24,16 +22,31 @@ sensor:
   - platform: tellstick
 ```
 
-Configuration variables:
-
-- **ID: Name** (*Optional*): Entry for a sensor with the name for it and its ID.
-- **only_named** (*Optional*): Only show the named sensors. Set to `True` to hide sensors.
-- **temperature_scale** (*Optional*): The scale of the temperature value.
-- **datatype_mask** (*Optional*): Mask to determine which sensor values to show based on. Please check the [TellCore tellcore.constants documentation](https://tellcore-py.readthedocs.org/en/v1.1.2/constants.html#module-tellcore.constants) for details.
+{% configuration %}
+sensor:
+  description: "Entry for a sensor with the ID and its name, e.g., ID: Name."
+  required: false
+  type: string
+only_named:
+  description: Only show the named sensors. Set to `true` to hide sensors.
+  required: false
+  default: false
+  type: boolean
+temperature_scale:
+  description: The scale of the temperature value.
+  required: false
+  default: °C
+  type: string
+datatype_mask:
+  description: Mask to determine which sensor values to show based on. Please check the [TellCore tellcore.constants documentation](https://tellcore-py.readthedocs.org/en/v1.1.2/constants.html#module-tellcore.constants) for details.
+  required: false
+  default: 127
+  type: integer
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Full configuration %}
 
@@ -43,7 +56,7 @@ sensor:
   - platform: tellstick
     135: Outside
     21: Inside
-    only_named: True
+    only_named: true
     temperature_scale: "°C"
     datatype_mask: 1
 ```

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: namecheap.png
-ha_category: Utility
+ha_category: Network
 featured: false
 ha_release: 0.56
 ---
@@ -18,6 +18,8 @@ With the `namecheapdns` component you can automatically update your dynamic DNS 
 <p class='note warning'>
 Namecheap only supports IPv4 addresses to update.
 </p>
+
+## {% linkable_title Configuration %}
 
 To use the component in your installation, add the following to your `configuration.yaml` file:
 

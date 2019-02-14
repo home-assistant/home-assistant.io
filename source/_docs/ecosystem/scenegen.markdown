@@ -10,7 +10,7 @@ footer: true
 redirect_from: /ecosystem/scenegen/
 ---
 
-Scenegen is a scene generation tool for [Home Assistant](/) home automation software. It creates scenes by example, by reading the current states of devices and outputting a corresponding scene. Scenegen is written in python using Home Assistant's RESTFul API so can be run from anywhere. It currently supports lights and switches only.
+Scenegen is a scene generation tool for [Home Assistant](/) home automation software. It creates scenes by example, by reading the current states of devices and outputting a corresponding scene. Scenegen is written in python using Home Assistant's RESTful API so can be run from anywhere. It currently supports lights and switches only.
 
 ## {% linkable_title Installation %}
 
@@ -86,7 +86,7 @@ entities:
     brightness: 28
 ```
 
-This output can be cut and pasted into your configuration.yaml file as required (ensuring correct indentatation of course).
+This output can be cut and pasted into your configuration.yaml file as required (ensuring correct indentation of course).
 
 Scenegen supports all documented effects for lights including transitions and flash effects, however generally it is easier to run scenegen to get the basic setup and add any effects manually later.
 

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: goalfeed.png
 ha_category: Other
-ha_version: 0.63
+ha_release: 0.63
 ---
 
 The `goalfeed` component lets you use your Goalfeed account to trigger events in Home Assistant whenever a NHL or MLB team scores. 

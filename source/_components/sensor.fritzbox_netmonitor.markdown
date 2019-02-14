@@ -13,12 +13,12 @@ ha_release: 0.36
 ha_iot_class: "Local Polling"
 ---
 
-
 The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers.
 
 <p class='note warning'>
 It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
-If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code> pip install lxml</code>; be patient this will take a while.</p>
+If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code> pip3 install lxml</code>; be patient this will take a while.
+</p>
 
 To use the Fritz!Box network monitor in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,9 +28,18 @@ sensor:
   - platform: fritzbox_netmonitor
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+{% configuration %}
+host:
+  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+  required: false
+  default: 169.254.1.1
+  type: string
+name:
+  description: Give the sensor a friendly name for in the front-end.
+  required: false
+  default: fritz_netmonitor
+  type: string
+{% endconfiguration %}
 
 The following statistics will be exposed as attributes.
 
@@ -49,3 +58,7 @@ The following statistics will be exposed as attributes.
 |max_byte_rate_down     |Maximum downstream-rate in bytes/s                           |
 
 The sensor's state corresponds to the `is_linked` attribute and is either `online`, `offline`, or `unavailable` (in case connection to the router is lost).
+
+<p class='note info'>
+This component does not support "Fritz!Box 6490 Cable" with FritzOS 6.87 installed.
+</p>

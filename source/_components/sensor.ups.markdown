@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: ups.png
-ha_category: Sensor
+ha_category: Postal Service
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
 The `ups` platform allows one to track deliveries by the [UPS](https://www.ups.com/). To use this sensor, you need a [My UPS Account](https://www.ups.com/mychoice).
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -45,4 +47,8 @@ Configuration options for the UPS Sensor:
 
 <p class='note warning'>
 The UPS sensor logs into the UPS My Choice website to scrape package data. It does not use an API. Use at your own risk.
+</p>
+
+<p class='note info'>
+If the UPS sensor is throwing an error about not being able to login to the UPS My Choice website, it's likely because there is a new UPS Technology Agreement (UTA) preventing the scraper from accessing the package data. Login to UPS My Choice manually and accept the UTA to resolve this.
 </p>

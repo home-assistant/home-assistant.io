@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Binary Sensor
+ha_category: DIY
 ha_release: 0.45
 ha_iot_class: "Local Push"
 ---
 
 The `rpi_pfio` binary sensor platform allows you to read sensor values of the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) .
+
+## {% linkable_title Configuration %}
 
 To use your PiFace Digital I/O module in your installation, add the following to your `configuration.yaml` file:
 
@@ -30,11 +32,29 @@ binary_sensor:
         settle_time: 50
 ```
 
-Configuration variables:
-
-- **ports** array (*Required*): Array of used ports.
-  - **num** (*Required*): Port number.
-    - **name** (*Required*): Port name.
-    - **settle_time** (*Optional*): The time in milliseconds for port debouncing. Default is 2 0ms.
-    - **invert_logic** (*Optional*): If true, inverts the output logic to ACTIVE LOW. Default is false (ACTIVE HIGH).
-
+{% configuration %}
+ports:
+  description: List of used ports.
+  required: true
+  type: map
+  keys:
+    num:
+      description: The port number.
+      required: true
+      type: map
+      keys:
+        name:
+          description: The port name.
+          required: true
+          type: string
+        settle_time:
+          description: The time in milliseconds for port debouncing.
+          required: false
+          type: integer
+          default: 20
+        invert_logic:
+          description: If `true`, inverts the output logic to ACTIVE LOW.
+          required: false
+          type: boolean
+          default: "`false` (ACTIVE HIGH)"
+{% endconfiguration %}

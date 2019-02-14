@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Front end
 ha_release: 0.25
+ha_qa_scale: internal
 ---
 
 
@@ -54,8 +55,9 @@ panel_iframe:
             required: true
             type: string
           icon:
-            description: Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
+            description: Icon for entry.
             required: false
-            type: string
+            type: icon
 {% endconfiguration %}
 
+<p class='note warning'>Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.</p>

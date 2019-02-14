@@ -26,9 +26,30 @@ notify:
     resource: https://example.your.synology.com/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=1&token=ABCDEFG
 ```
 
-Configuration variables:
-
-- **name** (*Required*): Setting the  parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **resource** (*Required*): The incoming webhook URL.
+{% configuration %}
+name:
+  description: "Setting the  parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  required: true
+  type: string
+verify_ssl:
+  description: If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.).
+  required: false
+  type: boolean
+  default: true
+resource:
+  description: The incoming webhook URL.
+  required: true
+  type: string
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+A full example of a service call:
+
+```json
+{"message": "This is a test message", 
+ "data":{
+     "file_url":"https://example.com/wp-content/uploads/sites/14/2011/01/cat.jpg"
+     }
+ }
+```

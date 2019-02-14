@@ -45,7 +45,7 @@ sensor:
     default: false
     type: string
   language:
-    description: The language in which you want text results to be returned. It's a two-characters string, eg. `en`, `es`, `ru`, `it`, etc.
+    description: The language in which you want text results to be returned. It's a two-characters string, e.g., `en`, `es`, `ru`, `it`, etc.
     required: false
     default: en
     type: string
@@ -72,6 +72,8 @@ sensor:
         description: The rain volume.
       snow:
         description: The snow volume.
+      weather_code:
+        description: The current weather condition code.
 {% endconfiguration %}
 
 Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).

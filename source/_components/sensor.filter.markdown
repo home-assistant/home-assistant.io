@@ -7,10 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Utility
 ha_release: 0.65
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `filter` platform enables sensors that process the states of other entities.
@@ -21,8 +22,9 @@ The `filter` platform enables sensors that process the states of other entities.
   <img src='{{site_root}}/images/screenshots/filter-sensor.png' />
 </p>
 
-To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
+## {% linkable_title Configuration %}
 
+To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +70,7 @@ filters:
   type: list
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are `lowpass`, `outlier`, `throttle` and `time_simple_moving_average`.
+      description: Algorithm to be used to filter data. Available filters are  `lowpass`, `outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
       required: true
       type: string
     window_size:
@@ -79,12 +81,12 @@ filters:
     precision:
       description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
       required: false
-      type: int
+      type: integer
       default: None
     time_constant: 
       description: See [_lowpass_](#low-pass) filter. Loosely relates to the amount of time it takes for a state to influence the output.
       required: false
-      type: int
+      type: integer
       default: 10
     radius: 
       description: See [_outlier_](#outlier) filter. Band radius from median of previous states.
@@ -96,6 +98,16 @@ filters:
       required: false
       type: string
       default: last
+    lower_bound: 
+      description: See [_range_](#range) filter. Lower bound for filter range.
+      required: false
+      type: float
+      default: negative infinity
+    upper_bound: 
+      description: See [_range_](#range) filter. Upper bound for filter range.
+      required: false
+      type: float
+      default: positive infinity
 {% endconfiguration %}
 
 ## {% linkable_title Filters %}
@@ -137,6 +149,14 @@ To adjust the rate you need to set the window_size. To throttle a sensor down to
 
 This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes. 
 
+### {% linkable_title Time Throttle %}
+
+The Time Throttle filter (`time_throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
+
+To adjust the rate you need to set the window_size. To throttle a sensor down to 1 value per minute, the `window_size` should be set to 00:01.
+
+This filter is relevant when you have a sensor which produces states at a very high inconstant rate, which you might want to throttle down to some constant rate for storing or visualization purposes. 
+
 ### {% linkable_title Time Simple Moving Average %}
 
 The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algorithms for Unevenly Spaced Time Series: Moving Averages and Other Rolling Operators](http://www.eckner.com/papers/Algorithms%20for%20Unevenly%20Spaced%20Time%20Series.pdf) by Andreas Eckner. 
@@ -144,3 +164,19 @@ The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algori
 The paper defines three types/versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
 
 Theta, as described in the paper, is the `window_size` parameter, and can be expressed using time notation (e.g., 00:05 for a five minutes time window).
+
+### {% linkable_title Range %}
+
+
+The Range filter (`range`) restricts incoming data to a range specified by a lower and upper bound.
+
+All values greater then the upper bound are replaced by the upper bound and all values lower than the lower bound are replaced by the lower bound.
+Per default there are neither upper nor lower bound.
+
+```python
+if new_state > upper_bound:
+    upper_bound
+if new_state < lower_bound:
+    lower_bound
+new_state
+```

@@ -10,6 +10,7 @@ footer: true
 ha_category: Automation
 ha_release: 0.21
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night.
@@ -33,20 +34,63 @@ switch:
       - light.lamp
 ```
 
-Configuration variables:
-
-- **lights** (*Required*) array: List of light entities.
-- **name** (*Optional*): The name to use when displaying this switch.
-- **start_time** (*Optional*): The start time. Default to sunrise.
-- **stop_time** (*Optional*): The stop time. Defaults to dusk.
-- **start_colortemp** (*Optional*): The color temperature at the start. Defaults to `4000`.
-- **sunset_colortemp** (*Optional*): The sun set color temperature. Defaults to `3000`.
-- **stop_colortemp** (*Optional*): The color temperature at the end. Defaults to `1900`.
-- **brightness** (*Optional*): The brightness of the lights. Calculated with `RGB_to_xy` by default.
-- **disable_brightness_adjust** (*Optional*): If true, brightness will not be adjusted besides color temperature. Defaults to False.
-- **mode** (*Optional*): Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`. Defaults to `xy`.
-- **transition** (*Optional*): Transition time for the light changes (high values may not be supported by all light models). Defaults to 30.
-- **interval** (*Optional*): Frequency at which the lights should be updated. Defaults to 30.
+{% configuration %}
+lights:
+  description: array list of light entities.
+  required: true
+  type: list
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  default: Flux
+  type: string
+start_time:
+  description: The start time.
+  required: false
+  type: time
+stop_time:
+  description: The stop time.
+  required: false
+  type: time
+start_colortemp:
+  description: The color temperature at the start.
+  required: false
+  default: 4000
+  type: integer
+sunset_colortemp:
+  description: The sun set color temperature.
+  required: false
+  default: 3000
+  type: integer
+stop_colortemp:
+  description: The color temperature at the end.
+  required: false
+  default: 1900
+  type: integer
+brightness:
+  description: The brightness of the lights.
+  required: false
+  type: integer
+disable_brightness_adjust:
+  description: If true, brightness will not be adjusted besides color temperature.
+  required: false
+  type: boolean
+mode:
+  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
+  required: false
+  default: xy
+  type: string
+transition:
+  description: Transition time in seconds for the light changes (high values may not be supported by all light models).
+  required: false
+  default: 30
+  type: integer
+interval:
+  description: Frequency in seconds at which the lights should be updated.
+  required: false
+  default: 30
+  type: integer
+{% endconfiguration %}
 
 Full example:
 
@@ -64,9 +108,8 @@ switch:
     sunset_colortemp: 3000
     stop_colortemp: 1900
     brightness: 200
-    disable_brightness_adjust: True
+    disable_brightness_adjust: true
     mode: xy
     transition: 30
     interval: 60
 ```
-

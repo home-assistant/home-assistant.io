@@ -8,17 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.48
 ha_iot_class: "Local Push"
 ---
-
 
 The `bme280` sensor platform allows you to read temperature, humidity and pressure values of a [Bosch BME280 Environmental sensor](https://cdn-shop.adafruit.com/datasheets/BST-BME280_DS001-10.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet.
 
 Tested devices:
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
+
+## {% linkable_title Configuration %}
 
 To use your BME280 sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,19 +29,63 @@ sensor:
   - platform: bme280
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the sensor
-- **i2c_address** (*Optional*): I2c address of the sensor. It is 0x76 or 0x77.
-- **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
-- **operation_mode** (*Optional*): Power mode for the sensor. Use 2 for forced mode or 3 for normal mode. Defaults to normal mode.
-- **time_standby** (*Optional*): Standby time in ms for normal mode of operation as described in the sensor datasheet. Defaults to 5 ms.
-- **oversampling_temperature** (*Optional*): Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16. Default is 1.
-- **oversampling_pressure** (*Optional*): Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16. Default is 1.
-- **oversampling_humidity** (*Optional*): Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16. Default is 1.
-- **filter_mode** (*Optional*): IIR filter coeficient as described in the sensor datasheet. Default is 0, for filter off.
-- **delta_temperature** (*Optional*): Absolute delta for temperature correction.
-- **monitored_conditions** array  (*Optional*): Conditions to monitor. Available conditions are *temperature*, *humidity* and *pressure*. By default all three are displayed.
+{% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  default: BME280 Sensor
+  type: string
+i2c_address:
+  description: I2c address of the sensor. It is 0x76 or 0x77.
+  required: false
+  default: 0x76
+  type: string
+i2c_bus:
+  description: I2c bus where the sensor is.
+  required: false
+  default: 1, for Raspberry Pi 2 and 3.
+  type: integer
+operation_mode:
+  description: Power mode for the sensor. Use 2 for forced mode or 3 for normal mode.
+  required: false
+  default: 3
+  type: integer
+time_standby:
+  description: Standby time in ms for normal mode of operation as described in the sensor datasheet.
+  required: false
+  default: 5
+  type: integer
+oversampling_temperature:
+  description: Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16.
+  required: false
+  default: 1
+  type: integer
+oversampling_pressure:
+  description: Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16.
+  required: false
+  default: 1
+  type: integer
+oversampling_humidity:
+  description: Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16.
+  required: false
+  default: 1
+  type: integer
+filter_mode:
+  description: IIR filter coeficient as described in the sensor datasheet.
+  required: false
+  default: 0
+  type: integer
+delta_temperature:
+  description: Absolute delta for temperature correction.
+  required: false
+  default: 0
+  type: float
+monitored_conditions:
+  description: Conditions to monitor. Available conditions are *temperature*, *humidity* and *pressure*.
+  required: false
+  default: All three conditions
+  type: list
+{% endconfiguration %}
 
 ## {% linkable_title Full Examples %}
 

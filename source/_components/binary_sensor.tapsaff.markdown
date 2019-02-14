@@ -14,8 +14,9 @@ ha_release: 0.47
 ha_iot_class: "Local Polling"
 ---
 
+The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](http://www.taps-aff.co.uk).
 
-The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](http://www.taps-aff.co.uk). 
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -26,7 +27,14 @@ binary_sensor:
     location: glasgow
 ```
 
-Configuration variables:
-
-- **location** (*Required*): The location for the Taps Aff. It must be configured with a UK postcode or city to work. 
-- **name** (*Optional*): The name to use when displaying this sensor.
+{% configuration %}
+location:
+  description: The location for the Taps Aff. It must be configured with a UK postcode or city to work.
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this sensor.
+  required: false
+  type: string
+  default: Taps Aff
+{% endconfiguration %}

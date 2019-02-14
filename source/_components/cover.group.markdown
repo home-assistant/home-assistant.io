@@ -11,6 +11,7 @@ ha_category: Cover
 ha_release: 0.66
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `group` platform can create a cover that combines several cover entities into one.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installing Hass.io"
-description: "Instructions on how-to install Hass.io."
+description: "Instructions on how to install Hass.io."
 date: 2017-04-30 13:28
 sidebar: true
 comments: false
@@ -9,52 +9,66 @@ sharing: true
 footer: true
 ---
 
-Hass.io images are available for all available Raspberry Pi and Intel NUC platforms.
+The following will take you through the steps required to install Hass.io.
 
-<p class='note warning'>
-  The recently released Raspberry Pi 3 model B+ is not yet supported.
-</p>
+1. Download the appropriate install option:
 
-- Download the appropriate image for your Raspberry Pi / Intel NUC:
-  - [Raspberry Pi / Zero][pi1]
-  - [Raspberry Pi 2][pi2]
-  - [Raspberry Pi 3][pi3]
-  - [Intel NUC][nuc]
-
-<p class='note'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable since some are designed to only provide the full power with that manufacturer's handsets.
-</p>
-
-- Flash the downloaded image to an SD card using [Etcher].
-
-<p class='note warning'>
-  There is an [issue in the Etcher flashing process on Mac OS High Sierra](https://github.com/resin-io/etcher/issues/1908).
-  There is an easy workaround, just uncompress the image first.
+   - As an image for your device:
   
-  ```bash
-  $ bunzip2 -c resinos-hassio-1.3-raspberrypi3.img.bz2 > image.img
-  ``` 
-</p>
+     - [Raspberry Pi Zero][pi1]
+     - [Raspberry Pi Zero W][pi0-w]
+     - [Raspberry Pi 1 Model B][pi1]
+     - [Raspberry Pi 2 Model B][pi2]
+     - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
+     - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
+     - [Tinkerboard][tinker]
+     - [Odroid-C2][odroid-c2]
+     - [Odroid-XU4][odroid-xu4]
+     - [OrangePi-Prime][opi-prime]
+     - [Intel-Nuc][intel-nuc]
+    
+   - As a virtual appliance: 
+  
+     - [VMDK][vmdk] (VMWare Workstation)
+     - [VHDX][vhdx]
+     - [VDI][vdi]
+     - [OVA][Virtual Appliance] (not available at this time!)
+    
+2. Install Hass.io:
 
-- Optional - Setup the WiFi or static IP: On the SD-card, edit the `system-connections/resin-sample` file and follow the [ResinOS howto][resinos-network].
-- Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).
+   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. We recommend at least a 32 GB SD card to avoid running out of space.
+   - Load the appliance image into your virtual machine software.
 
-<img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
+3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
 
-- You will be able to reach your installation at [http://hassio.local:8123][local].
-- Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
+4. For image-based installs insert the SD card (and optional USB stick) into the device.
+
+5. Turn on your device or virtual appliance. On first boot, it downloads the latest version of Home Assistant which takes around 20 minutes (slower/faster depending on the platform and your Internet connection).
+
+   <img src='/images/hassio/screenshots/first-start.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='150' />
+
+6. You will be able to reach your installation at [http://hassio.local:8123][local] (if your router supports mDNS, otherwise see below).
+
+7. Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
 
 <p class='note'>
-If your router doesn't support mDNS then you'll have to use the IP address of your Pi, instead of `hassio.local`, for example `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
+If your router doesn't support mDNS, then you'll have to use the IP address of your Pi instead of `hassio.local`. For example, `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
 </p>
 
-<p class='note'>
+<p class='note warning'>
+If you are using a Raspberry Pi please remember to ensure you're using an [appropriate power supply][pi-power] with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer. **Do not** try to power the Pi from the USB port on a TV, computer, or similar.
+</p>
+
+Now you can [configure][configure] your install.
+
+### {% linkable_title Migrating from a non-Hass.io install %}
+
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
-</p>
 
 ## {% linkable_title Alternative: install on generic Linux server %}
 
 For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
+Examples given here are tested on Ubuntu, but the instructions should work as a guideline for installing on other Linux distrubutions.
 
 This is the list of packages you need to have available on your system that will run Hass.io if you are using Debian/Ubuntu:
 
@@ -69,25 +83,55 @@ This is the list of packages you need to have available on your system that will
  - socat
  - software-properties-common
 
-To perform the Hass.io installation, run the following command as root:
+You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
+
+<p class='note warning'>
+  Some distributions, like Ubuntu, have a `docker.io` package available. Using that packages will cause issues!
+  Be sure to install the official Docker-CE from the above listed URL.
+</p>
+
+To perform the Hass.io installation, run the following commands:
 
 ```bash
-$ curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -s
+sudo -i
+
+add-apt-repository universe
+
+apt-get update
+
+apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common
+
+curl -fsSL get.docker.com | sh
+
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install" | bash -s
 ```
 
 <p class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
 </p>
 
-A detailed guide about running Hass.io as a virtual machine is available in the [blog](/blog/2017/11/29/hassio-virtual-machine/).
+A detailed guide about running Hass.io as a virtual machine is available in the [blog][hassio-vm].
 
-[Etcher]: https://etcher.io/
-[resinos-network]: https://docs.resin.io/deployment/network/2.0.0/
-[pi1]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi.img.bz2
-[pi2]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi2.img.bz2
-[pi3]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-raspberrypi3.img.bz2
-[nuc]: https://github.com/home-assistant/hassio-build/releases/download/1.3/resinos-hassio-1.3-intel-nuc.img.bz2
+[balenaEtcher]: https://www.balena.io/etcher
+[Virtual Appliance]: https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/ova.md
+[hassos-network]: https://github.com/home-assistant/hassos/blob/dev/Documentation/network.md
+[pi0-w]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_rpi0-w-2.8.img.gz
+[pi1]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_rpi-2.8.img.gz
+[pi2]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_rpi2-2.8.img.gz
+[pi3-32]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_rpi3-2.8.img.gz
+[pi3-64]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_rpi3-64-2.8.img.gz
+[tinker]: https://github.com/home-assistant/hassos/releases/download/2.9/hassos_tinker-2.9.img.gz
+[odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_odroid-c2-2.8.img.gz
+[odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_odroid-xu4-2.8.img.gz
+[opi-prime]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_opi-prime-2.8.img.gz
+[intel-nuc]: https://github.com/home-assistant/hassos/releases/download/2.8/hassos_intel-nuc-2.8.img.gz
+[vmdk]: https://github.com/home-assistant/hassos/releases/download/2.9/hassos_ova-2.9.vmdk.gz
+[vhdx]: https://github.com/home-assistant/hassos/releases/download/2.9/hassos_ova-2.9.vhdx.gz
+[vdi]: https://github.com/home-assistant/hassos/releases/download/2.9/hassos_ova-2.9.vdi.gz
 [linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
+[pi-power]: https://www.raspberrypi.org/help/faqs/#powerReqs
+[hassio-vm]: /blog/2017/11/29/hassio-virtual-machine/
+[configure]: /getting-started/configuration/

@@ -10,7 +10,7 @@ footer: true
 redirect_from: /topics/splitting_configuration/
 ---
 
-So you've been using Home Assistant for a while now and your [configuration.yaml file brings people to tears](/cookbook/configuration_yaml_from_bassclarinetl2/) or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: humanly readable) pieces.
+So you've been using Home Assistant for a while now and your configuration.yaml file brings people to tears or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: humanly readable) pieces.
 
 First off, several community members have sanitized (read: without api keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/cookbook/#example-configurationyaml).
 
@@ -70,9 +70,9 @@ Now, lets assume that a blank file has been created in the Home Assistant config
 
 ```text
 automation.yaml
-zones.yaml
-sensors.yaml
-switches.yaml
+zone.yaml
+sensor.yaml
+switch.yaml
 device_tracker.yaml
 customize.yaml
 ```
@@ -83,13 +83,13 @@ Inside the base configuration file add the following entries:
 
 ```yaml
 automation: !include automation.yaml
-zone: !include zones.yaml
-sensor: !include sensors.yaml
-switch: !include switches.yaml
+zone: !include zone.yaml
+sensor: !include sensor.yaml
+switch: !include switch.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
-Note that there can only be one `!include:` for each component so chaining them isn't going to work. If that sounds like greek, don't worry about it.
+Note that there can only be one `!include:` for each component so chaining them isn't going to work. If that sounds like Greek, don't worry about it.
 
 Alright, so we've got the single components and the include statements in the base file, what goes in those extra files?
 
@@ -101,7 +101,7 @@ Let's look at the `device_tracker.yaml` file from our example:
   hosts: 192.168.2.0/24
   home_interval: 3
 
-  track_new_devices: yes
+  track_new_devices: true
   interval_seconds: 40
   consider_home: 120
 ```
@@ -111,7 +111,7 @@ This small example illustrates how the "split" files work. In this case, we star
 This (large) sensor configuration gives us another example:
 
 ```yaml
-### sensors.yaml
+### sensor.yaml
 ### METEOBRIDGE #############################################
 - platform: tcp
   name: 'Outdoor Temp (Meteobridge)'

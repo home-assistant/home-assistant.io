@@ -32,7 +32,7 @@ module Jekyll
     # input - a url
     #
     # Returns input with all urls expanded to include the full site url
-    # e.g. /images/awesome.gif => http://example.com/images/awesome.gif
+    # e.g., /images/awesome.gif => http://example.com/images/awesome.gif
     #
     def full_url(input)
       expand_url(input, site_url)
@@ -40,8 +40,8 @@ module Jekyll
 
     # Prepends input with a url fragment
     #
-    # input - An absolute url, e.g. /images/awesome.gif
-    # url   - The fragment to prepend the input, e.g. /blog
+    # input - An absolute url, e.g., /images/awesome.gif
+    # url   - The fragment to prepend the input, e.g., /blog
     #
     # Returns the modified url, e.g /blog
     #

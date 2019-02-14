@@ -12,6 +12,8 @@ redirect_from: /getting-started/scripts-conditions/
 
 Conditions can be used within a script or automation to prevent further execution. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
 
+Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
+
 ### {% linkable_title AND condition %}
 
 Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
@@ -25,10 +27,11 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
-If you do not want to combine AND and OR conditions, you can also just list them sequentially, by default all conditions have to be true. 
+If you do not want to combine AND and OR conditions, you can also just list them sequentially.
+
 The following configuration works the same as the one listed above:
 
 ```yaml
@@ -38,7 +41,7 @@ condition:
     state: 'home'
   - condition: numeric_state
     entity_id: 'sensor.temperature'
-    below: '20'
+    below: 20
 ```
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
@@ -56,10 +59,10 @@ condition:
       state: 'home'
     - condition: numeric_state
       entity_id: 'sensor.temperature'
-      below: '20'
+      below: 20
 ```
 
-### {% linkable_title MIXED  AND and OR conditions %}
+### {% linkable_title MIXED AND and OR conditions %}
 
 Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
 This allows you to mix several AND and OR conditions together.
@@ -78,7 +81,7 @@ condition:
           state: 'rain'
         - condition: numeric_state
           entity_id: 'sensor.temperature'
-          below: '20'
+          below: 20
 ```
 
 ### {% linkable_title Numeric state condition %}
@@ -107,7 +110,7 @@ Tests if an entity is a specified state.
 condition:
   condition: state
   entity_id: device_tracker.paulus
-  state: not_home
+  state: 'not_home'
   # optional: trigger only if state was this for last X time.
   for:
     hours: 1
@@ -126,12 +129,12 @@ condition:
   condition: sun
   after: sunset
   # Optional offset value - in this case it must from -1 hours relative to sunset, or after
-  after_offset: "-1:00:00"
+  after_offset: "-01:00:00"
 ```
 
 ```yaml
 condition:
-    condition: or  # 'when dark' condition: either after sunset or before sunrise
+    condition: or  # 'when dark' condition: either after sunset or before sunrise - equivalent to a state condition on `sun.sun` of `below_horizon`
     conditions:
       - condition: sun
         after: sunset
@@ -139,22 +142,19 @@ condition:
         before: sunrise
 ```
 
-Here is a truth table to clarify the parameters with and without offset:
+```yaml
+condition:
+    condition: and  # 'when light' condition: before sunset and after sunrise - equivalent to a state condition on `sun.sun` of `above_horizon`
+    conditions:
+      - condition: sun
+        before: sunset
+      - condition: sun
+        after: sunrise
+```
 
-| command                            |        night | at sunrise  | daytime | at sunset  |
-| ---------------------------------- | ------------ |:-----------:| ------- |:----------:|
-| `after: sunset`                    | True         |      ⇒      | False   |     ⇒      |
-| + `after_offset: "01:00:00"`       | True         |      ⇒      | False   |  **+1h**   |
-| + `after_offset: "-01:00:00"`      | True         |      ⇒      | False   |  **-1h**   |
-| `before: sunset`                   | False        |      ⇒      | True    |     ⇒      |
-| + `before_offset: "01:00:00"`      | False        |      ⇒      | True    |  **+1h**   |
-| + `before_offset: "-01:00:00"`     | False        |      ⇒      | True    |  **-1h**   |
-| `after: sunrise`                   | False        |      ⇒      | True    |     ⇒      |
-| + `after_offset: "01:00:00"`       | False        |   **+1h**   | True    |     ⇒      |
-| + `after_offset: "-01:00:00"`      | False        |   **-1h**   | True    |     ⇒      |
-| `before: sunrise`                  | True         |      ⇒      | False   |     ⇒      |
-| + `before_offset: "01:00:00"`      | True         |   **+1h**   | False   |     ⇒      |
-| + `before_offset: "-01:00:00"`     | True         |   **-1h**   | False   |     ⇒      |
+A visual timeline is provided below showing an example of when these conditions will be true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions will be true.
+
+<img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
 
 ### {% linkable_title Template condition %}
 
@@ -163,7 +163,7 @@ The template condition will test if the [given template][template] renders a val
 ```yaml
 condition:
   condition: template
-  value_template: '{% raw %}{{ states.device_tracker.iphone.attributes.battery > 50 }}{% endraw %}'
+  value_template: "{% raw %}{{ state_attr('device_tracker.iphone', 'battery') > 50 }}{% endraw %}"
 ```
 
 Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
@@ -189,6 +189,10 @@ condition:
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
+
+<p class='note tip'>
+A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
+</p>
 
 ### {% linkable_title Zone condition %}
 

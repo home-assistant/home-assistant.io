@@ -34,7 +34,7 @@ server {
     ssl_prefer_server_ciphers on;
 
     location / {
-        proxy_pass http://localhost:8123/;
+        proxy_pass http://localhost:8123;
         proxy_set_header Host $host;
 
         proxy_http_version 1.1;
@@ -78,7 +78,7 @@ Start Home Assistant: Now, you have another instance running on http://localhost
 
 To access this instance by using https://countryside.example.org create the file `/etc/nginx/sites-enabled/countryside.example.org` (or symlink via `/etc/nginx/sites-available`) and add the following:
 
-```bash
+```nginx
 server {
     listen       443 ssl;
     server_name  countryside.example.org;
@@ -89,7 +89,7 @@ server {
     ssl_prefer_server_ciphers on;
 
     location / {
-        proxy_pass http://localhost:8124/;
+        proxy_pass http://localhost:8124;
         proxy_set_header Host $host;
     }
 
@@ -109,7 +109,7 @@ server {
 
 Add to your `/etc/nginx/sites-enabled/default`
 
-```bash
+```nginx
 server {
     listen       80 default_server;
     server_name  example.tld;

@@ -12,7 +12,9 @@ ha_category: Text-to-speech
 ha_release: 0.35
 ---
 
-The `google` text-to-speech platform uses [Google Text-to-Speech engine](https://console.developers.google.com/apis/api/speech.googleapis.com/overview) Text-to-Speech engine to read a text with natural sounding voices.
+The `google` text-to-speech platform uses [Google Text-to-Speech engine](https://console.developers.google.com/apis/library/texttospeech.googleapis.com) Text-to-Speech engine to read a text with natural sounding voices.
+
+## {% linkable_title Configuration %}
 
 To enable text-to-speech with Google, add the following lines to your `configuration.yaml`:
 
@@ -22,12 +24,20 @@ tts:
   - platform: google
 ```
 
-Configuration variables:
+{% configuration %}
+language:
+  description: "The language to use."
+  required: false
+  type: string
+  default: "`en`"
+{% endconfiguration %}
 
-- **language** (*Optional*): The language to use. Defaults to `en`.
-  - [Complete list of supported languages](https://cloud.google.com/speech/docs/languages).
+Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
+Use the 2 digit language code which you can find at the end of url when you click on Language name.
 
-A full configuration sample:
+## {% linkable_title Full configuration example %}
+
+A full configuration sample including optional variables:
 
 ```yaml
 # Example configuration.yaml entry

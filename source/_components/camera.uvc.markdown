@@ -21,7 +21,7 @@ The platform connects to the Unifi NVR software and automatically discovers/adds
 
 It is recommended that you create a new user for this platform in the NVR software and only give the user the permissions it need to operate.
 
-- The API key is found in the specific user's `API Access` tab in the NVR software.
+- The API key is found in `User` -> `My account` -> `API Access` in the NVR software.
 - The camera password is found in `Settings` -> `Camera Settings` -> `Camera Password` in the NVR software.
 
 ### {% linkable_title Configuration %}
@@ -44,7 +44,7 @@ nvr:
 port:
   description: The port number to use for accessing the NVR.
   required: false
-  type: int
+  type: integer
   default: 7080
 key:
   description: The API key available from the NVR web interface.
@@ -55,5 +55,14 @@ password:
   required: false
   type: string
   default: ubnt
+ssl:
+  description: Should use SSL/TLS to connect to the NVR.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
+
+<p class='note'>
+When using an API_KEY to access cameras controlled by Ubiquiti's NVR Software, the associated user account MUST have at least Administrator privileges within the NVR Software in order for new cameras to be added into Home Assistant. Once the entities have been created in Home Assistant, privileges for the user account can be lowered.
+</p>
 

@@ -33,17 +33,54 @@ cover:
     travelling_time_up: 61
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): A name for this device used within Home Assistant.
-- **move_long_address**: KNX group address for moving the cover full up or down.
-- **move_short_address** (*Optional*): KNX group address for moving the cover short time up or down. If the KNX device has a stop group address you can use that here.
-- **position_address** (*Optional*): KNX group address for moving the cover to the dedicated position.
-- **position_state_address** (*Optional*): Separate KNX group address for requesting the current position of the cover.
-- **angle_address** (*Optional*): KNX group address for moving the cover to the dedicated angle.
-- **angle_state_address** (*Optional*): Separate KNX group address for requesting the current angle of cover.
-- **travelling_time_down** (*Optional*): Time cover needs to travel down in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.
-- **travelling_time_up** (*Optional*): Time cover needs to travel up in seconds. Needed to calculate the intermediate positions of cover while traveling. Defaults to 25.
-- **invert_position** (*Optional*): Set this to true if your actuator report fully closed as 100%.
-- **invert_angle** (*Optional*): Set this to true if your actuator reports tilt fully closed as 100%.
-
+{% configuration %}
+name:
+  description: A name for this device used within Home Assistant.
+  required: false
+  default: KNX Cover
+  type: string
+move_long_address:
+  description: KNX group address for moving the cover full up or down.
+  required: false
+  type: string
+move_short_address:
+  description: KNX group address for moving the cover short time up or down. If the KNX device has a stop group address you can use that here.
+  required: false
+  type: string
+position_address:
+  description: KNX group address for moving the cover to the dedicated position.
+  required: false
+  type: string
+position_state_address:
+  description: Separate KNX group address for requesting the current position of the cover.
+  required: false
+  type: string
+angle_address:
+  description: KNX group address for moving the cover to the dedicated angle.
+  required: false
+  type: string
+angle_state_address:
+  description: Separate KNX group address for requesting the current angle of cover.
+  required: false
+  type: string
+travelling_time_down:
+  description: Time cover needs to travel down in seconds. Needed to calculate the intermediate positions of cover while traveling.
+  required: false
+  default: 25
+  type: integer
+travelling_time_up:
+  description: Time cover needs to travel up in seconds. Needed to calculate the intermediate positions of cover while traveling.
+  required: false
+  default: 25
+  type: integer
+invert_position:
+  description: Set this to true if your actuator report fully closed as 100%.
+  required: false
+  default: false
+  type: boolean
+invert_angle:
+  description: Set this to true if your actuator reports tilt fully closed as 100%.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}

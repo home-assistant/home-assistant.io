@@ -15,6 +15,8 @@ ha_iot_class: "Cloud Polling"
 
 To get your [Ring.com](https://ring.com/) cameras working within Home Assistant, please follow the instructions for the general [Ring component](/components/ring). Please note that downloading and playing Ring video will require a Ring Protect plan.
 
+## {% linkable_title Configuration %}
+
 Once you have enabled the [Ring component](/components/ring), add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -23,10 +25,17 @@ camera:
   - platform: ring
 ```
 
-Configuration variables:
-
-- **ffmpeg_arguments**: (*Optional*): Extra options to pass to ffmpeg, e.g., image quality or video filter options.
-- **scan_interval**: (*Optional*): How frequently to query for new video. Defaults to 90 seconds.
+{% configuration %}
+ffmpeg_arguments:
+  description: Extra options to pass to ffmpeg, e.g., image quality or video filter options.
+  required: false
+  type: string
+scan_interval:
+  description: How frequently to query for new video in seconds.
+  required: false
+  type: integer
+  default: 90
+{% endconfiguration %}
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
 

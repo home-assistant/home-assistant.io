@@ -13,8 +13,7 @@ ha_release: 0.31
 ha_iot_class: "Local Polling"
 ---
 
-
-The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events and the current state of the cameras.
+The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events, the current state of the cameras and ZoneMinder's current run state.
 
 <p class='note'>
 You must have the [ZoneMinder component](/components/zoneminder/) configured to use this sensor.
@@ -29,13 +28,25 @@ sensor:
     include_archived: false
 ```
 
-Configuration variables:
-
-- **include_archived** (*Optional*): Whether to include archived ZoneMinder events in event counts. Default is `false`.
-- **monitored_conditions** array (*Optional*): Event count sensors to display in the frontend. Default is 'all'.
-  - **all**: All events.
-  - **month**: Events in the last month.
-  - **week**: Events in the last week.
-  - **day**: Events in the last day.
-  - **hour**: Events in the last hour.
-
+{% configuration %}
+include_archived:
+  description: Whether to include archived ZoneMinder events in event counts.
+  required: false
+  default: false
+  type: boolean
+monitored_conditions:
+  description: Event count sensors to display in the frontend.
+  required: false
+  type: list
+  keys:
+    all:
+      description: All events.
+    month:
+      description: Events in the last month.
+    week:
+      description: Events in the last week.
+    day:
+      description: Events in the last day.
+    hour:
+      description: Events in the last hour.
+{% endconfiguration %}

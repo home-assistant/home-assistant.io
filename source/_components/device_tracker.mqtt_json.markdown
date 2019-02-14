@@ -9,12 +9,13 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Presence Detection
-ha_version: 0.44
 ha_iot_class: depends
+ha_release: 0.44
 ---
 
-
 The `mqtt_json` device tracker platform allows you to detect presence by monitoring an MQTT topic for new locations. To use this platform, you specify a unique topic for each device.
+
+## {% linkable_title Configuration %}
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -27,10 +28,18 @@ device_tracker:
       annetherese_n4: location/annetherese
 ```
 
-Configuration variables:
+{% configuration %}
+devices:
+  description: List of devices with their topic.
+  required: true
+  type: list
+qos:
+  description: The QoS level of the topic.
+  required: false
+  type: string
+{% endconfiguration %}
 
-- **devices** (*Required*): List of devices with their topic.
-- **qos** (*Optional*): The QoS level of the topic.
+## {% linkable_title Usage %}
 
 This platform receives JSON formatted payloads containing GPS information, for example:
 

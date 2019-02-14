@@ -21,14 +21,37 @@ To use the `statsd` component in your installation, add the following to your `c
 statsd:
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): IP address of your StatsD host, eg. 192.168.1.10. Defaults to `localhost`.
-- **port** (*Optional*): Port to use. Defaults to 8125.
-- **prefix** (*Optional*): Prefix to use. Defaults to `hass`.
-- **rate** (*Optional*): The sample rate. Defaults to 1.
-- **log_attributes** (*Optional*): Log state and attribute changes. This changes the default stats path.
-- **value_mapping** (*Optional*): Map non-numerical values to numerical ones.
+{% configuration %}
+host:
+  description: "IP address of your StatsD host, e.g., 192.168.1.10."
+  required: true
+  default: localhost
+  type: string
+port:
+  description: Port to use.
+  required: false
+  default: 8125
+  type: integer
+prefix:
+  description: Prefix to use.
+  required: false
+  default: hass
+  type: string
+rate:
+  description: The sample rate.
+  required: false
+  default: 1
+  type: integer
+log_attributes:
+  description: Log state and attribute changes. This changes the default stats path.
+  required: false
+  default: false
+  type: boolean
+value_mapping:
+  description: Map non-numerical values to numerical ones.
+  required: false
+  type: list
+{% endconfiguration %}
 
 Full example:
 

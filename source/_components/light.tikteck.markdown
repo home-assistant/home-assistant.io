@@ -28,9 +28,23 @@ light:
         password: 36478643
 ```
 
-Configuration variables:
+{% configuration %}
+devices:
+  description: A list of devices with their bluetooth address.
+  required: false
+  type: list
+  keys:
+    name:
+      description: A custom name to use in the frontend.
+      required: false
+      type: string
+    password:
+      description: The bulb-specific password.
+      required: true
+      type: string
+{% endconfiguration %}
 
-- **devices**: A list of devices with their bluetooth address, a custom name to use in the frontend and the bulb-specific password. The password can be obtained from an Android device using an app like [aLogcat](https://play.google.com/store/apps/details?id=org.jtb.alogcat&hl=en) or the `adb logcat` command for phones in developer mode. Look for a line like:
+The password can be obtained from an Android device using an app like [aLogcat](https://play.google.com/store/apps/details?id=org.jtb.alogcat&hl=en) or the `adb logcat` command for phones in developer mode. Look for a line like:
 
 ```
 E LedoBleSDK: login =skName=======[Smart Light]=======skPw==[password]

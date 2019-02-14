@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Fido"
+title: "Fido Sensor"
 description: "Instructions on how to integrate Fido data usage within Home Assistant."
 date: 2017-01-01 17:17
 sidebar: true
@@ -8,15 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: fido.png
-ha_category: Sensor
+ha_category: Network
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
-
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+## {% linkable_title Configuration %}
+
+To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -30,29 +31,62 @@ sensor:
      - data_used
 ```
 
-Configuration variables:
-
-- **username** (*Required*): You Fido username (your Fido phone number or your email).
-- **password** (*Required*): Your Fido password.
-- **number** (*Optional*): Your Fido phone number (it will use your username if empty).
-- **monitored_variables** array (*Required*): Variables to monitor.
-  - **fido_dollar**: Your Fido dollar balance
-  - **balance**: Your account balance
-  - **data_used**: Current data used
-  - **data_limit**: Current data limit
-  - **data_remaining**: Current data remaining
-  - **text_used**: SMS sent
-  - **text_limit**: SMS limit
-  - **text_remaining**: SMS remaining
-  - **mms_used**: MMS sent
-  - **mms_limit**: MMS limit
-  - **mms_remaining**: MMS remaining
-  - **text_int_used**: International SMS sent
-  - **text_int_limit**: International SMS limit
-  - **text_int_remaining**: International SMS remaining
-  - **talk_used**: Talk time used
-  - **talk_limit**: Talk time limit
-  - **talt_remaining**: Talk time remaining
-  - **other_talk_used**: Other talk time used (It could be international calls)
-  - **other_talk_limit**: Other talk time limit
-  - **other_talt_remaining**: Other talk time remaining
+{% configuration %}
+username:
+  description: Your Fido username (your Fido phone number or your email).
+  required: true
+  type: string
+password:
+  description: Your Fido password.
+  required: true
+  type: string
+number:
+  description: Your Fido phone number (it will use your username if empty).
+  required: false
+  type: string
+monitored_variables:
+  description: Variables to monitor.
+  required: true
+  type: list
+  keys:
+    fido_dollar:
+      description: Your Fido dollar balance
+    balance:
+      description: Your account balance
+    data_used:
+      description: Current data used
+    data_limit:
+      description: Current data limit
+    data_remaining:
+      description: Current data remaining
+    text_used:
+      description: SMS sent
+    text_limit:
+      description: SMS limit
+    text_remaining:
+      description: SMS remaining
+    mms_used:
+      description: MMS sent
+    mms_limit:
+      description: MMS limit
+    mms_remaining:
+      description: MMS remaining
+    text_int_used:
+      description: International SMS sent
+    text_int_limit:
+      description: International SMS limit
+    text_int_remaining:
+      description: International SMS remaining
+    talk_used:
+      description: Talk time used
+    talk_limit:
+      description: Talk time limit
+    talt_remaining:
+      description: Talk time remaining
+    other_talk_used:
+      description: Other talk time used (It could be international calls)
+    other_talk_limit:
+      description: Other talk time limit
+    other_talt_remaining:
+      description: Other talk time remaining
+{% endconfiguration %}

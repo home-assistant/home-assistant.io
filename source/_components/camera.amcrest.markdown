@@ -15,6 +15,8 @@ ha_release: 0.34
 
 To get your [Amcrest](https://amcrest.com/) cameras working within Home Assistant, please follow the instructions for the general [Amcrest component](/components/amcrest).
 
+## {% linkable_title Configuration %}
+
 Once you have enabled the [Amcrest component](/components/amcrest), add the following to your `configuration.yaml` file:
 
 ```yaml

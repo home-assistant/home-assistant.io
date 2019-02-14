@@ -10,8 +10,10 @@ footer: true
 logo: philips_hue.png
 ha_category: Hub
 ha_iot_class: "Local Polling"
+ha_qa_scale: platinum
 featured: true
 ha_release: "0.60"
+ha_qa_scale: platinum
 ---
 
 Philips Hue support is integrated into Home Assistant as a Hub that can drive the light platform. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).
@@ -31,12 +33,24 @@ hue:
     - host: DEVICE_IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of the device, eg. 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
-- **allow_unreachable** (*Optional*): (true/false)  This will allow unreachable bulbs to report their state correctly.
-- **filename** (*Optional*): Make this unique if specifying multiple Hue hubs.
-- **allow_hue_groups** (*Optional*): (true/false) Enable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+{% configuration %}
+host:
+  description: The IP address of the device, e.g., 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+  required: true
+  type: string
+allow_unreachable:
+  description: This will allow unreachable bulbs to report their state correctly.
+  required: false
+  type: boolean
+filename:
+  description: Make this unique if specifying multiple Hue hubs.
+  required: false
+  type: string
+allow_hue_groups:
+  description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
+  required: false
+  type: boolean
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
@@ -94,7 +108,7 @@ To create a `LightGroup` named `Ceiling lights` that contains the lights 1, 2 an
 $ curl -XPOST -d '{"name": "Ceiling lights", "lights": ["1", "2", "3"]}' http://<bridge>/api/<username>/groups
 ```
 
-The `<username>` is the string that is used to register Home Assistant on the bridge, you can find it in the `phue.conf` file in your configuration path. `<bridge>` is the IP address or hostname of your Hue bridge.
+The `<username>` is the string that is used to register Home Assistant on the bridge, you can find it in the `core.config_entries` file in your configuration\.storage path. `<bridge>` is the IP address or hostname of your Hue bridge.
 
 You can find out the ids of your lights by executing the following command:
 

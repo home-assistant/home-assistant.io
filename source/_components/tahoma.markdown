@@ -8,13 +8,34 @@ comments: false
 sharing: true
 footer: true
 logo: tahoma.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Cover
+  - Scene
+  - Switch
+  - Sensor
 ha_release: 0.59
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/binary_sensor.tahoma/
+  - /components/cover.tahoma/
+  - /components/scene.tahoma/
+  - /components/switch.tahoma/
+  - /components/sensor.tahoma/
 ---
 
-
 The `Tahoma` component platform is used as an interface to the [tahomalink.com](https://www.tahomalink.com) website. It adds covers, scenes and a sun sensor from the Tahoma platform.
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Sensor
+- Cover
+- Switch
+- Scene
+
+## {% linkable_title Configuration %}
 
 To use your Tahoma devices in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,15 +49,17 @@ tahoma:
 
 {% configuration %}
 username:
-  description: Username for tahomalink.com
+  description: Your username for tahomalink.com.
   required: true
   type: string
 password:
-  description: Password for tahomalink.com
+  description: Your password for tahomalink.com.
   required: true
   type: string
 exclude:
-  description: Excludes devices
+  description: List of devices to exclude.
   required: false
   type: list
 {% endconfiguration %}
+
+This also works with the Somfy Connexoon. Check [here](https://somfyhouse.freshdesk.com/nl/support/solutions/articles/14000058145-wat-is-het-verschil-tussen-de-tahoma-en-de-connexoon-) for the differences between the bridges.

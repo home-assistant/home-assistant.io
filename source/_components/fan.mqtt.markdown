@@ -33,15 +33,15 @@ fan:
 ```
 
 {% configuration %}
+command_topic:
+  description: The MQTT topic to publish commands to change the fan state.
+  required: true
+  type: string
 name:
   description: The name of the fan.
   required: false
   type: string
   default: MQTT Fan
-command_topic:
-  description: The MQTT topic to publish commands to change the fan state.
-  required: true
-  type: string
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -50,12 +50,12 @@ payload_on:
   description: The payload that represents the running state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents the stop state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 state_value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the state."
   required: false
@@ -125,7 +125,7 @@ speed_value_template:
   required: false
   type: string
 speeds:
-  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium`, and `high`."
+  description: "List of speeds this fan is capable of running at. Valid entries are `off`, `low`, `medium` and `high`."
   required: false
   type: string list
 availability_topic:
@@ -142,6 +142,43 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
+device:
+  description: "Information about the device this fan is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example a serial number.
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list, tuple
+    manufacturer:
+      description: The manufacturer of the device.
+      required: false
+      type: string
+    model:
+      description: The model of the device.
+      required: false
+      type: string
+    name:
+      description: The name of the device.
+      required: false
+      type: string
+    sw_version:
+      description: The firmware version of the device.
+      required: false
+      type: string
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -150,7 +187,7 @@ Make sure that your topics match exactly. `some-topic/` and `some-topic` are dif
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this fan.
+In this section you find some real-life examples of how to use this fan.
 
 ### {% linkable_title Full configuration %}
 

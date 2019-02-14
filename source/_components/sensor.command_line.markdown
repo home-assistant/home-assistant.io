@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Sensor
+ha_category: Utility
 ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
 
 The `command_line` sensor platform that issues specific commands to get data. This might become our most powerful platform as it allows anyone to integrate any type of sensor into Home Assistant that can get data from the command line.
+
+## {% linkable_title Configuration %}
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -25,17 +27,42 @@ sensor:
     command: SENSOR_COMMAND
 ```
 
-Configuration variables:
-
-- **command** (*Required*): The action to take to get the value.
-- **name** (*Optional*): Name of the command sensor.
-- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds).
+{% configuration %}
+command:
+  description: The action to take to get the value.
+  required: true
+  type: string
+name: 
+  description: Name of the command sensor.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the unit of measurement of the sensor, if any.
+  required: false
+  type: string
+value_template: 
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
+  required: false
+  type: string
+scan_interval:
+  description: Defines number of seconds for polling interval.
+  required: false
+  type: integer
+  default: 60
+command_timeout:
+  description: Defines number of seconds for command timeout
+  required: false
+  type: integer
+  default: 15
+json_attributes:
+  description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+  required: false
+  type: string, list
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Hard drive temperature %}
 
@@ -159,5 +186,24 @@ sensor:
     name: wind direction
     command: 'sh /home/pi/.homeassistant/scripts/wind_direction.sh {{ states.sensor.wind_direction.state }}'
     unit_of_measurement: "Direction"
+```
+{% endraw %}
+
+
+### {% linkable_title Usage of JSON attributes in command output %}
+
+The example shows how you can retrieve multiple values with one sensor (where the additional are attributes) by using `value_json` and `json_attributes`.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: command_line
+    name: JSON time
+    json_attributes:
+      - date
+      - milliseconds_since_epoch
+    command: 'python3 /home/pi/.homeassistant/scripts/datetime.py'
+    value_template: '{{ value_json.time }}'
 ```
 {% endraw %}

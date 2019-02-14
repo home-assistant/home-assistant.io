@@ -8,18 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: vultr.png
-ha_category: Switch
+ha_category: System Monitor
 ha_release: "0.58"
 ha_iot_class: "Cloud Polling"
 ---
 
-The `vultr` switch platform allows you to control (start/stop) your [Vultr](https://www.vultr.com/) subscription.
+The `vultr` switch platform allows you to control (start/stop) your
+[Vultr](https://www.vultr.com/) subscription.
 
-To control your Vultr subscription, you first have to set up your [Vultr hub](/components/vultr/).
+To control your Vultr subscription, you first have to set up
+your [Vultr hub](/components/vultr/).
 
-<p class='note'>
-The following examples assume a subscription that has an ID of `123456` and a label of `Web Server`
-</p>
+## {% linkable_title Configuration %}
 
 Minimal `configuration.yaml` (produces `switch.vultr_web_server`):
 
@@ -27,7 +27,7 @@ Minimal `configuration.yaml` (produces `switch.vultr_web_server`):
 # Example configuration.yaml entry
 switch:
   - platform: vultr
-    subscription: 123456
+    subscription: YOUR_SUBSCRIPTION_ID
 ```
 
 {% configuration %}
@@ -42,14 +42,15 @@ name:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Additional Examples %}
 
-Full `configuration.yaml` (produces `switch.amazing_server`):
+Full example that produces `switch.amazing_server`, assuming a subscription
+that has an ID of `123456` and a label of `Web Server`:
 
 ```yaml
+# Example configuration.yaml entry
 switch:
   - platform: vultr
     name: Amazing Server
     subscription: 123456
 ```
-
-

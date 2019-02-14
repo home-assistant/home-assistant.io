@@ -8,13 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Binary Sensor
+ha_category: Utility
 ha_release: 0.12
 ha_iot_class: "Local Polling"
 ---
 
-
 The `command_line` binary sensor platform issues specific commands to get data.
+
+## {% linkable_title Configuration %}
 
 To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -22,22 +23,54 @@ To use your Command binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: command_line
-    command: cat /proc/sys/net/ipv4/ip_forward
+    command: 'cat /proc/sys/net/ipv4/ip_forward'
 ```
-
-Configuration variables:
-
-- **command** (*Required*): The action to take to get the value.
-- **name** (*Optional*): Let you overwrite the name of the device. By default *name* from the device is used.
-- **device_class** (*Optional*): The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
-- **payload_on** (*Optional*): The payload that represents enabled state. Default is "ON".
-- **payload_off** (*Optional*): The payload that represents disabled state. Default is "OFF".
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-- **scan_interval** (*Optional*): Defines number of seconds for polling interval (defaults to 60 seconds). 
+<p class='note'>
+It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
+</p>
+{% configuration %}
+command:
+  description: The action to take to get the value.
+  required: true
+  type: string
+name:
+  description: Let you overwrite the name of the device.
+  required: false
+  type: string
+  default: "*name* from the device"
+device_class:
+  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  required: false
+  type: string
+payload_on:
+  description: The payload that represents enabled state.
+  required: false
+  type: string
+  default: ON
+payload_off:
+  description: The payload that represents disabled state.
+  required: false
+  type: string
+  default: OFF
+value_template:
+  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+  required: false
+  type: string
+scan_interval:
+  description: Defines number of seconds for polling interval.
+  required: false
+  type: integer
+  default: 60
+command_timeout:
+  description: Defines number of seconds for command timeout.
+  required: false
+  type: integer
+  default: 15
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title SickRage %}
 
@@ -47,7 +80,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 # Example configuration.yaml entry
 binary_sensor:
   - platform: command_line
-    command: netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")
+    command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
     name: 'sickragerunning'
     device_class: moving
     payload_on: "Running"
@@ -74,10 +107,32 @@ An alternative solution could look like this:
 binary_sensor:
   - platform: command_line
     name: Printer
-    command: ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail
+    command: 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail'
     device_class: connectivity
     payload_on: "success"
     payload_off: "fail"
 ```
 
 Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alternative to the samples above.
+
+### {% linkable_title Check if a system service is running %}
+
+The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
+
+```
+$ systemctl is-active home-assistant@rock64.service
+active
+$ sudo service home-assistant@rock64.service stop
+$ systemctl is-active home-assistant@rock64.service
+inactive
+```
+
+A binary command line sensor can check this:
+
+```yaml
+binary_sensor:
+  - platform: command_line
+    command: '/bin/systemctl is-active home-assistant@rock64.service'
+    payload_on: 'active'
+    payload_off: 'inactive'
+```

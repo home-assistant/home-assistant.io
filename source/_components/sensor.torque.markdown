@@ -8,14 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: torque.png
-ha_category: Transport
+ha_category: Car
 ha_release: "0.10"
 ha_iot_class: "Cloud Polling"
 ---
 
 The `torque` platform will allow you to monitor [Torque](http://torque-bhp.com/) data relayed from a Bluetooth OBD2 stick via the Torque mobile application.
 
-## {% linkable_title Configuration %}
+## {% linkable_title Setup %}
+
 To use Torque sensors with your installation, you must configure both the Torque mobile application and Home Assistant.
 
 ### {% linkable_title Torque application %}
@@ -34,7 +35,7 @@ Under the **Realtime Web Upload** header:
 - Enter an email address in **User Email Address**.
 - Optionally set the **Web Logging Interval**. The 2-second default may quickly fill up the Home Assistant history database.
 
-### {% linkable_title Home Assistant %}
+### {% linkable_title Configuration %}
 
 Add the following to your `configuration.yaml` file:
 
@@ -45,7 +46,14 @@ sensor:
     email: your_configured@email.com
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Vehicle name (your choice).
-- **email**  (*Required*): Email address configured in Torque application.
+{% configuration %}
+name:
+  description: Vehicle name (your choice).
+  required: false
+  default: vehicle
+  type: string
+email:
+  description: Email address configured in Torque application.
+  required: true
+  type: string
+{% endconfiguration %}

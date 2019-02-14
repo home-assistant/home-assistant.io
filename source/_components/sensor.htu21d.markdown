@@ -8,17 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.48
 ha_iot_class: "Local Push"
 ---
-
 
 The `htu21d` sensor platform allows you to read the temperature and humidity from a [HTU21D sensor](http://www.datasheetspdf.com/PDF/HTU21D/779951/1) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins).
 
 Tested devices:
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
+
+## {% linkable_title Configuration %}
 
 To use your HTU21D sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,11 +29,18 @@ sensor:
   - platform: htu21d
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the sensor
-- **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
-
+{% configuration %}
+name:
+  description: The name of the sensor.
+  required: false
+  default: i2c_bus
+  type: string
+i2c_bus:
+  description: I2c bus where the sensor is.
+  required: false
+  default: 1 (for Raspberry Pi 2 and 3)
+  type: integer
+{% endconfiguration %}
 
 ## {% linkable_title Customizing the sensor data %}
 

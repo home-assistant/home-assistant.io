@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: apple.png
-ha_category: Hub
+ha_category: Multimedia
 ha_iot_class: "Local Push"
 ha_release: 0.49
 ---
@@ -18,6 +18,8 @@ The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generatio
 <p class='note'>
 Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
 </p>
+
+## {% linkable_title Configuration %}
 
 To use this component, you must first install some system libraries and a compiler. For Debian or a similar system, this should be enough:
 
@@ -42,13 +44,28 @@ apple_tv:
     credentials: CREDENTIALS_2
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP-address of the device.
-- **login_id** (*Required*): An identifier used to login to the device, see below.
-- **name** (*Optional*): The name of the device used in the frontend.
-- **start_off** (*Optional*): Set to true if the device should start in fake standby.
-- **credentials** (*Optional*): Credentials used for AirPlay playback.
+{% configuration %}
+host:
+  description: The IP-address of the device.
+  required: true
+  type: string
+login_id:
+  description: An identifier used to login to the device, see below.
+  required: true
+  type: string
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  type: string
+start_off:
+  description: Set to true if the device should start in fake standby.
+  required: false
+  type: boolean
+credentials:
+  description: Credentials used for AirPlay playback.
+  required: false
+  type: string
+{% endconfiguration %}
 
 In order to connect to the device, you need a *login id*. The easiest way to obtain this identifier is to use the `apple_tv_scan` service (described below). Additional information about `start_off` and `credentials` can also be found under the guides section.
 

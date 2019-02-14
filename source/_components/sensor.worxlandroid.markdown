@@ -25,8 +25,18 @@ sensor:
   pin: 1234
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The ip address or host name of the mower.
-- **pin** (*Required*): The pin code for the mower.
-- **allow_unreachable** (*Optional*): This will allow the mower to be outside of wifi range without raising an error (default: True).
+{% configuration %}
+host:
+  description: The ip address or host name of the mower.
+  required: true
+  type: string
+pin:
+  description: The pin code for the mower.
+  required: true
+  type: integer
+allow_unreachable:
+  description: This will allow the mower to be outside of wifi range without raising an error.
+  required: false
+  type: boolean
+  default: true
+{% endconfiguration %}

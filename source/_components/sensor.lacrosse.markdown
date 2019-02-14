@@ -8,14 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.58
 ha_iot_class: "Local Polling"
 ---
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
 
-#### {% linkable_title Tested Devices %}
+### {% linkable_title Tested Devices %}
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
@@ -27,6 +27,9 @@ Since the sensor change their ID after each powercycle/battery change you can ch
 ```bash
 $ sudo pylacrosse -d /dev/ttyUSB0 scan
 ```
+
+## {% linkable_title Configuration %}
+
 To use your `lacrosse` compatible sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -48,7 +51,7 @@ sensor:
   baud:
     description: The serial baudrate.
     required: true
-    type: int
+    type: integer
     default: 57600
   led:
     description: Activate or deactivate the Jeelink LED.
@@ -57,19 +60,19 @@ sensor:
   frequency:
     description: Initial frequency in 5kHz steps.
     required: false
-    type: int
+    type: integer
   datarate:
     description: "Set the data rate in kbps. Special values for well-known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
     required: false
-    type: int
+    type: integer
   toggle_mask:
     description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
     required: false
-    type: int
+    type: integer
   toggle_interval:
     description: Enable the toggle mode and set the interval in seconds.
     required: false
-    type: int
+    type: integer
   sensors:
     description: A list of your sensors.
     required: true
@@ -86,7 +89,7 @@ sensor:
       id:
         description: The LaCrosse Id of the sensor.
         required: true
-        type: int
+        type: integer
 {% endconfiguration %}
 
 

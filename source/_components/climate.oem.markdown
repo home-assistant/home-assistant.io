@@ -13,7 +13,7 @@ ha_release: 0.39
 ha_iot_class: "Local Polling"
 ---
 
-This platform supports the ESP82666 based "WiFi MQTT Relay / Thermostat" sold by [OpenEnergyMonitor](https://shop.openenergymonitor.com/wifi-mqtt-relay-thermostat/). The underlying [library](http://oemthermostat.readthedocs.io/) only supports this single relay variant of the [original device](https://harizanov.com/2014/12/wifi-iot-3-channel-relay-board-with-mqtt-and-http-api-using-esp8266/).
+This platform supports the ESP8266 based "WiFi MQTT Relay / Thermostat" sold by [OpenEnergyMonitor](https://shop.openenergymonitor.com/wifi-mqtt-relay-thermostat/). The underlying [library](http://oemthermostat.readthedocs.io/) only supports this single relay variant of the [original device](https://harizanov.com/2014/12/wifi-iot-3-channel-relay-board-with-mqtt-and-http-api-using-esp8266/).
 
 This platform controls the setpoint of the thermostat in its "manual" mode, therefore there is a configuration option the away setpoint.
 
@@ -26,12 +26,32 @@ climate oem:
     host: 192.168.0.100
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address or hostname of the thermostat.
-- **port** (*Optional*): The port for the web interface. Defaults to 80.
-- **name** (*Optional*): The name to use for the frontend.
-- **username** (*Optional*): Username for the web interface if set.
-- **password** (*Optional*): Password for the web interface if set.
-- **away_temp** (*Optional*): Setpoint for the thermostat in away mode. Defaults to 14 C.
-
+{% configuration %}
+host:
+  description: The IP address or hostname of the thermostat.
+  required: true
+  type: string
+port:
+  description: The port for the web interface.
+  required: false
+  default: 80
+  type: integer
+name:
+  description: The name to use for the frontend.
+  required: false
+  default: Thermostat
+  type: string
+username:
+  description: Username for the web interface if set.
+  required: inclusive
+  type: string
+password:
+  description: Password for the web interface if set.
+  required: inclusive
+  type: string
+away_temp:
+  description: Setpoint for the thermostat in away mode.
+  required: false
+  default: 14.0
+  type: float
+{% endconfiguration %}

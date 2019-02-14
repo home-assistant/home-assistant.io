@@ -51,9 +51,11 @@ To add this platform to your installation, add the following to your `configurat
 sensor:
   - platform: netdata
     resources:
-      system.load:
+      load:
+        data_group: system.load
         element: load15
-      system.cpu:
+      cpu:
+        data_group: system.cpu
         element: system
 ```
 
@@ -66,7 +68,7 @@ host:
 port:
   description: The port that the Netdata instance is running on.
   required: false
-  type: int
+  type: integer
   default: 19999
 name:
   description: Name of the monitored Netdata instance.
@@ -78,23 +80,23 @@ resources:
   required: true
   type: map
   keys:
-    data_group:
-      description: "Name of the data group to monitor, e.g., `system.cpu`." 
+    name:
+      description: Name to use for the sensor in the frontend.
       required: true
+      type: string
       keys:
+        data_group:
+          description: "Name of the data group to monitor, e.g., `system.cpu`." 
+          required: true
+          type: string
         element:
           description: The element of the group to monitor.
           required: true
           type: string
-        name:
-          description: Name to use for the sensor in the frontend.
-          required: false
-          type: string
-          default: element name
         icon:
           description: Icon to use for the sensor.
           required: false
-          type: string
+          type: icon
           default: "mdi:desktop-classic"
 {% endconfiguration %}
 

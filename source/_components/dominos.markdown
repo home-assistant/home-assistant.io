@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: dominos.png
 ha_category: Other
-ha_version: 0.59
 ha_iot_class: "Cloud Polling"
+ha_release: 0.59
 ---
 
 The `dominos` component allows you to order Dominos Pizza from within your Home Assistant scripts and automations.

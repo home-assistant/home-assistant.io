@@ -14,7 +14,6 @@ ha_iot_class: "Cloud Push"
 redirect_from: /components/sensor.loop_energy/
 ---
 
-
 Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant. To use this sensor you need the client serial number and secret keys for your devices.
 
 The library used to get the data isn't officially supported and the only way to get the keys is to log into loop energy's website and type a command into your browser console.
@@ -53,14 +52,34 @@ sensor:
       gas_secret: 'GAS_SECRET'
 ```
 
-Configuration variables:
-
-- **electricity_serial** (*Required*): Serial number of your electricity sensor
-- **electricity_secret** (*Required*): Secret key for your electricity sensor
-- **gas_serial** (*Optional*): Serial number for your gas sensor.
-- **gas_secret** (*Optional*): Secret key for your gas sensor.
-- **gas_type** (*Optional*): Type of meter `imperial` or `metric`. Defaults to `metric`.
-- **gas_calorific** (*Optional*): Calorific value of your gas supply (usually on your gas bill). Defaults to 39.11.
+{% configuration %}
+electricity_serial:
+  description: Serial number of your electricity sensor.
+  required: true
+  type: string
+electricity_secret:
+  description: Secret key for your electricity sensor.
+  required: true
+  type: string
+gas_serial:
+  description: Serial number for your gas sensor.
+  required: true
+  type: string
+gas_secret:
+  description: Secret key for your gas sensor.
+  required: true
+  type: string
+gas_type:
+  description: Type of meter `imperial` or `metric`.
+  required: false
+  default: metric
+  type: string
+gas_calorific:
+  description: Calorific value of your gas supply (usually on your gas bill).
+  required: false
+  default: 39.11
+  type: float
+{% endconfiguration %}
 
 The electricity readings are updated every 10 seconds and the gas readings every 15 minutes.
 

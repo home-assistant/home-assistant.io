@@ -13,7 +13,6 @@ ha_release: 0.57
 ha_iot_class: "Local Polling"
 ---
 
-
 The `deluge` switch platform allows you to control your [Deluge](http://deluge-torrent.org/) client from within Home Assistant. The platform enables you switch all your torrents in pause, and then unpause them all.
 
 To add Deluge to your installation, add the following to your `configuration.yaml` file:
@@ -27,10 +26,27 @@ switch:
   password : PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): This is the IP address of your Deluge daemon, eg. 192.168.1.32.
-- **username** (*Required*): Your Deluge username, if you use authentication.
-- **password** (*Required*): Your Deluge password, if you use authentication.
-- **port** (*Optional*): The port your Deluge daemon uses, defaults to 58846. Warning,this is not the port of the WebUI
-- **name** (*Optional*): The name to use when displaying this Deluge instance.
+{% configuration %}
+host:
+  required: true
+  type: string
+  description: This is the IP address of your Deluge daemon, e.g., 192.168.1.32.
+username:
+  required: true
+  type: string
+  description: Your Deluge username, if you use authentication.
+password:
+  required: true
+  type: string
+  description: Your Deluge password, if you use authentication.
+port:
+  required: false
+  type: integer
+  default: 58846
+  description: "The port your Deluge daemon uses. (Warning: This is not the port of the WebUI.)"
+name:
+  required: false
+  type: string
+  default: Deluge Switch
+  description: The name to use when displaying this Deluge instance.
+{% endconfiguration %}

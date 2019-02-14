@@ -17,10 +17,20 @@ The `radiotherm` climate platform let you control a thermostat from [Radio Therm
 
 The underlying library supports:
 
+- CT30 v1.75
+- CT30 v1.92
+- CT30 v1.94
+- CT30 v1.99
 - CT50 V1.09
 - CT50 V1.88
+- CT50 V1.92
 - CT50 V1.94 (also known as Filtrete 3M50)
+- CT80 Rev B1 V1.00
+- CT80 Rev B2 V1.00
 - CT80 Rev B2 V1.03
+- CT80 Rev B2 V1.09
+
+New models that are derivatives of the CT30 or CT80 should be detected automatically and basic functionality should work.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -30,14 +40,29 @@ climate:
   - platform: radiotherm
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.
+  required: false
+  type: list
+away_temperature_heat:
+  description: Target heating temperature in Fahrenheit for away mode. This is separate from away mode in the app.
+  required: false
+  default: 60
+  type: float
+away_temperature_cool:
+  description: Target cooling temperature in Fahrenheit for away mode. This is separate from away mode in the app.
+  required: false
+  default: 85
+  type: float
+hold_temp:
+  description: Boolean to control if Home Assistant temperature adjustments hold (`true`) or are temporary (`false`).
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
-- **host** (*Optional*): List of your Radiotherm thermostats. If not provided the thermostats will be auto-detected.
-- **away_temperature_heat** (*Optional*): Target heating temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to '60'.
-- **away_temperature_cool** (*Optional*): Target cooling temperature in Fahrenheit for away mode. This is separate from away mode in the app. Defaults to '85'.
-- **hold_temp** (*Optional*): Boolean to control if Home Assistant temperature adjustments hold (`True`) or are temporary (`False`). Defaults to `False`.
-
-Set `hold_temp: True` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
+Set `hold_temp: true` if you want temperature settings from Home Assistant to override a thermostat schedule on the thermostat itself. Otherwise Home Assistant will perform temporary temperature changes.
 
 The away mode functions similarly to the away mode feature of the website and apps, but cannot detect if you set away mode outside of Home Assistant.
 

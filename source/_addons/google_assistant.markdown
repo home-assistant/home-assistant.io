@@ -10,8 +10,12 @@ footer: true
 featured: true
 ---
 
+<p class='note warning'>
+ These instructions are outdated - the add-on has been updated and these are no longer accurate or complete.
+</p>
+
 <p class='note'>
-  If you want to integrate your Google Home, or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/components/google_assistant/).
+  If you want to integrate your Google Home or mobile phone running Google Assistant, with Home Assistant, then you want the [Google Assistant component](/components/google_assistant/).
 </p>
 
 [Google Assistant][GoogleAssistant] is an AI-powered voice assistant that runs on the Raspberry Pi and x86 platforms and interact via the [DialogFlow][comp] integration with Home-Assistant. You can also use [Google Actions][GoogleActions] to extend its functionality.
@@ -64,10 +68,16 @@ Configuration example that uses the USB microphone and the built-in headset audi
 }
 ```
 
-Configuration variables:
-
-- **mic**: This is the hardware address of your microphone. Look at the add-on output
-- **speaker**: This is the hardware address of your speakers. Look at the add-on output
+{% configuration %}
+mic:
+  description: This is the hardware address of your microphone. Look at the add-on output.
+  required: true
+  type: float
+speaker:
+  description: This is the hardware address of your speakers. Look at the add-on output.
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Home Assistant configuration %}
 

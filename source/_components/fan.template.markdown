@@ -11,6 +11,7 @@ ha_category: Fan
 ha_release: 0.69
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform creates fans that combine components and provides the
@@ -74,7 +75,7 @@ fan:
         required: false
         type: template
       oscillating_template:
-        description: "Defines a template to get the osc state of the fan. Valid value: True/False"
+        description: "Defines a template to get the osc state of the fan. Valid value: true/false"
         required: false
         type: template
       direction_template:

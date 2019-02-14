@@ -31,14 +31,14 @@ If possible, provide the latest release of which you know that the component or 
 
 ### {% linkable_title Operating environment (Hass.io/Docker/Windows/etc.) %}
 
-There are many different ways to run Home Assistant. In this section please mention which you are using, e.g. manual installation, [Hass.io](/hassio/), Hasbian or as container (Docker). It can help if you mention which operating system you are using because not all are supported on the same level.
+There are many different ways to run Home Assistant. In this section please mention which you are using, e.g., manual installation, [Hass.io](/hassio/), Hasbian or as container (Docker). It can help if you mention which operating system you are using because not all are supported on the same level.
 
 ### {% linkable_title Component/platform %}
 
 Please add the link to the documention of the component/platform in question. E.g.,
 
-- issue with the `random` sensor: [https://www.home-assistant.io/components/sensor.random/](/components/sensor.random/)
-- issue with the `hue` component: [https://www.home-assistant.io/components/hue/](/components/hue/)
+- issue with the `random` sensor: [/components/sensor.random/](/components/sensor.random/)
+- issue with the `hue` component: [/components/hue/](/components/hue/)
 
 ### {% linkable_title Description of problem %}
 

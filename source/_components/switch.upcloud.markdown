@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: upcloud.png
-ha_category: Switch
+ha_category: System Monitor
 ha_release: 0.65
 ha_iot_class: Cloud Polling
 ---
 
 The `upcloud` switch platform allows you to control (start/stop) your UpCloud servers.
+
+## {% linkable_title Configuration %}
 
 To use your UpCloud servers, you first have to set up your [UpCloud hub](/components/upcloud/) and then add the following to your `configuration.yaml` file:
 

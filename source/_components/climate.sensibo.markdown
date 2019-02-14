@@ -21,15 +21,19 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 # Example configuration.yaml entry
 climate:
   - platform: sensibo
-    api_key: <your_key_here>
+    api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Your API key.
-- **id** (*Optional*): A unit ID or a list of IDs. If none specified then all units accessible by the `api_key` will be used.
-
-To get your API key visit <https://home.sensibo.com/me/api>
+{% configuration %}
+api_key:
+  description: Your Sensibo API key (To get your API key visit <https://home.sensibo.com/me/api>).
+  required: true
+  type: string
+id:
+  description: A unit ID or a list of IDs. If none specified then all units accessible by the `api_key` will be used.
+  required: false
+  type: string
+{% endconfiguration %}
 
 <p class="note">
 If you create the API key using a dedicated user (and not your main user), 
@@ -41,8 +45,31 @@ done in the app and actions done by Home Assistant.
 ```yaml
 climate:
   - platform: sensibo
-    api_key: deadbeaf
+    api_key: YOUR_API_KEY
     id:
       - id1
       - id2
 ```
+
+### {% linkable_title Adding a quick switch example %}
+
+If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
+
+{% raw %}
+```yaml
+switch:
+  - platform: template
+    switches:
+      ac:
+        friendly_name: "AC"
+        value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'heat')}}"
+        turn_on:
+          service: climate.turn_on
+          data:
+            entity_id: climate.ac
+        turn_off:
+          service: climate.turn_off
+          data:
+            entity_id: climate.ac
+```
+{% endraw %}

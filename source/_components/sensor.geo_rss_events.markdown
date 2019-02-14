@@ -9,36 +9,27 @@ sharing: true
 footer: true
 logo: rss.png
 ha_category: Sensor
-ha_version: 0.55
 ha_iot_class: "Cloud Polling"
+ha_release: 0.55
 ---
 
-The `geo_rss_events` sensor retrieves events from a GeoRSS feed and
-shows information of those events filtered by distance to Home Assistant's
-location and grouped by category.
+The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.
 
-This sensor is particularly useful if events occur unexpectedly in the
-vicinity of the home while the GeoRSS feed also contains many events
-representing distant unrelated entries. Typical examples are bush fires
-alerts or earthquakes.
+This sensor is particularly useful if events occur unexpectedly in the vicinity of the home while the GeoRSS feed also contains many events representing distant unrelated entries. Typical examples are bush fires alerts or earthquakes.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/geo-rss-incidents-group-screenshot.png' />
 </p>
 
-The reference point for comparing the distance is defined by `latitude`
-and `longitude` in the basic configuration.
+The reference point for comparing the distance is by default defined by `latitude` and `longitude` in the basic configuration.
 
-Only entries of the feed are considered that define a location as `point`
-or `polygon` in *georss.org* format or as *WGS84 latitude/longitude*.
+Only entries of the feed are considered that define a location as `point` or `polygon` in *georss.org* format or as *WGS84 latitude/longitude*.
 
 The data is updated every 5 minutes.
 
 ## {% linkable_title Configuration %}
 
-To enable the GeoRSS events sensor, add the following lines to your
-`configuration.yaml`. This is an example configuration showing bush fire
-incidents from the NSW Rural Fire Service.
+To enable the GeoRSS events sensor, add the following lines to your `configuration.yaml`. This is an example configuration showing bush fire incidents from the NSW Rural Fire Service.
 
 ```yaml
 # Example configuration.yaml entry
@@ -53,13 +44,42 @@ sensor:
       - 'Advice'
 ```
 
-Configuration variables:
-
-- **url** (*Required*): Full URL of the GeoRSS feed.
-- **name** (*Optional*): Name of the sensor used in generating the entity id. Default is 'Event Service'.
-- **radius** (*Optional*): The distance in kilometers around the Home Assistant's coordinates in which events are considered. Default is: 20km.
-- **categories** (*Optional*): List of event category names found in the GeoRSS feed. A separate sensor is created for each category defined. Default is to join events from all categories into an 'Any' category.
-- **unit_of_measurement** (*Optional*): The type of events found in the GeoRSS feed. Default is 'Events'.
+{% configuration %}
+url:
+  description: Full URL of the GeoRSS feed.
+  required: true
+  type: string
+name:
+  description: Name of the sensor used in generating the entity id.
+  required: false
+  type: string
+  default: Event Service
+latitude:
+  description: Latitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Latitude defined in your `configuration.yaml`
+longitude:
+  description: Longitude of the coordinates around which events are considered.
+  required: false
+  type: string
+  default: Longitude defined in your `configuration.yaml`
+radius:
+  description: The distance in kilometers around the Home Assistant's coordinates in which events are considered.
+  required: false
+  type: string
+  default: 20km
+categories:
+  description: List of event category names found in the GeoRSS feed. A separate sensor is created for each category defined.
+  required: false
+  type: list
+  default: Default is to join events from all categories into an 'Any' category.
+unit_of_measurement:
+  description: The type of events found in the GeoRSS feed.
+  required: false
+  type: string
+  default: Events
+{% endconfiguration %}
 
 ## {% linkable_title Example Feeds %}
 

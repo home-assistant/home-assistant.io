@@ -13,7 +13,6 @@ ha_release: 0.58
 ha_iot_class: "Local Polling"
 ---
 
-
 The `pyload` platform allows you to monitor your downloads with [pyLoad](https://pyload.net/) from within Home Assistant and setup automation based on the information.
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
@@ -33,7 +32,7 @@ host:
 port:
   description: The port your pyLoad interface uses.
   required: false
-  type: int
+  type: integer
   default: 8000
 name:
   description: The name to use when displaying this pyLoad instance.
@@ -55,10 +54,8 @@ ssl:
   default: false
 {% endconfiguration %}
 
-
 If everything is setup correctly, the download speed will show up in the frontend.
 
 <p class='img'>
   <img src='{{site_root}}/images/components/pyload/pyload_speed.png' />
 </p>
-

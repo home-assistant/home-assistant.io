@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `plex` platform allows you to connect a [Plex Media Server](https://plex.tv) to Home Assistant. It will allow you to control media playback and see the current playing item.
+The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) in Home Assistant. It will allow you to control media playback and see the current playing item.
 
 ## {% linkable_title Setup %}
 
@@ -43,7 +43,7 @@ media_player:
   - platform: plex
 ```
 
-In case [discovery](/components/discovery/) does not work (GDM disabled or non-local plex server), you can create `~/.homeassistant/plex.conf` manually.
+In case [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can create the   `plex.conf` manually and placed it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io.
 
 ```json
 {"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
@@ -52,8 +52,8 @@ In case [discovery](/components/discovery/) does not work (GDM disabled or non-l
 - **IP_ADDRESS** (*Required*): IP address of the Plex Media Server.
 - **PORT** (*Required*): Port where Plex is listening. Default is 32400.
 - **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
-- **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `False` if not present.
-- **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `False`. Defaults to `True` if not present.
+- **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `false` if not present.
+- **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `false`. Defaults to `true` if not present.
 
 ## {% linkable_title Customization %}
 
@@ -72,14 +72,48 @@ media_player:
     remove_unavailable_clients: true
     client_remove_interval: 600
 ```
-- **entity_namespace** (*Optional*): Prefix for entity ID's. Defaults to `null`. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_
-- **include_non_clients** (*Optional*): Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's). Defaults to `false`.
-- **scan_interval** (*Optional*): Amount in seconds in between polling for device’s current activity. Defaults to `10` seconds.
-- **show_all_controls** (*Optional*): Forces all controls to display. Defaults to `false`. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect.
-- **use_custom_entity_ids** (*Optional*): Name Entity ID's by client ID's instead of friendly names. Defaults to `false`.  HA assigns entity ID's on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can't reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID's (ex. media_player.dy4hdna2drhn).
-- **use_episode_art** (*Optional*): Display TV episode art instead of TV show art. Defaults to `false`.
-- **remove_unavailable_clients** (*Optional*): Remove stale plex clients from UI after interval. Defaults to `true`.
-- **client_remove_interval** (*Optional*): How long a client is to be unavailable for before it is cleaned up. Defaults to `600 seconds (10min)`.
+
+{% configuration %}
+entity_namespace:
+  description: "Prefix for entity ID's. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_"
+  required: false
+  type: string
+include_non_clients:
+  description: "Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's)."
+  required: false
+  default: false
+  type: boolean
+scan_interval:
+  description: "Amount in seconds in between polling for device’s current activity."
+  required: false
+  default: 10
+  type: int
+show_all_controls:
+  description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
+  required: false
+  default: false
+  type: boolean
+use_custom_entity_ids:
+  description: "Name Entity ID's by client ID's instead of friendly names. HA assigns entity ID's on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can't reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID's (ex. media_player.dy4hdna2drhn)."
+  required: false
+  default: false
+  type: boolean
+use_episode_art:
+  description: Display TV episode art instead of TV show art.
+  required: false
+  default: false
+  type: boolean
+remove_unavailable_clients:
+  description: Remove stale plex clients from UI after interval.
+  required: false
+  default: true
+  type: boolean
+client_remove_interval:
+  description: How long a client is to be unavailable for before it is cleaned up in seconds.
+  required: false
+  default: 600
+  type: integer
+{% endconfiguration %}
 
 ### {% linkable_title Service `play_media` %}
 
@@ -141,3 +175,4 @@ Plays a song, playlist, TV episode, or video on a connected client.
   ```
 
   If this occurs, check the setting `Server`>`Network`>`Secure connections` in your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
+* Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.

@@ -26,15 +26,18 @@ sensor:
   platform: modbus
   registers:
     - name: Sensor1
+      hub: hub1
       unit_of_measurement: °C
       slave: 1
       register: 100
     - name: Sensor2
+      hub: hub1
       unit_of_measurement: mg
       slave: 1
       register: 110
       count: 2
     - name: Sensor3
+      hub: hub1
       unit_of_measurement: °C
       slave: 1
       register: 120
@@ -45,21 +48,71 @@ sensor:
       precision: 2
 ```
 
-Configuration variables:
-
-- **registers** array (*Required*): The array contains a list of relevant registers to read from.
-  - **name** (*Required*): Name of the sensor.
-  - **slave** (*Required*): The number of the slave (Optional for tcp and upd Modbus).
-  - **register** (*Required*): Register number.
-  - **register_type** (*Optional*): Modbus register type (holding, input), default holding.
-  - **unit_of_measurement** (*Optional*): Unit to attach to value.
-  - **count** (*Optional*): Number of registers to read.
-  - **reverse_order** (*Optional*): Reverse the order of registers when count >1, default False.
-  - **scale** (*Optional*): Scale factor (output = scale * value + offset), default 1.
-  - **offset** (*Optional*): Final offset (output = scale * value + offset), default 0.
-  - **precision** (*Optional*): Number of valid decimals, default 0.
-  - **data_type** (*Optional*): Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format. Default int.
-  - **structure** (*Optional*): If data_type is custom specify here a double quoted python struct format string to unpack the value. See python documentation for details. Ex: ">i".
+{% configuration %}
+registers:
+  description: The array contains a list of relevant registers to read from.
+  required: true
+  type: map
+  keys:
+    name:
+      description: Name of the sensor.
+      required: true
+      type: string
+    hub:
+      description: The name of the hub.
+      required: false
+      default: default
+      type: string
+    slave:
+      description: The number of the slave (Optional for tcp and upd Modbus).
+      required: true
+      type: integer
+    register:
+      description: Register number.
+      required: true
+      type: integer
+    register_type:
+      description: Modbus register type (holding, input), default holding.
+      required: false
+      type: string
+    unit_of_measurement:
+      description: Unit to attach to value.
+      required: false
+      type: integer
+    count:
+      description: Number of registers to read.
+      required: integer
+      type: integer
+    reverse_order:
+      description: Reverse the order of registers when count >1.
+      required: false
+      default: false
+      type: boolean
+    scale:
+      description: Scale factor (output = scale * value + offset).
+      required: false
+      default: 1
+      type: float
+    offset:
+      description: Final offset (output = scale * value + offset).
+      required: false
+      default: 0
+      type: float
+    precision:
+      description: Number of valid decimals.
+      required: false
+      default: 0
+      type: integer
+    data_type:
+      description: Response representation (int, uint, float, custom). If float selected, value will be converted to IEEE 754 floating point format.
+      required: false
+      default: int
+      type: string
+    structure:
+      description: "If data_type is custom specify here a double quoted python struct format string to unpack the value. See python documentation for details. Ex: >i."
+      required: false
+      type: string
+{% endconfiguration %}
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
 
@@ -73,6 +126,7 @@ sensor:
   scan_interval: 10
   registers:
     - name: Room_1
+      hub: hub1
       slave: 10
       register: 0
       register_type: holding
@@ -81,5 +135,5 @@ sensor:
       scale: 0.1
       offset: 0
       precision: 1
-      data_type: int
+      data_type: integer
 ```

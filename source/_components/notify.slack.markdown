@@ -15,11 +15,21 @@ ha_release: pre 0.7
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
-If you are planning to use Slack as yourself then you need to obtain a [Slack API token](https://api.slack.com/web?sudo=1) to be able to send notifications.
+## {% linkable_title Setup %}
+
+If you are planning to use Slack as yourself then you'll need to create a [new app](https://api.slack.com/apps) under your Slack.com account. After creating the app, access the OAuth & Permissions link under the Features heading in the sidebar. Your OAuth Access Token should be located there. This is the key that you'll use in your `configuration.yaml` file.
+
+<p class='note'>
+There is an app credential Verification Token on the Basic Settings of your app. This is **not** the API key you want.
+</p>
+
+You will also need to ensure that you have added the appropriate scope when configuring your app. In this case, in the Scopes section, add the `Send messages as user` scope, e.g., (chat:write:user).
 
 It is also possible to use Slack bots as users. Just create a new bot at https://[YOUR_TEAM].slack.com/apps/build/custom-integration and use the provided token for that. You can add an icon from the frontend for Home Assistant and give the bot a meaningful name.
 
 Don't forget to invite the bot to the room where you want to get the notifications.
+
+## {% linkable_title Configuration %}
 
 To enable the Slack notification in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,17 +38,32 @@ To enable the Slack notification in your installation, add the following to your
 notify:
   - name: NOTIFIER_NAME
     platform: slack
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+    api_key: YOUR_API_KEY
     default_channel: '#general'
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): The Slack API token to use for sending Slack messages.
-- **default_channel** (*Required*): The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the json at the same level as "message"
-- **username** (*Optional*): Setting username will allow Home Assistant to post to Slack using the username specified. By default not setting this will post to Slack using the user account or botname that you generated the api_key as.
-- **icon** (*Optional*): Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
+{% configuration %}
+name: 
+  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: "notify"
+api_key:
+  description: The Slack API token to use for sending Slack messages.
+  required: true
+  type: string
+default_channel:
+  description: The default channel to post to if no channel is explicitly specified when sending the notification message.  A channel can be specified adding a target attribute to the JSON at the same level as "message".
+  required: true
+  type: string
+username:
+  description: Home Assistant will post to Slack using the username specified.
+  required: false
+  type: string
+  default: The user account or botname that you generated the API key as.
+icon:
+  description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
+  required: false
+{% endconfiguration %}
 
 ### {% linkable_title Slack service data %}
 
@@ -85,6 +110,7 @@ Example for posting file from local path:
   }
 }
 ```
+
 Please note that `path` is validated against the `whitelist_external_dirs` in the `configuration.yaml`.
 
 Example for posting formatted attachment:
@@ -106,4 +132,3 @@ Example for posting formatted attachment:
 Please note that both `message` is a required key, but is always shown, so use an empty (`""`) string for `message` if you don't want the extra text.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-

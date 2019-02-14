@@ -37,7 +37,13 @@ notify:
     access_token: TOKEN
 ```
 
-Configuration variables:
-
-- **username** (*Required*): This is the id given by FreeMobile to access to your online account.
-- **access_token** (*Required*): You can get this token by activating the SMS API in your online account.
+{% configuration %}
+username:
+  description: This is the id given by FreeMobile to access to your online account.
+  required: true
+  type: string
+access_token:
+  description: You can get this token by activating the SMS API in your online account.
+  required: true
+  type: string
+{% endconfiguration %}

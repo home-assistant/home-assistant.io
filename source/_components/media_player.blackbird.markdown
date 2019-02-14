@@ -42,14 +42,14 @@ host:
 zones:
   description: This is the list of zones available. Valid zones are 1, 2, 3, 4, 5, 6, 7, 8. Each zone must have a name assigned to it.
   required: true
-  type: int
+  type: integer
   keys:
     name:
       description: The name of the zone.
 sources:
   description: The list of sources available. Valid source numbers are 1, 2, 3, 4, 5, 6, 7, 8. Each source number corresponds to the input number on the Blackbird matrix switch. Similar to zones, each source must have a name assigned to it.
   required: true
-  type: int
+  type: integer
   keys:
     name:
       description: The name of the source.

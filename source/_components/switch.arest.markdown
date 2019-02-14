@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: arest.png
-ha_category: Switch
+ha_category: DIY
 ha_iot_class: "Local Polling"
 ha_release: 0.16
 ---
 
 The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with an Ethernet/Wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
+
+## {% linkable_title Configuration %}
 
 To use your aREST enabled device with pins in your installation, add the following to your `configuration.yaml` file:
 
@@ -27,7 +29,7 @@ switch:
         name: Fan
       13:
         name: Switch
-        invert: True
+        invert: true
 ```
 
 If you want to use custom functions, then add the following to your `configuration.yaml` file:
@@ -42,9 +44,10 @@ switch:
       function1:
         name: Light Desk
 ```
+
 {% configuration %}
 resource:
-  description: IP address and schema of the device that is exposing an aREST API, e.g., http://192.168.1.10 (no-trailing slash)
+  description: IP address and schema of the device that is exposing an aREST API, e.g., `http://192.168.1.10` (no-trailing slash)
   required: true
   type: string
 name:
@@ -76,9 +79,8 @@ functions:
       type: string
 {% endconfiguration %}
 
-You can still switch your pins with a web browser or a command line tool. Use the URL http://192.168.1.10/digital/8/1 to set pin 8 to high/on, the JSON response will give you the feedback.
+You can still switch your pins with a web browser or a command line tool. Use the URL `http://192.168.1.10/digital/8/1` to set pin 8 to high/on, the JSON response will give you the feedback.
 
 ```json
 {"message": "Pin D8 set to 1", "id": "sensor02", "name": "livingroom", "connected": true}
 ```
-

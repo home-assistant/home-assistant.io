@@ -17,6 +17,8 @@ The `mqtt` camera platform allows you to integrate the content of an image file 
 
 This can be used with an application or a service capable of sending images through MQTT, for example [Zanzito](https://play.google.com/store/apps/details?id=it.barbaro.zanzito).
 
+## {% linkable_title Configuration %}
+
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,8 +28,17 @@ camera:
     topic: zanzito/shared_locations/my-device
 ```
 
-Configuration variables:
-
- - **topic** (*Required*): MQTT topic to subscribe to.
- - **name** (*Optional*): Name of the camera
-
+{% configuration %}
+topic:
+  description: The MQTT topic to subscribe to.
+  required: true
+  type: string
+name:
+  description: The name of the camera.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this camera. If two cameras have the same unique ID Home Assistant will raise an exception.
+  required: false
+  type: string
+{% endconfiguration %}

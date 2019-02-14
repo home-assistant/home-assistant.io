@@ -8,13 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: ring.png
-ha_category: Hub
+ha_category: Doorbell
 ha_release: 0.42
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.
 
 Currently only doorbells are supported by this sensor.
+
+## {% linkable_title Configuration %}
 
 To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
 

@@ -1,0 +1,106 @@
+---
+layout: post
+title: "0.73.2 - Security Incident"
+description: "We have discovered a security issue and have issued a hot fix."
+date: 2018-07-16 00:01:00
+date_formatted: "July 16, 2018"
+author: Paulus Schoutsen
+author_twitter: balloob
+comments: true
+categories: Release-Notes
+---
+
+Today we are releasing 0.73.2 to fix a security incident. We've discovered that 9 months ago, with the release of Home Assistant 0.56, we misconfigured the SSL context that aiohttp used ([PR](https://github.com/home-assistant/home-assistant/pull/9958)). By trying to do the right thing (use an up to date cert store instead of relying on the system certs), we ended up doing the complete opposite: SSL verification was disabled for **outgoing** requests that were done using the shared aiohttp session. This is our fault, and not aiohttp's faults. The impact of this is that certain integrations in Home Assistant have been susceptible to [man in the middle attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
+
+A man in the middle attack is when an attacker is able to inject itself between you and the server you're communicating with, allowing it to read and alter the communication. The odds of this happening at home is very rare, yet we wanted to be transparent about this incident.
+
+After research, the following integrations have been impacted. Although the odds are extremely small, we still suggest that if you use any of these integrations, to create new API keys or change your password.
+
+- [alarm_control_panel.alarmdotcom](https://www.home-assistant.io/components/alarm_control_panel.alarmdotcom/)
+- [climate.sensibo](https://www.home-assistant.io/components/climate.sensibo/)
+- [cloud](https://www.home-assistant.io/components/cloud/) (only short lived tokens impacted)
+- [device_tracker.automatic](https://www.home-assistant.io/components/device_tracker.automatic/)
+- [duckdns](https://www.home-assistant.io/components/duckdns/)
+- [freedns](https://www.home-assistant.io/components/freedns/)
+- [google_assistant](https://www.home-assistant.io/components/google_assistant/) (manual setup)
+- [google_domains](https://www.home-assistant.io/components/google_domains/)
+- [homematicip_cloud](https://www.home-assistant.io/components/homematicip_cloud/)
+- [image_processing.openalpr_cloud](https://www.home-assistant.io/components/image_processing.openalpr_cloud/)
+- [microsoft_face](https://www.home-assistant.io/components/microsoft_face/)
+- [namecheapdns](https://www.home-assistant.io/components/namecheapdns/)
+- [no_ip](https://www.home-assistant.io/components/no_ip/)
+- [notify.flock](https://www.home-assistant.io/components/notify.flock/)
+- [notify.prowl](https://www.home-assistant.io/components/notify.prowl/)
+- [rest_command](https://www.home-assistant.io/components/rest_command/)
+- [scene.lifx_cloud](https://www.home-assistant.io/components/scene.lifx_cloud/)
+- [switch.hook](https://www.home-assistant.io/components/switch.hook/)
+- [switch.rest](https://www.home-assistant.io/components/switch.rest/)
+- [telegram_bot.polling](https://www.home-assistant.io/components/telegram_bot.polling/)
+- [tts.voicerss](https://www.home-assistant.io/components/tts.voicerss/)
+
+Also impacted, but integrations are read only:
+
+- [sensor.airvisual](https://www.home-assistant.io/components/sensor.airvisual/)
+- [sensor.ebox](https://www.home-assistant.io/components/sensor.ebox/)
+- [sensor.fido](https://www.home-assistant.io/components/sensor.fido/)
+- [sensor.foobot](https://www.home-assistant.io/components/sensor.foobot/)
+- [sensor.hydroquebec](https://www.home-assistant.io/components/sensor.hydroquebec/)
+- [sensor.startca](https://www.home-assistant.io/components/sensor.startca/)
+- [sensor.teksavvy](https://www.home-assistant.io/components/sensor.teksavvy/)
+- [sensor.thethingsnetwork](https://www.home-assistant.io/components/sensor.thethingsnetwork/)
+- [sensor.tibber](https://www.home-assistant.io/components/sensor.tibber/)
+- [sensor.waqi](https://www.home-assistant.io/components/sensor.waqi/)
+
+If you are running Home Assistant on a system with Python 3.4, we've created a new release 0.64.4b0 with the patch applied. We have made it available as a beta. To install the pre-release run `python3 -m pip install homeassistant==0.64.4b0`.
+
+<!--more-->
+
+For complete transparency, the following two sets of integrations also used aiohttp to send or retrieve data. However, they either did not transmit authentication or only communicated with local devices and services.
+
+Affected, but not transmitting authentication:
+
+- [sensor.buienradar](https://www.home-assistant.io/components/sensor.buienradar/)
+- [sensor.citybikes](https://www.home-assistant.io/components/sensor.citybikes/)
+- [sensor.comed_hourly_pricing](https://www.home-assistant.io/components/sensor.comed_hourly_pricing/)
+- [sensor.luftdaten](https://www.home-assistant.io/components/sensor.luftdaten/)
+- [sensor.pollen](https://www.home-assistant.io/components/sensor.pollen/)
+- [sensor.sochain](https://www.home-assistant.io/components/sensor.sochain/)
+- [sensor.swiss_public_transport](https://www.home-assistant.io/components/sensor.swiss_public_transport/)
+- [sensor.viaggiatreno](https://www.home-assistant.io/components/sensor.viaggiatreno/)
+- [sensor.wunderground](https://www.home-assistant.io/components/sensor.wunderground/)
+- [sensor.yr](https://www.home-assistant.io/components/sensor.yr/)
+- [weather.ipma](https://www.home-assistant.io/components/weather.ipma/)
+- [tts.google](https://www.home-assistant.io/components/tts.google/)
+- [tts.yandextts](https://www.home-assistant.io/components/tts.yandextts/)
+- [updater](https://www.home-assistant.io/components/updater/)
+
+Local, so cannot be impacted:
+
+- [android_ip_webcam](https://www.home-assistant.io/components/android_ip_webcam/)
+- [apple_tv](https://www.home-assistant.io/components/apple_tv/)
+- [camera.amcrest](https://www.home-assistant.io/components/camera.amcrest/)
+- [camera.doorbird](https://www.home-assistant.io/components/camera.doorbird/)
+- [camera.familyhub](https://www.home-assistant.io/components/camera.familyhub/)
+- [camera.generic](https://www.home-assistant.io/components/camera.generic/)
+- [camera.mjpeg](https://www.home-assistant.io/components/camera.mjpeg/)
+- [camera.proxy](https://www.home-assistant.io/components/camera.proxy/)
+- [camera.synology](https://www.home-assistant.io/components/camera.synology/)
+- [deconz](https://www.home-assistant.io/components/deconz/)
+- [device_tracker.upc_connect](https://www.home-assistant.io/components/device_tracker.upc_connect/)
+- [hassio](https://www.home-assistant.io/components/hassio/)
+- [hue](https://www.home-assistant.io/components/hue/)
+- [media_player.bluesound](https://www.home-assistant.io/components/media_player.bluesound/)
+- [media_player.epson](https://www.home-assistant.io/components/media_player.epson/)
+- [media_player.kodi](https://www.home-assistant.io/components/media_player.kodi/)
+- [media_player.squeezebox](https://www.home-assistant.io/components/media_player.squeezebox/)
+- [media_player.volumio](https://www.home-assistant.io/components/media_player.volumio/)
+- [notify.kodi](https://www.home-assistant.io/components/notify.kodi/)
+- [qwikswitch](https://www.home-assistant.io/components/qwikswitch/)
+- [rainmachine](https://www.home-assistant.io/components/rainmachine/)
+- [scene.hunterdouglas_powerview](https://www.home-assistant.io/components/scene.hunterdouglas_powerview/)
+- [sensor.netdata](https://www.home-assistant.io/components/sensor.netdata/)
+- [sensor.pi_hole](https://www.home-assistant.io/components/sensor.pi_hole/)
+- [sensor.sma](https://www.home-assistant.io/components/sensor.sma/)
+- [sensor.worxlandroid](https://www.home-assistant.io/components/sensor.worxlandroid/)
+- [spc](https://www.home-assistant.io/components/spc/)
+- [tts.marytts](https://www.home-assistant.io/components/tts.marytts/)

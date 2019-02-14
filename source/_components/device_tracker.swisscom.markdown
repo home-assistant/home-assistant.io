@@ -27,8 +27,12 @@ device_tracker:
   - platform: swisscom
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router. Set it if you are not using `192.168.1.1`.
+{% configuration %}
+host:
+  description: The IP address of your router.
+  required: false
+  default: 192.168.1.1
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

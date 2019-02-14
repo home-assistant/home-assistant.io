@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 The TCP component allows the integration of some services for which a specific Home Assistant component does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this component will allow integration with it.
 
+## {% linkable_title Configuration %}
+
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -39,7 +41,7 @@ Configuration options for the a TCP Sensor:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title EBUSd %}
 
@@ -67,7 +69,7 @@ sensor:
 
 ### {% linkable_title hddtemp %}
 
-The tool `hddtemp` collects the temperature of your hard disks. 
+The tool `hddtemp` collects the temperature of your hard disks.
 
 ```bash
 $ hddtemp

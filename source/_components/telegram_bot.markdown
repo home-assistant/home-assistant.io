@@ -97,7 +97,7 @@ Send a location.
 |---------------------------|----------|--------------------------------------------------|
 | `latitude`                |       no | The latitude to send. |
 | `longitude`               |       no | The longitude to send.  |
-| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
+| `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
@@ -108,7 +108,7 @@ Edit a previously sent message in a conversation.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
+| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to edit the message.  |
 | `message`                 |       no | Message body of the notification. |
 | `title`                   |      yes | Optional title for your notification. Will be composed as '%title\n%message'. |
@@ -122,7 +122,7 @@ Edit the caption of a previously sent message.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
+| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to edit the caption.  |
 | `caption`                 |       no | Message body of the notification. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
@@ -134,7 +134,7 @@ Edit the inline keyboard of a previously sent message.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
+| `message_id`              |       no | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to edit the reply_markup.  |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
@@ -146,22 +146,23 @@ Respond to a callback query originated by clicking on an online keyboard button.
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `message`                 |       no | Unformatted text message body of the notification. |
-| `callback_query_id`       |       no | Unique id of the callback response. In the `telegram_callback` event data: `{{ trigger.event.data.id }}` |
+| `callback_query_id`       |       no | Unique id of the callback response. In the `telegram_callback` event data: {% raw %}`{{ trigger.event.data.id }}`{% endraw %} |
 | `show_alert`              |      yes | True/false for show a permanent notification. Defaults to False. |
 
 ### {% linkable_title Service `telegram_bot.delete_message` %}
+
 Delete a previously sent message in a conversation.
 
 | Service data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
-| `message_id`              |       no | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: `{{ trigger.event.data.message.message_id }}`. You can use `"last"` to refer to the last message sent to `chat_id`. |
+| `message_id`              |       no | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to delete the message.  |
 
 ## {% linkable_title `telegram` notification platform %}
 
 The [`telegram` notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
-The required yaml configuration now reduces to:
+The required YAML configuration now reduces to:
 
 ```yaml
 notify:
@@ -172,7 +173,7 @@ notify:
 
 ## {% linkable_title Event triggering %}
 
-A command looks like `/thecommand`, or `/othercommand with some args`.
+A command looks like `/thecommand` or `/othercommand with some args`.
 
 When received by Home Assistant it will fire a `telegram_command` event on the event bus with the following `event_data`:
 
@@ -392,9 +393,9 @@ For a more complex usage of the `telegram_bot` capabilities, using [AppDaemon](/
 This is how the previous 4 automations would be through a simple AppDaemon app:
 
 ```python
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
 
-class TelegramBotEventListener(appapi.AppDaemon):
+class TelegramBotEventListener(hass.Hass):
     """Event listener for Telegram bot events."""
 
     def initialize(self):

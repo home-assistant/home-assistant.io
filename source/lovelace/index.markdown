@@ -7,105 +7,32 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+redirect_from: /components/lovelace/
 ---
 
-<p class='note warning'>
-This is an experimental feature. Configuration might change in future versions.
-</p>
+Lovelace is the name of the Home Assistant user interface. It is a fast, customizable and powerful way for users to manage their homes, working both on mobile and desktop.
 
-Starting with Home Assistant 0.72, we're experimenting with a new way of defining your interface. We're calling it the Lovelace UI.
+ - [24 cards](https://www.home-assistant.io/lovelace/alarm-panel/) to place and configure as you like.
+ - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
+ - Fast. Using a static config allows us to build up the UI once.
+ - Customizable.
+   - Cards have numerous options to configure how your data is presented.
+   - Themes; even at a per card basis.
+   - Ability to override names and icons of entities.
+   - Custom Cards from our amazing community are fully supported.
 
-The Lovelace UI is:
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XY3R0xI45wA" frameborder="0" allowfullscreen></iframe>
+</div>
 
- - **Extremely fast**. We create the user interface when the UI configuration changes. When a state changes, we just make the UI represent the current state.
- - **Extremely customizable**. We have a new file for just configuration. In the past, we declined UI specific options because they did not fit in the state machine. They will fit in a configuration file for a user interface.
- - **Extremely extensible**. It's based on the web standard [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements). Don't like the built-in cards? Make your own! Custom cards are treated the same as built-in cards and are configured the same way. [Check the docs.](lovelace_custom_card.md)
- - **Making the backend faster**. With Lovelace, the backend will no longer need to maintain entities like groups for the sole purpose of showing them on the frontend.
+To try it yourself, check out [the demo](https://demo.home-assistant.io).
 
-## How it works
+## {% linkable_title Discuss Lovelace %}
 
-The old user interface relied solely on the state machine. This caused trouble as it meant that the state machine was now not only the source for device states, but also for user interface configuration. With Lovelace, we're taking a completely different approach. All user interface configuration will live in a seperate file, controlled by the user.
+- Suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema)
+- For help with Lovelace, join the #lovelace channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
 
-<p class='img'>
-<img
-  src='/images/lovelace/lovelace-ui-comparison.png'
-  alt='Diagram showing how states no longer contain UI configuration.'>
-Visual comparison of old configuration versus new configuration
-</p>
+## {% linkable_title Additional Lovelace Resources %}
 
-<!-- source: https://docs.google.com/drawings/d/1O1o7-wRlnsU1lLgfdtn3s46P5StJjSL5to5RU9SV8zs/edit?usp=sharing -->
-
-## Trying it out
-
-Create a new file `<config>/ui-lovelace.yaml` and add the following content:
-
-```yaml
-title: My Awesome Home
-# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
-background: center / cover no-repeat url("/background.png") fixed
-views:
-    # View tab title.
-  - title: Example
-    # Optional unique id for direct access /lovelace/${id}
-    id: example
-    # Optional background (overwrites the global background).
-    background: radial-gradient(crimson, skyblue)
-    # Each view can have a different theme applied. Theme should be defined in the frontend.
-    theme: dark-mode
-    # The cards to show on this view.
-    cards:
-        # The entities card will take a list of entities and show their state.
-      - type: entities
-        # Title of the entities card
-        title: Example
-        # The entities here will be shown in the same order as specified.
-        entities:
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_livingroom
-          - input_boolean.switch_tv
-
-        # The filter card will filter available entities for certain criteria
-        # and render it as type 'entities'.
-      - type: entity-filter
-        # Filter criteria. They are all optional.
-        filter:
-          - domain: input_boolean
-            state: 'on'
-        # This config will be passed to the card rendering the filter results
-        card_config:
-          title: Input booleans that are on
-
-    # Specify a tab icon if you want the view tab to be an icon.
-  - icon: mdi:home-assistant
-    # Title of the view. Will be used as the tooltip for tab icon
-    title: Second view
-    cards:
-      - type: entities
-        title: Lots of Kitchen AC
-        entities:
-            # It is totally possible to render duplicates.
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-          - input_boolean.switch_ac_kitchen
-```
-
-Add to your `configuration.yaml`:
-
-```yaml
-input_boolean:
-  switch_ac_kitchen:
-    name: AC kitchen
-  switch_ac_livingroom:
-    name: AC living room
-  switch_tv:
-    name: TV
-```
-
-Now restart Home Assistant, navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button at the top of the UI.
-
-## Current limitations
-
-This is the very very early version aimed at gathering feedback. Discussion and suggestions are welcome in the [ui-schema repository](https://github.com/home-assistant/ui-schema).
+* [Awesome HA](https://www.awesome-ha.com/#lovelace-ui)
+* [Community Custom Cards](https://github.com/custom-cards)

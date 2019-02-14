@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category: Social
 logo: crimereports.png
 ha_release: 0.42
 ha_iot_class: "Cloud Polling"
@@ -15,7 +15,7 @@ ha_iot_class: "Cloud Polling"
 
 The `crimereports` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Crime Reports](http://crimereports.com). Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.
 
-## Configuration
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`. Your `radius` should be of sufficient size to capture incidents in your area.
 
@@ -26,23 +26,41 @@ sensor:
     radius: <your radius>
 ```
 
-Configuration options for the Crime Reports Sensor:
+{% configuration %}
+name:
+  description: Custom name for the sensor.
+  required: true
+  type: string
+radius: 
+  description: Radius in meters
+  required: true
+  type: float
+latitude: 
+  description: Latitude for sensor.
+  required: false
+  default: Your home zone latitude defined in your configuration.
+longitude: 
+  description: Longitude for sensor.
+  required: false
+  default: Your home zone longitude defined in your configuration.
+include: 
+  description: List of incident types to include. See below for a list of valid incidents.
+  required: false
+  type: list
+exclude: 
+  description: List of incident types to exclude. See below for a list of valid incidents.
+  required: false
+  type: list
+{% endconfiguration %}
 
-- **name** (*Required*): Name the sensor whatever you want.
-- **radius** (*Required*): Radius in meters.
-- **latitude** (*Optional*): Defaults to your home zone latitude.
-- **longitude** (*Optional*): Defaults to your home zone longitude.
-- **include** (*Optional*): List of incident types to include.
-- **exclude** (*Optional*): List of incident types to exclude.
 
+## {% linkable_title Notes %}
 
-## Notes
-
-### Area
+### {% linkable_title Area %}
 
 Crime Reports captures all incidents in a region defined by a square shape. Home Assistant zones are circular. Therefore, the region defined by a Home Assistant zone in a Crime Reports context is a square that is big enough to fit the zone circle. Practically, this means some incidents may be captured that are outside your zone.
 
-### Incident Types
+### {% linkable_title Incident Types %}
 
 You can explicitly include or exclude incident types. Specifying `include`s restricts the incidents to those types. Specifying `exclude`s will return all incident types except those specified.
 
@@ -83,6 +101,6 @@ These incident types are available:
 - Vehicle Stop
 - Weapons Offense
 
-### Events
+### {% linkable_title Events %}
 
 The `crimealerts` sensor fires a `crimealerts_incident` event when a new incident is detected, including the type, description, time, location, and coordinates of the incident.

@@ -33,8 +33,8 @@ name:
 station:
   description: "The station ID string. See the [`sensor.bom` docs](/components/sensor.bom/) for details on how to find the ID of a station."
   required: optional
-  default: The closest station
   type: string
+  default: The closest station
 {% endconfiguration %}
 
 <p class='note'>

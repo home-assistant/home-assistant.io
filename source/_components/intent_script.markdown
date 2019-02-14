@@ -10,9 +10,10 @@ footer: true
 logo: home-assistant.png
 ha_category: Intent
 ha_release: "0.50"
+ha_qa_scale: internal
 ---
 
-The intent_script component allows users to configure actions and responses to intents. Intents can be fired by any component that supports it. Examples are [Alexa](/components/alexa/) (Amazon Echo), [API.ai](/components/dialogflow/) (Google Assistant) and [Snips](/components/snips/).
+The `intent_script` component allows users to configure actions and responses to intents. Intents can be fired by any component that supports it. Examples are [Alexa](/components/alexa/) (Amazon Echo), [Dialogflow](/components/dialogflow/) (Google Assistant) and [Snips](/components/snips/).
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,12 +26,54 @@ intent_script:
       data_template:
         message: Hello from an intent!
 ```
-Configuration variables:
 
 Inside an intent we can define these variables:
 
-- **intent** (*Required*): Name of the intent. Multiple entries are possible.
-  - **speech** (*Optional*): Text or template to return.
-  - **action** (*Optional*): [Script syntax](/docs/scripts/).
-  - **async_action** (*Optional*): Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
-
+{% configuration %}
+intent:
+  description: Name of the intent. Multiple entries are possible.
+  required: true
+  type: map
+  keys:
+    action:
+      description: Defines an action to run to intents.
+      required: false
+      type: action
+    async_action:
+      description: Set to True to have Home Assistant not wait for the script to finish before returning the intent response.
+      required: false
+      default: false
+      type: boolean
+    card:
+      description: Card to display.
+      required: false
+      type: map
+      keys:
+        type:
+          description: Type of card to display.
+          required: false
+          default: simple
+          type: string
+        title:
+          description: Title of the card to display.
+          required: true
+          type: template
+        content:
+          description: Contents of the card to display.
+          required: true
+          type: template
+    speech:
+      description: Text or template to return.
+      required: false
+      type: map
+      keys:
+        type:
+          description: Type of speech.
+          required: false
+          default: plain
+          type: string
+        text:
+          description: Text to speech.
+          required: true
+          type: template
+{% endconfiguration %}

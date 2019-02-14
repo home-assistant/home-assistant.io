@@ -8,24 +8,31 @@ comments: false
 sharing: true
 footer: true
 logo: waterfurnace.png
-ha_category: Hub
+ha_category: Sensor
 ha_release: 0.62
 ha_iot_class: "Cloud Polling"
+redirect_frome:
+  - /components/sensor.waterfurnace/
 ---
 
-The `waterfurnace` component communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your
-system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
+The `waterfurnace` component communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
 
 The sensors provided include:
 
- - Thermostat Setpoint
- - Thermostat Current Temp
- - Leaving Air Temp
- - Entering Water Loop Temp
- - Current Humidity
- - Current Humidity Setpoint
- - Total system power (in Watts)
- - Furnace Mode
+- Thermostat Setpoint
+- Thermostat Current Temp
+- Leaving Air Temp
+- Entering Water Loop Temp
+- Current Humidity
+- Current Humidity Setpoint
+- Total system power (in Watts)
+- Furnace Mode
+- Compressor Power
+- Fan Power
+- Aux Power
+- Loop Pump Power
+- Compressor Speed
+- Fan Speed
 
 ## {% linkable_title Configuration %}
 
@@ -36,7 +43,6 @@ To use Waterfurnace in your installation, add the following to your `configurati
 waterfurnace:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  unit: 0123456789AB
 ```
 
 {% configuration %}
@@ -48,16 +54,10 @@ password:
   description: The password for your Symphony WaterFurnace account
   required: true
   type: string
-unit:
-  description: The unit serial number for your WaterFurnace
-  required: true
-  type: string
 {% endconfiguration %}
 
+## {% linkable_title Limitations %}
 
-#### {% linkable_title Limitations %}
-
-The WebSocket interface used by this module requires active polling, otherwise the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
+The WebSocket interface used by this module requires active polling to prevent the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
 
 While this is communicating with a thermostat, geothermal systems operate most efficiently when setbacks are not used, and the home is kept at a constant temperature. It remains useful to collect the data from the system to understand its performance, but a full climate interface won't be implemented.
-

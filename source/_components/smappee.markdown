@@ -9,12 +9,25 @@ sharing: true
 footer: true
 logo: smappee.png
 ha_release: "0.64"
-ha_category: Hub
+ha_category:
+  - Hub
+  - Energy
+  - Sensor
+  - Switch
+ha_iot_class: "Local Push"
+redirect_from:
+  - /components/sensor.smappee/
+  - /components/switch.smappee/
 ---
 
 The `smappee` component adds support for the [Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.
 
-Switches and Sensors are supported - and will be automatically added when you connect to the Smappee controller.
+There is currently support for the following device types within Home Assistant:
+
+- Sensor
+- Switch
+
+Will be automatically added when you connect to the Smappee controller.
 
 The smappee component gets information from [Smappee API](https://smappee.atlassian.net/wiki/display/DEVAPI/API+Methods).
 
@@ -23,7 +36,6 @@ The smappee component gets information from [Smappee API](https://smappee.atlass
 Info on how to get API access is described in the [smappy wiki](https://github.com/EnergieID/smappy/wiki).
 
 To use the `smappee` component in your installation, add the following to your `configuration.yaml` file:
-
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,11 +62,29 @@ smappee:
   password: YOUR_MYSMAPPEE_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): Your Local Smappee unit IP.
-- **host_password** (*Optional*): Your Local Smappee password.
-- **client_id** (*Optional*): Your Smappee API client_id.
-- **client_secret** (*Optional*): Your Smappee API client_secret.
-- **username** (*Optional*): Your My Smappee username.
-- **password** (*Optional*): Your My Smappee password.
+{% configuration %}
+host:
+  description: Your Local Smappee unit IP.
+  required: false
+  type: string
+host_password:
+  description: Your Local Smappee password.
+  required: false
+  type: string
+client_id:
+  description: Your Smappee API client ID.
+  required: false
+  type: string
+client_secret:
+  description: Your Smappee API client secret.
+  required: false
+  type: string
+username:
+  description: Your My Smappee username.
+  required: false
+  type: string
+password:
+  description: Your My Smappee password.
+  required: false
+  type: string
+{% endconfiguration %}

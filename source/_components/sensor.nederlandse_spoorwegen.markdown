@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: "0.57"
 ---
 
-
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
 
 You must create an application [here](https://www.ns.nl/ews-aanvraagformulier/) to obtain a `password`.
@@ -36,15 +35,37 @@ sensor:
       via: Zl
 ```
 
-Configuration variables:
-
-- **email** (*Required*): The email address you used to request the API password.
-- **password** (*Required*): The API password provided by the Nederlandse Spoorwegen.
-- **routes** array (*Required*): List of traveling routes.
-  - **name** (*Required*): Name of the route.
-  - **from** (*Required*): The start station.
-  - **to** (*Required*): Direction of the traveling.
-  - **via** (*Optional*): Optional other station you wish to visit in between.
+{% configuration %}
+email:
+  description: The email address you used to request the API password.
+  required: true
+  type: string
+password:
+  description: The API password provided by the Nederlandse Spoorwegen.
+  required: true
+  type: string
+routes:
+  description: List of traveling routes.
+  required: false
+  type: list
+  keys:
+    name:
+      description: Name of the route.
+      required: true
+      type: string
+    from:
+      description: The start station.
+      required: true
+      type: string
+    to:
+      description: Direction of the traveling.
+      required: true
+      type: string
+    via:
+      description: Optional other station you wish to visit in between.
+      required: false
+      type: string
+{% endconfiguration %}
 
 The data are coming from [Nederlandse Spoorwegen](https://www.ns.nl/).
 

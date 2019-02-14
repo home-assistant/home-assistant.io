@@ -11,14 +11,16 @@ ha_category: Binary Sensor
 ha_release: 0.12
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
-The `template` platform supports sensors which breaks out the `state` and
-`state_attributes` from other entities. The state of a Template Binary Sensor
-can only be `on` or `off`.
+The `template` platform supports binary sensors which get their values from
+other entities. The state of a Template Binary Sensor can only be `on` or
+`off`.
 
-To enable Template Binary Sensors in your installation, add the following to
-your `configuration.yaml` file:
+## {% linkable_title Configuration %}
+
+Here is an example of adding a Template Binary Sensor to the `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -33,53 +35,55 @@ binary_sensor:
 ```
 {% endraw %}
 
-{% configuration binary_sensor.template %}
-  sensors:
-    description: List of your sensors.
-    required: true
-    type: map
-    keys:
-      sensor_name:
-        description: The slug of the sensor.
-        required: true
-        type: map
-        keys:
-          friendly_name:
-            description: Name to use in the frontend.
-            required: false
-            type: string
-          entity_id:
-            description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
-            required: false
-            type: string, list
-          device_class:
-            description: The type/class of the sensor to set the icon in the frontend.
-            required: false
-            type: device_class
-            default: None
-          value_template:
-            description: Defines a template to set the state of the sensor.
-            required: true
-            type: template
-          icon_template:
-            description: Defines a template for the icon of the sensor.
-            required: false
-            type: template
-          entity_picture_template:
-            description: Defines a template for the entity picture of the sensor.
-            required: false
-            type: template
-          delay_on:
-            description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
-            required: false
-            type: time
-          delay_off:
-            description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`.
-            required: false
-            type: time
+{% configuration %}
+sensors:
+  description: List of your sensors.
+  required: true
+  type: map
+  keys:
+    sensor_name:
+      description: The slug of the sensor.
+      required: true
+      type: map
+      keys:
+        friendly_name:
+          description: Name to use in the frontend.
+          required: false
+          type: string
+        entity_id:
+          description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
+          required: false
+          type: string, list
+        device_class:
+          description: The type/class of the sensor to set the icon in the frontend.
+          required: false
+          type: device_class
+          default: None
+        value_template:
+          description: Defines a template to set the state of the sensor.
+          required: true
+          type: template
+        icon_template:
+          description: Defines a template for the icon of the sensor.
+          required: false
+          type: template
+        entity_picture_template:
+          description: Defines a template for the entity picture of the sensor.
+          required: false
+          type: template
+        delay_on:
+          description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
+          required: false
+          type: time
+        delay_off:
+          description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`.
+          required: false
+          type: time
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
+
+### Startup
 
 If you are using the state of a platform that takes extra time to load, the
 Template Binary Sensor may get an `unknown` state during startup. This results
@@ -91,9 +95,17 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
+### Entity IDs
+
+The template engine will attempt to work out what entities should trigger an
+update of the sensor. This can fail, for example if your template loops over
+the contents of a group. In this case you can use `entity_id` to provide a
+list of entity IDs that will cause the sensor to update or you can run the
+service `homeassistant.update_entity` to update the sensor at will.
+
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Sensor Threshold %}
 
@@ -103,7 +115,7 @@ determine if the furnace is running by checking that it is over some threshold:
 
 {% raw %}
 ```yaml
-sensor:
+binary_sensor:
   - platform: template
     sensors:
       furnace_on:

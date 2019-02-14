@@ -14,7 +14,9 @@ ha_release: 0.36
 
 The `picotts` text-to-speech platform uses offline pico Text-to-Speech engine to read a text with natural sounding voices.
 This requires to install the pico tts library on the system, typically on debian just do `sudo apt-get install libttspico-utils`
-On some raspbian release, this package is missing but you can just copy the arm deb package from debian.
+On some Raspbian release, this package is missing but you can just copy the arm deb package from debian.
+
+## {% linkable_title Configuration %}
 
 To enable text-to-speech with Pico, add the following lines to your `configuration.yaml`:
 
@@ -24,12 +26,17 @@ tts:
   - platform: picotts
 ```
 
-Configuration variables:
+{% configuration %}
+language:
+  description: "The language to use. Supported languages are `en-US`, `en-GB`, `de-DE`, `es-ES`, `fr-FR` and `it-IT`."
+  required: false
+  type: string
+  default: "`en-US`"
+{% endconfiguration %}
 
-- **language** (*Optional*): The language to use. Defaults to `en-US`. 
-Supported languages : 'en-US', 'en-GB', 'de-DE', 'es-ES', 'fr-FR', 'it-IT'
+## {% linkable_title Full configuration example %}
 
-A full configuration sample:
+The configuration sample below shows how an entry can look like:
 
 ```yaml
 # Example configuration.yaml entry

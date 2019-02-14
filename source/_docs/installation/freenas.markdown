@@ -46,7 +46,7 @@ Make `/etc/rc.local` executable so it runs on startup
 # chmod 755 /etc/rc.local
 ```
 
-Finally restart the jail from the Freenas GUI.
+Finally restart the jail from the FreeNAS GUI.
 
 <p class='note'>
 USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break".  This doesn't impact the function of the Z-wave stick in Hass. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.  

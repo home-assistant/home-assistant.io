@@ -8,21 +8,37 @@ comments: false
 sharing: true
 footer: true
 logo: verisure.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Alarm
+  - Binary Sensor
+  - Camera
+  - Lock
+  - Sensor
+  - Switch
 ha_release: pre 0.7
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/alarm_control_panel.verisure/
+  - /components/binary_sensor.verisure/
+  - /components/camera.verisure/
+  - /components/lock.verisure/
+  - /components/sensor.verisure/
+  - /components/switch.verisure/
 ---
 
 Home Assistant has support to integrate your [Verisure](https://www.verisure.com/) devices.
 
-We support:
+There is currently support for the following device types within Home Assistant:
 
- * [Alarm](/components/alarm_control_panel.verisure/)
- * [Smartplugs](/components/switch.verisure/)
- * Reading from thermometers and hygrometers integrated in various [devices](/components/sensor.verisure/)
- * Mouse Detector
- * [Locks](/components/lock.verisure/)
- * [Door & Window](/components/binary_sensor.verisure/)
+- Alarm
+- Camera
+- Switch (Smartplug)
+- Sensor (Thermometers, Hygrometers and Mouse detectors)
+- Lock
+- Binary Sensor (Door & Window)
+
+## {% linkable_title Configuration %}
 
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -33,16 +49,84 @@ verisure:
   password: PASSWORD
 ```
 
-Configuration variables:
+{% configuration %}
+username:
+  description: The username to Verisure mypages.
+  required: true
+  type: string
+password:
+  description: The password to Verisure mypages.
+  required: true
+  type: string
+alarm:
+  description: Set to `true` to show alarm, `false` to disable.
+  required: false
+  type: boolean
+  default: true
+hygrometers:
+  description: Set to `true` to show hygrometers, `false` to disable.
+  required: false
+  type: boolean
+  default: true
+smartplugs:
+  description: Set to `true` to show smartplugs, `false` to disable.
+  required: false
+  type: boolean
+  default: true
+locks:
+  description: Set to `true` to show locks, `false` to disable.
+  required: false
+  type: boolean
+  default: true
+default_lock_code:
+  description: Code that will be used to lock or unlock, if none is supplied.
+  required: false
+  type: string
+thermometers:
+  description: Set to `true` to show thermometers, `false` to disable.
+  required: false
+  type: boolean
+  default: true
+mouse:
+  description: Set to `true` to show mouse detectors, `false` to disable.
+  required: false
+  type: boolean
+  default: true
+door_window:
+  description: Set to `true` to show mouse detectors, `false` to disable.
+  required: false
+  type: boolean
+  default: true
+code_digits:
+  description: Number of digits in PIN code.
+  required: false
+  type: integer
+  default: 4
+giid:
+  description: The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'.
+  required: false
+  type: string
+{% endconfiguration %}
 
-- **username** (*Required*): The username to Verisure mypages.
-- **password** (*Required*): The password to Verisure mypages.
-- **alarm** (*Optional*): Set to 1 to show alarm, 0 to disable. Default 1.
-- **hygrometers** (*Optional*): Set to 1 to show hygrometers, 0 to disable. Default 1.
-- **smartplugs** (*Optional*): Set to 1 to show smartplugs, 0 to disable. Default 1.
-- **locks** (*Optional*): Set to 1 to show locks, 0 to disable. Default 1.
-- **thermometers** (*Optional*): Set to 1 to show thermometers, 0 to disable. Default 1.
-- **mouse** (*Optional*): Set to 1 to show mouse detectors, 0 to disable. Default 1.
-- **door_window** (*Optional*): Set to 1 to show door and window sensors, 0 to disable. Default 1.
-- **code_digits** (*Optional*): Number of digits in PIN code. Default 4.
-- **giid** (*Optional*): The GIID of your installation (If you have more then one alarm system). To find the GIID for your systems run 'python verisure.py EMAIL PASSWORD installations'
+## {% linkable_title Alarm Control Panel %}
+
+The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
+
+The requirement is that you have setup your Verisure hub first, with the instruction above.
+
+The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
+
+```yaml
+automation:
+  - alias: Alarm status changed
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.alarm_1
+    action:
+      - service: notify.notify
+        data_template:
+          message: >
+            {% raw %}Alarm changed from {{ trigger.from_state.state }}
+            to {{ trigger.to_state.state }}
+            by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
+```

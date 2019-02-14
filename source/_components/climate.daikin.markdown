@@ -23,29 +23,4 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current temperature is displayed.
 
-<p class='note warning'>
-Please note, the `daikin` platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant. BRP069A42 does not support setting of fan speed or fan swing mode.
-</p>
-
-The platform has been integrated with discovery so all your Daikin AC's climate devices can be automatically discovered.
-
-To enable the platform, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: daikin
-    host: 10.0.0.1
-```
-
-{% configuration %}
-host:
-  description: IP or hostname of the device.
-  required: true
-  type: string
-name:
-  description: If the device has a name previously set by the user than that name will be used.
-  required: false
-  type: string
-{% endconfiguration %}
-
+For configuration instructions, see [the Daikin component](/components/daikin/).

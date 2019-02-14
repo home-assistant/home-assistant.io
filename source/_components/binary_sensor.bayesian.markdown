@@ -8,15 +8,17 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Binary Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.53
+ha_qa_scale: internal
 ---
-
 
 The `bayesian` binary sensor platform observes the state from multiple sensors and uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event has occurred given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on` otherwise it is `off`.
 
 This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that _are_ directly observable, but for which the sensors can be unreliable, e.g., presence.
+
+## {% linkable_title Configuration %}
 
 To enable the Bayesian sensor, add the following lines to your `configuration.yaml`:
 
@@ -33,19 +35,57 @@ binary_sensor:
         to_state: 'on'
 ```
 
-Configuration variables:
-
-- **prior** (*Required*): The prior probability of the event. At any point in time (ignoring all external influences) how likely is this event to occur?
-- **probability_threshold** (*Optional*): The probability at which the sensor should trigger to `on`.
-- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `Bayesian Binary sensor`.
-- **observations** array (*Required*): The observations which should influence the likelihood that the given event has occurred.
-  - **entity_id** (*Required*): Name of the entity to monitor.
-  - **prob_given_true** (*Required*): The probability of the observation occurring, given the event is `true`.
-  - **prob_given_false** (*Optional*): The probability of the observation occurring, given the event is `false` can be set as well.  If `prob_given_false` is not set, it will default to `1 - prob_given_true`.
-  - **platform** (*Required*): The only supported observation platforms are `state` and `numeric_state`, which are modeled after their corresponding triggers for automations, requiring `below` and/or `above` instead of `to_state`.
-  - **to_state** (*Required*): The target state.
+{% configuration %}
+prior:
+  description: >
+    The prior probability of the event. At any point in time
+    (ignoring all external influences) how likely is this event to occur?
+  required: true
+  type: float
+probability_threshold:
+  description: The probability at which the sensor should trigger to `on`.
+  required: false
+  type: float
+  default: 0.5
+name:
+  description: Name of the sensor to use in the frontend.
+  required: false
+  type: string
+  default: Bayesian Binary Sensor
+observations:
+  description: The observations which should influence the likelihood that the given event has occurred.
+  required: true
+  type: list
+  keys:
+    entity_id:
+      description: Name of the entity to monitor.
+      required: true
+      type: string
+    prob_given_true:
+      description: The probability of the observation occurring, given the event is `true`.
+      required: true
+      type: float
+    prob_given_false:
+      description: The probability of the observation occurring, given the event is `false` can be set as well.
+      required: false
+      type: float
+      default: "`1 - prob_given_true` if `prob_given_false` is not set"
+    platform:
+      description: >
+        The only supported observation platforms are `state` and `numeric_state`,
+        which are modeled after their corresponding triggers for automations,
+        requiring `below` and/or `above` instead of `to_state`.
+      required: true
+      type: string
+    to_state:
+      description: The target state.
+      required: true
+      type: string
+{% endconfiguration %}
 
 ## {% linkable_title Full examples %}
+
+The following is an example for the `state` observation platform.
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,6 +115,8 @@ binary_sensor:
       to_state: 'below_horizon'
 ```
 
+Next up an example which targets the `numeric_state` observation platform,
+as seen in the configuration it requires `below` and/or `above` instead of `to_state`.
 
 ```yaml
 # Example configuration.yaml entry

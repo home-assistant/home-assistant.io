@@ -24,7 +24,7 @@ This media player uses the [Pianobar command-line Pandora client](https://github
 The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with ffmpeg, so you should make sure you go through the backport process documented in [The FFmpeg component](/components/ffmpeg/) before doing this. Install the following basic dependencies:
 
 ```bash
-$ sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson0-dev make pkg-config  libcurl4-openssl-dev
+$ sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson-c-dev make pkg-config  libcurl4-openssl-dev
 ```
 
 And now install the backported ffmpeg-related libraries (note that if you're using an older version of ffmpeg for other things on this machine, you may encounter issues after doings this):

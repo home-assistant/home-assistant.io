@@ -24,10 +24,17 @@ notify:
     api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **api_key** (*Required*): Enter the API key for Pushbullet. Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/#settings/account) to retrieve your API key/access token.
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+{% configuration %}
+api_key:
+  description: Enter the API key for Pushbullet. Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/#settings/account) to retrieve your API key/access token.
+  required: true
+  type: string
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Usage %}
 
@@ -84,7 +91,6 @@ action:
 
 - **file** (*Required*): File to send with Pushbullet.
 
-
 ### {% linkable_title File URL support %}
 
 ```yaml
@@ -99,7 +105,19 @@ action:
 
 - **file_url** (*Required*): File to send with Pushbullet.
 
+### {% linkable_title Single target %}
+
+```yaml
+  action:
+    service: notify.NOTIFIER_NAME
+    data:
+      title: "Send to one device"
+      message: "This only goes to one specific device"
+      target: device/DEVICE_NAME
+```
+
+- **target**: Pushbullet device to recive the notification.
+
 <p class='note'>
 Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
 </p>
-

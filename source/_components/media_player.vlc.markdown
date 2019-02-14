@@ -24,10 +24,16 @@ media_player:
   - platform: vlc
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name to use in the frontend.
-- **arguments** (*Optional*): Additional arguments to be passed to VLC.
+{% configuration %}
+name:
+  description: The name to use in the frontend.
+  required: false
+  type: string
+arguments:
+  description: Additional arguments to be passed to VLC.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Only the "music" media type is supported for now.
 
