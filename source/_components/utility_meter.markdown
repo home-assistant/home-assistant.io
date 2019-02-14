@@ -114,10 +114,34 @@ Assuming your energy provider tariffs are time based according to:
 - *offpeak*: from 21h00 to 9h00 next day 
 
 a time based automation can be used:
-
 ```yaml
 automation:  
-  alias: switch_tariff
+  - alias: switch_tariff
+    initial_state: true
+    trigger:
+      - platform: homeassistant
+        event: start
+      - platform: time
+        at: '09:00:00'
+      - platform: time
+        at: '21:00:00'
+      - platform: state
+        entity_id: sensor.tariff
+    action:
+      - service: utility_meter.select_tariff
+        data_template:
+          entity_id: 'utility_meter.daily_energy'
+          tariff: '{%- if 9<= (now().strftime("%-H") | int) < 21 -%}peak{%- else -%}offpeak{%- endif -%}'
+      - service: utility_meter.select_tariff
+        data_template:
+          entity_id: 'utility_meter.monthly_energy'
+          tariff: '{%- if 9<= (now().strftime("%-H") | int) < 21 -%}peak{%- else -%}offpeak{%- endif -%}'
+``` 
+
+Or if you want to set the exact tariff and avoid wrong tariff switch if the desired switch time was missed (for example power outage):
+```yaml
+automation:  
+  alias: set_tariff
   initial_state: true
   trigger:
     - platform: homeassistant
