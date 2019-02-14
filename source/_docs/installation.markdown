@@ -100,4 +100,10 @@ These guides are provided as-is. Some of these install methods are more limited 
     </div>
     <div class='title'>FreeNAS</div>
   </a>
+  <a class='option-card' href='/hassio/installation/#alternative-install-on-generic-linux-server'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/home-assistant.png' />
+    </div>
+    <div class='title'>Hass.io <br> on generic Linux server</div>
+  </a>
 </div>
