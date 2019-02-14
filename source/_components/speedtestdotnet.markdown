@@ -111,13 +111,13 @@ Every half hour of every day:
 
 ```yaml
 # Example configuration.yaml entry
-speedtest:
+speedtestdotnet:
   update_interval:
     minutes: 30
-    monitored_conditions:
-      - ping
-      - download
-      - upload
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 ```
 
 ### {% linkable_title Using as a trigger in an automation %}
