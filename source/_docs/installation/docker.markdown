@@ -77,7 +77,30 @@ The steps would be:
 * Click on "Next" and then "Apply"
 * Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
+To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extra configuration to access to the USB stick. While there are multiple ways to do this, the least privileged way of granting access can only be performed via the Terminal, at the time of writing. See this page for configuring Terminal acces to your Synology NAS: 
+
+<https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal>
+
+See this page for accessing the Terminal via SSH:
+
+<https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General_Setup/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet>
+
+Adjust the following Terminal command as follows :
+
+- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration
+- Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
+- Replace "Australia/Melbourne" with [your timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 
+
+Run it in Terminal.  
+
+```bash
+sudo docker run --restart always -d --name="homeassistant" -v /PATH_TO_YOUR_CONFIG:/config --device=/PATH_TO_YOUR_USB_STICK -e TZ=Australia/Melbourne --net=host homeassistant/home-assistant
+```
+
+Complete the remainder of the Z-Wave configuration by [following the instructions here.](/docs/z-wave/installation)
+
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
+
 * Go to the Docker-app and move to "Registry"-section
 * Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "latest" tag, this will overwrite your current image to the latest version.
 * Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
