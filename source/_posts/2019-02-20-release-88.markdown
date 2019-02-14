@@ -18,7 +18,13 @@ Command line auth provider
 Person component
 
 
+## {% linkable_title Noteworthy breaking changes %}
+
+We have tightened config validation. Platform configuration will no longer allow to contain keys that are not supported. This should help with finding typos in your current and future YAML.
+
 Note for Lovelace custom card developers: if you relied on the availability of `<paper-button>` in your code, you will have to update it to `<mwc-button>` to work like before.
+
+Note for custom component developers: We are moving to a new file structure. Platforms now live embedded in components. Custom platforms will have to be updated to follow this pattern. This is a breaking change in case your custom platform overrides a built-in platform. Rename your custom platform from, ie `light/hue.py` to `hue/light.py`.
 
 ## {% linkable_title New Platforms %}
 
