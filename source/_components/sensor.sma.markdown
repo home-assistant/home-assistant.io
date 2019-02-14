@@ -71,12 +71,12 @@ sensors:
       description: Total power yield from solar installation (kWh).
     daily_yield:
       description: The yield for today (Wh)
-            
+
     current_consumption:
       description: Power that you are currently drawing, depending on your installation it can be a combination of the inverter and the grid (W).
     total_consumption:
       description: Total power consumption (kWh).
-    
+
     grid_power_supplied:
       description: Power supplied (W)
     grid_power_absorbed:
@@ -84,8 +84,8 @@ sensors:
     grid_total_yield:
       description: Total power fom the grid (kWh)
     grid_total_absorbed:
-      description: Total power supplied to the grid 
-    
+      description: Total power supplied to the grid
+
     grid_power:
       description: Power supplied by the grid (W)
     frequency:
@@ -96,10 +96,10 @@ sensors:
       description: Voltage for phase 2 (V)
     voltage_l2:
       description: Voltage for phase 3 (V)
-      
+
     status:
       description: Status of the solar plant.
-      
+
     your-custom-sensor:
       description: Any sensor name defined in the `custom:` section
 custom:

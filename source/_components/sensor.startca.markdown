@@ -83,4 +83,3 @@ monitored_conditions:
     used_remaining:
       description: Remaining bandwidth calucated from used and supplied total bandwidth (gigabytes).
 {% endconfiguration %}
-

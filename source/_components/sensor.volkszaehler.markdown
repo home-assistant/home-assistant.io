@@ -76,4 +76,3 @@ sensor:
       - min
       - max
 ```
-
