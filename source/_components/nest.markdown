@@ -195,6 +195,12 @@ script:
 
 - If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
 
+## {% linkable_title Platforms %}
+
+<p class='note'>
+You must have the [Nest component](/components/nest/) configured to use the platforms below.
+<p>
+
 ## {% linkable_title Binary Sensor %}
 
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
@@ -242,12 +248,6 @@ The following conditions are available by device:
   - motion\_detected
   - person\_detected
   - sound\_detected
-
-## {% linkable_title Platforms }
-
-<p class='note'>
-You must have the [Nest component](/components/nest/) configured to use the platforms below.
-<p>
 
 ## {% linkable_title Camera %}
 
