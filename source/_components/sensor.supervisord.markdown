@@ -40,6 +40,6 @@ sensor:
 url:
   description: The URL to track.
   required: false
-  default: `http://localhost:9001/RPC2`
+  default: "`http://localhost:9001/RPC2`"
   type: string
 {% endconfiguration %}
