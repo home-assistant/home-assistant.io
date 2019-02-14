@@ -30,7 +30,7 @@ camera:
 
 {% configuration %}
 mjpeg_url:
-  description: The URL your camera serves the video on, eg. http://192.168.1.21:2112/
+  description: The URL your camera serves the video on, e.g., http://192.168.1.21:2112/
   required: true
   type: string
 still_image_url:
@@ -54,6 +54,11 @@ authentication:
   required: false
   type: string
   default: basic
+verify_ssl:
+  description: Validate the ssl certificate for this camera.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}

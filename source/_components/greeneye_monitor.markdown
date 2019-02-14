@@ -8,9 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: brultech.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Sensor
 ha_release: 0.82
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/sensor.greeneye_monitor/
 ---
 
 The [GreenEye Monitor (GEM)](http://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
@@ -22,7 +26,7 @@ Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET"
 greeneye_monitor:
   port: 8000
   monitors:
-    - serial_number: YOUR_SERIAL_NUMBER
+    - serial_number: "YOUR_SERIAL_NUMBER"
       channels:
         - number: 1
           name: total_power
@@ -53,9 +57,9 @@ monitors:
   type: list
   keys:
     serial_number:
-      description: The last five digits (omitting leading zeroes) of your GEM serial number.
+      description: Your 8-digit GEM serial number, as it appears in the UI.
       required: true
-      type: integer
+      type: string
     channels:
       description: The list of channels that should appear in Home Assistant for this monitor. Data from other channels will be ignored.
       required: false
@@ -123,4 +127,3 @@ monitors:
           type: string
           default: s
 {% endconfiguration %}
-

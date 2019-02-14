@@ -8,6 +8,38 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.85.1 %}
+- 🔧 Fix removal of `resources` on save in Raw Config Editor
+- 🔧 Auto-gen correctly converts weblink entities to [weblink row]
+- 🔧 The [weblink row] opens links in new tabs
+
+## {% linkable_title Changes in 0.85.0 %}
+- 📣 [map card]: New config `geo_location_sources`
+- 📣 [alarm panel card]: Hide keypad if `code_format` attribute is not "Number"
+- 📣 [alarm panel card]: Hide code input field if `code_format` attribute is not set
+- 📣 UI Editor for [picture card]
+- 📣 UI Editor for [weather forecast card]
+- 📣 UI Editor for [plant status card]
+- 📣 UI Editor for [media control card]
+- 📣 UI Editor for [iframe card]
+- 📣 UI Editor for [sensor card]
+- 📣 UI Editor for [shopping list card]
+- 📣 UI Editor for [light card]
+- 📣 UI Editor for [gauge card]
+- 📣 UI Editor for [markdown card]
+- 📣 UI Editor for [alarm panel card]
+- 📣 UI Editor for [thermostat card]
+- 📣 UI Editor for [entity button card]
+- 📣 UI Editor for [map card]
+- 🔧 [thermostat card] Step logic updated to match more-info behavior
+- 🔧 [weather forecast card] Proper RTL support
+- 🔧 [thermostat card] Set minimum height of card
+- 🔧 Fix incorrect state display being cached
+- 🔧 Fix `service-button` element `service_data` usage
+- 🔧 Fix `picture-elements` element positioning to account for card title
+- 🔧 Fix undefined [plant status card]/[weather forecast card]
+
+
 ## {% linkable_title Changes in 0.84.0 %}
 
 ### Breaking Changes
@@ -232,3 +264,5 @@ footer: true
 [thermostat card]: /lovelace/thermostat/
 [vertical stack card]: /lovelace/vertical-stack/
 [weather forecast card]: /lovelace/weather-forecast/
+
+[weblink row]: /lovelace/entities/#weblink

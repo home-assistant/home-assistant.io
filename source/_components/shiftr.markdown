@@ -38,4 +38,3 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-

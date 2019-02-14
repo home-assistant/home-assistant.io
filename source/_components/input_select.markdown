@@ -23,8 +23,8 @@ input_select:
   who_cooks:
     name: Who cooks today
     options:
-     - Paulus
-     - Anne Therese
+      - Paulus
+      - Anne Therese
     initial: Anne Therese
     icon: mdi:panda
   living_room_preset:

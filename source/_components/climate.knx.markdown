@@ -47,24 +47,19 @@ climate:
     operation_mode_comfort_address: '5/1/7'
 ```
 
-If you want to overwrite the supported operation modes use:
+`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
 
-```yaml
-# Example configuration.yaml entry
-climate:
-  - platform: knx
-    name: HASS-Kitchen.Temperature
-    temperature_address: '5/1/1'
-    setpoint_shift_address: '5/1/2'
-    setpoint_shift_state_address: '5/1/3'
-    target_temperature_address: '5/1/4'
-    operation_mode_frost_protection_address: '5/1/5'
-    operation_mode_comfort_address: '5/1/7'
-    override_supported_operation_modes:
-      - "Night"
-      - "Standby"
-      - "Comfort"
-```
+If your device doesn't support setpoint_shift calculations (i.e. if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
+attributes of the climate device to avoid issues with increasing the temperature in the frontend.
+
+The following values are valid for the `operation_modes` attribute:
+
+- Comfort (maps internally to STATE_HEAT within Home Assistant)
+- Standby (maps internally to STATE_ECO within Home Assistant)
+- Night (maps internally to STATE_IDLE within Home Assistant)
+- Frost Protection (maps internally to STATE_MANUAL within Home Assistant)
+- Fan only (maps internally to STATE_FAN_ONLY within Home Assistant)
+- Dehumidification (maps internally to STATE_DRY within Home Assistant)
 
 {% configuration %}
 name:
@@ -119,6 +114,14 @@ controller_status_state_address:
   description: Explicit KNX address for reading HVAC controller status.
   required: false
   type: string
+controller_mode_address:
+  description: KNX address for handling controller modes.
+  required: false 
+  type: string
+controller_mode_state_address:
+  description: Explicit KNX address for reading HVAC Control Mode.
+  required: false
+  type: string
 operation_mode_frost_protection_address:
   description: KNX address for switching on/off frost/heat protection mode.
   required: false
@@ -131,41 +134,24 @@ operation_mode_comfort_address:
   description: KNX address for switching on/off comfort mode.
   required: false
   type: string
-override_supported_operation_modes:
-  description: Defines the supported operation modes.
+operation_modes:
+  description: Overrides the supported operation modes.
   required: false
   type: array
 on_off_address:
-  description: KNX address for switching the device on/off.
+  description: KNX address for switching the climate device on/off.
   required: false
   type: string
 on_off_state_address:
-  description: Explicit KNX address for reading the current on/off status.
+  description: KNX address for gathering the current state (on/off) of the climate device.
   required: false
   type: string
+min_temp:
+  description: Override the minimum temperature.
+  required: false
+  type: float
+max_temp:
+  description: Override the maximum temperature.
+  required: false
+  type: float
 {% endconfiguration %}
-
-`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
-
-`override_supported_operation_modes` is an array that can contain any of the following values:
-
-- Auto
-- Comfort
-- Standby
-- Night
-- Frost Protection
-- Heat
-- Morning Warmup
-- Cool
-- Night Purge
-- Precool
-- Off
-- Test
-- Emergency Heat
-- Fan only
-- Ice
-- Dry
-- NoDem
-
-Also check [this](https://github.com/XKNX/xknx/blob/master/xknx/knx/dpt_hvac_mode.py#L13-L30) page for more information.
-

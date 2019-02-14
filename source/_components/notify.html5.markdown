@@ -150,7 +150,7 @@ Example of adding a tag to your notification. This won't create new notification
       - platform: state
         entity_id: sensor.sensor
     action:
-      service: notify.html5
+      service: notify.notify
       data_template:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
       data:
@@ -195,6 +195,22 @@ data:
 ```
 
 If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e. `/map` would turn into `https://192.168.1.2:8123/map`.
+
+### {% linkable_title Dismiss %}
+
+You can dismiss notifications by using service notify.html5_dismiss like so:
+
+```json
+{
+  "target": ["my phone"],
+  "data": {
+    "tag": "notification_tag"
+  }
+}
+```
+
+If no target is provided, it dismisses for all.
+If no tag is provided, it dismisses all notifications.
 
 ### {% linkable_title Automating notification events %}
 

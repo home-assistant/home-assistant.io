@@ -53,7 +53,7 @@ is_hat_attached:
   type: boolean
 {% endconfiguration %}
 
-#### {% linkable_title Customizing the Sense HAT data %}
+## {% linkable_title Customizing the Sense HAT data %}
 
 **Format the sensor values**
 Add the following to your `sensor`:
@@ -124,11 +124,11 @@ group:
     - group.sense_hat
 ```
 
-### {% linkable_title Directions for installing on Raspberry Pi All-In-One installer and HASSbian: %}
+## {% linkable_title Directions for installing on Raspberry Pi All-In-One installer and HASSbian: %}
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
-#### {% linkable_title Install SenseHAT package to _homeassistant_venv_ %}
+### {% linkable_title Install SenseHAT package to _homeassistant_venv_ %}
 
 ```bash
 # switch to the homeassistant_venv environment
@@ -140,13 +140,13 @@ pip3 install sense-hat
 # be patient, this will take a long while
 ```
 
-#### {% linkable_title Return to `pi` %}
+### {% linkable_title Return to `pi` %}
 
 Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment.
 
 As all of the following steps should be under the `pi` user environment.
 
-#### {% linkable_title Install _RTIMU_ %}
+### {% linkable_title Install _RTIMU_ %}
 
 ```bash
 # pi user environment: Install RTIMU
@@ -166,7 +166,7 @@ sudo reboot
 
 Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home Assistant fails with errors.
 _(The Raspberry Pi All-In-One installer and HASSbian both run Home Assistant in an virtual environment)._
-These issues have been discussed in the repository issue (#5093)[https://github.com/home-assistant/home-assistant/issues/5093)
+These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:
 

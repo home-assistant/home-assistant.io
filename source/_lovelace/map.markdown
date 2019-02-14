@@ -24,7 +24,11 @@ type:
   type: string
 entities:
   required: true
-  description: List of entity IDs.
+  description: List of entity IDs. Either this or the `geo_location_sources` configuration option is required.
+  type: list
+geo_location_sources:
+  required: true
+  description: List of geolocation sources. All current entities with that source will be displayed on the map. See [Geolocation](/components/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this or the `entities` configuration option is required.
   type: list
 title:
   required: false
@@ -47,17 +51,25 @@ default_zoom:
 
 <p class="note">
   The `default_zoom` value will be ignored if it is set higher than the current zoom level
-  after fitting all visible entity markers in the map window. In other words, this can only 
+  after fitting all visible entity markers in the map window. In other words, this can only
   be used to zoom the map _out_ by default.
 </p>
 
 ## {% linkable_title Examples %}
 
 ```yaml
-- type: map
-  aspect_ratio: 16:9
-  default_zoom: 8
-  entities:
-    - device_tracker.demo_paulus
-    - zone.home
+type: map
+aspect_ratio: 16:9
+default_zoom: 8
+entities:
+  - device_tracker.demo_paulus
+  - zone.home
+```
+
+```yaml
+type: map
+geo_location_sources:
+  - nsw_rural_fire_service_feed
+entities:
+  - zone.home
 ```

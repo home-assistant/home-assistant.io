@@ -68,7 +68,7 @@ switches:
 
 Variables for the different codes (`on_code` and `off_code`):
 
-- **protocol** (*Required*): Protocol to use, eg. `intertechno_old` or `daycom`.
+- **protocol** (*Required*): Protocol to use, e.g., `intertechno_old` or `daycom`.
 - **systemcode** (*Optional*): The systemcode of the device.
 - **unit** (*Optional*): The unit to use (is equivalent to `pilight-send --unit`).
 - **unitcode** (*Optional*): The unitcode to use (is equivalent to `pilight-send --unitcode`).

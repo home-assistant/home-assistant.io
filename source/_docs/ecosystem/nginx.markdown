@@ -89,14 +89,17 @@ Home Assistant is still available without using the NGINX proxy. Restricting it 
 
 On your `configuration.yaml` file, edit the `http` component.
 
-{% configuration %}
+```yaml
 http:
-  server_host: 127.0.0.1
+  # For extra security set this to only accept connections on localhost if NGINX is on the same machine
+  # server_host: 127.0.0.1
   # Update this line to be your domain
-  base_url: https://exemple.com
+  base_url: https://example.com
   use_x_forwarded_for: true
-  trusted_proxies: 127.0.0.1
-{% endconfiguration %}
+  # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
+  # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
+  trusted_proxies: <NGINX IP address here, or 127.0.0.1 if hosted on the same machine>
+```
 
 ### {% linkable_title NGINX Config %}
 

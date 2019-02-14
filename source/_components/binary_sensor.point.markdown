@@ -31,5 +31,5 @@ Each Point exposes the following binary sensors:
 For installation instructions, see [the Point component](/components/point/).
 
 <p class='note'>
-The events sent from the Point is also sent as a webhook back to Home Assistant with `event_type` as `point_webhook_received`, please consider the documentation for the [IFTT](https://www.home-assistant.io/components/ifttt/) component on how to write automations for webhooks.
+The events sent from the Point is also sent as a webhook back to Home Assistant with `event_type` as `point_webhook_received`, please consider the documentation for the [IFTT](/components/ifttt/) component on how to write automations for webhooks.
 </p>

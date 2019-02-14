@@ -25,9 +25,8 @@ automation:
 # Changes Hue light every two minutes to random color if input boolean is set to on
 - alias: 'Set LivingColors to random color'
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/2'
-    seconds: 0
   condition:
     condition: state
     entity_id: input_boolean.loop_livingcolors

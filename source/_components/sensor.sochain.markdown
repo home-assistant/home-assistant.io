@@ -13,7 +13,6 @@ ha_release: 0.61
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `SoChain` sensor platform displays supported cryptocurrency wallet balances from [SoChain](https://chain.so).
 
 To add the SoChain sensor to your installation, specify a network and address to watch in the `configuration.yaml` file:

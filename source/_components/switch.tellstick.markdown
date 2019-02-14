@@ -12,7 +12,6 @@ ha_category: Switch
 ha_iot_class: "Assumed State"
 ---
 
-
 This `tellstick` switch platform allows you to control [TellStick](http://www.telldus.se/products/tellstick) devices.
 
 To use your TellStick device, you first have to set up your [Tellstick hub](/components/tellstick/) and then add the following to your `configuration.yaml` file:

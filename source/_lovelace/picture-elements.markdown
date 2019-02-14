@@ -461,91 +461,91 @@ hold_action:
 ## {% linkable_title Example %}
 
 ```yaml
-- type: picture-elements
-  image: /local/floorplan.png
-  elements:
-    - type: state-icon
-      tap_action:
-        action: toggle
-      entity: light.ceiling_lights
-      style:
-        top: 47%
-        left: 42%
-    - type: state-icon
-      tap_action:
-        action: toggle
-      entity: light.kitchen_lights
-      style:
-        top: 30%
-        left: 15%
-    - type: state-label
-      entity: sensor.outside_temperature
-      style:
-        top: 82%
-        left: 79%
-    - type: service-button
-      title: Turn lights off
-      style:
-        top: 95%
-        left: 60%
-      service: homeassistant.turn_off
-      service_data:
-        entity_id: group.all_lights
-    - type: icon
-      icon: mdi:home
-      tap_action:
-        action: navigate
-        navigation_path: /lovelace/0
-      style:
-        top: 10%
-        left: 10%
+type: picture-elements
+image: /local/floorplan.png
+elements:
+  - type: state-icon
+    tap_action:
+      action: toggle
+    entity: light.ceiling_lights
+    style:
+      top: 47%
+      left: 42%
+  - type: state-icon
+    tap_action:
+      action: toggle
+    entity: light.kitchen_lights
+    style:
+      top: 30%
+      left: 15%
+  - type: state-label
+    entity: sensor.outside_temperature
+    style:
+      top: 82%
+      left: 79%
+  - type: service-button
+    title: Turn lights off
+    style:
+      top: 95%
+      left: 60%
+    service: homeassistant.turn_off
+    service_data:
+      entity_id: group.all_lights
+  - type: icon
+    icon: mdi:home
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/0
+    style:
+      top: 10%
+      left: 10%
 ```
 
 ## {% linkable_title Images Example %}
 
 ```yaml
-- type: picture-elements
-  image: /local/floorplan.png
-  elements:
-    # state_image & state_filter - toggle on click
-    - type: image
-      entity: light.living_room
-      tap_action:
-        action: toggle
-      image: /local/living_room.png
-      state_image:
-        "off": /local/living_room_off.png
-      filter: saturate(.8)
-      state_filter:
-        "on": brightness(120%) saturate(1.2)
-       style:
-         top: 25%
-         left: 75%
-         width: 15%
-    # Camera, red border, rounded-rectangle - show more-info on click
-    - type: image
-      entity: camera.driveway_camera
-      camera_image: camera.driveway_camera
+type: picture-elements
+image: /local/floorplan.png
+elements:
+  # state_image & state_filter - toggle on click
+  - type: image
+    entity: light.living_room
+    tap_action:
+      action: toggle
+    image: /local/living_room.png
+    state_image:
+      "off": /local/living_room_off.png
+    filter: saturate(.8)
+    state_filter:
+      "on": brightness(120%) saturate(1.2)
       style:
-        top: 5%
-        left: 10%
-        width: 10%
-        border: 2px solid red
-        border-radius: 10%
-    # Single image, state_filter - call-service on click
-    - type: image
-      entity: media_player.living_room
-      tap_action:
-        action: call-service
-        service: media_player.media_play_pause
-        service_data:
-          entity_id: media_player.living_room
-      image: /local/television.jpg
-      filter: brightness(5%)
-      state_filter:
-        playing: brightness(100%)
-      style:
-        top: 40%
+        top: 25%
         left: 75%
-        width: 5%
+        width: 15%
+  # Camera, red border, rounded-rectangle - show more-info on click
+  - type: image
+    entity: camera.driveway_camera
+    camera_image: camera.driveway_camera
+    style:
+      top: 5%
+      left: 10%
+      width: 10%
+      border: 2px solid red
+      border-radius: 10%
+  # Single image, state_filter - call-service on click
+  - type: image
+    entity: media_player.living_room
+    tap_action:
+      action: call-service
+      service: media_player.media_play_pause
+      service_data:
+        entity_id: media_player.living_room
+    image: /local/television.jpg
+    filter: brightness(5%)
+    state_filter:
+      playing: brightness(100%)
+    style:
+      top: 40%
+      left: 75%
+      width: 5%
 ```

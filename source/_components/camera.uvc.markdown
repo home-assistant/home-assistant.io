@@ -34,7 +34,6 @@ camera:
   - platform: uvc
     nvr: IP_ADDRESS
     key: API_KEY
-    ssl: USE_SSL
 ```
 
 {% configuration %}
@@ -62,3 +61,8 @@ ssl:
   type: boolean
   default: false
 {% endconfiguration %}
+
+<p class='note'>
+When using an API_KEY to access cameras controlled by Ubiquiti's NVR Software, the associated user account MUST have at least Administrator privileges within the NVR Software in order for new cameras to be added into Home Assistant. Once the entities have been created in Home Assistant, privileges for the user account can be lowered.
+</p>
+

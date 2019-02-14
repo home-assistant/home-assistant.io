@@ -13,7 +13,6 @@ ha_category: System Monitor
 ha_iot_class: "Cloud Polling"
 ---
 
-
 The `vultr` sensor platform will allow you to view current bandwidth usage and pending charges against your [Vultr](https://www.vultr.com/) subscription.
 
 To use this sensor, you must set up your [Vultr hub](/components/vultr/).
@@ -73,4 +72,3 @@ sensor:
     monitored_conditions:
       - current_bandwidth_used
 ```
-

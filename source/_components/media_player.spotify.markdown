@@ -80,6 +80,11 @@ aliases:
   description: "Dictionary of device ids to be aliased, handy for devices that Spotify cannot properly determine the device name of. New devices will be logged to the `info` channel for ease of aliasing."
   required: false
   type: map
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  type: string
+  default: Spotify
 {% endconfiguration %}
 
 ## {% linkable_title Setup %}

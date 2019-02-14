@@ -24,7 +24,6 @@ sensor:
     host: 192.168.1.100
 ```
 
-
 {% configuration %}
 host:
   description: The IP address of your ted gateway.
@@ -48,4 +47,3 @@ For each plugged MTU, using an index starting at 1, the platform creates 2 senso
 sensor.<name>_mtu<MTU id>_power
 sensor.<name>_mtu<MTU id>_voltage
 ```
-

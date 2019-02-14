@@ -16,6 +16,8 @@ The `vesync` switch platform enables integration with Etekcity VeSync smart swit
 
 VeSync switches are low-cost wifi smart plugs that offer energy monitoring and work with popular voice assistants.
 
+## {% linkable_title Configuration %}
+
 To use your VeSync switches, you must first register your switches with the VeSync app. Once registration is complete you must add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -37,7 +39,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Exposed Attributes %}
+## {% linkable_title Exposed Attributes %}
 
 VeSync switches will expose the following details.
 

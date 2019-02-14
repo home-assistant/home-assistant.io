@@ -21,6 +21,10 @@ Supported units:
 - LB110
 - LB120
 - LB130
+- LB230
+- KL110
+- KL120
+- KL130
 
 To use your TP-Link light in your installation, add the following to your `configuration.yaml` file:
 
@@ -38,7 +42,7 @@ name:
   type: string
   default: TP-Link Light
 host:
-  description: "The IP address of your TP-Link bulb, eg. `192.168.1.32`."
+  description: "The IP address of your TP-Link bulb, e.g., `192.168.1.32`."
   required: true
   type: string
 {% endconfiguration %}

@@ -12,6 +12,8 @@ redirect_from: /getting-started/scripts-conditions/
 
 Conditions can be used within a script or automation to prevent further execution. A condition will look at the system right now. For example a condition can test if a switch is currently turned on or off.
 
+Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
+
 ### {% linkable_title AND condition %}
 
 Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
@@ -28,7 +30,8 @@ condition:
       below: 20
 ```
 
-If you do not want to combine AND and OR conditions, you can also just list them sequentially, by default all conditions have to be true. 
+If you do not want to combine AND and OR conditions, you can also just list them sequentially.
+
 The following configuration works the same as the one listed above:
 
 ```yaml
@@ -59,7 +62,7 @@ condition:
       below: 20
 ```
 
-### {% linkable_title MIXED  AND and OR conditions %}
+### {% linkable_title MIXED AND and OR conditions %}
 
 Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
 This allows you to mix several AND and OR conditions together.
@@ -131,7 +134,7 @@ condition:
 
 ```yaml
 condition:
-    condition: or  # 'when dark' condition: either after sunset or before sunrise
+    condition: or  # 'when dark' condition: either after sunset or before sunrise - equivalent to a state condition on `sun.sun` of `below_horizon`
     conditions:
       - condition: sun
         after: sunset
@@ -141,7 +144,7 @@ condition:
 
 ```yaml
 condition:
-    condition: and  # 'when light' condition: before sunset and after sunrise
+    condition: and  # 'when light' condition: before sunset and after sunrise - equivalent to a state condition on `sun.sun` of `above_horizon`
     conditions:
       - condition: sun
         before: sunset

@@ -21,6 +21,7 @@ Supported devices:
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X4100W
+- Denon AVR-X4300H
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI
@@ -47,7 +48,7 @@ media_player:
   - platform: denonavr
     host: IP_ADDRESS
     name: NAME
-    show_all_sources: True / False
+    show_all_sources: true
     timeout: POSITIVE INTEGER
     zones:
       - zone: Zone2 / Zone3

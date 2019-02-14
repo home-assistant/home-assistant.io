@@ -3,7 +3,7 @@ layout: page
 title: "Daikin AC Sensor"
 description: "Instructions on how to integrate Daikin AC(s) with Home Assistant."
 date: 2017-12-03 05:00
-sidebar: True
+sidebar: true
 comments: false
 sharing: true
 footer: true
@@ -19,34 +19,4 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Inside temperature
 - Outside temperature
 
-## {% linkable_title Configuration %}
-
-To enable the platform manually, add the following lines to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: daikin
-    host: 10.0.0.1
-    monitored_conditions:
-      - inside_temperature
-      - outside_temperature
-```
-
-{% configuration %}
-host:
-  description: IP or hostname of the device.
-  required: true
-  type: string
-monitored_conditions:
-  description: List of items you want to monitor for each device.
-  required: false
-  default: All conditions
-  type: list
-  keys:
-    inside_temperature:
-      description: The current temperature measured inside the house.
-    outside_temperature:
-      description: The current temperature measured outside the house.
-{% endconfiguration %}
-
+For installation instructions, see [the Daikin component](/components/daikin/).

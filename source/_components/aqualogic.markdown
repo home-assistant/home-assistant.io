@@ -28,7 +28,7 @@ aqualogic:
 
 {% configuration %}
 host:
-  description: The domain name or IP address of the RS-485 to Ethernet adapter connected to the pool controller, eg. 192.168.1.1.
+  description: The domain name or IP address of the RS-485 to Ethernet adapter connected to the pool controller, e.g., 192.168.1.1.
   required: true
   type: string
 port:

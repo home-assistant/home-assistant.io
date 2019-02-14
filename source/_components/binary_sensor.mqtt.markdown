@@ -68,6 +68,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving messages.
   required: false
@@ -82,14 +86,14 @@ device_class:
   required: false
   type: string
 value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload. Available variables: `entity_id`."
   required: false
   type: string
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   required: false
   type: boolean
-  default: False
+  default: false
 off_delay:
   description: "For sensors that only sends `On` state updates, this variable sets a delay in seconds after which the sensor state will be updated back to `Off`."
   required: false
@@ -159,13 +163,24 @@ binary_sensor:
 ```
 {% endraw %}
 
+### {% linkable_title Toggle the binary sensor each time a message is received on state_topic %}
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: mqtt
+    state_topic: "lab_button/cmnd/POWER"
+    value_template: "{%if is_state(entity_id,\"on\")-%}OFF{%-else-%}ON{%-endif%}"
+```
+{% endraw %}
+
 ### {% linkable_title Get the state of a device with ESPEasy %}
 
 Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example, the topics are prefixed with "home". Also, add a "Switch Input" in the "Devices" tap with the name "switch" and "button" as value.
 
 As soon as the unit is online, you will get the state of the attached button.
 
-```bash
+```
 home/bathroom/status Connected
 ...
 home/bathroom/switch/button 1
@@ -182,4 +197,3 @@ binary_sensor:
     payload_on: "1"
     payload_off: "0"
 ```
-

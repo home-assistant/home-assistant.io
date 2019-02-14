@@ -17,11 +17,15 @@ ha_iot_class: "Cloud Polling"
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
 
+## {% linkable_title Setup %}
+
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
 <p class='note warning'>
 [Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
+
+## {% linkable_title Configuration %}
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
 
@@ -126,6 +130,10 @@ monitored_conditions:
       description: The UV index.
     moon_phase:
       description: "The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon, and 0.75 to a last quarter moon."
+    sunrise_time:
+      description: The time of when the sun will rise during a given day.
+    sunset_time:
+      description: The time of when the sun will set during a given day.
     nearest_storm_distance:
       description: The approximate distance to the nearest storm in miles.
     nearest_storm_bearing:

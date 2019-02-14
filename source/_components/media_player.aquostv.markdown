@@ -29,7 +29,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP/Hostname of the Sharp Aquos TV, eg. `192.168.0.10`.
+  description: The IP/Hostname of the Sharp Aquos TV, e.g., `192.168.0.10`.
   required: true
   type: string
 port:
@@ -72,6 +72,7 @@ Currently known supported models:
 - LC-46LE830U
 - LC-52LE830U
 - LC-60LE830U
+- LC-60LE635 (no volume control)
 - LC-52LE925UN
 - LC-60LE925UN
 - LC-60LE857U

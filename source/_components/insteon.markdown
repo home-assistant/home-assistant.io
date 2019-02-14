@@ -8,13 +8,37 @@ comments: false
 sharing: true
 footer: true
 logo: insteon.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Cover
+  - Fan
+  - Light
+  - Sensor
+  - Switch
 ha_iot_class: "Local Push"
 ha_version: 0.77
+redirect_from:
+  - /components/binary_sensor.insteon/
+  - /components/cover.insteon/
+  - /components/fan.insteon/
+  - /components/light.insteon/
+  - /components/sensor.insteon/
+  - /components/switch.insteon/
 ---
 
-This component adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant as binary sensors, lights, fans, sensors and switches.  Device support is provided by the
-underlying [insteonplm] package.  It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs.
+This component adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant. 
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Cover
+- Fan
+- Light
+- Sensor
+- Switch
+
+Device support is provided by the underlying [insteonplm] package. It is known to work with the [2413U] USB and [2412S] RS242 flavors of PLM and the [2448A7] USB stick. It has also been tested to work with the [2242] and [2245] Hubs.
 
 [insteonplm]: https://github.com/nugget/python-insteonplm
 [2413U]: https://www.insteon.com/powerlinc-modem-usb
@@ -181,7 +205,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 If you are looking for more advanced options, you can use the [insteonplm_interactive] command line tool that is distributed with the [insteonplm] Python module. Please see the documentation on the [insteonplm] GitHub site. Alternatively, you can download [HouseLinc] which runs on any Windows PC, or you can use [Insteon Terminal] which is open source and runs on most platforms. SmartHome no longer supports HouseLinc, but it still works. Insteon Terminal is a very useful tool but please read the disclaimers carefully, they are important.
 
 [understanding linking]: http://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
-[Development Tools]: https://www.home-assistant.io/docs/tools/dev-tools/
+[Development Tools]: /docs/tools/dev-tools/
 [HouseLinc]: https://www.smarthome.com/houselinc.html
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteonplm_interactive]: https://github.com/nugget/python-insteonplm#command-line-interface
