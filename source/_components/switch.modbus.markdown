@@ -26,6 +26,7 @@ switch:
   slave: 1
   coils:
     - name: Switch1
+      hub: hub1
       slave: 1
       coil: 13
     - name: Switch2
@@ -33,6 +34,7 @@ switch:
       coil: 14
   registers:
     - name: Register1
+      hub: hub1
       slave: 1
       register: 11
       command_on: 1
@@ -45,6 +47,11 @@ coils:
   required: false
   type: map
   keys:
+    hub:
+      description: The name of the hub.
+      required: false
+      default: default
+      type: string
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).
       required: true
@@ -62,6 +69,11 @@ register:
   required: false
   type: map
   keys:
+    hub_name:
+      description: The hub to use.
+      required: false
+      default: default
+      type: string
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).
       required: true

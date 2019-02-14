@@ -10,7 +10,7 @@ footer: true
 logo: apple-homekit.png
 ha_category:
   - Hub
-  - Alarm Panel Control
+  - Alarm
   - Climate
   - Cover
   - Light

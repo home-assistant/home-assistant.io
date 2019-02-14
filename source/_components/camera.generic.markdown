@@ -30,7 +30,7 @@ camera:
 
 {% configuration %}
 still_image_url:
-  description: "The URL your camera serves the image on, eg. http://192.168.1.21:2112/. Can be a [template](/topics/templating/)."
+  description: "The URL your camera serves the image on, e.g., http://192.168.1.21:2112/. Can be a [template](/topics/templating/)."
   required: true
   type: string
 name:
@@ -56,16 +56,16 @@ limit_refetch_to_url_change:
   default: false
   type: boolean
 content_type:
-  description: Set the content type for the IP camera if it is not a jpg file. Use `image/svg+xml` to add a dynamic svg file.
+  description: Set the content type for the IP camera if it is not a jpg file. Use `image/svg+xml` to add a dynamic SVG file.
   required: false
   default: image/jpeg
   type: string
 framerate:
-  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load  on the camera.
+  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
   required: false
   type: integer
 verify_ssl:
-  description: Enable or disable SSL certificate verification.
+  description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
   required: false
   default: true
   type: boolean
@@ -80,7 +80,7 @@ verify_ssl:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real-life examples of how to use this camera platform.
+In this section, you find some real-life examples of how to use this camera platform.
 
 ### {% linkable_title Weather graph from yr.no %}
 
@@ -106,11 +106,22 @@ camera:
 
 ### {% linkable_title Sharing a camera feed from one Home Assistant instance to another %}
 
-If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](/developers/rest_api/#get-apicamera_proxycameraltentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the the following:
+If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](/developers/rest_api/#get-apicamera_proxycameraltentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
 
 ```yaml
 camera:
   - platform: generic
     name: Host instance camera feed
     still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
+```
+### {% linkable_title Image from HTTP only camera %}
+
+To access a camera which is only available via HTTP, you must turn off SSL verification.
+
+```yaml
+camera:
+  - platform: generic
+    name: Some Image
+    still_image_url: http://example.org/your_image.png
+    verify_ssl: false
 ```

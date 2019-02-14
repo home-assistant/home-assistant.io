@@ -74,7 +74,7 @@ automation:
     above: 17
     below: 25
 
-    # If given, will trigger when condition has been for X time.
+    # If given, will trigger when condition has been for X time, can also use days and milliseconds.
     for:
       hours: 1
       minutes: 10
@@ -86,6 +86,25 @@ automation:
 Listing above and below together means the numeric_state has to be between the two values.
 In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
 </p>
+
+The `for:` can also be specified as `HH:MM:SS` like this:
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.temperature
+    # Optional
+    value_template: '{{ state.attributes.battery }}'
+    # At least one of the following required
+    above: 17
+    below: 25
+
+    # If given, will trigger when condition has been for X time.
+    for: '01:10:05'
+```
+{% endraw %}
 
 ### {% linkable_title State trigger %}
 
@@ -102,10 +121,7 @@ automation:
     to: 'home'
 
     # If given, will trigger when state has been the to state for X time.
-    for:
-      hours: 1
-      minutes: 10
-      seconds: 5
+    for: '01:10:05'
 ```
 
 <p class='note warning'>
@@ -224,7 +240,8 @@ automation:
     webhook_id: some_hook_id
 ```
 
-You could test triggering above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`.
+You could test triggering the above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. An example with no data sent to a SSL/TLS secured installation and using the command-line curl program is `curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id`.
+
 
 ### {% linkable_title Zone trigger %}
 

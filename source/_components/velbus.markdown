@@ -8,12 +8,29 @@ comments: false
 sharing: true
 footer: true
 logo: velbus.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Climate
+  - Sensor
+  - Switch
 ha_iot_class: "Local Push"
 ha_release: "0.50"
+redirect_from:
+  - /components/climate.velbus/
+  - /components/sensor.velbus/
+  - /components/binary_sensor.velbus/
+  - /components/switch.velbus/
 ---
 
 The `velbus` component supports the Velbus USB, Velbus serial and a TCP/IP gateway.
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Climate
+- Sensor
+- Switch
 
 ## {% linkable_title Configuration %}
 

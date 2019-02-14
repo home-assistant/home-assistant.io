@@ -40,7 +40,7 @@ destination:
   required: true
   type: string
 region:
-  description: Choose one of the available regions from 'EU', 'US', 'NA' (equivalent to 'US') or 'IL'.
+  description: Choose one of the available regions from 'AU', 'EU', 'US', 'NA' (equivalent to 'US') or 'IL'.
   required: true
   type: string
 name:

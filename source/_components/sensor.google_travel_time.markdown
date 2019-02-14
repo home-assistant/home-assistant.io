@@ -54,7 +54,7 @@ name:
   required: false
   type: string
 travel_mode:
-  description: "You can choose between: `driving`, `walking`, `bicycling` or `transit`."
+  description: "You can choose between: `driving`, `walking`, `bicycling` or `transit`. This method is now deprecated, use `mode` under `options`."
   required: false
   type: string
 options:

@@ -94,6 +94,7 @@ Say to all `media_player` device entities:
 ```yaml
 # Replace google_say with <platform>_say when you use a different platform.
 service: tts.google_say
+entity_id: "all"
 data:
   message: 'May the Force be with you.'
 ```

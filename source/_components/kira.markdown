@@ -8,11 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: keene.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Remote
+  - Sensor
 ha_release: 0.45
+redirect_from:
+  - /components/sensor.kira/
+  - /components/remote.kira/
 ---
 
 The `kira` component is the main component to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- Remote
+- Sensor
 
 ### {% linkable_title Example Configuration %}
 

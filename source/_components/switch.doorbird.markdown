@@ -16,7 +16,7 @@ ha_iot_class: "Local Push"
 The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](http://www.doorbird.com/) video doorbell device.
 
 <p class='note'>
-	You must have the [DoorBird component](/components/doorbird/) configured to use this switch.
+You must have the [DoorBird component](/components/doorbird/) configured to use this switch.
 </p>
 
 To enable this switch, add the following lines to your `configuration.yaml` file:

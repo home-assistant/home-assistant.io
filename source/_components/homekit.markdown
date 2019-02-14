@@ -124,7 +124,7 @@ homekit:
                 type: list
                 keys:
                   feature:
-                    description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toogle_mute`. The media_player entity must support the feature to be valid.
+                    description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toggle_mute`. The media_player entity must support the feature to be valid.
                     required: true
                     type: string
               type:
@@ -146,7 +146,7 @@ homekit:
 
 After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
 
-1. Open the Home Assistant frontend. A new card will display the `pin code`.
+1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the upper-right of the Home Assistant UI.
 1. Open the `Home` app.
 2. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
 4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
@@ -323,6 +323,7 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
 | device_tracker | Sensor | Support for `occupancy` device class. |
 | fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
+| fan | Fan | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
