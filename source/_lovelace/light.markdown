@@ -19,10 +19,8 @@ Screenshot of the Light card.
 </p>
 
 ```yaml
-- type: light
-  entity: light.bedroom
-- type: light
-  entity: light.office
+type: light
+entity: light.bedroom
 ```
 
 {% configuration %}
@@ -46,12 +44,15 @@ name:
 Overwriting names example:
 
 ```yaml
-- type: light
-  entity: light.bedroom
-  name: Kids Bedroom
-- type: light
-  entity: light.office
-  name: My Office
+type: light
+entity: light.bedroom
+name: Kids Bedroom
+```
+
+```yaml
+type: light
+entity: light.office
+name: My Office
 ```
 
 <p class='img'>

@@ -60,7 +60,7 @@ result through various platforms.
 Remember that you can easily get the installed version on the command line.
 
 ```bash
-$ hass --version
+hass --version
 ```
 
 Or go to the <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Info** section of the **Developer Tools**.
