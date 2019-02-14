@@ -15,6 +15,7 @@ ha_category:
   - Climate
   - Fan
   - Light
+  - Lock
   - Sensor
   - Switch
 ha_release: "0.87"
@@ -28,6 +29,8 @@ redirect_from:
   - /components/fan.smartthings/
   - /components/smartthings.light/
   - /components/light.smartthings/
+  - /components/smartthings.lock/
+  - /components/lock.smartthings/
   - /components/smartthings.sensor/
   - /components/sensor.smartthings/
   - /components/smartthings.switch/
@@ -113,6 +116,7 @@ SmartThings represents devices as a set of [capabilities](https://smartthings.de
 - [Climate](#climate)
 - [Fan](#fan) 
 - [Light](#light) 
+- [Lock](#lock)
 - [Sensor](#sensor) 
 - [Switch](#switch)
 
@@ -165,6 +169,10 @@ The SmartThings Light platform lets you control devices that have light-related 
 | [`switchLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch-Level)            | `brightness` and `transition`
 | [`colorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Control)            | `color`
 | [`colorTemperature`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Temperature)            | `color_temp`
+
+### {% linkable_title Lock %}
+
+The SmartThings Lock platform lets you control devices that have the [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock) capability, showing current lock status and supporting lock and unlock commands.
 
 ### {% linkable_title Sensor %}
 
