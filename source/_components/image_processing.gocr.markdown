@@ -76,17 +76,17 @@ chars:
   default: ''
   type: string
 negate:
-  description: `True` if you want the image to be inverted before recognition. The process works better if the text is black on white.
+  description: "`True` if you want the image to be inverted before recognition. The process works better if the text is black on white."
   required: false
   default: false
   type: boolean
 unrecognized:
   description: String to output for any unrecognized characters.
   required: false
-  default: '_'
+  default: "'_'"
   type: string
 extra_arguments:
-  description: Other arguments to use. Like `-m 2`, `-p database`, etc. See [`manpage`](https://linux.die.net/man/1/gocr).
+  description: "Other arguments to use. Like `-m 2`, `-p database`, etc. See [`manpage`](https://linux.die.net/man/1/gocr)."
   required: false
   type: string
 source:
