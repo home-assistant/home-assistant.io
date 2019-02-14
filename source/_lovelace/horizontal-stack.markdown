@@ -26,14 +26,14 @@ cards:
 ## {% linkable_title Example %}
 
 ```yaml
-- type: horizontal-stack
-  cards:
-    - type: picture-entity
-      image: /local/bed_1.png
-      entity: light.ceiling_lights
-    - type: picture-entity
-      image: /local/bed_2.png
-      entity: light.bed_light
+type: horizontal-stack
+cards:
+  - type: picture-entity
+    image: /local/bed_1.png
+    entity: light.ceiling_lights
+  - type: picture-entity
+    image: /local/bed_2.png
+    entity: light.bed_light
 ```
 
 <p class='img'>

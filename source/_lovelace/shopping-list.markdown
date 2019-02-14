@@ -20,7 +20,7 @@ Screenshot of the Shopping List card.
 </p>
 
 ```yaml
-- type: shopping-list
+type: shopping-list
 ```
 
 {% configuration %}
@@ -39,6 +39,6 @@ title:
 Title Example:
 
 ```yaml
-- type: shopping-list
-  title: Shopping List
+type: shopping-list
+title: Shopping List
 ```

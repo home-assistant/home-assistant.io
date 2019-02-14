@@ -48,29 +48,29 @@ show_empty:
 
 Show only active switches or lights in the house
 ```yaml
-- type: entity-filter
-  entities:
-    - entity: light.bed_light
-      name: Bed
-    - light.kitchen_lights
-    - light.ceiling_lights
-  state_filter:
-    - "on"
+type: entity-filter
+entities:
+  - entity: light.bed_light
+    name: Bed
+  - light.kitchen_lights
+  - light.ceiling_lights
+state_filter:
+  - "on"
 ```
 
 Show only people that are at home using [glance](/lovelace/glance/):
 
 ```yaml
-- type: entity-filter
-  entities:
-    - device_tracker.demo_paulus
-    - device_tracker.demo_anne_therese
-    - device_tracker.demo_home_boy
-  state_filter:
-    - home
-  card: 
-    type: glance
-    title: People at home
+type: entity-filter
+entities:
+  - device_tracker.demo_paulus
+  - device_tracker.demo_anne_therese
+  - device_tracker.demo_home_boy
+state_filter:
+  - home
+card:
+  type: glance
+  title: People at home
 ```
 
 <p class='img'>

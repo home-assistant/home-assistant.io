@@ -36,6 +36,6 @@ name:
 ## {% linkable_title Example %}
 
 ```yaml
-- type: thermostat
-  entity: climate.nest
+type: thermostat
+entity: climate.nest
 ```

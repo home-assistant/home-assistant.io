@@ -18,12 +18,8 @@ Screenshot of the Entity Button card.
 </p>
 
 ```yaml
-- type: entity-button
-  entity: light.living_room
-- type: entity-button
-  entity: light.office
-- type: entity-button
-  entity: light.bedroom
+type: entity-button
+entity: light.living_room
 ```
 
 {% configuration %}
@@ -106,14 +102,14 @@ theme:
 Title and Script Service Example:
 
 ```yaml
-- type: entity-button
-  name: Turn Off Lights
-  tap_action:
-    action: call-service
-    service: script.turn_on
-    service_data:
-      entity_id: script.turn_off_lights
-  entity: script.turn_off_lights
+type: entity-button
+name: Turn Off Lights
+tap_action:
+  action: call-service
+  service: script.turn_on
+  service_data:
+    entity_id: script.turn_off_lights
+entity: script.turn_off_lights
 ```
 
 <p class='img'>

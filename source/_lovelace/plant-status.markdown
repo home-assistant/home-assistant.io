@@ -36,6 +36,6 @@ name:
 ## {% linkable_title Example %}
 
 ```yaml
-- type: plant-status
-  entity: plant.bonsai
+type: plant-status
+entity: plant.bonsai
 ```
