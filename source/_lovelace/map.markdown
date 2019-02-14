@@ -58,18 +58,18 @@ default_zoom:
 ## {% linkable_title Examples %}
 
 ```yaml
-- type: map
-  aspect_ratio: 16:9
-  default_zoom: 8
-  entities:
-    - device_tracker.demo_paulus
-    - zone.home
+type: map
+aspect_ratio: 16:9
+default_zoom: 8
+entities:
+  - device_tracker.demo_paulus
+  - zone.home
 ```
 
 ```yaml
-- type: map
-  geo_location_sources:
-    - nsw_rural_fire_service_feed
-  entities:
-    - zone.home
+type: map
+geo_location_sources:
+  - nsw_rural_fire_service_feed
+entities:
+  - zone.home
 ```
