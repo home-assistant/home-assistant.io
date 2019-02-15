@@ -17,6 +17,7 @@ ha_release: 0.88
 ha_iot_class: "Cloud Polling"
 redirect_from:
   - /components/binary_sensor.nissan_leaf/
+  - /components/device_tracker.nissan_leaf/
   - /components/sensor.nissan_leaf/
 ---
 
