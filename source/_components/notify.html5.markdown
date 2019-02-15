@@ -99,9 +99,11 @@ Assuming you have already added the platform to your configuration:
 1. Open Home Assistant in Chrome or Firefox.
 2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address. If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 3. Slide it to the on position.
-4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
-5. Assuming you accept, that's all there is to it!
-6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+4. Name the device you're using in the alert that appears.
+5. Within a few seconds you should be prompted to allow notifications from Home Assistant.
+6. Assuming you accept, that's all there is to it!
+
+**Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
 ### {% linkable_title Testing %}
 

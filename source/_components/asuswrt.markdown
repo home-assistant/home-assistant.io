@@ -8,12 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: asus.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Presence Detection
+  - Sensor
 ha_release: 0.83
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/device_tracker.asuswrt/
+  - /components/sensor.asuswrt/
 ---
 
 The `asuswrt` component is the main component to connect to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
+
+There is currently support for the following device types within Home Assistant:
+
+- **Presence Detection** - The asuswrt platform offers presence detection by looking at connected devices to a ASUSWRT based router.
+- **Sensor** - The asuswrt sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
 
 ## {% linkable_title Configuration %}
 
@@ -101,7 +112,41 @@ asuswrt:
 
 The example above, creates the following sensors:
 
-* sensor.asuswrt_download (unit_of_measurement: Gigabyte - *Daily accumulation*)
-* sensor.asuswrt_download_speed (unit_of_measurement: Mbit/s)
-* sensor.asuswrt_upload (unit_of_measurement: Gigabyte - *Daily accumulation*)
-* sensor.asuswrt_upload_speed (unit_of_measurement: Mbit/s)
+- sensor.asuswrt_download (unit_of_measurement: Gigabyte - *Daily accumulation*)
+- sensor.asuswrt_download_speed (unit_of_measurement: Mbit/s)
+- sensor.asuswrt_upload (unit_of_measurement: Gigabyte - *Daily accumulation*)
+- sensor.asuswrt_upload_speed (unit_of_measurement: Mbit/s)
+
+
+## {% linkable_title Padavan custom firmware (The rt-n56u project) %}
+
+The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this component can still be used for the rt-n56u project by linking `dnsmasq.leases` during the boot process of the router.
+
+Follow these steps to setup the link.
+
+1. SSH or Telnet into the router. (default ssh admin@my.router)
+2. Run the following command to find the file:
+
+```bash
+$ find / -name "dnsmasq.leases" 
+```
+3. Copy or remember the full path of, example: `/tmp/dnsmasq.leases`
+4. Create the folder if it does not exist: 
+
+```bash
+$ mkdir -p /var/lib/misc
+```
+5. Add the linking process to the routers started script (one line): 
+
+```bash
+$ echo "/bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases" >> /etc/storage/started_script.sh
+```
+
+6. Reboot the router or link the file: 
+
+```bash
+$ /bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases
+```
+
+The started script is also accessible and editable in the Router's web interface. `Advanced Settings -> Customization -> Scripts -> Custom User Script -> Run After Router Started`
+

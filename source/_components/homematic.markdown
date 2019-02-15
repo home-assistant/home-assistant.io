@@ -410,7 +410,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
 
   1. Create a string variable **V_Last_Reboot** on the CCU
 
-  2. Creata a new programm on the CCU **without any conditions**, which executes the following *HM-Script* with a delay of 30 seconds:
+  2. Creata a new programm on the CCU **without any conditions**, which executes the following *HM-Script* with a delay of 30 seconds. The Script needs to be implemented within the section `Activity: Then`.
 
      ```javascript
      var obj = dom.GetObject("V_Last_Reboot");

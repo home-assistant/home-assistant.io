@@ -8,13 +8,32 @@ comments: false
 sharing: true
 footer: true
 logo: opentherm.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Climate
+  - Sensor
 ha_release: 0.81
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/binary_sensor.opentherm_gw/
+  - /components/climate.opentherm_gw/
+  - /components/sensor.opentherm_gw/
 ---
 
 The `opentherm_gw` component is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Climate
+- Sensor
+
 When enabled, this component will automatically add its [`climate` entity](/components/climate.opentherm_gw) to Home Assistant.
+
+<p class='note'>
+The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
+</p>
 
 # {% linkable_title Configuration %}
 
@@ -253,6 +272,7 @@ monitored_variables:
 {% endconfiguration %}
 
 ## {% linkable_title Supported Variables %}
+
 The list above contains all supported variables. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` component and look for the status updates.
 
 # {% linkable_title Services %}
@@ -346,12 +366,13 @@ The value you provide here will be used with the GPIO `home` (5) and `away` (6) 
 | ---------------------- | -------- | ----------- |
 | `temperature` | no  | The setback temperature. Accepted values are `0.0` through `30.0`.
 
-
 ## {% linkable_title GPIO modes %}
+
 Possible modes and their meaning for the GPIO pins are listed here:
 {% comment %}
     Bulletpoints and numbers to match the LED mode layout below.
 {% endcomment %}
+
 * 1\. No function, default for both ports on a freshly flashed chip.
 * 2\. Ground - A permanently low output (0V). Could be used for a power LED.
 * 3\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
@@ -361,9 +382,10 @@ Possible modes and their meaning for the GPIO pins are listed here:
 * 7\. Away - Set thermostat to setback temperature when pulled high.
 * 8\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
 
-
 ## {% linkable_title LED modes %}
+
 Possible LED modes and their meaning are listed here:
+
 * R. Receiving an Opentherm message from the thermostat or boiler.
 * X. Transmitting an Opentherm message to the thermostat or boiler.
 * T. Transmitting or receiving a message on the thermostat interface.

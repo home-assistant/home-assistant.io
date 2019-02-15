@@ -24,6 +24,8 @@ redirect_from:
 
 The `bmw_connected_drive` component lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
 
+The `bmw_connected_drive` component also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
+
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/m1n3rva/bimmer_connected) on github.
 
 This component provides the following platforms:

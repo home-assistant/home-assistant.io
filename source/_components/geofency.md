@@ -17,12 +17,9 @@ This component sets up integration with [Geofency](http://www.geofency.com/). Ge
 
 Enabling this component will automatically enable the [Geofency Device Tracker](/components/device_tracker.geofency/).
 
-To integrate Geofency in Home Assistant, add the following section to your `configuration.yaml` file:
+To configure Geofency, you must set it up via the integrations panel in the configuration screen. You must then configure the iOS app (via the Webhook feature) to send a POST request to your Home Assistant server at the webhook URL provided by the integration during setup. Use the default POST format. Make sure to enable the 'Update Geo-Position' functionality for mobile beacons.
 
-```yaml
-# Example configuration.yaml entry
-geofency:
-```
+When using mobile beacons (optional) an entry in `configuration.yaml` is still needed as this can't be added via the integrations panel.
 
 {% configuration %}
 mobile_beacons:
@@ -31,7 +28,7 @@ mobile_beacons:
   type: list
 {% endconfiguration %}
 
-A full sample configuration for the `geofency` component is shown below:
+A sample configuration for the `geofency` component when using mobile beacons is shown below:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,5 +37,3 @@ geofency:
     - car
     - keys
 ```
-
-To configure Geofency, you must set it up via the integrations panel in the configuration screen. You must then configure the iOS app (via the Webhook feature) to send a POST request to your Home Assistant server at the webhook URL provided by the integration during setup. Use the default POST format. Make sure to enable the 'Update Geo-Position' functionality for mobile beacons.
