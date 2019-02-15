@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: danfoss_air.png
 ha_category: Switch
-ha_release: "0.88"
+ha_release: 0.89
 ha_iot_class: "Local Polling"
 ---
 
