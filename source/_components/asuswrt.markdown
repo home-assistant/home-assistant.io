@@ -8,12 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: asus.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Presence Detection
+  - Sensor
 ha_release: 0.83
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/device_tracker.asuswrt/
+  - /components/sensor.asuswrt/
 ---
 
 The `asuswrt` component is the main component to connect to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
+
+There is currently support for the following device types within Home Assistant:
+
+- **Presence Detection** - The asuswrt platform offers presence detection by looking at connected devices to a ASUSWRT based router.
+- **Sensor** - The asuswrt sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
 
 ## {% linkable_title Configuration %}
 
@@ -101,7 +112,7 @@ asuswrt:
 
 The example above, creates the following sensors:
 
-* sensor.asuswrt_download (unit_of_measurement: Gigabyte - *Daily accumulation*)
-* sensor.asuswrt_download_speed (unit_of_measurement: Mbit/s)
-* sensor.asuswrt_upload (unit_of_measurement: Gigabyte - *Daily accumulation*)
-* sensor.asuswrt_upload_speed (unit_of_measurement: Mbit/s)
+- sensor.asuswrt_download (unit_of_measurement: Gigabyte - *Daily accumulation*)
+- sensor.asuswrt_download_speed (unit_of_measurement: Mbit/s)
+- sensor.asuswrt_upload (unit_of_measurement: Gigabyte - *Daily accumulation*)
+- sensor.asuswrt_upload_speed (unit_of_measurement: Mbit/s)
