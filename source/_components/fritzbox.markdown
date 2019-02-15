@@ -11,6 +11,7 @@ logo: avm.png
 ha_category:
   - Binary Sensor
   - Climate
+  - Sensor
   - Switch
 ha_release: 0.68
 ha_iot_class: "Local Polling"
@@ -18,9 +19,17 @@ redirect_from:
   - /components/binary_sensor.fritzbox/
   - /components/switch.fritzbox/
   - /components/climate.fritzbox/
+  - /components/sensor.fritzbox/
 ---
 
 The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Climate
+- [Sensor](#sensor)
+- Switch
 
 #### {% linkable_title Tested Devices %}
 
@@ -81,3 +90,18 @@ The are several attributes that can be useful for automations and templates.
 | `temperature` | The current temperature sensor reading (only available if the device supports temperature sensor).
 | `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
 | `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).
+
+## {% linkable_title Sensor %}
+
+To get AVM Fritzbox temperature sensor (e.g. FRITZ!DECT Repeater 100) follow the instructions for the [Fritzbox component](#setup).
+
+### {% linkable_title Attributes %}
+
+The are several attributes that can be useful for automations and templates.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `device_locked` | The state of the key lock at the device.
+| `locked` | The state of the lock for configuring the device via the app or the Fritzbox web interface.
+| `temperature_unit` |  The unit of the temperature sensor.
+| `temperature` | The current temperature sensor reading.
