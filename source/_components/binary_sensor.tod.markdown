@@ -8,26 +8,22 @@ comments: false
 sharing: true
 footer: true
 ha_category: Binary Sensor
-ha_release: 0.86
+ha_release: 0.88
 ha_iot_class: "Local Push"
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `tod` platform supports binary sensors which get their values by checking
-if the current time is within defined time ranges.
-The time ranges can be provided as absolute local time or
-using the `sunrise` or `sunset` keyword calculated based on the sun position
-for location defined in HA config. The location must be provided in the configuration.
+The `tod` platform supports binary sensors which get their values by checking if the current time is within defined time ranges.
 
-In addition for sun position based ranges, the negative or positive offset can 
-be configured.
+The time ranges can be provided as absolute local time or using the `sunrise` or `sunset` keyword calculated based on the sun position for location. The location must be provided in the configuration.
+
+In addition for sun position based ranges, the negative or positive offset can be configured.
 
 ## {% linkable_title Configuration %}
 
-Here is an example of adding a Template Binary Sensor to the `configuration.yaml` file:
+Here is an example of adding a sensor to the `configuration.yaml` file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -37,39 +33,33 @@ binary_sensor:
     after_offset: '-02:00'
     before: '07:00'
 ```
-{% endraw %}
 
 {% configuration %}
-sensors:
-  description: List of your sensors.
+name:
+  description: Name of the sensor.
   required: true
-  type: map
-  keys:
-    name:
-      description: Name of the sensor.
-      required: true
-      type: string
-    before:
-      description: The absolute local time value or sun event for beginning of the time range.
-      required: true
-      type: string or time
-    before_offset:
-      description: The time offset of the beginning time range.
-      type: time
-    after:
-      description: The absolute local time value or sun event for ending of the time range.
-      required: true
-      type: string or time
-    after_offset:
-      description: The time offset of the beginning time range.
-      type: time
+  type: string
+before:
+  description: The absolute local time value or sun event for beginning of the time range.
+  required: true
+  type: string or time
+before_offset:
+  description: The time offset of the beginning time range.
+  required: false
+  type: time
+after:
+  description: The absolute local time value or sun event for ending of the time range.
+  required: true
+  type: string or time
+after_offset:
+  description: The time offset of the beginning time range.
+  type: time
+  required: false
 {% endconfiguration %}
 
 ## {% linkable_title Considerations %}
 
-The primary purpose of this sensor is to use a simple time range definition instead of creating a complex
-template with references to `sun.sun` component attributes.
-
+The primary purpose of this sensor is to use a simple time range definition instead of creating a complex template with references to `sun.sun` component attributes.
 
 The sensor state is ON when this condition `after` + `after_offset` <= `current time` < `before` + `before_offset`.
 
