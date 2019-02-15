@@ -19,3 +19,4 @@ To get your Danfoss Air binary sensors working with Home Assistant, follow the i
 
 The following binary sensor is supported.
 * **Bypass active:** Indicator if heat recovery is currrently bypassed.
+* **Away mode active:** Indicator if away mode is currently active.
