@@ -9,14 +9,14 @@ sharing: true
 footer: true
 logo: nissan.png
 ha_category: Car
-ha_release: 0.88
+ha_release: 0.89
 ha_iot_class: "Cloud Polling"
 ---
 
 The `nissan_leaf` component offers integration with the [NissanConnect EV](http://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
 
 * sensors for the battery status and range
-* a switch to start and stop the climate control  
+* a switch to start and stop the climate control
 * a switch to start the car charging (cannot be stopped remotely - API limitation)
 * a device tracker to locate the car (only on later Leaf models)
 
