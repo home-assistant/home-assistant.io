@@ -27,7 +27,7 @@ The `ps4` component allows you to control a
 
 1. Download the Second Screen App and make sure that you can find and control your PlayStation 4 normally.
 
-<p class='note warning'>
+<p class='note'>
   Read the section "Granting Port Access" below before continuing.
 </p>
 
@@ -36,7 +36,7 @@ The `ps4` component allows you to control a
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
 4. Pair Home Assistant to your PlayStation 4 by filling in the fields.
-- **Note:** To find your correct region refer to the section below titled "Regions"
+- **Note:** To find your correct region refer to the section [Regions](#Regions)
 
 ## {% linkable_title Granting Port Access %}
 
@@ -49,7 +49,9 @@ Home Assistant installed on a Debian-type OS for example, such as *Debian*, *Has
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter* which runs your Home Assistant instance needs access to the mentioned ports.
 
-- **Note:** Hass.io on HassOS does not require additional configuration.
+<p class='note'>
+  If your Home Assistant device is running *Hass.io* on *HassOS*, it does not require additional configuration.
+</p>
 
 - Example for Debian:
 `sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
@@ -58,14 +60,16 @@ Replace "/usr/bin/python3.5" with your path to Python that is running Home Assis
 
 ## {% linkable_title Configuration %}
 
-- **Note:** The PlayStation 4 component does not use entries from `configuration.yaml`. You must configure this component by using `Integrations`
+<p class='note'>
+  The PlayStation 4 component does not use entries from `configuration.yaml`. You must configure this component by using `Integrations`
+</p>
 
 ## {% linkable_title Regions %}
 
 Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. If you do not know your [region](https://www.gamerbraves.com/ps4-games-region-codes-explained/), reference the table below:
 
 |  Region ID  |  Locales                                       |
-| :---------: |:---------------------------------------------- |
+| ----------- | ---------------------------------------------- |
 | R1          | Bermuda, Canada, United States                 |
 |             | and U.S. territories                           |
 | R2          | The Middle East, Western Europe,               |
@@ -79,7 +83,7 @@ Some titles will have different SKUs in the PlayStation Store database depending
 | R5          | The rest of Africa, Former Soviet Union,       |
 |             | the Indian subcontinent, Mongolia, North Korea |
 
-<p class='note warning'>
+<p class='note'>
   Region 6: Mainland China, is not supported as there is no English database available.
 </p>
 
@@ -90,7 +94,7 @@ Some titles will have different SKUs in the PlayStation Store database depending
 Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
 
 | Service data attribute | Optional | Example                      | Description                           |
-| :--------------------: | :------: | :--------------------------: | ------------------------------------- |
+| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
 | `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
 | `command`              | No       | `ps`                         | The command you want to send.         |
 
