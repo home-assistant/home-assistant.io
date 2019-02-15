@@ -103,7 +103,7 @@ Emulate button press on PlayStation 4. This emulates the commands available for 
 Full list of supported commands.
 
 | Command  | Button Emulated  |
-| ------- -| ---------------- |
+| -------- | ---------------- |
 | `ps`     | PS (PlayStation) |
 | `option` | Option           |
 | `enter`  | Enter            |
