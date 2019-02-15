@@ -50,7 +50,7 @@ Home Assistant installed on a Debian-type OS for example, such as *Debian*, *Has
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter* which runs your Home Assistant instance needs access to the mentioned ports.
 
 <p class='note'>
-  If your Home Assistant device is running *Hass.io* on *HassOS*, it does not require additional configuration.
+  If your Home Assistant device is running <b>Hass.io</b> on <b>HassOS</b>, it does not require additional configuration.
 </p>
 
 - Example for Debian:
