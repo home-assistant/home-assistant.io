@@ -62,16 +62,6 @@ scan_interval:
   default: 2
 {% endconfiguration %}
 
-The Hive Home Assistant platform currently supports the following Hive devices:
-
-- Hive Active Heating (including hot water and Hive Multizone)
-- Hive Active Light Dimmable
-- Hive Active Light Cool to Warm White
-- Hive Active Light Color Changing
-- Hive Active Plug
-- Hive Window or Door Sensor
-- Hive Motion Sensor
-
 ## {% linkable_title Binary Sensor %}
 
 The `hive` binary sensor component integrates your Hive sensors into Home Assistant.
