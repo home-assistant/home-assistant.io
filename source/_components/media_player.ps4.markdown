@@ -36,7 +36,7 @@ The `ps4` component allows you to control a
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
 4. Pair Home Assistant to your PlayStation 4 by filling in the fields.
-- **Note:** To find your correct region refer to the section [Regions](#Regions)
+- **Note:** To find your correct region refer to the section [Regions](#regions)
 
 ## {% linkable_title Granting Port Access %}
 
@@ -98,17 +98,17 @@ Emulate button press on PlayStation 4. This emulates the commands available for 
 | `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
 | `command`              | No       | `ps`                         | The command you want to send.         |
 
-#### {% linkable_title Service `Available Commands` %}
+#### {% linkable_title Available Commands %}
 
 Full list of supported commands.
 
-| Command | Button Emulated  |
-| ------- | ---------------- |
-| ps      | PS (PlayStation) |
-| option  | Option           |
-| enter   | Enter            |
-| back    | Back             |
-| up      | Swipe Up         |
-| down    | Swipe Down       |
-| left    | Swipe Left       |
-| right   | Swipe Right      |
+| Command  | Button Emulated  |
+| ------- -| ---------------- |
+| `ps`     | PS (PlayStation) |
+| `option` | Option           |
+| `enter`  | Enter            |
+| `back`   | Back             |
+| `up`     | Swipe Up         |
+| `down`   | Swipe Down       |
+| `left`   | Swipe Left       |
+| `right`  | Swipe Right      |
