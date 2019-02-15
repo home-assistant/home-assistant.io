@@ -65,6 +65,8 @@ Add the information to your `configuration.yaml` file:
 homematicip_cloud:
   - accesspoint: IDENTIFIER
     authtoken: AUTHTOKEN
+    enable_group_switches: true
+    enable_group_sec_sensors : false
   - name: Location2
     accesspoint: IDENTIFIER2
     authtoken: AUTHTOKEN2
@@ -83,6 +85,16 @@ authtoken:
   required: true
   description: "Authentication token generated with `generate_auth_token.py`."
   type: string
+enable_group_switches:
+  required: false
+  description: "(true/false) Edit this to enable homeassistant to import the HmIP switch groups as switches."
+  default: false
+  type: boolean
+enable_group_sec_sensors:
+  required: false
+  description: "(true/false) Edit this to enable homeassistant to import the HmIP security groups as binary sensors. Security Groups are a room based collection of binary sensors (e.g. door contact, smoke sensor, motion detector, ...). In addition groups for all internal (binary_sensor.internal_securityzone) and external binary sensors ( binary_sensor.external_securityzone) are created."
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Implemented and tested devices %}
