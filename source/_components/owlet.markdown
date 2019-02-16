@@ -48,3 +48,12 @@ sleeping.  Configuring this component will enable tracking of heart rate, oxygen
 level, motion, and base station connection status.  Battery status is available
 as an attribute on oxygen and heart rate sensors.
 
+This component enables the following platforms automatically:
+
+#### Binary Sensors
+- Base Station Status
+- Motion
+
+#### Sensors
+- Heart rate
+- Oxygen level
