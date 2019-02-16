@@ -8,10 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: owlet.svg
-ha_category: Health
+ha_category: 
+  - Health
+  - Binary Sensor
+  - Sensor
 ha_release: "0.89"
 ha_iot_class: "Cloud Polling"
 ---
+
+Owlet Care baby monitors check your baby's oxygen level and heart rate while
+sleeping.
 
 ### {% linkable_title Configuration %}
 
@@ -43,8 +49,7 @@ such as battery status updates and charging reminders.  This component should no
 replace the Owlet app nor should it be used for life-critical notifications.
 </p>
 
-Owlet Care baby monitors check your baby's oxygen level and heart rate while
-sleeping.  Configuring this component will enable tracking of heart rate, oxygen
+Configuring this component will enable tracking of heart rate, oxygen
 level, motion, and base station connection status.  Battery status is available
 as an attribute on oxygen and heart rate sensors.
 
