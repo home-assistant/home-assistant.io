@@ -79,6 +79,7 @@ switch:
   - platform: teletask
     doip_component: relay
     address: 1
+    brightness_address: 1
     name: Power Outlets Garden
 ```
 
@@ -90,6 +91,10 @@ doip_component:
 address:
   description: Teletask DoIP address for switching the switch on/off.
   required: true
+  type: string
+brightness_address:
+  description: Teletask DoIP address for scaling up or down the brightness.
+  required: false
   type: string
 name:
   description: A name for this device used within Home Assistant.
