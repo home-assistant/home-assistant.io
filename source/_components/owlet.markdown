@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: owlet.svg
 ha_category: Health
-featured: true
-ha_release: "0.87"
+ha_release: "0.89"
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -45,10 +44,7 @@ replace the Owlet app nor should it be used for life-critical notifications.
 </p>
 
 Owlet Care baby monitors check your baby's oxygen level and heart rate while
-sleeping.  The configuration of this component is used for the sensor platforms
-listed below. At least one of the platforms below must be enabled for this configuration
-to be effective.
-
-- [Sensor](/components/sensor.owlet): View heart rate and oxygen levels
-- [Binary Sensor](/components/binary_sensor.owlet): View base station power and sock movement status
+sleeping.  Configuring this component will enable tracking of heart rate, oxygen
+level, motion, and base station connection status.  Battery status is available
+as an attribute on oxygen and heart rate sensors.
 
