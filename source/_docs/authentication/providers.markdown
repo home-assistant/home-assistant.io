@@ -79,6 +79,8 @@ homeassistant:
         - fd00::/8
 ```
 
+If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `trusted_networks` was configured under `http` section.
+
 ### {% linkable_title Legacy API password %}
 
 <p class='note warning'>
@@ -97,6 +99,8 @@ http:
 ```
 
 Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
+
+If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `api_password` was configured under `http` section.
 
 <p class='note warning'>
 [Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
