@@ -176,7 +176,7 @@ be accessed as `http://your.domain:8123/local/audio.mp3`.
 
 You can also create a `www_secure` directory under the configuration path to 
 host files can be accessed by the following URL `http://your.domain:8123/secure/`
-with [authentication](developers/auth_api#making-authenticated-requests). 
+with [authentication](https://developers.home-assistant.io/docs/en/auth_api.html#making-authenticated-requests). 
 
 <p class='note'>
   If you've had to create the `www/` or `www_secure/` folder for the first time, 
