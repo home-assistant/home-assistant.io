@@ -23,7 +23,7 @@ The `speedtestdotnet` component uses the [Speedtest.net](https://speedtest.net/)
 
 Enabling this component will automatically create the Speedtest.net Sensors for the monitored conditions (below).
 
-By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speed test to run.
+By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
 
 ## {% linkable_title Configuration %}
 
@@ -56,8 +56,8 @@ speedtestdotnet:
     description: Specify the speed test server to perform the test against.
     required: false
     type: integer
-  update_interval:
-    description: "Minimum time interval between updates. Supported formats: `update_interval: 'HH:MM:SS'`, `update_interval: 'HH:MM'` and Time period dictionary (see example below)."
+  scan_interval:
+    description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
     required: false
     default: 60 minutes
     type: time
@@ -72,7 +72,7 @@ speedtestdotnet:
 #### {% linkable_title Time period dictionary example %}
 
 ```yaml
-update_interval:
+scan_interval:
   # At least one of these must be specified:
   days: 0
   hours: 0
@@ -112,7 +112,7 @@ Every half hour of every day:
 ```yaml
 # Example configuration.yaml entry
 speedtestdotnet:
-  update_interval:
+  scan_interval:
     minutes: 30
   monitored_conditions:
     - ping

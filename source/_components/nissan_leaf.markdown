@@ -48,7 +48,7 @@ nissan_connect:
   description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be aquired and exposed via a device tracker. If you have a pre-2014 24 kWh Leaf then you will have Carwings and this should be set to false.
   required: false
   type: boolean
-update_interval:
+scan_interval:
   description: The interval between updates if the climate control is off and the car is not charging. Set in any time unit (e.g. minutes, hours, days!).
   required: false
   default: 1 hour
@@ -76,7 +76,7 @@ nissan_leaf:
   password: "YOUR_PASSWORD"
   region: "YOUR_REGION"
   nissan_connect: true
-  update_interval:
+  scan_interval:
     hours: 1
   update_interval_charging:
     minutes: 15

@@ -26,7 +26,7 @@ Currently fast.com only supports measuring download bandwidth. If you want to me
 
 Enabling this component will automatically create the Fast.com Sensor.
 
-By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `update_interval` for a speed test to run.
+By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
 
 ## {% linkable_title Configuration %}
 
@@ -42,13 +42,13 @@ Every half hour of every day:
 
 ```yaml
 fastdotcom:
-  update_interval:
+  scan_interval:
       minutes: 30
 ```
 
 {% configuration %}
-update_interval:
-  description: "Minimum time interval between updates. Supported formats: `update_interval: 'HH:MM:SS'`, `update_interval: 'HH:MM'` and Time period dictionary (see example below)."
+scan_interval:
+  description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: 60 minutes
   type: time
@@ -62,7 +62,7 @@ manual:
 #### {% linkable_title Time period dictionary example %}
 
 ```yaml
-update_interval:
+scan_interval:
   # At least one of these must be specified:
   days: 0
   hours: 0
