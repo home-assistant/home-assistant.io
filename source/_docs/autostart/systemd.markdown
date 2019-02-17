@@ -134,3 +134,11 @@ When working on Home Assistant, you can easily restart the system and then watch
 $ sudo systemctl restart home-assistant@YOUR_USER && sudo journalctl -f -u home-assistant@YOUR_USER
 ```
 
+### {% linkable_title Automatically restarting Home Assistant on failure %}
+
+If you want to restart the Home Assistant service automatically after a crash, add the following lines to the `[Service]` section of your unit file:
+
+```
+Restart=on-failure
+RestartSec=5s
+```
