@@ -45,6 +45,7 @@ Samsung SmartThings is integrated into Home Assistant through the SmartThings Cl
 4. No brokers, bridges, or additional dependencies.
 
 See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featured):
+
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QZHlhQ7fqrA" frameborder="0" allowfullscreen></iframe>
 </div>
@@ -254,12 +255,14 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 ### {% linkable_title Setup %}
 
 Perform the following steps if you receive one of the following error messages while attempting to setup the integration:
+
 - "SmartThings could not validate the endpoint configured in base_url. Please review the component requirements."
 - "Unable to setup the SmartApp. Please try again."
 
-#### Checklist
+#### {% linkable_title Checklist %}
+
 1. Ensure `base_url` is properly set to the _external address_ that Home Assistant is available to the internet. SmartThings must be able to reach this address.
-1. Validate there are no problems with your certificate or SSL configuration by using an online checker, such as [https://www.digicert.com/help/](https://www.digicert.com/help/)
+1. Validate there are no problems with your certificate or SSL configuration by using an online checker, such as [https://www.digicert.com/help/](https://www.digicert.com/help/).
 1. Some reverse proxy configuration settings can interfere with communication from SmartThings.  For example, TLSv1.3 is not supported.  Setting the supported cipher suite too restrictly will prevent handshaking. The following NGINX SSL configuration is known to work:
    ```nginx
    # cert.crt also contains intermediate certificates
@@ -285,7 +288,7 @@ Perform the following steps if you receive one of the following error messages w
     {"pingData": {"challenge": "00000000-0000-0000-0000-000000000000"}}
     ```
 
-If you have completed the check list above and are still unable to setup the platform, [activate debug logging](#debugging) for the SmartThings component and include the log messages up until the point of failure in [a new issue](https://github.com/home-assistant/home-assistant/issues).
+If you have completed the checklist above and are still unable to setup the platform, [activate debug logging](#debugging) for the SmartThings component and include the log messages up until the point of failure in [a new issue](https://github.com/home-assistant/home-assistant/issues).
 
 ### {% linkable_title Debugging %}
 
