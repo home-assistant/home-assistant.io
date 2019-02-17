@@ -121,6 +121,14 @@ Please note that clearing device registrations will prevent the device from send
 
 Each event includes live image and video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions.  For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
 
+The following keys are available on `event_data`:
+
+- `timestamp`
+- `live_video_url`
+- `live_image_url`
+- `rtsp_live_video_url`
+- `html5_viewer_url`
+
 <p class="note">
 The URLs on the event will be based on the configuration used to connect to your Doorbird device.  Ability to connect from outside your network will depend on your configuration.
 </p>

@@ -123,3 +123,4 @@ authtoken:
   * Blind actuator for brand switches (*HmIP-BBL*)
   * Shutter actuator brand-mount (*HmIP-BROLL*)
   * Shutter actuator flush-mount (*HmIP-FROLL*)
+

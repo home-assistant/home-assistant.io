@@ -81,7 +81,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 
 <p class='note'>
 Please note that downloading and playing Ring video will require a Ring Protect plan.
-<p>
+</p>
 
 Once you have enabled the [Ring component](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
 

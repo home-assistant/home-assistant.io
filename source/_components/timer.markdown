@@ -70,36 +70,36 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 ### {% linkable_title Service `timer.start` %}
 
 Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
-If no `entity_id` is given all active timers will be started.
+You can also use `entity_id: all` and all active timers will be started.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 | `duration`             |      yes | Duration in seconds or `00:00:00` until the timer finishes. |
 
 ### {% linkable_title Service `timer.pause` %}
 
-Pause a running timer. This will retain the remaining duration for later continuation. If no `entity_id` is given all active timers will be paused.
+Pause a running timer. This will retain the remaining duration for later continuation. You can also use `entity_id: all` and all active timers will be paused.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 
 #### {% linkable_title Service `timer.cancel` %}
 
-Cancel an active timer. This resets the duration to the last known initial value without firing the `timer.finished` event. If no `entity_id` is given all active timers will be canceled.
+Cancel an active timer. This resets the duration to the last known initial value without firing the `timer.finished` event. You can also use `entity_id: all` and all active timers will be canceled.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 
 #### {% linkable_title Service `timer.finish` %}
 
-Manually finish a running timer earlier than scheduled. If no `entity_id` is given all active timers will be finished.
+Manually finish a running timer earlier than scheduled. You can also use `entity_id: all` and all active timers will be finished.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Name of the entity to take action, e.g., `timer.timer0`. |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 
 ### {% linkable_title Use the service %}
 
