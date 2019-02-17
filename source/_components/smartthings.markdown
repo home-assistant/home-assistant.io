@@ -44,6 +44,13 @@ Samsung SmartThings is integrated into Home Assistant through the SmartThings Cl
 3. Support for multiple SmartThings accounts and locations, each represented as a unique integration in the front-end configuration.
 4. No brokers, bridges, or additional dependencies.
 
+See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featured):
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QZHlhQ7fqrA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
 ## {% linkable_title Basic requirements %}
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
@@ -83,6 +90,8 @@ The SmartThings component is configured exclusively through the front-end. Manua
 Advanced: If you have multiple locations in SmartThings, each can be integrated into Home Assistant. Follow the steps above, then for each subsequent location, install the SmartApp and it will automatically add to Home Assistant. This can be completed during step 3 (install SmartApp) above or at any time after that.
 </p>
 
+See the [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
+
 ## {% linkable_title Events %}
 
 The SmartThings component triggers events for select device capabilities.
@@ -108,6 +117,8 @@ The component will trigger an event when a device with the [button](https://smar
 `location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `value`                     | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device).
 `name`                      | The name given to the device in SmartThings.
+
+Event data payloads are logged at the debug level, see [debugging](#debugging) for more information.
 
 ## {% linkable_title Platforms %}
 
@@ -238,3 +249,54 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 ### {% linkable_title Switch %}
 
 The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title Setup %}
+
+Perform the following steps if you receive one of the following error messages while attempting to setup the integration:
+
+- "SmartThings could not validate the endpoint configured in base_url. Please review the component requirements."
+- "Unable to setup the SmartApp. Please try again."
+
+#### {% linkable_title Checklist %}
+
+1. Ensure `base_url` is properly set to the _external address_ that Home Assistant is available to the internet. SmartThings must be able to reach this address.
+1. Validate there are no problems with your certificate or SSL configuration by using an online checker, such as [https://www.digicert.com/help/](https://www.digicert.com/help/).
+1. Some reverse proxy configuration settings can interfere with communication from SmartThings.  For example, TLSv1.3 is not supported.  Setting the supported cipher suite too restrictly will prevent handshaking. The following NGINX SSL configuration is known to work:
+   ```nginx
+   # cert.crt also contains intermediate certificates
+   ssl_certificate /path/to/cert.crt;
+   ssl_certificate_key /path/to/cert.key;
+   ssl_dhparam /path/to/dhparam.pem;
+   ssl_protocols TLSv1.2;
+   ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+   ssl_prefer_server_ciphers on;
+   ssl_ecdh_curve secp384r1;
+   ssl_session_timeout  10m;
+   ssl_session_cache shared:SSL:10m;
+   ssl_session_tickets off;
+   ```
+1. While the error message (above) is being displayed, run the following command from outside your local network to confirm it is responding to the ping lifecycle event:
+    ```bash
+    curl -X POST https://{BASE_URL}/api/webhook/{WEBHOOK_ID} -H "Content-Type: application/json; charset=utf-8" -d $'{"lifecycle": "PING", "executionId": "00000000-0000-0000-0000-000000000000", "locale": "en", "version": "1.0.0", "pingData": { "challenge": "00000000-0000-0000-0000-000000000000"}}'
+    ```
+    Where `{BASE_URL}` is your external address and `{WEBHOOK_ID}` is the value of `webhook_id` from `.storage/smartthings` in your Home Assistant configuration directory.
+
+    The expected response is:
+    ```bash
+    {"pingData": {"challenge": "00000000-0000-0000-0000-000000000000"}}
+    ```
+
+If you have completed the checklist above and are still unable to setup the platform, [activate debug logging](#debugging) for the SmartThings component and include the log messages up until the point of failure in [a new issue](https://github.com/home-assistant/home-assistant/issues).
+
+### {% linkable_title Debugging %}
+
+The SmartThings component will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml`:
+
+```yaml
+logger:
+  default: info
+  logs:
+    homeassistant.components.smartthings: debug
+```
