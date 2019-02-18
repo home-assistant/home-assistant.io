@@ -25,7 +25,6 @@ sensor:
   - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
-    house_number_suffix: HOUSE_NUMBER_SUFFIX
 ```
 
 {% configuration %}
@@ -73,6 +72,7 @@ sensor:
   - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
+    house_number_suffix: HOUSE_NUMBER_SUFFIX
     name: Rova
     monitored_conditions:
       - bio
