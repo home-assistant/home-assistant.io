@@ -36,12 +36,12 @@ redirect_from:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/deconz/#binary-sensor)
-- [Cover](/components/deconz/#cover)
-- [Light](/components/deconz/#light)
-- [Scene](/components/deconz/#scene)
-- [Sensor](/components/deconz/#sensor)
-- [Switch](/components/deconz/#switch)
+- [Binary Sensor](#binary-sensor)
+- [Cover](#cover)
+- [Light](#light)
+- [Scene](#scene)
+- [Sensor](#sensor)
+- [Switch](#switch)
 
 ## {% linkable_title Recommended way of running deCONZ %}
 
