@@ -23,8 +23,11 @@ The display style of each entity can be modified in the [customize section](/get
 The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
 
 - **None**: Generic cover. This is the default and doesn't need to be set.
+- **curtain**: Curtain controller.
 - **damper**: Ventilation damper controller.
+- **door**: General door controller.
 - **garage**: Garage door controller.
+- **shade**: Shade controller.
 - **window**: Window controller.
 
 ## {% linkable_title Services %}
