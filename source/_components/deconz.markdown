@@ -37,6 +37,7 @@ redirect_from:
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
 - [Scene](#scene)
