@@ -70,3 +70,12 @@ monitored_conditions:
   required: false
   type: list
 {% endconfiguration %}
+
+The parameter `monitored_conditions` allows you to track non standard attributes from the traccar platform and use them in your Home Assistant. For example if you need to monitor the state of the non standard attribute `alarm` and a custom computed attribute `mycomputedattribute` just fill the configuration with:
+
+```yaml
+device_tracker:
+  - platform: traccar
+    ...
+    monitored_conditions: ['alarm', 'mycomputedattribute']
+```
