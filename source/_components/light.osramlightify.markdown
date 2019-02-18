@@ -18,7 +18,7 @@ The `osramlightify` platform allows you to integrate your [Osram Lightify](https
 # Example configuration.yaml entry
 light:
   - platform: osramlightify
-    host: 192.168.1.50
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -27,22 +27,22 @@ host:
   required: true
   type: string
 allow_lightify_nodes:
-  description: (true/false) Should Home Assistant import individual lights?
+  description: (true/false) If `true` then import individual lights, if `false` then skip them.
   required: false
   default: true
   type: boolean
 allow_lightify_sensors:
-  description: (true/false) Should Home Assistant import contact and motion sensors? Takes effect only if `allow_lightify_nodes` is `true`.
+  description: (true/false) If `true` then import contact and motion sensors, if `false` then skip them. Takes effect only if `allow_lightify_nodes` is `true`.
   required: false
   default: true
   type: boolean
 allow_lightify_switches:
-  description: (true/false) Should Home Assistant import switches? Takes effect only if `allow_lightify_nodes` is `true`.
+  description: (true/false) If `true` then import switches, if `false` then skip them. Takes effect only if `allow_lightify_nodes` is `true`.
   required: false
   default: true
   type: boolean
 allow_lightify_groups:
-  description: (true/false) Should Home Assistant import groups?
+  description: (true/false) If `true` then import groups, if `false` then skip them.
   required: false
   default: true
   type: boolean
