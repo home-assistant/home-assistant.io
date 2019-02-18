@@ -75,7 +75,15 @@ monitored_conditions:
       description: Site equipment details of connected batteries. The sensor value shows the number of batteries. Each battery is available as an attribute
     inverters:
       description: Site equiment details of connected inverters. The sensor values shows the number of inverters. Each inverter is available as an attribute
-    
+    power_consumption:
+      description: Show the current power consumption of your SolarEdge Site (additional hardware required)  
+    solar_power:
+      description: Show the current power production of your SolarEdge Site (additional hardware required)
+    grid_power:
+      description: Show the current power flow from/to the power grid. State will be either positive of negative indicating importing or exporting electricity (additional hardware required)
+    storage_power:
+      description: Show the current power flow from/to your site storage. State will be either positive of negative indicating discharging or charging (additional hardware required)
+
 {% endconfiguration %}
 
 If no **monitored_conditions** are specified, only **current_power** will be enabled.
@@ -104,6 +112,10 @@ sensor:
       - gateways
       - batteries
       - inverters
+      - power_consumption
+      - solar_power
+      - grid_power
+      - storage_power
 ```
 {% endraw %}
 
