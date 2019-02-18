@@ -22,8 +22,8 @@ To enable this sensor, add the following lines to your `configuration.yaml`. You
 ```yaml
 sensor:
   - platform: crimereports
-    name: <any name>
-    radius: <your radius>
+    name: NAME_FOR_SENSOR
+    radius: RADIUS
 ```
 
 {% configuration %}
