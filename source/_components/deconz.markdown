@@ -22,6 +22,7 @@ ha_qa_scale: platinum
 ha_config_flow: true
 redirect_from:
   - /components/binary_sensor.deconz/
+  - /components/climate.deconz/
   - /components/cover.deconz/
   - /components/light.deconz/
   - /components/scene.deconz/
@@ -323,6 +324,21 @@ The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is
   - Philips Hue Motion Sensor
   - Xiaomi Motion Sensor
   - Xiaomi Smart Home Aqara Human Body Sensor
+
+## {% linkable_title Climate %}
+
+See the [deCONZ main component](/components/deconz/) for configuration instructions.
+
+Climate currently represent thermostats.
+
+Note that devices in the climate platform identify as sensors, so there is a manually curated list that defines which "sensors" are climate devices.
+
+The `entity_id` name will be `climate.device_name`, where `device_name` is defined in deCONZ.
+
+#### {% linkable_title Verified supported climate devices %}
+
+- Bitron Thermostat 902010/32
+- Eurotronic SPZB0001
 
 ## {% linkable_title Cover %}
 
