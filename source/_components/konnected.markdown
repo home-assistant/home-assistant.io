@@ -12,6 +12,7 @@ ha_category:
   - Alarm
   - Binary Sensor
   - Switch
+  - Sensor
 ha_release: "0.70"
 redirect_from:
   - /components/binary_sensor.konnected/
@@ -94,6 +95,24 @@ devices:
           description: Inverts the open/closed meaning of a binary sensor circuit. Commonly needed for normally open wired smoke alarm circuits.
           required: false
           default: false
+    sensors:
+      description: A list of digital sensors (currently supported: DHT and DS18B20 sensors) connected to the device
+      required: false
+      type: list
+      keys:
+        pin:
+          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are 1, 2, 5, 6, 7 and 8.
+          required: exclusive
+        zone:
+          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board or the word `out` to specify the dedicated ALARM/OUT terminal on the Konnected board. Valid values are `1`, `2`, `3`, `4`, `5` and `out`.
+          required: exclusive
+        name:
+          description: The name of the device used in the front end.
+          required: false
+          default: automatically generated
+        type:
+          description: The type of sensor. Valid values: `dht` or `ds18b20`
+          required: true
     switches:
       description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/components/switch.konnected/) for configuration variables.
       required: false
@@ -212,6 +231,10 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | ALARM or OUT | D8 | 8 | GPIO15 |
 
 ### {% linkable_title Revision History %}
+
+#### 0.89
+
+- Added support for `dht` and `ds18b20` temperature sensors
 
 #### 0.80
 
