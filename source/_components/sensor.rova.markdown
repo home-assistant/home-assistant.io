@@ -25,6 +25,7 @@ sensor:
   - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
+    house_number_suffix: HOUSE_NUMBER_SUFFIX
 ```
 
 {% configuration %}
@@ -35,6 +36,10 @@ zip_code:
 house_number:
   description: Your house number.
   required: true
+  type: string
+house_number_suffix:
+  description: A suffix for your house number.
+  required: false
   type: string
 name:
   description: Let you overwrite the name of the device in the frontend.
@@ -99,3 +104,7 @@ automation:
           message: 'Reminder: put out biowaste bin'
 ```
 {% endraw %}
+
+<p class='note warning'>
+This component is not affiliated with Rova and retrieves data from the endpoints of their website. Use at your own risk.
+</p>
