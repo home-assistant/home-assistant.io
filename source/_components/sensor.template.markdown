@@ -253,14 +253,11 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/sensor.time_date/) to get a daily update:
+This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/sensor.time_date/) (which may need to be registered) to get a daily update:
 
 {% raw %}
 ```yaml
 sensor:
-- platform: time_date
-  display_options:
-  - date
 - platform: template
   sensors:
     nonsmoker:
@@ -271,7 +268,7 @@ sensor:
 ```
 {% endraw %}
 
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute. Be sure you register the `time_date` sensor if you choose this method!
+Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.
 
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
