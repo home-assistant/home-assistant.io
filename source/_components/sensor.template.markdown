@@ -271,7 +271,7 @@ sensor:
 ```
 {% endraw %}
 
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute. Be sure you register the `time_date` sensor if choose this method!
+Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute. Be sure you register the `time_date` sensor if you choose this method!
 
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
