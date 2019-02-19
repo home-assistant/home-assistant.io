@@ -13,7 +13,7 @@ ha_release: 0.88
 ha_iot_class: "depends"
 ---
 
-The `bomraradarloop` platform uses the Australian Bureau of Meteorology radar web service as a source to generate an animated radar image using the camera component.
+The `bomraradarloop` platform uses the Australian Bureau of Meteorology (BOM) radar web service as a source to generate an animated radar image using the camera component.
 
 ## {% linkable_title Configuration %}
 
@@ -30,19 +30,19 @@ See below for a list of valid `location` values, and subsitute one for `yourloca
 
 {% configuration %}
 location:
-  description: Required unless `id` is specified (see below for notes and a list of valid locations).
+  description: Required unless `id` is specified. See below for a list of valid locations.
   required: true
   type: string
 name:
-  description: Allows you to override the Home Assistant-generated name of the camera.
+  description: Allows you to override the Home Assistant-generated camera name.
   required: false
   type: string
 id:
-  description: Allows you to manually specify a BOM Radar ID (`location` _or_ `id` may be defined -- not both).
+  description: Allows you to manually specify a BOM Radar ID (either `location` or `id` may be defined -- not both).
   required: false
   type: integer
 delta:
-  description: Time in seconds between adjacent frames in the animated GIF. Optional if `location` is defined; required if `id` is defined.
+  description: Time in seconds between BOM radar images available for this radar. Optional if `location` is defined; required if `id` is defined.
   required: false
   type: integer
 frames:
@@ -56,8 +56,6 @@ filename:
 {% endconfiguration %}
 
 ### {% linkable_title Valid `location` values %}
-
-Here are the valid radar `location` names.
 
 ```yaml
 Adelaide
@@ -133,9 +131,9 @@ camera:
 
 ### {% linkable_title Using `id`, `delta` and `frames` %}
 
-In the event BOM creates a new radar, or a radar's ID changes, you may define a custom `id` along with corresponding `delta` and `frames` values. You may also specify custom `delta` and `frames` values, along with a valid `location`, to override the default values for an existing radar. NOTE: You cannot define `location` and `id` in the same entity; you must specify one or the other. If 'id' is specified, 'delta' and 'frames' values _must_ be provided. If 'location' is specified, 'delta' and 'frames' _may_ be provided to override the default values.
+In the event BOM creates a new radar, or a radar's ID changes, you may define a custom `id` along with corresponding `delta` and `frames` values. You may also specify custom `delta` and `frames` values, along with a valid `location`, to override the default values for an existing radar. You may not define `location` and `id` in the same entity; you must specify one or the other. If `id` is specified, then `delta` and `frames` values _must_ be provided. If `location` is specified, `delta` and `frames` _may_ be provided to override the default values.
 
-To find a live radar ID (e.g. for the `Townsville` radar), visit the BOM website's page for the radar in your browser and note the URL: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e. `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's Javascript-driven animation. The number of minutes (in seconds) between these times corresponds to the `bomradarloop`'s `delta` value, and the number of frames corresponds to `frames`. At the time of writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
+To find a live radar ID (e.g. for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e. `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the `bomradarloop`'s `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
 
 ```yaml
 camera:
@@ -143,7 +141,7 @@ camera:
     location: Townsville
 ```
 
-means the same as this one
+is equivalent to this one
 
 ```yaml
 camera:
@@ -155,7 +153,7 @@ camera:
 
 ### {% linkable_title Using `filename` %}
 
-This option can be specified to generate an animated GIF file of the radar imagery and save it to the given filesystem path.
+This option can be specified to save the animated radar-imagery GIF to the given filesystem path.
 
 Example `configuration.yaml` entry to display the `Sydney` radar and save the animated GIF to a file named `sydneyradar.gif` to the filesystem path accessible as `/local/sydneyradar.gif` via Home Assistant's web server:
 
@@ -165,3 +163,5 @@ camera:
     id: Sydney
     filename: /config/www/bomradar/sydneyradar.gif
 ```
+
+The file will be updated every `delta` seconds when the `bomradarloop` camera regenerates the animation.
