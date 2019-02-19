@@ -116,6 +116,7 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 | `repeats`                    |       no | Number of cleaning repeats for each zone between 1 and 3. |
 
 Example of `vacuum.xiaomi_clean_zone` use:
+
 Inline array:
 ```yaml
 automation:
