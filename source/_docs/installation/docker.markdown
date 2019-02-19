@@ -18,6 +18,14 @@ Installation with Docker is straightforward. Adjust the following command so tha
 $ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/home-assistant
 ```
 
+#### {% linkable_title Updating on Linux %}
+
+Simply pull the latest one:
+
+```bash
+$ docker pull homeassistant/home-assistant:latest
+```
+
 ### {% linkable_title Raspberry Pi 3 (Raspbian) %}
 
 ```bash
@@ -28,6 +36,12 @@ You need to replace `/PATH_TO_YOUR_CONFIG` with your path to the configuration, 
  
 ```bash
 $ docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistant/raspberrypi3-homeassistant
+```
+
+#### {% linkable_title Updating on Raspbian %}
+
+```bash
+$ docker pull homeassistant/raspberrypi3-homeassistant:latest
 ```
 
 ### {% linkable_title macOS %}
@@ -42,6 +56,12 @@ $ docker run -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -e "TZ=A
 
 Alternatively, `docker-compose` works with any recent release of `docker-ce` on macOS. Note that (further down this page) we provide an example `docker-compose.yml` however it differs from the `docker run` example above. To make the .yml directives match, you would need to make _two_ changes: first add the equivalent `ports:` directive, then _remove_ the `network_mode: host` section. This is because `Port mapping is incompatible with network_mode: host:`. More details can be found at [Docker networking docs](https://docs.docker.com/engine/userguide/networking/#default-networks). Note also the `/dev/tty*` device name used by your Arduino etc. devices will differ from the Linux example, so the compose `mount:` may require updates.
 
+#### {% linkable_title Updating on macOS %}
+
+```bash
+$ docker pull homeassistant/home-assistant:latest
+```
+
 ### {% linkable_title Windows %}
 
 ```powershell
@@ -55,6 +75,12 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 conne
 ```
 
 This will let you access your Home Assistant portal from http://localhost:8123, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.
+
+#### {% linkable_title Updating on Windows %}
+
+```bash
+$ docker pull homeassistant/home-assistant:latest
+```
 
 ### {% linkable_title Synology NAS %}
 
