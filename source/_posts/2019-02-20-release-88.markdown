@@ -83,6 +83,35 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Make monitored_conditions more specific in Ambient PWS ([@bachya] - [#20803]) ([ambient_station docs]) (breaking change)
 - Use CONF_RECIPIENT for default recipient in config ([@rohankapoorcom] - [#20925]) ([tplink_lte docs]) (breaking change)
 - Update ZHA API to be device oriented ([@dmulcahey] - [#20990]) ([zha docs]) (breaking change)
+- Deprecate conf_update_interval ([@rohankapoorcom] - [#20924]) (breaking change) (beta fix)
+- Return None if no GTFS departures found ([@renemarc] - [#20919]) ([sensor.gtfs docs]) (breaking change) (beta fix)
+- Set aioharmony version to 0.1.8 ([@ehendrix23] - [#21213]) ([harmony docs]) (breaking change) (beta fix)
+
+## {% linkable_title Beta Fixes %}
+
+- Set ZHA device availability on new join ([@dmulcahey] - [#21066]) ([zha docs]) (beta fix)
+- Set uvloop version consistent with hass.io ([@philhawthorne] - [#21080]) (beta fix)
+- Check against unlinked user ([@balloob] - [#21081]) ([person docs]) (beta fix)
+- Fix hue retry crash ([@balloob] - [#21083]) ([hue docs]) (beta fix)
+- Update pychromecast ([@balloob] - [#21097]) ([cast docs]) (beta fix)
+- Bump aioambient to 0.1.2 ([@bachya] - [#21098]) ([ambient_station docs]) (beta fix)
+- Bump thermoworks_smoke version to get new pyrebase version ([@nhorvath] - [#21100]) ([sensor.thermoworks_smoke docs]) (beta fix)
+- Don't expose services in Utility_Meter unless tariffs are available ([@dgomes] - [#20878]) ([utility_meter docs]) (beta fix)
+- Deprecate conf_update_interval ([@rohankapoorcom] - [#20924]) (breaking change) (beta fix)
+- Fix battery_level error - HomeKit ([@cdce8p] - [#21120]) ([homekit docs]) (beta fix)
+- Handle ValueError ([@balloob] - [#21126]) ([person docs]) (beta fix)
+- Bump pychromecast to 2.5.2 ([@balloob] - [#21127]) ([cast docs]) (beta fix)
+- Return None if no GTFS departures found ([@renemarc] - [#20919]) ([sensor.gtfs docs]) (breaking change) (beta fix)
+- SmartThings Component Enhancements/Fixes ([@andrewsayre] - [#21085]) ([smartthings docs]) (beta fix)
+- Fix SmartThings Translation Error ([@andrewsayre] - [#21103]) ([smartthings docs]) (beta fix)
+- Fix track_change error in utility_meter ([@dgomes] - [#21134]) ([utility_meter docs]) (beta fix)
+- Update pyEight for Python 3.7 Compatability ([@mezz64] - [#21161]) ([eight_sleep docs]) (beta fix)
+- Add power source to device and clean up zha listeners ([@dmulcahey] - [#21174]) ([zha docs]) (beta fix)
+- Fix for #19072 ([@sjabby] - [#21175]) ([light.flux_led docs]) (beta fix)
+- Upgrade aioimaplib for Python 3.7 compatibility ([@amelchio] - [#21197]) ([sensor.imap docs]) (beta fix)
+- ordered by last occurence ([@dgomes] - [#21200]) ([system_log docs]) (beta fix)
+- Set aioharmony version to 0.1.8 ([@ehendrix23] - [#21213]) ([harmony docs]) (breaking change) (beta fix)
+- Push pyads to 3.0.7 ([@carstenschroeder] - [#21216]) ([ads docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -91,6 +120,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add precision parameter to dsmr sensor ([@zumitnl] - [#19873]) ([sensor.dsmr docs])
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
 - Move mqtt_mock to tests/components/mqtt/conftest.py ([@awarecan] - [#20621])
+- Revert #20611: code in Abode alarm panel ([@arsaboo] - [#20629]) ([alarm_control_panel.abode docs])
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
 - Fix xiaomi default gateway in services ([@therve] - [#20623]) ([xiaomi_aqara docs])
 - Fix sensor.cpuspeed inside docker container (#20614) ([@rohankapoorcom] - [#20656]) ([sensor.cpuspeed docs])
@@ -171,6 +201,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix coroutine never awaited warning in test ([@awarecan] - [#20892])
 - Add some api tests for ZHA ([@dmulcahey] - [#20909])
 - Missing Binary Sensor ([@dagobert] - [#20921]) ([homematic docs])
+- Fix encoding for MQTT camera ([@emontnemery] - [#20932]) ([mqtt docs])
 - Fix RFLink restore state ([@javicalle] - [#20588]) ([rflink docs]) ([light.rflink docs])
 - add fan support for spider thermostats ([@peternijssen] - [#20897]) ([spider docs]) (new-feature)
 - Add quirks info to ZHA device ([@dmulcahey] - [#20923]) ([zha docs]) (new-feature)
@@ -209,6 +240,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Norway air quality ([@Danielhiversen] - [#20683]) ([sensor.norway_air docs]) ([weather.met docs]) (new-platform)
 - Fix Point does I/O in event loop ([@fredrike] - [#20939]) ([point docs])
 - Add unique id to ADS platforms ([@carstenschroeder] - [#20511]) ([light.ads docs])
+- Upgrade cryptography to 2.5 ([@awarecan] - [#21011])
 - Update ZHA API to be device oriented ([@dmulcahey] - [#20990]) ([zha docs]) (breaking change)
 - Update ordering ([@fabaff] - [#21013]) ([system_health docs])
 - Prevent OverflowError in ESPHome integration ([@OttoWinter] - [#21014]) ([esphome docs])
@@ -218,6 +250,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - RFC: Embed platforms without component for remote component. ([@balloob] - [#20809]) ([demo docs]) ([harmony docs]) ([itach docs]) (new-platform)
 - Fix discovery of audio groups ([@emontnemery] - [#20947]) ([cast docs])
 - Update entity state when ZHA device becomes available ([@dmulcahey] - [#20993]) ([zha docs])
+- Update co2signal==0.4.2 to fix #20805 ([@danielsjf] - [#21022]) ([sensor.co2signal docs])
 - Add missing helpers ([@fabaff] - [#21021])
 - Add lock config entry unload support. ([@andrewsayre] - [#21025]) ([lock docs])
 - Bump aioambient to 0.1.1 ([@bachya] - [#21024]) ([ambient_station docs])
@@ -239,6 +272,29 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade ruamel.yaml to 0.15.88 ([@fabaff] - [#21055])
 - Update file header ([@fabaff] - [#21054])
 - Don't directly update config entries ([@balloob] - [#20877]) ([deconz docs]) ([homematicip_cloud docs]) ([hue docs]) ([unifi docs])
+- Set ZHA device availability on new join ([@dmulcahey] - [#21066]) ([zha docs]) (beta fix)
+- Set uvloop version consistent with hass.io ([@philhawthorne] - [#21080]) (beta fix)
+- Check against unlinked user ([@balloob] - [#21081]) ([person docs]) (beta fix)
+- Fix hue retry crash ([@balloob] - [#21083]) ([hue docs]) (beta fix)
+- Update pychromecast ([@balloob] - [#21097]) ([cast docs]) (beta fix)
+- Bump aioambient to 0.1.2 ([@bachya] - [#21098]) ([ambient_station docs]) (beta fix)
+- Bump thermoworks_smoke version to get new pyrebase version ([@nhorvath] - [#21100]) ([sensor.thermoworks_smoke docs]) (beta fix)
+- Don't expose services in Utility_Meter unless tariffs are available ([@dgomes] - [#20878]) ([utility_meter docs]) (beta fix)
+- Deprecate conf_update_interval ([@rohankapoorcom] - [#20924]) (breaking change) (beta fix)
+- Fix battery_level error - HomeKit ([@cdce8p] - [#21120]) ([homekit docs]) (beta fix)
+- Handle ValueError ([@balloob] - [#21126]) ([person docs]) (beta fix)
+- Bump pychromecast to 2.5.2 ([@balloob] - [#21127]) ([cast docs]) (beta fix)
+- Return None if no GTFS departures found ([@renemarc] - [#20919]) ([sensor.gtfs docs]) (breaking change) (beta fix)
+- SmartThings Component Enhancements/Fixes ([@andrewsayre] - [#21085]) ([smartthings docs]) (beta fix)
+- Fix SmartThings Translation Error ([@andrewsayre] - [#21103]) ([smartthings docs]) (beta fix)
+- Fix track_change error in utility_meter ([@dgomes] - [#21134]) ([utility_meter docs]) (beta fix)
+- Update pyEight for Python 3.7 Compatability ([@mezz64] - [#21161]) ([eight_sleep docs]) (beta fix)
+- Add power source to device and clean up zha listeners ([@dmulcahey] - [#21174]) ([zha docs]) (beta fix)
+- Fix for #19072 ([@sjabby] - [#21175]) ([light.flux_led docs]) (beta fix)
+- Upgrade aioimaplib for Python 3.7 compatibility ([@amelchio] - [#21197]) ([sensor.imap docs]) (beta fix)
+- ordered by last occurence ([@dgomes] - [#21200]) ([system_log docs]) (beta fix)
+- Set aioharmony version to 0.1.8 ([@ehendrix23] - [#21213]) ([harmony docs]) (breaking change) (beta fix)
+- Push pyads to 3.0.7 ([@carstenschroeder] - [#21216]) ([ads docs]) (beta fix)
 
 [#18700]: https://github.com/home-assistant/home-assistant/pull/18700
 [#18738]: https://github.com/home-assistant/home-assistant/pull/18738
@@ -270,6 +326,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20621]: https://github.com/home-assistant/home-assistant/pull/20621
 [#20623]: https://github.com/home-assistant/home-assistant/pull/20623
 [#20625]: https://github.com/home-assistant/home-assistant/pull/20625
+[#20629]: https://github.com/home-assistant/home-assistant/pull/20629
 [#20634]: https://github.com/home-assistant/home-assistant/pull/20634
 [#20635]: https://github.com/home-assistant/home-assistant/pull/20635
 [#20650]: https://github.com/home-assistant/home-assistant/pull/20650
@@ -337,6 +394,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20874]: https://github.com/home-assistant/home-assistant/pull/20874
 [#20876]: https://github.com/home-assistant/home-assistant/pull/20876
 [#20877]: https://github.com/home-assistant/home-assistant/pull/20877
+[#20878]: https://github.com/home-assistant/home-assistant/pull/20878
 [#20880]: https://github.com/home-assistant/home-assistant/pull/20880
 [#20883]: https://github.com/home-assistant/home-assistant/pull/20883
 [#20887]: https://github.com/home-assistant/home-assistant/pull/20887
@@ -348,10 +406,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20909]: https://github.com/home-assistant/home-assistant/pull/20909
 [#20910]: https://github.com/home-assistant/home-assistant/pull/20910
 [#20915]: https://github.com/home-assistant/home-assistant/pull/20915
+[#20919]: https://github.com/home-assistant/home-assistant/pull/20919
 [#20921]: https://github.com/home-assistant/home-assistant/pull/20921
 [#20923]: https://github.com/home-assistant/home-assistant/pull/20923
+[#20924]: https://github.com/home-assistant/home-assistant/pull/20924
 [#20925]: https://github.com/home-assistant/home-assistant/pull/20925
 [#20929]: https://github.com/home-assistant/home-assistant/pull/20929
+[#20932]: https://github.com/home-assistant/home-assistant/pull/20932
 [#20937]: https://github.com/home-assistant/home-assistant/pull/20937
 [#20938]: https://github.com/home-assistant/home-assistant/pull/20938
 [#20939]: https://github.com/home-assistant/home-assistant/pull/20939
@@ -373,12 +434,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#20993]: https://github.com/home-assistant/home-assistant/pull/20993
 [#20998]: https://github.com/home-assistant/home-assistant/pull/20998
 [#21008]: https://github.com/home-assistant/home-assistant/pull/21008
+[#21011]: https://github.com/home-assistant/home-assistant/pull/21011
 [#21013]: https://github.com/home-assistant/home-assistant/pull/21013
 [#21014]: https://github.com/home-assistant/home-assistant/pull/21014
 [#21015]: https://github.com/home-assistant/home-assistant/pull/21015
 [#21016]: https://github.com/home-assistant/home-assistant/pull/21016
 [#21020]: https://github.com/home-assistant/home-assistant/pull/21020
 [#21021]: https://github.com/home-assistant/home-assistant/pull/21021
+[#21022]: https://github.com/home-assistant/home-assistant/pull/21022
 [#21023]: https://github.com/home-assistant/home-assistant/pull/21023
 [#21024]: https://github.com/home-assistant/home-assistant/pull/21024
 [#21025]: https://github.com/home-assistant/home-assistant/pull/21025
@@ -393,6 +456,26 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#21056]: https://github.com/home-assistant/home-assistant/pull/21056
 [#21057]: https://github.com/home-assistant/home-assistant/pull/21057
 [#21058]: https://github.com/home-assistant/home-assistant/pull/21058
+[#21066]: https://github.com/home-assistant/home-assistant/pull/21066
+[#21080]: https://github.com/home-assistant/home-assistant/pull/21080
+[#21081]: https://github.com/home-assistant/home-assistant/pull/21081
+[#21083]: https://github.com/home-assistant/home-assistant/pull/21083
+[#21085]: https://github.com/home-assistant/home-assistant/pull/21085
+[#21097]: https://github.com/home-assistant/home-assistant/pull/21097
+[#21098]: https://github.com/home-assistant/home-assistant/pull/21098
+[#21100]: https://github.com/home-assistant/home-assistant/pull/21100
+[#21103]: https://github.com/home-assistant/home-assistant/pull/21103
+[#21120]: https://github.com/home-assistant/home-assistant/pull/21120
+[#21126]: https://github.com/home-assistant/home-assistant/pull/21126
+[#21127]: https://github.com/home-assistant/home-assistant/pull/21127
+[#21134]: https://github.com/home-assistant/home-assistant/pull/21134
+[#21161]: https://github.com/home-assistant/home-assistant/pull/21161
+[#21174]: https://github.com/home-assistant/home-assistant/pull/21174
+[#21175]: https://github.com/home-assistant/home-assistant/pull/21175
+[#21197]: https://github.com/home-assistant/home-assistant/pull/21197
+[#21200]: https://github.com/home-assistant/home-assistant/pull/21200
+[#21213]: https://github.com/home-assistant/home-assistant/pull/21213
+[#21216]: https://github.com/home-assistant/home-assistant/pull/21216
 [@CrazYoshi]: https://github.com/CrazYoshi
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@JeffLIrion]: https://github.com/JeffLIrion
@@ -410,6 +493,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@Xiol]: https://github.com/Xiol
 [@aerialls]: https://github.com/aerialls
 [@akinomeroglu]: https://github.com/akinomeroglu
+[@amelchio]: https://github.com/amelchio
 [@andrewsayre]: https://github.com/andrewsayre
 [@arigilder]: https://github.com/arigilder
 [@arsaboo]: https://github.com/arsaboo
@@ -420,11 +504,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@benvm]: https://github.com/benvm
 [@boralyl]: https://github.com/boralyl
 [@carstenschroeder]: https://github.com/carstenschroeder
+[@cdce8p]: https://github.com/cdce8p
 [@cisasteelersfan]: https://github.com/cisasteelersfan
 [@dagobert]: https://github.com/dagobert
+[@danielsjf]: https://github.com/danielsjf
 [@dgomes]: https://github.com/dgomes
 [@dmulcahey]: https://github.com/dmulcahey
 [@efficiosoft]: https://github.com/efficiosoft
+[@ehendrix23]: https://github.com/ehendrix23
 [@eliseomartelli]: https://github.com/eliseomartelli
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
@@ -437,13 +524,16 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ludeeus]: https://github.com/ludeeus
 [@markusressel]: https://github.com/markusressel
 [@marvin-w]: https://github.com/marvin-w
+[@mezz64]: https://github.com/mezz64
 [@microraptor]: https://github.com/microraptor
 [@mw-white]: https://github.com/mw-white
 [@mxworm]: https://github.com/mxworm
 [@nd-net]: https://github.com/nd-net
+[@nhorvath]: https://github.com/nhorvath
 [@notgwj]: https://github.com/notgwj
 [@pc-coholic]: https://github.com/pc-coholic
 [@peternijssen]: https://github.com/peternijssen
+[@philhawthorne]: https://github.com/philhawthorne
 [@pszafer]: https://github.com/pszafer
 [@ptc]: https://github.com/ptc
 [@rbflurry]: https://github.com/rbflurry
@@ -452,6 +542,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@rwagoner]: https://github.com/rwagoner
 [@scarface-4711]: https://github.com/scarface-4711
 [@scop]: https://github.com/scop
+[@sjabby]: https://github.com/sjabby
 [@therve]: https://github.com/therve
 [@timmo001]: https://github.com/timmo001
 [@timvancann]: https://github.com/timvancann
@@ -462,6 +553,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [abode docs]: /components/abode/
 [ads docs]: /components/ads/
 [air_quality docs]: /components/air_quality/
+[alarm_control_panel.abode docs]: /components/alarm_control_panel.abode/
 [alarmdecoder docs]: /components/alarmdecoder/
 [ambient_station docs]: /components/ambient_station/
 [amcrest docs]: /components/amcrest/
@@ -483,6 +575,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [demo docs]: /components/demo/
 [device_tracker docs]: /components/device_tracker/
 [ebusd docs]: /components/ebusd/
+[eight_sleep docs]: /components/eight_sleep/
 [emulated_hue docs]: /components/emulated_hue/
 [esphome docs]: /components/esphome/
 [fastdotcom docs]: /components/fastdotcom/
@@ -525,6 +618,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [rflink docs]: /components/rflink/
 [script docs]: /components/script/
 [sensor.ambient_station docs]: /components/sensor.ambient_station/
+[sensor.co2signal docs]: /components/sensor.co2signal/
 [sensor.cpuspeed docs]: /components/sensor.cpuspeed/
 [sensor.darksky docs]: /components/sensor.darksky/
 [sensor.dsmr docs]: /components/sensor.dsmr/
@@ -532,6 +626,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.fastdotcom docs]: /components/sensor.fastdotcom/
 [sensor.github docs]: /components/sensor.github/
 [sensor.gtfs docs]: /components/sensor.gtfs/
+[sensor.imap docs]: /components/sensor.imap/
 [sensor.integration docs]: /components/sensor.integration/
 [sensor.jewish_calendar docs]: /components/sensor.jewish_calendar/
 [sensor.miflora docs]: /components/sensor.miflora/
@@ -542,6 +637,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.speedtestdotnet docs]: /components/sensor.speedtestdotnet/
 [sensor.sql docs]: /components/sensor.sql/
 [sensor.ted5000 docs]: /components/sensor.ted5000/
+[sensor.thermoworks_smoke docs]: /components/sensor.thermoworks_smoke/
 [sensor.xs1 docs]: /components/sensor.xs1/
 [smartthings docs]: /components/smartthings/
 [smhi docs]: /components/smhi/
@@ -560,6 +656,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [transmission docs]: /components/transmission/
 [unifi docs]: /components/unifi/
 [updater docs]: /components/updater/
+[utility_meter docs]: /components/utility_meter/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 [velux docs]: /components/velux/
 [weather.met docs]: /components/weather.met/
