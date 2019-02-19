@@ -25,8 +25,8 @@ If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) it will a
 
 There is currently support for the following device types within Home Assistant:
 
-- Notifications
-- Sensor
+- [Notifications](#notifications)
+- [Sensor](#sensor)
 
 ## {% linkable_title Setup %}
 
