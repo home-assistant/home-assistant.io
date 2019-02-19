@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: xs1.jpg
-ha_category: 
+ha_category:
   - Hub
   - Climate
   - Sensor
@@ -16,6 +16,10 @@ ha_category:
 ha_release: 0.88
 featured: false
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/climate.xs1/
+  - /components/sensor.xs1/
+  - /components/switch.xs1/
 ---
 
 The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) integration for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official docs for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).
@@ -78,8 +82,8 @@ If you are using climate devices the "current temp" sensor will be automatically
 | `switch`      | Yes       |                                                  |
 | `dimmer`      | Partly    | Dimmers are currently handled like switches so actual dimming is not supported :(|
 | `temperature` | Yes       |                                                  |
- 
- 
+
+
 ### {% linkable_title Climate Actuator/Sensor%}
 
 Home Assistant can combine temperature sensors and climate actuators into a single device. The XS1 gateway does not allow this, but a sensor and actuator can be configured separately. To make Home Assistant register them in the same climate device just prefix the **sensor** name with the actuator name on the XS1 gateway configuration, f.ex:
