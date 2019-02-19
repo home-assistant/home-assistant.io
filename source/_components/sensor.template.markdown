@@ -258,6 +258,9 @@ This template contains no entities that will trigger an update, so we add an `en
 {% raw %}
 ```yaml
 sensor:
+- platform: time_date
+  display_options:
+  - date
 - platform: template
   sensors:
     nonsmoker:
@@ -268,7 +271,7 @@ sensor:
 ```
 {% endraw %}
 
-Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute.
+Useful entities to choose might be `sensor.date` which update once per day or `sensor.time` which updates once per minute. Be sure you register the `time_date` sensor if choose this method!
 
 An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 5 minutes:
 
