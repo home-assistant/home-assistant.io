@@ -172,7 +172,6 @@ automation:
           - 26032
           - 26496
 ```
-
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
