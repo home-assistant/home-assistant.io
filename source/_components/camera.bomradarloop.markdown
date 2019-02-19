@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 ha_category: Camera
-logo: home-assistant.png
-ha_release: 0.88
+logo: bom.png
+ha_release: 0.89
 ha_iot_class: "depends"
 ---
 
@@ -23,10 +23,10 @@ To enable `bomradarloop` in your installation, add the following to your `config
 # Example configuration.yaml entry
 camera:
   - platform: bomradarloop
-    location: yourlocation
+    location: YOUR_LOCATION
 ```
 
-See below for a list of valid `location` values, and subsitute one for `yourlocation`.
+See below for a list of valid `location` values, and subsitute one for `YOUR_LOCATION`.
 
 {% configuration %}
 location:
