@@ -44,14 +44,14 @@ streets:
   description: The streets you want to track.
   required: true
   type: list
-keys:
-  name:
-    description: The name of the sensor.
-    required: true
-    type: string
-  streetid:
-    description: The street side id to monitor
-    required:true
-    type: integer
+  keys:
+    name:
+      description: The name of the sensor.
+      required: true
+      type: string
+    streetid:
+      description: The street side id to monitor
+      required:true
+      type: integer
 {% endconfiguration %}
 
