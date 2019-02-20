@@ -36,8 +36,8 @@ automatically be discovered and made available on your dashboard.
 ```yaml
 # Example configuration.yaml entry
 smarthab:
-  email: john.doe@example.com
-  password: '123456'
+  email: EMAIL_ADDRESS
+  password: PASSWORD
 ```
 
 {% configuration %}
