@@ -51,7 +51,7 @@ streets:
       type: string
     streetid:
       description: The street side id to monitor
-      required:true
+      required: true
       type: integer
 {% endconfiguration %}
 
