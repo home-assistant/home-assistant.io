@@ -7,10 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: ebusd.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
 ha_release: "0.88"
+redirect_from:
+  - /components/sensor.ebusd/
 ---
 
 Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
@@ -31,7 +32,7 @@ host:
   description: This is the IP address of your ebus daemon, e.g., `127.0.0.1`.
   required: true
   type: string
-circuit: 
+circuit:
   description: The heating circuit name to monitor, e.g., 700.
   required: true
   type: string
@@ -40,7 +41,7 @@ port:
   type: integer
   required: false
   default: 8888
-name: 
+name:
   description: The name to use when displaying this ebusd instance.
   type: string
   required: false

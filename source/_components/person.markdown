@@ -15,9 +15,11 @@ ha_release: 0.88
 
 The person component allows to connect device tracker entities to one or more person entities. The last state update of a connected device tracker will set the state of the person. Eg if you connect your router and your owntracks device as trackers to your person, the last state update from either the router or your owntracks device will set the state of your person.
 
-## {% linkable_title Configuring the `person` component %}
+You can manage persons via the UI from the person page inside the configuration panel.
 
-To get started add the following lines to your `configuration.yaml`:
+## {% linkable_title Configuring the `person` component via YAML %}
+
+If you prefer YAML, you can also configure your persons via `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
