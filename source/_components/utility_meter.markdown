@@ -50,10 +50,10 @@ offset:
   required: false
   default: 0
   type: integer
-rollover:
-  description: Set this to False if the source keeps it's value and will never rollover.  Setting this to False will allow your utility_meter reading to go negative for net metering.
+net_consumption:
+  description: Set this to True if you would like to treat the source as a net meter.  This will allow your counter to go both positive and negative.
   required: false
-  default: True
+  default: False
   type: boolean
 tariffs:
   description: List of tariffs supported by the utility meter.
