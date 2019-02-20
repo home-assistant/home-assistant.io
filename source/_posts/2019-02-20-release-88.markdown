@@ -13,6 +13,8 @@ og_image: /images/blog/2019-02-release-88/smartthings.png
 
 <a href='/components/#version/0.88'><img src='/images/blog/2019-02-release-88/components.png' style='border: 0;box-shadow: none;'></a>
 
+Release 0.88 has landed. It's been a busy two weeks with a ton of cool stuff and improvements.
+
 This release introduces a new [person component][person docs] thanks to [@MartinHjelmare]. With this component, Home Assistant can be set up to track the people in your home. Each person can be linked to a user and multiple device tracker entities. This release does basic device tracker state merging, which will be evolved in the future. Device trackers merging their own states will be phased out in favor of persons. You can configure persons via the config panel. To get started, add the person component to your configuration.yaml file: `person:`. If you want to automatically stay up to date with the latest default Home Assistant components, you can now also add `default_config:` to your config.
 
 This release also extends the event dev tool to include an event debugger. It allows you to listen to core events and get them printend to the screen. This makes it easy to find the event data that your remote is sending out.
