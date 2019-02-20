@@ -68,6 +68,7 @@ homematicip_cloud:
   - name: Location2
     accesspoint: IDENTIFIER2
     authtoken: AUTHTOKEN2
+    show_extra_attributes: true
 ```
 
 {% configuration %}
@@ -83,6 +84,11 @@ authtoken:
   required: true
   description: "Authentication token generated with `generate_auth_token.py`."
   type: string
+show_extra_attributes:
+  required: false
+  description: "Enables display of extra attributes per device (e.g. rssi)."
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## {% linkable_title Implemented and tested devices %}
