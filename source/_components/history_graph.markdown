@@ -73,5 +73,5 @@ history_graph:
     # refresh: 0
 
 ```
-
+For sensors to automatically be combined into one graph they need to have exactly the same unit_of_measurement. This is important if you have e.g. a unit-less temperature state_topic MQTT sensor and you want to combine this with a weather sensor. unit_of_measurement of the MQTT sensor then needs to be set to '°C'.
 
