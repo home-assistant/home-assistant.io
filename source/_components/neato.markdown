@@ -67,11 +67,11 @@ Currently supported services are:
 
 And a specific Platform Service:
 
-- `neato.neato_custom_cleaning`
+- `vacuum.neato_custom_cleaning`
 
 ### {% linkable_title Platform Services %}
 
-#### {% linkable_title Service `neato.neato_custom_cleaning` %}
+#### {% linkable_title Service `vacuum.neato_custom_cleaning` %}
 
 Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
