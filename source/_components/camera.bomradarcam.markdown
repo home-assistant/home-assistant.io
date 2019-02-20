@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "BOM Radar Loop"
-description: "Instructions for integrating bomradarloop within Home Assistant"
+title: "BOM Radar Cam"
+description: "Instructions for integrating bomradarcam within Home Assistant"
 date: 2019-02-18 00:00
 sidebar: true
 comments: false
@@ -13,16 +13,16 @@ ha_release: 0.89
 ha_iot_class: "depends"
 ---
 
-The `bomraradarloop` platform uses the Australian Bureau of Meteorology (BOM) radar web service as a source to generate an animated radar image using the camera component.
+The `bomraradarcam` platform uses the Australian Bureau of Meteorology (BOM) radar web service as a source to generate an animated radar image using the camera component.
 
 ## {% linkable_title Configuration %}
 
-To enable `bomradarloop` in your installation, add the following to your `configuration.yaml` file:
+To enable `bomradarcam` in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 camera:
-  - platform: bomradarloop
+  - platform: bomradarcam
     location: YOUR_LOCATION
 ```
 
@@ -124,7 +124,7 @@ Example `configuration.yaml` entry to display the `Townsville` radar with a came
 
 ```yaml
 camera:
-  - platform: bomradarloop
+  - platform: bomradarcam
     name: mytownsvilleradar
     location: Townsville
 ```
@@ -133,11 +133,11 @@ camera:
 
 In the event BOM creates a new radar, or a radar's ID changes, you may define a custom `id` along with corresponding `delta` and `frames` values. You may also specify custom `delta` and `frames` values, along with a valid `location`, to override the default values for an existing radar. You may not define `location` and `id` in the same entity; you must specify one or the other. If `id` is specified, then `delta` and `frames` values _must_ be provided. If `location` is specified, `delta` and `frames` _may_ be provided to override the default values.
 
-To find a live radar ID (e.g. for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e. `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the `bomradarloop`'s `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
+To find a live radar ID (e.g. for the `Townsville` radar), visit the [BOM website's radars page](http://www.bom.gov.au/australia/radar/), click the link for the radar you are interested in, and note the URL, for example: `http://www.bom.gov.au/products/IDR733.loop.shtml`. The ID is the number following `IDR` (i.e. `733`) in the URL. You can also see, at the bottom of the radar image, a rotating set of times corresponding to the frames of the BOM's JavaScript-driven animation. The number of minutes (in seconds) between these times corresponds to the `bomradarcam`'s `delta` value, and the number of frames corresponds to the `frames` value. At the time of this writing, the `Townsville` radar loop is composed of 4 frames at 10-minute (600 second) intervals. Since these are also the default values, this configuration block
 
 ```yaml
 camera:
-  - platform: bomradarloop
+  - platform: bomradarcam
     location: Townsville
 ```
 
@@ -145,7 +145,7 @@ is equivalent to this one
 
 ```yaml
 camera:
-  - platform: bomradarloop
+  - platform: bomradarcam
     id: 733
     frames: 4
     delta: 600
@@ -159,9 +159,9 @@ Example `configuration.yaml` entry to display the `Sydney` radar and save the an
 
 ```yaml
 camera:
-  - platform: bomradarloop
+  - platform: bomradarcam
     id: Sydney
     filename: /config/www/bomradar/sydneyradar.gif
 ```
 
-The file will be updated every `delta` seconds when the `bomradarloop` camera regenerates the animation.
+The file will be updated every `delta` seconds when the `bomradarcam` camera regenerates the animation.
