@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: train.png
+logo: mdi:snowflake
 ha_category:
   - Environment
   - Sensor
