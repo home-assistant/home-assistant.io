@@ -362,27 +362,6 @@ Software Required:
 - [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
 - [Android Backup Extractor](https://sourceforge.net/projects/adbextractor/)
 - [SQLite Browser](https://sqlitebrowser.org/)
-<<<<<<< HEAD
-
-Steps to take:
-
-1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device.
-2. Open MiHome, log-in and add your devices.
-3. Enable USB-Debugging on your Android.
-4. Create a backup from your MiHome App, by using adb:
-    ```bash
-    adb backup com.xiaomi.smarthome
-    ```
-    Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
-5. Extract the backup-file with android-backup-extractor:
-    ```bash
-    java -jar abe.jar unpack backup.ab backup.tar
-    ```
-    After that, extract the file with WinRAR, 7-Zip (or similar).
-6. Go to `\apps\com.xiaomi.smarthome\db`.
-7. Open `miio2.db` with the SQLite Browser.
-8. You can find your device tokens in `devicerecord` table.
-=======
 1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device
 2. Open MiHome, log-in and add your devices
 3. Enable USB-Debugging on your Android
@@ -399,4 +378,3 @@ Steps to take:
 6. Go to \apps\com.xiaomi.smarthome\db
 7. Open miio2.db with SQLite Browser
 8. You can find your device tokens in "devicerecord" table
->>>>>>> rytilahti tips
