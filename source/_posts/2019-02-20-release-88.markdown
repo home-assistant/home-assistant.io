@@ -17,6 +17,8 @@ This release introduces a new [person component][person docs] thanks to [@Martin
 
 This release also extends the event dev tool to include an event debugger. It allows you to listen to core events and get them printend to the screen. This makes it easy to find the event data that your remote is sending out.
 
+<img src='/images/blog/2019-02-release-88/event_subscription.png' style='border: 0;box-shadow: none; margin: 0 auto; display: block;' alt='Screenshot of the new event subscription tool.'>
+
 We also have a new command line auth provider. This will allow you to use a shell script to validate users logging in to the system. This gives a lot of flexibility. For example, you can now authenticate against LDAP. More info in [the documentation](/docs/authentication/providers/#command-line).
 
 [@andrewsayre] has been working hard on extending the SmartThings support. This release brings sensors and climate devices into the mix. Awesome!
