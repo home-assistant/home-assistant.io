@@ -64,6 +64,11 @@ sensor:
     description: "Version of DSMR used by meter. Choices: 2.2, 4, 5. Defaults to 2.2."
     required: false
     type: string
+  precision:
+    description: Defines the precision of the calculated values, through the argument of round().
+    required: false
+    type: integer
+    default: 3
 {% endconfiguration %}
 
 Full configuration examples can be found below:

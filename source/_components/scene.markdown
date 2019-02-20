@@ -69,5 +69,5 @@ automation:
 ```
 
 <p class='note'>
-Please note that the scene component currently only supports one service call per entity to achieve the state. Due to this limitation, you cannot set states belonging to different services. A workaround for this limitation is to write a script, which you then turn on in your scene.
+Please note that the scene component for the most part only supports one service call per entity to achieve the state. Due to this limitation, you cannot set states belonging to different services. A workaround for this limitation is to write a script, which you then turn on in your scene. A few components have direct support for multiple service calls per state, Currently this is the media_player and climate components.
 </p>
