@@ -24,7 +24,7 @@ To add a set-top box to your installation, add the following to your `configurat
 # Example configuration.yaml entry
 media_player:
   - platform: enigma2
-    host: 192.168.1.12
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
