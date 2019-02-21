@@ -8,7 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: train.png
-ha_category: Transport
+ha_category:
+  - Transport
+  - Sensor
 ha_iot_class: "Local Polling"
 ha_release: "0.89"
 ---
