@@ -10,7 +10,7 @@ footer: true
 logo: train.png
 ha_category: Transport
 ha_iot_class: "Local Polling"
-ha_release: 0.17
+ha_release: "0.89"
 ---
 
 The `nextbus` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from [NextBus](https://www.nextbus.com), which provides real time transit data for a number of transit authorities.
