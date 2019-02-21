@@ -24,7 +24,7 @@ MB_KEY="INSERT-YOUR-KEY-HERE"
 
 sudo docker run --name=facebox --restart=always -p 8080:8080 -e "MB_KEY=$MB_KEY"  machinebox/facebox
 ```
-You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bare in mind that the component does not encrypt these credentials and this approach does not guarantee security on an unsecured network. 
+You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USER=my_username" -e "MB_BASICAUTH_PASS=my_password"` but bear in mind that the component does not encrypt these credentials and this approach does not guarantee security on an unsecured network.
 
 If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
 
@@ -77,7 +77,7 @@ source:
 
 ## {% linkable_title Automations %}
 
-Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](https://www.home-assistant.io/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
+Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
 
 {% raw %}
 ```yaml
@@ -98,7 +98,7 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
 
 ## {% linkable_title Service `facebox_teach_face` %}
 
-The service `facebox_teach_face` can be used to teach Facebox faces.  
+The service `facebox_teach_face` can be used to teach Facebox faces.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -133,13 +133,13 @@ You can use an automation to receive a notification when you train a face:
   action:
   - service: notify.pushbullet
     data_template:
-      message: '{{ trigger.event.data.service_data.name }} taught 
+      message: '{{ trigger.event.data.service_data.name }} taught
       with file {{ trigger.event.data.service_data.file_path }}'
       title: Face taught notification
 ```
 {% endraw %}
 
-Any errors on teaching will be reported in the logs. If you enable [system_log](https://www.home-assistant.io/components/system_log/) events:
+Any errors on teaching will be reported in the logs. If you enable [system_log](/components/system_log/) events:
 
 ```yaml
 system_log:
@@ -166,6 +166,3 @@ you can create an automation to receive notifications on Facebox errors:
 ```
 {% endraw %}
 
-## {% linkable_title Optimising resources %}
-
-[Image processing components](https://www.home-assistant.io/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.

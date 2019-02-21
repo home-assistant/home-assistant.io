@@ -40,14 +40,14 @@ sensor:
     description: I2C address of the sensor.
     required: false
     default: "`0x44`"
-    type: int
+    type: integer
   monitored_conditions:
     description: Conditions to monitor.
     required: false
     default: All conditions
     type: list
     keys:
-      temperature: 
+      temperature:
         description: The current temperature of the SHT31.
       humidity:
         description: The current humidity of the SHT31.

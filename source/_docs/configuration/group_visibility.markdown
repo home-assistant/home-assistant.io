@@ -20,7 +20,7 @@ To change visibility of a group, use the service `group.set_visibility`, pass th
 service: group.set_visibility
 entity_id: group.basement
 data:
-  visible: False
+  visible: false
 ```
 
 <p class='note'>
@@ -42,7 +42,7 @@ automation:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: False
+      visible: false
 
 automation 2:
   trigger:
@@ -52,7 +52,7 @@ automation 2:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: True
+      visible: true
 ```
 
 ## {% linkable_title Easier automations %}
@@ -95,7 +95,7 @@ if __name__ == '__main__':
     print(get_current_occasion(OCCASIONS))
 ```
 
-This script will output "work_morning" from 06:00-07:10 during weekdays (monday-friday), "weekday" during all other time from monday-friday and "weekend" on saturdays and sundays. Adjust according to your needs. To create the sensor, just add it like this:
+This script will output "work_morning" from 06:00-07:10 during weekdays (Monday-Friday), "weekday" during all other time from Monday-Friday and "weekend" on Saturdays and Sundays. Adjust according to your needs. To create the sensor, just add it like this:
 
 ```yaml
 sensor:

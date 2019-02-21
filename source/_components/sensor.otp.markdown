@@ -8,12 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.49
+ha_qa_scale: internal
 ---
 
 The `otp` sensor generates One-Time Passwords according to [RFC6238](https://tools.ietf.org/html/rfc6238) that is compatible with most OTP generators available, including Google Authenticator. You can use this when building custom security solutions and want to use "rolling codes", that change every 30 seconds.
+
+## {% linkable_title Configuration %}
 
 To enable the OTP sensor, add the following lines to your `configuration.yaml`:
 
@@ -24,10 +27,17 @@ sensor:
     token: SHARED_SECRET_TOKEN
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Name of the sensor to use in the frontend. Defaults to `OTP Sensor`.
-- **token** (*Required*): The shared secret you use in your OTP generator (e.g., Google Authenticator on your phone)
+{% configuration %}
+name:
+  description: Name of the sensor to use in the frontend.
+  required: false
+  default: OTP Sensor
+  type: string
+token:
+  description: The shared secret you use in your OTP generator (e.g., Google Authenticator on your phone).
+  required: true
+  type: string
+{% endconfiguration %}
 
 ## Generating a token
 
@@ -45,6 +55,7 @@ To run in a Docker container:
 $ docker exec -it home-assistant python -c 'import pyotp; print("Token:", pyotp.random_base32())'
 Token: IHEDPEBEVA2WVHB7
 ```
+
 Copy and paste the token into your Home Assistant configuration and add it to your OTP generator. Verify that they generate the same code.
 
 <p class='note warning'>

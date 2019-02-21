@@ -31,7 +31,7 @@ host:
 port:
   description: The port that mochad is running on.
   required: false
-  type: int
+  type: integer
   default: 1099
 {% endconfiguration %}
 

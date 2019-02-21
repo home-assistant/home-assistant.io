@@ -19,14 +19,16 @@ The `aladdin_connect` cover platform lets you control Genie Aladdin Connect gara
 Only doors that are owned by your Aladdin Connect account will be available. Doors that your account has been granted shared access to are not yet supported.
 </p>
 
+## {% linkable_title Configuration %}
+
 To use your Aladdin Connect cover in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 cover:
   - platform: aladdin_connect
-    username: user@email.com
-    password: password
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 {% configuration %}

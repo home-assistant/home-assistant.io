@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Presence Detection
+ha_iot_class: "Local Polling"
 ha_release: 0.14
 ---
 
@@ -45,7 +46,7 @@ host:
 port:
     description: The port of your controller's web interface
     default: 8443
-    type: int
+    type: integer
     required: false
 site_id:
     description: For multisite installations, you can specify `site_id` to specify which is used
@@ -59,12 +60,17 @@ verify_ssl:
     default: true
 detection_time:
     description: How long since the last seen time before the device is marked away, specified in seconds.
-    type: int
+    type: integer
     required: false
     default: 300
 ssid_filter:
     description: Filter the SSIDs that tracking will occur on.
     type: list of strings
+    required: false
+    default: None
+monitored_conditions:
+    description: A list of extra attributes to pull from the Unifi controller.
+    type: list
     required: false
     default: None
 
@@ -78,14 +84,81 @@ The Unifi controller allows you to create multiple users on it besides the main 
 
 ### {% linkable_title Conflicts with MQTT %}
 
-The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
+The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
 
 It is recommended that you run the Unifi controller in a dedicated virtual machine to avoid that situation.
+
+### {% linkable_title Correctly specifying the Site ID %}
+
+For environments where there are multiple sites setup on the controller, or the default site is not being used you can use the `site_id` parameter to specify which site you would like to target.
+
+Please note that the value that is to be specificed here is not the name of the site as you would see it in controller interface, but a site ID value assigned from the software itself.
+
+To obtain this value for your configuration file, you can take it from the URL of your browser when on the controller webpage.
+
+For example, this is what would be seen in the URL bar when inside the dashboard page of a site:
+
+* https://127.0.0.1:8443/manage/s/ceb1m27d/dashboard
+
+And your `site_id` value would be ceb1m27d.
+
 
 ### {% linkable_title Troubleshooting and Time Synchronization %}
 
 Presence detection depends on accurate time configuration between Home Assistant and the Unifi controller.
 
-If Home Assistant and the Unifi controller are running on separate machines or VMs ensure that all clocks are syncronized. Failing to have syncronized clocks will lead to Home Assistant failing to mark a device as home.
+If Home Assistant and the Unifi controller are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
+
+### {% linkable_title Monitored Conditions %}
+
+The Unifi controller returns a number of additional attributes that can be used for tracking devices, including signal strength, rx/tx rates, and which AP it is connected to. The list of possible options may vary depending on your Unifi controller version and if a device is wired or wireless.
+
+Unifi Controller version 5.6.29 has the following options:
+  - _id
+  - _is_guest_by_uap
+  - _last_seen_by_uap
+  - _uptime_by_uap
+  - ap_mac
+  - assoc_time
+  - authorized
+  - bssid
+  - bytes-r
+  - ccq
+  - channel
+  - essid
+  - first_seen
+  - hostname
+  - idletime
+  - ip
+  - is_11r
+  - is_guest
+  - is_wired
+  - last_seen
+  - latest_assoc_time
+  - mac
+  - name
+  - noise
+  - noted
+  - oui
+  - powersave_enabled
+  - qos_policy_applied
+  - radio
+  - radio_proto
+  - rssi
+  - rx_bytes
+  - rx_bytes-r
+  - rx_packets
+  - rx_rate
+  - signal
+  - site_id
+  - tx_bytes
+  - tx_bytes-r
+  - tx_packets
+  - tx_power
+  - tx_rate
+  - uptime
+  - user_id
+  - usergroup_id
+  - vlan

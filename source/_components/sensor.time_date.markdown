@@ -11,8 +11,8 @@ logo: home-assistant.png
 ha_category: Calendar
 ha_iot_class: "Local Push"
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
-
 
 The time and date (`time_date`) sensor platform simple displays the time in various formats, the date, or both.
 
@@ -36,4 +36,3 @@ sensor:
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/time_date.png' />
 </p>
-

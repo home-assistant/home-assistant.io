@@ -13,7 +13,7 @@ logo: leviton.png
 ha_release: 0.37
 ---
 
-Support for the Decora Bluetooth dimmer switch [Leviton](http://www.leviton.com/OA_HTML/SectionDisplay.jsp?section=76697&minisite=10251).
+Support for the Decora Bluetooth dimmer switch [Leviton](https://www.leviton.com/en/products/residential/dimmers/automation-smart-home/decora-digital-with-bluetooth-dimmers#t=Products&sort=%40wcs_site_tree_rank%20ascending&layout=card).
 
 The API key can be obtained by downloading [this git repository](https://github.com/mjg59/python-decora) and running the `read_key.py` script with the Bluetooth address of the switch as the first argument. Hold the switch in the off position until the green status LED starts flashing before running the script. The output is the API key.
 
@@ -25,15 +25,28 @@ light:
   - platform: decora
     devices:
       00:21:4D:00:00:01:
-        api_key: 0x12345678
+        api_key: YOUR_API_KEY
 ```
 
-Configuration variables:
-
-- **devices** array (*Required*): A list of lights to use.
-  - **[mac address]** (*Required*): The bluetooth address of the switch.
-    - **name** (*Optional*): The custom name to use in the frontend.
-    - **api_key** (*Required*): The API key to access the device.
+{% configuration %}
+devices:
+  description: A list of lights to use.
+  required: true
+  type: map
+  keys:
+    mac_address:
+      required: true
+      description: The bluetooth address of the switch.
+      type: string
+      name:
+        description: The name to use in the frontend.
+        required: false
+        type: string
+      api_key:
+        description: The API key to access the device.
+        required: true
+        type: string
+{% endconfiguration %}
 
 <p class='note'>
 If you get an error looking like this:

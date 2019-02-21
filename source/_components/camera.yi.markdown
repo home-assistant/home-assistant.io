@@ -31,7 +31,7 @@ In order to integrate the camera with Home Assistant, it is necessary to install
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
 
  <p class='note warning'>
-Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
+Currently, version 0.1.4-beta2 of the custom firmware is the highest supported without having to make additional modifications. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files. To use higher firmware versions you must also follow [this workaround](https://github.com/shadow-1/yi-hack-v3/issues/129#issuecomment-361723075) to revert back to ftpd.
 </p>
 
 <p class='note warning'>
@@ -65,14 +65,34 @@ camera:
     password: my_password_123
 ```
 
-Configuration variables:
-
-- **name** (*Required*): A human-friendly name for the camera.
-- **host** (*Required*): The IP address or hostname of the camera.
-- **password** (*Required*): The password to the FTP server on the camera (from above).
-- **path** (*Optional*): The path to the raw MP4 files. Defaults to `/tmp/sd/record`.
-- **username** (*Optional*): The user that can access the FTP server. Defaults to `root`.
-- **ffmpeg_arguments** (*Optional*): Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
+{% configuration %}
+name:
+  description: A human-friendly name for the camera.
+  required: true
+  type: string
+host:
+  description: The IP address or hostname of the camera.
+  required: true
+  type: string
+password:
+  description: The password for the FTP server running on the camera. Can be any string as the current firmware doesn't allow setting FTP passwords.
+  required: true
+  type: string
+path:
+  description: The path to the raw MP4 files.
+  required: false
+  type: string
+  default: /media/mmcblk0p1/record
+username:
+  description: The user that can access the FTP server.
+  required: false
+  type: string
+  default: root
+ffmpeg_arguments:
+  description: Extra options to pass to `ffmpeg` (e.g., image quality or video filter options).
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Image quality %}
 

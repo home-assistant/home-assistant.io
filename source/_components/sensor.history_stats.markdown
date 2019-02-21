@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.39
+ha_qa_scale: internal
 ---
 
 The `history_stats` sensor platform provides quick statistics about another component or platforms, using data from the [history](/components/history/).
@@ -27,6 +28,7 @@ Examples of what you can track:
 
 To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -35,20 +37,43 @@ sensor:
     entity_id: light.my_lamp
     state: 'on'
     type: time
-    start: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
-    end: '{% raw %}{{ now() }}{% endraw %}'
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
 ```
+{% endraw %}
 
-Configuration variables:
-
- - **entity_id** (*Required*): The entity you want to track
- - **state** (*Required*): The state you want to track
- - **name** (*Optional*): Name displayed on the frontend
- - **type** (*Optional*): The type of sensor: `time`, `ratio`, or `count`. Defaults to `time`
- - **start**: When to start the measure (timestamp or datetime).
- - **end**: When to stop the measure (timestamp or datetime)
- - **duration**: Duration of the measure
-
+{% configuration %}
+entity_id:
+  description: The entity you want to track.
+  required: true
+  type: string
+state:
+  description: The state you want to track.
+  required: true
+  type: string
+name:
+  description: Name displayed on the frontend.
+  required: false
+  default: unnamed statistics
+  type: string
+type:
+  description: "The type of sensor: `time`, `ratio`, or `count`."
+  required: false
+  default: time
+  type: string
+start:
+  description: When to start the measure (timestamp or datetime).
+  required: false
+  type: template
+end:
+  description: When to stop the measure (timestamp or datetime).
+  required: false
+  type: template
+duration:
+  description: Duration of the measure.
+  required: false
+  type: time
+{% endconfiguration %}
 
 <p class='note'>
   You have to provide **exactly 2** of `start`, `end` and `duration`.
@@ -72,7 +97,6 @@ The `history_stats` component will execute a measure within a precise time perio
 - How long is the period (`duration` variable)
 
 As `start` and `end` variables can be either datetimes or timestamps, you can configure almost any period you want.
-
 
 ### {% linkable_title Duration %}
 
@@ -102,49 +126,62 @@ Here are some examples of periods you could work with, and what to write in your
 
 **Today**: starts at 00:00 of the current day and ends right now.
 
+{% raw %}
 ```yaml
-    start: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
-    end: '{% raw %}{{ now() }}{% endraw %}'
+    start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+    end: '{{ now() }}'
 ```
+{% endraw %}
 
 **Yesterday**: ends today at 00:00, lasts 24 hours.
 
+{% raw %}
 ```yaml
-    end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
     duration:
       hours: 24
 ```
+{% endraw %}
 
 **This morning (6AM - 11AM)**: starts today at 6, lasts 5 hours.
 
+{% raw %}
 ```yaml
-    start: '{% raw %}{{ now().replace(hour=6).replace(minute=0).replace(second=0) }}{% endraw %}'
+    start: '{{ now().replace(hour=6).replace(minute=0).replace(second=0) }}'
     duration:
       hours: 5
 ```
+{% endraw %}
 
 **Current week**: starts last Monday at 00:00, ends right now.
 
 Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).
+
+{% raw %}
 ```yaml
-    start: '{% raw %}{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}{% endraw %}'
-    end: '{% raw %}{{ now() }}{% endraw %}'
+    start: '{{ as_timestamp( now().replace(hour=0).replace(minute=0).replace(second=0) ) - now().weekday() * 86400 }}'
+    end: '{{ now() }}'
 ```
+{% endraw %}
 
 **Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
 
+{% raw %}
 ```yaml
-    end: '{% raw %}{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}{% endraw %}'
+    end: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
     duration:
       days: 30
 ```
+{% endraw %}
 
 **All your history** starts at timestamp = 0, and ends right now.
 
+{% raw %}
 ```yaml
-    start: '{% raw %}{{ 0 }}{% endraw %}'
-    end: '{% raw %}{{ now() }}{% endraw %}'
+    start: '{{ 0 }}'
+    end: '{{ now() }}'
 ```
+{% endraw %}
 
 <p class='note'>
   The `/dev-template` page of your home-assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.

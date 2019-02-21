@@ -28,11 +28,22 @@ media_player:
     host: 192.168.1.50
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the device running Channels, e.g., 192.168.1.50
-- **port** (*Optional*): The port where Channels is accessible, defaults to 57000.
-- **name** (*Optional*): The name of the Channels instance in Home Assistant, eg. Family Room Channels. Defaults to Channels.
+{% configuration %}
+host:
+  description: The IP address of the device running Channels, e.g., 192.168.1.50.
+  required: true
+  type: string
+port:
+  description: The port where Channels is accessible.
+  required: false
+  default: 57000
+  type: integer
+name:
+  description: The name of the Channels instance in Home Assistant, e.g., Family Room Channels.
+  required: false
+  default: Channels
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Service `channels_seek_forward` %}
 

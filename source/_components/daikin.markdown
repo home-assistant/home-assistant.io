@@ -8,19 +8,32 @@ comments: false
 sharing: true
 footer: true
 logo: daikin.png
-ha_category: Hub
+ha_category:
+  - Climate
+  - Sensor
 ha_release: 0.59
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/climate.daikin/
+  - /components/sensor.daikin/
 ---
-
 
 The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
 
-To automatically add all your Daikin devices (ACs and associated sensors) into your Home Assistant installation, add the following to your 'configuration.yaml' file:
+There is currently support for the following device types within Home Assistant:
 
-<p class='note warning'>
-Please note, the Daikin platform integrates **ONLY the european versions of Daikin ACs (models BRP069A41, 42, 43, 45)** into Home Assistant.
-</p>
+- [Climate](#climate)
+- [Sensor](#sensor)
+
+## {% linkable_title Supported hardware %}
+
+**Only** the European versions of Daikin AC (models BRP069A41, 42, 43, 45).
+
+Some models do not support setting of fan speed or fan swing mode.
+
+Please note that some AC devices may report outside temperature only when they are turned on.
+
+## {% linkable_title Configuration %}
 
 To automatically add all your Daikin devices (ACs and associated sensors) into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -29,9 +42,6 @@ To automatically add all your Daikin devices (ACs and associated sensors) into y
 daikin:
   hosts:
     - 192.168.4.161
-  monitored_conditions:
-    - inside_temperature
-    - outside_temperature
 ```
 
 {% configuration %}
@@ -39,20 +49,23 @@ hosts:
   description: List of IP addresses or hostnames.
   required: false
   default: All discovered hosts
-  type: array
-monitored_conditions:
-  description: List of items you want to monitor for each device.
-  required: false
-  default: All conditions
   type: list
-  keys:
-    inside_temperature:
-      description: The current temperature measured inside the house.
-    outside_temperature:
-      description: The current temperature measured outside the house.      
 {% endconfiguration %}
 
-<p class='note warning'>
-Please note that some AC devices may report outside temperature only when they are turned on.
-</p>
+## {% linkable_title Climate %}
 
+The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
+
+- **mode** (cool, heat, dry, fan only or auto)
+- **fan speed** (on supported models)
+- **target temperature**
+- **swing mode** (on supported models)
+
+Current temperature is displayed.
+
+## {% linkable_title Sensor %}
+
+The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
+
+- Inside temperature
+- Outside temperature

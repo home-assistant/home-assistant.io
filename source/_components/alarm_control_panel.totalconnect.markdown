@@ -18,6 +18,8 @@ This platform supports the following services: `alarm_arm_away`, `alarm_arm_home
 
 If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Hassbian, run the command `apt install libxml2-dev libxmlsec1-dev` with sudo.
 
+## {% linkable_title Configuration %}
+
 To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -28,13 +30,22 @@ alarm_control_panel:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
+{% configuration %}
+name:
+  description: Name of device in Home Assistant.
+  required: false
+  type: string
+username:
+  description: Username used to sign into the TotalConnect app/web client.
+  required: true
+  type: string
+password:
+  description: Password used to sign into the TotalConnect app/web client.
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **name** (*Optional*): Name of device in Home Assistant.
-- **username** (*Required*): Username used to sign into the TotalConnect app/web client.
-- **password** (*Required*): Password used to sign into the TotalConnect app/web client.
-
-Automation example:
+## {% linkable_title Automation example %}
 
 ```yaml
 automation:
@@ -56,5 +67,5 @@ automation:
       to: 'armed_away'
     action:
       service: scene.turn_on
-      entity_id: scene.OnArmedAway 
+      entity_id: scene.OnArmedAway
 ```

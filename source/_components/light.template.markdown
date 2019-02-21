@@ -11,6 +11,7 @@ ha_category: Light
 ha_release: 0.46
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform creates lights that combine components and provides the
@@ -93,7 +94,7 @@ result:
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this light.
+In this section you will find some real-life examples of how to use this light.
 
 ### {% linkable_title Theater Volume Control %}
 

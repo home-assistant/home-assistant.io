@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation Examples
 ---
 
-This will send a message when someone in your known devices list connects to your local network. In other words, when someone arrives home. It will only work if you are using the [nmap](/components/device_tracker.nmap_tracker/) device tracker or a similar component. 
+This will send a message when someone in your known devices list connects to your local network. In other words, when someone arrives home. It will only work if you are using the [Nmap](/components/device_tracker.nmap_tracker/) device tracker or a similar component. 
 
 This example uses [Telegram](/components/notify.telegram/) to send the notification.
 

@@ -25,10 +25,15 @@ device_tracker:
 
 {% configuration %}
 request_rssi:
-  description: Performs a request for the "Received signal strength indication" (RSSI) of each tracked device
+  description: Performs a request for the "Received signal strength indication" (RSSI) of each tracked device.
   required: false
   type: boolean
-  default: False
+  default: false
+device_id:
+  description: The ID of the bluetooth adapter to be used by the tracker, e.g., use `0` for `hci0`, `1` for `hci1`, and so on.
+  required: false
+  type: integer
+  default: "`-1` (The first available bluetooth adapter)"
 {% endconfiguration %}
 
 In some cases it can be that your device is not discovered. In that case let your phone scan for Bluetooth devices while you restart Home Assistant. Just hit `Scan` on your phone all the time until Home Assistant is fully restarted and the device should appear in `known_devices.yaml`.

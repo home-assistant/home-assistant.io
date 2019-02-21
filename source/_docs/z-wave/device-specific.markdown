@@ -49,7 +49,7 @@ $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
 
-```
+```text
 dtoverlay=pi3-disable-bt
 ```
 
@@ -59,7 +59,24 @@ Then disable the Bluetooth modem service:
 $ sudo systemctl disable hciuart
 ```
 
-Finally, reboot to make those changes active. It's been reported that this is also required on the Pi2.
+Once Bluetooth is off, enable the serial interface via the `raspi-config` tool. After reboot run:
+
+```bash
+$ sudo systemctl mask serial-getty@ttyAMA0.service
+```
+
+so that your serial interface looks like:
+
+```text
+crw-rw---- 1 root dialout 204, 64 Sep  2 14:38 /dev/ttyAMA0
+```
+at this point simply add your user (homeassistant) to the dialout group:
+
+```bash
+$ sudo usermod -a -G dialout homeassistant
+```
+
+Finally, reboot again to make those changes active. It's has been tested on hassbian and has been reported that this is also required on the Pi2.
 
 <p class='note'>
   If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
@@ -195,6 +212,20 @@ Triple tap on|1|4
 Triple tap off|2|4
 Tap and hold on|1|2
 Tap and hold off|2|2
+
+Some installations will see those details:
+
+**Top button ID: 1, Bottom ID: 2**
+
+**Action**|**scene\_data**
+:-----:|:-----:
+Single Press|7800
+Hold Button|7740
+2x Tap|7860
+3x Tap|7920
+4x Tap|7980
+5x Tap|8040
+
 
 ### {% linkable_title Fibaro Button FGPB-101-6 v3.2 %}
 
@@ -354,3 +385,127 @@ Button three release|Circle|3|1
 Button four tap|Circle with Line|4|0
 Button four hold|Circle with Line|4|2
 Button four release|Circle with Line|4|1
+
+### {% linkable_title RFWDC Cooper 5-button Scene Control Keypad %}
+
+For the RFWDC Cooper 5-button Scene Control Keypad, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
+
+```xml
+<CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="5" innif="true" scenecount="0">
+  <Instance index="1" />
+  <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+  <Value type="int" genre="system" instance="1" index="5" label="Button Five" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+</CommandClass>
+```
+
+Below is a table of the action/scenes for the Buttons:
+
+**Action**|**scene\_id**
+:-----:|:-----:
+Button one tap|1
+Button two tap|2
+Button three tap|3
+Button four tap|4
+Button five tap|5
+
+When a button turns off, the controller sends `basic_set` in a generic `node_event` and does not specify which button was pressed. The status of the buttons is encoded into the `indicator` value, so in order to determine the status of each button, you need to refresh the indicator value. You can also control the LEDs for each button by setting the indicator value. For responsiveness, automations should be triggered with `zwave.scene_activated` events rather than the switch status.
+
+Here is an example configuration needed for the scene controller:
+
+{% raw %}
+```yaml
+automation:
+  - alias: Sync the indicator value on button events
+    trigger:
+      - platform: event
+        event_type: zwave.scene_activated
+        event_data:
+          entity_id: zwave.scene_contrl
+      - platform: event
+        event_type: zwave.node_event
+        event_data:
+          entity_id: zwave.scene_contrl
+    action:
+      - service: zwave.refresh_node_value
+        data_template: 
+          node_id: 3
+          value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+switch:
+  - platform: template
+    switches:
+      button_1_led:
+        value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(1) > 0 }}"
+        turn_on:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 1 }}"
+        turn_off:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int - 1 }}"
+      button_2_led:
+        value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(2) > 0 }}"
+        turn_on:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 2 }}"
+        turn_off:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int - 2 }}"
+      button_3_led:
+        value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(4) > 0 }}"
+        turn_on:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 4 }}"
+        turn_off:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int - 4 }}"
+      button_4_led:
+        value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(8) > 0 }}"
+        turn_on:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states(scene_contrl_indicator)|int + 8 }}"
+        turn_off:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int - 8 }}"
+      button_5_led:
+        value_template: "{{ states('sensor.scene_contrl_indicator')|int|bitwise_and(16) > 0 }}"
+        turn_on:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int + 16 }}"
+        turn_off:
+          service: zwave.set_node_value
+          data_template:
+            node_id: 3
+            value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
+            value: "{{ states('sensor.scene_contrl_indicator')|int - 16 }}"
+```
+{% endraw %}

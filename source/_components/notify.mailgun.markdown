@@ -21,23 +21,39 @@ The Mailgun notification service allows you to send emails via Mailgun's REST AP
 ```yaml
 # Example configuration.yaml entry
 mailgun:
-  domain: mg.example.com
-  api_key: token-XXXXXXXXX
-  sandbox: False
+  domain: EXAMPLE.COM
+  api_key: YOUR_API_KEY
 
 notify:
   - name: mailgun
     platform: mailgun
-    recipient: me@example.com
+    recipient: CHANGE@EXAMPLE.COM
 ```
 
-Configuration variables:
-
-- **domain** (*Optional*): This is the domain name to be used when sending out mail. Defaults to the first custom domain you have set up.
-- **sandbox** (*Optional*): Whether to use the sandboxed domain for outgoing mail. The `domain` item takes precedence over this. Defaults to `False`.
-- **token** (*Required*): This is the API token that has been generated in your Mailgun account.
-- **recipient** (*Required*): The email address of the recipient.
-- **sender** (*Optional*): The sender's email address. Defaults to `hass@DOMAIN`, where `DOMAIN` is outgoint mail domain, as defined by the `domain` and `sanbox` configuration entries.
+{% configuration %}
+domain:
+  description: This is the domain name to be used when sending out mail.
+  required: true
+  type: string
+sandbox:
+  description: "(**Deprecated**) If a sandboxed domain is used, specify it in `domain`."
+  required: false
+  default: false
+  type: boolean
+api_key:
+  description: This is the API Key that has been generated in your Mailgun account.
+  required: true
+  type: string
+recipient:
+  description: The email address of the recipient.
+  required: true
+  type: string
+sender:
+  description: The sender's email address.
+  required: false
+  default: "`hass@DOMAIN`, where `DOMAIN` is the outgoing mail domain, as defined by the `domain` configuration entry."
+  type: string
+{% endconfiguration %}
 
 ## {% linkable_title Example automation %}
 

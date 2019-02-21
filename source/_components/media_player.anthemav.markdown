@@ -35,15 +35,25 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The host name or the IP address of the device.
-- **port** (*Optional*): The port number. Defaults to 14999.
-- **name** (*Optional*): The name of the device used in the frontend.
+{% configuration %}
+host:
+  description: The host name or the IP address of the device.
+  required: true
+  type: string
+port:
+  description: The port number of the device.
+  required: false
+  default: 14999
+  type: integer
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## Notes and Limitations
 
-- The tuner is currently unsupported as are the `media_player` play, pays, prev, and next controls.
+- The tuner is currently unsupported as are the `media_player` play, pause, prev, and next controls.
 - Enabling this platform will set and enforce "Standby IP Control On" in your Anthem device.  You almost certainly want this.  If you disable it on the device, it will just get re-enabled by Home Assistant.
 - Only Zone 1 is currently supported.
 

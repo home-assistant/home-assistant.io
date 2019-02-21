@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-Set up a [mariadb](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside Home Assistant use `core-mariadb` as the host address.
+Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside Home Assistant use `core-mariadb` as the host address.
 
 ```json
 {
@@ -32,18 +32,50 @@ Set up a [mariadb](https://mariadb.org/) SQL server. It supports multiple databa
 }
 ```
 
-Configuration variables:
-
-- **databases** (*Require*): List of databases.
-- **logins** (*Require*): List of SQL accounts to create or update.
-  - **username** (*Require*): Username for account.
-  - **host** (*Require*): Host for account. If you need an account on multiple hosts, use '%'.
-  - **password** (*Require*): Password for account.
-- **rights** (*Require*): List of rights to be granted.
-  - **username** (*Require*): Username for granted rights.
-  - **host** (*Require*): Host is a part of username like above.
-  - **database** (*Require*): Database name on which to grant user rights.
-  - **grant** (*Require*): SQL grant part for access too.
+{% configuration %}
+databases:
+  description: List of databases.
+  required: true
+  type: list
+logins:
+  description: List of SQL accounts to create or update.
+  required: true
+  type: list
+  keys:
+    username:
+      description: Username for account.
+      required: true
+      type: string
+    host:
+      description: Host for account. If you need an account on multiple hosts, use '%'.
+      required: true
+      type: string
+    password:
+      description: Password for account.
+      required: true
+      type: string
+rights:
+  description: List of rights to be granted.
+  required: true
+  type: list
+  keys:
+    username:
+      description: Username for granted rights.
+      required: true
+      type: string
+    host:
+      description: Host is a part of username like above.
+      required: true
+      type: string
+    database:
+      description: Database name on which to grant user rights.
+      required: true
+      type: string
+    grant:
+      description: SQL grant part for access too.
+      required: true
+      type: string
+{% endconfiguration %}
 
 ## {% linkable_title Home Assistant configuration %}
 

@@ -27,12 +27,26 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of the Host where Music Player Daemon is running.
-- **port** (*Optional*): Port of the Music Player Daemon. Defaults to 6600.
-- **name** (*Optional*): Name of your Music Player Daemon. Defaults to "MPD".
-- **password** (*Optional*): Password for your Music Player Daemon.
+{% configuration %}
+host:
+  description: IP address of the Host where Music Player Daemon is running.
+  required: true
+  type: string
+port:
+  description: Port of the Music Player Daemon.
+  required: false
+  type: integer
+  default: 6600
+name:
+  description: Name of your Music Player Daemon.
+  required: false
+  type: string
+  default: MPD
+password:
+  description: Password for your Music Player Daemon.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Example script to load a saved playlist called "DeckMusic" and set the volume:
 

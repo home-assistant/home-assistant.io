@@ -30,15 +30,33 @@ To add a Yamaha Network Receiver to your installation, add the following to your
 media_player:
   - platform: yamaha
 ```
-Configuration variables:
 
-- **name** (*Optional*): Name of the device. This overrides the
-  default name (often model number) that is returned by the device.
-- **host** (*Optional*): IP address or hostname of the device
-- **source_ignore** (*Optional*): List of sources to hide in the front-end
-- **source_names** (*Optional*): Mapping of internal AVR source names to custom ones, allowing one to rename e.g., `HDMI1` to `ChromeCast`
-- **zone_ignore** (*Optional*): List of zones to hide in the front-end
-- **zone_names** (*Optional*): Mapping of zone names to custom ones, allowing one to rename e.g., `Main_Zone` to `Family Room`
+{% configuration %}
+name:
+  description: Name of the device. This overrides the default name (often model number) that is returned by the device.
+  required: false
+  type: string
+host:
+  description: IP address or hostname of the device.
+  required: false
+  type: string
+source_ignore:
+  description: List of sources to hide in the front-end.
+  required: false
+  type: list
+source_names:
+  description: Mapping of internal AVR source names to custom ones, allowing one to rename e.g., `HDMI1` to `ChromeCast`.
+  required: false
+  type: list
+zone_ignore:
+  description: List of zones to hide in the front-end.
+  required: false
+  type: list
+zone_names:
+  description: Mapping of zone names to custom ones, allowing one to rename e.g., `Main_Zone` to `Family Room`.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ### {% linkable_title Discovery notes %}
 

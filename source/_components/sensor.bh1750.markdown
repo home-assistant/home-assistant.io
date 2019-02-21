@@ -8,11 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.48
 ha_iot_class: "Local Push"
 ---
-
 
 The `bh1750` sensor platform allows you to read the ambient light level in Lux from a [BH1750FVI sensor](http://cpre.kmutnb.ac.th/esl/learning/bh1750-light-sensor/bh1750fvi-e_datasheet.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the resolution modes of the sensor described in its datasheet.
 
@@ -20,6 +19,7 @@ Tested devices:
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
 
+## {% linkable_title Configuration %}
 
 To use your BH1750 sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -29,15 +29,43 @@ sensor:
   - platform: bh1750
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name of the sensor
-- **i2c_address** (*Optional*): I2c address of the sensor. It is 0x23 or 0x5C.
-- **i2c_bus** (*Optional*): I2c bus where the sensor is. Defaults to 1, for Raspberry Pi 2 and 3.
-- **operation_mode** (*Optional*): Working mode for the sensor. Defaults to `continuous_high_res_mode_1` for continuous measurement and 1 lx resolution.
-- **measurement_delay_ms** (*Optional*): Delay time in ms for waiting the sensor to get the measure. Defaults to 120 ms.
-- **multiplier** (*Optional*): Correction coefficient to multiply the measured light level. Value between 0.1 and 10. Default is 1.
-
+{% configuration %}
+name:
+  description: Name of the sensor.
+  required: false
+  default: BH1750 Light Sensor
+  type: string
+i2c_address:
+  description: I2c address of the sensor. It is 0x23 or 0x5C.
+  required: false
+  default: 0x23
+  type: string
+i2c_bus:
+  description: I2c bus where the sensor is.
+  required: false
+  default: 1, for Raspberry Pi 2 and 3.
+  type: integer
+operation_mode:
+  description: Working mode for the sensor.
+  required: false
+  default: continuous_high_res_mode_1
+  type: string
+sensitivity:
+  description: The sensitivity of the sensor can be a value between 31 and 254.
+  required: false
+  default: 69
+  type: integer
+measurement_delay_ms:
+  description: Delay time in ms for waiting the sensor to get the measure.
+  required: false
+  default: 120
+  type: integer
+multiplier:
+  description: Correction coefficient to multiply the measured light level. Value between 0.1 and 10.
+  required: false
+  default: 1
+  type: integer
+{% endconfiguration %}
 
 ## {% linkable_title Full Examples %}
 
@@ -52,6 +80,7 @@ sensor:
     name: Ambient light
     i2c_address: 0x5C
     operation_mode: one_time_high_res_mode_1
+    sensitivity: 60
     measurement_delay_ms: 200
     scan_interval: 25
 ```

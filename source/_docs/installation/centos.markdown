@@ -20,6 +20,7 @@ First of all install the software collection repository as root. For example, on
 ```bash
 $ yum install centos-release-scl
 ```
+
 Install some dependencies you'll need later.
 
 ```bash

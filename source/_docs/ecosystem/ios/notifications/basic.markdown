@@ -14,7 +14,7 @@ The iOS notify platform accepts the standard `title`, `message` and `target` par
 
 Notes:
 
-* `title` only displays on Apple Watch and iOS 10 devices.
+* `title` only displays on Apple Watch and devices with iOS 10 or above.
 
 * `target` can be used to specific a single device using its PushID, found in `ios.conf`. The preferred way of providing a target is through a target specific notify service.
 
@@ -44,7 +44,7 @@ automation:
 ```
 
 #### Subtitle
-iOS 10 supports a subtitle in addition to the title:
+Starting with iOS 10, a subtitle is supported in addition to the title:
 
 ```yaml
 automation
@@ -59,6 +59,25 @@ automation
         data:
           subtitle: "Subtitle goes here"
 ```
+
+#### Thread-id (grouping notifications)
+Starting with iOS 12, grouping of notifications is supported. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
+
+```yaml
+automation:
+  - alias: Notify iOS app
+    trigger:
+      ...
+    action:
+      service: notify.ios_<your_device_id_here>
+      data:
+        title: "Smart Home Alerts"
+        message: "Something happened at home!"
+        data:
+          push:
+            thread-id: "example-notification-group"
+```
+
 
 ### {% linkable_title Sending notifications to multiple phones %}
 To send notifications to multiple phones, create a [notification group](/components/notify.group/):

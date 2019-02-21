@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Other"
+ha_qa_scale: internal
 ---
 
 This offers the official frontend to control Home Assistant.
@@ -53,11 +54,9 @@ frontend:
 {% endconfiguration %}
 
 
-## {% linkable_title Themes %}
+## {% linkable_title Defining Themes %}
 
 Starting with version 0.49 you can define themes:
-
-Example:
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,12 +68,16 @@ frontend:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.js](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.js).
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
+
+Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
+
+### {% linkable_title Theme automation %}
 
 There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name. 
+ - `frontend.set_theme(name)`: sets backend-preferred theme name.
 
 Example in automation:
 
@@ -93,15 +96,15 @@ automation:
         name: happy
 ```
 
-To enable "night mode": 
+To enable "night mode":
 
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: True
+    initial_state: true
     trigger:
       - platform: time
-        at: '21:00'
+        at: '21:00:00'
     action:
       - service: frontend.set_theme
         data:
@@ -110,10 +113,10 @@ automation:
 
 ### {% linkable_title Manual Theme Selection %}
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the Configuration panel under **General**  called "Set a theme." You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile menu (before 0.77 it was in the Configuration panel under **General**  called "Set a theme"). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
 <p class='img'>
-  <img src='/images/frontend/choose-theme.png' />
+  <img src='/images/frontend/user-theme.png' />
   Set a theme
 </p>
 
@@ -135,9 +138,9 @@ Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on a
 
 ### {% linkable_title Manual Language Selection %}
 
-The browser language is automatically detected. To use a different language, go to **General** in the Configuration panel and select one from "Choose a Language". It will be applied immediately.
+The browser language is automatically detected. To use a different language, go to the user profile menu (before 0.77 it was found in **General** in the Configuration panel) and select one. It will be applied immediately.
 
 <p class='img'>
-  <img src='/images/frontend/choose-language.png' />
+  <img src='/images/frontend/user-language.png' />
   Choose a Language
 </p>

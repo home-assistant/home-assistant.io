@@ -19,14 +19,20 @@ To connect to a Nuimo device add the following section to your `configuration.ya
 
 ```yaml
 # Example configuration.yaml entry
-nuimo_controller: 
+nuimo_controller:
 ```
 
-Configuration variables:
-
-- **mac** (*Optional*): Skip discovery and connect to this device address.
-- **name** (*Optional*): To handle more than one device by names, add the name of the device.
-
+{% configuration %}
+mac:
+  description: Skip discovery and connect to this device address.
+  required: false
+  type: string
+name:
+  description: To handle more than one device by names, add the name of the device.
+  required: false
+  default: None
+  type: string
+{% endconfiguration %}
 
 Example for testing rotation value and sending to the LED matrix:
 
@@ -42,7 +48,7 @@ automation Nuimo_rotate_right:
     value_template: {% raw %}'{{ trigger.event.data.value > 100 }}'{% endraw %}
   action:
     service: nuimo_controller.led_matrix
-    data: 
+    data:
       matrix:
             '........
              0000000.
@@ -52,7 +58,7 @@ automation Nuimo_rotate_right:
              .00.000.
              .000000.
              .000000.
-             ........ '
+             ........'
       interval: 0.5
 ```
 
@@ -60,8 +66,8 @@ Troubleshooting:
 
 - use `hcitool lescan` to see the mac address of your device
 
-- allow non-root user access to Bluetooth LE with `sudo setcap cap_net_raw+eip $(eval readlink -f $(which python))` 
+- allow non-root user access to Bluetooth LE with `sudo setcap cap_net_raw+eip $(eval readlink -f $(which python))`
 
 - install the newest version of [pygattlib](https://bitbucket.org/OscarAcena/pygattlib) from the repository, either because there is no binary package for your system or the pip version contains errors, with `pip install hg+https://bitbucket.org/OscarAcena/pygattlib --target $HOME/.homeassistant/deps`.
 (Dependencies of pygattlib: `sudo apt-get install pkg-config libboost-python-dev libboost-thread-dev libbluetooth-dev libglib2.0-dev python-dev`)
-Then invoke home-assistant with `hass --skip-pip`.
+Then invoke Home Assistant with `hass --skip-pip`.

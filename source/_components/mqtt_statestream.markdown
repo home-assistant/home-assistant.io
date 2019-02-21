@@ -27,21 +27,50 @@ mqtt_statestream:
   publish_timestamps: true
 ```
 
-Configuration variables:
+{% configuration %}
+base_topic:
+  description: Base topic used to generate the actual topic used to publish.
+  required: true
+  type: string
+publish_attributes:
+  description: Publish attributes of the entity as well as the state.
+  required: false
+  default: false
+  type: boolean
+publish_timestamps:
+  description: Publish the last_changed and last_updated timestamps for the entity.
+  required: false
+  default: false
+  type: boolean
+exclude:
+  description: Configure which components should be excluded from recordings. See *Include/Exclude* section below for details.
+  required: false
+  type: list
+  keys:
+    entities:
+      description: The list of entity ids to be excluded from recordings.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be excluded from recordings.
+      required: false
+      type: list
+include:
+  description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
+  required: false
+  type: list
+  keys:
+    entities:
+      description: The list of entity ids to be included from recordings.
+      required: false
+      type: list
+    domains:
+      description: The list of domains to be included from recordings.
+      required: false
+      type: list
+{% endconfiguration %}
 
-- **base_topic** (*Required*): Base topic used to generate the actual topic used to publish.
-- **publish_attributes** (*Optional*): Publish attributes of the entity as well as the state.
-Default is false.
-- **publish_timestamps** (*Optional*): Publish the last_changed and last_updated timestamps for the entity.
-Default is false.
-- **exclude** (*Optional*): Configure which components should be excluded from recordings. See *Include/Exclude* section below for details.
-  - **entities** (*Optional*): The list of entity ids to be excluded from recordings.
-  - **domains** (*Optional*): The list of domains to be excluded from recordings.
-- **include** (*Optional*): Configure which components should be included in recordings. If set, all other entities will not be recorded.
-  - **entities** (*Optional*): The list of entity ids to be included from recordings.
-  - **domains** (*Optional*): The list of domains to be included from recordings.
-
-## Operation
+## {% linkable_title Operation %}
 
 When any Home Assistant entity changes, this component will publish that change to MQTT.
 
@@ -54,9 +83,9 @@ If that entity also has an attribute called `brightness`, the component will als
 
 All states and attributes are passed through JSON serialization before publishing. **Please note** that this causes strings to be quoted (e.g., the string 'on' will be published as '"on"'). You can access the JSON deserialized values (as well as unquoted strings) at many places by using `value_json` instead of `value`.
 
-The last_updated and last_changed values for the entity will be published to `homeassistant/light/master_bedroom_dimmer/last_updated` and `homeassistant/light/master_bedroom_dimmer/last_changed`, respectively.  The timestamps are in ISO 8601 format - for example, `2017-10-01T23:20:30.920969+00:00`.
+The last_updated and last_changed values for the entity will be published to `homeassistant/light/master_bedroom_dimmer/last_updated` and `homeassistant/light/master_bedroom_dimmer/last_changed`, respectively. The timestamps are in ISO 8601 format - for example, `2017-10-01T23:20:30.920969+00:00`.
 
-## Include/exclude
+## {% linkable_title Include/exclude %}
 
 The **exclude** and **include** configuration variables can be used to filter the items that are published to MQTT.
 

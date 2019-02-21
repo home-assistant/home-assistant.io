@@ -25,7 +25,7 @@ There are _multiple_ ways of integrating an OpenWRT router for presence detectio
     * [ubus](/components/device_tracker.ubus/)
     * [luci](/components/device_tracker.luci/)
 * __passive/event-based__  
-  External services which notify Home Assistant of devices via the [REST API endpoint](/developers/rest_api.markdown). 
+  External services which notify Home Assistant of devices via the [REST API endpoint](https://developers.home-assistant.io/docs/en/external_api_rest.html). 
   * Advantages: 
     * devices typically registered in under one second when they connect
     * very few network requests

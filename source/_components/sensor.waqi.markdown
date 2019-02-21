@@ -26,15 +26,22 @@ sensor:
     token: AQICN_API_TOKEN
     locations:
       - beijing
-    stations:
-      - Beijing US Embassy, Beijing
 ```
 
-Configuration variables:
-
-- **locations** (*Required*): A list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant.
-- **token** (*Required*): The token for the AQICN public API.
-- **stations** (*Optional*): A list of station names to look for air quality data. Station should be within locations specified above.
+{% configuration %}
+token:
+  description: The token for the AQICN public API.
+  required: true
+  type: string
+locations:
+  description: A list of location names to look for air quality data. In case a specific location has multiple registered stations all of them will be added to Home Assistant.
+  required: true
+  type: list
+stations:
+  description: A list of station names to look for air quality data. Station should be within locations specified above.
+  required: false
+  type: list
+{% endconfiguration %}
 
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
 

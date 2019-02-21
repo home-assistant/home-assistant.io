@@ -12,7 +12,6 @@ ha_category: Notifications
 ha_release: 0.27
 ---
 
-
 The `llamalab_automate` platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
 
 Go to [https://llamalab.com/automate/cloud/](https://llamalab.com/automate/cloud/) and create a new API key/secret.
@@ -24,16 +23,29 @@ To add Automate to your installation, add the following to your `configuration.y
 notify:
   - name: NOTIFIER_NAME
     platform: llamalab_automate
-    api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
-    to: example@gmail.com
+    api_key: YOUR_API_KEY
+    to: YOUR_EMAIL_ADDRESS
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **api_key** (*Required*): Enter the API key for Automate.
-- **to** (*Required*): E-Mail address the Automate-Fiber is configured for.
-- **device** (*Optional*): Name of the target device to receive the messages.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+api_key:
+  description: Enter the API key for Automate.
+  required: true
+  type: string
+to:
+  description: E-Mail address the Automate-Fiber is configured for.
+  required: true
+  type: string
+device:
+  description: Name of the target device to receive the messages.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Receiving cloud messages in Automate:
 

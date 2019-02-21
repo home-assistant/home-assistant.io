@@ -13,11 +13,13 @@ ha_release: "0.54"
 ha_iot_class: "Local Polling"
 ---
 
-The `doorbird` implementation allows you to view the live video and previous images from your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
 
 <p class='note'>
   You must have the [DoorBird component](/components/doorbird/) configured to use this camera.
 </p>
+
+## {% linkable_title Configuration %}
 
 To enable the camera, add the following to your `configuration.yaml` file:
 

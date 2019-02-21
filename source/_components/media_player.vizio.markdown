@@ -56,7 +56,7 @@ Initiation will show you two different values:
 Finally, at this point a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-$ pyvizio --ip={ip} pair_finish --token={challenge_token} --pin={tv_pin}
+$ pyvizio --ip={ip} pair-finish --token={challenge_token} --pin={tv_pin}
 ```
 
 You will need the authentication token returned by this command to configure Home Assistant.
@@ -73,11 +73,21 @@ media_player:
     access_token: AUTH_TOKEN
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of your TV.
-- **access_token** (*Required*): Authentication token you received in the last step of the pairing process.
-- **suppress_warning** (*Optional*): Set to `true` to disable self-signed certificate warnings.
+{% configuration %}
+host:
+  description: IP address of your TV.
+  required: true
+  type: string
+access_token:
+  description: Authentication token you received in the last step of the pairing process.
+  required: true
+  type: string
+suppress_warning:
+  description: Set to `true` to disable self-signed certificate warnings.
+  required: false
+  default: false
+  type: string
+{% endconfiguration %}
 
 ## Notes and limitations
 

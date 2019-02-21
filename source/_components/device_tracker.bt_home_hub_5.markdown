@@ -11,7 +11,6 @@ logo: bt.png
 ha_category: Presence Detection
 ---
 
-
 This platform offers presence detection by looking at connected devices to a [BT Home Hub 5](https://en.wikipedia.org/wiki/BT_Home_Hub) based router.
 
 To use a BT Home Hub 5 router in your installation, add the following to your `configuration.yaml` file:
@@ -23,8 +22,12 @@ device_tracker:
     host: 192.168.1.254
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router, Default: 192.168.1.254.
+{% configuration %}
+host:
+  description: The IP address of your router.
+  required: false
+  default: 192.168.1.254
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

@@ -22,9 +22,17 @@ To add Snapcast to your installation, add the following to your `configuration.y
 # Example configuration.yaml entry
 media_player:
   - platform: snapcast
-    host: xxx.xxx.xxx.xxx
+    host: YOUR_IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the device, eg. `192.168.0.10`.
+{% configuration %}
+host:
+  description: The IP address of the device, e.g., `192.168.0.10`.
+  required: true
+  type: string
+port:
+  description: The port number.
+  required: false
+  default: 1705
+  type: integer
+{% endconfiguration %}

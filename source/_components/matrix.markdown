@@ -27,11 +27,9 @@ matrix:
       name: my_command
 ```
 
-Configuration variables:
-
 {% configuration %}
 username:
-  description: "The matrix username that Home Assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g. '@my_matrix_bot:matrix.org'. Please note also that the '@' character has a special meaning in YAML, so this must always be given in quotes."
+  description: "The matrix username that Home Assistant should use to log in. *Note*: You must specify a full matrix ID here, including the homeserver domain, e.g., '@my_matrix_bot:matrix.org'. Please note also that the '@' character has a special meaning in YAML, so this must always be given in quotes."
   required: true
   type: string
 password:
@@ -87,6 +85,7 @@ If the command is a word command, the `data` field contains a list of the comman
 
 This example also uses the [matrix `notify` platform](/components/notify.matrix/).
 
+{% raw %}
 ```yaml
 # The Matrix component
 matrix:
@@ -98,6 +97,7 @@ matrix:
     - "#someothertest:matrix.org"
   commands:
     - word: testword
+      name: testword
       rooms:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
@@ -128,9 +128,11 @@ automation:
     action:
       service: notify.matrix_notify
       data_template:
-        message: "Hello {{trigger.event.data.name}}"
+        message: "Hello {{trigger.event.data.args['name']}}"
 ```
+{% endraw %}
 
 This configuration will:
+
 - Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".

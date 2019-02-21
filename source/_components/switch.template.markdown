@@ -11,6 +11,7 @@ ha_category: Switch
 ha_release: 0.13
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform creates switches that combines components.
@@ -36,7 +37,7 @@ switch:
           data:
             entity_id: switch.skylight_open
         turn_off:
-          service: switch.turn_on
+          service: switch.turn_off
           data:
             entity_id: switch.skylight_close
 ```
@@ -84,7 +85,7 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this switch.
+In this section you find some real-life examples of how to use this switch.
 
 ### {% linkable_title Copy Switch %}
 

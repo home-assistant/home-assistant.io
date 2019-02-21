@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: 0.24
 ---
 
-
 The `netio` switch platform allows you to control your [Netio](http://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through Ethernet and/or WiFi that reports consumptions (Netio4all).
 
 To use Netio devices in your installation, add the following to your `configuration.yaml` file:
@@ -31,17 +30,32 @@ switch:
       4: Lamp
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your Netio plug, eg. `http://192.168.1.32`.
-- **port** (*Optional*): The port to communicate with the switch. Defaults to `1234`.
-- **username** (*Required*): The username for your plug.
-- **password** (*Required*): The password for your plug.
-- **outlets** (*Required*) array: List of all outlets.
-  - **[No.]: [Name]** (*Required*): Identification of an outlet.
+{% configuration %}
+host:
+  description: "The IP address of your Netio plug, e.g., `http://192.168.1.32`."
+  required: true
+  type: string
+port:
+  description: The port to communicate with the switch.
+  required: true
+  default: 1234
+  type: integer
+username:
+  description: The username for your plug.
+  required: true
+  default: admin
+  type: string
+password:
+  description: The password for your plug.
+  required: true
+  type: string
+outlets:
+  description: "List of all outlets. Consisting of a number and a name [No.]: [Name]."
+  required: false
+  type: list
+{% endconfiguration %}
 
 To get pushed updates from the Netio devices, one can add this Lua code in the device interface as an action triggered on "Netio" "System variables updated" with an 'Always' schedule:
-
 
 ```lua
 -- this will send socket and consumption status updates via CGI
@@ -64,4 +78,3 @@ local qs = table.concat(output, '&')
 local url = string.format('http://%s%s?%s', address, path, qs)
 devices.system.CustomCGI{url=url}
 ```
-

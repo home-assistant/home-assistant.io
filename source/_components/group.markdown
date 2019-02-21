@@ -9,9 +9,10 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Organization
+ha_qa_scale: internal
 ---
 
-Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting `view: yes` under the group definition. This will make the group available as a new tab in the frontend.
+Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting `view: true` under the group definition. This will make the group available as a new tab in the frontend.
 
 Check the **Set State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
 
@@ -21,7 +22,7 @@ By default, every group appears in the HOME tab. If you create a group `default_
 # Example configuration.yaml entry
 group:
   default_view:
-    view: yes
+    view: true
     icon: mdi:home
     entities:
       - group.kitchen
@@ -34,7 +35,7 @@ group:
   upstairs:
     name: Kids
     icon: mdi:account-multiple
-    view: yes
+    view: true
     entities:
       - input_boolean.notify_home
       - camera.demo_camera
@@ -42,25 +43,44 @@ group:
       - group.garden
   climate:
     name: Climate
-    view: no
+    view: false
     entities:
       - sensor.bedroom_temp
       - sensor.porch_temp
   awesome_people:
     name: Awesome People
-    view: no
+    view: false
     entities:
       - device_tracker.dad_smith
       - device_tracker.mom_smith
 ```
 
-Configuration variables:
-
-- **view** (*Optional*): If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: yes` cannot be used as entities in other views.
-- **name** (*Optional*): Name of the group.
-- **icon** (*Optional*): If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text.  If it's not a view, then the icon shows when this group is used in another group.
-- **control** (*Optional*): Set value to `hidden`. If hidden then the group switch will be hidden.
-- **entities** (*Required*): array or comma delimited string, list of entities to group.
+{% configuration %}
+name:
+  description: Name of the group.
+  required: false
+  type: string
+view:
+  description: "If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: true` cannot be used as entities in other views."
+  required: false
+  type: boolean
+icon:
+  description: If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text. If it's not a view, then the icon shows when this group is used in another group.
+  required: false
+  type: string
+control:
+  description: Set value to `hidden`. If hidden then the group switch will be hidden.
+  required: false
+  type: string
+entities:
+  description: Array or comma delimited string, list of entities to group.
+  required: true
+  type: list
+all:
+  description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  required: false
+  type: boolean
+{% endconfiguration %}
 
 <p class='img'>
 <img src='/images/blog/2016-01-release-12/views.png'>
@@ -69,7 +89,7 @@ Example of groups shown as views in the frontend.
 
 If all entities in a group are switches or lights then Home Assistant adds a switch at the top of the card that turns them all on/off at once. If you want to hide this switch, set `control` to `hidden`.
 
-You can create views (tabs) that contain other groups (but not other groups which are marked as `view: yes`).
+You can create views (tabs) that contain other groups (but not other groups which are marked as `view: true`).
 Notice in the example below that in order to refer to the group "Living Room", you use `group.living_room` (lowercase and spaces replaced with underscores).
 
 ```yaml
@@ -81,7 +101,7 @@ Notice in the example below that in order to refer to the group "Living Room", y
       - binary_sensor.motion_living
   Bedroom: light.light_bedroom, switch.sleeping
   Rooms:
-    view: yes
+    view: true
     name: Rooms
     entities:
       - group.living_room
@@ -112,7 +132,7 @@ customize:
 group:
   automation_view:
     name: Automation
-    view: yes
+    view: true
     entities:
       - group.all_automations
       - group.all_scripts
@@ -120,7 +140,7 @@ group:
 
 ## {% linkable_title Group behavior %}
 
-When any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`.
+By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
 
 ## {% linkable_title Customize group order %}
 You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
@@ -135,7 +155,7 @@ customize:
 group:
   automation_view:
     name: Automation
-    view: yes
+    view: true
     entities:
       - group.all_automations
       - group.all_scripts

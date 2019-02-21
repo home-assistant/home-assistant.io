@@ -17,27 +17,13 @@ After installation you are presented with a default and example configuration, t
 
 After any changes have been made to the configuration, you need to restart the add-on for the changes to take effect.
 
-Configuration variables:
-
-- **id** (*Required*): A number and must be unique for each device.
-- **name** (*Required*): A name for easy identification of the device.
-- **protocol** (*Required*): This is the protocol the device uses. More on the different protocols later down.
-- **model** (*Optional*): The model parameter is only used by some protocols where there exists different types of devices using the same protocol. This can be dimmers versus non-dimmers, codeswitch versus self-learning, etc.
-- **house** (*Optional*): Depending on protocol the values here can vary a lot to identify or group per house or type.
-- **unit** (*Optional*): Unit identifier, in most cases a value between 1 to 16 and often used in combination with the house.
-- **fade** (*Optional*): Fade is either `true` or `false` and tells a dimmer if it should fade smooth or instant between values (only for IKEA protocol as it seems).
-- **code** (*Optional*): A number series based on ones and zeroes often used for dip-switch based devices.
-
 You will need to add internal communication details to `configuration.yaml` to enable the integration from Hass.io and the add-on.
-
 
 ```yaml
 # Example configuration.yaml entry
-
 tellstick:
     host: core-tellstick
     port: [50800, 50801]
-
 ```
 
 To add [lights](/components/light.tellstick/), [sensors](/components/sensor.tellstick/) and [switches](/components/switch.tellstick/) you follow the guidelines for each type individually that is [described for Home Assistant](/components/tellstick/)
@@ -71,11 +57,49 @@ Example for adding more devices in the add-on configuration (note the comma sepa
 }
 ```
 
-## Service calls
+{% configuration %}
+id:
+  description: A number and must be unique for each device.
+  required: true
+  type: integer
+name:
+  description: A name for easy identification of the device.
+  required: true
+  type: string
+protocol:
+  description: This is the protocol the device uses. More on the different protocols later down.
+  required: true
+  type: string
+model:
+  description: The model parameter is only used by some protocols where there exists different types of devices using the same protocol. This can be dimmers versus non-dimmers, codeswitch versus self-learning, etc.
+  required: false
+  type: string
+house:
+  description: Depending on protocol the values here can vary a lot to identify or group per house or type.
+  required: false
+  type: string
+unit:
+  description: Unit identifier, in most cases a value between 1 to 16 and often used in combination with the house.
+  required: false
+  type: integer
+fade:
+  description: Fade is either `true` or `false` and tells a dimmer if it should fade smooth or instant between values (only for IKEA protocol as it seems).
+  required: false
+  type: boolean
+code:
+  description: A number series based on ones and zeroes often used for dip-switch based devices.
+  required: false
+  type: string
+{% endconfiguration %}
 
-If you wish to teach a selflearning device in your TellStick configuration:
+For more information about the configuration including protocols, see the [telldus documentation](https://developer.telldus.com/wiki/TellStick_conf).
+
+## {% linkable_title Service calls %}
+
+If you wish to teach a self-learning device in your TellStick configuration:
 
 Go to Home Assistant [service call](http://hassio.local:8123/dev-service) in Developer tools and select.
+
 - Service: `hassio.addon_stdin`
 - Enter service Data:
   `{"addon":"core_tellstick","input":{"function":"learn","device":"1"}}`
@@ -85,8 +109,7 @@ Replace `1` with the corresponding ID of the device in your TellStick configurat
 You can also use this to list devices or sensors and read the output in the add-on log:
 `{"addon":"core_tellstick","input":{"function":"list-sensors"}}`
 
-
-#### Supported service commands
+### {% linkable_title Supported service commands %} 
 
 - `"function":"list"`: List currently configured devices with name and device id and all discovered sensors.
 

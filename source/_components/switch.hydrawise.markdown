@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: hydrawise_logo.png
-ha_category: Switch
+ha_category: Irrigation
 ha_release: 0.71
 ha_iot_class: Cloud Polling
 ---
 
 Before setting up the [Hunter Hydrawise](https://hydrawise.com) switches please follow the instructions for setting up the [Hydrawise hub](/components/hydrawise) component.
+
+## {% linkable_title Configuration %}
 
 Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
 
@@ -25,9 +27,9 @@ switch:
 
 {% configuration %}
 watering_minutes:
-  description: When manual watering is enabled this will determine the length of time in minutes that irrigation zone will run. The allowed values are 5, 10, 15, 30, 45, or 60.
+  description: When manual watering is enabled this will determine the length of time in minutes that the irrigation zone will run. The allowed values are 5, 10, 15, 30, 45, or 60.
   required: false
-  type: int
+  type: integer
   default: 15
 monitored_conditions:
   description: Selects the set of switches that should be enabled on the frontend. Also sets the length of time a zone will run under manual control.
@@ -60,6 +62,5 @@ switch:
   - platform: hydrawise
     monitored_conditions: manual_watering
 ```
-
 
 Finish the configuration by visiting the [Hydrawise binary sensor](/components/binary_sensor.hydrawise) and [Hydrawise sensor](/components/sensor.hydrawise/) documentation.

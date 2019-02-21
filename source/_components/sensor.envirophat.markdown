@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Sensor
+ha_category: DIY
 ha_iot_class: "Local Polling"
 ha_release: 0.44
 ---
@@ -47,37 +47,65 @@ sensor:
       - voltage_3
 ```
 
-Configuration variables:
+{% configuration %}
+display_options:
+  description: List of readings to monitor.
+  required: false
+  default: All the conditions
+  type: list
+  keys:
+    temperature:
+      description: Ambient temperature in Celsius. Since the sensor is close to the Raspberry Pi, that might affect the accuracy of the reading (ie. the Pi might heat up the sensor)
+    pressure:
+      description: Atmospheric pressure in hPa.
+    light:
+      description: Ambient light, as an integer in the 0-65535 range.
+    light_red:
+      description: Red color reading scaled to the ambient light, as an integer in the 0-255 range.
+    light_green:
+      description: Green color reading scaled to the ambient light, as an integer in the 0-255 range.
+    light_blue:
+      description: Blue color reading scaled to the ambient light, as an integer in the 0-255 range.
+    accelerometer_x:
+      description: Accelerometer reading in units of G, along the X axis.
+    accelerometer_y:
+      description: Accelerometer reading in units of G, along the Y axis.
+    accelerometer_z:
+      description: Accelerometer reading in units of G, along the Z axis.
+    magnetometer_x:
+      description: Magnetometer reading, the X component of the raw vector.
+    magnetometer_y:
+      description: Magnetometer reading, the y component of the raw vector.
+    magnetometer_z:
+      description: Magnetometer reading, the z component of the raw vector.
+    voltage_0:
+      description: Voltage reading on Analog In 0 in units of V.
+    voltage_1:
+      description: Voltage reading on Analog In 1 in units of V.
+    voltage_2:
+      description: Voltage reading on Analog In 2 in units of V.
+    voltage_3:
+      description: Voltage reading on Analog In 3 in units of V.
+use_led:
+  description: Declaring that the on-board LEDs are *not* used for the color measurements thus these readings are based on the ambient light. If the value is set to True, the on-board LEDs will blink whenever a reading is taken.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
-- **display_options** (*Optional*) array: List of readings to monitor. Default is monitoring all of them:
-  - **temperature**: ambient temperature in Celsius. Since the sensor is close to the Raspberry Pi, that might affect the accuracy of the reading (ie. the Pi might heat up the sensor)
-  - **pressure**: atmospheric pressure in hPa.
-  - **light**: ambient light, as an integer in the 0-65535 range
-  - **light_red**: red color reading scaled to the ambient light, as an integer in the 0-255 range
-  - **light_green**: green color reading scaled to the ambient light, as an integer in the 0-255 range
-  - **light_blue**: blue color reading scaled to the ambient light, as an integer in the 0-255 range
-  - **accelerometer_x**: accelerometer reading in units of G, along the X axis
-  - **accelerometer_y**: accelerometer reading in units of G, along the Y axis
-  - **accelerometer_z**: accelerometer reading in units of G, along the Z axis
-  - **magnetometer_x**: magnetometer reading, the X component of the raw vector
-  - **magnetometer_y**: magnetometer reading, the Y component of the raw vector
-  - **magnetometer_z**: magnetometer reading, the X component of the raw vector
-  - **voltage_0**: voltage reading on Analog In 0 in units of V
-  - **voltage_1**: voltage reading on Analog In 1 in units of V
-  - **voltage_2**: voltage reading on Analog In 2 in units of V
-  - **voltage_3**: voltage reading on Analog In 3 in units of V
-- **use_led** (*Optional*) True / False boolean; Default value is False, declaring that the on-board LEDs are *not* used for the color measurements thus these readings are based on the ambient light. If the value is set to True, the on-board LEDs will blink whenever a reading is taken.
+### {% linkable_title Notes %}
 
-### Notes
+#### X, Y, Z axes
 
-* **X, Y, Z axes**
-  * X is parallel with the long edge of the board
-  * Y is parallel with the short edge of the board
-  * Z is perpendicular to the board
-* **Voltages**
-  * voltage readings are done in the 0-3.3V range, please do not connect higher voltages than that! See the [Enviro pHAT's getting started guide](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) regarding how to make a voltage divider
+- X is parallel with the long edge of the board
+- Y is parallel with the short edge of the board
+- Z is perpendicular to the board
 
-### Give the values friendly names & icons
+#### Voltages
+
+- voltage readings are done in the 0-3.3V range, please do not connect higher voltages than that! See the [Enviro pHAT's getting started guide](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) regarding how to make a voltage divider
+
+### {% linkable_title Give the values friendly names & icons %}
 
 Add something like the following to your [customize section](/docs/configuration/customizing-devices/):
 

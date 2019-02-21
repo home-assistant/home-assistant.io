@@ -38,8 +38,11 @@ sensor:
       - Waterloo & City
 ```
 
-Configuration variables:
-
-- **line** (*Required*): Enter the name of at least one line.
+{% configuration %}
+line:
+  description: Enter the name of at least one line.
+  required: true
+  type: list
+{% endconfiguration %}
 
 Powered by TfL Open Data [TFL](https://api.tfl.gov.uk/).

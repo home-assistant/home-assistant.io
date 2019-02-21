@@ -28,8 +28,14 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of the computer running GPMDP.
-- **name** (*Optional*): Name of the player.
-
+{% configuration %}
+host:
+  description: The IP address of the computer running GPMDP.
+  required: true
+  type: string
+name:
+  description: Name of the player.
+  required: false
+  default: GPM Desktop Player
+  type: string
+{% endconfiguration %}

@@ -31,14 +31,38 @@ sensor:
       - 'upload_speed'
 ```
 
-Configuration variables:
-
-- **host** (*Required*): This is the IP address of your Deluge daemon, eg. 192.168.1.32.
-- **port** (*Optional*): The port your Deluge daemon uses. Defaults to 58846. Warning, this is not the port of the WebUI.
-- **name** (*Optional*): The name to use when displaying this Deluge instance.
-- **username** (*Required*): Your Deluge daemon username.
-- **password** (*Required*): Your Deluge daemon password.
-- **monitored_variables** array (*Required*): Conditions to display in the frontend.
-  - **current_status**: The status of your Deluge daemon.
-  - **download_speed**: The current download speed.
-  - **upload_speed**: The current upload speed.
+{% configuration %}
+host:
+  required: true
+  type: string
+  description: This is the IP address of your Deluge daemon, e.g., 192.168.1.32.
+port:
+  required: false
+  type: integer
+  description: The port your Deluge daemon uses. Warning, this is not the port of the WebUI.
+  default: 58846
+name:
+  required: false
+  type: string
+  default: Deluge
+  description: The name to use when displaying this Deluge instance.
+username:
+  required: true
+  type: string
+  description: Your Deluge daemon username.
+password:
+  required: true
+  type: string
+  description: Your Deluge daemon password.
+monitored_variables:
+  required: true
+  type: list
+  description: Conditions to display in the frontend.
+  keys:
+    current_status:
+      description: The status of your Deluge daemon.
+    download_speed:
+      description: The current download speed.
+    upload_speed:
+      description: The current upload speed.
+  {% endconfiguration %}

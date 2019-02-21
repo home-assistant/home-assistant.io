@@ -23,9 +23,12 @@ device_tracker:
   - platform: sky_hub
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router. Defaults to `192.168.1.254`.
+{% configuration %}
+host:
+  description: The IP address of your router.
+  required: false
+  default: 192.168.1.254
+  type: string
+{% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: asterisk.png
-ha_category: Other
+ha_category: Mailbox
 ha_iot_class: "Local Push"
 ha_release: 0.51
 ---
@@ -18,6 +18,8 @@ The `asterisk_mbox` Asterisk Voicemail integration for Home Assistant allows you
 To enable the component, a configuration is required in both Home Assistant as well as on the Asterisk server.
 
 First follow the [Asterisk PBX configuration guide](/docs/asterisk_mbox/) to setup the necessary server on the Asterisk PBX server (this is needed even if Asterisk and Home Assistant are running on the same server)
+
+## {% linkable_title Configuration %}
 
 Once that is complete, add the following entry `configuration.yaml` file:
 

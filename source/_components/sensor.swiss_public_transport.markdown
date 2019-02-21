@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: pre 0.7
 ---
 
-
 The `swiss_public_transport` sensor will give you the next three departure times from a given location to another one in Switzerland.
 
 The [Swiss public transport API](http://transport.opendata.ch/) only allows 1000 requests per 24 hours.
@@ -30,10 +29,20 @@ sensor:
     to: STATION_ID
 ```
 
-Configuration variables:
-
-- **from** (*Required*): The ID of the station of the start station.
-- **to** (*Required*): The ID of the station of the end station.
-- **name** (*Optional*): The name of the sensor. Defaults to 'Next Departure'. 
+{% configuration %}
+from:
+  description: The ID of the station of the start station.
+  required: true
+  type: string
+to:
+  description: The ID of the station of the end station.
+  required: true
+  type: string
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+  default: Next Departure
+{% endconfiguration %}
 
 The public timetables are coming from [Swiss public transport](http://transport.opendata.ch).

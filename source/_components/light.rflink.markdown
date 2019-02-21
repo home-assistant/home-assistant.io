@@ -13,50 +13,110 @@ ha_release: 0.38
 ha_iot_class: "Assumed state"
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-First you have to set up your [rflink hub](/components/rflink/).
+First, you have to set up your [RFLink hub](/components/rflink/).
 
-After configuring the RFLink hub lights will be automatically discovered and added.
+After configuring the RFLink hub, lights will be automatically discovered and added.
 
-RFLink switch/light ID's are composed of: protocol, id, switch. For example: `newkaku_0000c6c2_1`.
+RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
-Once the ID of a light is known it can be used to configure the light in HA, for example to add it to a different group, hide it or configure a nice name.
+Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group, hide it or configure a nice name.
 
-Configuring a device as light with a nice name:
+Configuring devices as a light:
 
 ```yaml
 # Example configuration.yaml entry
 light:
   - platform: rflink
-    device_defaults:
-      fire_event: true
-      signal_repetitions: 2
     devices:
-      newkaku_0000c6c2_1:
-        name: Living room
+      NewKaku_02a48800_0: {}
+      newkaku_0000c6c2_1: {}
+      Ansluta_ce30_0: {}
+      Maclean_0d82_01: {}
 ```
 
-Configuration variables:
-
-- **automatic_add** (*Optional*): Automatically add new/unconfigured devices to HA if detected (default: True).
-- **devices**  (*Optional*): A list of devices with their name to use in the frontend.
-- **device_defaults**: (*Optional*)
-  - **fire_event** (*Optional*): Set default `fire_event` for Rflink switch devices (see below).
-  - **signal_repetitions** (*Optional*): Set default `signal_repetitions` for Rflink switch devices (see below).
-
-Device configuration variables:
-
-- **name** (*Optional*): Name for the device, defaults to Rflink ID.
-- **type** (*Optional*): Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See 'Light Types' below. (default: Switchable)
-- **aliases** (*Optional*): Alternative Rflink ID's this device is known by.
-- **fire_event** (*Optional*): Fire a `button_pressed` event if this device is turned on or off (default: False).
-- **signal_repetitions** (*Optional*): Repeat every Rflink command this number of times (default: 1).
-- **fire_event_** (*Optional*): Set default `fire_event` for RFLink switch devices (see below).
-- **signal_repetitions** (*Optional*): Set default `signal_repetitions` for RFLink switch devices (see below).
-- **group** (*Optional*): Allow light to respond to group commands (ALLON/ALLOFF). (default: yes)
-- **group_aliases** (*Optional*): `aliases` which only respond to group commands.
-- **no_group_aliases** (*Optional*): `aliases` which do not respond to group commands.
+{% configuration %}
+device_defaults:
+  description: The defaults for the devices.
+  required: false
+  type: map
+  keys:
+    fire_event:
+      description: Set default `fire_event` for RFLink switch devices (see below).
+      required: false
+      default: False
+      type: boolean
+    signal_repetitions:
+      description: Set default `signal_repetitions` for RFLink switch devices (see below).
+      required: false
+      default: 1
+      type: integer
+automatic_add:
+  description: Automatically add new/unconfigured devices to Home Assistant if detected.
+  required: false
+  default: true
+  type: boolean
+devices:
+  description: A list of lights.
+  required: false
+  type: list
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: RFLink ID
+          type: string
+        type:
+          description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](/components/light.rflink/#light-types) below."
+          required: false
+          default: switchable
+          type: string
+        aliases:
+          description: Alternative RFLink ID's this device is known by.
+          required: false
+          type: [list, string]
+        group_aliases:
+          description: "`aliases` which only respond to group commands."
+          required: false
+          type: [list, string]
+        no_group_aliases:
+          description: "`aliases` which do not respond to group commands."
+          required: false
+          type: [list, string]
+        fire_event:
+          description: Fire a `button_pressed` event if this device is turned on or off.
+          required: false
+          default: false
+          type: boolean
+        signal_repetitions:
+          description: Repeat every RFLink command this number of times.
+          required: false
+          default: 1
+          type: integer
+        group:
+          description: Allow light to respond to group commands (ALLON/ALLOFF).
+          required: false
+          default: true
+          type: boolean
+        aliasses:
+          description: (**deprecated**) Alternative RFLink ID's this device is known by.
+          required: false
+          type: [list, string]
+        group_aliasses:
+          description: "(**deprecated**) `aliases` which only respond to group commands."
+          required: false
+          type: [list, string]
+        no_group_aliasses:
+          description: "(**deprecated**) `aliases` which do not respond to group commands."
+          required: false
+          type: [list, string]
+{% endconfiguration %}
 
 ### {% linkable_title Light state %}
 
@@ -70,14 +130,9 @@ light:
   - platform: rflink
     devices:
       newkaku_0000c6c2_1:
-        name: Living room
         aliases:
           - newkaku_000000001_2
           - kaku_000001_a
-      Ansluta_ce30_0:
-        name: Kitchen Under Counter Lights
-      Maclean_0d82_01:
-        name: Bedroom Lamp
 ```
 
 Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
@@ -105,3 +160,29 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 
 See [device support](/components/rflink/#device-support)
 
+### {% linkable_title Additional configuration examples %}
+
+Multiple lights with `signal_repetitions` and custom names
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    automatic_add: true
+    devices:
+      NewKaku_02a48800_0:
+        name: Kitchen
+        type: hybrid
+      newkaku_0000c6c2_1:
+        name: Living room
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
+      Ansluta_ce30_0:
+        name: Kitchen Under Counter Lights
+      Maclean_0d82_01:
+        name: Bedroom Lamp
+```

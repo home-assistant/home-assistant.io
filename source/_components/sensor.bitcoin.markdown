@@ -29,7 +29,7 @@ sensor:
 
 {% configuration %}
 currency:
-  description: The currency to exchange to, eg. CHF, USD, EUR, etc.
+  description: The currency to exchange to, e.g., CHF, USD, EUR, etc.
   required: false
   type: string
   default: USD
@@ -59,7 +59,7 @@ display_options:
     timestamp:
       description: Timestamp
     mined_blocks:
-      description: Minded Blocks
+      description: Mined Blocks
     blocks_size:
       description: Block size
     total_fees_btc:

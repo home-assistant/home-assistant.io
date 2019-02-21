@@ -25,10 +25,15 @@ spc:
   ws_url: WS_URL
 ```
 
-Configuration variables:
-
-- **api_url** (*Required*): URL of the SPC Web Gateway command REST API, e.g., `http://<ip>:8088`.
-- **ws_url** (*Required*): URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088`.
+{% configuration %}
+api_url:
+  description: URL of the SPC Web Gateway command REST API, e.g., `http://<ip>:8088`.
+  required: true
+  type: string
+ws_url:
+  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088`.
+  required: true
+  type: string
+{% endconfiguration %}
 
 Supported sensors will be automatically discovered and added, however they will be hidden by default.
-

@@ -54,9 +54,8 @@ rest_command:
 automation:
   alias: HTTP to MQTT keep alive
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/10'
-    seconds: 00
   condition:
     condition: time
     after: '7:30:00'

@@ -12,14 +12,22 @@ ha_iot_class: "Cloud Polling"
 ha_release: "0.60"
 ---
 
-
-The `caldav` platform allows you to connect to your WebDav calendar and generate binary sensors. A different sensor will be created for each individual calendar, or you can specify custom calendars which match a criteria you define (more on that below). These sensors will be `on` if you have an on going event in that calendar or `off` if the event is later in time, or if there is no event at all. The WebDav calendar get updated roughly every 15 minutes.
+The `caldav` platform allows you to connect to your WebDav calendar and generate
+binary sensors. A different sensor will be created for each individual calendar,
+or you can specify custom calendars which match a criteria you define (more on
+that below). These sensors will be `on` if you have an on going event in that
+calendar or `off` if the event is later in time, or if there is no event at all.
+The WebDav calendar get updated roughly every 15 minutes.
 
 ### {% linkable_title Prerequisites %}
 
-You need to have a CalDav server and credentials for it. This component was tested against [Baikal](http://sabre.io/baikal/) but any component complying with the RFC4791 should work. [Nextcloud](https://nextcloud.com/) and [Owncloud](https://owncloud.org/) work fine.
+You need to have a CalDav server and credentials for it. This component was
+tested against [Baikal](http://sabre.io/baikal/) but any component complying
+with the RFC4791 should work. [Nextcloud](https://nextcloud.com/)
+and [Owncloud](https://owncloud.org/) work fine.
 
-You might need some additional system packages to compile the Python caldav library. On a Debian based system, install them by:
+You might need some additional system packages to compile the
+Python caldav library. On a Debian based system, install them by:
 
 ```bash
 $ sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
@@ -27,7 +35,8 @@ $ sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 
 ### {% linkable_title Basic Setup %}
 
-To integrate a WebDav calendar in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate a WebDav calendar in Home Assistant,
+add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for baikal
@@ -47,12 +56,16 @@ calendar:
     url: https://nextcloud.example.com/remote.php/dav
 ```
 
-This example will generate default binary sensors for each calendar you have in your account. Those calendars will be `on` when there is an ongoing event and `off` if not. Events that last a whole day are ignored in those calendars. You have to setup custom calendars in order to take them into account or for advanced event filtering.
-
+This example will generate default binary sensors for each calendar you have in
+your account. Those calendars will be `on` when there is an ongoing event and
+`off` if not. Events that last a whole day are ignored in those calendars.
+You have to setup custom calendars in order to take them into account or for
+advanced event filtering.
 
 ### {% linkable_title Custom calendars %}
 
-You have the possibility to create multiple binary sensors for events that match certain conditions.
+You have the possibility to create multiple binary
+sensors for events that match certain conditions.
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,9 +83,13 @@ calendar:
         search: 'Warmup'
 ```
 
-This will create two binary sensors for the calendar name Agenda: "HomeOffice" and "WarmupFlat". Those sensors will be `on` if there is an ongoing event matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
+This will create two binary sensors for the calendar name Agenda: "HomeOffice"
+and "WarmupFlat". Those sensors will be `on` if there is an ongoing event
+matching the regular expression specified in `search`.
+In custom calendars, events that last a whole day are taken into account.
 
-Please note that when you configure custom calendars, the default ones are not created anymore.
+Please note that when you configure custom calendars,
+the default ones are not created anymore.
 
 {% configuration %}
 url:
@@ -89,7 +106,9 @@ password:
   type: string
 calendars:
   required: false
-  description: List of the calendars to filter. Empty or absent means no filtering, i.e. all calendars will be added.
+  description: >
+    List of the calendars to filter.
+    Empty or absent means no filtering, i.e. all calendars will be added.
   type: list
 custom_calendars:
   required: false
@@ -106,10 +125,11 @@ custom_calendars:
       type: string
     search:
       required: true
-      description: Regular expression for filtering the events based on the content of their summary, description or location.
+      description: >
+        Regular expression for filtering the events based on
+        the content of their summary, description or location.
       type: string
 {% endconfiguration %}
-
 
 ### {% linkable_title Sensor attributes %}
 
@@ -136,9 +156,12 @@ calendar:
       - holidays
 ```
 
-Full example with automation to wake up to music if not holiday. Prerequisite: you have a calendar named "work" where you create calendar entries containing "Holiday".
+Full example with automation to wake up to music if not holiday.
+Prerequisite: you have a calendar named "work" where
+you create calendar entries containing "Holiday".
 
-Custom calendar names are built from the main calendar + name of the custom calendar.
+Custom calendar names are built from the
+main calendar + name of the custom calendar.
 
 ```yaml
 # configuration.yaml
@@ -157,7 +180,7 @@ calendar:
   alias: worktime wakeup
   trigger:
     platform: time
-    at: 06:40:00
+    at: '06:40:00'
   action:
   - service: media_player.media_play
     entity_id: media_player.bedroom
@@ -165,5 +188,4 @@ calendar:
   - condition: state
     entity_id: calendar.work_holiday
     state: 'off'
-
 ```

@@ -23,11 +23,14 @@ Currently known supported models:
 - TX-49DX650B
 - TX-50DX700B
 - TX-55CX700E
+- TX-55EXW584
 - TX-65EXW784
 - TX-L42ET50
 - TX-P42STW50
 - TX-P50GT30Y
 - TX-P50GT60E
+- TH-32ES500
+- TX-42AS650
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/media_player.panasonic_viera.markdown).
 
@@ -42,12 +45,26 @@ media_player:
     host: 192.168.0.10
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP of the Panasonic Viera TV, e.g., `192.168.0.10`.
-- **port** (*Optional*): The port number of your Panasonic Viera TV. Defaults to `55000`.
-- **mac** (*Optional*): The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
-- **name** (*Optional*): The name you would like to give to the Panasonic Viera TV.
+{% configuration %}
+host:
+  description: The IP of the Panasonic Viera TV, e.g., `192.168.0.10`.
+  required: true
+  type: string
+port:
+  description: The port number of your Panasonic Viera TV.
+  required: false
+  default: 55000
+  type: integer
+mac:
+  description: The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
+  required: false
+  type: string
+name:
+  description: The name you would like to give to the Panasonic Viera TV.
+  required: false
+  default: Panasonic Viera TV
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Example `play_media` script %}
 

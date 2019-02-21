@@ -17,7 +17,9 @@ ha_iot_class: "Local Push"
 
 The `kodi` platform allows you to control a [Kodi](http://kodi.tv/) multimedia system from Home Assistant.
 
-The preferred way to set up the Kodi platform is by enabling the [discovery component](https://www.home-assistant.io/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+The preferred way to set up the Kodi platform is by enabling the [discovery component](/components/discovery/) which requires enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
+
+## {% linkable_title Configuration %}
 
 In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
 
@@ -28,20 +30,59 @@ media_player:
     host: 192.168.0.123
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: The host name or address of the device that is running XBMC/Kodi.
+  required: true
+  type: string
+port:
+  description: The HTTP port number.
+  required: false
+  type: integer
+  default: 8080
+tcp_port:
+  description: The TCP port number. Used for WebSocket connections to Kodi.
+  required: false
+  type: integer
+  default: 9090
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  type: string
+proxy_ssl:
+  description: Connect to Kodi with HTTPS and WSS. Useful if Kodi is behind an SSL proxy.
+  required: false
+  type: boolean
+  default: false
+username:
+  description: The XBMC/Kodi HTTP username.
+  required: false
+  type: string
+password:
+  description: The XBMC/Kodi HTTP password.
+  required: false
+  type: string
+turn_on_action:
+  description: Home Assistant script sequence to call when turning on.
+  required: false
+  type: list
+turn_off_action:
+  description: Home Assistant script sequence to call when turning off.
+  required: false
+  type: list
+enable_websocket:
+  description: Enable websocket connections to Kodi via the TCP port. The WebSocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
+  required: false
+  type: boolean
+  default: true
+timeout:
+  description: Set timeout for connections to Kodi. Defaults to 5 seconds.
+  required: false
+  type: integer
+  default: 5
+{% endconfiguration %}
 
-- **host** (*Required*): The host name or address of the device that is running XBMC/Kodi.
-- **port** (*Optional*): The HTTP port number. Defaults to 8080.
-- **tcp_port** (*Optional*): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.
-- **name** (*Optional*): The name of the device used in the frontend.
-- **proxy_ssl** (*Optional*): Connect to kodi with HTTPS and WSS. Defaults to `false`. Useful if Kodi is behind an SSL proxy.
-- **username** (*Optional*): The XBMC/Kodi HTTP username.
-- **password** (*Optional*): The XBMC/Kodi HTTP password.
-- **turn_on_action** (*Optional*): Home Assistant script sequence to call when turning on.
-- **turn_off_action** (*Optional*): Home Assistant script sequence to call when turning off.
-- **enable_websocket** (*Optional*): Enable websocket connections to Kodi via the TCP port. Defaults to `true`. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don't work on your installation this can be set to `false`.
-- **timeout** (*Optional*): Set timeout for connections to Kodi. Defaults to 5 seconds.
-
+## {% linkable_title Services %}
 
 ### {% linkable_title Service `kodi_add_to_playlist` %}
 
@@ -49,12 +90,18 @@ Add music to the default playlist (i.e. playlistid=0).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Kodi entities where to add the media.
-| `media_type` | yes | Media type identifier. It must be one of SONG or ALBUM.
-| `media_id` | no | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library.
-| `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.
-| `artist_name` | no | Optional artist name for filtering media.
+| `entity_id` | no | Name(s) of the Kodi entities where to add the media. |
+| `media_type` | yes | Media type identifier. It must be one of SONG or ALBUM. |
+| `media_id` | no | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library. |
+| `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist. |
+| `artist_name` | no | Optional artist name for filtering media. |
 
+#### {% linkable_title Service `media_player/kodi_set_shuffle` %}
+
+| Service data attribute | Optional | Description |
+|------------------------|----------|-------------|
+| `entity_id`            | yes      | Target a specific media player. It must be of type kodi. |
+| `shuffle_on`           | no       | True/false for shuffle on/off. |
 
 ### {% linkable_title Service `kodi_call_method` %}
 
@@ -62,10 +109,9 @@ Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with opti
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | Name(s) of the Kodi entities where to run the API method.
-| `method` | yes | Name of the Kodi JSONRPC API method to be called.
-| any other parameter | no | Optional parameters for the Kodi API call.
-
+| `entity_id` | no | Name(s) of the Kodi entities where to run the API method. |
+| `method` | yes | Name of the Kodi JSONRPC API method to be called. |
+| any other parameter | no | Optional parameters for the Kodi API call. |
 
 ### {% linkable_title Event triggering %}
 
@@ -196,13 +242,14 @@ media_player:
 ```
 
 <p class='note'>
-This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose th endpoints standy, toggle and activate without authentication on your kodi player. Use this with caution.
+This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
 </p>
 
 ### {% linkable_title Kodi services samples %}
 
 #### Simple script to turn on the PVR in some channel as a time function
 
+{% raw %}
 ```yaml
 script:
   play_kodi_pvr:
@@ -212,14 +259,13 @@ script:
         service: media_player.turn_on
         data:
           entity_id: media_player.kodi
-
       - alias: Play TV channel
         service: media_player.play_media
         data_template:
           entity_id: media_player.kodi
           media_content_type: "CHANNEL"
           media_content_id: >
-            {% raw %}{% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
+            {% if (now().hour < 14) or ((now().hour == 14) and (now().minute < 50)) %}
               10
             {% elif (now().hour < 16) %}
               15
@@ -231,8 +277,9 @@ script:
               15
             {% else %}
               10
-            {% endif %}{% endraw %}
+            {% endif %}
 ```
+{% endraw %}
 
 #### Trigger a Kodi video library update
 

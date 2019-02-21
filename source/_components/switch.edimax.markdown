@@ -12,7 +12,6 @@ ha_category: Switch
 ha_release: pre 0.7
 ---
 
-
 This `edimax` switch platform allows you to control the state of your [Edimax](http://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.
 
 To use your Edimax switch in your installation, add the following to your `configuration.yaml` file:
@@ -24,10 +23,24 @@ switch:
     host: 192.168.1.32
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your Edimax switch, eg. `192.168.1.32`.
-- **username** (*Optional*): Your username for the Edimax switch. Defaults to `admin`.
-- **password** (*Optional*): Your password for the Edimax switch. Defaults to `1234`.
-- **name** (*Optional*): The name to use when displaying this switch.
-
+{% configuration %}
+host:
+  description: "The IP address of your Edimax switch, e.g., `192.168.1.32`."
+  required: true
+  type: string
+username:
+  description: Your username for the Edimax switch.
+  required: false
+  default: admin
+  type: string
+password:
+  description: Your password for the Edimax switch.
+  required: false
+  default: 1234
+  type: string
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  default: Edimax Smart Plug
+  type: string
+{% endconfiguration %}

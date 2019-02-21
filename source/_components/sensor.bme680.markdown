@@ -8,17 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
 
-The `bme680` sensor platform allows you to read temperature, humidity, pressure and gas resistance values of a [Bosch BME680 Environmental sensor](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf) connected via an [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet.  In addition, it includes a basic air quality calculation that uses gas resistance and humidity measurements to calculate a percentage based air quality measurement.
+The `bme680` sensor platform allows you to read temperature, humidity, pressure and gas resistance values of a [Bosch BME680 Environmental sensor](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf) connected via an [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet. In addition, it includes a basic air quality calculation that uses gas resistance and humidity measurements to calculate a percentage based air quality measurement.
 
 Tested devices:
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
+
+## {% linkable_title Configuration %}
 
 To use your BME680 sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -38,12 +40,12 @@ i2c_bus:
   description: I2C bus that the sensor is connected to. 
   required: false
   default: 1
-  type: int
+  type: integer
 i2c_address:
   description: I2C address of the sensor. It is 0x76 or 0x77. 
   required: false
   default: 0x77
-  type: int
+  type: integer
 monitored_conditions:
   description: Conditions to monitor.
   required: false
@@ -68,47 +70,52 @@ oversampling_temperature:
   description: Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16.
   required: false
   default: 8
-  type: int
+  type: integer
 oversampling_pressure:
   description: Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16.
   required: false
   default: 2
-  type: int
+  type: integer
 oversampling_humidity:
   description: Oversampling multiplier as described in the sensor datasheet. Can be 0 (no sampling), 1, 2, 4, 8, or 16.
   required: false
   default: 4
-  type: int
+  type: integer
 filter_size:
   description: IIR filter size as described in the sensor datasheet. Can be 0 (off), 1, 3, 7, 15, 31, 63 or 127. 
   required: false
   default: 3
-  type: int
+  type: integer
 gas_heater_temperature:
   description: The temperature to heat the hotplate to for gas resistance measurements as described in the sensor datasheet.  Can be between 200-400&deg;C.
   required: false
   default: 320
-  type: int
+  type: integer
 gas_heater_duration:
   description: The duration to heat the hotplate in milliseconds for gas resistance measurements as described in the sensor datasheet.  Can be between 1-4032 ms. In reality, you will likely need between 80-100ms to reach a stable temperature.  Using a duration greater than 1000ms is inadvisable as it will essentially result in the heater being continually on due to the 1-second update interval.
   required: false
   default: 150
-  type: int
+  type: integer
 aq_burn_in_time:
   description: The duration to perform gas resistance measurements to establish a stable baseline measurements for Air Quality calculations in seconds. The burn in time is only performed when the sensor component is first initialized. 
   required: false
   default: 300
-  type: int
+  type: integer
 aq_humidity_baseline:
   description: The baseline *ideal* relative humidity value for the air quality calculations. 
   required: false
   default: 40
-  type: int
+  type: integer
 aq_humidity_bias:
-  description: The bias for humidity to the gas resistance measurement in the air quality calculations expressed as a percentage of the total calculation e.g., 25% hudidtity to 75% gas. 
+  description: The bias for humidity to the gas resistance measurement in the air quality calculations expressed as a percentage of the total calculation e.g., 25% humidity to 75% gas. 
   required: false
   default: 25
-  type: int
+  type: integer
+temp_offset:
+  description: "The temperature for the sensor will always be too high as it pulls heat from the components around it.  Consider adding a negative offset to ensure the sensor returns an accurate temperature. Note: This value is in celsius."
+  required: false
+  default: 0
+  type: float
 {% endconfiguration %}
 
 ## {% linkable_title Full Examples %}
@@ -137,6 +144,7 @@ sensor:
     aq_burn_in_time: 300
     aq_humidity_baseline: 40
     aq_humidity_bias: 25
+    temp_offset: -5.5
 ```
 
 ## {% linkable_title Customizing the sensor data %}
@@ -152,12 +160,16 @@ customize:
   sensor.bme680_sensor_humidity:
     icon: mdi:water
     friendly_name: Humidity
+    device_class: humidity
+    unit_of_measurement: "%"
   sensor.bme680_sensor_pressure:
     icon: mdi:gauge
     friendly_name: Pressure
   sensor.bme680_sensor_air_quality:
     icon: mdi:blur
     friendly_name: Air Quality
+    device_class: pm25
+    unit_of_measurement: "%"
 ```
 
 To create a group, add the following to your `group` section.

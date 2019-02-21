@@ -11,14 +11,16 @@ footer: true
 
 The `notify` component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
 
+If you want to send notifications to the Home Assistant Web Interface you may use the [Persistent Notification Component](/components/persistent_notification/).
+
 ## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
 notify:
   - platform: pushbullet
-    name: paulus
-    api_key: ABCDEFG
+    name: NOTIFY_NAME
+    api_key: YOUR_API_KEY
 ```
 
 The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied.
@@ -55,6 +57,16 @@ A simple way to test if you have set up your notify platform correctly, is to us
   "message": "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
 }
 ```
+
+The automation equivalent would be:
+
+```yaml
+action:
+  service: notify.notify
+  data:
+    message: "The sun is {% raw %}{% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}{% endraw %}!"
+```
+
 For services which have support for sending images.
 
 ```json
@@ -66,6 +78,19 @@ For services which have support for sending images.
   }
 }
 ```
+
+The automation equivalent would be:
+
+```yaml
+action:
+  service: notify.notify
+  data:
+    message: "Test plugin"
+    data:
+      photo:
+        url: "http://www.gbsun.de/gbpics/berge/berge106.jpg"
+```
+
 
 If the service support sending the location, the data from this sample can be used.
 
@@ -80,3 +105,15 @@ If the service support sending the location, the data from this sample can be us
 }
 ```
 
+The automation equivalent would be:
+
+```yaml
+action:
+  service: notify.notify
+  data:
+    message: "Test plugin"
+    data:
+      location:
+        latitude: 7.3284
+        longitude: 46.38234
+```

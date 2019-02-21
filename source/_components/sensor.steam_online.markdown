@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.14
 ---
 
-
 The `steam` sensor platform will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
 
 ## {% linkable_title Setup %}

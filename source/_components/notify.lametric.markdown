@@ -32,7 +32,7 @@ name:
 lifetime:
   description: Defines how long the message remains in LaMetric notification queue (in seconds).
   required: false
-  type: int
+  type: integer
   default: 10
 icon:
   description: An icon or animation.
@@ -41,11 +41,11 @@ icon:
 cycles:
   description: Defines how often the notification is displayed.
   required: false
-  type: int
+  type: integer
   default: 1
 priority:
   description: Defines the priority of the notification.
-  required: False
+  required: false
   type: string
   default: warning
 {% endconfiguration %}

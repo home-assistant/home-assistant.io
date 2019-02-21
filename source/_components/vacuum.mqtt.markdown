@@ -14,43 +14,14 @@ ha_release: 0.54
 
 The `mqtt` vacuum component allows you to control your MQTT-enabled vacuum.
 
+## {% linkable_title Configuration %}
+
 To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 vacuum:
   - platform: mqtt
-    name: "MQTT Vacuum"
-    supported_features:
-      - turn_on
-      - turn_off
-      - pause
-      - stop
-      - return_home
-      - battery
-      - status
-      - locate
-      - clean_spot
-      - fan_speed
-      - send_command
-    command_topic: "vacuum/command"
-    battery_level_topic: "vacuum/state"
-    battery_level_template: "{{ value_json.battery_level }}"
-    charging_topic: "vacuum/state"
-    charging_template: "{{ value_json.charging }}"
-    cleaning_topic: "vacuum/state"
-    cleaning_template: "{{ value_json.cleaning }}"
-    docked_topic: "vacuum/state"
-    docked_template: "{{ value_json.docked }}"
-    fan_speed_topic: "vacuum/state"
-    fan_speed_template: "{{ value_json.fan_speed }}"
-    set_fan_speed_topic: "vacuum/set_fan_speed"
-    fan_speed_list:
-      - min
-      - medium
-      - high
-      - max
-    send_command_topic: 'vacuum/send_command'
 ```
 
 {% configuration %}
@@ -145,6 +116,14 @@ docked_template:
   description: "Defines a [template](/topics/templating/) to define the docked state of the vacuum."
   required: false
   type: string
+error_topic:
+  description: The MQTT topic subscribed to receive error messages from the vacuum.
+  required: false
+  type: string
+error_template:
+  description: "Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum."
+  required: false
+  type: string
 fan_speed_topic:
   description: The MQTT topic subscribed to receive fan speed values from the vacuum.
   required: false
@@ -179,7 +158,54 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 {% endconfiguration %}
+
+### {% linkable_title Full configuration example %}
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+vacuum:
+  - platform: mqtt
+    name: "MQTT Vacuum"
+    supported_features:
+      - turn_on
+      - turn_off
+      - pause
+      - stop
+      - return_home
+      - battery
+      - status
+      - locate
+      - clean_spot
+      - fan_speed
+      - send_command
+    command_topic: "vacuum/command"
+    battery_level_topic: "vacuum/state"
+    battery_level_template: "{{ value_json.battery_level }}"
+    charging_topic: "vacuum/state"
+    charging_template: "{{ value_json.charging }}"
+    cleaning_topic: "vacuum/state"
+    cleaning_template: "{{ value_json.cleaning }}"
+    docked_topic: "vacuum/state"
+    docked_template: "{{ value_json.docked }}"
+    error_topic: "vacuum/state"
+    error_template: "{{ value_json.error }}"
+    fan_speed_topic: "vacuum/state"
+    fan_speed_template: "{{ value_json.fan_speed }}"
+    set_fan_speed_topic: "vacuum/set_fan_speed"
+    fan_speed_list:
+      - min
+      - medium
+      - high
+      - max
+    send_command_topic: 'vacuum/send_command'
+```
+{% endraw %}
 
 ### {% linkable_title Default MQTT Protocol %}
 
@@ -190,6 +216,7 @@ The above configuration for this component expects an MQTT protocol like the fol
 MQTT topic: `vacuum/command`
 
 Possible MQTT payloads:
+
 - `turn_on` - Begin cleaning
 - `turn_off` - Turn the Vacuum off
 - `return_to_base` - Return to base/dock
@@ -203,6 +230,7 @@ Possible MQTT payloads:
 MQTT topic: `vacuum/set_fan_speed`
 
 Possible MQTT payloads:
+
 - `min` - Minimum fan speed
 - `medium` - Medium fan speed
 - `high` - High fan speed
@@ -219,16 +247,19 @@ MQTT payload for `send_command` can be an arbitrary value handled by the vacuum'
 MQTT topic: `vacuum/state`
 
 MQTT payload:
+
 ```json
 {
     "battery_level": 61,
     "docked": true,
     "cleaning": false,
     "charging": true,
-    "fan_speed": "off"
+    "fan_speed": "off",
+    "error": "Error message"
 }
 ```
 
-### {% linkable_title Retrofitting a non-wifi Roomba with an ESP8266 %}
+### {% linkable_title Retrofitting a non-wifi vacuums %}
 
-- [This repo](https://github.com/johnboiles/esp-roomba-mqtt) has MQTT client firmware for retrofitting your old Roomba.
+- Retrofitting your old Roomba with an ESP8266. [This repo](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
+- In you own a non-wifi Neato, you can refer to [this repo](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.

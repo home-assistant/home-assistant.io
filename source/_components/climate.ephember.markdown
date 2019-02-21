@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "EPH Controls Ember Thermostat"
-description: "Instructions on how to integrate EPH Controls Ember thermostats within Home Assistant."
+title: "EPH Controls EMBER Thermostat"
+description: "Instructions on how to integrate EPH Controls EMBER thermostats within Home Assistant."
 date: 2017-10-07 12:40
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `ephember` climate platform lets you control [EPH Controls](http://emberapp.ephcontrols.com/) thermostats. The module only works if you have a WiFi gateway to control your EPH system and an account on the ember app.
+The `ephember` climate platform lets you control [EPH Controls](http://emberapp.ephcontrols.com/) thermostats. The module only works if you have a WiFi gateway to control your EPH system and an account on the EMBER app.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -27,7 +27,21 @@ climate:
 
 A single interface can handle up to 32 connected devices.
 
-Configuration variables:
+{% configuration %}
+username:
+  description: The email address you used to sign up to the EMBER app.
+  required: true
+  type: string
+password:
+  description: The password you used to sign up to the EMBER app.
+  required: true
+  type: string
+{% endconfiguration %}
 
-- **username** (*Required*): The email address you used to sign up to the ember app
-- **password** (*Required*): The password you used to sign up to the ember app
+The supported operation modes map to the ON/OFF period selection of your timeswitch / EMBER app. These include:
+
+- **Auto** The timeswitch operates 3 on / off periods per day.
+- **On** The timeswitch is permanently on.
+- **Off** The timeswitch is permanently off.
+
+If **All Day** is selected in the EMBER app it will show as **Auto** in Home Assistant.

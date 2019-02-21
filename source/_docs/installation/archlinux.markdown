@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-[Arch Linux](https://www.archlinux.org/) is a lightweight and flexible Linux distribution. There are official packages optimized for the i686 and x86-64 architectures available.
+[Arch Linux](https://www.archlinux.org/) is a lightweight and flexible Linux distribution for x86_64.
 
 Install the needed Python packages.
 

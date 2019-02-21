@@ -8,8 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: zehnder.png
-ha_category: Hub
+ha_category:
+  - Fan
+  - Sensor
 ha_release: "0.48"
+redirect_from:
+  - /components/fan.comfoconnect/
+  - /components/sensor.comfoconnect/
 ---
 
 The `comfoconnect` component lets you control Zehnder ComfoAir [Q350](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-st)/[450](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-st)/[600](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)
@@ -25,16 +30,35 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 comfoconnect:
-  host: 192.168.1.213
+  host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The ip or hostname of the ComfoConnect LAN C bridge.
-- **name** (*Optional*): The name of this device as you want to see it in Home Assistant.
-- **token** (*Optional*): The token you want to use when registering with the device. This is a random 32 char hexadecimal string. The default value is `00000000000000000000000000000001`.
-- **user_agent** (*Optional*): The name you want to supply when registering with the device. The default value is `Home Assistant`.
-- **pin** (*Optional*): The pin code to use when registering. This is `0000` by default. You only need to change this if you have changed the factory default pin.
+{% configuration %}
+host:
+  description: The IP or hostname of the ComfoConnect LAN C bridge.
+  required: true
+  type: string
+name:
+  description: The name of this device as you want to see it in Home Assistant.
+  required: false
+  default: ComfoAirQ
+  type: string
+token:
+  description: The token you want to use when registering with the device. This is a random 32 char hexadecimal string.
+  required: false
+  default: "`00000000000000000000000000000001`"
+  type: string
+user_agent:
+  description: The name you want to supply when registering with the device.
+  required: false
+  default: "`Home Assistant`"
+  type: string
+pin:
+  description: The pin code to use when registering. You only need to change this if you have changed the factory default pin.
+  required: false
+  default: "`0000`"
+  type: integer
+{% endconfiguration %}
 
 To register the sensors, add the following to your `configuration.yaml` file:
 

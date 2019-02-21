@@ -26,12 +26,12 @@ To add a DLNA DMR device to your installation, add the following to your `config
 # Example configuration.yaml entry
 media_player:
   - platform: dlna_dmr
-    url: http://192.168.0.10:9197/dmr
+    url: http://192.168.0.10:9197/description.xml
 ```
 
 {% configuration %}
 url:
-  description: The URL to the device description, e.g., `http://192.168.0.10:9197/dmr`.
+  description: The URL to the device description .xml file, e.g., `http://192.168.0.10:9197/description.xml`.
   required: true
   type: string
 listen_ip:
@@ -42,7 +42,7 @@ listen_port:
   description: Port to listen on for events from the device.
   required: false
   default: 8301
-  type: int
+  type: integer
 name:
   description: The name you would like to give to the device, e.g., `TV living room`.
   required: false

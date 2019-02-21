@@ -26,7 +26,7 @@ notify:
 - A **component** provides the core logic for some functionality (like `notify` provides sending notifications).
 - A **platform** makes the connection to a specific software or hardware platform (like `pushbullet` works with the service from pushbullet.com).
 
-The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a `-` while mappings have the format `key: value`. If you specify duplicate keys, the last value for a key is used. This is somewhat similar to a Hashtable or more specifically a dictionary in Python. These can be nested as well.
+The basics of YAML syntax are block collections and mappings containing key-value pairs. Each item in a collection starts with a `-` while mappings have the format `key: value`. If you specify duplicate keys, the last value for a key is used. This is somewhat similar to a Hash table or more specifically a dictionary in Python. These can be nested as well.
 
 Note that indentation is an important part of specifying relationships using YAML. Things that are indented are nested "inside" things that are one level higher. So in the above example, `platform: pushbullet` is a property of (nested inside) the `notify` component.
 
@@ -105,3 +105,9 @@ found character '\t' that cannot start any token
 ```
 
 This means that you've mistakenly entered a tab character, instead of spaces. 
+
+### {% linkable_title Upper and lower case %}
+
+Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
+
+If you're having trouble, check the case that Home Assistant is reporting in the dev-state menu, under *Developer tools*.

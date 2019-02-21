@@ -23,7 +23,11 @@ binary_sensor:
       - '3:2': Garage Obstruction
 ```
 
-Configuration variables:
-
-- **ports** (*Required*): A list of module-address to name mappings in the format 'x:y': name, where x is module #, y is address.
-
+{% configuration %}
+ports:
+  description: >
+    A list of module-address to name mappings in the format `'x:y': name`,
+    where x is module #, y is address.
+  required: true
+  type: list
+{% endconfiguration %}

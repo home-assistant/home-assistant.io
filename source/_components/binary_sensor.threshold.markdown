@@ -8,11 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Binary Sensor
+ha_category: Utility
 ha_iot_class: "Local Polling"
 ha_release: 0.34
+ha_qa_scale: internal
 ---
-
 
 The `threshold` binary sensor platform observes the state of another sensor. If the value is below (`lower`) or higher (`upper`) than the given threshold then state of the threshold sensor is changed. It support also a range if `lower` and `upper` are given.
 
@@ -25,6 +25,8 @@ It's an alternative to the template binary sensor's `value_template:` to get the
 {{ states.sensor.furnace.state > 2.5 }}
 ```
 {% endraw %}
+
+## {% linkable_title Configuration %}
 
 To enable the threshold sensor, add the following lines to your `configuration.yaml`:
 
@@ -58,6 +60,5 @@ name:
   description:  Name of the sensor to use in the frontend.
   required: false
   type: string
-  default: 
+  default: Threshold
 {% endconfiguration %}
-

@@ -33,15 +33,19 @@ switch:
 ```
 
 {% configuration %}
+command_topic:
+  description: The MQTT topic to publish commands to change the switch state.
+  required: false
+  type: string
 name:
   description: The name to use when displaying this switch.
   required: false
   type: string
   default: MQTT Switch
 icon:
-  description: Icon for the switch (e.g. `mdi:radiator`).
+  description: Icon for the switch.
   required: false
-  type: string
+  type: icon
 state_topic:
   description: The MQTT topic subscribed to receive state updates.
   required: false
@@ -50,16 +54,12 @@ state_on:
   description: The payload that represents the on state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 state_off:
   description: The payload that represents the off state.
   required: false
   type: string
-  default: OFF
-command_topic:
-  description: The MQTT topic to publish commands to change the switch state.
-  required: false
-  type: string
+  default: "OFF"
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -68,12 +68,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: "ON"
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: "OFF"
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -103,6 +103,39 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
   type: string
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+device:
+  description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
+  required: false
+  type: map
+  keys:
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example a serial number.
+      required: false
+      type: list, string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    manufacturer:
+      description: The manufacturer of the device.
+      required: false
+      type: string
+    model:
+      description: The model of the device.
+      required: false
+      type: string
+    name:
+      description: The name of the device.
+      required: false
+      type: string
+    sw_version:
+      description: The firmware version of the device.
+      required: false
+      type: string
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -111,7 +144,7 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this sensor.
+In this section, you will find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Full configuration %}
 
@@ -134,20 +167,20 @@ switch:
     retain: true
 ```
 
-For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
+For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
 
 ```bash
-$ mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
 
 ### {% linkable_title Set the state of a device with ESPEasy %}
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example, the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
 
 Manually you can set pin 13 to high with `mosquitto_pub` or another MQTT tool:
 
 ```bash
-$ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
+mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
 ```
 
 The configuration will look like the example below:
@@ -164,4 +197,3 @@ switch:
     payload_off: "0"
 ```
 {% endraw %}
-

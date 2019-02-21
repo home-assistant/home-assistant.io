@@ -13,9 +13,13 @@ featured: true
 ha_release: '0.10'
 ---
 
-<p class='note'>
-  Use [Home Assistant Cloud](/components/cloud/) to integrate with Alexa without any effort.
-</p>
+## {% linkable_title Automatic setup via Home Assistant Cloud %}
+
+With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+
+For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
+
+## {% linkable_title Manual setup %}
 
 There are a few ways that you can use Amazon Echo and Home Assistant together.
 
@@ -50,16 +54,16 @@ Additionally, note that at the time of this writing, your Alexa skill endpoint *
 
 To get started with Alexa skills:
 
- - Log in to [Amazon developer console][amazon-dev-console]
- - Click the Alexa button at the top of the console
- - Click the yellow "Add a new skill" button in the top right
-   - Skill Type: Custom Interaction Model (default)
-   - Name: Home Assistant
-   - Invocation name: home assistant (or be creative, up to you)
-   - Version: 1.0
-   - Endpoint:
-     - https
-     - `https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD`
+- Log in to [Amazon developer console][amazon-dev-console]
+- Click the Alexa button at the top of the console
+- Click the yellow "Add a new skill" button in the top right
+  - Skill Type: Custom Interaction Model (default)
+  - Name: Home Assistant
+  - Invocation name: home assistant (or be creative, up to you)
+  - Version: 1.0
+  - Endpoint:
+    - https
+    - `https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD`
 
 You can use this [specially sized Home Assistant logo][large-icon] as the large icon and [this one][small-icon] as the small one.
 
@@ -99,14 +103,14 @@ WhereAreWeIntent where we are
 
 This means that we can now ask Alexa things like:
 
- - Alexa, ask Home Assistant where Paul is
- - Alexa, ask Home Assistant where we are
+- Alexa, ask Home Assistant where Paul is
+- Alexa, ask Home Assistant where we are
 
 ## {% linkable_title Configuring Home Assistant %}
 
 When activated, the Alexa component will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
 
-To enable Alexa add the following entry to your `configuration.yaml` file:
+To enable Alexa, add the following entry to your `configuration.yaml` file:
 
 ```yaml
 alexa:
@@ -218,15 +222,16 @@ intent_script:
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
 ### {% linkable_title Support for Launch Requests %}
+
 There may be times when you want to respond to a launch request initiated from a command such as "Alexa, Red Alert!".
 
 To start, you need to get the skill id:
 
- - Log into [Amazon developer console][amazon-dev-console]
- - Click the Alexa button at the top of the console
- - Click the Alexa Skills Kit Get Started button
-   - Locate the skill for which you would like Launch Request support
-   - Click the "View Skill ID" link and copy the ID
+- Log into [Amazon developer console][amazon-dev-console]
+- Click the Alexa button at the top of the console
+- Click the Alexa Skills Kit Get Started button
+  - Locate the skill for which you would like Launch Request support
+  - Click the "View Skill ID" link and copy the ID
 
 The configuration is the same as an intent with the exception being you will use your skill ID instead of the intent name.
 ```yaml
@@ -269,13 +274,13 @@ First create a file called `alexa_confirm.yaml` with something like the followin
 
 Then, wherever you would put some simple text for a response like `OK`, replace it with a reference to the file so that:
 
-```
+```yaml
 text: OK
 ```
 
 becomes:
 
-```
+```yaml
 text: !include alexa_confirm.yaml
 ```
 
@@ -330,9 +335,8 @@ Please refer to the [Amazon documentation][flash-briefing-api-docs] for more inf
       - All other settings are up to you
       - Hit "Next"
   - Test
-      - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.
+    - Having passed all validations to reach this screen, you can now click on "< Back to All Skills" as your flash briefing is now available as in "Development" service.
 - To invoke your flash briefing, open the Alexa app on your phone or go to the [Alexa Settings Site][alexa-settings-site], open the "Skills" configuration section, select "Your Skills", scroll to the bottom, tap on the Flash Briefing Skill you just created, enable it, then manage Flash Briefing and adjust ordering as necessary.  Finally ask your Echo for your "news","flash briefing", or "briefing".
-
 
 ## {% linkable_title Smart Home %}
 
@@ -354,6 +358,9 @@ the integration work easier. Example configuration:
 ```yaml
 alexa:
   smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_client_id
+    client_secret: !secret alexa_client_secret
     filter:
       include_entities:
         - light.kitchen
@@ -369,13 +376,17 @@ alexa:
       switch.stairs:
         display_categories: LIGHT
 ```
-
 This exposes an HTTP POST endpoint at `http://your_hass_ip/api/alexa/smart_home`
 which accepts and returns messages conforming to the
 [Smart Home v3 payload](https://developer.amazon.com/docs/smarthome/smart-home-skill-api-message-reference.html).
 You must then create an Amazon developer account with an Alexa skill and Lambda
 function to integrate this endpoint. See
 [Haaska](https://github.com/mike-grant/haaska) for an example.
+The `endpoint`, `client_id` and `client_secret` are optional, and are only required if  you want to enable Alexa's proactive mode. Please note the following if you want to enable proactive mode:
+
+- There are different endpoint urls, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints>
+- The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the Alexa Developer Console: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
+- If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available."
 
 [amazon-dev-console]: https://developer.amazon.com
 [flash-briefing-api]: https://developer.amazon.com/alexa-skills-kit/flash-briefing

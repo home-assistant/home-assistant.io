@@ -41,27 +41,54 @@ sensor:
 
 Your location will be detected from your home `latitude` and `longitude` settings.
 
-Configuration variables:
-
-- **api_key** (*Required*): Your personal API key from the [Datapoint website](https://www.metoffice.gov.uk/datapoint).
-- **name** (*Optional*): Additional name for the sensors. Default to platform name.
-- **latitude** (*Optional*): Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`.
-- **longitude** (*Optional*): Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`.
-- **monitored_conditions** array (*Required*): Conditions to display in the frontend.
-  - **weather**: A human-readable text summary of the current conditions.
-  - **temperature**: The current temperature.
-  - **feels_like_temperature**: A numerical value representing the apparent (or "feels like") temperature.
-  - **wind_speed**: The wind speed.
-  - **wind_direction**: Where the wind is coming from.
-  - **wind_gust**: If there are wind gusts.
-  - **visibility**: The average visibility.
-  - **visibility_distance**: The visibility distance.
-  - **uv**: The UV index.
-  - **precipitation**: The average expected intensity of precipitation occurring.
-  - **humidity**: The relative humidity.
+{% configuration %}
+api_key:
+  description: "Your personal API key from the [Datapoint website](https://www.metoffice.gov.uk/datapoint)."
+  required: true
+  type: string
+name:
+  description: Additional name for the sensors.
+  required: false
+  defaults: Met Office
+  type: string
+latitude:
+  description: "Latitude coordinate to monitor weather of (required if **longitude** is specified), defaults to coordinates defined in your `configuration.yaml`."
+  required: inclusive
+  type: float
+longitude:
+  description: "Longitude coordinate to monitor weather of (required if **latitude** is specified), defaults to coordinates defined in your `configuration.yaml`."
+  required: inclusive
+  type: float
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    weather:
+      description: A human-readable text summary of the current conditions.
+    temperature:
+      description: The current temperature.
+    feels_like_temperature:
+      description: A numerical value representing the apparent (or "feels like") temperature.
+    wind_speed:
+      description: The wind speed.
+    wind_direction:
+      description: Where the wind is coming from.
+    wind_gust:
+      description: If there are wind gusts.
+    visibility:
+      description: The average visibility.
+    visibility_distance:
+      description: The visibility distance.
+    uv:
+      description: The UV index.
+    precipitation:
+      description: The average expected intensity of precipitation occurring.
+    humidity:
+      description: The relative humidity.
+{% endconfiguration %}
 
 <p class='note'>
 This sensor is an alternative to the [`metoffice`](/components/weather.metoffice/) weather platform.
 The weather platform is easier to configure but less customizable.
 </p>
-

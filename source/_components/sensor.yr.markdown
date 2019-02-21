@@ -13,11 +13,12 @@ ha_release: 0.11
 ha_iot_class: "Cloud Polling"
 ---
 
+The `yr` platform uses [YR.no](http://www.yr.no/) as a source for current
+meteorological data for your location. The weather forecast is delivered by the
+Norwegian Meteorological Institute and the NRK.
 
-The `yr` platform uses [YR.no](http://www.yr.no/) as a source for current meteorological data for your location. The
-weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
-
-To add YR to your installation, add the following to your `configuration.yaml` file:
+To add YR to your installation,
+add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,24 +26,49 @@ sensor:
   - platform: yr
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Additional name for the sensors. Default to platform name.
-- **forecast** integer (*Optional*): If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.
-- **monitored_conditions** array (*Optional*): Conditions to display in the frontend.
-  - **symbol**: A symbol for the current weather.
-  - **temperature**: The current temperature.
-  - **humidity**: The relative humidity.
-  - **fog**: Fog.
-  - **pressure**: The sea-level air pressure in millibars.
-  - **precipitation**: The precipitation.
-  - **dewpointTemperature**: The dew point temperature.
-  - **windSpeed**: The wind speed.
-  - **windDirection**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
-  - **cloudiness**: The cloudiness.
-  - **lowClouds**: Low cloud level.
-  - **mediumClouds**: Medium cloud level.
-  - **highClouds**: High cloud level.
+{% configuration %}
+name:
+  description: Additional name for the sensors.
+  required: false
+  type: string
+  default: yr
+forecast:
+  description: If you want to get forecast data instead of the current weather data, set this to the number of hours that you want to look into the future.
+  required: false
+  type: integer
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: false
+  type: list
+  default: symbol
+  keys:
+    symbol:
+      description: A symbol for the current weather.
+    temperature:
+      description: The current temperature.
+    humidity:
+      description: The relative humidity.
+    fog:
+      description: Fog.
+    pressure:
+      description: The sea-level air pressure in millibars.
+    precipitation:
+      description: The precipitation.
+    dewpointTemperature:
+      description: The dew point temperature.
+    windSpeed:
+      description: The wind speed.
+    windDirection:
+      description: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.
+    cloudiness:
+      description: The cloudiness.
+    lowClouds:
+      description: Low cloud level.
+    mediumClouds:
+      description: Medium cloud level.
+    highClouds:
+      description: High cloud level.
+{% endconfiguration %}
 
 A full configuration example can be found below:
 
