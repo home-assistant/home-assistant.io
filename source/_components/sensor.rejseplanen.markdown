@@ -29,7 +29,7 @@ sensor:
 The `stop_id` can be obtained by looking up the name of the stop at this link: 
 
 <http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME>
-
+(Replace "STOP_NAME" with city or location you want id for)
 find the stop and copy the `id` field with the trailing zeros.
 
 The sensor can filter the timetables by one or more routes, directions and types. The known types are listed in the table below.
