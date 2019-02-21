@@ -19,10 +19,9 @@ The `nextbus` sensor will give you the next departure time and associated data f
 # Example configuration.yaml entry
 sensor:
   - platform: nextbus
-    agency: sf-muni
-    route: F
-    stop: 35184
-    name: 'My stop'
+    agency: AGENCY_TAG
+    route: ROUTE_TAG
+    stop: STOP_TAG
 ```
 
 {% configuration %}
