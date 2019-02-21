@@ -110,7 +110,7 @@ name = John Doe
 
 Leading and trailing whitespace, as well as lines starting with `#` are ignored. The following variables are supported. More may be added in the future.
 
-* `name`: The real name of the user to be displayed in his profile.
+* `name`: The real name of the user to be displayed in their profile.
 
 Stdaerr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
