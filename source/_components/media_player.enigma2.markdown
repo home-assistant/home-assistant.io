@@ -2,7 +2,7 @@
 layout: page
 title: "Enigma2"
 description: "Instructions on how to integrate an Enigma2 based box running OpenWebif into Home Assistant."
-date: 2018-08-08 12:02
+date: 2019-02-21 12:02
 sidebar: true
 comments: false
 sharing: true
@@ -10,7 +10,7 @@ footer: true
 logo: openwebif.png
 ha_category: Media Player
 featured: false
-ha_release: 0.76
+ha_release: 0.89
 ha_iot_class: "Local Polling"
 ---
 
