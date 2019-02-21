@@ -1,0 +1,65 @@
+---
+layout: page
+title: "Ambiclimate A/C controller"
+description: "Instructions on how to integrate Ambiclimate A/C controller into Home Assistant."
+date: 2019-02-21 15:00 +0200
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: ambiclimate.png
+ha_category: Climate
+ha_release: 0.90
+ha_iot_class: "Cloud Polling"
+---
+
+Integrates [Ambiclimate](https://Ambiclimate.com) Air Conditioning controller into Home Assistant.
+
+
+You must create an application [here](https://api.ambiclimate.com/clients) to obtain a `client_id` and `client_secret`.
+
+To enable this platform, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: ambiclimate
+    client_id: CLIENT_ID
+    client_secret: CLIENT_SECRET
+```
+
+
+## {% linkable_title Component services %}
+
+Enable Comfort mode on your AC:
+
+`climate.set_comfort_mode`
+
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `Name` | yes | String with device name.
+| `value` | yes | Send any of the following comfort values: too_hot, too_warm, bit_warm, comfortable, bit_cold, too_cold, freezing
+
+
+Send feedback for Comfort mode:
+
+`climate.send_comfort_feedback`
+
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `Name` | yes | String with device name.
+| `value` | yes | Send any of the following comfort values: too_hot, too_warm, bit_warm, comfortable, bit_cold, too_cold, freezing
+
+
+
+Enable Temperature mode on your AC:
+
+`climate.set_temperature_mode`
+
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `Name` | yes | String with device name.
+| `value` | yes | Target value in celsius
