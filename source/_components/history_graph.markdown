@@ -45,7 +45,7 @@ hours_to_show:
   required: false
   default: 24
   type: integer
-refresh:
+refresh_interval:
   description: Number of seconds between graph refreshes. 0 to disable refreshing.
   required: false
   default: 0
@@ -63,14 +63,14 @@ history_graph:
       - light.ceiling.lights
       - light.bed_light
     hours_to_show: 240
-    refresh: 60
+    refresh_interval: 60
   gr2:
     name: Temperature
     entities:
       - sensor.outside_temperature
       - sensor.inside_temperature
     hours_to_show: 120
-    # refresh: 0
+    # refresh_interval: 0
 ```
 
 For sensors to automatically be combined into one graph they need to have exactly the same unit of measurement. This is important if you have, e.g., a unit-less temperature `state_topic` MQTT sensor and you want to combine this with a weather sensor. `unit_of_measurement:` of the MQTT sensor then needs to be set to `°C`.
