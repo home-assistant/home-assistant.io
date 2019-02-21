@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Presence Detection
 logo: xfinity.svg
-ha_release: 0.88
+ha_release: 0.89
 ha_iot_class: "Local Polling"
 
 ---
