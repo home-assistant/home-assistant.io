@@ -38,7 +38,7 @@ name:
 i2c_address:
   description: I2c address of the sensor.
   required: false
-  default: 0x29
+  default: "0x29"
   type: string
 xshut:
   description: GPIO port used to reset device.
