@@ -60,7 +60,7 @@ sensor:
     xshut: 16
 ```
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## {% linkable_title Directions for installing i2c on Raspberry Pi %}
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
