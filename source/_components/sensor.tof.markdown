@@ -35,6 +35,11 @@ name:
   required: false
   default: VL53L1X
   type: string
+i2c_bus:
+  description: I2c bus where the sensor is.
+  required: false
+  default: 1, for Raspberry Pi 2 and 3.
+  type: integer
 i2c_address:
   description: I2c address of the sensor.
   required: false
