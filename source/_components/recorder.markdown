@@ -150,7 +150,7 @@ Purging does not necessarily remove all entries before a given date. For example
 | MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
-If you use MariaDB 10 you need to add port 3307 (or another port depending on which port is used by, for example: your hosting provider.) to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
+Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
 </p>
 
 <p class='note'>
