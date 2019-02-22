@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: lcn.png
 ha_category: Cover
-ha_release: 0.87
+ha_release: 0.89
 ha_iot_class: "Local Push"
 ---
 
