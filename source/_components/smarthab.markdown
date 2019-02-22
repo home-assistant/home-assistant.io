@@ -19,18 +19,19 @@ redirect_from:
   - /components/light.smarthab/
 ---
 
-If your home is equiped with [SmartHab](http://www.smarthab.fr/en/home/)'s 
-services, you will be able to control your lights and shutters with the 
-SmartHab component for Home Assistant.
+If your home is fitted with [SmartHab](http://www.smarthab.fr/en/home/)'s 
+devices and you have access to their app-based services, you will be able 
+to control your lights and shutters with the SmartHab component for Home 
+Assistant.
 
-Once you've added a `smarthab` entry to your configuration, your devices will
-automatically be discovered and made available on your dashboard.
+Once you have added a `smarthab` entry to your configuration, your supported 
+devices will automatically be discovered and made available on your dashboard.
 
 <p class='note warning'>
   To prevent being automatically logged out of your SmartHab mobile app, you
   might want to create a secondary user in the app's settings and grant it
   access to your home. You can then configure the component using this account's
-  credentials.
+  credentials. This is also more secure, as this user should be less priviledged.
 </p>
 
 ```yaml
@@ -42,15 +43,15 @@ smarthab:
 
 {% configuration %}
 email:
-    description: The username associated to the SmartHab account.
+    description: The email address of your SmartHab account.
     required: true
     type: string
 password:
-    description: The password.
+    description: The SmartHab account's password.
     required: true
     type: string
 url:
-    description: The base URL of the API.
+    description: The base URL of the API. Don't set this unless you need to.
     required: false
     type: string
 {% endconfiguration %}
