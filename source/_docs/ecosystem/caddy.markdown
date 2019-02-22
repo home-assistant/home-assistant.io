@@ -43,20 +43,20 @@ example.com {
 
 ### {% linkable_title 5. Configure Home Assistant %}
 
-Home Assistant is still available without using the NGINX proxy. Restricting it to only listen to `127.0.0.1` will forbid direct accesses. Also, Home Assistant should be told to trust headers coming from Caddy proxy only. Otherwise, incoming requests will always come from `127.0.0.1` and not the real IP address.
+Home Assistant is still available without using the Caddy proxy. Restricting it to only listen to `127.0.0.1` will forbid direct accesses. Also, Home Assistant should be told to trust headers coming from Caddy proxy only. Otherwise, incoming requests will always come from `127.0.0.1` and not the real IP address.
 
 On your `configuration.yaml` file, edit the `http` component.
 
 ```yaml
 http:
-  # For extra security set this to only accept connections on localhost if NGINX is on the same machine
+  # For extra security set this to only accept connections on localhost if Caddy is on the same machine
   # server_host: 127.0.0.1
   # Update this line to be your domain
   base_url: https://example.com
   use_x_forwarded_for: true
   # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
-  # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
-  trusted_proxies: <NGINX IP address here, or 127.0.0.1 if hosted on the same machine>
+  # Set this to your Caddy machine IP, or localhost if hosted on the same machine.
+  trusted_proxies: <Caddy IP address here, or 127.0.0.1 if hosted on the same machine>
 ```
 
 ### {% linkable_title 6. Start Caddy %}
