@@ -385,6 +385,11 @@ state_filter:
   required: false
   description: '[State-based CSS filters](#how-to-use-state_filter)'
   type: object
+aspect_ratio:
+  required: false
+  description: Height-width-ratio.
+  type: string
+  default: "50%"
 style:
   required: true
   description: Position and style the element using CSS.
