@@ -26,8 +26,8 @@ will not work while you have the HRV PC-Tool open.
 
 There is currently support for the following device types within Home Assistant:
 
-- [{% linkable_title Binary sensor %}](#linkabletitle-binary-sensor)
-- [{% linkable_title Sensor %}](#linkabletitle-sensor)
+- [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
 
 ```yaml
 # Example configuration.yaml entry
