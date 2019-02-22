@@ -78,9 +78,9 @@ switch:
   type: list
   keys:
     host:
-        description: Hostname or IP address of the device.
-        required: true
-        type: string
+      description: Hostname or IP address of the device.
+      required: true
+      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Manual configuration example %}
