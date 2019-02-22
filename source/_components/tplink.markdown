@@ -10,7 +10,7 @@ footer: true
 logo: tp-link.png
 ha_category: Hub
 featured: false
-ha_release: TBD
+ha_release: 0.89
 ha_iot_class: "Local Polling"
 redirect_from:
   - /components/switch.tplink/
