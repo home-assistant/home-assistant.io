@@ -28,10 +28,23 @@ climate:
     client_secret: CLIENT_SECRET
 ```
 
+Restart Home Assistant. Then, go to the frontend and authorize Ambiclimate.
+
+{% configuration %}
+client_id:
+  description: Your Ambiclimate API client ID.
+  required: true
+  type: string
+client_secret:
+  description: Your Ambiclimate API client secret.
+  required: true
+  type: string
+{% endconfiguration %}
+
 
 ## {% linkable_title Component services %}
 
-Enable Comfort mode on your AC:
+Enable comfort mode on your AC:
 
 `climate.set_comfort_mode`
 
@@ -42,7 +55,7 @@ Enable Comfort mode on your AC:
 | `value` | yes | Send any of the following comfort values: too_hot, too_warm, bit_warm, comfortable, bit_cold, too_cold, freezing
 
 
-Send feedback for Comfort mode:
+Send feedback for comfort mode:
 
 `climate.send_comfort_feedback`
 
@@ -54,7 +67,7 @@ Send feedback for Comfort mode:
 
 
 
-Enable Temperature mode on your AC:
+Enable temperature mode on your AC:
 
 `climate.set_temperature_mode`
 
