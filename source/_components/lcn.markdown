@@ -8,30 +8,32 @@ comments: false
 sharing: true
 footer: true
 logo: lcn.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Light
+  - Switch
 ha_release: 0.85
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/light.lcn/
+  - /components/switch.lcn/
 ---
-
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](http://www.lcn.eu) hardware devices.
 
 The component requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
 With this setup sending and receiving commands to and from LCN modules is possible.
 
-
 There is currently support for the following device types within Home Assistant:
 
-- [Light](/components/light.lcn)
-- [Switch](/components/switch.lcn)
-
+- [Light](#light)
+- [Switch](#switch)
 
 ## {% linkable_title Configuration %}
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
 You have to specify at least one ip/port with login credentials for a PCHK host.
 Consider to store your credentials in a [secrets.yaml](/docs/configuration/secrets).
-
 
 ```yaml
 lcn:
@@ -140,9 +142,8 @@ switches:
       type: string
 {% endconfiguration %}
 
-
-
 ## {% linkable_title LCN Addresses %}
+
 LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
 
 Modules can be arranged in _segments_. Segments can be addressed by their numeric id (5..128) or 0 (= no segment exist) or 3 (= target all segments).
@@ -154,6 +155,7 @@ The LCN component allow the connection to more than one hardware coupler. In thi
 Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
 
 Example for modules:
+
 ```
 connid.s000.m007
 connid.s0.m7
@@ -162,6 +164,7 @@ s0.m7
 ```
 
 Example for groups:
+
 ```
 connid.s000.g007
 connid.s0.g7
@@ -171,13 +174,27 @@ s0.g7
 
 Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, the first connection defined in the [configuration](#configuration) will be used.
 
-
 ## {% linkable_title LCN Constants %}
+
 The platforms and service calls use several predefined constants as parameters.
 
-#### {% linkable_title Ports %}
+### {% linkable_title Ports %}
 
 | Constant | Values |
 | -------- | ------ |
 | OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
 | RELAY_PORT | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8` |
+
+## {% linkable_title Light %}
+
+The `lcn` light platform allows the control of the following [LCN](http://www.lcn.eu) ports:
+
+- (Dimmable) output ports
+- Relays
+
+## {% linkable_title Switch %}
+
+The `lcn` switch platform allows the control of the following [LCN](http://www.lcn.eu) ports:
+
+- Output ports
+- Relays
