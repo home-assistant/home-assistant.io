@@ -89,12 +89,12 @@ Currently known supported models:
 - KU7000 (port must be set to 8001)
 - M5620 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - MU6170UXZG (port must be set to 8001, and `pip3 install websocket-client` must be executed)
+- NU7090 (port must be set to 8801, On/Off, MAC must be specified for Power On)
 - NU7400 (port set to 8001 and `pip3 install websocket-client` executed)
 - NU8000
 - Q7F (port must be set to 8001, MAC must be specified for Power On)
 - U6000 (port must be set to 8001)
 - U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
-- D7000
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 - UE49KU6470 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
