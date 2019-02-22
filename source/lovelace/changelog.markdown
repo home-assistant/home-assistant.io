@@ -8,8 +8,28 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.87.0 %}
+- 📣 MDI icons updated to [3.3.92](https://cdn.materialdesignicons.com/3.3.92/)
+- 📣 New system-health card in dev-info
+- 📣 UI Editor: YAML syntax support
+- 📣 UI Editor: Line numbers
+- 📣 UI Editor: Now supports columns on wide screens
+- 📣 Notifications: Indicator updated to show count of pending notifications
+- 📣 [thermostat card]: more-info button added
+- 📣 [light card]: more-info button added
+- 🔧 [thermostat card]: Fix slider
+- 🔧 groups togglable
+
+## {% linkable_title Changes in 0.86.0 %}
+- 📣 Lovelace is now the default UI for Home Assistant!
+- 📣 New Lovelace [demos](https://demo.home-assistant.io/#/lovelace/0) page
+- 🔧 [thermostat card]: Fix sizing
+- 🔧 [guage card]: Fix sizing
+- 🔧 [iframe card]: Fix card size
+
+
 ## {% linkable_title Changes in 0.85.1 %}
-- 🔧 Fix removal of `resources` on save in Raw Config Editor
+- 🔧 UI Editor: Fix removal of `resources` on save
 - 🔧 Auto-gen correctly converts weblink entities to [weblink row]
 - 🔧 The [weblink row] opens links in new tabs
 
