@@ -23,12 +23,15 @@ The display style of each entity can be modified in the [customize section](/get
 The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
 
 - **None**: Generic cover. This is the default and doesn't need to be set.
-- **curtain**: Curtain controller.
-- **damper**: Ventilation damper controller.
-- **door**: General door controller.
-- **garage**: Garage door controller.
-- **shade**: Shade controller.
-- **window**: Window controller.
+- **awning**: Control of a awning, such as for a windor or patio.
+- **blind**: Control of window blinds.
+- **curtain**: Control of window or call coverings, such as curtains and drapes.
+- **damper**: Control of ventilation damper or digital window tint/film and integrated digital window privacy filters.
+- **door**: Control of a door (more generic than garage door).
+- **garage**: Control of a garage door or gate (more specific than a door).
+- **shade**: Control of shades, such as for a window, patio or pergola.
+- **shutter**: Control of shutters, such as for a window or door.
+- **window**: Control of a window opening.
 
 ## {% linkable_title Services %}
 
