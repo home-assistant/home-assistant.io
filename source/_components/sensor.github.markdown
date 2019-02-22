@@ -17,7 +17,7 @@ The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor 
 
 ## {% linkable_title Setup %}
 
-To set up this sensor you will need a [personal access token][accesstoken]. You will need to check the `repo` scope for the sensor to function.
+To set up this sensor you will need a [personal access token](https://github.com/settings/tokens). You will need to check the `repo` scope for the sensor to function.
 
 ## {% linkable_title Configuration %}
 
