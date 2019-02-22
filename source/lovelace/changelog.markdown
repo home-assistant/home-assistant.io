@@ -24,7 +24,7 @@ footer: true
 - 📣 Lovelace is now the default UI for Home Assistant!
 - 📣 New Lovelace [demos](https://demo.home-assistant.io/#/lovelace/0) page
 - 🔧 [thermostat card]: Fix sizing
-- 🔧 [guage card]: Fix sizing
+- 🔧 [gauge card]: Fix sizing
 - 🔧 [iframe card]: Fix card size
 
 
