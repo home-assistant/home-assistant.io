@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 The `ps4` component allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
 
-- This component supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
+- This component supports controlling multiple PlayStation 4 consoles for your Home Assistant instance. Additional consoles can be added by re-configuring the PS4 Integration again.
 
 ## {% linkable_title Requirements %}
 
