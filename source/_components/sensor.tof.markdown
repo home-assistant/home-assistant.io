@@ -8,7 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: DIY
+ha_category: 
+  - DIY
+  - Sensor
 ha_release: 0.87.1
 ha_iot_class: "Local Push"
 ---
