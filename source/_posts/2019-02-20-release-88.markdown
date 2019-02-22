@@ -65,6 +65,34 @@ Note for custom component developers: We are moving to a new file structure. Mor
 - Add quirks info to ZHA device ([@dmulcahey] - [#20923]) ([zha docs]) (new-feature)
 - Added IDs and enabled workarounds for Yale YRD220, YRL220, YRD120 ([@mw-white] - [#20929]) ([zwave docs]) (new-feature)
 
+## {% linkable_title Release 0.88.1 - February 21 %}
+
+- Fix ZHA bugs ([@dmulcahey] - [#21246]) ([zha docs])
+- Add missing configuration option to plex ([@elupus] - [#21264]) ([media_player.plex docs])
+- Add missing configation option ([@elupus] - [#21265]) ([sensor.imap_email_content docs])
+- Add SamsungTV Mac validation ([@balloob] - [#21268]) ([media_player.samsungtv docs])
+- update services.yaml ([@dmulcahey] - [#21276])
+- Fix unhandled exception in Ambient PWS config entry ([@bachya] - [#21278]) ([ambient_station docs])
+- Fix yeelight config validation ([@balloob] - [#21295]) ([light.yeelight docs])
+
+[#21246]: https://github.com/home-assistant/home-assistant/pull/21246
+[#21264]: https://github.com/home-assistant/home-assistant/pull/21264
+[#21265]: https://github.com/home-assistant/home-assistant/pull/21265
+[#21268]: https://github.com/home-assistant/home-assistant/pull/21268
+[#21276]: https://github.com/home-assistant/home-assistant/pull/21276
+[#21278]: https://github.com/home-assistant/home-assistant/pull/21278
+[#21295]: https://github.com/home-assistant/home-assistant/pull/21295
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@dmulcahey]: https://github.com/dmulcahey
+[@elupus]: https://github.com/elupus
+[ambient_station docs]: /components/ambient_station/
+[light.yeelight docs]: /components/light.yeelight/
+[media_player.plex docs]: /components/media_player.plex/
+[media_player.samsungtv docs]: /components/media_player.samsungtv/
+[sensor.imap_email_content docs]: /components/sensor.imap_email_content/
+[zha docs]: /components/zha/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
