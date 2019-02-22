@@ -44,3 +44,25 @@ name:
   default: Edimax Smart Plug
   type: string
 {% endconfiguration %}
+
+## {% linkable_title Power consumption sensor %}
+
+Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download/download/data/edimax/global/download/), the Edimax switches can also report the current and accumulated daily power consumption in their state objects. Use a [template sensor](/components/sensor.template/) to extract their values:
+
+{% raw %}
+```yaml
+  - platform: template
+    sensors:
+      edimax_current_power:
+        friendly_name: Edimax Current power consumption
+        unit_of_measurement: 'W'
+        value_template: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}"
+
+      edimax_total_power:
+        friendly_name: Edimax Accumulated daily power consumption
+        unit_of_measurement: 'kWh'
+        value_template: "{{ state_attr('switch.edimax_smart_plug',  'today_energy_kwh') | replace('None', 0) }}"
+```
+{% endraw %}
+
+Note that if the smart plug is off, these states report the string `None`. By using a `replace()` in the template, these sensors report purely numerical values.
