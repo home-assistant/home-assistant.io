@@ -30,6 +30,7 @@ The following devices are known to work with this component.
 ### {% linkable_title Plugs %}
 
 - HS100
+- HS103
 - HS105
 - HS110
 
