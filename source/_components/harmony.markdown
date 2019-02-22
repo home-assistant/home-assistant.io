@@ -11,6 +11,8 @@ logo: logitech.png
 ha_category: Remote
 ha_iot_class: "Local Push"
 ha_release: "0.34"
+redirect_from:
+  - /components/remote.harmony/
 ---
 
 The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](http://www.logitech.com/en-us/product/harmony-hub).

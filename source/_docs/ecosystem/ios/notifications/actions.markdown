@@ -132,7 +132,8 @@ automation:
       platform: event
       event_type: ios.notification_action_fired
       event_data:
-        actionName: SOUND_ALARM
+        data:
+          actionName: SOUND_ALARM
     action:
       ...
 ```
