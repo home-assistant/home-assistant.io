@@ -45,11 +45,6 @@ password:
   description: The password for accessing your camera.
   required: false
   type: string
-authentication:
-  description: "Type for authenticating the requests `basic` or `digest`."
-  required: false
-  default: basic
-  type: string
 limit_refetch_to_url_change:
   description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
   required: false
