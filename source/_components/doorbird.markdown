@@ -8,12 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: doorbird.png
-ha_category: Doorbell
+ha_category:
+  - Doorbell
+  - Camera
+  - Switch
 ha_release: "0.54"
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/camera.doorbird/
+  - /components/switch.doorbird/
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Camera](#camera) - View live and historical event based images.
+- [Switch](#switch) - Enable control of relays and camera night vision.
 
 ## {% linkable_title Setup %}
 
@@ -77,14 +88,7 @@ devices:
 
 {% endconfiguration %}
 
-The configuration above is also used by the following platforms:
-
-- [Camera](/components/camera.doorbird): View live and historical event based images.
-- [Switch](/components/switch.doorbird): Enable control of relays and camera night vision.
-
-
 ## {% linkable_title Full example %}
-
 
 ```yaml
 doorbird:
@@ -143,4 +147,30 @@ The URLs on the event will be based on the configuration used to connect to your
   action:
     service: light.turn_on
       entity_id: light.side_entry_porch
+```
+
+## {% linkable_title Camera %}
+
+The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+
+### {% linkable_title Configuration %}
+
+To enable the camera, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: doorbird
+```
+
+## {% linkable_title Switch %}
+
+The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](http://www.doorbird.com/) video doorbell device.
+
+To enable this switch, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: doorbird
 ```
