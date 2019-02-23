@@ -32,6 +32,8 @@ sensor:
     token: YOUR_TOKEN
 ```
 
+The monitored conditions can create a sensor which displays the amount of records currently in your collection and/or wantlist, and an option to pick a random record from your collection.
+
 {% configuration %}
 token:
   description: The Discogs API token to use as identification to get your collection.
@@ -41,4 +43,15 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
+monitored_conditions:
+  description: A list of sensor to include.
+  required: false
+  type: list
+  keys:
+    collection:
+      description: Shows the amount of records in the user's collection.
+    wantlist:
+      description: Shows the amount of records in the user's wantlist.
+    random_record:
+      description: Proposes a random record from the collection to play.
 {% endconfiguration %}
