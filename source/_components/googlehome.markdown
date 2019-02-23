@@ -59,6 +59,11 @@ devices:
       required: false
       type: boolean
       default: false
+    track_devices:
+      description: Setting to tell the component to track nearby devices.
+      required: false
+      type: boolean
+      default: true
 {% endconfiguration %}
 
 ## {% linkable_title Device types %}
