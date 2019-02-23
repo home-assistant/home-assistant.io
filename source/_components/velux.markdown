@@ -33,7 +33,7 @@ A `velux` section must be present in the `configuration.yaml` file and contain t
 # Example configuration.yaml entry
 velux:
   host: "192.168.1.23"
-  password: "A3C4u10A12c"
+  password: "VELUX_PASSWORD"
 ```
 
 {% configuration %}
