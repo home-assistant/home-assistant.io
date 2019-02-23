@@ -10,6 +10,7 @@ footer: true
 logo: lcn.png
 ha_category:
   - Hub
+  - Cover
   - Light
   - Switch
 ha_release: 0.85
