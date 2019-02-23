@@ -49,7 +49,9 @@ Actions are all about calling services. To explore the available services open t
 
 ### {% linkable_title Automation initial state %}
 
-If you always want your automations to be set to a certain enabled or disabled state upon Home Assistant restart, then you have to set an initial state in your automations. Otherwise, this setting is optional.
+If you always want your automations to be enabled or disabled upon Home Assistant restart, then you have to set an initial state in your automations. Otherwise the previous state will be restored.
+
+If an automation is disabled (turned off) then it will never trigger. Only automations that are enabled (turned on) will trigger.
 
 ```text
 automation:
@@ -58,5 +60,3 @@ automation:
   trigger:
   ...
 ```
-
-If you don't set this then the previous state prior to restart is restored. However, if you shut down Home Assistant again before it finishes starting, any automation that doesn't have the initial state set to `true` will be stored as being off, and those automations will be disabled at the next startup.
