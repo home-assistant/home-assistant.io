@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "AzureDNS"
+title: "Azure DNS"
 description: "Keep your Azure DNS IP address in sync with your external IP address"
 date: 2019-02-23 18:00
 sidebar: true
@@ -18,7 +18,7 @@ With the `azuredns` component, users can keep their external IPv4 address in syn
 - An Azure AD App Registration, [which can be configured in the Azure Portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
 - An Azure DNS Zone with an A-record, [which can be configured in the Azure Portal as well](https://docs.microsoft.com/en-us/azure/dns/dns-getstarted-portal)
 
-You also need to assign the DNS Zone Contributor role to the Azure AD App. You can do this within the record on the Azure AD Portal.
+You also need to assign the DNS Zone Contributor role to the Azure AD App. You can do this within the DNS-record on the Azure AD Portal.
 
 ## {% linkable_title Configuration %}
 
@@ -30,11 +30,11 @@ azuredns:
   domain: example.com
   host: hass
   tenant: example.com
-  url: 'https://management.azure.com/subscriptions/<YourSubscriptionId>/resourceGroups/<YourResourceGroupName>/providers/Microsoft.Network/dnsZones/<Domain>/A/<host>?api-version=2018-03-01-preview'
+  subscriptionid: dh80axz3-2431-4fdx-123a-d9f9xnda1dfo
+  resourcegroupname: examplecom-rg
   clientid: "0id0fa49-1234-09kd-ufa8-uf8903kf0a23"
   clientsecret: "d89uFDy8fDYbaufdas8fd9dyADFS8yfhsdfh89sd8Ff="
 ```
-
 {% configuration %}
   domain:
     description: Your domain name (example.com).
@@ -46,6 +46,14 @@ azuredns:
     type: string
   tenant:
     description: The domain name of your Azure Tenant (example.com).
+    required: true
+    type: string
+  subscriptionid:
+    description: The ID of your Azure subscription.
+    required: true
+    type: string
+  resourcegroupname:
+    description: The name of the Resource Group where the DNS zone is hosted.
     required: true
     type: string
   clientid:
