@@ -59,6 +59,11 @@ port:
   description: The port on which the IP232 module listens for clients.
   required: true
   type: integer
+update_interval:
+  description: The frequency a full polling update should occur. Use a small value if your alarm does not support `P199E 6E` (older versions)  
+  required: false
+  type: time period
+  default: 1 minute
 zones:
   description: List of zones to add
   required: false
