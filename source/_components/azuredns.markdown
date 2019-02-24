@@ -28,7 +28,6 @@ To use the component in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 azuredns:
   domain: example.com
-  host: hass
   tenant: example.com
   subscriptionid: dh80axz3-2431-4fdx-123a-d9f9xnda1dfo
   resourcegroupname: examplecom-rg
