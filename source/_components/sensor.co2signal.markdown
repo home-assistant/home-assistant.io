@@ -86,7 +86,7 @@ It is also possible to set the scan interval to a higher value. The default valu
 sensor:
   - platform: co2signal
     token: YOUR_CO2SIGNAL_API_KEY
-    scan_interval: 2
+    scan_interval: SCAN_INTERVAL
 ```
 
 ## {% linkable_title Example Configurations %}
@@ -101,7 +101,7 @@ sensor:
     longitude: 5.5
 ```
 
-Configuration using a country code:
+Configuration using a country code for Belgium:
 
 ```yaml
 sensor:
