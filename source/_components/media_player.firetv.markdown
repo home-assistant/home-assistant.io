@@ -134,4 +134,4 @@ Service parameters:
 
 - **entity_id**: Name(s) of Fire TV entities.
 - **cmd**: Either a key command or an ADB shell command.
-  - Available key commands: `POWER`, `SLEEP`, `HOME`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `ENTER`, `BACK`, or `MENU`
+  - Available key commands: `POWER`, `SLEEP`, `HOME`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `CENTER`, `BACK`, or `MENU`
