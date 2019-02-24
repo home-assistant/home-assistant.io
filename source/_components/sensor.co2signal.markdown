@@ -54,6 +54,11 @@ country_code:
   description: The country code or region code.
   required: false
   type: string
+scan_interval:
+  description: The scan interval rate in minutes.
+  required: false
+  type: integer
+  default: 1 minute (anything faster will be throttled due to API constraints)
 {% endconfiguration %}
 
 To enable the platform and gather data via a specific latitude/longitude, add the following lines to your `configuration.yaml` file:
@@ -75,6 +80,15 @@ sensor:
     country_code: YOUR_COUNTRY_CODE
 ```
 
+It is also possible to set the scan interval to a higher value. The default value is 60 seconds and all lower values are throttled to 60 seconds due to API constraints.
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    scan_interval: 2
+```
+
 ## {% linkable_title Example Configurations %}
 
 Configuration using custom latitude and longitude:
@@ -94,6 +108,15 @@ sensor:
   - platform: co2signal
     token: YOUR_CO2SIGNAL_API_KEY
     country_code: BE
+```
+
+Configuration using a scan interval of two minutes:
+
+```yaml
+sensor:
+  - platform: co2signal
+    token: YOUR_CO2SIGNAL_API_KEY
+    scan_interval: 2
 ```
 
 ## {% linkable_title Sensor Types %}
