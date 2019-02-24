@@ -42,12 +42,11 @@ media_player:
     host: 192.168.0.222
     adbkey: "/config/android/adbkey"
 
-  # a device for which getting the current app (source) and the running apps (sources) cause issues
+  # use an ADB server for sending ADB commands instead of the Python ADB implementation
   - platform: firetv
     name: Fire TV 3
     host: 192.168.0.123
-    get_source: false
-    get_sources: false
+    adb_server_ip: 127.0.0.1
 ```
 
 {% configuration %}
@@ -69,17 +68,28 @@ adbkey:
   description: The path to your `adbkey` file.  Note that the file `adbkey.pub` must be in the same directory.
   required: false
   type: string
-get_source:
-  description: Whether or not to retrieve the current app as the source.
+adb_server_ip:
+  description: The IP address of the ADB server.
   required: false
-  default: true
-  type: boolean
+  type: string
+adb_server_port:
+  description: The port for the ADB server.
+  required: false
+  default: 5037
+  type: port
 get_sources:
   description: Whether or not to retrieve the running apps as the list of sources.
   required: false
   default: true
   type: boolean
 {% endconfiguration %}
+
+## {% linkable_title ADB Setup %}
+
+This component works by sending ADB commands to your Fire TV device.  There are two ways to accomplish this:
+
+1. Using the `adb` Python package.  If your device requires ADB authentication, you will need to follow the instructions in the "ADB Authentication (for Fire TV devices with recent software)" section below.  Once you have an authenticated key, this approach does not require any additional setup or addons.  However, users with newer devices may find that the ADB connection is unstable.  If setting the `get_sources` configuration option to `false` does not help, they should use the next option.  
+2. Using an ADB server.  For Hass.io users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/v0.1.0/README.md) addon.  With this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Fire TV device and report back to Home Assistant.  To use this option, add the `adb_server_ip` option to your configuration.  If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
 ### {% linkable_title ADB Authentication (for Fire TV devices with recent software) %}
 
