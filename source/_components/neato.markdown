@@ -42,7 +42,7 @@ password:
 {% endconfiguration %}
 
 <p class='note'>
-After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-). 
+After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-).
 </p>
 
 ## {% linkable_title Vacuum %}
@@ -54,7 +54,7 @@ The status will contain attributes on the robots last clean session.
 If you notice the robot stops responding to commands check the state to see if the robot is "unavailable". If you see "unavailable" first try to restart the vacuum and wait about 5 minutes to see if it is no longer "unavailable". If you are still having issues check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
 </p>
 
-### {% linkable_title Configuration %}
+### {% linkable_title Services %}
 
 Currently supported services are:
 
@@ -64,6 +64,30 @@ Currently supported services are:
 - `return_to_base`
 - `locate`
 - `spot_clean`
+
+And a specific Platform Service:
+
+- `vacuum.neato_custom_cleaning`
+
+### {% linkable_title Platform Services %}
+
+#### {% linkable_title Service `vacuum.neato_custom_cleaning` %}
+
+Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
+
+<p class='note'>
+Not all Botvac models support all the attributes. Only the Neato Botvac D7 supports the `zone` attribute.
+Some information about the capabilities might be found on the [Neato Developer Portal](https://developers.neatorobotics.com/api/robot-remote-protocol/housecleaning).
+</p>
+
+| Service data attribute | Optional | Description                                                                                                                                                                   |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Only act on a specific robot                                                                                                                                                  |
+| `mode`                 | yes      | Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.                                                                                               |
+| `navigation`           | yes      | Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set.                                                                           |
+| `category`             | yes      | Whether to use a persistent map or not for cleaning (i.e. No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found). |
+| `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean. Defaults to no zone i.e. complete house cleanup.                                                                  |
+
 
 ## {% linkable_title Camera %}
 
