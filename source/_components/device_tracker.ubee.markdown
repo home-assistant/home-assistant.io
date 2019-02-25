@@ -31,7 +31,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges, usually `admin`.
+  description: The username of a user with administrative privileges, usually `admin`.
   required: true
   type: string
 password:
@@ -40,5 +40,5 @@ password:
   type: string
 {% endconfiguration %}
 
-By default Home Assistant pulls information about connected devices from Ubee router every 5 seconds.
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+By default, Home Assistant pulls information about connected devices from Ubee router every 5 seconds.
+See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
