@@ -53,7 +53,7 @@ offset:
 net_consumption:
   description: Set this to True if you would like to treat the source as a net meter. This will allow your counter to go both positive and negative.
   required: false
-  default: False
+  default: false
   type: boolean
 tariffs:
   description: List of tariffs supported by the utility meter.
