@@ -26,7 +26,6 @@ Once you've obtained an API key, and have identified the streets you want to mon
 # Example configuration.yaml entry
 planifneige:
   api_key: YOUR_API_KEY
-  database_path: ./planifneige.db
   streets:
     - name: 2-22 Sainte-Cahterine (Right)
       streetid: 13812091
@@ -39,11 +38,6 @@ api_key:
   description: Your API key
   required: true
   type: string
-database_path:
-  description: Database path for local cache
-  required: false
-  type: string
-  default: planif-neige.db
 streets:
   description: The streets you want to track
   required: true
