@@ -85,6 +85,7 @@ value_template:
 The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
 
 ```yaml
+sensor:
   - platform: imap_email_content
     server: imap.gmail.com
     name: house_electricity
