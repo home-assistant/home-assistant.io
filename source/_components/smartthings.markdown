@@ -248,7 +248,13 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 
 ### {% linkable_title Switch %}
 
-The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
+The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform. The following optional capabilities will provide energy and power utilization information:
+
+| Capability                          |Switch Features
+|-------------------------------------|--------------------------------------------|
+| [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter) | energy consumption (`today_energy_kwh` state attribute)
+| [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter) | power consumption (`current_power_w` state attribute)
+
 
 ## {% linkable_title Troubleshooting %}
 
