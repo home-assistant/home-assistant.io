@@ -10,6 +10,7 @@ footer: true
 logo: lcn.png
 ha_category:
   - Hub
+  - Cover
   - Light
   - Switch
 ha_release: 0.85
@@ -26,6 +27,7 @@ With this setup sending and receiving commands to and from LCN modules is possib
 
 There is currently support for the following device types within Home Assistant:
 
+- [Cover](#cover)
 - [Light](#light)
 - [Switch](#switch)
 
@@ -43,6 +45,11 @@ lcn:
       port: 4114
       username: lcn
       password: lcn
+
+  covers:
+    - name: Living room cover
+      address: myhome.s0.m7
+      motor: motor1
   
   lights:
     - name: Bedroom light
@@ -93,6 +100,24 @@ connections:
       description: "Dimming mode for connected modules. The operation mode is programmed into the LCN modules by the LCN-PRO software and depends on their firmware. If you experience unexpected dimming behavior, the connection is probably in the wrong operation mode. Possible values: _steps50_, _steps200_"
       required: false
       default: steps50
+      type: string
+
+covers:
+  description: List of your covers.
+  required: false
+  type: map
+  keys:
+    name:
+      description: Name of the cover.
+      required: true
+      type: string
+    address:
+      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    motor:
+      description: "Motor port ([MOTOR_PORT](/components/lcn#ports))."
+      required: true
       type: string
 
 lights:
@@ -184,6 +209,20 @@ The platforms and service calls use several predefined constants as parameters.
 | -------- | ------ |
 | OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
 | RELAY_PORT | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8` |
+| MOTOR_PORT | `motor1`, `motor2`, `motor3`, `motor4` |
+
+The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay configuration will be used:
+
+| Motor    | Relay on/off | Relay up/down |
+| :------: | :----------: | :-----------: |
+| `motor1` | `relay1`     | `relay2`      |
+| `motor2` | `relay3`     | `relay4`      |
+| `motor3` | `relay5`     | `relay6`      |
+| `motor4` | `relay7`     | `relay8`      |
+
+## {% linkable_title Cover %}
+
+The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays which have been configured as motor controllers.
 
 ## {% linkable_title Light %}
 
