@@ -60,11 +60,6 @@ verify_ssl:
   required: false
   type: boolean
   default: true
-scan_interval:
-  description: Defines the polling interval.
-  required: false
-  type: time
-  default: 00:00:30
 monitored_conditions:
   description: Additional traccar computed attributes or device-related attributes to include in the scan.
   required: false
