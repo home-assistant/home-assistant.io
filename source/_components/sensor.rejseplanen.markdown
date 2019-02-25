@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Rejseplanen Public Transport"
-description: "Instructions on how to integrate timetable data for danish Rejseplanen within Home Assistant."
+description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
 date: 2019-01-09 08:52
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.88
 ---
 
-The `rejseplanen` sensor will provide you with traveling details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
+The `rejseplanen` sensor will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
 ## {% linkable_title Configuration %}
 
@@ -60,6 +60,35 @@ departure_type:
   required: false
   type: string|list
 {% endconfiguration %}
+
+## {% linkable_title Direction %}
+
+If you use the direction filter it's important to put correct destination, or else the sensor will not work at all.
+The direction has to be the destination(s) for the transport type(s) for the departure stop destination, and NOT the stop where you want to get off. Check <http://rejseplanen.dk> and make a search, and use the destinations from there in your configuration. Make sure you use the exact name as the destination(s)
+
+A working example on how to use this sensor with direction:
+
+```yaml
+# Example configuration.yaml entry with the correct use of direction.
+sensor:
+  - platform: rejseplanen
+    stop_id: '008600615'
+    direction:
+      - 'CPH Lufthavn'
+      - 'Helsingør St.'
+```
+
+A NOT WORKING example use this sensor with direction:
+
+```yaml
+# Example configuration.yaml entry with the correct use of direction.
+sensor:
+  - platform: rejseplanen
+    stop_id: '008600615'
+    direction:
+      - 'København H'
+```
+It fails because the destination from the departure is NOT København H, but 'CPH Lufthavn', 'Helsingør St.' and others.
 
 ## {% linkable_title Examples %}
 
