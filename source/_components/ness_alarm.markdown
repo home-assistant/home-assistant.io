@@ -59,11 +59,11 @@ port:
   description: The port on which the IP232 module listens for clients.
   required: true
   type: integer
-update_interval:
-  description: The frequency a full polling update should occur. Use a small value if your alarm does not support `P199E 6E` (older versions)  
+scan_interval:
+  description: "Time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
-  type: time period
-  default: 1 minute
+  default: '00:01:00'
+  type: time
 zones:
   description: List of zones to add
   required: false
@@ -83,3 +83,15 @@ zones:
       default: motion
       type: string
 {% endconfiguration %}
+
+#### {% linkable_title Time period dictionary example %}
+
+```yaml
+scan_interval:
+  # At least one of these must be specified:
+  days: 0
+  hours: 0
+  minutes: 0
+  seconds: 10
+  milliseconds: 0
+```
