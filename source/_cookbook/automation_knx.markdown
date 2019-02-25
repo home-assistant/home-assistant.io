@@ -247,7 +247,7 @@ automation:
     entity_id: sensor.licht_couch_dimabs
   condition:
   - condition: template
-    value_template: '{{ float(trigger.to_state.state) > 0 }}'
+    value_template: '{{ (float(trigger.to_state.state) > 0) }}'
   action:
   # turn on / set brightness for the Hue bulbs
   - service: light.turn_on
