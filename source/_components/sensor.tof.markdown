@@ -66,6 +66,7 @@ sensor:
     i2c_address: 0x29
     xshut: 16
 ```
+An GPIO port should be used on the RPI to reset the device. The XSHUT initializes pulsing LOW and after that it is kept HIGH all time.
 
 ## {% linkable_title Directions for installing i2c on Raspberry Pi %}
 
