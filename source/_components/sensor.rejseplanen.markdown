@@ -61,6 +61,36 @@ departure_type:
   type: string|list
 {% endconfiguration %}
 
+## {% linkable_title Direction %}
+
+If you use the direction filter it's important to put correct destination, or else the sensor will not work at all.
+The direction has to be the destination(s) for the transport type(s) for the departure stop destination, and NOT the stop where you want to get off. Check http://rejseplanen.dk and make a search, and use the destinations from there in your configuration. Make sure you use the exact name as destination(s)
+
+A working example on how to use this sensor with direction:
+
+```yaml
+# Example configuration.yaml entry with correct use of direction.
+sensor:
+  - platform: rejseplanen
+    stop_id: '008600615'
+    direction:
+      - 'CPH Lufthavn'
+      - 'Helsingør St.'
+```
+
+A NOT WORKING example use this sensor with direction:
+
+```yaml
+# Example configuration.yaml entry with correct use of direction.
+sensor:
+  - platform: rejseplanen
+    stop_id: '008600615'
+    direction:
+      - 'København H'
+```
+It fails because the destination from the departure is NOT København H, but 'CPH Lufthavn', 'Helsingør St.' and others.
+
+
 ## {% linkable_title Examples %}
 
 A more extensive example on how to use this sensor:
