@@ -121,17 +121,17 @@ If you receive the error message `Issue: Error while setting up platform firetv`
 
 ## {% linkable_title Service %}
 
-A service `media_player.firetv_adb_cmd` is provided allowing you to send either keys or ADB shell commands to the Fire TV.
+A service `media_player.firetv_adb_command` is provided allowing you to send either keys or ADB shell commands to the Fire TV.
 
 ```json
 {
   "entity_id" : "media_player.fire_tv_living_room", 
-  "cmd" : "HOME"
+  "command" : "HOME"
 }
 ```
 
 Service parameters:
 
 - **entity_id**: Name(s) of Fire TV entities.
-- **cmd**: Either a key command or an ADB shell command.
+- **command**: Either a key command or an ADB shell command.
   - Available key commands: `POWER`, `SLEEP`, `HOME`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `CENTER`, `BACK`, or `MENU`
