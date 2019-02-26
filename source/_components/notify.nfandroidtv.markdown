@@ -105,6 +105,8 @@ The following attributes can be placed inside `data` to send images.
 | `username`             |      yes | Username if the url requires authentication. Is placed inside `file`.
 | `password`             |      yes | Password if the url requires authentication. Is placed inside `file`.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used. Is placed inside `file`.
+| `verify_ssl`           |      yes | If set to `False` it will ignore SSL Certificate errors. 
+
 
 Example for posting file from URL:
 
@@ -117,7 +119,8 @@ Example for posting file from URL:
       "url":"http://[url to image file]",
       "username":"optional user, if necessary",
       "password":"optional password, if necessary",
-      "auth":"digest"
+      "auth":"digest",
+      "verify_ssl": "False"
     }
   }
 }
