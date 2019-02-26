@@ -8,13 +8,28 @@ comments: false
 sharing: true
 footer: true
 logo: octoprint.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Sensor
 featured: false
 ha_release: 0.19
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.octoprint/
+  - /components/sensor.octoprint/
 ---
 
 [OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main component to integrate OctoPrint sensors.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
+
+<p class='note'>
+You must have the <a href="#configuration">OctoPrint component</a> configured (below) to use the sensor and binary sensor. After configuring that component, the sensors and binary sensors automatically appear.
+</p>
 
 ## {% linkable_title Configuration %}
 
@@ -136,3 +151,38 @@ camera:
     still_image_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=snapshot
     mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
 ```
+
+## {% linkable_title Binary Sensor %}
+
+The `octoprint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.
+
+To set it up, add the following information to your `configuration.yaml` file:
+
+```yaml
+binary_sensor:
+  - platform: octoprint
+    monitored_conditions:
+      - Printing
+      - Printing Error
+```
+
+{% configuration %}
+monitored_conditions:
+  description: States to monitor.
+  required: true
+  type: list
+  keys:
+    printing:
+      description: State of the printer.
+    printing error:
+      description: Error while printing.
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+  default: OctoPrint
+{% endconfiguration %}
+
+## {% linkable_title Sensor %}
+
+The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.
