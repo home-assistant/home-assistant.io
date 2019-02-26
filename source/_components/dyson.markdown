@@ -149,7 +149,7 @@ There are several attributes which can be used for automations and templates.
 | Attribute | Description |
 | --------- | ----------- |
 | `night_mode` | A boolean that indicates if the night mode of the fan device is on.|
-| `is_auto_mode` | A boolean that indicates if the auto mode of the fan device is on.	| `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
+| `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
 | `angle_low` | Int (between 5 and 355) that indicates the low angle of oscillation (only for DP04 and TP04).|
 | `angle_high` | Int (between 5 and 355) that indicates the high angle of oscillation (only for DP04 and TP04).|
 | `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04 and TP04).|
