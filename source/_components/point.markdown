@@ -25,8 +25,8 @@ The Point component is the main component to integrate the [Minut Point](https:/
 
 There is currently support for the following device types within Home Assistant:
 
-- [{% linkable_title Binary Sensor %}](#linkabletitle-binary-sensor)
-- [{% linkable_title Sensor %}](#linkabletitle-sensor)
+- [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
 
 Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link when you follow the link and have clicked on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
 
