@@ -26,6 +26,7 @@ sensor:
     station_from: "STATION_1"
     station_to: "STATION_2"
     station_live: "STATION_1"
+    exclude_vias: true
 ```
 
 The stations can only be provided by their standard names and not ids. The list of stations can be checked on the NMBS/SCNB website but for most accurate results check them on the [iRail API page](https://api.irail.be/stations/) which this component uses internally.
@@ -43,9 +44,19 @@ station_live:
   description: Setting this will create another sensor to monitor the liveboard in a station.
   required: false
   type: string
+exclude_vias:
+  description: Setting this will not show connections for which you have to transfer to another station.
+  required: false
+  type: boolean
+  default: false
 name:
   description: Name to use in the frontend.
   required: false
   type: string
   default: "`NMBS`, `NMBS Live` for the liveboard sensor when set."
+show_on_map:
+  description: Show the station on the map.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
