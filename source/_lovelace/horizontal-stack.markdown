@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ---
 
-Horizontal stack card allows you to stack together multiple cards, so they always sit next to each other in the space of one column.
+Horizontal stack card allows you to stack together two cards, so they always sit next to each other in the space of one column.
 
 {% configuration %}
 type:
