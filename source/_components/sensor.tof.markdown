@@ -20,6 +20,8 @@ The Time of Flight sensor uses a invisible laser to measure distance with millim
 Tested devices:
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
+- [VL53L1X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l1x.html)
+- [Schematic](https://cdn.sparkfun.com/assets/3/5/c/e/2/Qwiic_Distance_Sensor_-_VL53L1X.pdf)
 
 ## {% linkable_title Configuration %}
 
