@@ -69,8 +69,8 @@ payload_not_available:
   type: string
   default: offline
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes.
-  reqired: false
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
   type: string
 qos:
   description: The maximum QoS level to be used when receiving messages.
@@ -93,7 +93,7 @@ force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   required: false
   type: boolean
-  default: False
+  default: false
 off_delay:
   description: "For sensors that only sends `On` state updates, this variable sets a delay in seconds after which the sensor state will be updated back to `Off`."
   required: false
@@ -197,7 +197,3 @@ binary_sensor:
     payload_on: "1"
     payload_off: "0"
 ```
-<<<<<<< HEAD
-=======
-
->>>>>>> current

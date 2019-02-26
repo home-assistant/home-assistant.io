@@ -49,6 +49,11 @@ octoprint:
       required: false
       type: integer
       default: 80
+    path:
+      description: The URL path of the Octoprint instance.
+      required: false
+      type: string
+      default: /
     ssl:
       description: Enable or disable SSL/TLS.
       required: false
@@ -63,7 +68,7 @@ octoprint:
       description: Number of temperature adjustable tools, e.g., nozzle.
       required: false
       type: integer
-      default: 1
+      default: 0
     sensors:
       description: Configuration for the sensors.
       required: false
@@ -77,7 +82,7 @@ octoprint:
             "Current State":
               description: Text of current state.
             "Temperatures":
-              description: Temperatures of all available tools, eg. `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
+              description: Temperatures of all available tools, e.g., `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
             "Job Percentage":
               description: Percentage of the job.
             "Time Elapsed":

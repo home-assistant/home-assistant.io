@@ -31,6 +31,6 @@ entity:
 ## {% linkable_title Example %}
 
 ```yaml
-- type: media-control
-  entity: media_player.lounge_room
+type: media-control
+entity: media_player.lounge_room
 ```

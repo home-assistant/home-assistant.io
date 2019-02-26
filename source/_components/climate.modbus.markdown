@@ -25,6 +25,7 @@ To use your Modbus thermostat in your installation, add the following to your `c
 climate:
   - platform: modbus
     name: Watlow F4T
+    hub: hub1
     slave: 1
     target_temp_register: 2782
     current_temp_register: 27586
@@ -34,6 +35,11 @@ climate:
 name:
   description: Name of the device
   required: true
+  type: string
+hub:
+  description: The name of the hub.
+  required: false
+  default: default
   type: string
 slave:
   description: The number of the slave (Optional for tcp and upd Modbus, use 1).

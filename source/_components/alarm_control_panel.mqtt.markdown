@@ -20,6 +20,7 @@ The component will accept the following states from your Alarm Panel (in lower c
 - `disarmed`
 - `armed_home`
 - `armed_away`
+- 'armed_night'
 - `pending`
 - `triggered`
 
@@ -75,6 +76,11 @@ payload_arm_away:
   required: false
   type: string
   default: ARM_AWAY
+payload_arm_night:
+  description: The payload to set armed-night mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_NIGHT
 code:
   description: If defined, specifies a code to enable or disable the alarm in the frontend.
   required: false
@@ -93,6 +99,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 device:
   description: 'Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false

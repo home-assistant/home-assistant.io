@@ -54,7 +54,7 @@ name:
   required: false
   type: string
 travel_mode:
-  description: "You can choose between: `driving`, `walking`, `bicycling` or `transit`."
+  description: "You can choose between: `driving`, `walking`, `bicycling` or `transit`. This method is now deprecated, use `mode` under `options`."
   required: false
   type: string
 options:
@@ -139,16 +139,15 @@ sensor:
 
 ## {% linkable_title Updating sensors on-demand using Automation %}
 
-You can also use the `sensor.google_travel_sensor_update` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
+You can also use the `homeassistant.update` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
 - id: update_morning_commute_sensor
   alias: "Commute - Update morning commute sensor"
   initial_state: 'on'
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/2'
-      seconds: 00
   condition:
     - condition: time
       after: '08:00:00'
@@ -161,7 +160,7 @@ You can also use the `sensor.google_travel_sensor_update` service to update the 
         - thu
         - fri
   action:
-    - service: sensor.google_travel_sensor_update
+    - service: homeassistant.update
       data:
         entity_id: sensor.morning_commute
 ```

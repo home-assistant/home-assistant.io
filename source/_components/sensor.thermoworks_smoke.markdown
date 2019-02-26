@@ -16,7 +16,7 @@ ha_iot_class: "Cloud Polling"
 The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
 This requires a [Smoke WiFi Gateway](https://www.thermoworks.com/Smoke-Gateway) with an internet connection.
 
-You will need to have previously registered your smoke to your account via the mobile app and provide 
+You will need to have previously registered your smoke to your account via the mobile app and provide
 the email and password you used to in the configuration for this sensor in order to connect and pull your data.
 
 ## {% linkable_title Configuration %}
@@ -109,7 +109,7 @@ input_number:
     step: 0.5
     unit_of_measurement: '°F'
     icon: mdi:thermometer
-    
+
 automation:
   - alias: Alert when My Smoke Probe 1 is above threshold
     trigger:

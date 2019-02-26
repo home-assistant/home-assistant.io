@@ -14,7 +14,7 @@ ha_release: 0.83
 ---
 
 <p class='note warning'>
-The API used for this sensor is shutting down soon, you should consider starting to use the [`entur_public_transport`](https://www.home-assistant.io/components/sensor.entur_public_transport/) sensor before that happen.
+The API used for this sensor is shutting down soon, you should consider starting to use the [`entur_public_transport`](/components/sensor.entur_public_transport/) sensor before that happen.
 To read the deprecation warning visit [ruter.no/labs](https://ruter.no/labs/),
 </p>
 

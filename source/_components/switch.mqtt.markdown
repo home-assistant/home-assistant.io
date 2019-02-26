@@ -103,6 +103,10 @@ value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
   type: string
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 device:
   description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
   required: false
@@ -140,7 +144,7 @@ Make sure that your topic matches exactly. `some-topic/` and `some-topic` are di
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real-life examples of how to use this sensor.
+In this section, you will find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Full configuration %}
 
@@ -163,20 +167,20 @@ switch:
     retain: true
 ```
 
-For a check you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
+For a check, you can use the command line tools `mosquitto_pub` shipped with `mosquitto` to send MQTT messages. This allows you to operate your switch manually:
 
 ```bash
-$ mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
+mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
 
 ### {% linkable_title Set the state of a device with ESPEasy %}
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example, the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
 
 Manually you can set pin 13 to high with `mosquitto_pub` or another MQTT tool:
 
 ```bash
-$ mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
+mosquitto_pub -h 127.0.0.1 -t home/bathroom/gpio/13 -m "1"
 ```
 
 The configuration will look like the example below:
@@ -193,4 +197,3 @@ switch:
     payload_off: "0"
 ```
 {% endraw %}
-

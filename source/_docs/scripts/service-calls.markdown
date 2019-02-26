@@ -22,7 +22,7 @@ Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='n
 
 ### {% linkable_title The basics %}
 
-Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also omit `entity_id` and it will turn on all possible entities.
+Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
 service: homeassistant.turn_on
@@ -61,10 +61,9 @@ You can use the Services Developer Tool to test data to pass in a service call.
 For example, you may test turning on or off a 'group' (See [groups] for more info)
 
 To turn a group on or off, pass the following info:
-Domain: `homeassistant`
-Service: `turn_on`
-Service Data: `{ "entity_id": "group.kitchen" }`
-
+- Domain: `homeassistant`
+- Service: `turn_on`
+- Service Data: `{ "entity_id": "group.kitchen" }`
 
 ### {% linkable_title Use templates to determine the attributes %}
 

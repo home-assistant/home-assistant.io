@@ -19,7 +19,7 @@ redirect_from:
  - /components/switch.esphome/
 ---
 
-This component allows you to connect your [ESPHome](https://esphomelib.com/esphomeyaml/index.html) devices directly into Home Assistant with the [native ESPHome API](https://esphomelib.com/esphomeyaml/components/api.html).
+This component allows you to connect your [ESPHome](https://esphome.io) devices directly into Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
 
 ## {% linkable_title Setup the component via the integrations screen %}
 

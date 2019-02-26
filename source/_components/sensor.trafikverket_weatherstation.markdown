@@ -13,15 +13,15 @@ ha_release: 0.66.0
 ha_iot_class: "Cloud Polling"
 ---
 
-Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden. 
-
+Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.
 
 Potential use cases:
--	Get weather data in general.
--	You live near a weather station and want to know the current weather conditions at home.
--	Setup automations for your car heating system. If the road is frozen along the way to work, you might want the car heating system to start earlier.
 
-##### {% linkable_title Configuration %}
+- Get weather data in general.
+- You live near a weather station and want to know the current weather conditions at home.
+- Setup automations for your car heating system. If the road is frozen along the way to work, you might want the car heating system to start earlier.
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`.
 
@@ -54,7 +54,7 @@ station:
   description: Name of the weather station from Trafikverket.  
   required: true  
   type: string  
-monitored_conditions: 
+monitored_conditions:
   description: Specify what measurement data to retrieve from the weather station.
   required: true  
   type: map  
@@ -72,14 +72,14 @@ monitored_conditions:
     wind_direction_text:  
       description: Rough wind direction in twelve variants (Swedish text).  
     wind_speed:  
-      description: Average wind speed during the last 10 minutes.    
+      description: Average wind speed during the last 10 minutes.
 {% endconfiguration %}
 
-##### {% linkable_title Obtaining API key %}
+## {% linkable_title Obtaining API key %}
 
 Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
 
-##### {% linkable_title Weather stations %}
+## {% linkable_title Weather stations %}
 
 Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=personalTraffic&map=1/606442.17/6886316.22/&Layers=RoadWeather%2b) to get a map of valid weather stations. Once a station is found, copy the name according to the below picture and paste it in your `configuration.yaml` file as the `station` variable.
 
@@ -87,7 +87,7 @@ Click [here](https://www.trafikverket.se/trafikinformation/vag/?TrafficType=pers
   <img src='{{site_root}}/images/screenshots/get_trafikverket_weather_station_example.png' />
 </p>
 
-##### {% linkable_title Examples %}
+## {% linkable_title Examples %}
 
 ```yaml
 sensor:

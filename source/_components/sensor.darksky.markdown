@@ -143,8 +143,8 @@ units:
   required: false
   default: "`si` or `us`, based on the temperature preference in Home Assistant."
   type: string
-update_interval:
-  description: "Minimum time interval between updates. Supported formats: `update_interval: 'HH:MM:SS'`, `update_interval: 'HH:MM'` and Time period dictionary (see example below)."
+scan_interval:
+  description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: 2 minutes
   type: time
@@ -153,7 +153,7 @@ update_interval:
 #### {% linkable_title Time period dictionary example %}
 
 ```yaml
-update_interval:
+scan_interval:
   # At least one of these must be specified:
   days: 0
   hours: 0
@@ -183,6 +183,7 @@ All language options are described in this table that you can use for the dark s
 |Estonian|`et`|
 |Finnish|`fi`|
 |French|`fr`|
+|Hebrew|`he`|
 |Croatian|`hr`|
 |Hungarian|`hu`|
 |Indonesian|`id`|
@@ -190,7 +191,9 @@ All language options are described in this table that you can use for the dark s
 |Italian|`it`|
 |Japanese|`ja`|
 |Georgian|`ka`|
+|Korean|`ko`|
 |Cornish|`kw`|
+|Latvian|`lv`|
 |Norwegian Bokmål|`nb`|
 |Dutch|`nl`|
 |Polish|`pl`|

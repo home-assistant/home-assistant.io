@@ -8,13 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: lightwave.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Light
+  - Switch
 ha_release: 0.84
 ha_iot_class: "Assumed State"
+redirect_from:
+  - /components/light.lightwave/
+  - /components/switch.lightwave/
 ---
-The `lightwave` component links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights and switches. 
+
+The `lightwave` component links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights and switches.
+
 This component uses the official API published by Lightwave on their website [https://api.lightwaverf.com/](https://api.lightwaverf.com/).
 To add your Lightwave devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
+
 ```yaml
 # Example configuration.yaml entry
 lightwave:
@@ -45,5 +54,6 @@ Each `switch` or `light` requires an `id` and a `name`. The `id` takes the form 
 The first use of a light or switch will try to register with your Lightwave WiFi Link hub. If the hub has not been registered a message on your hub will be displayed asking you to pair the device. You have 12 seconds to push the button on your hub to accept this. Once done, you should be able to control your lights and switches via Home Assistant. This only needs to be done if the hub has not been registered.
 
 The Lightwave Home Assistant component currently supports the following Lightwave devices:
+
 - Lightwave lights
 - Lightwave switches

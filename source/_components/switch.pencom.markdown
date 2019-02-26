@@ -13,11 +13,11 @@ ha_release: 0.85
 ha_iot_class: "Local Polling"
 ---
 
-[Pencom Design](http://www.pencomdesign.com/) is a manufacturer of computer controlled relay, I/O and custom boards for commercial and industrial applications.  This interface to [Pencom's Relay Control Boards](https://www.pencomdesign.com/relay-boards/) is designed to work over an ethernet to serial adapter (NPort).  Each switch (relay) can be turned on/off, and the state of the relay can be read.
+[Pencom Design](http://www.pencomdesign.com/) is a manufacturer of computer-controlled relay, I/O and custom boards for commercial and industrial applications.  This interface to [Pencom's Relay Control Boards](https://www.pencomdesign.com/relay-boards/) is designed to work over an ethernet to serial adapter (NPort).  Each switch (relay) can be turned on/off, and the state of the relay can be read.
 
 ## {% linkable_title Configuration %}
 
-The Pencom relays can be daisychained to allow for up to 8 boards.
+The Pencom relays can be daisy-chained to allow for up to 8 boards.
 
 ``` yaml
 # Example configuration.yaml entry
@@ -25,10 +25,10 @@ switch:
   - platform: pencom
     host: host.domain.com
     port: 4001
-    boards: 2 
+    boards: 2
     relays:
       - name: "Irrigation"
-        addr: 0 
+        addr: 0
       - name: "Upper Entry Door"
         addr: 1
       - name: "Fountain"
@@ -46,13 +46,13 @@ port:
   required: true
   type: port (positive integer between 1-65535)
 boards:
-  description: Number of boards daisychained together (default is 1).
+  description: Number of boards daisy-chained together (default is 1).
   required: false
   type: int between 1 and 8
 relays:
-  description: List of relays. 
+  description: List of relays.
   required: true
-  type: list 
+  type: list
   keys:
     name:
       description: The name of the switch (component).

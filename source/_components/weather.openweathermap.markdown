@@ -39,7 +39,7 @@ name:
   type: string
   default: OpenWeatherMap
 mode:
-  description: "Can specify `hourly` or `daily`. Select `hourly` for a three-hour forecast or `daily` for daily forecast."
+  description: "Can specify `hourly`, `daily` of `freedaily`. Select `hourly` for a three-hour forecast, `daily` for daily forecast or `freedaily` for a five days forecast with the free tier."
   required: false
   type: string
   default: "`hourly`"

@@ -8,20 +8,37 @@ comments: false
 sharing: true
 footer: true
 logo: zoneminder.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Camera
+  - Sensor
+  - Switch
 featured: false
 ha_release: 0.31
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.zoneminder/
+  - /components/camera.zoneminder/
+  - /components/sensor.zoneminder/
+  - /components/switch.zoneminder/
 ---
 
-The ZoneMinder component sets up the integration with your [ZoneMinder](https://www.zoneminder.com) instance so that [cameras](/components/camera.zoneminder/), [sensors](/components/sensor.zoneminder/), and [switches](/components/switch.zoneminder) can use it.
+The ZoneMinder component sets up the integration with your [ZoneMinder](https://www.zoneminder.com) instance.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Binary Sensor](#binary-sensor)
+- [Camera](#camera)
+- [Sensor](#sensor)
+- [Switch](#switch)
 
 ## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
 zoneminder:
-  host: ZM_HOST
+  - host: ZM_HOST
 ```
 
 {% configuration %}
@@ -64,13 +81,13 @@ password:
 ```yaml
 # Example configuration.yaml entry
 zoneminder:
-  host: ZM_HOST
-  path: ZM_PATH
-  path_zms: ZM_PATH_ZMS
-  ssl: true
-  verify_ssl: true
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  - host: ZM_HOST
+    path: ZM_PATH
+    path_zms: ZM_PATH_ZMS
+    ssl: true
+    verify_ssl: true
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
 ```
 
 ### {% linkable_title Service %}
@@ -79,12 +96,104 @@ Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) t
 
 | Service data attribute | Optional | Description                       |
 |:-----------------------|:---------|:----------------------------------|
+| `id`                   | no       | Host of the ZoneMinder instance.  |
 | `name`                 | no       | Name of the new run state to set. |
 
 For example, if your ZoneMinder instance was configured with a run state called "Home", you could write an [automation](/getting-started/automation/) that changes ZoneMinder to the "Home" run state by including the following [action](/getting-started/automation-action/):
+
  ```yaml
 action:
   service: zoneminder.set_run_state
   data:
+    id: ZM_HOST
     name: Home
 ```
+
+## {% linkable_title Binary Sensor %}
+
+The `zoneminder` binary sensor platform lets you monitor the availability of your [ZoneMinder](https://www.zoneminder.com) install.
+
+Each binary_sensor created will be named after the hostname used when configuring the [ZoneMinder component](/components/zoneminder/).
+
+## {% linkable_title Camera %}
+
+The `zoneminder` camera platform lets you monitor the current stream of your [ZoneMinder](https://www.zoneminder.com) cameras.
+
+## {% linkable_title Configuration %}
+
+To set it up, add the following information to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: zoneminder
+```
+
+## {% linkable_title Sensor %}
+
+The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events, the current state of the cameras and ZoneMinder's current run state.
+
+To set it up, add the following information to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: zoneminder
+    include_archived: false
+```
+
+{% configuration %}
+include_archived:
+  description: Whether to include archived ZoneMinder events in event counts.
+  required: false
+  default: false
+  type: boolean
+monitored_conditions:
+  description: Event count sensors to display in the frontend.
+  required: false
+  type: list
+  keys:
+    all:
+      description: All events.
+    month:
+      description: Events in the last month.
+    week:
+      description: Events in the last week.
+    day:
+      description: Events in the last day.
+    hour:
+      description: Events in the last hour.
+{% endconfiguration %}
+
+## {% linkable_title Switch %}
+
+The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.
+
+<p class='note'>
+You must have the [ZoneMinder component](/components/zoneminder/) configured to use this and if ZoneMinder authentication is enabled the account specified in the component configuration must have "Edit" permission for "System".
+</p>
+
+To enable this switch, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: zoneminder
+    command_on: Modect
+    command_off: Monitor
+```
+
+{% configuration %}
+command_on:
+  description: The function you want the camera to run when turned on.
+  required: true
+  type: string
+command_off:
+  description: The function you want the camera to run when turned off.
+  required: true
+  type: string
+{% endconfiguration %}
+
+<p class='note'>
+The default functions installed by ZoneMinder are: None, Monitor, Modect, Record, Mocord, Nodect.
+</p>

@@ -17,7 +17,6 @@ There are various ways to get in touch with the Home Assistant community. It doe
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
 - Follow us on [Twitter][twitter], use [@home_assistant][twitter]
 - Join the [Facebook community][facebook]
-- Join the [Google+ community][google-plus]
 - Join the Reddit in [/r/homeassistant][reddit]
 
 ### {% linkable_title Bugs, Feature requests, and alike %}
@@ -32,6 +31,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, talks, workshops and alike %}
 
+- [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 - [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](http://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
@@ -92,6 +92,5 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 [forum]: https://community.home-assistant.io/
 [twitter]: https://twitter.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
-[google-plus]: https://plus.google.com/u/0/b/110560654828510104551/communities/106562234893511202708
 [reddit]: https://reddit.com/r/homeassistant
 [discord]: https://discord.gg/c5DvZ4e

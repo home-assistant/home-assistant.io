@@ -108,7 +108,7 @@ switch:
     sunset_colortemp: 3000
     stop_colortemp: 1900
     brightness: 200
-    disable_brightness_adjust: True
+    disable_brightness_adjust: true
     mode: xy
     transition: 30
     interval: 60

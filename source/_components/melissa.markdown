@@ -8,13 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: mclimate.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Climate
 featured: false
 ha_release: 0.63
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/climate.melissa/
 ---
 
 The `melissa` component is the main component to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
+
+There is currently support for the following device types within Home Assistant:
+
+- Climate
+
+The climate platform will be automatically configured if Melissa component is configured.
 
 ## {% linkable_title Configuration %}
 
