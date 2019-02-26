@@ -125,6 +125,8 @@ resources:
       description: The number of threads.
     process_sleeping:
       description: The number of sleeping processes.
+    cpu_use_percent:
+      description: The used CPU in percent.
     cpu_temp:
       description: The CPU temperature (may not be available on all platforms).
     docker_active:
