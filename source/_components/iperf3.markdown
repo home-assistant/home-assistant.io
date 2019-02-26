@@ -8,17 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: iperf3.png
-ha_category: System Monitor
+ha_category:
+  - System Monitor
+  - Sensor
 featured: false
 ha_release: 0.71
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/sensor.iperf3/
 ---
 
 The `iperf3` sensor component allows you to measure network bandwidth performance against a private or public Iperf3 server.
 
-## {% linkable_title Configuration %}
+Enabling this component will automatically create the Iperf3 Sensors for the monitored conditions (below).
 
-By default, it will run every hour.  The user can change the update frequency in the config by defining the minute, hour, and day for a iperf3 test to run.
+By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a iperf3 test to run.
+
+## {% linkable_title Configuration %}
 
 To add the `iperf3` sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -28,26 +34,48 @@ Once per hour, on the hour (default):
 # Example configuration.yaml entry
 sensor:
   - platform: iperf3
-    host: iperf.he.net
-    monitored_conditions:
-      - download
-      - upload
+    hosts:
+      - host: iperf.he.net
 ```
 
 {% configuration %}
   monitored_conditions:
     description: Sensors to display in the frontend.
-    required: true
+    required: false
     type: list
     keys:
       download:
         description: Download speed (Mbit/s)
       upload:
         description: Upload speed (Mbit/s)
+  hosts:
+    description: A list of Iperf3 servers to perform the test against.
+    required: true
+    type: list
+  scan_interval:
+    description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
+    required: false
+    default: 60 minutes
+    type: time
+  manual:
+    description: >
+      `true` or `false` to turn manual mode on or off. Manual mode will disable scheduled tests.
+    required: false
+    type: boolean
+    default: false
+{% endconfiguration %}
+
+Configuration variables (host):
+{% configuration %}
   host:
-    description: Specify the Iperf3 test to perform the test against.
+    description: Server name/ip address running Iperf3 to test against.
     required: true
     type: string
+  port:
+    description: Port that Iperf3 is running on.
+    required: false
+    default: 5201
+    type: integer
   duration:
     description: Specify the test duration in seconds. Default is 10 and the valid range is from 5 to 10.
     required: false
@@ -62,12 +90,19 @@ sensor:
     required: false
     default: tcp
     type: string
-  scan_interval:
-    description: Specify the frequency in seconds which the test will be perfomed. Default value is 1 hour.
-    required: false
-    default: 3600
-    type: integer
 {% endconfiguration %}
+
+#### {% linkable_title Time period dictionary example %}
+
+```yaml
+scan_interval:
+  # At least one of these must be specified:
+  days: 0
+  hours: 0
+  minutes: 3
+  seconds: 30
+  milliseconds: 0
+```
 
 You can find a list of public Iperf3 servers [here](https://iperf.fr/iperf-servers.php). You can also start your own Iperf3 server using the [mlabbe/iperf3's](https://hub.docker.com/r/mlabbe/iperf3/) docker image or just refer to your `iperf3` command's man page.
 
@@ -77,10 +112,12 @@ Parallel streams can help in some situations. As TCP attempts to be fair and con
 
 You can use the service `sensor.iperf3_update` to trigger a manual speed test for all sensors. Iperf3 has its own service call that allow to perform a speed test on a particular entity.
 
-### {% linkable_title Service `sensor.iperf3_update` %}
+### {% linkable_title Service %}
+
+Once loaded, the `iperf3` component will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 
 | Service data attribute | Description |
-| `entity_id` | String that point at `entity_id`s of the Iperf3 sensor. Else targets all.
+| `host` | String that point at a configured `host` from configuration.yaml. Otherwise, tests will be run against all configured hosts.
 
 
 ## {% linkable_title Notes %}
