@@ -121,7 +121,7 @@ If you receive the error message `Issue: Error while setting up platform firetv`
 
 ## {% linkable_title Service %}
 
-A service `media_player.firetv_adb_command` is provided allowing you to send either keys or ADB shell commands to the Fire TV.
+A service `firetv.adb_command` is provided allowing you to send either keys or ADB shell commands to the Fire TV.
 
 ```json
 {
