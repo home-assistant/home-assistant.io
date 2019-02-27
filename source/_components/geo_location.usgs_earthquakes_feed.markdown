@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: us-geological-survey.png
-ha_category: Geo Location
+ha_category: Geolocation
 ha_iot_class: "Cloud Polling"
 ha_release: 0.84
 ---
@@ -52,7 +52,7 @@ radius:
   description: The distance in kilometers around Home Assistant's coordinates in which seismic events are included.
   required: false
   type: float
-  default: 50
+  default: 50.0
 latitude:
   description: Latitude of the coordinates around which events are considered.
   required: false

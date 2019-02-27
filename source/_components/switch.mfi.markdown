@@ -12,7 +12,6 @@ ha_category: Switch
 ha_iot_class: "Local Polling"
 ---
 
-
 The `mfi` switch platform to allow you to control [mFi Controllable Power Outlets](https://www.ubnt.com/mfi/mpower/).
 
 ## {% linkable_title Configuration %}

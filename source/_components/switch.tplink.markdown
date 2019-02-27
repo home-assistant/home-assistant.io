@@ -41,7 +41,7 @@ name:
   type: string
   default: TP-Link Switch
 host:
-  description: "The IP address of your TP-Link switch, eg. `192.168.1.32`."
+  description: "The IP address of your TP-Link switch, e.g., `192.168.1.32`."
   required: true
   type: string
 enable_leds:
@@ -63,7 +63,7 @@ switch:
     host: SECOND_IP_ADDRESS
 ```
 
-## {% linkable_title Configure Energy Sensors %} ##
+## {% linkable_title Configure Energy Sensors %}
 
 In order to get the power consumption readings from the HS110, you'll have to create a [template sensor](/components/switch.template/). In the example below, change all of the `my_tp_switch`'s to match your switch's entity ID.
 

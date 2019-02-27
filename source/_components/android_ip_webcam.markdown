@@ -8,14 +8,31 @@ comments: false
 sharing: true
 footer: true
 logo: android_ip_webcam.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Camera
+  - Sensor
+  - Switch
 ha_release: "0.40"
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.android_ip_webcam/
+  - /components/camera.android_ip_webcam/
+  - /components/sensor.android_ip_webcam/
+  - /components/switch.android_ip_webcam/
 ---
 
 The `android_ip_webcam` component turns any Android phone or tablet into a network camera with multiple viewing options.
 
 It's setup as an MJPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Camera
+- Sensor
+- Switch
 
 ## {% linkable_title Setup %}
 
@@ -153,3 +170,44 @@ android_ip_webcam:
       - torch
 ```
 
+## {% linkable_title Binary Sensor %}
+
+The `android_ip_webcam` binary sensor platform lets you observe the motion state of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
+
+## {% linkable_title Examples %}
+
+You can also setup the binary motion sensor with the following script:
+
+{% raw %}
+
+```yaml
+binary_sensor:
+  - platform: rest
+    name: Kitchen Motion
+    sensor_class: motion
+    resource: http://IP:8080/sensors.json?sense=motion_active
+    value_template: '{{ value_json.motion_active.data[0][1][0] | round(0) }}'
+```
+
+{% endraw %}
+
+## {% linkable_title Camera %}
+
+The `android_ip_webcam` component adds a camera by default if you choose not to use the component but still want to see the video feed then the [`mjpeg` camera](/components/camera.mjpeg/) platform can be used.
+
+## {% linkable_title Configuration %}
+
+To enable only the camera in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: mjpeg
+    mjpeg_url: http://IP_ADDRESS:8080/video
+```
+
+## {% linkable_title Sensor %}
+
+The `android_ip_webcam` sensor platform lets you observe states of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
+
+You can setup your own sensors by examining the JSON file from the webcam server: http://IP:8080/sensors.json

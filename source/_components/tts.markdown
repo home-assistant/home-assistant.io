@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Text-to-Speech (TTS)"
-description: "Instructions on how to setup Text-to-Speech (TTS) with Home Assistant."
+description: "Instructions on how to set up Text-to-Speech (TTS) with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -17,7 +17,7 @@ Text-to-Speech (TTS) enables Home Assistant to speak to you.
 To get started, add the following lines to your `configuration.yaml` (example for Google):
 
 ```yaml
-# Example configuration.yaml entry for google tts service
+# Example configuration.yaml entry for Google TTS service
 tts:
   - platform: google
 ```
@@ -33,7 +33,7 @@ cache:
   description: Allow TTS to cache voice file to local storage.
   required: false
   type: boolean
-  default: True
+  default: true
 cache_dir:
   description: Folder name or path to a folder for caching files.
   required: false
@@ -94,9 +94,11 @@ Say to all `media_player` device entities:
 ```yaml
 # Replace google_say with <platform>_say when you use a different platform.
 service: tts.google_say
+entity_id: "all"
 data:
   message: 'May the Force be with you.'
 ```
+
 Say to the `media_player.floor` device entity:
 
 ```yaml
@@ -131,7 +133,7 @@ The component has two caches. Both caches can be controlled with the `cache` opt
 
 ## {% linkable_title REST Api %}
 
-#### {% linkable_title POST /api/tts_get_url %}
+### {% linkable_title POST /api/tts_get_url %}
 
 Returns an URL to the generated TTS file. Platform and message are required.
 

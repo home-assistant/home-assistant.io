@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: smtp.png
 ha_category: Mailbox
-ha_iot_class: "Local Polling"
+ha_iot_class: "Cloud Push"
 ha_release: 0.25
 ---
-
 
 The `imap_email_content` sensor platform will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
 
@@ -28,6 +27,7 @@ sensor:
     port: 993
     username: USERNAME
     password: PASSWORD
+    folder: <Folder>
     senders:
       - example@gmail.com
 ```
@@ -54,6 +54,11 @@ password:
   description: Password for the IMAP server.
   required: true
   type: string
+folder:
+  description: Folder to get mails from.
+  required: false
+  default: INBOX
+  type: string
 senders:
   description: A list of sender email addresses that are allowed to report state via email. Only emails received from these addresses will be processed.
   required: true
@@ -72,3 +77,29 @@ value_template:
     date:
       description: The date and time the email was sent.
 {% endconfiguration %}
+
+## {% linkable_title Example %}
+
+The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: imap_email_content
+    server: imap.gmail.com
+    name: house_electricity
+    port: 993
+    username: MY_EMAIL_USERNAME
+    password: MY_EMAIL_PASSWORD
+    senders:
+      - no-reply@smartconnect.apc.com
+    value_template: >-
+      {% if 'UPS On Battery' in subject %}
+        power_out
+      {% elif 'Power Restored' in subject %}
+        power_on
+      {% endif %}
+```
+{% endraw %}
+
+The same template structure can scan the date, body, or sender for matching text before setting the state of the sensor. 

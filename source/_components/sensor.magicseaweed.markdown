@@ -44,7 +44,7 @@ name:
   required: false
   default: MSW.
   type: string
-hour:
+hours:
   description: List of hours you would like to receive data for.
   required: false
   default: Defaults to current forecast.

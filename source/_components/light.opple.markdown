@@ -35,8 +35,7 @@ name:
   type: string
   default: opple light
 host:
-  description: "The IP address of your Opple light, eg. `192.168.0.21`."
+  description: "The IP address of your Opple light, e.g., `192.168.0.21`."
   required: true
   type: string
 {% endconfiguration %}
-

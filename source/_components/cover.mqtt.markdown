@@ -67,7 +67,7 @@ payload_stop:
   type: string
   default: STOP
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. Use only if not using get_position_topic. State topic can only read open/close state. Cannot read position state.
+  description: The MQTT topic subscribed to receive cover state messages. Use only if not using `position_topic`. State topic can only read open/close state. Cannot read position state. If `position_topic` is set `state_topic` is ignored.
   required: false
   type: string
 state_open:
@@ -81,9 +81,9 @@ state_closed:
   type: string
   default: closed
 position_topic:
-  description: The MQTT topic subscribed to receive cover position messages. Always in favor if used together with state_topic.
+  description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
   required: false
-  type: integer
+  type: string
 position_open:
   description: Number which represents open position.
   required: false
@@ -173,6 +173,10 @@ tilt_invert_state:
   required: false
   type: boolean
   default: false
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 unique_id:
   description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
   required: false

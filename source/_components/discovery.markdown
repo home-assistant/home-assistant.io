@@ -82,6 +82,7 @@ Valid values for ignore are:
  * `frontier_silicon`: Frontier Silicon internet radios
  * `google_cast`: Google Cast
  * `harmony`: Logitech Harmony Hub
+ * `igd`: Internet Gateway Device
  * `ikea_tradfri`: IKEA Trådfri (Tradfri)
  * `logitech_mediaserver`: Logitech media server (Squeezebox)
  * `netgear_router`: Netgear routers

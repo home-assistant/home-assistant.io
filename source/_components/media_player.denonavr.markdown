@@ -18,6 +18,7 @@ The `denonavr` platform allows you to control a [Denon Network Receivers](http:/
 Supported devices:
 
 - Denon AVR-X1300W
+- Denon AVR-X1500H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X4100W
@@ -48,7 +49,7 @@ media_player:
   - platform: denonavr
     host: IP_ADDRESS
     name: NAME
-    show_all_sources: True / False
+    show_all_sources: true
     timeout: POSITIVE INTEGER
     zones:
       - zone: Zone2 / Zone3

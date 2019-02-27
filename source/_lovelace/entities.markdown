@@ -155,35 +155,35 @@ icon:
 Entity rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - entity: alarm_control_panel.alarm
-      name: Alarm Panel
-    - device_tracker.demo_paulus
-    - switch.decorative_lights
-    - group.all_lights
-    - group.all_locks
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - entity: alarm_control_panel.alarm
+    name: Alarm Panel
+  - device_tracker.demo_paulus
+  - switch.decorative_lights
+  - group.all_lights
+  - group.all_locks
 ```
 
 Special rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - type: call-service
-      icon: mdi:power
-      name: Bed light
-      action_name: Toggle light
-      service: light.toggle
-      service_data:
-        entity_id: light.bed_light
-    - type: divider
-    - type: weblink
-      name: Home Assistant
-      url: https://www.home-assistant.io/
-      icon: mdi:home-assistant
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - type: call-service
+    icon: mdi:power
+    name: Bed light
+    action_name: Toggle light
+    service: light.toggle
+    service_data:
+      entity_id: light.bed_light
+  - type: divider
+  - type: weblink
+    name: Home Assistant
+    url: https://www.home-assistant.io/
+    icon: mdi:home-assistant
 ```

@@ -23,9 +23,11 @@ To use your Command binary sensor in your installation, add the following to you
 # Example configuration.yaml entry
 binary_sensor:
   - platform: command_line
-    command: cat /proc/sys/net/ipv4/ip_forward
+    command: 'cat /proc/sys/net/ipv4/ip_forward'
 ```
-
+<p class='note'>
+It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
+</p>
 {% configuration %}
 command:
   description: The action to take to get the value.
@@ -78,7 +80,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 # Example configuration.yaml entry
 binary_sensor:
   - platform: command_line
-    command: netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")
+    command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
     name: 'sickragerunning'
     device_class: moving
     payload_on: "Running"
@@ -105,7 +107,7 @@ An alternative solution could look like this:
 binary_sensor:
   - platform: command_line
     name: Printer
-    command: ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail
+    command: 'ping -W 1 -c 1 192.168.1.10 > /dev/null 2>&1 && echo success || echo fail'
     device_class: connectivity
     payload_on: "success"
     payload_off: "fail"
@@ -134,5 +136,3 @@ binary_sensor:
     payload_on: 'active'
     payload_off: 'inactive'
 ```
-
-Note: Use single quotes!

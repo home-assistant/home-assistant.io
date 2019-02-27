@@ -8,8 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: zehnder.png
-ha_category: Hub
+ha_category:
+  - Fan
+  - Sensor
 ha_release: "0.48"
+redirect_from:
+  - /components/fan.comfoconnect/
+  - /components/sensor.comfoconnect/
 ---
 
 The `comfoconnect` component lets you control Zehnder ComfoAir [Q350](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-st)/[450](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-st)/[600](http://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)
@@ -25,7 +30,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 comfoconnect:
-  host: 192.168.1.213
+  host: IP_ADDRESS
 ```
 
 {% configuration %}

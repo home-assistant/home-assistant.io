@@ -8,17 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: ness.png
-ha_category: Alarm
+ha_category:
+  - Alarm
+  - Binary Sensor
 ha_release: 0.85
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/alarm_control_panel.ness_alarm/
+  - /components/binary_sensor.ness_alarm/
 ---
 
 The `ness_alarm` component will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.ness_alarm/): Reports on zone statuses
-- [Alarm Control Panel](/components/alarm_control_panel.ness_alarm/): Reports on alarm status, and can be used to arm/disarm the system
+- Binary Sensor: Reports on zone statuses
+- Alarm Control Panel: Reports on alarm status, and can be used to arm/disarm the system
 
 The module communicates via the [Ness D8x/D16x ASCII protocol](http://www.nesscorporation.com/Software/Ness_D8-D16_ASCII_protocol.pdf).
 
@@ -73,3 +78,23 @@ zones:
       default: motion
       type: string
 {% endconfiguration %}
+
+## {% linkable_title Services %}
+
+### {% linkable_title Service `aux` %}
+
+Trigger an aux output.  This requires PCB version 7.8 or higher.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `output_id` | No | The aux output you wish to change.  A number from 1-4.
+| `state` | Yes | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E.
+
+### {% linkable_title Service `panic` %}
+
+Trigger a panic
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `code` | No | The user code to use to trigger the panic.
+

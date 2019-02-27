@@ -75,4 +75,3 @@ monitored_conditions:
     onpeak_remaining:
       description: Remaining bandwidth (gigabytes).
 {% endconfiguration %}
-

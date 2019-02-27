@@ -14,7 +14,6 @@ ha_release: 0.56
 ha_qa_scale: internal
 ---
 
-
 The `uptime` sensor platform displays the time since the last Home Assistant restart.
 
 ## {% linkable_title Configuration %}

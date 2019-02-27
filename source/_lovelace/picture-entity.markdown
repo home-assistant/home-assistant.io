@@ -113,17 +113,17 @@ hold_action:
 Basic example:
 
 ```yaml
-- type: picture-entity
-  entity: light.bed_light
-  image: /local/bed_light.png
+type: picture-entity
+entity: light.bed_light
+image: /local/bed_light.png
 ```
 
 Different images for each state:
 
 ```yaml
-- type: picture-entity
-  entity: light.bed_light
-  state_image:
-    "on": /local/bed_light_on.png
-    "off": /local/bed_light_off.png
+type: picture-entity
+entity: light.bed_light
+state_image:
+  "on": /local/bed_light_on.png
+  "off": /local/bed_light_off.png
 ```

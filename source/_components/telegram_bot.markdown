@@ -150,6 +150,7 @@ Respond to a callback query originated by clicking on an online keyboard button.
 | `show_alert`              |      yes | True/false for show a permanent notification. Defaults to False. |
 
 ### {% linkable_title Service `telegram_bot.delete_message` %}
+
 Delete a previously sent message in a conversation.
 
 | Service data attribute    | Optional | Description                                      |
@@ -161,7 +162,7 @@ Delete a previously sent message in a conversation.
 
 The [`telegram` notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
-The required yaml configuration now reduces to:
+The required YAML configuration now reduces to:
 
 ```yaml
 notify:

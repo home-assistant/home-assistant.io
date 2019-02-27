@@ -70,7 +70,7 @@ filters:
   type: list
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are  `lowpass`, `outlier`, `range`, `throttle` and `time_simple_moving_average`.
+      description: Algorithm to be used to filter data. Available filters are  `lowpass`, `outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
       required: true
       type: string
     window_size:
@@ -148,6 +148,14 @@ The Throttle filter (`throttle`) will only update the state of the sensor for th
 To adjust the rate you need to set the window_size. To throttle a sensor down to 10%, the `window_size` should be set to 10, for 50% should be set to 2.
 
 This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes. 
+
+### {% linkable_title Time Throttle %}
+
+The Time Throttle filter (`time_throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
+
+To adjust the rate you need to set the window_size. To throttle a sensor down to 1 value per minute, the `window_size` should be set to 00:01.
+
+This filter is relevant when you have a sensor which produces states at a very high inconstant rate, which you might want to throttle down to some constant rate for storing or visualization purposes. 
 
 ### {% linkable_title Time Simple Moving Average %}
 

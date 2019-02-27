@@ -37,7 +37,7 @@ workgroup:
   default: "`WORKGROUP`"
   type: string
 username:
-  description: Username for logging in if guest login is not used.
+  description: Username for logging in.
   required: true
   type: string
 password:

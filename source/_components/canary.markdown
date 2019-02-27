@@ -8,12 +8,25 @@ comments: false
 sharing: true
 footer: true
 logo: canary.png
-ha_category: Hub
+ha_category:
+  - Alarm
+  - Camera
+  - Sensor
 ha_release: "0.60"
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/alarm_control_panel.canary/
+  - /components/camera.canary/
+  - /components/sensor.canary/
 ---
 
 The `canary` component allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- Alarm
+- [Camera](#camera)
+- [Sensor](#sensor)
 
 ## {% linkable_title Configuration %}
 
@@ -46,8 +59,42 @@ timeout:
 
 Once loaded, your front end will have the following components:
 
-* A camera image triggered by motion for each camera.
-* An alarm control panel for each location.
-* A sensor per camera that reports temperature.
-* A sensor per camera that reports humidity.
-* A sensor per camera that reports air quality.
+- A camera image triggered by motion for each camera.
+- An alarm control panel for each location.
+- A sensor per camera that reports temperature.
+- A sensor per camera that reports humidity.
+- A sensor per camera that reports air quality.
+
+## {% linkable_title Camera %}
+
+The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.
+
+Once you have [Canary component](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
+
+## {% linkable_title Configuration %}
+
+You can add the following to your `configuration.yaml` file to configure `canary` camera with optional settings:
+
+```yaml
+camera:
+  - platform: canary
+```
+
+{% configuration %}
+ffmpeg_arguments:
+  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
+  required: false
+  type: string
+{% endconfiguration %}
+
+## {% linkable_title Sensor %}
+
+The `canary` sensor platform allows you to integrate the sensors of your [Canary](https://canary.is) devices in Home Assistant.
+
+To add `canary` sensors to your installation, follow instructions above.
+
+Once loaded, you will see following sensors:
+
+- A sensor per camera that reports temperature.
+- A sensor per camera that reports humidity.
+- A sensor per camera that reports air quality.

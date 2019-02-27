@@ -83,7 +83,7 @@ password:
   required: true
   type: string
 dhcp_software:
-  description: "The DHCP software used in your router: `dnsmasq`, `dhcpd`, or `none`."
+  description: "The DHCP software used in your router: `dnsmasq`, `odhcpd`, or `none`."
   required: false
   default: dnsmasq
   type: string

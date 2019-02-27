@@ -180,7 +180,7 @@ calendar:
   alias: worktime wakeup
   trigger:
     platform: time
-    at: 06:40:00
+    at: '06:40:00'
   action:
   - service: media_player.media_play
     entity_id: media_player.bedroom

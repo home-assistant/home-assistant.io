@@ -128,7 +128,7 @@ media_player:
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: "B4-E6-2A-1E-11-0F"
+        mac: "B4:E6:2A:1E:11:0F"
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be

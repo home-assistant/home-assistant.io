@@ -65,4 +65,3 @@ sensor:
     name: Nova
     brand: novafitness,sds011
 ```
-

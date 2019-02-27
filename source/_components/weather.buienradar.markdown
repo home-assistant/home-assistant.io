@@ -59,7 +59,7 @@ weather:
     # Force 'Meetstation Volkel' to be used:
     latitude: 51.65
     longitude: 5.70
-    forecast: True
+    forecast: true
 ```
 
 <p class='note'>

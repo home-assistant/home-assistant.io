@@ -55,4 +55,4 @@ For remote access for a component, for example, a device tracker, you have to en
   * A [self-signed certificate](/cookbook/tls_self_signed_certificate/) - be warned though, some services will refuse to work with self-signed certificates
 3. Optionally use a proxy like [NGINX](/docs/ecosystem/nginx/), [Apache](/cookbook/apache_configuration/), or another. These allow you to provide finer-grained access. You could use this to limit access to specific parts of the API (for example, only `/api/owntracks/`)
 4. Enable IP Filtering and configure a low [Login Attempts Threshold](/components/http/)
-5. If you use a proxy then install [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to [monitor your proxy logs](https://www.home-assistant.io/cookbook/fail2ban/) (or Home Assistant logs) for failed authentication
+5. If you use a proxy then install [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to [monitor your proxy logs](/cookbook/fail2ban/) (or Home Assistant logs) for failed authentication

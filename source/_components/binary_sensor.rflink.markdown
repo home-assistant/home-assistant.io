@@ -13,7 +13,7 @@ ha_iot_class: "Local Push"
 ha_release: "0.81"
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
@@ -37,7 +37,7 @@ binary_sensor:
 devices:
   description: A list of binary sensors.
   required: false
-  type: map
+  type: list
   keys:
     rflink_ids:
       description: RFLink ID of the device
@@ -45,15 +45,16 @@ devices:
       type: map
       keys:
         name:
-          description: Name of the device, defaults to RFLink ID.
+          description: Name for the device.
           required: false
+          default: RFLink ID
           type: string
         aliases:
           description: Alternative RFLink ID's this device is known by.
           required: false
           type: list
         device_class:
-          description: The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend.
+          description: The [type or class of the sensor](/components/binary_sensor/#device-class) to set the icon in the frontend.
           required: false
           type: string
         off_delay:

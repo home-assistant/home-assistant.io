@@ -51,4 +51,3 @@ name:
   default: "sigfox"
   type: string
 {% endconfiguration %}
-

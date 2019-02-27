@@ -1,5 +1,5 @@
 {%- assign components = site.components | sort_natural: 'title' -%}
-{%- assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/master/homeassistant' -%}
+{%- assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/dev/homeassistant' -%}
 <section class="aside-module grid__item one-whole lap-one-half">
   {%- include edit_github.html -%}
 
@@ -14,13 +14,17 @@
   {%- if file_parts.size == 2 -%}
     {%- assign is_platform = true -%}
     {%- assign imp_name = file_parts[1] -%}
+    {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
     {%- assign parent_name = file_parts[0] -%}
     {%- assign parent_url = parent_name | prepend: '/components/' | append: '/' -%}
+    {%- assign embedded_url = imp_name | prepend: '/components/' | append: '/' -%}
+    {%- assign embedded_component = components | where: 'url', embedded_url | first -%}
     {%- assign parent_component = components | where: 'url', parent_url | first -%}
   {%- else -%}
     {%- assign is_platform = false -%}
     {%- assign imp_name = file_parts | first -%}
-  {%- endif -%}
+    {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
+{%- endif -%}
 
   {%- if page.ha_iot_class -%}
     <div class='section'>
@@ -50,12 +54,19 @@
     </div>
   {%- endif -%}
 
-  {%- if is_platform -%}
+  {%- if page.ha_config_flow -%}
     <div class='section'>
-      Source:
-      <a href='{{github_main_repo}}{{parent_url}}{{imp_name}}.py'>{{parent_name}}/{{imp_name}}.py</a>
+      This component is configurable via UI
     </div>
   {%- endif -%}
+
+  <div class='section'>
+    {%- if is_platform -%}
+      Source: <a href='{{github_main_repo}}{{imp_url}}{{parent_name}}.py'>{{imp_name}}/{{parent_name}}.py</a>
+    {%- else -%}
+      Source: <a href='{{github_main_repo}}{{imp_url}}'>{{imp_url}}</a>
+    {%- endif -%}
+  </div>
 
   {%- if is_platform and parent_name != 'sensor' -%}
     <div class='section'>
@@ -88,7 +99,6 @@
 
   {%- endif -%}
 
-
   {%- assign related_found = false -%}
   {%- for component in components -%}
     {%- if component.url != page.url -%}
@@ -118,22 +128,14 @@
     </div>
   {%- endif -%}
 
-
-
-  {%- if page.ha_category -%}
+  {%- if page.ha_category.first -%}
     <div class='section'>
-    <h1 class="title delta">Category {{page.ha_category}}</h1>
+    <h1 class="title delta">Categories</h1>
     <ul class='divided'>
-    {%- for component in components -%}
-      {%- if component.ha_category == page.ha_category -%}
-        <li>
-          {%- if component.url == page.url -%}
-            {{component.title}}
-          {%- else -%}
-            <a href='{{component.url}}'>{{component.title}}</a>
-          {%- endif -%}
-        </li>
-      {%- endif -%}
+    {%- for category in page.ha_category -%}
+      <li>
+        <a href='/components/#{{ category | slugify }}'>{{ category }}</a>
+      </li>
     {%- endfor -%}
     </ul>
     </div>

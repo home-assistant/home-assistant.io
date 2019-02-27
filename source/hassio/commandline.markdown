@@ -56,9 +56,9 @@ $ hassio hardware audio
 
 To update Home Assistant to a specific version, use the command:
 ```bash
-hassio homeassistant update --options version=x.y.z
+hassio homeassistant update --version=x.y.z
 ```
-Replace x.y.z with the desired version like `version=0.74.2`
+Replace x.y.z with the desired version like `--version=0.74.2`
 
 You can get a better description of the CLI capabilities by typing `hassio help`:
 

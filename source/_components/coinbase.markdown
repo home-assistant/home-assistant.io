@@ -8,14 +8,18 @@ comments: false
 sharing: true
 footer: true
 logo: coinbase.png
-ha_category: Finance
+ha_category:
+  - Finance
+  - Sensor
 ha_release: 0.61
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/sensor.coinbase/
 ---
 
 The `coinbase` component lets you access account balances and exchange rates from [coinbase](https://coinbase.com).
 
-You will need to obtain an API key from coinbase's [developer site](https://www.coinbase.com/settings/api) to use this component. You need to give read access to `wallet:accounts` in order for the component to access relevant data. 
+You will need to obtain an API key from coinbase's [developer site](https://www.coinbase.com/settings/api) to use this component. You need to give read access to `wallet:accounts` in order for the component to access relevant data.
 
 ## {% linkable_title Configuration %}
 

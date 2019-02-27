@@ -28,14 +28,14 @@ cards:
 Basic example:
 
 ```yaml
-- type: vertical-stack
-  cards:
-    - type: picture-entity
-      entity: camera.demo_camera
-      show_info: false
-    - type: entities
-      entities:
-        - binary_sensor.movement_backyard
+type: vertical-stack
+cards:
+  - type: picture-entity
+    entity: camera.demo_camera
+    show_info: false
+  - type: entities
+    entities:
+      - binary_sensor.movement_backyard
 ```
 
 <p class="img">
@@ -46,19 +46,19 @@ Basic example:
 Combination of vertical and horizontal stack card:
 
 ```yaml
-- type: vertical-stack
-  cards:
-    - type: picture-entity
-      entity: group.all_lights
-      image:  /local/house.png
-    - type: horizontal-stack
-      cards:
-        - type: picture-entity
-          entity: light.ceiling_lights
-          image: /local/bed_1.png
-        - type: picture-entity
-          entity: light.bed_light
-          image: /local/bed_2.png
+type: vertical-stack
+cards:
+  - type: picture-entity
+    entity: group.all_lights
+    image:  /local/house.png
+  - type: horizontal-stack
+    cards:
+      - type: picture-entity
+        entity: light.ceiling_lights
+        image: /local/bed_1.png
+      - type: picture-entity
+        entity: light.bed_light
+        image: /local/bed_2.png
 ```
 
 <p class="img">

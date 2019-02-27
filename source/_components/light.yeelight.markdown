@@ -13,14 +13,28 @@ ha_release: 0.32
 ha_iot_class: "Local Polling"
 ---
 
-The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant.
+The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
 
-### {% linkable_title Example configuration %}
+### {% linkable_title Example configuration (Automatic) %}
+After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
+
+```yaml
+# Example customize.yaml entry
+light.yeelight_rgb_XXXXXXXXXXXX:
+  friendly_name: Living Room
+light.yeelight_color2_XXXXXXXXXXXX:
+  friendly_name: Downstairs Toilet
+```
+
+### {% linkable_title Example configuration (Manual) %}
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
+discovery:
+  ignore:
+    - yeelight
 light:
   - platform: yeelight
     devices:
@@ -52,16 +66,40 @@ devices:
           description: Enable music mode.
           required: false
           type: boolean
-          default: False
+          default: false
         save_on_change:
           description: Saves the bulb state in its nonvolatile memory when changed from Home Assistant.
           required: false
           type: boolean
-          default: False
+          default: false
         model:
           description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
+custom_effects:
+  description: List of custom effects to add. Check examples below.
+  required: false
+  type: array
+  keys:
+    name:
+      description: Name of effect.
+      required: true
+      type: string
+    flow_params:
+       description: Flow params for effect.
+       required: true
+       type: map
+       keys:
+         count:
+           description: The number of times to run this flow (0 to run forever).
+           required: false
+           type: integer
+           default: 0
+         transitions:
+           description: List of transitions, for that effect, check [example](#custom-effects).
+           required: true
+           type: array
+
 {% endconfiguration %}
 
 #### {% linkable_title Music mode  %}
@@ -108,8 +146,19 @@ Set an operation mode.
 
 | Service data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
-| `entity_id`               |      yes | Only act on a specific yeelight. Else targets all.                                          |
+| `entity_id`               |       no | Only act on a specific lights.                                                              |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
+
+
+### {% linkable_title Service `light.yeelight_start_flow` %}
+
+Start flow with specified transitions
+
+| Service data attribute    | Optional | Description                                                                                 |
+|---------------------------|----------|---------------------------------------------------------------------------------------------|
+| `entity_id`               |       no | Only act on a specific lights.                                                              |
+| `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
+| `transitions`             |       no | Array of transitions. See [examples below](#custom-effects).                                |
 
 ## {% linkable_title Examples %}
 
@@ -127,8 +176,8 @@ light:
       192.168.1.25:
         name: Living Room
         transition: 1000
-        use_music_mode: True
-        save_on_change: True
+        use_music_mode: true
+        save_on_change: true
 ```
 
 ### {% linkable_title Multiple bulbs %}
@@ -143,4 +192,35 @@ light:
         name: Living Room
       192.168.1.13:
         name: Front Door
+```
+
+### {% linkable_title Custom effects %}
+
+This example shows how you can add your custom effects in your configuration.
+
+Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
+
+  where the array values are as per the following:
+  - RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being                                                               in milliseconds (minimum of 50) and final brightness to transition to 0-100                                                             (%)
+  - HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in                                                             milliseconds (minimum 50) and final brightness 0-100 (%)
+  - TemperatureTransition: [temp, duration, brightness]     with temp being the final color temperature between 1700 and 6500, duration                                                             in milliseconds (minimum 50) and final brightness to transition to 0-100 (%)
+  - SleepTransition: [duration]                             with duration being in integer for effect time in milliseconds (minimum 50)
+
+More info about transitions and their expected parameters can be found in [python-yeelight documentation](https://yeelight.readthedocs.io/en/stable/flow.html).
+
+
+```yaml
+light:
+  - platform: yeelight
+    devices:
+      192.168.1.25:
+        name: Living Room
+    custom_effects:
+      - name: 'Fire Flicker'
+        flow_params:
+          count: 0
+          transitions:
+            - TemperatureTransition: [1900, 1000, 80]
+            - TemperatureTransition: [1900, 2000, 60]
+            - SleepTransition:       [1000]
 ```

@@ -36,13 +36,14 @@ notify:
     username: YOUR_ACCOUNT_ID
     access_token: TOKEN
 ```
+
 {% configuration %}
-username: 
+username:
   description: This is the id given by FreeMobile to access to your online account.
-  required: true 
-  type: string 
-access_token: 
-  description: You can get this token by activating the SMS API in your online account. 
-  required: true 
-  type: string 
+  required: true
+  type: string
+access_token:
+  description: You can get this token by activating the SMS API in your online account.
+  required: true
+  type: string
 {% endconfiguration %}

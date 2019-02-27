@@ -101,7 +101,7 @@ Let's look at the `device_tracker.yaml` file from our example:
   hosts: 192.168.2.0/24
   home_interval: 3
 
-  track_new_devices: yes
+  track_new_devices: true
   interval_seconds: 40
   consider_home: 120
 ```

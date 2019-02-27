@@ -13,7 +13,6 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.81
 ---
 
-
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
 
 ## {% linkable_title Setup %}
@@ -63,7 +62,7 @@ The public information is provided from [Transport NSW](https://opendata.transpo
 
 ## {% linkable_title Examples %}
 
-More example configurations for bus or ferry. 
+More example configurations for bus or ferry.
 
 ```yaml
 # Example bus route configuration.yaml entry

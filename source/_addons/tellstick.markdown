@@ -92,6 +92,8 @@ code:
   type: string
 {% endconfiguration %}
 
+For more information about the configuration including protocols, see the [telldus documentation](https://developer.telldus.com/wiki/TellStick_conf).
+
 ## {% linkable_title Service calls %}
 
 If you wish to teach a self-learning device in your TellStick configuration:

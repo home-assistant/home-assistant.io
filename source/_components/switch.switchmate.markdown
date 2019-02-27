@@ -15,6 +15,8 @@ ha_iot_class: "Local Polling"
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
 
+## {% linkable_title Configuration %}
+
 To enable it, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -31,13 +33,12 @@ mac:
 name:
   description: The name used to display the switch in the frontend.
   required: false
-  type: string 
+  type: string
 flip_on_off:
   description: Option to flip the on/off state.
   required: false
-  type: boolean 
+  type: boolean
   default: false
 {% endconfiguration %}
-
 
 The component is tested with SwitchMate Lighting Control Rocker and SwitchMate Lighting Control Toggle.

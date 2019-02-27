@@ -14,8 +14,7 @@ ha_iot_class: "Cloud Polling"
 redirect_from: /components/climate.econet/
 ---
 
-
-The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](http://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vaction mode.
+The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](http://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.
 
 ## {% linkable_title Configuration %}
 
@@ -46,9 +45,9 @@ You can use the service `econet.add_vacation` to create a new vacation for your 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The entity id of the water heater to add the vaction to.
-| `start_date` | yes | This is a Unix timestamp for when the vaction should start.
-| `end_date` | yes | this is a Unix timestamp for when the vaction should end.
+| `entity_id` | yes | The entity id of the water heater to add the vacation to.
+| `start_date` | yes | This is a Unix timestamp for when the vacation should start.
+| `end_date` | yes | this is a Unix timestamp for when the vacation should end.
 
 <p class='note'>
 The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
@@ -56,11 +55,11 @@ The Unix timestamps can be obtained from the `input_datetime` component. This wi
 
 ### {% linkable_title Service `econet.delete_vacation` %}
 
-You can use the service `econet.delete_vacation` to remove all vactions from an EcoNet water heater.
+You can use the service `econet.delete_vacation` to remove all vacations from an EcoNet water heater.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | The entity id of the water heater to remove the vaction from.
+| `entity_id` | yes | The entity id of the water heater to remove the vacation from.
 
 <p class='note'>
 Econet water heaters use to live under the `climate` platform prior to release 0.81.

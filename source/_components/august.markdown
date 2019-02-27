@@ -8,12 +8,27 @@ comments: false
 sharing: true
 footer: true
 logo: august.png
-ha_category: Doorbell
+ha_category:
+  - Doorbell
+  - Binary Sensor
+  - Camera
+  - Lock
 ha_release: "0.64"
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/binary_sensor.august/
+  - /components/camera.august/
+  - /components/lock.august/
 ---
 
-The `august` component allows you to integrate your [August](http://august.com) devices in Home Assistant. Currently this component supports August Lock and Doorbell.
+The `august` component allows you to integrate your [August](http://august.com) devices in Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- Doorbell
+- Binary Sensor
+- Camera
+- Lock
 
 <p class='note'>
 August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
@@ -54,3 +69,19 @@ timeout:
 {% endconfiguration %}
 
 Once Home Assistant is started, a configurator will pop up asking you to enter verification code that is sent to your phone number or email.
+
+### {% linkable_title Binary Sensor %}
+
+If you have August Doorbell, once you have enabled the August component, you should see following sensors:
+
+- Doorbell ding sensor
+- Doorbell motion sensor
+- Doorbell online sensor
+
+If you have August Smart Lock with DoorSense, once you have enabled the August component, you should see the following sensors:
+
+- Door sensor
+
+### {% linkable_title Camera %}
+
+The `august` camera platform allows you to view the latest camera image (triggered by motion) by your [August](http://august.com) device in Home Assistant.

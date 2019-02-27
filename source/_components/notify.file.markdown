@@ -35,7 +35,7 @@ filename:
   required: true
   type: string
 timestamp:
-  description: Setting `timestamp` to `True` adds a timestamp to every entry.
+  description: Setting `timestamp` to `true` adds a timestamp to every entry.
   required: false
   default: false
   type: boolean

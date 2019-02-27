@@ -29,7 +29,7 @@ A device's actual operating mode can be tracked via its `device_state_attributes
 	'zoneId': '999999',
 	'temperatureStatus': {
 		'temperature': 21.5,
-		'isAvailable': True
+		'isAvailable': true
 	},
 	'activeFaults': [],
 	'setpointStatus': {

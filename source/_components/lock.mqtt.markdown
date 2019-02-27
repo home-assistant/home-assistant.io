@@ -89,6 +89,10 @@ payload_not_available:
   required: false
   type: string
   default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
 unique_id:
    description: An ID that uniquely identifies this lock. If two locks have the same unique ID, Home Assistant will raise an exception.
    required: false

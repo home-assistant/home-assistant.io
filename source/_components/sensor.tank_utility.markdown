@@ -55,4 +55,3 @@ unit_of_measurement:
   required: true
   type: map
 {% endconfiguration %}
-

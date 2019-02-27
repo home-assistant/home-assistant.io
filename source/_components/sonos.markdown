@@ -100,7 +100,6 @@ Night Sound and Speech Enhancement modes are only supported on Sonos PLAYBAR and
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
 
-
 ## {% linkable_title Advanced use %}
 
 For advanced uses, there are some manual configuration options available.
@@ -140,4 +139,3 @@ sonos:
 This component is using the [SoCo](https://github.com/SoCo/SoCo) project.  
 
 To be able to support the Sonos components and features it is mandatory to have TCP port 1400 opened. This port is used to receive events about changes on the Sonos network. For more details please see the [SoCo documentation](https://github.com/SoCo/SoCo)  and source code of the SoCo project.
-

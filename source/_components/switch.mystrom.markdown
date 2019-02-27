@@ -13,8 +13,7 @@ ha_release: 0.9
 ha_iot_class: "Local Polling"
 ---
 
-
-The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches. The built-in sensor is measuring the power consumption while the switch is on. 
+The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches. The built-in sensor is measuring the power consumption while the switch is on.
 
 ## {% linkable_title Setup %}
 
@@ -23,7 +22,6 @@ Make sure that you have enabled the REST API under **Advanced** in the web front
 <p class='img'>
   <img src='{{site_root}}/images/components/mystrom/mystrom-advanced.png' />
 </p>
-
 
 ## {% linkable_title Configuration %}
 
@@ -53,18 +51,18 @@ Check if you are able to access the device located at `http://IP_ADRRESS`. The d
 ```bash
 $ curl -X GET -H "Content-Type: application/json" http://IP_ADDRESS/report
 {
-	"power":	0,
-	"relay":	false
+  "power": 0,
+  "relay": false
 }
 ```
 
 or change its state:
 
 ```bash
-$ curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
+curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 ```
 
-### {% linkable_title Get the current power consumption %}
+## {% linkable_title Get the current power consumption %}
 
 The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/sensor.template/).
 
@@ -80,4 +78,3 @@ sensor:
         value_template: "{{ states.switch.office.attributes.current_power_w }}"
 ```
 {% endraw %}
-

@@ -25,7 +25,6 @@ sensor:
   - platform: lyft
     client_id: CLIENT_ID
     client_secret: CLIENT_SECRET
-    start_latitude: 37.8116380
 ```
 
 {% configuration %}
@@ -39,12 +38,14 @@ client_secret:
   type: string
 start_latitude:
   description: The starting latitude for a trip.
-  required: true
+  required: false
   type: float
+  default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
 start_longitude:
   description: The starting longitude for a trip.
-  required: true
+  required: false
   type: float
+  default: "The longitude defined under the `homeassistant` key in `configuration.yaml`."
 end_latitude:
   description: The ending latitude for a trip. While `end_latitude` is optional, providing an `end_latitude`/`end_longitude` allows price estimates as well as time.
   required: false

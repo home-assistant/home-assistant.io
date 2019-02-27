@@ -8,9 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: eyezon.png
-ha_category: Alarm
+ha_category:
+  - Alarm
+  - Binary Sensor
+  - Sensor
 ha_release: 0.23
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/alarm_control_panel.envisalink/
+  - /components/binary_sensor.envisalink/
+  - /components/sensor.envisalink/
 ---
 
 The `envisalink` component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this component is built. Currently, the Envisalink version 4 is the latest model. This component supports both the evl3 and the evl4.
@@ -19,9 +26,9 @@ Please visit the [eyezon website](http://www.eyezon.com/) for further informatio
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.envisalink/): Reports on zone status
-- [Sensor](/components/sensor.envisalink/): Emulates an alpha-numeric keypad attached to the alarm panel
-- [Alarm Control Panel](/components/alarm_control_panel.envisalink/): Reports on partition status, and can be used to arm/disarm the system
+- Binary Sensor: Reports on zone status (Check the [type/class](/components/binary_sensor/) list for a possible visualization of your zone.)
+- Sensor: Emulates an alpha-numeric keypad attached to the alarm panel
+- Alarm Control Panel: Reports on partition status, and can be used to arm/disarm the system
 
 This is a fully event-based component. Any event sent by the Envisalink device will be immediately reflected within Home Assistant.
 

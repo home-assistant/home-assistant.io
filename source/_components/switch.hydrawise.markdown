@@ -27,7 +27,7 @@ switch:
 
 {% configuration %}
 watering_minutes:
-  description: When manual watering is enabled this will determine the length of time in minutes that irrigation zone will run. The allowed values are 5, 10, 15, 30, 45, or 60.
+  description: When manual watering is enabled this will determine the length of time in minutes that the irrigation zone will run. The allowed values are 5, 10, 15, 30, 45, or 60.
   required: false
   type: integer
   default: 15
@@ -62,6 +62,5 @@ switch:
   - platform: hydrawise
     monitored_conditions: manual_watering
 ```
-
 
 Finish the configuration by visiting the [Hydrawise binary sensor](/components/binary_sensor.hydrawise) and [Hydrawise sensor](/components/sensor.hydrawise/) documentation.

@@ -22,10 +22,11 @@ a gateway device in your IoT platform instance. For instructions on how to do
 this check the [official documentation](https://console.bluemix.net/docs/services/IoT/gateways/dashboard.html#IoT_connectGateway)
 which provides the details on doing this. After you register the gateway device
 for your home-assistant you'll need 4 pieces of information:
- - Organization ID
- - Gateway device Type
- - Gateway device ID
- - Authentication Token
+
+- Organization ID
+- Gateway device Type
+- Gateway device ID
+- Authentication Token
 
 With this basic information you can configure the component:
 

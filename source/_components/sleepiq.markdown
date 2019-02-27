@@ -8,9 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: sleepiq.png
-ha_category: Health
+ha_category:
+  - Health
+  - Sensor
+  - Binary Sensor
 ha_release: 0.29
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.sleepiq/
+  - /components/sensor.sleepiq/
 ---
 
 The SleepIQ implementation lets you view sensor data from [SleepIQ by SleepNumber](http://www.sleepnumber.com/sn/en/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
@@ -40,4 +46,3 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-

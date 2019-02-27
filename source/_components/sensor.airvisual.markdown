@@ -17,8 +17,10 @@ The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) 
 
 This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
+The Community API key is valid for 12 months after which it will expire. You must then go back to the Airvisual website, delete your old key, create a new one following the same steps and update your configuration with the new key. 
+
 <p class='note warning'>
-The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes by default. Modification of this (via the `scan_interval` key) to a too-low value may result in your API key being deactivated.
+The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Modification of this (via the `scan_interval` key) to a too-low value may result in your API key being deactivated.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -47,7 +49,7 @@ show_on_map:
   type: boolean
   default: true
 scan_interval:
-  description: "The rate at which AirVisual should be polled for new data."
+  description: "The rate in seconds at which AirVisual should be polled for new data."
   required: optional
   type: integer
   default: 600
@@ -86,7 +88,7 @@ sensor:
     monitored_conditions:
       - cn
     show_on_map: false
-    scan_interval: 30
+    scan_interval: 300
     latitude: 42.81212
     longitude: 108.12422
 ```
@@ -100,7 +102,7 @@ sensor:
     monitored_conditions:
       - us
     show_on_map: false
-    scan_interval: 30
+    scan_interval: 300
     city: Los Angeles
     state: California
     country: USA

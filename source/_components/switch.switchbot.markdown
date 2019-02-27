@@ -13,7 +13,7 @@ ha_release: 0.78
 ha_iot_class: "Local Polling"
 ---
 
-This `Switchbot` switch platform allow you to control Switchbot [devices]( https://www.switch-bot.com/).
+This `Switchbot` switch platform allows you to control Switchbot [devices]( https://www.switch-bot.com/).
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -31,5 +31,5 @@ mac:
 name:
   description: The name used to display the switch in the frontend.
   required: false
-  type: string 
+  type: string
 {% endconfiguration %}

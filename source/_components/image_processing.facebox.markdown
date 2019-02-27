@@ -77,7 +77,7 @@ source:
 
 ## {% linkable_title Automations %}
 
-Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](https://www.home-assistant.io/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
+Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
 
 {% raw %}
 ```yaml
@@ -139,7 +139,7 @@ You can use an automation to receive a notification when you train a face:
 ```
 {% endraw %}
 
-Any errors on teaching will be reported in the logs. If you enable [system_log](https://www.home-assistant.io/components/system_log/) events:
+Any errors on teaching will be reported in the logs. If you enable [system_log](/components/system_log/) events:
 
 ```yaml
 system_log:

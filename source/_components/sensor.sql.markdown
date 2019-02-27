@@ -68,7 +68,7 @@ queries:
 
 ## {% linkable_title Examples %}
 
-In this section you find some real-life examples of how to use this sensor.
+In this section, you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title Current state of an entity %}
 
@@ -81,7 +81,7 @@ sensor:
     unit_of_measurement: '°C'
 ```
 
-The query will look like this: 
+The query will look like this:
 
 ```sql
 SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;
@@ -98,7 +98,6 @@ sensor:
         column: 'state'
 ```
 {% endraw %}
-
 
 Note that the SQL sensor state corresponds to the last row of the SQL result set.
 
@@ -123,7 +122,7 @@ sensor:
       - name: DB size
         query: "SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;"
         column: "db_size"
-        unit_of_measurement: MB 
+        unit_of_measurement: MB
 ```
 {% endraw %}
 

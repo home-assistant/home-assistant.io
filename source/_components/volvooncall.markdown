@@ -52,22 +52,47 @@ volvooncall:
   region: cn
 ```
 
-A more advanced example for setting the vehicle name and selecting what resources to display:
+{% configuration %}
+username:
+  description: The username associated with your Volvo On Call account.
+  required: true
+  type: string
+password:
+  description: The password for your given Volvo On Call account.
+  required: true
+  type: string
+region:
+  description: The region where the Volvo is registered. Needs to be set for users in North America or China.
+  required: false
+  type: string
+service_url:
+  description: The service URL to use for Volvo On Call. Normally not necessary to specify.
+  required: false
+  type: string
+mutable:
+  description: If set to true, include components that can make changes to the vehicle (unlock, start engine, start heater etc).
+  required: false
+  default: true
+  type: boolean
+name:
+  description: Make it possible to provide a name for the vehicles.
+  required: false
+  type: string
+resources:
+  description: A list of resources to display (defaults to all available).
+  required: false
+  type: list
+scandinavian_miles:
+  description: If set to true, Scandinavian miles ("mil") are used for distances and fuel range.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
-```yaml
-# Example configuration.yaml entry
-volvooncall:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  name:
-    abc123: 'Batmobile'
-  resources:
-    - odometer
-    - lock
-    - heater
-```
+### {% linkable_title Available Resources %}
 
-Currently available resources:
+The list of currently available resources:
+
 - `position`
 - `lock`
 - `heater`
@@ -105,39 +130,19 @@ Currently available resources:
 - `any_door_open`
 - `any_window_open`
 
-{% configuration %}
-username:
-  description: The username associated with your Volvo On Call account.
-  required: true
-  type: string
-password:
-  description: The password for your given Volvo On Call account.
-  required: true
-  type: string
-region:
-  description: The region where the Volvo is registered. Needs to be set for users in North America or China.
-  required: false
-  type: string
-service_url:
-  description: The service URL to use for Volvo On Call. Normally not necessary to specify.
-  required: false
-  type: string
-mutable:
-  description: If set to true, include components that can make changes to the vehicle (unlock, start engine, start heater etc).
-  required: false
-  default: true
-  type: boolean
-name:
-  description: Make it possible to provide a name for the vehicles.
-  required: false
-  type: string
-resources:
-  description: A list of resources to display (defaults to all available).
-  required: false
-  type: list
-scandinavian_miles:
-  description: If set to true, Scandinavian miles ("mil") are used for distances and fuel range.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
+## {% linkable_title Advanced Examples %}
+
+A more advanced example for setting the vehicle name and selecting what resources to display:
+
+```yaml
+# Example configuration.yaml entry
+volvooncall:
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  name:
+    abc123: 'Batmobile'
+  resources:
+    - odometer
+    - lock
+    - heater
+```
