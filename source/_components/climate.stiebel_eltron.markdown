@@ -57,7 +57,7 @@ Full configuration example including modbus setup shown below:
 # Full example configuration.yaml entry
 modbus:
   type: tcp
-  host: 192.168.1.20
+  host: YOUR_ISGWEB_IP
   port: 502
 
 climate:
