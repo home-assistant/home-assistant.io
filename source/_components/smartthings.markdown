@@ -265,7 +265,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 
 ### {% linkable_title Scene %}
 
-The SmartThings Scene platform lets you activate scenes defined in SmartThings with an scene entity representing each SmartThings scenes within the location.
+The SmartThings Scene platform lets you activate scenes defined in SmartThings with a scene entity representing each SmartThings scenes within the location.
 
 ### {% linkable_title Switch %}
 
