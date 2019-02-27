@@ -56,7 +56,7 @@ xshut:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Full Examples %}
+## {% linkable_title Example %}
 
 The distance is measured in millimiters, according to the VL53L1X specifications.
 
