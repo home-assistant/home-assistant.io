@@ -35,7 +35,7 @@ A `velux` section must be present in the `configuration.yaml` file and contain t
 # Example configuration.yaml entry
 velux:
   host: "192.168.1.23"
-  password: "velux123"
+  password: "VELUX_PASSWORD"
 ```
 
 {% configuration %}
@@ -44,7 +44,7 @@ host:
   required: true
   type: string
 password:
-  description: The password of the KLF 200 interface.
+  description: The password of the KLF 200 interface. Note that this is the same as the WiFi password (in the upper box on the back), *not* the password for the web login.
   required: true
   type: string
 {% endconfiguration %}

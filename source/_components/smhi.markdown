@@ -8,12 +8,20 @@ comments: false
 sharing: true
 footer: true
 logo: smhi.png
-ha_category: Hub
+ha_category:
+ - Hub
+ - Weather
 ha_release: 0.81
 ha_iot_class: "Cloud Polling"
+redirect_from:
+  - /components/weather.smhi/
 ---
 
 The `smhi` component adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
+
+There is currently support for the following device types within Home Assistant:
+
+- Weather
 
 ## {% linkable_title Configuration %}
 

@@ -27,6 +27,12 @@ The Point hub enables integration with the [Minut Point](https://minut.com/). To
 
 Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link. When you follow the link and click on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
 
+There is currently support for the following device types within Home Assistant:
+
+- [Alarm](#alarm)
+- [Binary Sensor](#binary-sensor)
+- [Sensor](#sensor)
+
 ### {% linkable_title Configuration %}
 
 ```yaml
