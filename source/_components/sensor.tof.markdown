@@ -68,7 +68,7 @@ sensor:
     i2c_address: 0x29
     xshut: 16
 ```
-Several devices maybe attached but a single GPIO port from RPI is selected to reset all devices. XSHUT is initialized pulsing LOW and after that it is kept HIGH all time. This version use VL53L1X full range mode only that may reach up to 4 meters.
+Several devices maybe attached and a GPIO port from RPI is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that it is kept HIGH all time. This version use VL53L1X long range mode that may reach up to 4 meters.
 
 ## {% linkable_title Directions for installing i2c on Raspberry Pi %}
 
