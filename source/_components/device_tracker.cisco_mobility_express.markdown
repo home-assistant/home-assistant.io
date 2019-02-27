@@ -27,7 +27,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your controller, e.g., 192.168.1.150.
+  description: The IP address of your controller, e.g., 192.168.10.150.
   required: true
   type: string
 username:
