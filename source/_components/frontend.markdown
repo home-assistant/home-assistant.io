@@ -51,6 +51,26 @@ frontend:
     description: Allow to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.
     required: false
     type: string
+  manifest_json:
+    description: Allow to cusomize some of the options in the manifest.json file. The manifest.json file affects the functionality of the web applicaiton when the 'Add to Homescreen' functionality is used from Adroid and iOS devices. For more information on the manifest.json file see [this](https://developers.google.com/web/fundamentals/web-app-manifest/)
+    required: false
+    type: map
+    keys:
+      display:
+        description: Allow to change the display option in manifest.json. This can be one of `fullscreen`, `standalone`, `minimal-ui` or `browser`.
+        required: false
+        type: string
+        default: standalone
+      start_url:
+        description: Allow to change the initial start URL that is loaded when you first click on the application shortcut. THis should be a relative url.
+        required: false
+        type: string
+        default: /?homescreen=1
+      short_name:
+        description: Allow to change the name displayed for the application when added to homescreeen on mobile devices.
+        required: false
+        type: string
+        default: Assistant
 {% endconfiguration %}
 
 
@@ -144,3 +164,18 @@ The browser language is automatically detected. To use a different language, go 
   <img src='/images/frontend/user-language.png' />
   Choose a Language
 </p>
+
+### {% linkable_title Customizing manifest.json %}
+
+You can customize some of the options in teh manifest.json file generated.
+
+Example:
+
+```yaml
+# Example configuration.yaml entry
+frontend:
+  manifest_json:
+    display: fullscreen
+    short_name: "Home Assistant"
+    start_url: /
+```
