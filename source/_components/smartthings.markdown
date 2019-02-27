@@ -18,6 +18,7 @@ ha_category:
   - Light
   - Lock
   - Sensor
+  - Scene
   - Switch
 ha_release: "0.87"
 ha_iot_class: "Cloud Push"
@@ -36,6 +37,8 @@ redirect_from:
   - /components/lock.smartthings/
   - /components/smartthings.sensor/
   - /components/sensor.smartthings/
+  - /components/smartthings.scene/
+  - /components/scene.smartthings/
   - /components/smartthings.switch/
   - /components/switch.smartthings/
 ---
@@ -132,7 +135,8 @@ SmartThings represents devices as a set of [capabilities](https://smartthings.de
 - [Fan](#fan) 
 - [Light](#light) 
 - [Lock](#lock)
-- [Sensor](#sensor) 
+- [Sensor](#sensor)
+- [Scene](#scene)
 - [Switch](#switch)
 
 Support for additional platforms will be added in the future.
@@ -258,6 +262,10 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`voltageMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Voltage-Measurement)                 | `voltage`
 | [`washerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Mode)                                 | `washerMode`
 | [`washerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Operating-State)            | `machineState`, `washerJobState` and `completionTime`
+
+### {% linkable_title Scene %}
+
+The SmartThings Scene platform lets you activate scenes defined in SmartThings with a scene entity representing each SmartThings scenes within the location.
 
 ### {% linkable_title Switch %}
 
