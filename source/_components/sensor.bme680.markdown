@@ -13,7 +13,6 @@ ha_release: 0.62
 ha_iot_class: "Local Push"
 ---
 
-
 The `bme680` sensor platform allows you to read temperature, humidity, pressure and gas resistance values of a [Bosch BME680 Environmental sensor](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf) connected via an [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet. In addition, it includes a basic air quality calculation that uses gas resistance and humidity measurements to calculate a percentage based air quality measurement.
 
 Tested devices:
@@ -187,11 +186,8 @@ group:
 ```
 
 ## {% linkable_title Directions for enabling I2C interface on Hass.io %}
-Follow the instructions here to [enable I2C on Hass.io.][enable-i2c-hassio]  
 
-OR
-
-If you're installing on system that doesn't have Hass.io follow the instructions below.
+Follow the instructions here to [enable I2C on Hass.io.](/hassio/enable_i2c/).
 
 ## {% linkable_title Directions for installing SMBus support on Raspberry Pi %}
 
@@ -239,6 +235,3 @@ It will output a table like this:
 ```
 
 So you can see the sensor address that you are looking for is **0x76** (there is another I2C device on that Raspberry Pi).
-
-
-[enable-i2c-hassio]: /hassio/enable_i2c/
