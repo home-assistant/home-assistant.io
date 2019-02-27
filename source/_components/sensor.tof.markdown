@@ -25,7 +25,7 @@ Tested devices:
 
 ## {% linkable_title Configuration %}
 
-To use your VL53L1X sensor in your installation, add the following to your `configuration.yaml` file:
+To use the VL53L1X sensor in your installation, add to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,7 +40,7 @@ name:
   default: VL53L1X
   type: string
 i2c_bus:
-  description: I2c bus where the sensor is.
+  description: I2c bus used.
   required: false
   default: 1, for Raspberry Pi 2 and 3.
   type: integer
@@ -58,7 +58,7 @@ xshut:
 
 ## {% linkable_title Full Examples %}
 
-The distance is measured in millimiters, according to VL53L1X specifications.
+The distance is measured in millimiters, according to the VL53L1X specifications.
 
 ```yaml
 # Example of customized configuration.yaml entry
@@ -68,7 +68,7 @@ sensor:
     i2c_address: 0x29
     xshut: 16
 ```
-An GPIO port should be used on the RPI to reset the device. The XSHUT initializes pulsing LOW and after that it is kept HIGH all time.
+Several devices maybe attached but a single GPIO port from RPI is selected to reset all devices. XSHUT is initialized pulsing LOW and after that it is kept HIGH all time. This version use VL53L1X full range mode only that may reach up to 4 meters.
 
 ## {% linkable_title Directions for installing i2c on Raspberry Pi %}
 
