@@ -262,3 +262,62 @@ sensor:
         entity_id: sensor.owm_report
 ```
 {% endraw %}
+
+This config shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
+
+{% raw %}
+```json
+{
+    "bedroom1": {
+        "temperature": 15.79,
+        "humidity": 55.78,
+        "battery": 5.26,
+        "timestamp": "2019-02-27T22:21:37Z"
+    },
+    "bedroom2": {
+        "temperature": 18.99,
+        "humidity": 49.81,
+        "battery": 5.08,
+        "timestamp": "2019-02-27T22:23:44Z"
+    },
+    "bedroom3": {
+        "temperature": 18.58,
+        "humidity": 47.95,
+        "battery": 5.15,
+        "timestamp": "2019-02-27T22:21:22Z"
+    }
+}
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: room_sensors
+    resource: http://<address_to_rest_service>
+    json_attributes:
+      - bedroom1
+      - bedroom2
+      - bedroom3
+    value_template: 'OK'
+  - platform: template
+    sensors:
+      bedroom1_temperature:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["temperature"] }}'
+        device_class: temperature
+        unit_of_measurement: '°C'
+      bedroom1_humidity:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["humidity"] }}'
+        device_class: humidity
+        unit_of_measurement: '%'
+      bedroom1_battery:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["battery"] }}'
+        device_class: battery
+        unit_of_measurement: 'V'
+      bedroom2_temperature:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom2"]["temperature"] }}'
+        device_class: temperature
+        unit_of_measurement: '°C'
+```
+{% endraw %}
