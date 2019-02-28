@@ -15,7 +15,7 @@ ha_release: 0.88
 
 The person component allows to connect device tracker entities to one or more person entities. The state updates of a connected device trackers will set the state of the person. When multiple device tracers used, the state of berson will be determined next way:
 
-1. If there are sources presenting status 'home', than latest of this sources will be taken.
+1. If there are stationary sources (which type is not 'gps') presenting status 'home', than latest of this sources will be taken.
 2. If there are sources of type 'gps', than latest of this sources will be taken.
 3. Otherwise will be taken latest source with status 'not_home'.
 
