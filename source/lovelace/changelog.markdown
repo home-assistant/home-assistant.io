@@ -8,6 +8,13 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.88.0 %}
+- 📣 Disable toast notifications for successful operations ([#2700](https://github.com/home-assistant/home-assistant-polymer/pull/2822))
+- 📣 Color Picker: Toggleable between segmented and continuous ([#2806](https://github.com/home-assistant/home-assistant-polymer/pull/2806))
+- 📣 Theming: New CSS card style `ha-card-box-shadow` ([#2855](https://github.com/home-assistant/home-assistant-polymer/pull/2855))
+- 🔧 Fix login issue on Firefox ([#2860](https://github.com/home-assistant/home-assistant-polymer/pull/2860))
+- 🔧 [light card]: Fix click events ([#2850](https://github.com/home-assistant/home-assistant-polymer/pull/2850))
+
 ## {% linkable_title Changes in 0.87.0 %}
 - 📣 MDI icons updated to [3.3.92](https://cdn.materialdesignicons.com/3.3.92/)
 - 📣 New system-health card in dev-info
