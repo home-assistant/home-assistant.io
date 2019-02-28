@@ -25,8 +25,6 @@ To add a set-top box to your installation, add the following to your `configurat
 media_player:
   - platform: enigma2
     host: IP_ADDRESS
-    port: PORT
-    name: Vu Duo2
 ```
 
 {% configuration %}
@@ -43,4 +41,5 @@ media_player:
     description: A name for easy identification of the device.
     required: false
     type: string
+    default: Enigma2 Media Player
 {% endconfiguration %}
