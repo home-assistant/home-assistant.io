@@ -93,6 +93,33 @@ Note for custom component developers: We are moving to a new file structure. Mor
 [sensor.imap_email_content docs]: /components/sensor.imap_email_content/
 [zha docs]: /components/zha/
 
+## {% linkable_title Release 0.88.2 - February 27 %}
+
+- Make sure that device trackers is always a list during creation ([@balloob] - [#21193]) ([person docs])
+- Allow custom_effect to be absent from Flux configuration ([@conleydg] - [#21317]) ([light.flux_led docs])
+- Fix person update on create ([@MartinHjelmare] - [#21355]) ([person docs])
+- Scene validator fix ([@yosilevy] - [#21362]) ([scene docs])
+- Improve tolerance of SmartThings Climate platform ([@andrewsayre] - [#21383]) ([smartthings docs])
+- Bump PyXiaomiGateway version to 0.11.2 ([@syssi] - [#21453]) ([xiaomi_aqara docs])
+
+[#21193]: https://github.com/home-assistant/home-assistant/pull/21193
+[#21317]: https://github.com/home-assistant/home-assistant/pull/21317
+[#21355]: https://github.com/home-assistant/home-assistant/pull/21355
+[#21362]: https://github.com/home-assistant/home-assistant/pull/21362
+[#21383]: https://github.com/home-assistant/home-assistant/pull/21383
+[#21453]: https://github.com/home-assistant/home-assistant/pull/21453
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@andrewsayre]: https://github.com/andrewsayre
+[@balloob]: https://github.com/balloob
+[@conleydg]: https://github.com/conleydg
+[@syssi]: https://github.com/syssi
+[@yosilevy]: https://github.com/yosilevy
+[light.flux_led docs]: /components/light.flux_led/
+[person docs]: /components/person/
+[scene docs]: /components/scene/
+[smartthings docs]: /components/smartthings/
+[xiaomi_aqara docs]: /components/xiaomi_aqara/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
