@@ -29,7 +29,7 @@ Lets say for example, that you have 3 trackers: 'tracker_gps', 'tracker_router' 
 6. You've returned home, and your mobile device has connected to router, but GPS update yet didn't occur. Your status will be 'home' with source 'tracker_router'.
 7. After GPS update occurs, your status still be 'home' with source 'tracker_router' or 'tracker_ble', whatever updates later.
 
-TL;DR: When you're at home, your position is determined by stationary tracker. When you're outside your home, your position is determined firstly by GPS and then by stationary device.
+TL;DR: When you're at home, your position is determined firstly by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined firstly by GPS and then by stationary trackers.
 
 You can manage persons via the UI from the person page inside the configuration panel or via `YAML`.
 
