@@ -25,11 +25,22 @@ To add a set-top box to your installation, add the following to your `configurat
 media_player:
   - platform: enigma2
     host: IP_ADDRESS
+    port: PORT
+    name: Vu Duo2
 ```
 
 {% configuration %}
   host:
     description: The IP/hostname of the Enigma2 set-top box on your home network.
     required: true
+    type: string
+  port:
+    description: Port which Openwebif is listening on.
+    required: false
+    type: integer
+    default: 80
+  name:
+    description: A name for easy identification of the device.
+    required: false
     type: string
 {% endconfiguration %}
