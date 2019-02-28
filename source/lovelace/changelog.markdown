@@ -10,8 +10,8 @@ footer: true
 ---
 ## {% linkable_title Changes in 0.87.0 %}
 - 📣 MDI icons updated to [3.3.92](https://cdn.materialdesignicons.com/3.3.92/)
-- 📣 Card border is now themable `ha-card-border-radius`
-- 📣 Card background is now themable `ha-card-background`
+- 📣 Theming: New CSS card style `ha-card-border-radius`
+- 📣 Theming: New CSS card style `ha-card-background`
 - 📣 New system-health card in dev-info
 - 📣 UI Editor: YAML syntax support
 - 📣 UI Editor: Line numbers
