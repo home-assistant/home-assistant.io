@@ -48,7 +48,7 @@ person:
     required: true
     type: string
   user_id:
-    description: The user id of the Home Assistant user account for the person.
+    description: The user id of the Home Assistant user account for the person. *`user_id` (aka `ID`) of users can be inspected in the "Users"/"Manage users" screen in the configuration panel.*
     required: false
     type: string
   device_trackers:
