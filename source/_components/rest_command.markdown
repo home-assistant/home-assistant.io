@@ -120,3 +120,15 @@ automation:
         status: "At Work"
         emoji: ":calendar:"
 ```
+You can also use REST commands to access the Home Assistant API without using shell commands. This example uses a long-lived access token to access the Home Assistant API and set the state of a light to on.
+
+```yaml
+set_study_light_status_to_on:
+  url: http://localhost:8123/api/states/light.study_light
+  method: POST
+  headers: 
+    authorization: 'Bearer YOUR_LONG_LIVED_ACCESS_TOKEN'
+    content-type: 'application/json'
+  payload: '{"state":"on"}'
+```
+Replace YOUR_LONG_LIVED_ACCESS_TOKEN with your token. You can obtain a token by logging into the frontend using a web browser and going to your profile http://IP_ADDRESS:8123/profile.
