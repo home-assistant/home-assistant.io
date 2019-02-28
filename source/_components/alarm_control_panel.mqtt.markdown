@@ -20,7 +20,7 @@ The component will accept the following states from your Alarm Panel (in lower c
 - `disarmed`
 - `armed_home`
 - `armed_away`
-- 'armed_night'
+- `armed_night`
 - `pending`
 - `triggered`
 
@@ -55,6 +55,10 @@ state_topic:
 command_topic:
   description: The MQTT topic to publish commands to change the alarm state.
   required: true
+  type: string
+code_command_topic:
+  description: If defined, the code is not verified and instead is published prior to the command_topic.
+  required: false
   type: string
 qos:
   description: The maximum QoS level of the state topic.
