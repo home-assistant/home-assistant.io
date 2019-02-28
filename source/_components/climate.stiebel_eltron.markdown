@@ -39,6 +39,7 @@ climate:
 name:
   description: Displayed name of the unit.
   required: false
+  default: Unnamed Device
   type: string
 hub:
   description: The name of the hub where this slave is located.
