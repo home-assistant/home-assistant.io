@@ -32,6 +32,11 @@ To use this component, you have to setup an account at the warmup web site first
 </p>
 
 {% configuration %}
+name:
+  description: Name of thermostat.
+  required: false
+  default: warmup4ie
+  type: string
 username:
   description: The username for accessing your Warmup account.
   required: true
