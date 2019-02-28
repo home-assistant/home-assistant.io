@@ -21,7 +21,7 @@ The person component allows to connect device tracker entities to one or more pe
 
 Lets say for example, that you have 3 trackers: 'tracker_gps', 'tracker_router' and 'tracker_ble'.
 
-1. You're at home, all 3 devices shows status 'home' - status of your Person entity will be 'home' with source 'tracker_gps'.
+1. You're at home, all 3 devices shows status 'home' - status of your Person entity will be 'home' with source 'tracker_router' or 'tracker_ble', whatever was latest.
 2. You're going out. 'tracker_gps' shows status 'not_home', but other two trackers show status 'home' according to their setting 'consider_home'. You are still considered to be at home.
 3. After some time both stationary trackers show status 'not_home'. Now your Person entity has status 'not_home' with source 'tracker_gps'.
 4. While you are outside your home, your Home Assistant was suddenly restarted. Until 'tracker_gps' receives update, your status will be determined by stationary tracker, which gets latest update after restart. Obviously the status will be 'not_home'.
