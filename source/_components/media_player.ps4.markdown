@@ -57,6 +57,9 @@ There are varying methods to perform this, dependent on your OS that is running 
 `sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
 Replace "/usr/bin/python3.5" with your path to Python that is running Home Assistant.
 
+### {% linkable_title Docker %}
+
+When running Home Assistant using Docker, make sure that the Home Assistant container is discoverable by the PS4. This can be achieved by ensuring that the Home Assistant container uses the `host` network driver (by passing `--net=host` to the container when creating, or adding `network_mode: "host"` to your compose file when using `docker-compose`).
 
 ## {% linkable_title Configuration %}
 

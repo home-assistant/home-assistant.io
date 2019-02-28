@@ -70,7 +70,12 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: true
+  default: True
+timeout:
+  description: Defines max time to wait data from the endpoint.
+  required: false
+  type: positive integer
+  default: 10
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false

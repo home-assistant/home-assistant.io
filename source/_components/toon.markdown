@@ -8,10 +8,10 @@ comments: false
 sharing: true
 footer: true
 ha_category:
-  - Hub
   - Climate
+  - Binary Sensor
+  - Energy
   - Sensor
-  - Switch
 ha_release: 0.56
 logo: toon.png
 ha_iot_class: "Cloud Polling"
@@ -21,51 +21,51 @@ redirect_from:
   - /components/switch.toon/
 ---
 
-The `toon` component platform can be used to control your Toon thermostat. This component adds a climate device for your Toon thermostat and sensors for power and gas consumption. The component also auto-detects any smart plugs, solar panels and smoke detectors connected to Toon and adds sensors and switches for them.
+The `toon` component platform can be used to control your Toon thermostat. This component adds a climate device for your Toon thermostat, sensors for power and gas consumption, sensors for solar production and several binary sensors for things like boiler burner on/off, hot tap water and boiler health status.
+
+For the `toon` component to work, you'll need an active Toon subscription with Eneco and a Toon API developer account.
 
 There is currently support for the following device types within Home Assistant:
 
+- Binary Sensor
 - [Climate](#climate)
 - Sensor
-- Switch
 
-For the `toon` component to work, you'll need an active Toon subscription with Eneco. The component uses your Mijn Eneco credentials to control your thermostat through the [toonopafstand](https://toonopafstand.eneco.nl) domain.
+## {% linkable_title Setting up a developer account %}
+
+In order to be able to use this component, you'll need to sign up for a free Toon API developer account.
+
+1. Visit the [Toon API developers website](https://developer.toon.eu/), and [sign in](https://developer.toon.eu/user/login). [Create an account](https://developer.toon.eu/user/register) if you don’t have one already.
+2. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page and click on "Add a new App" button on the top right.
+3. The "Add App" page shows a form with two fields:
+   - **App Name**: Can be anything you like, for example, "Home Assistant" will just do.
+   - **Callback URL**: Fill in `localhost` in this field.
+4. Click on "Create App" to complete the creation process.
+5. Open the "[My Apps](https://developer.toon.eu/user/me/apps)" page again and click on the app that you've just created.
+6. You need the codes now shown: "Consumer Key" and "Consumer Secret".
+7. Add the Toon component to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to Toon and follow the setup instructions.
 
 ## {% linkable_title Configuration %}
 
-To use your Toon thermostat in your installation, add the following to your `configuration.yaml` file:
+To use your Toon in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 toon:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
+  client_id: YOUR_CONSUMER_KEY
+  client_secret: YOUR_CONSUMER_SECRET
 ```
 
 {% configuration %}
-username:
-  description: Username for Mijn Eneco.
+client_id:
+  description: Toon API Consumer Key.
   required: true
   type: string
-password:
-  description: Password for Mijn Eneco.
+client_secret:
+  description: Toon API Consumer Secret.
   required: true
   type: string
-gas:
-  description: With this option you can choose whether you want to measure gas consumption.
-  required: false
-  type: boolean
-  default: true
-solar:
-  description: With this option you can choose whether you want to measure electricity production.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration %}
-
-Toon is a smart thermostat delivered by the Eneco power company in The Netherlands. It can measure energy consumption (power and gas), but also the amount of energy generated in case solar panels are connected to it. Toon also acts as a z-wave hub for supported devices like the wall plug and the smoke detector. This component uses the [toonlib library](https://github.com/costastf/toonlib) by Costas Tyfoxylos that connects to the unofficial API on [https://toonopafstand.eneco.nl](https://toonopafstand.eneco.nl).
-
-The current version of this component supports setting any of the four built-in programs and setting the temperature manually. It polls the Toon API at 30 second intervals so the status is relatively fresh without overloading the API.
 
 ## {% linkable_title Climate %}
 
@@ -77,3 +77,7 @@ The `toon` climate platform allows you to interact with your Toon thermostat. Fo
 | Heat           | Thuis   |
 | Eco            | Weg     |
 | Cool           | Slapen  |
+
+It also supports setting the temperature manually.
+
+The Toon API is polled at a 30-second interval, so the status is relatively fresh without overloading the API.

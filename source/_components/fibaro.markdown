@@ -8,16 +8,37 @@ comments: false
 sharing: true
 footer: true
 logo: fibaro.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Cover
+  - Light
+  - Sensor
+  - Scene
+  - Switch
 ha_release: "0.83"
 ha_iot_class: "Local Push"
 redirect_from:
  - /components/scene.fibaro/
+ - /components/binary_sensor.fibaro/
+ - /components/cover.fibaro/
+ - /components/light.fibaro/
+ - /components/sensor.fibaro/
+ - /components/switch.fibaro/
 ---
 
 The [Fibaro](http://fibaro.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Binary sensors, switches, lights (including Dimmers), locks, sensors and covers are supported and will be automatically added when Home Assistant connects to your Fibaro controller.
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Cover
+- Light
+- Sensor
+- Scene
+- Switch
+
+They will be automatically added when the `fibaro` hub is connected to Home Assistant.
 
 ## {% linkable_title Configuration %}
 

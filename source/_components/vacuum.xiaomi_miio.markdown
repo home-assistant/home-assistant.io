@@ -25,6 +25,7 @@ Currently supported services are:
 - `clean_spot`
 - `set_fan_speed`
 - remote control of your robot.
+- `xiaomi_clean_zone`
 
 ## {% linkable_title Configuration %}
 
@@ -64,6 +65,7 @@ In addition to all of the services provided by the `vacuum` component (`start`, 
 - `xiaomi_remote_control_stop`
 - `xiaomi_remote_control_move`
 - `xiaomi_remote_control_move_step`
+- `xiaomi_clean_zone`
 
 ### {% linkable_title Service `vacuum.xiaomi_remote_control_start` %}
 
@@ -103,6 +105,73 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
 
+### {% linkable_title Service `vacuum.xiaomi_clean_zone` %}
+
+Start the cleaning operation in the areas selected for the number of repeats indicated.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific robot; default targets all       |
+| `zone`                    |       no | List of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
+| `repeats`                    |       no | Number of cleaning repeats for each zone between 1 and 3. |
+
+Example of `vacuum.xiaomi_clean_zone` use:
+
+Inline array:
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum
+        repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
+        zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
+```
+Array with inline zone:
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum
+        repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
+        zone:
+        - [30914,26007,35514,28807]
+        - [20232,22496,26032,26496]
+```
+Array mode:
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        repeats: 1
+        zone:
+        - - 30914
+          - 26007
+          - 35514
+          - 28807
+        - - 20232
+          - 22496
+          - 26032
+          - 26496
+```
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
@@ -293,22 +362,19 @@ Software Required:
 - [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
 - [Android Backup Extractor](https://sourceforge.net/projects/adbextractor/)
 - [SQLite Browser](https://sqlitebrowser.org/)
-
-Steps to take:
-
-1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device.
-2. Open MiHome, log-in and add your devices.
-3. Enable USB-Debugging on your Android.
-4. Create a backup from your MiHome App, by using adb:
-    ```bash
-    adb backup com.xiaomi.smarthome
-    ```
-    Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
-5. Extract the backup-file with android-backup-extractor:
-    ```bash
-    java -jar abe.jar unpack backup.ab backup.tar
-    ```
-    After that, extract the file with WinRAR, 7-Zip (or similar).
-6. Go to `\apps\com.xiaomi.smarthome\db`.
-7. Open `miio2.db` with the SQLite Browser.
-8. You can find your device tokens in `devicerecord` table.
+1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device
+2. Open MiHome, log-in and add your devices
+3. Enable USB-Debugging on your Android
+4. Create a backup from your MiHome App, by using adb
+  ```bash
+  adb backup com.xiaomi.smarthome
+  ```
+  Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
+5. Extract the backup-file with android-backup-extractor
+  ```bash
+  java -jar abe.jar unpack backup.ab backup.tar
+  ```
+  After that, you kann open the file with WinRaR or what ever you like.
+6. Go to \apps\com.xiaomi.smarthome\db
+7. Open miio2.db with SQLite Browser
+8. You can find your device tokens in "devicerecord" table

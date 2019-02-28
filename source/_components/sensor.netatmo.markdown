@@ -65,6 +65,8 @@ modules:
           description: Noise level in dB.
         humidity:
           description: "Humidity in %."
+        health_idx:
+          description: "Air health as one of the values Healthy, Fine, Fair, Poor, Unhealthy."
         rain:
           description: Estimated rainfall for today in mm.
         sum_rain_1:
