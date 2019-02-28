@@ -22,7 +22,6 @@ To set it up, add the following information to your `configuration.yaml` file:
 ```yaml
 climate:
   - platform: warmup4ie
-    name: YOUR_DESCRIPTION
     username: YOUR_E_MAIL_ADDRESS
     password: YOUR_PASSWORD
     location: YOUR_LOCATION_NAME
@@ -33,11 +32,6 @@ To use this component, you have to setup an account at the warmup web site first
 </p>
 
 {% configuration %}
-name:
-  description: Name of thermostat.
-  required: false
-  default: warmup4ie
-  type: string
 username:
   description: The username for accessing your Warmup account.
   required: true
