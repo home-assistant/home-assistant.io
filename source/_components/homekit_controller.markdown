@@ -17,6 +17,7 @@ ha_category:
   - Lock
   - Switch
   - Binary Sensor
+  - Sensor
 ha_release: 0.68
 ha_iot_class: "Local Polling"
 redirect_from:
@@ -26,6 +27,7 @@ redirect_from:
   - /components/light.homekit_controller/
   - /components/lock.homekit_controller/
   - /components/switch.homekit_controller/
+  - /components/sensor.homekit_controller/
 ---
 
 [HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This component should not be confused with the [HomeKit](/components/homekit/) component, which allows you to control Home Assistant devices via HomeKit.
@@ -39,6 +41,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock (HomeKit lock)
 - Switch (HomeKit switches)
 - Binary Sensor (HomeKit motion sensors)
+- Sensor (HomeKit humidity, temperature, and light level sensors)
 
 The component will be automatically configured if the [`discovery:`](/components/discovery/) component is enabled and an enable entry added for HomeKit:
 
