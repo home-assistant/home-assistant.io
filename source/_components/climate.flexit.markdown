@@ -35,6 +35,11 @@ name:
   description: Displayed name of the A/C unit.
   required: false
   type: string
+hub:
+  description: The name of the hub where this slave is located.
+  required: false
+  default: default
+  type: string
 {% endconfiguration %}
 
 <p class='note'>

@@ -8,18 +8,30 @@ comments: false
 sharing: true
 footer: true
 logo: rainmachine.png
-ha_category: Irrigation
+ha_category:
+  - Irrigation
+  - Binary Sensor
+  - Sensor
+  - Switch
 ha_release: 0.69
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.rainmachine/
+  - /components/sensor.rainmachine/
+  - /components/switch.rainmachine/
 ---
 
-The `rainmachine` component is the main component to integrate all platforms
-related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
+The `rainmachine` component is the main component to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Sensor
+- [Switch](#switch)
 
 ## {% linkable_title Base Configuration %}
 
-To connect to your RainMachine device, add the following to your
-`configuration.yaml` file:
+To connect to your RainMachine device, add the following to your `configuration.yaml` file:
 
 ```yaml
 rainmachine:
@@ -28,9 +40,7 @@ rainmachine:
       password: YOUR_PASSWORD
 ```
 
-To configure additional functionality, add configuration options beneath
-a `binary_sensor`, `sensor`, and/or `switches` key within the `rainmachine`
-sections of `configuration.yaml` as below:
+To configure additional functionality, add configuration options beneath a `binary_sensor`, `sensor`, and/or `switches` key within the `rainmachine` sections of `configuration.yaml` as below:
 
 ```yaml
 rainmachine:
@@ -140,3 +150,15 @@ Stop a RainMachine zone.
 |---------------------------|----------|----------------------|
 | `zone_id`                 |      no  | The zone to stop     |
 
+## {% linkable_title Switch %}
+
+The `rainmachine` switch platform allows you to control programs and zones within a [RainMachine smart Wi-Fi sprinkler controller](http://www.rainmachine.com/).
+
+### {% linkable_title Controlling Your Device %}
+
+After Home Assistant loads, new switches will be added for every enabled program and zone. These work as expected:
+
+- Program On/Off: starts/stops a program
+- Zone On/Off: starts/stops a zone (using the `zone_run_time` parameter to determine how long to run for)
+
+Programs and zones are linked. While a program is running, you will see both the program and zone switches turned on; turning either one off will turn the other one off (just like in the web app).

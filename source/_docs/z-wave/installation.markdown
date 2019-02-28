@@ -10,40 +10,9 @@ footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 
-The first time you enable the Z-Wave component it will install the Z-Wave drivers (python-openzwave). This can take up to half an hour on slow machines like Raspberry Pi.
-
-Installing the drivers might require some extra packages to be installed. Check your platform below.
-
-## {% linkable_title Platform specific installation instructions %}
-
-### {% linkable_title Linux (except Hass.io) %}
-
-On Linux platforms (other than Hass.io) there two dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
-
-```bash
-$ sudo apt-get install libudev-dev
-$ sudo apt-get install libopenzwave1.5-dev
-```
-
-On Python 3.6 you may also have to install `libpython3.6-dev`, and possibly `python3.6-dev`.
-
-### {% linkable_title macOS %}
-
-When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed.
-
-```bash
-$ sudo /Applications/Python\ x.x/Install\ Certificates.command
-```
-
-### {% linkable_title Raspberry Pi %}
-
-On Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
+Z-Wave can be configured using the Z-Wave *Integration* in the *Configuration* menu, or manually using an entry in `configuration.yaml`
 
 ## {% linkable_title Configuration %}
-
-<P class='note'>
-You can also use the Z-Wave *Integration* in the *Configuration* menu to set up the Z-Wave component.
-</p>
 
 ```yaml
 # Example configuration.yaml entry
@@ -54,7 +23,7 @@ zwave:
 
 {% configuration zwave %}
 usb_path:
-  description: The port where your device is connected to your Home Assistant host.
+  description: The port where your device is connected to your Home Assistant host. Z-Wave sticks will generally be `/dev/ttyACM0` and GPIO hats will generally be `/dev/ttyAMA0`.
   required: false
   type: string
   default: /zwaveusbstick
@@ -116,84 +85,10 @@ device_config / device_config_domain / device_config_glob:
 {% endconfiguration %}
 
 <p class='note'>
-As of Home Assistant 0.81, the Z-Wave `usb_path` and `network_key` options are configured through the Integrations page in Home Assistant. Specifying a `zwave:` section in configuration.yaml is no longer required unless you need to customize other settings, such as `device_config`, `polling_interval`, etc.
+As of Home Assistant 0.81, the Z-Wave `usb_path` and `network_key` options are configured through the Integrations page in Home Assistant. Specifying a `zwave:` section in `configuration.yaml` is no longer required unless you need to customize other settings, such as `device_config`, `polling_interval`, etc.
+  
+If you change the `usb_path` or `network_key` in your `configuration.yaml` then this will not be updated in the integration. You'll need to remove and re-add the Integration for these changes to take effect.
 </p>
-
-
-### {% linkable_title Finding the controller path on Linux %}
-
-<p class='note'>
-If you're using Hass.io please follow [these setup instructions](/hassio/zwave/) for finding the controller path.
-</p>
-
-To find the path of your Z-Wave USB stick or module, connect it to your system and run:
-
-```bash
-$ ls -ltr /dev/tty*|tail -n 1
-```
-
-That will give you a line that looks something like this:
-
-```bash
-crw-rw---- 1 root dialout 204, 64 Sep 21 10:25 /dev/ttyUSB0
-```
-
-Where the date and time displayed is approximately the time you connected the USB stick or module (it may also be something like  `/dev/ttyAMA0` or `/dev/ttyACM0`). The number will be zero for the first device connected, and higher numbers for later devices.
-
-Or, if there is no result, try to find detailed USB connection info with:
-
-```bash
-$ dmesg | grep USB
-```
-
-If Home Assistant (`hass`) runs with another user (e.g., *homeassistant* on Hassbian) give access to the stick with:
-
-```bash
-$ sudo usermod -aG dialout homeassistant
-```
-
-<p class='Note'>
-The output from `ls -ltr` above contains the following information
-The device type is `c` (character special) and permissions are `rw-rw----`, meaning only the owner and group can read and write to it, there is only `1` link to the file, it is owned by `root` and can be accessed by the group `dialout`, it has a major device number of `204`, and a minor device number of `64`, the device was connected at `10:25` on `21 September`, and the device is `/dev/ttyUSB0`.
-</p>
-
-#### {% linkable_title Creating a Persistent Device Path %}
-
-Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
-
-### {% linkable_title Finding the controller path on macOS %}
-
-On macOS you can find the USB stick with:
-
-```bash
-$ ls /dev/cu.usbmodem*
-```
-
-### {% linkable_title Hass.io %}
-
-To enable Z-Wave, plug your Z-Wave USB stick into your system and add the following to your `configuration.yaml`:
-
-```yaml
-zwave:
-  usb_path: /dev/ttyACM0
-```
-
-If the above defaults don't work, you can check what hardware has been found using the [hassio command](/hassio/commandline/#hardware):
-
-```bash
-$ hassio hardware info
-```
-
-Or you can use the UI and look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
-
-### {% linkable_title RancherOS %}
-
-If you're using RancherOS for containers, you'll need to ensure you enable the kernel-extras service so that the `USB_ACM` module (also known as `cdc_acm`) is loaded:
-
-```bash
-$ sudo ros service enable kernel-extras
-$ sudo ros service up kernel-extras
-```
 
 ### {% linkable_title Network Key %}
 
@@ -203,6 +98,8 @@ An easy script to generate a random key:
 ```bash
 $ cat /dev/urandom | tr -dc '0-9A-F' | fold -w 32 | head -n 1 | sed -e 's/\(..\)/0x\1, /g' -e 's/, $//'
 ```
+
+You can also use sites like [this one](https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h) to generate the required data, just remember to put `0x` before each pair of characters:
 
 ```yaml
 # Example configuration.yaml entry for network_key
@@ -214,11 +111,123 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 ## {% linkable_title First Run %}
 
-The (compilation and) installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
+On platforms other than Hass.io and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
 The first run after adding a device is when the `zwave` component will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
+## {% linkable_title Platform specific instructions %}
+
+### {% linkable_title Hass.io %}
+
+You do not need to install any software to use Z-Wave.
+
+If the path of `/dev/ttyACM0` doesn't work, look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
+
+You can also check what hardware has been found using the [hassio command](/hassio/commandline/#hardware):
+
+```bash
+$ hassio hardware info
+```
+
+### {% linkable_title Docker %}
+
+You do not need to install any software to use Z-Wave.
+
+To enable access to the Z-Wave stick, add `--device=/dev/ttyACM0` to the `docker` command that starts your container, for example:
+
+```bash
+$ docker run -d --name="home-assistant" -v /home/pi/homeassistant:/config -v /etc/localtime:/etc/localtime:ro --net=host --device=/dev/ttyACM0 homeassistant/raspberrypi3-homeassistant
+```
+
+If the path of `/dev/ttyACM0` doesn't work then you can find the path of the stick by disconnecting and then reconnecting it, and running the following in the Docker host:
+
+```bash
+$ ls -1tr /dev/tty*|tail -n 1
+```
+
+### {% linkable_title Hassbian %}
+
+You do not need to install any software to use Z-Wave.
+
+To find the path of your Z-Wave USB stick, disconnect it and then reconnect it to your system and run:
+
+```bash
+$ ls -1tr /dev/tty*|tail -n 1
+```
+
+### {% linkable_title Community install methods %}
+
+#### {% linkable_title Raspberry Pi specific %}
+
+On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
+
+#### {% linkable_title Linux (except Hassbian) %}
+
+On Debian Linux platforms there two dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
+
+```bash
+$ sudo apt-get install libudev-dev
+$ sudo apt-get install libopenzwave1.5-dev
+```
+
+You may also have to install the Python development libraries for your version of Python. For example `libpython3.6-dev`, and possibly `python3.6-dev` if you're using Python 3.6.
+
+##### {% linkable_title Finding the controller path %}
+
+To find the path of your Z-Wave USB stick, disconnect it and then reconnect it to your system and run:
+
+```bash
+$ ls -ltr /dev/tty*|tail -n 1
+```
+
+That will give you a line that looks something like this:
+
+```bash
+crw-rw---- 1 root dialout 204, 64 Sep 21 10:25 /dev/ttyACM0
+```
+
+Where the date and time displayed is approximately the time you connected the USB stick or module (it may also be something like `/dev/ttyAMA0` or `/dev/ttyUSB0`). The number will be zero for the first device connected, and higher numbers for later devices.
+
+Or, if there is no result, try to find detailed USB connection info with:
+
+```bash
+$ dmesg | grep USB
+```
+
+If Home Assistant (`hass`) runs with another user (e.g., *homeassistant*) you need to give access to the stick with:
+
+```bash
+$ sudo usermod -aG dialout homeassistant
+```
+
+The output from `ls -ltr` above contains the following information:
+* The device type is `c` (character special)
+* The permissions are `rw-rw----`, meaning only the owner and group can read and write to it
+* There is only `1` link to the file
+* It is owned by `root` and can be accessed by members of the group `dialout`
+* It has a major device number of `204`, and a minor device number of `64`
+* The device was connected at `10:25` on `21 September`
+* The device is `/dev/ttyUSB0`.
+
+#### {% linkable_title macOS %}
+
+When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed.
+
+```bash
+$ sudo /Applications/Python\ x.x/Install\ Certificates.command
+```
+
+On macOS you can find the USB stick with:
+
+```bash
+$ ls /dev/cu.usbmodem*
+```
+
 ## {% linkable_title Troubleshooting %}
+
+### {% linkable_title Device path changes %}
+
+If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
 ### {% linkable_title Component could not be set up %}
 
@@ -253,14 +262,10 @@ That should include `dialout`, if it doesn't then:
 $ sudo usermod -aG dialout homeassistant
 ```
 
-### {% linkable_title Device path changes %}
-
-If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
-
 ### {% linkable_title Unable to install Python Openzwave %}
 
 If you're getting errors like:
 
     openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
 
-Then the problem is that you're missing `libudev-dev`, please [install it](/docs/z-wave/installation/#linux-except-hassio).
+Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux-except-hassbian).

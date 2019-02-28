@@ -36,6 +36,10 @@ house_number:
   description: Your house number.
   required: true
   type: string
+house_number_suffix:
+  description: A suffix for your house number.
+  required: false
+  type: string
 name:
   description: Let you overwrite the name of the device in the frontend.
   required: false
@@ -68,6 +72,7 @@ sensor:
   - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
+    house_number_suffix: HOUSE_NUMBER_SUFFIX
     name: Rova
     monitored_conditions:
       - bio
@@ -91,9 +96,15 @@ automation:
     condition:
       - condition: template
         value_template: "{% if (as_timestamp(states.sensor.rova_garbage_gft.state) - as_timestamp(now())) < 43200 %}true{% endif %}"
+      - condition: template
+        value_template: "{% if (as_timestamp(states.sensor.rova_garbage_gft.state) - as_timestamp(now())) > 0 %}true{% endif %}"
     action:
       - service: NOTIFICATION_SERVICE
         data:
           message: 'Reminder: put out biowaste bin'
 ```
 {% endraw %}
+
+<p class='note warning'>
+This component is not affiliated with Rova and retrieves data from the endpoints of their website. Use at your own risk.
+</p>

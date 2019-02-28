@@ -83,11 +83,11 @@ hold_action:
 Navigate to another view:
 
 ```yaml
-- type: picture
-  image: /local/home.jpg
-  tap_action:
-    action: navigate
-    navigation_path: /lovelace/home
+type: picture
+image: /local/home.jpg
+tap_action:
+  action: navigate
+  navigation_path: /lovelace/home
 ```
 
 Check the [views](/lovelace/views/) setup on how to setup custom IDs.
@@ -95,9 +95,9 @@ Check the [views](/lovelace/views/) setup on how to setup custom IDs.
 Toggle entity using a service:
 
 ```yaml
-- type: picture
-  image: /local/light.png
-  service: light.toggle
-  service_data:
-    entity_id: light.ceiling_lights
+type: picture
+image: /local/light.png
+service: light.toggle
+service_data:
+  entity_id: light.ceiling_lights
 ```

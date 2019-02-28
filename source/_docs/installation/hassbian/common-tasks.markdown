@@ -11,7 +11,7 @@ redirect_from: /docs/hassbian/common-tasks/
 ---
 
 ### {% linkable_title Login to the Raspberry Pi %}
-To login to your Raspberry Pi running Hassbian you're going to be using a ssh client. Depending on your platform there are several alternatives for doing this. Linux and Max OS generally have a ssh client installed. Windows users are recommended to download and install the ssh client [Putty][ssh-putty].
+To login to your Raspberry Pi running Hassbian you're going to be using a ssh client. Depending on your platform there are several alternatives for doing this. Linux and Mac OS generally have a ssh client installed. Windows users are recommended to download and install the ssh client [Putty][ssh-putty].
 
 Connect to the Raspberry Pi over ssh. Default user name is `pi` and password is `raspberry`.
 Linux and Mac OS users execute the following command in a terminal.

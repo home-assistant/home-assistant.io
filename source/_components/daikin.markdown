@@ -8,12 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: daikin.png
-ha_category: Climate
+ha_category:
+  - Climate
+  - Sensor
 ha_release: 0.59
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/climate.daikin/
+  - /components/sensor.daikin/
 ---
 
 The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Climate](#climate)
+- [Sensor](#sensor)
 
 ## {% linkable_title Supported hardware %}
 
@@ -39,5 +49,23 @@ hosts:
   description: List of IP addresses or hostnames.
   required: false
   default: All discovered hosts
-  type: list     
+  type: list
 {% endconfiguration %}
+
+## {% linkable_title Climate %}
+
+The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
+
+- **mode** (cool, heat, dry, fan only or auto)
+- **fan speed** (on supported models)
+- **target temperature**
+- **swing mode** (on supported models)
+
+Current temperature is displayed.
+
+## {% linkable_title Sensor %}
+
+The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
+
+- Inside temperature
+- Outside temperature

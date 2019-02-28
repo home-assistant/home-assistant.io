@@ -103,21 +103,22 @@ monitored_conditions:
 The Transmission component is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
 
 Possible events are:
- - transmission_downloaded_torrent
- - transmission_started_torrent
- 
+
+- transmission_downloaded_torrent
+- transmission_started_torrent
+
 Inside of the event, there is the name of the torrent that is started or completed, as it is seen in the Transmission User Interface.
 
 Example of configuration of an automation with completed torrents:
 
 ```yaml
 - alias: Completed Torrent
-    trigger:
-      platform: event
-      event_type: transmission_downloaded_torrent
-    action:
-      service: notify.telegram_notifier
-      data_template:
-        title: "Torrent completed!"
-        message: "{{trigger.event.data.name}}"
+  trigger:
+    platform: event
+    event_type: transmission_downloaded_torrent
+  action:
+    service: notify.telegram_notifier
+    data_template:
+      title: "Torrent completed!"
+      message: "{{trigger.event.data.name}}"
 ```

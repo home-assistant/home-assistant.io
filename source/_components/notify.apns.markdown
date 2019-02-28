@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: apple.png
 ha_category: Notifications
 ha_release: 0.31
 ---

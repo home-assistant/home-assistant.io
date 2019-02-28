@@ -19,6 +19,8 @@ The `zabbix` sensor platform let you monitor the current count of active trigger
 You must have the [Zabbix component](/components/zabbix/) configured to use those sensors.
 </p>
 
+## {% linkable_title Configuration %}
+
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
@@ -48,5 +50,4 @@ individual:
   description: A 'true'/'false' to specify whether we should show individual sensors when a list of hostids is provided.  If false, the sensor state will be the count of all triggers for the specified hosts (or all hosts within the Zabbix instance, if hostids isn't provided).
   required: false
   type: boolean
-  {% endconfiguration %}
-
+{% endconfiguration %}

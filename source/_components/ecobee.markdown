@@ -11,7 +11,7 @@ logo: ecobee.png
 ha_category:
   - Sensor
   - Binary Sensor
-  - Notify
+  - Notifications
   - Climate
   - Weather
 featured: true

@@ -33,7 +33,7 @@ Configuration options:
 - **host** (*Required*): The hostname/IP address to connect to.
 - **mac** (*Required*):  Device mac address.
 - **name** (*Optional*): Default BL. Sensor name
-- **update_interval** (*Optional*): Time in seconds to fetch data from sensors. Default 300. 
+- **scan_interval** (*Optional*): Time in seconds to fetch data from sensors. Default 300.
 - **timeout** (*Optional*): Timeout in seconds for the connection to the device.
 - **monitored_conditions** array (*Required*): States to monitor.
     - 'temperature'
@@ -49,7 +49,7 @@ Obtain sensor data from an A1:
 ```yaml
 sensor:
   - platform: broadlink
-    update_interval: 60
+    scan_interval: 60
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
     monitored_conditions:
@@ -65,7 +65,7 @@ Obtain temperature data from an RM2:
 ```yaml
 sensor:
   - platform: broadlink
-    update_interval: 60
+    scan_interval: 60
     host: IP_ADDRESS
     mac: 'MAC_ADDRESS'
     monitored_conditions:

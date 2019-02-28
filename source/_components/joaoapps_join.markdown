@@ -10,7 +10,7 @@ footer: true
 logo: joaoapps_join.png
 ha_category:
   - Hub
-  - Notify
+  - Notifications
 ha_release: "0.24"
 redirect_from:
   - /components/notify.joaoapps_join/

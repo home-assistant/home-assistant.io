@@ -8,12 +8,29 @@ comments: false
 sharing: true
 footer: true
 logo: qwikswitch.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Light
+  - Sensor
+  - Switch
 featured: false
 ha_release: "0.20"
+redirect_from:
+  - /components/binary_sensor.qwikswitch/
+  - /components/light.qwikswitch/
+  - /components/sensor.qwikswitch/
+  - /components/switch.qwikswitch/
 ---
 
 The `qwikswitch` component is the main component to integrate various [QwikSwitch](http://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Light
+- Sensor
+- Switch
 
 The `qwikswitch` component discovers all devices from QS Mobile. Currently, Relays and LED dimmers are discovered in Home Assistant. Relay devices are [lights](/components/light.qwikswitch/) by default, and can be configured as [switches](/components/switch.qwikswitch/).
 
@@ -26,7 +43,7 @@ qwikswitch:
 ```
 
 {% configuration %}
-url: 
+url:
   description: The URL including the port of your QwikSwitch hub.
   required: true
   type: string
@@ -45,14 +62,14 @@ switches:
   required: false
   type: list
 sensors:
-  description: A dictionary of sensors. 
+  description: A dictionary of sensors.
   required: false
   type: list
   keys:
     name:
       description: The sensor name from which the entity_id will be derived.
       required: true
-    id: 
+    id:
       description: A QS_Id
       required: true
       type: string
@@ -64,7 +81,7 @@ sensors:
         - qwikcord (Channel 1 = CTavg, Channel 2 = CTsum)
       required: true
       type: string
-    channel: 
+    channel:
       description: The channel of interest. Refer to type above.
       required: false
       default: 1
@@ -98,6 +115,7 @@ automation:
 The full packet from the QSUSB API will be passed as `data`
 
 By default events will be fired if the value in the command (cmd) field of the listen packet equals:
+
 - `TOGGLE` - Normal QwikSwitch Transmitter button
 - `SCENE EXE` - QwikSwitch Scene Transmitter buttons
 - `LEVEL` - QwikSwitch OFF Transmitter buttons
@@ -108,7 +126,7 @@ On some QS Mobile servers button events are only generated for switches added to
 
 ### {% linkable_title Qwikswitch Sensors %}
 
-The sensor configuration is a list of sensors. Depending on the type of sensor, it will be a sensor or binary_sensor. 
+The sensor configuration is a list of sensors. Depending on the type of sensor, it will be a sensor or binary_sensor.
 
 Example sensor configuration:
 
@@ -128,3 +146,9 @@ qwikswitch:
       channel: 2
       type: imod
 ```
+
+### {% linkable_title Switch %}
+
+The `qwikswitch` platform allows you to control your [QwikSwitch](http://www.qwikswitch.co.za/) relays as switches from within Home Assistant.
+
+If the device name in the QS Mobile application ends with `Switch` it will be created as a switch, otherwise as a light.

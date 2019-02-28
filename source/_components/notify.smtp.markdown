@@ -73,7 +73,7 @@ sender_name:
   required: false
   type: string
 debug:  
-  description: Enables Debug, eg. True or False.
+  description: Enables Debug, e.g., True or False.
   required: false
   type: boolean
   default: false

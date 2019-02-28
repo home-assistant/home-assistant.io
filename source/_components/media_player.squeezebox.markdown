@@ -27,7 +27,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The host name or address of the Logitech Media Server, eg. 192.168.1.21.
+  description: The host name or address of the Logitech Media Server, e.g., 192.168.1.21.
   required: true
   type: string
 port:

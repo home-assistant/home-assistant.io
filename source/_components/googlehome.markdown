@@ -59,6 +59,11 @@ devices:
       required: false
       type: boolean
       default: false
+    track_devices:
+      description: Setting to tell the component to track nearby devices.
+      required: false
+      type: boolean
+      default: true
 {% endconfiguration %}
 
 ## {% linkable_title Device types %}
@@ -71,7 +76,7 @@ Device type | Description
 
 ## {% linkable_title Notes %}
 
-Devices will appear in the format `devicetracker.<home hub ip>_<device mac address>`. Note that dots are removed from the IP and BT MAC addresses.
+Devices will appear in the format `device_tracker.<home hub ip>_<device mac address>`. Note that dots are removed from the IP and BT MAC addresses.
 
 [googlehomeapi]: https://rithvikvibhu.github.io/GHLocalApi/
 [devicetrackerconfig]: /components/device_tracker/#configuring-a-device_tracker-platform

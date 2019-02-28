@@ -7,14 +7,16 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Utility 
+ha_category: 
+  - Utility 
+  - Energy 
 ha_release: 0.87
 ha_iot_class: "Local Push"
 logo: integral.png
 ha_qa_scale: internal
 ---
 
-The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. In this implementation, we follow the Trapezoidal rule.
+The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
 
 ## {% linkable_title Configuration %}
 
@@ -56,6 +58,10 @@ unit:
   description: Unit of Measurement to be used for the integration.
   required: false
   type: string
+method:
+  description: Riemann sum method to be used. Available methods are trapezoidal, left, right.
+  required: false
+  default: trapezoidal
 {% endconfiguration %}
 
 If 'unit' is set then 'unit_prefix' and 'unit_time' are ignored.

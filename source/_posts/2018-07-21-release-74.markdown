@@ -30,7 +30,7 @@ To try it out today, [read these instructions](https://developers.home-assistant
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x0VzrizyEmM" frameborder="0" allowfullscreen></iframe>
 </div>
 
-We keep seeing [great examples](https://twitter.com/home_assistant/status/1019579208622845953) of UIs built with Lovelace. Follow us on social media ([FB](https://www.facebook.com/homeassistantio/?ref=bookmarks), [Twitter](https://twitter.com/home_assistant), [G+](https://plus.google.com/+HomeAssistantHomeAutomation)) where we will keep sharing great examples.
+We keep seeing [great examples](https://twitter.com/home_assistant/status/1019579208622845953) of UIs built with Lovelace. Follow us on social media ([FB](https://www.facebook.com/homeassistantio/?ref=bookmarks), [Twitter](https://twitter.com/home_assistant)) where we will keep sharing great examples.
 
 For the Lovelace changes in this release, check out the [changelog](/lovelace/changelog/). To help our development and design teams, we've also introduced a [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/).
 

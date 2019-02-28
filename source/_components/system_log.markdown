@@ -55,11 +55,17 @@ Errors and warnings are posted as the event `system_log_event`, so it is possibl
 | `message`   | Descriptive message of the error, e.g., "Error handling request".           |
 | `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
-Live examples of these events can be found in the Home Assistant log file or by just looking in the system log. An example could, for instance, look like this:
+Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:
 
-<img src='/images/components/system_log/system_log_entry.png' />
+```text
+2019-02-14 16:20:35 ERROR (MainThread) [homeassistant.loader] Unable to find component system_healt
+2019-02-14 16:20:36 ERROR (MainThread) [homeassistant.components.device_tracker] Error setting up platform google_maps
+Traceback (most recent call last):
+  File "/home/fab/Documents/repos/ha/home-assistant/homeassistant/components/device_tracker/__init__.py", line 184, in
+[...]
+```
 
-The message ("Unable to find service..."), source (`core.py`) and level (`WARNING`) can easily be extracted from the image. The exact timestamp and stack trace is shown in the selected entry.
+The message ("Unable to find component system_healt"), source (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present. 
 
 ## {% linkable_title Examples  %}
 
@@ -91,6 +97,7 @@ automation:
 
 This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
 
+{% raw %}
 ```yaml
 automation:
   - alias: Create notifications for "service" errors
@@ -99,10 +106,11 @@ automation:
       event_type: system_log_event
     condition:
       condition: template
-      value_template: {% raw %}'{{ "service" in trigger.event.data.message }}'{% endraw %}
+      value_template: '{{ "service" in trigger.event.data.message }}'
     action:
       service: persistent_notification.create
       data_template:
         title: Something bad happened
-        message: {% raw %}'{{ trigger.event.data.message }}'{% endraw %}
+        message: '{{ trigger.event.data.message }}'
 ```
+{% endraw %}

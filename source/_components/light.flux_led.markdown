@@ -47,7 +47,7 @@ automatic_add:
   default: false
   type: boolean
 devices:
-  description: A list of devices with their ip address
+  description: A list of devices with their ip address.
   required: false
   type: list
   keys:
@@ -56,14 +56,33 @@ devices:
       required: false
       type: string
     mode:
-      description: "The chosen brightness mode, options are: 'rgbw' and 'rgb'."
+      description: "The chosen brightness mode, options are: `rgbw`, `rgb` and `w`."
       required: false
       default: rgbw
       type: string
     protocol:
-      description: Set this to 'ledenet' if you are using a ledenet bulb.
+      description: Set this to `ledenet` if you are using a ledenet bulb.
       required: false
       type: string
+    custom_effect:
+      description: A definition of the custom effect.
+      required: false
+      type: map
+      keys:
+        colors:
+          description: A list of 1 to 16 colors, used in the effect loop (see example below). Defined as three comma-separated integers between 0 and 255 that represent the color in RGB. There is no way to set brightness, but you can define lower RGB values to simulate lower brightness. E.g., if you want 50% red, define it as `[127,0,0]` instead of `[255,0,0]`.
+          required: true
+          type: list
+        speed_pct:
+          description: A speed in percents (100 being the fastest), at which controller will transition between the colors.
+          required: false
+          type: integer
+          default: 50
+        transition:
+          description: "A type of transition, which will be used to transition between the colors. Supported values are: `gradual`, `jump` and `strobe`."
+          required: false
+          type: string
+          default: gradual
 {% endconfiguration %}
 
 <p class='note'>
@@ -144,16 +163,36 @@ light:
 
 ### {% linkable_title Effects %}
 
-The FLUX_LED light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the light TURN_ON command.
+The Flux Led light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
 
-| Effect Name                                                                                    | Description                                                        |
-|------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
-| colorloop                                                                                      | Smoothly transitions through the rainbow                           |
-| colorjump                                                                                      | Jumps through seven different rainbow colors.                      |
-| colorstrobe                                                                                    | Strobes each rainbow color in a loop.                              |
-| random                                                                                         | Chooses a random color by selecting random values for R, G, and B  |
-| red_fade, green_fade, blue_fade, yellow_fade, cyan_fade, purple_fade, white_fade               | Fades between the color as indicated in the effect name and black. |
-| rg_cross_fade                                                                                  | Fades between red and green.                                       |
-| rb_cross_fade                                                                                  | Fades between red and blue.                                        |
-| gb_cross_fade                                                                                  | Fades between green and blue                                       |
-| red_strobe, green_strobe, blue_strobe, yellow_strobe, cyan_strobe, purple_strobe, white_strobe | Strobes the color indicated by the effect name.                    |
+| Effect Name                                                                                                  | Description                                                        |
+|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| `colorloop`                                                                                                  | Smoothly transitions through the rainbow.                          |
+| `colorjump`                                                                                                  | Jumps through seven different rainbow colors.                      |
+| `colorstrobe`                                                                                                | Strobes each rainbow color in a loop.                              |
+| `red_fade`, `green_fade`, `blue_fade`, `yellow_fade`, `cyan_fade`, `purple_fade`, `white_fade`               | Fades between the color as indicated in the effect name and black. |
+| `rg_cross_fade`                                                                                              | Fades between red and green.                                       |
+| `rb_cross_fade`                                                                                              | Fades between red and blue.                                        |
+| `gb_cross_fade`                                                                                              | Fades between green and blue.                                      |
+| `red_strobe`, `green_strobe`, `blue_strobe`, `yellow_strobe`, `cyan_strobe`, `purple_strobe`, `white_strobe` | Strobes the color indicated by the effect name.                    |
+| `random`                                                                                                     | Chooses a random color by selecting random values for R, G, and B. |
+| `custom`                                                                                                     | Custom effect (if defined, see below).                             |
+
+Users can define their own custom effect. It consists of three parameters: a list of 1 to 16 colors, speed and type of transition. The controller will transition between the colors in a loop, with sepcified transition and speed. Here is an example of a custom effect that will quickly flash red, yellow, green, cyan, blue, magenta in a loop:
+
+```yaml
+light:
+  - platform: flux_led
+    devices:
+      192.168.1.10:
+        custom_effect:
+          speed_pct: 100
+          transition: 'strobe'
+          colors:
+            - [255,0,0]
+            - [255,255,0]
+            - [0,255,0]
+            - [0,255,255]
+            - [0,0,255]
+            - [255,0,255]
+```

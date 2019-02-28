@@ -8,17 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: satel.jpg
-ha_category: Hub
+ha_category:
+  - Hub
+  - Alarm
+  - Binary Sensor
 ha_release: 0.54
 ha_iot_class: "Local Push"
+redirect_from:
+  - /components/alarm_control_panel.satel_integra/
+  - /components/binary_sensor.satel_integra/
 ---
 
 The `satel_integra` component will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm  is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.satel_integra/): Reports on zone or output statuses
-- [Alarm Control Panel](/components/alarm_control_panel.satel_integra/): Reports on alarm status, and can be used to arm/disarm the system
+- Binary Sensor: Reports on zone or output statuses
+- Alarm Control Panel: Reports on alarm status, and can be used to arm/disarm the system
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
@@ -26,11 +32,11 @@ The module communicates via Satel's open TCP protocol published on their website
 
 Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promisses are given.
 
-The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DloadX program. 
+The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DloadX program.
 
 A list of all zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
 
-For more information on the available zone visualisation types, take a look at the [Binary Sensor](/components/binary_sensor.alarmdecoder/) documentation. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components."
+For the Binary Sensor check the [type/class](/components/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components."
 
 ## {% linkable_title Configuration %}
 
@@ -93,9 +99,7 @@ outputs:
       type: string
 {% endconfiguration %}
 
-
 ## {% linkable_title Full examples %}
-
 
 ```yaml
 # Example configuration.yaml entry
@@ -146,4 +150,3 @@ For example:
       data:
         entity_id: input_boolean.movement_detected
 ```
-

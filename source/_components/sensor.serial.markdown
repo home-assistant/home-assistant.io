@@ -15,11 +15,13 @@ ha_iot_class: "Local Polling"
 
 The `serial` sensor platform is using the data provided by a device connected to the serial port of the system where Home Assistant is running. With [`ser2net`](http://ser2net.sourceforge.net/) and [`socat`](http://www.dest-unreach.org/socat/) would it also work for sensors connected to a remote system.
 
-To check what kind of data is arriving at your serial port, use a command-line tool like `minicom` or `picocom` on Linux, on a macOS you can use `screen` or on Windows `putty`. 
+To check what kind of data is arriving at your serial port, use a command-line tool like `minicom` or `picocom` on Linux, on a macOS you can use `screen` or on Windows `putty`.
 
 ```bash
-$ sudo minicom -D /dev/ttyACM0
+sudo minicom -D /dev/ttyACM0
 ```
+
+## {% linkable_title Configuration %}
 
 To setup a serial sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -47,9 +49,8 @@ baudrate:
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the serial line."
   required: false
-  type: template 
+  type: template
 {% endconfiguration %}
-
 
 ## {% linkable_title `value_template` for Template sensor %}
 
@@ -67,7 +68,7 @@ value_template:
 
 For controllers of the Arduino family a possible sketch to read the temperature and the humidity could look like the sample below.
 
-```
+```c
 #include <ArduinoJson.h>
 
 void setup() {

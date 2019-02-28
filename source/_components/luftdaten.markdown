@@ -8,10 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: luftdaten.png
-ha_category: Health
+ha_category:
+  - Health
+  - Sensor
 ha_release: 0.82
 ha_iot_class: "Cloud Polling"
 ha_qa_scale: gold
+redirect_from:
+  - /components/sensor.luftdaten/
 ---
 
 The `luftdaten` component will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
@@ -21,15 +25,14 @@ The `luftdaten` component will query the open data API of [luftdaten.info](http:
 - To get the ID of a particle sensor you need to select it on the [Feinstaub map](http://deutschland.maps.luftdaten.info/) and find it in the sidebar (Column "Sensor ID").
 - To get the ID of a temperature/humidity sensor you need to find it on the map hosted on [Madavi](https://www.madavi.de/sensor/feinstaub-map-dht/).
 
-
 ## {% linkable_title COnfiguration via the frontend %}
 
 Menu: **Configuration** -> **Integrations**
   
 Configure the integration:
 
-* Enter the **Sensor ID**
-* Choose if you want to show the sensor's location on the map.
+- Enter the **Sensor ID**
+- Choose if you want to show the sensor's location on the map.
 
 ## {% linkable_title Manual Configuration %}
 
@@ -90,7 +93,7 @@ $ curl https://api.luftdaten.info/v1/sensor/[sensorid]/
 ## {% linkable_title Full example %}
 
 This example would use the sensor with the ID 155, show it on the `map` and would monitor `temperature` and `humidity`.
- 
+
 ```yaml
 # Example configuration.yaml entry
 luftdaten:
@@ -101,3 +104,9 @@ luftdaten:
       - temperature
       - humidity
 ```
+
+## {% linkable_title Sensor %}
+
+The `luftdaten` sensor platform will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
+
+You must have the `luftdaten` component (from above) configured to use this platform. After configuring that component, sensors will automatically appear.

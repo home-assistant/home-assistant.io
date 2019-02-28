@@ -8,8 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: konnected.png
-ha_category: Alarm
+ha_category:
+  - Alarm
+  - Binary Sensor
+  - Switch
 ha_release: "0.70"
+redirect_from:
+  - /components/binary_sensor.konnected/
+  - /components/switch.konnected/
 ---
 
 The `konnected` component lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
@@ -18,8 +24,8 @@ Visit the [Konnected.io website](https://konnected.io) for more information abou
 
 The component currently supports the following device types in Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.konnected/): Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
-- [Switch](/components/switch.konnected/): Actuate a siren, strobe, buzzer or relay module.
+- Binary Sensor: Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
+- Switch: Actuate a siren, strobe, buzzer or relay module.
 
 This component requires the [`discovery`](/components/discovery) component to be enabled.
 
@@ -134,7 +140,7 @@ devices:
       required: false
       default: true
       description: Blink the blue LED upon successful transmission of a state change.
-      
+
 {% endconfiguration%}
 
 #### {% linkable_title Configuration Notes %}
@@ -208,19 +214,34 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 ### {% linkable_title Revision History %}
 
 #### 0.80
-* Added ability to specify `host` and `port` to set up devices without relying on discovery.
-* Added `discovery` and `blink` config options to enable/disable these features.
+
+- Added ability to specify `host` and `port` to set up devices without relying on discovery.
+- Added `discovery` and `blink` config options to enable/disable these features.
 
 #### 0.79
-* Added `inverse` configuration option for binary sensors.
+
+- Added `inverse` configuration option for binary sensors.
 
 #### 0.77
-* Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
-* Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
-* **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
+
+- Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
+- Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
+- **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
 
 #### 0.72
-* Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
+
+- Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
 
 #### 0.70
-* Initial release
+
+- Initial release
+
+### {% linkable_title Binary Sensor %}
+
+The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
+
+This component supports all of the built-in device classes of the generic [Binary Sensor](/components/binary_sensor/) component.
+
+### {% linkable_title Switch %}
+
+The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).

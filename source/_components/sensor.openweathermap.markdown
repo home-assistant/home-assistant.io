@@ -45,7 +45,7 @@ sensor:
     default: false
     type: string
   language:
-    description: The language in which you want text results to be returned. It's a two-characters string, eg. `en`, `es`, `ru`, `it`, etc.
+    description: The language in which you want text results to be returned. It's a two-characters string, e.g., `en`, `es`, `ru`, `it`, etc.
     required: false
     default: en
     type: string

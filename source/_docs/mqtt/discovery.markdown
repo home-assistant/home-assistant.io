@@ -201,7 +201,7 @@ Supported abbreviations:
 The following software has built-in support for MQTT discovery:
 
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
-- [esphomeyaml](https://esphomelib.com/esphomeyaml/index.html)
+- [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)

@@ -240,7 +240,8 @@ automation:
     webhook_id: some_hook_id
 ```
 
-You could test triggering above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`.
+You could test triggering the above automation by sending a POST HTTP request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. An example with no data sent to a SSL/TLS secured installation and using the command-line curl program is `curl -d "" https://your-home-assistant:8123/api/webhook/some_hook_id`.
+
 
 ### {% linkable_title Zone trigger %}
 

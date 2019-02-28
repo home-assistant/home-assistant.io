@@ -36,8 +36,8 @@ name:
 {% linkable_title Example %}
 
 ```yaml
-- type: weather-forecast
-  entity: weather.dark_sky
+type: weather-forecast
+entity: weather.dark_sky
 ```
 
 <p class="note">

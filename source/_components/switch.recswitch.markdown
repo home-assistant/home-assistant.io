@@ -20,6 +20,7 @@ Supported devices (tested):
 
 - Ankuoo RecSwitch MS6126
 - Lumitek CSW201 NEO WiFi
+- MALMBERGS CSW201
 
 ## {% linkable_title Configuration %}
 

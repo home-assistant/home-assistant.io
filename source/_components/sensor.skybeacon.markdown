@@ -48,4 +48,3 @@ monitored_conditions:
     humidity:
       description: Humidity at the sensor's location.
 {% endconfiguration %}
-

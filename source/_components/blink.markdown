@@ -23,6 +23,8 @@ redirect_form:
   - /components/sensor.blink/
 ---
 
+<p class='note warning'>Blink has started blocking Home Assistant users. More info in <a href="https://community.home-assistant.io/t/blink-block-account/98718">the forums</a>.</p>
+
 The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
 
 ## {% linkable_title Setup %}
@@ -50,7 +52,7 @@ password:
   required: true
   type: string
 scan_interval:
-  description: How frequently to query for new data. Defaults to 60 seconds.
+  description: How frequently to query for new data. Defaults to 300 seconds (5 minutes).
   required: false
   type: integer
 binary_sensors:
@@ -93,7 +95,7 @@ Below is an example showing every possible entry:
 blink:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  scan_interval: 60
+  scan_interval: 300
   binary_sensors:
     monitored_conditions:
       - motion_enabled

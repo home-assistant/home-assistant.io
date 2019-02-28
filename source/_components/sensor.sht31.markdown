@@ -47,7 +47,7 @@ sensor:
     default: All conditions
     type: list
     keys:
-      temperature: 
+      temperature:
         description: The current temperature of the SHT31.
       humidity:
         description: The current humidity of the SHT31.

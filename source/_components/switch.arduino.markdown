@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: "Local Polling"
 ---
 
-
 The `arduino` switch platform allows you to control the digital pins of your [Arduino](https://www.arduino.cc/) board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3, 5, 6, 9, 10, and 11 on an Arduino Uno) is not supported yet.
 
 To enable the Arduino pins with Home Assistant, add the following section to your `configuration.yaml` file:
@@ -59,4 +58,3 @@ pins:
 {% endconfiguration %}
 
 The digital pins are numbered from 0 to 13 on a Arduino UNO. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.
-

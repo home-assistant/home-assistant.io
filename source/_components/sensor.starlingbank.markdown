@@ -27,11 +27,12 @@ You can find more information about Starling Bank at [their website](https://www
 Once you have your own Starling bank account you will need to sign up for a Starling developer account [here](https://developer.starlingbank.com/signup). You won't need to do any development but you will need to get a "Personal Access Token" that will allow the integration to access your account balance.
 
 <p class='note info'>
-  You control what access is granted using this token. This integration only needs very basic access (see below). 
+  You control what access is granted using this token. This integration only needs very basic access (see below).
 </p>
 
-Once you've signed up: 
-1. Head to the [Personal Access Section](https://developer.starlingbank.com/personal/token) of your developer account. 
+Once you've signed up:
+
+1. Head to the [Personal Access Section](https://developer.starlingbank.com/personal/token) of your developer account.
 2. Click "Create Token".
 3. Give your token a name e.g., "Home Assistant".
 4. Tick the permissions "account:read" and "balance:read". The others you can leave un-ticked.

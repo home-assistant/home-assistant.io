@@ -8,9 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: axis.png
-ha_category: Camera
+ha_category:
+  - Camera
+  - Binary Sensor
 ha_release: "0.45"
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.axis/
+  - /components/camera.axis/
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.
@@ -114,9 +119,11 @@ Any specific levels for triggers needs to be configured on the device.
 </p>
 
 ## {% linkable_title Device services %}
+
 Available services: `vapix_call`.
 
-#### {% linkable_title Service `axis/vapix_call` %}
+### {% linkable_title Service `axis/vapix_call` %}
+
 Send a command using [Vapix](https://www.axis.com/support/developer-support/vapix). For details please read the API specifications.
 
 | Service data attribute    | Optional | Description                                      |
@@ -131,3 +138,16 @@ Response to call can be subscribed to on event `vapix_call_response`
 ## {% linkable_title Troubleshooting discovery %}
 
 If a `169.x.x.x` address is discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Config**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+
+## {% linkable_title Binary Sensor %}
+
+The `Axis` platform allows you to get data from your [Axis](https://www.axis.com/) devices from within Home Assistant.
+
+The following sensor types are supported:
+
+- Motion detection
+- Passive IR motion detection
+- Sound detection
+- Day/night mode
+- Tampering detection
+- Input port

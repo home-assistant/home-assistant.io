@@ -8,12 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: apple.png
-ha_category: Multimedia
+ha_category:
+  - Multimedia
+  - Media Player
+  - Remote
 ha_iot_class: "Local Push"
 ha_release: 0.49
+redirect_from:
+  - /components/media_player.apple_tv/
+  - /components/remote.apple_tv/
 ---
 
 The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/remote.apple_tv/) if you want to send remote control buttons, e.g., arrow keys.
+
+There is currently support for the following device types within Home Assistant:
+
+- Media Player
+- [Remote](#remote)
 
 <p class='note'>
 Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
@@ -160,3 +171,30 @@ To play media on an Apple TV with device authentication enabled (e.g., ATV4 with
 ### {% linkable_title Service `apple_tv_scan` %}
 
 Scans the local network for Apple TVs. All found devices are presented as a persistent notification.
+
+## {% linkable_title Remote %}
+
+The `apple_tv` remote platform allows you to send remote control buttons to an Apple TV. It is automatically setup when an Apple TV is configured.
+
+At the moment, the following buttons are supported:
+
+- up
+- down
+- left
+- right
+- menu
+- top_menu
+- select
+
+A typical service call for press several buttons looks like this.
+
+```yaml
+service: remote.send_command
+data:
+  entity_id: remote.apple_tv
+  command:
+    - left
+    - left
+    - menu
+    - select
+```
