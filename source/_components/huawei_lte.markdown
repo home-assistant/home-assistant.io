@@ -46,17 +46,17 @@ huawei_lte:
 
 {% configuration %}
 url:
-    description: URL of the router web interface.
-    required: true
-    type: url
+  description: URL of the router web interface.
+  required: true
+  type: url
 username:
-    description: The username used for the router web interface.
-    required: true
-    type: string
+  description: The username used for the router web interface.
+  required: true
+  type: string
 password:
-    description: The password used for the router web interface.
-    required: true
-    type: string
+  description: The password used for the router web interface.
+  required: true
+  type: string
 {% endconfiguration %}
 
 ### {% linkable_title Tested routers %}
