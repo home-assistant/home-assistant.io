@@ -98,6 +98,7 @@ Supported abbreviations:
     'cln_tpl':             'cleaning_template',
     'cmd_t':               'command_topic',
     'curr_temp_t':         'current_temperature_topic',
+    'dev':                 'device',
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
@@ -121,6 +122,7 @@ Supported abbreviations:
     'ic':                  'icon',
     'init':                'initial',
     'json_attr':           'json_attributes',
+    'json_attr_t':         'json_attributes_topic',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
     'mode_cmd_t':          'mode_command_topic',
@@ -189,11 +191,22 @@ Supported abbreviations:
     'unit_of_meas':        'unit_of_measurement',
     'val_tpl':             'value_template',
     'whit_val_cmd_t':      'white_value_command_topic',
+    'whit_val_scl':        'white_value_scale',
     'whit_val_stat_t':     'white_value_state_topic',
     'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
     'xy_stat_t':           'xy_state_topic',
     'xy_val_tpl':          'xy_value_template',
+```
+
+Supported abbreviations for device registry configuration:
+```
+    'cns':                 'connections',
+    'ids':                 'identifiers',
+    'name':                'name',
+    'mf':                  'manufacturer',
+    'mdl':                 'model',
+    'sw':                  'sw_version',
 ```
 
 ### {% linkable_title Support by third-party tools %}
