@@ -18,7 +18,7 @@ This will vary depending on your OS. Check out Google for this.
 ### {% linkable_title Obtain an SSL certificate %}
 
 There are multiple ways of obtaining an SSL certificate. Let’s Encrypt is one method.
-Use Google for this, but a good example of using Certbot can be found [here](https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-12-04).
+Use Google for this, but a good example of using Certbot can be found [here](https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04).
 
 ### {% linkable_title HAPRoxy Configuration %}
 
