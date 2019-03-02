@@ -173,6 +173,10 @@ tilt_invert_state:
   required: false
   type: boolean
   default: false
+device_class:
+  description: The [type/class](/components/cover/#device-class) of the cover to set the icon in the frontend.
+  required: false
+  type: string
 json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
