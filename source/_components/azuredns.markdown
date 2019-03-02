@@ -42,6 +42,7 @@ azuredns:
   host:
     description: The host part or "subdomain" part you want to update.
     required: false
+    default: '@'
     type: string
   tenant:
     description: The domain name of your Azure Tenant (example.com).
@@ -62,6 +63,16 @@ azuredns:
   clientsecret:
     description: The client secret of your Azure AD App.
     required: true
+    type: string
+  timeout:
+    description: The amount of time to wait for a response before an exception is raised.
+    required: false
+    default: 60
+    type: string
+  ttl:
+    description: The Time-to-Live value that will be set on the DNS record.
+    required: false
+    default: 60
     type: string
 {% endconfiguration %}
 
