@@ -121,6 +121,7 @@ authtoken:
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
+  * Switch actuator with open collector output (*HmIP-MOD-OC8*)
 
 * homematicip_cloud.shutter
   * Blind actuator for brand switches (*HmIP-BBL*)
