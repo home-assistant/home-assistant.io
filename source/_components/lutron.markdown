@@ -65,7 +65,7 @@ It is recommended to assign a static IP address to your main repeater. This ensu
 
 Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id` and `action` attributes.
 
-The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`.
+The `id` attribute includes the name of the keypad's area, the keypad's name and the name of the button, normalized the same way entity names are. For example, if the keypad is in an area named "Kitchen", the keypad itself is named "Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`.
 
 The `action` attribute varies depending on the button type.
 
