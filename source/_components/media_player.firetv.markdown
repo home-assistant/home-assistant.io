@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "FireTV"
+title: "Fire TV"
 description: "Instructions on how to integrate Fire-TV into Home Assistant."
 date: 2015-10-23 18:00
 sidebar: true
@@ -26,26 +26,23 @@ Steps to configure your Amazon Fire TV stick with Home Assistant:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 
-To add FireTV to your installation, Note your device name, and add the following to your `configuration.yaml` file:
+To add Fire TV to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  # a device that does not require ADB authentication
+  # use the Python ADB implementation
   - platform: firetv
     name: Fire TV 1
     host: 192.168.0.111
+    adbkey: "/config/android/adbkey"
+    apps:
+      com.amazon.tv.launcher: "Fire TV"
 
-  # a device that does require ADB authentication
+  # use an ADB server for sending ADB commands
   - platform: firetv
     name: Fire TV 2
     host: 192.168.0.222
-    adbkey: "/config/android/adbkey"
-
-  # use an ADB server for sending ADB commands instead of the Python ADB implementation
-  - platform: firetv
-    name: Fire TV 3
-    host: 192.168.0.123
     adb_server_ip: 127.0.0.1
 ```
 
@@ -82,6 +79,11 @@ get_sources:
   required: false
   default: true
   type: boolean
+apps:
+  description: A dictionary where the keys are app IDs and the values are app names.
+  required: false
+  default: {}
+  type: dict
 {% endconfiguration %}
 
 ## {% linkable_title ADB Setup %}
