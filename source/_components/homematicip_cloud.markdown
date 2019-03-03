@@ -98,7 +98,6 @@ authtoken:
   * Water detector (*HmIP-SWD*)
 
 * homematicip_cloud.climate
-  * Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1, -C*)
   * Climate group (*HmIP-HeatingGroup*)
 
 * homematicip_cloud.light
@@ -106,14 +105,18 @@ authtoken:
   * Dimming actuator for brand switches (*HmIP-BDT*)
   * Dimming actuator flush-mount (*HmIP-FDT*)
   * Switch Actuator and Meter – flush-mount (*HmIP-FSM*)
+  * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
 
 * homematicip_cloud.sensor
   * Accesspoint duty-cycle (*HmIP-HAP, -B1*)
   * Wall-mounted thermostat (*HmIP-WTH, -2*)
+  * Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1, -C*)
+  * Radiator thermostat compact (*HMIP-eTRV-C*)
   * Temperature and humidity sensor (*HmIP-STH*)
   * Temperature and humidity Sensor with display (*HmIP-STHD*)
   * Outdoor temperature and humidity sensor (*HmIP-STHO, -A*)
   * Illuminance sensor (*HmIP-SMI*)
+  * Light Sensor outdoor (*HmIP-SLO*)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
