@@ -110,7 +110,7 @@ authtoken:
 * homematicip_cloud.sensor
   * Accesspoint duty-cycle (*HmIP-HAP, -B1*)
   * Wall-mounted thermostat (*HmIP-WTH, -2*)
-  * Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1, -C*)
+  * Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
   * Radiator thermostat compact (*HMIP-eTRV-C*)
   * Temperature and humidity sensor (*HmIP-STH*)
   * Temperature and humidity Sensor with display (*HmIP-STHD*)
