@@ -80,7 +80,7 @@ get_sources:
   default: true
   type: boolean
 apps:
-  description: A dictionary where the keys are app IDs and the values are app names.
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example above.
   required: false
   default: {}
   type: dict
