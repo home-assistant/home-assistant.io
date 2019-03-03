@@ -14,7 +14,7 @@ ha_release: "TBD"
 The `amazon_chime` notification platform enables publishing to an [AWS Chime](https://aws.amazon.com/chime/) webhook (chat room).
 
 ## {% linkable_title Setup %}
-In order to utilize this component, a must first be signed into Amazon Chime.   Second, the user needs to create a Chime Webhook for the chatroom they are interested in having notifications from Home Assistant published.
+In order to utilize this component, a must first be signed into Amazon Chime. Second, the user needs to create a Chime Webhook for the chatroom they are interested in having notifications from Home Assistant published.
 The URL that is generated for the webhook will need to be used inside the amazon_chime notification component.
 Further reading is available on [Amazon Chime documentation](https://docs.aws.amazon.com/chime/latest/ug/webhooks.html) pages.
 ## {% linkable_title Configuration %}
