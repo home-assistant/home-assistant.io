@@ -36,8 +36,8 @@ If you use these install methods, we assume that you know how to manage and admi
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[Virtualenv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.5.3 or later|Those familiar with their operating system
-[Virtualenv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.5.3 or later|Developers
+[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.5.3 or later|Those familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.5.3 or later|Developers
 
 ## {% linkable_title Community provided guides %}
 
