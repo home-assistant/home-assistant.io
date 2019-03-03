@@ -99,6 +99,11 @@ authtoken:
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
+  * This includes temperature/humidity measures for climate devices of a room delivered by: 
+    * HmIP-WTH, -2
+    * HmIP-eTRV, -2, -C
+    * HmIP-STH, HmIP-STHD
+    * HmIP-BWTH, -24
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
@@ -110,8 +115,8 @@ authtoken:
 * homematicip_cloud.sensor
   * Accesspoint duty-cycle (*HmIP-HAP, -B1*)
   * Wall-mounted thermostat (*HmIP-WTH, -2*)
-  * Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
-  * Radiator thermostat compact (*HMIP-eTRV-C*)
+  * Radiator thermostat valve position (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
+  * Radiator thermostat compact valve position (*HMIP-eTRV-C*)
   * Temperature and humidity sensor (*HmIP-STH*)
   * Temperature and humidity Sensor with display (*HmIP-STHD*)
   * Outdoor temperature and humidity sensor (*HmIP-STHO, -A*)
