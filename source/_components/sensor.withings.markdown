@@ -24,6 +24,7 @@ The `withings` sensor platform consumes data from various health products produc
 ### Account
 To use Withings with Home Assistant, first you must [create a free development account](https://account.withings.com/partner/add_oauth2). 
 
+Values for your account:
 - Logo: Any reasonable picture will do.
 - Description: Personal app for collecting my data.
 - Contact Email: <Your email address>
@@ -88,6 +89,7 @@ measurements:
   description: A list of measurements to create sensors for (and track).
   required: false
   type: map
+  default: All of the measurements.
   keys:
     weight_kg:
       description:
