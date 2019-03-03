@@ -1,0 +1,42 @@
+# ---
+layout: page
+title: "Amazon Chime"
+description: "Instructions on how to send messages to Amazon Chime from Home Assistant."
+date: 2019-03-03 00:44
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_category: Notifications
+ha_release: "TBD"
+---
+
+The `amazon_chime` notification platform enables publishing to an [AWS Chime](https://aws.amazon.com/chime/) webhook (chat room).
+
+## {% linkable_title Setup %}
+In order to utilize this component, a must first be signed into Amazon Chime.   Second, the user needs to create a Chime Webhook for the chatroom they are interested in having notifications from Home Assistant published.
+The URL that is generated for the webhook will need to be used inside the amazon_chime notification component.
+Further reading is available on [Amazon Chime documentation](https://docs.aws.amazon.com/chime/latest/ug/webhooks.html) pages.
+## {% linkable_title Configuration %}
+
+To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: Amazon Chime Teset
+    platform: amazon_chime
+    url: https://hooks.chime.aws/incomingwebhooks/some-room-id?token=some-secret-token
+
+```
+
+{% configuration %}
+url:
+  description: The full Chime Webhook URL. This includes "https" and the room ID and the token.
+  required: Required
+  type: string/url
+{% endconfiguration %}
+
+### {% linkable_title Usage %}
+
+Amazon Chime is an online conferencing and communication tool by Amazon.  This service offers chat rooms for users to interact with.  This component leverages a webhook URL in order to send notifications from Home Assistant to a given chat room.
