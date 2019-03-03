@@ -26,7 +26,7 @@ To use this notification platform in your installation, add the following to you
 notify:
   - name: Amazon Chime Teset
     platform: amazon_chime
-    url: https://hooks.chime.aws/incomingwebhooks/some-room-id?token=some-secret-token
+    url: WEBHOOK_URL
 
 ```
 
