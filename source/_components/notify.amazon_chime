@@ -34,7 +34,7 @@ notify:
 url:
   description: The full Chime Webhook URL. This includes "https" and the room ID and the token.
   required: Required
-  type: string/url
+  type: string
 {% endconfiguration %}
 
 ### {% linkable_title Usage %}
