@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ha_category: Notifications
 ha_release: "TBD"
+ha_iot_class: 
 ---
 
 The `amazon_chime` notification platform enables publishing to an [AWS Chime](https://aws.amazon.com/chime/) webhook (chat room).
@@ -25,7 +26,6 @@ To use this notification platform in your installation, add the following to you
 # Example configuration.yaml entry
 notify:
   - platform: amazon_chime
-    platform: amazon_chime
     url: WEBHOOK_URL
 
 ```
