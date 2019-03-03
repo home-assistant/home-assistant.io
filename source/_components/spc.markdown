@@ -25,8 +25,8 @@ Integration with SPC is done through a third-party API gateway called [SPC Web G
 
 There is currently support for the following device types within Home Assistant:
 
-- [{% linkable_title Alarm %}](#linkabletitle-alarm)
-- [{% linkable_title Binary Sensor %}](#linkabletitle-binary-sensor)
+- [Alarm](#alarm)
+- [Binary Sensor](#binary-sensor)
 
 Home Assistant needs to know where to find the SPC Web Gateway API endpoints, to configure this add the following section to your `configuration.yaml` file:
 
