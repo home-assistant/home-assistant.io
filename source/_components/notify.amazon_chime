@@ -39,4 +39,4 @@ url:
 
 ### {% linkable_title Usage %}
 
-Amazon Chime is an online conferencing and communication tool by Amazon.  This service offers chat rooms for users to interact with.  This component leverages a webhook URL in order to send notifications from Home Assistant to a given chat room.
+Amazon Chime is an online conferencing and communication tool by Amazon. This service offers chat rooms for users to interact with. This component leverages a webhook URL in order to send notifications from Home Assistant to a given chat room.
