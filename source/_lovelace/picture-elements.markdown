@@ -586,3 +586,26 @@ elements:
       left: 75%
       width: 5%
 ```
+
+## {% linkable_title Conditional Example %}
+
+```yaml
+type: picture-elements
+image: /local/House.png
+elements:
+  # conditionally show TV off button shortcut when dad's away and daughter is home
+  - type: conditional
+    conditions:
+      - entity: sensor.presence_daughter
+        state: 'Home'
+      - entity: sensor.presence_dad
+        state: 'Away'
+    elements:
+      - type: state-icon
+        entity: switch.tv
+        tap_action:
+          action: toggle
+        style:
+          top: 47%
+          left: 42%
+```
