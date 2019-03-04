@@ -45,7 +45,7 @@ project_id:
   required: true
   type: string
 topic_name:
-  description: The Pub/Sub topic name.
+  description: The Pub/Sub [relative](https://cloud.google.com/pubsub/docs/admin#resource_names) topic name (looks like `hass`).
   required: true
   type: string
 credentials_json:
