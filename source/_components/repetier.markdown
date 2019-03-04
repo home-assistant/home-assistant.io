@@ -43,7 +43,7 @@ repetier:
       type: integer
       default: 3344
     sensors:
-            description: Configuration for the sensors.
+      description: Configuration for the sensors.
       required: false
       type: map
       keys:
@@ -59,9 +59,9 @@ repetier:
             "Job Percentage":
               description: Percentage of the job.
             "Time Elapsed":
-              description: Time elapsed on current print job, in HH:MM:SS format.
+              description: "Time elapsed on current print job, in HH:MM:SS format."
             "Time Remaining":
-              description: Time remaining on current print job, in HH:MM:SS format.
+              description: "Time remaining on current print job, in HH:MM:SS format."
 {% endconfiguration %}
 
 Example with multiple printers:
