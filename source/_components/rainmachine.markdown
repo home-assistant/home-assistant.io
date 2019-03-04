@@ -113,6 +113,14 @@ switches:
 
 ## {% linkable_title Services %}
 
+### {% linkable_title `rainmachine.pause_watering` %}
+
+Pause all watering activities for a number of seconds.
+
+| Service Data Attribute    | Optional | Description                    |
+|---------------------------|----------|--------------------------------|
+| `seconds`                 |      no  | The number of seconds to pause |
+
 ### {% linkable_title `rainmachine.start_program` %}
 
 Start a RainMachine program.
@@ -149,6 +157,10 @@ Stop a RainMachine zone.
 | Service Data Attribute    | Optional | Description          |
 |---------------------------|----------|----------------------|
 | `zone_id`                 |      no  | The zone to stop     |
+
+### {% linkable_title `rainmachine.unpause_watering` %}
+
+Unpause all watering activities.
 
 ## {% linkable_title Switch %}
 
