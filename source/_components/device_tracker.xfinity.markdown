@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Presence Detection
 logo: xfinity.svg
-ha_release: 0.89
+ha_release: 0.90
 ha_iot_class: "Local Polling"
 
 ---
@@ -26,7 +26,6 @@ To use an Xfinity Gateway in your installation, add the following to your `confi
 # Example configuration.yaml entry
 device_tracker:
   - platform: xfinity
-    host: 10.0.0.1
 ```
 
 {% configuration %}
