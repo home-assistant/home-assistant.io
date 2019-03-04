@@ -117,3 +117,36 @@ If you receive the error message `Issue: Error while setting up platform firetv`
 3. Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it.  Once you fix the permissions, the component should work.
 
 4. You are already connected to the Fire TV via ADB from another device.  Only one device can be connected, so disconnect the other device, restart the Fire TV (for good measure), and then restart Home Assistant.  
+
+
+## {% linkable_title Service %}
+
+The service `firetv.adb_command` allows you to send either keys or ADB shell commands to the Fire TV.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |       no | Name(s) of Fire TV entities.
+| `command`              |       no | Either a key command or an ADB shell command.
+
+In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this:
+
+```yaml
+action:
+  service: firetv.adb_command
+  data:
+    entity_id: media_player.fire_tv_living_room
+    command: "HOME"
+```
+
+Available key commands are:
+
+* `POWER`
+* `SLEEP`
+* `HOME`
+* `UP`
+* `DOWN`
+* `LEFT`
+* `RIGHT`
+* `CENTER`
+* `BACK`
+* `MENU`
