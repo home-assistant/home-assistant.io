@@ -98,16 +98,16 @@ Service Data | `{"event": "EventName", "value1": "Hello World"}`
 When your screen looks like this, click the 'call service' button.
 </p>
 
-By default the trigger is sent to all the keys from `configuration.yaml`. If you
-want to send the trigger to a specific key use the `to` field:
+By default the trigger is sent to all the api keys from `configuration.yaml`. If you
+want to send the trigger to a specific key use the `target` field:
 
 Field | Value
 ----- | -----
 domain | `ifttt`
 service | `trigger`
-Service Data | `{"event": "EventName", "value1": "Hello World", "to": "YOUR_KEY_NAME1"}`
+Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}`
 
-The `to` field can contain a single key name or a list of key names.
+The `target` field can contain a single key name or a list of key names.
 
 ### {% linkable_title Setting up a recipe %}
 
