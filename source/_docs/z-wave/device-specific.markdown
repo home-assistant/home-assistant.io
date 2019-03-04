@@ -386,6 +386,69 @@ Button four tap|Circle with Line|4|0
 Button four hold|Circle with Line|4|2
 Button four release|Circle with Line|4|1
 
+### {% linkable_title Remotec ZRC-90 Scene Master %}
+
+To get the ZRC-90 Scene Master working in Home Assistant, you must first edit the `COMMAND_CLASS_CENTRAL_SCENE` in your `zwcfg` file.
+
+1. Go the Z-Wave control panel in Home Assistant and make a note of the node number your ZRC-90 has been assigned.
+2. *Stop* Home Assistant.
+3. Make a backup of your `zwfcg` file, just in case.
+4. In the `zwcfg` file, find the `Node id` that corresponds to the number you noted in the first step.
+5. Within the `Node id` you identified, highlight everything between `<CommandClass id="91"` and `</CommandClass>` (inclusive) and paste in the following:
+
+    ```xml
+    <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="5" innif="true" scenecount="0">
+      <Instance index="1" />
+      <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="1" label="Scene 1" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+      <Value type="int" genre="system" instance="1" index="2" label="Scene 2" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="3" label="Scene 3" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="4" label="Scene 4" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+      <Value type="int" genre="system" instance="1" index="5" label="Scene 5" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="6" label="Scene 6" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="7" label="Scene 7" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="8" label="Scene 8" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="9" label="Other" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+    </CommandClass>
+    ```
+
+6. Save the changes you made the `zwcfg` file and start Home Assistant back up.
+
+Button presses will trigger `zwave.scene_activated` with the following:
+
+- `node_id`: the node of your Scene Master (useful if you have more than one)
+- `scene_id`: the number button you press (1-8)
+- `scene_data`: the type of press registered (see below)
+
+The Scene Master has eight buttons which can send four actions.
+The type of action is reflected in the `scene_data` parameter:
+
+**Action**|**scene\_data**
+:-----:|:-----:
+Single press | 0
+Long press (2s) | 1
+Release from hold | 2
+Double-press | 3
+
+Let's see how this works in an automation for a Scene Master that's assigned as Node 7:
+
+```yaml
+- id: '1234567890'
+  alias: Double-press Button 2 to toggle all lights
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      node_id: 7
+      scene_id: 2
+      scene_data: 3  
+  condition: []
+  action:
+  - data:
+    service: light.toggle
+      entity_id: group.all_lights
+```
+
 ### {% linkable_title RFWDC Cooper 5-button Scene Control Keypad %}
 
 For the RFWDC Cooper 5-button Scene Control Keypad, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
