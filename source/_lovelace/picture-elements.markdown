@@ -424,7 +424,7 @@ conditions:
       description: Entity state is unequal to this value.*
       type: string
 elements:
-  required: false
+  required: true
   description: One or more elements of any type to show when conditions are met. See below for an example.
   type: list
 {% endconfiguration %}
