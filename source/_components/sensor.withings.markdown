@@ -48,6 +48,7 @@ sensor:
     secret: <consumer secret from previous step>
     profile: <name of user profile>
 ```
+
 Withings supports multiple profiles per account. Each profile has a person's name to help distinguish who's data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish who's data you're looking at.
 
 ### {% linkable_title Authorization %}
@@ -131,7 +132,7 @@ measurements:
       description: 
     temperature_f:
       description:
-    body_temperature_c
+    body_temperature_c:
       description: Temperature normally used to determine if a person has a fever.
     body_temperature_f:
       description: Temperature normally used to determine if a person has a fever.
