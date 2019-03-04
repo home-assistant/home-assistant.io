@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "FireTV"
+title: "Fire TV"
 description: "Instructions on how to integrate Fire-TV into Home Assistant."
 date: 2015-10-23 18:00
 sidebar: true
@@ -26,23 +26,24 @@ Steps to configure your Amazon Fire TV stick with Home Assistant:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 
-To add FireTV to your installation, Note your device name, and add the following to your `configuration.yaml` file:
+
+## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  # a device that does not require ADB authentication
+  # Use the Python ADB implementation without authentication
   - platform: firetv
     name: Fire TV 1
     host: 192.168.0.111
 
-  # a device that does require ADB authentication
+  # Use the Python ADB implementation with authentication
   - platform: firetv
     name: Fire TV 2
     host: 192.168.0.222
     adbkey: "/config/android/adbkey"
 
-  # use an ADB server for sending ADB commands instead of the Python ADB implementation
+  # Use an ADB server for sending ADB commands
   - platform: firetv
     name: Fire TV 3
     host: 192.168.0.123
@@ -82,7 +83,30 @@ get_sources:
   required: false
   default: true
   type: boolean
+apps:
+  description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below.
+  required: false
+  default: {}
+  type: dict
 {% endconfiguration %}
+
+
+### {% linkable_title Full Configuration %}
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  # Use the Python ADB implementation with authentication,
+  # don't get the running apps, and provide an app name
+  - platform: firetv
+    name: Fire TV
+    host: 192.168.0.222
+    adbkey: "/config/android/adbkey"
+    get_sources: false
+    apps:
+      com.amazon.tv.launcher: "Fire TV"
+```
+
 
 ## {% linkable_title ADB Setup %}
 
@@ -90,6 +114,7 @@ This component works by sending ADB commands to your Fire TV device.  There are 
 
 1. Using the `adb` Python package.  If your device requires ADB authentication, you will need to follow the instructions in the "ADB Authentication (for Fire TV devices with recent software)" section below.  Once you have an authenticated key, this approach does not require any additional setup or addons.  However, users with newer devices may find that the ADB connection is unstable.  If setting the `get_sources` configuration option to `false` does not help, they should use the next option.  
 2. Using an ADB server.  For Hass.io users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/v0.1.0/README.md) addon.  With this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Fire TV device and report back to Home Assistant.  To use this option, add the `adb_server_ip` option to your configuration.  If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
+
 
 ### {% linkable_title ADB Authentication (for Fire TV devices with recent software) %}
 
@@ -105,6 +130,7 @@ Once you've successfully connected to your Fire TV via the command `adb connect 
 * Windows: `%userprofile%\.android.`
 
 Copy the `adbkey` and `adbkey.pub` files to your Home Assistant folder and add the path to the `adbkey` file to your configuration.  
+
 
 #### ADB Troubleshooting
 
