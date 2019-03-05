@@ -35,11 +35,11 @@ sensor:
 
 {% configuration %}
 origin:
-  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker, person, or zone, which provides this information in its state.
+  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, a entity id with latitude and longitude attributes, or zone friendly name.
   required: true
   type: string
 destination:
-  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker, person, or zone, which provides this information in its state.
+  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter an entity id which provides this information in its state, a entity id with latitude and longitude attributes, or zone friendly name.
   required: true
   type: string
 region:
@@ -63,6 +63,10 @@ realtime:
   description: If this is set to false, Waze returns the time estimate, not including current conditions, but rather the average travel time for the current time of day. The parameter defaults to true, meaning Waze will return real-time travel time.
   required: false
   type: boolean
+units:
+  description: "Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`."
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example using dynamic destination %}
@@ -95,11 +99,26 @@ sensor:
             {%- else -%}
               Unknown
             {%- endif %}
-
+    
+  # Tracking entity to entity
   - platform: waze_travel_time
     name: "Me to destination"
     origin: device_tracker.myphone
     destination: sensor.dest_address
     region: 'US'
+
+  # Tracking entity to zone friendly name
+  - platform: waze_travel_time
+    name: Home To Eddie's House
+    origin: zone.home
+    destination: Eddies House    # Friendly name of a zone
+    region: 'US'
+
+  # Tracking entity in imperial unit
+  - platform: waze_travel_time
+    origin: person.paulus
+    destination: "725 5th Ave, New York, NY 10022, USA"
+    region: 'US'
+    units: imperial    # 'metric' for Metric, 'imperial' for Imperial
 ```
 {% endraw %}
