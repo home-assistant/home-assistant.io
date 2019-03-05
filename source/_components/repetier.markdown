@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: repetier.png
 ha_category:
   - Hub
   - Sensor
