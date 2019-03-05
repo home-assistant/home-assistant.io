@@ -89,7 +89,7 @@ media_player:
     adbkey: "/config/android/adbkey"
     get_sources: false
     apps:
-      com.amazon.avoid: "Amazon Video"
+      com.amazon.avod: "Amazon Video"
 ```
 
 
