@@ -310,6 +310,7 @@ Press circle and plus simultaneously to wake up the device.
 ```
 
 Below is a table of the action/scenes for the NanoMote:
+
 **Action**|**scene\_id**|**scene\_data**
 :-----:|:-----:|:-----:
 Button one single tap|1|7680
@@ -326,11 +327,11 @@ Button four hold|4|7800
 Button four release|4|7740
 
 Example Event:
+
 ```yaml
     "event_type": "zwave.scene_activated",
     "data": {
-        "entity_id": "zwave.ashley_nanomote",
-        "node_id": 53,
+        "entity_id": "zwave.nanomote",
         "scene_id": 2,
         "scene_data": 7800
     }
