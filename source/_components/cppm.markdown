@@ -41,15 +41,15 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address or hostname of the ClearPass server, e.g., `clearpass.server.com`.
+  description: "The IP address or hostname of the ClearPass server, e.g., `clearpass.server.com`."
   required: true
   type: string
 client_id:
-  description: The client ID from here: `https://clearpass.server.com/guest/api_clients.php`
+  description: "The client ID from here: `https://clearpass.server.com/guest/api_clients.php`"
   required: true
   type: string
 api_key:
-  description: Secret from here: `https://clearpass.server.com/guest/api_clients.php`
+  description: "Secret from here: `https://clearpass.server.com/guest/api_clients.php`"
   required: true
   type: string
 {% endconfiguration %}
