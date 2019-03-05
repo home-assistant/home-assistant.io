@@ -309,7 +309,7 @@ Press circle and plus simultaneously to wake up the device.
     </CommandClass>
 ```
 
-Below is a table of the action/scenes for the NanoMote:
+Below is a table of the action/scenes for the NanoMote Quad:
 
 **Action**|**scene\_id**|**scene\_data**
 :-----:|:-----:|:-----:
@@ -333,7 +333,7 @@ Example Event:
     "data": {
         "entity_id": "zwave.nanomote",
         "scene_id": 2,
-        "scene_data": 7800
+        "scene_data": 7680
     }
 ```
 
