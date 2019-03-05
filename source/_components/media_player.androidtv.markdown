@@ -137,7 +137,7 @@ The service `androidtv.adb_command` allows you to send either keys or ADB shell 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android TV entities.
-| `command`              |       no | An ADB shell command.
+| `command`              |       no | Either an action or an ADB shell command.
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this:
 
