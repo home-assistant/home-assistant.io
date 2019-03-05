@@ -132,7 +132,7 @@ If you receive the error message `Issue: Error while setting up platform android
 
 ## {% linkable_title Service %}
 
-The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to the Android TV.
+The service `androidtv.adb_command` allows you to send either actions or ADB shell commands to the Android TV.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
