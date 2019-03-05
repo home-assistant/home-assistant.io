@@ -1,0 +1,57 @@
+---
+layout: page
+title: "Aruba"
+description: "Instructions on how to integrate Aruba routers into Home Assistant."
+date: 2015-08-31 08:45
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: aruba.png
+ha_category: Presence Detection
+ha_release: 0.7
+---
+
+
+This platform allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
+
+Supported platforms (tested):
+
+- Aruba ClearPass 6.7.5
+
+<p class='note warning'>
+You must first creat an API client from here: https://clearpass.server.com/guest/api_clients.php
+</p>
+
+To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+device_tracker:
+  - platform: cppm_tracker
+    host: clearpass.server.org
+    client_id: clearpassapi
+    api_key: 00000004qyO513hTdCfjIO2ZWWnmex8QZ5000000000
+    scan_interval: 120
+    consider_home: 120
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+```
+
+{% configuration %}
+host:
+  description: The IP address or hostname of the ClearPass server, e.g., `clearpass.server.com`.
+  required: true
+  type: string
+client_id:
+  description: The client ID from here: `https://clearpass.server.com/guest/api_clients.php`
+  required: true
+  type: string
+api_key:
+  description: Secret from here: `https://clearpass.server.com/guest/api_clients.php`
+  required: true
+  type: string
+{% endconfiguration %}
+
+See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
