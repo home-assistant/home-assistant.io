@@ -26,6 +26,7 @@ notify:
     username: CLICKSEND_USERNAME
     api_key: CLICKSEND_API_KEY
     recipient: PHONE_NO
+    caller: PHONE_NO
 ```
 
 {% configuration %}
@@ -43,8 +44,12 @@ api_key:
   required: true
   type: string
 recipient:
-  description: Your phone number. This is where you want to send your notification SMS messages (e.g., `09171234567`).
+  description: Recipient phone number. This is the phone number that you want to call and notify via TTS (e.g., `09171234567`).
   required: true
+  type: string
+caller:
+  description: Caller phone number. This is the phone number that you want to be the TTS call originator (e.g., `09181234567`). If not defined the recipient number is used.
+  required: false
   type: string
 language:
   description: The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](http://docs.clicksend.apiary.io/#reference/voice/voice-languages).
