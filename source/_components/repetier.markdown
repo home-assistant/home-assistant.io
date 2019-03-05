@@ -7,7 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Hub
+ha_category:
+  - Hub
+  - Sensor
 featured: false
 ha_release: 0.88
 ha_iot_class: "Local Polling"
