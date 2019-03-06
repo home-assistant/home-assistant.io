@@ -8,7 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: oasa.png
-ha_category: Transport
+ha_category:
+  - Transport
+  - Sensor
 ha_iot_class: "Cloud Polling"
 ha_release: 0.90
 ---
