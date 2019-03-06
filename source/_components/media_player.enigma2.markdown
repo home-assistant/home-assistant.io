@@ -10,7 +10,7 @@ footer: true
 logo: openwebif.png
 ha_category: Media Player
 featured: false
-ha_release: 0.89
+ha_release: 0.90
 ha_iot_class: "Local Polling"
 ---
 
@@ -32,6 +32,11 @@ media_player:
     description: The IP/hostname of the Enigma2 set-top box on your home network.
     required: true
     type: string
+  prefer_picon:
+    description: If you prefer the channel picon to be shown, instead of a screen grab, set this to true.
+    required: false
+    type: boolean
+    default: false
   port:
     description: Port which Openwebif is listening on.
     required: false
