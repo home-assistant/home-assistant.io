@@ -337,7 +337,6 @@ Example Event:
     }
 ```
 
-
 ### {% linkable_title Aeotec Wallmote %}
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
