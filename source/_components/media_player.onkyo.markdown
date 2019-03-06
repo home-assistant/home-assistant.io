@@ -42,7 +42,7 @@ name:
   required: false
   type: string
 max_volume:
-  description: Maximum volume. Defaults to 80.
+  description: Maximum volume. Defaults to 80. If the receiver volume is adjusted in increments of .5, this value represents a number of .5-step increments above zero: for example, setting max_volume to 120 would result in a maximum volume of 60.0.
   required: false
   type: number
 sources:
@@ -51,7 +51,7 @@ sources:
   type: list
 {% endconfiguration %}
 
-List of source names:
+List of source names, depending on the model:
 
 - video1
 - video2
@@ -79,6 +79,7 @@ List of source names:
 - multi-ch
 - xm
 - sirius
+- strm-box
 
 ### {% linkable_title Service `onkyo_select_hdmi_output` %}
 
