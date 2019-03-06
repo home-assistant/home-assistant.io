@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "VeSync Switch"
-description: "Instructions on how to set up Etekcity VeSync switches within Home Assistant."
+description: "Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant."
 date: 2018-03-09 02:11
 sidebar: true
 comments: false
@@ -12,9 +12,11 @@ ha_category: Switch
 ha_release: 0.66
 ---
 
-The `vesync` switch platform enables integration with Etekcity VeSync smart switches.
+The `vesync` switch platform enables integration with Etekcity VeSync smart wall switches and outlets.
 
-VeSync switches are low-cost wifi smart plugs that offer energy monitoring and work with popular voice assistants.
+VeSync outlets are low-cost wifi smart plugs that offer energy monitoring and work with popular voice assistants.
+
+Supports both the 7A round outlets and 15A rectangular outlets, as well as the in wall switches.
 
 ## {% linkable_title Configuration %}
 
@@ -41,7 +43,7 @@ password:
 
 ## {% linkable_title Exposed Attributes %}
 
-VeSync switches will expose the following details.
+VeSync switches will expose the following details for only the smart outlets. Energy monitoring not available for in-wall switches.
 
 | Attribute           | Description                                                         | Example         |
 | ------------------- | ------------------------------------------------------------------- | --------------- |
