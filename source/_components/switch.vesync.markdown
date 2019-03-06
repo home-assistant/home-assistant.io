@@ -43,7 +43,7 @@ password:
 
 ## {% linkable_title Exposed Attributes %}
 
-VeSync switches will expose the following details for only the smart outlets.  Energy monitoring not available for in-wall switches.
+VeSync switches will expose the following details for only the smart outlets. Energy monitoring not available for in-wall switches.
 
 | Attribute           | Description                                                         | Example         |
 | ------------------- | ------------------------------------------------------------------- | --------------- |
