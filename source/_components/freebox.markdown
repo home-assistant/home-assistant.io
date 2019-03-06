@@ -25,6 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 * [Sensor](#sensor) with traffic metrics
 * [Device tracker](#presence-detection) for connected devices
+* [Switch](#switch) to control WiFi
 
 ## {% linkable_title Configuration %}
 
@@ -59,9 +60,11 @@ returned json should contain an api_domain (`host`) and a https_port (`port`).
 You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
 </p>
 
-The first time Home Assistant will connect to your Freebox, you will need to
+<p>The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
-prompted to do so.
+prompted to do so.</p>
+<p>To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
+" permission to Home Assitant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".</p>
 
 ### {% linkable_title Supported routers %}
 
