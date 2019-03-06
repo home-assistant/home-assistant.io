@@ -68,6 +68,21 @@ monitored_conditions:
       description: Medium cloud level.
     highClouds:
       description: High cloud level.
+latitude:
+  description: Manually specify latitude.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
+longitude:
+  description: Manually specify longitude.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
+altitude:
+  description: Manually specify altitude.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
 {% endconfiguration %}
 
 A full configuration example can be found below:
