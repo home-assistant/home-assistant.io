@@ -17,9 +17,7 @@
     {%- assign imp_url = imp_name | prepend: '/components/' | append: '/' -%}
     {%- assign parent_name = file_parts[0] -%}
     {%- assign parent_url = parent_name | prepend: '/components/' | append: '/' -%}
-    {%- assign embedded_url = imp_name | prepend: '/components/' | append: '/' -%}
-    {%- assign embedded_component = components | where: 'url', embedded_url | first -%}
-    {%- assign parent_component = components | where: 'url', parent_url | first -%}
+    {%- assign parent_component = components | where: 'url', imp_url | first -%}
   {%- else -%}
     {%- assign is_platform = false -%}
     {%- assign imp_name = file_parts | first -%}

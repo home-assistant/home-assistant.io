@@ -63,7 +63,7 @@ The Trusted Networks auth provider defines a range of IP addresses for which no 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
 <p class='note info'>
-The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you using this auth provider.
+The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
 </p>
 
 Here is an example in `configuration.yaml` to set up Trusted Networks:
@@ -71,17 +71,15 @@ Here is an example in `configuration.yaml` to set up Trusted Networks:
 ```yaml
 homeassistant:
   auth_providers:
-   - type: trusted_networks
-
-# Temporary, this will be moved to be part of auth provider config
-# https://github.com/home-assistant/home-assistant/issues/16149
-http:
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
-    - 192.168.0.0/24
-    - fd00::/8
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - ::1
+        - 192.168.0.0/24
+        - fd00::/8
 ```
+
+If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `trusted_networks` was configured under `http` section.
 
 ### {% linkable_title Command Line %}
 
@@ -140,6 +138,8 @@ http:
 ```
 
 Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
+
+If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `api_password` was configured under `http` section.
 
 <p class='note warning'>
 [Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.

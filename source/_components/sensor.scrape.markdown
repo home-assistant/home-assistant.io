@@ -38,6 +38,11 @@ attribute:
   description: Get value of an attribute on the selected tag.
   required: false
   type: string
+index:
+  description: Defines which of the elements returned by the CSS selector to use.
+  required: false
+  default: 0
+  type: integer
 name:
   description: Name of the sensor.
   required: false

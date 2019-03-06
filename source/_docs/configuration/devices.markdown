@@ -37,8 +37,6 @@ sensor:
 
 switch:
   - platform: vera
-  - platform: tplink
-    host: IP_ADDRESS
 ```
 
 ## {% linkable_title Style 2: List each device separately %}
@@ -65,8 +63,7 @@ switch 1:
   platform: vera
 
 switch 2:
-  platform: tplink
-  host: IP_ADDRESS
+  platform: vera
 ```
 
 ## {% linkable_title Grouping devices %}

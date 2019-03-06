@@ -40,7 +40,7 @@ To enable ADS, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 ads:
   device: '127.0.0.1.1.1'
-  port: 48898
+  port: 801
 ```
 
 {% configuration %}
@@ -137,7 +137,7 @@ name:
 
 ## {% linkable_title Sensor %}
 
-The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT* or *BYTE*.
+The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*. 
 
 To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
 file:
@@ -158,7 +158,7 @@ adsvar:
   type: string
 adstype:
   required: false
-  description: The datatype of the ADS variable, possible values are int, uint, byte.
+  description: The datatype of the ADS variable, possible values are int, uint, byte, dint, udint.
   default: int
   type: string
 name:
