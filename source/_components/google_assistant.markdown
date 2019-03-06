@@ -203,7 +203,7 @@ https://developers.google.com/actions/reference/smarthome/traits/modes
 
 ### {% linkable_title Room/Area support %}
 
-Entities that have not got rooms explicitly set and that have been placed in home assistant areas will return room hints to google with the devices in those areas.
+Entities that have not got rooms explicitly set and that have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
 
 ### {% linkable_title Climate Operation Modes %}
 
