@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "0.89: TBD - UPDATE DAte"
-description: "TBD"
-date: 2019-02-27 00:11:03
-date_formatted: "March 13, 2019"
+title: "0.89: Nissan Leaf, PlayStation 4, Point alarm control, Owlet baby monitor"
+description: "Vroom vroom vrooooooooooom."
+date: 2019-03-06 00:11:03
+date_formatted: "March 6, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
@@ -12,7 +12,12 @@ og_image: /images/blog/2019-03-release-89/components.png
 ---
 
 <a href='/components/#version/0.89'><img src='/images/blog/2019-03-release-89/components.png' style='border: 0;box-shadow: none;'></a>
-## {% linkable_title Noteworthy Breaking Change %}
+
+It's time for release 0.89. It's another great new release with some cool new features, bug fixes and improvements. The first cool new feature is that yet another car is integrated into Home Assistant: the Nissan Leaf. Both deConz and SmartThings integrations keep expanding to cover more devices.
+
+This release introduces a new mobile app component. [@robbiet480], who also works on the iOS app, has taken the best parts of the Home Assistant iOS app component and turned it into a standardized API that any mobile app can build upon. This will allow any mobile apps to integrate with Home Assistant with a great user experience. If you are a mobile app developer, please check the updated [app integration docs](https://developers.home-assistant.io/docs/en/app_integration_index.html). We will be fine tuning the API in upcoming releases. Feedback is welcome.
+
+## {% linkable_title Noteworthy Breaking Changes %}
 
 __Custom Components file structure change:__ A significant change in how the "under the hood" of Home Assistant works has led to forcing platforms to be resolved based off the component path, if it exists.
 
@@ -26,36 +31,26 @@ Example: if I look up the hue component, and it is provided by a custom componen
 
 Paulus has written some detailed information about this change on the developers' blog, if you'd like more information. [The Great Migration by Paulus](https://developers.home-assistant.io/blog/2019/02/19/the-great-migration.html)
 
-
 __Existing SmartThings configuration entries will be removed,__ including the SmartApp/Automation from the SmartThings app. Home Assistant will prompt you to configure the integration again or it can be invoked from the integrations page. The configuration process is the same as before. To prepare, have your _personal access token and a mobile device with the SmartThings Classic App handy._ This will not affect the naming of devices or entities and is a __one-time inconvenience.__ The implementation switches over to the SmartApp access token to synchronize subscriptions during setup of the config entry, which cannot be done using the personal access token.
-
 
 ## {% linkable_title New Platforms %}
 
 - Météo-France platform for the weather component ([@victorcerutti] - [#18404]) ([sensor.meteo_france docs]) ([weather.meteo_france docs]) (new-platform)
 - Point alarm control ([@fredrike] - [#20972]) ([point docs]) (new-platform)
-- Times of The Day Binary Sensor ([@kstaniek] - [#20068]) ([binary_sensor.tod docs]) (new-platform)
 - Nissan Leaf Integration (Carwings / NissanConnect EV) ([@filcole] - [#19786]) ([device_tracker docs]) ([nissan_leaf docs]) ([binary_sensor.nissan_leaf docs]) ([sensor.nissan_leaf docs]) ([switch.nissan_leaf docs]) (new-platform)
+- Rewrite of Toon component ([@frenck] - [#21186]) ([toon docs]) (breaking change) (new-platform)
+- Times of The Day Binary Sensor ([@kstaniek] - [#20068]) ([binary_sensor.tod docs]) (new-platform)
 - Add switch platform for Danfoss Air and additional sensors. ([@JonasPed] - [#21046]) ([danfoss_air docs]) (new-platform)
 - Owlet baby monitor component ([@oblogic7] - [#21108]) ([owlet docs]) (new-platform)
 - deCONZ thermostat support ([@Kane610] - [#20586]) ([deconz docs]) (new-platform)
 - Added device tracker support for Ubee Router ([@mzdrale] - [#19586]) ([device_tracker docs]) (new-platform)
-- Nissanleaf ([@filcole] - [#21145]) ([nissan_leaf docs]) (new-platform)
 - Add LCN cover platform ([@alengwenus] - [#20288]) ([lcn docs]) ([cover.lcn docs]) (new-platform)
-- Split out iperf3 into a component with a sensor platform ([@rohankapoorcom] - [#21138]) ([iperf3 docs]) ([sensor.iperf3 docs]) (breaking change) (new-platform)
 - Add initial support for Sony SDCP projector control ([@alistairg] - [#20269]) ([switch.sony_projector docs]) (new-platform)
-- Refactoring. Moved LCN constants to const.py ([@alengwenus] - [#21376]) ([lcn docs]) (new-platform)
 - Add SmartThings Cover platform and add cover device classes ([@andrewsayre] - [#21192]) ([cover docs]) ([smartthings docs]) (breaking change) (new-platform)
-- Rewrite of Toon component ([@frenck] - [#21186]) ([toon docs]) (breaking change) (new-platform)
 - Add SmartThings Scene platform ([@andrewsayre] - [#21405]) ([smartthings docs]) (new-platform)
 - Reddit Sensor ([@ljmerza] - [#21344]) ([sensor.reddit docs]) (new-platform)
 - mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
-
-## {% linkable_title New Features %}
-
-- Enhance SmartThings component subscription ([@andrewsayre] - [#21124]) ([smartthings docs]) (breaking change) (new-feature)
-- SmartThings Lock platform state attributes enhancement ([@andrewsayre] - [#21379]) ([smartthings docs]) (new-feature)
-- Add power and energy attributes to SmartThings switch ([@andrewsayre] - [#21375]) ([smartthings docs]) (new-feature)
+- Add component media player.ps4 ([@ktnrg45] - [#21074]) ([ps4 docs])
 
 ## {% linkable_title If you need help... %}
 
@@ -113,6 +108,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
+- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -297,6 +294,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Avoid recorder thread crashing ([@balloob] - [#21668]) (beta fix)
 - check we have a tb ([@dgomes] - [#21670]) ([system_log docs]) (beta fix)
 - Fix ADS race condition ([@carstenschroeder] - [#21677]) ([ads docs]) (beta fix)
+- resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
+- Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
 [#18091]: https://github.com/home-assistant/home-assistant/pull/18091
 [#18404]: https://github.com/home-assistant/home-assistant/pull/18404
@@ -479,6 +478,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#21668]: https://github.com/home-assistant/home-assistant/pull/21668
 [#21670]: https://github.com/home-assistant/home-assistant/pull/21670
 [#21677]: https://github.com/home-assistant/home-assistant/pull/21677
+[#21705]: https://github.com/home-assistant/home-assistant/pull/21705
+[#21706]: https://github.com/home-assistant/home-assistant/pull/21706
 [@Adminiuga]: https://github.com/Adminiuga
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Dullage]: https://github.com/Dullage
@@ -658,6 +659,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [system_log docs]: /components/system_log/
 [tahoma docs]: /components/tahoma/
 [telegram_bot docs]: /components/telegram_bot/
+[tellduslive docs]: /components/tellduslive/
 [tibber docs]: /components/tibber/
 [toon docs]: /components/toon/
 [tplink docs]: /components/tplink/
