@@ -26,7 +26,6 @@ notify:
     username: CLICKSEND_USERNAME
     api_key: CLICKSEND_API_KEY
     recipient: PHONE_NO
-    caller: PHONE_NO
 ```
 
 {% configuration %}
