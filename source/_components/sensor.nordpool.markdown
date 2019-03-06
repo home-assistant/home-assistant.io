@@ -34,7 +34,7 @@ sensor:
       required: true
       type: string
     currency:
-      description: Your preferred currency. Valid currencies are: DKK, NOK, SEK, EUR (case-sensitive)
+      description: "Your preferred currency. Valid currencies are: DKK, NOK, SEK, EUR (case-sensitive)"
       required: true
       type: string
     region:
