@@ -107,6 +107,6 @@ sensor:
   - platform: random
 ```
 
-You'll know it worked when you see the new random sensor in your overview page.  On the next page we'll create an automation that uses this sensor to take an action.  
+You'll know it worked when you see the new random sensor in your overview page. On the next page, we'll create an automation that uses this sensor to take an action.  
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
