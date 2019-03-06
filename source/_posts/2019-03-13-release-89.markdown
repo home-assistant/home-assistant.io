@@ -27,7 +27,7 @@ Example: if I look up the hue component, and it is provided by a custom componen
 Paulus has written some detailed information about this change on the developers' blog, if you'd like more information. [The Great Migration by Paulus](https://developers.home-assistant.io/blog/2019/02/19/the-great-migration.html)
 
 
-__Existing SmartThings integrations will be removed,__ including the SmartApp/Automation from the SmartThings app. Home Assistant will prompt you to configure the integration again or it can be invoked from the integrations page. The configuration process is the same as before. To prepare, have your _personal access token and a mobile device with the SmartThings Classic App handy._ This will not affect the naming of devices or entities and is a __one-time inconvenience.__ The implementation switches over to the SmartApp access token to synchronize subscriptions during setup of the config entry, which cannot be done using the personal access token.
+__Existing SmartThings configuration entries will be removed,__ including the SmartApp/Automation from the SmartThings app. Home Assistant will prompt you to configure the integration again or it can be invoked from the integrations page. The configuration process is the same as before. To prepare, have your _personal access token and a mobile device with the SmartThings Classic App handy._ This will not affect the naming of devices or entities and is a __one-time inconvenience.__ The implementation switches over to the SmartApp access token to synchronize subscriptions during setup of the config entry, which cannot be done using the personal access token.
 
 
 ## {% linkable_title New Platforms %}
