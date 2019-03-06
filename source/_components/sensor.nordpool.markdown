@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nordpool.png
 ha_category: Energy
-ha_release: 0.88
+ha_release: 0.90
 ha_iot_class: "Cloud Polling"
 ---
 
