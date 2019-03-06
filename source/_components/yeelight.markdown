@@ -11,9 +11,15 @@ logo: yeelight.png
 ha_category: Light
 ha_release: 0.32
 ha_iot_class: Local Polling
+redirect_from:
+  - /components/light.yeelight/
 ---
 
-The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
+The `yeelight` component allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
+
+There is currently support for the following device types within Home Assistant:
+
+- **Light** - The yeelight platform for supporting lights.
 
 ### {% linkable_title Example configuration (Automatic) %}
 After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
@@ -35,11 +41,10 @@ To enable those lights, add the following lines to your `configuration.yaml` fil
 discovery:
   ignore:
     - yeelight
-light:
-  - platform: yeelight
-    devices:
-      192.168.1.25:
-        name: Living Room
+yeelight:
+  devices:
+    192.168.1.25:
+      name: Living Room
 ```
 
 {% configuration %}
@@ -142,7 +147,7 @@ This component is tested to work with the following models. If you have a differ
 
 ## {% linkable_title Platform Services %}
 
-### {% linkable_title Service `light.yeelight_set_mode` %}
+### {% linkable_title Service `yeelight.set_mode` %}
 
 Set an operation mode.
 
@@ -152,7 +157,7 @@ Set an operation mode.
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
 
 
-### {% linkable_title Service `light.yeelight_start_flow` %}
+### {% linkable_title Service `yeelight.start_flow` %}
 
 Start flow with specified transitions
 
@@ -173,14 +178,13 @@ This example shows how you can use the optional configuration options.
 
 ```yaml
 # Example configuration.yaml entry
-light:
-  - platform: yeelight
-    devices:
-      192.168.1.25:
-        name: Living Room
-        transition: 1000
-        use_music_mode: true
-        save_on_change: true
+yeelight:
+  devices:
+    192.168.1.25:
+      name: Living Room
+      transition: 1000
+      use_music_mode: true
+      save_on_change: true
 ```
 
 ### {% linkable_title Multiple bulbs %}
@@ -188,13 +192,12 @@ light:
 This example shows how you can add multiple bulbs in your configuration.
 
 ```yaml
-light:
-  - platform: yeelight
-    devices:
-      192.168.1.25:
-        name: Living Room
-      192.168.1.13:
-        name: Front Door
+yeelight:
+  devices:
+    192.168.1.25:
+      name: Living Room
+    192.168.1.13:
+      name: Front Door
 ```
 
 ### {% linkable_title Custom effects %}
@@ -213,17 +216,16 @@ More info about transitions and their expected parameters can be found in [pytho
 
 
 ```yaml
-light:
-  - platform: yeelight
-    devices:
-      192.168.1.25:
-        name: Living Room
-    custom_effects:
-      - name: 'Fire Flicker'
-        flow_params:
-          count: 0
-          transitions:
-            - TemperatureTransition: [1900, 1000, 80]
-            - TemperatureTransition: [1900, 2000, 60]
-            - SleepTransition:       [1000]
+yeelight:
+  devices:
+    192.168.1.25:
+      name: Living Room
+  custom_effects:
+    - name: 'Fire Flicker'
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [1900, 1000, 80]
+          - TemperatureTransition: [1900, 2000, 60]
+          - SleepTransition:       [1000]
 ```
