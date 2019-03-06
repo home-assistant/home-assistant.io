@@ -71,18 +71,18 @@ monitored_conditions:
 latitude:
   description: Manually specify latitude.
   required: false
-  type: number
-  default: Provided by Home Assistant configuration
+  type: float
+  default: Provided by Home Assistant configuration.
 longitude:
   description: Manually specify longitude.
   required: false
-  type: number
-  default: Provided by Home Assistant configuration
+  type: float
+  default: Provided by Home Assistant configuration.
 altitude:
   description: Manually specify altitude.
   required: false
-  type: number
-  default: Provided by Home Assistant configuration
+  type: float
+  default: Provided by Home Assistant configuration.
 {% endconfiguration %}
 
 A full configuration example can be found below:
