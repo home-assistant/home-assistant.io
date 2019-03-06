@@ -6,6 +6,7 @@ date: 2018-12-16 14:20
 sidebar: true
 comments: false
 sharing: true
+featured: true
 footer: true
 logo: esphome.png
 ha_category: DIY

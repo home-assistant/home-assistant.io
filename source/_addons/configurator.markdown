@@ -120,7 +120,7 @@ loglevel:
   type: string
   default: info
 sesame:
-  description: Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:8123/somesecretnobodycanguess while `allowed_networks` is set to `[]` and your IP will get whitelisted. You can use the Network status menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
+  description: Secret token to dynamically allow access from the IP the request originates from. Open your bookmark https://hassio.yourdomain.com:3218/somesecretnobodycanguess while `allowed_networks` is set to `[]` and your IP will get whitelisted. You can use the Network status menu to revoke IP addresses for which access has been granted. Regular authentication is still required.
   required: false
   type: string
 sesame_totp_secret:

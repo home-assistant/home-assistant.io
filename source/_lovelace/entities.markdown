@@ -38,7 +38,7 @@ theme:
 
 ## {% linkable_title Options For Entities %}
 
-If you define entities as objects instead of strings, you can add more customization and configuration:
+If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
 
 {% configuration %}
 entity:

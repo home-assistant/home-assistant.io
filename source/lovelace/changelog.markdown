@@ -17,6 +17,8 @@ footer: true
 
 ## {% linkable_title Changes in 0.87.0 %}
 - 📣 MDI icons updated to [3.3.92](https://cdn.materialdesignicons.com/3.3.92/)
+- 📣 Theming: New CSS card style `ha-card-border-radius`
+- 📣 Theming: New CSS card style `ha-card-background`
 - 📣 New system-health card in dev-info
 - 📣 UI Editor: YAML syntax support
 - 📣 UI Editor: Line numbers
@@ -25,7 +27,7 @@ footer: true
 - 📣 [thermostat card]: more-info button added
 - 📣 [light card]: more-info button added
 - 🔧 [thermostat card]: Fix slider
-- 🔧 groups togglable
+- 🔧 groups are now togglable
 
 ## {% linkable_title Changes in 0.86.0 %}
 - 📣 Lovelace is now the default UI for Home Assistant!

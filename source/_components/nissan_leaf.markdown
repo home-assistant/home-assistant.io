@@ -11,6 +11,10 @@ logo: nissan.png
 ha_category: Car
 ha_release: 0.89
 ha_iot_class: "Cloud Polling"
+redirect_from:
+ - /components/binary_sensor.nissan_leaf/
+ - /components/sensor.nissan_leaf/
+ - /components/switch.nissan_leaf/
 ---
 
 The `nissan_leaf` component offers integration with the [NissanConnect EV](http://youplus.nissan.co.uk/GB/en/YouPlus/ConnectedServices.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
