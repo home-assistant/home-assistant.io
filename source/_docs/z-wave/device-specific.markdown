@@ -294,6 +294,49 @@ Button six (Triangle) release|6|7740
 
 Press circle and plus simultaneously to wake up the device.
 
+### {% linkable_title Aeotec NanoMote Quad %}
+
+<!-- from https://products.z-wavealliance.org/products/2817 -->
+
+```xml
+    <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+    </CommandClass>
+```
+
+Below is a table of the action/scenes for the NanoMote Quad:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one single tap|1|7680
+Button one hold|1|7800
+Button one release|1|7740
+Button two single tap|2|7680
+Button two hold|2|7800
+Button two release|2|7740
+Button three single tap|3|7680
+Button three hold|3|7800
+Button three release|3|7740
+Button four single tap|4|7680
+Button four hold|4|7800
+Button four release|4|7740
+
+Example Event:
+
+```yaml
+    "event_type": "zwave.scene_activated",
+    "data": {
+        "entity_id": "zwave.nanomote",
+        "scene_id": 2,
+        "scene_data": 7680
+    }
+```
+
 ### {% linkable_title Aeotec Wallmote %}
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
