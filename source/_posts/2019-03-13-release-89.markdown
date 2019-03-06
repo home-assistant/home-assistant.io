@@ -13,15 +13,9 @@ og_image: /images/blog/2019-03-release-89/components.png
 
 <a href='/components/#version/0.89'><img src='/images/blog/2019-03-release-89/components.png' style='border: 0;box-shadow: none;'></a>
 ## {% linkable_title Noteworthy Breaking Change %}
-Existing SmartThings integrations will be removed, including the SmartApp/Automation from the SmartThings app. Home Assistant will prompt you to configure the integration again or it can be invoked from the integrations page. The configuration process is the same as before. To prepare, have your personal access token and a mobile device with the SmartThings Classic App handy. This will not affect the naming of devices or entities and is a one-time inconvenience.
 
-The implementation switches over to the SmartApp access token to synchronize subscriptions during setup of the config entry, which cannot be done using the personal access token.
+__Existing SmartThings integrations will be removed,__ including the SmartApp/Automation from the SmartThings app. Home Assistant will prompt you to configure the integration again or it can be invoked from the integrations page. The configuration process is the same as before. To prepare, have your _personal access token and a mobile device with the SmartThings Classic App handy._ This will not affect the naming of devices or entities and is a __one-time inconvenience.__ The implementation switches over to the SmartApp access token to synchronize subscriptions during setup of the config entry, which cannot be done using the personal access token.
 
-SmartApp access tokens are short-lived (5min ttl) and are obtained using a refresh token (30-day ttl) and app client id/secrets.
-The refresh token is regenerated every 14 days to ensure it does not expire
-The config entry version bumped to v2 to accommodate the storage of 3 new attributes client_id, client_secret and refresh_token.
-A direct conversion from config entry v1 is not possible and those entries will be removed and a new config-flow started for the user to setup the integration again.
-While this is a larger set of changes, unit tests have been added/updated, maintaining the high test coverage for this component (>99%). Additionally, manual testing has also been performed.
 
 ## {% linkable_title New Platforms %}
 
