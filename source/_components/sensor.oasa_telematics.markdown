@@ -52,6 +52,11 @@ stop_id:
   description: The id of the public transport stop.
   required: true
   type: string
+name:
+  description: A friendly name for this sensor.
+  required: false
+  default: OASA Telematics
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
