@@ -94,3 +94,7 @@ refreshes the devices states.
 
 This platform offers you sensors to monitor a Freebox router. The monitored conditions are
 instant upload and download rates in KB/s.
+
+## {% linkable_title Switch %}
+
+This platform offers you a switch to toggle the Wifi on or off. This will toggle all WiFi interfaces of the router (all SSID and all bands).
