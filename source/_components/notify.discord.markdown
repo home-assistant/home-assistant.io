@@ -65,7 +65,7 @@ Once the bot has been added to your server, get the channel ID of the channel yo
   <img src='{{site_root}}/images/screenshots/discord-api.png' />
 </p>
 
-Right click channel name and copy the channel ID (**Copy ID**). You can also copy the ID of any user in your contact list by right clicking on the user name to send messages directly to a user.
+Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel/user ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers along with multiple user IDs.
 
@@ -88,7 +88,7 @@ This channel/user ID has to be used as the target when calling the notification 
 
 ### {% linkable_title Notes %}
 
-You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied.
+You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the user name to copy the ID like you did for the channel ID up above.
 
 For more information about creating and authorizing bots, visit the [OAuth2 information page](https://discordapp.com/developers/docs/topics/oauth2)
 
