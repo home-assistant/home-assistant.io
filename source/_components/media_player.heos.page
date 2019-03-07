@@ -20,8 +20,6 @@ Tested devices:
 
 To add a Denon HEOS speaker to your installation, add the following to your `configuration.yaml` file:
 
-## {% linkable_title HEOS platform %}
-
 ```yaml
 # Example configuration.yaml entry
 media_player:
@@ -35,7 +33,7 @@ host:
   description: "Address of the device. Example: 192.168.1.32".
   required: false
   type: string
-  default: Tries to resolves by UPnP (SSDP).
+  default: Tries to resolve by UPnP (SSDP).
 name:
   description: The name of the device
   required: false
