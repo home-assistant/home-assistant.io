@@ -27,7 +27,7 @@ To add a Denon HEOS speaker to your installation, add the following to your `con
 media_player:
   - platform: heos
     name: HEOS Player
-    host: HEOS-1
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
