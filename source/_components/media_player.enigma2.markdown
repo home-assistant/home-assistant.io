@@ -32,8 +32,8 @@ media_player:
     description: The IP/hostname of the Enigma2 set-top box on your home network.
     required: true
     type: string
-  prefer_picon:
-    description: If you prefer the channel picon to be shown, instead of a screen grab, set this to true.
+  use_channel_icon:
+    description: By default, a screen grab of the current channel is shown. If you prefer the channel icon to be shown instead, set this to true
     required: false
     type: boolean
     default: false
