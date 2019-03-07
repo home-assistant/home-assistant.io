@@ -36,7 +36,7 @@ If you are using a Raspberry Pi, you must use PhantomJS.
 </p>
 
 <p class='note warning'>
-Hass.io containers are based on Alpine Linux. PhanthomJS is not available for Alpine Linux. Therefore it is currently not possible to use this component on Hass.io.
+Hass.io containers are based on Alpine Linux. PhantomJS is not available for Alpine Linux. Therefore it is currently not possible to use this component on Hass.io.
 </p>
 
 ### {% linkable_title PhantomJS %}
