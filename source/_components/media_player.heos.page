@@ -32,13 +32,15 @@ media_player:
 
 {% configuration %}
 host:
-  description: "Address of the device. Example: 192.168.1.32"
+  description: "Address of the device. Example: 192.168.1.32".
   required: false
   type: string
+  default: Tries to resolves by UPnP (SSDP).
 name:
   description: The name of the device
   required: false
   type: string
+  default: HEOS Player
 username:
   description: The username for authentication.
   required: false
