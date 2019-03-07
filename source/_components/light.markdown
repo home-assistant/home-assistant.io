@@ -77,7 +77,7 @@ Turns one or multiple lights off.
 ### {% linkable_title Service `light.toggle` %}
 
 Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/). 
-Takes the same arguments as [TURN_ON](#service-lightturn_on) service.
+Takes the same arguments as [`turn_on`](#service-lightturn_on) service.
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light.
 
