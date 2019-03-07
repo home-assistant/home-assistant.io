@@ -22,14 +22,20 @@ To enable Garadget Covers in your installation, add the following to your `confi
 
 ```yaml
 # Example configuration.yaml entry
-cover:
+  
+ cover:
   - platform: garadget
     covers:
-      190028001947343412342341:
+      first_garage:
+        device: 190028001947343412342341
         username: YOUR_USERNAME
         password: YOUR_PASSWORD
-      4c003f001151353432134214:
+        name: first_garage
+      second_garage:
+        device: 4c003f001151353432134214
         access_token: df4cc785ff818f2b01396c44142342fccdef
+        name: second_garage       
+
 ```
 
 {% configuration %}
@@ -37,12 +43,12 @@ covers:
   description: List of your doors.
   required: true
   type: list
-  keys:
-    device:
-      description: This is the device id from your Garadget portal.
-      required: true
-      type: string
+  covers:
       keys:
+        device:
+          description: This is the device id from your Garadget portal.
+          required: true
+          type: string
         username:
           description: Your Garadget account username.
           required: true
@@ -76,7 +82,8 @@ If provided, the **access_token** will be used, otherwise the **username** and *
 cover:
   - platform: garadget
     covers:
-      190028001947343412342341:
+      garadget:
+        device: 190028001947343412342341
         access_token: !secret garadget_access_token
         name: Garage door
 
