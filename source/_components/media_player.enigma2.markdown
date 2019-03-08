@@ -18,7 +18,9 @@ The `enigma2` platform allows you to control a Linux based set-top box which is 
 
 [OpenWebif](https://github.com/E2OpenPlugins/e2openplugin-OpenWebif) is an open source web interface for Enigma2 based set-top boxes.
 
-To add a set-top box to your installation, add the following to your `configuration.yaml` file:
+Enigma2 devices should be discovered automatically by using the [the discovery component](/components/discovery/).
+
+To manually add a set-top box to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -33,7 +35,7 @@ media_player:
     required: true
     type: string
   use_channel_icon:
-    description: By default, a screen grab of the current channel is shown. If you prefer the channel icon to be shown instead, set this to true
+    description: By default, a screen grab of the current channel is shown. If you prefer the channel icon to be shown instead, set this to true.
     required: false
     type: boolean
     default: false
