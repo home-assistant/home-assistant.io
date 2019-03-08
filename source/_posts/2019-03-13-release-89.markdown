@@ -52,6 +52,45 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 - mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
 - Add component media player.ps4 ([@ktnrg45] - [#21074]) ([ps4 docs])
 
+## {% linkable_title Release 0.89.1 - March 8 %}
+
+- Upgrade blinkpy==0.13.1 (Fixes #21559) ([@fronzbot] - [#21578]) ([blink docs])
+- Fix Name of Homematic IP accesspoint in devices, if name is configured ([@SukramJ] - [#21617]) ([homematicip_cloud docs])
+- Fix group-switch availability for Homematic IP ([@SukramJ] - [#21640]) ([homematicip_cloud docs])
+- automated commit 07/03/2019 10:47:38 ([@ljmerza] - [#21749]) ([sensor.google_travel_time docs])
+- Fix botvac connected maps call as it is not a supported model ([@dshokouhi] - [#21752]) ([neato docs])
+- Fix colorlog import error ([@awarecan] - [#21754])
+- Fix script load module issue ([@awarecan] - [#21763])
+- Bump PyXiaomiGateway version to 0.12.2 (Closes: #21731) ([@syssi] - [#21764]) ([xiaomi_aqara docs])
+- adds missing SUPPORT_VOLUME_SET flag to webos media_player ([@dthulke] - [#21766]) ([webostv docs])
+- Updated to newest pyeconet ([@w1ll1am23] - [#21772]) ([water_heater docs])
+
+[#21578]: https://github.com/home-assistant/home-assistant/pull/21578
+[#21617]: https://github.com/home-assistant/home-assistant/pull/21617
+[#21640]: https://github.com/home-assistant/home-assistant/pull/21640
+[#21749]: https://github.com/home-assistant/home-assistant/pull/21749
+[#21752]: https://github.com/home-assistant/home-assistant/pull/21752
+[#21754]: https://github.com/home-assistant/home-assistant/pull/21754
+[#21763]: https://github.com/home-assistant/home-assistant/pull/21763
+[#21764]: https://github.com/home-assistant/home-assistant/pull/21764
+[#21766]: https://github.com/home-assistant/home-assistant/pull/21766
+[#21772]: https://github.com/home-assistant/home-assistant/pull/21772
+[@SukramJ]: https://github.com/SukramJ
+[@awarecan]: https://github.com/awarecan
+[@dshokouhi]: https://github.com/dshokouhi
+[@dthulke]: https://github.com/dthulke
+[@fronzbot]: https://github.com/fronzbot
+[@ljmerza]: https://github.com/ljmerza
+[@syssi]: https://github.com/syssi
+[@w1ll1am23]: https://github.com/w1ll1am23
+[blink docs]: /components/blink/
+[homematicip_cloud docs]: /components/homematicip_cloud/
+[neato docs]: /components/neato/
+[sensor.google_travel_time docs]: /components/sensor.google_travel_time/
+[water_heater docs]: /components/water_heater/
+[webostv docs]: /components/webostv/
+[xiaomi_aqara docs]: /components/xiaomi_aqara/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
