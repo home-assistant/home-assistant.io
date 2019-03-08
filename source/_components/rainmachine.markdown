@@ -113,6 +113,40 @@ switches:
 
 ## {% linkable_title Services %}
 
+### {% linkable_title `rainmachine.disable_program` %}
+
+Disable a RainMachine program. This will mark the program switch as
+`Unavailable` in the UI.
+
+| Service Data Attribute    | Optional | Description             |
+|---------------------------|----------|-------------------------|
+| `program_id`              |      no  | The program to disable  |
+
+### {% linkable_title `rainmachine.disable_zone` %}
+
+Disable a RainMachine zone. This will mark the zone switch as
+`Unavailable` in the UI.
+
+| Service Data Attribute    | Optional | Description             |
+|---------------------------|----------|-------------------------|
+| `zone_id`                 |      no  | The zone to disable     |
+
+### {% linkable_title `rainmachine.enable_program` %}
+
+Enable a RainMachine program.
+
+| Service Data Attribute    | Optional | Description             |
+|---------------------------|----------|-------------------------|
+| `program_id`              |      no  | The program to enable   |
+
+### {% linkable_title `rainmachine.enable_zone` %}
+
+Enable a RainMachine zone.
+
+| Service Data Attribute    | Optional | Description             |
+|---------------------------|----------|-------------------------|
+| `zone_id`                 |      no  | The zone to enable      |
+
 ### {% linkable_title `rainmachine.pause_watering` %}
 
 Pause all watering activities for a number of seconds.
