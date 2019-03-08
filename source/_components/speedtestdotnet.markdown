@@ -27,8 +27,7 @@ By default, a speed test will be run every hour. The user can change the update 
 
 ## {% linkable_title Configuration %}
 
-For the `server_id` check the list of
-[available servers](https://www.speedtest.net/speedtest-servers.php).
+For the `server_id` check the list of [available servers](https://www.speedtest.net/speedtest-servers.php).
 
 To add Speedtest.net sensors to your installation, add the following to your `configuration.yaml` file:
 
@@ -40,36 +39,35 @@ speedtestdotnet:
 ```
 
 {% configuration %}
-  monitored_conditions:
-    description: Sensors to display in the frontend.
-    required: false
-    default: All keys
-    type: list
-    keys:
-      ping:
-        description: Reaction time in ms of your connection (how fast you get a response after you've sent out a request).
-      download:
-        description: Download speed (Mbit/s)
-      upload:
-        description: Upload speed (Mbit/s)
-  server_id:
-    description: Specify the speed test server to perform the test against.
-    required: false
-    type: integer
-  scan_interval:
-    description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
-    required: false
-    default: 60 minutes
-    type: time
-  manual:
-    description: >
-      `true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests.
-    required: false
-    type: boolean
-    default: false
+monitored_conditions:
+  description: Sensors to display in the frontend.
+  required: false
+  default: All keys
+  type: list
+  keys:
+    ping:
+      description: "Reaction time in ms of your connection (how fast you get a response after you've sent out a request)."
+    download:
+      description: "The download speed (Mbit/s)."
+    upload:
+      description: "The upload speed (Mbit/s)."
+server_id:
+  description: Specify the speed test server to perform the test against.
+  required: false
+  type: integer
+scan_interval:
+  description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
+  required: false
+  default: 60 minutes
+  type: time
+manual:
+  description: "`true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests."
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
-#### {% linkable_title Time period dictionary example %}
+### {% linkable_title Time period dictionary example %}
 
 ```yaml
 scan_interval:
@@ -90,16 +88,10 @@ action:
   service: speedtestdotnet.speedtest
 ```
 
-This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to
-gather network performance data from Speedtest.net.
-Please be aware of the potential
-[inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that
-this component may display.
+This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
+Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
 
-When Home Assistant first starts up, the values of the speed test will show as
-`Unknown`. You can use the service `sensor.update_speedtest` to run a manual
-speed test and populate the data or just wait for the next regularly scheduled
-test. You can turn on manual mode to disable the scheduled speed tests.
+When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test. You can turn on manual mode to disable the scheduled speed tests.
 
 ## {% linkable_title Examples %}
 
@@ -144,7 +136,7 @@ automation:
 
 ## {% linkable_title Notes %}
 
-- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
+- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter. The Raspberry Pi 3+ models comes with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s. 
 - Running this component can have negative effects on the system's performance as it requires a fair amount of memory.
 - Entries under `monitored_conditions` only control what entities are available in Home Assistant, it does not disable the condition from running.
 - If ran frequently, this component has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
