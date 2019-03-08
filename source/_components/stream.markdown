@@ -18,12 +18,3 @@ Add the following to your configuration.yaml file.
 ```yaml
 stream:
 ```
-
-{% configuration %}
-keepalive:
-  description: >
-    Do not close the worker thread when stoping the stream.  This option will keep the stream alive, using additional resources, but will enable a faster load upon subsequent requests.
-  required: false
-  type: boolean
-  default: false
-{% endconfiguration %}
