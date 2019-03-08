@@ -55,12 +55,15 @@ enable_leds:
 You may need to add [multiple switches](https://community.home-assistant.io/t/multiple-tp-link-switches/6935) and the config would need to include multiple switches separately.
 
 ```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: tplink
-    host: FIRST_IP_ADDRESS
-  - platform: tplink
-    host: SECOND_IP_ADDRESS
+# Example configuration.yaml entry with manually specified addresses
+tplink:
+  discovery: false
+  light:
+    - host: 192.168.200.1
+    - host: 192.168.200.2
+  switch:
+    - host: 192.168.200.3
+    - host: 192.168.200.4
 ```
 
 ## {% linkable_title Configure Energy Sensors %}
