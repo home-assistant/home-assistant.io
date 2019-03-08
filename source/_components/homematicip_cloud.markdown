@@ -41,6 +41,7 @@ There is currently support for the following device types within Home Assistant:
 * Light
 * Sensor
 * Switch
+* Shutter
 
 ## {% linkable_title Setup the component via the frontend %}
 
@@ -92,13 +93,13 @@ authtoken:
 
 * homematicip_cloud.binary_sensor
   * Window and door contact (*HmIP-SWDO, -I*)
-  * Rotary Handle Sensor (*HmIP-SRH*)
+  * Window Rotary Handle Sensor (*HmIP-SRH*)
   * Smoke sensor and alarm (*HmIP-SWSD*)
-  * Motion detectors (*HmIP-SMI*)
-  * Water detector (*HmIP-SWD*)
+  * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
+  * Water Sensor (*HmIP-SWD*)
 
 * homematicip_cloud.climate
-  * Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1, -C*)
+  * Heating-Thermostat Radiator with Display (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1, -C*)
   * Climate group (*HmIP-HeatingGroup*)
 
 * homematicip_cloud.light
@@ -108,16 +109,19 @@ authtoken:
   * Switch Actuator and Meter – flush-mount (*HmIP-FSM*)
 
 * homematicip_cloud.sensor
-  * Accesspoint duty-cycle (*HmIP-HAP, -B1*)
-  * Wall-mounted thermostat (*HmIP-WTH, -2*)
-  * Temperature and humidity sensor (*HmIP-STH*)
-  * Temperature and humidity Sensor with display (*HmIP-STHD*)
-  * Outdoor temperature and humidity sensor (*HmIP-STHO, -A*)
-  * Illuminance sensor (*HmIP-SMI*)
+  * Cloud Access point duty-cycle (*HmIP-HAP, -B1*)
+  * Wall Mounted Thermostat Pro with Display (*HmIP-WTH, -2*)
+  * Temperature and Humidity Sensor without display - indoor (*HmIP-STH*)
+  * Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
+  * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
+  * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
+  * Light Sensor - outdoor (*HmIP-SLO*)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
+  * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
+  * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8)
 
 * homematicip_cloud.shutter
   * Blind actuator for brand switches (*HmIP-BBL*)
