@@ -29,10 +29,15 @@ Supported units:
 To use your TP-Link light in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
-light:
-  - platform: tplink
-    host: IP_ADDRESS
+# Example configuration.yaml entry with manually specified addresses
+tplink:
+  discovery: false
+  light:
+    - host: 192.168.200.1
+    - host: 192.168.200.2
+  switch:
+    - host: 192.168.200.3
+    - host: 192.168.200.4
 ```
 
 {% configuration %}
