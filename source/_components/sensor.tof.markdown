@@ -11,8 +11,8 @@ logo: raspberry-pi.png
 ha_category: 
   - DIY
   - Sensor
-ha_release: 0.89
-ha_iot_class: "Local Push"
+ha_release: "0.90"
+ha_iot_class: "Local Polling"
 ---
 
 The Time of Flight sensor uses a invisible laser to measure distance with millimeter resolution.
