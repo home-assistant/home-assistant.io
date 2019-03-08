@@ -73,7 +73,7 @@ The `toon` climate platform allows you to interact with your Toon thermostat. Fo
 
 | Home Assistant | Toon    |
 |:---------------|:--------|
-| Performance    | Comfort |
+| Auto           | Comfort |
 | Heat           | Thuis   |
 | Eco            | Weg     |
 | Cool           | Slapen  |
