@@ -46,11 +46,11 @@ monitored_conditions:
   type: list
   keys:
     ping:
-      description: Reaction time in ms of your connection (how fast you get a response after you've sent out a request).
+      description: "Reaction time in ms of your connection (how fast you get a response after you've sent out a request)."
     download:
-      description: Download speed (Mbit/s)
+      description: "The download speed (Mbit/s)."
     upload:
-      description: Upload speed (Mbit/s)
+      description: "The upload speed (Mbit/s)."
 server_id:
   description: Specify the speed test server to perform the test against.
   required: false
@@ -61,7 +61,7 @@ scan_interval:
   default: 60 minutes
   type: time
 manual:
-  description: `true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests.
+  description: "`true` or `false` to turn manual mode on or off. Manual mode will disable scheduled speed tests."
   required: false
   type: boolean
   default: false
