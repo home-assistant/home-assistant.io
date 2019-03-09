@@ -70,6 +70,17 @@ module Jekyll
     def canonical_url(input)
       full_url(input).sub(/index\.\w+$/i, '')
     end
+
+    # Sort an array of semvers
+    def semver_sort(input)
+      input.sort_by { |v|
+        val = v['name']
+        if val == "pre 0.7"
+          val = "0.6"
+        end
+        Gem::Version.new(val)
+      }
+    end
   end
 end
 
