@@ -38,6 +38,16 @@ password:
   description: The password for your given admin account.
   required: true
   type: string
+ssl:
+  description: Use HTTPS instead of HTTP to connect.
+  required: false
+  type: boolean
+  default: false
+verify_ssl:
+  description: Enable or disable SSL certificate verification. Set to false if you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
