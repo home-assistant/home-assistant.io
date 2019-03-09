@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: aruba.png
 ha_category: Presence Detection
-ha_release: 0.89
+ha_release: "0.90"
+ha_iot_class: Local Polling
 ---
 
 
@@ -32,11 +33,6 @@ device_tracker:
     host: clearpass.server.org
     client_id: clearpassapi
     api_key: 00000004qyO513hTdCfjIO2ZWWnmex8QZ5000000000
-    scan_interval: 120
-    consider_home: 120
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: false
 ```
 
 {% configuration %}
