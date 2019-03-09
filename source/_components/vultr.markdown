@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Switch
-ha_release: "0.58"
+ha_release: 0.58
 logo: vultr.png
 ha_iot_class: "Cloud Polling"
 redirect_from:

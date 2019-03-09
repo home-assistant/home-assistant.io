@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: "0.85"
+ha_release: 0.85
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.
@@ -19,7 +19,7 @@ This platform calculates prayer times using the following calculation methods:
 - University of Islamic Sciences in Karachi
 - Islamic Society of North America
 - Muslim World League
-- Umm Al-Qura University in Makkah 
+- Umm Al-Qura University in Makkah
 
 ## {% linkable_title Configuration %}
 

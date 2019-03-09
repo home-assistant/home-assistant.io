@@ -12,7 +12,7 @@ ha_category:
   - Doorbell
   - Camera
   - Switch
-ha_release: "0.54"
+ha_release: 0.54
 ha_iot_class: "Local Push"
 redirect_from:
   - /components/camera.doorbird/

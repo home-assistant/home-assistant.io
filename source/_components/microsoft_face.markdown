@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: microsoft.png
 ha_category: Image Processing
-ha_release: "0.37"
+ha_release: 0.37
 ---
 
 The `microsoft_face` component platform is the main component for Microsoft

@@ -10,7 +10,7 @@ footer: true
 logo: magicseaweed.png
 ha_category: Sensor
 featured: false
-ha_release: "0.75"
+ha_release: 0.75
 ha_iot_class: "Cloud Polling"
 ---
 

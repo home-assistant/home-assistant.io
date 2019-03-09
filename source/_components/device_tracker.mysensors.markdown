@@ -11,7 +11,7 @@ logo: mysensors.png
 ha_category:
   - DIY
   - Presence Detection
-ha_release: "0.38"
+ha_release: 0.38
 ha_iot_class: "Local Push"
 ---
 

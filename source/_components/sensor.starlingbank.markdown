@@ -10,7 +10,7 @@ footer: true
 logo: starlingbank.png
 ha_category: Finance
 featured: false
-ha_release: "0.79"
+ha_release: 0.79
 ha_iot_class: "Cloud Polling"
 ---
 

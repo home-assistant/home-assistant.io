@@ -11,7 +11,7 @@ ha_category:
   - Climate
   - Binary Sensor
   - Sensor
-ha_release: "0.87"
+ha_release: 0.87
 logo: danfoss_air.png
 ha_iot_class: "Local Polling"
 redirect_from:

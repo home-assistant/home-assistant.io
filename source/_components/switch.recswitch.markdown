@@ -9,7 +9,7 @@ comments: false
 sharing: true
 footer: true
 logo: "ankuoo_recswitch.png"
-ha_release: "0.81"
+ha_release: 0.81
 ha_category: Switch
 ha_iot_class: "Local Polling"
 ---

@@ -10,7 +10,7 @@ footer: true
 logo: mediaroom.png
 ha_category: Media Player
 ha_iot_class: "Local Polling"
-ha_release: "0.63"
+ha_release: 0.63
 ---
 
 The `mediaroom` component allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
@@ -47,7 +47,7 @@ Notice that all parameters are optional, and discovery should configure everythi
 
 The component has been developed for Portuguese TV operators currently using the Mediaroom platform, but should also work in other deployments in which the STB can be controlled remotely through a socket on port 8082.
 
-In most cases (single STB) you just need to setup the *platform* and discovery will do the rest. 
+In most cases (single STB) you just need to setup the *platform* and discovery will do the rest.
 
 If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the component will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
 
