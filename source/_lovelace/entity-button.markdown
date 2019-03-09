@@ -41,6 +41,16 @@ icon:
   description: Overwrites icon or entity picture.
   type: string
   default: Entity Domain Icon
+show_name:
+  required: false
+  description: Show name.
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show icon.
+  type: boolean
+  default: "true"
 tap_action:
   required: false
   description: Action to take on tap
