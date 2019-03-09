@@ -61,12 +61,12 @@ __MQTT Sensors and Switches__
 [mqtt-switch]: /components/switch.mqtt/
 
 ```yaml
-# Example configuration.yml entr
+# Example configuration.yaml entry
 sensor:
   platform: mqtt
   name: "MQTT Sensor"
   state_topic: "home/bedroom/temperature"
-  unit_of_measurement: "ºC"
+  unit_of_measurement: "°C"
 
 switch:
   platform: mqtt
@@ -90,7 +90,7 @@ device_tracker:
   password: YOUR_ADMIN_PASSWORD
 ```
 
-__DHT temperature and humidty sensors__
+__DHT temperature and humidity sensors__
 [@MakeMeASandwich](https://github.com/makemeasandwich) has contributed support for DHT temperature and humidity sensors. It allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
 
 ```yaml

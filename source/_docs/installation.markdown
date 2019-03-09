@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Installation of Home Assistant"
-description: "Instructions how to install Home Assistant to launch on start."
+description: "Instructions on how to install Home Assistant to launch on start."
 date: 2017-02-15 08:00
 sidebar: true
 comments: false
@@ -10,32 +10,51 @@ footer: true
 redirect_from: /getting-started/installation/
 ---
 
-Home Assistant provides multiple ways to be installed. A requirement is that you have [Python](https://www.python.org/downloads/) installed. For Windows, we require at least **Python 3.5** and for other operating systems at least **Python 3.4.2**.
+<p class='note'>
+Beginners should check our [Getting started guide](/getting-started/) first.
+</p>
+
+Home Assistant provides multiple ways to be installed. The first start may take up to 20 minutes because the required packages will be downloaded and installed. The web interface will be served on `http://ip.add.re.ss:8123/`. Replace `ip.add.re.ss` with the IP of the computer you installed it on.
+
+<p class='note warning'>
+  Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
+</p>
+
+## {% linkable_title Recommended %}
+
+These install options are fully supported by Home Assistant's documentation. For example, if a component requires that you install something to make it work on one of these methods then the component page will document the steps required.
+
+**Method**|**You have**|**Recommended for**
+:-----|:-----|:-----
+[Hass.io](/hassio/installation/)|Raspberry Pi<br>VM|Anybody
+[Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
+[Hassbian](/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
+
+## {% linkable_title Alternative installs %}
+
+If you use these install methods, we assume that you know how to manage and administer the operating system you're using. Due to the range of platforms on which these install methods can be used, component documentation may only tell you what you have to install, not how to install it.
+
+**Method**|**You have**|**Recommended for**
+:-----|:-----|:-----
+[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.5.3 or later|Those familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.5.3 or later|Developers
+
+## {% linkable_title Community provided guides %}
+
+These guides are provided as-is. Some of these install methods are more limited than the methods above. Some components may not work due to limitations of the platform or because required Python packages aren't available for that platform.
 
 <div class="text-center hass-option-cards" markdown="0">
-  <a class='option-card' href='/docs/hassbian/installation/'>
+  <a class='option-card' href='/docs/installation/armbian/'>
     <div class='img-container'>
-      <img src='/images/supported_brands/home-assistant.png' />
+      <img src='/images/supported_brands/armbian.png' />
     </div>
-    <div class='title'>Hassbian</div>
-  </a>
-  <a class='option-card' href='/docs/installation/raspberry-pi/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/raspberry-pi.png' />
-    </div>
-    <div class='title'>Raspbian</div>
+    <div class='title'>armbian</div>
   </a>
   <a class='option-card' href='/docs/installation/archlinux/'>
     <div class='img-container'>
       <img src='/images/supported_brands/archlinux.png' />
     </div>
     <div class='title'>ArchLinux</div>
-  </a>
-  <a class='option-card' href='/docs/installation/armbian/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/armbian.png' />
-    </div>
-    <div class='title'>armbian</div>
   </a>
   <a class='option-card' href='/docs/installation/fedora/'>
     <div class='img-container'>
@@ -67,12 +86,6 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     </div>
     <div class='title'>Synology</div>
   </a>
-  <a class='option-card' href='/docs/installation/docker/'>
-    <div class='img-container'>
-      <img src='/images/supported_brands/docker.png' />
-    </div>
-    <div class='title'>Docker</div>
-  </a>
   <a class='option-card' href='/docs/installation/vagrant/'>
     <div class='img-container'>
       <img src='/images/supported_brands/vagrant.png' />
@@ -85,19 +98,10 @@ Home Assistant provides multiple ways to be installed. A requirement is that you
     </div>
     <div class='title'>FreeNAS</div>
   </a>
+  <a class='option-card' href='/hassio/installation/#alternative-install-on-generic-linux-server'>
+    <div class='img-container'>
+      <img src='/images/supported_brands/home-assistant.png' />
+    </div>
+    <div class='title'>Hass.io <br> on generic Linux server</div>
+  </a>
 </div>
-
-Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:
-
-```bash
-$ hass
-```
-
-The first start may take a minute or two because the needed packages will be downloaded and installed. The web interface will be served on [http://localhost:8123](http://localhost:8123).
-
-For more details about `hass`, please refer to the [tools section](/docs/tools/hass/).
-
-If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
-
-You may need to install additional libraries depending on the platforms/components you want to use.
-

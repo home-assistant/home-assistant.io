@@ -42,5 +42,5 @@ Our participation for [Hacktoberfest 2016][hackt-2016] was a huge success. Join 
 [dev-env]: /developers/development_environment/
 [dev-chat]: https://discord.gg/8X8DTH4
 [dev-forum]: https://community.home-assistant.io/c/development
-[hackt-2016]: https://home-assistant.io/blog/2016/11/05/hacktoberfest-influxdb-weather/#hacktoberfest
+[hackt-2016]: /blog/2016/11/05/hacktoberfest-influxdb-weather/#hacktoberfest
 

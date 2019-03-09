@@ -49,7 +49,7 @@ Materials used:
  - [Moteino](https://lowpowerlab.com/moteino/)
  - [2 x Accelerometers](http://www.amazon.com/gp/product/B008BOPN40)
  - [2 x Reed switch](http://www.amazon.com/gp/product/B004PARDRO)
- - [Home Assistant](https://home-assistant.io/)
+ - [Home Assistant](/)
 
 [Sketch for the Moteino is available here.](https://codebender.cc/sketch:144743)
 

@@ -15,7 +15,7 @@ ha_iot_class: "Local Polling"
 
 The `hp_ilo` platform allows you to do an API call to the HP ILO (Integrated Lights-Out) sensor of your server, and use this data in Home Assistant sensors.
 
-If the ILO or specified jsonpath query returns only a single value (e.g. a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
+If the ILO or specified jsonpath query returns only a single value (e.g., a temperature or state), it will be put in the state field. If a data structure is returned, it will be placed in the `ilo_data` attribute.
 
 Some more details about what can be retrieved from these sensors is available in the [python-hpilo documentation](http://pythonhosted.org/python-hpilo/).
 
@@ -23,6 +23,7 @@ Some more details about what can be retrieved from these sensors is available in
   <img src='{{site_root}}/images/screenshots/hp_ilo.png' />
 </p>
 
+## {% linkable_title Configuration %}
 
 To use this component in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,24 +32,54 @@ To use this component in your installation, add the following to your `configura
 sensor:
   - platform: hp_ilo
     host: IP_ADDRESS or HOSTNAME
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     monitored_variables:
       - name: SENSOR NAME
         sensor_type: SENSOR TYPE
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The hostname or IP address on which the ILO can be reached.
-- **port** (*Optional*): The port on which the ILO can be reached, defaults to port `443`.
-- **username** (*Required*): The username used to connect to the ILO.
-- **password** (*Required*): The password used to connect to the ILO.
-- **monitored_variables** array (*Optional*): Sensors created from the ILO data. Defaults to an empty list (no sensors are created).
-  - **name** (*Required*): The sensor name.
-  - **sensor_type** (*Required*): The sensor type, has to be one of the specified valid sensor types.
-  - **unit_of_measurement** (*Optional*): The sensors' unit of measurement.
-  - **value_template** (*Optional*): When a Jinja2 template is specified here, the created sensor will output the template result. The ILO response can be referenced with the `ilo_data` variable.
+{% configuration %}
+host:
+  description: The hostname or IP address on which the ILO can be reached.
+  required: true
+  type: string
+port:
+  description: The port on which the ILO can be reached.
+  required: false
+  default: 443
+  type: string
+username:
+  description: The username used to connect to the ILO.
+  required: true
+  type: string
+password:
+  description: The password used to connect to the ILO.
+  required: true
+  type: string
+monitored_variables:
+  description: Sensors created from the ILO data.
+  required: false
+  default: Defaults to an empty list (no sensors are created).
+  type: list
+  keys:
+    name:
+      description: The sensor name.
+      required: true
+      type: string
+    sensor_type:
+      description: The sensor type, has to be one of the valid sensor types specified below.
+      required: true
+      type: string
+    unit_of_measurement:
+      description: The sensors' unit of measurement.
+      required: false
+      type: string
+    value_template:
+      description: When a Jinja2 template is specified here, the created sensor will output the template result. The ILO response can be referenced with the `ilo_data` variable.
+      required: false
+      type: template
+{% endconfiguration %}
 
 Valid sensor_types:
 - **server_name**: Get the name of the server this iLO is managing.
@@ -63,7 +94,7 @@ Valid sensor_types:
 - **server_health**: Get server health information.
 - **network_settings**: Get the iLO network settings.
 
-### Example
+## {% linkable_title Example %}
 
 In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your `configuration.yaml` file
 
@@ -71,8 +102,8 @@ In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperatur
 sensor:
   - platform: hp_ilo
     host: IP_ADDRESS or HOSTNAME
-    username: USERNAME
-    password: PASSWORD
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
     monitored_variables:
       - name: CPU fanspeed
         sensor_type: server_health

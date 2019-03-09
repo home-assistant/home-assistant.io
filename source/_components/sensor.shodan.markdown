@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Shodan Sensor"
-description: "Instructions how to integrate Shodan sensors into Home Assistant."
+description: "Instructions on how to integrate Shodan sensors into Home Assistant."
 date: 2017-08-09 10:30
 sidebar: true
 comments: false
@@ -12,7 +12,6 @@ ha_iot_class: "Cloud Polling"
 logo: shodan.png
 ha_release: 0.51
 ---
-
 
 The `shodan` sensor platform is displaying the total of result of a
 [Shodan](https://www.shodan.io/) query.
@@ -45,4 +44,3 @@ sensor:
     required: false
     type: string
 {% endconfiguration %}
-

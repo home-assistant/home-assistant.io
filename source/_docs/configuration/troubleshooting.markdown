@@ -20,13 +20,13 @@ Whenever a component or configuration option results in a warning, it will be st
 
 When a component does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your component you are trying to set up.
 
-If you have incorrect entries in your configuration files you can use the `check_config` script to assist in identifying them: `hass --script check_config`.
+If you have incorrect entries in your configuration files you can use the [`check_config`](/docs/tools/check_config/) script to assist in identifying them: `hass --script check_config`. If you need to provide the path for your configuration you can do this using the `-c` argument like this: `hass --script check_config -c /path/to/your/config/dir`.
 
 #### {% linkable_title Problems with the configuration %}
 
 One of the most common problems with Home Assistant is an invalid `configuration.yaml` file. 
  
- - You can test your configuration using the command line with: `hass --script check_config`
+ - You can test your configuration using the command line with: `hass --script check_config`. On Hass.io you can use the [hassio command](/hassio/commandline/#home-assistant): `hassio homeassistant check`.
  - You can verify your configuration's yaml structure using [this online YAML parser](http://yaml-online-parser.appspot.com/) or [YAML Lint](http://www.yamllint.com/).
  - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltstack.com/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 

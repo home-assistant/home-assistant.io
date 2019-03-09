@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Flexit A/C controller"
-description: "Instructions how to integrate Flexit A/C unit into Home Assistant."
+description: "Instructions on how to integrate Flexit A/C unit into Home Assistant."
 date: 2017-06-02 16:30 +0200
 sidebar: true
 comments: false
@@ -26,10 +26,21 @@ climate:
     slave: 21
 ```
 
-Configuration variables:
-
-- **slave** (*Required*): The slave ID of the modbus adapter, set using DIP-switches.
-- **name** (*Optional*): Displayed name of the A/C unit
+{% configuration %}
+slave:
+  description: The slave ID of the modbus adapter, set using DIP-switches.
+  required: true
+  type: integer
+name:
+  description: Displayed name of the A/C unit.
+  required: false
+  type: string
+hub:
+  description: The name of the hub where this slave is located.
+  required: false
+  default: default
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
 This component requires the [Modbus](/components/modbus/) component to be set up to work

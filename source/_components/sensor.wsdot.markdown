@@ -13,10 +13,13 @@ ha_iot_class: "Cloud Polling"
 ha_release: 0.37
 ---
 
-The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation (WSDOT)](http://wsdot.com/). 
+The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation (WSDOT)](http://wsdot.com/).
 
-First, you need to get a free Traveler Information `api_key` from the [WSDOT API webpage](http://wsdot.com/traffic/api/). Just enter your email address to instantly get the key. 
+## {% linkable_title Setup %}
 
+First, you need to get a free Traveler Information `api_key` from the [WSDOT API webpage](http://wsdot.com/traffic/api/). Just enter your email address to instantly get the key.
+
+## {% linkable_title Configuration %}
 
 Once you have the code, create `wsdot` sensors by editing your `configuration.yaml` file as follows:
 
@@ -24,28 +27,41 @@ Once you have the code, create `wsdot` sensors by editing your `configuration.ya
 # Example configuration.yaml entry
 sensor:
   - platform: wsdot
-    api_key: XXXXXXXXXXXXXXXXXXXXXXX
+    api_key: YOUR_API_KEY
     travel_time:
      - id: 95
        name: I-90 Eastbound HOV
 ```
 
-Configuration variables:
+{% configuration %}
+api_key:
+  description: Your API key from WSDOT.
+  required: true
+  type: string
+travel_time:
+  description: List of routes.
+  required: true
+  type: list
+  keys:
+    id:
+      description: ID of the route.
+      required: true
+      type: string
+    name:
+      description: Name of the route.
+      required: false
+      default: Just uses `id`
+      type: string
+{% endconfiguration %}
 
-- **api_key** (*Required*): Your `api_key` from WSDOT.
-- **scan_interval** (*Optional*): How frequently to query for new data. Default: 3 minutes. 
-- **travel_time** array (*Required*): List of routes.
-  - **id** (*Required*): Name of the route.
-  - **name** (*Optional*): Name of the route. Default just uses `id`.
-
-Figuring out which Travel Time ID (`id`) is associated with your routes is a bit of a challenge. If you visit `http://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]` substituting your `api_key`, you will get a list of all available routes. Search through it and then find the key `TravelTimeID`. That tells you the number you need. 
+Figuring out which Travel Time ID (`id`) is associated with your routes is a bit of a challenge. If you visit `http://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]` substituting your `api_key`, you will get a list of all available routes. Search through it and then find the key `TravelTimeID`. That tells you the number you need.
 
 Some common examples include:
 
-```
+```text
  73 Issaquah-Seattle (WB PM)
  74 Seattle-Issaquah (EB AM)
- 75 HOV Issaquah-Seattle (WB REV) 
+ 75 HOV Issaquah-Seattle (WB REV)
  76 Issaquah-Seattle (WB REV)
  77 HOV Redmond-Seattle (WB PM)
  78 HOV Seattle-Redmond (EB AM)
@@ -78,4 +94,3 @@ Here's an example of the sensor in use:
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/wsdot_sensor.png' />
 </p>
-

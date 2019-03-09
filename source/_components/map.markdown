@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Other"
+ha_qa_scale: internal
 ---
 
 This offers a map on the frontend to display the location of tracked devices. To set up tracked devices, look at the [device tracker](/components/device_tracker/) documentation.
@@ -17,3 +18,6 @@ This offers a map on the frontend to display the location of tracked devices. To
 # Example configuration.yaml entry
 map:
 ```
+<p class='note'>
+Devices that are currently at home won't show on the map.
+</p>

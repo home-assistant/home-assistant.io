@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RESTful Sensor"
-description: "Instructions how to integrate REST sensors into Home Assistant."
+description: "Instructions on how to integrate REST sensors into Home Assistant."
 date: 2015-09-14 19:10
 sidebar: true
 comments: false
@@ -36,19 +36,76 @@ sensor:
     payload: '{ "device" : "heater" }'
 ```
 
-Configuration variables:
-
-- **resource** (*Required*): The resource or endpoint that contains the value.
-- **method** (*Optional*): The method of the request. Default is `GET`.
-- **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value.
-- **payload** (*Optional*): The payload to send with a POST request. Depends on the service, but usually formed as JSON.
-- **name** (*Optional*): Name of the REST sensor.
-- **unit_of_measurement** (*Optional*): Defines the unit of measurement of the sensor, if any.
-- **verify_ssl** (*Optional*): Verify the certification of the endpoint. Default to `True`.
-- **authentication** (*Optional*): Type of the HTTP authentication. `basic` or `digest`.
-- **username** (*Optional*): The username for accessing the REST endpoint.
-- **password** (*Optional*): The password for accessing the REST endpoint.
-- **headers** (*Optional*): The headers for the requests.
+{% configuration %}
+resource:
+  description: The resource or endpoint that contains the value.
+  required: true
+  type: string
+  default: string
+method:
+  description: The method of the request. Either `POST` or `GET`.
+  required: false
+  type: string
+  default: GET
+name:
+  description: Name of the REST sensor.
+  required: false
+  type: string
+  default: REST Sensor
+device_class:
+  description: >
+    The [type/class](/components/sensor/) of
+    the sensor to set the icon in the frontend.
+  required: false
+  type: string
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
+payload:
+  description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
+  required: false
+  type: string
+verify_ssl:
+  description: Verify the SSL certificate of the endpoint.
+  required: false
+  type: boolean
+  default: True
+timeout:
+  description: Defines max time to wait data from the endpoint.
+  required: false
+  type: positive integer
+  default: 10
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  type: string
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
+headers:
+  description: The headers for the requests.
+  required: false
+  type: list, string
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+  reqired: false
+  type: list, string
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  reqired: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 <p class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
@@ -63,13 +120,11 @@ $ curl -X GET http://192.168.1.31/temperature/
 
 ## {% linkable_title Examples %}
 
-In this section you find some real life examples of how to use this sensor.
+In this section you find some real-life examples of how to use this sensor.
 
 ### {% linkable_title External IP address %}
 
-You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their http://ip.jsontest.com/ endpoint.
-
-To display the IP address, the entry for a sensor in the `configuration.yaml` file will look like this.
+You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
 ```yaml
 sensor:
@@ -82,8 +137,6 @@ sensor:
 ### {% linkable_title Single value from a local Glances instance %}
 
 The [glances](/components/sensor.glances/) sensor is doing the exact same thing for all exposed values.
-
-Add something similar to the entry below to your `configuration.yaml` file:
 
 ```yaml
 sensor:
@@ -109,7 +162,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title Accessing a HTTP authentication protected endpoint %}
+### {% linkable_title Accessing an HTTP authentication protected endpoint %}
 
 The REST sensor supports HTTP authentication and customized headers.
 
@@ -125,7 +178,7 @@ sensor:
       Content-Type: application/json
 ```
 
-The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens. 
+The headers will contain all relevant details. This will also give you the ability to access endpoints that are protected by tokens.
 
 ```bash
 Content-Length: 1024
@@ -154,3 +207,122 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
+### {% linkable_title Fetch multiple JSON values and present them as attributes %}
+
+[JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: JSON time
+    json_attributes:
+      - date
+      - milliseconds_since_epoch
+    resource: http://date.jsontest.com/
+    value_template: '{{ value_json.time }}'
+  - platform: template
+    sensors:
+      date:
+        friendly_name: 'Date'
+        value_template: '{{ states.sensor.json_time.attributes["date"] }}'
+      milliseconds:
+        friendly_name: 'milliseconds'
+        value_template: '{{ states.sensor.json_time.attributes["milliseconds_since_epoch"] }}'
+```
+{% endraw %}
+
+This sample fetches a weather report from [OpenWeatherMap](http://openweathermap.org/), maps the resulting data into attributes of the RESTful sensor and then creates a set of [template](/components/sensor.template/) sensors that monitor the attributes and present the values in a usable form.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: OWM_report
+    json_attributes:
+      - main
+      - weather
+    value_template: '{{ value_json["weather"][0]["description"].title() }}'
+    resource: http://api.openweathermap.org/data/2.5/weather?zip=80302,us&APPID=VERYSECRETAPIKEY
+  - platform: template
+    sensors:
+      owm_weather:
+        value_template: '{{ states.sensor.owm_report.attributes.weather[0]["description"].title() }}'
+        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"].lower()+".png" }}'
+        entity_id: sensor.owm_report
+      owm_temp:
+        friendly_name: 'Outside temp'
+        value_template: '{{ states.sensor.owm_report.attributes.main["temp"]-273.15 }}'
+        unit_of_measurement: "°C"
+        entity_id: sensor.owm_report
+      owm_pressure:
+        friendly_name: 'Outside pressure'
+        value_template: '{{ states.sensor.owm_report.attributes.main["pressure"] }}'
+        unit_of_measurement: "hP"
+        entity_id: sensor.owm_report
+      owm_humidity:
+        friendly_name: 'Outside humidity'
+        value_template: '{{ states.sensor.owm_report.attributes.main["humidity"] }}'
+        unit_of_measurement: "%"
+        entity_id: sensor.owm_report
+```
+{% endraw %}
+
+This config shows how to extract multiple values from a dictionary with `json_attributes` and `template`. It helps you to avoid flooding the REST service and only ask once the results and separate them in multiple templates referring to it. (No need for a specific state on the REST sensor and it's default state will be the full JSON value which will be longer than the 255 max length. It's why we'll used a static value)
+
+{% raw %}
+```json
+{
+    "bedroom1": {
+        "temperature": 15.79,
+        "humidity": 55.78,
+        "battery": 5.26,
+        "timestamp": "2019-02-27T22:21:37Z"
+    },
+    "bedroom2": {
+        "temperature": 18.99,
+        "humidity": 49.81,
+        "battery": 5.08,
+        "timestamp": "2019-02-27T22:23:44Z"
+    },
+    "bedroom3": {
+        "temperature": 18.58,
+        "humidity": 47.95,
+        "battery": 5.15,
+        "timestamp": "2019-02-27T22:21:22Z"
+    }
+}
+```
+{% endraw %}
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: room_sensors
+    resource: http://<address_to_rest_service>
+    json_attributes:
+      - bedroom1
+      - bedroom2
+      - bedroom3
+    value_template: 'OK'
+  - platform: template
+    sensors:
+      bedroom1_temperature:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["temperature"] }}'
+        device_class: temperature
+        unit_of_measurement: '°C'
+      bedroom1_humidity:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["humidity"] }}'
+        device_class: humidity
+        unit_of_measurement: '%'
+      bedroom1_battery:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom1"]["battery"] }}'
+        device_class: battery
+        unit_of_measurement: 'V'
+      bedroom2_temperature:
+        value_template: '{{ states.sensor.room_sensors.attributes["bedroom2"]["temperature"] }}'
+        device_class: temperature
+        unit_of_measurement: '°C'
+```
+{% endraw %}

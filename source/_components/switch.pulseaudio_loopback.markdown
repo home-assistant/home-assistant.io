@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "PulseAudio Loopback Switch"
-description: "Instructions how to use Pulseaudio loopback modules to build a flexible whole-home audio system."
+description: "Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system."
 date: 2016-03-22 21:00:00
 sidebar: true
 comments: false
@@ -12,7 +12,6 @@ ha_category: Switch
 ha_release: 0.16
 ha_iot_class: "Local Polling"
 ---
-
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).
 
@@ -30,17 +29,42 @@ switch:
   - platform: pulseaudio_loopback
 ```
 
-Configuration variables:
-
-- **sink_name** (*Required*): The name of the Pulseaudio sink that will receive the audio.
-- **source_name** (*Required*): The name of the Pulseaudio source that will supply the audio.
-- **name** (*Optional*): Name of the switch.
-- **host** (*Optional*): The IP address or host name of the PulseAudio server.  If not specified, 127.0.0.1 is used.
-- **port** (*Optional*): The port that Pulseaudio is listening on.  Defaults to 4712.
-- **buffer_size** (*Optional*): How much data to load from Pulseaudio at once. Default is 1KB.
-- **tcp_timeout** (*Optional*): How long to wait for a response from Pulseaudio before giving up. Default is 3 seconds.
+{% configuration %}
+sink_name:
+  description: The name of the Pulseaudio sink that will receive the audio.
+  required: true
+  type: string
+source_name:
+  description: The name of the Pulseaudio source that will supply the audio.
+  required: true
+  type: string
+name:
+  description: Name of the switch.
+  required: false
+  default: paloopback
+  type: string
+host:
+  description: The IP address or host name of the PulseAudio server.
+  required: false
+  default: localhost
+  type: string
+port:
+  description: The port that Pulseaudio is listening on.
+  required: false
+  default: 4712
+  type: integer
+buffer_size:
+  description: How much data to load from Pulseaudio at once.
+  required: false
+  default: 1024
+  type: integer
+tcp_timeout:
+  description: How long to wait for a response from Pulseaudio before giving up.
+  required: false
+  default: 3
+  type: integer
+{% endconfiguration %}
 
 <p class='note warning'>
 This component relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-cli-protocol` must be loaded on the PulseAudio server.
 </p>
-

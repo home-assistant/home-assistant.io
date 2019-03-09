@@ -39,7 +39,7 @@ The key improvements are:
 
 ### {% linkable_title Z-Wave Security 2 %}
 
-From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (September 2017) OpenZWave does not support the S2 framework.
+From 2 April 2017 all newly approved Z-Wave devices will have to support the Security 2 (S2) framework. At the time of writing this (March 2018) OpenZWave does not support the S2 framework.
 
 ## {% linkable_title Device power %}
 
@@ -61,7 +61,9 @@ As long as your device lists Hail or Association in its Controlled Command Class
 
 Where a device doesn't send updates on status changes to the controller, you can work around this by using a thing called Polling. That causes the controller to ask the device to provide an update on all its sensors and states. This will cause a lot of traffic on the network, and if you poll too many devices too quickly, you can effectively break your Z-Wave network. Polling should only be used where there is no other choice, and you should use as large a polling interval as possible. Ideally you should replace the device.
 
-For example, with `polling_interval=60000` (which is the default) if you have 10 devices that are being polled, if a device can receive and acknowledge the poll within one second, then it will take 10 seconds to complete the polling list, which leaves 50 seconds left for normal traffic. The more devices you poll, and the shorter the interval, the less bandwidth that's available for normal traffic.
+For example, with `polling_interval=60000` (which is the default) if you have 10 devices that are being polled at every interval, and each polling takes one secound (request/response round trip), then it will take 10 seconds to complete the polling list. This only leaves 50 seconds left for normal traffic. The more devices you poll, and the shorter the interval, the less bandwidth that's available for normal traffic.
+
+Polling needs to be enabled per device, you can control this through the *polling intensity* (interval) of the device. See the [Node Management](/docs/z-wave/control-panel#z-wave-node-management) docs for details.
 
 ## {% linkable_title Central Scene support %}
 

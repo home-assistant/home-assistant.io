@@ -29,7 +29,7 @@ We're taking a well deserved break and we will be back again in 2017 with more a
 
 – Paulus
 
-[0.10]: https://home-assistant.io/blog/2015/12/22/amazon-echo-icloud-and-templates/
+[0.10]: /blog/2015/12/22/amazon-echo-icloud-and-templates/
 [AppFolio]: http://www.appfolioinc.com/
 [GitHub]: https://GitHub.com
 [TravisCI]: https://Travis-ci.org

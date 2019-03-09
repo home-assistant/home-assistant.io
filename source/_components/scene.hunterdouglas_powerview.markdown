@@ -1,14 +1,14 @@
 ---
 layout: page
 title: "PowerView Scenes"
-description: "Instructions how to setup Hunter Douglas PowerView scenes within Home Assistant."
+description: "Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant."
 date: 2016-03-11 16:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: hunter-douglas-powerview.png
-ha_category: Cover
+ha_category: Scene
 ha_release: 0.15
 ---
 
@@ -23,6 +23,9 @@ scene:
   address: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **address** (*Required*): IP address of the PowerView Hub, eg. 192.168.1.10.
+{% configuration %}
+address:
+  description: IP address of the PowerView Hub, e.g., 192.168.1.10.
+  required: true
+  type: string
+{% endconfiguration %}

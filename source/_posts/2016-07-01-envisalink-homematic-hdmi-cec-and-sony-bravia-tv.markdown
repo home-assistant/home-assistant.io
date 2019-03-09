@@ -104,4 +104,4 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
 [Sony Bravia TV]: /components/media_player.braviatv/
 [Raspberry Pi GPIO pins]: /components/garage_door.rpi_gpio/
-[elevation]: https://home-assistant.io/getting-started/basic/
+[elevation]: /getting-started/basic/

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "InfluxDB Sensor"
-description: "Instructions how to integrate InfluxDB sensors within Home Assistant."
+description: "Instructions on how to integrate InfluxDB sensors within Home Assistant."
 date: 2016-10-26 23:15
 sidebar: true
 comments: false
@@ -27,30 +27,83 @@ sensor:
         measurement: '"°C"'
 ```
 
+{% configuration %}
+host:
+  description: IP address of your database host, e.g. 192.168.1.10.
+  required: false
+  default: localhost
+  type: string
+port:
+  description: Port to use. 
+  required: false
+  default: 8086
+  type: string
+username:
+  description: The username of the database user.
+  required: false
+  type: string
+password:
+  description: The password for the database user account.
+  required: false
+  type: string
+ssl:
+  description: Use https instead of http to connect. 
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Verify SSL certificate for https request. 
+  required: false
+  default: false
+  type: boolean
+queries:
+  description: List of queries.
+  required: true
+  type: list
+  keys:
+    name:
+      description: The name of the sensor.
+      required: true
+      type: string
+    unit_of_measurement:
+      description: Defines the units of measurement of the sensor, if any.
+      required: false
+      type: string
+    measurement:
+      description: Defines the measurement name in InfluxDB (the FROM clause of the query).
+      required: true
+      type: string
+    where:
+      description: Defines the data selection clause (the where clause of the query).
+      required: true
+      type: string
+    value_template:
+      description: Defines a [template](/docs/configuration/templating/#processing incoming data) to extract a value from the payload.
+      required: false
+      type: template
+    database:
+      description: Name of the database to use.
+      required: false
+      default: home_assistant
+      type: string
+    group_function:
+      description: The group function to be used.
+      required: false
+      default: mean
+      type: string
+    field:
+      description: The field name to select.
+      required: true
+      type: string
+      default: value
+{% endconfiguration %}
 
-Configuration variables for the server:
-
-- **host** (*Optional*): IP address of your database host, eg. 192.168.1.10. Defaults to `localhost`.
-- **port** (*Optional*): Port to use. Defaults to 8086.
-- **username** (*Optional*): The username of the database user.
-- **password** (*Optional*): The password for the database user account.
-- **ssl** (*Optional*): Use `https` instead of `http` to connect. Defaults to `false`.
-- **verify_ssl** (*Optional*): Verify SSL certificate for `https` request. Defaults to `false`.
-- **queries** array (*Required*): List of queries
-  - **name** (*Required*): The name of the sensor.
-  - **unit_of_measurement** (*Optional*): Defines the units of measurement of the sensor, if any.
-  - **measurement** (*Required*):  Defines the measurement name in InfluxDB (the from clause of the query).
-  - **where** (*Required*): Defines the data selection clause (the where clause of the query).
-  - **value_template** (*Optional*): Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-  - **database** (*Optional*): Name of the database to use. Defaults to `home_assistant`.
-  - **group_function** (*Optional*): The group function to be used. Defaults to `mean`.
-  - **field** (*Optional*): The field name to select. Defaults to value.
 
 ## {% linkable_title Examples %}
 
 ### {% linkable_title Full configuration %}
 
-The example configuration entry bellow create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
+The example configuration entry below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
 
 - `select last(value) as value from "°C" where "name" = "foo"`
 - `select min(tmp) as value from "%" where "entity_id" = ''salon'' and time > now() - 1h`

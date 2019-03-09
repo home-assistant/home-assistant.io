@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "D-Link Switch"
-description: "Instructions how to integrate D-Link switches into Home Assistant."
+description: "Instructions on how to integrate D-Link switches into Home Assistant."
 date: 2016-02-21 09:00
 sidebar: true
 comments: false
@@ -12,7 +12,6 @@ ha_category: Switch
 ha_iot_class: "Local Polling"
 ha_release: 0.14
 ---
-
 
 The `dlink` switch platform allows you to control the state of your [D-Link Wi-Fi Smart Plugs](http://us.dlink.com/product-category/home-solutions/connected-home/smart-plugs/).
 
@@ -32,11 +31,29 @@ switch:
   password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **host** (*Required*): The IP address of your D-Link plug, eg. http://192.168.1.32
-- **name** (*Optional*): The name to use when displaying this switch.
-- **username** (*Required*): The username for your plug. Defaults to `admin`.
-- **password** (*Required*): The password for your plug. Default password is the `PIN` included on the configuration card.
-- **use_legacy_protocol** (*Optional*): Enable limited support for legacy firmware protocols (Tested with v1.24).
-
+{% configuration %}
+host:
+  description: "The IP address of your D-Link plug, e.g., 192.168.1.32."
+  required: true
+  type: string
+name:
+  description: The name to use when displaying this switch.
+  required: false
+  default: D-link Smart Plug W215
+  type: string
+username:
+  description: The username for your plug.
+  required: true
+  default: admin
+  type: string
+password:
+  description: The password for your plug.
+  required: true
+  default: The default password is the `PIN` included on the configuration card.
+  type: string
+use_legacy_protocol:
+  description: Enable limited support for legacy firmware protocols (Tested with v1.24).
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}

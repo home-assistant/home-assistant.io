@@ -495,14 +495,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7267]: https://github.com/home-assistant/home-assistant/pull/7267
 [#7287]: https://github.com/home-assistant/home-assistant/pull/7287
 [@KlaasH]: https://github.com/KlaasH
-[cover.zwave docs]: https://home-assistant.io/components/cover.zwave/
-[recorder docs]: https://home-assistant.io/components/recorder/
-[switch.hook docs]: https://home-assistant.io/components/switch.hook/
-[switch.wemo docs]: https://home-assistant.io/components/switch.wemo/
-[telegram_bot docs]: https://home-assistant.io/components/telegram_bot/
-[telegram_bot.webhooks docs]: https://home-assistant.io/components/telegram_bot.webhooks/
-[wemo docs]: https://home-assistant.io/components/wemo/
-[zwave.workaround docs]: https://home-assistant.io/components/zwave.workaround/
+[cover.zwave docs]: /components/cover.zwave/
+[recorder docs]: /components/recorder/
+[switch.hook docs]: /components/switch.hook/
+[switch.wemo docs]: /components/switch.wemo/
+[telegram_bot docs]: /components/telegram_bot/
+[telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
+[wemo docs]: /components/wemo/
+[zwave.workaround docs]: /components/zwave.workaround/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
 [#7290]: https://github.com/home-assistant/home-assistant/pull/7290
@@ -513,9 +513,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#7324]: https://github.com/home-assistant/home-assistant/pull/7324
 [#7329]: https://github.com/home-assistant/home-assistant/pull/7329
 [#7337]: https://github.com/home-assistant/home-assistant/pull/7337
-[device_tracker.automatic docs]: https://home-assistant.io/components/device_tracker.automatic/
-[hassio docs]: https://home-assistant.io/components/hassio/
-[notify.html5 docs]: https://home-assistant.io/components/notify.html5/
-[notify.telegram docs]: https://home-assistant.io/components/notify.telegram/
-[telegram_bot.polling docs]: https://home-assistant.io/components/telegram_bot.polling/
+[device_tracker.automatic docs]: /components/device_tracker.automatic/
+[hassio docs]: /components/hassio/
+[notify.html5 docs]: /components/notify.html5/
+[notify.telegram docs]: /components/notify.telegram/
+[telegram_bot.polling docs]: /components/telegram_bot.polling/
 [discord]: https://discord.gg/c5DvZ4e

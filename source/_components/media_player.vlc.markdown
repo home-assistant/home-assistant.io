@@ -24,10 +24,16 @@ media_player:
   - platform: vlc
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): The name to use in the frontend.
-- **arguments** (*Optional*): Additional arguments to be passed to VLC.
+{% configuration %}
+name:
+  description: The name to use in the frontend.
+  required: false
+  type: string
+arguments:
+  description: Additional arguments to be passed to VLC.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Only the "music" media type is supported for now.
 
@@ -60,3 +66,7 @@ You need to add the `homeassistant` user to the `audio` group:
 ```bash
 sudo usermod -a -G audio homeassistant
 ```
+
+##### {% linkable_title VLC currently not supported with Hass.io %}
+
+According to the forum topic ["How to add VLC into my Hassio"](http://community.home-assistant.io/t/how-to-add-vlc-into-my-hassio/23000/5), it is not possible to install packages like VLC on Hass.io.

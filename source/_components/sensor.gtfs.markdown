@@ -13,17 +13,15 @@ ha_iot_class: "Local Polling"
 ha_release: 0.17
 ---
 
-
 The `gtfs` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
 
-You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at either [TransitFeeds](http://transitfeeds.com/feeds) or [GTFS Data Exchange](http://www.gtfs-data-exchange.com/).
+You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at [TransitFeeds](http://transitfeeds.com/feeds).
 
 Here are some examples:
 
 - [Bay Area Rapid Transit (BART)](http://www.bart.gov/schedules/developers/gtfs) - The light rail system for the San Francisco Bay Area.
-- [Metropolitan Transit Authority of New York City (MTA)](http://www.bart.gov/schedules/developers/gtfs) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
-- [GBRail.info](http://www.gbrail.info/) - Provides data feeds for most if not all rail companies in Britain.
-- [Official Timetable Switzerland](http://www.fahrplanfelder.ch/en/timetable-data.html) - The official timetable data for Switzerland.
+- [Metropolitan Transit Authority of New York City (MTA)](http://web.mta.info/developers/) - Provides separate data feeds for subway, bus, LIRR and Metro-North of the greater New York City metropolitan region.
+- [Official Timetable Switzerland](https://opentransportdata.swiss/en/dataset/timetable-2019-gtfs) - The official timetable data for Switzerland in 2019.
 
 You need to download a GTFS ZIP file and put it into a folder named `gtfs` in your configuration directory. For ease of use, it is suggested that you rename the file to just the agency/data source name (i.e. `bart.zip` instead of `google_transit_20160328_v1.zip`). You can also unzip and place a folder in the `gtfs` folder.
 
@@ -48,11 +46,27 @@ sensor:
     data: DATA_SOURCE
 ```
 
-Configuration variables:
-
-- **origin** (*Required*): The stop ID of your origin station.
-- **destination** (*Required*): The stop ID of your destination station.
-- **data** (*Required*): The name of the ZIP file or folder containing the GTFS data. It must be located inside the `gtfs` folder of your configuration directory.
-- **name** (*Optional*): Name to use in the frontend.
-- **offset** (*Optional*): A minimum delay to look for. If a departure is in less time than `offset`, it will be ignored. Defaults to `0`.
-
+{% configuration %}
+origin:
+  description: The stop ID of your origin station.
+  required: true
+  type: string
+destination:
+  description: The stop ID of your destination station.
+  required: true
+  type: string
+data:
+  description: The name of the ZIP file or folder containing the GTFS data. It must be located inside the `gtfs` folder of your configuration directory.
+  required: true
+  type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  default: GTFS Sensor
+  type: string
+offset:
+  description: A minimum delay to look for. If a departure is in less time than `offset`, it will be ignored.
+  required: false
+  default: 0
+  type: [integer, time]
+{% endconfiguration %}

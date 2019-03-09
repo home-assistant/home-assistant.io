@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Open Hardware Monitor Sensor"
-description: "Instructions how to integrate Open Hardware Monitor within Home Assistant."
+description: "Instructions on how to integrate Open Hardware Monitor within Home Assistant."
 date: 2017-06-16 00:00:00
 sidebar: true
 comments: false
@@ -15,6 +15,30 @@ ha_iot_class: "Local Polling"
 
 
 The `openhardwaremonitor` platform uses your [Open Hardware Monitor](http://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
+
+## {% linkable_title Setup %}
+
+OpenHardwareMonitor must be running on the host, with "Remote web server" active. You also need to open inbound port (TCP 8085) on the host..
+
+To open port (on Windows):
+
+1. Navigate to Control Panel, System and Security and Windows Firewall.
+2. Select **Advanced settings** and highlight **Inbound Rules** in the left pane.
+3. Right click Inbound Rules and select New Rule.
+4. Add the port you need to open and click Next.
+5. Add the protocol (TCP) and the port number (8085) into the next window and click Next.
+6. Select Allow the connection in the next window and hit Next.
+7. Select the network type as you see fit and click Next.
+8. Name the rule and click Finish.
+
+To open port with `firewalld` (Linux):
+
+```bash
+$ sudo firewall-cmd --permanent --add-port=8085/tcp
+$ sudo firewall-cmd --reload
+```
+
+## {% linkable_title Configuration %}
 
 To add Open Hardware Monitor to your installation, add the following to your `configuration.yaml` file:
 
@@ -33,10 +57,6 @@ sensor:
   port:
     description: The port of your Open Hardware Monitor API. Defaults to 8085.
     required: false
-    type: int
+    type: integer
 {% endconfiguration %}
 
-<p class='note'>
-OpenHardwareMonitor must be running on the host, with "Remote web server" active.
-You also need to open an inbound port for (TCP 8085) in the advanced firewall settings.
-</p>

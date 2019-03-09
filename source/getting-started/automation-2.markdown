@@ -18,8 +18,8 @@ We are defining a [trigger](/docs/automation/trigger/) to track the sunset and t
 # Example configuration.yaml entry
 automation:
   alias: Turn on the lights when the sun sets
-  initial_state: True
-  hide_entity: False
+  initial_state: true
+  hide_entity: false
   trigger:
     platform: sun
     event: sunset
@@ -27,7 +27,7 @@ automation:
     service: light.turn_on
 ```
 
-Starting with 0.28 automation rules can be reloaded from the [frontend](/components/automation/) and are shown by default. With [`hide_entity:`](/components/automation/) you can control this behavior. It's convenient if you are working on your rules, but when a rule is finished, and you don't want to see that rule in your frontend, you can set `hide_entity:` to `True`. To set an automation to be disabled when Home Assistant starts set `initial_state:` to `False`.
+Starting with 0.28 automation rules can be reloaded from the [frontend](/components/automation/) and are shown by default. With [`hide_entity:`](/components/automation/) you can control this behavior. It's convenient if you are working on your rules, but when a rule is finished, and you don't want to see that rule in your frontend, you can set `hide_entity:` to `true`. To set an automation to be disabled when Home Assistant starts set `initial_state:` to `false`.
 
 After a few days of running this automation rule, you come to realize that this automation rule is not sufficient. It was already dark when the lights went on, and the one day you weren't home, the lights turned on anyway. Time for some tweaking. Let's add an offset to the sunset trigger and a [condition](/docs/automation/condition/) to only turn on the lights if anyone is home.
 
@@ -91,7 +91,7 @@ group:
 
 automation:
   alias: Turn on the lights when the sun sets
-  hide_entity: True
+  hide_entity: true
   trigger:
     platform: sun
     event: sunset

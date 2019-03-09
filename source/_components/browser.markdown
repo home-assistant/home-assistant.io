@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Browser"
-description: "Instructions how to setup the browser component with Home Assistant."
+description: "Instructions on how to setup the browser component with Home Assistant."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
@@ -9,10 +9,12 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Utility
+ha_qa_scale: internal
 ---
 
-
 The `browser` component provides a service to open URLs in the default browser on the host machine.
+
+## {% linkable_title Configuration %}
 
 To load this component, add the following lines to your `configuration.yaml`:
 
@@ -21,7 +23,7 @@ To load this component, add the following lines to your `configuration.yaml`:
 browser:
 ```
 
-#### {% linkable_title Service `browser/browse_url` %} 
+#### {% linkable_title Service `browser/browse_url` %}
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

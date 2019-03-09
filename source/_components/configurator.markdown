@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Configurator"
-description: "Instructions how to integrate the configurator in your components."
+description: "Instructions on how to integrate the configurator in your components."
 date: 2015-03-15 00:51
 sidebar: true
 comments: false
@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Other
+ha_qa_scale: internal
 ---
 
 <p class='note'>

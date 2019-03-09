@@ -10,7 +10,7 @@ footer: true
 redirect_from: /ecosystem/notebooks/installation/
 ---
 
-To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider to run Jupyter in a [virtualenv](/getting-started/installation-virtualenv/).
+To run Jupyter Notebooks locally, an installation of [Jupyter](http://jupyter.org/) is needed. Consider running Jupyter in a [virtualenv](/getting-started/installation-virtualenv/) in order to properly manage dependencies.
 
 ```bash
 $ pip3 install jupyter matplotlib
@@ -20,7 +20,7 @@ $ pip3 install jupyter matplotlib
 Certain notebooks hosted in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks) require access to a running Home Assistant instance or parts of a Home Assistant installation. If you want to run those notebooks, install Home Assistant with `$ pip3 install homeassistant` as well.
 </p>
 
-Now you are able to start the application.
+Run Jupyter from the command line.
 
 ```bash
 $ jupyter notebook
@@ -37,7 +37,7 @@ Open [http://localhost:8888/](http://localhost:8888/) in your browser. Press "Ne
   <img src='{{site_root}}/images/screenshots/jupyter-new.png' />
 </p>
 
-You will get an empty notebook with one cell. Cells can contain code or text. To get the output of a cell you need to execute them with "Cell" -> "Run Cells" from the menu or by pressing the icon. 
+You will get an empty notebook with one cell. Cells can contain code or text. To get the output of a cell you need to execute them with "Cell" -> "Run Cells" from the menu or by pressing the Play icon. 
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/jupyter-notebook.png' />
@@ -46,6 +46,6 @@ You will get an empty notebook with one cell. Cells can contain code or text. To
 The downloadable version of this notebook is available in the [Home Assistant notebooks repository](https://github.com/home-assistant/home-assistant-notebooks/blob/master/first-notebook.ipynb).
 
 
-As you can see is the workflow very similar to working directly with a Python shell. One advantage is that you can go back and forth as you please and save your work.
+As you can see is the Jupyter notebook workflow is very similar to working directly with a Python shell. One advantage of notebooks is that you can go back and forth between cells as you please and save your work.
 
 

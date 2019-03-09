@@ -2,8 +2,9 @@ module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
       'action'       => '/docs/scripts/',
-      'device_class' => '/components/%{component}/#device_class',
+      'device_class' => '/docs/configuration/customizing-devices/#device-class',
       'template'     => '/docs/configuration/templating/',
+      'icon'         => '/docs/configuration/customizing-devices/#icon',
     }
 
     def initialize(tag_name, text, tokens)

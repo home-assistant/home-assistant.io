@@ -13,19 +13,28 @@ body_id: components-page
 regenerate: false
 ---
 
-{% assign count = site.components | size %}
-{% assign nocat = site.components | where: 'ha_category', null | size %}
-{% assign tot = count | minus: nocat %}
-{% assign components = site.components | sort: 'title' %}
-{% assign categories = components | sort: 'ha_category' | map: 'ha_category' | uniq %}
-{% capture current_version %}{{ site.current_major_version }}.{{ site.current_minor_version }}{% endcapture %}
-{% assign added_one_ago_minor_version = site.current_minor_version|minus: 1 %}
-{% capture added_one_ago_version %}{{ site.current_major_version }}.{{ added_one_ago_minor_version }}{% endcapture %}
-{% assign added_two_ago_minor_version = site.current_minor_version|minus: 2 %}
-{% capture added_two_ago_version %}{{ site.current_major_version }}.{{ added_two_ago_minor_version }}{% endcapture %}
-{% assign current_version_components_count = site.components | where: 'ha_release', current_version | size %}
-{% assign one_ago_version_components_count = site.components | where: 'ha_release', added_one_ago_version | size %}
-{% assign two_ago_version_components_count = site.components | where: 'ha_release', added_two_ago_version | size %}
+{%- comment -%}Can't use where to count nil because of https://github.com/jekyll/jekyll/issues/6038{%- endcomment -%}
+{%- assign tot = 0 -%}
+{%- for comp in site.components -%}
+  {%- if comp.ha_category -%}
+    {%- if comp.ha_category.first -%}
+      {%- assign tot = tot | plus: comp.ha_category.size -%}
+    {%- else -%}
+      {%- assign tot = tot | plus: 1 -%}
+    {%- endif -%}
+  {%- endif %}
+{%- endfor -%}
+
+{%- assign components = site.components | sort: 'title' -%}
+{%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- capture current_version -%}{{ site.current_major_version }}.{{ site.current_minor_version }}{% endcapture -%}
+{%- assign added_one_ago_minor_version = site.current_minor_version|minus: 1 -%}
+{%- capture added_one_ago_version -%}{{ site.current_major_version }}.{{ added_one_ago_minor_version }}{% endcapture -%}
+{%- assign added_two_ago_minor_version = site.current_minor_version|minus: 2 -%}
+{%- capture added_two_ago_version -%}{{ site.current_major_version }}.{{ added_two_ago_minor_version }}{% endcapture -%}
+{%- assign current_version_components_count = site.components | where: 'ha_release', current_version | size -%}
+{%- assign one_ago_version_components_count = site.components | where: 'ha_release', added_one_ago_version | size -%}
+{%- assign two_ago_version_components_count = site.components | where: 'ha_release', added_two_ago_version | size -%}
 
 <p class='note'>
 Support for these components is provided by the Home Assistant community.
@@ -40,13 +49,14 @@ Support for these components is provided by the Home Assistant community.
       <a href='#version/{{ added_one_ago_version }}' class="btn added_one_version_ago">Added in {{ added_one_ago_version }} ({{ one_ago_version_components_count }})</a>
       <a href='#version/{{ added_two_ago_version }}' class="btn added_two_versions_ago">Added in {{ added_two_ago_version }} ({{ two_ago_version_components_count }})</a>
 
-{% for category in categories %}
-  {% if category and category != 'Other' %}
-    <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components | where: 'ha_category', category | size }})</a>
-  {% endif %}
-{% endfor %}
+{%- for category in categories -%}
+  {%- assign components_count = components | where: 'ha_category', category | size -%}
+  {%- if category and category != 'Other' and components_count != 0 -%}
+    <a href='#{{ category | slugify }}' class="btn">{{ category }} ({{ components_count }})</a>
+  {%- endif -%}
+{%- endfor -%}
 
-      <a href='#other' class="btn">Other</a>
+      <a href='#other' class="btn">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
     </div>
   </div>
   <div class="grid__item five-sixths lap-one-whole palm-one-whole">
@@ -61,15 +71,16 @@ Support for these components is provided by the Home Assistant community.
 
 {% comment %}
 ## Pages without categories
-{% for component in components %}
+{%- for component in components -%}
   {% unless component.ha_category %}
 <p>{{ component.title }}</p>
   {% endunless %}
-{% endfor %}
+{%- endfor -%}
 {% endcomment %}
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"></script>
 
 {% raw %}
 <script id="component-template" type="text/x-custom-template">
@@ -89,14 +100,18 @@ Support for these components is provided by the Home Assistant community.
 <script type="text/javascript">
 // This object contains all components we have
 var allComponents = [
-  {% for component in components %}
-    {% if component.ha_category %}
-{% assign sliced_version = component.ha_release | split: '.' %}
-{% assign minor_version = sliced_version[1]|plus: 0 %}
-{% assign major_version = sliced_version[0]|plus: 0 %}
-{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{component.ha_category | slugify}}", featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
-    {% endif %}
-  {% endfor %}
+  {%- for component in components -%}
+    {%- if component.ha_category -%}
+{%- assign sliced_version = component.ha_release | split: '.' -%}
+{%- assign minor_version = sliced_version[1]|plus: 0 -%}
+{%- assign major_version = sliced_version[0]|plus: 0 -%}
+{%- assign featured_first = true -%}
+      {%- for ha_category in component.ha_category -%}
+{url:"{{ component.url }}", title:"{{component.title}}", cat:"{{ha_category | slugify}}", featured: {% if component.featured and featured_first %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
+      {%- assign featured_first = false -%}
+      {%- endfor -%}
+    {% endif -%}
+  {%- endfor -%}
   false
 ];
 allComponents.pop(); // remove placeholder element at the end
@@ -134,6 +149,9 @@ allComponents.pop(); // remove placeholder element at the end
    * filter all components, based on the location's hash and render them into the component box
    */
   function applyFilter() {
+    var logoLazyLoad = new LazyLoad({
+      elements_selector: ".option-card img"
+    });
     var rendered, i, filter, search;
     var hash = location.hash || '';
     var data = {
@@ -142,7 +160,7 @@ allComponents.pop(); // remove placeholder element at the end
         if(this.logo === '') {
           return '';
         } else {
-          return '<img src="/images/supported_brands/' + this.logo + '">';
+          return '<img data-src="/images/supported_brands/' + this.logo + '">';
         }
       }
     };
@@ -201,6 +219,7 @@ allComponents.pop(); // remove placeholder element at the end
 
     // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
     $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
+    logoLazyLoad.update();
   }
 
   /**
@@ -260,10 +279,10 @@ allComponents.pop(); // remove placeholder element at the end
 
 <noscript>
   <ul>
-  {% for component in components %}
-    {% if component.ha_category %}
+  {%- for component in components -%}
+    {%- if component.ha_category -%}
       <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
-    {% endif %}
-  {% endfor %}
+    {%- endif -%}
+  {%- endfor -%}
   </ul>
 </noscript>

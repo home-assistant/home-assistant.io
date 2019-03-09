@@ -8,14 +8,21 @@ comments: false
 sharing: true
 footer: true
 logo: axis.png
-ha_category: Hub
+ha_category:
+  - Camera
+  - Binary Sensor
 ha_release: "0.45"
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/binary_sensor.axis/
+  - /components/camera.axis/
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras and other security-related network connected hardware. Sensor API works with firmware 5.50 and newer.
 
 Home Assistant will automatically discover their presence on your network.
+
+## {% linkable_title Configuration %}
 
 You can also manually configure your devices by adding the following lines to your `configuration.yaml` file:
 
@@ -28,26 +35,61 @@ axis:
       - camera
 ```
 
-Configuration variables:
-
-## {% linkable_title Configuration variables %}
-
-- **device** (*Required*): Unique name 
-- **host** (*Required*): The IP address to your Axis device.
-- **username** (*Optional*): The username to your Axis device. Default 'root'.
-- **password** (*Optional*): The password to your Axis device. Default 'pass'.
-- **trigger_time** (*Optional*): Minimum time (in seconds) a sensor should keep its positive value. Default 0.
-- **port** (*Optional*): Configure port web server of device is accessible from. Default 80.
-- **location** (*Optional*): Physical location of your Axis device. Default not set.
-- **include** (*Required*): This cannot be empty else there would be no use adding the device at all.
-  - **camera**: Stream MJPEG video to Home Assistant.
-  - **motion**: The built-in motion detection in Axis cameras.
-  - **vmd3**: ACAP Motion Detection app which has better algorithms for motion detection.
-  - **pir**: PIR sensor that can trigger on a motion.
-  - **sound**: Sound detector.
-  - **daynight**: Certain cameras have day/night mode if they have built-in IR lights.
-  - **tampering**: Signals when camera believes that it has been tampered with.
-  - **input**: Trigger on whatever you have connected to device input port.
+{% configuration %}
+device:
+  description: A unique name
+  required: true
+  type: string
+host:
+  description: The IP address to your Axis device.
+  required: true
+  type: string
+username:
+  description: The username to your Axis device.
+  required: false
+  type: string
+  default: root
+password:
+  description: The password to your Axis device.
+  required: false
+  type: string
+  default: pass
+trigger_time:
+  description: Minimum time (in seconds) a sensor should keep its positive value.
+  required: false
+  type: integer
+  default: 0
+port:
+  description: Configure port web server of device is accessible from.
+  required: false
+  type: integer
+  default: 80
+location:
+  description: Physical location of your Axis device.
+  required: false
+  type: string
+include:
+  description: This cannot be empty else there would be no use adding the device at all.
+  required: true
+  type: map
+  keys:
+    camera:
+      description: Stream MJPEG video to Home Assistant.
+    motion:
+      description: The built-in motion detection in Axis cameras.
+    vmd3:
+      description: ACAP Motion Detection app which has better algorithms for motion detection.
+    pir:
+      description: PIR sensor that can trigger on a motion.
+    sound:
+      description: Sound detector.
+    daynight:
+      description: Certain cameras have day/night mode if they have built-in IR lights.
+    tampering:
+      description: Signals when camera believes that it has been tampered with.
+    input:
+      description: Trigger on whatever you have connected to device input port.
+{% endconfiguration %}
 
 A full configuration example could look like this:
 
@@ -69,10 +111,6 @@ axis:
 ```
 
 <p class='note'>
-If you are using Python 3.6, you might need to replace the 34m with 36m in the _gi.*.so filename in the gi folder.
-</p>
-
-<p class='note'>
 Any specific levels for triggers needs to be configured on the device.
 </p>
 
@@ -81,9 +119,11 @@ Any specific levels for triggers needs to be configured on the device.
 </p>
 
 ## {% linkable_title Device services %}
+
 Available services: `vapix_call`.
 
-#### {% linkable_title Service `axis/vapix_call` %}
+### {% linkable_title Service `axis/vapix_call` %}
+
 Send a command using [Vapix](https://www.axis.com/support/developer-support/vapix). For details please read the API specifications.
 
 | Service data attribute    | Optional | Description                                      |
@@ -94,3 +134,20 @@ Send a command using [Vapix](https://www.axis.com/support/developer-support/vapi
 | `action`                  |      yes | What type of call. Default is `update`.  |
 
 Response to call can be subscribed to on event `vapix_call_response`
+
+## {% linkable_title Troubleshooting discovery %}
+
+If a `169.x.x.x` address is discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Config**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+
+## {% linkable_title Binary Sensor %}
+
+The `Axis` platform allows you to get data from your [Axis](https://www.axis.com/) devices from within Home Assistant.
+
+The following sensor types are supported:
+
+- Motion detection
+- Passive IR motion detection
+- Sound detection
+- Day/night mode
+- Tampering detection
+- Input port

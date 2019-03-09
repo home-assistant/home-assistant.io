@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Supervisord"
-description: "Instructions how to integrate Supervisord within Home Assistant."
+description: "Instructions on how to integrate Supervisord within Home Assistant."
 date: 2016-05-13 22:00
 sidebar: true
 comments: false
@@ -22,12 +22,11 @@ It required that you enable the HTTP feature in the `/etc/supervisord.conf` conf
 port=127.0.0.1:9001
 ```
 
-After a restart of `supervisord` you should be able to access the web interface. If needed then this could be added as a [iFrame panel](/components/panel_iframe/).
+After a restart of `supervisord` you should be able to access the web interface. If needed then this could be added as an [iFrame panel](/components/panel_iframe/).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/supervisor.png' />
 </p>
-
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -37,7 +36,10 @@ sensor:
   - platform: supervisord
 ```
 
-Configuration variables:
-
-- **url** (*Optional*): The URL to track. Default to `http://localhost:9001/RPC2`.
-
+{% configuration %}
+url:
+  description: The URL to track.
+  required: false
+  default: "`http://localhost:9001/RPC2`"
+  type: string
+{% endconfiguration %}

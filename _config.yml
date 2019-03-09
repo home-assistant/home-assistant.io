@@ -3,12 +3,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: https://home-assistant.io
+url: https://www.home-assistant.io
 title: Home Assistant
-subtitle: Open-source home automation platform running on Python 3
+subtitle: Open source home automation that puts local control and privacy first.
 author: Home Assistant
 simple_search: https://www.google.com/search
-description: Home Assistant is an open-source home automation platform running on Python 3.
+description: Open source home automation that puts local control and privacy first.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -32,8 +32,12 @@ destination: public/
 plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
+
 markdown: kramdown
+highlighter: rouge
 timezone: UTC
+liquid:
+  error_mode: strict
 
 kramdown:
   input: GFM
@@ -43,8 +47,6 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   parse_block_html: true
-
-highlighter: rouge
 
 plugins:
   - jekyll-redirect-from
@@ -76,6 +78,8 @@ collections:
     output: true
   faq:
     output: true
+  lovelace:
+    output: true
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -94,11 +98,6 @@ twitter_tweet_button: true
 # Google +1
 google_plus_one: true
 google_plus_one_size: standard
-
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-googleplus_user: +PaulusSchoutsen
-googleplus_hidden: true
 
 # Pinboard
 pinboard_user:
@@ -139,12 +138,20 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 56
+current_minor_version: 89
 current_patch_version: 1
-date_released: 2017-10-22
+date_released: 2019-03-08
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
 # Major release:
-patch_version_notes: "#release-0561---october-22"
+patch_version_notes: ""
 # Minor release (Example #release-0431---april-25):
+
+# Date we moved to Discourse for comments
+# disqus_end_date: 2018-01-26 0:00:00
+# Disqus is adding gross ads, move all comments to discourse.
+disqus_end_date: 2010-01-26 0:00:00
+
+# Support .well-known directory
+include: [".well-known"]

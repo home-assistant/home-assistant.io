@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HaveIBeenPwned Sensor"
-description: "Instructions how to integrate HaveIBeenPwned sensor into Home Assistant."
+description: "Instructions on how to integrate HaveIBeenPwned sensor into Home Assistant."
 date: 2016-09-29 18:00
 sidebar: true
 comments: false
@@ -14,17 +14,27 @@ ha_iot_class: "Cloud Polling"
 ---
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
+
+## {% linkable_title Configuration %}
+
 To enable this sensor, add the following lines to your `configuration.yaml`, it will list every specified email address as a sensor showing
-the number of breaches on that email account:
+the number of breaches on that email account.
 
 ```yaml
 # Example configuration.yaml entry using cloud based emoncms
 sensor:
-  platform: haveibeenpwned
-  email: 
-    - your_email1@domain.com
-    - your_email2@domain.com
+  - platform: haveibeenpwned
+    email: 
+      - your_email1@domain.com
+      - your_email2@domain.com
 ```
+
+{% configuration %}
+email:
+  description: List of email addresses.
+  required: true
+  type: list
+{% endconfiguration %}
 
 ## {% linkable_title Breach meta data %}
 
@@ -35,10 +45,6 @@ account has been breached as well as the added date of the breach data. This dat
 <p class='img'>
   <img src='/images/components/haveibeenpwned/sensor.png' />
 </p>
-
-## {% linkable_title Configuration variables %}
-
-- **email** (*Required*): List of email addresses.
 
 <p class='note warning'>
   The sensor will scan all email addresses specified with a 5 second delay between all breach data requests on Home Assistant startup.

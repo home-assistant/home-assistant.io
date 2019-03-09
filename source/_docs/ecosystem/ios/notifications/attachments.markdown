@@ -23,11 +23,11 @@ To expand a notification on 3D Touch devices simply force touch any notification
     action:
       service: notify.ios_robbies_iphone_7_plus
       data:
-        message: "Something happened at home!""
+        message: "Something happened at home!"
         data:
           attachment:
-            url: https://67.media.tumblr.com/ab04c028a5244377a0ab96e73915e584/tumblr_nfn3ztLjxk1tq4of6o1_400.gif
-            content-type: gif
+            url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+            content-type: png
             hide-thumbnail: false
 ```
 

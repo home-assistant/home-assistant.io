@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "SMTP"
-description: "Instructions how to add e-mail notifications to Home Assistant."
+description: "Instructions on how to add e-mail notifications to Home Assistant."
 date: 2015-06-03 18:00
 sidebar: true
 comments: false
@@ -26,19 +26,58 @@ notify:
     recipient: YOUR_RECIPIENT
 ```
 
-Configuration variables:
-
-- **name** (*Optional*): Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-- **sender** (*Required*): E-mail address of the sender.
-- **recipient** (*Required*): E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.
-- **server** (*Optional*): SMTP server which is used to end the notifications. Defaults to `localhost`.
-- **port** (*Optional*): The port that the SMTP server is using. Defaults to 587.
-- **timeout** (*Optional*): The timeout in seconds that the SMTP server is using. Defaults to 5.
-- **username** (*Optional*): Username for the SMTP account.
-- **password** (*Optional*): Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
-- **encryption** (*Optional*): Set mode for encryption, `starttls`, `tls` or `none`. Defaults to `starttls`.
-- **sender_name** (*Optional*): Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>).
-- **debug** (*Optional*): Enables Debug, eg. True or False. Defaults to False.
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  type: string
+  default: notify
+sender:
+  description: E-mail address of the sender.
+  required: true
+  type: string
+recipient:
+  description: E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.
+  required: true
+  type: [list, string]
+server:
+  description: SMTP server which is used to end the notifications.
+  required: false
+  type: string
+  default: localhost  
+port:
+  description: The port that the SMTP server is using.  
+  required: false
+  type: integer
+  default: 587
+timeout:
+  description: The timeout in seconds that the SMTP server is using.
+  required: false
+  type: integer
+  default: 5
+username:
+  description: Username for the SMTP account.
+  required: false
+  type: string
+password:
+  description: Password for the SMTP server that belongs to the given username. If the password contains a colon it need to be wrapped in apostrophes.
+  required: false
+  type: string
+encryption:
+  description: Set mode for encryption, `starttls`, `tls` or `none`.
+  required: false
+  type: string
+  default: starttls
+sender_name:
+  description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
+  required: false
+  type: string
+debug:  
+  description: Enables Debug, e.g., True or False.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 A sample configuration entry for Google Mail.
 
@@ -148,7 +187,7 @@ The optional `html` field makes a custom text/HTML multi-part message, allowing 
                 </html>
 
 ```
-Obviously, this kind of complex html email reporting is done much more conveniently using Jinja2 templating from an [AppDaemon app](https://home-assistant.io/docs/ecosystem/appdaemon/tutorial/), for example.
+Obviously, this kind of complex html email reporting is done much more conveniently using Jinja2 templating from an [AppDaemon app](/docs/ecosystem/appdaemon/tutorial/), for example.
 
 This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
 

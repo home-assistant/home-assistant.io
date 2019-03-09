@@ -69,7 +69,7 @@ It's been another two weeks which means it's time for release: 0.14!
 [rollershutter.command_line]: /components/rollershutter.command_line/
 [Steam]: /components/sensor.steam_online/
 [Wink]: /components/binary_sensor.wink/
-[the cookbook]: https://home-assistant.io/cookbook/python_component_simple_alarm/
+[the cookbook]: /cookbook/python_component_simple_alarm/
 [script]: /components/script/
 [Wemo component]: /components/wemo/
 [switch.cmd]: /components/switch.command_line/

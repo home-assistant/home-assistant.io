@@ -26,7 +26,7 @@ In the example above you would use:
 $ docker run -d -v /Users/foo/ha-config:/conf --name appdaemon appdaemon:latest
 ```
 
-Where you place the `conf` and `conf/apps` directory is up to you - it can be in downloaded repostory, or anywhere else on the host, as long as you use the correct mapping in the `docker run` command.
+Where you place the `conf` and `conf/apps` directory is up to you - it can be in downloaded repository, or anywhere else on the host, as long as you use the correct mapping in the `docker run` command.
 
 You can inspect the logs as follows:
 

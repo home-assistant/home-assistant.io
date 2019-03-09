@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netgear"
-description: "Instructions how to integrate Netgear routers into Home Assistant."
+description: "Instructions on how to integrate Netgear routers into Home Assistant."
 date: 2015-03-23 19:59
 sidebar: true
 comments: false
@@ -13,7 +13,6 @@ ha_iot_class: "Local Polling"
 ha_release: pre 0.7
 ---
 
-
 This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
@@ -22,17 +21,49 @@ To use this device tracker in your installation, add the following to your `conf
 # Example configuration.yaml entry
 device_tracker:
   - platform: netgear
-    host: YOUR_ROUTER_IP
-    username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
 ```
 
-Configuration variables:
+{% configuration %}
+url:
+  description: The base URL, e.g., `http://routerlogin.com:5000` for example. If not provided `host` and `port` are used. If none provided autodetection of the URL will be used.
+  required: false
+  type: string
+host:
+  description: The IP address of your router, e.g., `192.168.1.1`.
+  required: false
+  type: string
+port:
+  description: The port your router communicates with.
+  required: false
+  default: 5000
+  type: integer
+username:
+  description: The username of a user with administrative privileges.
+  required: false
+  default: admin
+  type: string
+password:
+  description: The password for your given admin account.
+  required: true
+  type: string
+devices:
+  description: If provided only specified devices will be reported. Can be MAC address or the device name as reported in the Netgear UI.
+  required: false
+  type: list
+exclude:
+  description: Devices to exclude from the scan.
+  required: false
+  type: list
+accesspoints:
+  description: Also track devices on the specified APs. Only supports MAC address.
+  required: false
+  type: list
+{% endconfiguration %}
 
-- **host** (*Optional*): The IP address of your router, e.g. `192.168.1.1`. If not provided `routerlogin.net` will be used.
-- **username** (*Optional*): The username of an user with administrative privileges. If not provided `admin` will be used.
-- **port** (*Optional*): The port your router communicates with (defaults to `5000`, but `80` is also known to be used on some models).
-- **password** (*Required*): The password for your given admin account.
+When `accesspoints` is specified an extra device will be reported for each device connected to the APs specified here, as `MY-LAPTOP on RBS40`. `Router` will be reported as AP name for the main AP. Only tested with Orbi.
+
+The use of `devices` or `exclude` is recommended when using `accesspoints` to avoid having a lot of entries.
 
 List of models that are known to use port 80:
 - Nighthawk X4S - AC2600 (R7800)

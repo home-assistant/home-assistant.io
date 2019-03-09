@@ -20,6 +20,17 @@ Home Assistant will trigger an event when the Z-Wave network is complete, meanin
      event_type: zwave.network_complete
 ```
 
+## {% linkable_title zwave.network_complete_some_dead %}
+
+Home Assistant will trigger an event when the Z-Wave network is complete, but some nodes are marked dead, meaning all of the nodes on the network have been queried. This can take quite some time, depending on wakeup intervals on the battery-powered devices on the network.
+
+```yaml
+ - alias: Z-Wave network is complete some dead
+   trigger:
+     platform: event
+     event_type: zwave.network_complete_some_dead
+```
+
 ## {% linkable_title zwave.network_ready %}
 
 Home Assistant will trigger an event when the Z-Wave network is ready for use. Between `zwave.network_start` and `zwave.network_ready` Home Assistant will feel sluggish when trying to send commands to Z-Wave nodes. This is because the controller is requesting information from all of the nodes on the network. When this is triggered, all awake nodes have been queried and sleeping nodes will be queried when they awake.

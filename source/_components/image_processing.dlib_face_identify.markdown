@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dlib Face Identify"
-description: "Instructions how to integrate Dlib Face Identify into Home Assistant."
+description: "Instructions on how to integrate Dlib Face Identify into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ featured: false
 ha_release: 0.44
 ---
 
-The `dlib_face_identify` image processing platform allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform allow you to identify persons on camera and fire a event with identify persons.
+The `dlib_face_identify` image processing platform allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform allow you to identify persons on camera and fire an event with identify persons.
 
 For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
 
@@ -30,9 +30,26 @@ image_processing:
      Bob: /home/hass/bob.jpg
 ```
 
-Configuration variables:
+{% configuration %}
+source:
+  description: List of image sources.
+  required: true
+  type: list
+  keys:
+    entity_id:
+      description: A camera entity id to get picture from.
+      required: true
+      type: string
+    name:
+      description: This parameter allows you to override the name of your `image_processing` entity.
+      required: false
+      type: string
+faces:
+  description: List of faces sources.
+  required: true
+  type: list
+{% endconfiguration %}
 
-- **source** array (*Required*): List of image sources.
-  - **entity_id** (*Required*): A camera entity id to get picture from.
-  - **name** (*Optional*): This parameter allows you to override the name of your `image_processing` entity.
-- **faces** array (*Required*): List of faces sources.
+<p class='note'>
+If the platform fails to load because it could not install its requirement, install cmake: `sudo apt-get install cmake`.
+</p>

@@ -1,14 +1,16 @@
 ---
 layout: page
 title: "MySensors Sensor"
-description: "Instructions how to integrate MySensors sensors into Home Assistant."
+description: "Instructions on how to integrate MySensors sensors into Home Assistant."
 date: 2016-10-01 15:00 +0200
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: mysensors.png
-ha_category: Sensor
+ha_category:
+  - DIY
+  - Sensor
 featured: false
 ha_iot_class: "Local Push"
 ---

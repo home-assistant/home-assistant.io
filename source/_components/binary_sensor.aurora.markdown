@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Binary Sensor
+ha_category: Environment
 ha_release: 0.39
 logo: noaa.png
 ---
@@ -18,6 +18,8 @@ This service gives a number 0-100 representing the current likelihood of visible
 
 You can check the attributes of the sensor to see your exact forecast.
 
+## {% linkable_title Configuration %}
+
 To add the aurora binary sensor to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -26,13 +28,23 @@ binary_sensor:
   - platform: aurora
 ```
 
-Configuration variables:
+{% configuration %}
+forecast_threshold:
+  description: Provide your own threshold number above which the sensor will trigger.
+  required: false
+  type: integer
+  default: 75
+name:
+  description: The name of the sensor.
+  required: false
+  type: string
+  default: Aurora Visibility
+{% endconfiguration %}
 
-- **forecast_threshold** (*Optional*): Provide your own threshold number above which the sensor will trigger. Defaults to 75.
-- **name** (*Optional*): The name of the sensor. Default is 'Aurora Visibility'. 
+## {% linkable_title Full example %}
 
 ```yaml
-  binary_sensor:
-    - platform: aurora
-      forecast_threshold: 50
+binary_sensor:
+  - platform: aurora
+    forecast_threshold: 50
 ```

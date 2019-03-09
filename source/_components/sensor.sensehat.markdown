@@ -1,20 +1,21 @@
 ---
 layout: page
 title: "Sense HAT"
-description: "Instructions how to integrate Sense HAT within Home Assistant."
-date: 2017-06-03 04:00
+description: "Instructions on how to integrate Sense HAT within Home Assistant."
+date: 2018-06-03 11:30
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: sense-hat.png
-ha_category: Sensor
+ha_category: DIY
 ha_release: 0.35
 ha_iot_class: "Local Push"
 ---
 
-
 The `sensehat` sensor platform allows you to display information collected by a [Sense HAT](https://www.raspberrypi.org/products/sense-hat/) add-on board for Raspberry Pi.
+
+## {% linkable_title Configuration %}
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
@@ -23,24 +24,41 @@ To add this platform to your installation, add the following to your `configurat
 sensor:
   - platform: sensehat
     display_options:
-        - temperature
-        - humidity
-        - pressure
+      - temperature
+      - humidity
+      - pressure
 ```
 
-Configuration variables:
+{% configuration %}
+display_options:
+  description: List of details to monitor.
+  required: true
+  default: "`memory_free`"
+  type: list
+  keys:
+    temperature:
+      description: Temperature
+    humidity:
+      description: Humidity
+    pressure:
+      description: Pressure
+name:
+  description: Change the name of te sensor, for in the frontend.
+  required: false
+  type: string
+is_hat_attached:
+  description: Declaring that the SenseHAT _is_ physically on the Raspberry Pi.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
 
-- **display_options** (*Requires*) array: List of details to monitor. Defaults is `memory_free`.
-  - 'temperature'
-  - 'humidity'
-  - 'pressure'
-  is_hat_attached (Optional): True|False boolean; Default value is True declaring that the SenseHAT _is_ physically on the Raspberry Pi
-  
-
-#### Customizing the Sense HAT data
+## {% linkable_title Customizing the Sense HAT data %}
 
 **Format the sensor values**
-Add the following to your `sensor`
+Add the following to your `sensor`:
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -54,18 +72,20 @@ sensor:
   - platform: template
     sensors:
       sensehat_temperature:
-        value_template: '{% raw %}{{ states.sensor.temperature.state | round(1) }}{% endraw %}'
+        value_template: '{{ states.sensor.temperature.state | round(1) }}'
         unit_of_measurement: '°C'
       sensehat_pressure:
-        value_template: '{% raw %}{{ states.sensor.pressure.state | round(1) }}{% endraw %}'
+        value_template: '{{ states.sensor.pressure.state | round(1) }}'
         unit_of_measurement: 'mb'
       sensehat_humidity:
-        value_template: '{% raw %}{{ states.sensor.humidity.state | round(1) }}{% endraw %}'
+        value_template: '{{ states.sensor.humidity.state | round(1) }}'
         unit_of_measurement: '%'
 ```
 
+{% endraw %}
+
 **Give the values friendly names & icons**
-Add the following to your `customize`
+Add the following to your `customize`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,7 +102,7 @@ customize:
 ```
 
 **Create a group**
-Add the following to your `groups`
+Add the following to your `groups`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -94,7 +114,9 @@ group:
       - sensor.sensehat_humidity
       - sensor.sensehat_pressure
 ```
-Add the _sense_hat group_ a group (_Kitchen for example_)
+
+Add the sense_hat group (_Kitchen for example_)
+
 ```yaml
 # Example configuration.yaml entry
 group:
@@ -102,26 +124,29 @@ group:
     - group.sense_hat
 ```
 
+## {% linkable_title Directions for installing on Raspberry Pi All-In-One installer and HASSbian: %}
 
-### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
-#### Install SenseHAT package to _homeassistant_venv_
+### {% linkable_title Install SenseHAT package to _homeassistant_venv_ %}
+
 ```bash
 # switch to the homeassistant_venv environment
-sudo su -s /bin/bash homeassistant
+sudo -u homeassistant -H -s
 source /srv/homeassistant/homeassistant_venv/bin/activate
 
 # install the sense-hat lib
 pip3 install sense-hat
 # be patient, this will take a long while
 ```
-#### Return to `pi`
+
+### {% linkable_title Return to `pi` %}
+
 Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment.
 
 As all of the following steps should be under the `pi` user environment.
 
-###### Install _RTIMU_
+### {% linkable_title Install _RTIMU_ %}
 
 ```bash
 # pi user environment: Install RTIMU
@@ -139,16 +164,16 @@ ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-35m-arm-linux-gnueabihf.so /s
 sudo reboot
 ```
 
-Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home-Assistant fails with errors.
-_(The Raspberry Pi All-In-One installer and HASSbian both run Home-Assistant in an virtual environment)._
-These issues have been discussed in the repository issue (#5093)[https://github.com/home-assistant/home-assistant/issues/5093)
+Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home Assistant fails with errors.
+_(The Raspberry Pi All-In-One installer and HASSbian both run Home Assistant in an virtual environment)._
+These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 
 This fix has been tested with a clean install of:
 
-* [Raspbian Jessie - version January 2017](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-01-10/) 
- 
+* [Raspbian Jessie - version January 2017](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-01-10/)
+
 and
- 
-* [Home-Assistant 0.37.1](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/)
+
+* [Home Assistant 0.37.1](/getting-started/installation-raspberry-pi-all-in-one/)
 
 For setting up the Sense HAT's RGB LED matrix as lights within Home Assistant, please see the [Sense HAT light component](/components/light.sensehat/).

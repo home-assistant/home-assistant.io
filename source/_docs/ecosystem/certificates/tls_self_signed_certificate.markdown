@@ -11,8 +11,8 @@ redirect_from: /cookbook/tls_self_signed_certificate/
 ---
 
 If your Home Assistant instance is only accessible from your local network you can still protect the communication between your browsers and the frontend with SSL/TLS. 
-[Let's encrypt]({{site_root}}/blog/2015/12/13/setup-encryption-using-lets-encrypt/) will only work if you have a DNS entry and remote access is allowed. 
-The solution is to use a self-signed certificate. As you most likely don't have a certification authority (CA) your browser will conplain about the security. If you have a CA then this will not be an issue.
+[Let's encrypt]({{site_root}}/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) will only work if you have a DNS entry and remote access is allowed. 
+The solution is to use a self-signed certificate. As you most likely don't have a certification authority (CA) your browser will complain about the security. If you have a CA then this will not be an issue.
 
 To create a certificate locally, you need the [OpenSSL](https://www.openssl.org/) command-line tool.
 
@@ -20,7 +20,7 @@ Change to your Home Assistant [configuration directory](/getting-started/configu
 
 The certificate **must** be `.pem` extension.
 
-If you are going to use this certificate with the iOS app, you need to ensure you complete **all** fields during the cetificate creation process, then:
+If you are going to use this certificate with the iOS app, you need to ensure you complete **all** fields during the certificate creation process, then:
 
 * Send **only** the `certificate.pem` file to the iOS device, using airdrop or other transfer method.
 * Open the `.pem` file on the iOS device, follow the prompts to trust and install it.
@@ -38,7 +38,6 @@ Update the `http:` entry in your `configuration.yaml` file and let it point to y
 
 ```yaml
 http:
-  api_password: YOUR_SECRET_PASSWORD
   ssl_certificate: /home/your_user/.homeassistant/certificate.pem
   ssl_key: /home/your_user/.homeassistant/privkey.pem
 ```

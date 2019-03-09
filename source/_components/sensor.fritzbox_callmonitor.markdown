@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "FRITZ!Box Call Monitor"
-description: "Instructions how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant."
+description: "Instructions on how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant."
 date: 2016-08-13 15:00
 sidebar: true
 comments: false
@@ -13,12 +13,30 @@ ha_release: 0.27
 ha_iot_class: "Local Polling"
 ---
 
-
-The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers
-on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing`, or `talking` with the phone numbers involved contained in the state attributes.
+The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
 
+## {% linkable_title Prerequisites %}
+
+To build the package you have to install some dependencies first.
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get install libxml2-dev libxslt-dev \
+  python3-setuptools zlib1g-dev build-essential
+```
+
+If you installed Home Assistant in a virtualenv, also run the following command inside it. 
+Be patient this will take a while.
+```bash
+pip3 install lxml
+```
+
+## {% linkable_title Setup%}
+
 To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.
+
+## {% linkable_title Configuration %}
 
 To use the Fritz!Box call monitor in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,14 +46,40 @@ sensor:
   - platform: fritzbox_callmonitor
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your router, eg. 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
-- **port** (*Optional*): The TCP port of the call monitor. There is usually no reason to change this.
-- **username** (*Optional*): Fritz!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
-- **password** (*Optional*): Fritz!Box user's user password. This is required to use the phone book lookup feature.
-- **phonebook** (*Optional*): Numerical ID identifying the phonebook to be used. If there is just one phonebook, this is usually 0.
-- **prefixes** (*Optional*): In case of a local call, the phone number seen by the router might differ from the one stored in the phone book by an area code, similarly for the international prefix. To remedy this, a list of prefixes, that can be appended to the phone number in case it is not found in the phone book, can be given.
+{% configuration %}
+name:
+  description: Give the sensor a friendly name for in the front-end.
+  required: false
+  default: Phone
+  type: string
+host:
+  description: The IP address of your router, e.g., 192.168.1.1. It is optional since every fritzbox is also reachable by using the IP address 169.254.1.1.
+  required: false
+  default: 169.254.1.1
+  type: string
+port:
+  description: The TCP port of the call monitor. There is usually no reason to change this.
+  required: false
+  default: 1012
+  type: integer
+username:
+  description: Fritz!Box user's user name. This is required to use the phone book lookup feature. The user needs to have the "voice message, fax message, Fritz!App Fon and call list" permission.
+  required: false
+  type: string
+password:
+  description: Fritz!Box user's user password. This is required to use the phone book lookup feature.
+  required: false
+  type: string
+phonebook:
+  description: Numerical ID identifying the phonebook to be used. If there is just one phonebook, this is usually 0.
+  required: false
+  default: 0
+  type: integer
+prefixes:
+  description: In case of a local call, the phone number seen by the router might differ from the one stored in the phone book by an area code, similarly for the international prefix. To remedy this, a list of prefixes, that can be appended to the phone number in case it is not found in the phone book, can be given.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ## {% linkable_title Examples %}
 
@@ -44,7 +88,7 @@ Configuration variables:
 The example below shows a full configuration for a call monitor with phone book support.
 
 ```yaml
-# Example configuration.yml entry
+# Example configuration.yaml entry
 sensor:
   - platform: fritzbox_callmonitor
     name: Phone
@@ -61,8 +105,9 @@ sensor:
 
 This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
 
+{% raw %}
 ```yaml
-# Example configuration.yml entry.
+# Example configuration.yaml entry.
 automation:
   - alias: "Notify about phone state"
     trigger:
@@ -70,10 +115,10 @@ automation:
         entity_id: sensor.phone
     action:
       - service: notify.notify
-        data:
+        data_template:
           title: "Phone"
           message: >-
-            {% raw %}{% if is_state("sensor.phone", "idle") %}
+            {% if is_state("sensor.phone", "idle") %}
               Phone is idle
             {% elif is_state("sensor.phone", "dialing") %}
               Calling {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
@@ -81,5 +126,6 @@ automation:
               Incoming call from {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
             {% else %}
               Talking to {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
-            {% endif %}{% endraw %}
+            {% endif %}
 ```
+{% endraw %}

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Configuration Backup to Dropbox"
-description: "Instructions how backup your Home Assistant configuration to Dropbox"
+description: "Instructions on how backup your Home Assistant configuration to Dropbox"
 date: 2017-04-24 18:00
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 redirect_from: /cookbook/dropboxbackup/
 ---
 
-Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com) similar to [Github Backup](https://home-assistant.io/docs/ecosystem/backup/backup_github/)
+Backing up and regularly syncing your Home Assistant configuration to [Dropbox](http://dropbox.com) similar to [Github Backup](/docs/ecosystem/backup/backup_github/)
 
 ### {% linkable_title Requirements %}
 
@@ -36,6 +36,20 @@ Follow the instructions you see on your screen.
 ### {% linkable_title Step 2: Running the Dropbox uploader %}
 
 Go to the folder you have placed `dropbox.py`.
+
+- **Option A:**
+  Copy file `dropbox_uploader.sh` to : `.homeassistant/extraconfig/shell_code/` (so the full path would be similar to: `/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh`)
+- **Option B:**
+  Edit `dropbox.py`:
+  Change the following line: 
+  ```
+  uploader = "/home/homeassistant/.homeassistant/extraconfig/shell_code/dropbox_uploader.sh"
+  ```
+  to where you placed your file: (for example):
+  ```
+  uploader = "/home/homeassistant/MyFolder/dropbox_uploader.sh"
+  ```
+
 
 ```bash
 $ python dropbox.py

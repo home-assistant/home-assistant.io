@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Group Visibility"
-description: "Instructions how to change group visibility using automations."
+description: "Instructions on how to change group visibility using automations."
 date: 2016-10-29 13:00
 sidebar: true
 comments: false
@@ -14,13 +14,13 @@ After filling Home Assistant with all your precious home automation devices, you
 
 ## {% linkable_title Changing visibility of a group %}
 
-To change visibility of a group, use the service `group.set_visibility`, pass the group name as `entity_id` and use `visible` to decide wheter the group should be shown or hidden.
+To change visibility of a group, use the service `group.set_visibility`, pass the group name as `entity_id` and use `visible` to decide whether the group should be shown or hidden.
 
 ```yaml
 service: group.set_visibility
 entity_id: group.basement
 data:
-  visible: False
+  visible: false
 ```
 
 <p class='note'>
@@ -42,7 +42,7 @@ automation:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: False
+      visible: false
 
 automation 2:
   trigger:
@@ -52,7 +52,7 @@ automation 2:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: True
+      visible: true
 ```
 
 ## {% linkable_title Easier automations %}
@@ -95,7 +95,7 @@ if __name__ == '__main__':
     print(get_current_occasion(OCCASIONS))
 ```
 
-This script will output "work_morning" from 06:00-07:10 during weekdays (monday-friday), "weekday" during all other time from monday-friday and "weekend" on saturdays and sundays. Adjust according to your needs. To create the sensor, just add it like this:
+This script will output "work_morning" from 06:00-07:10 during weekdays (Monday-Friday), "weekday" during all other time from Monday-Friday and "weekend" on Saturdays and Sundays. Adjust according to your needs. To create the sensor, just add it like this:
 
 ```yaml
 sensor:
@@ -104,7 +104,7 @@ sensor:
     command: "python3 occasion.py"
 ```
 <p class='note'>
-If you are using docker to run Home Assistant then the occasion.py script will be placed under /config. Your command should instead be: command: "python3 /command/occasion.py"
+If you are using docker to run Home Assistant then the occasion.py script will be placed under /config. Your command should instead be: command: "python3 /config/occasion.py"
 </p>
 
 

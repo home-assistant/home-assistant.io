@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Google Play Music Desktop Player"
-description: "Instructions how to integrate GPMDP into Home Assistant."
+description: "Instructions on how to integrate GPMDP into Home Assistant."
 date: 2016-05-09 08:00
 sidebar: true
 comments: false
@@ -28,8 +28,14 @@ media_player:
     host: IP_ADDRESS
 ```
 
-Configuration variables:
-
-- **host** (*Required*): IP address of the computer running GPMDP.
-- **name** (*Optional*): Name of the player.
-
+{% configuration %}
+host:
+  description: The IP address of the computer running GPMDP.
+  required: true
+  type: string
+name:
+  description: Name of the player.
+  required: false
+  default: GPM Desktop Player
+  type: string
+{% endconfiguration %}

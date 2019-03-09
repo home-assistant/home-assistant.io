@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Downloader"
-description: "Instructions how to setup the downloader component with Home Assistant."
+description: "Instructions on how to setup the downloader component with Home Assistant."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Downloading
 ha_release: pre 0.7
+ha_qa_scale: internal
 ---
 
 The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
@@ -22,9 +23,12 @@ downloader:
   download_dir: downloads
 ```
 
-Configuration variables:
-
-- **download_dir** (*Required*): If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`).
+{% configuration %}
+download_dir:
+  description: "If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`)."
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Use the service %}
 
@@ -38,6 +42,33 @@ This will download the file from the given URL.
 
 | Service data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
-| `url`                  |       no | The url of the file to download.               |
+| `url`                  |       no | The URL of the file to download.               |
 | `subdir`               |      yes | Download into subdirectory of **download_dir** |
+| `filename`             |      yes | Determine the filename.                        |
+| `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
 
+### {% linkable_title Download Status Events %}
+
+When a download finished successfully, Home Assistant will emit a 'downloader_download_completed' event to the event bus which you can use to write automations against.
+In case download failed another event 'downloader_download_failed' is emitted to indicate that the download did not complete successfully.
+
+Along with the event the following payload parameters are available:
+
+| Parameter | Description                                                                                                                                                                                                                                                    |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `url`  | The `url` that was requested.|                                                                                                                                      
+| `filename`    | The `name` of the file that was being downloaded.|
+
+#### Example Automation:
+
+```yaml
+- alias: Download Failed Notification
+  trigger:
+    platform: event
+    event_type: downloader_download_failed
+  action:
+    service: persistent_notification.create
+    data_template:
+      message: "{{trigger.event.data.filename}} download failed"
+      title: "Download Failed"
+ ```

@@ -47,14 +47,16 @@ State changes can be used as the source of triggers and the current state can be
 
 Actions are all about calling services. To explore the available services open the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> Services developer tool. Services allow to change anything. For example turn on a light, run a script or enable a scene. Each service has a domain and a name. For example the service `light.turn_on` is capable of turning on any light in your system. Services can be passed parameters to for example tell which device to turn on or what color to use.
 
-<p class='note'>
-As of version 0.42 you have to set an initial state in your automations in order for Home Assistant to restore them upon restart.
+### {% linkable_title Automation initial state %}
+
+When you create a new automation, it will be disabled (and therefore won't trigger) unless you explicitly add `initial_state: true` to it or turn it on manually via UI/another automation/developer tools.
+
+In case automations need to be enabled or disabled upon Home Assistant restart, then you have to set the `initial_state` in your automations. Otherwise, the previous state will be restored. Please note that if for some reason Home Assistant cannot restore the previous state, e.g., because of an interrupted or failed startup, it will result in the automation being disabled on the next Home Assistant startup.
 
 ```text
+automation:
 - alias: Automation Name
-  initial_state: True
+  initial_state: true
   trigger:
   ...
 ```
-
-</p>

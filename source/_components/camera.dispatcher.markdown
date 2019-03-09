@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Dispatcher IP Camera"
-description: "Instructions how to integrate internal dispatcher cameras within Home Assistant."
+description: "Instructions on how to integrate internal dispatcher cameras within Home Assistant."
 date: 2017-03-08 00:00
 sidebar: true
 comments: false
@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Camera
 logo: camcorder.png
-ha_release: 0.40
+ha_release: "0.40"
 ha_iot_class: "depends"
 ---
 
@@ -18,6 +18,8 @@ This platform is meant for developers only.
 </p>
 
 The `dispatcher` camera platform allows developers to create virtual camera's.
+
+## {% linkable_title Configuration %}
 
 You would normally not add this camera to your configuration directly but have it be discovered by one of the components that uses it.
 
@@ -36,6 +38,13 @@ from homeassistant.helpers.dispatcher import async_dispatcher_send
 async_dispatcher_send(hass, 'name_of_dispatcher_signal', image_data)
 ```
 
-Configuration variables:
-- **signal** (*Required*): The signal name of dispatcher signal they send image data to this camera.
-- **name** (*Optional*): This parameter allows you to override the name of your camera.
+{% configuration %}
+signal:
+  description: The signal name of dispatcher signal they send image data to this camera.
+  required: true
+  type: string
+name:
+  description: This parameter allows you to override the name of your camera.
+  required: false
+  type: string
+{% endconfiguration %}

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Autostart on Synology NAS boot"
-description: "Instructions how to setup Home Assistant to launch on boot on Synology NAS."
+description: "Instructions on how to setup Home Assistant to launch on boot on Synology NAS."
 date: 2015-9-1 22:57
 sidebar: true
 comments: false

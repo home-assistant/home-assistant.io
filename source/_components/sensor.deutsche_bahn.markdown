@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Deutsche Bahn"
-description: "Instructions how to integrate timetable data for travelling in Germany within Home Assistant."
+description: "Instructions on how to integrate timetable data for traveling in Germany within Home Assistant."
 date: 2015-06-02 21:45
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.14
 ---
 
 
-The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about eg. the type of the train, price, and if it is on time.
+The `deutsche_bahn` sensor will give you the departure time of the next train for the given connection. In case of a delay, the delay is also shown. Additional details are used to inform about, e.g., the type of the train, price, and if it is on time.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -25,13 +25,23 @@ sensor:
     from: NAME_OF_START_STATION
     to: NAME_OF_FINAL_STATION
 ```
+{% configuration %}
+from:
+  description: The name of the start station.
+  required: true
+  type: string
+to:
+  description: The name of the end/destination station.
+  required: true
+  type: string
+only_direct:
+  description: Only show direct connections.
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
 
-Configuration variables:
-
-- **from** (*Required*): The name of the start station.
-- **to** (*Required*): The name of the end/destination station.
-
-This sensor stores a lot of attributes which can be accessed by other sensors eg. a [template sensor](/components/sensor.template/).
+This sensor stores a lot of attributes which can be accessed by other sensors, e.g., a [template sensor](/components/sensor.template/).
 
 ```yaml
 # Example configuration.yaml entry

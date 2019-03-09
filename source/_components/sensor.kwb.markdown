@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "KWB Easyfire Sensor"
-description: "Instructions how to integrate the KWB Easyfire sensor into Home Assistant."
+description: "Instructions on how to integrate the KWB Easyfire sensor into Home Assistant."
 date: 2017-03-06 14:10
 sidebar: true
 comments: false
@@ -10,7 +10,7 @@ footer: true
 logo: kwb.png
 ha_category: Sensor
 ha_iot_class: "Local Polling"
-ha_release: 0.40
+ha_release: "0.40"
 ---
 
 The `kwb` component integrates the sensors of KWB Easyfire pellet central heating units with the Comfort3 controller (http://www.kwbheizung.de/de/produkte/kwb-comfort-3.html) into Home Assistant.
@@ -20,16 +20,18 @@ Direct connection via serial (RS485) or via telnet terminal server is supported.
 Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relays are supported, the rest is still WIP (see https://www.mikrocontroller.net/topic/274137).
 
 Direct connection via serial port:
+
 ```yaml
 # Example configuration.yaml entry
 - platform: kwb
     name: kwb
     device: "/dev/ttyUSB0"
     type: serial
-    raw: False
+    raw: false
 ```
 
 Telnet terminal server with a serial-ethernet converter:
+
 ```yaml
 # Example configuration.yaml entry
   - platform: kwb
@@ -37,23 +39,36 @@ Telnet terminal server with a serial-ethernet converter:
     host: <ip>
     port: 23
     type: tcp
-    raw: False
+    raw: false
 ```
 
-Configuration variables:
+Take a good look at which configuration variables are for `TCP` use or for `serial` use.
 
-*Required if used with a serial-ethernet converter*
-
-- **host**: The IP-address of the serial server
-- **port**: The TCP-port of the serial server
-- **type**: tcp
-
-*Required if used directly with a serial port*
-
-- **device**: The serial device of the machine
-- **type**: serial
-
-*Optional for both cases*
-
-- **name**: The name of the device used in the frontend
-- **raw**: Should the raw serial output be shown as a sensor
+{% configuration %}
+raw:
+  description: Should the raw serial output be shown as a sensor.
+  required: false
+  default: false
+  type: boolean
+name:
+  description: The name of the device used in the frontend.
+  required: false
+  default: KWB
+  type: string
+device:
+  description: (For serial use) The serial device of the machine.
+  required: true
+  type: string
+host:
+  description: (For tcp use) The IP-address of the serial server.
+  required: true
+  type: string
+port:
+  description: (For tcp use) The TCP-port of the serial server.
+  required: true
+  type: integer
+type:
+  description: "Type of sensor, you can choose between: `serial` and `tcp`."
+  required: true
+  type: string
+{% endconfiguration %}

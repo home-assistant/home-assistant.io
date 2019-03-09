@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Cover"
-description: "Instructions how to integrate Template Covers into Home Assistant."
+description: "Instructions on how to integrate Template Covers into Home Assistant."
 date: 2017-06-19 20:32
 sidebar: true
 comments: false
@@ -11,14 +11,17 @@ ha_category: Cover
 ha_release: 0.48
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform can create covers that combine components and provides
-the ability to run scripts or invoke services for each of the open, close,
-stop, position, and tilt commands of a cover.
+the ability to run scripts or invoke services for each of the open,
+close, stop, position and tilt commands of a cover.
 
-To enable Template Covers in your installation, add the following to your
-`configuration.yaml` file:
+## {% linkable_title Configuration %}
+
+To enable Template Covers in your installation,
+add the following to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -49,7 +52,7 @@ cover:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update its state.
+        description: A list of entity IDs so the cover only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
       value_template:
@@ -87,12 +90,12 @@ cover:
       optimistic:
         description: Force cover position to use [optimistic mode](#optimistic-mode).
         required: false
-        type: bool
+        type: boolean
         default: false
       tilt_optimistic:
         description: Force cover tilt position to use [optimistic mode](#optimistic-mode).
         required: false
-        type: bool
+        type: boolean
         default: false
       tilt_template:
         description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).
@@ -103,8 +106,8 @@ cover:
 ## {% linkable_title Considerations %}
 
 If you are using the state of a platform that takes extra time to load, the
-Template Cover may get an `unknown` state during startup. This results
-in error messages in your log file until that platform has completed loading.
+Template Cover may get an `unknown` state during startup. This results in error
+messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
 {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
@@ -114,19 +117,19 @@ result:
 
 ## {% linkable_title Optimistic Mode %}
 
-In optimistic mode, the cover position state is maintained internally. This
-mode is automatically enabled if neither [`value_template`](#value_template) or
+In optimistic mode, the cover position state is maintained internally. This mode
+is automatically enabled if neither [`value_template`](#value_template) or
 [`position_template`](#position_template) are specified. Note that this is
 unlikely to be very reliable without some feedback mechanism, since there is
 otherwise no way to know if the cover is moving properly. The cover can be
-forced into optimistic mode by using the [`optimistic`](#optimistic)
-attribute. There is an equivalent mode for `tilt_position` that is enabled
-when [`tilt_template`](#tilt_template) is not specified or when the
+forced into optimistic mode by using the [`optimistic`](#optimistic) attribute.
+There is an equivalent mode for `tilt_position` that is enabled when
+[`tilt_template`](#tilt_template) is not specified or when the
 [`tilt_optimistic`](#tilt_optimistic) attribute is used.
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this cover.
+In this section you will find some real-life examples of how to use this cover.
 
 ### {% linkable_title Garage Door %}
 
@@ -217,9 +220,6 @@ sensor:
           {% else %}
             closed
           {% endif %}
-        entity_id:
-          - cover.bedroom
-          - cover.livingroom
 
 script:
   cover_group:
@@ -249,5 +249,71 @@ automation:
         data:
           entity_id: cover.cover_group
           position: 25
+```
+{% endraw %}
+
+### {% linkable_title Change The Icon %}
+
+This example shows how to change the icon based on the cover state.
+
+{% raw %}
+```yaml
+cover:
+  - platform: template
+    covers:
+      cover_group:
+        friendly_name: "Cover Group"
+        open_cover:
+          service: script.cover_group
+          data:
+            modus: 'open'
+        close_cover:
+          service: script.cover_group
+          data:
+            modus: 'close'
+        stop_cover:
+          service: script.cover_group
+          data:
+            modus: 'stop'
+        value_template: "{{is_state('sensor.cover_group', 'open')}}"
+        icon_template: >-
+          {% if is_state('sensor.cover_group', 'open') %}
+            mdi:window-open
+          {% else %}
+            mdi:window-closed
+          {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the cover state.
+
+{% raw %}
+```yaml
+cover:
+  - platform: template
+    covers:
+      cover_group:
+        friendly_name: "Cover Group"
+        open_cover:
+          service: script.cover_group
+          data:
+            modus: 'open'
+        close_cover:
+          service: script.cover_group
+          data:
+            modus: 'close'
+        stop_cover:
+          service: script.cover_group
+          data:
+            modus: 'stop'
+        value_template: "{{is_state('sensor.cover_group', 'open')}}"
+        icon_template: >-
+          {% if is_state('sensor.cover_group', 'open') %}
+            /local/cover-open.png
+          {% else %}
+            /local/cover-closed.png
+          {% endif %}
 ```
 {% endraw %}

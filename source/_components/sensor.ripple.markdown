@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Ripple"
-description: "Instructions how to integrate ripple.com data within Home Assistant."
+description: "Instructions on how to integrate ripple.com data within Home Assistant."
 date: 2017-06-06 16:20
 sidebar: true
 comments: false
@@ -25,7 +25,15 @@ sensor:
     address: 'r3kmLJN5D28dHuH8vZNUZpMC43pEHpaocV'
 ```
 
-Configuration variables:
+{% configuration %}
+address:
+  description: Ripple wallet address to watch.
+  required: true
+  type: string
+name:
+  description: Name for the sensor to use in the frontend.
+  required: false
+  type: string
+  default: Ripple Balance
+{% endconfiguration %}
 
-- **address** (*Required*): Ripple wallet address to watch
-- **name** (*Optional*): Name for the sensor to use in the frontend.

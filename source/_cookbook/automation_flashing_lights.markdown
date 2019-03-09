@@ -54,7 +54,7 @@ automation:
   condition:
     condition: state
     entity_id: switch.AlmSnd1
-    to: 'off'
+    state: 'off'
   action:
     service: script.turn_off
     entity_id: script.flash_room1
@@ -97,6 +97,14 @@ script:
         service: homeassistant.turn_off
         data:
           entity_id: switch.REL1
+      - alias: loop_room1
+        service: script.turn_on
+        data:
+          entity_id: script.flash_loop
+
+  flash_loop:
+    alias: Flash loop
+    sequence:
       - delay:
           # time for flash light off
           seconds: 1

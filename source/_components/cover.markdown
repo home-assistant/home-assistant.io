@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Covers"
-description: "Instructions how to integrate covers into Home Assistant."
+description: "Instructions on how to integrate covers into Home Assistant."
 date: 2016-06-28 17:30
 sidebar: true
 comments: false
@@ -15,12 +15,28 @@ The display style of each entity can be modified in the [customize section](/get
  
 | Attribute | Default | Description |
 | --------- | ------- | ----------- |
-| `device_class` | | `none` Generic cover device<br>`window` Window controller<br>`garage` Garage door controller
+| `device_class` | | see below
 | `assumed_state` | `false` | If set to `true`, cover buttons will always be enabled
+
+### {% linkable_title Device Class %}
+
+The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
+
+- **None**: Generic cover. This is the default and doesn't need to be set.
+- **awning**: Control of an awning, such as an exterior retractable window, door, or patio cover.
+- **blind**: Control of blinds, which are linked slats that expand or collapse to cover an opening or may be tilted to partially covering an opening, such as window blinds.
+- **curtain**: Control of curtains or drapes, which is often fabric hung above a window or door that can be drawn open.
+- **damper**: Control of a mechanical damper that reduces airflow, sound, or light.
+- **door**: Control of a door or gate that provides access to an area.
+- **garage**: Control of a garage door that provides access to a garage.
+- **shade**: Control of shades, which are a continuous plane of material or connected cells that expanded or collapsed over an opening, such as window shades.
+- **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
+- **window**: Control of a physical window that opens and closes or may tilt.
 
 ## {% linkable_title Services %}
 
 ### {% linkable_title Cover control services %}
+
 Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`
 
 | Service data attribute | Optional | Description |

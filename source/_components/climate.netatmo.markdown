@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netatmo Thermostat"
-description: "Instructions how to integrate Netatmo thermostat into Home Assistant."
+description: "Instructions on how to integrate Netatmo thermostat into Home Assistant."
 date: 2016-10-11 08:10
 sidebar: true
 comments: false
@@ -26,11 +26,19 @@ climate:
   - platform: netatmo
 ```
 
-Configuration variables:
-
-- **relay** (*Optional*): Will display the thermostats of this relay only.
-- **thermostat** array (*Optional*): Thermostat to use.
-  - **thermostat_name**: Name of the thermostat to display.
+{% configuration %}
+relay:
+  description: Will display the thermostats of this relay only.
+  required: false
+  type: string
+thermostat:
+  description: Thermostat to use.
+  required: false
+  type: list
+  keys:
+    thermostat_name:
+      description: Name of the thermostat to display.
+{% endconfiguration %}
 
 If **relay** and **thermostat** are not provided, all thermostats will be displayed.
 

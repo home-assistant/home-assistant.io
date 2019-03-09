@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Light"
-description: "Instructions how to integrate Template Lights into Home Assistant."
+description: "Instructions on how to integrate Template Lights into Home Assistant."
 date: 2016-05-18 20:32
 sidebar: true
 comments: false
@@ -11,6 +11,7 @@ ha_category: Light
 ha_release: 0.46
 ha_iot_class: "Local Push"
 logo: home-assistant.png
+ha_qa_scale: internal
 ---
 
 The `template` platform creates lights that combine components and provides the
@@ -42,7 +43,7 @@ light:
 {% endraw %}
 
 {% configuration %}
-  switches:
+  lights:
     description: List of your lights.
     required: true
     type: map
@@ -52,7 +53,7 @@ light:
         required: false
         type: string
       entity_id:
-        description: Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the light will try to update its state.
+        description: A list of entity IDs so the light only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
         type: [string, list]
       value_template:
@@ -93,7 +94,7 @@ result:
 
 ## {% linkable_title Examples %}
 
-In this section you will find some real life examples of how to use this light.
+In this section you will find some real-life examples of how to use this light.
 
 ### {% linkable_title Theater Volume Control %}
 
@@ -141,5 +142,93 @@ light:
           {% else %}
             0
           {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change The Icon %}
+
+This example shows how to change the icon based on the light state.
+
+{% raw %}
+```yaml
+light:
+  - platform: template
+    lights:
+      theater_volume:
+        friendly_name: "Receiver Volume"
+        value_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              off
+            {% else %}
+              on
+            {% endif %}
+          {% else %}
+            off
+          {% endif %}
+        icon_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              mdi:lightbulb-off
+            {% else %}
+              mdi:lightbulb-on
+            {% endif %}
+          {% else %}
+            mdi:lightbulb-off
+          {% endif %}
+        turn_on:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: false
+        turn_off:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: true
+```
+{% endraw %}
+
+### {% linkable_title Change The Entity Picture %}
+
+This example shows how to change the entity picture based on the light state.
+
+{% raw %}
+```yaml
+light:
+  - platform: template
+    lights:
+      theater_volume:
+        friendly_name: "Receiver Volume"
+        value_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              off
+            {% else %}
+              on
+            {% endif %}
+          {% else %}
+            off
+          {% endif %}
+        icon_template: >-
+          {% if is_state('media_player.receiver', 'on') %}
+            {% if states.media_player.receiver.attributes.is_volume_muted %}
+              /local/lightbulb-off.png
+            {% else %}
+              /local/lightbulb-on.png
+            {% endif %}
+          {% else %}
+            /local/lightbulb-off.png
+          {% endif %}
+        turn_on:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: false
+        turn_off:
+          service: media_player.volume_mute
+          data:
+            entity_id: media_player.receiver
+            is_volume_muted: true
 ```
 {% endraw %}

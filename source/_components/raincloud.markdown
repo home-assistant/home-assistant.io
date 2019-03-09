@@ -8,26 +8,32 @@ comments: false
 sharing: true
 footer: true
 logo: raincloud.jpg
-ha_category: Hub
+ha_category: Irrigation
 ha_release: 0.55
 ---
 
 The `raincloud` component allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
 
+## {% linkable_title Configuration %}
+
 To enable it, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-
 raincloud:
-  username: you@example.com
-  password: secret
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username for accessing your Melnor RainCloud account.
-- **password** (*Required*): The password for accessing your Melnor RainCloud account.
-- **scan_interval** (*Optional*): Defines the update interval of the sensor in seconds. Defaults to 20seconds.
+{% configuration %}
+username:
+  description: The username for accessing your Melnor RainCloud account.
+  required: true
+  type: string
+password:
+  description: The password for accessing your Melnor RainCloud account.
+  required: true
+  type: string
+{% endconfiguration %}
 
 Finish its configuration by visiting the [Raincloud binary sensor](/components/binary_sensor.raincloud/), [Raincloud sensor](/components/sensor.raincloud/) and [Raincloud switch](/components/switch.raincloud/) documentation.

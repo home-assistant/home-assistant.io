@@ -57,7 +57,7 @@ Because it’s based on Zigbee, you don’t have to just buy IKEA devices the re
 Note that there are reports that the other way around, pairing an IKEA light to the Philips Hue hub is currently not possible. IKEA is working on it according to [a post by Philips Hue support][hue-support]:
 
 <blockquote>
-  The non-interoperability between the newly launched IKEA smart lighting products and the Philips Hue bridge has been analyzed. One of the issues found is that the IKEA bulbs report their ProfileID as corresponding to the ZigBee Home Automation (ZHA) profile rather than the ZigBee Light Link (ZLL) profile. As the IKEA bulbs do not behave fully compliant with the ZLL standard, they are rejected by the Hue bridge. IKEA is aware of this and informed us their intent is to have the IKEA smart lighting bulbs to work with the Philips Hue bridge.
+  The non-interoperability between the newly launched IKEA smart lighting products and the Philips Hue bridge has been analyzed. One of the issues found is that the IKEA bulbs report their ProfileID as corresponding to the Zigbee Home Automation (ZHA) profile rather than the Zigbee Light Link (ZLL) profile. As the IKEA bulbs do not behave fully compliant with the ZLL standard, they are rejected by the Hue bridge. IKEA is aware of this and informed us their intent is to have the IKEA smart lighting bulbs to work with the Philips Hue bridge.
 </blockquote>
 
 ## {% linkable_title Affordable %}
@@ -126,15 +126,15 @@ As it currently stands, this is going to be the perfect companion hardware to wo
 [tradfri]: http://www.ikea.com/us/en/catalog/categories/departments/lighting/36812/
 [mjg59]: http://mjg59.dreamwidth.org/47803.html
 [hue-support]: https://developers.meethue.com/content/philips-hue-and-ikea-tr%C3%A5dfri#comment-2686
-[perfect]: https://home-assistant.io/blog/2016/01/19/perfect-home-automation/#you-should-not-have-to-adapt-to-technology
+[perfect]: /blog/2016/01/19/perfect-home-automation/#you-should-not-have-to-adapt-to-technology
 [Patrik]: https://github.com/ggravlingen
 [forums]: https://community.home-assistant.io/t/ikea-tradfri-gateway-zigbee/14788
 [pytradfri]: https://github.com/ggravlingen/pytradfri
 [rumors]: https://github.com/bwssytems/ha-bridge/issues/570#issuecomment-293505087
 [Homebridge]: https://github.com/nfarina/homebridge
 [hb-hass]: https://github.com/home-assistant/homebridge-homeassistant
-[emulated_hue]: https://home-assistant.io/components/emulated_hue/
-[apiai]: https://home-assistant.io/components/apiai/
+[emulated_hue]: /components/emulated_hue/
+[apiai]: /components/apiai/
 [Haaska]: https://github.com/auchter/haaska
 [great marketing material]: https://i2.wp.com/blog.smartthings.com/wp-content/uploads/2014/06/summer-vacay-683x405-blog.png?fit=683%2C405&ssl=1
-[classification]: https://home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/
+[classification]: /blog/2016/02/12/classifying-the-internet-of-things/

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "DTE Energy Bridge"
-description: "Instructions how to setup DTE Energy Bridge with Home Assistant."
+description: "Instructions on how to setup DTE Energy Bridge with Home Assistant."
 date: 2016-06-07 08:10
 sidebar: true
 comments: false
@@ -27,8 +27,18 @@ sensor:
     ip: 192.168.1.11
 ```
 
-Configuration variables:
-
-- **ip** (*Required*): The IP address of your bridge.
-- **name** (*Optional*): Name to use in the frontend.
-- **version** (*Optional*): Hardware version of the sensor. Defaults to 1.
+{% configuration %}
+ip:
+  description: The IP address of your bridge.
+  required: true
+  type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+version:
+  description: Hardware version of the sensor.
+  required: false
+  type: string
+  default: 1
+{% endconfiguration %}

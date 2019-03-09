@@ -11,7 +11,9 @@ footer: true
 
 If you are using Hassbian, browse to [http://hassbian.local:8123](http://hassbian.local:8123) to open the Home Assistant frontend.
 
-To reload your configuration, go to **Configuration** in your side panel, and choose "CHECK CONFIG" and "RELOAD CORE":
+To reload your configuration, go to **Configuration** in your side panel and choose "CHECK CONFIG".
+
+You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect. You can load changes to [automations](/docs/automation/), [customize](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting.
 
 <p class='img'>
 <img src='/images/screenshots/configuration-validation.png' />

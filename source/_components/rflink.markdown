@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RFLink"
-description: "Instructions how to integrate RFLink gateway into Home Assistant."
+description: "Instructions on how to integrate RFLink gateway into Home Assistant."
 date: 2016-01-04
 sidebar: true
 comments: false
@@ -12,21 +12,23 @@ ha_category: Hub
 ha_release: 0.38
 ---
 
-The `rflink` component support devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
-RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. Their website provides details for various RF transmitter, receiver and transceiver modules for 433MHz, 868MHz and 2.4 GHz [here.](http://www.nemcon.nl/blog2/wiring)
+RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](http://www.rflink.nl/blog2/) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
- <p class='note'>
- Note: Versions later than R44 adds support for Ikea Ansluta, Philips Living Colors Gen1, MySensors devices.
- </p>
+<p class='note'> 
+Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
+</p>
 
-A complete list of devices supported by RFLink can be found [here](http://www.nemcon.nl/blog2/devlist)
+A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
 
 This component is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
+
+## {% linkable_title Configuration %}
 
 To enable RFLink in your installation, add the following to your `configuration.yaml` file:
 
@@ -36,21 +38,37 @@ rflink:
   port: /dev/serial/by-id/usb-id01234
 ```
 
-Configuration variables:
+{% configuration %}
+port:
+  description: The path to RFLink USB/serial device or TCP port in TCP mode.
+  required: true
+  type: string
+host:
+  description: Switches to TCP mode, connects to host instead of to USB/serial.
+  required: false
+  type: string
+wait_for_ack:
+  description: Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable).
+  required: false
+  default: true
+  type: boolean
+ignore_devices:
+  description: List of device id's to ignore. Supports wildcards (`*`) at the end.
+  required: false
+  type: [list, string]
+reconnect_interval:
+  description: Time in seconds between reconnect attempts.
+  required: false
+  default: 10
+  type: integer
+{% endconfiguration %}
 
-- **port** (*Required*): The path to RFLink USB/serial device or TCP port in TCP mode.
-- **host** (*Optional*): Switches to TCP mode, connects to host instead of to USB/serial.
-- **wait_for_ack** (*Optional*): Wait for RFLink to acknowledge commands sent before sending new command (slower but more reliable). Defaults to `True`
-- **ignore_devices** (*Optional*): List of devices id's to ignore. Supports wildcards (*) at the end.
-- **reconnect_interval** (*Optional*): Time in seconds between reconnect attempts.
-
-Complete example:
-
+### {% linkable_title Full example %}
 ```yaml
 # Example configuration.yaml entry
 rflink:
   port: /dev/serial/by-id/usb-id01234
-  wait_for_ack: False
+  wait_for_ack: false
   ignore_devices:
     - newkaku_000001_01
     - digitech_*
@@ -58,7 +76,7 @@ rflink:
 
 ### {% linkable_title TCP mode %}
 
-TCP mode allows connect to a RFLink device over TCP/IP network. This is for example useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
+TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
 To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
 
@@ -68,10 +86,10 @@ $ socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
 
 Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.
 
-Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively. 
+Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively.
 
 <p class='note warning'>
-Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for Ikea Ansluta and Living Colors)
+Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for Ikea Ansluta and Philips Living Colors)
 </p>
 
 <p class='note'>
@@ -87,14 +105,11 @@ rflink:
 
 ### {% linkable_title Adding devices Automatically %}
 
-In order to have your devices being detected and added automatically, you need to add the following to the configuration.
+In order to have your devices discovered automatically, you need to add the following to the configuration.
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
 
 ```yaml
 light:
-  - platform: rflink
-    automatic_add: true
-switch:
   - platform: rflink
     automatic_add: true
 sensor:
@@ -102,9 +117,13 @@ sensor:
     automatic_add: true
 ```
 
+[RFLink Switches](/components/switch.rflink/) and [RFLink Binary Sensors](/components/binary_sensor.rflink/) cannot be added automatically. 
+
+The RFLink component does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
+
 ### {% linkable_title Ignoring devices %}
 
-RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
+The RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
 
 For example:
 
@@ -112,7 +131,7 @@ For example:
 # Example configuration.yaml entry
 rflink:
   port: /dev/serial/by-id/usb-id01234
-  wait_for_ack: False
+  wait_for_ack: false
   ignore_devices:
     - newkaku_000001_01
     - digitech_*
@@ -121,26 +140,28 @@ rflink:
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
 
-Wildcards only work at the end of the ID, not in the middle of front!
+<p class='note'>
+Wildcards only work at the end of the ID, not in the middle or front!
+</p>
 
 ### {% linkable_title Device support %}
 
-Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself or [create an issue](https://github.com/home-assistant/home-assistant/issues/new) and mention `@aequitas` in the description.
+Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself.
 
 ### {% linkable_title Device Incorrectly Identified %}
 
-If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.nemcon.nl/blog2/faq#RFFind)
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.rflink.nl/blog2/faq#RFFind)
 
-### {% linkable_title Technical overview %}
+### {% linkable_title Technical Overview %}
 
-- The`rflink` Python module a asyncio transport/protocol is setup that fires an callback for every (valid/supported) packet received by the RFLink gateway.
-- This component uses this callback to distribute 'rflink packet events' over Home Assistant's bus which can be subscribed to by entities/platform implementations.
-- The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet id's.
+- The`rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
+- This component uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
+- The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet ID's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
 
-### {% linkable_title Debug logging %}
+### {% linkable_title Debug Logging %}
 
-For debugging purposes or context when investigating issues you can enable debug logging for Rflink with the following config snippet:
+For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following config snippet:
 
 ```yaml
 logger:

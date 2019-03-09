@@ -8,12 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: pocketcasts.png
-ha_category: Sensor
+ha_category: Multimedia
 ha_release: 0.39
 ha_iot_class: "Cloud Polling"
 ---
 
 The `pocketcasts` sensor platform let one monitor the podcasts at [Pocket Casts](https://play.pocketcasts.com/). 
+
+## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -25,7 +27,13 @@ sensor:
     password: YOUR_PASSWORD
 ```
 
-Configuration variables:
-
-- **username** (*Required*): The username to access the PocketCasts service.
-- **password** (*Required*): The password for the given username.
+{% configuration %}
+username:
+  description: The username to access the PocketCasts service.
+  required: true
+  type: string
+password:
+  description: The password for the given username.
+  required: true
+  type: string
+{% endconfiguration %}

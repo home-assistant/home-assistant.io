@@ -10,7 +10,7 @@ footer: true
 ---
 
 <p class='note'>
-This is a work in progress, based upon reports in the forum, the author's own devices, and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here, or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS). 
+This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS). 
 </p>
 
 ## {% linkable_title Binary Sensor %}
@@ -25,20 +25,52 @@ This is for a single purpose sensor, multi sensors are explained under Multi Sen
 
 Devices (usually sensors) that support the Alarm command class will create entities starting with `sensor`, and with some generic suffixes, and a suffix that relates to the supported alarm class. For example, the smoke detector `lounge` will have an entity `sensor.lounge_smoke`, and possibly also `sensor.lounge_alarm_type` and `sensor.lounge_alarm_level`. If the device creates a `binary_sensor` entity, it is recommended to use that rather then the `sensor` entity.
 
-### {% linkable_title Alarm Type %}
+Note that the older Z-Wave alarm command class version 1 didn't have standardized types, and so each manufacturer specified their own version and type info. With Version 2 the alarm type was standardized to the below list. See the [openzwave alarm command class documents](https://github.com/OpenZWave/open-zwave/wiki/Alarm-Command-Class) for more info. You can see which version your sensor supports via the zwcfg_0x\*.xml file. An example with version 2 support:
+```xml
+<CommandClass id="113" name="COMMAND_CLASS_ALARM" version="2" request_flags="2" innif="true">
+```
 
-- **alarm_type**: Reports the type of the sensor
+### {% linkable_title Alarm Type Entity %}
+
+[//]: # (from the openzwave source found here: https://github.com/OpenZWave/open-zwave/blob/master/cpp/src/command_classes/Alarm.cpp#L56)
+
+- Version 2 **alarm_type**:
   - **0**: General purpose
-	- **1**: Smoke sensor
-	- **2**: Carbon Monoxide (CO) sensor
-	- **3**: Carbon Dioxide (CO2) sensor
-	- **4**: Heat sensor
-	- **5**: Water leak sensor
+  - **1**: Smoke sensor
+  - **2**: Carbon Monoxide (CO) sensor
+  - **3**: Carbon Dioxide (CO2) sensor
+  - **4**: Heat sensor
+  - **5**: Water leak (flood) sensor
   - **6**: Access control
+  - **7**: Burglar
+  - **8**: Power management
+  - **9**: System
+  - **10**: Emergency
+  - **11**: Clock
+  - **12**: Appliance
+  - **13**: Home Health
 
-### {% linkable_title Alarm Level %}
+- Version 1 (manufacturer-specific) **alarm_type**:
+  - **9**: Lock jammed
+  - **18**: Lock locked with user code
+  - **19**: Lock unlocked with user code
+  - **21**: Manual lock
+  - **22**: Manual unlock
+  - **24**: Locked by RF
+  - **25**: Unlocked by RF
+  - **27**: Auto lock
+  - **33**: User deleted
+  - **112**: Master code changed, or user added
+  - **113**: Duplicate PIN code error
+  - **130**: RF Module power cycled
+  - **161**: Tamper alarm
+  - **167**: Low battery
+  - **168**: Critical battery level
+  - **169**: Battery too low to operate
 
-The meaning of the `alarm_level` entity depends on the nature of the alarm sensor
+### {% linkable_title Alarm Level Entity %}
+
+The meaning of the `alarm_level` entity depends on the nature of the alarm sensor.
 
 #### {% linkable_title Smoke, CO, and CO2 %}
 
@@ -111,61 +143,55 @@ The meaning of the `alarm_level` entity depends on the nature of the alarm senso
   - **1**: Wake up
   - **254**: Unknown event
 
-### {% linkable_title Access Control %}
+### {% linkable_title Access Control Entity %}
 
 - **access_control**: These *may* vary between brands
-	 - **22**: Open
-	 - **23**: Closed
-	 - **254**: Deep sleep
-	 - **255**: Case open
+  - **22**: Open
+  - **23**: Closed
+  - **254**: Deep sleep
+  - **255**: Case open
 
-If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
+If your device has an `access_control` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a door, but you can use [any relevant device class](/components/binary_sensor/#device-class):
 
-```
-sensor:
+{% raw %}
+```yaml
+binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
-        sensor_class: opening
         friendly_name: "Friendly name here"
-        value_template: >- 
-          {%- if is_state('sensor.YOUR_SENSOR_access_control', '22') -%}
-          open
-          {%- else -%}
-          closed
-          {%- endif -%}
+        device_class: door
+        value_template: "{{ is_state('sensor.YOUR_ORIGINAL_SENSOR_access_control', '22') }}"
 ```
+{% endraw %}
 
-### {% linkable_title Burglar %}
+### {% linkable_title Burglar Entity %}
 
 - **burglar**: These *may* vary between brands
    - **0**: Not active
-	 - **2**: Smoke (?)
-	 - **3**: Tamper
-	 - **8**: Motion
-	 - **22**: Open
-	 - **23**: Closed
-	 - **254**: Deep sleep
-	 - **255**: Case open
+   - **2**: Smoke (?)
+   - **3**: Tamper
+   - **8**: Motion
+   - **22**: Open
+   - **23**: Closed
+   - **254**: Deep sleep
+   - **255**: Case open
 
-If your device has an `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](omponents/binary_sensor.template/) to create one:
+If your device has a `burglar` entity, but not a `binary_sensor` equivalent, you can use a [template binary sensor](/components/binary_sensor.template/) to create one (here we've defined it as a motion sensor, but you can use [any relevant device class](/components/binary_sensor/#device-class):
 
-```
-sensor:
+{% raw %}
+```yaml
+binary_sensor:
   - platform: template
     sensors: 
       YOUR_SENSOR:
-        sensor_class: motion
         friendly_name: "Friendly name here"
-        value_template: >- 
-          {%- if is_state('sensor.YOUR_SENSOR_burglar', '8') -%}
-          on
-          {%- else -%}
-          off
-          {%- endif -%}
+        device_class: motion
+        value_template: "{{ is_state('sensor.YOUR_SENSOR_burglar', '8') }}"
 ```
+{% endraw %}
 
-### {% linkable_title Source Node ID %}
+### {% linkable_title Source Node ID Entity %}
 
 - **sourcenodeid**: Reports the sensor that generated the alarm - this is only valid for Zensor Net based devices
 

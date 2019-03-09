@@ -17,14 +17,21 @@ The `lifx_cloud` scene platform allows you to activate the scenes that LIFX smar
 ```yaml
 # Example configuration.yaml entry
 scene:
-  platform: lifx_cloud
-  token: YOUR_LIFX_TOKEN
+  - platform: lifx_cloud
+    token: YOUR_LIFX_TOKEN
 ```
 
-Configuration variables:
-
-- **token** (*Required*): The API token for your LIFX Cloud account.
-- **timeout** (*Optional*): Network timeout in seconds (defaults to 10).
+{% configuration %}
+token:
+  description: The API token for your LIFX Cloud account.
+  required: true
+  type: string
+timeout:
+  description: Network timeout in seconds.
+  required: false
+  default: 10
+  type: integer
+{% endconfiguration %}
 
 ### Getting an API token
 

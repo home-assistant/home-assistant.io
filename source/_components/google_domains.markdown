@@ -8,12 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: google_domains.png
-ha_category: Utility
-featured: false
+ha_category: Network
 ha_release: 0.57
 ---
 
 With the Google Domains component you can keep your Google Domains record up to date.
+
+## {% linkable_title Configuration %}
 
 To use the component in your installation, add the following to your `configuration.yaml` file:
 
@@ -21,11 +22,11 @@ To use the component in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 google_domains:
   domain: subdomain.domain.com
-  username: abc123
-  password: xyz345
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
-{% configuration binary_sensor.template %}
+{% configuration %}
   domain:
     description: Your FQDN.
     required: true
@@ -38,7 +39,7 @@ google_domains:
     description: The generated password for this DDNS record.
     required: true
     type: string
-  timeout
+  timeout:
     description: Timeout (in seconds) for the API calls.
     required: false
     type: number

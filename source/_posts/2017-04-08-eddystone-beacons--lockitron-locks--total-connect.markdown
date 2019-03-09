@@ -37,7 +37,7 @@ Also want to take a moment to thank Austin Andrews aka [Templarian] for his [Mat
 ## Breaking changes
 
 - We were incorrectly treating groups named `default_view` as default views. Make sure you set `view: true` in the config for these groups. [#251 (frontend)](https://github.com/home-assistant/home-assistant-polymer/pull/251)
-- The last release introduced a revamped LIFX platform. We only realised after deploy that this version does not work on Windows. We have added the old LIFX implementation back as `lifx_legacy`.
+- The last release introduced a revamped LIFX platform. We only realized after deploy that this version does not work on Windows. We have added the old LIFX implementation back as `lifx_legacy`.
 - We added indexes to the database to speed up the history view. Initial boot can take a couple of minutes. Do not shut down while migration is occurring. [#6688]
 - Z-Wave cover workaround has been removed. Use device config instead. [#6832]
 

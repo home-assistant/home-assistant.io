@@ -7,7 +7,7 @@ date_formatted: "January 21, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories: Organisation
+categories: Organization
 ---
 
 ### {% linkable_title UPDATE JAN 28, 2017 %}
