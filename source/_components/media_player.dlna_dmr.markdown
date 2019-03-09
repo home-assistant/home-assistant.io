@@ -47,4 +47,8 @@ name:
   description: The name you would like to give to the device, e.g., `TV living room`.
   required: false
   type: string
+callback_url_override:
+  description: Override the advertised callback URL. In case the home assistant instance is not directly reachable (e.g., running in a docker container without bridged-networking), advertise this callback URL for events.
+  required: false
+  type: string
 {% endconfiguration %}

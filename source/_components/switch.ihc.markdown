@@ -50,6 +50,14 @@ switch:
       description: The IHC resource id.
       required: true
       type: integer
+    on_id:
+      description: Optional IHC resource id that will be pulsed to turn ON this switch.
+      required: false
+      type: integer
+    off_id:
+      description: Optional IHC resource id that will be pulsed to turn OFF this switch.
+      required: false
+      type: integer
     name:
       description: The name of the component
       required: false
