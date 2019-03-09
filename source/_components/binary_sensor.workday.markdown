@@ -31,6 +31,7 @@ binary_sensor:
   - platform: workday
     country: DE
     workdays: [mon, wed, fri]
+    add_holidays: ['2018-12-26','2018-12-31']
 ```
 
 {% configuration %}
@@ -63,11 +64,17 @@ days_offset:
   required: false
   type: integer
   default: 0
+add_holidays:
+  description: Add custom holidays (such as company, personal holidays, or vacations).
+  required: false
+  type: list
 {% endconfiguration %}
 
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 The keyword `holiday` is used for public
 holidays identified by the holidays module.
+
+Custom holidays must be formatted as ['yyyy-mm-dd'] with commas separating each date to be added.
 
 <p class='note warning'>
 If you use the sensor for Norway (`NO`) you need to wrap `NO` in quotes or write the name in full.
@@ -98,4 +105,3 @@ automation:
 <p class='note'>
 Please remember that [as explained here](/docs/configuration/devices/) you can only have a single `automation:` entry. Add the automation to your existing automations.
 </p>
-
