@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Aruba ClearPass"
-description: "Instructions on how to integrate Aruba routers into Home Assistant."
+description: "Instructions on how to integrate Aruba ClearPass into Home Assistant."
 date: 2019-03-05 10:45
 sidebar: true
 comments: false
