@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: cisco.png
 ha_category: Presence Detection
-ha_release: 0.90
+ha_release: "0.90"
 ---
 
 This is a presence detection scanner for [Cisco](https://www.cisco.com) Mobility Express wireless controllers.
@@ -31,7 +31,7 @@ host:
   required: true
   type: string
 username:
-  description: The username of an user with administrative privileges.
+  description: The username of a user with administrative privileges.
   required: true
   type: string
 password:
