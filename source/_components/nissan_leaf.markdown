@@ -49,7 +49,7 @@ region:
   required: true
   type: string
 nissan_connect:
-  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be aquired and exposed via a device tracker. If you have a pre-2014 24 kWh Leaf then you will have Carwings and this should be set to false.
+  description: If your car has the updated head unit (NissanConnect rather than Carwings) then the location can be aquired and exposed via a device tracker. If you have Carwings then this should be set to false. The easiest way to identify NissanConnect is if the T&C buttons are orange and blue, for CarWings they're both blue, or just look for anything saying "CarWings" in Settings area of the infotainment system.
   required: false
   type: boolean
 update_interval:
@@ -128,6 +128,7 @@ You can also use the `nissan_leaf.update` service to request an on-demand update
 * Responses from the Nissan servers are received separately for the battery/range, climate control and location. The `updated_on` attribute will show the last time the data was retrieved from the server. There are separate attributes for when the `next_update` is scheduled, and to indicate if `update_in_progress`. The `nissan_leaf.update` service will reset the `next_update` attribute.
 * The Nissan APIs do not allow charging to be stopped remotely.
 * The Nissan servers have a history of being unstable, therefore please confirm that the official Nissan Leaf app/website is working correctly before reporting bugs.
+* In the UK the cut-off for Carwings was the 16 plate 24 kWh and the 65 plate 30 kWh. Cars after this have NissanConnect.
 
 Please report bugs using the following logger configuration.
 
