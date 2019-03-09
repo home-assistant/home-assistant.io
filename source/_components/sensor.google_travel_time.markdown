@@ -160,7 +160,6 @@ You can also use the `homeassistant.update` service to update the sensor on-dema
         - thu
         - fri
   action:
-    - service: homeassistant.update
-      data:
-        entity_id: sensor.morning_commute
+    - service: homeassistant.update_entity
+      entity_id: sensor.morning_commute
 ```
