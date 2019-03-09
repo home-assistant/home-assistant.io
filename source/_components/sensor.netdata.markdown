@@ -57,6 +57,13 @@ sensor:
       cpu:
         data_group: system.cpu
         element: system
+      network_downstream:
+        data_group: net.eth1
+        element: received
+      network_upstream:
+        data_group: net.eth1
+        element: sent
+        invert: true
 ```
 
 {% configuration %}
@@ -98,5 +105,10 @@ resources:
           required: false
           type: icon
           default: "mdi:desktop-classic"
+        invert:
+          description: Invert the sensor values. Used for networking sensors that return a negative value.
+          required: false
+          type: boolean
+          default: false
 {% endconfiguration %}
 
