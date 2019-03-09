@@ -31,7 +31,6 @@ Lets say for example, that you have 3 trackers: 'tracker_gps', 'tracker_router' 
 
 TL;DR: When you're at home, your position is determined firstly by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined firstly by GPS and then by stationary trackers.
 
-
 **Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home`for stationary trackers as low as possible.
 
 
