@@ -1,5 +1,7 @@
 module Jekyll
   module AssetFilter
+    include Jekyll::Filters
+
     # Octopress filters
     # Copyright (c) 2014 Brandon Mathis
 
@@ -126,6 +128,29 @@ module Jekyll
           return group["versions"][n]
         end
       end
+    end
+
+    def components_json(input)
+      input.map { |component|
+        split_version = component['ha_release'].to_s.split('.')
+        split_filename = component.basename_without_ext.to_s.split('.')
+        cats = Array(component['ha_category']).map { |cat| slugify(cat) }
+        mapped = {
+          "url" => component.url,
+          "title" => component['title'],
+          "categories" => cats,
+          "featured" => !!component['featured'],
+          "introduced" => "#{split_version[0]}.#{split_version[1]}",
+          "logo" => component['logo'],
+          "component" => split_filename[0],
+          "iot_class" => component['ha_iot_class'],
+          "qa_scale" => component['ha_qa_scale']
+        }
+        if split_filename.length == 2
+          mapped["platform"] = split_filename[1]
+        end
+        mapped
+      }.to_json
     end
   end
 end

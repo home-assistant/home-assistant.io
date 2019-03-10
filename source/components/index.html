@@ -72,19 +72,34 @@ regenerate: false
     </div>
     <div class="grid__item five-sixths lap-one-whole palm-one-whole">
       <div class="component_selectors">
-        <span>Provider:
+        <span>Platform:
           <select>
-            <option>Light</option>
+            {%- for category in categories -%}
+            <option>{{ category }}</option>
+            {%- endfor -%}
           </select>
         </span>
         <span>IOT Class:
           <select>
+            <option>Assumed State</option>
+            <option>Cloud Polling</option>
+            <option>Cloud Polling and Cloud Push</option>
+            <option>Cloud Push</option>
+            <option>Depends</option>
+            <option>Local Poll</option>
+            <option>Local Push</option>
+            <option>Local Push and Cloud Polling</option>
             <option>Polling</option>
+            <option>Push</option>
           </select>
         </span>
         <span>Quality Scale:
           <select>
+            <option>Platinum</option>
             <option>Gold</option>
+            <option>Silver</option>
+            <option>No Score</option>
+            <option>Internal</option>
           </select>
         </span>
       </div>
@@ -122,22 +137,7 @@ regenerate: false
 
   <script type="text/javascript">
   // This object contains all components we have
-  var allComponents = [
-    {%- for component in components -%}
-      {%- if component.ha_category -%}
-  {%- assign sliced_version = component.ha_release | split: '.' -%}
-  {%- assign minor_version = sliced_version[1]|plus: 0 -%}
-  {%- assign major_version = sliced_version[0]|plus: 0 -%}
-  {%- assign featured_first = true -%}
-        {%- for ha_category in component.ha_category -%}
-  {url:"{{ component.url }}", title:"{{component.title}}", cat:"{{ha_category | slugify}}", featured: {% if component.featured and featured_first %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}"},
-        {%- assign featured_first = false -%}
-        {%- endfor -%}
-      {% endif -%}
-    {%- endfor -%}
-    false
-  ];
-  allComponents.pop(); // remove placeholder element at the end
+  var allComponents = {{ components | components_json }};
   </script>
   <script type="text/javascript">
   (function(){
@@ -148,7 +148,7 @@ regenerate: false
       // do the lowerCase transformation once
       for (i=0; i < (allComponents.length); i++) {
         allComponents[i].titleLC = allComponents[i].title.toLowerCase();
-        allComponents[i].catLC = allComponents[i].cat.toLowerCase();
+        allComponents[i].categoriesLowercased = allComponents[i].categories.map(Function.prototype.call, String.prototype.toLowerCase);
       }
 
       // sort the components alphabetically
@@ -205,7 +205,7 @@ regenerate: false
           search = decodeURIComponent(hash).substring(8).toLowerCase();
           filter = function(comp) {
             return (comp.titleLC.indexOf(search) !== -1) ||
-                   (comp.catLC.indexOf(search) !== -1);
+                   (comp.categoriesLowercased.indexOf(search) !== -1);
           };
 
         } else if(hash === '#featured' || hash === '') {
@@ -226,7 +226,7 @@ regenerate: false
           // regular filter categories
           search = hash.substring(1);
           filter = function(comp) {
-            return comp.catLC === search;
+            return comp.categoriesLowercased.indexOf(search) !== -1;
           };
         }
 
