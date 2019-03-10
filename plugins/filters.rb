@@ -75,12 +75,13 @@ module Jekyll
     def group_components_by_release(input)
       input.group_by { |v|
         raise ArgumentError, "ha_release must be set in #{v.basename}" if v["ha_release"].nil?
-        v["ha_release"].to_s
+        release_str = v["ha_release"].to_s
+        if release_str == "pre 0.7"
+          release_str = "0.7"
+        end
+        release_str
       }.map{ |v|
         version = v[0]
-        if version == "pre 0.7"
-          version = "0.6"
-        end
 
         begin
           gem_ver = Gem::Version.new(version).to_s
@@ -88,7 +89,7 @@ module Jekyll
           raise ArgumentError, "Error when parsing ha_release #{version} in #{v.path}."
         end
 
-        { "label" => v[0], "new_components_count" => v[1].count, "sort_key" => gem_ver }
+        { "label" => version, "new_components_count" => v[1].count, "sort_key" => gem_ver }
       }.sort_by { |v| v["sort_key"] }.reverse.group_by { |v|
         version = v["label"]
 
@@ -96,9 +97,7 @@ module Jekyll
         major = split_ver[0]
         minor = split_ver[1]
 
-        if version == "pre 0.7"
-          "0.X"
-        elsif minor.length == 1
+        if minor.length == 1
           "#{major}.X"
         else
           "#{major}.#{minor[0]}X"
@@ -106,7 +105,7 @@ module Jekyll
       }.map { |v|
         sort_key = v[1][-1]["sort_key"]
         if v[0] == "0.X"
-          sort_key = "0.01" # Ensure pre 0.7 is always sorted at bottom.
+          sort_key = "0.01" # Ensure 0.X is always sorted at bottom.
         end
 
         total_new_components = 0
