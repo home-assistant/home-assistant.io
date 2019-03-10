@@ -50,12 +50,12 @@
         margin: 12px 0;
       }
 
-      .added_in_current_version {
-        margin-top: 12px;
+      .version_select {
+        margin: 12px 0 12px 0;
       }
 
-      .version_select {
-        margin-bottom: 12px;
+      .version_select > select {
+        width: 100%;
       }
 
       .btn {
