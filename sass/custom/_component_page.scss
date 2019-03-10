@@ -1,16 +1,29 @@
 #components-page{
-  .component-search{
-    margin-bottom: 24px;
+  header {
+    display: flex;
+    justify-content: space-between;
 
-    input{
-      width: 100%;
-      padding: 10px;
-
-      background-color: #fefefe;
-      border-radius: 2px;
-      border: 1px solid;
-      border-color: #7c7c7c #c3c3c3 #ddd;
+    h1 {
+      margin-bottom: 0;
+      width: 25%;
     }
+
+    .component-search{
+      width: 50%;
+      input{
+        width: 100%;
+        padding: 10px;
+
+        background-color: #fefefe;
+        border-radius: 2px;
+        border: 1px solid;
+        border-color: #7c7c7c #c3c3c3 #ddd;
+      }
+    }
+  }
+
+  .divide-selectors {
+    margin: 1em 0;
   }
 }
 
@@ -72,6 +85,12 @@
       }
     }
   }
+}
+
+.component_selectors {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 // styles for the cards
