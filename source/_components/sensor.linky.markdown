@@ -10,7 +10,7 @@ footer: true
 logo: enedis.png
 ha_release: 0.79
 ha_category: Energy
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 

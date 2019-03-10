@@ -10,7 +10,7 @@ footer: true
 logo: econet.png
 ha_category: Water heater
 ha_release: 0.61
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from: /components/climate.econet/
 ---
 

@@ -10,7 +10,7 @@ footer: true
 logo: knx.png
 ha_category: Climate
 ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `knx` climate platform is used as in interface with KNX thermostats.
@@ -116,7 +116,7 @@ controller_status_state_address:
   type: string
 controller_mode_address:
   description: KNX address for handling controller modes.
-  required: false 
+  required: false
   type: string
 controller_mode_state_address:
   description: Explicit KNX address for reading HVAC Control Mode.

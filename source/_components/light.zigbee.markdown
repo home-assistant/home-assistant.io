@@ -10,7 +10,7 @@ footer: true
 logo: zigbee.png
 ha_category: Light
 ha_release: 0.12
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 A Zigbee light in this context is a light connected to one of the digital output pins on a Zigbee module. It can simply be switched on and off. By default, a light is considered `on` when the Zigbee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.

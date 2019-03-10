@@ -14,7 +14,7 @@ ha_category:
   - Sensor
 ha_release: 0.56
 logo: toon.png
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/climate.toon/
   - /components/sensor.toon/

@@ -10,7 +10,7 @@ footer: true
 logo: broadlink.png
 ha_category: Switch
 ha_release: 0.35
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
@@ -234,14 +234,14 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     sudo python setup.py install
     ```
 
-7. Test the codes  
-    Use the `sendcode` script you have already downloaded to test the codes you got from the device.  
-    You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.  
-    When run the script, you know the code works when get message.  
-    Code sent...  
-    Not every code works.  
+7. Test the codes
+    Use the `sendcode` script you have already downloaded to test the codes you got from the device.
+    You need to edit the script with your RM Pro IP Address and MAC Address and with the code in HEX format.
+    When run the script, you know the code works when get message.
+    Code sent...
+    Not every code works.
 
-8. Convert the HEX codes to base64.  
+8. Convert the HEX codes to base64.
     Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
 ## {% linkable_title Using iOS and Windows to Obtain Codes %}

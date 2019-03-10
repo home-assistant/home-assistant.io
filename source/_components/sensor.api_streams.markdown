@@ -10,7 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Utility
 ha_release: 0.33
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_qa_scale: internal
 redirect_from: /components/sensor.api_stream/
 ---

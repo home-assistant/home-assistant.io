@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: panasonic.png
 ha_category: Media Player
-featured: false
 ha_release: 0.17
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.

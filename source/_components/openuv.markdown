@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_release: 0.76
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 redirect_from:
   - /components/binary_sensor.openuv/

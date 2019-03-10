@@ -10,7 +10,7 @@ footer: true
 logo: travisci.svg
 ha_category: Sensor
 ha_release: 0.56
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 With this sensor platform, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.

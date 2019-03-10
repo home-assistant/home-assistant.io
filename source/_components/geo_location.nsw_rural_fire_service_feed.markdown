@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nsw-rural-fire-service.png
 ha_category: Geolocation
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.81
 ---
 

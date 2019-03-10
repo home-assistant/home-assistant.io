@@ -17,9 +17,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ha_release: 0.66
-featured: false
 redirect_from:
   - /components/alarm_control_panel.homematicip_cloud/
   - /components/binary_sensor.homematicip_cloud/

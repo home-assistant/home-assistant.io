@@ -10,7 +10,7 @@ footer: true
 logo: knx.png
 ha_category: Sensor
 ha_release: 0.29
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors.

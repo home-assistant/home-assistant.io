@@ -10,7 +10,7 @@ footer: true
 logo: ted.png
 ha_category: Energy
 ha_release: "0.30"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `ted 5000` monitors electricity consumption/production by connecting to the [TED](http://www.theenergydetective.com/home) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to two sensors per MTU, one for Wattage the other for Voltage.

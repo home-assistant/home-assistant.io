@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: nmap.png
 ha_category: Presence Detection
-featured: false
 ha_release: 0.7
 ---
 

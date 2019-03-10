@@ -10,7 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: DIY
 ha_release: 0.48
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `bme280` sensor platform allows you to read temperature, humidity and pressure values of a [Bosch BME280 Environmental sensor](https://cdn-shop.adafruit.com/datasheets/BST-BME280_DS001-10.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet.

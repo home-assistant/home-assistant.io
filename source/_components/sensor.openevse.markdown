@@ -10,7 +10,7 @@ footer: true
 logo: openevse.png
 ha_category: Car
 ha_release: 0.38
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 

@@ -13,7 +13,7 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.65
-ha_iot_class: "Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/alarm_control_panel.egardia/
   - /components/binary_sensor.egardia/

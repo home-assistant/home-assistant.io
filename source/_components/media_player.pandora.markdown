@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: pandora.png
 ha_category: Media Player
-featured: false
 ha_release: 0.22
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.

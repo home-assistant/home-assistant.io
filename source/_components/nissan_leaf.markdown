@@ -10,7 +10,7 @@ footer: true
 logo: nissan.png
 ha_category: Car
 ha_release: 0.89
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
  - /components/binary_sensor.nissan_leaf/
  - /components/sensor.nissan_leaf/

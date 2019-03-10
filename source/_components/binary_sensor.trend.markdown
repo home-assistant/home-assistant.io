@@ -10,7 +10,7 @@ footer: true
 ha_category: Utility
 logo: home-assistant.png
 ha_release: 0.28
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_qa_scale: internal
 ---
 

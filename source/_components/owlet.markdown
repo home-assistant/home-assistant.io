@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_release: 0.89
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 [Owlet Care](https://owletcare.com/) baby monitors check your baby's oxygen level and heart rate while sleeping.

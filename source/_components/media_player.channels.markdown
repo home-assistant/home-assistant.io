@@ -10,7 +10,7 @@ footer: true
 logo: channels.png
 ha_category: Media Player
 ha_release: 0.65
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 

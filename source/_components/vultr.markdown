@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: false
 ha_category:
   - System Monitor
   - Binary Sensor
@@ -15,7 +14,7 @@ ha_category:
   - Switch
 ha_release: 0.58
 logo: vultr.png
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.vultr/
   - /components/sensor.vultr/

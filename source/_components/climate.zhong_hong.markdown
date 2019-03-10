@@ -10,7 +10,7 @@ footer: true
 logo: zhong_hong.png
 ha_category: Climate
 ha_release: 0.72
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 

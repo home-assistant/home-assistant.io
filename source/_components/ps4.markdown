@@ -10,7 +10,7 @@ footer: true
 logo: ps4.png
 ha_category: Media Player
 ha_release: 0.89
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `ps4` component allows you to control a

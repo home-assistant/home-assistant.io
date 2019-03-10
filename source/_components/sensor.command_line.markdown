@@ -10,7 +10,7 @@ footer: true
 logo: command_line.png
 ha_category: Utility
 ha_release: pre 0.7
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
@@ -32,7 +32,7 @@ command:
   description: The action to take to get the value.
   required: true
   type: string
-name: 
+name:
   description: Name of the command sensor.
   required: false
   type: string
@@ -40,7 +40,7 @@ unit_of_measurement:
   description: Defines the unit of measurement of the sensor, if any.
   required: false
   type: string
-value_template: 
+value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
   required: false
   type: string

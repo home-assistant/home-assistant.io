@@ -10,7 +10,7 @@ footer: true
 logo: volvo.png
 ha_category: Car
 ha_release: 0.39
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
  - /components/binary_sensor.volvooncall/
  - /components/lock.volvooncall/

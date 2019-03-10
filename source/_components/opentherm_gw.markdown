@@ -14,7 +14,7 @@ ha_category:
   - Climate
   - Sensor
 ha_release: 0.81
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.opentherm_gw/
   - /components/climate.opentherm_gw/

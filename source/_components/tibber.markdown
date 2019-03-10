@@ -14,7 +14,7 @@ ha_category:
   - Notifications
 ha_release: 0.80
 ha_qa_scale: silver
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/notify.tibber/
   - /components/sensor.tibber/

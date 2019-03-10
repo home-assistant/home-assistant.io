@@ -10,7 +10,7 @@ footer: true
 logo: arduino.png
 ha_category: DIY
 ha_release: pre 0.7
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `arduino` switch platform allows you to control the digital pins of your [Arduino](https://www.arduino.cc/) board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3, 5, 6, 9, 10, and 11 on an Arduino Uno) is not supported yet.

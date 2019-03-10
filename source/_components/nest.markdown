@@ -15,7 +15,7 @@ ha_category:
   - Climate
   - Sensor
 featured: true
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/binary_sensor.nest/
   - /components/camera.nest/

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Notifications
-ha_iot_class: depends
+ha_iot_class: Configurable
 redirect_from:
   /components/notify.mqtt/
 ---

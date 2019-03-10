@@ -13,7 +13,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.79
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/sensor.edp_redy/
   - /components/switch.edp_redy/

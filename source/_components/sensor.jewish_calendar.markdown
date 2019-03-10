@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Calendar
-ha_iot_class: "Local Poll"
+ha_iot_class: Local Polling
 ha_release: 0.79
 ---
 

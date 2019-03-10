@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Finance
 logo: currencylayer.png
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.32
 ---
 

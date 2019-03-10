@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ecovacs.png
 ha_category: Vacuum
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ha_release: 0.77
 ---
 

@@ -10,7 +10,7 @@ footer: true
 logo: ihc.png
 ha_category: Binary Sensor
 ha_release: 0.62
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 Before you can use the IHC Binary Sensor platform,

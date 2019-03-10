@@ -13,7 +13,7 @@ ha_category:
   - Network
   - Notifications
   - Sensor
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/notify.netgear_lte/
   - /components/sensor.netgear_lte/

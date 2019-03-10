@@ -10,7 +10,7 @@ footer: true
 logo: upnp.png
 ha_category: Network
 ha_release: 0.48
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `upnp` sensor platform allows one to get the network statistics from your router such as bytes in/out and packets in/out.

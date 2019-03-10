@@ -16,8 +16,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_iot_class: "Local Push"
-ha_version: 0.77
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.insteon/
   - /components/cover.insteon/
@@ -28,7 +27,7 @@ redirect_from:
 ha_release: 0.39
 ---
 
-This component adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant. 
+This component adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

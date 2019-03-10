@@ -10,7 +10,7 @@ footer: true
 logo: metno.png
 ha_category: Weather
 ha_release: 0.79
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `met` platform uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.

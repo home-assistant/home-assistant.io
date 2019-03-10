@@ -10,7 +10,7 @@ footer: true
 logo: netatmo.png
 ha_category: Hub
 ha_release: "0.20"
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `netatmo` component platform is the main component to integrate all Netatmo related platforms.

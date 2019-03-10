@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_release: 0.13
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.apcupsd/
   - /components/sensor.apcupsd/

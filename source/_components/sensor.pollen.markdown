@@ -10,7 +10,7 @@ footer: true
 logo: pollen.jpg
 ha_category: Health
 ha_release: 0.63
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `pollen` sensor platform collects and displays allergy, asthma, and disease

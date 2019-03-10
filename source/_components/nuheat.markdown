@@ -11,7 +11,7 @@ logo: nuheat.png
 ha_category:
   - Climate
 ha_release: 0.61
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/climate.nuheat/
 ---

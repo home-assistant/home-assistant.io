@@ -18,9 +18,8 @@ ha_category:
   - Notifications
   - Sensor
   - Switch
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: 0.23
-featured: false
 redirect_from:
   - /components/binary_sensor.homematic/
   - /components/climate.homematic/
@@ -468,11 +467,11 @@ address:
   required: true
   type: string
 channel:
-  description: The channel of your Homematic device. 
+  description: The channel of your Homematic device.
   required: true
   type: integer
 param:
-  description: An additional parameter for the Homematic device. 
+  description: An additional parameter for the Homematic device.
   required: true
   type: string
 interface:

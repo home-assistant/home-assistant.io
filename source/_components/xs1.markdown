@@ -14,8 +14,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.88
-featured: false
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/climate.xs1/
   - /components/sensor.xs1/

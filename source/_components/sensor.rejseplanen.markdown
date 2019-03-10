@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: rejseplanen.png
 ha_category: Transport
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.88
 ---
 
@@ -26,7 +26,7 @@ sensor:
     stop_id: 'YOUR_STOP_ID'
 ```
 
-The `stop_id` can be obtained by looking up the name of the stop at this link: 
+The `stop_id` can be obtained by looking up the name of the stop at this link:
 
 <http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME>
 (Replace "STOP_NAME" with city or location you want id for)

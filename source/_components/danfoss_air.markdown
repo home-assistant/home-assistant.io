@@ -13,7 +13,7 @@ ha_category:
   - Sensor
 ha_release: 0.87
 logo: danfoss_air.png
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.danfoss_air/
   - /components/sensor.danfoss_air/

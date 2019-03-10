@@ -19,7 +19,7 @@ ha_category:
   - Sensor
   - Switch
 featured: true
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.zwave/
   - /components/climate.zwave/

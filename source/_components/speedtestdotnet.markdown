@@ -11,9 +11,8 @@ logo: speedtest.png
 ha_category:
   - System Monitor
   - Sensor
-featured: false
 ha_release: 0.13
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/sensor.speedtest/
   - /components/sensor.speedtestdotnet/
@@ -136,7 +135,7 @@ automation:
 
 ## {% linkable_title Notes %}
 
-- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter. The Raspberry Pi 3+ models comes with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s. 
+- When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter. The Raspberry Pi 3+ models comes with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
 - Running this component can have negative effects on the system's performance as it requires a fair amount of memory.
 - Entries under `monitored_conditions` only control what entities are available in Home Assistant, it does not disable the condition from running.
 - If ran frequently, this component has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
