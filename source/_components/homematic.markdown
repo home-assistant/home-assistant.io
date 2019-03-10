@@ -393,6 +393,7 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
 
 - If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor, voltage sensor or light sensor) you could set up a helper binary sensor and an automation like this:
 
+{% raw %}
   ```yaml
   binary_sensor:
     - platform: template
@@ -415,8 +416,9 @@ When the connection to your HomeMatic CCU or Homegear is lost, Home Assistant wi
         # Reconnect, if sensor has not been updated for over 3 hours
         service: homematic.reconnect
   ```
-  
-  The important part is the `sensor.time` entiy (from time_date component). This will update the binary sensor on every change of the sensor and every minute. If the Homematic senso does not send any updates any more the `sensor.time` will set the binary sensor to off 10 minutes after the last sensor update. This will trigger the automation.
+{% endraw %}
+
+  The important part is the `sensor.time` entity (from time_date component). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
 
 - If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferrable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
 
