@@ -10,7 +10,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: 0.29
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
@@ -66,7 +66,7 @@ sensor:
       - 105
 ```
 
-Display all feeds except feeds with their feed id specified in `exclude_feed_id`. 
+Display all feeds except feeds with their feed id specified in `exclude_feed_id`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,7 +75,7 @@ sensor:
     api_key: API_KEY
     url: https://emoncms.org
     id: 1
-    unit_of_measurement: "KWH" 
+    unit_of_measurement: "KWH"
     exclude_feed_id:
       - 107
       - 105
@@ -90,7 +90,7 @@ sensor:
     api_key: API_KEY
     url: https://emoncms.org
     id: 1
-    unit_of_measurement: "KW" 
+    unit_of_measurement: "KW"
     include_only_feed_id:
       - 5
       - 120
@@ -127,7 +127,7 @@ sensor:
     url: https://emoncms.org
     scan_interval: 30
     id: 1
-    unit_of_measurement: "W" 
+    unit_of_measurement: "W"
     include_only_feed_id:
       - 107
       - 106
@@ -136,7 +136,7 @@ sensor:
     url: https://emoncms.org
     id: 2
     scan_interval: 60
-    unit_of_measurement: "A" 
+    unit_of_measurement: "A"
     include_only_feed_id:
       - 108
       - 61

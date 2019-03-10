@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_release: 0.44
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.eight_sleep/
   - /components/sensor.eight_sleep/

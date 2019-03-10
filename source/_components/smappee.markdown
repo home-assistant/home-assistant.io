@@ -14,7 +14,7 @@ ha_category:
   - Energy
   - Sensor
   - Switch
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/sensor.smappee/
   - /components/switch.smappee/

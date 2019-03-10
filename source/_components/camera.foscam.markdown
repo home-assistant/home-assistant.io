@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: foscam.png
 ha_category: Camera
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.7.3
 ---
 

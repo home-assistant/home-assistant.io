@@ -10,7 +10,7 @@ footer: true
 logo: eliq.png
 ha_category: Energy
 ha_release: "0.10"
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 Integrate your [ELIQ Online](http://eliq.io) smart meter information into Home Assistant. To get an [access token](https://my.eliq.io/user/settings/api) and the [Channel ID](https://my.eliq.io/user/settings/locations), log in to your account.

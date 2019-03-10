@@ -10,7 +10,7 @@ footer: true
 logo: ihc.png
 ha_category: Hub
 ha_release: 0.62
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 IHC Controller integration for Home Assistant allows you to connect the LK IHC

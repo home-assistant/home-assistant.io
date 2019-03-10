@@ -11,8 +11,7 @@ logo: mysensors.png
 ha_category:
   - DIY
   - Sensor
-featured: false
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: 0.7
 ---
 
@@ -82,7 +81,7 @@ For more information, visit the [serial api] of MySensors.
  */
 
 #include <SPI.h>
-#include <MySensor.h>  
+#include <MySensor.h>
 #include <BH1750.h>
 #include <Wire.h>
 
@@ -97,7 +96,7 @@ MyMessage msg(CHILD_ID, V_LEVEL);
 MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.
 uint16_t lastlux = 0;
 
-void setup()  
+void setup()
 {
   gw.begin();
   gw.sendSketchInfo(SN, SV);
@@ -107,8 +106,8 @@ void setup()
   gw.send(msgPrefix.set("lux"));  // Set custom unit.
 }
 
-void loop()      
-{     
+void loop()
+{
   uint16_t lux = lightSensor.readLightLevel();  // Get Lux value
   if (lux != lastlux) {
       gw.send(msg.set(lux));

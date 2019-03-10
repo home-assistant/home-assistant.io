@@ -10,7 +10,7 @@ footer: true
 logo: russound.png
 ha_category: Media Player
 ha_release: 0.49
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `russound_rio` platform allows you to control Russound devices that make use of the RIO protocol.

@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: nuki.png
 ha_category: Lock
-featured: false
 ha_release: 0.38
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `nuki` platform allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via either a [software bridge](https://play.google.com/store/apps/details?id=io.nuki.bridge) or a [physical bridge](https://nuki.io/en/bridge/).

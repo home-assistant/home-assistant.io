@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Light
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 logo: lagute.png
 ha_release: 0.71
 ---

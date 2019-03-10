@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_release: 0.23
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/alarm_control_panel.envisalink/
   - /components/binary_sensor.envisalink/

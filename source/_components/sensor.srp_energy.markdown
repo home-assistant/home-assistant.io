@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 ha_category: Energy
 ha_release: 0.83
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `srp_energy` component shows information from Srp hourly energy usage report for their customers. The srpenergy module fetches the data found on the website.

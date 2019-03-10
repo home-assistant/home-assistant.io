@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Light
-ha_iot_class: depends
+ha_iot_class: Configurable
 redirect_from:
  - /components/light.mqtt_json/
  - /components/light.mqtt_template/
@@ -117,7 +117,7 @@ effect_list:
   type: string list
 hs_command_topic:
   description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
-  Range for Hue: 0° .. 360°, Range of Saturation: 0..100. 
+  Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
   Note: Brightness is sent separately in the `brightness_command_topic`."
   required: false
   type: string

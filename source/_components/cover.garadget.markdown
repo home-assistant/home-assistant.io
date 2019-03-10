@@ -10,7 +10,7 @@ footer: true
 logo: garadget.png
 ha_category: Cover
 ha_release: 0.32
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 
@@ -22,7 +22,7 @@ To enable Garadget Covers in your installation, add the following to your `confi
 
 ```yaml
 # Example configuration.yaml entry
-  
+
  cover:
   - platform: garadget
     covers:
@@ -34,7 +34,7 @@ To enable Garadget Covers in your installation, add the following to your `confi
       second_garage:
         device: 4c003f001151353432134214
         access_token: df4cc785ff818f2b01396c44142342fccdef
-        name: second_garage       
+        name: second_garage
 
 ```
 

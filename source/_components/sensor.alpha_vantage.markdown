@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: alpha_vantage.png
 ha_category: Finance
-ha_iot_class: "Cloud Polling"
-featured: false
+ha_iot_class: Cloud Polling
 ha_release: "0.60"
 ---
 

@@ -10,7 +10,7 @@ footer: true
 logo: ihc.png
 ha_category: Switch
 ha_release: 0.62
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 Before you can use the IHC Switch platform, you must setup the

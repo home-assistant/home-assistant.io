@@ -13,7 +13,7 @@ ha_category:
   - Presence Detection
   - Switch
 ha_release: 0.81
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/device_tracker.unifi/
   - /components/switch.unifi/

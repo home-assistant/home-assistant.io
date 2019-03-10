@@ -18,7 +18,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.28
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.isy994/
   - /components/cover.isy994/

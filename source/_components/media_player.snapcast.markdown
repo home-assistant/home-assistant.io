@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: snapcast.png
 ha_category: Media Player
-featured: false
 ha_release: 0.13
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `snapcast` platform allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.

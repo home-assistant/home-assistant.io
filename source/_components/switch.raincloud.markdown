@@ -10,7 +10,7 @@ footer: true
 logo: raincloud.jpg
 ha_category: Irrigation
 ha_release: 0.55
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 To get your [Melnor RainCloud](https://wifiaquatimer.com) binary sensors working within Home Assistant, please follow the instructions for the general [Raincloud component](/components/raincloud/).

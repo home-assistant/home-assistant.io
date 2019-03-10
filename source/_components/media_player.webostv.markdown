@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: webos.png
 ha_category: Media Player
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.18
 ---
 

@@ -11,11 +11,10 @@ logo: habitica.png
 ha_category:
   - Hub
   - Sensor
-ha_version: 0.78
-ha_iot_class: "Cloud Polling"
+ha_release: 0.78
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/sensor.habitica/
-ha_release: 0.78
 ---
 
 This component allows you to monitor and manage your Habitica profile. This component exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.

@@ -10,7 +10,7 @@ footer: true
 logo: pulseaudio.png
 ha_category: Switch
 ha_release: 0.16
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).

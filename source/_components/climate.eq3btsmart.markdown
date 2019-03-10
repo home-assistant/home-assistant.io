@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: eq3.gif
 ha_category: Climate
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.18
 ---
 

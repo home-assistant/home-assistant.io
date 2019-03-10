@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Hub
 ha_release: 0.57
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from: /components/xiaomi/
 ---
 

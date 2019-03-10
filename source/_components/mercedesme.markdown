@@ -14,7 +14,7 @@ ha_category:
   - Presence Detection
   - Sensor
 ha_release: 0.63
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.mercedesme/
   - /components/device_tracker.mercedesme/

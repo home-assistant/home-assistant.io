@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: "0.40"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `modem_callerid` sensor platform uses an available modem for collecting caller ID information. It requires a Hayes AT compatible modem that supports caller ID detection (via AT+VCID=1).
@@ -76,7 +76,7 @@ Some example automations:
 ```yaml
 automation:
   - alias: Notify CallerID
-    trigger: 
+    trigger:
       platform: state
       entity_id: sensor.modem_callerid
       to: "callerid"
@@ -85,7 +85,7 @@ automation:
       data:
         message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }} at {{ states.sensor.modem_callerid.attributes.cid_number }} '
   - alias: Notify CallerID webui
-    trigger: 
+    trigger:
       platform: state
       entity_id: sensor.modem_callerid
       to: "callerid"
@@ -95,7 +95,7 @@ automation:
         title: "Call from"
         message: '{{ states.sensor.modem_callerid.attributes.cid_time.strftime("%I:%M %p") }} {{ states.sensor.modem_callerid.attributes.cid_name }}  {{ states.sensor.modem_callerid.attributes.cid_number }} '
   - alias: Say CallerID
-    trigger: 
+    trigger:
       platform: state
       entity_id: sensor.modem_callerid
       to: "callerid"

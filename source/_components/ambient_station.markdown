@@ -8,7 +8,7 @@ comments: false
 logo: ambient_weather.png
 ha_category: Weather
 ha_release: 0.85
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 redirect_from:
  - /components/sensor.ambient_station/
 ---

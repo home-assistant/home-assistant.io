@@ -9,12 +9,11 @@ sharing: true
 footer: true
 logo: kiwi.png
 ha_category: Lock
-featured: false
 ha_release: 0.72
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
-The `KIWI` platform allows you to open your KIWI Smart Locks and Smart Entry Devices. 
+The `KIWI` platform allows you to open your KIWI Smart Locks and Smart Entry Devices.
 All you need to get started is a KIWI account. Register at [the KIWI website](https://kiwi.ki/login/).
 
 ## {% linkable_title Configuration %}

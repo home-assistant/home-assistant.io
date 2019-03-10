@@ -13,7 +13,7 @@ ha_category:
   - Sensor
 logo: dovado.png
 ha_release: 0.87
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/notify.dovado/
   - /components/sensor.dovado/

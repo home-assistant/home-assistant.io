@@ -15,7 +15,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
-ha_iot_class: "Assumed State"
+ha_iot_class: Assumed State
 redirect_from:
   - /components/cover.tellstick/
   - /components/light.tellstick/

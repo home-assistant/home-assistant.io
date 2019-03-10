@@ -12,7 +12,7 @@ ha_category:
   - Camera
   - Binary Sensor
 ha_release: 0.45
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.axis/
   - /components/camera.axis/

@@ -11,9 +11,8 @@ logo: iperf3.png
 ha_category:
   - System Monitor
   - Sensor
-featured: false
 ha_release: 0.71
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/sensor.iperf3/
 ---

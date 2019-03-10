@@ -12,7 +12,7 @@ ha_category:
   - Finance
   - Sensor
 ha_release: 0.61
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/sensor.coinbase/
 ---

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Binary Sensor
 ha_release: 0.89
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
@@ -32,7 +32,7 @@ binary_sensor:
     after: sunrise
     after_offset: '-02:00'
     before: '07:00'
-    
+
   - platform: tod
     name: Late Morning
     after: '10:00'

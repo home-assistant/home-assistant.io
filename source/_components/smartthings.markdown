@@ -21,7 +21,7 @@ ha_category:
   - Scene
   - Switch
 ha_release: 0.87
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/smartthings.binary_sensor/
   - /components/binary_sensor.smartthings/

@@ -10,7 +10,7 @@ footer: true
 logo: traccar.png
 ha_release: 0.83
 ha_category: Presence Detection
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 `Traccar` uses GPS for tracking and has support for over 1500 different types of devices.

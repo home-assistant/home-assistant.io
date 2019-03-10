@@ -10,7 +10,7 @@ footer: true
 logo: netdata.png
 ha_category: System Monitor
 ha_release: 0.35
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
@@ -86,7 +86,7 @@ resources:
       type: string
       keys:
         data_group:
-          description: "Name of the data group to monitor, e.g., `system.cpu`." 
+          description: "Name of the data group to monitor, e.g., `system.cpu`."
           required: true
           type: string
         element:

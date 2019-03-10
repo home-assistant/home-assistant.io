@@ -10,7 +10,7 @@ footer: true
 logo: seegelsysteme.png
 ha_category: Switch
 ha_release: 0.85
-ha_iot_class: "Assumed State"
+ha_iot_class: Assumed State
 ---
 
 The `raspyrfm` component adds support for cheap RC 433 MHz outlets via one of the supported gateways.

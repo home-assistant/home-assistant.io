@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: steam.png
 ha_category: Social
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.14
 ---
 

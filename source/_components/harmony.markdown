@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: logitech.png
 ha_category: Remote
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: 0.34
 redirect_from:
   - /components/remote.harmony/
