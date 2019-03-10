@@ -249,6 +249,14 @@ allComponents.pop(); // remove placeholder element at the end
     return false;
   });
 
+  // update view on select change
+  jQuery('select').change(function() {
+    updateHash(this.value);
+    applyFilter();
+
+    return false;
+  });
+
   /**
    * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
    */
