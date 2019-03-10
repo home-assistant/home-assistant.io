@@ -14,7 +14,7 @@ ha_iot_class: "Local Polling"
 ---
 
 
-The `firetv` platform allows you to control an [Amazon Fire TV/stick](https://www.amazon.com/b/?node=8521791011).
+The `firetv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
 Steps to configure your Amazon Fire TV stick with Home Assistant:
 
@@ -25,6 +25,8 @@ Steps to configure your Amazon Fire TV stick with Home Assistant:
 - Find Amazon Fire TV device IP:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
+
+For Android TV devices, you will need to enable ADB debugging. Please consult the documentation for your device.
 
 
 ## {% linkable_title Configuration %}
@@ -88,6 +90,11 @@ apps:
   required: false
   default: {}
   type: dict
+device_class:
+  description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device)), `androidtv`, or `firetv`."
+  required: false
+  default: auto
+  type: string
 {% endconfiguration %}
 
 
@@ -110,10 +117,10 @@ media_player:
 
 ## {% linkable_title ADB Setup %}
 
-This component works by sending ADB commands to your Fire TV device.  There are two ways to accomplish this:
+This component works by sending ADB commands to your Android TV / Fire TV device.  There are two ways to accomplish this:
 
 1. Using the `adb` Python package.  If your device requires ADB authentication, you will need to follow the instructions in the "ADB Authentication (for Fire TV devices with recent software)" section below.  Once you have an authenticated key, this approach does not require any additional setup or addons.  However, users with newer devices may find that the ADB connection is unstable.  If setting the `get_sources` configuration option to `false` does not help, they should use the next option.  
-2. Using an ADB server.  For Hass.io users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/v0.1.0/README.md) addon.  With this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Fire TV device and report back to Home Assistant.  To use this option, add the `adb_server_ip` option to your configuration.  If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
+2. Using an ADB server.  For Hass.io users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/v0.1.0/README.md) addon.  With this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant.  To use this option, add the `adb_server_ip` option to your configuration.  If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
 
 ### {% linkable_title ADB Authentication (for Fire TV devices with recent software) %}
@@ -164,7 +171,7 @@ action:
     command: "HOME"
 ```
 
-Available key commands are:
+Available key commands include:
 
 * `POWER`
 * `SLEEP`
