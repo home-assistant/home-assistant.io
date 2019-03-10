@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: icann.png
 ha_category: Network
-ha_release: "0.57"
+ha_release: 0.57
 ha_iot_class: "Cloud Polling"
 ---
 

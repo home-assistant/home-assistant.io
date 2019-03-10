@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: ffmpeg.png
 ha_category: Image Processing
+ha_release: 0.29
 ---
 
 The `ffmpeg` component allows other Home Assistant components to process video and audio streams. This component supports all FFmpeg versions since 3.0.0; if you have an older version, please update.

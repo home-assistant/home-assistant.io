@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: smappee.png
-ha_release: "0.64"
+ha_release: 0.64
 ha_category:
   - Hub
   - Energy

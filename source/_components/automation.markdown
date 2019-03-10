@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Automation
 ha_qa_scale: internal
+ha_release: 0.7
 ---
 
 Please see the [docs section](/docs/automation/) for in-depth

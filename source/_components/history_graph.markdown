@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: History
 logo: home-assistant.png
-ha_release: "0.55"
+ha_release: 0.55
 ha_qa_scale: internal
 ---
 
@@ -27,7 +27,7 @@ history_graph:
   gr1:
     entities:
       - light.ceiling.lights
-  
+
 ```
 
 {% configuration %}
@@ -40,7 +40,7 @@ name:
   required: false
   default: ID
   type: string
-hours_to_show: 
+hours_to_show:
   description: Number of hours to show in the graph.
   required: false
   default: 24

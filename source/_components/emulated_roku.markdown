@@ -9,24 +9,24 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Hub
-ha_release: 0.86.0
+ha_release: 0.86
 ha_iot_class: "Local Push"
 ---
 
-This component integrates an emulated Roku API into Home Assistant,  
-so remotes such as Harmony and Android apps can connect to it through WiFi as if it were a Roku player.  
-Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.  
-Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.  
+This component integrates an emulated Roku API into Home Assistant,
+so remotes such as Harmony and Android apps can connect to it through WiFi as if it were a Roku player.
+Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.
+Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.
 
-<p class='note'>  
+<p class='note'>
 Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
-</p>  
+</p>
 
-<p class='note warning'>  
+<p class='note warning'>
 This component opens an unauthenticated API on the host, allowing anything on the local network to access
 your Home Assistant instance through the automations you create with emulated Roku as the trigger.
 Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's ip or DNS name)
-</p>  
+</p>
 
 ## {% linkable_title Configuration %}
 
@@ -83,7 +83,7 @@ Field | Description
 `source_name` | Name of the emulated Roku instance that sent the event. Only required when using multiple instances to filter event sources.
 `type` | The type of the event that was called on the API.
 `key` | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.
-`app_id` | the id of the app that was launched when command `type` is `launch`.  
+`app_id` | the id of the app that was launched when command `type` is `launch`.
 
 The available keys are listed here:
 [Roku key codes](https://sdkdocs.roku.com/display/sdkdoc/External+Control+API#ExternalControlAPI-KeypressKeyValues)
@@ -120,6 +120,6 @@ Known limitations:
 * Harmony uses UPnP discovery (UPnP is not needed after pairing), which might not work in Docker. You can:
   * Change Docker to host networking temporarily, then revert after pairing.
   * Run the `advertise.py` helper script from the emulated_roku library directly somewhere else and point it to the emulated Roku API.
-* Harmony cannot launch apps as it uses IR instead of the WiFi API and will not display the custom dummy app list. 
+* Harmony cannot launch apps as it uses IR instead of the WiFi API and will not display the custom dummy app list.
 * Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
 * Harmony will not set the name of the added emulated Roku device to the specified `name`.

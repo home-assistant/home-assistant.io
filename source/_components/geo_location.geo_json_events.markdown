@@ -10,7 +10,7 @@ footer: true
 logo: geo_location.png
 ha_category: Geolocation
 ha_iot_class: "Cloud Polling"
-ha_release: "0.79"
+ha_release: 0.79
 ---
 
 The `geo_json_events` platform lets you integrate GeoJSON feeds. It retrieves events from a feed and shows information of those events filtered by distance to Home Assistant's location.

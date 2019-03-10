@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: ethernet.png
 ha_category: Network
-ha_release: "0.49"
+ha_release: 0.49
 ha_iot_class: "Local Push"
 ---
 
@@ -40,7 +40,7 @@ Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 Sample service data:
 
 ```json
-{  
+{
    "mac":"00:40:13:ed:f1:32"
 }
 ```

@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Camera
   - Lock
-ha_release: "0.64"
+ha_release: 0.64
 ha_iot_class: "Cloud Polling"
 redirect_from:
   - /components/binary_sensor.august/

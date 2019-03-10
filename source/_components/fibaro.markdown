@@ -16,7 +16,7 @@ ha_category:
   - Sensor
   - Scene
   - Switch
-ha_release: "0.83"
+ha_release: 0.83
 ha_iot_class: "Local Push"
 redirect_from:
  - /components/scene.fibaro/

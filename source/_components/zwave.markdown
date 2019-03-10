@@ -29,6 +29,7 @@ redirect_from:
   - /components/lock.zwave/
   - /components/sensor.zwave/
   - /components/switch.zwave/
+ha_release: 0.7
 ---
 
 The [Z-Wave](http://www.z-wave.com/) integration for Home Assistant allows you to observe and control connected Z-Wave devices. Please see the [Z-Wave getting started section](/docs/z-wave/) for in-depth documentation on how to use and setup the Z-Wave component.

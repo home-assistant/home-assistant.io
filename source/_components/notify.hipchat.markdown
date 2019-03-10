@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: hipchat.png
 ha_category: Notifications
-ha_release: "0.52"
+ha_release: 0.52
 ---
 
 <p class='note'>

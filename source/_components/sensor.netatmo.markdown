@@ -10,6 +10,7 @@ footer: true
 logo: netatmo.png
 ha_category: Weather
 ha_iot_class: "Cloud Polling"
+ha_release: 0.11
 ---
 
 ### {% linkable_title Basic Configuration %}

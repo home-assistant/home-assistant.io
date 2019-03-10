@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: raincloud.jpg
 ha_category: Irrigation
-ha_release: "0.55"
+ha_release: 0.55
 ha_iot_class: "Cloud Polling"
 ---
 

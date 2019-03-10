@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: telldus_tellstick.png
-ha_release: "pre 0.7"
+ha_release: pre 0.7
 ha_category:
   - Hub
   - Cover

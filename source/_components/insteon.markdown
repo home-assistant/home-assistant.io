@@ -25,6 +25,7 @@ redirect_from:
   - /components/light.insteon/
   - /components/sensor.insteon/
   - /components/switch.insteon/
+ha_release: 0.39
 ---
 
 This component adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant. 

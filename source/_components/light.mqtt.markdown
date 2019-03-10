@@ -13,6 +13,7 @@ ha_iot_class: depends
 redirect_from:
  - /components/light.mqtt_json/
  - /components/light.mqtt_template/
+ha_release: 0.8
 ---
 
 The `mqtt` light platform with lets you control your MQTT enabled lights through one of the supported message schemas.

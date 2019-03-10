@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: http.png
 ha_category: "Other"
+ha_release: pre 0.7
 ---
 
 The `http` component serves all files and data required for the Home Assistant
