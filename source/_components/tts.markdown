@@ -62,6 +62,9 @@ tts:
     time_memory: 300
     base_url: http://192.168.0.10:8123
 ```
+<p class='note'>
+In the above example, `base_url` is custom to this particular TTS platform configuration.  It is not suggesting that you use the `base_url` that you have set for your core Home Assistant configuration.  The reason you might need to do this is outlined in the next section.
+</p>
 
 ## {% linkable_title When do you need to set `base_url` here? %}
 
