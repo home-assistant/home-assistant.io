@@ -44,7 +44,7 @@ Support for these components is provided by the Home Assistant community.
       <a href='#version/{{ current_version.label }}' class="btn added_in_current_version">Added in {{ current_version.label }} ({{ current_version.new_components_count }})</a>
       <a href='#version/{{ one_version_ago.label }}' class="btn added_one_version_ago">Added in {{ one_version_ago.label }} ({{ one_version_ago.new_components_count }})</a>
       <a href='#version/{{ two_versions_ago.label }}' class="btn added_two_versions_ago">Added in {{ two_versions_ago.label }} ({{ two_versions_ago.new_components_count }})</a>
-      Added in <select name="versions">
+      Added in <select name="versions" class="version_select">
         {%- for group in components_by_version -%}
           <optgroup label="{{ group.label }} ({{group.new_components_count}})">
             {%- for version in group.versions -%}
