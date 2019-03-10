@@ -91,7 +91,7 @@ apps:
   default: {}
   type: dict
 device_class:
-  description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device)), `androidtv`, or `firetv`."
+  description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
   required: false
   default: auto
   type: string
