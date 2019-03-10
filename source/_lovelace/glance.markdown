@@ -32,7 +32,12 @@ title:
   type: string
 show_name:
   required: false
-  description: Show entity names.
+  description: Show entity name.
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show entity icon.
   type: boolean
   default: "true"
 show_state:
