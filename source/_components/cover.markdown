@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.27
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.

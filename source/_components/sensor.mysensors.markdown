@@ -13,6 +13,7 @@ ha_category:
   - Sensor
 featured: false
 ha_iot_class: "Local Push"
+ha_release: 0.7
 ---
 
 Integrates MySensors sensors into Home Assistant. See the [main component] for configuration instructions.

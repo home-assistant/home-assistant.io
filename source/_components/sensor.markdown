@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7
 ---
 
 Sensors are gathering information about states and conditions.

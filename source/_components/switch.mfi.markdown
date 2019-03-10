@@ -10,6 +10,7 @@ footer: true
 logo: ubiquiti.png
 ha_category: Switch
 ha_iot_class: "Local Polling"
+ha_release: 0.13
 ---
 
 The `mfi` switch platform to allow you to control [mFi Controllable Power Outlets](https://www.ubnt.com/mfi/mpower/).
