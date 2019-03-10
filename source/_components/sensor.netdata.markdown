@@ -98,5 +98,30 @@ resources:
           required: false
           type: icon
           default: "mdi:desktop-classic"
+        invert:
+          description: Invert the sensor values.
+          required: false
+          type: boolean
+          default: false
 {% endconfiguration %}
 
+
+## {% linkable_title Full examples %}
+
+### {% linkable_title Network interface details %}
+
+Netdata returns all bandwidth related sensors as positive/negative numbers related to the interface.
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: netdata
+    resources:
+      network_downstream:
+        data_group: net.eth1
+        element: received
+      network_upstream:
+        data_group: net.eth1
+        element: sent
+        invert: true
+```
