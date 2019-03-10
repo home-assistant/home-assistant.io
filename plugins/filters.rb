@@ -118,6 +118,16 @@ module Jekyll
         { "label" => v[0], "versions" => v[1], "new_components_count" => total_new_components, "sort_key" => sort_key }
       }.sort_by { |v| v["sort_key"] }.reverse
     end
+
+    # Get version N behind current
+    # input is output of group_components_by_release
+    def version_behind(input, n)
+      input.each do |group|
+        if group["versions"].length > n
+          return group["versions"][n]
+        end
+      end
+    end
   end
 end
 
