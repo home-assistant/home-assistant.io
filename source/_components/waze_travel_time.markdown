@@ -67,6 +67,10 @@ units:
   description: "Set the unit for the sensor in metric or imperial, otherwise the default unit the same as the unit set in `unit_system:`."
   required: false
   type: string
+vehicle_type:
+  description: "Set the vehicle type for the sensor: car, taxi, or motorcycle, otherwise the default is car."
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Example using dynamic destination %}
@@ -120,5 +124,6 @@ sensor:
     destination: "725 5th Ave, New York, NY 10022, USA"
     region: 'US'
     units: imperial    # 'metric' for Metric, 'imperial' for Imperial
+    vehicle_type: motorcycle  # vehicle type used for route
 ```
 {% endraw %}
