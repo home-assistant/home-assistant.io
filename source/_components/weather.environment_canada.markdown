@@ -2,14 +2,14 @@
 layout: page
 title: "Environment Canada Weather"
 description: "Weather data from Environment Canada."
-date: 2018-02-15 18:00
+date: 2018-03-10 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: environment_canada.png
 ha_category: Weather
-ha_release: 0.88
+ha_release: 0.90
 ha_iot_class: "Cloud Polling"
 ---
 
@@ -46,6 +46,10 @@ station:
   type: string
 name:
   description: Name to be used for the weather entity.
+  required: false
+  type: string
+forecast:
+  description: Specify hourly or daily forecasts. Valid values are 'daily' and 'hourly'. Defaults to daily.
   required: false
   type: string
 {% endconfiguration %}
