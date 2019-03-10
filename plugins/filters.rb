@@ -72,14 +72,51 @@ module Jekyll
     end
 
     # Sort an array of semvers
-    def semver_sort(input)
-      input.sort_by { |v|
-        val = v['name']
-        if val == "pre 0.7"
-          val = "0.6"
+    def group_components_by_release(input)
+      input.group_by { |v|
+        raise ArgumentError, "ha_release must be set in #{v.basename}" if v["ha_release"].nil?
+        v["ha_release"].to_s
+      }.map{ |v|
+        version = v[0]
+        if version == "pre 0.7"
+          version = "0.6"
         end
-        Gem::Version.new(val)
-      }
+
+        begin
+          gem_ver = Gem::Version.new(version).to_s
+        rescue
+          raise ArgumentError, "Error when parsing ha_release #{version} in #{v.path}."
+        end
+
+        { "label" => v[0], "new_components_count" => v[1].count, "sort_key" => gem_ver }
+      }.sort_by { |v| v["sort_key"] }.reverse.group_by { |v|
+        version = v["label"]
+
+        split_ver = version.split('.')
+        major = split_ver[0]
+        minor = split_ver[1]
+
+        if version == "pre 0.7"
+          "0.X"
+        elsif minor.length == 1
+          "#{major}.X"
+        else
+          "#{major}.#{minor[0]}X"
+        end
+      }.map { |v|
+        sort_key = v[1][-1]["sort_key"]
+        if v[0] == "0.X"
+          sort_key = "0.01" # Ensure pre 0.7 is always sorted at bottom.
+        end
+
+        total_new_components = 0
+
+        v[1].each do |vers|
+          total_new_components += vers["new_components_count"]
+        end
+
+        { "label" => v[0], "versions" => v[1], "new_components_count" => total_new_components, "sort_key" => sort_key }
+      }.sort_by { |v| v["sort_key"] }.reverse
     end
   end
 end
