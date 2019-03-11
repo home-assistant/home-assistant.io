@@ -59,6 +59,17 @@ See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featu
 
 ## {% linkable_title Basic requirements %}
 
+The SmartThings integration utilizes a webhook to receive push updates from the SmartThings cloud through either a cloudhook or an internet accessible webhook based on whether Home Assistant Cloud is configured and logged in with a non-expired subscription (this is not configurable at this time).
+
+### {% linkable_title Cloudhook via Nabu Casa %}
+
+If you are using Home Assistant Cloud (Nabu Casa) the integraiton will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the component prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
+
+1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
+2. Home Assistant Cloud is configured and logged-in with a non-expired subscription.
+
+### {% linkable_title Webhook %}
+
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant setup for [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
 3. [`base_url` of the http component](/components/http#base_url) set the URL that Home Assistant is available on the internet.
@@ -281,7 +292,7 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 
 ### {% linkable_title Setup %}
 
-Perform the following steps if you receive one of the following error messages while attempting to setup the integration:
+Perform the following steps if you receive one of the following error messages while attempting to setup the integration (this does not apply when integrated through Home Assistant Cloud):
 
 - "SmartThings could not validate the endpoint configured in base_url. Please review the component requirements."
 - "Unable to setup the SmartApp. Please try again."
