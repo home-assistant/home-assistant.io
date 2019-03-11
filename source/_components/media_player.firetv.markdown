@@ -54,7 +54,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP address for your Fire TV device.
+  description: The IP address for your Android TV / Fire TV device.
   required: true
   type: string
 name:
@@ -63,7 +63,7 @@ name:
   default: Amazon Fire TV
   type: string
 port:
-  description: The port for your Fire TV device.
+  description: The port for your Android TV / Fire TV device.
   required: false
   default: 5555
   type: integer
