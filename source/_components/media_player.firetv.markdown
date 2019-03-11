@@ -16,7 +16,7 @@ ha_iot_class: "Local Polling"
 
 The `firetv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
-Steps to configure your Amazon Fire TV stick with Home Assistant:
+Steps to configure your Amazon Fire TV with Home Assistant:
 
 - Turn on ADB Debugging on your Amazon Fire TV:
   - From the main (Launcher) screen, select Settings.
