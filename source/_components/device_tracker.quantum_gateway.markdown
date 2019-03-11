@@ -38,7 +38,7 @@ password:
   description: The password for the `admin` user. The default password may be printed on the gateway itself.
   required: true
   type: string
-use_https:
+ssl:
   description: Use HTTPS when connecting to gateway. New firmware may require HTTPS while older may require this to be False.
   required: false
   type: boolean
