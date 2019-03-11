@@ -52,6 +52,11 @@ config_file:
   description: The path for XKNX configuration file.
   required: false
   type: string
+rate_limit:
+  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
+  required: false
+  default: 20
+  type: integer
 {% endconfiguration %}
 
 If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
