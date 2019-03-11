@@ -48,12 +48,12 @@ media_player:
     description: The username of a user with privileges to access the box. This is only required if you have enabled the setting "Enable HTTP Authentication" in OpenWebif settings. _(e.g., on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_.
     required: false
     type: string
-    default: `root`
+    default: root
   password:
     description: The password for your given account. Again, this is only required if you have enabled the setting "Enable HTTP Authentication" in OpenWebif settings. _(e.g., on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_.
     required: false
     type: string
-    default: `dreambox`
+    default: dreambox
   ssl:
     description: Use HTTPS instead of HTTP to connect. This is only required if you have enabled the setting "Enable HTTPS" in OpenWebif settings. _(e.g., on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_. You will need to ensure you have a valid CA certificate in place or SSL verification will fail with this component.
     required: false
