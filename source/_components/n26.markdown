@@ -10,6 +10,7 @@ footer: true
 logo: n26.png
 ha_category:
   - Sensor
+  - Switch
 ha_release: 0.90
 featured: false
 ha_iot_class: "Local Polling"
