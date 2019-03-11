@@ -192,11 +192,11 @@ stop_netflix:
 
 ### {% linkable_title `firetv.adb_command` %}
 
-The service `firetv.adb_command` allows you to send either keys or ADB shell commands to the Fire TV.
+The service `firetv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Name(s) of Fire TV entities.
+| `entity_id`            |       no | Name(s) of Android TV / Fire TV entities.
 | `command`              |       no | Either a key command or an ADB shell command.
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this:
