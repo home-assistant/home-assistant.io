@@ -69,7 +69,7 @@ delay_secs:
   type: float
   default: 0.4
 hold_secs:
-  description: Default duration in seconds between sending the "press" command and sending the "release" command
+  description: Default duration in seconds between sending the "press" command and sending the "release" command.
   required: false
   default: 0
 {% endconfiguration %}
