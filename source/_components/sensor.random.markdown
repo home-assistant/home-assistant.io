@@ -14,7 +14,6 @@ ha_release: 0.32
 ha_qa_scale: internal
 ---
 
-
 The `random` sensor platform is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn. This can be useful if you want to test automation rules. It generates a new value every time it is polled.
 
 ## {% linkable_title Configuration %}
@@ -48,4 +47,3 @@ unit_of_measurement:
   required: false
   type: string
 {% endconfiguration %}
-

@@ -13,7 +13,6 @@ ha_iot_class: Local Polling
 ha_release: 0.32
 ---
 
-
 The `mfi` sensor platform to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
 
 ## {% linkable_title Configuration %}

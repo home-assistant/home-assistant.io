@@ -13,7 +13,6 @@ ha_category: Energy
 ha_iot_class: Cloud Polling
 ---
 
-
 The `linky` sensor platform is showing the last day consumption of your home from the [Linky electric meter](https://www.enedis.fr/english).
 
 ## {% linkable_title Configuration %}
@@ -38,4 +37,3 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-

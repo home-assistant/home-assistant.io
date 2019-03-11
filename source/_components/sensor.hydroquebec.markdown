@@ -13,7 +13,6 @@ ha_release: 0.35
 ha_iot_class: Cloud Polling
 ---
 
-
 Integrate your [Hydro-Québec](https://www.hydroquebec.com/portail/) consumption profile information into Home Assistant.
 
 <p class='note warning'>

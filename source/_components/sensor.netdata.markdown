@@ -13,7 +13,6 @@ ha_release: 0.35
 ha_iot_class: Local Polling
 ---
 
-
 The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).
 
 ## {% linkable_title Setup %}
@@ -40,7 +39,6 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 
 - `dimension_names`: Names shown in the frontend.
 - `dimension_ids`: Names to use for `element`.
-
 
 ## {% linkable_title Configuration %}
 
@@ -99,4 +97,3 @@ resources:
           type: icon
           default: "mdi:desktop-classic"
 {% endconfiguration %}
-

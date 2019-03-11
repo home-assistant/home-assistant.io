@@ -12,7 +12,6 @@ ha_category: Downloading
 ha_release: 0.47
 ---
 
-
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
 
 ## {% linkable_title Configuration %}

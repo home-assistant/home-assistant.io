@@ -98,7 +98,6 @@ queries:
       default: value
 {% endconfiguration %}
 
-
 ## {% linkable_title Examples %}
 
 ### {% linkable_title Full configuration %}

@@ -13,7 +13,6 @@ ha_release: 0.7.4
 ha_iot_class: Local Polling
 ---
 
-
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
