@@ -72,7 +72,7 @@ Restart Home Assistant for the configured changes to take effect. When you acces
 
 ## {% linkable_title Generate Let's Encrypt certificate for Duck DNS sub sub domains  %}
 
-To generate certificates for nr.my-domain.duckdns.org update the domain json settings to:
+To generate certificates for nr.my-domain.duckdns.org update the domain JSON settings to:
 
 ```json
 {
