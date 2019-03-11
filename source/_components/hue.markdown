@@ -11,11 +11,10 @@ logo: philips_hue.png
 ha_category:
   - Hub
   - Light
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_qa_scale: platinum
 featured: true
 ha_release: "0.60"
-ha_qa_scale: platinum
 redirect_from:
   - /components/light.hue/
 ---

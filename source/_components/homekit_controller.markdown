@@ -18,7 +18,7 @@ ha_category:
   - Switch
   - Binary Sensor
 ha_release: 0.68
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/alarm_control_panel.homekit_controller/
   - /components/climate.homekit_controller/

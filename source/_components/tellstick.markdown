@@ -8,14 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: telldus_tellstick.png
-ha_release: "pre 0.7"
+ha_release: pre 0.7
 ha_category:
   - Hub
   - Cover
   - Light
   - Sensor
   - Switch
-ha_iot_class: "Assumed State"
+ha_iot_class: Assumed State
 redirect_from:
   - /components/cover.tellstick/
   - /components/light.tellstick/

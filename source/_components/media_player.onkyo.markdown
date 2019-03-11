@@ -10,7 +10,7 @@ footer: true
 logo: onkyo.png
 ha_category: Media Player
 ha_release: 0.17
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
@@ -130,5 +130,5 @@ script:
         service_data:
           entity_id: media_player.onkyo
           hdmi_output: out-sub
-      
+
 ```

@@ -10,7 +10,7 @@ footer: true
 logo: openhardwaremonitor.png
 ha_category: System Monitor
 ha_release: 0.48
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 

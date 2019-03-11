@@ -12,7 +12,7 @@ ha_category:
   - Health
   - Sensor
 ha_release: 0.82
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_qa_scale: gold
 redirect_from:
   - /components/sensor.luftdaten/
@@ -28,7 +28,7 @@ The `luftdaten` component will query the open data API of [luftdaten.info](http:
 ## {% linkable_title COnfiguration via the frontend %}
 
 Menu: **Configuration** -> **Integrations**
-  
+
 Configure the integration:
 
 - Enter the **Sensor ID**

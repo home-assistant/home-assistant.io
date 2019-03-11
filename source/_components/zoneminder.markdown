@@ -14,9 +14,8 @@ ha_category:
   - Camera
   - Sensor
   - Switch
-featured: false
 ha_release: 0.31
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.zoneminder/
   - /components/camera.zoneminder/

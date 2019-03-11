@@ -10,7 +10,7 @@ footer: true
 logo: aftership.png
 ha_category: Postal Service
 ha_release: 0.85
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. It is free to use up to 100 tracked packages per month, after that there is a fee.

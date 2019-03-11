@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: zabbix.png
 ha_category: System Monitor
-featured: false
 ha_release: 0.37
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `zabbix` component is the main component to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.

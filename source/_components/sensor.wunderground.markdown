@@ -10,7 +10,7 @@ footer: true
 logo: wunderground.png
 ha_category: Weather
 ha_release: 0.27
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information.

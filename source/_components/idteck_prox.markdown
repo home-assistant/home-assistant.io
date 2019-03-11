@@ -7,11 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: idteck.jpg 
+logo: idteck.jpg
 ha_category: Other
-featured: false
 ha_release: 0.85
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 [IDTECK](http://www.idteck.com) makes ID systems used to control access and identify users.  This component works with [Proximity Readers](http://www.idteck.com/en/products/proximity-reader-__-card-%26-tag-__125khz) (RFID card readers). The device is connected to Home Assistant through a serial to ethernet converter (NPort).

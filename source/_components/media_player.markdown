@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7
 ---
 
 Interacts with media players on your network. Please check the right sidebar for a full list of supported devices.

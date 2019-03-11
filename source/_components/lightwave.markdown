@@ -13,7 +13,7 @@ ha_category:
   - Light
   - Switch
 ha_release: 0.84
-ha_iot_class: "Assumed State"
+ha_iot_class: Assumed State
 redirect_from:
   - /components/light.lightwave/
   - /components/switch.lightwave/

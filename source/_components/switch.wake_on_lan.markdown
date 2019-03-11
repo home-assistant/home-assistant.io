@@ -10,7 +10,7 @@ footer: true
 logo: ethernet.png
 ha_category: Network
 ha_release: 0.16
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: philips.png
 ha_category: Light
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.53
 ---
 

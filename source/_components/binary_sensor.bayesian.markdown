@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Utility
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.53
 ha_qa_scale: internal
 ---
@@ -71,7 +71,7 @@ observations:
     value_template:
       description: Defines the template to be used.
       required: true (for `template`)
-      type: template         
+      type: template
     prob_given_true:
       description: The probability of the observation occurring, given the event is `true`.
       required: true
@@ -84,7 +84,7 @@ observations:
     to_state:
       description: The target state.
       required: true (for `state`)
-      type: string    
+      type: string
 {% endconfiguration %}
 
 ## {% linkable_title Full examples %}

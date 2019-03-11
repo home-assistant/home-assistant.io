@@ -8,7 +8,7 @@ sharing: true
 footer: true
 logo: hook.png
 ha_category: Switch
-ha_iot_class: "Assumed State"
+ha_iot_class: Assumed State
 ha_release: 0.34
 ---
 

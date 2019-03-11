@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: swiss-hydrological-data.png
 ha_category: Environment
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.22
 ---
 

@@ -10,7 +10,7 @@ footer: true
 logo: zigbee.png
 ha_category: Switch
 ha_release: 0.12
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 A Zigbee switch in this context is a device connected to one of the digital output pins on a Zigbee module. It can simply be switched on and off. By default, a switch is considered `on` when the Zigbee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.

@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Fan
 ha_release: 0.27
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
 
 The `mqtt` fan platform lets you control your MQTT enabled fans.

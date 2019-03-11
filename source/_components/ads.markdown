@@ -15,7 +15,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: "0.60"
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.ads/
   - /components/light.ads/
@@ -49,7 +49,7 @@ device:
   required: true
   type: string
 port:
-  description: The port that runs the AMS server on the device, typically this would be 801 or 851.  
+  description: The port that runs the AMS server on the device, typically this would be 801 or 851.
   required: true
   type: integer
 ip_address:
@@ -137,7 +137,7 @@ name:
 
 ## {% linkable_title Sensor %}
 
-The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*. 
+The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
 To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
 file:

@@ -20,8 +20,8 @@ ha_category:
   - Sensor
   - Scene
   - Switch
-ha_release: "0.87"
-ha_iot_class: "Cloud Push"
+ha_release: 0.87
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/smartthings.binary_sensor/
   - /components/binary_sensor.smartthings/
@@ -132,8 +132,8 @@ SmartThings represents devices as a set of [capabilities](https://smartthings.de
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
-- [Fan](#fan) 
-- [Light](#light) 
+- [Fan](#fan)
+- [Light](#light)
 - [Lock](#lock)
 - [Sensor](#sensor)
 - [Scene](#scene)

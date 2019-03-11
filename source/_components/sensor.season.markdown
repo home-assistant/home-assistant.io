@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Utility
 logo: home-assistant.png
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.53
 ha_qa_scale: internal
 ---

@@ -10,7 +10,7 @@ footer: true
 logo: pushbullet.png
 ha_category: Sensor
 ha_release: 0.44
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `pushbullet` sensor platform reads messages from [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends. This sensor platform provides sensors that show the properties of the latest received Pushbullet notification mirror.

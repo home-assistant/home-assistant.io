@@ -12,7 +12,7 @@ ha_category:
   - Hub
   - Sensor
 ha_release: 0.82
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/sensor.greeneye_monitor/
 ---

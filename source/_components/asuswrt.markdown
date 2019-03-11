@@ -13,7 +13,7 @@ ha_category:
   - Presence Detection
   - Sensor
 ha_release: 0.83
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/device_tracker.asuswrt/
   - /components/sensor.asuswrt/
@@ -128,21 +128,21 @@ Follow these steps to setup the link.
 2. Run the following command to find the file:
 
 ```bash
-$ find / -name "dnsmasq.leases" 
+$ find / -name "dnsmasq.leases"
 ```
 3. Copy or remember the full path of, example: `/tmp/dnsmasq.leases`
-4. Create the folder if it does not exist: 
+4. Create the folder if it does not exist:
 
 ```bash
 $ mkdir -p /var/lib/misc
 ```
-5. Add the linking process to the routers started script (one line): 
+5. Add the linking process to the routers started script (one line):
 
 ```bash
 $ echo "/bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases" >> /etc/storage/started_script.sh
 ```
 
-6. Reboot the router or link the file: 
+6. Reboot the router or link the file:
 
 ```bash
 $ /bin/ln -s /tmp/dnsmasq.leases /var/lib/misc/dnsmasq.leases

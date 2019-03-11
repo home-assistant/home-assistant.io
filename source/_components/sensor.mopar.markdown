@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: mopar.png
 ha_category: Car
-featured: false
 ha_release: 0.53
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `mopar` sensor provides the following for owners of FCA vehicles with a uConnect subscription:

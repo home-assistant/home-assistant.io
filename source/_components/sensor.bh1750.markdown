@@ -10,7 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: DIY
 ha_release: 0.48
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `bh1750` sensor platform allows you to read the ambient light level in Lux from a [BH1750FVI sensor](http://cpre.kmutnb.ac.th/esl/learning/bh1750-light-sensor/bh1750fvi-e_datasheet.pdf) connected via [I2c](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the resolution modes of the sensor described in its datasheet.

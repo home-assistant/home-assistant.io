@@ -10,7 +10,7 @@ footer: true
 logo: netbeheernederland.jpg
 ha_category: Energy
 ha_release: 0.34
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter Requirements), also known as 'Slimme meter' or 'P1 poort'.

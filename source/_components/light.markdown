@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: pre 0.7
 ---
 
 This component allows you to track and control various light bulbs. Read the platform documentation for your particular light hardware to learn how to enable it.

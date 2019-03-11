@@ -10,7 +10,7 @@ footer: true
 logo: telegram.png
 ha_category: Hub
 ha_release: 0.42
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.

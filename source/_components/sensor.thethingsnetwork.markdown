@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: thethingsnetwork.png
 ha_category: Sensor
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.55
 ---
 

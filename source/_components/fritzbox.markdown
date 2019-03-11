@@ -14,7 +14,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.68
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.fritzbox/
   - /components/switch.fritzbox/

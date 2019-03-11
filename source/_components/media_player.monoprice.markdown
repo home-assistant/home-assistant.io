@@ -10,7 +10,7 @@ footer: true
 logo: monoprice.svg
 ha_category: Media Player
 ha_release: 0.56
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `monoprice` platform allows you to control [Monoprice 6-Zone Amplifier](https://www.monoprice.com/product?p_id=10761) using a serial connection.

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: logbook.png
 ha_category: "History"
+ha_release: 0.7
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />

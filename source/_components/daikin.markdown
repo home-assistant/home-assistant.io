@@ -12,7 +12,7 @@ ha_category:
   - Climate
   - Sensor
 ha_release: 0.59
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/climate.daikin/
   - /components/sensor.daikin/

@@ -12,7 +12,7 @@ ha_category:
   - Scene
   - Cover
 ha_release: 0.49
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/scene.velux/
   - /components/cover.velux/

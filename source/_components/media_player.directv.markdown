@@ -10,7 +10,7 @@ footer: true
 logo: directv.png
 ha_category: Media Player
 ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery component](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
@@ -100,4 +100,4 @@ Available services: turn_on, turn_off, media_play, media_pause, media_stop, medi
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.                                                                                                                       |
 | `media_content_id`     |       no | The channel number to change to.                   |
-| `media_content_type`   |       no | A media type. Has to be `channel`. 
+| `media_content_type`   |       no | A media type. Has to be `channel`.

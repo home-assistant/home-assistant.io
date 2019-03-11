@@ -10,7 +10,7 @@ footer: true
 logo: restful.png
 ha_category: Sensor
 ha_release: 0.7.4
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 

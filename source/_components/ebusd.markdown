@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_iot_class: "Local Polling"
-ha_release: "0.88"
+ha_iot_class: Local Polling
+ha_release: 0.88
 redirect_from:
   - /components/sensor.ebusd/
 ---

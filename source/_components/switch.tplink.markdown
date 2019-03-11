@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: tp-link.png
 ha_category: Switch
-ha_iot_class: "Local Polling"
-ha_release: "0.24"
+ha_iot_class: Local Polling
+ha_release: 0.24
 ---
 
 The `tplink` switch platform allows you to control the state of your [TP-Link smart switch](http://www.tp-link.com/en/products/list-5258.html).
