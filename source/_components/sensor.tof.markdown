@@ -12,10 +12,10 @@ ha_category:
   - DIY
   - Sensor
 ha_release: "0.90"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
-The Time of Flight sensor uses a invisible laser to measure distance with millimeter resolution.
+The Time of Flight sensor uses an invisible laser to measure distance with millimeter resolution.
 
 Tested devices:
 
@@ -58,7 +58,7 @@ xshut:
 
 ## {% linkable_title Example %}
 
-The distance is measured in millimiters, according to the VL53L1X specifications.
+The distance is measured in millimeters, according to the VL53L1X specifications.
 
 ```yaml
 # Example of customized configuration.yaml entry
@@ -72,7 +72,7 @@ Several devices may be attached and a GPIO port from RPI is used for reset. XSHU
 
 ## {% linkable_title Directions for installing i2c on Raspberry Pi %}
 
-Enable I2c interface with the Raspberry Pi configuration utility:
+Enable the I2c interface with the Raspberry Pi configuration utility:
 
 ```bash
 # pi user environment: Enable i2c interface
