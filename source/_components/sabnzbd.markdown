@@ -64,6 +64,11 @@ ssl:
   required: false
   default: false
   type: boolean
+urlbase:
+  description: The base URL SABnzbd is running under.
+  required: false
+  default: /
+  type: string
 {% endconfiguration %}
 
 Available sensors are:
