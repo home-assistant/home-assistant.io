@@ -63,6 +63,10 @@ tts:
     base_url: http://192.168.0.10:8123
 ```
 
+<p class='note'>
+In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the `base_url` that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
+</p>
+
 ## {% linkable_title When do you need to set `base_url` here? %}
 
 The general answer is "whenever the global `base_url` set in [http component](/components/http/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
