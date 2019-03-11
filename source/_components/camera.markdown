@@ -81,7 +81,6 @@ Play a live stream from a camera to selected media player(s).  Requires `stream`
 | `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.living_room_camera`. |
 | `media_player`            |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
 | `format`            |      yes  | Stream format supported by `stream` component and selected `media_player`. (default: `hls`) |
-| `keepalive`            |      yes  | Keep stream worker alive to enable faster load on subsequent service calls. (default: `false`) |
 
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
