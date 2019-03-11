@@ -40,10 +40,25 @@ media_player:
     type: boolean
     default: false
   port:
-    description: Port which Openwebif is listening on.
+    description: Port which OpenWebif is listening on.
     required: false
     type: integer
     default: 80
+  username:
+    description: The username of a user with privileges to access the box. This is only required if you have enabled the setting "Enable HTTP Authentication" in OpenWebif settings: _(on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_
+    required: false
+    type: string
+    default: `root`
+  password:
+    description: The password for your given account. Again, this is only required if you have enabled the setting "Enable HTTP Authentication" in OpenWebif settings: _(on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_
+    required: false
+    type: string
+    default: `dreambox`
+  ssl:
+    description: Use HTTPS instead of HTTP to connect. This is only required if you have enabled the setting "Enable HTTPS" in OpenWebif settings: _(on the remote by pressing `Menu`>`Plugins`>`OpenWebif`)_
+    required: false
+    type: boolean
+    default: false
   name:
     description: A name for easy identification of the device.
     required: false
