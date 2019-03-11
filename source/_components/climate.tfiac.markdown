@@ -25,7 +25,7 @@ To add your Tfiac device into your Home Assistant installation, add the followin
 # Full manual example configuration.yaml entry
 climate:
   - platform: tfiac
-    host: 192.168.1.108
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
