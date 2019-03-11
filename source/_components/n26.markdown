@@ -28,7 +28,7 @@ Add the following entry to the `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 n26:
-  username: "myn26@email.com"
+  username: YOUR_EMAIL
   password: YOUR_PASSWORD
   card_id: CARD_ID
 ```
