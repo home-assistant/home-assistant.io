@@ -13,7 +13,6 @@ ha_release: "0.90"
 ha_iot_class: Local Polling
 ---
 
-
 This platform allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
 
 Supported platforms (tested):
@@ -50,4 +49,4 @@ api_key:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
