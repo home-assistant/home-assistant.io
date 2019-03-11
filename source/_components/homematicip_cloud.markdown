@@ -17,6 +17,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Weather
 ha_iot_class: "Cloud Push"
 ha_release: 0.66
 featured: false
