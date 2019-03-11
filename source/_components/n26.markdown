@@ -30,7 +30,7 @@ Add the following entry to the `configuration.yaml` file:
 n26:
   username: "myn26@email.com"
   password: "secret"
-  card_id: "0123456789"
+  card_id: CARD_ID
 ```
 
 {% configuration %}
