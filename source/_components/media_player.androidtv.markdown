@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: androidtv.png
+redirect_from: /components/media_player.firetv/
 ha_category: Media Player
 ha_release: 0.7.6
 ha_iot_class: "Local Polling"
