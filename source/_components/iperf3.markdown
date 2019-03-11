@@ -31,10 +31,9 @@ Once per hour, on the hour (default):
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: iperf3
-    hosts:
-      - host: iperf.he.net
+iperf3:
+  hosts:
+    - host: iperf.he.net
 ```
 
 {% configuration %}
