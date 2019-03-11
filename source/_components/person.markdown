@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Person"
-description: "Instructions on how to setup people tracking within Home Assistant."
+description: "Instructions on how to set up people tracking within Home Assistant."
 date: 2019-02-05 22:36
 sidebar: true
 comments: false
@@ -13,26 +13,26 @@ ha_qa_scale: internal
 ha_release: 0.88
 ---
 
-The person component allows to connect device tracker entities to one or more person entities. The state updates of a connected device trackers will set the state of the person. When multiple device tracers used, the state of person will be determined next way:
+The person component allows connecting device tracker entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers used, the state of person will be determined next way:
 
-1. If there are stationary sources (which type is not 'gps') presenting status 'home', than latest of this sources will be taken.
-2. If there are sources of type 'gps', than latest of this sources will be taken.
-3. Otherwise will be taken latest source with status 'not_home'.
+1. If there are stationary sources (which type is not 'gps') presenting status 'home', the latest of these sources will be taken.
+2. If there are sources of type 'gps', then the latest of these sources will be taken.
+3. Otherwise will be taken the latest source with status 'not_home'.
 
-Lets say for example, that you have 3 trackers: 'tracker_gps', 'tracker_router' and 'tracker_ble'.
+Let's say, for example, that you have 3 trackers: 'tracker_gps', 'tracker_router' and 'tracker_ble'.
 
-1. You're at home, all 3 devices shows status 'home' - status of your Person entity will be 'home' with source 'tracker_router' or 'tracker_ble', whatever was latest.
-2. You're going out. 'tracker_gps' shows status 'not_home', but other two trackers show status 'home' according to their setting 'consider_home'. You are still considered to be at home.
+1. You're at home, all 3 devices show status 'home' - status of your Person entity will be 'home' with source 'tracker_router' or 'tracker_ble', whatever was latest.
+2. You're going out. 'tracker_gps' shows status 'not_home', but the other two trackers show status 'home' according to their setting 'consider_home'. You are still considered to be at home.
 3. After some time both stationary trackers show status 'not_home'. Now your Person entity has status 'not_home' with source 'tracker_gps'.
-4. While you are outside your home, your Home Assistant was suddenly restarted. Until 'tracker_gps' receives update, your status will be determined by stationary tracker, which gets latest update after restart. Obviously the status will be 'not_home'.
-5. Than you're going into area marked as 'zone1', 'tracker_gps' is getting update, and now your status is 'zone1' with source 'tracker_gps'.
-6. You've returned home, and your mobile device has connected to router, but GPS update yet didn't occur. Your status will be 'home' with source 'tracker_router'.
-7. After GPS update occurs, your status still be 'home' with source 'tracker_router' or 'tracker_ble', whatever updates later.
+4. While you are outside your home, your Home Assistant was suddenly restarted. Until 'tracker_gps' receives an update, your status will be determined by stationary tracker, which gets the latest update after a restart. Obviously, the status will be 'not_home'.
+5. Then you're going into the area marked as 'zone1', 'tracker_gps' is getting an update, and now your status is 'zone1' with source 'tracker_gps'.
+6. You've returned home and your mobile device has connected to the router, but GPS update yet didn't occur. Your status will be 'home' with source 'tracker_router'.
+7. After the GPS update occurs, your status will still be 'home' with source 'tracker_router' or 'tracker_ble', whatever updates latest.
 
 TL;DR: When you're at home, your position is determined firstly by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined firstly by GPS and then by stationary trackers.
 
 
-**Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home`for stationary trackers as low as possible.
+**Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible.
 
 
 You can manage persons via the UI from the person page inside the configuration panel or via `YAML`.
