@@ -29,7 +29,7 @@ Add the following entry to the `configuration.yaml` file:
 # Example configuration.yaml entry
 n26:
   username: "myn26@email.com"
-  password: "secret"
+  password: YOUR_PASSWORD
   card_id: CARD_ID
 ```
 
