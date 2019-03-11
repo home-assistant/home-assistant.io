@@ -163,6 +163,7 @@ The SmartThings Climate platform lets you control devices that have air conditio
 #### {% linkable_title Air Conditioners %}
 
 For a SmartThings Air Conditioner to be represented by the climate platform, it must have all of the following required capabilities:
+
 | Capability                          |Climate Features
 |-------------------------------------|--------------------------------------------|
 | [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode) (required)            | `operation mode`
