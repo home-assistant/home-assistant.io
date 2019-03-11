@@ -1,32 +1,33 @@
 ---
 layout: page
-title: "Fire TV"
+title: "Android TV"
 description: "Instructions on how to integrate Android TV and Fire TV devices into Home Assistant."
 date: 2015-10-23 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: firetv.png
+logo: androidtv.png
 ha_category: Media Player
 ha_release: 0.7.6
 ha_iot_class: "Local Polling"
 ---
 
 
-The `firetv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
+The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
-Steps to configure your Amazon Fire TV with Home Assistant:
+To setup your device, you will need to find its IP address and enable ADB debugging. For Android TV devices, please consult the documentation for your device.
+
+For Fire TV devices, the instructions are as follows:
 
 - Turn on ADB Debugging on your Amazon Fire TV:
   - From the main (Launcher) screen, select Settings.
   - Select System > Developer Options.
   - Select ADB Debugging.
-- Find Amazon Fire TV device IP:
+- Find Amazon Fire TV device IP address:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 
-For Android TV devices, you will need to enable ADB debugging. Please consult the documentation for your device.
 
 
 ## {% linkable_title Configuration %}
@@ -35,19 +36,19 @@ For Android TV devices, you will need to enable ADB debugging. Please consult th
 # Example configuration.yaml entry
 media_player:
   # Use the Python ADB implementation without authentication
-  - platform: firetv
-    name: Fire TV 1
+  - platform: androidtv
+    name: Android TV 1
     host: 192.168.0.111
 
   # Use the Python ADB implementation with authentication
-  - platform: firetv
-    name: Fire TV 2
+  - platform: androidtv
+    name: Android TV 2
     host: 192.168.0.222
     adbkey: "/config/android/adbkey"
 
   # Use an ADB server for sending ADB commands
-  - platform: firetv
-    name: Fire TV 3
+  - platform: androidtv
+    name: Android TV 3
     host: 192.168.0.123
     adb_server_ip: 127.0.0.1
 ```
@@ -60,7 +61,7 @@ host:
 name:
   description: The friendly name of the device.
   required: false
-  default: Amazon Fire TV
+  default: Android TV
   type: string
 port:
   description: The port for your Android TV / Fire TV device.
@@ -103,23 +104,24 @@ device_class:
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  # Use the Python ADB implementation with authentication,
-  # don't get the running apps, and provide an app name
-  - platform: firetv
+  # Use an ADB server to setup an Android TV device
+  # and provide an app name
+  - platform: androidtv
+    name: Android TV
+    device_class: androidtv
+    host: 192.168.0.222
+    adb_server_ip: 127.0.0.1
+    apps:
+      com.amazon.tv.launcher: "Fire TV"
+
+  # Use the Python ADB implementation with authentication
+  # to setup a Fire TV device and don't get the running apps
+  - platform: androidtv
     name: Fire TV
     device_class: firetv
     host: 192.168.0.222
     adbkey: "/config/android/adbkey"
     get_sources: false
-    apps:
-      com.amazon.tv.launcher: "Fire TV"
-
-  # Use an ADB server to setup an Android TV device
-  - platform: firetv
-    name: Android TV
-    device_class: androidtv
-    host: 192.168.0.222
-    adb_server_ip: 127.0.0.1
 ```
 
 
@@ -156,7 +158,7 @@ Copy the `adbkey` and `adbkey.pub` files to your Home Assistant folder and add t
 
 #### {% linkable_title ADB Troubleshooting %}
 
-If you receive the error message `Issue: Error while setting up platform firetv` in your log when trying to set up an Android TV or Fire TV device with an ADB key, then there is probably an issue with your ADB key.  Here are some possible causes.
+If you receive the error message `Issue: Error while setting up platform androidtv` in your log when trying to set up an Android TV or Fire TV device with an ADB key, then there is probably an issue with your ADB key.  Here are some possible causes.
 
 1. ADB is not enabled on your device.
 
@@ -192,7 +194,7 @@ stop_netflix:
 
 ### {% linkable_title `firetv.adb_command` %}
 
-The service `firetv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device.
+The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -203,9 +205,9 @@ In an [action](/getting-started/automation-action/) of your [automation setup](/
 
 ```yaml
 action:
-  service: firetv.adb_command
+  service: androidtv.adb_command
   data:
-    entity_id: media_player.fire_tv_living_room
+    entity_id: media_player.androidtv_tv_living_room
     command: "HOME"
 ```
 
