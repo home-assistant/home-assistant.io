@@ -97,7 +97,7 @@ options:
 
 ## {% linkable_title Dynamic Configuration %}
 
-Tracking can be setup to track entities of type `device_tracker`, `zone` and `sensor`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
+Tracking can be setup to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
 ```yaml
 # Example entry for configuration.yaml
