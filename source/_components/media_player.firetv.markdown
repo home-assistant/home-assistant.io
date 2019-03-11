@@ -81,7 +81,7 @@ adb_server_port:
   default: 5037
   type: port
 get_sources:
-  description: Whether or not to retrieve the running apps as the list of sources.
+  description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
   required: false
   default: true
   type: boolean
