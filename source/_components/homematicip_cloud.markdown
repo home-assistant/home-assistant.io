@@ -17,7 +17,6 @@ ha_category:
   - Light
   - Sensor
   - Switch
-  - Weather
 ha_iot_class: "Cloud Push"
 ha_release: 0.66
 featured: false
@@ -29,7 +28,6 @@ redirect_from:
   - /components/light.homematicip_cloud/
   - /components/sensor.homematicip_cloud/
   - /components/switch.homematicip_cloud/
-  - /components/weather.homematicip_cloud/
 ---
 
 The [HomematicIP](http://www.homematic-ip.com) component platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
