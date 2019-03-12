@@ -8,11 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "Other"
-ha_release: 0.90
+ha_category: 
+  - Other
+ha_release: "0.90"
+ha_iot_class: Local Push
+ha_qa_scale: internal
 ---
 
-The Stream component provides a way to proxy live streams through Home Assistant.  The component currently only supports the HLS format.
+The Stream component provides a way to proxy live streams through Home Assistant. The component currently only supports the HLS format.
 
 Add the following to your configuration.yaml file.
 ```yaml

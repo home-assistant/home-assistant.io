@@ -74,7 +74,7 @@ action:
 
 #### {% linkable_title Service `play_stream` %}
 
-Play a live stream from a camera to selected media player(s).  Requires `stream` component to be set up.
+Play a live stream from a camera to selected media player(s). Requires `stream` component to be set up.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -84,7 +84,6 @@ Play a live stream from a camera to selected media player(s).  Requires `stream`
 
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
-{% raw %}
 ```yaml
 action:
   service: camera.play_stream
@@ -92,7 +91,6 @@ action:
     entity_id: camera.yourcamera
     media_player: media_player.chromecast
 ```
-{% endraw %}
 
 ### {% linkable_title Test if it works %}
 
