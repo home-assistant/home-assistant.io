@@ -1,0 +1,58 @@
+---
+layout: page
+title: "IntesisHome AC Controller"
+description: "Instructions how to integrate IntesisHome AC devices with Home Assistant"
+date: 2019-03-12 00:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: intesishome.png
+ha_category: Climate
+ha_release: 
+ha_iot_class: "Cloud Push"
+---
+
+The `IntesisHome` climate platform let you control [IntesisHome](https://www.intesishome.com) devices. IntesisHome provide integrations with air conditioners including including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
+
+To set it up, add the following information to your `configuration.yaml` file:
+
+```yaml
+climate:
+  - platform: intesishome
+    username: YOUR_USERNAME
+    password: !secret intesishome_password
+```
+
+The password must be stored in your `secrets.yaml` file:
+```yaml
+intesishome_password: YOUR_PASSWORD
+```
+
+{% configuration %}
+username:
+  description: Your username for IntesisHome
+  required: true
+  type: string
+password:
+  description: Your 
+  required: true
+  type: string
+{% endconfiguration %}
+
+- **username** (*Required*): Username of an account authorised to control your IntesisHome device on [IntesisHome.com](https://user.intesishome.com).
+- **password** (*Required*): Password for the IntesisHome account.
+
+This component opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
+
+By default the component will be named using the friendly device name from the IntesisHome website or application.
+
+### {% linkable_title Supported services %}
+Available services: 
+- `climate.set_temperature`
+- `climate.set_fan_mode`
+- `climate.set_operation_mode`
+- `climate.set_swing_mode`
+- `climate.turn_on`
+- `climate.turn_off`
+
