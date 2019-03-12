@@ -10,7 +10,7 @@ footer: true
 logo: vizio-smartcast.png
 ha_category: Media Player
 featured: false
-ha_release: 0.89
+ha_release: "0.90"
 ha_iot_class: "Local Polling"
 ---
 
