@@ -24,11 +24,6 @@ climate:
     password: YOUR_PASSWORD
 ```
 
-The password must be stored in your `secrets.yaml` file:
-```yaml
-intesishome_password: YOUR_PASSWORD
-```
-
 {% configuration %}
 username:
   description: Your username for IntesisHome
