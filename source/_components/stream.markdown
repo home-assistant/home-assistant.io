@@ -15,9 +15,13 @@ ha_iot_class: Local Push
 ha_qa_scale: internal
 ---
 
-The Stream component provides a way to proxy live streams through Home Assistant. The component currently only supports the HLS format.
+The `stream` component provides a way to proxy live streams through Home Assistant. The component currently only supports the HLS format.
 
-Add the following to your configuration.yaml file.
+## {% linkable_title Configuration %}
+
+To enable the random binary sensor, add the following lines to your `configuration.yaml` file:
+
 ```yaml
+# Example configuration.yaml entry
 stream:
 ```
