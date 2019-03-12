@@ -72,7 +72,7 @@ trusted_proxies:
   type: string, list
 trusted_networks:
   description: "List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` and `trusted_proxies` options enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP."
-  Configuring trusted_networks via the `http` component will be deprecated and moved to `auth_providers` instead. For instructions, see https://www.home-assistant.io/docs/authentication/providers/#trusted-networks. To avoid the warning message in Home Assistant 0.89 place the trusted network under both `http` and `auth_providers`.
+  Configuring trusted_networks via the `http` component will be deprecated and moved to `auth_providers` instead. For instructions, see https://www.home-assistant.io/docs/authentication/providers/#trusted-networks. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2
   required: false
   type: string, list
 ip_ban_enabled:
