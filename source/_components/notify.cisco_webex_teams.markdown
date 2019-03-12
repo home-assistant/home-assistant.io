@@ -104,23 +104,23 @@ Here are the automations for the above screenshot:
 
 The following is a list of the allowed html tags and attributes:
 
-`<@personEmail:email@examplecompany.com>`
-`<b>` 
-`<strong>` 
-`<i>` 
-`<em>`
-`<pre>`
-`<code>`
-`<br>`
-`<p>`
-`<ul>`
-`<ol>`
-`<li>`
-`<a>` with allowed attribute `href`
-`<blockquote>` with allowed attribute `class` and allowed values `danger`, `warning`, `info`, `primary`, `secondary`
-`<h1>`
-`<h2>`
-`<h3>`
+Tag | More Info
+--- | --- 
+`<@personEmail:email@examplecompany.com>` | Used to tag another Webex Team user by email address. 
+`<a>`  | Defines a hyperlink. Allows attribute `href`.
+`<blockquote>`  | Defines a section that is quoted from another source. Allows attribute `class` with allowed values `danger`, `warning`, `info`, `primary`, `secondary`.
+`<b>` | Defines bold text.
+`<strong>`  | Defines important text.
+`<i>`  | Defines italic text.
+`<em>` | Defines emphasized text.
+`<pre>` | Defines preformatted text.
+`<code>` | Defines a piece of computer code.
+`<br>` | Defines a single line break.
+`<p>` | Defines a paragraph.
+`<ul>` | Defines an unordered list.
+`<ol>` | Defines an ordered list.
+`<li>` | Defines a list item.
+`<h1>` to `<h3>` | Defines HTML headings.
 
 {% configuration %}
 name:
