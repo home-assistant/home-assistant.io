@@ -12,7 +12,7 @@ ha_category: Notifications
 ha_release: "0.40"
 ---
 
-The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html).
+The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark).
 
 To use this notification platform you will simply need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). 
 * Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
