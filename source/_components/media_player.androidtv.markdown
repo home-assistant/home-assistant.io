@@ -193,7 +193,7 @@ stop_netflix:
 ```
 
 
-### {% linkable_title `firetv.adb_command` %}
+### {% linkable_title `androidtv.adb_command` %}
 
 The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device.
 
