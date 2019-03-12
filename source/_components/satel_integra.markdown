@@ -66,11 +66,11 @@ partitions:
   required: true
   type: [integer, list]
   keys:
-  name:
+    name:
       description: Name of the partition.
       required: true
       type: string    
-  arm_home_mode:
+    arm_home_mode:
       description: The mode in which arm the partition when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what are the differences between them, please refer to Satel Integra manual.
        required: false
        default: 1
@@ -112,7 +112,6 @@ switchable_outputs:
       description: Name of the output.
       required: true
       type: string
-    
 {% endconfiguration %}
 
 ## {% linkable_title Full examples %}
