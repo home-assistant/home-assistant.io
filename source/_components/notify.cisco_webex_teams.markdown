@@ -1,0 +1,146 @@
+---
+layout: page
+title: "Cisco Webex Teams"
+description: "Instructions on how to add Cisco Webex Teams notifications to Home Assistant."
+date: 2017-02-20 15:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+logo: cisco_webex_teams.png
+ha_category: Notifications
+ha_release: "0.40"
+---
+
+The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html).
+
+To use this notification platform you will simply need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
+
+You also need to specify the `Cisco Webex Teams` `roomid`. The `roomid` can also be found at [Cisco Webex for Developers](https://developer.webex.com/). Just look in the Documentation under Rooms. **Note:** you must add the bot as a participant to the room specified here, in order for the bot to have permission to post in that room.
+
+To enable this platform in your installation, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: NOTIFIER_NAME
+    platform: cisco_webex_teams
+    token: YOUR_BOT_TOKEN
+    roomid: CISCO_WEBEX_TEAMS_ROOMID
+```
+
+## {% linkable_title Rich Text Formatting %}
+
+Webex Teams clients can render rich text via a whitelisted set of html tags. 
+
+For example, you could configure automations to display details in an easy to read fashion like so:
+
+<p class='img'>
+<img src='/images/components/cisco_webex_teams/rich_formatting.png' />
+Rich text as displayed in the macOS client.
+</p>
+
+Here are the automations for the above screenshot:
+
+```yaml
+
+# Rich Text Example 1.
+# Show a one line message with a red banner
+- alias: "Notify On Build Failing"
+  trigger:
+    - platform: webhook
+      webhook_id: build_failed
+  action:
+    service: notify.cisco_webex_teams_notify
+    data:
+      message: "<blockquote class=danger>Build 0.89.5 compile failed."
+
+
+# Rich Text Example 2.
+# Show a title and multi-line message with a yellow banner, 
+# with lists, a person mention and a link
+- alias: "Notify On Build Unstable"
+  trigger:
+    - platform: webhook
+      webhook_id: build_unstable
+  action:
+    service: notify.cisco_webex_teams_notify
+    data:
+      title: "<strong>Build 0.89.6 is unstable.</strong>"
+      message: "<blockquote class=warning>Version 0.89.6 failed verifications.
+      
+      <ul>
+        <li> test_osx
+        <li> test_win_lint
+
+        <li>... and 4 more.
+      </ul>
+      <p><@personEmail:sparkbotjeeves@sparkbot.io></p>
+      <p><small><i>View <a href='https://demo/testReport/'>Test Report</a></i></small><br></p>
+      "
+
+# Rich Text Example 3.
+# Show a title and multi-line message with a blue banner, 
+# with lists, a person mention and a link
+- alias: "Notify On Build Passing"
+  trigger:
+    - platform: webhook
+      webhook_id: build_passed
+  action:
+    service: notify.cisco_webex_teams_notify
+    data:
+      title: "<strong>✅ Version 0.89.7 passed all tests and deployed to production!</strong>"
+      message: "<blockquote class=info>Version 0.89.7 passed all verifications.
+      
+      <ul>
+        <li> test_cov
+        <li> test_osx
+        <li> test_win
+        <li> test_linux
+        <li>... and 45 more.
+      </ul>
+      "
+```
+
+The following is a list of the allowed html tags and attributes:
+
+`<@personEmail:email@examplecompany.com>`
+`<b>` 
+`<strong>` 
+`<i>` 
+`<em>`
+`<pre>`
+`<code>`
+`<br>`
+`<p>`
+`<ul>`
+`<ol>`
+`<li>`
+`<a>` with allowed attribute `href`
+`<blockquote>` with allowed attribute `class` and allowed values `danger`, `warning`, `info`, `primary`, `secondary`
+`<h1>`
+`<h2>`
+`<h3>`
+
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+token:
+  description: Your app (bot) token.
+  required: true
+  type: string
+roomid:
+  description: The Room ID.
+  required: true
+  type: string
+is_html:
+  description: If set to true, then messages with be formatted with basic html in the Webex Teams clients.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
