@@ -11,7 +11,7 @@ logo: streamlabswater.png
 ha_category:
   - Binary Sensor
   - Sensor
-ha_release: 0.89
+ha_release: 0.90
 ha_iot_class: "Cloud Polling"
 redirect_from:
   - /components/binary_sensor.streamlabswater/
