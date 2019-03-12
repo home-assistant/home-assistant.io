@@ -21,7 +21,7 @@ To set it up, add the following information to your `configuration.yaml` file:
 climate:
   - platform: intesishome
     username: YOUR_USERNAME
-    password: !secret intesishome_password
+    password: YOUR_PASSWORD
 ```
 
 The password must be stored in your `secrets.yaml` file:
