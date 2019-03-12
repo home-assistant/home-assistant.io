@@ -14,9 +14,18 @@ ha_release: "0.40"
 
 The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html).
 
-To use this notification platform you will simply need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
+To use this notification platform you will simply need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). 
+* Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
-You also need to specify the `Cisco Webex Teams` `roomid`. The `roomid` can also be found at [Cisco Webex for Developers](https://developer.webex.com/). Just look in the Documentation under Rooms. **Note:** you must add the bot as a participant to the room specified here, in order for the bot to have permission to post in that room.
+You also need to specify the `Cisco Webex Teams` `roomid`. The `roomid` can also be found by:
+
+1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) then 
+ * navigate the menu `Documentation`>`API Reference`>`Messages` and list messages, or 
+2. logging in using the web client at [teams.webex.com](https://teams.webex.com/), 
+ * selecting the room, 
+ * then copying the room ID from the URL. 
+ 
+<strong>**Note:** you must add the bot as a participant to the room specified here, in order for the bot to have permission to post in that room.</strong>
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -136,11 +145,6 @@ roomid:
   description: The Room ID.
   required: true
   type: string
-is_html:
-  description: If set to true, then messages with be formatted with basic html in the Webex Teams clients.
-  required: false
-  default: false
-  type: boolean
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
