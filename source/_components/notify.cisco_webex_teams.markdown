@@ -14,18 +14,17 @@ ha_release: "0.40"
 
 The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark).
 
-To use this notification platform you will simply need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). 
+To use this notification platform you will need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). 
 * Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
-You also need to specify the `Cisco Webex Teams` `roomid`. The `roomid` can also be found by:
+You also need to specify the `roomid` that you wish to post messages into. The `roomid` can be found in one of two ways:
 
-1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) then 
- * navigate the menu `Documentation`>`API Reference`>`Messages` and list messages, or 
-2. logging in using the web client at [teams.webex.com](https://teams.webex.com/), 
- * selecting the room, 
+1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or 
+2. Log into the web client at [teams.webex.com](https://teams.webex.com/), 
+ * select the room (or create a new room), 
  * then copying the room ID from the URL. 
  
-<strong>**Note:** you must add the bot as a participant to the room specified here, in order for the bot to have permission to post in that room.</strong>
+<strong>**Note:** you must add the bot email (in the format `mybot@webex.bot`) as a participant to the room specified above.</strong>
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
