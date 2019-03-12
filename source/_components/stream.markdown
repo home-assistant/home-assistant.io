@@ -19,7 +19,7 @@ The `stream` component provides a way to proxy live streams through Home Assista
 
 ## {% linkable_title Configuration %}
 
-To enable the random binary sensor, add the following lines to your `configuration.yaml` file:
+To enable this component, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
