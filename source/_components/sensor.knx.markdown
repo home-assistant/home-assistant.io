@@ -29,7 +29,6 @@ sensor:
     address: '2/0/0'
 ```
 
-
 {% configuration %}
 address:
   description: KNX group address of the sensor.
@@ -44,7 +43,6 @@ type:
   required: false
   type: string
 {% endconfiguration %}
-
 
 | type               | unit | expected KNX DPT |
 |--------------------|------|------------------|
@@ -78,8 +76,6 @@ type:
 | 4byte_signed       |      | 13.*             |
 | DPT-14             |      | 14.*             |
 | 4byte_float        |      | 14.*             |
-
-
 
 ## {% linkable_title Full example %}
 

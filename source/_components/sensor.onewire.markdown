@@ -90,4 +90,3 @@ sensor:
     names:
       GENERATED_ID: FRIENDLY_NAME
 ```
-

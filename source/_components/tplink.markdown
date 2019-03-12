@@ -129,4 +129,3 @@ sensor:
         unit_of_measurement: 'kWh'
 ```
 {% endraw %}
-

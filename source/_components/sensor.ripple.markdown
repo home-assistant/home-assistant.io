@@ -13,7 +13,6 @@ ha_release: 0.47
 ha_iot_class: Cloud Polling
 ---
 
-
 The `ripple` sensor platform displays Ripple wallet balances from [Ripple.com](https://ripple.com).
 
 To add the Ripple sensor to your installation, specify a ripple address to watch in the `configuration.yaml` file:
@@ -36,4 +35,3 @@ name:
   type: string
   default: Ripple Balance
 {% endconfiguration %}
-

@@ -15,6 +15,8 @@ ha_release: 0.34
 
 The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](http://networkupstools.org/) (Network UPS Tools) server.
 
+## {% linkable_title Configuration %}
+
 To use this sensor platform, you need to add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -65,7 +67,7 @@ sensor:
     type: list
 {% endconfiguration %}
 
-### {% linkable_title Example %}
+## {% linkable_title Example %}
 
 Given the following example output from NUT (your variables may differ):
 
@@ -127,7 +129,7 @@ sensor:
       - battery.runtime
 ```
 
-### {% linkable_title UPS Status - human-readable version %}
+## {% linkable_title UPS Status - human-readable version %}
 
 An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
 

@@ -13,7 +13,6 @@ ha_release: pre 0.7
 ha_iot_class: Local Push
 ---
 
-
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
 ## {% linkable_title Configuration %}

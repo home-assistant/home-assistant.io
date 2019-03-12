@@ -13,7 +13,6 @@ logo: pi_hole.png
 ha_release: 0.28
 ---
 
-
 The `pi_hole` sensor platform displays the statistical summary of a [Pi-hole](https://pi-hole.net/) system.
 
 ## {% linkable_title Configuration %}

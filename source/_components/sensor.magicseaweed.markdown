@@ -94,5 +94,4 @@ units:
       description: Use US units.
 {% endconfiguration %}
 
-
 Details about the API are available in the [Magicseaweed documentation](https://magicseaweed.com/developer/forecast-api).

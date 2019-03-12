@@ -56,7 +56,6 @@ See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featu
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QZHlhQ7fqrA" frameborder="0" allowfullscreen></iframe>
 </div>
 
-
 ## {% linkable_title Basic requirements %}
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
@@ -129,6 +128,7 @@ Event data payloads are logged at the debug level, see [debugging](#debugging) f
 ## {% linkable_title Platforms %}
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
+
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -275,7 +275,6 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 |-------------------------------------|--------------------------------------------|
 | [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter) | energy consumption (`today_energy_kwh` state attribute)
 | [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter) | power consumption (`current_power_w` state attribute)
-
 
 ## {% linkable_title Troubleshooting %}
 

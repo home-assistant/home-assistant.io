@@ -118,7 +118,7 @@ Each binary_sensor created will be named after the hostname used when configurin
 
 The `zoneminder` camera platform lets you monitor the current stream of your [ZoneMinder](https://www.zoneminder.com) cameras.
 
-## {% linkable_title Configuration %}
+### {% linkable_title Configuration %}
 
 To set it up, add the following information to your `configuration.yaml` file:
 

@@ -21,13 +21,13 @@ When the sensor detects a new call, its state changes to 'ring' for each ring an
 To find the path of your USB modem, run:
 
 ```bash
-$ ls /dev/ttyACM*
+ls /dev/ttyACM*
 ```
 
 If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hassbian) give access to the stick with:
 
 ```bash
-$ sudo usermod -a -G dialout homeassistant
+sudo usermod -a -G dialout homeassistant
 ```
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
@@ -55,7 +55,6 @@ device:
   default: "`/dev/ttyACM0`"
 {% endconfiguration %}
 
-
 To find the path of your USB modem, run:
 
 `$ ls /dev/ttyACM*`
@@ -65,8 +64,6 @@ If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hass
 `$ sudo usermod -a -G dialout homeassistant`
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
-
-
 
 ## {% linkable_title Examples %}
 

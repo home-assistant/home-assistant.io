@@ -13,7 +13,6 @@ ha_release: 0.38
 ha_iot_class: Local Polling
 ---
 
-
 This `openevse` sensor platform pulls data from an [OpenEVSE](https://www.openevse.com/) Charging station equipped with an ESP8266-based wifi connection.
 
 ## {% linkable_title Configuration %}

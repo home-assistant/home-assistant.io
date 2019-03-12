@@ -13,14 +13,12 @@ ha_iot_class: Cloud Polling
 ha_release: 0.11
 ---
 
-### {% linkable_title Basic Configuration %}
-
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a
 [Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) devices.
 
 To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your sensor.
 
-### {% linkable_title Advanced configuration %}
+## {% linkable_title Advanced configuration %}
 
 If you want to select a specific sensor, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
@@ -96,7 +94,7 @@ modules:
           description: Percentage of battery remaining per module.
 {% endconfiguration %}
 
-### {% linkable_title Find your modules name %}
+## {% linkable_title Find your modules name %}
 
 You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters. You have to provide these name in your Home Assistant `configuration.yaml` file.
 

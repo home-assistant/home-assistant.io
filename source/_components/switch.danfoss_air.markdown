@@ -17,6 +17,6 @@ ha_iot_class: Local Polling
 To get your Danfoss Air sensors working with Home Assistant, follow the instructions for the general [Danfoss Air component](/components/danfoss_air/).
 </p>
 
-
 The following switches.
+
 * **Boost:** Switch to manually activate boost.
