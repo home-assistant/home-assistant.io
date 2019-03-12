@@ -35,7 +35,7 @@ username:
   required: true
   type: string
 password:
-  description: Your 
+  description: Your password for IntesisHome
   required: true
   type: string
 {% endconfiguration %}
