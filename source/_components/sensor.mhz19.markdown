@@ -16,6 +16,7 @@ ha_iot_class: "Local Polling"
 The MH-Z19 is a small non-dispersive infrared sensor that can measure CO2 level. High CO2 levels can lead to drowsiness, poor concentration, loss of attention or increased heart rate. The CO2 level outside is around 400ppm, but inside levels can reach between 1000 and 5000 ppm. High CO2 levels indicate that you should increase ventilation.
 
 Check out the [Open Home Automation web site](https://www.open-homeautomation.com/2016/08/24/monitor-co2-levels-in-your-house/) for a quick guide how to connect the sensor to your PC or Raspberry Pi.
+**Note:** the new version MH-Z19B requires the VIN to be connected to a 5V pin, rather than 3.3V.
 
 ## {% linkable_title Configuration %}
 
@@ -44,3 +45,19 @@ sensor:
       - co2
       - temperature
 ```
+
+## {% linkable_title Raspberry Pi 3(+) GPIO UART and Hass.IO %}
+
+To directly connect the sensor on the GPIO pins of a RPi, first append the following to `config.txt` in the boot dir:
+
+```
+enable_uart=1
+```
+
+Then (after a reboot): you can setup the sensor using `
+    serial_device: /dev/tty.S0`
+
+## {% linkable_title Calibration %}
+
+The MH-Z19B version of the sensor has Automatic Baseline Calibration enabled by default, which will calibrate the 400PPM level to the lowest measured PPM in the last 24h cycle. Currently the component does not allow turning this functionaly off.
+
