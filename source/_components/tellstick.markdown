@@ -108,7 +108,7 @@ sensor:
   required: false
   type: string
 only_named:
-  description: Only show the named sensors. Add sensors to only include specified sensors. If this is not specified the all sensors will be imported and the names will be based on each sensors ID number.
+  description: Only add and include specified sensors. If this is not specified all sensors will be imported and the names will be based on each sensor's ID number.
   required: false
   default: false
   type: list
