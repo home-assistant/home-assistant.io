@@ -31,7 +31,6 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 
-
 ## {% linkable_title Configuration %}
 
 ```yaml
@@ -151,8 +150,8 @@ In the dialog appearing on your Android TV / Fire TV, you must check the box tha
 
 Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>`, the files `adbkey` and `adbkey.pub` will be created on your computer. The default locations for these files are (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 
-* Linux and Mac: `$HOME/.android.`
-* Windows: `%userprofile%\.android.`
+- Linux and Mac: `$HOME/.android.`
+- Windows: `%userprofile%\.android.`
 
 Copy the `adbkey` and `adbkey.pub` files to your Home Assistant folder and add the path to the `adbkey` file to your configuration.
 
@@ -167,7 +166,6 @@ If you receive the error message `Issue: Error while setting up platform android
 3. Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
 
 4. You are already connected to the Android TV / Fire TV via ADB from another device. Only one device can be connected, so disconnect the other device, restart the Android TV / Fire TV (for good measure), and then restart Home Assistant.
-
 
 ## {% linkable_title Services %}
 
@@ -212,16 +210,16 @@ action:
 
 Available key commands include:
 
-* `POWER`
-* `SLEEP`
-* `HOME`
-* `UP`
-* `DOWN`
-* `LEFT`
-* `RIGHT`
-* `CENTER`
-* `BACK`
-* `MENU`
+- `POWER`
+- `SLEEP`
+- `HOME`
+- `UP`
+- `DOWN`
+- `LEFT`
+- `RIGHT`
+- `CENTER`
+- `BACK`
+- `MENU`
 
 The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/e1c07176efc9216cdcff8245c920224c0234ea56/androidtv/constants.py#L115-L155).
 
