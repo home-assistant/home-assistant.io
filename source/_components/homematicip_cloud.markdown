@@ -17,6 +17,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Weather
 ha_iot_class: "Cloud Push"
 ha_release: 0.66
 featured: false
@@ -41,6 +42,7 @@ There is currently support for the following device types within Home Assistant:
 * Light
 * Sensor
 * Switch
+* Weather
 
 ## {% linkable_title Setup the component via the frontend %}
 
@@ -133,4 +135,9 @@ authtoken:
   * Blind actuator for brand switches (*HmIP-BBL*)
   * Shutter actuator brand-mount (*HmIP-BROLL*)
   * Shutter actuator flush-mount (*HmIP-FROLL*)
+  
+* homematicip_cloud.weather
+  * Weather Sensor – basic (*HmIP-SWO-B*)
+  * Weather Sensor – plus (*HmIP-SWO-PL*)
+  * Weather Sensor – pro (*HmIP-SWO-PR*)
 
