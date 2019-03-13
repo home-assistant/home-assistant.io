@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: arest.png
 ha_category: DIY
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: pre 0.7
 ---
 
@@ -110,7 +110,7 @@ The root will give you a JSON response that contains all variables and their cur
 }
 ```
 
-`return_value` contains the sensor's data in a JSON response for a given pin (eg. http://192.168.1.10/analog/2/ or  http://192.168.1.10/digital/7/). 
+`return_value` contains the sensor's data in a JSON response for a given pin (eg. http://192.168.1.10/analog/2/ or  http://192.168.1.10/digital/7/).
 
 ```json
 {"return_value": 34, "id": "sensor02", "name": "livingroom", "connected": true}

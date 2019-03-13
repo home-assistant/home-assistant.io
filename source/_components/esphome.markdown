@@ -11,7 +11,7 @@ footer: true
 logo: esphome.png
 ha_category: DIY
 ha_release: 0.85
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
  - /components/binary_sensor.esphome/
  - /components/cover.esphome/

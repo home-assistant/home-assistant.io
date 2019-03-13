@@ -12,9 +12,8 @@ ha_category:
   - Hub
   - Binary Sensor
   - Sensor
-featured: false
 ha_release: 0.19
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.octoprint/
   - /components/sensor.octoprint/

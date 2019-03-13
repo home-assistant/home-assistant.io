@@ -9,7 +9,9 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Notifications
-ha_iot_class: depends
+ha_iot_class: Configurable
+redirect_from:
+  /components/notify.mqtt/
 ---
 
 The MQTT notification support is different than the other [notification](/components/notify/) platforms. It is a service. This means that you don't have to create a configuration entry but you need to provide more details when calling the service.
@@ -52,16 +54,16 @@ Use as [`script`](/components/script/) in automations.
 {% raw %}
 ```yaml
 automation:
-  alias: Send me a message when I get home 
+  alias: Send me a message when I get home
   trigger:
-    platform: state 
-    entity_id: device_tracker.me 
-    to: 'home' 
+    platform: state
+    entity_id: device_tracker.me
+    to: 'home'
   action:
     service: script.notify_mqtt
     data:
-      target: "me" 
-      message: "I'm home" 
+      target: "me"
+      message: "I'm home"
 
 script:
   notify_mqtt:

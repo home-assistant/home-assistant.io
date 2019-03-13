@@ -11,7 +11,7 @@ logo: joaoapps_join.png
 ha_category:
   - Hub
   - Notifications
-ha_release: "0.24"
+ha_release: 0.24
 redirect_from:
   - /components/notify.joaoapps_join/
 ---

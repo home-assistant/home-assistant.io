@@ -9,8 +9,7 @@ sharing: true
 footer: true
 logo: nanoleaf_light.png
 ha_category: Light
-ha_iot_class: "Local Polling"
-featured: false
+ha_iot_class: Local Polling
 ha_release: 0.67
 ---
 

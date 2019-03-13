@@ -10,9 +10,8 @@ footer: true
 logo: openhardwaremonitor.png
 ha_category: System Monitor
 ha_release: 0.48
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
-
 
 The `openhardwaremonitor` platform uses your [Open Hardware Monitor](http://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
 
@@ -34,8 +33,8 @@ To open port (on Windows):
 To open port with `firewalld` (Linux):
 
 ```bash
-$ sudo firewall-cmd --permanent --add-port=8085/tcp
-$ sudo firewall-cmd --reload
+sudo firewall-cmd --permanent --add-port=8085/tcp
+sudo firewall-cmd --reload
 ```
 
 ## {% linkable_title Configuration %}
@@ -59,4 +58,3 @@ sensor:
     required: false
     type: integer
 {% endconfiguration %}
-

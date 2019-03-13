@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: smtp.png
 ha_category: Mailbox
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ha_release: 0.25
 ---
 
@@ -102,4 +102,4 @@ sensor:
 ```
 {% endraw %}
 
-The same template structure can scan the date, body, or sender for matching text before setting the state of the sensor. 
+The same template structure can scan the date, body, or sender for matching text before setting the state of the sensor.

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: raspberry-pi.png
 ha_category: DIY
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.44
 ---
 
@@ -121,7 +121,7 @@ Add something like the following to your [customize section](/docs/configuration
     sensor.pressure:
       icon: mdi:weight
       friendly_name: "Pressure"
-```  
+```
 
 ### Create groups
 

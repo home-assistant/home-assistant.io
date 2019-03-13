@@ -16,7 +16,7 @@ ha_category:
   - Light
   - Scene
   - Switch
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.74
 redirect_from:
   - /components/climate.tuya/

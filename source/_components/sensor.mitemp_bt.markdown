@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: DIY
 ha_release: 0.69
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `mitemp_bt` sensor platform allows one to monitor room temperature and humidity. The [Xiaomi Mijia BLE Temperature and Humidity sensor with LCD](https://www.amazon.com/Temperature-Humidity-Xiaomi-Bluetooth-Screen-Remote/dp/B079L6N6PC) is a small Bluetooth Low Energy device that monitors the room temperature and humidity. As only a single BLE device can be polled at the same time, the library employs locking to make sure this is the case.
@@ -22,8 +22,8 @@ Depending on the operating system you're running, you have to configure the prop
 - On [Hass.io](/hassio/installation/): `mitemp_bt` will work out of the box as long as the host supports Bluetooth (like the Raspberry Pi does).
 - On a [generic Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
-    - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
-    - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or `bluez-deprecated`.
+  - Preferred solution: Install the `bluepy` and `btlewrap` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
+  - Fallback solution: Install `btlewrap` library (via pip) and `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth` or    `bluez-deprecated`.
 - Windows and MacOS are currently not supported by the `btlewrap` library.
 
 ## {% linkable_title Configuration %}

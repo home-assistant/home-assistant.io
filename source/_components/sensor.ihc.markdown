@@ -10,7 +10,7 @@ footer: true
 logo: ihc.png
 ha_category: Sensor
 ha_release: 0.62
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 Before you can use the IHC Sensor platform, you must setup the
@@ -31,12 +31,12 @@ ihc:
   - url: 'http://192.168.1.3'
     username: YOUR_USERNAME2
     password: YOUR_PASSWORD2
-    info: true 
+    info: true
     sensor:
       - id: 12345
         name: Temperatur_living_room
         unit_of_measurement: '°C'
-        note: Floor and wall temp. 
+        note: Floor and wall temp.
         position: On wall between windows
       - id: 23456
         ...

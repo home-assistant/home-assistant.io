@@ -14,7 +14,7 @@ ha_category:
   - Light
   - Switch
 ha_release: 0.13
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/cover.scsgate/
   - /components/light.scsgate/

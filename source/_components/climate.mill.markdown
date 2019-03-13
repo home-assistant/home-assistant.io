@@ -10,7 +10,7 @@ footer: true
 logo: mill.png
 ha_category: Climate
 ha_release: 0.81
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 Integrates Mill heater into Home Assistant.
@@ -34,7 +34,7 @@ username:
 password:
   description: Your Mill password.
   required: true
-  type: string 
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Component services %}

@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Vacuum
 ha_release: 0.51
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
@@ -172,6 +172,7 @@ automation:
           - 26032
           - 26496
 ```
+
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),

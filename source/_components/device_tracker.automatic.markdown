@@ -10,7 +10,7 @@ footer: true
 logo: automatic.png
 ha_category: Car
 ha_release: 0.28
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ---
 
 

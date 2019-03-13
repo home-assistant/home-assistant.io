@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: webos.png
 ha_category: Notifications
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.18
 ---
 

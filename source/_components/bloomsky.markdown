@@ -14,7 +14,7 @@ ha_category:
   - Camera
   - Sensor
 ha_release: 0.14
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.bloomsky/
 ---

@@ -14,7 +14,7 @@ ha_category:
   - Binary Sensor
   - Switch
 ha_release: 0.83
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/alarm_control_panel.lupusec/
   - /components/binary_sensor.lupusec/

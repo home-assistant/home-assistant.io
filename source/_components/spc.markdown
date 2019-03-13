@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
 ha_release: 0.47
 logo: vanderbilt_spc.png
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.spc/
   - /components/alarm_control_panel.spc/

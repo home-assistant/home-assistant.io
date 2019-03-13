@@ -10,9 +10,8 @@ footer: true
 logo: netdata.png
 ha_category: System Monitor
 ha_release: 0.35
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
-
 
 The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).
 
@@ -40,7 +39,6 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 
 - `dimension_names`: Names shown in the frontend.
 - `dimension_ids`: Names to use for `element`.
-
 
 ## {% linkable_title Configuration %}
 
@@ -86,7 +84,7 @@ resources:
       type: string
       keys:
         data_group:
-          description: "Name of the data group to monitor, e.g., `system.cpu`." 
+          description: "Name of the data group to monitor, e.g., `system.cpu`."
           required: true
           type: string
         element:
@@ -104,24 +102,3 @@ resources:
           type: boolean
           default: false
 {% endconfiguration %}
-
-
-## {% linkable_title Full examples %}
-
-### {% linkable_title Network interface details %}
-
-Netdata returns all bandwidth related sensors as positive/negative numbers related to the interface.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: netdata
-    resources:
-      network_downstream:
-        data_group: net.eth1
-        element: received
-      network_upstream:
-        data_group: net.eth1
-        element: sent
-        invert: true
-```

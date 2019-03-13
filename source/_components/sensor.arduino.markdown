@@ -10,11 +10,11 @@ footer: true
 logo: arduino.png
 ha_category: DIY
 ha_release: pre 0.7
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
-The `arduino` sensor platform allows you to get numerical values from an analog input pin of an [Arduino](https://www.arduino.cc/) board. Usually the value is between 0 and 1024. 
+The `arduino` sensor platform allows you to get numerical values from an analog input pin of an [Arduino](https://www.arduino.cc/) board. Usually the value is between 0 and 1024.
 
 To enable an Arduino sensor with Home Assistant, add the following section to your `configuration.yaml` file:
 

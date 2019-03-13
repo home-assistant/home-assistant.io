@@ -10,7 +10,7 @@ footer: true
 logo: sytadin.png
 ha_release: 0.57
 ha_category: Transport
-ha_iot_class: "Clound Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `sytadin` sensor platform allows you to monitor traffic details from [Sytadin](http://www.sytadin.fr).

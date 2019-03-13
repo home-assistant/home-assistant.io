@@ -10,7 +10,7 @@ footer: true
 logo: aladdin_connect.png
 ha_category: Cover
 ha_release: 0.75
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `aladdin_connect` cover platform lets you control Genie Aladdin Connect garage doors through Home Assistant.
@@ -32,7 +32,7 @@ cover:
 ```
 
 {% configuration %}
-username: 
+username:
   description: Your Aladdin Connect account username.
   required: true
   type: string

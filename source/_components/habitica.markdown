@@ -11,8 +11,8 @@ logo: habitica.png
 ha_category:
   - Hub
   - Sensor
-ha_version: 0.78
-ha_iot_class: "Cloud Polling"
+ha_release: 0.78
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/sensor.habitica/
 ---

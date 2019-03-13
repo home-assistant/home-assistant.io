@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: logitech.png
 ha_category: Remote
-ha_iot_class: "Local Push"
-ha_release: "0.34"
+ha_iot_class: Local Push
+ha_release: 0.34
 redirect_from:
   - /components/remote.harmony/
 ---
@@ -41,7 +41,7 @@ You can override some default configuration values on a discovered hub (e.g., th
 ```yaml
 # Example configuration.yaml entry with discovery
   - platform: harmony
-    name: Living Room 
+    name: Living Room
     activity: Watch TV
 ```
 
@@ -159,7 +159,7 @@ In the file 'harmony_REMOTENAME.conf' you can find the available devices and com
                 "Mute"
             ],
             "id": "428297615"
-        }        
+        }
     }
 }
 ```
@@ -190,7 +190,7 @@ data:
 
 ### {% linkable_title Service `remote.harmony_change_channel` %}
 
-Sends the change channel command to the Harmony HUB 
+Sends the change channel command to the Harmony HUB
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

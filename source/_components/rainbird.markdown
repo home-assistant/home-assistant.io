@@ -13,7 +13,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.61
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/sensor.rainbird/
   - /components/switch.rainbird/
@@ -68,7 +68,7 @@ sensor:
 
 {% configuration %}
 monitored_conditions:
-  description: Conditions to be monitored. 
+  description: Conditions to be monitored.
   keys:
     rainsensor:
       description: Returns the sensor level.

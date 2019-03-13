@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: google_maps.png
 ha_category: Transport
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.19
 ---
 
@@ -160,7 +160,6 @@ You can also use the `homeassistant.update` service to update the sensor on-dema
         - thu
         - fri
   action:
-    - service: homeassistant.update
-      data:
-        entity_id: sensor.morning_commute
+    - service: homeassistant.update_entity
+      entity_id: sensor.morning_commute
 ```

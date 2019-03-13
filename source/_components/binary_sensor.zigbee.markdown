@@ -10,7 +10,7 @@ footer: true
 logo: zigbee.png
 ha_category: Binary Sensor
 ha_release: 0.12
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 A `zigbee` binary sensor in this context is a device connected to one of the digital input pins on a [Zigbee](http://www.zigbee.org/) module. The states reported by such a device are limited to `on` or `off`. By default, a binary sensor is considered `on` when the Zigbee device's digital input pin is held 'high' and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.

@@ -10,7 +10,7 @@ footer: true
 logo: bom.png
 ha_category: Weather
 ha_release: 0.29
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `bom` sensor platform uses the [Australian Bureau of Meteorology (BOM)](http://www.bom.gov.au) as a source for current (half-hourly) meteorological data.
@@ -113,9 +113,9 @@ monitored_conditions:
       description: Relative Humidity in %.
     sea_state:
       description: Sea state.
-    swell_dir_worded: 
+    swell_dir_worded:
       description: Swell direction.
-    swell_height: 
+    swell_height:
       description: Swell height in m.
     swell_period:
       description: Swell period.

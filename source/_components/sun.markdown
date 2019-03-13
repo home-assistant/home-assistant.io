@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Environment
 ha_qa_scale: internal
+ha_release: pre 0.7
 ---
 
 The sun component will use your current location to track if the sun is above or

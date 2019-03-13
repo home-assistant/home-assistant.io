@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: tp-link.png
 ha_category: Hub
-featured: false
 ha_release: 0.89
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/switch.tplink/
   - /components/light.tplink/
@@ -130,4 +129,3 @@ sensor:
         unit_of_measurement: 'kWh'
 ```
 {% endraw %}
-

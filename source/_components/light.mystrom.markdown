@@ -10,11 +10,11 @@ footer: true
 logo: mystrom.png
 ha_category: Light
 ha_release: 0.43
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
-The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs. 
+The `mystrom` light platform allows you to control your [myStrom](https://mystrom.ch/en/) WiFi Bulbs.
 
 To use your myStrom WiFi Bulb in your installation, add the following to your `configuration.yaml` file:
 

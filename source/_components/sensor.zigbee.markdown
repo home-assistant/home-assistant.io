@@ -10,7 +10,7 @@ footer: true
 logo: zigbee.png
 ha_category: Sensor
 ha_release: 0.12
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 There are two types of [Zigbee](http://www.zigbee.org/) sensor available to Home Assistant:

@@ -9,6 +9,8 @@ sharing: true
 footer: true
 logo: manything.png
 ha_category: Camera
+redirect_from:
+  /components/ifttt.manything/
 ---
 
 [Manything](https://manything.com) is a smart app that turns your Android device, iPhone, iPod, or iPad into a WiFi camera for monitoring your home, your pets, anything! Comes with live streaming, motion activated alerts, cloud video recording, and more.
@@ -55,7 +57,7 @@ automation:
 
 <p class='img'>
 <img src='/images/components/ifttt/IFTTT_manything_trigger.png' />
-You need to setup a unique trigger for each event you sent to IFTTT. 
+You need to setup a unique trigger for each event you sent to IFTTT.
 For ManyThing support, you need to set up an `on` and `off` event.
 </p>
 

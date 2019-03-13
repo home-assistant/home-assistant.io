@@ -10,7 +10,7 @@ footer: true
 logo: prezzibenzina.png
 ha_category: Energy
 ha_release: 0.85
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `prezzibenzina` platform allows you to monitor the fuel prices with [PrezziBenzina.it](https://www.prezzibenzina.it/) from within Home Assistant and setup automations based on the information.
@@ -31,7 +31,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 sensor:
   - platform: prezzibenzina
-    station: STATION_ID 
+    station: STATION_ID
 ```
 
 {% configuration %}
@@ -57,7 +57,7 @@ This is a full example of the sensor:
 sensor:
   - platform: prezzibenzina
     station: <id>
-    fuel_types: 
+    fuel_types:
       - "Benzina"
       - "GPL"
     name: "Station"

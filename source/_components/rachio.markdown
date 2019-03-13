@@ -12,7 +12,7 @@ ha_category:
   - Irrigation
   - Binary Sensor
   - Switch
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ha_release: 0.73
 redirect_from:
   - /components/binary_sensor.rachio/

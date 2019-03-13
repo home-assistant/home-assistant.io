@@ -14,7 +14,7 @@ ha_category:
   - Notifications
   - Sensor
 ha_release: 0.79
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/notify.huawei_lte/
   - /components/device_tracker.huawei_lte/

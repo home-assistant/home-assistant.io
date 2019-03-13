@@ -10,7 +10,7 @@ footer: true
 logo: fuelcheck.png
 ha_category: Car
 ha_release: 0.72
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `nsw_fuel_station` sensor platform uses the [NSW Fuel Check App](https://www.fuelcheck.nsw.gov.au/app) data as a source for current fuel price data.
@@ -32,7 +32,7 @@ To add the NSW fuel station price sensor to your installation, add the following
 sensor:
   - platform: nsw_fuel_station
     station_id: 291
-``` 
+```
 
 {% configuration %}
 station_id:
@@ -44,4 +44,4 @@ fuel_types:
   required: false
   default: "`['E10', 'U91']`"
   type: list
-{% endconfiguration %}  
+{% endconfiguration %}

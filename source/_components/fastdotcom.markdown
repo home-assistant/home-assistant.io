@@ -11,9 +11,8 @@ logo: fastdotcom.png
 ha_category:
   - System Monitor
   - Sensor
-featured: false
 ha_release: 0.88
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/sensor.fastdotcom/
 ---

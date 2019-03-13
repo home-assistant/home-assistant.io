@@ -17,10 +17,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
-  - Weather
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ha_release: 0.66
-featured: false
 redirect_from:
   - /components/alarm_control_panel.homematicip_cloud/
   - /components/binary_sensor.homematicip_cloud/
@@ -101,7 +99,7 @@ authtoken:
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
-  * This includes temperature/humidity measures for climate devices of a room delivered by: 
+  * This includes temperature/humidity measures for climate devices of a room delivered by:
     * Wall-mounted thermostat (*HmIP-WTH, -2*)
     * Brand Wall-mounted thermostat (*HmIP-BWTH, -24*)
     * Radiator thermostat (*HmIP-eTRV, -2, -C*)
@@ -135,7 +133,7 @@ authtoken:
   * Blind actuator for brand switches (*HmIP-BBL*)
   * Shutter actuator brand-mount (*HmIP-BROLL*)
   * Shutter actuator flush-mount (*HmIP-FROLL*)
-  
+
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
   * Weather Sensor – plus (*HmIP-SWO-PL*)

@@ -16,8 +16,8 @@ ha_category:
   - Scene
   - Sensor
   - Switch
-ha_release: "0.61"
-ha_iot_class: "Local Push"
+ha_release: 0.61
+ha_iot_class: Local Push
 ha_qa_scale: platinum
 ha_config_flow: true
 redirect_from:

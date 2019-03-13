@@ -10,7 +10,7 @@ footer: true
 logo: amazon-echo.png
 ha_category: Voice
 featured: true
-ha_release: '0.10'
+ha_release: "0.10"
 ---
 
 ## {% linkable_title Automatic setup via Home Assistant Cloud %}

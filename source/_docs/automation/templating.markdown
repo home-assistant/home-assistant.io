@@ -153,6 +153,13 @@ The following tables show the available trigger data per platform.
 | `trigger.platform` | Hardcoded: `time`
 | `trigger.now` | DateTime object that triggered the time trigger.
 
+### {% linkable_title time pattern %}
+
+| Template variable | Data |
+| ---- | ---- |
+| `trigger.platform` | Hardcoded: `time_pattern`
+| `trigger.now` | DateTime object that triggered the time_pattern trigger.
+
 ### {% linkable_title webhook %}
 
 | Template variable | Data |

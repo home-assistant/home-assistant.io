@@ -9,6 +9,7 @@ sharing: true
 logo: logentries.png
 footer: true
 ha_category: "History"
+ha_release: 0.13
 ---
 
 The `logentries` component makes it possible to log all state changes to [Logentries](http://logentries.com/) using Logentries Webhook endpoint.

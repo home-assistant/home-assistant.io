@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mycroft.png
 ha_category: Notifications
-ha_release: "0.53"
+ha_release: 0.53
 ---
 
 The `mycroft` notification platform allows you to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Lock
 ha_release: 0.81
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---

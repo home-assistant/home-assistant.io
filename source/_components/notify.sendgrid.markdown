@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: sendgrid.png
 ha_category: Notifications
+ha_release: 0.14
 ---
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.

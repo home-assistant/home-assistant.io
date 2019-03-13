@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Ankuoo Rec Switch"
-logo: ankuoo_recswitch.png
 description: "Instructions on how to integrate Ankuoo Rec Switch into Home Assistant."
 date: 2018-10-05 08:00
 sidebar: true
@@ -9,9 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: "ankuoo_recswitch.png"
-ha_release: "0.81"
+ha_release: 0.81
 ha_category: Switch
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `recswitch` switch platform allows you to control the Ankuoo Rec Switch devices.

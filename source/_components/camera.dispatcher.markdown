@@ -10,7 +10,7 @@ footer: true
 ha_category: Camera
 logo: camcorder.png
 ha_release: "0.40"
-ha_iot_class: "depends"
+ha_iot_class: Configurable
 ---
 
 <p class='note'>

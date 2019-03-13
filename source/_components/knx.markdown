@@ -10,7 +10,7 @@ footer: true
 logo: knx.png
 ha_category: Hub
 ha_release: 0.24
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 

@@ -13,7 +13,7 @@ ha_category:
   - Camera
   - Sensor
   - Switch
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.49
 redirect_from:
   - /components/camera.amcrest/

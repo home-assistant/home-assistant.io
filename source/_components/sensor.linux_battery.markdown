@@ -10,7 +10,7 @@ footer: true
 logo: linux_battery.png
 ha_category: System Monitor
 ha_release: 0.28
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `linux_battery` sensor platform is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.
@@ -38,5 +38,5 @@ system:
   description: "The local system type. Support `linux` and `android`."
   required: false
   default: linux
-  type: string  
+  type: string
 {% endconfiguration %}

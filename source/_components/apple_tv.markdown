@@ -12,7 +12,7 @@ ha_category:
   - Multimedia
   - Media Player
   - Remote
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: 0.49
 redirect_from:
   - /components/media_player.apple_tv/

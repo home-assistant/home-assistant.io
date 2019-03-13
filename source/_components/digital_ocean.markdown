@@ -13,7 +13,7 @@ ha_category:
   - Switch
 ha_release: "0.30"
 logo: digital_ocean.png
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.digital_ocean/
   - /components/switch.digital_ocean/
