@@ -13,7 +13,7 @@ ha_release: 0.91
 ha_iot_class: "Cloud Polling"
 ---
 
-The TMDB sensor integrates data from [The Movie Database]([https://reddit.com/](https://www.themoviedb.org/)) to keep track of movies and television shows.
+The TMDB sensor integrates data from [The Movie Database](https://www.themoviedb.org/) to keep track of movies and television shows.
 
 ## {% linkable_title Setup %}
 
