@@ -13,9 +13,6 @@ ha_category:
   - Sensor
 ha_release: "0.90"
 ha_iot_class: "Cloud Polling"
-redirect_from:
-  - /components/binary_sensor.streamlabswater/
-  - /components/sensor.streamlabswater/
 ---
 
 The `Streamlabs Water` component platform is used to interact with [Streamlabs water monitoring devices](https://www.streamlabswater.com/) in order to retrieve usage information and manage the away mode of the device. The [Streamlabs Water API](https://developer.streamlabswater.com) is used to retrieve daily, monthly, and yearly water usage along with the current away mode.
