@@ -21,6 +21,6 @@ To enable this sensor in your installation, add the following to your `configura
 # Example configuration.yaml entry
 sensor:
   - platform: thinkingcleaner
+    host: 192.168.2.20
 ```
 
-This will automatically add sensors for each Thinking Cleaner in your network.

@@ -21,6 +21,6 @@ To enable this switch in your installation, add the following to your `configura
 # Example configuration.yaml entry
 switch:
   - platform: thinkingcleaner
+    host: 192.168.2.20
 ```
 
-This will automatically add switches for each Thinking Cleaner in your network.
