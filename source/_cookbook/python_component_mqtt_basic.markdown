@@ -39,9 +39,11 @@ def setup(hass, config):
     entity_id = 'hello_mqtt.last_message'
 
     # Listener to be called when we receive a message.
-    def message_received(topic, payload, qos):
+    # The msg parameter is a Message object with the following members:
+    # - topic, payload, qos, retain
+    def message_received(msg):
         """Handle new MQTT messages."""
-        hass.states.set(entity_id, payload)
+        hass.states.set(entity_id, msg.payload)
 
     # Subscribe our listener to a topic.
     mqtt.subscribe(topic, message_received)
