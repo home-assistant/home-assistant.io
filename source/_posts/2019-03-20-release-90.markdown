@@ -13,9 +13,23 @@ og_image: /images/blog/2019-03-release-90/components.png
 
 <!-- <a href='/components/#version/0.90'><img src='/images/blog/2019-03-release-90/components.png' style='border: 0;box-shadow: none;'></a> -->
 
- - Remote connection available for Home Assistant Cloud! Check out the cloud page in config
- - New stream component to stream cameras smoothly to frontend and other devices like Chromecast. Initial version only supports h264 codec. Each camera integration will need to be updated for it.
- - User groups! Restrict admin access to users ([at least UI wise](https://developers.home-assistant.io/blog/2019/03/11/user-permissions.html))
+Remote connection available for Home Assistant Cloud! Check out the cloud page in config to get going.
+
+## {% linkable_title Streams %}
+
+New stream component to stream cameras smoothly to frontend and other devices like Chromecast. Initial version only supports h264 codec. Each camera integration will need to be updated for it.
+
+Add to config: `stream:`. Now there is a new camera.play_stream service.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/l9eBRNBf5Zg" frameborder="0" allowfullscreen></iframe>
+</div>
+
+## {% linkable_title User Groups %}
+
+User groups! Restrict admin access to users ([at least UI wise](https://developers.home-assistant.io/blog/2019/03/11/user-permissions.html))
+
+
 
 
 ## {% linkable_title New Platforms %}
