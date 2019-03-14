@@ -26,10 +26,10 @@ redirect_from:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor) - digital input pins
-- [Sensor](#sensor) - analog input pins and temperature sensor
-- [Light](#light) - digital output pins
-- [Switch](#switch) - digital output pins
+- [Binary Sensor](#binary-sensor) - Digital input pins
+- [Sensor](#sensor) - Analog input pins and temperature sensor
+- [Light](#light) - Digital output pins
+- [Switch](#switch) - Digital output pins
 
 ## {% linkable_title Configuration %}
 
