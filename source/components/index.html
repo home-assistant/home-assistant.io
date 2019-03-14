@@ -39,6 +39,7 @@ Support for these components is provided by the Home Assistant community.
       <a href='#all' class="btn">All ({{tot}})</a>
       <a href='#featured' class="btn featured">Featured</a>
       <div class="version_select">Added in: <select name="versions">
+        <option value="#"></option>
         {%- for group in components_by_version -%}
           <optgroup label="{{ group.label }} ({{group.new_components_count}})">
             {%- for version in group.versions -%}
