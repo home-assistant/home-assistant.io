@@ -29,6 +29,10 @@ Add to config: `stream:`. Now there is a new camera.play_stream service.
 
 User groups! Restrict admin access to users ([at least UI wise](https://developers.home-assistant.io/blog/2019/03/11/user-permissions.html))
 
+## {% linkable_title Smarter SmartThings %}
+
+If you use Home Assistant Cloud, you will now be able to set up SmartThings without exposing your instance to the internet, by leveraging cloudhooks.
+
 
 
 
