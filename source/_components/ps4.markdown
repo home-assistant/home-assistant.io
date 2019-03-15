@@ -2,7 +2,7 @@
 layout: page
 title: "Sony PlayStation 4"
 description: "Instructions on how to integrate a Sony PlayStation 4 into Home Assistant."
-date: 2019-02-12 01:08
+date: 2019-03-15 01:08
 sidebar: true
 comments: false
 sharing: true
@@ -41,7 +41,6 @@ The `ps4` component allows you to control a
 ## {% linkable_title Granting Port Access %}
 
 The PlayStation 4 component requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
-Home Assistant installed on a Debian-type OS for example, such as *Debian*, *Hassbian*, *Rassbian*, and *Armbian* may require configuration.
 
 <p class='note warning'>
   Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
@@ -53,9 +52,40 @@ There are varying methods to perform this, dependent on your OS that is running 
   If your Home Assistant device is running <b>Hass.io</b> on <b>HassOS</b>, it does not require additional configuration.
 </p>
 
-- Example for Debian:
-`sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
-Replace "/usr/bin/python3.5" with your path to Python that is running Home Assistant.
+### {% linkable_title Debian-based %}
+Home Assistant installed on a Debian-type OS may require configuration. This section is applicable but not limited to the following operating systems:
+
+- Debian
+- Hassbian
+- Rassbian
+- Armbian
+- Ubuntu
+
+In terminal run the following command:
+
+`$ sudo setcap 'cap_net_bind_service=+ep' <python>`
+
+Replace `<python>` with your **system path** to Python that is running Home Assistant and/or your virtual environment if used. The path **should not** be a **symlink** or be **inside of a virtual environment**.
+
+Example: `$ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
+
+To find your system Python path:
+
+- Add the [System Health](https://www.home-assistant.io/components/system_health/) component to your `configuration.yaml`. In a web    browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/dev-info). In the System Health box locate the item     **python_version** and note the value that is displayed. Then in terminal run:
+
+  `$ whereis python<version>`
+
+  Replace `<version>` with the value for `python_version` that is shown in the System Health box.
+
+  Example: `$ whereis python3.5.3`
+
+  The output which has the directory `/bin/` is likely your system python path which should look like this `/usr/bin/python3.5`
+
+- If Home Assistant is installed in a virtual environment, use terminal to `cd` to the root of your environment and run:
+
+  `$ readlink -f bin/python3` or `$ readlink -f bin/python`
+
+  The output will be your system Python path.
 
 ### {% linkable_title Docker %}
 
@@ -115,3 +145,16 @@ Full list of supported commands.
 | `down`   | Swipe Down       |
 | `left`   | Swipe Left       |
 | `right`  | Swipe Right      |
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title Cover Art Issues %}
+If you are running a game/title on your PS4 that does not display a cover or displays the incorrect cover, post an issue [here](https://github.com/ktnrg45/pyps4-homeassistant/issues).
+
+Be sure to include the following information:
+- Your Country
+- The Region you selected during the integration set up.
+
+As well as the exact values for the following attributes found in the state of your PS4 entity.
+- media_title
+- media_content_id
