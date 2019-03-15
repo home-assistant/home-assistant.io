@@ -2,7 +2,7 @@
 layout: page
 title: "Amazon Alexa"
 description: "Instructions on how to create your Flash Briefing skills with Home Assistant."
-date: 2019-03*14 00:00
+date: 2019-03-14 00:00
 sidebar: true
 comments: false
 sharing: true
