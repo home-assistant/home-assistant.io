@@ -30,6 +30,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
 | Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `long_click_release`, `hold`, `single`, `double` |
 | Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double` |
+| Button (2nd gen, model 2) | sensor_switch.aq3 | WXKG12LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `shake` |
 | Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single` |
 | Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `both` |
 | Aqara Wireless Switch (Single) (2nd gen) | remote.b186acn01 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long` |
