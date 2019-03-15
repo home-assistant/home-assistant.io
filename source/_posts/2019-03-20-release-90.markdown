@@ -11,8 +11,6 @@ categories: Release-Notes
 og_image: /images/blog/2019-03-release-90/components.png
 ---
 
-<!-- <a href='/components/#version/0.90'><img src='/images/blog/2019-03-release-90/components.png' style='border: 0;box-shadow: none;'></a> -->
-
 Remote connection available for Home Assistant Cloud! Check out the cloud page in config to get going.
 
 ## {% linkable_title Streams %}
@@ -33,8 +31,11 @@ User groups! Restrict admin access to users ([at least UI wise](https://develope
 
 If you use Home Assistant Cloud, you will now be able to set up SmartThings without exposing your instance to the internet, by leveraging cloudhooks.
 
+## {% linkable_title Improved integration setup flow %}
 
-
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DVQtsFFg4mc" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## {% linkable_title New Platforms %}
 
