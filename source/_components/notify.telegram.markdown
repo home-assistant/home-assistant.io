@@ -186,6 +186,11 @@ authentication:
   required: false
   default: basic
   type: string
+verify_ssl:
+  description: Set to false to skip the validation of the server's SSL certificate.
+  required: false
+  default: true
+  type: boolean
 keyboard:
   description: List of rows of commands, comma-separated, to make a custom keyboard.
   required: false
@@ -255,6 +260,11 @@ authentication:
   required: false
   default: basic
   type: string
+verify_ssl:
+  description: Set to false to skip the validation of the server's SSL certificate.
+  required: false
+  default: true
+  type: boolean
 keyboard:
   description: List of rows of commands, comma-separated, to make a custom keyboard.
   required: false
@@ -309,6 +319,11 @@ authentication:
   required: false
   default: basic
   type: string
+verify_ssl:
+  description: Set to false to skip the validation of the server's SSL certificate.
+  required: false
+  default: true
+  type: boolean
 keyboard:
   description: List of rows of commands, comma-separated, to make a custom keyboard.
   required: false
