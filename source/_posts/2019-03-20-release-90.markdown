@@ -31,7 +31,11 @@ User groups! Restrict admin access to users ([at least UI wise](https://develope
 
 If you use Home Assistant Cloud, you will now be able to set up SmartThings without exposing your instance to the internet, by leveraging cloudhooks.
 
-## {% linkable_title Improved integration setup flow %}
+## {% linkable_title Area love %}
+
+Allow using areas in services instead of specifying entities.
+
+Improved integration setup flow:
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DVQtsFFg4mc" frameborder="0" allowfullscreen></iframe>
