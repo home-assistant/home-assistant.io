@@ -63,27 +63,27 @@ Home Assistant installed on a Debian-type OS may require configuration. This sec
 
 In terminal run the following command:
 
-`$ sudo setcap 'cap_net_bind_service=+ep' <python>`
+`sudo setcap 'cap_net_bind_service=+ep' <python>`
 
 Replace `<python>` with your **system path** to Python that is running Home Assistant and/or your virtual environment if used. The path **should not** be a **symlink** or be **inside of a virtual environment**.
 
-Example: `$ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
+Example: `sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
 
 To find your system Python path:
 
 - Add the [System Health](https://www.home-assistant.io/components/system_health/) component to your `configuration.yaml`. In a web    browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/dev-info). In the System Health box locate the item     **python_version** and note the value that is displayed. Then in terminal run:
 
-  `$ whereis python<version>`
+  `whereis python<version>`
 
   Replace `<version>` with the value for `python_version` that is shown in the System Health box.
 
-  Example: `$ whereis python3.5.3`
+  Example: `whereis python3.5.3`
 
   The output which has the directory `/bin/` is likely your system python path which should look like this `/usr/bin/python3.5`
 
 - If Home Assistant is installed in a virtual environment, use terminal to `cd` to the root of your environment and run:
 
-  `$ readlink -f bin/python3` or `$ readlink -f bin/python`
+  `readlink -f bin/python3` or `readlink -f bin/python`
 
   The output will be your system Python path.
 
