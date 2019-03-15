@@ -27,9 +27,9 @@ The `danfoss_air` component allows you to access information from your Danfoss A
 
 There is currently support for the following device types within Home Assistant:
 
-- [{% linkable_title Binary sensor %}](#linkabletitle-binary-sensor)
-- [{% linkable_title Sensor %}](#linkabletitle-sensor)
-- [{% linkable_title Switch %}](#linkabletitle-switch)
+- [Binary sensor](#binary-sensor)
+- [Sensor](#sensor)
+- [Switch](#switch)
 
 ```yaml
 # Example configuration.yaml entry
