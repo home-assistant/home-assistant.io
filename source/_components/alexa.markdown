@@ -21,7 +21,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 ## {% linkable_title Manual setup %}
 
-There are a few ways that you can use Amazon Echo and Home Assistant together.
+There are a few ways that you can use Amazon Alexa and Home Assistant together.
 
 - [Build custom commands to use](/components/alexa.intent/)
 - [Create a new Flash Briefing source](/components/alexa.flash_briefing/)
@@ -30,11 +30,11 @@ There are a few ways that you can use Amazon Echo and Home Assistant together.
 
 ### {% linkable_title Requirements %}
 
-Manual setup the integration with Amazon Alex needs several requirements
+Manual setup the integration with Amazon Alexa needs several requirements
 
 - Amazon Developer Account. You can sign on [here][amazon-dev-console].
 - Build custom commands and Flash Briefing source need your Home Assistant instance can be accessed from Internet, and host HTTPS server over port 443.
-- Use Smart Home API needs you have an [AWS account](https://aws.amazon.com/free/). Part of your Smart Home Skill will be host on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). You don't need worry the cost, AWS Lambda allow free to use up to 1 millions requests per month.
+- An [AWS account](https://aws.amazon.com/free/) is need if you want to use Smart Home Skill API. Part of your Smart Home Skill will be hosted on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). However you don't need worry the cost, AWS Lambda allow free to use up to 1 millions requests and 1GB outbound data transfer per month.
 - Smart Home API also needs your Home Assistant instance can be accessed from Internet.
 
 
