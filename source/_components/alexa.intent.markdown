@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Amazon Alexa"
+title: "Amazon Alexa Custom Skill"
 description: "Instructions on how to build your Alexa/Amazon Echo custom commands to connect with Home Assistant."
 date: 2015-12-13 13:02
 sidebar: true

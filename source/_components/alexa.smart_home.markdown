@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Amazon Alexa"
+title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
 date: 2019-03-14 00:00
 sidebar: true
