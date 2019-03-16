@@ -41,6 +41,7 @@ client_secret:
   type: string
 {% endconfiguration %}
 
+Note that you have to select manual mode from the Ambiclimate app to be able to control the A/C from Home Assistant.
 
 ## {% linkable_title Component services %}
 
