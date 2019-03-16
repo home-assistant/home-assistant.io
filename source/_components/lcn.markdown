@@ -65,7 +65,7 @@ lcn:
     - name: Temperature
       address: myhome.s0.m7
       source: var3
-      unit_of_measuremnt: celsius 
+      unit_of_measuremnt: °C
   
   switches:
     - name: Sprinkler switch
@@ -262,7 +262,7 @@ The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay conf
 | SETPOINT | `r1varsetpoint`, `r2varsetpoint` |
 | THRESHOLD | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
 | S0_INPUT | `s0input1`, `s0input2`, `s0input3`, `s0input4` |
-| VAR_UNIT | `native`, `celsius`, `kelvin`, `fahrenheit`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree` |
+| VAR_UNIT | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree` |
 
 #### {% linkable_title States %}:
 
