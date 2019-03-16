@@ -2,7 +2,7 @@
 layout: page
 title: "Ambiclimate A/C controller"
 description: "Instructions on how to integrate Ambiclimate A/C controller into Home Assistant."
-date: 2019-03-21 15:00 +0200
+date: 2019-02-21 15:00 +0200
 sidebar: true
 comments: false
 sharing: true
