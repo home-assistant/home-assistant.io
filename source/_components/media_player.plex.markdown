@@ -19,7 +19,7 @@ The `plex` platform allows you to connect to a [Plex Media Server](https://plex.
 
 ## {% linkable_title Setup %}
 
-The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server.
+The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
 
 If your Plex server has local authentication enabled or multiple users defined, Home Assistant requires an authentication token to be entered in the frontend. Press "CONFIGURE" to do it.
 
@@ -43,7 +43,7 @@ media_player:
   - platform: plex
 ```
 
-In case [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can create the   `plex.conf` manually and placed it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io.
+In the event that [discovery](/components/discovery/) does not work (GDM disabled or non-local Plex server), you can manually create a `plex.conf` file manually and place it in your [configuration directory ](/docs/configuration/) or `/config/` if you are running Hass.io. The following is an example of `plex.conf`:
 
 ```json
 {"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
@@ -174,5 +174,5 @@ Plays a song, playlist, TV episode, or video on a connected client.
   INFO:homeassistant.components.media_player.plex:No server found at: http://192.168.1.10:32400
   ```
 
-  If this occurs, check the setting `Server`>`Network`>`Secure connections` in your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
+  If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
