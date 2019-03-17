@@ -193,8 +193,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - vacuum (dock/start/stop/pause)
 
 <p class='note warning'>
-    The domain groups contains groups containing all items, by example group.all_automations. When telling google assistant to 
-    shut down everything, this will lead in this example to disabling all automations
+  The domain groups contains groups containing all items, by example group.all_automations. When telling Google Assistant to shut down everything, this will lead in this example to disabling all automations
 </p>
 
 ### {% linkable_title Media Player Sources %}
