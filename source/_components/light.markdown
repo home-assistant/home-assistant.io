@@ -40,8 +40,8 @@ Most lights do not support all attributes. You can check the platform documentat
 | `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
 | `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
 | `color_name` | yes | A human-readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/css-color-3/#svg-color) are supported.
-| `brightness` | yes | Integer between 0 and 255 for how bright the light should be.
-| `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100).
+| `brightness` | yes | Integer between 0 and 255 for how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.
+| `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100), where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
 
