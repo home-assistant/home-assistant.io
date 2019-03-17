@@ -63,7 +63,7 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the int
 
 3. Once back on-line, return to `Configuration > Integrations` and select configure next to `MQTT`.
 
-```
+```text
   Broker: YOUR_HASSIO_IP_ADDRESS
   Port: 1883
   Username: MQTT_USERNAME
@@ -89,7 +89,7 @@ See the following links for more information:
 Add the following configuration to enable unrestricted access to all topics.
 
  1. Enable the customize flag
-```
+```json
   "customize": {
     "active": true,
     "folder": "mosquitto"
@@ -97,12 +97,12 @@ Add the following configuration to enable unrestricted access to all topics.
 ```
 
 2. Create `/share/mosquitto/acl.conf` with the contents:
-```
+```text
 acl_file /share/mosquitto/accesscontrollist
 ```
 
 3. Create `/share/mosquitto/accesscontrollist` with the contents:
-```
+```text
 topic readwrite #
 ```
 
