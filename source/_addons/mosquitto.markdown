@@ -86,7 +86,7 @@ See the following links for more information:
 * [Mosquitto topic restrictions](http://www.steves-internet-guide.com/topic-restriction-mosquitto-configuration/)
 * [Mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html)
 
-Add the following configuration to enable unrestricted access to all topics.
+Add the following configuration to enable **unrestricted** access to all topics.
 
  1. Enable the customize flag
 ```json
