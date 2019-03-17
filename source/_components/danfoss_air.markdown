@@ -11,23 +11,25 @@ ha_category:
   - Climate
   - Binary Sensor
   - Sensor
+  - Switch
 ha_release: 0.87
 logo: danfoss_air.png
 ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.danfoss_air/
   - /components/sensor.danfoss_air/
+  - /components/switch.danfoss_air/
 ---
 
 The `danfoss_air` component allows you to access information from your Danfoss Air HRV unit.
 
-*Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the component
-will not work while you have the HRV PC-Tool open.
+*Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the component will not work while you have the HRV PC-Tool open.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 ```yaml
 # Example configuration.yaml entry
@@ -57,3 +59,9 @@ The following sensors are supported.
 - **Extract temperature:** Air temperature of the air extracted from the house.
 - **Exhaust temperature:** Exhausted air temperature.
 - **Remaining filter lifetime:** Reamining filter lifetime measured in percent.
+
+## {% linkable_title Switch %}
+
+The following switches are supported.
+
+- **Boost:** Switch to manually activate boost.
