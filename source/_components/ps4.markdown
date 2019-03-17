@@ -63,7 +63,9 @@ Home Assistant installed on a Debian-type OS may require configuration. This sec
 
 In terminal run the following command:
 
-`sudo setcap 'cap_net_bind_service=+ep' <python>`
+```bash
+sudo setcap cap_net_bind_service=+ep <python>
+```
 
 Replace `<python>` with your **system path** to Python that is running Home Assistant and/or your virtual environment if used. The path **should not** be a **symlink** or be **inside of a virtual environment**.
 
