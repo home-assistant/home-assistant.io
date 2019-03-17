@@ -41,7 +41,7 @@ There is currently support for the following device types within Home Assistant:
 * Light
 * Sensor
 * Switch
-* Shutter
+* Cover
 
 ## {% linkable_title Setup the component via the frontend %}
 
