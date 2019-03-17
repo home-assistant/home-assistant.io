@@ -128,3 +128,12 @@ These guides are provided as-is. Some of these install methods are more limited 
     <div class='title'>Hass.io <br> on generic Linux server</div>
   </a>
 </div>
+
+
+## {% linkable_title Home Assistant Main projects %}
+The Home Assistant project consists of different projects which can be confusing when you want to start developing. 
+The figure below helps to give an overview and clarifies some distinctions between them.
+
+<p class='img' style='max-width:500px; margin-left: auto; margin-right: auto;'>
+<img src='images/ha_overview.png' />
+</p>
