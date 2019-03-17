@@ -56,7 +56,7 @@ name:
   default: notify
   type: string
 context:
-  description: An optional dictionary you can provide to pass custom context through to the Lambda function. The `context` dictionary (if any) is combined with the same data available at the `/api/config` HTTP API route.
+  description: An optional dictionary you can provide to pass custom context through to the Lambda function.
   required: false
   type: string
 {% endconfiguration %}
@@ -82,15 +82,6 @@ The context will look like this:
 
 ```json
 {
-  "hass": {
-    "components": ["recorder", "logger", "http", "logbook", "api", "frontend"],
-    "latitude": 44.1234,
-    "location_name": "Home",
-    "longitude": 5.5678,
-    "unit_system": "metric",
-    "time_zone": "Europe/Zurich",
-    "version": "0.20.0.dev0"
-  },
   "custom": {
     "two": "three",
     "test": "one"
