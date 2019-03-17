@@ -10,7 +10,7 @@ footer: true
 logo: haveibeenpwned.png
 ha_category: Sensor
 ha_release: 0.31
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
@@ -24,7 +24,7 @@ the number of breaches on that email account.
 # Example configuration.yaml entry using cloud based emoncms
 sensor:
   - platform: haveibeenpwned
-    email: 
+    email:
       - your_email1@domain.com
       - your_email2@domain.com
 ```

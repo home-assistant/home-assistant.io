@@ -10,6 +10,7 @@ footer: true
 logo: pushbullet.png
 ha_category: Notifications
 featured: true
+ha_release: 0.7
 ---
 
 The `pushbullet` notification platform sends messages to [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends.

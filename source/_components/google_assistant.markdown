@@ -121,6 +121,8 @@ google_assistant:
     light.living_room:
       expose: false
       room: LIVING_ROOM
+    group.all_automations:
+      expose: false
 ```
 
 {% configuration %}
@@ -200,6 +202,10 @@ https://developers.google.com/actions/reference/smarthome/traits/modes
 #### Example Command:
 
 "Hey Google, change input source to TV on Living Room Receiver"
+
+### {% linkable_title Room/Area support %}
+
+Entities that have not got rooms explicitly set and that have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
 
 ### {% linkable_title Climate Operation Modes %}
 

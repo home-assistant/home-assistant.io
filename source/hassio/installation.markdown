@@ -15,9 +15,9 @@ The following will take you through the steps required to install Hass.io.
 
    - As an image for your device:
   
-     - [Raspberry Pi Zero][pi1]
-     - [Raspberry Pi Zero W][pi0-w]
-     - [Raspberry Pi 1 Model B][pi1]
+     - [Raspberry Pi Zero][pi1] (not recommended for more than testing)
+     - [Raspberry Pi Zero W][pi0-w] (not recommended for more than testing)
+     - [Raspberry Pi 1 Model B][pi1] (not recommended for more than testing)
      - [Raspberry Pi 2 Model B][pi2]
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
@@ -36,8 +36,8 @@ The following will take you through the steps required to install Hass.io.
     
 2. Install Hass.io:
 
-   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. We recommend at least a 32 GB SD card to avoid running out of space.
-   - Load the appliance image into your virtual machine software.
+   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
+   - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
 3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
 

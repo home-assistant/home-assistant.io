@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: owntracks.png
 ha_category: Presence Detection
-featured: false
 ha_release: 0.7.4
 redirect_from:
  - /components/device_tracker.owntracks/

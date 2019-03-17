@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: machine-box.png
 ha_category: Image Processing
-featured: false
 ha_release: 0.70
 ---
 

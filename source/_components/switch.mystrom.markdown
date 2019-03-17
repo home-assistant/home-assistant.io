@@ -10,7 +10,7 @@ footer: true
 logo: mystrom.png
 ha_category: Switch
 ha_release: 0.9
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches. The built-in sensor is measuring the power consumption while the switch is on.

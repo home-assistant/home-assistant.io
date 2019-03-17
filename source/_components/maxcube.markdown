@@ -12,7 +12,7 @@ ha_category:
   - Climate
   - Binary Sensor
 ha_release: "0.40"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.maxcube/
   - /components/climate.maxcube/

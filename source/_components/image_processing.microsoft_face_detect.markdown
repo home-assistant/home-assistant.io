@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: microsoft.png
 ha_category: Image Processing
-featured: false
 ha_release: 0.38
 ---
 

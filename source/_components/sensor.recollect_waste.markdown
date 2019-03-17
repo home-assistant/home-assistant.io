@@ -10,7 +10,7 @@ footer: true
 logo: recollect-waste.png
 ha_category: Sensor
 ha_release: 0.87
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `Recollect Waste` platform allows you to track the next scheduled waste pickup and what type of waste from [Recollect](https://recollect.net/solutions/waste/). To use this sensor your city's waste company must be Recollect and you will need to find your place_id and service_id.

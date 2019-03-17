@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7.3
 ---
 
 Home Assistant can give you an interface with is similar to a classic alarm system. There are several panels supported:

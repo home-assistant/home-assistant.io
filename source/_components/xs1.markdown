@@ -14,8 +14,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.88
-featured: false
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/climate.xs1/
   - /components/sensor.xs1/
@@ -83,8 +82,7 @@ If you are using climate devices the "current temp" sensor will be automatically
 | `dimmer`      | Partly    | Dimmers are currently handled like switches so actual dimming is not supported :(|
 | `temperature` | Yes       |                                                  |
 
-
-### {% linkable_title Climate Actuator/Sensor%}
+### {% linkable_title Climate Actuator/Sensor %}
 
 Home Assistant can combine temperature sensors and climate actuators into a single device. The XS1 gateway does not allow this, but a sensor and actuator can be configured separately. To make Home Assistant register them in the same climate device just prefix the **sensor** name with the actuator name on the XS1 gateway configuration, f.ex:
 

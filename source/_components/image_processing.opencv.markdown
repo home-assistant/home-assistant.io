@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: opencv.png
 ha_category: Image Processing
-featured: false
 ha_release: 0.47
 ---
 

@@ -397,6 +397,38 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
+### {% linkable_title Conditional Element %}
+
+Much like the Conditional card, this element will let you show its sub-elements based on entity states.
+
+{% configuration %}
+type:
+  required: true
+  description: conditional
+  type: string
+conditions:
+  required: true
+  description: List of entity IDs and matching states.
+  type: list
+  keys:
+    entity:
+      required: true
+      description: HA entity ID.
+      type: string
+    state:
+      required: false
+      description: Entity state is equal to this value.*
+      type: string
+    state_not:
+      required: false
+      description: Entity state is unequal to this value.*
+      type: string
+elements:
+  required: true
+  description: One or more elements of any type to show when conditions are met. See below for an example.
+  type: list
+{% endconfiguration %}
+
 ### {% linkable_title Custom Elements %}
 
 {% configuration %}
@@ -553,4 +585,27 @@ elements:
       top: 40%
       left: 75%
       width: 5%
+```
+
+## {% linkable_title Conditional Example %}
+
+```yaml
+type: picture-elements
+image: /local/House.png
+elements:
+  # conditionally show TV off button shortcut when dad's away and daughter is home
+  - type: conditional
+    conditions:
+      - entity: sensor.presence_daughter
+        state: 'home'
+      - entity: sensor.presence_dad
+        state: 'not_home'
+    elements:
+      - type: state-icon
+        entity: switch.tv
+        tap_action:
+          action: toggle
+        style:
+          top: 47%
+          left: 42%
 ```

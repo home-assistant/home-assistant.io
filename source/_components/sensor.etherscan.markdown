@@ -10,7 +10,7 @@ footer: true
 logo: etherscan.png
 ha_category: Finance
 ha_release: 0.47
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `Etherscan` sensor platform displays Ether and ERC-20 token balances from [Etherscan.io](https://etherscan.io).

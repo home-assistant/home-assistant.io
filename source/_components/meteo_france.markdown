@@ -8,13 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: meteo-france.png
-ha_category: Hub
 ha_release: 0.89
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_category:
+  - Hub
   - Sensor
   - Weather
-ha_iot_class: "Local Push"
 redirect_from:
   - /components/sensor.meteo_france/
   - /components/weather.meteo_france/

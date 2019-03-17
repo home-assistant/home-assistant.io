@@ -10,7 +10,7 @@ footer: true
 logo: pollen.jpg
 ha_category: Health
 ha_release: 0.63
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `pollen` sensor platform collects and displays allergy, asthma, and disease
@@ -66,26 +66,17 @@ ZIP codes that start with 0 will cause errors.
 
 The following metrics can be monitored:
 
-* Allergy Index: Forecasted Average (`allergy_average_forecasted`): the average
-forecasted allergy index over the next 5 days
-* Allergy Index: Historical Average (`allergy_average_historical`): the average
-historical allergy index over the past 30 days
+* Allergy Index: Forecasted Average (`allergy_average_forecasted`): the average forecasted allergy index over the next 5 days
+* Allergy Index: Historical Average (`allergy_average_historical`): the average historical allergy index over the past 30 days
 * Allergy Index: Today (`allergy_index_today`): the allergy index for today
-* Allergy Index: Tomorrow (`allergy_index_tomorrow`): the allergy index for
-tomorrow
-* Allergy Index: Yesterday (`allergy_index_yesterday`): the allergy index for
-yesterday
-* Asthma Index: Forecasted Average (`asthma_average_forecasted`): the average
-forecasted asthma index over the next 5 days
-* Asthma Index: Historical Average (`asthma_average_historical`): the average
-historical asthma index over the past 30 days
+* Allergy Index: Tomorrow (`allergy_index_tomorrow`): the allergy index for tomorrow
+* Allergy Index: Yesterday (`allergy_index_yesterday`): the allergy index for yesterday
+* Asthma Index: Forecasted Average (`asthma_average_forecasted`): the average forecasted asthma index over the next 5 days
+* Asthma Index: Historical Average (`asthma_average_historical`): the average historical asthma index over the past 30 days
 * Asthma Index: Today (`asthma_index_today`): the asthma index for today
-* Asthma Index: Tomorrow (`asthma_index_tomorrow`): the asthma index for
-tomorrow
-* Asthma Index: Yesterday (`asthma_index_yesterday`): the asthma index for
-yesterday
-* Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average
-forecasted cold/flu index over the next 5 days
+* Asthma Index: Tomorrow (`asthma_index_tomorrow`): the asthma index for tomorrow
+* Asthma Index: Yesterday (`asthma_index_yesterday`): the asthma index for yesterday
+* Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average forecasted cold/flu index over the next 5 days
 
 ## {% linkable_title Understanding the Indices %}
 
@@ -108,8 +99,8 @@ Example values include:
 
 Pollutant | Symbol | More Info
 --------- | ------ | ---------
-Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
-Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
+Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)
+Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)
 Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
 Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
 Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)

@@ -41,6 +41,16 @@ icon:
   description: Overwrites icon or entity picture.
   type: string
   default: Entity Domain Icon
+show_name:
+  required: false
+  description: Show name.
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show icon.
+  type: boolean
+  default: "true"
 tap_action:
   required: false
   description: Action to take on tap
@@ -50,7 +60,7 @@ tap_action:
       required: true
       description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
       type: string
-      default: "`more-info`"
+      default: "`toggle`"
     navigation_path:
       required: false
       description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"

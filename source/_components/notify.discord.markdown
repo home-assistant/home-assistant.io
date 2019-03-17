@@ -88,6 +88,8 @@ This channel ID has to be used as the target when calling the notification servi
 
 ### {% linkable_title Notes %}
 
+You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the user name to copy the ID like you did for the channel ID up above.
+
 For more information about creating and authorizing bots, visit the [OAuth2 information page](https://discordapp.com/developers/docs/topics/oauth2)
 
 To use notifications effectively, please see the [getting started with automation page](/getting-started/automation/).

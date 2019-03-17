@@ -65,7 +65,7 @@ Traceback (most recent call last):
 [...]
 ```
 
-The message ("Unable to find component system_healt"), source (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present. 
+The message ("Unable to find component system_healt"), source (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present.
 
 ## {% linkable_title Examples  %}
 

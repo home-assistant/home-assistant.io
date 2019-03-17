@@ -14,7 +14,7 @@ ha_category:
   - Notifications
 ha_release: 0.80
 ha_qa_scale: silver
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/notify.tibber/
   - /components/sensor.tibber/
@@ -70,7 +70,7 @@ action:
 The `tibber` sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
-The requirement is that you have setup the [`tibber` component](#setup).
+The requirement is that you have setup the [`tibber` component](#setup). The sensor will show once the transfer date to tibber has been confirmed.
 
 ## {% linkable_title Examples %}
 

@@ -11,7 +11,7 @@ logo: zehnder.png
 ha_category:
   - Fan
   - Sensor
-ha_release: "0.48"
+ha_release: 0.48
 redirect_from:
   - /components/fan.comfoconnect/
   - /components/sensor.comfoconnect/

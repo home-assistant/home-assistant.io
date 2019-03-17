@@ -13,7 +13,7 @@ ha_category:
   - Sensor
   - Binary Sensor
 ha_release: 0.29
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.sleepiq/
   - /components/sensor.sleepiq/

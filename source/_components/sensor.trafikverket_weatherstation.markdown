@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: trafikverket.png
 ha_category: Weather
-ha_release: 0.66.0
-ha_iot_class: "Cloud Polling"
+ha_release: 0.66
+ha_iot_class: Cloud Polling
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.
@@ -42,36 +42,36 @@ sensor:
 ```
 
 {% configuration %}
-name:  
-  description: Your unique name of the device in the frontend.  
-  required: true  
+name:
+  description: Your unique name of the device in the frontend.
+  required: true
   type: string
-api_key:  
-  description: Your personal API key from Trafikverket.  
-  required: true  
-  type: string  
-station:  
-  description: Name of the weather station from Trafikverket.  
-  required: true  
-  type: string  
+api_key:
+  description: Your personal API key from Trafikverket.
+  required: true
+  type: string
+station:
+  description: Name of the weather station from Trafikverket.
+  required: true
+  type: string
 monitored_conditions:
   description: Specify what measurement data to retrieve from the weather station.
-  required: true  
-  type: map  
+  required: true
+  type: map
   keys:
-    air_temp:  
-      description: Air temperature.  
-    road_temp:  
-      description: The temperature in the road.  
-    humidity:  
-      description: Relative humidity.  
-    precipitation:  
-      description: Type of precipitation (Swedish text).  
-    wind_direction:  
-      description: Wind direction in degrees.  
-    wind_direction_text:  
-      description: Rough wind direction in twelve variants (Swedish text).  
-    wind_speed:  
+    air_temp:
+      description: Air temperature.
+    road_temp:
+      description: The temperature in the road.
+    humidity:
+      description: Relative humidity.
+    precipitation:
+      description: Type of precipitation (Swedish text).
+    wind_direction:
+      description: Wind direction in degrees.
+    wind_direction_text:
+      description: Rough wind direction in twelve variants (Swedish text).
+    wind_speed:
       description: Average wind speed during the last 10 minutes.
 {% endconfiguration %}
 

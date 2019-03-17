@@ -10,7 +10,7 @@ footer: true
 logo: nad.png
 ha_category: Media Player
 ha_release: 0.36
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `nad` platform allows you to control a [NAD receiver](http://nadelectronics.com) through RS232, TCP and Telnet from Home Assistant.

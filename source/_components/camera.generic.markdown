@@ -10,7 +10,7 @@ footer: true
 ha_category: Camera
 logo: home-assistant.png
 ha_release: pre 0.7
-ha_iot_class: "depends"
+ha_iot_class: Configurable
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
@@ -32,6 +32,10 @@ camera:
 still_image_url:
   description: "The URL your camera serves the image on, e.g., http://192.168.1.21:2112/. Can be a [template](/topics/templating/)."
   required: true
+  type: string
+stream_source:
+  description: "The URL your camera serves the live stream on, e.g., rtsp://192.168.1.21:554/."
+  required: false
   type: string
 name:
   description: This parameter allows you to override the name of your camera.
@@ -124,4 +128,16 @@ camera:
     name: Some Image
     still_image_url: http://example.org/your_image.png
     verify_ssl: false
+```
+
+### {% linkable_title Live stream %}
+
+To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/components/stream/) component.
+
+```yaml
+camera:
+  - platform: generic
+    name: Streaming Enabled
+    still_image_url: http://194.218.96.92/jpg/image.jpg
+    stream_source: rtsp://194.218.96.92:554
 ```

@@ -7,11 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: 
-  - Utility 
-  - Energy 
+ha_category:
+  - Utility
+  - Energy
 ha_release: 0.87
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: integral.png
 ha_qa_scale: internal
 ---
@@ -25,13 +25,13 @@ To enable Integration Sensor in your installation, add the following to your `co
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: integration 
+  - platform: integration
     source: sensor.current_power
 ```
 
 {% configuration %}
 source:
-  description: The entity ID of the sensor providing numeric readings 
+  description: The entity ID of the sensor providing numeric readings
   required: true
   type: string
 name:

@@ -10,7 +10,7 @@ footer: true
 ha_category: Social
 logo: crimereports.png
 ha_release: 0.42
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `crimereports` sensor allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Crime Reports](http://crimereports.com). Your regional emergency services may or may not report data. The sensor only counts incidents from the current day.
@@ -31,23 +31,23 @@ name:
   description: Custom name for the sensor.
   required: true
   type: string
-radius: 
+radius:
   description: Radius in meters
   required: true
   type: float
-latitude: 
+latitude:
   description: Latitude for sensor.
   required: false
   default: Your home zone latitude defined in your configuration.
-longitude: 
+longitude:
   description: Longitude for sensor.
   required: false
   default: Your home zone longitude defined in your configuration.
-include: 
+include:
   description: List of incident types to include. See below for a list of valid incidents.
   required: false
   type: list
-exclude: 
+exclude:
   description: List of incident types to exclude. See below for a list of valid incidents.
   required: false
   type: list

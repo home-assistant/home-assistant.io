@@ -10,7 +10,7 @@ footer: true
 logo: modbus.png
 ha_category: Hub
 ha_release: pre 0.7
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 
@@ -128,7 +128,7 @@ modbus:
     host: IP_ADDRESS_1
     port: 2020
     hub: hub1
-    
+
   - type: tcp
     host: IP_ADDRESS_2
     port: 501
@@ -149,7 +149,7 @@ modbus:
 | hub       | Hub name (defaults to 'default' when omitted) |
 | unit      | Slave address (set to 255 you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
-| value     | An array of 16-bit values. Might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
+| value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
 
 ## {% linkable_title Building on top of Modbus %}
 

@@ -13,7 +13,7 @@ ha_category:
   - Switch
 logo: linode.png
 ha_release: 0.57
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.linode/
   - /components/switch.linode/

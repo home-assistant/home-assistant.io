@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: google_calendar.png
 ha_category: Calendar
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.33
 ---
 
@@ -131,7 +131,7 @@ entities:
     offset:
       description: >
         A set of characters that precede a number in the event title
-        for designating a pre-trigger state change on the sensor. 
+        for designating a pre-trigger state change on the sensor.
         This should be in the format of HH:MM or MM.
       required: false
       type: string

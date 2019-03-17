@@ -12,7 +12,7 @@ ha_category:
   - Hub
   - Climate
   - Switch
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.75
 redirect_from:
   - /components/switch.spider/

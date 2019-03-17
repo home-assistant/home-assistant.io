@@ -10,7 +10,7 @@ footer: true
 logo: synology.png
 ha_category: Camera
 ha_release: 0.31
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `synology` camera platform allows you to watch the live streams of your [Synology](https://www.synology.com/) Surveillance Station based IP cameras in Home Assistant.

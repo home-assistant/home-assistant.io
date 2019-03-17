@@ -17,7 +17,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.53
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.tesla/
   - /components/device_tracker.tesla/

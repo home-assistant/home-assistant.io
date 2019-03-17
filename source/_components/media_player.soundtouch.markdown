@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: soundtouch.png
 ha_category: Media Player
-ha_release: 0.34.0
-ha_iot_class: "Local Polling"
+ha_release: 0.34
+ha_iot_class: Local Polling
 ---
 
 The `soundtouch` platform allows you to control your [Bose Soundtouch](https://www.soundtouch.com/) speakers from Home Assistant.
@@ -54,7 +54,7 @@ name:
   default: Bose Soundtouch
   type: string
 port:
-  description: The port number. 
+  description: The port number.
   required: false
   default: 8090
   type: integer

@@ -39,7 +39,12 @@ We will need a few things to get started with installing Home Assistant. For bes
 
 1. Put the SD card in your SD card reader.
 1. Open balenaEtcher, select the Hass.io image and flash it to the SD card.
-1. WiFi and Static IP setup only: Format a USB-Stick with name `CONFIG`, create a folder named `network` and within that folder a file named `my-network`. Copy one of [the examples] to the `my-network` file.
+1. WiFi and Static IP setup only: 
+   - Format a USB-Stick to FAT32 with volume-name `CONFIG`.
+   - Create a folder named `network` in the root of the newly formatted USB-stick.
+   - Within that folder create a file named `my-network` without extension.
+   - Copy one of [the examples] to the `my-network` file.
+   - Plug the USB-stick into the RaspberryPi 3.
 1. Unmount the SD card and remove it from your SD card reader.
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply, so it turns on.

@@ -12,8 +12,8 @@ ha_category:
   - Network
   - Presence Detection
   - Sensor
-ha_release: "0.85"
-ha_iot_class: "Local Polling"
+ha_release: 0.85
+ha_iot_class: Local Polling
 redirect_from:
   - /components/device_tracker.freebox/
   - /components/sensor.freebox/
@@ -56,7 +56,7 @@ returned json should contain an api_domain (`host`) and a https_port (`port`).
 ### {% linkable_title Initial setup %}
 
 <p class='note warning'>
-You must have set a password for your Freebox router web administration page and enabled the option "Permettre les nouvelles demandes d'associations".
+You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
 </p>
 
 The first time Home Assistant will connect to your Freebox, you will need to

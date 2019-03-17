@@ -10,7 +10,7 @@ footer: true
 logo: dweet.png
 ha_category: Sensor
 ha_release: "0.10"
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `dweet` sensor platform allows you to get details from your devices which are publishing their values to [Dweet.io](https://dweet.io/).

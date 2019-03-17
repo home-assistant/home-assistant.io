@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: logitech.png
 ha_category: Remote
-ha_iot_class: "Local Push"
-ha_release: "0.34"
+ha_iot_class: Local Push
+ha_release: 0.34
 redirect_from:
   - /components/remote.harmony/
 ---
@@ -41,7 +41,7 @@ You can override some default configuration values on a discovered hub (e.g., th
 ```yaml
 # Example configuration.yaml entry with discovery
   - platform: harmony
-    name: Living Room 
+    name: Living Room
     activity: Watch TV
 ```
 
@@ -67,6 +67,11 @@ delay_secs:
   description: Default duration in seconds between sending commands to a device.
   required: false
   type: float
+  default: 0.4
+hold_secs:
+  description: Default duration in seconds between sending the "press" command and sending the "release" command.
+  required: false
+  default: 0
 {% endconfiguration %}
 
 ### {% linkable_title Configuration file %}
@@ -77,7 +82,7 @@ Upon startup one file will be written to your Home Assistant configuration direc
 - List of all programmed device names and ID numbers
 - List of all available commands per programmed device
 
-This file will be overwritten whenever the Harmony HUB has a new configuration, there is no need to restart HASS.
+This file will be overwritten whenever the Harmony HUB has a new configuration, there is no need to restart Home Assistant.
 
 ### {% linkable_title Service `remote.turn_off` %}
 
@@ -85,7 +90,7 @@ Turn off all devices that were switched on from the start of the current activit
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `entity_id`            |       no | Entity ID to target.
 
 ### {% linkable_title Service `remote.turn_on` %}
 
@@ -93,7 +98,7 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `entity_id`            |       no | Entity ID to target.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
 ##### {% linkable_title Example %}
@@ -127,7 +132,7 @@ Send a single command or a set of commands to one device, device ID and availabl
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `entity_id`            |       no | Entity ID to target.
 | `device`               |       no | Device ID or Device Name to send the command to.
 | `command`              |       no | A single command or a list of commands to send.
 | `num_repeats`          |      yes | The number of times to repeat the command(s).
@@ -154,11 +159,10 @@ In the file 'harmony_REMOTENAME.conf' you can find the available devices and com
                 "Mute"
             ],
             "id": "428297615"
-        }        
+        }
     }
 }
 ```
-
 
 A typical service call for sending several button presses looks like this:
 
@@ -186,11 +190,11 @@ data:
 
 ### {% linkable_title Service `remote.harmony_change_channel` %}
 
-Sends the change channel command to the Harmony HUB 
+Sends the change channel command to the Harmony HUB
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Only act on a specific remote, else target all.
+| `entity_id`            |       no | Entity ID to target.
 | `channel`              |       no | Channel number to change to
 
 A typical service call for changing the channel would be::
@@ -208,7 +212,7 @@ Force synchronization between the Harmony device and the Harmony cloud.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id`            |      yes | Only act on a specific remote, else target all.
+| `entity_id`            |       no | Entity ID to target.
 
 ### {% linkable_title Examples %}
 

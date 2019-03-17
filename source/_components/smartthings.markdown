@@ -13,18 +13,22 @@ ha_category:
   - Hub
   - Binary Sensor
   - Climate
+  - Cover
   - Fan
   - Light
   - Lock
   - Sensor
+  - Scene
   - Switch
-ha_release: "0.87"
-ha_iot_class: "Cloud Push"
+ha_release: 0.87
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/smartthings.binary_sensor/
   - /components/binary_sensor.smartthings/
   - /components/smartthings.climate/
   - /components/climate.smartthings/
+  - /components/smartthings.cover/
+  - /components/cover.smartthings/
   - /components/smartthings.fan/
   - /components/fan.smartthings/
   - /components/smartthings.light/
@@ -33,6 +37,8 @@ redirect_from:
   - /components/lock.smartthings/
   - /components/smartthings.sensor/
   - /components/sensor.smartthings/
+  - /components/smartthings.scene/
+  - /components/scene.smartthings/
   - /components/smartthings.switch/
   - /components/switch.smartthings/
 ---
@@ -50,8 +56,18 @@ See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featu
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QZHlhQ7fqrA" frameborder="0" allowfullscreen></iframe>
 </div>
 
-
 ## {% linkable_title Basic requirements %}
+
+The SmartThings integration utilizes a webhook to receive push updates from the SmartThings cloud through either a cloudhook or an internet accessible webhook based on whether Home Assistant Cloud is configured and logged in with a non-expired subscription (this is not configurable at this time).
+
+### {% linkable_title Cloudhook via Nabu Casa %}
+
+If you are using Home Assistant Cloud (Nabu Casa) the integraiton will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the component prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
+
+1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
+2. Home Assistant Cloud is configured and logged-in with a non-expired subscription.
+
+### {% linkable_title Webhook %}
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant setup for [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
@@ -123,12 +139,15 @@ Event data payloads are logged at the debug level, see [debugging](#debugging) f
 ## {% linkable_title Platforms %}
 
 SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
+
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
-- [Fan](#fan) 
-- [Light](#light) 
+- [Cover](#cover)
+- [Fan](#fan)
+- [Light](#light)
 - [Lock](#lock)
-- [Sensor](#sensor) 
+- [Sensor](#sensor)
+- [Scene](#scene)
 - [Switch](#switch)
 
 Support for additional platforms will be added in the future.
@@ -150,7 +169,26 @@ The SmartThings Binary Sensor platform lets you view devices that have binary se
 
 ### {% linkable_title Climate %}
 
-The SmartThings Climate platform lets you control devices that have thermostat-related capabilities. For a SmartThings device to be represented by the climate platform, it must have all the capabilities from either "set a" _or_ "set b":
+The SmartThings Climate platform lets you control devices that have air conditioner or thermostat related capabilities.
+
+#### {% linkable_title Air Conditioners %}
+
+For a SmartThings Air Conditioner to be represented by the climate platform, it must have all of the following required capabilities:
+
+| Capability                          |Climate Features
+|-------------------------------------|--------------------------------------------|
+| [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode) (required)            | `operation mode`
+| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed) (required) | `fan mode`
+| [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) (required) | `on/off`
+| [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (required)    | `temperature`
+| [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (required) | `target temp`
+| [`demandResponseLoadControl`](https://docs.smartthings.com/en/latest/capabilities-reference.html#demand-response-load-control) | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)
+| [`powerConsumptionReport`](https://docs.smartthings.com/en/latest/capabilities-reference.html#power-consumption-report) | `power_consumption_end` (state attribute), `power_consumption_energy` (state attribute), `power_consumption_power` (state attribute), `power_consumption_start` (state attribute)
+  
+
+#### {% linkable_title Thermostats %}
+
+For a SmartThings thermostat to be represented by the climate platform, it must have all the capabilities from either "set a" _or_ "set b":
 
 | Capability                          |Climate Features
 |-------------------------------------|--------------------------------------------|
@@ -162,6 +200,18 @@ The SmartThings Climate platform lets you control devices that have thermostat-r
 | [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)          | `operating state` (state attribute)
 | [`thermostatFanMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Fan-Mode)                 | `fan mode`
 | [`relativeHumidityMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Relative-Humidity-Measurement)       | `humidity` (state attribute)
+
+### {% linkable_title Cover %}
+
+The SmartThings Cover platform lets you control devices that have open/close related capabilities. For a device to be represented by the cover platform, it must have one of the capabilities from "set a" below.
+
+| Capability                          |Cover Features
+|-------------------------------------|--------------------------------------------|
+| [`doorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Door-Control) (set a)            | `open` and `close`
+| [`garageDoorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Garage-Door-Control) (seb a) | `open` and `close`
+| [`windowShade`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Window-Shade) (set a) | `open` and `close`
+| [`switchLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch-Level)    |  `position`
+| [`battery`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Battery)          | `battery_level` (state attribute)
 
 ### {% linkable_title Fan %}
 
@@ -203,14 +253,12 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`carbonMonoxideDetector`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Monoxide-Detector)        | `carbonMonoxide`
 | [`carbonMonoxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Carbon-Monoxide-Measurement)  | `carbonMonoxideLevel`
 | [`dishwasherOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dishwasher-Operating-State)    | `machineState`, `dishwasherJobState` and `completionTime`
-| [`doorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Door-Control)                               | `door`
 | [`dryerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dryer-Mode)                                   | `dryerMode`
 | [`dryerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dryer-Operating-State)              | `machineState`, `dryerJobState` and `completionTime`
 | [`dustSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Dust-Sensor)                                 | `fineDustLevel` and `dustLevel`
 | [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter)                               | `energy`
 | [`equivalentCarbonDioxideMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Equivalent-Carbon-Dioxide-Measurement) | `equivalentCarbonDioxideMeasurement`
 | [`formaldehydeMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Formaldehyde-Measurement)       | `formaldehydeLevel`
-| [`garageDoorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Garage-Door-Control)                  | `door`
 | [`illuminanceMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Illuminance-Measurement)         | `illuminance`
 | [`infraredLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Infrared-Level)                           | `infraredLevel`
 | [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock)                                              | `lock`
@@ -238,23 +286,32 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode)                         | `thermostatMode`
 | [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)    | `thermostatOperatingState`
 | [`thermostatSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Setpoint)                 | `thermostatSetpoint`
+| [`threeAxis`](https://docs.smartthings.com/en/latest/capabilities-reference.html#three-axis)                                            | `threeAxis` (as discrete sensors `X`, `Y` and `Z`)
 | [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                   | `tvChannel`
 | [`tvocMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tvoc-Measurement)                       | `tvocLevel`
 | [`ultravioletIndex`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Ultraviolet-Index)                     | `ultravioletIndex`
 | [`voltageMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Voltage-Measurement)                 | `voltage`
 | [`washerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Mode)                                 | `washerMode`
 | [`washerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Operating-State)            | `machineState`, `washerJobState` and `completionTime`
-| [`windowShade`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Window-Shade)                               | `windowShade`
+
+### {% linkable_title Scene %}
+
+The SmartThings Scene platform lets you activate scenes defined in SmartThings with a scene entity representing each SmartThings scenes within the location.
 
 ### {% linkable_title Switch %}
 
-The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform.
+The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform. The following optional capabilities will provide energy and power utilization information:
+
+| Capability                          |Switch Features
+|-------------------------------------|--------------------------------------------|
+| [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter) | energy consumption (`today_energy_kwh` state attribute)
+| [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter) | power consumption (`current_power_w` state attribute)
 
 ## {% linkable_title Troubleshooting %}
 
 ### {% linkable_title Setup %}
 
-Perform the following steps if you receive one of the following error messages while attempting to setup the integration:
+Perform the following steps if you receive one of the following error messages while attempting to setup the integration (this does not apply when integrated through Home Assistant Cloud):
 
 - "SmartThings could not validate the endpoint configured in base_url. Please review the component requirements."
 - "Unable to setup the SmartApp. Please try again."

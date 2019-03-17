@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation
 logo: hdmi.png
 ha_release: 0.23
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
  - /components/media_player.hdmi_cec/
  - /components/switch.hdmi_cec/

@@ -10,7 +10,7 @@ footer: true
 logo: plex.png
 ha_category: Media Player
 ha_release: 0.22
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
