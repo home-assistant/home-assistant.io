@@ -121,6 +121,8 @@ google_assistant:
     light.living_room:
       expose: false
       room: LIVING_ROOM
+    group.all_automations:
+      expose: false
 ```
 
 {% configuration %}

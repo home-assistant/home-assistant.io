@@ -36,7 +36,7 @@ The following will take you through the steps required to install Hass.io.
     
 2. Install Hass.io:
 
-   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. We recommend at least a 32 GB SD card to avoid running out of space.
+   - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
 3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
