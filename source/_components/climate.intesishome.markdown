@@ -13,7 +13,9 @@ ha_release:
 ha_iot_class: "Cloud Push"
 ---
 
-The `IntesisHome` climate platform let you control [IntesisHome](https://www.intesishome.com) devices. IntesisHome provide integrations with air conditioners including including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
+The `IntesisHome` climate platform let you control [IntesisHome](https://www.intesishome.com) devices via the IntesisHome cloud. IntesisHome provide integrations with air conditioners including including Panasonic, Daikin, Fujitsu, Toshiba, LG and more.
+
+Note: IntesisHome products are a separate product line to IntesisBox. This platform does not support IntesisBox devices (which can be controlled locally using the WMP protocol).
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -39,8 +41,8 @@ password:
 - **password** (*Required*): Password for the IntesisHome account.
 
 This component opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
-
 By default the component will be named using the friendly device name from the IntesisHome website or application.
+If internet connectivity is lost the device will be marked as unavailable after 5 minutes.
 
 ### {% linkable_title Supported services %}
 Available services: 
