@@ -39,6 +39,8 @@ sensor:
         - wind_direction
         - wind_direction_text
         - wind_speed
+        - precipitation_amount
+        - precipitation_amountname
 ```
 
 {% configuration %}
@@ -73,6 +75,11 @@ monitored_conditions:
       description: Rough wind direction in twelve variants (Swedish text).
     wind_speed:
       description: Average wind speed during the last 10 minutes.
+    precipitation_amount:
+      description: Amount of precipitation.
+    precipitation_amountname:
+      description: Amount of precipitation in thirteen variants (Swedish text).
+    
 {% endconfiguration %}
 
 ## {% linkable_title Obtaining API key %}
@@ -120,4 +127,6 @@ sensor:
         - road_temp
         - humidity
         - precipitation
+        - precipitation_amount
+        - precipitation_amountname
 ```
