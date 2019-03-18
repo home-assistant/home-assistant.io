@@ -30,7 +30,6 @@ To enable this platform, add the following to your `configuration.yaml` file:
   password: !secret reddit_password
   client_id: !secret reddit_client_id
   client_secret: !secret reddit_client_secret
-  sort_by: new
   subreddits:
     - news
     - worldnews
@@ -58,7 +57,8 @@ subreddits:
   required: true
   type: list
 sort_by:
-  description: Sort reddit posts by new, top, controversial, and hot (default hot).
+  description: Sort reddit posts by new, top, controversial, and hot.
   required: false
   type: string
+  default: hot
 {% endconfiguration %}
