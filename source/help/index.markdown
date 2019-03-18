@@ -54,6 +54,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
 - [Thomas-Krenn-Award 2019 – The winners](https://www.thomas-krenn.com/de/tkmag/tk-insights/thomas-krenn-award-2019-gewinner/) - March 2019
+- [How to set up and use Home Assistant: For Dummies edition](https://www.the-ambient.com/how-to/set-up-use-home-assistant-644) - October 2018
 - [DINAcon begeistert 200 Teilnehmende und die Award-Gewinner 2018](https://dinacon.ch/wp-content/uploads/sites/4/2018/10/2018-10-19_DINAcon2018_Medienmitteilung.pdf) - October 2018
 - [Build a wireless MQTT weather sensor for your Home Assistant](https://www.smartlab.at/build-a-wireless-mqtt-temperature-and-humidity-sensor-for-your-home-assistant/) - October 2018
 - [Nominations for the DINACon award 2018](https://www.netzwoche.ch/news/2018-09-04/das-sind-die-nominierten-fuer-die-dinacon-awards-2018) - September 2018
