@@ -61,6 +61,10 @@ command_template:
   required: false
   type: string
   default: {{action}}
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
 qos:
   description: The maximum QoS level of the state topic.
   required: false
