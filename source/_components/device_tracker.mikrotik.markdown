@@ -96,7 +96,7 @@ If everything is working fine you can disable the pure `api` service in RouterOS
 To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API only:
 
 ```bash
-/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive on,!dude,!tikapp
+/user group add name=homeassistant policy=read,api,!local,!telnet,!ssh,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive,!romon,!dude,!tikapp
 /user add group=homeassistant name=homeassistant
 /user set password="YOUR_PASSWORD" homeassistant
 ```
