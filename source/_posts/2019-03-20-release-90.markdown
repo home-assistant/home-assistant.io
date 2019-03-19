@@ -74,10 +74,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- __Netatmo__ Added support for multiple Netatmo thermostats/valves ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
-- __Netatmo__ Return Netatmo climate operation_mode instead of boiler status ([@shanbs] - [#21633]) ([netatmo docs])
+- __Netatmo__ 
+   * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](https://www.home-assistant.io/components/climate.netatmo/) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
+   * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](https://www.home-assistant.io/components/climate.netatmo/) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
 - __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
-This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the updated documentation for further details. ([@dgomes] - [#20926]) ([utility_meter docs])
+This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the [updated documentation](https://www.home-assistant.io/components/utility_meter/) for the new configuration options. ([@dgomes] - [#20926]) ([utility_meter docs])
 - __KNX__ - An update for xknx to version 0.10.0 requires users to update their configuration by changing `target_temperature_address` to `target_temperature_state_address`. Other fixes and features:
    * Connection config can now be configured in xknx.yml.
    * Introduce a configurable rate limit which limits the number of KNX telegrams sent to the bus per second.
