@@ -88,7 +88,8 @@ Those who don't make this change will see an INFO level reminder in the Home Ass
 - __FireTV__- is now androidtv. Instead of having near-duplicate integrations for androidtv and firetv, the decision was made to combine them into one.
 Users will need to change `- platform: firetv` to `- platform: androidtv` in their configuration. ([@JeffLIrion] - [#21944])
 - __Tellstick__ - Some configuration cleanup. The way Tellsick sensor configuration was set up using dynamic values for named sensors will not be supported in future versions of Home Assistant. Users that have configured the optional named sensors initiated with only_named will have to update their configuration. Make sure to check the updated documentation for further details. ([@endor-force] - [#21402]) ([tellstick docs])
--  __MQTT__ - Pass `Message` object to MQTT message callbacks instead of `topic`, `message` and `qos`. Users of custom components please take note, these values are now available on the passed in message object: `msg.topic`, `msg.message`, `msg.qos`. ([@emontnemery] - [#21959]) ([mqtt docs])
+-  __MQTT__ - Pass `Message` object to MQTT message callbacks instead of `topic`, `message` and `qos`. Users of custom components please take note, these values are now available on the passed in message object: `msg.topic`, `msg.message`, `msg.qos`. The old method will continue to work for now but will print warnings. ([@emontnemery] - [#21959]) ([mqtt docs])
+- __Default Config__ - Default config no longer contains the discovery component. That is now part of the initial written configuration.yaml. If you rely on default config and want to use discovery, add `discovery:` back to your configuration.yaml.
 
 ## {% linkable_title All changes %}
 
