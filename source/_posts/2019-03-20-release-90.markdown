@@ -74,15 +74,21 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Added support for multiple Netatmo thermostats/valves ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs]) (breaking change)
-- Return Netatmo climate operation_mode instead of boiler status ([@shanbs] - [#21633]) ([netatmo docs]) (breaking change)
-- Utility Meter offset defined by a time_period ([@dgomes] - [#20926]) ([utility_meter docs]) (breaking change)
-- Introduce target_temperature_state_address for climate device ([@marvin-w] - [#21541]) ([knx docs]) (breaking change)
-- Deprecate http.api_password ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs]) (breaking change)
-- Changed from nanoleaf_aurora to nanoleaf ([@Oro] - [#21913]) ([light.nanoleaf docs]) (breaking change)
-- Rename 'firetv' to 'androidtv' and add Android TV functionality ([@JeffLIrion] - [#21944]) (breaking change)
-- Tellstick sensor configuration cleanup ([@endor-force] - [#21402]) ([tellstick docs]) (breaking change)
-- Pass Message object to MQTT message callbacks ([@emontnemery] - [#21959]) ([mqtt docs]) (breaking change)
+- __Netatmo__ Added support for multiple Netatmo thermostats/valves ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
+- __Netatmo__ Return Netatmo climate operation_mode instead of boiler status ([@shanbs] - [#21633]) ([netatmo docs])
+- __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
+This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the updated documentation for further details. ([@dgomes] - [#20926]) ([utility_meter docs])
+- __KNX__ - An update for xknx to version 0.10.0 requires users to update their configuration by changing `target_temperature_address` to `target_temperature_state_address`. Other fixes and features:
+   * Connection config can now be configured in xknx.yml.
+   * Introduce a configurable rate limit which limits the number of KNX telegrams sent to the bus per second.
+   * Users who configured their lights via xknx.yml no longer need to manually set min_kelvin and max_kelvin (fixes #21251) ([@marvin-w] - [#21541]) ([knx docs])
+-  __http.api_password__ - __Deprecated__ - Users who are still using api_password for authentication will need to move it under auth_providers. Please see the [updated documentation](https://www.home-assistant.io/docs/authentication/providers/#legacy-api-password) for further details.
+Those who don't make this change will see an INFO level reminder in the Home Assistant logs until the fix is made for a time, but please note, __api_password authentication will eventually be removed completely__ and we advise users to change to use one of the [other authentication methods](https://www.home-assistant.io/docs/authentication/providers/#available-auth-providers). ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs])
+-  __Nanoleaf__ - The Nanoleaf component now supports _both_ nanoleaf lights, Aurora and Canvas. As a result of this change the user needs to change the platform from `nanoleaf_aurora` to `nanoleaf` ([@Oro] - [#21913]) ([light.nanoleaf docs])
+- __FireTV__- is now androidtv. Instead of having near-duplicate integrations for androidtv and firetv, the decision was made to combine them into one.
+Users will need to change `- platform: firetv` to `- platform: androidtv` in their configuration. ([@JeffLIrion] - [#21944])
+- __Tellstick__ - Some configuration cleanup. The way Tellsick sensor configuration was set up using dynamic values for named sensors will not be supported in future versions of Home Assistant. Users that have configured the optional named sensors initiated with only_named will have to update their configuration. Make sure to check the updated documentation for further details. ([@endor-force] - [#21402]) ([tellstick docs])
+-  __MQTT__ - Pass `Message` object to MQTT message callbacks instead of `topic`, `message` and `qos`. Users of custom components please take note, these values are now available on the passed in message object: `msg.topic`, `msg.message`, `msg.qos`. ([@emontnemery] - [#21959]) ([mqtt docs])
 
 ## {% linkable_title All changes %}
 
