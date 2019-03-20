@@ -20,12 +20,17 @@ To use a Ubee router in your installation, add the following to your `configurat
 # Example configuration.yaml entry
 device_tracker:
   - platform: ubee
+    model: UBEE_MODEL
     host: ROUTER_IP_ADDRESS
     username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
 ```
 
 {% configuration %}
+model:
+  description: Ubee Router model, e.g., `EVW32C-0N`.
+  required: true
+  type: string
 host:
   description: The IP address of your router, e.g., `192.168.1.1`.
   required: true
@@ -39,6 +44,14 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+Supported models:
+- Ubee EVW32C-0N
+- Ubee EVW3200-Wifi
+
+<p class='note info'>
+This component uses [pyUbee library](https://github.com/mzdrale/pyubee), which was tested with models listed above. If you have different model of [Ubee Router](http://www.ubeeinteractive.com/products) and want to use this component, try specifying one of models listed above, it might work. If that happens, please [create pyUbee issue](https://github.com/mzdrale/pyubee/issues/new) to report. Also if none of these models work for you, [create pyUbee issue](https://github.com/mzdrale/pyubee/issues/new) to request for support for your model.
+</p>
 
 By default, Home Assistant pulls information about connected devices from Ubee router every 5 seconds.
 See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
