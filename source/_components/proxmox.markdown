@@ -34,7 +34,7 @@ To use the `proxmox` component in your installation, add the following to your `
 ```yaml
 # Example configuration.yaml entry
 proxmox:
-   host: 192.168.1.100
+   host: IP_ADDRESS
    port: 8006
    verify_ssl: False
    username: user
