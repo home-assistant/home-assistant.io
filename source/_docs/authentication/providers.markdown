@@ -133,7 +133,7 @@ homeassistant:
      api_password: !secret http_password
 ```
 
-`api_password` is required option since 0.90 rlease.
+`api_password` is required option since 0.90 release.
 
 Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
 
