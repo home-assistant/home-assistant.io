@@ -73,8 +73,6 @@ homeassistant:
   auth_providers:
     - type: trusted_networks
       trusted_networks:
-        - 127.0.0.1
-        - ::1
         - 192.168.0.0/24
         - fd00::/8
 ```
