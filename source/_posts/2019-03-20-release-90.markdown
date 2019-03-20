@@ -1,17 +1,21 @@
 ---
 layout: post
-title: "0.90: TBD - Update date"
-description: "TBD"
-date: 2019-03-13 00:11:03
+title: "0.90: Remote UI, Streams, User Groups"
+description: "Bring your next level home to the next next leve."
+date: 2019-03-20 00:11:03
 date_formatted: "March 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-03-release-90/components.png
+og_image: /images/blog/2019-03-release-90/remote.png
 ---
 
 Remote connection available for Home Assistant Cloud! Check out the cloud page in config to get going.
+
+<p class='img'>
+<img src='/images/blog/2019-03-release-90/remote.png'>
+</p>
 
 ## {% linkable_title Streams %}
 
@@ -45,16 +49,17 @@ Improved integration setup flow:
 
 - Add support for homekit controller sensors ([@cpopp] - [#21535]) ([homekit_controller docs]) (new-platform)
 - Add separate on/off ids on manual configured IHC lights ([@msvinth] - [#20253]) ([ihc docs]) ([light.ihc docs]) (new-platform)
+- mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
 - Add storage helper to ZHA and use it for the device node descriptor ([@dmulcahey] - [#21500]) ([zha docs]) (new-platform)
-- Add support for DHT and DS18B20 sensors via Konnected firmware ([@heythisisnate] - [#21189]) ([konnected docs]) ([sensor.konnected docs]) (new-platform)
 - Add SmartThingsAccelCluster to ZHA binary_sensor ([@roblandry] - [#21609]) ([zha docs]) (new-platform)
 - Xfinity Gateway device_tracker platform ([@cisasteelersfan] - [#21026]) ([device_tracker docs]) (new-platform)
-- Add Time of Flight Sensor using VL53L1X ([@josemotta] - [#21230]) ([sensor.tof docs]) (new-platform)
+- Add Time of Flight Sensor using VL53L1X ([@josemotta] - [#21230]) ([tof docs]) (new-platform)
 - Adding enigma2 media player ([@fbradyirl] - [#21271]) ([media_player.enigma2 docs]) (new-platform)
 - Add support for Cisco Mobility Express ([@fbradyirl] - [#21531]) ([cisco_mobility_express docs]) (new-platform)
 - Add ClearPass Policy Manger device tracker ([@zemerick1] - [#21673]) ([device_tracker docs]) (new-platform)
-- Live Streams Component ([@hunterjm] - [#21473]) ([camera docs]) ([stream docs]) ([camera.ffmpeg docs]) (new-platform)
+- Live Streams Component ([@hunterjm] - [#21473]) ([camera docs]) ([stream docs]) (new-platform)
 - Add Weather Sensors to Homematic IP ([@SukramJ] - [#21887]) ([homematicip_cloud docs]) (new-platform)
+- Mobile App: Sensors ([@robbiet480] - [#21854]) ([mobile_app docs]) (beta fix) (new-platform)
 
 ## {% linkable_title New Features %}
 
@@ -74,7 +79,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- __Netatmo__ 
+- __Netatmo__
    * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](https://www.home-assistant.io/components/climate.netatmo/) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
    * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](https://www.home-assistant.io/components/climate.netatmo/) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
 - __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
@@ -91,6 +96,41 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - __Tellstick__ - Some configuration cleanup. The way Tellsick sensor configuration was set up using dynamic values for named sensors will not be supported in future versions of Home Assistant. Users that have configured the optional named sensors initiated with only_named will have to update their configuration. Make sure to check the updated documentation for further details. ([@endor-force] - [#21402]) ([tellstick docs])
 -  __MQTT__ - Pass `Message` object to MQTT message callbacks instead of `topic`, `message` and `qos`. Users of custom components please take note, these values are now available on the passed in message object: `msg.topic`, `msg.message`, `msg.qos`. The old method will continue to work for now but will print warnings. ([@emontnemery] - [#21959]) ([mqtt docs])
 - __Default Config__ - Default config no longer contains the discovery component. That is now part of the initial written configuration.yaml. If you rely on default config and want to use discovery, add `discovery:` back to your configuration.yaml.
+
+## {% linkable_title Beta Fixes %}
+
+- mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
+- Remove UTF8 decoding for Waze ([@philhawthorne] - [#22020]) ([sensor.waze_travel_time docs]) (beta fix)
+- Bring back the boiler status ([@cgtobi] - [#22021]) ([netatmo docs]) (beta fix)
+- Update additional platforms to use new MQTT message callback ([@emontnemery] - [#22030]) ([device_tracker docs]) ([mqtt_eventstream docs]) ([owntracks docs]) ([snips docs]) ([alarm_control_panel.manual_mqtt docs]) ([automation.mqtt docs]) ([sensor.arwn docs]) ([sensor.mqtt_room docs]) (beta fix)
+- Fix lifx light async error ([@awarecan] - [#22031]) ([lifx docs]) (beta fix)
+- Fix Google Assistant User with Cloud ([@pvizeli] - [#22042]) ([cloud docs]) (beta fix)
+- Mobile App: Require encryption for registrations that support it ([@robbiet480] - [#21852]) ([mobile_app docs]) (beta fix)
+- Mobile App: Support rendering multiple templates at once ([@robbiet480] - [#21851]) ([mobile_app docs]) (beta fix)
+- Mobile App: Update Location schema updates & device ID generation ([@robbiet480] - [#21849]) ([mobile_app docs]) (beta fix)
+- Mobile App: Register devices into the registry ([@robbiet480] - [#21856]) ([mobile_app docs]) (beta fix)
+- Mobile App: Sensors ([@robbiet480] - [#21854]) ([mobile_app docs]) (beta fix) (new-platform)
+- Bump androidtv to 0.0.11 ([@JeffLIrion] - [#22025]) ([androidtv docs]) (beta fix)
+- Mobile App: Enable loading via discovery (surprise inside!) ([@robbiet480] - [#22027]) ([mobile_app docs]) (beta fix)
+- Mobile App: Discovery to default configuration.yaml, zeroconf to default_config ([@robbiet480] - [#22028]) ([default_config docs]) ([mobile_app docs]) (beta fix)
+- Mobile App: Expose Cloud Remote UI FQDN in registration response ([@robbiet480] - [#22055]) ([cloud docs]) ([mobile_app docs]) (beta fix)
+- Return config entry ID after creation ([@balloob] - [#22060]) ([config docs]) (beta fix)
+- Correct context ([@awarecan] - [#22061]) ([alexa docs]) (beta fix)
+- Binary Sensor for Remote UI & Fix timezone ([@pvizeli] - [#22076]) (beta fix)
+- Bump androidtv to 0.0.12 ([@JeffLIrion] - [#22072]) ([androidtv docs]) (beta fix)
+- Prevent cloud remote UI when using 127.0.0.1 as trusted network ([@balloob] - [#22093]) ([cloud docs]) (beta fix)
+- Beta Fix: FFMPEG and Stream component ([@hunterjm] - [#22091]) ([camera.ffmpeg docs]) ([camera.generic docs]) ([camera.onvif docs]) (beta fix)
+- delete previously removed service option from services yaml ([@hunterjm] - [#22123]) (beta fix)
+- Remove hass.config from aws_lambda notify payload ([@awarecan] - [#22125]) (breaking change) (beta fix)
+- Allow non-admins to listen to certain events ([@balloob] - [#22137]) ([websocket_api docs]) (beta fix)
+- Bump tado version ([@WebSpider] - [#22145]) ([tado docs]) (beta fix)
+- Fix resetting access token on streams with keepalive ([@hunterjm] - [#22148]) ([stream docs]) (beta fix)
+- Remove config check over supervisor ([@pvizeli] - [#22156]) ([hassio docs]) (beta fix)
+- Upgrade toonapilib to 3.2.2 + lower interval ([@frenck] - [#22160]) ([toon docs]) (beta fix)
+- bump total_connect_client to 0.24 ([@uchagani] - [#22166]) ([totalconnect docs]) (beta fix)
+- Update Hass-NabuCasa 0.8 ([@pvizeli] - [#22177]) ([cloud docs]) (beta fix)
+- Always load Hass.io component on Hass.io ([@balloob] - [#22185]) (beta fix)
+- Fixed typing errors ([@Swamp-Ig] - [#22207]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -120,6 +160,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - bump pyxeoma to 1.4.1 to fix and close #19306 ([@trunet] - [#21568]) ([camera.xeoma docs])
 - fix exception ([@dmulcahey] - [#21571]) ([zha docs])
 - Add config entry remove callback ([@andrewsayre] - [#21576])
+- mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
 - Memory optimization for logbook ([@amelchio] - [#21549]) ([logbook docs])
 - Get room hints from areas ([@Swamp-Ig] - [#21519]) ([google_assistant docs])
 - Centrally define Watt ([@dgomes] - [#21570])
@@ -135,7 +176,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - SmartThings remove SmartApp/Automation on integration removal ([@andrewsayre] - [#21594]) ([smartthings docs]) (new-feature)
 - Bumping aioasuswrt ([@kennedyshead] - [#21627]) ([asuswrt docs])
 - Add device HMIP-eTRV-C to HomematicIP ([@SukramJ] - [#21612])
-- Add 'app_name' property and 'apps' config entry to Fire TV ([@JeffLIrion] - [#21601]) ([firetv docs])
+- Add 'app_name' property and 'apps' config entry to Fire TV ([@JeffLIrion] - [#21601]) ([androidtv docs])
 - Add optional sender name for SendGrid ([@srirams] - [#21610]) ([notify.sendgrid docs])
 - fix derived rate, fixes #20097 ([@wburgers] - [#21620]) ([sensor.dsmr docs])
 - Bump pyflunearyou to 1.0.3 ([@bachya] - [#21634]) ([sensor.flunearyou docs])
@@ -147,7 +188,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - Fix actions with tox ([@pvizeli] - [#21642])
 - GitHub Workflow ([@pvizeli] - [#21643])
 - Upgrade youtube_dl to 2019.03.01 ([@fabaff] - [#21647]) ([media_extractor docs])
-- Add support for DHT and DS18B20 sensors via Konnected firmware ([@heythisisnate] - [#21189]) ([konnected docs]) ([sensor.konnected docs]) (new-platform)
+- Add support for DHT and DS18B20 sensors via Konnected firmware ([@heythisisnate] - [#21189]) ([konnected docs])
 - Allow targeting areas in service calls ([@balloob] - [#21472]) ([alert docs]) ([automation docs]) ([group docs]) ([image_processing docs]) ([light docs]) ([scene docs]) ([script docs])
 - Add camera name to logs ([@arsaboo] - [#21653]) ([camera.generic docs])
 - Netatmo, handle missing thermostat devices ([@Danielhiversen] - [#21651]) ([netatmo docs])
@@ -177,7 +218,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - Allow light toggle service to accept all turn on params ([@zewelor] - [#20912]) ([light docs])
 - Introduce target_temperature_state_address for climate device ([@marvin-w] - [#21541]) ([knx docs]) (breaking change)
 - Upgrade pylint to 2.3.1 ([@scop] - [#21789])
-- Add Time of Flight Sensor using VL53L1X ([@josemotta] - [#21230]) ([sensor.tof docs]) (new-platform)
+- Add Time of Flight Sensor using VL53L1X ([@josemotta] - [#21230]) ([tof docs]) (new-platform)
 - Upgrade huawei-lte-api to 1.1.5 ([@scop] - [#21791]) ([huawei_lte docs])
 - Adding enigma2 media player ([@fbradyirl] - [#21271]) ([media_player.enigma2 docs]) (new-platform)
 - Bump loopenergy to 0.1.0. Loop updated their socket.io server from 0.9 to 2.0 - which required a library update. ([@pavoni] - [#21809]) ([sensor.loopenergy docs])
@@ -237,7 +278,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - Add update user command ([@balloob] - [#21922]) ([config docs])
 - Offload Cloud component ([@pvizeli] - [#21937]) ([cloud docs])
 - Upgrade schiene to 0.23 ([@fabaff] - [#21940]) ([sensor.deutsche_bahn docs])
-- Live Streams Component ([@hunterjm] - [#21473]) ([camera docs]) ([stream docs]) ([camera.ffmpeg docs]) (new-platform)
+- Live Streams Component ([@hunterjm] - [#21473]) ([camera docs]) ([stream docs]) (new-platform)
 - Update lametric icon to be HA logo ([@robbiet480] - [#21957]) ([lametric docs])
 - Avoid playing queue pollution when restoring Sonos snapshots ([@amelchio] - [#21963]) ([sonos docs])
 - Update to sense component to fully be async ([@kbickar] - [#21698]) ([sense docs])
@@ -275,6 +316,37 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - Remove default temp unit ([@andrewsayre] - [#22012]) ([smartthings docs])
 - Allow all success status codes in REST notify response ([@isabellaalstrom] - [#22011]) ([notify docs])
 - Check updated_date for list and pick first ([@GGeezes] - [#22008])
+- Remove UTF8 decoding for Waze ([@philhawthorne] - [#22020]) ([sensor.waze_travel_time docs]) (beta fix)
+- Bring back the boiler status ([@cgtobi] - [#22021]) ([netatmo docs]) (beta fix)
+- Update additional platforms to use new MQTT message callback ([@emontnemery] - [#22030]) ([device_tracker docs]) ([mqtt_eventstream docs]) ([owntracks docs]) ([snips docs]) ([alarm_control_panel.manual_mqtt docs]) ([automation.mqtt docs]) ([sensor.arwn docs]) ([sensor.mqtt_room docs]) (beta fix)
+- Fix lifx light async error ([@awarecan] - [#22031]) ([lifx docs]) (beta fix)
+- Fix Google Assistant User with Cloud ([@pvizeli] - [#22042]) ([cloud docs]) (beta fix)
+- Mobile App: Require encryption for registrations that support it ([@robbiet480] - [#21852]) ([mobile_app docs]) (beta fix)
+- Mobile App: Support rendering multiple templates at once ([@robbiet480] - [#21851]) ([mobile_app docs]) (beta fix)
+- Mobile App: Update Location schema updates & device ID generation ([@robbiet480] - [#21849]) ([mobile_app docs]) (beta fix)
+- Mobile App: Register devices into the registry ([@robbiet480] - [#21856]) ([mobile_app docs]) (beta fix)
+- Mobile App: Sensors ([@robbiet480] - [#21854]) ([mobile_app docs]) (beta fix) (new-platform)
+- Bump androidtv to 0.0.11 ([@JeffLIrion] - [#22025]) ([androidtv docs]) (beta fix)
+- Mobile App: Enable loading via discovery (surprise inside!) ([@robbiet480] - [#22027]) ([mobile_app docs]) (beta fix)
+- Mobile App: Discovery to default configuration.yaml, zeroconf to default_config ([@robbiet480] - [#22028]) ([default_config docs]) ([mobile_app docs]) (beta fix)
+- Mobile App: Expose Cloud Remote UI FQDN in registration response ([@robbiet480] - [#22055]) ([cloud docs]) ([mobile_app docs]) (beta fix)
+- Return config entry ID after creation ([@balloob] - [#22060]) ([config docs]) (beta fix)
+- Correct context ([@awarecan] - [#22061]) ([alexa docs]) (beta fix)
+- Binary Sensor for Remote UI & Fix timezone ([@pvizeli] - [#22076]) (beta fix)
+- Bump androidtv to 0.0.12 ([@JeffLIrion] - [#22072]) ([androidtv docs]) (beta fix)
+- Prevent cloud remote UI when using 127.0.0.1 as trusted network ([@balloob] - [#22093]) ([cloud docs]) (beta fix)
+- Beta Fix: FFMPEG and Stream component ([@hunterjm] - [#22091]) ([camera.ffmpeg docs]) ([camera.generic docs]) ([camera.onvif docs]) (beta fix)
+- delete previously removed service option from services yaml ([@hunterjm] - [#22123]) (beta fix)
+- Remove hass.config from aws_lambda notify payload ([@awarecan] - [#22125]) (breaking change) (beta fix)
+- Allow non-admins to listen to certain events ([@balloob] - [#22137]) ([websocket_api docs]) (beta fix)
+- Bump tado version ([@WebSpider] - [#22145]) ([tado docs]) (beta fix)
+- Fix resetting access token on streams with keepalive ([@hunterjm] - [#22148]) ([stream docs]) (beta fix)
+- Remove config check over supervisor ([@pvizeli] - [#22156]) ([hassio docs]) (beta fix)
+- Upgrade toonapilib to 3.2.2 + lower interval ([@frenck] - [#22160]) ([toon docs]) (beta fix)
+- bump total_connect_client to 0.24 ([@uchagani] - [#22166]) ([totalconnect docs]) (beta fix)
+- Update Hass-NabuCasa 0.8 ([@pvizeli] - [#22177]) ([cloud docs]) (beta fix)
+- Always load Hass.io component on Hass.io ([@balloob] - [#22185]) (beta fix)
+- Fixed typing errors ([@Swamp-Ig] - [#22207]) (beta fix)
 
 [#19034]: https://github.com/home-assistant/home-assistant/pull/19034
 [#19407]: https://github.com/home-assistant/home-assistant/pull/19407
@@ -301,6 +373,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [#21454]: https://github.com/home-assistant/home-assistant/pull/21454
 [#21472]: https://github.com/home-assistant/home-assistant/pull/21472
 [#21473]: https://github.com/home-assistant/home-assistant/pull/21473
+[#21475]: https://github.com/home-assistant/home-assistant/pull/21475
 [#21488]: https://github.com/home-assistant/home-assistant/pull/21488
 [#21498]: https://github.com/home-assistant/home-assistant/pull/21498
 [#21499]: https://github.com/home-assistant/home-assistant/pull/21499
@@ -404,9 +477,14 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [#21841]: https://github.com/home-assistant/home-assistant/pull/21841
 [#21846]: https://github.com/home-assistant/home-assistant/pull/21846
 [#21848]: https://github.com/home-assistant/home-assistant/pull/21848
+[#21849]: https://github.com/home-assistant/home-assistant/pull/21849
 [#21850]: https://github.com/home-assistant/home-assistant/pull/21850
+[#21851]: https://github.com/home-assistant/home-assistant/pull/21851
+[#21852]: https://github.com/home-assistant/home-assistant/pull/21852
 [#21853]: https://github.com/home-assistant/home-assistant/pull/21853
+[#21854]: https://github.com/home-assistant/home-assistant/pull/21854
 [#21855]: https://github.com/home-assistant/home-assistant/pull/21855
+[#21856]: https://github.com/home-assistant/home-assistant/pull/21856
 [#21858]: https://github.com/home-assistant/home-assistant/pull/21858
 [#21866]: https://github.com/home-assistant/home-assistant/pull/21866
 [#21869]: https://github.com/home-assistant/home-assistant/pull/21869
@@ -457,6 +535,32 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [#22010]: https://github.com/home-assistant/home-assistant/pull/22010
 [#22011]: https://github.com/home-assistant/home-assistant/pull/22011
 [#22012]: https://github.com/home-assistant/home-assistant/pull/22012
+[#22020]: https://github.com/home-assistant/home-assistant/pull/22020
+[#22021]: https://github.com/home-assistant/home-assistant/pull/22021
+[#22025]: https://github.com/home-assistant/home-assistant/pull/22025
+[#22027]: https://github.com/home-assistant/home-assistant/pull/22027
+[#22028]: https://github.com/home-assistant/home-assistant/pull/22028
+[#22030]: https://github.com/home-assistant/home-assistant/pull/22030
+[#22031]: https://github.com/home-assistant/home-assistant/pull/22031
+[#22042]: https://github.com/home-assistant/home-assistant/pull/22042
+[#22055]: https://github.com/home-assistant/home-assistant/pull/22055
+[#22060]: https://github.com/home-assistant/home-assistant/pull/22060
+[#22061]: https://github.com/home-assistant/home-assistant/pull/22061
+[#22072]: https://github.com/home-assistant/home-assistant/pull/22072
+[#22076]: https://github.com/home-assistant/home-assistant/pull/22076
+[#22091]: https://github.com/home-assistant/home-assistant/pull/22091
+[#22093]: https://github.com/home-assistant/home-assistant/pull/22093
+[#22123]: https://github.com/home-assistant/home-assistant/pull/22123
+[#22125]: https://github.com/home-assistant/home-assistant/pull/22125
+[#22137]: https://github.com/home-assistant/home-assistant/pull/22137
+[#22145]: https://github.com/home-assistant/home-assistant/pull/22145
+[#22148]: https://github.com/home-assistant/home-assistant/pull/22148
+[#22156]: https://github.com/home-assistant/home-assistant/pull/22156
+[#22160]: https://github.com/home-assistant/home-assistant/pull/22160
+[#22166]: https://github.com/home-assistant/home-assistant/pull/22166
+[#22177]: https://github.com/home-assistant/home-assistant/pull/22177
+[#22185]: https://github.com/home-assistant/home-assistant/pull/22185
+[#22207]: https://github.com/home-assistant/home-assistant/pull/22207
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@Dullage]: https://github.com/Dullage
@@ -471,6 +575,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [@SukramJ]: https://github.com/SukramJ
 [@Swamp-Ig]: https://github.com/Swamp-Ig
 [@ToRvaLDz]: https://github.com/ToRvaLDz
+[@WebSpider]: https://github.com/WebSpider
 [@alandtse]: https://github.com/alandtse
 [@amelchio]: https://github.com/amelchio
 [@andrewsayre]: https://github.com/andrewsayre
@@ -481,6 +586,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [@balloob]: https://github.com/balloob
 [@beavis9k]: https://github.com/beavis9k
 [@c-soft]: https://github.com/c-soft
+[@cgtobi]: https://github.com/cgtobi
 [@chilicheech]: https://github.com/chilicheech
 [@cisasteelersfan]: https://github.com/cisasteelersfan
 [@cmsimike]: https://github.com/cmsimike
@@ -496,6 +602,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [@epleypa]: https://github.com/epleypa
 [@fabaff]: https://github.com/fabaff
 [@fbradyirl]: https://github.com/fbradyirl
+[@frenck]: https://github.com/frenck
 [@gertdb]: https://github.com/gertdb
 [@heythisisnate]: https://github.com/heythisisnate
 [@hunterjm]: https://github.com/hunterjm
@@ -516,6 +623,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [@nudded]: https://github.com/nudded
 [@nugget]: https://github.com/nugget
 [@pavoni]: https://github.com/pavoni
+[@philhawthorne]: https://github.com/philhawthorne
 [@piitaya]: https://github.com/piitaya
 [@pnbruckner]: https://github.com/pnbruckner
 [@pvizeli]: https://github.com/pvizeli
@@ -538,20 +646,25 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [@zemerick1]: https://github.com/zemerick1
 [@zewelor]: https://github.com/zewelor
 [air_quality docs]: /components/air_quality/
+[alarm_control_panel.manual_mqtt docs]: /components/alarm_control_panel.manual_mqtt/
 [alarm_control_panel.mqtt docs]: /components/alarm_control_panel.mqtt/
 [alarmdecoder docs]: /components/alarmdecoder/
 [alert docs]: /components/alert/
+[alexa docs]: /components/alexa/
 [ambient_station docs]: /components/ambient_station/
 [amcrest docs]: /components/amcrest/
+[androidtv docs]: /components/androidtv/
 [api docs]: /components/api/
 [asuswrt docs]: /components/asuswrt/
 [auth docs]: /components/auth/
 [automation docs]: /components/automation/
+[automation.mqtt docs]: /docs/automation/trigger/#mqtt-trigger
 [binary_sensor.trend docs]: /components/binary_sensor.trend/
 [binary_sensor.workday docs]: /components/binary_sensor.workday/
 [camera docs]: /components/camera/
 [camera.ffmpeg docs]: /components/camera.ffmpeg/
 [camera.generic docs]: /components/camera.generic/
+[camera.onvif docs]: /components/camera.onvif/
 [camera.proxy docs]: /components/camera.proxy/
 [camera.xeoma docs]: /components/camera.xeoma/
 [cast docs]: /components/cast/
@@ -562,10 +675,10 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [climate.netatmo docs]: /components/climate.netatmo/
 [cloud docs]: /components/cloud/
 [config docs]: /components/config/
+[default_config docs]: /components/default_config/
 [device_tracker docs]: /components/device_tracker/
 [emulated_hue docs]: /components/emulated_hue/
 [enigma2 docs]: /components/enigma2/
-[firetv docs]: /components/firetv/
 [frontend docs]: /components/frontend/
 [google_assistant docs]: /components/google_assistant/
 [group docs]: /components/group/
@@ -583,6 +696,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [knx docs]: /components/knx/
 [konnected docs]: /components/konnected/
 [lametric docs]: /components/lametric/
+[lifx docs]: /components/lifx/
 [light docs]: /components/light/
 [light.flux_led docs]: /components/light.flux_led/
 [light.ihc docs]: /components/light.ihc/
@@ -598,12 +712,14 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [mobile_app docs]: /components/mobile_app/
 [modbus docs]: /components/modbus/
 [mqtt docs]: /components/mqtt/
+[mqtt_eventstream docs]: /components/mqtt_eventstream/
 [ness_alarm docs]: /components/ness_alarm/
 [netatmo docs]: /components/netatmo/
 [notify docs]: /components/notify/
 [notify.sendgrid docs]: /components/notify.sendgrid/
 [onboarding docs]: /components/onboarding/
 [openuv docs]: /components/openuv/
+[owntracks docs]: /components/owntracks/
 [ps4 docs]: /components/ps4/
 [rainmachine docs]: /components/rainmachine/
 [remote docs]: /components/remote/
@@ -612,13 +728,14 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [scene docs]: /components/scene/
 [script docs]: /components/script/
 [sense docs]: /components/sense/
+[sensor.arwn docs]: /components/sensor.arwn/
 [sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
 [sensor.discogs docs]: /components/sensor.discogs/
 [sensor.dsmr docs]: /components/sensor.dsmr/
 [sensor.flunearyou docs]: /components/sensor.flunearyou/
-[sensor.konnected docs]: /components/sensor.konnected/
 [sensor.loopenergy docs]: /components/sensor.loopenergy/
 [sensor.mopar docs]: /components/sensor.mopar/
+[sensor.mqtt_room docs]: /components/sensor.mqtt_room/
 [sensor.netdata docs]: /components/sensor.netdata/
 [sensor.nmbs docs]: /components/sensor.nmbs/
 [sensor.pollen docs]: /components/sensor.pollen/
@@ -626,15 +743,20 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [sensor.starlingbank docs]: /components/sensor.starlingbank/
 [sensor.synologydsm docs]: /components/sensor.synologydsm/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.tof docs]: /components/sensor.tof/
+[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
 [sensor.whois docs]: /components/sensor.whois/
 [smartthings docs]: /components/smartthings/
+[snips docs]: /components/snips/
 [sonos docs]: /components/sonos/
 [stream docs]: /components/stream/
 [switch.mystrom docs]: /components/switch.mystrom/
 [switch.vesync docs]: /components/switch.vesync/
+[tado docs]: /components/tado/
 [tellstick docs]: /components/tellstick/
 [tesla docs]: /components/tesla/
+[tof docs]: /components/tof/
+[toon docs]: /components/toon/
+[totalconnect docs]: /components/totalconnect/
 [tplink docs]: /components/tplink/
 [tts docs]: /components/tts/
 [utility_meter docs]: /components/utility_meter/
