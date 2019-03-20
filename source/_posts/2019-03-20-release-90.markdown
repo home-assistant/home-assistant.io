@@ -15,7 +15,7 @@ It's time for Home Assistant 0.90 and it's just wow. This release is so packed w
 
 The first big feature is that Home Assistant Cloud now supports remote control. This allows you to check in on your home while away from home. Get a notification that motion was detected? Now you can easily check what happened and take action while away. It works end-to-end encrypted. Only thing needed to get started is to enable it. That's it.
 
-For more information on how it works, check out [the documentation](https://www.nabucasa.com/config/remote/) or listen to [the latest episode of the Home Assistant Podcast](https://hasspodcast.io/) (will be released soon).
+For more information on how it works, check out [the documentation](https://www.nabucasa.com/config/remote/) or listen to [the latest episode of the Home Assistant Podcast](https://hasspodcast.io/ha046/).
 
 <p class='img'>
 <img src='/images/blog/2019-03-release-90/remote.png' alt='Screenshot of the Remote UI preference.'>
