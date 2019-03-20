@@ -37,7 +37,7 @@ proxmox:
    host: IP_ADDRESS
    port: 8006
    verify_ssl: False
-   username: user
+   username: USERNAME
    password: mysupersecretpassword
    realm: pam
    nodes:
