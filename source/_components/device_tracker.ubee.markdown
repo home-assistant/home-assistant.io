@@ -46,8 +46,8 @@ password:
 {% endconfiguration %}
 
 Supported models:
-- Ubee EVW32C-0N
-- Ubee EVW3200-Wifi
+- EVW32C-0N
+- EVW3200-Wifi
 
 <p class='note info'>
 This component uses [pyUbee library](https://github.com/mzdrale/pyubee), which was tested with models listed above. If you have different model of [Ubee Router](http://www.ubeeinteractive.com/products) and want to use this component, try specifying one of models listed above, it might work. If that happens, please [create pyUbee issue](https://github.com/mzdrale/pyubee/issues/new) to report. Also if none of these models work for you, [create pyUbee issue](https://github.com/mzdrale/pyubee/issues/new) to request for support for your model.
