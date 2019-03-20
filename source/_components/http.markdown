@@ -112,8 +112,6 @@ http:
     - 127.0.0.1
     - ::1
   trusted_networks:
-    - 127.0.0.1
-    - ::1
     - 192.168.0.0/24
     - fd00::/8
   ip_ban_enabled: true
