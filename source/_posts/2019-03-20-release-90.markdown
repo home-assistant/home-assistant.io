@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "0.90: Remote UI, Streams, User Groups"
-description: "Bring your next level home to the next next leve."
+description: "Bring your next level home to the next next level."
 date: 2019-03-20 00:11:03
 date_formatted: "March 20, 2019"
 author: Paulus Schoutsen
