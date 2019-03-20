@@ -47,6 +47,10 @@ proxmox:
      - 101
      - 102
      - 205
+   start_stop_all_vms: False
+   start_stop_vms:
+     - 109
+     - 101
 ```
 
 {% configuration %}
@@ -78,12 +82,22 @@ realm:
   default: pam
   type: string
 nodes:
-  description: "Array of Proxmox VE nodes to monitor"
+  description: List of the Proxmox VE nodes to monitor
   required: false
   default: all nodes
   type: list
 vms:
-  description: "Array of VMIDs of virtual machines and containers to monitor."
+  description: List of the VMIDs of virtual machines and containers to monitor.
+  required: false
+  default: all virtual machines and containers
+  type: list
+start_stop_all_vms:
+  description: Whether to create startup/shutdown switch elements for all the virtual machines and containers configured under `vms` above.
+  required: false
+  default: false
+  type: boolean
+start_stop_vms:
+  description: List of the VMIDs of virtual machines and containers that need to be controlled from Home Assistant. Switch elements will be created to Startup/Shutdown these virtual machines and containers. (Valid only if `start_stop_all_vms` is set to `false`)
   required: false
   default: all virtual machines and containers
   type: list
