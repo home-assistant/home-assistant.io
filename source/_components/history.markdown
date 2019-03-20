@@ -174,3 +174,7 @@ datetime.fromtimestamp(1422830502)
 
 The history information is also available through the
 [RESTful API](/developers/rest_api/#get-apihistory).
+
+#### {% linkable_title Clearing history %}
+
+Delete file `home-assistant_v2.db` in folder \hassio\config\ and restart.
