@@ -50,7 +50,7 @@ Supported models:
 - EVW3200-Wifi
 
 <p class='note info'>
-This component uses [pyUbee library](https://github.com/mzdrale/pyubee), which was tested with models listed above. If you have different model of [Ubee Router](http://www.ubeeinteractive.com/products) and want to use this component, try specifying one of models listed above, it might work. If that happens, please [create pyUbee issue](https://github.com/mzdrale/pyubee/issues/new) to report. Also if none of these models work for you, [create pyUbee issue](https://github.com/mzdrale/pyubee/issues/new) to request for support for your model.
+This component uses <a href='https://github.com/mzdrale/pyubee'>pyUbee library</a>, which was tested with models listed above. If you have different model of <a href='http://www.ubeeinteractive.com/products'>Ubee Router</a> and want to use this component, try specifying one of models listed above, it might work. If that happens, please <a href='https://github.com/mzdrale/pyubee/issues/new'>create pyUbee issue</a> to report. Also if none of these models work for you, <a href='https://github.com/mzdrale/pyubee/issues/new'>create pyUbee issue</a> to request for support for your model.
 </p>
 
 By default, Home Assistant pulls information about connected devices from Ubee router every 5 seconds.
