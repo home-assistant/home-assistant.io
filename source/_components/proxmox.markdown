@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: proxmoxve.png
 ha_category: System Monitor
-ha_release: 0.90
+ha_release: 0.91
 ha_iot_class: Local Polling
 ---
 
