@@ -11,17 +11,24 @@ categories: Release-Notes
 og_image: /images/blog/2019-03-release-90/remote.png
 ---
 
-Remote connection available for Home Assistant Cloud! Check out the cloud page in config to get going.
+It's time for Home Assistant 0.90 and it's just wow. This release is so packed with cool stuff that it's difficult to even know where to start, so let's just jump in.
+
+The first big feature is that Home Assistant Cloud now supports remote control. This allows you to check in on your home while away from home. Get a notification that motion was detected? Now you can easily check what happened and take action while away. It works end-to-end encrypted. Only thing needed to get started is to enable it. That's it.
+
+For more information on how it works, check out [the documentation](https://www.nabucasa.com/config/remote/) or listen to [the latest episode of the Home Assistant Podcast](https://hasspodcast.io/) (will be released soon).
 
 <p class='img'>
-<img src='/images/blog/2019-03-release-90/remote.png'>
+<img src='/images/blog/2019-03-release-90/remote.png' alt='Screenshot of the Remote UI preference.'>
+Screenshot of the Remote UI preference.
 </p>
 
-## {% linkable_title Streams %}
+## {% linkable_title Camera streams for everyone %}
 
-New stream component to stream cameras smoothly to frontend and other devices like Chromecast. Initial version only supports h264 codec. Each camera integration will need to be updated for it.
+With this release we're getting serious about cameras. [@hunterjm] has worked months on this and it's finally ready for the first reveal. With the stream component, we will be able to forward streams from cameras in your house and repackage it into formats that your display devices understand. Previously, streaming cameras was limited to 2 frames per second and only in the frontend. For the first version we focused on the HLS format, which is supported by modern browsers and Chromecast. Each camera integration will need to be individually updated, for the first version we have only added support for the generic camera integration.
 
-Add to config: `stream:`. Now there is a new camera.play_stream service.
+So what is possible now? You can start streaming your frontdoor feed on your TV when the doorbell rings or you can install a camera in the nursery and turn your Google Home Hub into a babymonitor.
+
+To get started, add `stream:` to your configuration.yaml, configure the [generic camera][camera.generic docs] and start using the new `camera.play_stream` service.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/l9eBRNBf5Zg" frameborder="0" allowfullscreen></iframe>
@@ -29,43 +36,42 @@ Add to config: `stream:`. Now there is a new camera.play_stream service.
 
 ## {% linkable_title User Groups %}
 
-User groups! Restrict admin access to users ([at least UI wise](https://developers.home-assistant.io/blog/2019/03/11/user-permissions.html))
+This has been a long time in the making, and has been worked on for a long time: you can now put users in groups to prevent them from being able to configure things from the UI. Users in the new "users" group will not see links to the configuration panel or to the developer tools. This is currently a UI feature, not a security feature. [We're working](https://developers.home-assistant.io/blog/2019/03/11/user-permissions.html) on making this a security feature by limiting access at API level too.
 
 ## {% linkable_title Smarter SmartThings %}
 
-If you use Home Assistant Cloud, you will now be able to set up SmartThings without exposing your instance to the internet, by leveraging cloudhooks.
+If you use Home Assistant Cloud, setting up SmartThings will now automatically leverage Cloudhooks. This means that you will not need to expose your instance to the internet to start using SmartThings. Yay for easy set up and thanks [@andrewsayre]! SmartThings support has also been added for 3 axis sensors and air conditioners.
 
 ## {% linkable_title Area love %}
 
-Allow using areas in services instead of specifying entities.
+This release also adds some more love to areas. Thanks to [@Swamp-Ig], areas will now be included as room hints when you sync Home Assistant with Google Assistant. This should make setting up a breeze.
 
-Improved integration setup flow:
+Areas can now also be used as targets in services. Just specify `area_id` instead of `entity_id` in your scripts or automations.
+
+We've also made areas a part of the set up flow for integrations. When you add an integration, we will check which devices are added and ask you to configure them right away. That way you won't forget.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DVQtsFFg4mc" frameborder="0" allowfullscreen></iframe>
 </div>
 
+## {% linkable_title VSCode extension %}
+
+In case you missed it, earlier this week Kees Schollaart released the first version of his Home Assistant extension for the free text editor [VSCode](https://code.visualstudio.com/). It will connect to your instance and will provide you with entity ID autocompletion while editing your config!
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This weekend I built a <a href="https://twitter.com/code?ref_src=twsrc%5Etfw">@code</a> extension for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! It connects with your Home Assistant host and will provide auto-completion for your entity_id&#39;s! Check it out in the Marketplace: <a href="https://t.co/21PxCqWrlQ">https://t.co/21PxCqWrlQ</a> Ideas/feedback more than welcome! Thanks for helping <a href="https://twitter.com/balloob?ref_src=twsrc%5Etfw">@balloob</a>! <a href="https://t.co/la9SPr5Rjw">pic.twitter.com/la9SPr5Rjw</a></p>&mdash; Kees Schollaart (@keesschollaart) <a href="https://twitter.com/keesschollaart/status/1107362271095898113?ref_src=twsrc%5Etfw">March 17, 2019</a>
+</blockquote>
+
 ## {% linkable_title New Platforms %}
 
+- Live Streams Component ([@hunterjm] - [#21473]) ([camera docs]) ([stream docs]) (new-platform)
 - Add support for homekit controller sensors ([@cpopp] - [#21535]) ([homekit_controller docs]) (new-platform)
-- Add separate on/off ids on manual configured IHC lights ([@msvinth] - [#20253]) ([ihc docs]) ([light.ihc docs]) (new-platform)
-- mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
-- Add storage helper to ZHA and use it for the device node descriptor ([@dmulcahey] - [#21500]) ([zha docs]) (new-platform)
 - Add SmartThingsAccelCluster to ZHA binary_sensor ([@roblandry] - [#21609]) ([zha docs]) (new-platform)
 - Xfinity Gateway device_tracker platform ([@cisasteelersfan] - [#21026]) ([device_tracker docs]) (new-platform)
 - Add Time of Flight Sensor using VL53L1X ([@josemotta] - [#21230]) ([tof docs]) (new-platform)
 - Adding enigma2 media player ([@fbradyirl] - [#21271]) ([media_player.enigma2 docs]) (new-platform)
 - Add support for Cisco Mobility Express ([@fbradyirl] - [#21531]) ([cisco_mobility_express docs]) (new-platform)
 - Add ClearPass Policy Manger device tracker ([@zemerick1] - [#21673]) ([device_tracker docs]) (new-platform)
-- Live Streams Component ([@hunterjm] - [#21473]) ([camera docs]) ([stream docs]) (new-platform)
 - Add Weather Sensors to Homematic IP ([@SukramJ] - [#21887]) ([homematicip_cloud docs]) (new-platform)
-- Mobile App: Sensors ([@robbiet480] - [#21854]) ([mobile_app docs]) (beta fix) (new-platform)
-
-## {% linkable_title New Features %}
-
-- SmartThings remove SmartApp/Automation on integration removal ([@andrewsayre] - [#21594]) ([smartthings docs]) (new-feature)
-- Add SmartThings climate support for Air Conditioners ([@andrewsayre] - [#21840]) ([smartthings docs]) (new-feature)
-- Add SmartThings sensor support for Three Axis ([@andrewsayre] - [#21841]) ([smartthings docs]) (new-feature)
 
 ## {% linkable_title If you need help... %}
 
