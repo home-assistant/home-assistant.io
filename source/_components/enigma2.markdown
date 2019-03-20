@@ -12,6 +12,8 @@ ha_category: Media Player
 featured: false
 ha_release: "0.90"
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/media_player.enigma2/
 ---
 
 The `enigma2` platform allows you to control a Linux based set-top box which is running [Enigma2](https://github.com/oe-alliance/oe-alliance-enigma2) with the OpenWebif plugin installed.
