@@ -34,6 +34,9 @@ To get started, add `stream:` to your configuration.yaml, configure the [generic
 <iframe width="560" height="315" src="https://www.youtube.com/embed/l9eBRNBf5Zg" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Stream any camera on any device.<br><br>New feature by <a href="https://twitter.com/hunterjm?ref_src=twsrc%5Etfw">@hunterjm</a> coming soon to a <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> near you. <a href="https://t.co/At9wUkcZZJ">pic.twitter.com/At9wUkcZZJ</a></p>&mdash; Paulus Schoutsen (@balloob) <a href="https://twitter.com/balloob/status/1101216098442067968?ref_src=twsrc%5Etfw">February 28, 2019</a>
+</blockquote>
+
 ## {% linkable_title User Groups %}
 
 This has been a long time in the making, and has been worked on for a long time: you can now put users in groups to prevent them from being able to configure things from the UI. Users in the new "users" group will not see links to the configuration panel or to the developer tools. This is currently a UI feature, not a security feature. [We're working](https://developers.home-assistant.io/blog/2019/03/11/user-permissions.html) on making this a security feature by limiting access at API level too.
