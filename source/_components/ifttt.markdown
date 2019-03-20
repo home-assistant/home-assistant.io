@@ -71,6 +71,19 @@ Once you have added your key to your `configuration.yaml` file, restart your Hom
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
 </p>
 
+### {% linkable_title Multiple IFTTT keys %}
+
+If you have multiple IFTTT users you can specify multiple IFTTT keys with:
+
+```yaml
+# Example configuration.yaml entry
+ifttt:
+  key: 
+    YOUR_KEY_NAME1: YOUR_API_KEY1
+    YOUR_KEY_NAME2: YOUR_API_KEY2
+```
+
+
 ### {% linkable_title Testing your trigger %}
 
 You can use the **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the **Call Service** screen. Fill in the following values:
@@ -85,6 +98,17 @@ Service Data | `{"event": "EventName", "value1": "Hello World"}`
 <img src='/images/components/ifttt/testing_service.png' />
 When your screen looks like this, click the 'call service' button.
 </p>
+
+By default the trigger is sent to all the api keys from `configuration.yaml`. If you
+want to send the trigger to a specific key use the `target` field:
+
+Field | Value
+----- | -----
+domain | `ifttt`
+service | `trigger`
+Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}`
+
+The `target` field can contain a single key name or a list of key names.
 
 ### {% linkable_title Setting up a recipe %}
 

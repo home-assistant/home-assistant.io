@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "Nanoleaf Aurora Light Panel"
-description: "Instructions how to integrate Nanoleaf Aurora Light Panels into Home Assistant."
+title: "Nanoleaf Light Panel"
+description: "Instructions how to integrate Nanoleaf Light Panels into Home Assistant."
 date: 2018-01-04 20:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: nanoleaf_aurora_light.png
+logo: nanoleaf_light.png
 ha_category: Light
 ha_iot_class: Local Polling
 ha_release: 0.67
@@ -15,16 +15,16 @@ ha_release: 0.67
 
 ### {% linkable_title Configuration Sample %}
 
-The `nanoleaf_aurora` platform allows you to control [Nanoleaf Aurora Light Panels](https://nanoleaf.me) from Home Assistant.
+The `nanoleaf` platform allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant.
 
-The preferred way to set up this platform is by enabling the [discovery component](/components/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Aurora Panel while Home Assistant is starting.
+The preferred way to set up this platform is by enabling the [discovery component](/components/discovery/). Make sure to press and hold the *ON* button for 5 seconds (the LED will start flashing) on your Nanoleaf Lights while Home Assistant is starting.
 
-To configure the Aurora lights manually, add the following lines to your `configuration.yaml` file:
+To configure the Nanoleaf lights manually, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 light:
-  - platform: nanoleaf_aurora
+  - platform: nanoleaf
     host: 192.168.1.10
     token: xxxxxxxxxxxxxxxxxxxxx
 ```
@@ -42,12 +42,12 @@ name:
   description: Name of the component, make this unique if you have multiple Light Panels
   required: false
   type: string
-  default: Aurora
+  default: Nanoleaf
 {% endconfiguration %}
 
 ### {% linkable_title Getting The Auth Token %}
 
-1. Make sure that your Nanoleaf Aurora Panel is fully patched (as of the time of writing the latest version was 2.2.0)
+1. Make sure that your Nanoleaf Light Panel is fully patched (as of the time of writing the latest version was 3.0.8 for Aurora and 1.2.0 for Canvas)
 2. Hold down the *ON* button on the Panel for 5 seconds; the LED will start flashing
 3. Issue a *POST* request to the API endpoint, e.g., via `$ curl -i -X POST http://192.168.1.155:16021/api/v1/new`
 4. The output should include the auth token like *{"auth_token":"xxxxxxxxxxxxxxxxxxxxx"}*, copy the resulting token into your configuration

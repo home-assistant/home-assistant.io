@@ -96,4 +96,9 @@ resources:
           required: false
           type: icon
           default: "mdi:desktop-classic"
+        invert:
+          description: Invert the sensor values.
+          required: false
+          type: boolean
+          default: false
 {% endconfiguration %}

@@ -206,6 +206,10 @@ https://developers.google.com/actions/reference/smarthome/traits/modes
 
 "Hey Google, change input source to TV on Living Room Receiver"
 
+### {% linkable_title Room/Area support %}
+
+Entities that have not got rooms explicitly set and that have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
+
 ### {% linkable_title Climate Operation Modes %}
 
 There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  

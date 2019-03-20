@@ -38,6 +38,11 @@ password:
   description: The password for the `admin` user. The default password may be printed on the gateway itself.
   required: true
   type: string
+ssl:
+  description: Use HTTPS when connecting to gateway. New firmware may require HTTPS while older may require this to be False.
+  required: false
+  type: boolean
+  default: True
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.

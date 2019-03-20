@@ -130,10 +130,10 @@ Activating this auth provider will allow you to authenticate with the API passwo
 homeassistant:
   auth_providers:
    - type: legacy_api_password
-
-http:
-  api_password: !secret http_password
+     api_password: !secret http_password
 ```
+
+`api_password` is required option since 0.90 rlease.
 
 Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
 

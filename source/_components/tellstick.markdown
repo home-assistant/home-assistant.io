@@ -108,10 +108,19 @@ sensor:
   required: false
   type: string
 only_named:
-  description: Only show the named sensors. Set to `true` to hide sensors.
+  description: Only add and include specified sensors. If this is not specified all sensors will be imported and the names will be based on each sensor's ID number.
   required: false
   default: false
-  type: boolean
+  type: list
+  keys:
+    id:
+      description: The ID-number of the sensor to include.
+      required: true
+      type: integer
+    name:
+      description: Specify the name of the selected sensor.
+      required: true
+      type: string
 temperature_scale:
   description: The scale of the temperature value.
   required: false
@@ -134,11 +143,13 @@ In this section you find some real-life examples of how to use this sensor.
 # Example configuration.yaml entry
 sensor:
   - platform: tellstick
-    135: Outside
-    21: Inside
-    only_named: true
     temperature_scale: "°C"
     datatype_mask: 1
+    only_named:
+      - id: 135
+        name: Outside
+      - id: 21
+        name: Inside
 ```
 
 ## {% linkable_title Switch %}

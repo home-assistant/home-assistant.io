@@ -16,7 +16,7 @@ The camera component allows you to use IP cameras with Home Assistant. With a li
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.
 
-Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_motion_detection`, and `snapshot`.
+Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
 
 #### {% linkable_title Service `turn_on` %}
 
@@ -72,6 +72,26 @@ action:
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 {% endraw %}
+
+#### {% linkable_title Service `play_stream` %}
+
+Play a live stream from a camera to selected media player(s). Requires `stream` component to be set up.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.living_room_camera`. |
+| `media_player`         |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
+| `format`               |      yes | Stream format supported by `stream` component and selected `media_player`. Default: `hls` |
+
+For example, the following action in an automation would send an `hls` live stream to your chromecast.
+
+```yaml
+action:
+  service: camera.play_stream
+  data:
+    entity_id: camera.yourcamera
+    media_player: media_player.chromecast
+```
 
 ### {% linkable_title Test if it works %}
 

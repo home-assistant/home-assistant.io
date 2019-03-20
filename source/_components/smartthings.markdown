@@ -58,6 +58,17 @@ See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featu
 
 ## {% linkable_title Basic requirements %}
 
+The SmartThings integration utilizes a webhook to receive push updates from the SmartThings cloud through either a cloudhook or an internet accessible webhook based on whether Home Assistant Cloud is configured and logged in with a non-expired subscription (this is not configurable at this time).
+
+### {% linkable_title Cloudhook via Nabu Casa %}
+
+If you are using Home Assistant Cloud (Nabu Casa) the integraiton will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the component prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
+
+1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
+2. Home Assistant Cloud is configured and logged-in with a non-expired subscription.
+
+### {% linkable_title Webhook %}
+
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant setup for [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
 3. [`base_url` of the http component](/components/http#base_url) set the URL that Home Assistant is available on the internet.
@@ -158,7 +169,26 @@ The SmartThings Binary Sensor platform lets you view devices that have binary se
 
 ### {% linkable_title Climate %}
 
-The SmartThings Climate platform lets you control devices that have thermostat-related capabilities. For a SmartThings device to be represented by the climate platform, it must have all the capabilities from either "set a" _or_ "set b":
+The SmartThings Climate platform lets you control devices that have air conditioner or thermostat related capabilities.
+
+#### {% linkable_title Air Conditioners %}
+
+For a SmartThings Air Conditioner to be represented by the climate platform, it must have all of the following required capabilities:
+
+| Capability                          |Climate Features
+|-------------------------------------|--------------------------------------------|
+| [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode) (required)            | `operation mode`
+| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed) (required) | `fan mode`
+| [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) (required) | `on/off`
+| [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (required)    | `temperature`
+| [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (required) | `target temp`
+| [`demandResponseLoadControl`](https://docs.smartthings.com/en/latest/capabilities-reference.html#demand-response-load-control) | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)
+| [`powerConsumptionReport`](https://docs.smartthings.com/en/latest/capabilities-reference.html#power-consumption-report) | `power_consumption_end` (state attribute), `power_consumption_energy` (state attribute), `power_consumption_power` (state attribute), `power_consumption_start` (state attribute)
+  
+
+#### {% linkable_title Thermostats %}
+
+For a SmartThings thermostat to be represented by the climate platform, it must have all the capabilities from either "set a" _or_ "set b":
 
 | Capability                          |Climate Features
 |-------------------------------------|--------------------------------------------|
@@ -256,6 +286,7 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode)                         | `thermostatMode`
 | [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)    | `thermostatOperatingState`
 | [`thermostatSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Setpoint)                 | `thermostatSetpoint`
+| [`threeAxis`](https://docs.smartthings.com/en/latest/capabilities-reference.html#three-axis)                                            | `threeAxis` (as discrete sensors `X`, `Y` and `Z`)
 | [`tvChannel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tv-Channel)                                   | `tvChannel`
 | [`tvocMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Tvoc-Measurement)                       | `tvocLevel`
 | [`ultravioletIndex`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Ultraviolet-Index)                     | `ultravioletIndex`
@@ -280,7 +311,7 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 
 ### {% linkable_title Setup %}
 
-Perform the following steps if you receive one of the following error messages while attempting to setup the integration:
+Perform the following steps if you receive one of the following error messages while attempting to setup the integration (this does not apply when integrated through Home Assistant Cloud):
 
 - "SmartThings could not validate the endpoint configured in base_url. Please review the component requirements."
 - "Unable to setup the SmartApp. Please try again."

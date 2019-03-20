@@ -16,7 +16,7 @@ ha_iot_class: Local Polling
 The `ps4` component allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
 
-- This component supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
+- This component supports controlling multiple PlayStation 4 consoles for your Home Assistant instance. Additional consoles can be added by running the configuration for the PS4 Integration again.
 
 ## {% linkable_title Requirements %}
 
@@ -53,7 +53,7 @@ There are varying methods to perform this, dependent on your OS that is running 
   If your Home Assistant device is running <b>Hass.io</b> on <b>HassOS</b>, it does not require additional configuration.
 </p>
 
-- Example for Debian:
+- Example for Debian-based and most UNIX operating systems:
 `sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
 Replace "/usr/bin/python3.5" with your path to Python that is running Home Assistant.
 

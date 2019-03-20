@@ -46,6 +46,10 @@ sender:
   description: The e-mail address of the sender.
   required: true
   type: string
+sender_name:
+  description: The name of the sender. Defaults to "Home Assistant" if not set.
+  required: false
+  type: string
 recipient:
   description: The recipient of the notification.
   required: true

@@ -18,7 +18,7 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 
 To enable the Netatmo thermostat, you first have to set up [netatmo](/components/netatmo/), this will use discovery to add your thermostat.
 
-If you want to select a specific thermostat, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
+If you want to select specific homes or specific rooms, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,26 +27,35 @@ climate:
 ```
 
 {% configuration %}
-relay:
-  description: Will display the thermostats of this relay only.
-  required: false
-  type: string
-thermostat:
-  description: Thermostat to use.
+homes:
+  description: Will display the thermostats of the homes listed.
   required: false
   type: list
   keys:
-    thermostat_name:
-      description: Name of the thermostat to display.
+    name:
+      required: true
+      description: The home name.
+    rooms:
+      description: Rooms to be displayed. Multiple entities allowed.
+      required: false
+      type: [list, string]
+      description: List of the names of the rooms to be displayed.
 {% endconfiguration %}
 
-If **relay** and **thermostat** are not provided, all thermostats will be displayed.
+If **homes** and **rooms** are not provided, all thermostats will be displayed.
 
 ```yaml
 # Example configuration.yaml entry
 climate:
   platform: netatmo
-  relay: relay_name
-  thermostat:
-    - thermostat_name
+  homes:
+    - name: home1_name
+      rooms:
+        - room1_name
+        - room2_name
+    - name: home2_name
+      rooms:
+        - room3_name
+        - room4_name
+        - room5_name
 ```

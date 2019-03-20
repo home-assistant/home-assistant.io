@@ -40,6 +40,7 @@ There is currently support for the following device types within Home Assistant:
 * Light
 * Sensor
 * Switch
+* Weather
 
 ## {% linkable_title Setup the component via the frontend %}
 
@@ -97,29 +98,44 @@ authtoken:
   * Water detector (*HmIP-SWD*)
 
 * homematicip_cloud.climate
-  * Radiator thermostat (*HmIP-eTRV,-2*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1, -C*)
   * Climate group (*HmIP-HeatingGroup*)
+  * This includes temperature/humidity measures for climate devices of a room delivered by:
+    * Wall-mounted thermostat (*HmIP-WTH, -2*)
+    * Brand Wall-mounted thermostat (*HmIP-BWTH, -24*)
+    * Radiator thermostat (*HmIP-eTRV, -2, -C*)
+    * Temperature and humidity sensor (*HmIP-STH*)
+    * Temperature and humidity Sensor with display (*HmIP-STHD*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
   * Dimming actuator for brand switches (*HmIP-BDT*)
   * Dimming actuator flush-mount (*HmIP-FDT*)
   * Switch Actuator and Meter – flush-mount (*HmIP-FSM*)
+  * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
 
 * homematicip_cloud.sensor
   * Accesspoint duty-cycle (*HmIP-HAP, -B1*)
   * Wall-mounted thermostat (*HmIP-WTH, -2*)
+  * Brand Wall-mounted thermostat (*HmIP-BWTH, -24*)
+  * Radiator thermostat (valve position only) (*HmIP-eTRV,-2*, -C) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
   * Temperature and humidity sensor (*HmIP-STH*)
   * Temperature and humidity Sensor with display (*HmIP-STHD*)
   * Outdoor temperature and humidity sensor (*HmIP-STHO, -A*)
   * Illuminance sensor (*HmIP-SMI*)
+  * Light Sensor outdoor (*HmIP-SLO*)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
+  * Switch actuator with open collector output (*HmIP-MOD-OC8*)
 
 * homematicip_cloud.shutter
   * Blind actuator for brand switches (*HmIP-BBL*)
   * Shutter actuator brand-mount (*HmIP-BROLL*)
   * Shutter actuator flush-mount (*HmIP-FROLL*)
+
+* homematicip_cloud.weather
+  * Weather Sensor – basic (*HmIP-SWO-B*)
+  * Weather Sensor – plus (*HmIP-SWO-PL*)
+  * Weather Sensor – pro (*HmIP-SWO-PR*)
 

@@ -27,7 +27,7 @@ climate:
      temperature_address: '5/1/1'
      setpoint_shift_address: '5/1/2'
      setpoint_shift_state_address: '5/1/3'
-     target_temperature_address: '5/1/4'
+     target_temperature_state_address: '5/1/4'
      operation_mode_address: '5/1/5'
 ```
 
@@ -41,16 +41,32 @@ climate:
     temperature_address: '5/1/1'
     setpoint_shift_address: '5/1/2'
     setpoint_shift_state_address: '5/1/3'
-    target_temperature_address: '5/1/4'
+    target_temperature_state_address: '5/1/4'
     operation_mode_frost_protection_address: '5/1/5'
     operation_mode_night_address: '5/1/6'
     operation_mode_comfort_address: '5/1/7'
 ```
 
-`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
-
 If your device doesn't support setpoint_shift calculations (i.e. if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
-attributes of the climate device to avoid issues with increasing the temperature in the frontend.
+attributes of the climate device to avoid issues with increasing the temperature in the frontend. Please do also make sure to add the `target_temperature_address`
+to the config in this case.:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: knx
+    name: HASS-Kitchen.Temperature
+    temperature_address: '5/1/2'
+    target_temperature_address: '5/1/4'
+    target_temperature_state_address: '5/1/1'
+    operation_mode_frost_protection_address: '5/1/5'
+    operation_mode_night_address: '5/1/6'
+    operation_mode_comfort_address: '5/1/7'
+    min_temp: 7.0
+    max_temp: 32.0
+```
+
+`operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
 
 The following values are valid for the `operation_modes` attribute:
 
@@ -72,6 +88,10 @@ temperature_address:
   required: true
   type: string
 target_temperature_address:
+  description: KNX group address for setting target temperature.
+  required: false
+  type: string
+target_temperature_state_address:
   description: KNX group address for reading current target temperature from KNX bus.
   required: true
   type: string
