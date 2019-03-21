@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Social
 ha_release: 0.65
 ha_iot_class: Cloud Polling
 ---
