@@ -8,12 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: stiebel_eltron.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.89
 ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/climate.stiebel_eltron/
 ---
 
-The `stiebel_eltron` climat platform lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
+The `stiebel_eltron` component lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
 
 It requires the following components:
 - Compatible STIEBEL ELTRON unit (see "Compatibility overview" in [Software Documentation Modbus TCP/IP](https://www.stiebel-eltron.ch/content/dam/ste/ch/de/downloads/kundenservice/smart-home/Modbus/Modbus%20Bedienungsanleitung.pdf))
@@ -26,13 +29,12 @@ By now, the following units are tested:
 - LWZ304
 
 ## {% linkable_title Configuration %}
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this component, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-climate:
-  - platform: stiebel_eltron
-    name: LWZ504e
+stiebel_eltron:
+  name: LWZ504e
 ```
 
 {% configuration %}
@@ -61,7 +63,6 @@ modbus:
   host: YOUR_ISGWEB_IP
   port: 502
 
-climate:
-  - platform: stiebel_eltron
-    name: LWZ504e
+stiebel_eltron:
+  name: LWZ504e
 ```
