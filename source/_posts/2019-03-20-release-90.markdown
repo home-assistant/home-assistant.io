@@ -76,6 +76,32 @@ In case you missed it, earlier this week Kees Schollaart released the first vers
 - Add ClearPass Policy Manger device tracker ([@zemerick1] - [#21673]) ([device_tracker docs]) (new-platform)
 - Add Weather Sensors to Homematic IP ([@SukramJ] - [#21887]) ([homematicip_cloud docs]) (new-platform)
 
+## {% linkable_title Release 0.90.1 - March 21 %}
+
+- Fix ZHA force polled entities. ([@Adminiuga] - [#22222])
+- Bump total-connect-client to 0.25, fixing issue with Total Connect ([@kkr16] - [#22230])
+- Stream fixes ([@hunterjm] - [#22238]) ([stream docs])
+- Allow on/off on tado climate component. ([@michaelarnauts] - [#22242]) ([tado docs])
+- Fix validate webhook requirements ([@andrewsayre] - [#22248]) ([smartthings docs])
+- Update Hass-NabuCasa 0.9 ([@pvizeli] - [#22258]) ([cloud docs])
+
+[#22222]: https://github.com/home-assistant/home-assistant/pull/22222
+[#22230]: https://github.com/home-assistant/home-assistant/pull/22230
+[#22238]: https://github.com/home-assistant/home-assistant/pull/22238
+[#22242]: https://github.com/home-assistant/home-assistant/pull/22242
+[#22248]: https://github.com/home-assistant/home-assistant/pull/22248
+[#22258]: https://github.com/home-assistant/home-assistant/pull/22258
+[@Adminiuga]: https://github.com/Adminiuga
+[@andrewsayre]: https://github.com/andrewsayre
+[@hunterjm]: https://github.com/hunterjm
+[@kkr16]: https://github.com/kkr16
+[@michaelarnauts]: https://github.com/michaelarnauts
+[@pvizeli]: https://github.com/pvizeli
+[cloud docs]: /components/cloud/
+[smartthings docs]: /components/smartthings/
+[stream docs]: /components/stream/
+[tado docs]: /components/tado/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
