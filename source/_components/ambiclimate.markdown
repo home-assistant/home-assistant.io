@@ -53,7 +53,7 @@ Enable comfort mode on your AC:
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `Name` | yes | String with device name.
-| `value` | yes | Send any of the following comfort values: too_hot, too_warm, bit_warm, comfortable, bit_cold, too_cold, freezing
+
 
 
 Send feedback for comfort mode:
