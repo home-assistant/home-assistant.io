@@ -209,7 +209,7 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - Operation modes (silent, medium, high, strong)
 - Buzzer (on, off)
 - Child lock (on, off)
-- LED brightness (bright, dim, off)
+- LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes
   - model
@@ -231,7 +231,7 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
 - Operation modes (silent, medium, high, auto)
 - Buzzer (on, off)
 - Child lock (on, off)
-- LED brightness (bright, dim, off)
+- LED (on, off), LED brightness (bright, dim, off)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Dry mode (on, off)
 - Attributes
@@ -247,7 +247,7 @@ Air Fresh VA2         | zhimi.airfresh.va2     | |
   - button_pressed
   - use_time
   - hardware_version
-  - speed
+  - motor_speed
   - depth
   - dry
 

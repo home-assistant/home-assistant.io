@@ -89,7 +89,7 @@ Supported models: `philips.light.moonlight`
 * Brightness
 * Color (not implemented)
 * Color temperature (153...588 mireds)
-* Scene (1, 2, 3, 4)
+* Scene (1, 2, 3, 4, 5, 6)
 * Attributes
   - model
   - scene
