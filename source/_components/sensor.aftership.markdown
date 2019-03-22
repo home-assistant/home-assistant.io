@@ -47,6 +47,25 @@ api_key:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Service `aftership_add_tracking` %}
+
+You can use the service `sensor.aftership_add_tracking` to add trackings to Aftership.
+
+| Service data attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `tracking_number` | `True` | Tracking number
+| `slug` | `False` | Carrier e.g. `fedex`
+| `title` | `False` | Friendly name of package
+
+## {% linkable_title Service `aftership_remove_tracking` %}
+
+You can use the service `sensor.aftership_remove_tracking` to remove trackings from Aftership.
+
+| Service data attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `tracking_number` | `True` | Tracking number
+| `slug` | `True` | Carrier e.g. `fedex`
+
 <p class='note info'>
 This component retrieves data from AfterShip public REST API, but the component is not affiliated with AfterShip.
 </p>
