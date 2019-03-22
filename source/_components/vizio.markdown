@@ -52,6 +52,11 @@ To obtain an auth token, follow these steps:
 
 Make sure that your device is on before continuing.
 
+| Parameter       | Description          |
+|:----------------|:---------------------|
+| `ip`            | IP address (possibly including port) obtained from the previous section |
+| `device_type`   | The type of device you are connecting to. Options are `tv` or `soundbar` |
+
 Enter the following command to initiate pairing:
 
 ```bash
