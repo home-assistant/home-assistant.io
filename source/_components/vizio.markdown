@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Vizio SmartCast TV"
-description: "Instructions on how to integrate Vizio SmartCast TV into Home Assistant."
-date: 2017-07-10 19:00
+title: "Vizio SmartCast"
+description: "Instructions on how to integrate Vizio SmartCast TVs and Sound Bars into Home Assistant."
+date: 2019-03-21 19:00
 sidebar: true
 comments: false
 sharing: true
@@ -15,13 +15,17 @@ redirect_from:
  - /components/media_player.vizio/
 ---
 
-The `vizio` component will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs (2016+ models).
+The `vizio` component will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs and Sound Bars (2016+ models).
 
-## Pairing
-
-Before adding your TV to Home Assistant you'll need to pair it manually. To do so follow these steps:
+### Find your device
 
 Install the command-line tool using `pip` (or you can choose to download it manually):
+
+```bash
+$ pip3 install pyvizio
+```
+
+or
 
 ```bash
 $ pip3 install git+https://github.com/vkorn/pyvizio.git@master
@@ -33,18 +37,25 @@ or
 $ pip3 install -I .
 ```
 
-Make sure that your TV is on before continuing.
-
-If you don't know IP address of your TV run following command:
-
-```bash
-$ pyvizio --ip=0 --auth=0 discover
+Find your device using the following command:
 ```
+pyvizio --ip=0 discover
+```
+
+and note it's IP address. If using your IP address by itself does not lead to success, you may need to append `:9000` or `:7345` to it when using it as a parameter in future commands.
+
+## Pairing
+
+Before adding your device to Home Assistant you may need to pair it manually. For a Sound Bar, it is unclear how the device would notify you of a valid auth token, so it's best to first skip the pairing process entirely, specify a `device_class` of `soundbar`, and try interacting with the entity to see if you have any success. If not, and if specifying different ports as mentioned above doesn't work, you will need to find a way to get the auth token during this process.
+
+To obtain an auth token, follow these steps:
+
+Make sure that your device is on before continuing.
 
 Enter the following command to initiate pairing:
 
 ```bash
-$ pyvizio --ip={ip} pair
+$ pyvizio --ip={ip} --device_type={device_type} pair
 ```
 
 Initiation will show you two different values:
@@ -57,7 +68,7 @@ Initiation will show you two different values:
 Finally, at this point a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-$ pyvizio --ip={ip} pair-finish --token={challenge_token} --pin={tv_pin}
+$ pyvizio --ip={ip} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin}
 ```
 
 You will need the authentication token returned by this command to configure Home Assistant.
@@ -72,17 +83,23 @@ media_player:
   - platform: vizio
     host: IP_ADDRESS
     access_token: AUTH_TOKEN
+    device_type: tv
 ```
 
 {% configuration %}
 host:
-  description: IP address of your TV.
+  description: IP address of your device.
   required: true
   type: string
 access_token:
   description: Authentication token you received in the last step of the pairing process.
-  required: true
+  required: false
   type: string
+device_class:
+  description: The class of your device. Your choices are: tv, soundbar
+  required: false
+  type: string
+  default: tv
 suppress_warning:
   description: Set to `true` to disable self-signed certificate warnings.
   required: false
@@ -92,9 +109,9 @@ suppress_warning:
 
 ## Notes and limitations
 
-### Turning TV on
+### Turning device on
 
-If the `Power Mode` of your TV is set to `Eco Mode`, turning the device ON won't work.
+If the `Power Mode` of your device is set to `Eco Mode`, turning the device ON won't work.
 
 ### Changing tracks
 
@@ -102,4 +119,4 @@ Changing tracks works like channels switching. If you have source other than reg
 
 ### Sources
 
-Source list shows all external devices connected to the TV through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).
+Source list shows all external devices connected to the device through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).
