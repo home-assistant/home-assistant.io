@@ -56,4 +56,9 @@ subreddits:
   description: List of subreddits you want to get data on.
   required: true
   type: list
+sort_by:
+  description: Sort reddit posts by new, top, controversial, and hot.
+  required: false
+  type: string
+  default: hot
 {% endconfiguration %}
