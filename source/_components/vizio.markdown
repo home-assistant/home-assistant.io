@@ -2,7 +2,7 @@
 layout: page
 title: "Vizio SmartCast Device"
 description: "Instructions on how to integrate Vizio SmartCast TVs and Sound Bars into Home Assistant."
-date: 2019-03-21 19:00
+date: 2017-07-10 19:00
 sidebar: true
 comments: false
 sharing: true
@@ -88,7 +88,7 @@ media_player:
   - platform: vizio
     host: IP_ADDRESS
     access_token: AUTH_TOKEN
-    device_type: tv
+    device_class: tv
 ```
 
 {% configuration %}
@@ -101,7 +101,7 @@ access_token:
   required: false
   type: string
 device_class:
-  description: The class of your device. Your choices are: tv, soundbar
+  description: The class of your device. Your choices are `tv` or `soundbar`
   required: false
   type: string
   default: tv
