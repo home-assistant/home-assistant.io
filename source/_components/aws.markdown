@@ -32,12 +32,11 @@ To use `aws` component and `notify` platform in your installation, add the follo
 aws:
   credentials:
     - name: My AWS Account
-      aws_access_key_id: !secure some-id
-      aws_secret_access_key: !secure some-key
+      aws_access_key_id: AWS_ID
+      aws_secret_access_key: AWS_SECRET
   notify:
     # use the first credential defined in aws component by default
     - service: lambda
-      name: Lambda Notify
       region_name: us-east-1
 ```
 
