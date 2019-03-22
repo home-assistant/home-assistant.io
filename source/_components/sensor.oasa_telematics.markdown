@@ -25,7 +25,7 @@ Add a sensor to your `configuration.yaml` file as shown in the example:
 # Example configuration.yaml entry
 sensor:
   - platform: oasa_telematics
-    route_id: 'YOUR_ROUTE_ID'
+    route_id: YOUR_ROUTE_ID
     stop_id: 'YOUR_STOP_ID'
 ```
 
@@ -47,7 +47,7 @@ Next, get the `stop_id` from this link:
 route_id:
   description: The id of the public transport route.
   required: true
-  type: string
+  type: int
 stop_id:
   description: The id of the public transport stop.
   required: true
@@ -67,6 +67,6 @@ A more extensive example on how to use this sensor:
 # Example configuration.yaml entry
 sensor:
   - platform: oasa_telematics
-    route_id: '090006'
-    stop_id: '1965'
+    route_id: 1965
+    stop_id: '090006'
 ```
