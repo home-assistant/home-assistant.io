@@ -17,7 +17,7 @@ redirect_from:
 
 The `vizio` component will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs and Sound Bars (2016+ models).
 
-### Find your device
+## Find your device
 
 Install the command-line tool using `pip` (or you can choose to download it manually):
 
