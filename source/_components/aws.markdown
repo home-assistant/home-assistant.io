@@ -34,13 +34,11 @@ aws:
     - name: My AWS Account
       aws_access_key_id: !secure some-id
       aws_secret_access_key: !secure some-key
-
-notify:
-  # use the first credential defined in aws component by default
-  - platform: aws
-    service: lambda
-    name: Lambda Notify
-    region_name: us-east-1
+  notify:
+    # use the first credential defined in aws component by default
+    - service: lambda
+      name: Lambda Notify
+      region_name: us-east-1
 ```
 
 ### {% linkable_title Configuration for credentials %}
@@ -78,7 +76,7 @@ context:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Configuration for aws notify platform %}
+### {% linkable_title Configuration for notify %}
 
 {% configuration %}
 service:
