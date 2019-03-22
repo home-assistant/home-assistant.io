@@ -60,7 +60,7 @@ mac:
   required: false
   type: string
 app_power:
-  description: Set to `true` if your Panasonic Viera TV supports "Turn on via APp".
+  description: Set to `true` if your Panasonic Viera TV supports "Turn on via App".
   required: false
   default: false
   type: boolean
