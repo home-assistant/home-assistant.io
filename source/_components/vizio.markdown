@@ -88,7 +88,6 @@ media_player:
   - platform: vizio
     host: IP_ADDRESS
     access_token: AUTH_TOKEN
-    device_class: tv
 ```
 
 {% configuration %}
@@ -97,7 +96,7 @@ host:
   required: true
   type: string
 access_token:
-  description: Authentication token you received in the last step of the pairing process.
+  description: Authentication token you received in the last step of the pairing process. While this parameter is technically not required if you are integrating a TV into HA the integration will not work without one.
   required: false
   type: string
 device_class:
