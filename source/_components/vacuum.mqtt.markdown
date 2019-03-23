@@ -260,7 +260,8 @@ MQTT payload:
 ```
 
 ### {% linkable_title Usage with cloudless Xiaomi vacuums %}
-- This component is supported by the cloud-free Xiaomi Vacuum Webinterface [Valetudo](https://github.com/Hypfer/Valetudo)
+
+This component is supported by the cloud-free Xiaomi Vacuum Webinterface [Valetudo](https://github.com/Hypfer/Valetudo).
 
 ### {% linkable_title Retrofitting a non-wifi vacuums %}
 
