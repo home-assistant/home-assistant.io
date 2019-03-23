@@ -137,14 +137,6 @@ The sensors states can vary according to the state and status of each individual
 
 ## {% linkable_title Services %}
 
-### {% linkable_title Service `switcher_kis.turn_on` %}
-
-Turn on the Switcher V2 water heater, no service data required.
-
-### {% linkable_title Service `switcher_kis.turn_off` %}
-
-Turn off the Switcher V2 water heater, no service data required.
-
 ### {% linkable_title Service `switcher_kis.turn_on_15_minutes` %}
 
 Turn on the Switcher V2 water heater with a 15 minutes timer, no service data required.
@@ -211,3 +203,7 @@ Disable a specific schedule.
 | Key | Type | Description | Example |
 | --- | ---- | ----------- | ------- |
 | `schedule_id` | integer | Integer identifier of the schedule to be deleted, minumum value is 0, maximum value is 7. | 3 |
+
+### {% linkable_title Service `switcher_kis.update_schedules` %}
+
+Manually retrieve schedules data from the device.
