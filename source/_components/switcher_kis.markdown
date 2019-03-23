@@ -37,7 +37,6 @@ switcher_kis:
   device_id: 'REPLACE_WITH_DEVICE_ID'
   device_password: 'REPLACE_WITH_DEVICE_PASSWORD'
   name: 'boiler'
-  friendly_name: 'Boiler'
   icon: 'mdi:some-icon'
   include_schedule_sensors: true
   schedules_scan_interval:
@@ -62,17 +61,12 @@ name:
   required: false
   type: string
   default: 'boiler'
-friendly_name:
-  description: A friendly name of your choosing, will be used to for both the switch and sensors ('*friendly_name*', '*friendly_name* Schedule 3')
-  required: false
-  type: string
-  default: 'Boiler'
 icon:
   description: MDI icon, will be used for all entities.
   required: false
   type: icon 
 include_schedule_sensors:
-  description: Rather or not you want the component to integrate schdules control and create 8 sensors representing the 8 schdule slots (0-7).
+  description: Whether or not you want the component to integrate schdules control and create 8 sensors representing the 8 schdule slots (0-7).
   required: false
   type: boolean 
   default: false
@@ -124,11 +118,11 @@ The sensors states can vary according to the state and status of each individual
 | Attribute | Type | Description | Example |
 | --------- | ---- | ----------- | ------- |
 | `schedule_id` | string | The scehdule identifier (0-7). | '4' |
-| `enabled` | boolean | Rather or not the schedule is enabled (true) or disabled by the user (false). | true |
+| `enabled` | boolean | Whether or not the schedule is enabled (true) or disabled by the user (false). | true |
 | `start_time` | string | Time string containing hours and minutes representing the schedule start time. | '17:30' |
 | `end_time` | string | Time string containing hours and minutes representing the schedule end time. | '18:30' |
 | `duration` | string | The total time the schedule is scheduled to run. | '0:30:00' |
-| `recurring` | boolean | Rather or not the schedule is recurring (true) or is it to be executed once (false). | true |
+| `recurring` | boolean | Whether or not the schedule is recurring (true) or is it to be executed once (false). | true |
 | `days` | string,list | Name(s) of the days for the schedule to run in, Possible values are: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or the special value Every day. | ['Monday', 'Wednesday', 'Saturday'] |
 
 <p class='note warning'>
