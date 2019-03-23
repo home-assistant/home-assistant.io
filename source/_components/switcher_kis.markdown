@@ -11,14 +11,16 @@ logo: switcher_boiler.png
 ha_category:
   - Switch
   - Sensor
-redirect_from:
-  - /components/switch.switcher_kis
-  - /components/sensor.switcher_kis
 ha_release: "0.88"
 ha_iot_class: "Local Push"
 ---
 
 This `Switcher` component allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
+
+There is currently support for the following device types within Home Assistant:
+
+  - Switch
+  - Sensor
 
 To enable it, add an entry to your `configuration.yaml` according to the following configuration instructions.
 
