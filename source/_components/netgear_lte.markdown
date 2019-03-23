@@ -81,7 +81,8 @@ sensor:
   keys:
     monitored_conditions:
       description: Sensor types to create.
-      required: true
+      required: false
+      default: usage
       type: list
       keys:
         sms:
