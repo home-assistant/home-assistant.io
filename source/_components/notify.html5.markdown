@@ -39,7 +39,8 @@ notify:
 Or 
 
 ```yaml
-# Example configuration.yaml entry. Warning: this option will be deprecated soon!
+# Example configuration.yaml entry. 
+# Warning: this option will be deprecated soon!
 notify:
   - platform: html5
     name: NOTIFIER_NAME
