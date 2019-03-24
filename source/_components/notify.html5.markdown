@@ -19,7 +19,7 @@ HTML5 push notifications **do not** work on iOS.
 </p>
 
 <p class='warning'>
-The GCM configuration option is deprecated and will stop working in April 2019, see https://developers.google.com/cloud-messaging/faq. To migrate from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project.
+The GCM configuration option is deprecated and will stop working in April 2019, see https://developers.google.com/cloud-messaging/faq. If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -34,6 +34,17 @@ notify:
     vapid_pub_key: YOUR_PUBLIC_KEY
     vapid_prv_key: YOUR_PRIVATE_KEY
     vapid_email: YOUR_EMAIL
+```
+
+Or 
+
+```yaml
+# Example configuration.yaml entry. Warning: this option will be deprecated soon!
+notify:
+  - platform: html5
+    name: NOTIFIER_NAME
+    gcm_api_key: YOUR_API_KEY
+    gcm_sender_id: YOUR_SENDER_ID
 ```
 
 {% configuration %}
@@ -52,6 +63,14 @@ vapid_prv_key:
   type: string
 vapid_email:
   description: The e-mail account associated with your Firebase project.  
+  required: true
+  type: string
+  gcm_api_key:
+  description: The API Server key provided to you by Google for Google Cloud Messaging (GCM).
+  required: true
+  type: string
+gcm_sender_id:
+  description: The sender ID provided to you by Google for Google Cloud Messaging (GCM).
   required: true
   type: string
 {% endconfiguration %}
