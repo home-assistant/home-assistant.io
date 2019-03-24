@@ -254,7 +254,7 @@ The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay conf
 | `motor3` | `relay5`     | `relay6`      |
 | `motor4` | `relay7`     | `relay8`      |
 
-#### {% linkable_title Variables and Units %}
+### {% linkable_title Variables and Units %}
 
 | Constant | Values |
 | -------- | ------ |
@@ -264,7 +264,7 @@ The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay conf
 | S0_INPUT | `s0input1`, `s0input2`, `s0input3`, `s0input4` |
 | VAR_UNIT | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree` |
 
-#### {% linkable_title States %}:
+### {% linkable_title States %}:
 
 | Constant | Values |
 | -------- | ------ |
