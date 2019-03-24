@@ -42,7 +42,6 @@ There is currently support for the following device types within Home Assistant:
 * Switch
 * Weather
 
-
 ## {% linkable_title Setup the component via the frontend %}
 
 Menu: *Configuration* -> *Integrations*
