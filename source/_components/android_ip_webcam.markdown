@@ -15,7 +15,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: "0.40"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.android_ip_webcam/
   - /components/camera.android_ip_webcam/

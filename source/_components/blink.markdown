@@ -15,15 +15,13 @@ ha_category:
   - Camera
   - Sensor
 ha_release: "0.40"
-ha_iot_class: "Cloud Polling"
-redirect_form:
+ha_iot_class: Cloud Polling
+redirect_from:
   - /components/alarm_control_panel.blink/
   - /components/binary_sensor.blink/
   - /components/camera.blink/
   - /components/sensor.blink/
 ---
-
-<p class='note warning'>Blink has started blocking Home Assistant users. More info in <a href="https://community.home-assistant.io/t/blink-block-account/98718">the forums</a>.</p>
 
 The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
 
@@ -108,6 +106,8 @@ blink:
 ```
 
 ## {% linkable_title Services %}
+
+Any sequential calls to services relating to blink should have a minimum of a 5 second delay in between them to prevent the calls fro being throttled and ignored.
 
 ### {% linkable_title `blink.blink_update` %}
 

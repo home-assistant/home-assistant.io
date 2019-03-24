@@ -10,7 +10,7 @@ footer: true
 logo: gpsd.png
 ha_category: Utility
 ha_release: 0.26
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `gpsd` component is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
@@ -20,7 +20,7 @@ The `gpsd` component is using the GPS information collected by [gpsd](http://cat
 A requirement is that `gpsd` is installed (`$ sudo apt-get install gpsd` or `$ sudo dnf -y install gpsd`). `gpsd` uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, `gpsd` is started. Other GPS device may work too, but this was not tested.
 
 ```bash
-$ sudo systemctl status gpsdctl@ttyUSB0.service 
+$ sudo systemctl status gpsdctl@ttyUSB0.service
 ● gpsdctl@ttyUSB0.service - Manage ttyUSB0 for GPS daemon
    Loaded: loaded (/usr/lib/systemd/system/gpsdctl@.service; static; vendor preset: disabled)
    Active: active (exited) since Sat 2016-07-16 09:30:33 CEST; 1 day 23h ago

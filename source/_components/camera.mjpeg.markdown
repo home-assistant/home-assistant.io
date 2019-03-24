@@ -10,7 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Camera
 ha_release: pre 0.7
-ha_iot_class: "depends"
+ha_iot_class: Configurable
 ---
 
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable

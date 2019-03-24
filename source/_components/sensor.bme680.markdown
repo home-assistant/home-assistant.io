@@ -10,7 +10,7 @@ footer: true
 logo: raspberry-pi.png
 ha_category: DIY
 ha_release: 0.62
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `bme680` sensor platform allows you to read temperature, humidity, pressure and gas resistance values of a [Bosch BME680 Environmental sensor](https://cdn-shop.adafruit.com/product-files/3660/BME680.pdf) connected via an [I2C](https://en.wikipedia.org/wiki/I²C) bus (SDA, SCL pins). It allows you to use all the operation modes of the sensor described in its datasheet. In addition, it includes a basic air quality calculation that uses gas resistance and humidity measurements to calculate a percentage based air quality measurement.
@@ -35,20 +35,20 @@ name:
   required: false
   default: BME680 Sensor
   type: string
-i2c_bus: 
-  description: I2C bus that the sensor is connected to. 
+i2c_bus:
+  description: I2C bus that the sensor is connected to.
   required: false
   default: 1
   type: integer
 i2c_address:
-  description: I2C address of the sensor. It is 0x76 or 0x77. 
+  description: I2C address of the sensor. It is 0x76 or 0x77.
   required: false
   default: 0x77
   type: integer
 monitored_conditions:
   description: Conditions to monitor.
   required: false
-  default: 
+  default:
     - temperature
     - humidity
     - pressure
@@ -81,7 +81,7 @@ oversampling_humidity:
   default: 4
   type: integer
 filter_size:
-  description: IIR filter size as described in the sensor datasheet. Can be 0 (off), 1, 3, 7, 15, 31, 63 or 127. 
+  description: IIR filter size as described in the sensor datasheet. Can be 0 (off), 1, 3, 7, 15, 31, 63 or 127.
   required: false
   default: 3
   type: integer
@@ -96,17 +96,17 @@ gas_heater_duration:
   default: 150
   type: integer
 aq_burn_in_time:
-  description: The duration to perform gas resistance measurements to establish a stable baseline measurements for Air Quality calculations in seconds. The burn in time is only performed when the sensor component is first initialized. 
+  description: The duration to perform gas resistance measurements to establish a stable baseline measurements for Air Quality calculations in seconds. The burn in time is only performed when the sensor component is first initialized.
   required: false
   default: 300
   type: integer
 aq_humidity_baseline:
-  description: The baseline *ideal* relative humidity value for the air quality calculations. 
+  description: The baseline *ideal* relative humidity value for the air quality calculations.
   required: false
   default: 40
   type: integer
 aq_humidity_bias:
-  description: The bias for humidity to the gas resistance measurement in the air quality calculations expressed as a percentage of the total calculation e.g., 25% humidity to 75% gas. 
+  description: The bias for humidity to the gas resistance measurement in the air quality calculations expressed as a percentage of the total calculation e.g., 25% humidity to 75% gas.
   required: false
   default: 25
   type: integer

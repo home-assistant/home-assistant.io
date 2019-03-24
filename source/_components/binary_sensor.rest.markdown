@@ -10,7 +10,7 @@ footer: true
 logo: restful.png
 ha_category: Binary Sensor
 ha_release: "0.10"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed

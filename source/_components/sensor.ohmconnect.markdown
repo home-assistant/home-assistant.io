@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: "ohmconnect.png"
 ha_category: Energy
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.26
 ---
 
@@ -20,8 +20,6 @@ OhmConnect monitors real-time conditions on the electricity grid. When dirty and
 ## {% linkable_title Configuration %}
 
 You can find your OhmConnect ID under "Open Source Projects" on the [settings page](https://login.ohmconnect.com/settings). It's the string after the last `/` in the URL, e.g., for the URL `https://login.ohmconnect.com/verify-ohm-hour/AbCd1e` your ID is `AbCd1e`.
-
-## {% linkable_title Configuration %}
 
 To enable the OhMConnect sensor, add the following lines to your `configuration.yaml` file:
 

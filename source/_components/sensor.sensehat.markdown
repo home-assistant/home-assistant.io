@@ -10,7 +10,7 @@ footer: true
 logo: sense-hat.png
 ha_category: DIY
 ha_release: 0.35
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `sensehat` sensor platform allows you to display information collected by a [Sense HAT](https://www.raspberrypi.org/products/sense-hat/) add-on board for Raspberry Pi.

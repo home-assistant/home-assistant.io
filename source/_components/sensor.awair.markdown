@@ -10,7 +10,7 @@ footer: true
 logo: awair.jpg
 ha_category: Health
 ha_release: 0.84
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `awair` sensor platform will fetch data from your [Awair device(s)](https://getawair.com).

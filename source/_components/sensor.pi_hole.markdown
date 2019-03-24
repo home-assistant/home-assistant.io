@@ -8,11 +8,10 @@ comments: false
 sharing: true
 footer: true
 ha_category: System Monitor
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 logo: pi_hole.png
 ha_release: 0.28
 ---
-
 
 The `pi_hole` sensor platform displays the statistical summary of a [Pi-hole](https://pi-hole.net/) system.
 
@@ -73,4 +72,4 @@ monitored_conditions:
       description: Total number of seen clients.
 {% endconfiguration %}
 
-This sensor platform was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC. 
+This sensor platform was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.

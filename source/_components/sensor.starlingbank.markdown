@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: starlingbank.png
 ha_category: Finance
-featured: false
-ha_release: "0.79"
-ha_iot_class: "Cloud Polling"
+ha_release: 0.79
+ha_iot_class: Cloud Polling
 ---
 
 The Starling Bank sensor platform allows you to monitor your account balance data as sensors in Home Assistant.

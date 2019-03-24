@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Utility
-ha_iot_class: "Local Polling"
-ha_release: "0.31"
+ha_iot_class: Local Polling
+ha_release: 0.31
 ha_qa_scale: internal
 ---
 
@@ -20,7 +20,7 @@ This sensor is an alternative to the [template sensor](/components/sensor.templa
 
 {% raw %}
 ```yaml
-{{ ((float(states.sensor.kitchen_temperature.state) + 
+{{ ((float(states.sensor.kitchen_temperature.state) +
      float(states.sensor.living_room_temperature.state) +
      float(states.sensor.office_temperature.state)) / 3) | round(2)
 }}

@@ -10,7 +10,7 @@ footer: true
 logo: efergy.png
 ha_category: Energy
 ha_release: pre 0.7
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.

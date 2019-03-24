@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Other
 ha_release: 0.54
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
 
 The `mqtt_statestream` component publishes state changes in Home Assistant to individual MQTT topics.

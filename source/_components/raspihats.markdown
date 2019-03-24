@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Switch
 ha_release: 0.45
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.raspihats/
   - /components/switch.raspihats/

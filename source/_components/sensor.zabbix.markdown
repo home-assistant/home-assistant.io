@@ -10,7 +10,7 @@ footer: true
 logo: zabbix.png
 ha_category: System Monitor
 ha_release: 0.37
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](http://www.zabbix.com/) monitoring instance.

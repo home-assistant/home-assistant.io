@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Switch
 ha_release: 0.36
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.bbb_gpio/
   - /components/switch.bbb_gpio/
@@ -70,7 +70,7 @@ pins:
           description: Type of internal pull resistor connected to input. Options are `UP` - pull-up resistor and `DOWN` - pull-down resistor.
           required: false
           type: string
-          default: UP  
+          default: UP
 {% endconfiguration %}
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: http.png
 ha_category: "Other"
+ha_release: pre 0.7
 ---
 
 The `http` component serves all files and data required for the Home Assistant
@@ -22,12 +23,11 @@ Don't use option `server_host` on a Hass.io installation!
 ```yaml
 # Example configuration.yaml entry
 http:
-  api_password: YOUR_PASSWORD
 ```
 
 {% configuration %}
 api_password:
-  description: Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where your client or other software supports it, you should use [long lasting access token](/docs/authentication/#your-account-profile) instead, as [shown in the REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) and [websocket API](https://developers.home-assistant.io/docs/en/external_api_websocket.html) documentation.
+  description: "**Deprecated since 0.90 release. Configuration moved to [Legacy API password auth provider](/docs/authentication/providers/#legacy-api-password).** Protect the Home Assistant API with a password - this password can also be used to log in to the frontend. Where your client or other software supports it, you should use [long lasting access token](/docs/authentication/#your-account-profile) instead, as [shown in the REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) and [websocket API](https://developers.home-assistant.io/docs/en/external_api_websocket.html) documentation."
   required: false
   type: string
 server_host:
@@ -71,7 +71,7 @@ trusted_proxies:
   required: false
   type: string, list
 trusted_networks:
-  description: "List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` and `trusted_proxies` options enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP."
+  description: "**Deprecated since 0.89 release. Configuration moved to [Trusted Networks auth provider](/docs/authentication/providers/#trusted-networks).** List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` and `trusted_proxies` options enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP."
   required: false
   type: string, list
 ip_ban_enabled:
@@ -91,12 +91,15 @@ ssl_profile:
   default: modern
 {% endconfiguration %}
 
+<p class='note'>
+Configuring trusted_networks via the `http` component will be deprecated and moved to `auth_providers` instead. For instructions, see <a href="https://www.home-assistant.io/docs/authentication/providers/#trusted-networks">trusted networks</a>. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2.
+</p>
+
 The sample below shows a configuration entry with possible values:
 
 ```yaml
 # Example configuration.yaml entry
 http:
-  api_password: YOUR_PASSWORD
   server_port: 12345
   ssl_certificate: /etc/letsencrypt/live/hass.example.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/hass.example.com/privkey.pem
@@ -107,11 +110,6 @@ http:
   trusted_proxies:
     - 127.0.0.1
     - ::1
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
-    - 192.168.0.0/24
-    - fd00::/8
   ip_ban_enabled: true
   login_attempts_threshold: 5
 ```

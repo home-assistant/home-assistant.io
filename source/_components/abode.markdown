@@ -19,7 +19,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.52
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/alarm_control_panel.abode/
   - /components/binary_sensor.abode/

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: sense-hat.png
 ha_category: DIY
-ha_iot_class: "Assumed State"
+ha_iot_class: Assumed State
 ha_release: 0.44
 ---
 

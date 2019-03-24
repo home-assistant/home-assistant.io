@@ -14,7 +14,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.26
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.pilight/
   - /components/sensor.pilight/

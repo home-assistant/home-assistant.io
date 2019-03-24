@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: google_maps.png
 ha_category: Transport
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.19
 ---
 
@@ -97,7 +97,7 @@ options:
 
 ## {% linkable_title Dynamic Configuration %}
 
-Tracking can be setup to track entities of type `device_tracker`, `zone` and `sensor`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
+Tracking can be setup to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
 ```yaml
 # Example entry for configuration.yaml
@@ -139,7 +139,7 @@ sensor:
 
 ## {% linkable_title Updating sensors on-demand using Automation %}
 
-You can also use the `homeassistant.update` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
+You can also use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
 - id: update_morning_commute_sensor
@@ -160,7 +160,6 @@ You can also use the `homeassistant.update` service to update the sensor on-dema
         - thu
         - fri
   action:
-    - service: homeassistant.update
-      data:
-        entity_id: sensor.morning_commute
+    - service: homeassistant.update_entity
+      entity_id: sensor.morning_commute
 ```

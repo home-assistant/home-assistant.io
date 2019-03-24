@@ -17,7 +17,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: pre 0.7
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/alarm_control_panel.verisure/
   - /components/binary_sensor.verisure/

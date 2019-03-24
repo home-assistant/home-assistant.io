@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: samsung.png
 ha_category: Media Player
-featured: false
 ha_release: 0.13
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `samsungtv` platform allows you to control a

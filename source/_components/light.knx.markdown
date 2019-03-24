@@ -10,7 +10,7 @@ footer: true
 logo: knx.png
 ha_category: Light
 ha_release: 0.44
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `knx light` component is used as an interface to control knx actuators for lighting applications such as:
@@ -73,7 +73,7 @@ color_temperature_state_address:
 color_temperature_mode:
   description: Color temperature group address data type.
   keys:
-    absolute: 
+    absolute:
       description: color temperature in Kelvin. *color_temperature_address -> DPT 7.600*
     relative:
       description: color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*

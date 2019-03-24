@@ -10,7 +10,7 @@ footer: true
 logo: google_maps.png
 ha_release: 0.67
 ha_category: Presence Detection
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).

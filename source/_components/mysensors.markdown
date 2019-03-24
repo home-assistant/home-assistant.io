@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: mysensors.png
 ha_category: DIY
-featured: false
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
+ha_release: 0.73
 ---
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.

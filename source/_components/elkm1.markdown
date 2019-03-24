@@ -17,7 +17,7 @@ ha_category:
   - Scene
   - Sensor
   - Switch
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/alarm_control_panel.elkm1/
   - /components/climate.elkm1/

@@ -259,6 +259,10 @@ MQTT payload:
 }
 ```
 
+### {% linkable_title Usage with cloudless Xiaomi vacuums %}
+
+This component is supported by the cloud-free Xiaomi Vacuum Webinterface [Valetudo](https://github.com/Hypfer/Valetudo).
+
 ### {% linkable_title Retrofitting a non-wifi vacuums %}
 
 - Retrofitting your old Roomba with an ESP8266. [This repo](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.

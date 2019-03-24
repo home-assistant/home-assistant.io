@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: nilu_logo.png
 ha_category: Health
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.87
 ---
 
@@ -45,7 +45,7 @@ air_quality:
     description: Name of an area to get sensor stations from. See available areas below.
     required: exclusive
     type: string
-  stations: 
+  stations:
     description: Name of a specific station to get measurements from.
     required: exclusive
     type: string
@@ -58,11 +58,11 @@ air_quality:
 
 ## {% linkable_title Health risk index explainations %}
 
-Under the attributes from a NILU station, there will be a `nilu pollution index`. This indicates how polluted the air is in the area around the sensor station. Following is a longer explanation of what the indexes mean. 
+Under the attributes from a NILU station, there will be a `nilu pollution index`. This indicates how polluted the air is in the area around the sensor station. Following is a longer explanation of what the indexes mean.
 
 ### {% linkable_title Low %}
 
-Low or no health risk linked to measured air pollution. Outdoor activites are recommended. 
+Low or no health risk linked to measured air pollution. Outdoor activites are recommended.
 
 ### {% linkable_title Moderate %}
 
@@ -74,7 +74,7 @@ Health effects may occur in asthmatics and people with other respiratory disease
 
 ### {% linkable_title Extremely high %}
 
-Sensitive groups in the population can have health effects. Respiratory irritation and discomfort may occur in healthy subjects. People with heart or respiratory distress should reduce outdoor activity and not stay in the most polluted areas. 
+Sensitive groups in the population can have health effects. Respiratory irritation and discomfort may occur in healthy subjects. People with heart or respiratory distress should reduce outdoor activity and not stay in the most polluted areas.
 
 Source: [Explainations in Norwegian](http://www.luftkvalitet.info/home/Varslingsklasser.aspx)
 
@@ -147,7 +147,7 @@ Example of a specific station.
 # Monitors stations 'Alnabru'
 air_quality:
   - platform: nilu
-    stations: 
+    stations:
       - Alnabru
 ```
 
@@ -156,7 +156,7 @@ Example of getting stations from a specified area, giving the sensors a custom n
 ```yaml
 # Example configuration.yaml entry
 # Stations from specific area, 'Bergen'
-# Custom name for the sensors. 
+# Custom name for the sensors.
 air_quality:
   - platform: nilu
     area: Bergen

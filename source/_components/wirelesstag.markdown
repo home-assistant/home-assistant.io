@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Switch
-ha_iot_class: "Local Push and Cloud Polling"
+ha_iot_class: Cloud Polling and Local Push
 ha_release: 0.68
 redirect_from:
   - /components/binary_sensor.wirelesstag/

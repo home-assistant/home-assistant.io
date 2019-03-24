@@ -16,7 +16,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.56
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.skybell/
   - /components/camera.skybell/

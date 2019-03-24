@@ -91,6 +91,26 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 [webostv docs]: /components/webostv/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 
+## {% linkable_title Release 0.89.2 - March 12 %}
+
+- Update dependencies to receive data on webhook callbacks ([@andrewsayre] - [#21838]) ([smartthings docs])
+- Override http.trusted_networks by auth_provider.trusted_networks ([@awarecan] - [#21844]) ([http docs])
+- Fix botvac when no map exists ([@dshokouhi] - [#21877]) ([neato docs])
+- Fixes issues #21821 and #21819 ([@kstaniek] - [#21911]) ([binary_sensor.tod docs])
+
+[#21838]: https://github.com/home-assistant/home-assistant/pull/21838
+[#21844]: https://github.com/home-assistant/home-assistant/pull/21844
+[#21877]: https://github.com/home-assistant/home-assistant/pull/21877
+[#21911]: https://github.com/home-assistant/home-assistant/pull/21911
+[@andrewsayre]: https://github.com/andrewsayre
+[@awarecan]: https://github.com/awarecan
+[@dshokouhi]: https://github.com/dshokouhi
+[@kstaniek]: https://github.com/kstaniek
+[binary_sensor.tod docs]: /components/binary_sensor.tod/
+[http docs]: /components/http/
+[neato docs]: /components/neato/
+[smartthings docs]: /components/smartthings/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.

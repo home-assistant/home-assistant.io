@@ -73,8 +73,6 @@ homeassistant:
   auth_providers:
     - type: trusted_networks
       trusted_networks:
-        - 127.0.0.1
-        - ::1
         - 192.168.0.0/24
         - fd00::/8
 ```
@@ -110,7 +108,7 @@ Leading and trailing whitespace, as well as lines starting with `#` are ignored.
 
 * `name`: The real name of the user to be displayed in their profile.
 
-Stdaerr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
+Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
 <p class='note'>
 Any leading and trailing whitespace is stripped from usernames before they're passed to the configured command. For instance, " hello  " will be rewritten to just "hello".
@@ -132,10 +130,10 @@ Activating this auth provider will allow you to authenticate with the API passwo
 homeassistant:
   auth_providers:
    - type: legacy_api_password
-
-http:
-  api_password: !secret http_password
+     api_password: !secret http_password
 ```
+
+`api_password` is required option since 0.90 release.
 
 Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
 

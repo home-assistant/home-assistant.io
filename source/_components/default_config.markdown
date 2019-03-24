@@ -10,7 +10,6 @@ footer: true
 logo: home-assistant.png
 ha_category: Other
 ha_release: 0.88
-featured: false
 ---
 
 This component is a meta-component and configures a default set of components for Home Assistant to load. The components that will be loaded can be found [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/default_config/__init__.py).

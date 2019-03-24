@@ -10,7 +10,7 @@ footer: true
 logo: github.png
 ha_category: Sensor
 ha_release: 0.88
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The GitHub sensor integrates data from [GitHub](https://github.com/) to monitor your favorite repositories.

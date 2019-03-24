@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: flic.png
 ha_category: Binary Sensor
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: 0.35
 ---
 
@@ -52,7 +52,7 @@ discovery:
 ignored_click_types:
   description: List of click types whose occurrence should not trigger a `flic_click` event. Click types are `single`, `double`, and `hold`.
   required: false
-  type: list  
+  type: list
 timeout:
   description: The maximum time in seconds an event can be queued locally on a button before discarding the event.
   required: false
@@ -105,7 +105,7 @@ automation:
       event_type: flic_click
     action:
       - service_template: notify.html5
-        data_template: 
+        data_template:
           title: "flic click"
           message: {% raw %}"flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"{% endraw %}
 ```

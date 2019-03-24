@@ -8,13 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: upnp.png
-ha_category: Network
+ha_category:
+  - Network
+  - Sensor
 ha_release: 0.18
+ha_iot_class: "Local Polling"
+redirect_from:
+  - /components/sensor.upnp/
 ---
 
 The `upnp` component enables you to collect network statistics from your router such as bytes in/out and packets in/out. This information is provided by the [UPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play)/[Internet Gateway Device (IGD) Protocol](https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol) if enabled on your router.
 
 The IGD can automatically create port forwarding mappings on your router for Home Assistant, exposing your installation to the internet. The mapping will never automatically expire. Upon stopping Home Assistant, the mapping will be removed from your router.
+
+There is currently support for the following device types within Home Assistant:
+
+- **Sensor** - Allows to get the network statistics from your router such as bytes in/out and packets in/out.
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this component to work.
 

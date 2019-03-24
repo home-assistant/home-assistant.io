@@ -10,7 +10,7 @@ footer: true
 # logo: raspberry-pi.png
 ha_category: Water heater
 ha_release: 0.87
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
  - /components/sensor.ecoal_boiler/
  - /components/switch.ecoal_boiler/
@@ -50,7 +50,7 @@ username:
   type: string
 password:
   description: Password for username.
-  required: false 
+  required: false
   default: admin
   type: string
 switches:
@@ -72,7 +72,7 @@ sensors:
       description: controller available source of sensors
       required: false
       type: list
-      default: all (`outdoor_temp`, `indoor_temp`, `indoor2_temp`, `domestic_hot_water_temp`, `target_domestic_hot_water_temp`, 
+      default: all (`outdoor_temp`, `indoor_temp`, `indoor2_temp`, `domestic_hot_water_temp`, `target_domestic_hot_water_temp`,
                     `feedwater_in_temp`, `feedwater_out_temp`, `target_feedwater_temp`,
                     `fuel_feeder_temp`, `exhaust_temp`)
 {% endconfiguration %}

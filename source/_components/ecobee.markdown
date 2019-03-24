@@ -16,7 +16,7 @@ ha_category:
   - Weather
 featured: true
 ha_release: 0.9
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/sensor.ecobee/
   - /components/binary_sensor.ecobee/
@@ -29,7 +29,7 @@ The `ecobee` component lets you control a thermostats and view sensor data from 
 
 ## {% linkable_title Configuration %}
 
-You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this component. To get the key, first you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that perform the following steps. 
+You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this component. To get the key, first you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that perform the following steps.
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/developers/).
 2. Login with your ecobee credentials.
@@ -147,10 +147,10 @@ auto, and off.
 ## {% linkable_title Attributes %}
 
 The following attributes are provided by the Ecobee Thermostat:
-`name`, `temperature_unit`, `current_temperature`, `target_temperature`, 
-`target_temperature_low`, `target_temperature_high`, `desired_fan_mode`, 
+`name`, `temperature_unit`, `current_temperature`, `target_temperature`,
+`target_temperature_low`, `target_temperature_high`, `desired_fan_mode`,
 `fan`, `current_hold_mode`, `current_operation`, `operation_list`,
-`operation_mode`, `mode`, `fan_min_on_time`, `device_state_attributes`, 
+`operation_mode`, `mode`, `fan_min_on_time`, `device_state_attributes`,
 `is_away_mode_on`, `vacation`, `climate_list`, `aux_heat`.
 The attributes `min_temp` and `max_temp` are meaningless constant values.
 
@@ -302,7 +302,7 @@ Returns the current auxiliary heat state.
 ## {% linkable_title Services %}
 
 The following services are provided by the Ecobee Thermostat:
-`set_away_mode`, `set_hold_mode`, `set_temperature`, `set_operation_mode`, 
+`set_away_mode`, `set_hold_mode`, `set_temperature`, `set_operation_mode`,
 `fan_min_on_time`, `resume_program`.
 The services `set_aux_heat`, `set_humidity`, `set_fan_mode`, and
 `set_swing_mode` offered by the [Climate component](/components/climate/)
@@ -324,7 +324,7 @@ and any other hold based on a reference climate, the
 target temperature is taken from the reference climate.
 For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.
-It is not possible to set a vacation hold; such hold has to be 
+It is not possible to set a vacation hold; such hold has to be
 defined on the thermostat directly. However, a vacation hold can be
 canceled.
 

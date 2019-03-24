@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: sendgrid.png
 ha_category: Notifications
+ha_release: 0.14
 ---
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
@@ -44,6 +45,10 @@ api_key:
 sender:
   description: The e-mail address of the sender.
   required: true
+  type: string
+sender_name:
+  description: The name of the sender. Defaults to "Home Assistant" if not set.
+  required: false
   type: string
 recipient:
   description: The recipient of the notification.

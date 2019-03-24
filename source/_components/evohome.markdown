@@ -10,7 +10,7 @@ footer: true
 logo: honeywell.png
 ha_category: Hub
 ha_release: 0.80
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `evohome` component is the main component to set up and integrate all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, primarily the Honeywell evohome multi-zone CH/DHW system.  It does not support the home security functionality of TCC.

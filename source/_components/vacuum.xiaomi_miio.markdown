@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Vacuum
 ha_release: 0.51
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
@@ -172,6 +172,7 @@ automation:
           - 26032
           - 26496
 ```
+
 ## {% linkable_title Attributes %}
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
@@ -378,3 +379,13 @@ Software Required:
 6. Go to \apps\com.xiaomi.smarthome\db
 7. Open miio2.db with SQLite Browser
 8. You can find your device tokens in "devicerecord" table
+
+## {% linkable_title Retrieving the Zone Coordinates %}
+
+### {% linkable_title Using FloleVac (Android) %}
+
+1. Download [FloleVac](https://play.google.com/store/apps/details?id=de.flole.xiaomi)
+2. Login with your Xiaomi credentials
+3. Open Map (make sure you're on the same network as your vacuum cleaner)
+4. Select "Zone cleanup" and draw a box around the zone you'd like to clean
+5. Long press "Cleanup" and the zone coordinates will be copied to your clipboard

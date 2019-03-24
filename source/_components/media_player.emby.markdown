@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: emby.png
 ha_category: Media Player
-ha_release: "0.32"
-ha_iot_class: "Local Push"
+ha_release: 0.32
+ha_iot_class: Local Push
 ---
 
 

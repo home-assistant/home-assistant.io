@@ -10,10 +10,10 @@ footer: true
 logo: enphase-logo.svg
 ha_category: Energy
 ha_release: 0.76
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
-A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S). 
+A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
 ### {% linkable_title Configuration %}
 

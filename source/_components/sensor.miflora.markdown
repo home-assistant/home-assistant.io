@@ -10,7 +10,7 @@ footer: true
 logo: miflora.png
 ha_category: Environment
 ha_release: 0.29
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.

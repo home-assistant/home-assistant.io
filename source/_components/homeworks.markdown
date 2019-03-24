@@ -11,9 +11,8 @@ logo: lutron.png
 ha_category:
   - Hub
   - Light
-featured: false
 ha_release: 0.85
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
  - /components/binary_sensor.homeworks/
  - /components/light.homeworks/

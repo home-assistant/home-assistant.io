@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: "Utility"
 ha_qa_scale: internal
+ha_release: 0.8
 ---
 
 The `logger` component lets you define the level of logging activities in Home

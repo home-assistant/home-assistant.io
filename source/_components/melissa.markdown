@@ -11,9 +11,8 @@ logo: mclimate.png
 ha_category:
   - Hub
   - Climate
-featured: false
 ha_release: 0.63
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/climate.melissa/
 ---
