@@ -140,7 +140,7 @@ The second option is to connect to your device using the `adb` Python package.
 
 If your device requires ADB authentication, you will need to follow the instructions in the [ADB Authentication](#adb-authentication) section below. Once you have an authenticated key, this approach does not require any additional setup or addons. However, users with newer devices may find that the ADB connection is unstable. For a Fire TV device, you can try setting the `get_sources` configuration option to `false`.  If the problem cannot be resolved, you should use the ADB server option.
 
-### {% linkable_title ADB Authentication %}
+#### {% linkable_title ADB Authentication %}
 
 If you get a "Device authentication required, no keys available" error when trying to set up your Android TV or Fire TV, then you'll need to create an adbkey and add its path to your configuration. Follow the instructions on this page to connect to your device from your computer: [Connecting to Fire TV Through adb](https://developer.amazon.com/zh/docs/fire-tv/connecting-adb-to-device.html).
 
@@ -155,17 +155,21 @@ Once you've successfully connected to your Android TV / Fire TV via the command 
 
 Copy the `adbkey` and `adbkey.pub` files to your Home Assistant folder and add the path to the `adbkey` file to your configuration.
 
-#### {% linkable_title ADB Troubleshooting %}
+## {% linkable_title ADB Troubleshooting %}
 
-If you receive the error message `Issue: Error while setting up platform androidtv` in your log when trying to set up an Android TV or Fire TV device with an ADB key, then there is probably an issue with your ADB key. Here are some possible causes.
+If you receive the error message `Error while setting up platform androidtv` in your log when trying to set up an Android TV or Fire TV device, then there is probably an issue with your ADB connection. Here are some possible causes.
 
 1. ADB is not enabled on your device.
 
-2. Your key is not pre-authenticated. Before using the `adbkey` in Home Assistant, you _**must**_ connect to your device using the ADB binary and tell it to always allow connections from this computer. For more information, see the section [ADB Authentication](#adb-authentication) above.
+2. You are already connected to the Android TV / Fire TV via ADB from another device. Only one device can be connected, so disconnect the other device, restart the Android TV / Fire TV (for good measure), and then restart Home Assistant.
 
-3. Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
+3. If you are using the [Python ADB implementation](#2-python-adb-implementation):
 
-4. You are already connected to the Android TV / Fire TV via ADB from another device. Only one device can be connected, so disconnect the other device, restart the Android TV / Fire TV (for good measure), and then restart Home Assistant.
+   * This method often does not work for newer devices. Use the [ADB server](#1-adb-server) approach instead.
+
+   * Your key is not pre-authenticated. Before using the `adbkey` in Home Assistant, you _**must**_ connect to your device using the ADB binary and tell it to always allow connections from this computer. For more information, see the section [ADB Authentication](#adb-authentication) above.
+
+   * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
 
 ## {% linkable_title Services %}
 
