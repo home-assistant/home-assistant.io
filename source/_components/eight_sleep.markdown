@@ -50,10 +50,10 @@ password:
   description: The password associated with your Eight Sleep account.
   required: true
   type: string
-password:
+partner:
   description: Defines if you'd like to fetch data for both sides of the bed.
   required: false
-  type: string
+  type: boolean
   default: false
 {% endconfiguration %}
 
