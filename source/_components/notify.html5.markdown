@@ -18,7 +18,7 @@ The `html5` notification platform enables you to receive push notifications to C
 HTML5 push notifications **do not** work on iOS.
 </p>
 
-<p class='warning'>
+<p class='note warning'>
 The GCM configuration option is deprecated and will stop working in April 2019, see https://developers.google.com/cloud-messaging/faq. If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project.
 </p>
 
