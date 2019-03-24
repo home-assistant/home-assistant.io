@@ -220,9 +220,9 @@ automation:
         platform: state
     condition:
       - condition: template
-      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+        value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
       - condition: template
-      value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
+        value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
     action:
       - service: hangouts.reconnect
 ```
