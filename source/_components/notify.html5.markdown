@@ -66,7 +66,7 @@ vapid_email:
   description: The e-mail account associated with your Firebase project.  
   required: true
   type: string
-  gcm_api_key:
+gcm_api_key:
   description: The API Server key provided to you by Google for Google Cloud Messaging (GCM).
   required: true
   type: string
