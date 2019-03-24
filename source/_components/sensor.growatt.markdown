@@ -12,7 +12,7 @@ ha_category:
   - Energy
   - Sensor
 ha_iot_class: "Cloud Polling"
-ha_release: "0.90"
+ha_release: "0.92"
 ---
 
 The Growatt sensor enables you to monitor Growatt solar panel plants that have a WiFi module that send the data to [the Growatt server](https://server.growatt.com). The sensor will pull the total `kWh` and daily `kWh` from the server.
