@@ -31,7 +31,7 @@ This platform will add all PCA 301 switches which are in range. You can read the
 
 {% configuration %}
 device:
-  description: "The path to you serial console. Get it via: `ls /dev/tty*`".
+  description: "The path to you serial console. Get it via: `ls /dev/tty*`."
   required: true
   type: string
 {% endconfiguration %}
