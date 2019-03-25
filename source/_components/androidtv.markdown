@@ -70,7 +70,7 @@ port:
   default: 5555
   type: integer
 adbkey:
-  description: The path to your `adbkey` file. Note that the file `adbkey.pub` must be in the same directory.
+  description: The path to your `adbkey` file.
   required: false
   type: string
 adb_server_ip:
@@ -158,12 +158,12 @@ If you get a "Device authentication required, no keys available" error when tryi
 In the dialog appearing on your Android TV / Fire TV, you must check the box that says "always allow connections from this device." ADB authentication in Home Assistant will only work using a trusted key.
 </p>
 
-Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>`, the files `adbkey` and `adbkey.pub` will be created on your computer. The default locations for these files are (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
+Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>`, the file `adbkey` will be created on your computer. The default locations for this file is (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 
 - Linux and Mac: `$HOME/.android.`
 - Windows: `%userprofile%\.android.`
 
-Copy the `adbkey` and `adbkey.pub` files to your Home Assistant folder and add the path to the `adbkey` file to your configuration.
+Copy the `adbkey` file to your Home Assistant folder and add the path to the `adbkey` file to your configuration.
 
 #### {% linkable_title ADB Troubleshooting %}
 
