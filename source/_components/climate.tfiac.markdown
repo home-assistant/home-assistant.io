@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: tfiac.png
 ha_category: Climate
-ha_release: "0.90"
-ha_iot_class: "Local Polling"
+ha_release: 0.91
+ha_iot_class: Local Polling
 ---
 
 The `tfiac` component integrates several vendors air conditioning systems, that uses the Tfiac mobile app, into Home Assistant. App currently available at [Play Store](https://play.google.com/store/apps/details?id=com.tcl.export) and [App Store](https://itunes.apple.com/app/tfiac/id1059938398).
