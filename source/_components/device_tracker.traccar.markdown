@@ -65,7 +65,7 @@ monitored_conditions:
   required: false
   type: list
 event:
-  description: Traccar events to include in the scan and fire within Home Assistant. *NOTE* For more info regarding Traccar events please refer to Traccar's documentation: https://www.traccar.org/documentation/events/.
+  description: "Traccar events to include in the scan and fire within Home Assistant. *NOTE* For more info regarding Traccar events please refer to Traccar's documentation: https://www.traccar.org/documentation/events/."
   required: false
   type: list
   keys:
