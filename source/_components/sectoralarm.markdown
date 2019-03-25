@@ -51,5 +51,4 @@ code:
   description: Your Sector Alarm code for turning the alarm on/off.
   required: true
   type: integer
-
 {% endconfiguration %}
