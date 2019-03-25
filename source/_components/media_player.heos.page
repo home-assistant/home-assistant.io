@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: heos.png
 ha_category: Media Player
-ha_release: "0.90"
+ha_release: 0.91
 ---
 
 The `heos` platform allows you to control a [Denon HEOS Speakers](http://heosbydenon.denon.com) from Home Assistant.
