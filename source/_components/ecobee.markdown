@@ -259,7 +259,7 @@ Returns the list of equipment that is currently operating from the thermostat.
 
 | Attribute type | Description |
 | ---------------| ----------- |
-| String | If no equipment is currently running empty string is returned. Possible values are a comma seperated list of any of the following: heatPump, heatPump2, heatPump3, compCool1, compCool2, auxHeat1, auxHeat2, auxHeat3, fan, humidifier, dehumidifier, ventilator, economizer, compHotWater, auxHotWater.
+| String | If no equipment is currently running empty string is returned. Possible values are a comma separated list of any of the following: heatPump, heatPump2, heatPump3, compCool1, compCool2, auxHeat1, auxHeat2, auxHeat3, fan, humidifier, dehumidifier, ventilator, economizer, compHotWater, auxHotWater.
 
 ### {% linkable_title Attribute `mode` %}
 
