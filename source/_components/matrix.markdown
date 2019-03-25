@@ -8,11 +8,21 @@ comments: false
 sharing: true
 footer: true
 logo: matrix.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Notifications
 ha_release: 0.69
+redirect_from:
+  - /components/notify.matrix/
 ---
 
 This component allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Notifications](#notifications)
+
+## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,7 +93,7 @@ If the command is a word command, the `data` field contains a list of the comman
 
 ### {% linkable_title Comprehensive Configuration Example %}
 
-This example also uses the [matrix `notify` platform](/components/notify.matrix/).
+This example also uses the [matrix `notify` platform](#notifications).
 
 {% raw %}
 ```yaml
@@ -136,3 +146,33 @@ This configuration will:
 
 - Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
+
+## {% linkable_title Notifications %}
+
+The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](http://matrix.org) room. Rooms can be both direct as well as group chats.
+
+To enable Matrix notifications in your installation, you first need to configure the [Matrix component](#configuration). Then, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: NOTIFIER_NAME
+    platform: matrix
+    default_room: ROOM_ID_OR_ALIAS
+```
+
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+default_room:
+  description: The room all messages will be sent to, when no other target is given.
+  required: true
+  type: string
+{% endconfiguration %}
+
+The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).
