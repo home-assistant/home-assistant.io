@@ -31,21 +31,7 @@ media_player:
 {% configuration %}
 host:
   description: "Address of the device. Example: 192.168.1.32."
-  required: false
-  type: string
-  default: Tries to resolve by UPnP (SSDP).
-name:
-  description: The name of the device
-  required: false
-  type: string
-  default: HEOS Player
-username:
-  description: The username for authentication.
-  required: false
-  type: string
-password:
-  description: The password for authentication.
-  required: false
+  required: true
   type: string
 {% endconfiguration %}
 
@@ -53,5 +39,3 @@ A few notes for platform: heos
 
 - Does not handle multiple speakers by groups.
 - Seeking is not implemented at this moment.
-
-[HEOS]: /components/media_player.heos/
