@@ -51,6 +51,14 @@ Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
   - Wifi LED
   - Mode (Power Strip V1 only)
 
+### {% linkable_title Xiaomi Air Conditioning Companion V3 %}
+
+Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2` isn't switchable!)
+
+* Power (on, off)
+* Attributes
+  - Load power
+
 ## {% linkable_title Configuration %}
 
 To add a plug to your installation, add the following to your `configuration.yaml` file:
