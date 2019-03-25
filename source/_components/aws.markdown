@@ -17,15 +17,15 @@ The `aws` integration provides a single place to interact [Amazon Web Services](
 
 ## {% linkable_title Setup %}
 
-You have to have a AWS account to use Amazon Web Services, create one [here](https://aws.amazon.com/free/) with 12 months free tier benefit. Please note, even in the first 12-months, you may still be billing if you use some resources out of limit, we advice you closely monitoring your costs in [AWS Billing Console](https://console.aws.amazon.com/billing/). You can read [Control your AWS costs](https://aws.amazon.com/getting-started/tutorials/control-your-costs-free-tier-budgets/) guide to get more information.
+You have to have an AWS account to use Amazon Web Services, create one [here](https://aws.amazon.com/free/) with a 12 months free tier benefit. Please note, even in the first 12-months, you may still be billed if you use more resources than offered in the free tier. We advise you to monitor your costs in the [AWS Billing Console](https://console.aws.amazon.com/billing/) closely. You can read the [Control your AWS costs](https://aws.amazon.com/getting-started/tutorials/control-your-costs-free-tier-budgets/) guide for more information.
 
-The `lambda`, `sns` and `sqs` services used in `aws` components all provided **Always Free** tier for all users even after 12-months period. The general usages in Home Automation most likely would not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/) and [SQS Pricing](https://aws.amazon.com/sqs/pricing/) for more details.
+The `lambda`, `sns` and `sqs` services, used in the `aws` component, all provide an **Always Free** tier for all users even after the 12-month period. The general usage in Home Automation will most likely not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/) and [SQS Pricing](https://aws.amazon.com/sqs/pricing/) for more details.
 
-`aws` component is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) underneath to communicate with Amazon Web Services, which is also used in [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shared same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and security manage them in your local system.
+The `aws` component is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) to communicate with Amazon Web Services, which is also used by the [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shares the same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and how to manage them on your local system securely.
 
 ## {% linkable_title Configuration %}
 
-To use `aws` component and `notify` platform in your installation, add the following to your `configuration.yaml` file:
+To use the `aws` component and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,7 +83,7 @@ service:
   required: true
   type: string
 region_name:
-  description: The region identifier to connect to, for example `us-east-1`.
+  description: The region identifier to connect to, for example, `us-east-1`.
   required: true
   type: string
 credential_name:
@@ -115,7 +115,7 @@ context:
 
 ## {% linkable_title Lambda Notify Usage %}
 
-AWS Lambda is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)) or a partial ARN. For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.invoke).
+AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/components/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)) or a partial ARN. For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.invoke).
 
 The Lambda event payload will contain everything passed in the service call payload. Here is an example payload that would be sent to Lambda:
 
@@ -143,24 +143,24 @@ The context will look like this:
 
 ## {% linkable_title SNS Notify Usage %}
 
-AWS SNS is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Client.publish).
+AWS SNS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/components/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Client.publish).
 
-If one exists, the SNS Subject will be set to the title. All attributes from the payload except message will be sent as stringified message attributes.
+If one exists, the SNS Subject will be set to the title. All attributes from the payload, except the message, will be sent as stringified message attributes.
 
 ### {% linkable_title Setting up SNS within AWS %}
 
 - Log into your AWS console and under "Security and Identity", select "Identity & Access Management".
-- On the left hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create". 
+- On the left-hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create". 
 - You can either download the credentials or click the arrow to display them one time.
 
 <p class='note warning'>
-  If you do not download them you will lose them and will have to recreate a new user.
+  If you do not download them, you will lose them and will have to recreate a new user.
 </p>
 
-- Copy/Paste the two keys that you are provided here in your `configuration.yaml` file respectively.
-- On the left hand side of the screen go back to "Users" and select the user you just created. On the "Permissions" tab click the "Attach Policy" icon. Search for "SNS" and attach the policy "AmazonSNSFUullAccess".
+- Copy/Paste the two keys that are shown here in your `configuration.yaml` file.
+- On the left-hand side of the screen go back to "Users" and select the user you just created. On the "Permissions" tab click the "Attach Policy" icon. Search for "SNS" and attach the policy "AmazonSNSFUullAccess".
 - Back to the AWS Console you now need to find "SNS" and click in to that service. It is under the Mobile Services group.
-- On the left hand side, select "Topics" then "Create new topic".
+- On the left-hand side, select "Topics" then "Create new topic".
 - Choose a Topic Name and Display Name.
 - Now check the box next to the Topic you just created and under Actions, select "Subscribe to topic".
 - In the box that pops up, select the Protocol = SMS and enter in the phone number next to "Endpoint" you wish to SMS. Now click "Create".
@@ -169,9 +169,9 @@ If one exists, the SNS Subject will be set to the title. All attributes from the
 
 ## {% linkable_title SQS Notify Usage %}
 
-AWS SQS is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will publish a message to the queue for all targets given in the notification payload. A target must be a SQS topic URL. For more information, please see the [SQS docs](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html) and [bototcore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
+AWS SQS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/components/notify/). It will publish a message to the queue for all targets given in the notification payload. A target must be a SQS topic URL. For more information, please see the [SQS docs](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html) and [bototcore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
 
-The SQS event payload will contain everything passed in the service call payload. SQS payloads will be published as stringified JSON. All attributes from the payload except message will also be sent as stringified message attributes. Here is an example message that would be published to the SQS queue:
+The SQS event payload will contain everything passed in the service call payload. SQS payloads will be published as stringified JSON. All attributes from the payload, except message, will also be sent as stringified message attributes. Here is an example message that would be published to the SQS queue:
 
 ```json
 {
