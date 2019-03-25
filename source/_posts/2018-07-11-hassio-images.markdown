@@ -38,7 +38,7 @@ You need to perform the following steps to upgrade:
 1. If you have installed the Bluetooth add-on, please remove it, since it is no longer required.
 2. Make a Hass.io snapshot of your current system and download it to your computer.
 3. Download the latest [Hass.io stable][installation] version.
-4. Flash the downloaded Hass.io image with [Etcher] to your SD card.
+4. Flash the downloaded Hass.io image with [balenaEtcher] to your SD card.
 5. Raspberry Pi: In case you have modified the `config.txt` (in the boot partition), you will also need to apply these changes to HassOS. Do **NOT** simply copy the file from your old setup into HassOS! Apply those changes manually!
 6. If you use a custom network configuration or have configured SSH development access, you need to create a configuration [USB stick]. Copy the resin-sample into the `network` folder on a USB stick and insert it into your device.
 7. Take the freshly flashed SD card with HassOS and place it into your device, and boot it by turning it on.
@@ -61,4 +61,4 @@ Feel free to jump into the project and help us to improve the documentation or o
 [AppArmor]: https://gitlab.com/apparmor/apparmor/wikis/home/
 [USB stick]: https://github.com/home-assistant/hassos/blob/rel-1/Documentation/configuration.md#automatic
 [installation]: /hassio/installation/
-[Etcher]: https://etcher.io/
+[balenaEtcher]: https://www.balena.io/etcher

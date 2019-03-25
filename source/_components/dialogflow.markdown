@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: dialogflow.png
 ha_category: Voice
-featured: false
 ha_release: 0.56
 redirect_from: /components/apiai/
 ---
@@ -49,7 +48,7 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Click "Save"
 - Create a new intent
 - Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g., `What is the temperature at home?`
-- In "Action" set some key (this will be the bind with Home Assistant configuration), eg.: GetTemperature
+- In "Action" set some key (this will be the bind with Home Assistant configuration), e.g.,: GetTemperature
 - In "Response" set "Cannot connect to Home Assistant or it is taking to long" (fall back response)
 - At the end of the page, click on "Fulfillment" and check "Use webhook"
 - Click "Save"
@@ -114,4 +113,3 @@ intent_script:
           entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
 ```
 {% endraw %}
-

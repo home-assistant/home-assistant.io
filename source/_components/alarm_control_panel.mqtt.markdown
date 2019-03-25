@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Alarm
 ha_release: 0.7.4
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
 
 The `mqtt` alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.
@@ -20,6 +20,7 @@ The component will accept the following states from your Alarm Panel (in lower c
 - `disarmed`
 - `armed_home`
 - `armed_away`
+- 'armed_night'
 - `pending`
 - `triggered`
 
@@ -75,10 +76,20 @@ payload_arm_away:
   required: false
   type: string
   default: ARM_AWAY
+payload_arm_night:
+  description: The payload to set armed-night mode on your Alarm Panel.
+  required: false
+  type: string
+  default: ARM_NIGHT
 code:
   description: If defined, specifies a code to enable or disable the alarm in the frontend.
   required: false
   type: string
+code_arm_required:
+  description: If true the code is required to arm the alarm.
+  required: false
+  type: boolean
+  default: true
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false

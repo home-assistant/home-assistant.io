@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: sharp_aquos.png
 ha_category: Media Player
-featured: false
 ha_release: 0.35
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp.ca/en-CA/ForHome/HomeEntertainment/LEDTV/QuattronPlus.aspx).
@@ -29,7 +28,7 @@ media_player:
 
 {% configuration %}
 host:
-  description: The IP/Hostname of the Sharp Aquos TV, eg. `192.168.0.10`.
+  description: The IP/Hostname of the Sharp Aquos TV, e.g., `192.168.0.10`.
   required: true
   type: string
 port:

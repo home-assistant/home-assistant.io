@@ -10,7 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Environment
 ha_release: "0.20"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_qa_scale: internal
 ---
 
@@ -41,7 +41,7 @@ indoor_temp_sensor:
   description: The entity ID of the indoor temperature sensor.
   required: true
   type: string
-indoor_humidity_sensor: 
+indoor_humidity_sensor:
   description: The entity ID of the indoor humidity sensor.
   required: true
   type: string
@@ -49,7 +49,7 @@ outdoor_temp_sensor:
   description: The entity ID of the outdoor temperature sensor.
   required: true
   type: string
-calibration_factor: 
+calibration_factor:
   description: Needs to be calibrated to the critical point in the room.
   required: true
   type: float

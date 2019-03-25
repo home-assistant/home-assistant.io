@@ -10,7 +10,7 @@ footer: true
 logo: deluge.png
 ha_category: Downloading
 ha_release: 0.57
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: pre 0.7
 ---
 
 This component allows you to track and control various light bulbs. Read the platform documentation for your particular light hardware to learn how to enable it.
@@ -39,8 +40,8 @@ Most lights do not support all attributes. You can check the platform documentat
 | `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
 | `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
 | `color_name` | yes | A human-readable string of a color name, such as `blue` or `goldenrod`. All [CSS3 color names](https://www.w3.org/TR/css-color-3/#svg-color) are supported.
-| `brightness` | yes | Integer between 0 and 255 for how bright the light should be.
-| `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100).
+| `brightness` | yes | Integer between 0 and 255 for how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.
+| `brightness_pct`| yes | Alternatively, you can specify brightness in percent (a number between 0 and 100), where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
 
@@ -76,11 +77,8 @@ Turns one or multiple lights off.
 
 ### {% linkable_title Service `light.toggle` %}
 
-Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/).
+Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/). 
+Takes the same arguments as [`turn_on`](#service-lightturn_on) service.
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`s of lights. Else targets all.
-| `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.

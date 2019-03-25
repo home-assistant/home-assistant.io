@@ -46,7 +46,7 @@ password:
   type: string
   default: 888888
 port:
-  description: The port for the camera.
+  description: The (HTTP) port for the camera.
   required: false
   type: integer
   default: 5000

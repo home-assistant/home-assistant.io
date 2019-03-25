@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: camcorder.png
 ha_category: Camera
-ha_iot_class: "Local Push"
-ha_release: 0.74  
+ha_iot_class: Local Push
+ha_release: 0.74
 ---
 
 The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
@@ -25,7 +25,8 @@ The `push` camera can as an example be used with [motionEye](https://github.com/
 
 In motionEye, under **File Storage -> Run A Command** type in:
 ```bash
-curl -X POST -F "image=@%f" http://my.hass.server.com:8123/api/webhook/my_custom_webhook_id
+curl -X POST -F "image=@%f" http://my.hass.server.com:8123/api/webhoo\k/my_custom_webhook_id
+# inserting a backslash in the middle of "webhook" stops Motion to move the command to a webhook
 ```
 
 Optionally configure motionEye to save only motion triggered images by going into **Still Images -> Capture Mode** and setting **Motion Triggered**. Tune your preferences under **Motion Detection**.
@@ -38,7 +39,7 @@ camera:
     name: MotionEye Outdoor
     buffer: 3
     timeout: 5
-    webhook_id: my_custom_webhook_id 
+    webhook_id: my_custom_webhook_id
 ```
 
 ## {% linkable_title Configuration %}
@@ -50,7 +51,7 @@ To enable this camera in your installation, add the following to your `configura
 camera:
   - platform: push
     name: My Push Camera
-    webhook_id: my_custom_webhook_id 
+    webhook_id: my_custom_webhook_id
 ```
 
 {% configuration %}
@@ -71,7 +72,7 @@ timeout:
   default: 5 seconds
 webhook_id:
   description: User provided string acting as camera identifier and access control, should be a large string (more then 8 chars).
-  required: true 
+  required: true
   type: string
 field:
   description: HTTP POST field containing the image file

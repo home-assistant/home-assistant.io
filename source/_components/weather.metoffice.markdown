@@ -10,7 +10,7 @@ footer: true
 logo: metoffice.jpg
 ha_category: Weather
 ha_release: 0.42
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `metoffice` weather platform uses the Met Office's [DataPoint API](http://www.metoffice.gov.uk/datapoint) for weather data.

@@ -9,11 +9,10 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Calendar
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_qa_scale: internal
 ---
-
 
 The time and date (`time_date`) sensor platform simple displays the time in various formats, the date, or both.
 
@@ -27,14 +26,14 @@ sensor:
       - 'time'
       - 'date'
       - 'date_time'
+      - 'date_time_iso'
       - 'time_date'
       - 'time_utc'
       - 'beat'
 ```
 
-- **display_options** array (*Required*): The option to display. The types *date_time* and *time_date* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](http://www.swatch.com/en_us/internet-time).
+- **display_options** array (*Required*): The option to display. The types *date_time*, *time_date*, and *date_time_iso* shows the date and the time. The other types just the time or the date. *beat* shows the [Swatch Internet Time](http://www.swatch.com/en_us/internet-time).
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/time_date.png' />
 </p>
-

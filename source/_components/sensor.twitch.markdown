@@ -10,9 +10,8 @@ footer: true
 logo: twitch.png
 ha_category: Social
 ha_release: "0.10"
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
-
 
 The `twitch` platform will allow you to monitor [Twitch](http://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
@@ -47,4 +46,3 @@ channels:
     channel_id:
       description: Name of the channel.
 {% endconfiguration %}
-

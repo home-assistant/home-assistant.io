@@ -10,7 +10,7 @@ footer: true
 logo: ups.png
 ha_category: Postal Service
 ha_release: 0.39
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `ups` platform allows one to track deliveries by the [UPS](https://www.ups.com/). To use this sensor, you need a [My UPS Account](https://www.ups.com/mychoice).
@@ -32,11 +32,11 @@ Configuration options for the UPS Sensor:
 - **username** (*Required*): The username to access the UPS My Choice service.
 - **password** (*Required*): The password for the given username.
 - **name** (*Optional*): Name the sensor.
-- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 1 hour. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
+- **scan_inverval** (*Optional*): Minimum time interval between updates. Default is 1 hour. Supported formats:
+  - `scan_interval: 'HH:MM:SS'`
+  - `scan_interval: 'HH:MM'`
   - Time period dictionary, e.g.:
-    <pre>update_interval:
+    <pre>scan_interval:
         # At least one of these must be specified:
         days: 0
         hours: 0

@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: actiontec.png
 ha_category: Presence Detection
+ha_release: 0.7
 ---
 
 
@@ -35,7 +36,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your router, eg. `192.168.1.1`.
+  description: The IP address of your router, e.g., `192.168.1.1`.
   required: true
   type: string
 username:
@@ -49,4 +50,3 @@ password:
 {% endconfiguration %}
 
 See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
-

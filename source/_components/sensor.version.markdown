@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Utility
-ha_iot_class: "Local Pushing"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_release: 0.52
 ha_qa_scale: internal
@@ -60,7 +60,7 @@ result through various platforms.
 Remember that you can easily get the installed version on the command line.
 
 ```bash
-$ hass --version
+hass --version
 ```
 
 Or go to the <img src='/images/screenshots/developer-tool-about-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Info** section of the **Developer Tools**.

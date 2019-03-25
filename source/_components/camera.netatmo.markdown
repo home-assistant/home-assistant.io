@@ -10,7 +10,7 @@ footer: true
 logo: netatmo.png
 ha_category: Camera
 ha_release: 0.22
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.

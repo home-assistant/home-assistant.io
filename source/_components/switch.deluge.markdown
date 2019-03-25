@@ -10,9 +10,8 @@ footer: true
 logo: deluge.png
 ha_category: Downloading
 ha_release: 0.57
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
-
 
 The `deluge` switch platform allows you to control your [Deluge](http://deluge-torrent.org/) client from within Home Assistant. The platform enables you switch all your torrents in pause, and then unpause them all.
 
@@ -31,7 +30,7 @@ switch:
 host:
   required: true
   type: string
-  description: This is the IP address of your Deluge daemon, eg., 192.168.1.32.
+  description: This is the IP address of your Deluge daemon, e.g., 192.168.1.32.
 username:
   required: true
   type: string

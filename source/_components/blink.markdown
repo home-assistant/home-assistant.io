@@ -8,9 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: blink.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Alarm
+  - Binary Sensor
+  - Camera
+  - Sensor
 ha_release: "0.40"
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
+redirect_from:
+  - /components/alarm_control_panel.blink/
+  - /components/binary_sensor.blink/
+  - /components/camera.blink/
+  - /components/sensor.blink/
 ---
 
 The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
@@ -40,7 +50,7 @@ password:
   required: true
   type: string
 scan_interval:
-  description: How frequently to query for new data. Defaults to 60 seconds.
+  description: How frequently to query for new data. Defaults to 300 seconds (5 minutes).
   required: false
   type: integer
 binary_sensors:
@@ -83,7 +93,7 @@ Below is an example showing every possible entry:
 blink:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  scan_interval: 60
+  scan_interval: 300
   binary_sensors:
     monitored_conditions:
       - motion_enabled
@@ -96,6 +106,8 @@ blink:
 ```
 
 ## {% linkable_title Services %}
+
+Any sequential calls to services relating to blink should have a minimum of a 5 second delay in between them to prevent the calls fro being throttled and ignored.
 
 ### {% linkable_title `blink.blink_update` %}
 

@@ -10,7 +10,7 @@ footer: true
 logo: fido.png
 ha_category: Network
 ha_release: 0.39
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.

@@ -10,7 +10,7 @@ footer: true
 logo: restful.png
 ha_category: Automation
 ha_release: 0.36
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 This component can expose regular REST commands as services. Services can be called from a [script] or in [automation].

@@ -10,7 +10,7 @@ footer: true
 logo: miflora.png
 ha_category: Environment
 ha_release: 0.29
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
@@ -24,7 +24,7 @@ Before configuring Home Assistant you need a Bluetooth backend and the MAC addre
 - On [Hass.io](/hassio/installation/): Miflora will work out of the box.
 - On a [generic Docker installation](/docs/installation/docker/): Works out of the box with `--net=host` and properly configured Bluetooth on the host.
 - On other Linux systems:
-  - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to use install the library in the right one.
+  - Preferred solution: Install the `bluepy` library (via pip). When using a virtual environment, make sure to install the library in the right one.
   - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
 - On Windows and MacOS there is currently no support for the [miflora library](https://github.com/open-homeautomation/miflora/).
 

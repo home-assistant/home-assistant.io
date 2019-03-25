@@ -9,13 +9,14 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Calendar
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
+The `worldclock` sensor platform simply displays the current time in a different time zone.
 
-The `worldclock` sensor platform simply displays the current time in a different time zone
+## {% linkable_title Configuration %}
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,7 +33,7 @@ time_zone:
   required: true
   type: string
 name:
-  description: The name of the sensor, eg. the city.
+  description: The name of the sensor, e.g., the city.
   required: false
   type: string
   default: Worldclock Sensor

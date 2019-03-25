@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Climate
 ha_release: 0.55
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.

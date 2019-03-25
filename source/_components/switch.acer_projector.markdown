@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: acer.png
 ha_category: Multimedia
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.19
 ---
-
 
 The `acer_projector` switch platform allows you to control the state of RS232 connected projectors from [Acer](http://www.acer.com).
 

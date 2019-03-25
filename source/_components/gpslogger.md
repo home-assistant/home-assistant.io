@@ -10,7 +10,7 @@ footer: true
 logo: gpslogger.png
 ha_category: Presence Detection
 ha_release: 0.86
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ---
 
 This component sets up integration with [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `POST` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
@@ -60,7 +60,7 @@ https://YOUR.DNS.HOSTNAME:PORT/api/webhook/WEBHOOK_ID
 ```text
 latitude=%LAT&longitude=%LON&device=%SER&accuracy=%ACC&battery=%BATT&speed=%SPD&direction=%DIR&altitude=%ALT&provider=%PROV&activity=%ACT
 ```
-- You can change the name of your device name by replacing `&device=%SER` with `&device=%DEVICE_NAME`.
+- You can change the `device_id` of your phone by replacing `&device=%SER` with `&device=SOME_DEVICE_ID`, otherwise your phone's serial number will be used.
 - Check that the **HTTP Headers** setting contains
 ```text
 Content-Type: application/x-www-form-urlencoded

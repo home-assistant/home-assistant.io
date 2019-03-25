@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: knx.png
 ha_category: Scene
-ha_release: "0.63"
+ha_release: 0.63
 ---
 
 The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.

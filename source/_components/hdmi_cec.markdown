@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation
 logo: hdmi.png
 ha_release: 0.23
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
  - /components/media_player.hdmi_cec/
  - /components/switch.hdmi_cec/
@@ -37,7 +37,7 @@ If you are using [Hass.io](/hassio/) then just move forward to the configuration
 Create a symlink to the `cec` installation including the _cec.so file. Keep in mind different installation methods will result in different locations of cec.
 
 ```bash
-$ ln -s /path/to/your/installation/of/cec /path/to/your/venv/lib/python*/site-packages
+$ ln -s /path/to/your/installation/of/cec.py /path/to/your/venv/lib/python*/site-packages
 $ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/site-packages
 
 ```
@@ -47,7 +47,7 @@ $ ln -s /path/to/your/installation/of/_cec.so /path/to/your/venv/lib/python*/sit
 For the default virtual environment of a [HASSbian Image for Raspberry Pi](/docs/installation/raspberry-pi/) the command would be as follows.
 
 ```bash
-$ ln -s /usr/local/lib/python*/dist-packages/cec /srv/homeassistant/lib/python*/site-packages
+$ ln -s /usr/local/lib/python*/dist-packages/cec.py /srv/homeassistant/lib/python*/site-packages
 $ ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/python*/site-packages
 
 ```

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Utility
 ha_release: 0.65
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
@@ -66,7 +66,7 @@ name:
   type: string
 filters:
   description: Filters to be used.
-  required: true 
+  required: true
   type: list
   keys:
     filter:
@@ -77,18 +77,18 @@ filters:
       description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states)
       required: false
       type: [int, time]
-      default: 1 
+      default: 1
     precision:
       description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().
       required: false
       type: integer
       default: None
-    time_constant: 
+    time_constant:
       description: See [_lowpass_](#low-pass) filter. Loosely relates to the amount of time it takes for a state to influence the output.
       required: false
       type: integer
       default: 10
-    radius: 
+    radius:
       description: See [_outlier_](#outlier) filter. Band radius from median of previous states.
       required: false
       type: float
@@ -98,12 +98,12 @@ filters:
       required: false
       type: string
       default: last
-    lower_bound: 
+    lower_bound:
       description: See [_range_](#range) filter. Lower bound for filter range.
       required: false
       type: float
       default: negative infinity
-    upper_bound: 
+    upper_bound:
       description: See [_range_](#range) filter. Upper bound for filter range.
       required: false
       type: float
@@ -130,7 +130,7 @@ The returned value is rounded to the number of decimals defined in (`precision`)
 
 The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
-The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the 
+The included Outlier filter will discard any value beyond a band centered on the median of the previous values, replacing it with the median value of the previous values. If inside the band, the
 
 ```python
 distance = abs(state - median(previous_states))
@@ -147,7 +147,7 @@ The Throttle filter (`throttle`) will only update the state of the sensor for th
 
 To adjust the rate you need to set the window_size. To throttle a sensor down to 10%, the `window_size` should be set to 10, for 50% should be set to 2.
 
-This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes. 
+This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes.
 
 ### {% linkable_title Time Throttle %}
 
@@ -155,11 +155,11 @@ The Time Throttle filter (`time_throttle`) will only update the state of the sen
 
 To adjust the rate you need to set the window_size. To throttle a sensor down to 1 value per minute, the `window_size` should be set to 00:01.
 
-This filter is relevant when you have a sensor which produces states at a very high inconstant rate, which you might want to throttle down to some constant rate for storing or visualization purposes. 
+This filter is relevant when you have a sensor which produces states at a very high inconstant rate, which you might want to throttle down to some constant rate for storing or visualization purposes.
 
 ### {% linkable_title Time Simple Moving Average %}
 
-The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algorithms for Unevenly Spaced Time Series: Moving Averages and Other Rolling Operators](http://www.eckner.com/papers/Algorithms%20for%20Unevenly%20Spaced%20Time%20Series.pdf) by Andreas Eckner. 
+The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algorithms for Unevenly Spaced Time Series: Moving Averages and Other Rolling Operators](http://www.eckner.com/papers/Algorithms%20for%20Unevenly%20Spaced%20Time%20Series.pdf) by Andreas Eckner.
 
 The paper defines three types/versions of the Simple Moving Average (SMA): *last*, *next* and *linear*. Currently only *last* is implemented.
 

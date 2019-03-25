@@ -10,9 +10,8 @@ footer: true
 logo: home-assistant.png
 ha_category: Sensor
 ha_release: 0.31
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
-
 
 The `scrape` sensor platform is scraping information from websites. The sensor loads a HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
 
@@ -39,6 +38,11 @@ attribute:
   description: Get value of an attribute on the selected tag.
   required: false
   type: string
+index:
+  description: Defines which of the elements returned by the CSS selector to use.
+  required: false
+  default: 0
+  type: integer
 name:
   description: Name of the sensor.
   required: false

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: route53.png
 ha_category: Network
-ha_release: "0.81"
+ha_release: 0.81
 ---
 
 With the `route53` component can you keep your AWS Route53 DNS records up to date.

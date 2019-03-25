@@ -10,7 +10,7 @@ footer: true
 logo: ihc.png
 ha_category: Light
 ha_release: 0.62
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 Before you can use the IHC Light platform, you must setup the
@@ -27,7 +27,7 @@ project and setup as light devices:
 - Wireless mobile dimmer
 - Dataline lamp outlet
 
-To manually configure IHC lights insert the "light" section in 
+To manually configure IHC lights insert the "light" section in
 your IHC configuration:
 
 ```yaml
@@ -35,7 +35,7 @@ ihc:
   - url: 'http://192.168.1.3'
     username: YOUR_USERNAME2
     password: YOUR_PASSWORD2
-    info: true 
+    info: true
     light:
       - id: 12345
         name: tablelight
@@ -56,6 +56,14 @@ light:
     id:
       description: The IHC resource id.
       required: true
+      type: integer
+    on_id:
+      description: Optional IHC resource id that will be pulsed to turn ON this light.
+      required: false
+      type: integer
+    off_id:
+      description: Optional IHC resource id that will be pulsed to turn OFF this light.
+      required: false
       type: integer
     name:
       description: The name of the component

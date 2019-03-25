@@ -8,11 +8,10 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 logo: shodan.png
 ha_release: 0.51
 ---
-
 
 The `shodan` sensor platform is displaying the total of result of a
 [Shodan](https://www.shodan.io/) query.
@@ -45,4 +44,3 @@ sensor:
     required: false
     type: string
 {% endconfiguration %}
-

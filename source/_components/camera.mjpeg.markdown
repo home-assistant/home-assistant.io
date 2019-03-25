@@ -10,7 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Camera
 ha_release: pre 0.7
-ha_iot_class: "depends"
+ha_iot_class: Configurable
 ---
 
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable
@@ -30,7 +30,7 @@ camera:
 
 {% configuration %}
 mjpeg_url:
-  description: The URL your camera serves the video on, eg. http://192.168.1.21:2112/
+  description: The URL your camera serves the video on, e.g., http://192.168.1.21:2112/
   required: true
   type: string
 still_image_url:

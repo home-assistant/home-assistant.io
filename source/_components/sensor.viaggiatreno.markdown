@@ -9,16 +9,16 @@ sharing: true
 footer: true
 logo: train.png
 ha_category: Transport
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.58
 ---
 
 The `viaggiatreno` sensor will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.
 
-To activate the sensor you need at least two parameters: the `train_id` and the `station_id`. 
+To activate the sensor you need at least two parameters: the `train_id` and the `station_id`.
 
 The first is available just looking at the [ViaggiaTreno](http://viaggiatreno.it/) timetable, the latter can be obtained using the dedicated API endpoint:
-`http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/<Station name>` 
+`http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/<Station name>`
 (e.g., `http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/ROMA` will list all station names (with ids) that starts with *ROMA*).
 
 <p class='note'>

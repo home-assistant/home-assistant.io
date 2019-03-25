@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Presence Detection
-ha_iot_class: depends
+ha_iot_class: Configurable
 ha_release: 0.44
 ---
 

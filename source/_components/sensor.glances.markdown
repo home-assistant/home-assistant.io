@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: glances.png
 ha_category: System Monitor
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.7.3
 ---
 
@@ -34,6 +34,8 @@ The details about your memory usage is provided as a JSON response. If so, you a
 $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
 {"free": 203943936}
 ```
+
+If this doesn't work, try changing the `2` for `3`, if you have installed the latest verison of Glances.
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
@@ -123,6 +125,8 @@ resources:
       description: The number of threads.
     process_sleeping:
       description: The number of sleeping processes.
+    cpu_use_percent:
+      description: The used CPU in percent.
     cpu_temp:
       description: The CPU temperature (may not be available on all platforms).
     docker_active:

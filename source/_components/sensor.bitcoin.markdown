@@ -10,7 +10,7 @@ footer: true
 logo: bitcoin.png
 ha_category: Finance
 ha_release: pre 0.7
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 
@@ -29,7 +29,7 @@ sensor:
 
 {% configuration %}
 currency:
-  description: The currency to exchange to, eg. CHF, USD, EUR, etc.
+  description: The currency to exchange to, e.g., CHF, USD, EUR, etc.
   required: false
   type: string
   default: USD

@@ -10,7 +10,7 @@ footer: true
 logo: supervisord.png
 ha_category: System Monitor
 ha_release: "0.20"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).
@@ -28,7 +28,6 @@ After a restart of `supervisord` you should be able to access the web interface.
   <img src='{{site_root}}/images/screenshots/supervisor.png' />
 </p>
 
-
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -41,6 +40,6 @@ sensor:
 url:
   description: The URL to track.
   required: false
-  default: "http://localhost:9001/RPC2"
+  default: "`http://localhost:9001/RPC2`"
   type: string
 {% endconfiguration %}

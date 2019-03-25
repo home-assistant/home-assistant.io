@@ -32,7 +32,12 @@ title:
   type: string
 show_name:
   required: false
-  description: Show entity names.
+  description: Show entity name.
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show entity icon.
   type: boolean
   default: "true"
 show_state:
@@ -124,16 +129,16 @@ hold_action:
 Basic example:
 
 ```yaml
-- type: glance
-  title: Glance card sample
-  entities:
-    - binary_sensor.movement_backyard
-    - light.bed_light
-    - binary_sensor.basement_floor_wet
-    - sensor.outside_temperature
-    - light.ceiling_lights
-    - switch.ac
-    - lock.kitchen_door
+type: glance
+title: Glance card sample
+entities:
+  - binary_sensor.movement_backyard
+  - light.bed_light
+  - binary_sensor.basement_floor_wet
+  - sensor.outside_temperature
+  - light.ceiling_lights
+  - switch.ac
+  - lock.kitchen_door
 ```
 
 <p class='img'>
@@ -144,18 +149,18 @@ Screenshot of the glance card with custom title.
 Define entities as objects and apply a custom name:
 
 ```yaml
-- type: glance
-  title: Better names
-  entities:
-    - entity: binary_sensor.movement_backyard
-      name: Movement?
-    - light.bed_light
-    - binary_sensor.basement_floor_wet
-    - sensor.outside_temperature
-    - light.ceiling_lights
-    - switch.ac
-    - lock.kitchen_door
-    - entity: switch.wall_plug_switch
-      tap_action:
-        action: toggle
+type: glance
+title: Better names
+entities:
+  - entity: binary_sensor.movement_backyard
+    name: Movement?
+  - light.bed_light
+  - binary_sensor.basement_floor_wet
+  - sensor.outside_temperature
+  - light.ceiling_lights
+  - switch.ac
+  - lock.kitchen_door
+  - entity: switch.wall_plug_switch
+    tap_action:
+      action: toggle
 ```

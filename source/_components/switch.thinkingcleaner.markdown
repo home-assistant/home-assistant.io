@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: thinkingcleaner.png
 ha_category: Switch
-ha_iot_class: "Local Poll"
+ha_iot_class: Local Polling
 ha_release: 0.18
 ---
 

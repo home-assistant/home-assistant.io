@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: denon.png
 ha_category: Media Player
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.7.2
 ---
 
@@ -18,6 +18,7 @@ The `denonavr` platform allows you to control a [Denon Network Receivers](http:/
 Supported devices:
 
 - Denon AVR-X1300W
+- Denon AVR-X1500H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X4100W

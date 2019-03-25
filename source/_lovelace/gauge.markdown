@@ -18,8 +18,8 @@ Screenshot of the gauge card.
 </p>
 
 ```yaml
-- type: gauge
-  entity: sensor.cpu_usage
+type: gauge
+entity: sensor.cpu_usage
 ```
 
 {% configuration %}
@@ -79,10 +79,10 @@ severity:
 Title and Unit of Measurement Example:
 
 ```yaml
-- type: gauge
-  name: CPU Usuage
-  unit: '%'
-  entity: sensor.cpu_usage
+type: gauge
+name: CPU Usuage
+unit: '%'
+entity: sensor.cpu_usage
 ```
 
 <p class='img'>
@@ -93,12 +93,12 @@ Screenshot of the gauge card with custom title and unit of measurement.
 Define the severity map:
 
 ```yaml
-- type: gauge
-  name: With Severity
-  unit: '%'
-  entity: sensor.cpu_usage
-  severity:
-    green: 0
-    yellow: 45
-    red: 85
+type: gauge
+name: With Severity
+unit: '%'
+entity: sensor.cpu_usage
+severity:
+  green: 0
+  yellow: 45
+  red: 85
 ```

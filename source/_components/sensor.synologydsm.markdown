@@ -10,9 +10,8 @@ footer: true
 logo: synology.png
 ha_category: System Monitor
 ha_release: 0.32
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
-
 
 The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
@@ -137,6 +136,10 @@ After booting Home Assistant it can take up to 15 minutes for the sensors to sho
 
 <p class='note warning'>
 This sensor will wake up your Synology NAS if it's in hibernation mode.
+</p>
+
+<p class='note warning'>
+  If you set `ssl:` to `False`, you *have* to also explicitly set `port:` to **5000**.
 </p>
 
 ## {% linkable_title Separate User Configuration %}

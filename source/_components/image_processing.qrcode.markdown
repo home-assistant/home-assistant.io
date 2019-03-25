@@ -9,11 +9,12 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Image Processing
-featured: false
 ha_release: 0.87
 ---
 
 The `qrcode` image processing platform enables QR code recognition from cameras.
+
+To get this running, please install `zbar-tools` (Ubuntu 18.04)
 
 ## {% linkable_title Configuration %}
 

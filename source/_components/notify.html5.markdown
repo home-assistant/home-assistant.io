@@ -27,6 +27,18 @@ To enable this platform, add the following lines to your `configuration.yaml` fi
 notify:
   - platform: html5
     name: NOTIFIER_NAME
+    vapid_pub_key: YOUR_PUBLIC_KEY
+    vapid_prv_key: YOUR_PRIVATE_KEY
+    vapid_email: YOUR_EMAIL
+```
+
+Or 
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - platform: html5
+    name: NOTIFIER_NAME
     gcm_api_key: YOUR_API_KEY
     gcm_sender_id: YOUR_SENDER_ID
 ```
@@ -54,7 +66,9 @@ gcm_sender_id:
 3. Go to [https://console.cloud.google.com/apis/credentials/domainverification](https://console.cloud.google.com/apis/credentials/domainverification) and verify your domain via Google Webmaster Central / Search Console - [instructions](#verify-your-domain).
 4. With the domain verified, go to [https://console.firebase.google.com](https://console.firebase.google.com), select import Google project and select the project you created.
 5. Then, click the cogwheel on top left and select "Project settings".
-6. Select 'Cloud Messaging' tab, listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component.
+6. Select 'Cloud Messaging' tab.
+7. If using VAPID: Generate a new key pair under the Web configuration listing at the bottom of the page. To view the private key click the three dots to the right and 'Show private key'. 
+8. If using GCM: Listed beneath Project Credentials will be your 152 character 'Server Key' and 12 digit ID 'Sender ID' you need for configuring this component. Notice: GCM is deprecated and will stop working in April 2019, see https://developers.google.com/cloud-messaging/faq
 
 #### {% linkable_title Verify your domain %}
 
@@ -85,9 +99,11 @@ Assuming you have already added the platform to your configuration:
 1. Open Home Assistant in Chrome or Firefox.
 2. Load profile page by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address. If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 3. Slide it to the on position.
-4. Within a few seconds you should be prompted to allow notifications from Home Assistant.
-5. Assuming you accept, that's all there is to it!
-6. (Optional, but highly recommended!) Open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+4. Name the device you're using in the alert that appears.
+5. Within a few seconds you should be prompted to allow notifications from Home Assistant.
+6. Assuming you accept, that's all there is to it!
+
+**Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
 ### {% linkable_title Testing %}
 

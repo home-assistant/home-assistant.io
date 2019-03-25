@@ -111,7 +111,6 @@ google_assistant:
   exposed_domains:
     - switch
     - light
-    - group
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -121,6 +120,8 @@ google_assistant:
     light.living_room:
       expose: false
       room: LIVING_ROOM
+    group.all_automations:
+      expose: false
 ```
 
 {% configuration %}
@@ -191,6 +192,10 @@ Currently, the following domains are available to be used with Google Assistant,
 - climate (temperature setting, operation_mode)
 - vacuum (dock/start/stop/pause)
 
+<p class='note warning'>
+  The domain groups contains groups containing all items, by example group.all_automations. When telling Google Assistant to shut down everything, this will lead in this example to disabling all automations
+</p>
+
 ### {% linkable_title Media Player Sources %}
 
 Media Player sources are sent via the Modes trait in Google Assistant.  
@@ -200,6 +205,10 @@ https://developers.google.com/actions/reference/smarthome/traits/modes
 #### Example Command:
 
 "Hey Google, change input source to TV on Living Room Receiver"
+
+### {% linkable_title Room/Area support %}
+
+Entities that have not got rooms explicitly set and that have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
 
 ### {% linkable_title Climate Operation Modes %}
 

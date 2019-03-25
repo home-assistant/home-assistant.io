@@ -10,7 +10,7 @@ footer: true
 logo: opple.png
 ha_category: Light
 ha_release: "0.80"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
@@ -35,8 +35,7 @@ name:
   type: string
   default: opple light
 host:
-  description: "The IP address of your Opple light, eg. `192.168.0.21`."
+  description: "The IP address of your Opple light, e.g., `192.168.0.21`."
   required: true
   type: string
 {% endconfiguration %}
-

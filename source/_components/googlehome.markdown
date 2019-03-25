@@ -12,14 +12,17 @@ ha_release: 0.88
 ha_category:
   - Hub
   - Presence Detection
-ha_iot_class: "Local Polling"
+  - Sensor
+ha_iot_class: Local Polling
 redirect_from:
   - /components/device_tracker.googlehome/
 ---
 
 The `googlehome` component allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
 
-This component will set up a [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices.
+This component will provide:
+- [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices;
+- [sensor](/components/sensor/) platform to track the alarms and the timers.
 
 ## {% linkable_title Configuration %}
 
@@ -51,6 +54,16 @@ devices:
       description: Device types that will be tracked [see device types](#device_types), by default all types are tracked.
       required: false
       type: list
+    track_alarms:
+      description: Setting to tell the component to track the alarms of the device.
+      required: false
+      type: boolean
+      default: false
+    track_devices:
+      description: Setting to tell the component to track nearby devices.
+      required: false
+      type: boolean
+      default: true
 {% endconfiguration %}
 
 ## {% linkable_title Device types %}
@@ -63,7 +76,7 @@ Device type | Description
 
 ## {% linkable_title Notes %}
 
-Devices will appear in the format `devicetracker.<home hub ip>_<device mac address>`. Note that dots are removed from the IP and BT MAC addresses.
+Devices will appear in the format `device_tracker.<home hub ip>_<device mac address>`. Note that dots are removed from the IP and BT MAC addresses.
 
 [googlehomeapi]: https://rithvikvibhu.github.io/GHLocalApi/
 [devicetrackerconfig]: /components/device_tracker/#configuring-a-device_tracker-platform

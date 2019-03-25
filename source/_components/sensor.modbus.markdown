@@ -10,9 +10,8 @@ footer: true
 logo: modbus.png
 ha_category: Sensor
 ha_release: pre 0.7
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
-
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
@@ -26,15 +25,18 @@ sensor:
   platform: modbus
   registers:
     - name: Sensor1
+      hub: hub1
       unit_of_measurement: °C
       slave: 1
       register: 100
     - name: Sensor2
+      hub: hub1
       unit_of_measurement: mg
       slave: 1
       register: 110
       count: 2
     - name: Sensor3
+      hub: hub1
       unit_of_measurement: °C
       slave: 1
       register: 120
@@ -54,6 +56,11 @@ registers:
     name:
       description: Name of the sensor.
       required: true
+      type: string
+    hub:
+      description: The name of the hub.
+      required: false
+      default: default
       type: string
     slave:
       description: The number of the slave (Optional for tcp and upd Modbus).
@@ -118,6 +125,7 @@ sensor:
   scan_interval: 10
   registers:
     - name: Room_1
+      hub: hub1
       slave: 10
       register: 0
       register_type: holding

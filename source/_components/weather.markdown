@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.32
 ---
 
 The `weather` platforms are gathering meteorological information from web services and display the conditions and other details about the weather at the given location.

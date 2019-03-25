@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: dark_sky.png
 ha_category: Weather
-featured: false
 ha_release: "0.30"
 redirect_from: /components/sensor.forecast/
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
@@ -143,8 +142,8 @@ units:
   required: false
   default: "`si` or `us`, based on the temperature preference in Home Assistant."
   type: string
-update_interval:
-  description: "Minimum time interval between updates. Supported formats: `update_interval: 'HH:MM:SS'`, `update_interval: 'HH:MM'` and Time period dictionary (see example below)."
+scan_interval:
+  description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
   required: false
   default: 2 minutes
   type: time
@@ -153,7 +152,7 @@ update_interval:
 #### {% linkable_title Time period dictionary example %}
 
 ```yaml
-update_interval:
+scan_interval:
   # At least one of these must be specified:
   days: 0
   hours: 0
@@ -183,6 +182,7 @@ All language options are described in this table that you can use for the dark s
 |Estonian|`et`|
 |Finnish|`fi`|
 |French|`fr`|
+|Hebrew|`he`|
 |Croatian|`hr`|
 |Hungarian|`hu`|
 |Indonesian|`id`|
@@ -190,7 +190,9 @@ All language options are described in this table that you can use for the dark s
 |Italian|`it`|
 |Japanese|`ja`|
 |Georgian|`ka`|
+|Korean|`ko`|
 |Cornish|`kw`|
+|Latvian|`lv`|
 |Norwegian Bokmål|`nb`|
 |Dutch|`nl`|
 |Polish|`pl`|

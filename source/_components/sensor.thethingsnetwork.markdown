@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: thethingsnetwork.png
 ha_category: Sensor
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.55
 ---
 
@@ -42,7 +42,7 @@ Click **Add integration** to finish the process.
 Add a The Things Network Data Storage integration
 </p>
 
-When done, the status of the integration should be **Running**. You could check the output after clicking on **go to platform** in an interactive web interface. 
+When done, the status of the integration should be **Running**. You could check the output after clicking on **go to platform** in an interactive web interface.
 
 <p class='img'>
 <img src='/images/components/thethingsnetwork/storage_integration.png' />
@@ -80,4 +80,3 @@ sensor:
     required: true
     type: list
 {% endconfiguration %}
-

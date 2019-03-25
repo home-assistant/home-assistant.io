@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Media Player
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: "0.40"
 ---
 
