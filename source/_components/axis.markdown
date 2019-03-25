@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: axis.png
 ha_category:
-  - Hub
   - Camera
   - Binary Sensor
 ha_config_flow: true
