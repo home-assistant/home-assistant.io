@@ -16,7 +16,7 @@ ha_iot_class: Local Polling
 The `ps4` component allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
 
-- This component supports controlling multiple PlayStation 4 consoles for your Home Assistant instance. Additional consoles can be added by running the configuration for the PS4 Integration again.
+- This component supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
 
 ## {% linkable_title Requirements %}
 
@@ -41,7 +41,6 @@ The `ps4` component allows you to control a
 ## {% linkable_title Granting Port Access %}
 
 The PlayStation 4 component requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
-Home Assistant installed on a Debian-type OS for example, such as *Debian*, *Hassbian*, *Rassbian*, and *Armbian* may require configuration.
 
 <p class='note warning'>
   Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
@@ -53,9 +52,56 @@ There are varying methods to perform this, dependent on your OS that is running 
   If your Home Assistant device is running <b>Hass.io</b> on <b>HassOS</b>, it does not require additional configuration.
 </p>
 
-- Example for Debian-based and most UNIX operating systems:
-`sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5`
-Replace "/usr/bin/python3.5" with your path to Python that is running Home Assistant.
+### {% linkable_title Debian-based %}
+Home Assistant installed on a Debian-type OS may require configuration. This section is applicable but not limited to the following operating systems:
+
+- Debian
+- Hassbian
+- Rassbian
+- Armbian
+- Ubuntu
+
+In terminal run the following command:
+
+```bash
+sudo setcap 'cap_net_bind_service=+ep' <python>
+```
+
+Replace `<python>` with your **system path** to Python that is running Home Assistant and/or your virtual environment if used. The path **should not** be a **symlink** or be **inside of a virtual environment**.
+
+Example:
+```bash
+sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
+```
+
+To find your system Python path:
+
+- Add the [System Health](https://www.home-assistant.io/components/system_health/) component to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/dev-info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
+
+  ```bash
+  whereis python<version>
+  ```
+
+  Replace `<version>` with the value for `python_version` that is shown in the System Health box.
+
+  Example:
+  ```bash
+  whereis python3.5.3
+  ```
+
+  The output which has the directory `/bin/` is likely your system python path which should look like this `/usr/bin/python3.5`
+
+- If Home Assistant is installed in a virtual environment, use terminal to `cd` to the root/top directory of your environment and run:
+
+  ```bash
+  readlink -f bin/python3
+  ```
+  or
+  ```bash
+  readlink -f bin/python
+  ```
+
+  The output will be your system Python path.
 
 ### {% linkable_title Docker %}
 
@@ -69,25 +115,23 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 
 ## {% linkable_title Regions %}
 
-Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. If you do not know your [region](https://www.gamerbraves.com/ps4-games-region-codes-explained/), reference the table below:
+Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The component will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
 
-|  Region ID  |  Locales                                       |
-| ----------- | ---------------------------------------------- |
-| R1          | Bermuda, Canada, United States                 |
-|             | and U.S. territories                           |
-| R2          | The Middle East, Western Europe,               |
-|             | Central Europe, Egypt,                         |
-|             | French overseas territories, Greenland,        |
-|             | Japan, Lesotho, South Africa and Swaziland     |
-| R3          | Southeast Asia, Hong Kong, Macau,              |
-|             | South Korea and Taiwan                         |
-| R4          | Australasia, Central America,                  |
-|             | the Caribbean, Mexico, Oceania, South America  |
-| R5          | The rest of Africa, Former Soviet Union,       |
-|             | the Indian subcontinent, Mongolia, North Korea |
+|  Available Regions                                                          | Unavailable Regions        |
+| --------------------------------------------------------------------------- | -------------------------- |
+| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Phillipines, |
+| Canada, Chile, Columbia, Costa Rica, Croatia, Cyprus, Czech Republic,       | Serbia, Ukraine, Vietnam   |
+| Denmark, Ecuador, El Salvador, Finland, France, Germany, Greece, Guatemala, |                            |
+| Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel,   |                            |
+| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Maylasia, Mexico,         |                            |
+| Middle East, Nederland, New Zealand, Nicaragua, Norway, Oman, Panama,       |                            |
+| Peru, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Singapore,    |                            |
+| Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan,       |                            |
+| Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |                            |
+
 
 <p class='note'>
-  Region 6: Mainland China, is not supported as there is no English database available.
+  The regions which are unavailable have no database or have formatting in the database which can not be used by the component.
 </p>
 
 ## {% linkable_title Services %}
@@ -115,3 +159,15 @@ Full list of supported commands.
 | `down`   | Swipe Down       |
 | `left`   | Swipe Left       |
 | `right`  | Swipe Right      |
+
+## {% linkable_title Troubleshooting %}
+
+### {% linkable_title Cover Art Issues %}
+If you are running a game/title on your PS4 that does not display a cover or displays the incorrect cover, post an issue [here](https://github.com/ktnrg45/pyps4-homeassistant/issues).
+
+Be sure to include the following information:
+- Your Country
+
+As well as the exact values for the following attributes found in the state of your PS4 entity.
+- media_title
+- media_content_id
