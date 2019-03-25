@@ -65,7 +65,7 @@ scan_interval:
   default: '00:01:00'
   type: time
 infer_arming_state:
-  description:  Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed.
+  description: Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed.
   required: false
   default: false
   type: boolean
