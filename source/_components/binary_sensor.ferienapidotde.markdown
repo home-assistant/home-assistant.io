@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
 ha_category: Utility
 ha_iot_class: Cloud Polling
 ha_release: 0.91
@@ -27,7 +26,6 @@ To enable the sensor in your installation, add the following to your `configurat
 ```yaml
 binary_sensor:
   - platform: ferienapidotde
-    name: vaction_hh  # Optional
     state_code: HH
 ```
 
@@ -38,8 +36,7 @@ name:
   type: string
   default: Vacation Sensor
 state_code:
-  description: >
-    Federal state code according to [state code list](https://de.wikipedia.org/wiki/ISO_3166-2:DE) notation.
+  description: Federal state code according to [state code list](https://de.wikipedia.org/wiki/ISO_3166-2:DE) notation.
   required: true
   type: string
 {% endconfiguration %}
