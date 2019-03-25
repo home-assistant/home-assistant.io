@@ -7,7 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Utility
+ha_category:
+  - Utility
+  - Binary Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.91
 ---
