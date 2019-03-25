@@ -105,7 +105,7 @@ sender:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Example automation %}
+### {% linkable_title Example automation %}
 
 The following automation reacts to an event by sending out an email with two attachments.
 
