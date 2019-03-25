@@ -60,8 +60,13 @@ token:
   required: false
   type: string
 ssl:
-  description: Use HTTPS to connect to Plex server, *NOTE* host *must not* be an IP when this option is enabled.
+  description: Use HTTPS to connect to Plex server, **NOTE:** host **must not** be an IP when this option is enabled.
   required: false
   default: false
+  type: boolean
+verify_ssl:
+  description: Verify the SSL certificate of your Plex server. You may need to disable this check if your local server enforces secure connections with the default certificate.
+  required: false
+  default: true
   type: boolean
 {% endconfiguration %}
