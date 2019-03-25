@@ -149,7 +149,7 @@ auto, and off.
 The following attributes are provided by the Ecobee Thermostat:
 `name`, `temperature_unit`, `current_temperature`, `target_temperature`,
 `target_temperature_low`, `target_temperature_high`, `desired_fan_mode`,
-`fan`, `current_hold_mode`, `current_operation`, `operation_list`,
+`fan`, `current_hold_mode`, `operation`, `operation_list`, `equipment_running`,
 `operation_mode`, `mode`, `fan_min_on_time`, `device_state_attributes`,
 `is_away_mode_on`, `vacation`, `climate_list`, `aux_heat`.
 The attributes `min_temp` and `max_temp` are meaningless constant values.
@@ -229,7 +229,7 @@ Returns the current temperature hold, if any.
 | ---------------| ----------- |
 | String | 'temp', 'vacation', 'home', 'away', etc., None
 
-### {% linkable_title Attribute `current_operation` %}
+### {% linkable_title Attribute `operation` %}
 
 Returns the current operation of the thermostat.
 
@@ -252,6 +252,14 @@ Returns the current operation mode of the thermostat.
 | Attribute type | Description |
 | ---------------| ----------- |
 | String | Currently active operation mode
+
+### {% linkable_title Attribute `equipment_running` %}
+
+Returns the list of equipment that is currently operating from the thermostat.
+
+| Attribute type | Description |
+| ---------------| ----------- |
+| String | If no equipment is currently running empty string is returned. Possible values are a comma separated list of any of the following: heatPump, heatPump2, heatPump3, compCool1, compCool2, auxHeat1, auxHeat2, auxHeat3, fan, humidifier, dehumidifier, ventilator, economizer, compHotWater, auxHotWater.
 
 ### {% linkable_title Attribute `mode` %}
 
