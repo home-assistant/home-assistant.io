@@ -12,9 +12,6 @@ ha_category:
   - Sensor
 ha_release: 0.91
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/alarm.sector_alarm/
-  - /components/sensor.sector_alarm/
 ---
 
 The `Sector Alarm` component adds all of your temperature sensors and a panel that lets you control your alarm from Home Assistant.
@@ -31,10 +28,10 @@ To add Sector Alarm sensors and alarm to your installation, add the following to
 
 ```yaml
 sector_alarm:
-  email: your@email.com
-  password: Password
-  alarm_id: 012345678
-  code: 1234
+  email: EMAIL_ADDRESS
+  password: PASSWORD
+  alarm_id: ALARM_ID
+  code: ALARM_CODE
 ```
 
 {% configuration %}
@@ -42,17 +39,14 @@ email:
   description: Your Sector Alarm login email.
   required: true
   type: string
-
 password:
   description: Your Sector Alarm login password.
   required: true
   type: string
-
 alarm_Id:
   description: Your Sector Alarm panel id that you can find in the URL after you have logged in.
   required: true
   type: integer
-
 code:
   description: Your Sector Alarm code for turning the alarm on/off.
   required: true
