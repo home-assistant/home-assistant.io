@@ -171,6 +171,10 @@ If you receive the error message `Error while setting up platform androidtv` in 
 
    * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
 
+   * Newer ADB binaries do not generate `adbkey.pub`. In this case, generating
+   an empty `adbkey.pub` in the same directory with e.g. `touch adbkey.pub`
+   is enough.
+
 ## {% linkable_title Services %}
 
 ### {% linkable_title `media_player.select_source` %}
