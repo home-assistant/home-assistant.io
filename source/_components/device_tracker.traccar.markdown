@@ -70,71 +70,71 @@ event:
   type: list
   keys:
     device_moving:
-      description: **deviceMoving** event
+      description: "**deviceMoving** event."
       required: false
       type: string
     command_result:
-      description: **commandResult** event
+      description: "**commandResult** event."
       required: false
       type: string
     device_fuel_drop:
-      description: **deviceFuelDrop**  event
+      description: "**deviceFuelDrop** event."
       required: false
       type: string
     geofence_enter:
-      description: **geofenceEnter**  event
+      description: "**geofenceEnter** event."
       required: false
       type: string
     device_offline:
-      description: **deviceOffline**  event
+      description: "**deviceOffline** event."
       required: false
       type: string
     driver_changed:
-      description: **driverChanged**  event
+      description: "**driverChanged** event."
       required: false
       type: string
     geofence_exit:
-      description: **geofenceExit**  event
+      description: "**geofenceExit** event."
       required: false
       type: string
     device_overspeed:
-      description: **deviceOverspeed**  event
+      description: "**deviceOverspeed** event."
       required: false
       type: string
     device_online:
-      description: **deviceOnline**  event
+      description: "**deviceOnline** event."
       required: false
       type: string
     device_stopped:
-      description: **deviceStopped**  event
+      description: "**deviceStopped** event"
       required: false
       type: string
     maintenance:
-      description: **maintenance**  event
+      description: "**maintenance** event."
       required: false
       type: string
     alarm:
-      description: **alarm**  event
+      description: "**alarm** event."
       required: false
       type: string
     text_message:
-      description: **textMessage**  event
+      description: "**textMessage** event."
       required: false
       type: string
     device_unknown:
-      description: **deviceUnknown**  event
+      description: "**deviceUnknown** event."
       required: false
       type: string
     ignition_off:
-      description: **ignitionOff**  event
+      description: "**ignitionOff** event."
       required: false
       type: string
     ignition_on:
-      description: **ignitionOff**  event
+      description: "**ignitionOff** event."
       required: false
       type: string
     all_events:
-      description: **allEvents**  catchall for all event types
+      description: "**allEvents** catchall for all event types."
       required: false
       type: string
 {% endconfiguration %}
