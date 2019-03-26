@@ -82,6 +82,11 @@ devices:
           description: "Yeelight model. Possible values are `mono1`, `color1`, `color2`, `strip1`, `bslamp1`, `ceiling1`, `ceiling2`, `ceiling3`, `ceiling4`. The setting is used to enable model specific features f.e. a particular color temperature range."
           required: false
           type: string
+        power_mode_icon:
+          description: Enable icon change, depending on power mode. Currently supported power modes, that results in icon change: `normal`, `flowing`, `nightlight`
+          required: false
+          type: boolean
+          default: false
 custom_effects:
   description: List of custom effects to add. Check examples below.
   required: false
@@ -186,6 +191,7 @@ yeelight:
       transition: 1000
       use_music_mode: true
       save_on_change: true
+      power_mode_icon: true
 ```
 
 ### {% linkable_title Multiple bulbs %}
