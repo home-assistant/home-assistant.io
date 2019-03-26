@@ -102,6 +102,32 @@ In case you missed it, earlier this week Kees Schollaart released the first vers
 [stream docs]: /components/stream/
 [tado docs]: /components/tado/
 
+## {% linkable_title Release 0.90.2 - March 26 %}
+
+- Fix ps4 no creds with additional device ([@ktnrg45] - [#22300])
+- Prefer TCP for RTSP streams ([@hunterjm] - [#22338])
+- Update hass-nabucasa & fix state ([@pvizeli] - [#22385])
+- Enable hass.io panel without ping ([@pvizeli] - [#22388])
+- reset unsub to None on timeout ([@hunterjm] - [#22404])
+- Bump pyotgw to 0.4b2 ([@mvn23] - [#21973])
+- Fix opentherm_gw blocks HA startup when gateway unreachable. ([@mvn23] - [#22106])
+- Fix TypeError in current_temperature if no temperature is known. ([@mvn23] - [#22112])
+- Improve opentherm gw startup ([@mvn23] - [#22121])
+
+[#21973]: https://github.com/home-assistant/home-assistant/pull/21973
+[#22106]: https://github.com/home-assistant/home-assistant/pull/22106
+[#22112]: https://github.com/home-assistant/home-assistant/pull/22112
+[#22121]: https://github.com/home-assistant/home-assistant/pull/22121
+[#22300]: https://github.com/home-assistant/home-assistant/pull/22300
+[#22338]: https://github.com/home-assistant/home-assistant/pull/22338
+[#22385]: https://github.com/home-assistant/home-assistant/pull/22385
+[#22388]: https://github.com/home-assistant/home-assistant/pull/22388
+[#22404]: https://github.com/home-assistant/home-assistant/pull/22404
+[@hunterjm]: https://github.com/hunterjm
+[@ktnrg45]: https://github.com/ktnrg45
+[@mvn23]: https://github.com/mvn23
+[@pvizeli]: https://github.com/pvizeli
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
