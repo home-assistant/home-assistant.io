@@ -20,7 +20,7 @@ The component will accept the following states from your Alarm Panel (in lower c
 - `disarmed`
 - `armed_home`
 - `armed_away`
-- 'armed_night'
+- `armed_night`
 - `pending`
 - `triggered`
 

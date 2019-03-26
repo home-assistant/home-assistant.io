@@ -83,12 +83,11 @@ Each Point exposes the following binary sensors:
 - **heat**: `On` means hot, `Off` means normal
 - **light**: `On` means light detected, `Off` means no light
 - **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
-- **motion**: `On` means motion detected, `Off` means no motion (clear)
 - **sound**: `On` means sound detected, `Off` means no sound (clear)
 - **tamper**: `On` means the point was removed or attached, `Off` means normal
 
 <p class="note">
-The binary sensors **battery**, **button_press** and **tamper** are switched `On` for a breif moment and are then switched back to `Off`.
+The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a breif moment and are then switched back to `Off`.
 </p>
 
 ### {% linkable_title Automation example %}
