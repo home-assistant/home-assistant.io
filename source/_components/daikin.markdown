@@ -18,7 +18,6 @@ ha_qa_scale: platinum
 redirect_from:
   - /components/climate.daikin/
   - /components/sensor.daikin/
-  - /components/switch.daikin/
 ---
 
 The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
