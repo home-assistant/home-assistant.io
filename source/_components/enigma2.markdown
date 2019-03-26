@@ -41,6 +41,21 @@ media_player:
     required: false
     type: boolean
     default: false
+  deep_standby:
+    description: If set to true, when the user selects Turn Off, the box will go into "deep standby" mode, meaning it can be only awoken by the remote control or via Wake On Lan (if box supports that).
+    required: false
+    type: boolean
+    default: false
+  mac_address:
+    description: If specified, a Wake On Lan packet is sent to this MAC address, when Turn On is selected.
+    required: false
+    type: string
+    default: empty
+  source_bouquet:
+    description: Provide a specific bouquet reference for the bouquet you would like to see loaded into the media player "Sources" interface.
+    required: false
+    type: string
+    default: empty
   port:
     description: Port which OpenWebif is listening on.
     required: false
