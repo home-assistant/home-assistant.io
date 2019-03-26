@@ -13,8 +13,6 @@ ha_category:
   - Camera
 ha_release: 0.91
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/camera.camect/
 ---
 
 The Camect component sets up the integration with your [Camect](https://www.camect.com) instance.
@@ -22,13 +20,14 @@ Let you watch your camera streams using WebRTC. It's live stream, not image snap
 
 There is currently support for the following device types within Home Assistant:
 
-- [Camera](#camera)
+- Camera
 
 ## {% linkable_title Configuration %}
 
 ```yaml
 # Example configuration.yaml entry
 camect:
+  port: 8443
   password: ADMIN_PASSWORD
 ```
 
@@ -40,7 +39,7 @@ host:
   default: "`camect.local`"
 port:
   description: Port of your Camect Home instance.
-  required: false
+  required: true
   type: integer
   default: 8443
 username:
