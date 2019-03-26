@@ -83,7 +83,7 @@ devices:
           required: false
           type: string
         power_mode_icon:
-          description: Enable icon change, depending on power mode. Currently supported power modes, that results in icon change: `normal`, `flowing`, `nightlight`
+          description: "Enable icon change, depending on power mode. Currently supported power modes, that results in icon change: `normal`, `flowing`, `nightlight`."
           required: false
           type: boolean
           default: false
