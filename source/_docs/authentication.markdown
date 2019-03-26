@@ -86,6 +86,8 @@ While you should hopefully be storing your passwords in a password manager, if y
 * `auth`
 * `auth_provider.homeassistant`
 * `onboarding`
+* `hassio` (for hassio users)
+* `cloud` (for nabucasa users)
 
 When you start Home Assistant next, you'll be required to set up authentication again.
 
