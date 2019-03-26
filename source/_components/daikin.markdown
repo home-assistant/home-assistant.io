@@ -11,11 +11,14 @@ logo: daikin.png
 ha_category:
   - Climate
   - Sensor
+  - Switch
 ha_release: 0.59
 ha_iot_class: Local Polling
+ha_qa_scale: platinum
 redirect_from:
   - /components/climate.daikin/
   - /components/sensor.daikin/
+  - /components/switch.daikin/
 ---
 
 The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
@@ -24,6 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 ## {% linkable_title Supported hardware %}
 
@@ -67,3 +71,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 - Inside temperature
 - Outside temperature
+
+## {% linkable_title Switch %}
+
+Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.
