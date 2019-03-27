@@ -59,6 +59,11 @@ mac:
   description: The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
   required: false
   type: string
+app_power:
+  description: Set to `true` if your Panasonic Viera TV supports "Turn on via App".
+  required: false
+  default: false
+  type: boolean
 name:
   description: The name you would like to give to the Panasonic Viera TV.
   required: false

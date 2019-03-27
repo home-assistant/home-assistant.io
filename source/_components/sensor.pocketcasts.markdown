@@ -13,7 +13,7 @@ ha_release: 0.39
 ha_iot_class: Cloud Polling
 ---
 
-The `pocketcasts` sensor platform let one monitor the podcasts at [Pocket Casts](https://play.pocketcasts.com/).
+The `pocketcasts` sensor platform lets one monitor the podcasts at [Pocket Casts](https://play.pocketcasts.com/).
 
 ## {% linkable_title Configuration %}
 

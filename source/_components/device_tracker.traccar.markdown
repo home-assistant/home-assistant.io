@@ -64,6 +64,79 @@ monitored_conditions:
   description: Additional traccar computed attributes or device-related attributes to include in the scan.
   required: false
   type: list
+event:
+  description: "Traccar events to include in the scan and fire within Home Assistant. *NOTE* For more info regarding Traccar events please refer to Traccar's documentation: https://www.traccar.org/documentation/events/."
+  required: false
+  type: list
+  keys:
+    device_moving:
+      description: "**deviceMoving** event."
+      required: false
+      type: string
+    command_result:
+      description: "**commandResult** event."
+      required: false
+      type: string
+    device_fuel_drop:
+      description: "**deviceFuelDrop** event."
+      required: false
+      type: string
+    geofence_enter:
+      description: "**geofenceEnter** event."
+      required: false
+      type: string
+    device_offline:
+      description: "**deviceOffline** event."
+      required: false
+      type: string
+    driver_changed:
+      description: "**driverChanged** event."
+      required: false
+      type: string
+    geofence_exit:
+      description: "**geofenceExit** event."
+      required: false
+      type: string
+    device_overspeed:
+      description: "**deviceOverspeed** event."
+      required: false
+      type: string
+    device_online:
+      description: "**deviceOnline** event."
+      required: false
+      type: string
+    device_stopped:
+      description: "**deviceStopped** event"
+      required: false
+      type: string
+    maintenance:
+      description: "**maintenance** event."
+      required: false
+      type: string
+    alarm:
+      description: "**alarm** event."
+      required: false
+      type: string
+    text_message:
+      description: "**textMessage** event."
+      required: false
+      type: string
+    device_unknown:
+      description: "**deviceUnknown** event."
+      required: false
+      type: string
+    ignition_off:
+      description: "**ignitionOff** event."
+      required: false
+      type: string
+    ignition_on:
+      description: "**ignitionOff** event."
+      required: false
+      type: string
+    all_events:
+      description: "**allEvents** catchall for all event types."
+      required: false
+      type: string
 {% endconfiguration %}
 
 The parameter `monitored_conditions` allows you to track non standard attributes from the traccar platform and use them in your Home Assistant. For example if you need to monitor the state of the non standard attribute `alarm` and a custom computed attribute `mycomputedattribute` just fill the configuration with:
@@ -74,3 +147,14 @@ device_tracker:
     ...
     monitored_conditions: ['alarm', 'mycomputedattribute']
 ```
+
+The parameter `event` allows you to import events from the traccar platform (https://www.traccar.org/documentation/events/) and fire them in your Home Assistant. It accepts a list of events to be monitored and imported and each event must be listed in lowercase snakecase. The events will be fired with the same event name defined in the abovementioned list preceded by the prefix `traccar_`. For example if you need to import the Traccar events `deviceOverspeed` and `deviceFuelDrop` in Home Assistant, you need to fill the `event` parameter with:
+
+```yaml
+device_tracker:
+  - platform: traccar
+    ...
+    event: ['device_overspeed', 'device_fuel_drop']
+```
+and as soon as Home Assistant receives those events from the platform, they will be fired as `traccar_device_overspeed` and `traccar_device_fuel_drop`.
+*NOTE* Specify `all_events` if you want to import all events.

@@ -27,10 +27,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Supported hardware %}
 
-**Only** the European versions of Daikin AC (models BRP069A41, 42, 43, 45).
-
-Some models do not support setting of fan speed or fan swing mode.
-
+This component supports the European versions of Daikin AC (BRP069A[41,42,43,45]) and AU AirBase units (BRP15B61).
+Some models do not support setting of fan speed or fan swing mode althogh it might show up in Home Assistant.
 Please note that some AC devices may report outside temperature only when they are turned on.
 
 ## {% linkable_title Configuration %}

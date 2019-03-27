@@ -21,7 +21,7 @@ redirect_from:
 ---
 
 The `tibber` component provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
-If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) it will also show the electricity consumption in real time.
+If you have a [Tibber Pulse](https://norge.tibber.com/products/pulse/) or [Watty](https://watty.io/) it will also show the electricity consumption in real time.
 
 There is currently support for the following device types within Home Assistant:
 
