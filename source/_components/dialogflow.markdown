@@ -43,7 +43,9 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Click on "Create Agent"
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone
 - Click "Save"
-- Go to "Fulfillment" (in the left menu)
+- Go to project settings (cog symbol in left menu)
+- under "API VERSION" click on "V1 API"
+- Now go to "Fulfillment" (in the left menu)
 - Enable Webhook and set your Dialogflow webhook url as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save"
 - Create a new intent
