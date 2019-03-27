@@ -62,7 +62,7 @@ device_names:
   type: string
 {% endconfiguration %}
 
-The notify service has two optional parameters: `icon` and `vibration`.
+The notify service has two optional parameters: `icon`, `smallicon`, `image` and `vibration`.
 You can use them like so:
 
 ```json
@@ -71,7 +71,9 @@ You can use them like so:
 	"title": "Home Assistant",
 	"data": {
 		"icon": "https://goo.gl/xeetdy",
-		"vibration": "0,65,706,86,657,95,668,100"
+		"smallicon": "https://goo.gl/xeetdy",
+		"vibration": "0,65,706,86,657,95,668,100",
+		"image": "https://www.home-assistant.io/images/favicon-192x192-full.png"
 	}
 }
 ```
