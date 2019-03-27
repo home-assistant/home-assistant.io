@@ -231,6 +231,22 @@ konnected:
           
 ```
 
+### {% linkable_title Unique IDs and the Entity Registry %}
+
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
+
+Unique IDs are internally generated as follows:
+
+**Binary Sensors**: `{mac-address}-{zone-number}`
+
+**Switches**: `{mac-address}-{unique-hash}`*
+
+**DHT Sensors**: `{mac-address}-{pin-number}-{temperature|humidity}`
+
+**DS18B20 Sensors**: `{sensor-serial-number}`
+
+\* Switches are identified by a unique hash including the pin number, `momentary`, `pause`, and `repeat` values. If these values are modified, a new entity will be created and the old entity must be removed manually from the _Entity Registry_.  
+
 ### {% linkable_title Pin Mapping %}
 
 Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly used with the NodeMCU dev kit WiFi module and optionally Konnected's Alarm Panel hardware. The following table shows the pin mapping between the Konnected hardware labeled zones, the NodeMCU labeled pins and the ESP8266 GPIO pins.
@@ -247,9 +263,14 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 ### {% linkable_title Revision History %}
 
-#### 0.89
+#### 0.91
+
+- Improved Unique ID generation for Konnected switches
+
+#### 0.90
 
 - Added support for `dht` and `ds18b20` temperature sensors
+- Added Unique IDs
 
 #### 0.80
 
