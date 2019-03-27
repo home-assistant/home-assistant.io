@@ -48,7 +48,6 @@ netgear_lte:
       monitored_conditions:
         - usage
         - sms
-
 ```
 
 {% configuration %}
@@ -103,7 +102,6 @@ The `netgear_lte` integration allows you to monitor your Netgear LTE modem.
 
 If you do not supply `sensor` configuration, a default set of sensors is created.
 
-
 ## {% linkable_title Events %}
 
 ### {% linkable_title Event `netgear_lte_sms` %}
@@ -117,7 +115,6 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 | `from`               | The sender of the message.
 | `message`            | The SMS message content.
 
-
 ## {% linkable_title Services %}
 
 ### {% linkable_title Service `netgear_lte.delete_sms` %}
@@ -128,7 +125,6 @@ The integration makes a service call available to delete messages from the modem
 | ---------------------- | -------- | ----------- |
 | `host`                 | no       | The modem that should have a message deleted.
 | `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
-
 
 ## {% linkable_title Examples %}
 
