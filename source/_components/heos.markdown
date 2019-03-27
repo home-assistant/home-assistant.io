@@ -13,6 +13,7 @@ ha_release: 0.92
 ---
 
 The Heos component integrates [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Dennon and Marantz) into Home Assistant. Features currently include:
+
 - Each device is represented as a media player entity
 - View the currently playing media
 - Control play mode (play, pause, stop), volume, and mute
@@ -26,7 +27,7 @@ To add a Denon HEOS speaker to your installation, add the following to your `con
 ```yaml
 # Example configuration.yaml entry
 heos:
-    host: IP_ADDRESS
+  host: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -41,5 +42,6 @@ A connection to a single device enables control for all devices in the HEOS acco
 </p>
 
 ## {% linkable_title Notes %}
+
 - HEOS groups are not currently supported.
 - Receivers with multiple zones are represented as a single media player. They can be turned on, but not off by this integration.
