@@ -113,7 +113,7 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 | Event data attribute | Description                              |
 | -------------------- | ---------------------------------------- |
 | `host`               | The modem that received the message.
-| `sms_id`             | The inbox IDs of the received message.
+| `sms_id`             | The inbox ID of the received message.
 | `from`               | The sender of the message.
 | `message`            | The SMS message content.
 
@@ -127,7 +127,7 @@ The integration makes a service call available to delete messages from the modem
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `host`                 | no       | The modem that should have a message deleted.
-| `sms_id`               | no       | The inbox IDs of messages to delete.
+| `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
 
 
 ## {% linkable_title Examples %}
