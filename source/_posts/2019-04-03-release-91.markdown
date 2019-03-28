@@ -33,20 +33,12 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 
 ## {% linkable_title New Platforms %}
 
-- Refactor ZHA gateway into modules and add admin protections to API ([@dmulcahey] - [#22023]) (new-platform)
-- Add LCN sensor platform ([@alengwenus] - [#21440]) (new-platform)
-- Add ESPHome Camera ([@OttoWinter] - [#22107]) (new-platform)
-- Move platforms patch ([@Swamp-Ig] - [#22168]) (new-platform)
-- Fixing the api_streams sensor ([@Swamp-Ig] - [#22200]) (breaking change) (new-platform)
-- Add Freebox switch platform ([@SNoof85] - [#21710]) (new-platform)
-- Consolidate more platforms ([@balloob] - [#22308]) (new-platform)
-- Move yeelight into component ([@zewelor] - [#21593]) (breaking change) (new-platform)
-- Add support for Tfiac Climate component ([@fredrike] - [#21823]) (new-platform)
-- Add aws component and consolidate aws notify platform ([@awarecan] - [#22240]) (new-platform)
-- Move core stuff into Home Assistant integration ([@balloob] - [#22407]) (new-platform)
-- Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) (new-platform)
-- Entur upgrade to v0.2.0: async polling, number of departures, omit non boarding departures ([@hfurubotten] - [#22001]) (new-platform)
-- Mopar split ([@rohankapoorcom] - [#21526]) (breaking change) (new-platform)
+- Refactor ZHA gateway into modules and add admin protections to API ([@dmulcahey] - [#22023]) ([zha docs]) (new-platform)
+- Add LCN sensor platform ([@alengwenus] - [#21440]) ([lcn docs]) (new-platform)
+- Add ESPHome Camera ([@OttoWinter] - [#22107]) ([esphome docs]) (new-platform)
+- Add Freebox switch platform ([@SNoof85] - [#21710]) ([freebox docs]) (new-platform)
+- Add support for Tfiac Climate component ([@fredrike] - [#21823]) ([tfiac docs]) (new-platform)
+- Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) ([daikin docs]) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -60,197 +52,197 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Z-Wave usb_path in configuration.yaml overrides config entry usb_path ([@cgarwood] - [#22038]) (breaking change)
-- Change ATTR_BATTERY_STATE_UNPLUGGED for ios component ([@FattusMannus] - [#22152]) (breaking change)
-- removed iliad ([@eliseomartelli] - [#22175]) (breaking change)
-- Consolidate the netgear_lte configuration ([@amelchio] - [#22105]) (breaking change)
-- Fixing the api_streams sensor ([@Swamp-Ig] - [#22200]) (breaking change) (new-platform)
-- Define GTFS sensor as a timestamp device class ([@renemarc] - [#21053]) (breaking change)
-- Move yeelight into component ([@zewelor] - [#21593]) (breaking change) (new-platform)
-- Axis config flow ([@Kane610] - [#18543]) (breaking change)
-- Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) (breaking change)
-- Add hourly forecasts to Dark Sky ([@rtclauss] - [#21820]) (breaking change)
-- better algorithm for computing unique_id ([@heythisisnate] - [#22389]) (breaking change)
-- Cache GTFS metadata and expose utility attributes (breaking change) ([@renemarc] - [#20966]) (breaking change)
-- Mopar split ([@rohankapoorcom] - [#21526]) (breaking change) (new-platform)
+- Z-Wave usb_path in configuration.yaml overrides config entry usb_path ([@cgarwood] - [#22038]) ([zwave docs]) (breaking change)
+- Change ATTR_BATTERY_STATE_UNPLUGGED for ios component ([@FattusMannus] - [#22152]) ([ios docs]) (breaking change)
+- removed iliad ([@eliseomartelli] - [#22175]) ([iliad_italy docs]) (breaking change)
+- Consolidate the netgear_lte configuration ([@amelchio] - [#22105]) ([netgear_lte docs]) (breaking change)
+- Fixing the api_streams sensor ([@Swamp-Ig] - [#22200]) ([api_streams docs]) ([websocket_api docs]) (breaking change)
+- Define GTFS sensor as a timestamp device class ([@renemarc] - [#21053]) ([gtfs docs]) (breaking change)
+- Move yeelight into component ([@zewelor] - [#21593]) ([yeelight docs]) (breaking change)
+- Axis config flow ([@Kane610] - [#18543]) ([axis docs]) (breaking change)
+- Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) ([http docs]) (breaking change)
+- Add hourly forecasts to Dark Sky ([@rtclauss] - [#21820]) ([darksky docs]) (breaking change)
+- better algorithm for computing unique_id ([@heythisisnate] - [#22389]) ([konnected docs]) (breaking change)
+- Cache GTFS metadata and expose utility attributes (breaking change) ([@renemarc] - [#20966]) ([gtfs docs]) (breaking change)
+- Mopar split ([@rohankapoorcom] - [#21526]) ([mopar docs]) (breaking change)
 
 ## {% linkable_title All changes %}
 
-- Add sense guard clause ([@kbickar] - [#22014])
+- Add sense guard clause ([@kbickar] - [#22014]) ([sense docs])
 - Upgrade prefetched tox env to py37 ([@awarecan] - [#22029])
 - change logging to debug for nmap ([@Danielhiversen] - [#22036])
-- Refactor ZHA gateway into modules and add admin protections to API ([@dmulcahey] - [#22023]) (new-platform)
-- Ps4 remove throttling ([@ktnrg45] - [#21961])
-- Upgrade youtube_dl to 2019.03.09 ([@fabaff] - [#22041])
-- Async support for Daikin ([@fredrike] - [#21638])
-- Bump amcrest to 1.2.6 & use new exceptions ([@pnbruckner] - [#22040])
-- Z-Wave usb_path in configuration.yaml overrides config entry usb_path ([@cgarwood] - [#22038]) (breaking change)
-- Minor ZHA consts fixes ([@Adminiuga] - [#22049])
-- Cleanup remaining constants stuff in ZHA ([@dmulcahey] - [#22050])
-- Add HTTP auth and SSL verification to REST notify ([@escoand] - [#22016])
+- Refactor ZHA gateway into modules and add admin protections to API ([@dmulcahey] - [#22023]) ([zha docs]) (new-platform)
+- Ps4 remove throttling ([@ktnrg45] - [#21961]) ([ps4 docs])
+- Upgrade youtube_dl to 2019.03.09 ([@fabaff] - [#22041]) ([media_extractor docs])
+- Async support for Daikin ([@fredrike] - [#21638]) ([daikin docs])
+- Bump amcrest to 1.2.6 & use new exceptions ([@pnbruckner] - [#22040]) ([amcrest docs])
+- Z-Wave usb_path in configuration.yaml overrides config entry usb_path ([@cgarwood] - [#22038]) ([zwave docs]) (breaking change)
+- Minor ZHA consts fixes ([@Adminiuga] - [#22049]) ([zha docs])
+- Cleanup remaining constants stuff in ZHA ([@dmulcahey] - [#22050]) ([zha docs])
+- Add HTTP auth and SSL verification to REST notify ([@escoand] - [#22016]) ([rest docs])
 - Upgrade ruamel.yaml to 0.15.89 ([@fabaff] - [#22064])
-- Update rest.py ([@isabellaalstrom] - [#22077])
-- Telegram_bot: Allow fetching data from unverified SSL endpoints (#22067) ([@nbarrientos] - [#22069])
-- Add LCN sensor platform ([@alengwenus] - [#21440]) (new-platform)
+- Update rest.py ([@isabellaalstrom] - [#22077]) ([notify docs])
+- Telegram_bot: Allow fetching data from unverified SSL endpoints (#22067) ([@nbarrientos] - [#22069]) ([telegram_bot docs])
+- Add LCN sensor platform ([@alengwenus] - [#21440]) ([lcn docs]) (new-platform)
 - Upgrade pytest to 4.3.1 ([@scop] - [#22088])
-- Bump amcrest to 1.2.7 for correct RTSP port ([@pnbruckner] - [#22099])
-- Add available property to Ambient PWS ([@bachya] - [#22092])
-- Restricted temperature units for Celsius and Fahrenheit to the standardized units ([@alengwenus] - [#22108])
+- Bump amcrest to 1.2.7 for correct RTSP port ([@pnbruckner] - [#22099]) ([amcrest docs])
+- Add available property to Ambient PWS ([@bachya] - [#22092]) ([ambient_station docs])
+- Restricted temperature units for Celsius and Fahrenheit to the standardized units ([@alengwenus] - [#22108]) ([lcn docs])
 - Consolidate all platforms that have no tests ([@balloob] - [#22096])
-- Add ESPHome Camera ([@OttoWinter] - [#22107]) (new-platform)
-- Tibber, Add price level ([@Danielhiversen] - [#22085])
-- Fix AttributeError traceback with darksky ([@iamtpage] - [#22101])
+- Add ESPHome Camera ([@OttoWinter] - [#22107]) ([esphome docs]) (new-platform)
+- Tibber, Add price level ([@Danielhiversen] - [#22085]) ([tibber docs])
+- Fix AttributeError traceback with darksky ([@iamtpage] - [#22101]) ([darksky docs])
 - Add service description for services. ([@cgtobi] - [#21897])
-- Handle occassional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131])
-- Loosen field retrieval from Pollen.com ([@bachya] - [#22132])
-- Handle possible exception during Ambient PWS reconnect ([@bachya] - [#22134])
-- Additional sensors and fixed icons, attributes and device classes. ([@endor-force] - [#22139])
-- Fix hlk-sw16 inverted switch state ([@jameshilliard] - [#22059])
-- replace einder lib with horimote ([@benleb] - [#22135])
-- Fixx yeelight flow action param for declared effects ([@zewelor] - [#22159])
-- Add dynamic subscription for ZHA add device page ([@dmulcahey] - [#22164])
+- Handle occassional 502 Bad Gateway from SimpliSafe ([@bachya] - [#22131]) ([simplisafe docs])
+- Loosen field retrieval from Pollen.com ([@bachya] - [#22132]) ([pollen docs])
+- Handle possible exception during Ambient PWS reconnect ([@bachya] - [#22134]) ([ambient_station docs])
+- Additional sensors and fixed icons, attributes and device classes. ([@endor-force] - [#22139]) ([trafikverket_weatherstation docs])
+- Fix hlk-sw16 inverted switch state ([@jameshilliard] - [#22059]) ([hlk_sw16 docs])
+- replace einder lib with horimote ([@benleb] - [#22135]) ([horizon docs])
+- Fixx yeelight flow action param for declared effects ([@zewelor] - [#22159]) ([yeelight docs])
+- Add dynamic subscription for ZHA add device page ([@dmulcahey] - [#22164]) ([zha docs])
 - Consolidate all platforms that have tests ([@Swamp-Ig] - [#22109])
-- Change ATTR_BATTERY_STATE_UNPLUGGED for ios component ([@FattusMannus] - [#22152]) (breaking change)
-- Add some tests for Koogeek LS1 ([@Jc2k] - [#22141])
-- Move platforms patch ([@Swamp-Ig] - [#22168]) (new-platform)
-- restore entity for switchbot ([@Danielhiversen] - [#22087])
-- removed iliad ([@eliseomartelli] - [#22175]) (breaking change)
-- Upgrade youtube_dl to 2019.03.18 ([@fabaff] - [#22181])
+- Change ATTR_BATTERY_STATE_UNPLUGGED for ios component ([@FattusMannus] - [#22152]) ([ios docs]) (breaking change)
+- Add some tests for Koogeek LS1 ([@Jc2k] - [#22141]) ([homekit_controller docs])
+- Move platforms patch ([@Swamp-Ig] - [#22168]) ([mold_indicator docs]) ([moon docs])
+- restore entity for switchbot ([@Danielhiversen] - [#22087]) ([switchbot docs])
+- removed iliad ([@eliseomartelli] - [#22175]) ([iliad_italy docs]) (breaking change)
+- Upgrade youtube_dl to 2019.03.18 ([@fabaff] - [#22181]) ([media_extractor docs])
 - Upgrade Sphinx to 1.8.5 ([@fabaff] - [#22180])
-- Better handling of HomeKit accessory-information service ([@Jc2k] - [#22171])
-- Fix breaking on HTML email without images ([@dagobert] - [#22143])
+- Better handling of HomeKit accessory-information service ([@Jc2k] - [#22171]) ([homekit_controller docs])
+- Fix breaking on HTML email without images ([@dagobert] - [#22143]) ([notify docs])
 - Update codeowners ([@oblogic7] - [#22198])
-- Upgrade psutil to 5.6.1 ([@fabaff] - [#22183])
+- Upgrade psutil to 5.6.1 ([@fabaff] - [#22183]) ([systemmonitor docs])
 - Upgrade holidays to 0.9.10 ([@fabaff] - [#22182])
-- Removed overly broad exception handling for nanoleaf light ([@Oro] - [#22189])
+- Removed overly broad exception handling for nanoleaf light ([@Oro] - [#22189]) ([nanoleaf docs])
 - Use relative imports inside integrations ([@balloob] - [#22235])
 - Make !include_dir_list use alphanumeric order ([@quentinsf] - [#21902])
-- add date_time_iso to time_date sensor ([@uchagani] - [#22199])
-- Bump python-miio version ([@syssi] - [#22202])
-- Upgrade to async_upnp_client==0.14.6 ([@StevenLooman] - [#22223])
-- Fix build issue ([@awarecan] - [#22251])
-- add ZHA channel name property ([@Adminiuga] - [#22218])
-- Handle on/off through TemperatrureSetting trait. ([@Swamp-Ig] - [#21842])
-- Change .now() to .utcnow() ([@rdbahm] - [#22233])
-- Upgrade tibber libary, support solar production ([@Danielhiversen] - [#22261])
-- Upgrade sqlalchemy to 1.3.0 ([@fabaff] - [#22269])
-- Plex: Avoid refreshing by both device and session methods ([@jjlawren] - [#22266])
-- Bump androidtv to 0.0.13 ([@JeffLIrion] - [#22279])
-- Improved exception handling and logging ([@JeffLIrion] - [#22268])
-- Consolidate the netgear_lte configuration ([@amelchio] - [#22105]) (breaking change)
-- Fixing the api_streams sensor ([@Swamp-Ig] - [#22200]) (breaking change) (new-platform)
-- Fix progress for Plex media_players ([@jjlawren] - [#22224])
-- Add sort by config and tests for Reddit integration ([@ljmerza] - [#22081])
-- Fix Prometheus casting issues ([@robbiet480] - [#22282])
-- Update trait to support auto without ranges. ([@Swamp-Ig] - [#21847])
+- add date_time_iso to time_date sensor ([@uchagani] - [#22199]) ([time_date docs])
+- Bump python-miio version ([@syssi] - [#22202]) ([xiaomi_miio docs])
+- Upgrade to async_upnp_client==0.14.6 ([@StevenLooman] - [#22223]) ([dlna_dmr docs]) ([upnp docs])
+- Fix build issue ([@awarecan] - [#22251]) ([buienradar docs])
+- add ZHA channel name property ([@Adminiuga] - [#22218]) ([zha docs])
+- Handle on/off through TemperatrureSetting trait. ([@Swamp-Ig] - [#21842]) ([google_assistant docs])
+- Change .now() to .utcnow() ([@rdbahm] - [#22233]) ([season docs])
+- Upgrade tibber libary, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
+- Upgrade sqlalchemy to 1.3.0 ([@fabaff] - [#22269]) ([sql docs])
+- Plex: Avoid refreshing by both device and session methods ([@jjlawren] - [#22266]) ([plex docs])
+- Bump androidtv to 0.0.13 ([@JeffLIrion] - [#22279]) ([androidtv docs])
+- Improved exception handling and logging ([@JeffLIrion] - [#22268]) ([androidtv docs])
+- Consolidate the netgear_lte configuration ([@amelchio] - [#22105]) ([netgear_lte docs]) (breaking change)
+- Fixing the api_streams sensor ([@Swamp-Ig] - [#22200]) ([api_streams docs]) ([websocket_api docs]) (breaking change)
+- Fix progress for Plex media_players ([@jjlawren] - [#22224]) ([plex docs])
+- Add sort by config and tests for Reddit integration ([@ljmerza] - [#22081]) ([reddit docs])
+- Fix Prometheus casting issues ([@robbiet480] - [#22282]) ([prometheus docs])
+- Update trait to support auto without ranges. ([@Swamp-Ig] - [#21847]) ([google_assistant docs])
 - Sort code owners alphabetically ([@cgtobi] - [#22304])
-- Update srpenergy library ([@robbiet480] - [#22307])
+- Update srpenergy library ([@robbiet480] - [#22307]) ([srp_energy docs])
 - Switch from using Google Maps API for elevation to Open Elevation API ([@robbiet480] - [#22306])
-- Fix for embedded MQTT server configuration ([@robbiet480] - [#22305])
-- Upgrade pylast to 3.1.0 ([@fabaff] - [#22302])
+- Fix for embedded MQTT server configuration ([@robbiet480] - [#22305]) ([mqtt docs])
+- Upgrade pylast to 3.1.0 ([@fabaff] - [#22302]) ([lastfm docs])
 - Upgrade py-cpuinfo to 5.0.0 ([@fabaff] - [#22287])
-- Update abbreviation ([@fabaff] - [#22317])
-- Add homematicip cloud connection quality related attributes ([@SukramJ] - [#21990])
-- Add Freebox switch platform ([@SNoof85] - [#21710]) (new-platform)
-- Google Assistant: Add camera stream trait ([@balloob] - [#22278])
-- Remove occupancy as it is not available in API ([@thibmaek] - [#22320])
-- Update file header ([@fabaff] - [#22318])
-- Consolidate more platforms ([@balloob] - [#22308]) (new-platform)
-- fix where PLATFORM_SCHEMA gets pulled from ([@hunterjm] - [#22334])
+- Update abbreviation ([@fabaff] - [#22317]) ([hp_ilo docs])
+- Add homematicip cloud connection quality related attributes ([@SukramJ] - [#21990]) ([homematicip_cloud docs])
+- Add Freebox switch platform ([@SNoof85] - [#21710]) ([freebox docs]) (new-platform)
+- Google Assistant: Add camera stream trait ([@balloob] - [#22278]) ([camera docs]) ([generic docs]) ([google_assistant docs])
+- Remove occupancy as it is not available in API ([@thibmaek] - [#22320]) ([nmbs docs])
+- Update file header ([@fabaff] - [#22318]) ([hyperion docs])
+- Consolidate more platforms ([@balloob] - [#22308]) ([demo docs]) ([generic_thermostat docs]) ([group docs]) ([manual docs]) ([manual_mqtt docs]) ([switch docs])
+- fix where PLATFORM_SCHEMA gets pulled from ([@hunterjm] - [#22334]) ([familyhub docs])
 - show which component is causing translation errors ([@uchagani] - [#22340])
-- Define GTFS sensor as a timestamp device class ([@renemarc] - [#21053]) (breaking change)
-- Move yeelight into component ([@zewelor] - [#21593]) (breaking change) (new-platform)
-- Axis config flow ([@Kane610] - [#18543]) (breaking change)
-- Fix pressure in dark sky and openweathermap and add pressure utility ([@MatthewFlamm] - [#21210])
-- Fix xiaomi aqara cube with lumi.acpartner.v3 gateway ([@GuryYu] - [#22130])
-- Support deCONZ library with exception handling ([@Kane610] - [#21952])
+- Define GTFS sensor as a timestamp device class ([@renemarc] - [#21053]) ([gtfs docs]) (breaking change)
+- Move yeelight into component ([@zewelor] - [#21593]) ([yeelight docs]) (breaking change)
+- Axis config flow ([@Kane610] - [#18543]) ([axis docs]) (breaking change)
+- Fix pressure in dark sky and openweathermap and add pressure utility ([@MatthewFlamm] - [#21210]) ([darksky docs]) ([openweathermap docs])
+- Fix xiaomi aqara cube with lumi.acpartner.v3 gateway ([@GuryYu] - [#22130]) ([xiaomi_aqara docs])
+- Support deCONZ library with exception handling ([@Kane610] - [#21952]) ([deconz docs])
 - Do not warn when creating an empty database ([@amelchio] - [#22343])
-- Add color support to Philips Moonlight ([@syssi] - [#22204])
+- Add color support to Philips Moonlight ([@syssi] - [#22204]) ([xiaomi_miio docs])
 - Add support for the power socket of the Xiaomi AC Partner V3 ([@syssi] - [#22205])
-- Set Onkyo reset log to debug instead of info ([@robbiet480] - [#22369])
-- Upgrade netatmo smart_home module ([@cgtobi] - [#22365])
-- Fix the crash due to absence of the "default_home" in HomeData from pyatmo (netatmo/climate) ([@shanbs] - [#22363])
-- Add support for 'image' media type ([@StevenLooman] - [#22353])
-- Warn user about HTML5 GCM deprecation ([@hmmbob] - [#22351])
-- Turn Panasonic Viera TV on without WOL ([@dilruacs] - [#22084])
-- Properly connect sensors to hub ([@StevenLooman] - [#21414])
-- Add support for Tfiac Climate component ([@fredrike] - [#21823]) (new-platform)
-- Add aws component and consolidate aws notify platform ([@awarecan] - [#22240]) (new-platform)
+- Set Onkyo reset log to debug instead of info ([@robbiet480] - [#22369]) ([onkyo docs])
+- Upgrade netatmo smart_home module ([@cgtobi] - [#22365]) ([netatmo docs])
+- Fix the crash due to absence of the "default_home" in HomeData from pyatmo (netatmo/climate) ([@shanbs] - [#22363]) ([netatmo docs])
+- Add support for 'image' media type ([@StevenLooman] - [#22353]) ([dlna_dmr docs]) ([media_player docs])
+- Warn user about HTML5 GCM deprecation ([@hmmbob] - [#22351]) ([notify docs])
+- Turn Panasonic Viera TV on without WOL ([@dilruacs] - [#22084]) ([panasonic_viera docs])
+- Properly connect sensors to hub ([@StevenLooman] - [#21414]) ([upnp docs])
+- Add support for Tfiac Climate component ([@fredrike] - [#21823]) ([tfiac docs]) (new-platform)
+- Add aws component and consolidate aws notify platform ([@awarecan] - [#22240]) ([aws docs])
 - Check if mac is set when more than 2 gateways ([@karlkar] - [#21834])
 - Add 'method' parameter to forgiving_round method ([@Mofeywalker] - [#21708])
-- Expose detailed Ecobee equipment status ([@nhorvath] - [#20767])
-- Add ClickSend "caller" option ([@fabtesta] - [#20780])
-- Give HomeKit locks better names by default ([@Jc2k] - [#22333])
-- Improve yeelight component ([@zewelor] - [#22347])
-- Improve PS4 media art fetching and config flow ([@ktnrg45] - [#22167])
-- Allow for custom turn on/off commands ([@JeffLIrion] - [#22354])
-- Remove unused const ([@Jc2k] - [#22383])
-- Frontend indicate require admin ([@balloob] - [#22272])
-- Fix TpLink Device Tracker initialize error ([@a005] - [#22349])
-- Add traccar events ([@lapy] - [#22348])
-- Update python yeelight and add nightlight mode sensor ([@zewelor] - [#22345])
-- updated pydaikin ([@fredrike] - [#22382])
-- Support for Plex sensor with enforced SSL ([@nmaggioni] - [#21432])
-- Search GTFS departures across midnight ([@renemarc] - [#20992])
-- remove config sections from hass.config.components ([@uchagani] - [#22370])
-- Update ring_doorbell to 0.2.3 ([@dshokouhi] - [#22395])
-- Fix unavailable state for homekit locks and covers ([@Jc2k] - [#22390])
-- Add infer_arming_state option to ness alarm ([@nickw444] - [#22379])
-- deCONZ support Xiaomi vibration sensor ([@Kane610] - [#22366])
-- Fix data_key of the xiaomi_aqara cover for LAN protocol v2 ([@syssi] - [#22358])
-- Remove get_serial helper that is no longer needed. ([@Jc2k] - [#22368])
+- Expose detailed Ecobee equipment status ([@nhorvath] - [#20767]) ([ecobee docs])
+- Add ClickSend "caller" option ([@fabtesta] - [#20780]) ([notify docs])
+- Give HomeKit locks better names by default ([@Jc2k] - [#22333]) ([homekit_controller docs])
+- Improve yeelight component ([@zewelor] - [#22347]) ([yeelight docs])
+- Improve PS4 media art fetching and config flow ([@ktnrg45] - [#22167]) ([ps4 docs])
+- Allow for custom turn on/off commands ([@JeffLIrion] - [#22354]) ([androidtv docs])
+- Remove unused const ([@Jc2k] - [#22383]) ([homekit_controller docs])
+- Frontend indicate require admin ([@balloob] - [#22272]) ([config docs]) ([frontend docs]) ([hassio docs]) ([panel_custom docs]) ([panel_iframe docs])
+- Fix TpLink Device Tracker initialize error ([@a005] - [#22349]) ([tplink docs])
+- Add traccar events ([@lapy] - [#22348]) ([traccar docs])
+- Update python yeelight and add nightlight mode sensor ([@zewelor] - [#22345]) ([yeelight docs])
+- updated pydaikin ([@fredrike] - [#22382]) ([daikin docs])
+- Support for Plex sensor with enforced SSL ([@nmaggioni] - [#21432]) ([plex docs])
+- Search GTFS departures across midnight ([@renemarc] - [#20992]) ([gtfs docs])
+- remove config sections from hass.config.components ([@uchagani] - [#22370]) ([config docs])
+- Update ring_doorbell to 0.2.3 ([@dshokouhi] - [#22395]) ([ring docs])
+- Fix unavailable state for homekit locks and covers ([@Jc2k] - [#22390]) ([homekit_controller docs])
+- Add infer_arming_state option to ness alarm ([@nickw444] - [#22379]) ([ness_alarm docs])
+- deCONZ support Xiaomi vibration sensor ([@Kane610] - [#22366]) ([deconz docs])
+- Fix data_key of the xiaomi_aqara cover for LAN protocol v2 ([@syssi] - [#22358]) ([xiaomi_aqara docs])
+- Remove get_serial helper that is no longer needed. ([@Jc2k] - [#22368]) ([homekit_controller docs])
 - Set default parallel_update value should base on async_update ([@awarecan] - [#22149])
-- Camera Preferences + Preload Stream ([@hunterjm] - [#22339])
-- Move core stuff into Home Assistant integration ([@balloob] - [#22407]) (new-platform)
-- Tibber add support for Watty ([@Danielhiversen] - [#22397])
-- zha fixes ([@dmulcahey] - [#22381])
-- Fix yeelight state update ([@zewelor] - [#22373])
+- Camera Preferences + Preload Stream ([@hunterjm] - [#22339]) ([camera docs]) ([local_file docs]) ([logi_circle docs]) ([onvif docs]) ([push docs])
+- Move core stuff into Home Assistant integration ([@balloob] - [#22407]) ([config docs]) ([hassio docs]) ([homeassistant docs])
+- Tibber add support for Watty ([@Danielhiversen] - [#22397]) ([tibber docs])
+- zha fixes ([@dmulcahey] - [#22381]) ([zha docs])
+- Fix yeelight state update ([@zewelor] - [#22373]) ([yeelight docs])
 - Changed busy error to warning ([@fronzbot] - [#22398])
 - Migrate tts ([@cgtobi] - [#22403])
-- Add missing append ([@Jc2k] - [#22414])
-- Update translate, fix dev build error ([@awarecan] - [#22419])
-- Use dispatcher for netgear_lte state updates ([@amelchio] - [#22328])
-- ciscomobilityexpress pypi version update ([@fbradyirl] - [#22431])
-- Update homeassistant-pyozw to 0.1.3 ([@pvizeli] - [#22433])
-- Adding conf for deep standby, wake and specific source bouquet of Enigma2 ([@fbradyirl] - [#22393])
+- Add missing append ([@Jc2k] - [#22414]) ([homekit_controller docs])
+- Update translate, fix dev build error ([@awarecan] - [#22419]) ([axis docs]) ([ps4 docs]) ([tellduslive docs]) ([upnp docs]) ([zha docs])
+- Use dispatcher for netgear_lte state updates ([@amelchio] - [#22328]) ([netgear_lte docs])
+- ciscomobilityexpress pypi version update ([@fbradyirl] - [#22431]) ([cisco_mobility_express docs])
+- Update homeassistant-pyozw to 0.1.3 ([@pvizeli] - [#22433]) ([zwave docs])
+- Adding conf for deep standby, wake and specific source bouquet of Enigma2 ([@fbradyirl] - [#22393]) ([enigma2 docs])
 - Fix test name ([@balloob] - [#22421])
-- Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) (breaking change)
+- Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) ([http docs]) (breaking change)
 - Update ha-ffmpeg 2.0 ([@pvizeli] - [#22427])
 - Add myself as codeowner for yeelight component ([@zewelor] - [#22438])
 - Update ZHA component CODEOWNERS ([@Adminiuga] - [#22452])
-- Add support for yeelight ceiling ambilight ([@zewelor] - [#22346])
+- Add support for yeelight ceiling ambilight ([@zewelor] - [#22346]) ([yeelight docs])
 - Bootstrap to start registry loading early ([@Swamp-Ig] - [#22321])
-- Axis devices support device registry ([@Kane610] - [#22367])
-- Use voluptuous error string for websocket validation error ([@ljmerza] - [#21883])
-- Add hourly forecasts to Dark Sky ([@rtclauss] - [#21820]) (breaking change)
-- Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) (new-platform)
-- better algorithm for computing unique_id ([@heythisisnate] - [#22389]) (breaking change)
-- Solaredge new sensors ([@GidoHakvoort] - [#21047])
-- Fix aws.notify platform schema ([@awarecan] - [#22374])
-- Do data extraction in sensors ([@amelchio] - [#22444])
-- Remove homekit_controller duplicate legacy pairing loader code ([@Jc2k] - [#22442])
-- Cache GTFS metadata and expose utility attributes (breaking change) ([@renemarc] - [#20966]) (breaking change)
-- Modify check for ADB public key ([@dilruacs] - [#22378])
+- Axis devices support device registry ([@Kane610] - [#22367]) ([axis docs])
+- Use voluptuous error string for websocket validation error ([@ljmerza] - [#21883]) ([websocket_api docs])
+- Add hourly forecasts to Dark Sky ([@rtclauss] - [#21820]) ([darksky docs]) (breaking change)
+- Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) ([daikin docs]) (new-platform)
+- better algorithm for computing unique_id ([@heythisisnate] - [#22389]) ([konnected docs]) (breaking change)
+- Solaredge new sensors ([@GidoHakvoort] - [#21047]) ([solaredge docs])
+- Fix aws.notify platform schema ([@awarecan] - [#22374]) ([aws docs])
+- Do data extraction in sensors ([@amelchio] - [#22444]) ([netgear_lte docs])
+- Remove homekit_controller duplicate legacy pairing loader code ([@Jc2k] - [#22442]) ([homekit_controller docs])
+- Cache GTFS metadata and expose utility attributes (breaking change) ([@renemarc] - [#20966]) ([gtfs docs]) (breaking change)
+- Modify check for ADB public key ([@dilruacs] - [#22378]) ([androidtv docs])
 - Centralize all usages of `host` as a configuration param to the constant CONF_HOST ([@rohankapoorcom] - [#22458])
-- Don't return cover position when not supported ([@andrewsayre] - [#22484])
+- Don't return cover position when not supported ([@andrewsayre] - [#22484]) ([smartthings docs])
 - Targeted ZHA permit joins. ([@Adminiuga] - [#22482])
-- Fix auto discovery of yeelights ([@syssi] - [#22481])
-- fix inverse state changes for binary sensors ([@heythisisnate] - [#22479])
-- Fix events so they work with multiple devices ([@Kane610] - [#22477])
-- Improve Sensibo error handling ([@Danielhiversen] - [#22475])
-- Add new data fields and bump python-join-api ([@bieniu] - [#22472])
-- Bump pypi again for Cisco Mobility Express ([@fbradyirl] - [#22467])
-- Return percentage information in Alexa Smart Home response ([@jackwilsdon] - [#22440])
-- Move HKDevice into connection ([@Jc2k] - [#22430])
-- Incoming SMS handling for netgear_lte ([@amelchio] - [#22402])
-- Entur upgrade to v0.2.0: async polling, number of departures, omit non boarding departures ([@hfurubotten] - [#22001]) (new-platform)
-- Mopar split ([@rohankapoorcom] - [#21526]) (breaking change) (new-platform)
-- Fix too-abrubt SimpliSafe data refresh termination on error ([@bachya] - [#22466])
+- Fix auto discovery of yeelights ([@syssi] - [#22481]) ([yeelight docs])
+- fix inverse state changes for binary sensors ([@heythisisnate] - [#22479]) ([konnected docs])
+- Fix events so they work with multiple devices ([@Kane610] - [#22477]) ([axis docs])
+- Improve Sensibo error handling ([@Danielhiversen] - [#22475]) ([sensibo docs])
+- Add new data fields and bump python-join-api ([@bieniu] - [#22472]) ([joaoapps_join docs])
+- Bump pypi again for Cisco Mobility Express ([@fbradyirl] - [#22467]) ([cisco_mobility_express docs])
+- Return percentage information in Alexa Smart Home response ([@jackwilsdon] - [#22440]) ([alexa docs])
+- Move HKDevice into connection ([@Jc2k] - [#22430]) ([homekit_controller docs])
+- Incoming SMS handling for netgear_lte ([@amelchio] - [#22402]) ([netgear_lte docs])
+- Entur upgrade to v0.2.0: async polling, number of departures, omit non boarding departures ([@hfurubotten] - [#22001]) ([entur_public_transport docs])
+- Mopar split ([@rohankapoorcom] - [#21526]) ([mopar docs]) (breaking change)
+- Fix too-abrubt SimpliSafe data refresh termination on error ([@bachya] - [#22466]) ([simplisafe docs])
 - Great migration notify ([@robbiet480] - [#22406])
 - Print error instead of warning for custom platforms in legacy format ([@balloob] - [#22486])
-- Add game and app media types ([@cliffordwhansen] - [#22459])
-- Stream Record Service ([@hunterjm] - [#22456])
-- Add trusted_users in trusted networks auth provider ([@awarecan] - [#22478])
+- Add game and app media types ([@cliffordwhansen] - [#22459]) ([media_player docs]) ([ps4 docs])
+- Stream Record Service ([@hunterjm] - [#22456]) ([camera docs]) ([stream docs])
+- Add trusted_users in trusted networks auth provider ([@awarecan] - [#22478]) ([auth docs])
 
 [#18543]: https://github.com/home-assistant/home-assistant/pull/18543
 [#20767]: https://github.com/home-assistant/home-assistant/pull/20767
@@ -501,3 +493,104 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@thomasloven]: https://github.com/thomasloven
 [@uchagani]: https://github.com/uchagani
 [@zewelor]: https://github.com/zewelor
+[alexa docs]: /components/alexa/
+[ambient_station docs]: /components/ambient_station/
+[amcrest docs]: /components/amcrest/
+[androidtv docs]: /components/androidtv/
+[api_streams docs]: /components/api_streams/
+[auth docs]: /components/auth/
+[aws docs]: /components/aws/
+[axis docs]: /components/axis/
+[buienradar docs]: /components/buienradar/
+[camera docs]: /components/camera/
+[cisco_mobility_express docs]: /components/cisco_mobility_express/
+[config docs]: /components/config/
+[daikin docs]: /components/daikin/
+[darksky docs]: /components/darksky/
+[deconz docs]: /components/deconz/
+[demo docs]: /components/demo/
+[dlna_dmr docs]: /components/dlna_dmr/
+[ecobee docs]: /components/ecobee/
+[enigma2 docs]: /components/enigma2/
+[entur_public_transport docs]: /components/entur_public_transport/
+[esphome docs]: /components/esphome/
+[familyhub docs]: /components/familyhub/
+[freebox docs]: /components/freebox/
+[frontend docs]: /components/frontend/
+[generic docs]: /components/generic/
+[generic_thermostat docs]: /components/generic_thermostat/
+[google_assistant docs]: /components/google_assistant/
+[group docs]: /components/group/
+[gtfs docs]: /components/gtfs/
+[hassio docs]: /components/hassio/
+[hlk_sw16 docs]: /components/hlk_sw16/
+[homeassistant docs]: /components/homeassistant/
+[homekit_controller docs]: /components/homekit_controller/
+[homematicip_cloud docs]: /components/homematicip_cloud/
+[horizon docs]: /components/horizon/
+[hp_ilo docs]: /components/hp_ilo/
+[http docs]: /components/http/
+[hyperion docs]: /components/hyperion/
+[iliad_italy docs]: /components/iliad_italy/
+[ios docs]: /components/ios/
+[joaoapps_join docs]: /components/joaoapps_join/
+[konnected docs]: /components/konnected/
+[lastfm docs]: /components/lastfm/
+[lcn docs]: /components/lcn/
+[local_file docs]: /components/local_file/
+[logi_circle docs]: /components/logi_circle/
+[manual docs]: /components/manual/
+[manual_mqtt docs]: /components/manual_mqtt/
+[media_extractor docs]: /components/media_extractor/
+[media_player docs]: /components/media_player/
+[mold_indicator docs]: /components/mold_indicator/
+[moon docs]: /components/moon/
+[mopar docs]: /components/mopar/
+[mqtt docs]: /components/mqtt/
+[nanoleaf docs]: /components/nanoleaf/
+[ness_alarm docs]: /components/ness_alarm/
+[netatmo docs]: /components/netatmo/
+[netgear_lte docs]: /components/netgear_lte/
+[nmbs docs]: /components/nmbs/
+[notify docs]: /components/notify/
+[onkyo docs]: /components/onkyo/
+[onvif docs]: /components/onvif/
+[openweathermap docs]: /components/openweathermap/
+[panasonic_viera docs]: /components/panasonic_viera/
+[panel_custom docs]: /components/panel_custom/
+[panel_iframe docs]: /components/panel_iframe/
+[plex docs]: /components/plex/
+[pollen docs]: /components/pollen/
+[prometheus docs]: /components/prometheus/
+[ps4 docs]: /components/ps4/
+[push docs]: /components/push/
+[reddit docs]: /components/reddit/
+[rest docs]: /components/rest/
+[ring docs]: /components/ring/
+[season docs]: /components/season/
+[sense docs]: /components/sense/
+[sensibo docs]: /components/sensibo/
+[simplisafe docs]: /components/simplisafe/
+[smartthings docs]: /components/smartthings/
+[solaredge docs]: /components/solaredge/
+[sql docs]: /components/sql/
+[srp_energy docs]: /components/srp_energy/
+[stream docs]: /components/stream/
+[switch docs]: /components/switch/
+[switchbot docs]: /components/switchbot/
+[systemmonitor docs]: /components/systemmonitor/
+[telegram_bot docs]: /components/telegram_bot/
+[tellduslive docs]: /components/tellduslive/
+[tfiac docs]: /components/tfiac/
+[tibber docs]: /components/tibber/
+[time_date docs]: /components/time_date/
+[tplink docs]: /components/tplink/
+[traccar docs]: /components/traccar/
+[trafikverket_weatherstation docs]: /components/trafikverket_weatherstation/
+[upnp docs]: /components/upnp/
+[websocket_api docs]: /components/websocket_api/
+[xiaomi_aqara docs]: /components/xiaomi_aqara/
+[xiaomi_miio docs]: /components/xiaomi_miio/
+[yeelight docs]: /components/yeelight/
+[zha docs]: /components/zha/
+[zwave docs]: /components/zwave/
