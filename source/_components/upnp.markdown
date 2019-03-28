@@ -67,9 +67,9 @@ ports:
 
 ## {% linkable_title Troubleshooting %}
 
-If Home Assistant is not able to discover UPnP sensors, it may be because the local IP address was not auto-detected correctly.  To prevent this, you may add the `local_ip` option to your UPnP configuration:
+If Home Assistant is not able to discover UPnP sensors, it may be because the local IP address was not auto-detected correctly. To prevent this, you may add the `local_ip` option to your UPnP configuration:
 
-```
+```yaml
 # Example configuration.yaml with UPnP sensors enabled and local_ip set
 upnp:
   sensors: true
