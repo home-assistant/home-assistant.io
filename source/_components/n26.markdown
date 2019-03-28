@@ -12,14 +12,14 @@ ha_category:
   - Finance
   - Sensor
   - Switch
-ha_release: "0.90"
+ha_release: "0.91"
 featured: false
 ha_iot_class: "Local Polling"
 ---
 
 The [N26](https://n26.com) integration for Home Assistant allows you to track your N26 account.
 
-N26 is a bank from germany that launched as a start up. It is an "online only" bank in that it has no local "stores" to retrieve or deposit money and account management is done only through their web interface and mobile apps. The sensor allows to show account balance, spaces (sub-accounts within an account) balance and bank card status. The switch allows to change the "Blocked/Unblocked" status of an N26 bank card.
+N26 is a bank from germany that launched as a start up. It is an "online only" bank in that it has no local "stores" to retrieve or deposit money and account management is done only through their web interface and mobile apps. The sensor allows to show account info including balance, spaces (sub-accounts within an account) and bank card status. The switch allows to change the "Blocked/Unblocked" status of an N26 bank card.
 
 ## {% linkable_title Configuration %}
 
@@ -30,7 +30,6 @@ Add the following entry to the `configuration.yaml` file:
 n26:
   username: YOUR_EMAIL
   password: YOUR_PASSWORD
-  card_id: CARD_ID
 ```
 
 {% configuration %}
@@ -40,10 +39,6 @@ username:
   type: string
 password:
   description: The account password.
-  required: true
-  type: string
-card_id:
-  description: The card id of your N26 credit card.
   required: true
   type: string
 {% endconfiguration %}
