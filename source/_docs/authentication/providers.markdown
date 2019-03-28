@@ -77,7 +77,70 @@ homeassistant:
         - fd00::/8
 ```
 
-If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `trusted_networks` was configured under `http` section.
+{% configuration %}
+trusted_networks:
+  description: A list of IP address or IP network you want to whitelisted. It accepts both IPv4 and IPv6 IP address or network
+  required: true
+  type: list of string
+trusted_users:
+  description: You can also assign which users are available to select when user access login page from certain IP address or network.
+  required: false
+  type: dictionary, string as key, list of string as value
+allow_bypass_login:
+  description: You can bypass login page if you have only one user available for selection.
+  required: false
+  default: False
+  type: boolean
+{% endconfiguration %}
+
+<p class='note'>
+If you don't specify any `auth_providers` section in the configuration.yaml file then this provider will be set up automatically.
+</p>
+
+#### {% linkable_title Trusted Users Examples %}
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
+        - 192.168.10.0/24
+        - fd00::/8
+      trusted_users:
+        192.168.0.1: user1_id
+        192.168.0.0/24:
+          - user1_id
+          - user2_id
+        fd00::/8: 
+          - user1_id
+          - group: system-users
+```
+
+First note, `trusted_users` configuration need you use `user id`, you can find it through Configuration -> Users -> View User Detail. The `trusted_users` configuration will not validate the existing of the user, so please make sure you have put in correct user id by yourself. 
+
+In above example, if user try to access Home Assistant from 192.168.0.1, they will have only one user available to choose. They will have two users available if access from 192.168.0.38 (from 192.168.0.0/24 network). If they access from 192.168.10.0/24 network, they can choose from all available users (non-system and active users).
+
+Specially, you can use `group: GROUP_ID` to assign all users in certain `user group` to be available to choose. Group and users can be mix and match.
+
+#### {% linkable_title Skip Login Page Examples %}
+
+This is a feature to allow you bring back some of the experience before the user system be implemented. You can directly jump to main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose in the login form. 
+
+```yaml
+# assuming you have only one non-system user
+homeassistant:
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
+        - 127.0.0.1
+        - ::1
+      allow_bypass_login: true
+    - type: homeassistant
+```
+
+Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). You will get a login abort error, then you can change to use HomeAsssitant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
 ### {% linkable_title Command Line %}
 
