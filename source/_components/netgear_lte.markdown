@@ -48,7 +48,6 @@ netgear_lte:
       monitored_conditions:
         - usage
         - sms
-
 ```
 
 {% configuration %}
@@ -102,3 +101,47 @@ If you do not supply `notify` configuration, a default notification service with
 The `netgear_lte` integration allows you to monitor your Netgear LTE modem.
 
 If you do not supply `sensor` configuration, a default set of sensors is created.
+
+## {% linkable_title Events %}
+
+### {% linkable_title Event `netgear_lte_sms` %}
+
+Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms` with the following content.
+
+| Event data attribute | Description                              |
+| -------------------- | ---------------------------------------- |
+| `host`               | The modem that received the message.
+| `sms_id`             | The inbox ID of the received message.
+| `from`               | The sender of the message.
+| `message`            | The SMS message content.
+
+## {% linkable_title Services %}
+
+### {% linkable_title Service `netgear_lte.delete_sms` %}
+
+The integration makes a service call available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host`                 | no       | The modem that should have a message deleted.
+| `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
+
+## {% linkable_title Examples %}
+
+The following automation example processes incoming SMS messages with the [Conversation](/components/conversation/) integration and then deletes the message from the inbox.
+
+```yaml
+automation:
+  - alias: SMS conversation
+    trigger:
+      - platform: event
+        event_type: netgear_lte_sms
+    action:
+      - service: conversation.process
+        data_template:
+          text: '{{ trigger.event.data.message }}'
+      - service: netgear_lte.delete_sms
+        data_template:
+          host: '{{ trigger.event.data.host }}'
+          sms_id: '{{ trigger.event.data.sms_id }}'
+```
