@@ -18,7 +18,7 @@ Streaming:
  - Google Assistant support, "Hey Google, show the baby room"
  - More supported platforms
 
-Finished the great migration. All built-in platforms are now in their own folder. If you still have platforms in your `custom_components/` directory in the old file format, like `light/hue.py`, update it. It will start breaking soon.
+Finished the great migration. All built-in platforms are now in their own folder. If you still have platforms in your `custom_components/` directory in the old file format, like `light/hue.py`, rename it to `hue/light.py`. It will not be supported in a future release.
 
 ESPHome Camera support
 
