@@ -45,6 +45,8 @@ Turn on "Disco lights":
 $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
 ```
 
+If the above two commands give errors about not having that device, you should try replacing the `/dev/serial/by-id/usb-0658_0200-if00` with `/dev/ttyACM0` or `/dev/ttyACM1` (depending on which tty your aeotec stick is addressed to).  
+
 ### {% linkable_title Razberry Board %}
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
@@ -297,6 +299,8 @@ Press circle and plus simultaneously to wake up the device.
 ### {% linkable_title Aeotec NanoMote Quad %}
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
+
+Once you've added the NanoMote to your z-wave network, you'll need to update your zwcfg*.xml file with the below xml data.  Stop Home Assistant and open your zwcfg*.xml file (located in your config folder).  Find the NanoMote device section and then its corresponding `CommandClass` section with id="91".  Replace the entire CommandClass section with the below xml data.  Save the file and restart Home Assistant.  
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
