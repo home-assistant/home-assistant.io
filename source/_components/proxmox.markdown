@@ -15,18 +15,6 @@ ha_iot_class: Local Polling
 
 This `proxmox` component allows getting various statistics from your [Proxmox VE](https://www.proxmox.com/en/proxmox-ve).
 
-This component adds sensors to monitor the following resources of Proxmox VE nodes and individual virtual machines/containers.
-* Memory Usage
-* CPU Usage
-* Disk Usage
-* Status
-* VCPU Count
-* Max. Memory in GB
-* Memory Used in GB
-* Uptime of the nodes
- 
-In addition, the `proxmox` component adds switches to on/off virtual machines/containers.
-
 ## {% linkable_title Configuration %}
 
 To use the `proxmox` component in your installation, add the following to your `configuration.yaml` file:
@@ -74,16 +62,6 @@ nodes:
   type: list
 vms:
   description: List of the VMIDs of virtual machines and containers to monitor.
-  required: false
-  default: all virtual machines and containers
-  type: list
-start_stop_all_vms:
-  description: Whether to create startup/shutdown switch elements for all the virtual machines and containers configured under `vms` above.
-  required: false
-  default: false
-  type: boolean
-start_stop_vms:
-  description: List of the VMIDs of virtual machines and containers that need to be controlled from Home Assistant. Switch elements will be created to Startup/Shutdown these virtual machines and containers. (Valid only if `start_stop_all_vms` is set to `false`)
   required: false
   default: all virtual machines and containers
   type: list
