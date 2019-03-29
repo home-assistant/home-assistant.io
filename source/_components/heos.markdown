@@ -11,9 +11,6 @@ logo: heos.png
 ha_category: Media Player
 ha_release: 0.92
 ha_iot_class: Local Push
-redirect_from:
-  - /components/heos.media_player/
-  - /components/media_player.heos/
 ---
 
 The Heos component integrates [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Dennon and Marantz) into Home Assistant. Features currently include:
