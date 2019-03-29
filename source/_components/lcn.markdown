@@ -138,11 +138,11 @@ binary_sensors:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     source:
-      description: "Sensor source ([BINSENSOR](/components/lcn#ports), [SETPOINT](/components/lcn#variables-and-units), [KEYS](/components/lcn#keys))."
+      description: "Sensor source ([BINSENSOR](#ports), [SETPOINT](#variables-and-units), [KEYS](#keys))."
       required: true
       type: string
 
@@ -156,19 +156,19 @@ climates:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     source:
-      description: "Current temperature source ([VARIABLE](/components/lcn#variables-and-units))."
+      description: "Current temperature source ([VARIABLE](#variables-and-units))."
       required: true
       type: string
     setpoint:
-      description: "Setpoint for target temperature ([VARIABLE](/components/lcn#variables-and-units), [SETPOINT](/components/lcn#variables-and-units))."
+      description: "Setpoint for target temperature ([VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units))."
       required: true
       type: string
     unit_of_measurement:
-      description: "Measurement unit ([VAR_UNIT](/components/lcn#variables-and-units))."
+      description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
       default: 'celsius'
@@ -198,11 +198,11 @@ covers:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     motor:
-      description: "Motor port ([MOTOR_PORT](/components/lcn#ports))."
+      description: "Motor port ([MOTOR_PORT](#ports))."
       required: true
       type: string
 
@@ -216,11 +216,11 @@ lights:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     output:
-      description: "Light source ([OUTPUT_PORT](/components/lcn#ports), [RELAY_PORT](/components/lcn#ports))."
+      description: "Light source ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
       required: true
       type: string
     dimmable:
@@ -244,15 +244,15 @@ sensors:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     source:
-      description: "Sensor source ([VARIABLE](/components/lcn#variables-and-units), [SETPOINT](/components/lcn#variables-and-units), [THRESHOLD](/components/lcn#variables-and-units), [S0_INPUT](/components/lcn#variables-and-units), [LED_PORT](/components/lcn#ports), [LOGICOP_PORT](/components/lcn#ports))."
+      description: "Sensor source ([VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units), [S0_INPUT](#variables-and-units), [LED_PORT](#ports), [LOGICOP_PORT](#ports))."
       required: true
       type: string
     unit_of_measurement:
-      description: "Measurement unit ([VAR_UNIT](/components/lcn#variables-and-units))."
+      description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
       default: 'native'
@@ -267,11 +267,11 @@ switches:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     output:
-      description: "Switch source ([OUTPUT_PORT](/components/lcn#ports), [RELAY_PORT](/components/lcn#ports))."
+      description: "Switch source ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
       required: true
       type: string
 {% endconfiguration %}
@@ -323,7 +323,7 @@ The platforms and service calls use several predefined constants as parameters.
 | LOGICOP_PORT | `logicop1`, `logicop2`, `logicop3`, `logicop4` |
 | BINSENSOR_PORT | `binsensor1`, `binsensor2`, `binsensor3`, `binsensor4`, `binsensor5`, `binsensor6`, `binsensor7`, `binsensor8` |
 
-The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay configuration will be used:
+The [MOTOR_PORT](#ports) values specify which hardware relay configuration will be used:
 
 | Motor    | Relay on/off | Relay up/down |
 | :------: | :----------: | :-----------: |
@@ -374,7 +374,7 @@ You need to specify at least the variable for the current temperature and a setp
 If the control is set lockable, the regulator can be turned on/off. 
 
 <p class='note'>
-If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](/components/climate.generic_thermostat) in conjuction with [LCN Sensor](/components/sensor.lcn) and [LCN Switch](/components/switch.lcn).
+If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](climate.generic_thermostat) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
 </p>
 
 ### {% linkable_title Cover %}
