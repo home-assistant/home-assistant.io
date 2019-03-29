@@ -98,7 +98,19 @@ authorization, discard the download. It is not needed.
 The sources are based on if you have streamed to these devices before in
 Spotify. If you don't have any sources, then simply stream from your phone to
 another device in your house: Bluetooth, echo, etc. Once you do, the sources will
-show up in the developer console as a device to cast/stream to. The devices won't show up in the dev-console as sources unless they are powered on as well.
+show up in the Spotify developer console as a device to cast/stream to. 
+Go to https://developer.spotify.com and login. Click on "Console" in top menu and then "Player" in the left menu. Select 	"/v1/me/player/devices" in the list. Then click "Get token", accept the terms and click "Try it". Your active Spotify devices will then be listed in the right panel, beneath the curl-line (for example, "name": "Web Player (Chrome)").  
+These names can then be used in for example an input selector:
+
+```yaml
+  spotify_source:
+    name: 'Source:'
+    options:
+      - Spotifyd@rock64
+      - Web Player (Chrome)
+```
+
+The devices won't show up in the dev-console as sources unless they are powered on as well.
 
 ## {% linkable_title URI Links For Playlists/Etc. %}
 You can send playlists to spotify via the `"media_content_type": "playlist"` and something like (depending on your content ID)
