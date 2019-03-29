@@ -141,6 +141,11 @@ entities:
       required: false
       type: boolean
       default: true
+    max_results:
+      description: "Max number of entries to retrieve"
+      required: false
+      type: int
+      default: 5
 {% endconfiguration %}
 
 From this we will end up with the binary sensors `calendar.test_unimportant` and
