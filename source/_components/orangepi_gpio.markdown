@@ -197,7 +197,7 @@ As this platform supports different types of GPIO pinouts for difference Orange 
 ## {% linkable_title Additional steps %}
 This component uses the `SYSFS` filesystem to get control of the GPIOs. Therefore an operatings system with `CONFIG_GPIO_SYSFS` is required. As far as I know, most out-of-the-box distributions still enable this by default.
 
-As of Linux 4.6 sysfs-gpio is marked as obsolete. However as of today, the alternative GPIO character device is not widely used. Therefore we will use this until the new character device is more widely supported.
+As of Linux 4.8 sysfs-gpio is marked as obsolete. However as of today, the alternative GPIO character device is not widely used. Therefore we will use this until the new character device is more widely supported.
 
 Normally the `/sys/class/gpio` path is owned by root, so Home Assistant does not have access. As we don't want to run Home Assistant as root, we will add the group `gpio` to have control over this path. I will assume you added the `homeassistant` user already to the `gpio` group as recommended in the [Manual installation guide](/docs/installation/raspberry-pi/)
 
