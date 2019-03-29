@@ -54,12 +54,12 @@ state_on:
   description: The payload that represents the on state.
   required: false
   type: string
-  default: payload_on if defined, otherwise "ON"
+  default: "payload_on" if defined, otherwise "ON"
 state_off:
   description: The payload that represents the off state.
   required: false
   type: string
-  default: payload_off if defined, otherwise "OFF"
+  default: "payload_off" if defined, otherwise "OFF"
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
