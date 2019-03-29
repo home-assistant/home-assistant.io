@@ -30,6 +30,7 @@ With this setup sending and receiving commands to and from LCN modules is possib
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary_sensor)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
 - [Sensor](#sensor)
@@ -55,6 +56,16 @@ lcn:
       address: myhome.s0.m7
       source: binsensor1
 
+  climates:
+    - name: Temperature bedroom
+      address: myhome.s0.m7
+      source: var1
+      setpoint: r1varsetpoint
+      min_temp: 17.
+      max_temp: 30.
+      lockable: true
+      unit_of_measurement: °C
+
   covers:
     - name: Living room cover
       address: myhome.s0.m7
@@ -71,7 +82,7 @@ lcn:
     - name: Temperature
       address: myhome.s0.m7
       source: var3
-      unit_of_measuremnt: °C
+      unit_of_measurement: °C
   
   switches:
     - name: Sprinkler switch
@@ -134,6 +145,48 @@ binary_sensors:
       description: "Sensor source ([BINSENSOR](/components/lcn#ports), [SETPOINT](/components/lcn#variables-and-units), [KEYS](/components/lcn#keys))."
       required: true
       type: string
+
+climates:
+  description: List of your climate devices.
+  required: false
+  type: map
+  keys:
+    name:
+      description: "Name of the climate controller."
+      required: true
+      type: string
+    address:
+      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    source:
+      description: "Current temperature source ([VARIABLE](/components/lcn#variables-and-units))."
+      required: true
+      type: string
+    setpoint:
+      description: "Setpoint for target temperature ([VARIABLE](/components/lcn#variables-and-units), [SETPOINT](/components/lcn#variables-and-units))."
+      required: true
+      type: string
+    unit_of_measurement:
+      description: "Measurement unit ([VAR_UNIT](/components/lcn#variables-and-units))."
+      required: false
+      type: string
+      default: 'celsius'
+    min_temp:
+      description: "Minimum target temperature."
+      required: false
+      type: float
+      default: 7.
+    max_temp:
+      description: "Maximum target temperature."
+      required: false
+      type: float
+      default: 35.
+    lockable:
+      description: "Climate control can be locked."
+      required: false
+      type: bool
+      default: false
 
 covers:
   description: List of your covers.
@@ -231,7 +284,7 @@ Modules can be arranged in _segments_. Segments can be addressed by their numeri
 
 LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
 
-The LCN component allow the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
+The LCN component allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
 
 Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
 
@@ -312,6 +365,17 @@ The `lcn` binary sensor platform allows the monitoring of the following [LCN](ht
 - Lock state of keys
 
 The binary sensor can be used in automation scripts or in conjunction with `template` platforms.
+
+### {% linkable_title Climate %}
+
+The `lcn` climate platform allows the control of the [LCN](http://www.lcn.eu) climate regulators.
+This platform depends on the correct configuration of the module's regulators which has to be done in the LCN-PRO programming software.
+You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature. 
+If the control is set lockable, the regulator can be turned on/off. 
+
+<p class='note'>
+If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](/components/climate.generic_thermostat) in conjuction with [LCN Sensor](/components/sensor.lcn) and [LCN Switch](/components/switch.lcn).
+</p>
 
 ### {% linkable_title Cover %}
 
