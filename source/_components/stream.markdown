@@ -26,6 +26,53 @@ To enable this component, add the following lines to your `configuration.yaml` f
 stream:
 ```
 
+## {% linkable_title FFMpeg %}
+
+The `stream` component needs FFMpeg 3.2 or better.
+
+### Ubuntu >= 18.04 LTS
+On Ubuntu 18.04 LTS everything can come from the default sources:
+
+```
+# General dependencies
+sudo apt-get install -y python-dev pkg-config
+
+# Library components
+sudo apt-get install -y \
+    libavformat-dev libavcodec-dev libavdevice-dev \
+    libavutil-dev libswscale-dev libswresample-dev libavfilter-dev
+```
+
+### Ubuntu < 18.04 LTS
+On older Ubuntu releases you will be unable to satisfy these requirements with the default package sources. We recommend compiling and installing FFmpeg from source. For FFmpeg:
+
+```
+sudo apt install \
+    autoconf \
+    automake \
+    build-essential \
+    cmake \
+    libass-dev \
+    libfreetype6-dev \
+    libjpeg-dev \
+    libtheora-dev \
+    libtool \
+    libvorbis-dev \
+    libx264-dev \
+    pkg-config \
+    wget \
+    yasm \
+    zlib1g-dev
+
+wget http://ffmpeg.org/releases/ffmpeg-3.2.tar.bz2
+tar -xjf ffmpeg-3.2.tar.bz2
+cd ffmpeg-3.2
+
+./configure --disable-static --enable-shared --disable-doc
+make
+sudo make install
+```
+
 ## {% linkable_title Troubleshooting %}
 
 Some users on manual installs may see the following error in their logs after restarting:
