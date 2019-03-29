@@ -144,7 +144,7 @@ entities:
     max_results:
       description: "Max number of entries to retrieve"
       required: false
-      type: string
+      type: int
       default: 5
 {% endconfiguration %}
 
