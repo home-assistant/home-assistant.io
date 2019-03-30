@@ -31,9 +31,7 @@ Let's say, for example, that you have 3 trackers: 'tracker_gps', 'tracker_router
 
 TL;DR: When you're at home, your position is determined first by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined firstly by GPS and then by stationary trackers.
 
-
 **Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible see [device_tracker](https://www.home-assistant.io/components/device_tracker/#configuring-a-device_tracker-platform)).
-
 
 You can manage persons via the UI from the person page inside the configuration panel or via `YAML` in your `configuration.yaml` file.
 
@@ -76,7 +74,6 @@ person:
     required: false
     type: list, string
 {% endconfiguration %}
-
 
 An extended example would look like the following sample:
 
