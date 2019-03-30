@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: neurio.png
 ha_category: Energy
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.14
 ---
 
@@ -26,6 +26,7 @@ sensor:
 ```
 
 Two sensors will be created with the following names:
+
 - **Energy Usage**: Current active power usage in Watts. Updated every 10 seconds.
 - **Daily Energy Usage**: Daily power usage in kWh.  Updated every 2.5 minutes.
 

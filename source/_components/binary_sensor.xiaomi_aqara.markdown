@@ -10,7 +10,7 @@ footer: true
 logo: xiaomi.png
 ha_category: Binary Sensor
 ha_release: "0.50"
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `xiaomi aqara` binary sensor platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) binary sensors.
@@ -23,8 +23,8 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
 | Motion Sensor (1st gen) | motion | RTCGQ01LM | on, off | `xiaomi_aqara.motion` | | |
 | Motion Sensor (2nd gen) | sensor_motion.aq2 | RTCGQ11LM | on, off | `xiaomi_aqara.motion` | | |
-| Door and Window Sensor (1st gen) | magnet | WSDCGQ01LM | on, off | | | |
-| Door and Window Sensor (2nd gen) | sensor_magnet.aq2 | MCCGQ11LM | on, off | | | |
+| Xiaomi Door and Window Sensor (1st gen) | magnet | MCCGQ01LM | on, off | | | |
+| Aqara Door and Window Sensor (2nd gen) | sensor_magnet.aq2 | MCCGQ11LM | on, off | | | |
 | Smoke Detector | smoke | JTYJ-GD-01LM/BW | on, off | | | |
 | Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
 | Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |

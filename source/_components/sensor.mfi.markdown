@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: ubiquiti.png
 ha_category: Network
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.32
 ---
-
 
 The `mfi` sensor platform to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
 
@@ -35,7 +34,7 @@ host:
   required: true
   type: string
 port:
-  description: The port of your mFi controller. 
+  description: The port of your mFi controller.
   required: false
   default: 6080 (6443 for TLS)
   type: integer

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7
 ---
 
 The `notify` component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.

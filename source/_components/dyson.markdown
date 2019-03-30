@@ -14,7 +14,7 @@ ha_category:
   - Fan
   - Sensor
   - Vacuum
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.47
 redirect_from:
   - /components/vacuum.dyson/

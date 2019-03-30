@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: train.png
 ha_category: Transport
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.17
 ---
 
@@ -69,4 +69,9 @@ offset:
   required: false
   default: 0
   type: [integer, time]
+include_tomorrow:
+  description: Also search through tomorrow's schedule if no more departures are set for today.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}

@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: clementine.png
 ha_category: Media Player
-ha_iot_class: "Local Poll"
-ha_release: "0.39"
-ha_iot_class: "Local Polling"
+ha_release: 0.39
+ha_iot_class: Local Polling
 ---
 
 The `clementine` platform allows you to control a [Clementine Music Player](https://www.clementine-player.org).

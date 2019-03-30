@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: lg.png
 ha_category: Media Player
-ha_iot_class: "Local Poll"
+ha_iot_class: Local Polling
 ha_release: "0.20"
-ha_iot_class: "Local Polling"
 ---
 
 The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/components/media_player.webostv) platform.

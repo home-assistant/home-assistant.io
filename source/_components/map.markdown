@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: "Other"
 ha_qa_scale: internal
+ha_release: 0.56
 ---
 
 This offers a map on the frontend to display the location of tracked devices. To set up tracked devices, look at the [device tracker](/components/device_tracker/) documentation.

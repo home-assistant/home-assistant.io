@@ -12,8 +12,8 @@ ha_category:
   - Hub
   - Presence Detection
   - Switch
-ha_release: "0.81"
-ha_iot_class: "Local Polling"
+ha_release: 0.81
+ha_iot_class: Local Polling
 redirect_from:
   - /components/device_tracker.unifi/
   - /components/switch.unifi/
@@ -134,10 +134,9 @@ To obtain this value for your configuration file, you can take it from the URL o
 
 For example, this is what would be seen in the URL bar when inside the dashboard page of a site:
 
-* https://127.0.0.1:8443/manage/s/ceb1m27d/dashboard
+`https://127.0.0.1:8443/manage/s/ceb1m27d/dashboard`
 
-And your `site_id` value would be ceb1m27d.
-
+And your `site_id` value would be `ceb1m27d`.
 
 ### {% linkable_title Troubleshooting and Time Synchronization %}
 
@@ -152,52 +151,53 @@ If Home Assistant and the Unifi controller are running on separate machines or V
 The Unifi controller returns a number of additional attributes that can be used for tracking devices, including signal strength, rx/tx rates, and which AP it is connected to. The list of possible options may vary depending on your Unifi controller version and if a device is wired or wireless.
 
 Unifi Controller version 5.6.29 has the following options:
-  - _id
-  - _is_guest_by_uap
-  - _last_seen_by_uap
-  - _uptime_by_uap
-  - ap_mac
-  - assoc_time
-  - authorized
-  - bssid
-  - bytes-r
-  - ccq
-  - channel
-  - essid
-  - first_seen
-  - hostname
-  - idletime
-  - ip
-  - is_11r
-  - is_guest
-  - is_wired
-  - last_seen
-  - latest_assoc_time
-  - mac
-  - name
-  - noise
-  - noted
-  - oui
-  - powersave_enabled
-  - qos_policy_applied
-  - radio
-  - radio_proto
-  - rssi
-  - rx_bytes
-  - rx_bytes-r
-  - rx_packets
-  - rx_rate
-  - signal
-  - site_id
-  - tx_bytes
-  - tx_bytes-r
-  - tx_packets
-  - tx_power
-  - tx_rate
-  - uptime
-  - user_id
-  - usergroup_id
-  - vlan
+
+- _id
+- _is_guest_by_uap
+- _last_seen_by_uap
+- _uptime_by_uap
+- ap_mac
+- assoc_time
+- authorized
+- bssid
+- bytes-r
+- ccq
+- channel
+- essid
+- first_seen
+- hostname
+- idletime
+- ip
+- is_11r
+- is_guest
+- is_wired
+- last_seen
+- latest_assoc_time
+- mac
+- name
+- noise
+- noted
+- oui
+- powersave_enabled
+- qos_policy_applied
+- radio
+- radio_proto
+- rssi
+- rx_bytes
+- rx_bytes-r
+- rx_packets
+- rx_rate
+- signal
+- site_id
+- tx_bytes
+- tx_bytes-r
+- tx_packets
+- tx_power
+- tx_rate
+- uptime
+- user_id
+- usergroup_id
+- vlan
 
 ## {% linkable_title Switch %}
 

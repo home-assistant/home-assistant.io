@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: wsdot.png
 ha_category: Transport
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.37
 ---
 

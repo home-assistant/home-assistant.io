@@ -54,11 +54,11 @@ netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 
 netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
 ```
 
-This will let you access your Home Assistant portal from http://localhost:8123, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.
+This will let you access your Home Assistant portal from <http://localhost:8123>, and if you forward port 8123 on your router to your machine IP, the traffic will be forwarded on through to the docker container.
 
 ### {% linkable_title Synology NAS %}
 
-As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see https://www.synology.com/en-us/dsm/app_packages/Docker
+As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/app_packages/Docker>
 
 The steps would be:
 * Install "Docker" package on your Synology NAS
@@ -114,7 +114,7 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 * Right-click on it and select "Action"->"Restart".
 
 <p class='note'>
-If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne. 
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided <a href="https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/">here</a> by Phil Hawthorne. 
 </p>
 
 ### {% linkable_title QNAP NAS %}

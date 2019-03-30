@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: network-snmp.png
 ha_category: System Monitor
-ha_iot_class: "Local Polling"
-ha_release: "0.22"
+ha_iot_class: Local Polling
+ha_release: 0.22
 ---
 
 The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems, and printers.

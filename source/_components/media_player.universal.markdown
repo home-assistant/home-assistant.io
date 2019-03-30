@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Media Player
 ha_qa_scale: internal
+ha_release: 0.11
 ---
 
 Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.

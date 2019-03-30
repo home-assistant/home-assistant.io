@@ -69,3 +69,15 @@ You'll need to forward the port you listed in your configuration (8123 in the ex
 Ensure that you allocate the Home Assistant system a fixed IP on your network before you configure port forwarding. You can do this either on the computer itself (see the [install guide](/hassio/installation/) or via a static lease on your router.
 
 Restart Home Assistant for the configured changes to take effect. When you access the Home Assistant frontend you will now need to use `https`, even when accessing local instances, for example at `https://192.168.0.1:8123`.
+
+## {% linkable_title Generate Let's Encrypt certificate for Duck DNS sub sub domains  %}
+
+To generate certificates for nr.my-domain.duckdns.org update the domain JSON settings to:
+
+```json
+{
+  ...
+  "domains": ["my-domain.duckdns.org","*.my-domain.duckdns.org"],
+  ...
+}
+```

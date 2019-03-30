@@ -10,7 +10,7 @@ footer: true
 logo: locative.png
 ha_category: Presence Detection
 ha_release: 0.86
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/device_tracker.locative/
 ---

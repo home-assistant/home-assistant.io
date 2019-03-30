@@ -12,7 +12,7 @@ ha_category:
   - Downloading
   - Sensor
 ha_release: 0.70
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/sensor.sabnzbd/
 ---
@@ -104,7 +104,7 @@ sabnzbd:
     - total_size
 ```
 
-This will attempt to access your SABnzbd instance at https://192.168.1.32:9090 and will create sensors named 
+This will attempt to access your SABnzbd instance at https://192.168.1.32:9090 and will create sensors named
 `sensor.sab_status`, `sensor.sab_speed`, etc.
 
 ## {% linkable_title Services %}

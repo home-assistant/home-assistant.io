@@ -7,9 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor 
+ha_category: Sensor
 ha_release: 0.87
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: energy_meter.png
 ha_qa_scale: internal
 ---
@@ -137,7 +137,7 @@ Assuming your energy provider tariffs are time based according to:
 a time based automation can be used:
 
 ```yaml
-automation:  
+automation:
   trigger:
     - platform: time
       at: '09:00:00'

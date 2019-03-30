@@ -10,7 +10,7 @@ footer: true
 logo: zamg.png
 ha_category: Weather
 ha_release: 0.39
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).

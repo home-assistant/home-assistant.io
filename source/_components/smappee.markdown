@@ -8,13 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: smappee.png
-ha_release: "0.64"
+ha_release: 0.64
 ha_category:
   - Hub
   - Energy
   - Sensor
   - Switch
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/sensor.smappee/
   - /components/switch.smappee/

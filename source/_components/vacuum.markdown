@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.51
 ---
 
 The `vacuum` component enables the ability to control home cleaning robots within Home Assistant.

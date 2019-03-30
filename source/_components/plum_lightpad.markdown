@@ -8,8 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Switch
-ha_iot_class: "Local Push"
-featured: false
+ha_iot_class: Local Push
 logo: plum.png
 ha_release: 0.85
 redirect_from:

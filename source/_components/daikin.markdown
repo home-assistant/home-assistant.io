@@ -11,8 +11,10 @@ logo: daikin.png
 ha_category:
   - Climate
   - Sensor
+  - Switch
 ha_release: 0.59
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
+ha_qa_scale: platinum
 redirect_from:
   - /components/climate.daikin/
   - /components/sensor.daikin/
@@ -24,13 +26,12 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 ## {% linkable_title Supported hardware %}
 
-**Only** the European versions of Daikin AC (models BRP069A41, 42, 43, 45).
-
-Some models do not support setting of fan speed or fan swing mode.
-
+This component supports the European versions of Daikin AC (BRP069A[41,42,43,45]) and AU AirBase units (BRP15B61).
+Some models do not support setting of fan speed or fan swing mode althogh it might show up in Home Assistant.
 Please note that some AC devices may report outside temperature only when they are turned on.
 
 ## {% linkable_title Configuration %}
@@ -69,3 +70,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 
 - Inside temperature
 - Outside temperature
+
+## {% linkable_title Switch %}
+
+Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.

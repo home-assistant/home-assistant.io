@@ -10,7 +10,7 @@ footer: true
 logo: monoprice.svg
 ha_category: Media Player
 ha_release: 0.68
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `blackbird` platform allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) using a serial connection.
@@ -26,12 +26,12 @@ media_player:
       1:
         name: Living Room
     sources:
-      3: 
+      3:
         name: BluRay
 ```
 
 {% configuration %}
-port: 
+port:
   description: The serial port to which Blackbird matrix switch is connected. [`port`](#port) and [`host`](#host) cannot be specified concurrently.
   required: exclusive
   type: string
@@ -57,7 +57,7 @@ sources:
 
 ### {% linkable_title Service `media_player.blackbird_set_all_zones` %}
 
-Set all zones to the same input source. This service allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated. 
+Set all zones to the same input source. This service allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

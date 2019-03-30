@@ -10,7 +10,7 @@ footer: true
 logo: command_line.png
 ha_category: Switch
 ha_release: pre 0.7
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `command_line` switch platform issues specific commands when it is turned on

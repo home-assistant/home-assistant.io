@@ -15,8 +15,8 @@ ha_category:
   - Camera
   - Sensor
 ha_release: "0.40"
-ha_iot_class: "Cloud Polling"
-redirect_form:
+ha_iot_class: Cloud Polling
+redirect_from:
   - /components/alarm_control_panel.blink/
   - /components/binary_sensor.blink/
   - /components/camera.blink/

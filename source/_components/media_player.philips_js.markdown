@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: philips.png
 ha_category: Media Player
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.34
 ---
 
@@ -51,7 +51,7 @@ When using api_version: 5 changing sources switches tv channels. Additionally th
 </p>
 
 ```yaml
-# Example configuration.yaml with turn_on_action        
+# Example configuration.yaml with turn_on_action
 media_player:
   - platform: philips_js
     host: 192.168.1.99

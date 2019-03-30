@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: dark_sky.png
 ha_category: Weather
-featured: false
 ha_release: "0.30"
 redirect_from: /components/sensor.forecast/
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
@@ -36,6 +35,9 @@ sensor:
     api_key: YOUR_API_KEY
     forecast:
       - 0
+    hourly_forecast:
+      - 0
+      - 1
     monitored_conditions:
       - summary
       - icon
@@ -53,7 +55,11 @@ name:
   default: Dark Sky
   type: string
 forecast:
-  description: List of days in the 7-day forecast you would like to receive data on, starting with today as day 0 and ending with day 7. Any condition from `monitored_conditions` with a daily forecast by Dark Sky will generate a sensor with entity_id `<condition>_<day>`.
+  description: List of days in the 7-day forecast you would like to receive data on, starting with today as day 0 and ending with day 7. Any condition from `monitored_conditions` with a daily forecast by Dark Sky will generate a sensor with entity_id `<condition>_<day>d`.
+  required: false
+  type: list
+hourly_forecast:
+  description: List of hours in the 48-hour forecast you would like to receive data on, starting with this hour as hour 0 and ending with hour 48. Any condition from `monitored_conditions` with an hourly forecast by Dark Sky will generate a sensor with entity_id `<condition>_<hour>h`.
   required: false
   type: list
 language:
@@ -218,3 +224,4 @@ While the platform is called "darksky" the sensors will show up in Home Assistan
 More details about the API are available in the [Dark Sky API documentation][].
 
 [Dark Sky API documentation]: https://darksky.net/dev/docs
+

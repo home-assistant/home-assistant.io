@@ -12,7 +12,7 @@ ha_category:
   - Energy
   - Binary Sensor
   - Sensor
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.82
 redirect_from:
   - /components/sensor.sense/

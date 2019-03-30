@@ -13,8 +13,8 @@ ha_category:
   - Presence Detection
   - Sensor
   - Switch
-ha_release: "0.85"
-ha_iot_class: "Local Polling"
+ha_release: 0.85
+ha_iot_class: Local Polling
 redirect_from:
   - /components/device_tracker.freebox/
   - /components/sensor.freebox/

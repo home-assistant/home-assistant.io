@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: mpchc.png
 ha_category: Media Player
-featured: false
 ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 

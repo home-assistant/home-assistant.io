@@ -12,7 +12,7 @@ ha_category:
   - Hub
   - Media Player
   - Remote
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.86
 redirect_from:
   - /components/remote.roku/

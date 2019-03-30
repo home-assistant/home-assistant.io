@@ -8,10 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: foursquare.png
-featured: false
 ha_category: Social
 ha_release: 0.26
-ha_iot_class: "Cloud Polling and Cloud Push"
+ha_iot_class: Cloud Polling and Cloud Push
 ---
 
 The `foursquare` component accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
@@ -37,14 +36,14 @@ push_secret:
 #### Getting the access token ####
 
 After you have registered your APP on your [My Apps Page](https://foursquare.com/developers/apps) you get a `CLIENT_ID` and you have specified a
-`REDIRECT_URL` which can be any URL you like, but since it will get your access token via an HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant. 
+`REDIRECT_URL` which can be any URL you like, but since it will get your access token via an HTTP GET request, it should be a URL which will ignore the `access_token` HTTP GET variable. A good idea is to choose the URL of your Home Assistant.
 Visit the following URL in your browser:
 
 ```
 https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=token&redirect_uri=YOUR_REGISTERED_REDIRECT_URI
 ```
 
-and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values. 
+and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values.
 You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say "Yes".
 After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your configuration.yaml as the `access_token`.
 

@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: panasonic.png
 ha_category: Media Player
-featured: false
 ha_release: 0.17
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `panasonic_viera` platform allows you to control a Panasonic Viera TV.
@@ -31,6 +30,7 @@ Currently known supported models:
 - TX-P50GT60E
 - TH-32ES500
 - TX-42AS650
+- TX55ASW654
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/media_player.panasonic_viera.markdown).
 
@@ -59,6 +59,11 @@ mac:
   description: The MAC address of your Panasonic Viera TV, e.g., `AA:BB:CC:DD:99:1A`.
   required: false
   type: string
+app_power:
+  description: Set to `true` if your Panasonic Viera TV supports "Turn on via App".
+  required: false
+  default: false
+  type: boolean
 name:
   description: The name you would like to give to the Panasonic Viera TV.
   required: false

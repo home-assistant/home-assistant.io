@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Lock
 ha_release: 0.15
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
 
 The `mqtt` lock platform lets you control your MQTT enabled locks.

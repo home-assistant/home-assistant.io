@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: false
 ---
 
 <p class='note'>
@@ -79,7 +78,7 @@ Use this in your `automations.yaml` to attempt certificate renewal each day at m
       addon: core_letsencrypt
 ```
 
-If you are using the [Nginx Proxy add-on] you will need need to stop this during the renewal process. This can be achieved by stopping the add-on whilst restarting the Let's Encrypt add-on. This can be achieved the following configuration: 
+If you are using the [Nginx Proxy add-on] you will need need to stop this during the renewal process. This can be achieved by stopping the add-on whilst restarting the Let's Encrypt add-on. This can be achieved the following configuration:
 
 ```yaml
 - id: letsencrypt-renewal

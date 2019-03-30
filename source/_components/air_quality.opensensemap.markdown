@@ -10,7 +10,7 @@ footer: true
 logo: opensensemap.png
 ha_category: Health
 ha_release: 0.85
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from: /components/air_pollutants.opensensemap/
 ---
 

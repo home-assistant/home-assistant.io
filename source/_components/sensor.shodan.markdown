@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Sensor
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 logo: shodan.png
 ha_release: 0.51
 ---

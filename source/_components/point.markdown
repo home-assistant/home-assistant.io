@@ -13,10 +13,9 @@ ha_category:
   - Alarm
   - Binary Sensor
   - Sensor
-featured: false
-ha_release: "0.83"
+ha_release: 0.83
 ha_config_flow: true
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_qa_scale: gold
 redirect_from:
   - /components/binary_sensor.point/
@@ -61,7 +60,7 @@ The integration supports the following device types within Home Assistant:
   - [Sensor](#sensor)
 
 <p class='note'>
-The Point is just active occasionally so the [Sensors](#sensor) are only updated every hour or so. The [Binary Sensors](#binary-sensor) are however updated via [Cloud Push](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant. 
+The Point is just active occasionally so the [Sensors](#sensor) are only updated every hour or so. The [Binary Sensors](#binary-sensor) are however updated via [Cloud Push](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
 </p>
 
 ## {% linkable_title Alarm %}
@@ -69,7 +68,7 @@ The Point is just active occasionally so the [Sensors](#sensor) are only updated
 Each home configured in the Point mobile application will show up as a separate alarm control panel. The panels allow **arming** and **disarming** of the Point home alarm system.
 
 <p class="note">
-The Point only supports a Arm/Disarm action, so there is no difference between `Arm Home` and `Arm Away`.
+The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implememented.
 </p>
 
 ## {% linkable_title Binary Sensor %}
@@ -84,12 +83,11 @@ Each Point exposes the following binary sensors:
 - **heat**: `On` means hot, `Off` means normal
 - **light**: `On` means light detected, `Off` means no light
 - **moisture**: `On` means moisture detected (wet), `Off` means no moisture (dry)
-- **motion**: `On` means motion detected, `Off` means no motion (clear)
 - **sound**: `On` means sound detected, `Off` means no sound (clear)
 - **tamper**: `On` means the point was removed or attached, `Off` means normal
 
 <p class="note">
-The binary sensors **battery**, **button_press** and **tamper** are switched `On` for a breif moment and are then switched back to `Off`.
+The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a breif moment and are then switched back to `Off`.
 </p>
 
 ### {% linkable_title Automation example %}

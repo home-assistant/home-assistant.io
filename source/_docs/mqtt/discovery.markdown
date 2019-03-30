@@ -98,6 +98,7 @@ Supported abbreviations:
     'cln_tpl':             'cleaning_template',
     'cmd_t':               'command_topic',
     'curr_temp_t':         'current_temperature_topic',
+    'dev':                 'device',
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
     'dock_tpl':            'docked_template',
@@ -121,6 +122,7 @@ Supported abbreviations:
     'ic':                  'icon',
     'init':                'initial',
     'json_attr':           'json_attributes',
+    'json_attr_t':         'json_attributes_topic',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
     'mode_cmd_t':          'mode_command_topic',
@@ -189,11 +191,22 @@ Supported abbreviations:
     'unit_of_meas':        'unit_of_measurement',
     'val_tpl':             'value_template',
     'whit_val_cmd_t':      'white_value_command_topic',
+    'whit_val_scl':        'white_value_scale',
     'whit_val_stat_t':     'white_value_state_topic',
     'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
     'xy_stat_t':           'xy_state_topic',
     'xy_val_tpl':          'xy_value_template',
+```
+
+Supported abbreviations for device registry configuration:
+```
+    'cns':                 'connections',
+    'ids':                 'identifiers',
+    'name':                'name',
+    'mf':                  'manufacturer',
+    'mdl':                 'model',
+    'sw':                  'sw_version',
 ```
 
 ### {% linkable_title Support by third-party tools %}
@@ -251,9 +264,9 @@ $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "sensor", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
 Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
@@ -261,7 +274,7 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", , "stat_t": "~/state"}`
+- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
 
 Setting up a climate component (heat only) with abbreviated configuration variable names to reduce payload length.
 

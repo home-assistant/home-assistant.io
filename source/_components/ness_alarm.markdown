@@ -12,7 +12,7 @@ ha_category:
   - Alarm
   - Binary Sensor
 ha_release: 0.85
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/alarm_control_panel.ness_alarm/
   - /components/binary_sensor.ness_alarm/
@@ -64,6 +64,11 @@ scan_interval:
   required: false
   default: '00:01:00'
   type: time
+infer_arming_state:
+  description: Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed.
+  required: false
+  default: false
+  type: boolean
 zones:
   description: List of zones to add
   required: false

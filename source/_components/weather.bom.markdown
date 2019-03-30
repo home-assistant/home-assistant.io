@@ -10,7 +10,7 @@ footer: true
 logo: bom.png
 ha_category: Weather
 ha_release: 0.36
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `bom` weather platform uses the [Australian Bureau of Meteorology (BOM)](http://www.bom.gov.au) as a source for current (half-hourly) meteorological data.
