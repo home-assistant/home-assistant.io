@@ -80,4 +80,4 @@ The `toon` climate platform allows you to interact with your Toon thermostat. Fo
 
 It also supports setting the temperature manually.
 
-The Toon API is polled at a 30-second interval, so the status is relatively fresh without overloading the API.
+The Toon API is polled at a 300-second interval, so the status is relatively fresh without overloading the API.
