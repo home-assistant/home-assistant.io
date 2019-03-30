@@ -16,6 +16,7 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+  - Climate
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 redirect_from:
@@ -37,6 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor (Thermometers, Hygrometers and Mouse detectors)
 - Lock
 - Binary Sensor (Door & Window)
+- Climate (HeatPumps)
 
 ## {% linkable_title Configuration %}
 
@@ -87,6 +89,11 @@ thermometers:
   required: false
   type: boolean
   default: true
+climate:
+  description: Set to `true` to show climate, `false` to disable.
+  required: false
+  type: boolean
+  default: true  
 mouse:
   description: Set to `true` to show mouse detectors, `false` to disable.
   required: false
