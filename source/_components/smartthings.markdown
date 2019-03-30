@@ -62,7 +62,7 @@ The SmartThings integration utilizes a webhook to receive push updates from the 
 
 ### {% linkable_title Cloudhook via Nabu Casa %}
 
-If you are using Home Assistant Cloud (Nabu Casa) the integraiton will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the component prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
+If you are using Home Assistant Cloud (Nabu Casa) the integration will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the component prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant Cloud is configured and logged-in with a non-expired subscription.
