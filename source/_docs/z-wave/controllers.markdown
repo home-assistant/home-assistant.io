@@ -39,7 +39,7 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 
 ### {% linkable_title Aeotec Stick %}
 
-By default this will turn on "disco lights", which you can turn off by following the instructions in the [device specific page](/docs/z-wave/device-specific/#aeon-z-stick)
+By default this will turn on "disco lights", which you can turn off by following the instructions in the [device specific page](/docs/z-wave/device-specific/#aeotec-z-stick)
 
 ### {% linkable_title Razberry Board %}
 

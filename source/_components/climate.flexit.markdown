@@ -10,7 +10,7 @@ footer: true
 logo: flexit.png
 ha_category: Climate
 ha_release: 0.47
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Air Conditioning unit into Home Assistant.
@@ -34,6 +34,11 @@ slave:
 name:
   description: Displayed name of the A/C unit.
   required: false
+  type: string
+hub:
+  description: The name of the hub where this slave is located.
+  required: false
+  default: default
   type: string
 {% endconfiguration %}
 

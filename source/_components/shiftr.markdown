@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: shiftr.png
 ha_category: "History"
-featured: false
 ha_release: 0.48
 ---
 

@@ -10,7 +10,7 @@ footer: true
 logo: sensibo.png
 ha_category: Climate
 ha_release: 0.44
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 Integrates [Sensibo](https://sensibo.com) Air Conditioning controller into Home Assistant.
@@ -36,8 +36,8 @@ id:
 {% endconfiguration %}
 
 <p class="note">
-If you create the API key using a dedicated user (and not your main user), 
-then in the Sensibo app log you will be able to distinguish between actions 
+If you create the API key using a dedicated user (and not your main user),
+then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
 </p>
 

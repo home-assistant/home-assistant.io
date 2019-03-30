@@ -31,6 +31,7 @@ Have you found an issue in your Home Assistant installation? Please report it. R
 
 ### {% linkable_title Videos, talks, workshops and alike %}
 
+- [PyconFR 2018 - Faire de la domotique libriste avec Python](https://www.youtube.com/watch?v=Eu6umBJ51I4) (French) ([Slides](https://hackmd.io/p/BJTSyDkqm)) - October 2018
 - [Build your own smart home with Home Assistant](https://zmonkey.org/blog/files/Home%20Assistant%202018%20v1.0.pdf) at [OpenWest](https://openwest.org) - June 2018
 - [Automate your home with Home Assistant](https://www.youtube.com/watch?v=SSrgi4iHGbs) at [foss-north 2018](http://foss-north.se/2018/speakers-and-talks.html#jparadies) - March 2018
 - [Home Assistant](https://github.com/home-assistant/home-assistant-assets/tree/master/english/2017-qecampX) at QECampX 2017 - October 2017
@@ -52,6 +53,8 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Thomas-Krenn-Award 2019 – The winners](https://www.thomas-krenn.com/de/tkmag/tk-insights/thomas-krenn-award-2019-gewinner/) - March 2019
+- [How to set up and use Home Assistant: For Dummies edition](https://www.the-ambient.com/how-to/set-up-use-home-assistant-644) - October 2018
 - [DINAcon begeistert 200 Teilnehmende und die Award-Gewinner 2018](https://dinacon.ch/wp-content/uploads/sites/4/2018/10/2018-10-19_DINAcon2018_Medienmitteilung.pdf) - October 2018
 - [Build a wireless MQTT weather sensor for your Home Assistant](https://www.smartlab.at/build-a-wireless-mqtt-temperature-and-humidity-sensor-for-your-home-assistant/) - October 2018
 - [Nominations for the DINACon award 2018](https://www.netzwoche.ch/news/2018-09-04/das-sind-die-nominierten-fuer-die-dinacon-awards-2018) - September 2018

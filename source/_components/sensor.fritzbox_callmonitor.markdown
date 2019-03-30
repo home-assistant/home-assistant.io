@@ -10,7 +10,7 @@ footer: true
 logo: avm.png
 ha_category: System Monitor
 ha_release: 0.27
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
@@ -26,7 +26,7 @@ $ sudo apt-get install libxml2-dev libxslt-dev \
   python3-setuptools zlib1g-dev build-essential
 ```
 
-If you installed Home Assistant in a virtualenv, also run the following command inside it. 
+If you installed Home Assistant in a virtualenv, also run the following command inside it.
 Be patient this will take a while.
 ```bash
 pip3 install lxml

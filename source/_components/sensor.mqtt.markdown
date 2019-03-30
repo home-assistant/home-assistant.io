@@ -10,9 +10,8 @@ footer: true
 logo: mqtt.png
 ha_category: Sensor
 ha_release: 0.7
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
-
 
 This `mqtt` sensor platform uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
 
@@ -152,7 +151,7 @@ sensor:
 
 ### {% linkable_title Get battery level %}
 
-If you are using the [OwnTracks](/components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from OwnTracks looks like this: 
+If you are using the [OwnTracks](/components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from OwnTracks looks like this:
 
 ```bash
 owntracks/tablet/tablet {"_type":"location","lon":7.21,"t":"u","batt":92,"tst":144995643,"tid":"ta","acc":27,"lat":46.12}
@@ -174,7 +173,7 @@ sensor:
 
 ### {% linkable_title Get temperature and humidity %}
 
-If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this: 
+If you are using a DHT sensor and a NodeMCU board (esp8266), you can retrieve temperature and humidity with a MQTT sensor. A code example can be found [here](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_sensor_dht22). A regular MQTT message from this example looks like this:
 
 ```json
 office/sensor1
@@ -210,7 +209,7 @@ Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.c
 - **Controller Subscribe**: `home/%sysname%/#` (instead of `/%sysname%/#`)
 - **Controller Publish**: `home/%sysname%/%tskname%/%valname%` (instead of `/%sysname%/%tskname%/%valname%`)
 
-Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value. 
+Also, add a sensor in the "Devices" tap with the name "analog" and "brightness" as value.
 
 As soon as the unit is online, you will get the state of the sensor.
 

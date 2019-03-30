@@ -15,12 +15,13 @@ ha_category:
   - Climate
   - Sensor
 featured: true
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 redirect_from:
   - /components/binary_sensor.nest/
   - /components/camera.nest/
   - /components/climate.nest/
   - /components/sensor.nest/
+ha_release: 0.7
 ---
 
 The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.

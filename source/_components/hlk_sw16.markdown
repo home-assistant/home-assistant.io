@@ -12,7 +12,7 @@ ha_category:
   - DIY
   - Switch
 ha_release: 0.84
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/switch.hlk_sw16/
 ---

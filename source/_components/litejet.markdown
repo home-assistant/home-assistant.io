@@ -11,7 +11,7 @@ ha_category:
   - Light
   - Scene
   - Switch
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: 0.32
 redirect_from:
   - /components/light.litejet/

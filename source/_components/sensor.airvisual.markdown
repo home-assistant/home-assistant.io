@@ -10,14 +10,14 @@ footer: true
 logo: airvisual.jpg
 ha_category: Health
 ha_release: 0.53
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](http://www.clm.com/publication.cfm?ID=366) can be created.
 
 This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note that the platform was designed using the "Community" package; the "Startup" and "Enterprise" package keys should continue to function, but actual results may vary (or not work at all).
 
-The Community API key is valid for 12 months after which it will expire. You must then go back to the Airvisual website, delete your old key, create a new one following the same steps and update your configuration with the new key. 
+The Community API key is valid for 12 months after which it will expire. You must then go back to the Airvisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
 <p class='note warning'>
 The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Modification of this (via the `scan_interval` key) to a too-low value may result in your API key being deactivated.

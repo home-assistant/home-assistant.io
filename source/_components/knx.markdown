@@ -10,7 +10,7 @@ footer: true
 logo: knx.png
 ha_category: Hub
 ha_release: 0.24
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
@@ -52,6 +52,11 @@ config_file:
   description: The path for XKNX configuration file.
   required: false
   type: string
+rate_limit:
+  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
+  required: false
+  default: 20
+  type: integer
 {% endconfiguration %}
 
 If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:

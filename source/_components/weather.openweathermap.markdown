@@ -10,7 +10,7 @@ footer: true
 logo: openweathermap.png
 ha_category: Weather
 ha_release: 0.32
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location.
@@ -39,7 +39,7 @@ name:
   type: string
   default: OpenWeatherMap
 mode:
-  description: "Can specify `hourly` or `daily`. Select `hourly` for a three-hour forecast or `daily` for daily forecast."
+  description: "Can specify `hourly`, `daily` of `freedaily`. Select `hourly` for a three-hour forecast, `daily` for daily forecast or `freedaily` for a five days forecast with the free tier."
   required: false
   type: string
   default: "`hourly`"

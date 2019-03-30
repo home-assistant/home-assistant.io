@@ -14,7 +14,7 @@ ha_category:
   - Cover
   - Switch
 ha_release: pre 0.7
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.rpi_gpio/
   - /components/cover.rpi_gpio/

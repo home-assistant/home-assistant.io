@@ -12,7 +12,7 @@ ha_release: 0.83
 ha_category:
   - Network
   - Notifications
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/notify.tplink_lte/
 ---
@@ -32,9 +32,9 @@ tplink_lte:
     password: SECRET
     notify:
       - name: sms1
-        target: "+15105550123"
+        recipient: "+15105550123"
       - name: sms2
-        target: "+55520525252"
+        recipient: "+55520525252"
 ```
 
 {% configuration %}

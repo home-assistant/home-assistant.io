@@ -10,7 +10,7 @@ footer: true
 logo: tile.png
 ha_release: 0.58
 ha_category: Presence Detection
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `tile` platform allows Home Assistant to utilize [Tile® Bluetooth trackers](https://www.thetileapp.com).

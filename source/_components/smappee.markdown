@@ -8,13 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: smappee.png
-ha_release: "0.64"
+ha_release: 0.64
 ha_category:
   - Hub
   - Energy
   - Sensor
   - Switch
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/sensor.smappee/
   - /components/switch.smappee/
@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 Will be automatically added when you connect to the Smappee controller.
 
-The smappee component gets information from [Smappee API](https://smappee.atlassian.net/wiki/display/DEVAPI/API+Methods).
+The smappee component gets information from [Smappee API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview). Note: their cloud API now requires a subscription fee of €2.50 per month for Smappee Energy/Solar or €3 per month for Smappee Plus.
 
 ## {% linkable_title Configuration %}
 

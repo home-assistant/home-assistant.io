@@ -12,8 +12,8 @@ ha_category:
   - Health
   - Binary Sensor
   - Sensor
-ha_release: "0.44"
-ha_iot_class: "Cloud Polling"
+ha_release: 0.44
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.eight_sleep/
   - /components/sensor.eight_sleep/
@@ -50,10 +50,10 @@ password:
   description: The password associated with your Eight Sleep account.
   required: true
   type: string
-password:
+partner:
   description: Defines if you'd like to fetch data for both sides of the bed.
   required: false
-  type: string
+  type: boolean
   default: false
 {% endconfiguration %}
 

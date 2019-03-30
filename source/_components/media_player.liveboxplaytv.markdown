@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: orange.png
 ha_category: Media Player
-featured: false
 ha_release: 0.38
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `liveboxplaytv` platform allows you to control [Orange Livebox Play TV appliances](https://boutique.orange.fr/internet/decodeur-tv-livebox).

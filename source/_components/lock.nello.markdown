@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: nello.png
 ha_category: Lock
-featured: false
 
 ha_release: 0.52
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `nello` platform allows you to control [Nello](https://www.nello.io) intercoms.

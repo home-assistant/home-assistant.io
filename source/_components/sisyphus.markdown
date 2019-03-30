@@ -12,9 +12,8 @@ ha_category:
   - Hub
   - Light
   - Media Player
-featured: false
 ha_release: 0.75
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/light.sisyphus/
   - /components/media_player.sisyphus/

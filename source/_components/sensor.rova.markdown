@@ -10,7 +10,7 @@ footer: true
 logo: rova.jpg
 ha_category: Sensor
 ha_release: 0.87
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 [ROVA](https://rova.nl) is a waste collection company that operates in the center and east of the Netherlands. The `rova` platform uses an unofficial [ROVA](https://rova.nl) API to allow you to get your waste collection schedule and integrate this in your Home Assistant installation.
@@ -35,6 +35,10 @@ zip_code:
 house_number:
   description: Your house number.
   required: true
+  type: string
+house_number_suffix:
+  description: A suffix for your house number.
+  required: false
   type: string
 name:
   description: Let you overwrite the name of the device in the frontend.
@@ -68,6 +72,7 @@ sensor:
   - platform: rova
     zip_code: ZIP_CODE
     house_number: HOUSE_NUMBER
+    house_number_suffix: HOUSE_NUMBER_SUFFIX
     name: Rova
     monitored_conditions:
       - bio
@@ -99,3 +104,7 @@ automation:
           message: 'Reminder: put out biowaste bin'
 ```
 {% endraw %}
+
+<p class='note warning'>
+This component is not affiliated with Rova and retrieves data from the endpoints of their website. Use at your own risk.
+</p>

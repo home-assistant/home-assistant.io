@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: waze.png
 ha_category: Transport
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: 0.67
 ---
 
@@ -32,11 +32,11 @@ sensor:
 
 {% configuration %}
 origin:
-  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker or zone, which provides this information in its state.
+  description: Enter the starting address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker, person, or zone, which provides this information in its state.
   required: true
   type: string
 destination:
-  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker or zone, which provides this information in its state.
+  description: Enter the destination address or the GPS coordinates of the location (GPS coordinates has to be separated by a comma). You can also enter the entity id of a sensor, device_tracker, person, or zone, which provides this information in its state.
   required: true
   type: string
 region:

@@ -45,6 +45,8 @@ Turn on "Disco lights":
 $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
 ```
 
+If the above two commands give errors about not having that device, you should try replacing the `/dev/serial/by-id/usb-0658_0200-if00` with `/dev/ttyACM0` or `/dev/ttyACM1` (depending on which tty your aeotec stick is addressed to).  
+
 ### {% linkable_title Razberry Board %}
 
 You need to disable the on-board Bluetooth since the board requires the use of the hardware UART (and there's only one on the Pi3). You do this by adding the following to the end of `/boot/config.txt`:
@@ -294,6 +296,51 @@ Button six (Triangle) release|6|7740
 
 Press circle and plus simultaneously to wake up the device.
 
+### {% linkable_title Aeotec NanoMote Quad %}
+
+<!-- from https://products.z-wavealliance.org/products/2817 -->
+
+Once you've added the NanoMote to your z-wave network, you'll need to update your zwcfg*.xml file with the below xml data.  Stop Home Assistant and open your zwcfg*.xml file (located in your config folder).  Find the NanoMote device section and then its corresponding `CommandClass` section with id="91".  Replace the entire CommandClass section with the below xml data.  Save the file and restart Home Assistant.  
+
+```xml
+    <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
+        <Instance index="1" />
+        <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="1" label="Button One" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="2" label="Button Two" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="3" label="Button Three" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        <Value type="int" genre="system" instance="1" index="4" label="Button Four" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+    </CommandClass>
+```
+
+Below is a table of the action/scenes for the NanoMote Quad:
+
+**Action**|**scene\_id**|**scene\_data**
+:-----:|:-----:|:-----:
+Button one single tap|1|7680
+Button one hold|1|7800
+Button one release|1|7740
+Button two single tap|2|7680
+Button two hold|2|7800
+Button two release|2|7740
+Button three single tap|3|7680
+Button three hold|3|7800
+Button three release|3|7740
+Button four single tap|4|7680
+Button four hold|4|7800
+Button four release|4|7740
+
+Example Event:
+
+```yaml
+    "event_type": "zwave.scene_activated",
+    "data": {
+        "entity_id": "zwave.nanomote",
+        "scene_id": 2,
+        "scene_data": 7680
+    }
+```
+
 ### {% linkable_title Aeotec Wallmote %}
 
 <!-- from https://hastebin.com/esodiweduq.cs -->
@@ -385,6 +432,69 @@ Button three release|Circle|3|1
 Button four tap|Circle with Line|4|0
 Button four hold|Circle with Line|4|2
 Button four release|Circle with Line|4|1
+
+### {% linkable_title Remotec ZRC-90 Scene Master %}
+
+To get the ZRC-90 Scene Master working in Home Assistant, you must first edit the `COMMAND_CLASS_CENTRAL_SCENE` in your `zwcfg` file.
+
+1. Go the Z-Wave control panel in Home Assistant and make a note of the node number your ZRC-90 has been assigned.
+2. *Stop* Home Assistant.
+3. Make a backup of your `zwfcg` file, just in case.
+4. In the `zwcfg` file, find the `Node id` that corresponds to the number you noted in the first step.
+5. Within the `Node id` you identified, highlight everything between `<CommandClass id="91"` and `</CommandClass>` (inclusive) and paste in the following:
+
+    ```xml
+    <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="5" innif="true" scenecount="0">
+      <Instance index="1" />
+      <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="1" label="Scene 1" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="3" />
+      <Value type="int" genre="system" instance="1" index="2" label="Scene 2" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="3" label="Scene 3" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="4" label="Scene 4" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="1" />
+      <Value type="int" genre="system" instance="1" index="5" label="Scene 5" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="6" label="Scene 6" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="7" label="Scene 7" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="8" label="Scene 8" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+      <Value type="int" genre="system" instance="1" index="9" label="Other" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+    </CommandClass>
+    ```
+
+6. Save the changes you made the `zwcfg` file and start Home Assistant back up.
+
+Button presses will trigger `zwave.scene_activated` with the following:
+
+- `node_id`: the node of your Scene Master (useful if you have more than one)
+- `scene_id`: the number button you press (1-8)
+- `scene_data`: the type of press registered (see below)
+
+The Scene Master has eight buttons which can send four actions.
+The type of action is reflected in the `scene_data` parameter:
+
+**Action**|**scene\_data**
+:-----:|:-----:
+Single press | 0
+Long press (2s) | 1
+Release from hold | 2
+Double-press | 3
+
+Let's see how this works in an automation for a Scene Master that's assigned as Node 7:
+
+```yaml
+- id: '1234567890'
+  alias: Double-press Button 2 to toggle all lights
+  trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      node_id: 7
+      scene_id: 2
+      scene_data: 3  
+  condition: []
+  action:
+  - data:
+    service: light.toggle
+      entity_id: group.all_lights
+```
 
 ### {% linkable_title RFWDC Cooper 5-button Scene Control Keypad %}
 

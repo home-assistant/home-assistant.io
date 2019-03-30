@@ -10,7 +10,7 @@ footer: true
 logo: yeelight.png
 ha_category: Light
 ha_release: 0.32
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `yeelight` light platform allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
@@ -131,12 +131,14 @@ This component is tested to work with the following models. If you have a differ
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
+| `RGBW`     | MJDP02YL     | Mi Led smart Lamp - white and color WIFI Version |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
 | ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
+
 
 ## {% linkable_title Platform Services %}
 
@@ -158,6 +160,7 @@ Start flow with specified transitions
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |       no | Only act on a specific lights.                                                              |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
+| `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [examples below](#custom-effects).                                |
 
 ## {% linkable_title Examples %}
@@ -196,11 +199,11 @@ light:
 
 ### {% linkable_title Custom effects %}
 
-This example shows how you can add your custom effects in your configuration.
+This example shows how you can add your custom effects in your configuration. To turn on the effect you can use [light.turn_on](/components/light/#service-lightturn_on) service.
 
 Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
 
-  where the array values are as per the following:
+Where the array values are as per the following:
   - RGBTransition: [red, green, blue, duration, brightness] with red / green / blue being an integer between 0 and 255, duration being                                                               in milliseconds (minimum of 50) and final brightness to transition to 0-100                                                             (%)
   - HSVTransition: [hue, saturation, duration, brightness]  with hue being an integer between 0 and 359, saturation 0 -100, duration in                                                             milliseconds (minimum 50) and final brightness 0-100 (%)
   - TemperatureTransition: [temp, duration, brightness]     with temp being the final color temperature between 1700 and 6500, duration                                                             in milliseconds (minimum 50) and final brightness to transition to 0-100 (%)

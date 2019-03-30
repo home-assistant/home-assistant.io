@@ -10,7 +10,7 @@ footer: true
 logo: command_line.png
 ha_category: Utility
 ha_release: 0.12
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `command_line` binary sensor platform issues specific commands to get data.

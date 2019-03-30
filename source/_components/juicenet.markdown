@@ -8,8 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: juicenet.png
-ha_category: Energy
+ha_category:
+  - Energy
+  - Sensor
 ha_release: 0.47
+redirect_from:
+  - /components/sensor.juicenet/
 ---
 
 The `juicenet` sensor platform pulls data from a [JuiceNet](https://emotorwerks.com/products/juicenet/) charging station equipped with a wifi connection. It will access and make available all of the devices attached to your account.
@@ -30,3 +34,19 @@ access_token:
   required: true
   type: string
 {% endconfiguration %}
+
+## {% linkable_title Sensor %}
+
+The `juicenet` sensor platform allows you to get data from your [JuiceNet](https://emotorwerks.com/products/juicenet/) sensors.
+
+### {% linkable_title Added sensors %}
+
+These sensors will be added for each juicenet device in your account:
+
+- Status
+- Temperature (inside the device)
+- Voltage
+- Amps
+- Watts
+- Charge time of session
+- Energy added this session

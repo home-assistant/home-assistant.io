@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: videolan.png
 ha_category: Media Player
-featured: false
 ha_release: 0.35
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `vlc` platform allows you to control [VLC media player](http://www.videolan.org/vlc/index.html).

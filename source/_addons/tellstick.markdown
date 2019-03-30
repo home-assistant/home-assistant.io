@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: false
 ---
 
 Setting up the [Tellstick](http://telldus.com) service and tools contained in the [telldus-core](http://developer.telldus.com/) package and adding configuration to enable Tellstick and Tellstick Duo to work on your Hass.io.
@@ -109,7 +108,7 @@ Replace `1` with the corresponding ID of the device in your TellStick configurat
 You can also use this to list devices or sensors and read the output in the add-on log:
 `{"addon":"core_tellstick","input":{"function":"list-sensors"}}`
 
-### {% linkable_title Supported service commands %} 
+### {% linkable_title Supported service commands %}
 
 - `"function":"list"`: List currently configured devices with name and device id and all discovered sensors.
 

@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Switch
 ha_release: 0.36
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `kankun` switch platform allows you to toggle customized Kankun SP3 Wifi switches. Switches are

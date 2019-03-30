@@ -10,7 +10,7 @@ footer: true
 logo: dte_energy.png
 ha_category: Energy
 ha_release: 0.21
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 A sensor platform for the [DTE](https://www.dteenergy.com/) Energy Bridge. To find out which version of the DTE Energy Bridge sensor you have, find the status LED on your box.

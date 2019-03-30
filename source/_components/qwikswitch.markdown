@@ -14,7 +14,6 @@ ha_category:
   - Light
   - Sensor
   - Switch
-featured: false
 ha_release: "0.20"
 redirect_from:
   - /components/binary_sensor.qwikswitch/

@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7
 ---
 
 Keeps track which switches are in your environment, their state and allows you to control them.

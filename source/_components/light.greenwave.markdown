@@ -10,7 +10,7 @@ footer: true
 logo: greenwavereality.png
 ha_category: Light
 ha_release: 0.61
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 This component communicates with the Greenwave Reality (TCP Connected) Gateway to allow control of all lights and fixtures registered to the gateway. Bulbs and Fixtures can be created and modified inside the TCP Lighting App for Android and iOS.

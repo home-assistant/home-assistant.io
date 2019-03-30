@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: globalcache.png
 ha_category: Remote
-ha_iot_class: "Assumed State"
+ha_iot_class: Assumed State
 ha_release: 0.39
 ---
 
@@ -23,7 +23,6 @@ To use your iTach remote in your installation, you will need to know the IR comm
 # Example configuration.yaml entry
 remote:
   - platform: itach
-    name: Living Room
     host: itach023fdc
     devices:
       - name: TV
@@ -36,10 +35,6 @@ remote:
 ```
 
 {% configuration %}
-name:
-  description: The iTach's name to display in the front end.
-  required: false
-  type: string
 host:
   description: The iTach's IP address.
   required: true

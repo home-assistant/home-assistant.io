@@ -16,11 +16,13 @@ ha_category:
   - Scene
   - Sensor
   - Switch
-ha_release: "0.61"
-ha_iot_class: "Local Push"
+ha_release: 0.61
+ha_iot_class: Local Push
 ha_qa_scale: platinum
+ha_config_flow: true
 redirect_from:
   - /components/binary_sensor.deconz/
+  - /components/climate.deconz/
   - /components/cover.deconz/
   - /components/light.deconz/
   - /components/scene.deconz/
@@ -34,16 +36,18 @@ redirect_from:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/components/deconz/#binary-sensor)
-- [Cover](/components/deconz/#cover)
-- [Light](/components/deconz/#light)
-- [Scene](/components/deconz/#scene)
-- [Sensor](/components/deconz/#sensor)
-- [Switch](/components/deconz/#switch)
+- [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
+- [Cover](#cover)
+- [Light](#light)
+- [Scene](#scene)
+- [Sensor](#sensor)
+- [Switch](#switch)
 
 ## {% linkable_title Recommended way of running deCONZ %}
 
-Use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs. It works both as a standalone container as well as with HASS.io.
+If you are running Hass.io, an official add-on for Deconz is available in the add-on store.
+Otherwise, use [community container](https://hub.docker.com/r/marthoc/deconz/) by Marthoc for your deCONZ needs.
 
 ### {% linkable_title Supported devices %}
 
@@ -322,6 +326,21 @@ The `entity_id` name will be `binary_sensor.device_name`, where `device_name` is
   - Philips Hue Motion Sensor
   - Xiaomi Motion Sensor
   - Xiaomi Smart Home Aqara Human Body Sensor
+
+## {% linkable_title Climate %}
+
+See the [deCONZ main component](/components/deconz/) for configuration instructions.
+
+Climate currently represent thermostats.
+
+Note that devices in the climate platform identify as sensors, so there is a manually curated list that defines which "sensors" are climate devices.
+
+The `entity_id` name will be `climate.device_name`, where `device_name` is defined in deCONZ.
+
+#### {% linkable_title Verified supported climate devices %}
+
+- Bitron Thermostat 902010/32
+- Eurotronic SPZB0001
 
 ## {% linkable_title Cover %}
 

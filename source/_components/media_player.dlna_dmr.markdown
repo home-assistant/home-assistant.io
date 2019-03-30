@@ -9,9 +9,8 @@ sharing: true
 footer: true
 logo: dlna.png
 ha_category: Media Player
-featured: false
 ha_release: 0.76
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `dlna_dmr` platform allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.
@@ -45,6 +44,10 @@ listen_port:
   type: integer
 name:
   description: The name you would like to give to the device, e.g., `TV living room`.
+  required: false
+  type: string
+callback_url_override:
+  description: Override the advertised callback URL. In case the home assistant instance is not directly reachable (e.g., running in a docker container without bridged-networking), advertise this callback URL for events.
   required: false
   type: string
 {% endconfiguration %}

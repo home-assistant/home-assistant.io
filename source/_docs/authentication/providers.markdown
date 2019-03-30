@@ -63,7 +63,7 @@ The Trusted Networks auth provider defines a range of IP addresses for which no 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
 <p class='note info'>
-The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you using this auth provider.
+The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
 </p>
 
 Here is an example in `configuration.yaml` to set up Trusted Networks:
@@ -71,17 +71,52 @@ Here is an example in `configuration.yaml` to set up Trusted Networks:
 ```yaml
 homeassistant:
   auth_providers:
-   - type: trusted_networks
-
-# Temporary, this will be moved to be part of auth provider config
-# https://github.com/home-assistant/home-assistant/issues/16149
-http:
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
-    - 192.168.0.0/24
-    - fd00::/8
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.0.0/24
+        - fd00::/8
 ```
+
+If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `trusted_networks` was configured under `http` section.
+
+### {% linkable_title Command Line %}
+
+The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
+
+This provider can be used to integrate Home Assistant with arbitrary external authentication services, from plaintext databases over LDAP to RADIUS. A compatible script for LDAP authentication is [this one](https://github.com/efficiosoft/ldap-auth-sh), for instance.
+
+Here is a configuration example:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: command_line
+      command: /absolute/path/to/command
+      # Optionally, define a list of arguments to pass to the command.
+      #args: ["--first", "--second"]
+      # Uncomment to enable parsing of meta variables (see below).
+      #meta: true
+```
+
+When `meta: true` is set in the auth provider's configuration, your command can write some variables to standard output to populate the user account created in Home Assistant with additional data. These variables have to be printed in the form:
+
+```
+name = John Doe
+```
+
+Leading and trailing whitespace, as well as lines starting with `#` are ignored. The following variables are supported. More may be added in the future.
+
+* `name`: The real name of the user to be displayed in their profile.
+
+Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
+
+<p class='note'>
+Any leading and trailing whitespace is stripped from usernames before they're passed to the configured command. For instance, " hello  " will be rewritten to just "hello".
+</p>
+
+<p class='note'>
+For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
+</p>
 
 ### {% linkable_title Legacy API password %}
 
@@ -95,12 +130,14 @@ Activating this auth provider will allow you to authenticate with the API passwo
 homeassistant:
   auth_providers:
    - type: legacy_api_password
-
-http:
-  api_password: !secret http_password
+     api_password: !secret http_password
 ```
 
+`api_password` is required option since 0.90 release.
+
 Activating this auth provider will also allow you to provide the API password using an authentication header to make requests against the Home Assistant API. This feature will be dropped in the future in favor of long-lived access tokens.
+
+If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `api_password` was configured under `http` section.
 
 <p class='note warning'>
 [Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.

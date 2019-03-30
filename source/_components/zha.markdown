@@ -15,7 +15,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.44
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/binary_sensor.zha/
   - /components/fan.zha/
@@ -34,6 +34,10 @@ There is currently support for the following device types within Home Assistant:
 - Light
 - Switch
 - Fan
+
+ZHA exception and deviation handling:
+
+Zigbee devices that deviate from or do not fully conform to the standard specification set by the [Zigbee Alliance](https://www.zigbee.org) may require the development of custom [ZHA Device Handlers](https://github.com/dmulcahey/zha-device-handlers) (ZHA quirks handler implementation) to for all their functions to work properly with the ZHA component in Home Assistant.
 
 Known working Zigbee radio modules:
 

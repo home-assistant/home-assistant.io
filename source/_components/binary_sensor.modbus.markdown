@@ -10,7 +10,7 @@ footer: true
 logo: modbus.png
 ha_category: Binary Sensor
 ha_release: 0.28
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `modbus` binary sensor allows you to gather data from [Modbus](http://www.modbus.org/) coils.
@@ -25,9 +25,11 @@ binary_sensor:
   - platform: modbus
     coils:
       - name: Sensor1
+        hub: hub1
         slave: 1
         coil: 100
       - name: Sensor2
+        hub: hub1
         slave: 1
         coil: 110
 ```
@@ -41,6 +43,11 @@ coils:
     name:
       description: Name of the sensor.
       required: true
+      type: string
+    hub:
+      description: The name of the hub.
+      required: false
+      default: default
       type: string
     slave:
       description: The number of the slave (Optional for TCP and UDP Modbus).
@@ -64,9 +71,11 @@ binary_sensor:
     scan_interval: 10
     coils:
       - name: Sensor1
+        hub: hub1
         slave: 1
         coil: 100
       - name: Sensor2
+        hub: hub1
         slave: 1
         coil: 110
 ```

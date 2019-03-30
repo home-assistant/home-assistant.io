@@ -10,7 +10,7 @@ footer: true
 logo: fedex.png
 ha_category: Postal Service
 ha_release: 0.39
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `fedex` platform allows one to track deliveries by [FedEx](http://www.fedex.com/). To use this sensor, you need a [FedEx Delivery Manager](https://www.fedex.com/us/delivery/) account.
@@ -32,11 +32,11 @@ Configuration options for the FedEx Sensor:
 - **username** (*Required*): The username to access the FedEx Delivery Manager service.
 - **password** (*Required*): The password for the given username.
 - **name** (*Optional*): Name the sensor.
-- **update_inverval** (*Optional*): Minimum time interval between updates. Default is 1 hour. Supported formats:
-  - `update_interval: 'HH:MM:SS'`
-  - `update_interval: 'HH:MM'`
+- **scan_inverval** (*Optional*): Minimum time interval between updates. Default is 1 hour. Supported formats:
+  - `scan_interval: 'HH:MM:SS'`
+  - `scan_interval: 'HH:MM'`
   - Time period dictionary, e.g.:
-    <pre>update_interval:
+    <pre>scan_interval:
         # At least one of these must be specified:
         days: 0
         hours: 0

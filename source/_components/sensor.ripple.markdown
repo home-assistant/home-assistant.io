@@ -10,9 +10,8 @@ footer: true
 logo: ripple.png
 ha_category: Finance
 ha_release: 0.47
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
-
 
 The `ripple` sensor platform displays Ripple wallet balances from [Ripple.com](https://ripple.com).
 
@@ -36,4 +35,3 @@ name:
   type: string
   default: Ripple Balance
 {% endconfiguration %}
-

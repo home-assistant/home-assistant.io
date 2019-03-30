@@ -149,7 +149,7 @@ With strings:
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
 - `utcnow()` will be rendered as UTC time.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
-- `as_timestamp()` will convert datetime object or string to UNIX timestamp.
+- `as_timestamp()` will convert datetime object or string to UNIX timestamp. This function also be used as a filter.
 - `strptime(string, format)` will parse a string to a datetime based on a [format](https://docs.python.org/3.6/library/datetime.html#strftime-and-strptime-behavior).
 - Filter `timestamp_local`  will convert an UNIX timestamp to local time/data.
 - Filter `timestamp_utc` will convert a UNIX timestamp to UTC time/data.
@@ -236,10 +236,10 @@ The other part of templating is processing incoming data. It allows you to modif
 
 It depends per component or platform, but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
 
-| Variable     | Description                            |
-| ------------ | -------------------------------------- |
-| `value`      | The incoming value.                    |
-| `value_json` | The incoming value parsed as JSON.     |
+| Variable     | Description                        |
+|--------------|------------------------------------|
+| `value`      | The incoming value.                |
+| `value_json` | The incoming value parsed as JSON. |
 
 This means that if the incoming values looks like the sample below:
 

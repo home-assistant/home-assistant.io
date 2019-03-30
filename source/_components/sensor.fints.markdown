@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Finance
 ha_release: "0.70"
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 With the FinTS sensor, you can fetch your account information from your bank. This only works with banks that support the FinTS (aka. HBCI) standard. The FinTS standard used by many German banks. So if you do not have a German bank account, this will most likely not work for you. To find out if your bank supports FinTS, check the bank's website or call their hotline.
@@ -37,11 +37,11 @@ name:
   description: Name of the bank.
   required: false
   type: string
-bank_identification_number: 
+bank_identification_number:
   description: Bank identification number, in most cases the "Bankleitzahl".
   required: true
   type: string
-username: 
+username:
   description: Your FinTS username.
   required: true
   type: string
@@ -49,15 +49,15 @@ pin:
   description: Your FinTS PIN or password.
   required: true
   type: string
-url: 
+url:
   description: URL of your bank's FinTS server.
   required: true
   type: string
 accounts:
-  description: The balance accounts to show. If not set then all accounts will show up.  
+  description: The balance accounts to show. If not set then all accounts will show up.
   required: false
   type: list
-  keys: 
+  keys:
     account:
       description: The IBAN of the blance account.
       required: true
@@ -70,7 +70,7 @@ holdings:
   description: The holding accounts of your bank. If not set then all accounts will show up.
   required: false
   type: list
-  keys: 
+  keys:
     account:
       description: The classic account number.
       required: true
@@ -78,5 +78,5 @@ holdings:
     name:
       description: Use this field to give the account a meaningful name.
       required: false
-      type: string 
+      type: string
 {% endconfiguration %}

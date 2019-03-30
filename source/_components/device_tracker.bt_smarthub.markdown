@@ -9,8 +9,8 @@ sharing: true
 footer: true
 logo: bt.png
 ha_category: Presence Detection
-ha_release: "0.82"
-ha_iot_class: "Local Polling"
+ha_release: 0.82
+ha_iot_class: Local Polling
 ---
 
 This platform offers presence detection by looking at connected devices to a [BT Smart Hub](https://en.wikipedia.org/wiki/BT_Smart_Hub) based router.
@@ -28,7 +28,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your router 
+  description: The IP address of your router
   default: 192.168.1.254
   required: false
   type: string

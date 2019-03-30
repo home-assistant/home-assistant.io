@@ -277,7 +277,7 @@ So now you can open and close your garage door, let's check the weather. Add the
 - platform: darksky
   name: "Dark Sky Weather"
   api_key: !secret dark_sky_key
-  update_interval:
+  scan_interval:
     minutes: 10
   monitored_conditions:
     - summary

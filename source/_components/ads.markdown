@@ -15,7 +15,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: "0.60"
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.ads/
   - /components/light.ads/
@@ -40,7 +40,7 @@ To enable ADS, add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 ads:
   device: '127.0.0.1.1.1'
-  port: 48898
+  port: 801
 ```
 
 {% configuration %}
@@ -49,7 +49,7 @@ device:
   required: true
   type: string
 port:
-  description: The port that runs the AMS server on the device, typically this would be 801 or 851.  
+  description: The port that runs the AMS server on the device, typically this would be 801 or 851.
   required: true
   type: integer
 ip_address:
@@ -137,7 +137,7 @@ name:
 
 ## {% linkable_title Sensor %}
 
-The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT* or *BYTE*.
+The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
 To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
 file:
@@ -158,7 +158,7 @@ adsvar:
   type: string
 adstype:
   required: false
-  description: The datatype of the ADS variable, possible values are int, uint, byte.
+  description: The datatype of the ADS variable, possible values are int, uint, byte, dint, udint.
   default: int
   type: string
 name:

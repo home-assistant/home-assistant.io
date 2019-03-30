@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: lastfm.png
 ha_category: Social
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_release: "0.20"
 ---
-
 
 The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](http://www.last.fm).
 

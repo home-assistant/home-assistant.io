@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Sensor
 ha_release: 0.31
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `arwn` sensor platform is a client for the [Ambient Radio Weather Network](http://github.com/sdague/arwn) project. This collects weather station data and makes it available in an MQTT subtree.

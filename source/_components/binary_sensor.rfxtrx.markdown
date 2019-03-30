@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: rfxtrx.png
 ha_category: Binary Sensor
+ha_release: 0.48
 ---
 
 The `rfxtrx` platform support binary sensors that

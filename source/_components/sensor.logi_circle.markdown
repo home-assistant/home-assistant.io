@@ -10,7 +10,7 @@ footer: true
 logo: logi_circle.png
 ha_category: Camera
 ha_release: 0.79
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `logi_circle` sensor platform lets you monitor sensors connected to your [Logi Circle](https://circle.logi.com) cameras in Home Assistant.

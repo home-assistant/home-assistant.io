@@ -10,7 +10,7 @@ footer: true
 logo: ee.png
 ha_category: Presence Detection
 ha_release: 0.87
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 This platform offers presence detection by looking at connected devices to a [EE Bright Box 2](https://ee.co.uk/help/phones-and-device/home-broadband/bright-box-2-wireless-router/bright-box-2-wireless-router) router.
@@ -40,7 +40,7 @@ username:
 password:
   description: Found at the back of the router in 'Router login details' section
   required: true
-  type: string  
+  type: string
 version:
   description: Currently only version 2 of the router is supported
   default: 2

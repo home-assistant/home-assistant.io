@@ -10,7 +10,7 @@ footer: true
 logo: yr.png
 ha_category: Weather
 ha_release: 0.11
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `yr` platform uses [YR.no](http://www.yr.no/) as a source for current
@@ -68,6 +68,21 @@ monitored_conditions:
       description: Medium cloud level.
     highClouds:
       description: High cloud level.
+latitude:
+  description: Manually specify latitude.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
+longitude:
+  description: Manually specify longitude.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
+altitude:
+  description: Manually specify altitude.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
 {% endconfiguration %}
 
 A full configuration example can be found below:

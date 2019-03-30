@@ -55,6 +55,8 @@ network={
 
 You may need to adjust the country code depending upon where you are. A list of codes can be found [here](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
+If you are using a [hidden SSID](https://en.wikipedia.org/wiki/Network_cloaking) for your WiFi network , you must add `scan_ssid=1` to the `network` section to be able to connect.
+
 If you are running in trouble with your WiFi connection (for [further details](https://www.raspberrypi.org/forums/viewtopic.php?t=207882)), check the output of the following command:
 
 ```bash

@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Light
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 logo: leviton.png
 ha_release: 0.51
 ---

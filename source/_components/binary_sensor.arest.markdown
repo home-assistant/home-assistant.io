@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: arest.png
 ha_category: DIY
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.9
 ---
 
