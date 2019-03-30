@@ -196,7 +196,7 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
-## {% linkable_title Using E-Control Remotes %}
+## {% linkable_title Using E-Control remotes %}
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
 
@@ -244,7 +244,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 8. Convert the HEX codes to base64.
     Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
-## {% linkable_title Using iOS and Windows to Obtain Codes %}
+## {% linkable_title Using iOS and Windows to obtain codes %}
 
 1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
 
@@ -292,7 +292,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
 
-## {% linkable_title Using Windows to Obtain Codes with Broadlink Manager %}
+## {% linkable_title Using Windows to obtain codes with Broadlink Manager %}
 
 1. Install Broadlink Manager from this SourceForge link [here](https://sourceforge.net/projects/broadlink-manager/).
 2. Open the application and hit "scan" to activate your broadlink device.
@@ -300,10 +300,10 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 4. The "OnRawData Base64" is the value to be used with Home Assistant.
 
 
-## {% linkable_title Using Node red to Obtain Codes %}
+## {% linkable_title Using Node-RED to obtain codes %}
 
-1. Install the Broadlink Control palette in Node red (click the Hamburger menu at top right corner> Settings> Palette> Install, and type Broadlink. Click install on the node-red-contrib-broadlink-control.
-2. Once installed, verify that the new palette titled broadlink is available in the nodes menu
+1. Install the Broadlink Control palette in Node-RED (click the Hamburger menu at top right corner> Settings> Palette> Install and type Broadlink. Click install on the node-red-contrib-broadlink-control.
+2. Once installed, verify that the new palette titled broadlink is available in the nodes menu.
 3. Drag the RM node to an empty flow and double click to configure the node.
    ```bash
    a. give your RM device a name for easy identification
@@ -340,7 +340,7 @@ This is the code we need to transmit again to replicate the same remote function
 ## {% linkable_title Using Node red to Transmit Codes %}
 
 1. Drag another RM node on the same flow we created earlier. The RM node should be configured to the RM device created earlier by default.
-2. In the Action field, select - Set from msg.payload -
+2. In the Action field, select - Set from msg.payload -.
 3. Drag an Inject node and give it a meaningful name relevant to the remote control button function, like "TV On" or "TV Source".
 4. Drag a template node and double click it to configure:
    ```bash
@@ -353,7 +353,7 @@ This is the code we need to transmit again to replicate the same remote function
    }'
    In the Output as field, "select Parsed JSON".
    ```
-5. Click Done
+5. Click Done.
 6. Drag a debug node and connect it to the output of the RM node.
 7. Connect the Inject node to the Template node, and the template node to the RM node.
 8. Click Deploy to activate the flow, and then click the inject button. The debug window should show a debug message. For example:
@@ -362,5 +362,4 @@ This is the code we need to transmit again to replicate the same remote function
    ```
 The "status" : "OK" at the end is a feedback that the Broadlink RM device is connected and has transmitted the payload.
 
-That's it!
 Now you can add as many template nodes, each having a specific code, and add any type of input nodes to activate the template and transmit the code.
