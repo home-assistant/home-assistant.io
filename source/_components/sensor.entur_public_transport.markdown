@@ -13,13 +13,13 @@ ha_release: 0.84
 ha_iot_class: Cloud Polling
 ---
 
-The `entur_public_transport` sensor gives real-time departure information for the next two departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
+The `entur_public_transport` sensor gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
 
-For each stop place given in the configuration, a sensor will be mounted for that stop place. It will give remaining minutes until the nearest departure in the state, but also next departure in the attributes. Information about if the departure is monitored in real-time or is from scheduled times, and how many minutes there is in delays, are included as well.
+For each stop place given in the configuration, a sensor will be mounted for that stop place. It will give remaining minutes until the nearest departure in the state, but also next departures in the attributes. Information about if the departure is monitored in real-time or is from scheduled times, and how many minutes there is in delays, are included as well.
 
 Real-time data is fetched from [Entur](https://www.entur.org). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
 
-<p class='note'>Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information once a minute. It's recommended to only define one platform in the configuration at one time to not hit the rate limiting.
+<p class='note'>Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -57,6 +57,16 @@ line_whitelist:
   description: List of lines that should be whitelisted in the resulting sensors, and will only show when the defined lines are expected to leave the platform or station. All lines that you want on any of the sensors should be included in the list.
   required: false
   type: list
+omit_non_boarding:
+  description: If the sensors should remove resulting departures that doesn't take new passangers, or is at last stop.
+  required: false
+  type: boolean
+  default: true
+number_of_departures:
+  description: The number of departures that should be shown in the sensor attributes. Maximum 10, Minimum 2.
+  required: false
+  type: integer
+  default: 2
 {% endconfiguration %}
 
 ## {% linkable_title Example usage %}
