@@ -12,6 +12,7 @@ ha_category:
   - Network
   - Presence Detection
   - Sensor
+  - Switch
 ha_release: 0.85
 ha_iot_class: Local Polling
 redirect_from:
@@ -25,6 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 * [Sensor](#sensor) with traffic metrics
 * [Device tracker](#presence-detection) for connected devices
+* [Switch](#switch) to control WiFi
 
 ## {% linkable_title Configuration %}
 
@@ -63,6 +65,9 @@ The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
 
+To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
+" permission to Home Assitant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+
 ### {% linkable_title Supported routers %}
 
 Only the routers with Freebox OS are supported:
@@ -91,3 +96,7 @@ refreshes the devices states.
 
 This platform offers you sensors to monitor a Freebox router. The monitored conditions are
 instant upload and download rates in KB/s.
+
+## {% linkable_title Switch %}
+
+This platform offers you a switch to toggle the Wifi on or off. This will toggle all WiFi interfaces of the router (all SSID and all bands).
