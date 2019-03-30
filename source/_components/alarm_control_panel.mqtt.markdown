@@ -95,12 +95,12 @@ code:
   required: false
   type: string
 code_arm_required:
-  description: If true the code is required to arm the alarm.  If false the code is not validated.
+  description: If true the code is required to arm the alarm. If false the code is not validated.
   required: false
   type: boolean
   default: true
 code_disarm_required:
-  description: If true the code is required to disarm the alarm.  If false the code is not validated.
+  description: If true the code is required to disarm the alarm. If false the code is not validated.
   required: false
   type: boolean
   default: true
