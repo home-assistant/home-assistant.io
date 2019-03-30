@@ -17,8 +17,6 @@ ha_release: 0.53
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.mopar/
- - /components/lock.mopar/
- - /components/switch.mopar/
 ---
 
 The `mopar` component provides the following for owners of FCA vehicles with a uConnect subscription:
