@@ -15,9 +15,9 @@ ha_release: 0.88
 
 The person component allows connecting [device tracker](https://www.home-assistant.io/components/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
 
-1. If there are stationary trackers (non-GPS trackers, ie. router or bluetooth 'device_trackers') presenting the status 'home', the tracker most recently updated will be used.
+1. If there are stationary trackers (non-GPS trackers, i.e., a router or Bluetooth 'device_trackers') presenting the status 'home', the tracker most recently updated will be used.
 2. If there are trackers of type 'gps', then the most recently updated tracker will be used.
-3. Otherwise the latest tracker with status 'not_home' will be used.
+3. Otherwise, the latest tracker with status 'not_home' will be used.
 
 Let's say, for example, that you have 3 trackers: 'tracker_gps', 'tracker_router' and 'tracker_ble'.
 
