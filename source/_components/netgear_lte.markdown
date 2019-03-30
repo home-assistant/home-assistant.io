@@ -87,8 +87,10 @@ sensor:
       keys:
         cell_id:
           description: The Cell ID, a number identifying the base station.
-        connection:
-          description: The connection state, e.g. "Connected".
+        wire_connected:
+          description: The wired uplink connection state, e.g. "Disconnected".
+        mobile_connected:
+          description: The LTE connection state, e.g. "Connected".
         connection_text:
           description: A connection text, e.g. "4G".
         connection_type:
