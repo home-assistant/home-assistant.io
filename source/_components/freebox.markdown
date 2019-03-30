@@ -61,11 +61,12 @@ returned json should contain an api_domain (`host`) and a https_port (`port`).
 You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
 </p>
 
-<p>The first time Home Assistant will connect to your Freebox, you will need to
+The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when
-prompted to do so.</p>
-<p>To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
-" permission to Home Assitant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".</p>
+prompted to do so.
+
+To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
+" permission to Home Assitant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### {% linkable_title Supported routers %}
 
