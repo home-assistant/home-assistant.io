@@ -140,8 +140,7 @@ Purging does not necessarily remove all entries before a given date. For example
 | Database engine | `db_url`                                                 |
 | :---------------|:---------------------------------------------------------|
 | SQLite          | `sqlite:////PATH/TO/DB_NAME`                             |
-| MariaDB         | `mysql+pymysql://SERVER_IP/DB_NAME?charset=utf8`                 |
-| MariaDB         | `mysql+pymysql://user:password@SERVER_IP/DB_NAME?charset=utf8`   |
+| MariaDB         | `mysql://user:password@SERVER_IP:PORT/DB_NAME?charset=utf8`  |
 | MySQL           | `mysql://SERVER_IP/DB_NAME?charset=utf8`         |
 | MySQL           | `mysql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 | PostgreSQL      | `postgresql://SERVER_IP/DB_NAME`                         |
@@ -150,7 +149,7 @@ Purging does not necessarily remove all entries before a given date. For example
 | MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
-Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
+Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.  For MariaDB, the port will usually need to be specified, since the default port (3307) is not the same as for MySQL.
 </p>
 
 <p class='note'>
