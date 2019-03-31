@@ -25,7 +25,6 @@ sensor:
   - platform: solax
     ip_address: IP_ADDRESS
 ```
-{% endraw %}
 {% configuration %}
 
 ip_address:
