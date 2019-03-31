@@ -25,6 +25,7 @@ sensor:
   - platform: solax
     ip_address: IP_ADDRESS
 ```
+
 {% configuration %}
 ip_address:
   description: The IP address of your Solax system.
@@ -36,7 +37,6 @@ ip_address:
 ### {% linkable_title Full configuration sample %}
 
 A full configuration entry would look like the sample below.
-
 
 ```yaml
 # Example configuration.yaml entry
