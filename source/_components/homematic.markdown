@@ -281,7 +281,7 @@ To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / 
 #### {% linkable_title Low battery event %}
 
 As described above devices with buttons are not implemented as actual entities inside Home Assistant. Therefore you cannot watch a low battery state on these.
-To solve this for all homematic IP devices (including those devices with buttons) the event **homematic.low_bat** is fired when battery is running low. you can then use this in your automations:
+To solve this for all Homematic devices (including those devices with buttons) the event **homematic.low_bat** is fired when battery is running low. you can then use this in your automations:
 
 ```yaml
 automation:
