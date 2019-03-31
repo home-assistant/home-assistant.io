@@ -8,7 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: tahoma.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Cover
+  - Scene
 ha_release: 0.92
 ha_iot_class: "Assumed State"
 redirect_from:
