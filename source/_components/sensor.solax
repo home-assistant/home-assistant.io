@@ -29,7 +29,7 @@ sensor:
 ```
 {% endraw %}
 {% configuration %}
-### CONFIGURATION VARIABLES
+
 ip_address:
   description: The IP address of your Solax system.
   required: true
