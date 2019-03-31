@@ -65,6 +65,33 @@ Now you can [configure][configure] your install.
 
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
 
+## {% linkable_title Updating a Hass.io installation %}
+
+Best practice for updating a Hass.io installation:
+
+1. Backup your installation, using the snapshot functionality Hass.io offers.
+2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on. 
+4. If the check passes, you can safely update. If not, update your configuration accordingly.
+5. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
+
+## {% linkable_title Run a specific version on Hass.io %}
+
+SSH to your Hass.io system, or connect to the console, and run:
+
+```
+hassio ha update --version=0.XX.X
+```
+
+## {% linkable_title Run the beta version on Hass.io %}
+
+If you would like to test next release before anyone else, you can install the beta version released every two weeks:
+
+1. Backup your installation, using the snapshot functionality Hass.io offers.
+2. Check the RC release notes for breaking changes on [Home Assistant release notes](https://rc--home-assistant-docs.netlify.com/latest-release-notes/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Select _System_ from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
+4. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
+
 ## {% linkable_title Alternative: install on generic Linux server %}
 
 For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
