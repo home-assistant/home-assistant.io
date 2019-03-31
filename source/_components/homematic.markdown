@@ -223,10 +223,11 @@ The values of variables are polled from the CCU/Homegear in an interval of 30 se
 
 ### {% linkable_title Events %}
 
-When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Two event-types are available:
+When HomeMatic devices change their state or some other internal value, the CCU/Homegear sends event messages to Home Assistant. These events are automatically parsed and the entities in Home Assistant are updated. However, you can also manually use these events to trigger automations. Three event-types are available:
 
 - **homematic.keypress**: For devices with buttons, see information below
 - **homematic.impulse**: For impulse sensors
+- **homematic.low_bat**: Fired when a device is running low on battery power. See also information below
 
 #### {% linkable_title Devices with buttons %}
 
@@ -276,6 +277,25 @@ To get the `homematic.keypress` event for some HomeMatic IP devices like WRC2 / 
 7. Trigger the program by pressing the button as configured in step 5. Your device might indicate success via a green LED or similar. When you select the device in `Status and control` > `Devices` on the CCU, the `Last Modified` field should no longer be empty
 8. When your channel is working now, you can edit it to select the other channels one by one
 9. At the end, you can delete this program from the CCU
+
+#### {% linkable_title Low battery event %}
+
+As described above devices with buttons are not implemented as actual entities inside Home Assistant. Therefore you cannot watch a low battery state on these.
+To solve this for all homematic IP devices (including those devices with buttons) the event **homematic.low_bat** is fired when battery is running low. you can then use this in your automations:
+
+```yaml
+automation:
+  trigger:
+    platform: event
+    event_type: homematic.low_bat
+    event_data:
+      name: Kitchen Switch # only name is sent as event data.
+  action:
+    service: notify.notify
+    data:
+      title: EMPTY BATTERY
+      message: device Kitchen Switch has an empty battery
+```
 
 ### {% linkable_title Services %}
 
