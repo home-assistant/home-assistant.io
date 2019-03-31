@@ -46,7 +46,6 @@ sensor:
   - platform: solax
     ip_address: 192.168.0.3
 ```
-{% endraw %}
 
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/components/sensor.template/).
 
