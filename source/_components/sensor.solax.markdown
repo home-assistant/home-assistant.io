@@ -1,4 +1,3 @@
-# ha-solax
 ---
 layout: page
 title: "Solax Sensor"
