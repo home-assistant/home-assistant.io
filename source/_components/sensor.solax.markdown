@@ -19,7 +19,6 @@ The `solax` component connects home-assistant to Solax solar power inverters. So
 
 To use the Solax sensors in your installation, add the following to your configuration.yaml file:
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
