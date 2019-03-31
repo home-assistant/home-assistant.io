@@ -16,7 +16,7 @@ redirect_from: /components/xiaomi/
 
 The `xiaomi_aqara` component allows you to integrate [Xiaomi](http://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
 
-Please note, there are two versions of the hub v1 and v2.  Only v1 can be used with HomeAssistant to date, as there is no way to enable the local API for v2. Xiaomi have suggested this is in the pipeline.
+Please note, there are two versions of the hub v1 and v2. v1 can be used with Home Assistant without any problem, however, v2 might be less straight forward when it comes to enabling the local API and might even require you to open up your device in order to do so. Xiaomi has suggested this is in the pipeline.
 
 ## {% linkable_title Supported Devices %}
 
