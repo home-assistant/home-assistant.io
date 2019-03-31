@@ -26,7 +26,6 @@ sensor:
     ip_address: IP_ADDRESS
 ```
 {% configuration %}
-
 ip_address:
   description: The IP address of your Solax system.
   required: true
