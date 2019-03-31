@@ -14,11 +14,6 @@ ha_category:
   - Scene
 ha_release: 0.92
 ha_iot_class: "Assumed State"
-redirect_from:
-  - /components/somfy_mylink.cover/
-  - /components/cover.somfy_mylink/
-  - /components/somfy_mylink.scene/
-  - /components/scene.somfy_mylink/
 ---
 
 The `Somfy MyLink` component platform is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It adds covers and scenes from the Somfy MyLink platform.
