@@ -13,7 +13,7 @@ ha_release: 0.91
 ha_iot_class: Local Polling
 ---
 
-The `solax` component connects home-assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST api. This component retrieves information such as photo voltaic power production, battery levels and power, and how much power is being fed back into the grid.
+The `solax` component connects home-assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This component retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
 
 ## {% linkable_title Configuration %}
 
