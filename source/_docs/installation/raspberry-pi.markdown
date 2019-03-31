@@ -106,7 +106,7 @@ $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
 ```
 
-Once the last command executes restart the Home Assistant service to apply the latest updates.  Please keep in mind that some updates may take longer to start up than others.  If Home Assistant fails to start make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
+Once the last command executes, restart the Home Assistant service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
 
 ### {% linkable_title Run a specific version %}
 
