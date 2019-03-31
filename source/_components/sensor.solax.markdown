@@ -36,7 +36,6 @@ ip_address:
 
 ### {% linkable_title Full configuration sample %}
 
-{% raw %}
 A full configuration entry would look like the sample below.
 
 
