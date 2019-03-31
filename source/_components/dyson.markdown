@@ -31,7 +31,6 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Sensor
 - Vacuum
-- Air Quality
 
 ## {% linkable_title Configuration %}
 
@@ -154,6 +153,8 @@ There are several attributes which can be used for automations and templates.
 | `angle_high` | Int (between 5 and 355) that indicates the high angle of oscillation (only for DP04 and TP04).|
 | `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04 and TP04).|
 | `timer` | Attribute that indicates the status of the auto power off timer, can be either 'OFF' or an integer representing the time remaining until shutdown in minutes (only for DP04 and TP04).|
+| `hepa filter` |  State of the fan's HEPA filter in % (only for DP04 and TP04).|
+| `carbon filter` | State of the fan's carbon filter in % (only for DP04 and TP04).|
 
 ## {% linkable_title Sensor %}
 
