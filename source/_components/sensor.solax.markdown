@@ -2,7 +2,7 @@
 layout: page
 title: "Solax Sensor"
 description: "Instructions on how to integrate Solax sensor within Home Assistant."
-date: 2019-03-31 14:00
+date: 2019-03-31 04:20
 sidebar: true
 comments: false
 sharing: true
@@ -13,7 +13,7 @@ ha_release: 0.91
 ha_iot_class: Local Polling
 ---
 
-The `solax` platform uses the [ha-solax](https://github.com/squishykid/ha-solax) API to allow you to get details from your Solax solar power setup and integrate these in your Home Assistant installation.
+The `solax` component connects home-assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST api. This component retrieves information such as photo voltaic power productionm, battery levels and power, and how much power is being fed back into the grid.
 
 ## {% linkable_title Configuration %}
 
