@@ -122,7 +122,7 @@ To perform the Hass.io installation, run the following commands:
 ```bash
 sudo -i
 
-apt-get software-properties-common
+apt-get install software-properties-common
 
 add-apt-repository universe
 
