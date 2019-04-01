@@ -27,7 +27,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Supported hardware %}
 
-**Only** the European versions of Daikin AC (models BRP069A41, 42, 43, 45).
+The European versions of Daikin AC (models BRP069A41, 42, 43, 45).
+
+The Australian version of the Daikin Wifi Controller Unit BRP072A42. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical) which is powered by the [DAIKIN Mobile Controller](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8)
 
 Some models do not support setting of fan speed or fan swing mode.
 
