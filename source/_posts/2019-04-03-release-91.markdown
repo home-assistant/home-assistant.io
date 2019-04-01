@@ -52,13 +52,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Z-Wave usb_path in configuration.yaml overrides config entry usb_path ([@cgarwood] - [#22038]) ([zwave docs]) (breaking change)
-- Change ATTR_BATTERY_STATE_UNPLUGGED for ios component ([@FattusMannus] - [#22152]) ([ios docs]) (breaking change)
-- removed iliad ([@eliseomartelli] - [#22175]) ([iliad_italy docs]) (breaking change)
-- Consolidate the netgear_lte configuration ([@amelchio] - [#22105]) ([netgear_lte docs]) (breaking change)
-- Fixing the api_streams sensor ([@Swamp-Ig] - [#22200]) ([api_streams docs]) ([websocket_api docs]) (breaking change)
-- Define GTFS sensor as a timestamp device class ([@renemarc] - [#21053]) ([gtfs docs]) (breaking change)
-- Move yeelight into component ([@zewelor] - [#21593]) ([yeelight docs]) (breaking change)
+- __Z-Wave__ - The usb_path in configuration.yaml now overrides config entry usb_path. This is potentially a breaking change if people have a stale usb_path setting in configuration.yaml that's no longer accurate. This should help reduce the number of people that need to manually edit the storage/core.config_entries file if their usb_path changes. ([@cgarwood] - [#22038]) ([zwave docs])
+
+- __iOS__ - Improves the text description of ATTR_BATTERY_STATE_UNPLUGGED from Unplugged to Not Charging as many new iOS devices now use Wireless charging and there is no concept of "Plugging In". This is potentially a breaking change if you have automations making use of "unplugged". ([@FattusMannus] - [#22152]) ([ios docs])
+- __Iliad Italy__ - __Removed__ - This was removed because it uses webscraping and Iliad is conducting a/b testing on their web pages, making it  not stable for use in production.  ([@eliseomartelli] - [#22175]) ([iliad_italy docs])
+- __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](https://www.home-assistant.io/components/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
+- __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](https://www.home-assistant.io/components/sensor.websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([api_streams docs]) ([websocket_api docs])
+- __Public Transit (GTFS)__ - The state for this sensor component was a countdown in minutes. If the next departure was in a few hours, this number became quite large and a tad harder to rapidly calculate mentally (463 minutes anyone?). The sensor's state output has been changed from minutes to an ISO 8601 UTC timestamp, which allows the UI to interpret the state as needed. ([@renemarc] - [#21053]) ([gtfs docs])
+- __Yeelight__ - This is now its own component and has been broken out from the light platform. More Yeelights are being released with more features and this will make it possible to support them. Examples would be adding sensors for a ceiling light, getting the current power mode (daylight/nightlight), or supporting switches to turn moonlight on or off without having to use a service call. Make sure to visit the updated documentation. ([@zewelor] - [#21593]) ([yeelight docs])
 - Axis config flow ([@Kane610] - [#18543]) ([axis docs]) (breaking change)
 - Lower severity level of log messages from http.view ([@thomasloven] - [#21091]) ([http docs]) (breaking change)
 - Add hourly forecasts to Dark Sky ([@rtclauss] - [#21820]) ([darksky docs]) (breaking change)
