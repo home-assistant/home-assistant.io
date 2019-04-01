@@ -17,7 +17,7 @@ The `cisco_webex_teams` notification platform allows you to deliver rich notific
 To use this notification platform you will need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/). 
 * Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
-You also need to specify the `roomid` that you wish to post messages into. The `roomid` can be found in one of two ways:
+You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of two ways:
 
 1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or 
 2. Log into the web client at [teams.webex.com](https://teams.webex.com/), 
@@ -34,7 +34,7 @@ notify:
   - name: NOTIFIER_NAME
     platform: cisco_webex_teams
     token: YOUR_BOT_TOKEN
-    roomid: CISCO_WEBEX_TEAMS_ROOMID
+    room_id: CISCO_WEBEX_TEAMS_ROOMID
 ```
 
 ## {% linkable_title Rich Text Formatting %}
@@ -140,7 +140,7 @@ token:
   description: Your app (bot) token.
   required: true
   type: string
-roomid:
+room_id:
   description: The Room ID.
   required: true
   type: string
