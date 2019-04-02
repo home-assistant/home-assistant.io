@@ -13,7 +13,7 @@ ha_release: 0.92
 ha_iot_class: Local Push
 ---
 
-The HEOS component integrates [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Dennon and Marantz) into Home Assistant. Features currently include:
+The HEOS component integrates [HEOS](http://heosbydenon.denon.com) capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. Features currently include:
 
 - Each device is represented as a media player entity
 - View the currently playing media
@@ -24,7 +24,7 @@ The HEOS component integrates [HEOS](http://heosbydenon.denon.com) capable produ
 
 ## {% linkable_title Configuration %}
 
-HEOS devices are discovered and setup automatically when the [discovery](/components/discovery) component is enabled. Alternatively, the component can be setup through the frontend control pannel integrations page or manually by adding the following to your `configuration.yaml` file:
+HEOS devices are discovered and setup automatically when the [discovery](/components/discovery) component is enabled. Alternatively, the component can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
