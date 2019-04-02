@@ -102,7 +102,7 @@ action:
 
 #### {% linkable_title Service `play_stream` %}
 
-Play a live stream from a camera to selected media player(s). Requires `stream` component to be set up.
+Play a live stream from a camera to selected media player(s). Requires [`stream`](/components/stream) component to be set up.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -129,3 +129,12 @@ A simple way to test if you have set up your `camera` platform correctly, is to 
   "entity_id": "camera.living_room_camera"
 }
 ```
+
+### {% linkable_title Preload Stream %}
+
+If your camera supports it, and the [`stream`](/components/stream) component is setup, You will notice a "Preload Stream" option in the top right of the dialog when clicking to view the camera stream.  This option will keep the stream alive, and preload the feed on Home Assistant startup.  This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration.  It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
+
+<p class='img'>
+  <img src='/images/components/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
+  Example showing the Preload Stream option in the camera dialog.
+</p>
