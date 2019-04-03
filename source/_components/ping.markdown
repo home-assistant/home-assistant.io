@@ -21,8 +21,8 @@ redirect_from:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor]()
-- [Presence Detection]()
+- [Binary Sensor](#binary-sensor)
+- [Presence Detection](#presence-detection)
 
 ## {% linkable_title Binary Sensor %}
 
@@ -84,7 +84,7 @@ The `ping` device tracker platform offers presence detection by using `ping` to 
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
 </p>
 
-## {% linkable_title Configuration %}
+### {% linkable_title Configuration %}
 
 To use this presence detection in your installation, add the following to your `configuration.yaml` file:
 
