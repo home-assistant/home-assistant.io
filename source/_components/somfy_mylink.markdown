@@ -23,7 +23,7 @@ To use your compatible `Somfy MyLink` devices in your installation, add the foll
 # Example configuration.yaml entry
 somfy_mylink:
   host: IP_ADDRESS
-  system_id: mylink_id
+  system_id: MYLINK_ID
 ```
 
 {% configuration %}
@@ -58,8 +58,8 @@ entity_config:
 ```yaml
 # Advanced configuration.yaml entry setting specific options on a per-cover basis
 somfy_mylink:
-  host: 10.1.1.100
-  system_id: mylink_id
+  host: IP_ADDRESS
+  system_id: MYLINK_ID
   default_reverse: false
   entity_config:
     cover.outdoor_awning:
