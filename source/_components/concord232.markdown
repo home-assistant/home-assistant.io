@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Concord232"
-description: "Instructions on how to integrate Interlogix/GE Concord4 binary sensors into Home Assistant."
+description: "Instructions on how to integrate Interlogix/GE Concord4 into Home Assistant."
 date: 2016-10-11 10:00
 sidebar: true
 comments: false
@@ -23,8 +23,8 @@ To use this platform, you will need to have the external concord232 client and s
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm]()
-- [Binary Sensor]()
+- [Alarm](#alarm-control-panel)
+- [Binary Sensor](#binary-sensor)
 
 ## {% linkable_title Alarm Control Panel %}
 
