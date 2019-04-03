@@ -29,7 +29,7 @@ rest_command:
 
 {% configuration %}
 service_name:
-  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.service_name'.
+  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.example_request'.
   required: true
   type: map
   keys:
