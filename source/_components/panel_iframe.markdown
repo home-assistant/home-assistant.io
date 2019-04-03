@@ -58,6 +58,10 @@ panel_iframe:
             description: Icon for entry.
             required: false
             type: icon
+          require_admin:
+            description: If admin access is required to see this iframe.
+            required: false
+            type: boolean
 {% endconfiguration %}
 
 <p class='note warning'>Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.</p>

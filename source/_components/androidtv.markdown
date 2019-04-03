@@ -97,6 +97,14 @@ device_class:
   required: false
   default: auto
   type: string
+turn_on_command:
+  description: An ADB shell command that will override the default `turn_on` command.
+  required: false
+  type: string
+turn_off_command:
+  description: An ADB shell command that will override the default `turn_off` command.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ### {% linkable_title Full Configuration %}
@@ -104,8 +112,8 @@ device_class:
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  # Use an ADB server to setup an Android TV device
-  # and provide an app name
+  # Use an ADB server to setup an Android TV device, provide
+  # an app name, and override the default turn on/off commands
   - platform: androidtv
     name: Android TV
     device_class: androidtv
@@ -113,6 +121,8 @@ media_player:
     adb_server_ip: 127.0.0.1
     apps:
       com.amazon.tv.launcher: "Fire TV"
+    turn_on_command: "input keyevent 3"
+    turn_off_command: "input keyevent 223"
 
   # Use the Python ADB implementation with authentication
   # to setup a Fire TV device and don't get the running apps

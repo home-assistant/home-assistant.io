@@ -39,6 +39,24 @@ method:
   required: false
   default: GET
   type: string
+verify_ssl:
+  description: Verify the SSL certificate of the endpoint.
+  required: false
+  type: boolean
+  default: True
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  default: basic
+  type: string
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
+  type: string
 headers:
   description: The headers for the request.
   required: false

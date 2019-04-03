@@ -59,11 +59,7 @@
   {%- endif -%}
 
   <div class='section'>
-    {%- if is_platform -%}
-      Source: <a href='{{github_main_repo}}{{imp_url}}{{parent_name}}.py'>{{imp_name}}/{{parent_name}}.py</a>
-    {%- else -%}
-      Source: <a href='{{github_main_repo}}{{imp_url}}'>{{imp_url}}</a>
-    {%- endif -%}
+    Source: <a href='{{github_main_repo}}{{imp_url}}'>{{imp_url}}</a>
   </div>
 
   {%- if is_platform and parent_name != 'sensor' -%}

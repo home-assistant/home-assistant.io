@@ -63,6 +63,10 @@ config:
   description: Configuration to be passed into your web component when being instantiated.
   required: false
   type: list
+require_admin:
+  description: If admin access is required to see this panel.
+  required: false
+  type: boolean
 embed_iframe:
   description: Set to `true` to embed panel in iframe. This is necessary if the panel is using the React framework or if it contains conflicting web components.
   required: false
