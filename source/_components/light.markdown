@@ -35,7 +35,7 @@ Most lights do not support all attributes. You can check the platform documentat
 | `profile` | yes | String with the name of one of the [built-in profiles](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/light/light_profiles.csv) (relax, energize, concentrate, reading) or one of the custom profiles defined in `light_profiles.csv` in the current working directory.  Light profiles define an xy color and a brightness. If a profile is given and a brightness then the profile brightness will be overwritten.
 | `hs_color` | yes | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.
 | `xy_color` | yes | A list containing two floats representing the xy color you want the light to be. Two comma-separated floats that represent the color in XY. You can find a great chart here: [Hue Color Chart](https://developers.meethue.com/documentation/core-concepts#color_gets_more_complicated).
-| `rgb_color` | yes | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB. Note that the specified RGB value will not change the light brightness, only the color.
+| `rgb_color` | yes | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets. Note that the specified RGB value will not change the light brightness, only the color.
 | `white_value` | yes | Integer between 0 and 255 for how bright a dedicated white LED should be.
 | `color_temp` | yes | An integer in mireds representing the color temperature you want the light to be.
 | `kelvin` | yes | Alternatively, you can specify the color temperature in Kelvin.
@@ -64,6 +64,20 @@ automation:
         entity_id: light.living_room
         brightness: 255
         kelvin: 2700
+```
+```yaml
+# Ledlist morning on, red
+- id: llmor
+  alias: Stair morning on
+  trigger:
+  - at: '05:00'
+    platform: time
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.ledliststair
+        brightness: 130
+        rgb_color: [255,0,0]
 ```
 
 ### {% linkable_title Service `light.turn_off` %}
