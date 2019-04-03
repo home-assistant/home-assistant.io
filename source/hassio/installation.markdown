@@ -39,7 +39,10 @@ The following will take you through the steps required to install Hass.io.
    - Flash the downloaded image to an SD card using [balenaEtcher][balenaEtcher]. If using a Pi we recommend at least a 32 GB SD card to avoid running out of space. On Virtual machine platforms, provide at least 32 GB of disk space for the VM.
    - Load the appliance image into your virtual machine software. Choose 64-bit Linux and UEFI boot.
 
-3. Optional - set up the WiFi or static IP: On a USB stick, create the `network/my-network` file and follow the [HassOS howto][hassos-network].
+3. Optional - set up the WiFi or static IP. There are two possible places for that: 
+- On a blank USB stick with Fat32 partition (partition label: "CONFIG"), while in / directory, create `network/my-network` file 
+- or on Hassio SD card first, bootable partition (might not be auto mounted in Linux) create `CONFIG/network/my-network` file 
+For the content of this file follow the [HassOS howto][hassos-network].
 
 4. For image-based installs insert the SD card (and optional USB stick) into the device.
 
@@ -64,6 +67,33 @@ Now you can [configure][configure] your install.
 ### {% linkable_title Migrating from a non-Hass.io install %}
 
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
+
+## {% linkable_title Updating a Hass.io installation %}
+
+Best practice for updating a Hass.io installation:
+
+1. Backup your installation, using the snapshot functionality Hass.io offers.
+2. Check the release notes for breaking changes on [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Check your configuration using the [Check Home Assistant configuration](/addons/check_config/) add-on. 
+4. If the check passes, you can safely update. If not, update your configuration accordingly.
+5. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
+
+## {% linkable_title Run a specific version on Hass.io %}
+
+SSH to your Hass.io system, or connect to the console, and run:
+
+```
+hassio ha update --version=0.XX.X
+```
+
+## {% linkable_title Run the beta version on Hass.io %}
+
+If you would like to test next release before anyone else, you can install the beta version released every two weeks:
+
+1. Backup your installation, using the snapshot functionality Hass.io offers.
+2. Check the RC release notes for breaking changes on [Home Assistant release notes](https://rc--home-assistant-docs.netlify.com/latest-release-notes/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f`) and search for **Breaking Changes**.
+3. Select _System_ from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
+4. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
 
 ## {% linkable_title Alternative: install on generic Linux server %}
 
@@ -95,11 +125,13 @@ To perform the Hass.io installation, run the following commands:
 ```bash
 sudo -i
 
+apt-get install software-properties-common
+
 add-apt-repository universe
 
 apt-get update
 
-apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat software-properties-common
+apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
 
 curl -fsSL get.docker.com | sh
 

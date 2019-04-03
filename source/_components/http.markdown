@@ -41,7 +41,7 @@ server_port:
   type: integer
   default: 8123
 base_url:
-  description: "The URL that Home Assistant is available on the internet. For example: `https://hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app. Note that setting may contain protocol, hostname and port; using a path is not currently supported."
+  description: "The URL that Home Assistant is available on the internet. For example: `https://hass-example.duckdns.org:8123`. The iOS app finds local installations, if you have an outside URL use this so that you can auto-fill when discovered in the app. Note that this setting may only contain a protocol, hostname and port; using a path is *not* currently supported."
   required: false
   type: string
   default: Your local IP address

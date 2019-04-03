@@ -196,7 +196,7 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
-## {% linkable_title Using E-Control Remotes %}
+## {% linkable_title Using E-Control remotes %}
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
 
@@ -244,7 +244,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 8. Convert the HEX codes to base64.
     Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
-## {% linkable_title Using iOS and Windows to Obtain Codes %}
+## {% linkable_title Using iOS and Windows to obtain codes %}
 
 1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
 
@@ -292,9 +292,74 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
 
-## {% linkable_title Using Windows to Obtain Codes with Broadlink Manager %}
+## {% linkable_title Using Windows to obtain codes with Broadlink Manager %}
 
 1. Install Broadlink Manager from this SourceForge link [here](https://sourceforge.net/projects/broadlink-manager/).
 2. Open the application and hit "scan" to activate your broadlink device.
 3. Hit "Learn New Command" and follow instructions on screen.
 4. The "OnRawData Base64" is the value to be used with Home Assistant.
+
+
+## {% linkable_title Using Node-RED to obtain codes %}
+
+1. Install the Broadlink Control palette in Node-RED (click the Hamburger menu at top right corner> Settings> Palette> Install and type Broadlink. Click install on the node-red-contrib-broadlink-control.
+2. Once installed, verify that the new palette titled broadlink is available in the nodes menu.
+3. Drag the RM node to an empty flow and double click to configure the node.
+   ```bash
+   a. give your RM device a name for easy identification
+   b. click on the pencil to edit the device information
+   c. enter the MAC address of the Broadlink RM PRO or RM Mini
+   d. enter the IP address of the Broadlink RM PRO or RM mini
+   e. leave the Catalog field empty.
+   ```
+4. Click Update, and the device field should show the MAC address of the newly added device. If not, just select it.
+5. In the Action field, select Learn, then click Done.
+6. Drag an Inject node to the left of the RM node and link them. The type of inject doesn't matter. Leave it to the defaults.
+7. Drag a Template node on the Flow to the right of the RM node and link it to the RM node.
+8. Double click the Template node to edit it, select:
+   ```bash
+   Property: msg.payload
+   Format: Mustache template
+   Template field: enter '{{payload.data}}'.
+   Output as: Plain text
+   ```
+9. Drag a Debug node to the right of the Template node and link them.
+10. Show the debug messages, deploy the flow and click on the inject button.
+11. A message will show in the debug window:
+    ```bash
+    3/23/2019, 9:56:53 AMnode: RM_Mini1
+    msg : string[47]
+    "Please tap the remote button within 30 seconds."
+    ```
+12. Point the IR remote control at the RM device and click the desired button for about 2 seconds. An array of numbers will show in the debug window. For example:
+    ```bash
+    '38,0,132,3,19,18,19,18,19,18,19,17,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,20,17,19,18,19,18,19,18,19,17,20,17,20,54,20,17,20,54,19,55,19,54,20,54,20,54,19,55,19,0,6,6,150,146,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,17,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,19,18,19,55,19,54,20,54,20,54,20,54,19,55,19,0,6,6,150,146,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,54,19,55,19,54,20,17,20,17,20,17,20,17,20,17,19,18,19,55,19,17,20,17,20,17,20,17,20,17,19,18,19,55,19,18,19,54,20,54,20,54,19,55,19,54,20,54,20,0,6,5,150,146,20,54,20,54,20,54,19,18,19,18,19,18,19,17,20,17,20,54,20,54,19,55,19,18,19,17,20,17,20,17,20,17,20,17,20,54,19,18,19,18,19,18,19,17,20,17,20,17,20,54,19,18,19,55,19,54,20,54,20,54,19,55,19,54,20,0,6,6,149,147,20,54,19,55,19,54,20,17,20,17,20,17,20,17,20,17,19,55,19,54,20,54,20,17,20,17,20,17,19,18,19,18,19,18,19,54,20,17,20,17,20,17,20,17,19,18,19,18,19,54,20,17,20,54,20,54,20,54,19,...'
+    ```
+This is the code we need to transmit again to replicate the same remote function.
+
+## {% linkable_title Using Node red to Transmit Codes %}
+
+1. Drag another RM node on the same flow we created earlier. The RM node should be configured to the RM device created earlier by default.
+2. In the Action field, select - Set from msg.payload -.
+3. Drag an Inject node and give it a meaningful name relevant to the remote control button function, like "TV On" or "TV Source".
+4. Drag a template node and double click it to configure:
+   ```bash
+   Property: msg.payload
+   Format: Mustache template
+   Template: enter the following:
+   '{
+      "action" : "send",
+      "data" : [ 38, 0, 34, 1, 40, 15, 40, 15 ] // Here you must enter the entire code from point 12 above, without the trailing "."
+   }'
+   In the Output as field, "select Parsed JSON".
+   ```
+5. Click Done.
+6. Drag a debug node and connect it to the output of the RM node.
+7. Connect the Inject node to the Template node, and the template node to the RM node.
+8. Click Deploy to activate the flow, and then click the inject button. The debug window should show a debug message. For example:
+   ```bash
+   {"action":"send","data":   [38,0,152,0,0,1,39,148,19,18,18,19,18,55,19,18,18,19,18,19,18,19,18,55,18,56,18,19,18,55,18,19,18,56,18,18,19,55,18,19,18,19,18,18,18,56,18,19,18,18,19,55,18,56,18,18,19,18,18,19,18,19,18,55,19,18,18,19,18,19,18,19,18,18,18,19,18,19,18,55,19,55,18,19,18,19,18,18,19,18,18,56,18,19,18,18,19,55,18,56,18,18,19,18,18,19,18,19,18,19,18,18,19,18,18,56,18,55,18,19,18,19,18,19,18,18,19,55,18,19,18,55,19,18,18,56,18,19,18,18,19,18,18,19,18,19,18,19,18,18,18,56,18,0,13,5],"status":"OK"}
+   ```
+The "status" : "OK" at the end is a feedback that the Broadlink RM device is connected and has transmitted the payload.
+
+Now you can add as many template nodes, each having a specific code, and add any type of input nodes to activate the template and transmit the code.

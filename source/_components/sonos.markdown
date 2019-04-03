@@ -31,16 +31,11 @@ Take a snapshot of what is currently playing on one or more speakers. This servi
 The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/components/tts/) announcements.
 </p>
 
-{% configuration %}
-entity_id:
-  description: The speakers to snapshot.
-  required: false
-  type: entity_id
-with_group:
-  description: Should we also snapshot the group layout and the state of other speakers in the group.
-  required: false
-  type: boolean
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | The speakers to snapshot.
+| `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group.
+
 
 ### {% linkable_title Service `media_player.sonos_restore` %}
 
@@ -54,99 +49,55 @@ The playing queue is not snapshotted. Using `media_player.sonos_restore` on a sp
 A cloud queue cannot be restarted. This includes queues started from within Spotify and queues controlled by Amazon Alexa.
 </p>
 
-{% configuration %}
-entity_id:
-  description: The speakers that should have their snapshot restored.
-  required: false
-  type: entity_id
-with_group:
-  description: Should we also restore the group layout and the state of other speakers in the group.
-  required: false
-  type: boolean
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored.
+| `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group.
 
 ### {% linkable_title Service `media_player.sonos_join` %}
 
 Group players together under a single coordinator. This will make a new group or join to an existing group.
-
-{% configuration %}
-master:
-  description: A single `entity_id` that will become/stay the coordinator speaker.
-  required: true
-  type: entity_id
-entity_id:
-  description: The speakers to join to the master.
-  required: false
-  type: entity_id
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `master` | no | A single `entity_id` that will become/stay the coordinator speaker.
+| `entity_id` | no | String or list of `entity_id`s to join to the master.
 
 ### {% linkable_title Service `media_player.sonos_unjoin` %}
 
 Remove one or more speakers from their group of speakers. If no `entity_id` is provided, all speakers are unjoined.
-
-{% configuration %}
-entity_id:
-  description: The speakers to separate from their coordinator speaker.
-  required: false
-  type: entity_id
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s to separate from their coordinator speaker.
 
 ### {% linkable_title Service `media_player.sonos_set_sleep_timer` %}
 
 Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
 
-{% configuration %}
-entity_id:
-  description: The speakers that will have their timers set.
-  required: true
-  type: entity_id
-sleep_time:
-  description: Number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
-  required: true
-  type: integer
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers set.
+| `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
 
 ### {% linkable_title Service `media_player.sonos_clear_sleep_timer` %}
 
 Clear the sleep timer on a speaker, if one is set.
 
-{% configuration %}
-entity_id:
-  description: The speakers that will have their timers cleared.
-  required: true
-  type: entity_id
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 
 ### {% linkable_title Service `media_player.sonos_update_alarm` %}
 
 Update an existing Sonos alarm.
 
-{% configuration %}
-entity_id:
-  description: The speaker that will have its alarm updated.
-  required: true
-  type: entity_id
-alarm_id:
-  description: Integer that is used in Sonos to refer to your alarm.
-  required: true
-  type: integer
-time:
-  description: Time to set the alarm.
-  required: no
-  type: time
-volume:
-  description: Float for volume level (0.0-1.0).
-  required: no
-  type: float
-enabled:
-  description: Boolean for whether or not to enable this alarm.
-  required: no
-  type: boolean
-include_linked_zones:
-  description: Boolean that defines if the alarm also plays on grouped players.
-  required: no
-  type: boolean
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
+| `alarm_id` | no | Integer that is used in Sonos to refer to your alarm.
+| `time` | yes | Time to set the alarm.
+| `volume` | yes | Float for volume level.
+| `enabled` | yes | Boolean for whether or not to enable this alarm.
+| `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
 ### {% linkable_title Service `media_player.sonos_set_option` %}
 
@@ -154,20 +105,11 @@ Set Sonos speaker options.
 
 Night Sound and Speech Enhancement modes are only supported when playing from the TV source of products like Sonos Playbar and Sonos Beam. Other speaker types will ignore these options.
 
-{% configuration %}
-entity_id:
-  description: The speakers that will have their options set.
-  required: true
-  type: entity_id
-night_sound:
-  description: Boolean to control Night Sound mode.
-  required: no
-  type: boolean
-speech_enhance:
-  description: Boolean to control Speech Enhancement mode.
-  required: no
-  type: boolean
-{% endconfiguration %}
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will have their options set.
+| `night_sound` | yes | Boolean to control Night Sound mode.
+| `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
 
 ## {% linkable_title Advanced use %}
 
