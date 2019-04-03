@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "0.91: Streaming, streaming, streaming"
+title: "0.91: Streaming, Streaming, Streaming"
 description: "TBD - UPDATE DATE"
 date: 2019-03-27 00:11:03
 date_formatted: "April 3, 2019"
@@ -8,18 +8,19 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-04-release-91/components.png
 ---
 
-It's time for release 0.91 and this release is all about streaming cameras. Stream cameras in the frontend, record camera streams to disk with the new recording service in the camera integration, play camera streams on Chromecasts or ask Google Assistant to do that for you.
+It's time for release 0.91 and this release is all about streaming cameras. Home Assistant 0.90 allowed users to stream cameras in the frontend and play camera streams on Chromecasts. This release added support to record camera streams to disk with the new recording service for the camera integration and the ability to ask Google Assistant to show your camera on its display or on a Chromecast. Thanks to [@hunterjm] for all this work on this! ❤️ Check the latest release of the [Home Assistant podcast](https://hasspodcast.io/) for an interview with [@hunterjm] about streams in Home Assistant.
 
-We're still in the process of updating more cameras to support the stream component. If you want to try it today, configure a [generic camera][generic docs with a `stream_source`.
+We're still in the process of updating more cameras to support the stream component. If you want to try it today, the easiest approach is to configure a [generic camera][generic docs] with a `stream_source` or buy a camera that supports the standard ONVIF protocol.
 
-A big shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
+A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
+
+And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occassionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
 
 ## {% linkable_title Notable breaking change %}
 
-We finished the great migration. All built-in platforms are now in their own folder. This means that if you had a custom component or platform that had the same name as a built-in one, you have to rename it. If you still have platforms in your `custom_components/` directory in the old file format, `sensor/my_platform.py`, rename it to `my_platform/sensor.py`. It will not be supported in a future release.
+We finished the great migration. All built-in platforms are now in their own folder. This means that if you had a custom component or platform that had the same name as a built-in one, you have to rename it. If you still have platforms in your `custom_components/` directory in the old file format, `sensor/my_platform.py`, rename it to `my_platform/sensor.py`. It still works but it will not be supported in a future release.
 
 Thanks to [@Swamp-Ig], [@robbiet480] and [@cgtobi] for their work on this!
 
@@ -27,20 +28,20 @@ Thanks to [@Swamp-Ig], [@robbiet480] and [@cgtobi] for their work on this!
 
 Trusted networks has been updated by [@awarecan] to allow specifying specific uses that specific IP addresses are allowed to log into. If a user is logging in with trusted networks and there is only a single user, you can now configure it to skip the login form and automatically login. See [the documentation](/docs/authentication/providers/#trusted-networks) for more info.
 
-## {% linkable_title VSCode hass.io add-on %}
-
-If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck.
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m so excited to release this add-on 😃<br><br>Today I give you the Visual Studio Code!! add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! 🎉<br><br>The full VSCode experience in your HA frontend including the HA VSCode extension preconfigured out of the box!<a href="https://t.co/7bQ6JIF8yQ">https://t.co/7bQ6JIF8yQ</a><a href="https://twitter.com/hashtag/InternetOfThings?src=hash&amp;ref_src=twsrc%5Etfw">#InternetOfThings</a> <a href="https://twitter.com/hashtag/hassio?src=hash&amp;ref_src=twsrc%5Etfw">#hassio</a> <a href="https://t.co/8CwTfKVJvV">pic.twitter.com/8CwTfKVJvV</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1110654397485334533?ref_src=twsrc%5Etfw">March 26, 2019</a>
-</blockquote>
-
-## {% linkable_title ESPHome %}
+## {% linkable_title ESPHome Cameras %}
 
 This release adds camera support to the ESPHome integration. If you haven't heard about [ESPHome](https://www.esphome.io) yet, it allows you to create your own sensors and smart devices and configure them using YAML. With Home Assistant 0.91, it is now possible to integrate cameras. This means that you can have a WiFi enabled camera that integrates automatically into Home Assistant for as little as $9 😲.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
 </div>
+
+## {% linkable_title VSCode hass.io add-on %}
+
+If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m so excited to release this add-on 😃<br><br>Today I give you the Visual Studio Code!! add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! 🎉<br><br>The full VSCode experience in your HA frontend including the HA VSCode extension preconfigured out of the box!<a href="https://t.co/7bQ6JIF8yQ">https://t.co/7bQ6JIF8yQ</a><a href="https://twitter.com/hashtag/InternetOfThings?src=hash&amp;ref_src=twsrc%5Etfw">#InternetOfThings</a> <a href="https://twitter.com/hashtag/hassio?src=hash&amp;ref_src=twsrc%5Etfw">#hassio</a> <a href="https://t.co/8CwTfKVJvV">pic.twitter.com/8CwTfKVJvV</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1110654397485334533?ref_src=twsrc%5Etfw">March 26, 2019</a>
+</blockquote>
 
 ## {% linkable_title New Platforms %}
 
