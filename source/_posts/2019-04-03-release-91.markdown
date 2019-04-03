@@ -42,6 +42,14 @@ This release adds camera support to the ESPHome integration. If you haven't hear
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
 </div>
 
+## {% linkable_title Zigbee ZHA pairing experience %}
+
+Every release our Zigbee integration is getting better thanks to the hard work by [@dmulcahey], [@damarco] and [@Adminiuga]. This release introduces a brand new pairing experience. While pairing mode is enabled, any device that is getting paired will instantly show up, allowing users to configure the name and the area.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ye-tf2RFfLQ" frameborder="0" allowfullscreen></iframe>
+</div>
+
 ## {% linkable_title VSCode hass.io add-on %}
 
 If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck.
