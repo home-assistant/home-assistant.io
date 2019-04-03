@@ -332,9 +332,9 @@ If your template uses an `entity_id` that begins with a number (example: `states
 
 
 
-### {% linkable_title Templates using `now()` %}
+### {% linkable_title Templates without entities using `now()` %}
 
-Rendering templates with time (`now()`) is dangerous as updates only trigger templates in sensors based on entity state changes.
+Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [Template Sensor documentation](https://www.home-assistant.io/components/sensor.template/#working-without-entities)
 
 
 ### {% linkable_title Priority of operators %}
