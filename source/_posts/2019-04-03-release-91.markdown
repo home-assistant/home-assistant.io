@@ -11,41 +11,39 @@ categories: Release-Notes
 og_image: /images/blog/2019-04-release-91/components.png
 ---
 
-<a href='/components/#version/0.91'><img src='/images/blog/2019-04-release-91/components.png' style='border: 0;box-shadow: none;'></a>
+It's time for release 0.91 and this release is all about streaming cameras. Stream cameras in the frontend, record camera streams to disk with the new recording service in the camera integration, play camera streams on Chromecasts or ask Google Assistant to do that for you.
 
-Streaming:
- - Recording
- - Google Assistant support, "Hey Google, show the baby room"
- - More supported platforms
+We're still in the process of updating more cameras to support the stream component. If you want to try it today, configure a [generic camera][generic docs with a `stream_source`.
+
+A big shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
 
 ## {% linkable_title Notable breaking change %}
 
-Finished the great migration. All built-in platforms are now in their own folder. If you still have platforms in your `custom_components/` directory in the old file format, like `sensor/my_platform.py`, rename it to `my_platform/sensor.py`. It will not be supported in a future release.
+We finished the great migration. All built-in platforms are now in their own folder. This means that if you had a custom component or platform that had the same name as a built-in one, you have to rename it. If you still have platforms in your `custom_components/` directory in the old file format, `sensor/my_platform.py`, rename it to `my_platform/sensor.py`. It will not be supported in a future release.
 
+Thanks to [@Swamp-Ig], [@robbiet480] and [@cgtobi] for their work on this!
 
-## {% linkable_title Trusted networks update %}
+## {% linkable_title Trusted networks now support trusted users %}
 
-Trusted users added to trusted networks auth provider. Including auto log in if only one user matching.
+Trusted networks has been updated by [@awarecan] to allow specifying specific uses that specific IP addresses are allowed to log into. If a user is logging in with trusted networks and there is only a single user, you can now configure it to skip the login form and automatically login. See [the documentation](/docs/authentication/providers/#trusted-networks) for more info.
 
 ## {% linkable_title VSCode hass.io add-on %}
 
-If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck
+If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m so excited to release this add-on 😃<br><br>Today I give you the Visual Studio Code!! add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! 🎉<br><br>The full VSCode experience in your HA frontend including the HA VSCode extension preconfigured out of the box!<a href="https://t.co/7bQ6JIF8yQ">https://t.co/7bQ6JIF8yQ</a><a href="https://twitter.com/hashtag/InternetOfThings?src=hash&amp;ref_src=twsrc%5Etfw">#InternetOfThings</a> <a href="https://twitter.com/hashtag/hassio?src=hash&amp;ref_src=twsrc%5Etfw">#hassio</a> <a href="https://t.co/8CwTfKVJvV">pic.twitter.com/8CwTfKVJvV</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1110654397485334533?ref_src=twsrc%5Etfw">March 26, 2019</a>
 </blockquote>
 
 ## {% linkable_title ESPHome %}
 
-ESPHome Camera support
+This release adds camera support to the ESPHome integration. If you haven't heard about [ESPHome](https://www.esphome.io) yet, it allows you to create your own sensors and smart devices and configure them using YAML. With Home Assistant 0.91, it is now possible to integrate cameras. This means that you can have a WiFi enabled camera that integrates automatically into Home Assistant for as little as $9 😲.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
 </div>
 
-
 ## {% linkable_title New Platforms %}
 
-- Refactor ZHA gateway into modules and add admin protections to API ([@dmulcahey] - [#22023]) ([zha docs]) (new-platform)
 - Add LCN sensor platform ([@alengwenus] - [#21440]) ([lcn docs]) (new-platform)
 - Add ESPHome Camera ([@OttoWinter] - [#22107]) ([esphome docs]) (new-platform)
 - Add Freebox switch platform ([@SNoof85] - [#21710]) ([freebox docs]) (new-platform)
@@ -67,7 +65,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Z-Wave__ - The usb_path in configuration.yaml now overrides config entry usb_path. This is potentially a breaking change if people have a stale usb_path setting in configuration.yaml that's no longer accurate. This should help reduce the number of people that need to manually edit the storage/core.config_entries file if their usb_path changes. ([@cgarwood] - [#22038]) ([zwave docs])
 
 - __iOS__ - Improves the text description of ATTR_BATTERY_STATE_UNPLUGGED from Unplugged to Not Charging as many new iOS devices now use Wireless charging and there is no concept of "Plugging In". This is potentially a breaking change if you have automations making use of "unplugged". ([@FattusMannus] - [#22152]) ([ios docs])
-- __Iliad Italy__ - __Removed__ - This was removed because it uses webscraping and Iliad is conducting a/b testing on their web pages, making it  not stable for use in production.  ([@eliseomartelli] - [#22175])
+- __Iliad Italy__ - __Removed__ - This was removed because it uses webscraping.  ([@eliseomartelli] - [#22175])
 - __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](https://www.home-assistant.io/components/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
 - __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](https://www.home-assistant.io/components/websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([websocket_api docs])
 - __Public Transit (GTFS)__
