@@ -10,7 +10,13 @@ comments: true
 categories: Release-Notes
 ---
 
-It's time for release 0.91 and this release is all about streaming cameras. Home Assistant 0.90 allowed users to stream cameras in the frontend and play camera streams on Chromecasts. This release added support to record camera streams to disk with the new recording service for the camera integration and the ability to ask Google Assistant to show your camera on its display or on a Chromecast. Thanks to [@hunterjm] for all this work on this! ❤️ Check the latest release of the [Home Assistant podcast](https://hasspodcast.io/) for an interview with [@hunterjm] about streams in Home Assistant.
+It's time for release 0.91 and this release is all about streaming cameras. Home Assistant 0.90 allowed users to stream cameras in the frontend and play camera streams on Chromecasts. This release adds support to:
+
+- Record camera streams to disk with the new recording service for the camera integration
+- Support to ask Google Assistant to show your camera on its display or on a Chromecast
+- Preload streams so that bringing up a stream on a device is super fast. This can be configured on a per camera basis via the camera more info dialog.
+
+Thanks to [@hunterjm] for all this work on this! ❤️ Check the latest release of the [Home Assistant podcast](https://hasspodcast.io/) for an interview with [@hunterjm] about streams in Home Assistant.
 
 We're still in the process of updating more cameras to support the stream component. If you want to try it today, the easiest approach is to configure a [generic camera][generic docs] with a `stream_source` or buy a camera that supports the standard ONVIF protocol.
 
