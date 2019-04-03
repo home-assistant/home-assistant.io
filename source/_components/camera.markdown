@@ -16,7 +16,7 @@ The camera component allows you to use IP cameras with Home Assistant. With a li
 
 Once loaded, the `camera` platform will expose services that can be called to perform various actions.
 
-Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
+Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_motion_detection`, `snapshot`, `record`, and `play_stream`.
 
 #### {% linkable_title Service `turn_on` %}
 
@@ -72,6 +72,17 @@ action:
     filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 {% endraw %}
+
+#### {% linkable_title Service `record` %}
+
+Record live camera feed.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.living_room_camera`. |
+| `filename`         |      no  | Template of a Filename. Variable is entity_id. Must be mp4., e.g., `/tmp/snapshot_{{ entity_id }}.mp4`. |
+| `duration`               |      yes | Target recording length (in seconds). Default: `30` |
+| `lookback`               |      yes | Target lookback period (in seconds) to include in addition to duration. Only available if there is currently an active HLS stream. Default: `4` |
 
 #### {% linkable_title Service `play_stream` %}
 
