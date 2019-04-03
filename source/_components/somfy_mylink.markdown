@@ -22,7 +22,7 @@ To use your compatible `Somfy MyLink` devices in your installation, add the foll
 ```yaml
 # Example configuration.yaml entry
 somfy_mylink:
-  host: 10.1.1.100
+  host: IP_ADDRESS
   system_id: mylink_id
 ```
 
