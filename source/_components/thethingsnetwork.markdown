@@ -8,9 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: thethingsnetwork.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Sensor
 ha_release: 0.55
 ha_iot_class: Configurable
+redirect_from:
+  - /components/sensor.thethingsnetwork/
 ---
 
 The `thethingsnetwork` component allows one to interact with the [The Things Network](https://www.thethingsnetwork.org). This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long range (~5 to 15km) communication with a low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfers the received data from the sensors to the The Things Network.
@@ -20,8 +24,12 @@ The Things network support various integrations to make the data available:
 | The Things Network Integration | Home Assistant platform |
 |---|---|
 | [MQTT](https://www.thethingsnetwork.org/docs/applications/mqtt/) | |
-| [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) | [`thethingsnetwork`](/components/sensor.thethingsnetwork/) |
+| [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) | [`thethingsnetwork`](#sensor) |
 | [HTTP](https://www.thethingsnetwork.org/docs/applications/http/) | |
+
+There is currently support for the following device types within Home Assistant:
+
+- [Sensor](#sensor)
 
 ## {% linkable_title Setup %}
 
@@ -61,4 +69,74 @@ access_key:
   description: The access key.
   required: true
   type: string
+{% endconfiguration %}
+
+## {% linkable_title Sensor %}
+
+The `thethingsnetwork` sensor platform allows you to get data from a [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/).
+
+This platform requires that the [The Things Network component](#configuration) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
+
+### {% linkable_title Prerequisites %}
+
+Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications** and go to **Integrations**.
+
+Add a new integration.
+
+<p class='img'>
+<img src='/images/components/thethingsnetwork/add_integration.png' />
+Add a The Things Network integration
+</p>
+
+Select **Data Storage**.
+
+<p class='img'>
+<img src='/images/components/thethingsnetwork/choose_integration.png' />
+Choose a The Things Network integration
+</p>
+
+Click **Add integration** to finish the process.
+
+<p class='img'>
+<img src='/images/components/thethingsnetwork/confirm_integration.png' />
+Add a The Things Network Data Storage integration
+</p>
+
+When done, the status of the integration should be **Running**. You could check the output after clicking on **go to platform** in an interactive web interface.
+
+<p class='img'>
+<img src='/images/components/thethingsnetwork/storage_integration.png' />
+Add a The Things Network integration
+</p>
+
+Select **Devices** to get the ID of your device that you want to use.
+
+<p class='img'>
+<img src='/images/components/thethingsnetwork/devices.png' />
+Devices overview
+</p>
+
+### {% linkable_title Configuration %}
+
+To enable this platform, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: thethingsnetwork
+    device_id: ha-demo
+    values:
+      sensor_value: unit of measurement
+      voltage: V
+```
+
+{% configuration %}
+  device_id:
+    description: The ID of the device.
+    required: true
+    type: string
+  values:
+    description: The sensor values with their unit of measurement
+    required: true
+    type: list
 {% endconfiguration %}
