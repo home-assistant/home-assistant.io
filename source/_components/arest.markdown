@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "aREST Binary Sensor"
-description: "Instructions on how to integrate aREST binary sensors within Home Assistant."
+title: "aREST"
+description: "Instructions on how to integrate aREST within Home Assistant."
 date: 2015-11-20 18:15
 sidebar: true
 comments: false
