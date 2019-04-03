@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "0.91: Streaming, Streaming, Streaming"
-description: "TBD - UPDATE DATE"
+title: "0.91: More streaming, better Zigbee, cameras with ESPHome"
+description: "Big update that brings goodies across the board."
 date: 2019-03-27 00:11:03
 date_formatted: "April 3, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
+og_image: /images/blog/2019-04-release-91/social.png
 ---
 
 It's time for release 0.91 and this release is all about streaming cameras. Home Assistant 0.90 allowed users to stream cameras in the frontend and play camera streams on Chromecasts. This release adds support to:
