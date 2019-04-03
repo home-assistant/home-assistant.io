@@ -11,6 +11,8 @@ logo: lockitron.png
 ha_category: Lock
 ha_iot_class: Cloud Polling
 ha_release: 0.42
+redirect_from:
+ - /components/lock.lockitron/
 ---
 
 The `lockitron` platform allows you to control your [Lockitron](https://lockitron.com/) lock from within Home Assistant.

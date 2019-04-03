@@ -11,6 +11,8 @@ logo: flexit.png
 ha_category: Climate
 ha_release: 0.47
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/climate.flexit/
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Air Conditioning unit into Home Assistant.

@@ -10,6 +10,8 @@ footer: true
 logo: clicksend.png
 ha_category: Notifications
 ha_release: 0.48
+redirect_from:
+ - /components/notify.clicksend/
 ---
 
 

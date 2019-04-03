@@ -11,6 +11,8 @@ footer: true
 ha_category: Sensor
 ha_release: 0.29
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/sensor.emoncms/
 ---
 
 

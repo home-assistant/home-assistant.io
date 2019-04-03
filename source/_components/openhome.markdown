@@ -11,6 +11,8 @@ logo: linn.png
 ha_category: Media Player
 ha_release: 0.39
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.openhome/
 ---
 
 

@@ -11,6 +11,8 @@ logo: transport_nsw.png
 ha_category: Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.81
+redirect_from:
+ - /components/sensor.transport_nsw/
 ---
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.

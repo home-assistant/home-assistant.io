@@ -11,6 +11,8 @@ logo: russound.png
 ha_category: Media Player
 ha_release: 0.25
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.russound_rnet/
 ---
 
 The `russound_rnet` platform allows you to control Russound devices that make use of the RNET protocol.

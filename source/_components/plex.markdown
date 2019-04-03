@@ -12,6 +12,8 @@ ha_category: Media Player
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.plex/
 ---
 
 

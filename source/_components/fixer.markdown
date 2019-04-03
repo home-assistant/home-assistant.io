@@ -11,6 +11,8 @@ ha_category: Finance
 logo: fixer-io.png
 ha_iot_class: Cloud Polling
 ha_release: 0.23
+redirect_from:
+ - /components/sensor.fixer/
 ---
 
 

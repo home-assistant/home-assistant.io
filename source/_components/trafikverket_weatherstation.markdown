@@ -11,6 +11,8 @@ logo: trafikverket.png
 ha_category: Weather
 ha_release: 0.66
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.trafikverket_weatherstation/
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.

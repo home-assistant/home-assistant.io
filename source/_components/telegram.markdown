@@ -10,6 +10,8 @@ footer: true
 logo: telegram.png
 ha_category: Notifications
 ha_release: 0.7.5
+redirect_from:
+ - /components/notify.telegram/
 ---
 
 

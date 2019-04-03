@@ -11,6 +11,8 @@ logo: openweathermap.png
 ha_category: Weather
 ha_release: 0.32
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/weather.openweathermap/
 ---
 
 The `openweathermap` weather platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location.

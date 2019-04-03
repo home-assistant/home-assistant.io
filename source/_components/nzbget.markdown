@@ -11,6 +11,8 @@ ha_category: Downloading
 logo: nzbget.png
 ha_iot_class: Local Polling
 ha_release: 0.17
+redirect_from:
+ - /components/sensor.nzbget/
 ---
 
 The `nzbget` platform will allow you to monitor your downloads with [NZBGet](http://NZBGet.net) from within Home Assistant and setup automation based on the information.

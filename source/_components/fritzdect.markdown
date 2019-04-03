@@ -11,6 +11,8 @@ logo: avm.png
 ha_category: Switch
 ha_iot_class: Local Polling
 ha_release: 0.38
+redirect_from:
+ - /components/switch.fritzdect/
 ---
 
 The `fritzdect` switch platform allows you to control the state of your [AVM FRITZ!DECT DECT-based wireless switches](https://en.avm.de/products/fritzdect/). The AVM FRITZ!DECT switches need to be paired to your Fritz!Box and then can be monitored and controlled via Home Assistant.

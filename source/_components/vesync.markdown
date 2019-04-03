@@ -10,6 +10,8 @@ footer: true
 logo: vesync.png
 ha_category: Switch
 ha_release: 0.66
+redirect_from:
+ - /components/switch.vesync/
 ---
 
 The `vesync` switch platform enables integration with Etekcity VeSync smart wall switches and outlets.

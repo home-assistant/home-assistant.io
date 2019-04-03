@@ -11,6 +11,8 @@ ha_category: Finance
 logo: openexchangerates.png
 ha_iot_class: Cloud Polling
 ha_release: 0.23
+redirect_from:
+ - /components/sensor.openexchangerates/
 ---
 
 The `openexchangerates` sensor will show you the current exchange rate from [Open Exchange Rates](https://openexchangerates.org) that provides realtime exchange rates for [170 currencies](https://openexchangerates.org/currencies). The free account is limited to only USD as a base currency, allows 1000 requests per month, and updates every hour.

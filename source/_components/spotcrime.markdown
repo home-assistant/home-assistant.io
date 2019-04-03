@@ -9,6 +9,8 @@ sharing: true
 footer: true
 ha_release: 0.65
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.spotcrime/
 ---
 
 <p class='note warning'>SpotCrime is no longer handing out API keys to integrate their services.</p>

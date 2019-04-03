@@ -10,6 +10,8 @@ footer: true
 logo: smtp.png
 ha_category: Notifications
 ha_release: pre 0.7
+redirect_from:
+ - /components/notify.smtp/
 ---
 
 

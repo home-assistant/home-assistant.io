@@ -11,6 +11,8 @@ logo: broadlink.png
 ha_category: Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/switch.broadlink/
 ---
 
 This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).

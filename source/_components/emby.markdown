@@ -11,6 +11,8 @@ logo: emby.png
 ha_category: Media Player
 ha_release: 0.32
 ha_iot_class: Local Push
+redirect_from:
+ - /components/media_player.emby/
 ---
 
 

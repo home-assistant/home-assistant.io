@@ -11,6 +11,8 @@ footer: true
 ha_category: Weather
 ha_release: 0.51
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.dwd_weather_warnings/
 ---
 
 The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD)](https://www.dwd.de) as a source for current and advance warnings.

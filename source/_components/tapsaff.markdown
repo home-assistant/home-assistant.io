@@ -11,6 +11,8 @@ logo: tapsaff.png
 ha_category: Weather
 ha_release: 0.47
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/binary_sensor.tapsaff/
 ---
 
 The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](http://www.taps-aff.co.uk).

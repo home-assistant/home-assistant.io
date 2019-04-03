@@ -11,6 +11,8 @@ logo: openevse.png
 ha_category: Car
 ha_release: 0.38
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/sensor.openevse/
 ---
 
 This `openevse` sensor platform pulls data from an [OpenEVSE](https://www.openevse.com/) Charging station equipped with an ESP8266-based wifi connection.

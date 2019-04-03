@@ -11,6 +11,8 @@ logo: blockchain.png
 ha_category: Finance
 ha_release: 0.47
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.blockchain/
 ---
 
 

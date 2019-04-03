@@ -10,6 +10,8 @@ footer: true
 logo: microsoft.png
 ha_category: Text-to-speech
 ha_release: 0.57
+redirect_from:
+ - /components/tts.microsoft/
 ---
 
 The `microsoft` text-to-speech platform uses [Microsoft Text-to-Speech engine](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home) to read a text with natural sounding voices. This component uses an API that is part of the Cognitive Services offering and is known as the Bing Speech API.

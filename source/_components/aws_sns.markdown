@@ -10,6 +10,8 @@ footer: true
 logo: aws_sns.png
 ha_category: Notifications
 ha_release: "0.20"
+redirect_from:
+ - /components/notify.aws_sns/
 ---
 
 The `aws_sns` notification platform enables publishing to an [AWS SNS](https://aws.amazon.com/sns/) topic or application.

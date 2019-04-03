@@ -11,6 +11,8 @@ logo: pocketcasts.png
 ha_category: Multimedia
 ha_release: 0.39
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.pocketcasts/
 ---
 
 The `pocketcasts` sensor platform lets one monitor the podcasts at [Pocket Casts](https://play.pocketcasts.com/).

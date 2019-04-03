@@ -11,6 +11,8 @@ logo: home-assistant.png
 ha_category: Network
 ha_iot_class: Cloud Polling
 ha_release: "0.40"
+redirect_from:
+ - /components/sensor.dnsip/
 ---
 
 The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its value. There are two operational modes:

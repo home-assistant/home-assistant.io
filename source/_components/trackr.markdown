@@ -11,6 +11,8 @@ logo: trackr.png
 ha_release: 0.36
 ha_category: Presence Detection
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/device_tracker.trackr/
 ---
 
 

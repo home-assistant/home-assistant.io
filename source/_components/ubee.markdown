@@ -10,6 +10,8 @@ footer: true
 logo: ubee.png
 ha_category: Presence Detection
 ha_release: 0.89
+redirect_from:
+ - /components/device_tracker.ubee/
 ---
 
 This platform offers presence detection by looking at connected devices to a [Ubee Router](http://www.ubeeinteractive.com/products).

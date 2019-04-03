@@ -10,6 +10,8 @@ footer: true
 logo: syslog.png
 ha_category: Notifications
 ha_release: pre 0.7
+redirect_from:
+ - /components/notify.syslog/
 ---
 
 The `syslog` platform allows you to deliver notifications from Home Assistant to the local syslog.

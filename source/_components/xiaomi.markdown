@@ -11,6 +11,8 @@ logo: xiaomi.png
 ha_category: Camera
 ha_release: 0.72
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/camera.xiaomi/
 ---
 
 The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home Assistant.

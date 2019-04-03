@@ -12,6 +12,8 @@ ha_category: Energy
 ha_release: 0.17
 ha_iot_class: Cloud Push
 redirect_from: /components/sensor.loop_energy/
+redirect_from:
+ - /components/sensor.loopenergy/
 ---
 
 Integrate your [Loop Energy](https://www.your-loop.com/) meter information into Home Assistant. To use this sensor you need the client serial number and secret keys for your devices.

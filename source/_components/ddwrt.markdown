@@ -10,6 +10,8 @@ footer: true
 logo: ddwrt.png
 ha_category: Presence Detection
 ha_release: pre 0.7
+redirect_from:
+ - /components/device_tracker.ddwrt/
 ---
 
 This platform offers presence detection by looking at connected devices to a [DD-WRT](http://www.dd-wrt.com/site/index) based router.

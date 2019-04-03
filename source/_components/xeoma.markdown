@@ -11,6 +11,8 @@ logo: xeoma.png
 ha_category: Camera
 ha_iot_class: Local Polling
 ha_release: 0.62
+redirect_from:
+ - /components/camera.xeoma/
 ---
 
 The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](http://felenasoft.com/xeoma) video surveillance server.

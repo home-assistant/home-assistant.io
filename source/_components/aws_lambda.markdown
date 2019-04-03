@@ -10,6 +10,8 @@ footer: true
 logo: aws_lambda.png
 ha_category: Notifications
 ha_release: "0.20"
+redirect_from:
+ - /components/notify.aws_lambda/
 ---
 
 The `aws_lambda` notification platform enables invoking [AWS Lambda](https://aws.amazon.com/lambda/) functions.

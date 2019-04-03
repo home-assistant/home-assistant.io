@@ -11,6 +11,8 @@ logo: mystrom.png
 ha_category: Light
 ha_release: 0.43
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/light.mystrom/
 ---
 
 

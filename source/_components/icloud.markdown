@@ -10,6 +10,8 @@ footer: true
 logo: icloud.png
 ha_category: Presence Detection
 ha_release: "0.10"
+redirect_from:
+ - /components/device_tracker.icloud/
 ---
 
 

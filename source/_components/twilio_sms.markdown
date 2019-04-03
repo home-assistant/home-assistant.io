@@ -10,6 +10,8 @@ footer: true
 logo: twilio.png
 ha_category: Notifications
 ha_release: "0.20"
+redirect_from:
+ - /components/notify.twilio_sms/
 ---
 
 The `twilio` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).

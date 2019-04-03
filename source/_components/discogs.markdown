@@ -11,6 +11,8 @@ ha_category: Multimedia
 ha_release: 0.61
 logo: discogs.png
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.discogs/
 ---
 
 The `discogs` platform allows you to see the current amount of records in your [Discogs](https://discogs.com) collection.

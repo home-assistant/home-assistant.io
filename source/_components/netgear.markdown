@@ -11,6 +11,8 @@ logo: netgear.png
 ha_category: Presence Detection
 ha_iot_class: Local Polling
 ha_release: pre 0.7
+redirect_from:
+ - /components/device_tracker.netgear/
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.

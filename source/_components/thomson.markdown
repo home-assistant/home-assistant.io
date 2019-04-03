@@ -10,6 +10,8 @@ footer: true
 logo: technicolor.png
 ha_category: Presence Detection
 ha_release: 0.7
+redirect_from:
+ - /components/device_tracker.thomson/
 ---
 
 

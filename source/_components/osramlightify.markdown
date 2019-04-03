@@ -10,6 +10,8 @@ footer: true
 logo: osramlightify.png
 ha_category: Light
 ha_release: 0.21
+redirect_from:
+ - /components/light.osramlightify/
 ---
 
 The `osramlightify` platform allows you to integrate your [Osram Lightify](http://www.osram.com/osram_com/products/led-technology/lightify/index.jsp) into Home Assistant.

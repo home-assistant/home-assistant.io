@@ -11,6 +11,8 @@ logo: pvoutput.png
 ha_category: Energy
 ha_release: 0.33
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.pvoutput/
 ---
 
 The `pvoutput` sensor platform consumes information from [PVOutput](http://pvoutput.org/) which were uploaded by your solar photovoltaic (PV) system.

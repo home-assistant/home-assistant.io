@@ -13,6 +13,8 @@ ha_category:
 ha_release: 0.55
 redirect_from: 
   - /components/notify.clicksendaudio/
+redirect_from:
+ - /components/notify.clicksend_tts/
 ---
 
 The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.

@@ -11,6 +11,8 @@ logo: soundtouch.png
 ha_category: Media Player
 ha_release: 0.34
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.soundtouch/
 ---
 
 The `soundtouch` platform allows you to control your [Bose Soundtouch](https://www.soundtouch.com/) speakers from Home Assistant.

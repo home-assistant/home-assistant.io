@@ -11,6 +11,8 @@ logo: bitcoin.png
 ha_category: Finance
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.bitcoin/
 ---
 
 

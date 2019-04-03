@@ -11,6 +11,8 @@ logo: teksavvy.png
 ha_category: Network
 ha_release: 0.62
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.teksavvy/
 ---
 
 Integrate your [TekSavvy](https://myaccount.teksavvy.com/) account information into Home Assistant.

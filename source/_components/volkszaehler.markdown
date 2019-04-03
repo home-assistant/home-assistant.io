@@ -11,6 +11,8 @@ logo: volkszaehler.png
 ha_category: System Monitor
 ha_iot_class: Local Polling
 ha_release: 0.78
+redirect_from:
+ - /components/sensor.volkszaehler/
 ---
 
 The `volkszaehler` sensor platform is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.

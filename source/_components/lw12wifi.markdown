@@ -11,6 +11,8 @@ ha_category: Light
 ha_iot_class: Local Polling
 logo: lagute.png
 ha_release: 0.71
+redirect_from:
+ - /components/light.lw12wifi/
 ---
 
 The `lw12wifi` light platform supports Lagute LW-12 Wifi LED controller.

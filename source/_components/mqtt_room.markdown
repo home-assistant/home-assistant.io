@@ -11,6 +11,8 @@ logo: mqtt.png
 ha_category: Presence Detection
 ha_release: 0.27
 ha_iot_class: Configurable
+redirect_from:
+ - /components/sensor.mqtt_room/
 ---
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.

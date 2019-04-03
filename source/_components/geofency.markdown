@@ -11,6 +11,8 @@ logo: geofency.png
 ha_category: Presence Detection
 ha_release: 0.53
 ha_iot_class: Cloud Push
+redirect_from:
+ - /components/device_tracker.geofency/
 ---
 
 This platform allows you to detect presence using [Geofency](http://www.geofency.com/).

@@ -11,6 +11,8 @@ ha_category: Finance
 logo: currencylayer.png
 ha_iot_class: Cloud Polling
 ha_release: 0.32
+redirect_from:
+ - /components/sensor.currencylayer/
 ---
 
 

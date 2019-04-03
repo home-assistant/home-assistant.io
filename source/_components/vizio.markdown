@@ -11,6 +11,8 @@ logo: vizio-smartcast.png
 ha_category: Media Player
 ha_release: 0.49
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.vizio/
 ---
 
 The `vizio` component will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs (2016+ models).

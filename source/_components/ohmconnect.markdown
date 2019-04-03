@@ -11,6 +11,8 @@ logo: "ohmconnect.png"
 ha_category: Energy
 ha_iot_class: Cloud Polling
 ha_release: 0.26
+redirect_from:
+ - /components/sensor.ohmconnect/
 ---
 
 The `ohmconnect` sensor will show you the current [OhmConnect](https://www.ohmconnect.com/) status for the given OhmConnect ID.

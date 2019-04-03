@@ -11,6 +11,8 @@ logo: sesame.png
 ha_category: Lock
 ha_iot_class: Cloud Polling
 ha_release: 0.47
+redirect_from:
+ - /components/lock.sesame/
 ---
 
 The `sesame` platform allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.

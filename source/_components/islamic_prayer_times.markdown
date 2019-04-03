@@ -10,6 +10,8 @@ footer: true
 ha_category: Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.85
+redirect_from:
+ - /components/sensor.islamic_prayer_times/
 ---
 
 The Islamic Prayer Times (`islamic_prayer_times`) sensor platform displays the various prayer times for Muslims as sensors.

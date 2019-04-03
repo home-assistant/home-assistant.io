@@ -11,6 +11,8 @@ ha_category: DIY
 ha_release: 0.68
 logo: sensirion.png
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/sensor.sht31/
 ---
 
 The `sht31` sensor platform allows you to get the current temperature and humidity from a Sensirion SHT31 device.

@@ -10,6 +10,8 @@ footer: true
 ha_category: Presence Detection
 logo: linksys.png
 ha_release: 0.37
+redirect_from:
+ - /components/device_tracker.linksys_ap/
 ---
 
 The `linksys_ap` platform offers presence detection by looking at connected devices to a Linksys based access point.

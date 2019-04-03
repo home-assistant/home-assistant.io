@@ -11,6 +11,8 @@ logo: buienradar.png
 ha_category: Weather
 ha_release: 0.47
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/weather.buienradar/
 ---
 
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.

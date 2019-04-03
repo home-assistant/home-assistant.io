@@ -10,6 +10,8 @@ footer: true
 logo: gpslogger.png
 ha_category: Presence Detection
 ha_release: 0.34
+redirect_from:
+ - /components/device_tracker.gpslogger/
 ---
 
 The `gpslogger` device tracker platform allows you to detect presence using [GPSLogger](http://code.mendhak.com/gpslogger/).

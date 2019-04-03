@@ -11,6 +11,8 @@ logo: london_underground.png
 ha_category: Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.49
+redirect_from:
+ - /components/sensor.london_underground/
 ---
 
 The `london_underground` sensor will display the status of London underground lines, as well as the Overground, DLR and Tfl rail.

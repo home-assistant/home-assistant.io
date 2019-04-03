@@ -11,6 +11,8 @@ logo: bluesound.png
 ha_category: Media Player
 ha_release: 0.51
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.bluesound/
 ---
 
 The `bluesound` platform allows you to control your [Bluesound](http://www.bluesound.com/) HiFi wireless speakers and audio components from Home Assistant.

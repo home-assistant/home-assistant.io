@@ -11,6 +11,8 @@ logo: ritassist.png
 ha_category: Car
 ha_iot_class: Cloud Polling
 ha_release: 0.76
+redirect_from:
+ - /components/device_tracker.ritassist/
 ---
 
 The `ritassist` device tracker platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.

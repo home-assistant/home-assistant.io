@@ -9,6 +9,8 @@ sharing: true
 footer: true
 ha_category: Camera
 ha_release: 0.65
+redirect_from:
+ - /components/camera.proxy/
 ---
 
 The `proxy` camera platform allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.

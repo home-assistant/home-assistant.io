@@ -10,6 +10,8 @@ footer: true
 logo: nmap.png
 ha_category: Presence Detection
 ha_release: 0.7
+redirect_from:
+ - /components/device_tracker.nmap_tracker/
 ---
 
 

@@ -11,6 +11,8 @@ logo: ueradio.png
 ha_category: Media Player
 ha_release: "0.60"
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/media_player.ue_smart_radio/
 ---
 
 

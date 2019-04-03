@@ -12,6 +12,8 @@ ha_category: Utility
 ha_iot_class: Local Polling
 ha_release: "0.30"
 ha_qa_scale: internal
+redirect_from:
+ - /components/sensor.statistics/
 ---
 
 The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `stdev`, `variance`, `total`, `min`, `max`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If it's a binary sensor then only state changes are counted.

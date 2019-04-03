@@ -11,6 +11,8 @@ logo: irishrail.png
 ha_category: Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.57
+redirect_from:
+ - /components/sensor.irish_rail_transport/
 ---
 
 The `irish_rail_transport` sensor will give you the time until the next two departures (within 90 minutes) from an Irish Rail station using the RTPI information.

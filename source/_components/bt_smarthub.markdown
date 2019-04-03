@@ -11,6 +11,8 @@ logo: bt.png
 ha_category: Presence Detection
 ha_release: 0.82
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/device_tracker.bt_smarthub/
 ---
 
 This platform offers presence detection by looking at connected devices to a [BT Smart Hub](https://en.wikipedia.org/wiki/BT_Smart_Hub) based router.

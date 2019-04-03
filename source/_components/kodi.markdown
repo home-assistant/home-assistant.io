@@ -10,6 +10,8 @@ footer: true
 logo: kodi.png
 ha_category: Notifications
 ha_release: 0.29
+redirect_from:
+ - /components/notify.kodi/
 ---
 
 

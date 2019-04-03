@@ -14,6 +14,8 @@ ha_release: 0.87
 ha_iot_class: Local Push
 logo: integral.png
 ha_qa_scale: internal
+redirect_from:
+ - /components/sensor.integration/
 ---
 
 The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.

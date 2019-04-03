@@ -10,6 +10,8 @@ footer: true
 logo: rocketchat.png
 ha_category: Notifications
 ha_release: 0.56
+redirect_from:
+ - /components/notify.rocketchat/
 ---
 
 

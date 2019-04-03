@@ -10,6 +10,8 @@ footer: true
 logo: microsoft.png
 ha_category: Image Processing
 ha_release: 0.37
+redirect_from:
+ - /components/image_processing.microsoft_face_identify/
 ---
 
 The `microsoft_face_identify` image processing platform lets you use

@@ -11,6 +11,8 @@ logo: network-snmp.png
 ha_category: Switch
 ha_iot_class: Local Polling
 ha_release: 0.57
+redirect_from:
+ - /components/switch.snmp/
 ---
 
 The `snmp` switch platform allows you to control SNMP-enabled equipment.

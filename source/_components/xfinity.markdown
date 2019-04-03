@@ -12,6 +12,8 @@ logo: xfinity.svg
 ha_release: 0.90
 ha_iot_class: "Local Polling"
 
+redirect_from:
+ - /components/device_tracker.xfinity/
 ---
 
 The `xfinity` device tracker platform offers presence detection by looking at connected devices to an Xfinity gateway.

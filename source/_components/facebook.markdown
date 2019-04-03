@@ -10,6 +10,8 @@ footer: true
 logo: facebook.png
 ha_category: Notifications
 ha_release: 0.36
+redirect_from:
+ - /components/notify.facebook/
 ---
 
 The `facebook` notification platform enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).

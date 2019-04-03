@@ -11,6 +11,8 @@ logo: itunes.png
 ha_category: Media Player
 ha_release: 0.7.3
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.itunes/
 ---
 
 

@@ -11,6 +11,8 @@ logo: opple.png
 ha_category: Light
 ha_release: "0.80"
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/light.opple/
 ---
 
 

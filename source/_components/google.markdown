@@ -10,6 +10,8 @@ footer: true
 logo: google.png
 ha_category: Text-to-speech
 ha_release: 0.35
+redirect_from:
+ - /components/tts.google/
 ---
 
 The `google` text-to-speech platform uses [Google Text-to-Speech engine](https://console.developers.google.com/apis/library/texttospeech.googleapis.com) Text-to-Speech engine to read a text with natural sounding voices.

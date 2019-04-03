@@ -11,6 +11,8 @@ logo: ruter.png
 ha_category: Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.83
+redirect_from:
+ - /components/sensor.ruter/
 ---
 
 <p class='note warning'>

@@ -11,6 +11,8 @@ ha_category: Media Player
 logo: gstreamer.png
 ha_release: 0.39
 ha_iot_class: Local Push
+redirect_from:
+ - /components/media_player.gstreamer/
 ---
 
 The `gstreamer` platform allows you to play audio via a [gstreamer](https://gstreamer.freedesktop.org/) pipeline. Practically, this means you can play audio directly on the computer running Home Assistant. It is particularly suited for playing TTS. Advanced users can specify a pipeline to transform the audio stream and/or redirect it elsewhere.

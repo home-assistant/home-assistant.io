@@ -11,6 +11,8 @@ logo: entur.svg
 ha_category: Transport
 ha_release: 0.84
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.entur_public_transport/
 ---
 
 The `entur_public_transport` sensor gives real-time departure information for the next two departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
@@ -111,12 +113,16 @@ The stop id is the content after `id=` parameter in the url. Copy paste this int
 
 **A:** A whitelisting of lines takes affect on all of the stops. So you have to whitelist all lines you are interested in on all stop places.
 
+redirect_from:
+ - /components/sensor.entur_public_transport/
 ---
 
 **Q:** I have added whitelisting of lines, and everything has worked as fine before, but now it has stopped updating all of a sudden.
 
 **A:** Some transport companies, such as Kolumbus in Rogaland, have running numbers on the end of their line ids. These gets periodically updated and will make the whitelisting invalid. The new line ids needs to be added again. Most of the time it iterates by one.
 
+redirect_from:
+ - /components/sensor.entur_public_transport/
 ---
 
 **Q:** Where do I find a line id to add to the whitelisting?

@@ -11,6 +11,8 @@ ha_category: Energy
 logo: sma.png
 ha_iot_class: Local Polling
 ha_release: 0.36
+redirect_from:
+ - /components/sensor.sma/
 ---
 
 The `sma` sensor will poll a [SMA](http://www.sma-solar.com/) [(US)](http://www.sma-america.com/) solar inverter and present the values as sensors (or attributes of sensors) in Home Assistant.

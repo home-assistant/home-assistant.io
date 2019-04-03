@@ -10,6 +10,8 @@ footer: true
 logo: openwrt.png
 ha_category: Presence Detection
 ha_release: 0.7.6
+redirect_from:
+ - /components/device_tracker.ubus/
 ---
 
 _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt](/components/device_tracker.openwrt/)._

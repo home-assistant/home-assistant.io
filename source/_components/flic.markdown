@@ -11,6 +11,8 @@ logo: flic.png
 ha_category: Binary Sensor
 ha_iot_class: Local Push
 ha_release: 0.35
+redirect_from:
+ - /components/binary_sensor.flic/
 ---
 
 The `flic` platform allows you to receive click events from [flic](https://flic.io) smart buttons.

@@ -10,6 +10,8 @@ footer: true
 logo: synology.png
 ha_category: Presence Detection
 ha_release: 0.87
+redirect_from:
+ - /components/device_tracker.synology_srm/
 ---
 
 This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/en-us/srm) router.

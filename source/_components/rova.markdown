@@ -11,6 +11,8 @@ logo: rova.jpg
 ha_category: Sensor
 ha_release: 0.87
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.rova/
 ---
 
 [ROVA](https://rova.nl) is a waste collection company that operates in the center and east of the Netherlands. The `rova` platform uses an unofficial [ROVA](https://rova.nl) API to allow you to get your waste collection schedule and integrate this in your Home Assistant installation.

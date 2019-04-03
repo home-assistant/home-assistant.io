@@ -10,6 +10,8 @@ footer: true
 ha_category: System Monitor
 ha_release: 0.32
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/sensor.hddtemp/
 ---
 
 The `hddtemp` sensor platform is using the data provided by [HDDTemp](http://savannah.nongnu.org/projects/hddtemp).

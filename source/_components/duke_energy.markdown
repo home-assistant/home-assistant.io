@@ -11,6 +11,8 @@ logo: duke_energy.png
 ha_category: Energy
 ha_release: 0.74
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.duke_energy/
 ---
 
 The `duke_energy` sensor platform allows you get the previous days usage for all of your Duke Energy smart meters.

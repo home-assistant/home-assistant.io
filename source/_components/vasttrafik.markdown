@@ -11,6 +11,8 @@ logo: vasttrafik.png
 ha_category: Transport
 ha_iot_class: Cloud Polling
 ha_release: "0.30"
+redirect_from:
+ - /components/sensor.vasttrafik/
 ---
 
 The `vasttrafik` sensor will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.

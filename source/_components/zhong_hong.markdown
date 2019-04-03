@@ -11,6 +11,8 @@ logo: zhong_hong.png
 ha_category: Climate
 ha_release: 0.72
 ha_iot_class: Local Push
+redirect_from:
+ - /components/climate.zhong_hong/
 ---
 
 

@@ -11,6 +11,8 @@ logo: pjlink.png
 ha_category: Media Player
 ha_release: 0.76
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/media_player.pjlink/
 ---
 
 The `pjlink` platform allows you to control from Home Assistant, projectors with support for the [PJLink protocol](http://pjlink.jbmia.or.jp/english/index.html).

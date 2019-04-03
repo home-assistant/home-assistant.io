@@ -10,6 +10,8 @@ footer: true
 logo: yesssat.png
 ha_category: Notifications
 ha_release: 0.57
+redirect_from:
+ - /components/notify.yessssms/
 ---
 
 The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) to send SMS via its web-site.

@@ -12,6 +12,8 @@ ha_category: Calendar
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_qa_scale: internal
+redirect_from:
+ - /components/sensor.worldclock/
 ---
 
 The `worldclock` sensor platform simply displays the current time in a different time zone.

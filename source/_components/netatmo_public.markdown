@@ -11,6 +11,8 @@ logo: netatmo.png
 ha_category: Environment
 ha_iot_class: Cloud Polling
 ha_release: 0.77
+redirect_from:
+ - /components/sensor.netatmo_public/
 ---
 
 The `netatmo_public` sensor allows you to expose data from [Netatmo](https://weathermap.netatmo.com/) to Home Assistant, even if you don't have a Netatmo device yourself. Currently the following conditions are supported:

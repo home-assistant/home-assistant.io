@@ -11,6 +11,8 @@ logo: airvisual.jpg
 ha_category: Health
 ha_release: 0.53
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.airvisual/
 ---
 
 The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality data. Data can be collected via latitude/longitude or by city/state/country. The resulting information creates sensors for the Air Quality Index (AQI), the human-friendly air quality level, and the main pollutant of that area. Sensors that conform to either/both the [U.S. and Chinese air quality standards](http://www.clm.com/publication.cfm?ID=366) can be created.
@@ -138,6 +140,8 @@ When configured, the platform will create three sensors for each configured air 
 - **Explanation:**
 
 AQI | Status | Description
+redirect_from:
+ - /components/sensor.airvisual/
 ------- | :----------------: | ----------
 0 - 50  | **Good** | Air quality is considered satisfactory, and air pollution poses little or no risk
 51 - 100  | **Moderate** | Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution
@@ -160,6 +164,8 @@ AQI | Status | Description
 - **Explanation:**
 
 Pollutant | Symbol | More Info
+redirect_from:
+ - /components/sensor.airvisual/
 ------- | :----------------: | ----------
 Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
 Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)

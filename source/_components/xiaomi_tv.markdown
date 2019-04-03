@@ -11,6 +11,8 @@ logo: xiaomi.png
 ha_category: Media Player
 ha_release: 0.64
 ha_iot_class: Assumed State
+redirect_from:
+ - /components/media_player.xiaomi_tv/
 ---
 
 The `xiaomi_tv` platform allows you to control a [Xiaomi TV](http://www.mi.com/en/mitv3s/65flat/).

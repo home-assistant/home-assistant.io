@@ -11,6 +11,8 @@ ha_category: Network
 ha_iot_class: Local Polling
 logo: fail2ban.png
 ha_release: 0.57
+redirect_from:
+ - /components/sensor.fail2ban/
 ---
 
 

@@ -10,6 +10,8 @@ footer: true
 logo: openalpr.png
 ha_category: Image Processing
 ha_release: 0.36
+redirect_from:
+ - /components/image_processing.openalpr_cloud/
 ---
 
 [OpenALPR](http://www.openalpr.com/) integration for Home Assistant allows you

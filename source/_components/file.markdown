@@ -10,6 +10,8 @@ footer: true
 logo: file.png
 ha_category: Notifications
 ha_release: pre 0.7
+redirect_from:
+ - /components/notify.file/
 ---
 
 The `file` platform allows you to store notifications from Home Assistant as a file.

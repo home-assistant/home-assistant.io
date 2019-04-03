@@ -11,6 +11,8 @@ logo: nasa.png
 ha_category: Binary Sensor
 ha_release: 0.36
 redirect_from: /components/sensor.iss/
+redirect_from:
+ - /components/binary_sensor.iss/
 ---
 
 The `iss` platform uses the

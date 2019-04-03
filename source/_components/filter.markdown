@@ -12,6 +12,8 @@ ha_release: 0.65
 ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
+redirect_from:
+ - /components/sensor.filter/
 ---
 
 The `filter` platform enables sensors that process the states of other entities.

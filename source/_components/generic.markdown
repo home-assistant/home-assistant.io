@@ -11,6 +11,8 @@ ha_category: Camera
 logo: home-assistant.png
 ha_release: pre 0.7
 ha_iot_class: Configurable
+redirect_from:
+ - /components/camera.generic/
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.

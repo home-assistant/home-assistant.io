@@ -11,6 +11,8 @@ logo: ee.png
 ha_category: Presence Detection
 ha_release: 0.87
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/device_tracker.ee_brightbox/
 ---
 
 This platform offers presence detection by looking at connected devices to a [EE Bright Box 2](https://ee.co.uk/help/phones-and-device/home-broadband/bright-box-2-wireless-router/bright-box-2-wireless-router) router.

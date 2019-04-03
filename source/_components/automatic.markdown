@@ -11,6 +11,8 @@ logo: automatic.png
 ha_category: Car
 ha_release: 0.28
 ha_iot_class: Cloud Push
+redirect_from:
+ - /components/device_tracker.automatic/
 ---
 
 

@@ -12,6 +12,8 @@ logo: home-assistant.png
 ha_release: 0.28
 ha_iot_class: Local Push
 ha_qa_scale: internal
+redirect_from:
+ - /components/binary_sensor.trend/
 ---
 
 The `trend` platform allows you to create sensors which show the trend of

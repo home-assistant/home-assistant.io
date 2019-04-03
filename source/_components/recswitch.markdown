@@ -11,6 +11,8 @@ logo: "ankuoo_recswitch.png"
 ha_release: 0.81
 ha_category: Switch
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/switch.recswitch/
 ---
 
 The `recswitch` switch platform allows you to control the Ankuoo Rec Switch devices.

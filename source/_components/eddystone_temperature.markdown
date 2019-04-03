@@ -11,6 +11,8 @@ logo: eddystone.png
 ha_category: DIY
 ha_release: 0.42
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/sensor.eddystone_temperature/
 ---
 
 The `eddystone_temperature` sensor platform reads temperature information from Bluetooth LE advertisements transmitted by [Eddystone](https://en.wikipedia.org/wiki/Eddystone_(Google)) beacons. Your beacons must be configured to transmit UID frames (for identification) and TLM frames (for temperature).

@@ -10,6 +10,8 @@ footer: true
 logo: hunter-douglas-powerview.png
 ha_category: Scene
 ha_release: 0.15
+redirect_from:
+ - /components/scene.hunterdouglas_powerview/
 ---
 
 Implements the [Hunter Douglas PowerView](http://www.hunterdouglas.com/operating-systems/powerview-motorization/support) platform scene control. It queries the PowerView Hub and Home Assistant displays them as scenes.

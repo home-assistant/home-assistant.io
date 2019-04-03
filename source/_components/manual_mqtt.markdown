@@ -10,6 +10,8 @@ footer: true
 logo: home-assistant.png
 ha_category: Alarm
 ha_release: "0.50"
+redirect_from:
+ - /components/alarm_control_panel.manual_mqtt/
 ---
 
 The `mqtt` platform extends the [manual alarm](/components/alarm_control_panel.manual/) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.

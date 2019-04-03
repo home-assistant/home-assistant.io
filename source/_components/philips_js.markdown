@@ -11,6 +11,8 @@ logo: philips.png
 ha_category: Media Player
 ha_iot_class: Local Polling
 ha_release: 0.34
+redirect_from:
+ - /components/media_player.philips_js/
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) API. Instructions on how to activate the API and if your model is supported can be found [here](http://jointspace.sourceforge.net/download.html).

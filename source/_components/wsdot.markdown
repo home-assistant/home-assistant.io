@@ -11,6 +11,8 @@ logo: wsdot.png
 ha_category: Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.37
+redirect_from:
+ - /components/sensor.wsdot/
 ---
 
 The `wsdot` sensor will give you travel time information from the [Washington State Department of Transportation (WSDOT)](http://wsdot.com/).

@@ -10,6 +10,8 @@ footer: true
 logo: orvibo.png
 ha_category: Switch
 ha_release: 0.8
+redirect_from:
+ - /components/switch.orvibo/
 ---
 
 The `orvibo` switch platform allows you to toggle your Orvibo S20 Wifi Smart Sockets.

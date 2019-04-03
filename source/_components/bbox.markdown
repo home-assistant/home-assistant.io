@@ -11,6 +11,8 @@ logo: bbox.png
 ha_category: Network
 ha_release: 0.31
 ha_iot_class: Local Push
+redirect_from:
+ - /components/sensor.bbox/
 ---
 
 The `bbox` platform uses the [Bbox Modem Router](https://fr.wikipedia.org/wiki/Bbox/) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.

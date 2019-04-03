@@ -10,6 +10,8 @@ footer: true
 logo: hikvision.png
 ha_category: Switch
 ha_release: pre 0.7
+redirect_from:
+ - /components/switch.hikvisioncam/
 ---
 
 This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](http://www.hikvision.com/) camera.

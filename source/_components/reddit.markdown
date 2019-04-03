@@ -11,6 +11,8 @@ logo: reddit.png
 ha_category: Sensor
 ha_release: 0.89
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.reddit/
 ---
 
 The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.

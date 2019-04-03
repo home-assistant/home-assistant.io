@@ -10,6 +10,8 @@ footer: true
 logo: telegram.png
 ha_category: Notifications
 ha_release: 0.42
+redirect_from:
+ - /components/telegram_bot.polling/
 ---
 
 Telegram chatbot polling implementation.

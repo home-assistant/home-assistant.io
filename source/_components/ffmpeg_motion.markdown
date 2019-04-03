@@ -11,6 +11,8 @@ logo: ffmpeg.png
 ha_category: Image Processing
 ha_release: 0.27
 redirect_from: /components/binary_sensor.ffmpeg/
+redirect_from:
+ - /components/binary_sensor.ffmpeg_motion/
 ---
 
 The `ffmpeg` platform allows you to use any video feed with [FFmpeg](http://www.ffmpeg.org/) for motion sensors in Home Assistant.

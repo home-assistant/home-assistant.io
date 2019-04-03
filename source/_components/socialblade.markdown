@@ -11,6 +11,8 @@ logo: socialblade.png
 ha_category: Multimedia
 ha_release: 0.69
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.socialblade/
 ---
 
 The `socialblade` sensor platform allows you get updates on a Youtube channel using your social blade channel ID. The sensor gets the subscribers and total views count from [Social Blade Website](https://socialblade.com).

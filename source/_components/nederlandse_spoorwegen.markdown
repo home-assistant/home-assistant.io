@@ -11,6 +11,8 @@ logo: nederlandse_spoorwegen.png
 ha_category: Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.57
+redirect_from:
+ - /components/sensor.nederlandse_spoorwegen/
 ---
 
 This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.

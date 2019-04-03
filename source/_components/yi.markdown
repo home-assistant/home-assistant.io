@@ -11,6 +11,8 @@ logo: yi.png
 ha_category: Camera
 ha_release: 0.56
 ha_iot_class: Local Polling
+redirect_from:
+ - /components/camera.yi/
 ---
 
 The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:

@@ -10,6 +10,8 @@ footer: true
 logo: mikrotik.png
 ha_category: Presence Detection
 ha_release: 0.44
+redirect_from:
+ - /components/device_tracker.mikrotik/
 ---
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.

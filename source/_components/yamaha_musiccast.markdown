@@ -10,6 +10,8 @@ footer: true
 logo: yamaha.png
 ha_category: Media Player
 ha_release: 0.53
+redirect_from:
+ - /components/media_player.yamaha_musiccast/
 ---
 
 The `yamaha_musiccast` platform allows you to control [Yamaha MusicCast Receivers](https://usa.yamaha.com/products/audio_visual/hifi_components/index.html) from Home Assistant.

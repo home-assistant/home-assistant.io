@@ -11,6 +11,8 @@ logo: thinkingcleaner.png
 ha_category: Sensor
 ha_iot_class: Local Polling
 ha_release: 0.18
+redirect_from:
+ - /components/sensor.thinkingcleaner/
 ---
 
 The `thinkingcleaner` sensor platform simple displays information about your [Thinking Cleaner](http://www.thinkingcleaner.com) add-on.

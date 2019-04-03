@@ -11,6 +11,8 @@ logo: haveibeenpwned.png
 ha_category: Sensor
 ha_release: 0.31
 ha_iot_class: Cloud Polling
+redirect_from:
+ - /components/sensor.haveibeenpwned/
 ---
 
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).

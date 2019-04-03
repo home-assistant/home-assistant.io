@@ -10,6 +10,8 @@ footer: true
 logo: aws_sqs.png
 ha_category: Notifications
 ha_release: "0.20"
+redirect_from:
+ - /components/notify.aws_sqs/
 ---
 
 The `aws_sqs` notification platform enables publishing to an [AWS SQS](https://aws.amazon.com/sqs/) message queue.
