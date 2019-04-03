@@ -123,7 +123,7 @@ Then create a custom slot type called `Scenes` listing every scene you want to c
 Custom slot type for scene support.
 </p>
 
-The names must exactly match the scene names (minus underscores - amazon discards them anyway and we later map them back in with the template).
+The names must exactly match the scene names (minus underscores - Amazon discards them anyway and we later map them back in with the template).
 
 In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
 
