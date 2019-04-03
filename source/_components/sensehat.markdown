@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Sense HAT Light"
+title: "Sense HAT"
 description: "Instructions on how to setup Sense HAT LED lights within Home Assistant."
 date: 2017-04-29 16:00
 sidebar: true
