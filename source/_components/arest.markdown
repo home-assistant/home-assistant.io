@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
-- [Switch]()
+- [Switch](#switch)
 
 ## {% linkable_title Binary Sensor %}
 
