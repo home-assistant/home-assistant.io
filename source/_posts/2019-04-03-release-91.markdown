@@ -18,26 +18,29 @@ Streaming:
  - Google Assistant support, "Hey Google, show the baby room"
  - More supported platforms
 
+## {% linkable_title Notable breaking change %}
+
 Finished the great migration. All built-in platforms are now in their own folder. If you still have platforms in your `custom_components/` directory in the old file format, like `sensor/my_platform.py`, rename it to `my_platform/sensor.py`. It will not be supported in a future release.
 
-ESPHome Camera support
+
+## {% linkable_title Trusted networks update %}
 
 Trusted users added to trusted networks auth provider. Including auto log in if only one user matching.
 
+## {% linkable_title VSCode hass.io add-on %}
 
 If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m so excited to release this add-on 😃<br><br>Today I give you the Visual Studio Code!! add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! 🎉<br><br>The full VSCode experience in your HA frontend including the HA VSCode extension preconfigured out of the box!<a href="https://t.co/7bQ6JIF8yQ">https://t.co/7bQ6JIF8yQ</a><a href="https://twitter.com/hashtag/InternetOfThings?src=hash&amp;ref_src=twsrc%5Etfw">#InternetOfThings</a> <a href="https://twitter.com/hashtag/hassio?src=hash&amp;ref_src=twsrc%5Etfw">#hassio</a> <a href="https://t.co/8CwTfKVJvV">pic.twitter.com/8CwTfKVJvV</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1110654397485334533?ref_src=twsrc%5Etfw">March 26, 2019</a>
 </blockquote>
 
+## {% linkable_title ESPHome %}
 
+ESPHome Camera support
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
 </div>
-
-
-
 
 
 ## {% linkable_title New Platforms %}
@@ -77,6 +80,37 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Konnected__ - This will change the internal unique_id for Konnected switches (i.e. siren, buzzer, generic switch). Users will need to manually remove the orphaned switch entities from the entity registry after updating and re-configure any changes stored in the entity registry (i.e. name and entity_id), as their unique IDs will change. ([@heythisisnate] - [#22389]) ([konnected docs])
 
 - __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526]) ([mopar docs])
+
+## {% linkable_title Beta Fixes %}
+
+- Fix regression of the xiaomi_aqara config validation ([@syssi] - [#22435]) ([xiaomi_aqara docs]) (breaking change) (beta fix)
+- Fix dev branch ([@awarecan] - [#22493]) ([homekit_controller docs]) (beta fix)
+- Update pyotgw to 0.4b3 ([@mvn23] - [#22496]) ([opentherm_gw docs]) (beta fix)
+- Fixes for yeelight availbility state ([@zewelor] - [#22502]) ([yeelight docs]) (beta fix)
+- Remove botocore dependency from credstash script ([@awarecan] - [#22511]) (beta fix)
+- Fix lint on dev ([@awarecan] - [#22512]) (beta fix)
+- Do not use zha default light polling ([@dmulcahey] - [#22513]) ([zha docs]) (beta fix)
+- PS4 bump to 0.5.2 ([@ktnrg45] - [#22523]) ([ps4 docs]) (beta fix)
+- clean up channel configuration ([@dmulcahey] - [#22534]) ([zha docs]) (beta fix)
+- Fix tts Great Migration issue ([@awarecan] - [#22539]) ([amazon_polly docs]) ([baidu docs]) ([marytts docs]) ([microsoft docs]) ([picotts docs]) ([voicerss docs]) ([yandextts docs]) (beta fix)
+- Upgrade to async_upnp_client==0.14.7 ([@StevenLooman] - [#22543]) ([dlna_dmr docs]) ([upnp docs]) (beta fix)
+- Bump zigpy ([@damarco] - [#22545]) ([zha docs]) (beta fix)
+- Add support for streaming to ffmpeg ([@balloob] - [#22549]) ([ffmpeg docs]) (beta fix)
+- Fix platform warnings ([@balloob] - [#22551]) (beta fix)
+- Google assistant: add blinds trait for covers ([@giefca] - [#22336]) ([google_assistant docs]) (breaking change) (beta fix)
+- Update Amcrest component to SUPPORT_STREAM ([@drjared88] - [#22553]) ([amcrest docs]) (beta fix)
+- Fix name conflict in tests ([@awarecan] - [#22556]) (beta fix)
+- Update ONVIF component to SUPPORT_STREAM ([@drjared88] - [#22569]) ([onvif docs]) (beta fix)
+- Add stream to the default config ([@balloob] - [#22602]) ([default_config docs]) (beta fix)
+- Add trusted networks deprecating warning ([@awarecan] - [#22487]) ([http docs]) (beta fix)
+- Hass.io ingress ([@pvizeli] - [#22505]) ([hassio docs]) (beta fix)
+- Update Foscam component to support stream source ([@cwhits] - [#22568]) ([foscam docs]) (beta fix)
+- Update face_recognition to 1.2.3 ([@pvizeli] - [#22622]) ([dlib_face_detect docs]) ([dlib_face_identify docs]) (beta fix)
+- Disable Z-Wave autoheal ([@balloob] - [#22628]) ([zwave docs]) (beta fix)
+- Handle disonnect bug in Tibber library ([@Danielhiversen] - [#22629]) ([tibber docs]) (beta fix)
+- Support GET params for websocket ingress path ([@pvizeli] - [#22638]) ([hassio docs]) (beta fix)
+- Return 0 for failed Foscam streams ([@cwhits] - [#22651]) ([foscam docs]) (beta fix)
+- Fix racy homekit_controller platform setup caused by #22368 ([@Jc2k] - [#22655]) ([homekit_controller docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -137,7 +171,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Handle on/off through TemperatrureSetting trait. ([@Swamp-Ig] - [#21842]) ([google_assistant docs])
 - Change .now() to .utcnow() ([@rdbahm] - [#22233]) ([season docs])
 - Upgrade tibber libary, support solar production ([@Danielhiversen] - [#22261]) ([tibber docs])
-- Upgrade sqlalchemy to 1.3.0 ([@fabaff] - [#22269]) ([sql docs])
+- Upgrade sqlalchemy to 1.3.0 ([@fabaff] - [#22269]) ([recorder docs]) ([sql docs])
 - Plex: Avoid refreshing by both device and session methods ([@jjlawren] - [#22266]) ([plex docs])
 - Bump androidtv to 0.0.13 ([@JeffLIrion] - [#22279]) ([androidtv docs])
 - Improved exception handling and logging ([@JeffLIrion] - [#22268]) ([androidtv docs])
@@ -163,12 +197,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - fix where PLATFORM_SCHEMA gets pulled from ([@hunterjm] - [#22334]) ([familyhub docs])
 - show which component is causing translation errors ([@uchagani] - [#22340])
 - Define GTFS sensor as a timestamp device class ([@renemarc] - [#21053]) ([gtfs docs]) (breaking change)
-- Move yeelight into component ([@zewelor] - [#21593]) ([yeelight docs]) (breaking change)
-- Axis config flow ([@Kane610] - [#18543]) ([axis docs]) (breaking change)
+- Move yeelight into component ([@zewelor] - [#21593]) ([discovery docs]) ([yeelight docs]) (breaking change)
+- Axis config flow ([@Kane610] - [#18543]) ([axis docs]) ([discovery docs]) (breaking change)
 - Fix pressure in dark sky and openweathermap and add pressure utility ([@MatthewFlamm] - [#21210]) ([darksky docs]) ([openweathermap docs])
 - Fix xiaomi aqara cube with lumi.acpartner.v3 gateway ([@GuryYu] - [#22130]) ([xiaomi_aqara docs])
 - Support deCONZ library with exception handling ([@Kane610] - [#21952]) ([deconz docs])
-- Do not warn when creating an empty database ([@amelchio] - [#22343])
+- Do not warn when creating an empty database ([@amelchio] - [#22343]) ([recorder docs])
 - Add color support to Philips Moonlight ([@syssi] - [#22204]) ([xiaomi_miio docs])
 - Add support for the power socket of the Xiaomi AC Partner V3 ([@syssi] - [#22205])
 - Set Onkyo reset log to debug instead of info ([@robbiet480] - [#22369]) ([onkyo docs])
@@ -192,7 +226,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Frontend indicate require admin ([@balloob] - [#22272]) ([config docs]) ([frontend docs]) ([hassio docs]) ([panel_custom docs]) ([panel_iframe docs])
 - Fix TpLink Device Tracker initialize error ([@a005] - [#22349]) ([tplink docs])
 - Add traccar events ([@lapy] - [#22348]) ([traccar docs])
-- Update python yeelight and add nightlight mode sensor ([@zewelor] - [#22345]) ([yeelight docs])
+- Update python yeelight and add nightlight mode sensor ([@zewelor] - [#22345]) ([discovery docs]) ([yeelight docs])
 - updated pydaikin ([@fredrike] - [#22382]) ([daikin docs])
 - Support for Plex sensor with enforced SSL ([@nmaggioni] - [#21432]) ([plex docs])
 - Search GTFS departures across midnight ([@renemarc] - [#20992]) ([gtfs docs])
@@ -222,7 +256,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update ha-ffmpeg 2.0 ([@pvizeli] - [#22427])
 - Add myself as codeowner for yeelight component ([@zewelor] - [#22438])
 - Update ZHA component CODEOWNERS ([@Adminiuga] - [#22452])
-- Add support for yeelight ceiling ambilight ([@zewelor] - [#22346]) ([yeelight docs])
+- Add support for yeelight ceiling ambilight ([@zewelor] - [#22346]) ([discovery docs]) ([yeelight docs])
 - Bootstrap to start registry loading early ([@Swamp-Ig] - [#22321])
 - Axis devices support device registry ([@Kane610] - [#22367]) ([axis docs])
 - Use voluptuous error string for websocket validation error ([@ljmerza] - [#21883]) ([websocket_api docs])
@@ -255,6 +289,34 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add game and app media types ([@cliffordwhansen] - [#22459]) ([media_player docs]) ([ps4 docs])
 - Stream Record Service ([@hunterjm] - [#22456]) ([camera docs]) ([stream docs])
 - Add trusted_users in trusted networks auth provider ([@awarecan] - [#22478]) ([auth docs])
+- Fix regression of the xiaomi_aqara config validation ([@syssi] - [#22435]) ([xiaomi_aqara docs]) (breaking change) (beta fix)
+- Fix dev branch ([@awarecan] - [#22493]) ([homekit_controller docs]) (beta fix)
+- Update pyotgw to 0.4b3 ([@mvn23] - [#22496]) ([opentherm_gw docs]) (beta fix)
+- Fixes for yeelight availbility state ([@zewelor] - [#22502]) ([yeelight docs]) (beta fix)
+- Remove botocore dependency from credstash script ([@awarecan] - [#22511]) (beta fix)
+- Fix lint on dev ([@awarecan] - [#22512]) (beta fix)
+- Do not use zha default light polling ([@dmulcahey] - [#22513]) ([zha docs]) (beta fix)
+- PS4 bump to 0.5.2 ([@ktnrg45] - [#22523]) ([ps4 docs]) (beta fix)
+- clean up channel configuration ([@dmulcahey] - [#22534]) ([zha docs]) (beta fix)
+- Fix tts Great Migration issue ([@awarecan] - [#22539]) ([amazon_polly docs]) ([baidu docs]) ([marytts docs]) ([microsoft docs]) ([picotts docs]) ([voicerss docs]) ([yandextts docs]) (beta fix)
+- Upgrade to async_upnp_client==0.14.7 ([@StevenLooman] - [#22543]) ([dlna_dmr docs]) ([upnp docs]) (beta fix)
+- Bump zigpy ([@damarco] - [#22545]) ([zha docs]) (beta fix)
+- Add support for streaming to ffmpeg ([@balloob] - [#22549]) ([ffmpeg docs]) (beta fix)
+- Fix platform warnings ([@balloob] - [#22551]) (beta fix)
+- Google assistant: add blinds trait for covers ([@giefca] - [#22336]) ([google_assistant docs]) (breaking change) (beta fix)
+- Update Amcrest component to SUPPORT_STREAM ([@drjared88] - [#22553]) ([amcrest docs]) (beta fix)
+- Fix name conflict in tests ([@awarecan] - [#22556]) (beta fix)
+- Update ONVIF component to SUPPORT_STREAM ([@drjared88] - [#22569]) ([onvif docs]) (beta fix)
+- Add stream to the default config ([@balloob] - [#22602]) ([default_config docs]) (beta fix)
+- Add trusted networks deprecating warning ([@awarecan] - [#22487]) ([http docs]) (beta fix)
+- Hass.io ingress ([@pvizeli] - [#22505]) ([hassio docs]) (beta fix)
+- Update Foscam component to support stream source ([@cwhits] - [#22568]) ([foscam docs]) (beta fix)
+- Update face_recognition to 1.2.3 ([@pvizeli] - [#22622]) ([dlib_face_detect docs]) ([dlib_face_identify docs]) (beta fix)
+- Disable Z-Wave autoheal ([@balloob] - [#22628]) ([zwave docs]) (beta fix)
+- Handle disonnect bug in Tibber library ([@Danielhiversen] - [#22629]) ([tibber docs]) (beta fix)
+- Support GET params for websocket ingress path ([@pvizeli] - [#22638]) ([hassio docs]) (beta fix)
+- Return 0 for failed Foscam streams ([@cwhits] - [#22651]) ([foscam docs]) (beta fix)
+- Fix racy homekit_controller platform setup caused by #22368 ([@Jc2k] - [#22655]) ([homekit_controller docs]) (beta fix)
 
 [#18543]: https://github.com/home-assistant/home-assistant/pull/18543
 [#20767]: https://github.com/home-assistant/home-assistant/pull/20767
@@ -368,6 +430,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#22328]: https://github.com/home-assistant/home-assistant/pull/22328
 [#22333]: https://github.com/home-assistant/home-assistant/pull/22333
 [#22334]: https://github.com/home-assistant/home-assistant/pull/22334
+[#22336]: https://github.com/home-assistant/home-assistant/pull/22336
 [#22339]: https://github.com/home-assistant/home-assistant/pull/22339
 [#22340]: https://github.com/home-assistant/home-assistant/pull/22340
 [#22343]: https://github.com/home-assistant/home-assistant/pull/22343
@@ -412,6 +475,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#22430]: https://github.com/home-assistant/home-assistant/pull/22430
 [#22431]: https://github.com/home-assistant/home-assistant/pull/22431
 [#22433]: https://github.com/home-assistant/home-assistant/pull/22433
+[#22435]: https://github.com/home-assistant/home-assistant/pull/22435
 [#22438]: https://github.com/home-assistant/home-assistant/pull/22438
 [#22440]: https://github.com/home-assistant/home-assistant/pull/22440
 [#22442]: https://github.com/home-assistant/home-assistant/pull/22442
@@ -431,6 +495,32 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#22482]: https://github.com/home-assistant/home-assistant/pull/22482
 [#22484]: https://github.com/home-assistant/home-assistant/pull/22484
 [#22486]: https://github.com/home-assistant/home-assistant/pull/22486
+[#22487]: https://github.com/home-assistant/home-assistant/pull/22487
+[#22493]: https://github.com/home-assistant/home-assistant/pull/22493
+[#22496]: https://github.com/home-assistant/home-assistant/pull/22496
+[#22502]: https://github.com/home-assistant/home-assistant/pull/22502
+[#22505]: https://github.com/home-assistant/home-assistant/pull/22505
+[#22511]: https://github.com/home-assistant/home-assistant/pull/22511
+[#22512]: https://github.com/home-assistant/home-assistant/pull/22512
+[#22513]: https://github.com/home-assistant/home-assistant/pull/22513
+[#22523]: https://github.com/home-assistant/home-assistant/pull/22523
+[#22534]: https://github.com/home-assistant/home-assistant/pull/22534
+[#22539]: https://github.com/home-assistant/home-assistant/pull/22539
+[#22543]: https://github.com/home-assistant/home-assistant/pull/22543
+[#22545]: https://github.com/home-assistant/home-assistant/pull/22545
+[#22549]: https://github.com/home-assistant/home-assistant/pull/22549
+[#22551]: https://github.com/home-assistant/home-assistant/pull/22551
+[#22553]: https://github.com/home-assistant/home-assistant/pull/22553
+[#22556]: https://github.com/home-assistant/home-assistant/pull/22556
+[#22568]: https://github.com/home-assistant/home-assistant/pull/22568
+[#22569]: https://github.com/home-assistant/home-assistant/pull/22569
+[#22602]: https://github.com/home-assistant/home-assistant/pull/22602
+[#22622]: https://github.com/home-assistant/home-assistant/pull/22622
+[#22628]: https://github.com/home-assistant/home-assistant/pull/22628
+[#22629]: https://github.com/home-assistant/home-assistant/pull/22629
+[#22638]: https://github.com/home-assistant/home-assistant/pull/22638
+[#22651]: https://github.com/home-assistant/home-assistant/pull/22651
+[#22655]: https://github.com/home-assistant/home-assistant/pull/22655
 [@Adminiuga]: https://github.com/Adminiuga
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@FattusMannus]: https://github.com/FattusMannus
@@ -459,9 +549,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
 [@cliffordwhansen]: https://github.com/cliffordwhansen
+[@cwhits]: https://github.com/cwhits
 [@dagobert]: https://github.com/dagobert
+[@damarco]: https://github.com/damarco
 [@dilruacs]: https://github.com/dilruacs
 [@dmulcahey]: https://github.com/dmulcahey
+[@drjared88]: https://github.com/drjared88
 [@dshokouhi]: https://github.com/dshokouhi
 [@eliseomartelli]: https://github.com/eliseomartelli
 [@endor-force]: https://github.com/endor-force
@@ -471,6 +564,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@fbradyirl]: https://github.com/fbradyirl
 [@fredrike]: https://github.com/fredrike
 [@fronzbot]: https://github.com/fronzbot
+[@giefca]: https://github.com/giefca
 [@heythisisnate]: https://github.com/heythisisnate
 [@hfurubotten]: https://github.com/hfurubotten
 [@hmmbob]: https://github.com/hmmbob
@@ -485,6 +579,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ktnrg45]: https://github.com/ktnrg45
 [@lapy]: https://github.com/lapy
 [@ljmerza]: https://github.com/ljmerza
+[@mvn23]: https://github.com/mvn23
 [@nbarrientos]: https://github.com/nbarrientos
 [@nhorvath]: https://github.com/nhorvath
 [@nickw444]: https://github.com/nickw444
@@ -506,6 +601,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@uchagani]: https://github.com/uchagani
 [@zewelor]: https://github.com/zewelor
 [alexa docs]: /components/alexa/
+[amazon_polly docs]: /components/amazon_polly/
 [ambient_station docs]: /components/ambient_station/
 [amcrest docs]: /components/amcrest/
 [androidtv docs]: /components/androidtv/
@@ -513,6 +609,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [auth docs]: /components/auth/
 [aws docs]: /components/aws/
 [axis docs]: /components/axis/
+[baidu docs]: /components/baidu/
 [buienradar docs]: /components/buienradar/
 [camera docs]: /components/camera/
 [cisco_mobility_express docs]: /components/cisco_mobility_express/
@@ -520,13 +617,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [daikin docs]: /components/daikin/
 [darksky docs]: /components/darksky/
 [deconz docs]: /components/deconz/
+[default_config docs]: /components/default_config/
 [demo docs]: /components/demo/
+[discovery docs]: /components/discovery/
+[dlib_face_detect docs]: /components/dlib_face_detect/
+[dlib_face_identify docs]: /components/dlib_face_identify/
 [dlna_dmr docs]: /components/dlna_dmr/
 [ecobee docs]: /components/ecobee/
 [enigma2 docs]: /components/enigma2/
 [entur_public_transport docs]: /components/entur_public_transport/
 [esphome docs]: /components/esphome/
 [familyhub docs]: /components/familyhub/
+[ffmpeg docs]: /components/ffmpeg/
+[foscam docs]: /components/foscam/
 [freebox docs]: /components/freebox/
 [frontend docs]: /components/frontend/
 [generic docs]: /components/generic/
@@ -553,8 +656,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [logi_circle docs]: /components/logi_circle/
 [manual docs]: /components/manual/
 [manual_mqtt docs]: /components/manual_mqtt/
+[marytts docs]: /components/marytts/
 [media_extractor docs]: /components/media_extractor/
 [media_player docs]: /components/media_player/
+[microsoft docs]: /components/microsoft/
 [mold_indicator docs]: /components/mold_indicator/
 [moon docs]: /components/moon/
 [mopar docs]: /components/mopar/
@@ -567,15 +672,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notify docs]: /components/notify/
 [onkyo docs]: /components/onkyo/
 [onvif docs]: /components/onvif/
+[opentherm_gw docs]: /components/opentherm_gw/
 [openweathermap docs]: /components/openweathermap/
 [panasonic_viera docs]: /components/panasonic_viera/
 [panel_custom docs]: /components/panel_custom/
 [panel_iframe docs]: /components/panel_iframe/
+[picotts docs]: /components/picotts/
 [plex docs]: /components/plex/
 [pollen docs]: /components/pollen/
 [prometheus docs]: /components/prometheus/
 [ps4 docs]: /components/ps4/
 [push docs]: /components/push/
+[recorder docs]: /components/recorder/
 [reddit docs]: /components/reddit/
 [rest docs]: /components/rest/
 [ring docs]: /components/ring/
@@ -600,9 +708,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [traccar docs]: /components/traccar/
 [trafikverket_weatherstation docs]: /components/trafikverket_weatherstation/
 [upnp docs]: /components/upnp/
+[voicerss docs]: /components/voicerss/
 [websocket_api docs]: /components/websocket_api/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [xiaomi_miio docs]: /components/xiaomi_miio/
+[yandextts docs]: /components/yandextts/
 [yeelight docs]: /components/yeelight/
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
