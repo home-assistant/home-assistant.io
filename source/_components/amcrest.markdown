@@ -17,7 +17,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.49
 redirect_from:
-  - /components/binary_sensor.amcrest/
   - /components/camera.amcrest/
   - /components/sensor.amcrest/
   - /components/switch.amcrest/
