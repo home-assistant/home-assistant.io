@@ -30,13 +30,18 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Supported hardware %}
 
-This component supports the European versions of Daikin AC (BRP069A[41,42,43,45]) and AU AirBase units (BRP15B61).
+* The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application.
 
-The Australian version of the Daikin Wifi Controller Unit BRP072A42. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical) which is powered by the [DAIKIN Mobile Controller](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8)
+* The Australian version of the Daikin Wifi Controller Unit BRP072A42. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical) which is powered by the [DAIKIN Mobile Controller](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android version](https://play.google.com/store/apps/details?id=eu.daikin.remoapp)) application.
 
-Some models do not support setting of fan speed or fan swing mode.
+* The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is powered by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 
-Please note that some AC devices may report outside temperature only when they are turned on.
+<p class='note'>
+
+* Some models do not support setting of fan speed or fan swing mode.
+
+* Please note that some AC devices may report outside temperature only when they are turned on.
+</p>
 
 ## {% linkable_title Configuration %}
 
