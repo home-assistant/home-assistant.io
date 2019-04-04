@@ -15,13 +15,14 @@ ha_release: 0.92
 
 The `ign_sismologia` platform lets you integrate a GeoRSS feed provided by the 
 Spanish [Instituto Geográfico Nacional](http://www.ign.es/) with information 
-about seismic events like earthquakes. It retrieves incidents from a feed and 
-shows information of those incidents filtered by distance to Home Assistant's 
-location.
+about seismic events like earthquakes on the Iberian Peninsula and Canary 
+Islands. It retrieves incidents from a feed and shows information of those 
+incidents filtered by distance to Home Assistant's location.
 
 Entities are generated, updated and removed automatically with each update 
 from the feed. Each entity defines latitude and longitude and will be shown 
-on the map automatically. The distance in kilometers is available as the state 
+on the default map automatically, or on a map card by defining the source 
+`ign_sismologia`. The distance in kilometers is available as the state 
 of each entity.
 
 <p class='img'>
@@ -78,8 +79,8 @@ the standard ones:
 | title              | Original title from the feed. |
 | region             | Textual description of named geographic region near to the event. |
 | magnitude          | Reported magnitude of the earthquake. |
-| publication date   | Date and time when this event occurred. |
-| image url          | URL to a map supplied in the feed marking the location of the event. This could for example be used in notifications. |
+| publication_date   | Date and time when this event occurred. |
+| image_url          | URL to a map supplied in the feed marking the location of the event. This could for example be used in notifications. |
 
 
 ## {% linkable_title Full Configuration %}
