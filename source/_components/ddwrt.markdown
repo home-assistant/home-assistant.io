@@ -25,10 +25,6 @@ device_tracker:
     host: ROUTER_IP_ADDRESS
     username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
-    type: lan
-    monitored_conditions:
-      - interface
-      - signal
 ```
 
 {% configuration %}
@@ -71,7 +67,7 @@ monitored_conditions:
     rx_rate:
       description: The connection speed of the uplink, in Mbps
     info:
-      description: Connection type: Legacy, HT20, VHT80PS...
+      description: "Connection type: `Legacy`, `HT20`, `VHT80PS`."
     signal_db:
       description: The transmitter power output, in dB
     signal:
