@@ -179,6 +179,7 @@ entity_config:
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
+- camera (streaming, requires compatible camera)
 - group (on/off)
 - input_boolean (on/off)
 - scene (on)
