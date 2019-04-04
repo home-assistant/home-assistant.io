@@ -30,11 +30,15 @@ show_header_toggle:
   description: Button to turn on/off all entities.
   type: boolean
   default: true
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`.
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Options For Entities %}
 
-If you define entities as objects instead of strings, you can add more customization and configuration:
+If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
 
 {% configuration %}
 entity:
@@ -57,6 +61,10 @@ secondary_info:
   required: false
   description: "Show additional info. Values: `entity-id`, `last-changed`."
   type: string
+format:
+  required: false
+  description: "How the state should be formatted. Currently only used for timestamp sensors. Valid values are: `relative`, `total`, `date`, `time` and `datetime`."
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Special Row Elements %}
@@ -72,43 +80,24 @@ name:
   required: true
   description: Main Label.
   type: string
-icon:
-  required: true
-  description: "Icon to display (e.g., `mdi:home`)"
-  type: string
-action_name:
-  required: true
-  description: Button label.
-  type: string
 service:
   required: true
   description: "Service like `media_player.media_play_pause`"
   type: string
-service_data:
-  required: true
-  description: The service data to use.
-  type: object
-{% endconfiguration %}
-
-### {% linkable_title Weblink %}
-
-{% configuration %}
-type:
-  required: true
-  description: weblink
-  type: string
-name:
-  required: true
-  description: Link label.
-  type: string
 icon:
-  required: true
+  required: false
   description: "Icon to display (e.g., `mdi:home`)"
   type: string
-url:
-  required: true
-  description: "Website URL."
+  default: "`mdi:remote`"
+action_name:
+  required: false
+  description: Button label.
   type: string
+  default: "`Run`"
+service_data:
+  required: false
+  description: The service data to use.
+  type: object
 {% endconfiguration %}
 
 ### {% linkable_title Divider %}
@@ -125,40 +114,76 @@ style:
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 
+### {% linkable_title Section %}
+
+{% configuration %}
+type:
+  required: true
+  description: section
+  type: string
+label:
+  required: false
+  description: Section label
+  type: string
+{% endconfiguration %}
+
+### {% linkable_title Weblink %}
+
+{% configuration %}
+type:
+  required: true
+  description: weblink
+  type: string
+url:
+  required: true
+  description: "Website URL (or internal URL e.g. `/hassio/dashboard` or `/panel_custom_name`)"
+  type: string
+name:
+  required: false
+  description: Link label
+  type: string
+  default: url path
+icon:
+  required: false
+  description: "Icon to display (e.g., `mdi:home`)"
+  type: string
+  default: "`mdi:link`"
+{% endconfiguration %}
+
 ## {% linkable_title Example %}
 
 Entity rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - entity: alarm_control_panel.alarm
-      name: Alarm Panel
-    - device_tracker.demo_paulus
-    - switch.decorative_lights
-    - group.all_lights
-    - group.all_locks
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - entity: alarm_control_panel.alarm
+    name: Alarm Panel
+  - device_tracker.demo_paulus
+  - switch.decorative_lights
+  - group.all_lights
+  - group.all_locks
 ```
 
 Special rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - type: call-service
-      icon: mdi:power
-      name: Bed light
-      action_name: Toggle light
-      service: light.toggle
-      service_data:
-        entity_id: light.bed_light
-    - type: divider
-    - type: weblink
-      name: Home Assistant
-      url: https://www.home-assistant.io/
-      icon: mdi:home-assistant
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - type: call-service
+    icon: mdi:power
+    name: Bed light
+    action_name: Toggle light
+    service: light.toggle
+    service_data:
+      entity_id: light.bed_light
+  - type: divider
+  - type: weblink
+    name: Home Assistant
+    url: https://www.home-assistant.io/
+    icon: mdi:home-assistant
 ```

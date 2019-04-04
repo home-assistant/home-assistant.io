@@ -8,9 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: mysensors.png
-ha_category: DIY
-ha_release: "0.38"
-ha_iot_class: "Local Push"
+ha_category:
+  - DIY
+  - Presence Detection
+ha_release: 0.38
+ha_iot_class: Local Push
 ---
 
 Integrates MySensors device trackers into Home Assistant. See the [main component] for configuration instructions.

@@ -10,7 +10,7 @@ footer: true
 logo: restful.png
 ha_category: Binary Sensor
 ha_release: "0.10"
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `rest` binary sensor platform is consuming a given endpoint which is exposed
@@ -32,6 +32,8 @@ The JSON messages can contain different values like `1`, `"1"`,
     }
 }
 ```
+
+## {% linkable_title Configuration %}
 
 To enable this sensor,
 add the following lines to your `configuration.yaml` file for a GET request:
@@ -90,6 +92,11 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+timeout:
+  description: Defines max time to wait data from the endpoint.
+  required: false
+  type: positive integer
+  default: 10
 authentication:
   description: "Type of the HTTP authentication. `basic` or `digest`."
   required: false

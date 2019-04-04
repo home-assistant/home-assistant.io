@@ -27,6 +27,12 @@ http:
 Create an entry in your credstash store.
 
 ```bash
-$ hass --script credstash set http_password
+$ hass --script credstash put http_password 123
+```
+
+List your secrets.
+
+```bash
+$ hass --script credstash list
 ```
 

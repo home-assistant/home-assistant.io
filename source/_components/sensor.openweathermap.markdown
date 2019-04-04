@@ -10,11 +10,10 @@ footer: true
 logo: openweathermap.png
 ha_category: Weather
 ha_release: pre 0.7
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
-
-The `openweathermap` platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3 h. 
+The `openweathermap` platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3 h.
 
 You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).
 
@@ -45,7 +44,7 @@ sensor:
     default: false
     type: string
   language:
-    description: The language in which you want text results to be returned. It's a two-characters string, eg. `en`, `es`, `ru`, `it`, etc.
+    description: The language in which you want text results to be returned. It's a two-characters string, e.g., `en`, `es`, `ru`, `it`, etc.
     required: false
     default: en
     type: string

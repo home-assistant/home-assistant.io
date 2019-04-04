@@ -147,7 +147,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Cleanup component track_point_in_utc_time usage ([@pvizeli])
 - Discovery fix ([@balloob])
 - Test against 3.6-dev ([@balloob])
-- Bugfix ZigBee / Move from eventbus to dispatcher ([@pvizeli])
+- Bugfix Zigbee / Move from eventbus to dispatcher ([@pvizeli])
 - Bump netdisco to 0.9.1 ([@balloob])
 - sensor.dovado: compute state in update ([@molobrakos])
 - Fix mysensors callback race ([@MartinHjelmare])

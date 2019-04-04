@@ -10,7 +10,7 @@ footer: true
 redirect_from: /topics/secrets/
 ---
 
-The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secret` you can remove any private information from you configuration files. This separation can also help you to keep easier track of your passwords and API keys. As they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple yaml files if you [split up your configuration](/docs/configuration/splitting_configuration/).
+The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secret` you can remove any private information from your configuration files. This separation can also help you to keep easier track of your passwords and API keys, as they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple yaml files if you [split up your configuration](/docs/configuration/splitting_configuration/).
 
 ### {% linkable_title Using secrets.yaml %}
 
@@ -42,9 +42,9 @@ When you start splitting your configuration into multiple files, you might end u
 
 - A `secrets.yaml` located in the same folder as the YAML file referencing the secret,
 - next, parent folders will be searched for a `secrets.yaml` file with the secret, stopping at the folder with the main `configuration.yaml`,
-- lastly, `keyring` will be queried for the secret (more info below)
+- lastly, `keyring` will be queried for the secret (more info below).
 
-To see where secrets are being loaded from you can either add an option to your `secrets.yaml` file or use the `check_config` script.
+To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script.
 
 *Option 1*: Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
 
@@ -53,7 +53,7 @@ logger: debug
 ```
 This will not print the actual secret's value to the log.
 
-*Option 2*: View where secrets are retrieved from and the contents of all `secrets.yaml` files used, you can use the [`check_config` script](/docs/tools/check_config/) from the command line:
+*Option 2*: To view where secrets are retrieved from and the contents of all `secrets.yaml` files used, you can use the [`check_config` script](/docs/tools/check_config/) from the command line:
 
 ```bash
 $ hass --script check_config --secrets

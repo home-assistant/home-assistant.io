@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: Other
 ha_qa_scale: internal
+ha_release: 0.7
 ---
 
 
@@ -17,13 +18,14 @@ The `demo` platform allows you to use components which are providing a demo of t
 
 Available demo platforms:
 
+- [Air Quality](/components/air_quality/) (`air_quality`)
 - [Alarm control panel](/components/alarm_control_panel/) (`alarm_control_panel`)
 - [Binary sensor](/components/binary_sensor/) (`binary_sensor`)
 - [Camera](/components/camera/) (`camera`)
 - [Climate](/components/climate/) (`climate`)
 - [Cover](/components/cover/) (`cover`)
 - [Fan](/components/fan/) (`fan`)
-- [Geo Location](/components/geo_location/) (`geo_location`)
+- [Geolocation](/components/geo_location/) (`geo_location`)
 - [Image Processing](/components/image_processing/) (`image_processing`)
 - [Light](/components/light/) (`light`)
 - [Lock](/components/lock/) (`lock`)
@@ -45,6 +47,9 @@ To integrate a demo platform in Home Assistant, add the following section to you
   - platform: demo
 ```
 
-Configuration variables:
-
-- **[component]** (*Required*): The name of the component as stated in the listing above the configuration example.
+{% configuration %}
+"[component]":
+  description: The name of the component as stated in the listing above the configuration example.
+  required: true
+  type: string
+{% endconfiguration %}

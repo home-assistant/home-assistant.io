@@ -68,7 +68,11 @@ Go to the add-on store (see the previous step), click on Configurator and click 
  - You will be able to click the "OPEN WEB UI" link to open the Web UI on a new window
  - Type your username and password that you recently saved
 
-Time for the first practice with the configurator. Add the following to `configuration.yaml` file to add a link to the Configurator in the sidebar:
+Time for the first practice with the configurator. We're going to add the Configurator to the main Home Assistant sidebar:
+
+ - Click the folder icon in the top left of the configurator window to open the file browser sidebar. 
+ - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main Configurator edit window.
+ - Copy and paste the following to the end of the `configuration.yaml` file:
 
 ```yaml
 panel_iframe:
@@ -78,7 +82,9 @@ panel_iframe:
     url: http://hassio.local:3218
 ```
 
-Now restart Home Assistant for the changes to the configuration to take effect. You can do this by going to the config panel (Configuration in the sidebar) -> General -> Restart Home Assistant.
+ - Click the save icon in the top right to commit changes.
+ - Verify the configuration by going to the config panel (Configuration in the sidebar) -> General -> Click the "Check Config" button and you should get "Configuration valid!"
+ - Now Restart Home Assistant using the "restart" in the Server management section.
 
 ### {% linkable_title Editing config via Samba/Windows Networking %}
 
@@ -92,11 +98,15 @@ Now that you are able to edit the configuration, it's time to set up some of you
 
 <p class='note'>YAML can be a little daunting at first. A lot is possible! [Here is some more info.](/docs/configuration/devices/)</p>
 
-For a sensor that is showing [random values](/components/sensor.random/), the entry would look like the sample below:
+For your first integration, you'll create a virtual sensor that generates a random integer value between 0 and 20 every 30 seconds.  
+
+To create this random value sensor [random values](/components/sensor.random/), enter the following to the bottom of your `configuration.yaml` file, and restart Home Assistant (remember it may take up to a minute for the service to restart):
 
 ```yaml
 sensor:
   - platform: random
 ```
+
+You'll know it worked when you see the new random sensor in your overview page. On the next page, we'll create an automation that uses this sensor to take an action.  
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)

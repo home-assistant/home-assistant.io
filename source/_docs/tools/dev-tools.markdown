@@ -101,3 +101,6 @@ Even though MQTT in general provides deeper functionality, the developer tools s
 {% linkable_title Info %}
 
 The Information tab simply provides information about the current installed version, additional links and credits. The tab also contains a section that shows `syslog` information, and the contents of `home-assistant.log` with an option to clear and refresh the logs.
+
+The Information tab also allows makes it possible to try out the Lovelace User Interface (UI) by clicking "Try out the new Lovelace UI" or set Lovelace as the default UI, so that when the "Overview" link in the Sidebar is selected, the Lovelace UI will load by default.
+

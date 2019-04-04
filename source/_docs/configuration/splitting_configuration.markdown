@@ -10,7 +10,7 @@ footer: true
 redirect_from: /topics/splitting_configuration/
 ---
 
-So you've been using Home Assistant for a while now and your [configuration.yaml file brings people to tears](/cookbook/configuration_yaml_from_bassclarinetl2/) or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: humanly readable) pieces.
+So you've been using Home Assistant for a while now and your configuration.yaml file brings people to tears or you simply want to start off with the distributed approach, here's how to "split the configuration.yaml" into more manageable (read: humanly readable) pieces.
 
 First off, several community members have sanitized (read: without api keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/cookbook/#example-configurationyaml).
 
@@ -64,15 +64,15 @@ mqtt:
 ```
 As with the core snippet, indentation makes a difference. The component headers (`mqtt:`) should be fully left aligned (aka no indent), and the parameters (`broker:`) should be indented two (2) spaces.
 
-While some of these components can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact. (Look at the `zigbee:` entry above and the b entry further down)
+While some of these components can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact.
 
 Now, lets assume that a blank file has been created in the Home Assistant configuration directory for each of the following:
 
 ```text
 automation.yaml
-zones.yaml
-sensors.yaml
-switches.yaml
+zone.yaml
+sensor.yaml
+switch.yaml
 device_tracker.yaml
 customize.yaml
 ```
@@ -83,9 +83,9 @@ Inside the base configuration file add the following entries:
 
 ```yaml
 automation: !include automation.yaml
-zone: !include zones.yaml
-sensor: !include sensors.yaml
-switch: !include switches.yaml
+zone: !include zone.yaml
+sensor: !include sensor.yaml
+switch: !include switch.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
@@ -101,17 +101,17 @@ Let's look at the `device_tracker.yaml` file from our example:
   hosts: 192.168.2.0/24
   home_interval: 3
 
-  track_new_devices: yes
+  track_new_devices: true
   interval_seconds: 40
   consider_home: 120
 ```
 
-This small example illustrates how the "split" files work. In this case, we start with a "comment block" identifying the file followed by two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces.
+This small example illustrates how the "split" files work. In this case, we start with two (2) device tracker entries (`owntracks` and `nmap`). These files follow ["style 1"](/getting-started/devices/#style-2-list-each-device-separately) that is to say a fully left aligned leading entry (`- platform: owntracks`) followed by the parameter entries indented two (2) spaces.
 
 This (large) sensor configuration gives us another example:
 
 ```yaml
-### sensors.yaml
+### sensor.yaml
 ### METEOBRIDGE #############################################
 - platform: tcp
   name: 'Outdoor Temp (Meteobridge)'
@@ -165,8 +165,8 @@ You can get help from the command line using: `hass --script check_config --help
 
 ### {% linkable_title Advanced Usage %}
 
-We offer four advanced options to include whole directories at once.
-- `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list.
+We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+- `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 - `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.

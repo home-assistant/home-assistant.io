@@ -8,19 +8,31 @@ comments: false
 sharing: true
 footer: true
 logo: eufy.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Light
+  - Switch
 ha_release: 0.68
+ha_iot_class: Local Polling
+redirect_from:
+  - /components/light.eufy/
+  - /components/switch.eufy/
 ---
 
 The `eufy` component is the main component to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- Light
+- Switch
 
 Supported devices will be discovered after the `eufy` component is configured:
 
 ```yaml
 # Example configuration.yaml entry
 eufy:
-  username: testuser@domain
-  password: p4ssw0rd
+  username: EMAIL_ADDRESS
+  password: PASSWORD
 ```
 
 where username and password are the ones configured in the EufyHome app. Alternately, Eufy devices that are not discoverable can be statically configured.
@@ -43,16 +55,14 @@ eufy:
 ```bash
 $ curl -H "Content-Type: application/json" \
    -d '{"client_id":"eufyhome-app", "client_Secret":"GQCpr9dSp3uQpsOMgJ4xQ", "email":"USERNAME", "password":"PASSWORD"}' \
-   https://home-api.eufylife.com/v1/user/email/login \
-   | jq
+   https://home-api.eufylife.com/v1/user/email/login
 ```
 
 replacing USERNAME and PASSWORD with the Eufy username and password. This will give an `access_token`. Then run:
 
 ```bash
 $ curl -H token:TOKEN -H category:Home \
-   https://home-api.eufylife.com/v1/device/list/devices-and-groups | jq
+   https://home-api.eufylife.com/v1/device/list/devices-and-groups
 ```
 
 replacing TOKEN with the `access_token` from the previous command. This will provide the local_code for each device.
-

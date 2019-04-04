@@ -13,4 +13,5 @@ ha_release: 0.73
 ha_qa_scale: internal
 ---
 
-This component creates the endpoints for the [authentication system](/docs/authentication/) that is built into Home Assistant. There are no configuration options for this component directly as it relies on the auth system in the core.
+This component creates the endpoints for the [authentication system](/docs/authentication/) that is built into Home Assistant.
+There are no configuration options for this component directly as it relies on the auth system in the core.

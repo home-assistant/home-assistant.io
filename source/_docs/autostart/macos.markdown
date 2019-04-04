@@ -10,7 +10,7 @@ footer: true
 redirect_from: /getting-started/autostart-macos/
 ---
 
-Setting up Home Assistant to run as a background service is simple; macOS will start Home Assistant on boot and make sure it's always running.
+Setting up Home Assistant to run as a background service is simple; macOS will start Home Assistant after the system has booted, the user has logged in, and make sure it's always running.
 
 To get Home Assistant installed as a background service, run:
 

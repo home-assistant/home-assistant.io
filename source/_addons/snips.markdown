@@ -11,7 +11,9 @@ footer: true
 
 [Snips.ai](https://snips.ai/) is an AI-powered voice assistant that runs on the Raspberry Pi 3 and x86 platforms. It runs on-device and is Private by Design.
 
+<p class='warning note'>
 The Snips add-on depends on the Mosquitto add on to bridge to Home Assistant, so make sure that is installed.
+</p>
 
 Home Assistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
 
@@ -25,7 +27,7 @@ Open garage door
 What is on my shopping list
 ```
 
-To get started creating your own configuration, follow [their tutorial](https://snips.gitbook.io/documentation/console) to create an assistant and download the training data. You can also add the Home Assistant Skill to your assistant to enable the built-in intents, and add or create your own intents to do more complex tasks.
+To get started creating your own configuration, follow [their tutorial](https://docs.snips.ai/getting-started/quick-start-console) to create an assistant and download the training data. You can also add the Home Assistant Skill to your assistant to enable the built-in intents, and add or create your own intents to do more complex tasks.
 
 Now install and activate the [Samba](/addons/samba/) add-on so you can upload your training data. Connect to the "share" Samba share and copy your assistant over. Name the file `assistant.zip` or whatever you have configured in the configuration options.
 
@@ -49,13 +51,20 @@ Now it's time to start Snips for the first time. You can configure the microphon
 }
 ```
 
-Configuration variables:
-
-- **mqtt_bridge**: Snips uses MQTT to communicate and defaults to their own broker. Use this config option to bridge their broker to your the Mosquitto add-on.
-- **assistant**: The name of your custom assistant in `/share`. If no assistant is found then a default assistant will be used.
-- **language**: Language. This is used to select the default custom assistant, Currently `en`, `de` and `fr` are supported.
-- **custom_tts**: Whether to use a TTS provider from Home Assistant for a variety of voices.
-- **tts_platform**: Which TTS platform to use.
+{% configuration %}
+assistant:
+  description: The name of your custom assistant in `/share`. If no assistant is found then a default assistant will be used.
+  type: string
+language:
+  description: Language. This is used to select the default custom assistant, Currently `en`, `de` and `fr` are supported.
+  type: string
+custom_tts:
+  description: Whether to use a TTS provider from Home Assistant for a variety of voices.
+  type: boolean
+tts_platform:
+  description: Which TTS platform to use.
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Home Assistant configuration %}
 
@@ -88,6 +97,7 @@ Next create a weather sensor, e.g., one for (Dark Sky)[/components/sensor.darksk
     - temperature_max
     - temperature_min
 ```
+
 Next add this to your `configuration.yaml` file to reference a new `intent_script` component. This is a good practice to [split your configuration files](/docs/configuration/splitting_configuration/) up.
 
 ```yaml
@@ -97,6 +107,7 @@ intent_script: !include intent_script.yaml
 Finally, create this `intent_script.yaml` file in your configuration directory.
 
 {% raw %}
+
 ```yaml
 searchWeatherForecast:
   speech:
@@ -109,6 +120,7 @@ searchWeatherForecast:
       {{ states('sensor.dark_sky_weather_daily_high_temperature') | round(0)}}
       and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
+
 {% endraw %}
 
 Now just restart HassIO and ask it what the weather is like.

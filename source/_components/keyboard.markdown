@@ -35,7 +35,7 @@ You may need to install platform-specific [dependencies for PyUserInput](https:/
 pip3 install [package name]
 ```
 
-#### {% linkable_title Windows %}
+### {% linkable_title Windows %}
 
 x64 Windows users may have trouble installing pywin through pip. Using an [executable installer](http://sourceforge.net/projects/pywin32/files/pywin32/) should work around this issue.
 

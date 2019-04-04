@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: route53.png
 ha_category: Network
-ha_release: "0.81"
+ha_release: 0.81
 ---
 
 With the `route53` component can you keep your AWS Route53 DNS records up to date.
@@ -72,7 +72,7 @@ route53:
   aws_access_key_id: ABC123
   aws_secret_access_key: DEF456
   zone: ZONEID678
-  domain: home.yourdomain.com
+  domain: yourdomain.com
   records:
     - vpn
     - hassio
@@ -100,4 +100,9 @@ records:
   description: A list of records you want to update.
   required: true
   type: list
+ttl:
+  description: The TTL value for the DNS records.
+  required: false
+  type: int
+  default: 300
 {% endconfiguration %}

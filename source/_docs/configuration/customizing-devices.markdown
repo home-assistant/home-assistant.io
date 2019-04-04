@@ -42,17 +42,17 @@ hidden:
   description: Set to `true` to hide the entity.
   required: false
   type: boolean
-  default: False
+  default: false
 homebridge_hidden:
   description: Set to `true` to hide the entity from `HomeBridge`.
   required: false
   type: boolean
-  default: False
+  default: false
 emulated_hue_hidden:
   description: Set to `true` to hide the entity from `emulated_hue` (this will be deprecated in the near future and should be configured in [`emulated_hue`](/components/emulated_hue)).
   required: false
   type: boolean
-  default: False
+  default: false
 entity_picture:
   description: URL to use as picture for entity.
   required: false
@@ -65,7 +65,7 @@ assumed_state:
   description: For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
   required: false
   type: boolean
-  default: True
+  default: true
 device_class:
   description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
   required: false

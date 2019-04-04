@@ -10,7 +10,7 @@ footer: true
 logo: restful.png
 ha_category: Switch
 ha_release: 0.7.6
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.
@@ -72,6 +72,11 @@ headers:
   description: The headers for the request.
   required: false
   type: list, string
+verify_ssl:
+  description: Verify the SSL certificate of the endpoint.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -98,6 +103,7 @@ switch:
     is_on_template: '{{ value_json.is_active }}'
     headers:
       Content-Type: application/json
+    verify_ssl: true
 ```
 {% endraw %}
 

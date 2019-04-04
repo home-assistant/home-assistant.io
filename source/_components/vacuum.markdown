@@ -7,9 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.51
 ---
 
 The `vacuum` component enables the ability to control home cleaning robots within Home Assistant.
+
+## {% linkable_title Configuration %}
 
 To use this component in your installation, add a `vacuum` platform to your `configuration.yaml` file, like the [Xiaomi](/components/vacuum.xiaomi_miio/).
 
@@ -23,13 +26,13 @@ vacuum:
 
 ### {% linkable_title Component services %}
 
-Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_home`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
+Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
 
 Before calling one of these services, make sure your vacuum platform supports it.
 
 #### {% linkable_title Service `vacuum.turn_on` %}
 
-Start a new cleaning task. For the Xiaomi Vacuum and neato use `vacuum.start` instead.
+Start a new cleaning task. For the Xiaomi Vacuum and Neato use `vacuum.start` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -37,7 +40,7 @@ Start a new cleaning task. For the Xiaomi Vacuum and neato use `vacuum.start` in
 
 #### {% linkable_title Service `vacuum.turn_off` %}
 
-Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum and neato use `vacuum.stop` instead.
+Stop the current cleaning task and return to the dock. For the Xiaomi Vacuum and Neato use `vacuum.stop` instead.
 
 | Service data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
@@ -75,7 +78,7 @@ Stop the current activity of the vacuum.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.return_to_home` %}
+#### {% linkable_title Service `vacuum.return_to_base` %}
 
 Tell the vacuum to return home.
 

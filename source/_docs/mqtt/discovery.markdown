@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ---
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). The basic idea is that the device itself adds its configuration into your `configuration.yaml` automatically. To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/components/binary_sensor.http/) and the [HTTP sensor](/components/sensor.http/). To prevent multiple identical entries if a device reconnects a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier and the remaining device configuration without the device type.
 
 Supported by MQTT discovery:
 
@@ -24,6 +24,7 @@ Supported by MQTT discovery:
 - [Locks](/components/lock.mqtt/)
 - [Sensors](/components/sensor.mqtt/)
 - [Switches](/components/switch.mqtt/)
+- [Vacuums](/components/vacuum.mqtt/)
 
 To enable MQTT discovery, add the following to your `configuration.yaml` file:
 
@@ -33,10 +34,23 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 ```
-Configuration variables:
 
-- **discovery** (*Optional*): If the MQTT discovery should be enabled or not. Defaults to `False`.
-- **discovery_prefix** (*Optional*): The prefix for the discovery topic. Defaults  to `homeassistant`.
+{% configuration %}
+discovery:
+  description: If the MQTT discovery should be enabled or not.
+  required: false
+  default: false
+  type: boolean
+discovery_prefix:
+  description: The prefix for the discovery topic.
+  required: false
+  default: homeassistant
+  type: string
+{% endconfiguration %}
+
+<p class='note'>
+The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.
+</p>
 
 The discovery topic need to follow a specific format:
 
@@ -73,12 +87,26 @@ Supported abbreviations:
     'bri_scl':             'brightness_scale',
     'bri_stat_t':          'brightness_state_topic',
     'bri_val_tpl':         'brightness_value_template',
+    'bat_lev_t':           'battery_level_topic',
+    'bat_lev_tpl':         'battery_level_template',
+    'chrg_t':              'charging_topic',
+    'chrg_tpl':            'charging_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_stat_t':     'color_temp_state_topic',
     'clr_temp_val_tpl':    'color_temp_value_template',
+    'cln_t':               'cleaning_topic',
+    'cln_tpl':             'cleaning_template',
     'cmd_t':               'command_topic',
     'curr_temp_t':         'current_temperature_topic',
+    'dev':                 'device',
     'dev_cla':             'device_class',
+    'dock_t':              'docked_topic',
+    'dock_tpl':            'docked_template',
+    'err_t':               'error_topic',
+    'err_tpl':             'error_template',
+    'fanspd_t':            'fan_speed_topic',
+    'fanspd_tpl':          'fan_speed_template',
+    'fanspd_lst':          'fan_speed_list',
     'fx_cmd_t':            'effect_command_topic',
     'fx_list':             'effect_list',
     'fx_stat_t':           'effect_state_topic',
@@ -94,6 +122,7 @@ Supported abbreviations:
     'ic':                  'icon',
     'init':                'initial',
     'json_attr':           'json_attributes',
+    'json_attr_t':         'json_attributes_topic',
     'max_temp':            'max_temp',
     'min_temp':            'min_temp',
     'mode_cmd_t':          'mode_command_topic',
@@ -128,6 +157,7 @@ Supported abbreviations:
     'rgb_cmd_t':           'rgb_command_topic',
     'rgb_stat_t':          'rgb_state_topic',
     'rgb_val_tpl':         'rgb_value_template',
+    'send_cmd_t':          'send_command_topic',
     'send_if_off':         'send_if_off',
     'set_pos_tpl':         'set_position_template',
     'set_pos_t':           'set_position_topic',
@@ -141,6 +171,7 @@ Supported abbreviations:
     'stat_open':           'state_open',
     'stat_t':              'state_topic',
     'stat_val_tpl':        'state_value_template',
+    'sup_feat':            'supported_features',
     'swing_mode_cmd_t':    'swing_mode_command_topic',
     'swing_mode_stat_tpl': 'swing_mode_state_template',
     'swing_mode_stat_t':   'swing_mode_state_topic',
@@ -160,6 +191,7 @@ Supported abbreviations:
     'unit_of_meas':        'unit_of_measurement',
     'val_tpl':             'value_template',
     'whit_val_cmd_t':      'white_value_command_topic',
+    'whit_val_scl':        'white_value_scale',
     'whit_val_stat_t':     'white_value_state_topic',
     'whit_val_tpl':        'white_value_template',
     'xy_cmd_t':            'xy_command_topic',
@@ -167,14 +199,26 @@ Supported abbreviations:
     'xy_val_tpl':          'xy_value_template',
 ```
 
+Supported abbreviations for device registry configuration:
+```
+    'cns':                 'connections',
+    'ids':                 'identifiers',
+    'name':                'name',
+    'mf':                  'manufacturer',
+    'mdl':                 'model',
+    'sw':                  'sw_version',
+```
+
 ### {% linkable_title Support by third-party tools %}
 
-The following firmware for ESP8266, ESP32 and Sonoff unit has built-in support for MQTT discovery:
+The following software has built-in support for MQTT discovery:
 
 - [Sonoff-Tasmota](https://github.com/arendst/Sonoff-Tasmota) (starting with 5.11.1e)
-- [esphomeyaml](https://esphomelib.com/esphomeyaml/index.html)
+- [ESPHome](https://esphome.io)
 - [ESPurna](https://github.com/xoseperez/espurna)
 - [Arilux AL-LC0X LED controllers](https://github.com/mertenats/Arilux_AL-LC0X)
+- [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
+- [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 
 ### {% linkable_title Examples %}
 
@@ -198,7 +242,7 @@ $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/stat
 Delete the sensor by sending an empty message.
 
  ```bash
-$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/state" -m ''
+$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m ''
 ```
 
 Setting up a switch is similar but requires a `command_topic` as mentioned in the [MQTT switch documentation](/components/switch.mqtt/).
@@ -220,9 +264,9 @@ $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/set" -m
 Setting up a sensor with multiple measurement values requires multiple consecutive configuration topic submissions.
 
 - Configuration topic no1: `homeassistant/sensor/sensorBedroomT/config`
-- Configuration payload no1: `{"device_class": "sensor", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
+- Configuration payload no1: `{"device_class": "temperature", "name": "Temperature", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "°C", "value_template": "{% raw %}{{ value_json.temperature}}{% endraw %}" }`
 - Configuration topic no2: `homeassistant/sensor/sensorBedroomH/config`
-- Configuration payload no2: `{"device_class": "sensor", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
+- Configuration payload no2: `{"device_class": "humidity", "name": "Humidity", "state_topic": "homeassistant/sensor/sensorBedroom/state", "unit_of_measurement": "%", "value_template": "{% raw %}{{ value_json.humidity}}{% endraw %}" }`
 - Common state payload: `{ "temperature": 23.20, "humidity": 43.70 }`
 
 Setting up a switch using topic prefix and abbreviated configuration variable names to reduce payload length.
@@ -230,4 +274,41 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - Command topic: `homeassistant/switch/irrigation/set`
 - State topic: `homeassistant/switch/irrigation/state`
-- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", , "stat_t": "~/state"}`
+- Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
+
+Setting up a climate component (heat only) with abbreviated configuration variable names to reduce payload length.
+
+- Configuration topic: `homeassistant/climate/livingroom/config`
+- Configuration payload:
+
+```yaml
+{
+  "name":"Livingroom",
+  "mode_cmd_t":"homeassistant/climate/livingroom/thermostatModeCmd",
+  "mode_stat_t":"homeassistant/climate/livingroom/state",
+  "mode_stat_tpl":"{{value_json.mode}}",
+  "avty_t":"homeassistant/climate/livingroom/available",
+  "pl_avail":"online",
+  "pl_not_avail":"offline",
+  "temp_cmd_t":"homeassistant/climate/livingroom/targetTempCmd",
+  "temp_stat_t":"homeassistant/climate/livingroom/state",
+  "temp_stat_tpl":"{{value_json.target_temp}}",
+  "curr_temp_t":"homeassistant/climate/livingroom/state",
+  "current_temperature_template":"{{value_json.current_temp}}",
+  "min_temp":"15",
+  "max_temp":"25",
+  "temp_step":"0.5",
+  "modes":["off", "heat"]
+}
+```
+
+- State topic: `homeassistant/climate/livingroom/state`
+- State payload:
+
+```yaml
+{
+  "mode":"off",
+  "target_temp":"21.50",
+  "current_temp":"23.60",
+}
+```

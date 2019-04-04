@@ -57,10 +57,22 @@ Creating a `.gitignore` file in your repository will tell Git which files NOT to
 Here is an example that will ignore everything but your YAML configuration.
 
 ```bash
-# Example .gitignore file for your config dir
+# Example .gitignore file for your config dir.
+# A * ensures that everything will be ignored.
 *
+
+# You can whitelist files/folders with !, these will not be ignored.
 !*.yaml
 !.gitignore
+!*.md
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 ```
@@ -120,7 +132,7 @@ You may need to adjust the paths in the script depending on your Home Assistant 
 #!/bin/bash
 
 cd /home/homeassistant/.homeassistant
-source /srv/homeassistant/homeassistant_venv/bin/activate
+source /srv/homeassistant/bin/activate
 hass --script check_config
 
 git add .

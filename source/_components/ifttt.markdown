@@ -10,16 +10,21 @@ footer: true
 logo: ifttt.png
 ha_category: Automation
 featured: true
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
+ha_release: 0.80
 ---
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
 ## {% linkable_title Sending events from IFTTT to Home Assistant %}
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](/components/http/#base_url)).
+
+### {% linkable_title Setting up the integration %}
 
 To set it up, go to the integrations page in the configuration screen and find IFTTT. Click on configure. Follow the instructions on the screen to configure IFTTT.
+
+### {% linkable_title Using the incoming data %}
 
 Events coming in from IFTTT will be available as events in Home Assistant and are fired as `ifttt_webhook_received`. The data specified in IFTTT will be available as the event data. You can use this event to trigger automations.
 
@@ -29,12 +34,13 @@ For example, set the body of the IFTTT webhook to:
 { "action": "call_service", "service": "light.turn_on", "entity_id": "light.living_room" }
 ```
 
-You can then consume that information with the following automation:
+You then need to consume that incoming information with the following automation:
 
 ```yaml
 automation:
   trigger:
-    event: ifttt_webhook_received
+    platform: event
+    event_type: ifttt_webhook_received
     event_data:
       action: call_service
   action:
@@ -48,7 +54,7 @@ automation:
 ```yaml
 # Example configuration.yaml entry
 ifttt:
-  key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  key: YOUR_API_KEY
 ```
 
 `key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/services/maker_webhooks/settings). It's the last part of the URL (e.g., https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
@@ -65,6 +71,19 @@ Once you have added your key to your `configuration.yaml` file, restart your Hom
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
 </p>
 
+### {% linkable_title Multiple IFTTT keys %}
+
+If you have multiple IFTTT users you can specify multiple IFTTT keys with:
+
+```yaml
+# Example configuration.yaml entry
+ifttt:
+  key: 
+    YOUR_KEY_NAME1: YOUR_API_KEY1
+    YOUR_KEY_NAME2: YOUR_API_KEY2
+```
+
+
 ### {% linkable_title Testing your trigger %}
 
 You can use the **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the **Call Service** screen. Fill in the following values:
@@ -79,6 +98,17 @@ Service Data | `{"event": "EventName", "value1": "Hello World"}`
 <img src='/images/components/ifttt/testing_service.png' />
 When your screen looks like this, click the 'call service' button.
 </p>
+
+By default the trigger is sent to all the api keys from `configuration.yaml`. If you
+want to send the trigger to a specific key use the `target` field:
+
+Field | Value
+----- | -----
+domain | `ifttt`
+service | `trigger`
+Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}`
+
+The `target` field can contain a single key name or a list of key names.
 
 ### {% linkable_title Setting up a recipe %}
 

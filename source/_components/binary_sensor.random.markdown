@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: Utility
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.57
 ha_qa_scale: internal
 ---
@@ -31,5 +31,5 @@ name:
   description: Name to use in the frontend.
   required: false
   type: string
+  default: Random Binary Sensor
 {% endconfiguration %}
-

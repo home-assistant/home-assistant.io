@@ -14,7 +14,12 @@ ha_release: 0.31
 
 The `concord232` platform provides integration with GE, Interlogix (and other brands) alarm panels that support the RS-232 Automation Control Panel interface module (or have it built in). Supported panels include Concord 4.
 
-To use this platform, you will need to have the external concord232 client and server installed. The server must be running on the device which is connected to the automation module's serial port. The client must be installed on the machine running Home Assistant. These may often be the same machine, but do not have to be. For additional details in setting up and testing the client and server, see <https://github.com/JasonCarter80/concord232>
+To use this platform, you will need to have the external concord232 client and server installed.
+The server must be running on the device which is connected to the automation module's serial port.
+The client must be installed on the machine running Home Assistant. These may often be the same machine, but do not have to be.
+For additional details in setting up and testing the client and server, see <https://github.com/JasonCarter80/concord232>.
+
+## {% linkable_title Configuration %}
 
 To enable this platform in Home Assistant, add the following lines to your `configuration.yaml`:
 
@@ -28,11 +33,11 @@ alarm_control_panel:
 host:
   description: The host where the concord232 server process is running.
   required: false
-  default: localhost
   type: string
+  default: localhost
 port:
   description: The port where the Alarm panel is listening.
   required: false
-  default: 5007
   type: integer
+  default: 5007
 {% endconfiguration %}

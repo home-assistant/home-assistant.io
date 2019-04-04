@@ -117,7 +117,7 @@ If you get this error `AttributeError: module 'ssl' has no attribute 'PROTOCOL_T
 </p>
 
 <p class='note'>
-If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file /etc/systemd/system/home-assistant@homeassistant.service as root (e.g., sudo nano /etc/systemd/system/home-assistant@homeassistant.service) and add the mosquitto service:
+If you are running a Mosquitto instance on the same server as Home Assistant then you must ensure that the Mosquitto service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the file `/etc/systemd/system/home-assistant@homeassistant.service` as `root` (e.g., `sudo nano /etc/systemd/system/home-assistant@homeassistant.service`) and add the Mosquitto service:
 ```
 [Unit]
 Description=Home Assistant
@@ -164,7 +164,7 @@ Home Assistant is not affiliated with CloudMQTT nor will receive any kickbacks.
 
 ```yaml
 mqtt:
-  broker: CLOUTMQTT_SERVER
+  broker: CLOUDMQTT_SERVER
   port: CLOUDMQTT_PORT
   username: CLOUDMQTT_USER
   password: CLOUDMQTT_PASSWORD
@@ -172,5 +172,8 @@ mqtt:
 
 <p class='note'>
 Home Assistant will automatically load the correct certificate if you connect to an encrypted channel of CloudMQTT (port range 20000-30000).
+</p>
+<p class='note'>
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
 </p>
 

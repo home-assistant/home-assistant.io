@@ -8,8 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: konnected.png
-ha_category: Alarm
+ha_category:
+  - Alarm
+  - Binary Sensor
+  - Switch
+  - Sensor
 ha_release: "0.70"
+redirect_from:
+  - /components/binary_sensor.konnected/
+  - /components/switch.konnected/
 ---
 
 The `konnected` component lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
@@ -18,10 +25,15 @@ Visit the [Konnected.io website](https://konnected.io) for more information abou
 
 The component currently supports the following device types in Home Assistant:
 
-- [Binary Sensor](/components/binary_sensor.konnected/): Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
-- [Switch](/components/switch.konnected/): Actuate a siren, strobe, buzzer or relay module.
+- Binary Sensor: Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
+- Switch: Actuate a siren, strobe, buzzer or relay module.
+- Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This component requires the [`discovery`](https://www.home-assistant.io/components/discovery) component to be enabled.
+This component uses the [`discovery`](/components/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
+
+<p class='note info'>
+Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` component to serve SSL/TLS certificates. Instead, use a proxy like Nginx or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)  
+</p>
 
 ### {% linkable_title Configuration %}
 
@@ -71,7 +83,7 @@ devices:
       type: list
       keys:
         pin:
-          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are 1, 2, 5, 6, 7 and 9.
+          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values are `1`, `2`, `5`, `6`, `7` and `9`.
           required: exclusive
         zone:
           description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values are `1`, `2`, `3`, `4`, `5` and `6`.
@@ -88,6 +100,29 @@ devices:
           description: Inverts the open/closed meaning of a binary sensor circuit. Commonly needed for normally open wired smoke alarm circuits.
           required: false
           default: false
+    sensors:
+      description: A list of digital sensors (currently supports DHT and DS18B20 sensors) connected to the device
+      required: false
+      type: list
+      keys:
+        pin:
+          description: The number corresponding to the _IO index_ of the labeled pin on the NodeMCU dev board. See the [NodeMCU GPIO documentation](https://nodemcu.readthedocs.io/en/master/en/modules/gpio/) for more details. Valid values for sensors are `1`, `2`, `5`, `6`, `7` and `9`.
+          required: exclusive
+        zone:
+          description: The number corresponding to the labeled zone on the [Konnected Alarm Panel](https://konnected.io) board. Valid values for sensors are `1`, `2`, `3`, `4`, `5` and `6`.
+          required: exclusive
+        name:
+          description: The name of the device used in the front end.
+          required: false
+          default: automatically generated
+        type:
+          description: The type of sensor. Valid values are `dht` or `ds18b20`
+          required: true
+        poll_interval:
+          type: integer
+          description: The frequency (in minutes) that the Konnected device will report sensor data. Minimum `1` minute. _Note:_ this is only implemented for `dht` sensors.
+          required: false
+          default: not set (device default is 3 minutes)
     switches:
       description: A list of actuators (on/off switches) connected to the device. See [Konnected Switch](/components/switch.konnected/) for configuration variables.
       required: false
@@ -116,6 +151,25 @@ devices:
         repeat:
           description: Number of times to repeat a momentary pulse. Set to `-1` to make an infinite repeat. This is useful as an alarm or warning when used with a piezo buzzer.
           required: false
+    host: 
+      type: string
+      required: false
+      description: Optionally specify the Konnected device's IP address or hostname to set up without discovery.
+    port:
+      type: integer
+      required: false
+      description: Optionally specify the port number for the Konnected API on the device. Note that the port is different on every device. See help.konnected.io to learn how to determine the port number.
+    discovery:
+      type: boolean
+      required: false
+      default: true
+      description: Enable or disable discovery for this device. When `true`, the device will respond to discovery requests on your network. When `false`, the device will not respond to discovery requests, so it's important that you set reserved IP for the device and configure the _host_ and _port_ here.
+    blink:
+      type: boolean
+      required: false
+      default: true
+      description: Blink the blue LED upon successful transmission of a state change.
+
 {% endconfiguration%}
 
 #### {% linkable_title Configuration Notes %}
@@ -159,18 +213,39 @@ konnected:
       binary_sensors:
         - pin: 1
           type: motion
-          name: 'Office Motion'
+          name: Office Motion
         - pin: 2
           type: door
-          name: 'Office Door'
+          name: Office Door
       switches:
         - pin: 5
-          name: 'Garage Door'
+          name: Garage Door
           activation: low
           momentary: 500
         - pin: 8
           name: LED Light
+      sensors:
+        - pin: 6
+          name: Kitchen
+          type: dht
+          
 ```
+
+### {% linkable_title Unique IDs and the Entity Registry %}
+
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
+
+Unique IDs are internally generated as follows:
+
+**Binary Sensors**: `{mac-address}-{zone-number}`
+
+**Switches**: `{mac-address}-{unique-hash}`*
+
+**DHT Sensors**: `{mac-address}-{pin-number}-{temperature|humidity}`
+
+**DS18B20 Sensors**: `{sensor-serial-number}`
+
+\* Switches are identified by a unique hash including the pin number, `momentary`, `pause`, and `repeat` values. If these values are modified, a new entity will be created and the old entity must be removed manually from the _Entity Registry_.  
 
 ### {% linkable_title Pin Mapping %}
 
@@ -188,16 +263,44 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 ### {% linkable_title Revision History %}
 
+#### 0.91
+
+- Improved Unique ID generation for Konnected switches
+
+#### 0.90
+
+- Added support for `dht` and `ds18b20` temperature sensors
+- Added Unique IDs
+
+#### 0.80
+
+- Added ability to specify `host` and `port` to set up devices without relying on discovery.
+- Added `discovery` and `blink` config options to enable/disable these features.
+
 #### 0.79
-* Added `inverse` configuration option for binary sensors.
+
+- Added `inverse` configuration option for binary sensors.
 
 #### 0.77
-* Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
-* Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
-* **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
+
+- Added support for momentary and beep/blink switches. [[#15973](https://github.com/home-assistant/home-assistant/pull/15973)]
+- Decouple entity initialization from discovery, enabling devices to recover faster after a Home Assistant reboot. [[#16146](https://github.com/home-assistant/home-assistant/pull/16146)]
+- **Breaking change:** Device `id` in `configuration.yaml` must now be the full 12-character device MAC address. Previously, omitting the first 6 characters was allowed.
 
 #### 0.72
-* Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
+
+- Adds `api_host` configuration option [[#14896](https://github.com/home-assistant/home-assistant/pull/14896)]
 
 #### 0.70
-* Initial release
+
+- Initial release
+
+### {% linkable_title Binary Sensor %}
+
+The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
+
+This component supports all of the built-in device classes of the generic [Binary Sensor](/components/binary_sensor/) component.
+
+### {% linkable_title Switch %}
+
+The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).

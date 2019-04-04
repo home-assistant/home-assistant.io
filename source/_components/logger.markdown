@@ -10,6 +10,7 @@ footer: true
 logo: home-assistant.png
 ha_category: "Utility"
 ha_qa_scale: internal
+ha_release: 0.8
 ---
 
 The `logger` component lets you define the level of logging activities in Home
@@ -67,7 +68,7 @@ logger:
 
 ### {% linkable_title Log Levels %}
 
-Possible log severity levels are:
+Possible log severity levels, listed in order from most severe to least severe, are:
 
 - critical
 - fatal

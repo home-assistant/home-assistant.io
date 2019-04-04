@@ -8,12 +8,35 @@ comments: false
 sharing: true
 footer: true
 logo: tuya.png
-ha_category: Hub
-ha_iot_class: "Cloud Polling"
+ha_category:
+  - Hub
+  - Climate
+  - Cover
+  - Fan
+  - Light
+  - Scene
+  - Switch
+ha_iot_class: Cloud Polling
 ha_release: 0.74
+redirect_from:
+  - /components/climate.tuya/
+  - /components/cover.tuya/
+  - /components/fan.tuya/
+  - /components/light.tuya/
+  - /components/scene.tuya/
+  - /components/switch.tuya/
 ---
 
 The `tuya` component is the main component to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+
+There is currently support for the following device types within Home Assistant:
+
+- **Climate** - The platform supports the air conditioner and heater.
+- **Cover** - The platform supports curtains.
+- **Fan** - The platform supports most kinds of Tuya fans.
+- **Light** - The platform supports most kinds of Tuya light.
+- **Scene** - The device state in frontend panel will not change immediately after you activate a scene.
+- **Switch** - The platform supports switch and socket.
 
 ## {% linkable_title Configuration %}
 
@@ -28,19 +51,19 @@ tuya:
 
 {% configuration %}
 username:
-  description: Your username to login to Tuya. This may be your phone number.
+  description: Your username to log in to Tuya. This may be your phone number.
   required: true
   type: string
 password:
-  description: Your password to login to Tuya.
+  description: Your password to log in to Tuya.
   required: true
   type: string
 country_code:
-  description: "Your account [country code](https://www.countrycode.org/) (e.g., 1 for USA or 86 for China)."
+  description: "Your account [country code](https://www.countrycode.org/), e.g., 1 for USA or 86 for China."
   required: true
   type: string
 platform:
-  description: "The app where your account register. `tuya` for Tuya Smart and `smart_life` for Smart Life."
+  description: "The app where your account register. `tuya` for Tuya Smart, `smart_life` for Smart Life, `jinvoo_smart` for Jinvoo Smart."
   required: false
   type: string
   default: tuya

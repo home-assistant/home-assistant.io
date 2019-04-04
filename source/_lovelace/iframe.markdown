@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "iFrame Card"
-sidebar_label: iFrame
+title: "Iframe Card"
+sidebar_label: Iframe
 description: "Embed data from other webservices in your dashboard."
 date: 2018-07-01 10:28 +00:00
 sidebar: true
@@ -44,7 +44,7 @@ title:
 ### {% linkable_title Examples %}
 
 ```yaml
-- type: iframe
-  url: https://grafana.localhost/d/000000027/worldping-endpoint-summary?var-probe=All&panelId=2&fullscreen&orgId=3&theme=light
-  aspect_ratio: 75%
+type: iframe
+url: https://grafana.localhost/d/000000027/worldping-endpoint-summary?var-probe=All&panelId=2&fullscreen&orgId=3&theme=light
+aspect_ratio: 75%
 ```

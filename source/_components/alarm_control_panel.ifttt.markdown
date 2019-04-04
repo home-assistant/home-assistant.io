@@ -20,13 +20,15 @@ This platform depends on the [IFTTT](/components/ifttt/) Home Assistant componen
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.
 </p>
 
-To enable this, setup the required IFTTT applets as listed below and add the following lines to your `configuration.yaml` file:
+## {% linkable_title Configuration %}
+
+To enable this, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 ifttt:
   key: YOUR_WEBHOOK_KEY
-  
+
 alarm_control_panel:
   - platform: ifttt
     name: YOUR_ALARM_NAME
@@ -37,13 +39,51 @@ alarm_control_panel:
     event_disarm: YOUR_DISARM_EVENT
 ```
 
+{% configuration %}
+name:
+  description: The name of your Home Assistant alarm control panel.
+  required: false
+  type: string
+code:
+  description: The code for the alarm control panel.
+  required: false
+  type: string
+event_arm_away:
+  description: IFTTT webhook event to call when the state is set to armed away.
+  required: false
+  type: string
+  default: alarm_arm_away
+event_arm_home:
+  description: IFTTT webhook event to call when the state is set to armed home.
+  required: false
+  type: string
+  default: alarm_arm_home
+event_arm_night:
+  description: IFTTT webhook event to call when the state is set to armed night.
+  required: false
+  type: string
+  default: alarm_arm_night
+event_disarm:
+  description: IFTTT webhook event to call when the state is set to disarmed.
+  required: false
+  type: string
+  default: alarm_disarm
+optimistic:
+  description: Specify if the state will be updated by an ifttt_push_alarm_state call (false) or can be set immediately (true).
+  required: false
+  type: boolean
+  default: false
+{% endconfiguration %}
+
 <p class='note warning'>
 It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 </p>
 
-{% linkable_title Required IFTTT applets %}
+### {% linkable_title Required IFTTT applets %}
 
-This platform supports the services `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night`. For each of these services, an IFTTT webhook will be triggered. 
+Next, you will need to set up the required IFTTT applets as listed below.
+
+This platform supports the services `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night`. For each of these services, an IFTTT webhook will be triggered.
 
 For this system to operate correctly, the following IFTTT applets have to be setup. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
 * **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** disarm the alarm system.
@@ -54,40 +94,3 @@ For this system to operate correctly, the following IFTTT applets have to be set
 * **IF** the alarm system state changed to armed home, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/ifttt_push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_home"}`.
 * **IF** the alarm system state changed to armed away, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/ifttt_push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_away"}`.
 * **IF** the alarm system state changed to armed night, **THEN** perform a Webhook `POST` web request to url `https://HASS_URL/api/services/alarm_control_panel/ifttt_push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_night"}`.
-
-
-{% configuration %}
-  name:
-    description: The name of your Home Assistant alarm control panel.
-    required: false
-    type: string
-  code:
-    description: The code for the alarm control panel.
-    required: false
-    type: string
-  event_arm_away:
-    description: IFTTT webhook event to call when the state is set to armed away.
-    required: false
-    type: string
-    default: alarm_arm_away
-  event_arm_home:
-    description: IFTTT webhook event to call when the state is set to armed home.
-    required: false
-    type: string
-    default: alarm_arm_home
-  event_arm_night:
-    description: IFTTT webhook event to call when the state is set to armed night.
-    required: false
-    type: string
-    default: alarm_arm_night
-  event_disarm:
-    description: IFTTT webhook event to call when the state is set to disarmed.
-    required: false
-    type: string
-    default: alarm_disarm
-  optimistic:
-    description: Specify if the state will be updated by an ifttt_push_alarm_state call (false) or can be set immediately (true).
-    required: false
-    type: boolean
-    default: false
-{% endconfiguration %}

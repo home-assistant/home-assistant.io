@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ha_category: Switch
 ha_release: 0.13
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
@@ -37,7 +37,7 @@ switch:
           data:
             entity_id: switch.skylight_open
         turn_off:
-          service: switch.turn_on
+          service: switch.turn_off
           data:
             entity_id: switch.skylight_close
 ```

@@ -47,18 +47,18 @@ Note: Conditions with more than one entity are treated as an 'and' condition. Th
 ### {% linkable_title Examples %}
 
 ```yaml
-- type: conditional
-  conditions:
-    - entity: light.bed_light
-      state: "on"
-    - entity: switch.decorative_lights
-      state_not: "off"
-  card:
-    type: entities
-    entities:
-      - device_tracker.demo_paulus
-      - cover.kitchen_window
-      - group.kitchen
-      - lock.kitchen_door
-      - light.bed_light
+type: conditional
+conditions:
+  - entity: light.bed_light
+    state: "on"
+  - entity: switch.decorative_lights
+    state_not: "off"
+card:
+  type: entities
+  entities:
+    - device_tracker.demo_paulus
+    - cover.kitchen_window
+    - group.kitchen
+    - lock.kitchen_door
+    - light.bed_light
 ```

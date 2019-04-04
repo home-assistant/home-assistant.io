@@ -8,8 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: joaoapps_join.png
-ha_category: Hub
-ha_release: "0.24"
+ha_category:
+  - Hub
+  - Notifications
+ha_release: 0.24
+redirect_from:
+  - /components/notify.joaoapps_join/
 ---
 
 The `joaoapps_join` component exposes services from
@@ -28,15 +32,15 @@ To set it up, add the following information to your `configuration.yaml` file:
 # Example configuration.yaml entry
 notify:
   - platform: joaoapps_join
-    api_key: asd97823jb628a34fwsdfwefd5384345tf2d
-    device_id: d5asdfasdf54645h45h368761dfe5gt8a
-    device_ids: d5asdfasdf54645h45h368761dfe5gt8a, a4asdfasdf54645h45h368761dfe5gt3b
-    device_names: Pixel, iPhone
-    name: Phones
+    api_key: YOUR_API_KEY
+    device_id: DEVICE_ID
+    device_ids: DEVICE_ID_1, DEVICE_ID_2
+    device_names: DEVICE_1_NAME, DEVICE_2_NAME
+    name: NAME
 joaoapps_join:
-  - name: android
-    device_id: group.android
-    api_key: asd97823jb628a34fwsdfwefd5384345tf2d
+  - name: NAME_OF_GROUP
+    device_id: GROUP.GROUP_NAME
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
@@ -58,7 +62,7 @@ device_names:
   type: string
 {% endconfiguration %}
 
-The notify service has two optional parameters: `icon` and `vibration`.
+The notify service has two optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `tts`, `tts_language` and `vibration`.
 You can use them like so:
 
 ```json
@@ -67,7 +71,14 @@ You can use them like so:
 	"title": "Home Assistant",
 	"data": {
 		"icon": "https://goo.gl/xeetdy",
-		"vibration": "0,65,706,86,657,95,668,100"
+		"smallicon": "https://goo.gl/xeetdy",
+		"vibration": "0,65,706,86,657,95,668,100",
+		"image": "https://www.home-assistant.io/images/favicon-192x192-full.png",
+		"sound": "https://goo.gl/asasde.mp3",
+		"url": "https://home-assistant.io",
+		"notification_id": "hass-notification",
+		"tts": "Notification from Home Assistant",
+		"tts_language": "english"
 	}
 }
 ```

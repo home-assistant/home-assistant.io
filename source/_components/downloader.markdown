@@ -23,9 +23,12 @@ downloader:
   download_dir: downloads
 ```
 
-Configuration variables:
-
-- **download_dir** (*Required*): If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`).
+{% configuration %}
+download_dir:
+  description: "If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`)."
+  required: true
+  type: string
+{% endconfiguration %}
 
 ### {% linkable_title Use the service %}
 

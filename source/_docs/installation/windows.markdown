@@ -15,7 +15,7 @@ To run Home Assistant on Microsoft Windows installation you need to install Pyth
 There may be alpha or beta releases of Python listed on that download page (marked by the letters `a` or `b` in the version number. Do not use these versions.
 </p>
 
-If you use your machine for something other than Home Assistant, you should install it in a [Python virtual environment](#Installing_in_a_Python_virtual_environment).
+If you use your machine for something other than Home Assistant, you should install it in a [Python virtual environment](#installing-in-a-python-virtual-environment).
 
 Start 
 

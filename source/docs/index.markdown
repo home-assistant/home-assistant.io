@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The documentation covers from beginner to advanced topic around the installation, the setup, the configuration, and the usage of Home Assistant.
+The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/hassio/'>
@@ -36,11 +36,11 @@ The documentation covers from beginner to advanced topic around the installation
     </div>
     <div class='title'>MQTT</div>
   </a>
-  <a class='option-card' href='/docs/ecosystem/hadashboard/'>
+  <a class='option-card' href='/lovelace/'>
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
-    <div class='title'>HADashboard</div>
+    <div class='title'>Lovelace user interface</div>
   </a>
   <a class='option-card' href='/docs/ecosystem/ios/'>
     <div class='img-container'>

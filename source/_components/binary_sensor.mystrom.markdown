@@ -9,10 +9,9 @@ sharing: true
 footer: true
 logo: mystrom.png
 ha_category: Binary Sensor
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ha_release: 0.45
 ---
-
 
 The `mystrom` binary sensor platform allows you to use [myStrom Wifi Buttons](https://mystrom.ch/wifi-button/) with Home Assistant. The myStrom Wifi Buttons support three and the myStrom WiFi Button + four different push pattern:
 

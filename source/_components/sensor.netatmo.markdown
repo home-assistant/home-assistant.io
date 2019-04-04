@@ -9,16 +9,16 @@ sharing: true
 footer: true
 logo: netatmo.png
 ha_category: Weather
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
+ha_release: 0.11
 ---
 
-### {% linkable_title Basic Configuration %}
-
-The `netatmo` sensor platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) device.
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a
+[Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) devices.
 
 To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your sensor.
 
-### {% linkable_title Advanced configuration %}
+## {% linkable_title Advanced configuration %}
 
 If you want to select a specific sensor, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
@@ -39,30 +39,62 @@ sensor:
         - battery_vp
 ```
 
-Configuration variables:
+{% configuration %}
+station:
+  required: false
+  description: The name of the weather station. Needed if several stations are associated with the account.
+  type: string
+modules:
+  required: true
+  description: Modules to use. Multiple entries allowed. Please check the next section about how to retrieve the module names.
+  type: list
+  keys:
+    module_name:
+      type: list
+      required: true
+      description: Name of the module.
+      keys:
+        temperature:
+          description: Current temperature.
+        co2:
+          description: CO2 concentration in ppm.
+        pressure:
+          description: Pressure in mbar.
+        noise:
+          description: Noise level in dB.
+        humidity:
+          description: "Humidity in %."
+        health_idx:
+          description: "Air health as one of the values Healthy, Fine, Fair, Poor, Unhealthy."
+        rain:
+          description: Estimated rainfall for today in mm.
+        sum_rain_1:
+          description: Rainfall in the last hour in mm.
+        sum_rain_24:
+          description: "Rainfall in mm from 00:00am - 23:59pm."
+        windangle:
+          description: Wind angle
+        windstrength:
+          description: Wind strength
+        gustangle:
+          description: Wind gust angle
+        guststrength:
+          description: Wind gust strength
+        min_temp:
+          description: Min temperature for today
+        max_temp:
+          description: Max temperature for today
+        rf_status:
+          description: "Current radio status per module. (90=low, 60=highest)"
+        wifi_status:
+          description: Wifi status per Base station
+        battery_vp:
+          description: Current battery status per module.
+        battery_percent:
+          description: Percentage of battery remaining per module.
+{% endconfiguration %}
 
-- **station** (*Optional*): The name of the weather station. Needed if several stations are associated with the account.
-- **modules** (*Required*): Modules to use. Multiple entries allowed. Please check the next section about how to retrieve the module names.
-  - **module_name** array (*Required*): Name of the module.
-    - **temperature**: Current temperature.
-    - **co2**: CO2 concentration in ppm.
-    - **pressure**: Pressure in mbar.
-    - **noise**: Noise level in dB.
-    - **humidity**: Humidity in %.
-    - **rain**: Estimated rainfall for today in mm.
-    - **sum_rain_1**: Rainfall in the last hour in mm.
-    - **sum_rain_24**: Rainfall in mm from 00:00am - 23:59pm.
-    - **windangle**: Wind angle
-    - **windstrength**: Wind strength
-    - **gustangle**: Wind gust angle
-    - **guststrength**: Wind gust strength
-    - **min_temp**: Min temperature for today
-    - **max_temp**: Max temperature for today
-    - **rf_status**: Current radio status per module. (90=low, 60=highest)
-    - **wifi_status**: Wifi status per Base station
-    - **battery_vp**: Current battery status per module.
-
-### {% linkable_title Find your modules name %}
+## {% linkable_title Find your modules name %}
 
 You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters. You have to provide these name in your Home Assistant `configuration.yaml` file.
 

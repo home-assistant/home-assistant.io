@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7
 ---
 
 Interacts with media players on your network. Please check the right sidebar for a full list of supported devices.
@@ -14,7 +15,7 @@ Interacts with media players on your network. Please check the right sidebar for
 ## {% linkable_title Services %}
 
 ### {% linkable_title Media control services %}
-Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`
+Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`, `volume_set`, `volume_mute`, `media_play_pause`, `media_play`, `media_pause`, `media_stop`, `media_next_track`, `media_previous_track`, `clear_playlist`, `shuffle_set`
 
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
@@ -41,7 +42,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.       |
 | `seek_position`        |       no | Position to seek to. The format is platform dependent. |
 
-#### {% linkable_title Service `media_player.play_media` %}
+#### {% linkable_title Service `media_player.media_play` %}
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +57,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.     |
 | `source`               |       no | Name of the source to switch to. Platform dependent. |
 
-#### {% linkable_title Service `media_player/select_sound_mode` %}
+#### {% linkable_title Service `media_player.select_sound_mode` %}
 
 Currently only supported on [Denon AVR](/components/media_player.denonavr/) and  [Songpal](/components/media_player.songpal/).
 
@@ -65,7 +66,7 @@ Currently only supported on [Denon AVR](/components/media_player.denonavr/) and 
 | `entity_id`            |       no | Target a specific media player. For example `media_player.marantz`|
 | `sound_mode`           |       no | Name of the sound mode to switch to. Platform dependent.|
 
-#### {% linkable_title Service `media_player/shuffle_set` %}
+#### {% linkable_title Service `media_player.shuffle_set` %}
 
 Currently only supported on [Spotify](/components/media_player.spotify/), [MPD](/components/media_player.mpd/), [Kodi](/components/media_player.kodi/), [Squeezebox](/components/media_player.squeezebox/) and [Universal](/components/media_player.universal/).
 

@@ -81,11 +81,8 @@ automations and templates.
 ### {% linkable_title Restore State %}
 
 This component will automatically restore the state it had prior to Home
-Assistant stopping as long as you have the `recorder` component enabled and your
-entity does **not** have a set value for `initial`. To disable this feature, set
-a valid value for `initial`. Additional information can be found in the
-[Restore state](/components/recorder/#restore-state) section of the
-[`recorder`](/components/recorder/) component documentation.
+Assistant stopping as long as your entity does **not** have a set value for
+`initial`.  To disable this feature, set a valid value for `initial`.
 
 ### {% linkable_title Services %}
 
@@ -117,9 +114,11 @@ automation:
 {% endraw %}
 
 To dynamically set the `input_datetime` you can call
-`input_datetime.set_datetime`. The following example can be used in an
-automation rule:
+`input_datetime.set_datetime`. The values for `date` and `time` must be in a certain format for the call to be successful.
+You can use either `strftime("%Y-%m-%d")`/`strftime("%H:%M:%S")` or `timestamp_custom("%Y-%m-%d", true)`/`timestamp_custom("%H:%M:%S", true)` filter respectively.
+The following example can be used in an automation rule:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 # Sets input_datetime to '05:30' when an input_boolean is turned on.
@@ -129,8 +128,24 @@ automation:
     entity_id: input_boolean.example
     to: 'on'
   action:
-    service: input_datetime.set_datetime
+  - service: input_datetime.set_datetime
     entity_id: input_datetime.bedroom_alarm_clock_time
     data:
       time: '05:30:00'
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.another_time
+    data_template:
+      time: '{{ now().strftime("%H:%M:%S") }}'
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.another_date
+    data_template:
+      date: '{{ now().strftime("%Y-%m-%d") }}'
+  - service: input_datetime.set_datetime
+    data_template:
+     entity_id: input_datetime.date_and_time
+      date: >
+        {{ now().timestamp() | timestamp_custom("%Y-%m-%d", true) }}
+      time: >
+        {{ now().timestamp() | timestamp_custom("%H:%M:%S", true) }}
 ```
+{% endraw %}

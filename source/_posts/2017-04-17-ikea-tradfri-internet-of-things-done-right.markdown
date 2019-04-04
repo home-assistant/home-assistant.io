@@ -57,7 +57,7 @@ Because it’s based on Zigbee, you don’t have to just buy IKEA devices the re
 Note that there are reports that the other way around, pairing an IKEA light to the Philips Hue hub is currently not possible. IKEA is working on it according to [a post by Philips Hue support][hue-support]:
 
 <blockquote>
-  The non-interoperability between the newly launched IKEA smart lighting products and the Philips Hue bridge has been analyzed. One of the issues found is that the IKEA bulbs report their ProfileID as corresponding to the ZigBee Home Automation (ZHA) profile rather than the ZigBee Light Link (ZLL) profile. As the IKEA bulbs do not behave fully compliant with the ZLL standard, they are rejected by the Hue bridge. IKEA is aware of this and informed us their intent is to have the IKEA smart lighting bulbs to work with the Philips Hue bridge.
+  The non-interoperability between the newly launched IKEA smart lighting products and the Philips Hue bridge has been analyzed. One of the issues found is that the IKEA bulbs report their ProfileID as corresponding to the Zigbee Home Automation (ZHA) profile rather than the Zigbee Light Link (ZLL) profile. As the IKEA bulbs do not behave fully compliant with the ZLL standard, they are rejected by the Hue bridge. IKEA is aware of this and informed us their intent is to have the IKEA smart lighting bulbs to work with the Philips Hue bridge.
 </blockquote>
 
 ## {% linkable_title Affordable %}

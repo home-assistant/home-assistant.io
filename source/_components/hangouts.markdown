@@ -8,19 +8,28 @@ comments: false
 sharing: true
 footer: true
 logo: hangouts.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Notifications
 ha_release: 0.77
+redirect_from:
+  - /components/notify.hangouts/
 ---
 
-This component allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+This component allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Notifications](#notifications)
 
 ## {% linkable_title Setup the component via the frontend %}
 
 Menu: *Configuration* -> *Integrations*
   
 Configure the integration:
-* Enter your **Google Mail Address** and **Password**
-* If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
+
+- Enter your **Google Mail Address** and **Password**
+- If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
 
 <p class='note'>
 You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.<br>
@@ -49,8 +58,8 @@ hangouts:
     - id: CONVERSATION_ID1
   error_suppressed_conversations:
     - id: CONVERSATION_ID2
-
 ```
+
 {% configuration %}
 intents:
   description: "Intents that the hangouts component should understand."
@@ -105,6 +114,8 @@ The intent `HangoutsHelp` is part of the component and return a list of all sent
 
 ## {% linkable_title Adding sentences %}
 
+{% raw %}
+
 ```yaml
 # The Hangouts component
 hangouts:
@@ -123,11 +134,13 @@ hangouts:
 intent_script:
   Ping:
     speech:
-      text: I know {% raw %}{{ states.hangouts.conversations.state }}{% endraw %} conversations
-
+      text: I know {{ states.hangouts.conversations.state }} conversations
 ```
 
+{% endraw %}
+
 This configuration will:
+
 - Toggle the light in the given location in a specific conversation.
 - Return the conversations the bot know.
 
@@ -137,12 +150,14 @@ Sentences can contain slots (marked with curly braces: `{name}`) and optional wo
 
 The following configuration can handle the following sentences:
 
- - Change the lights to red
- - Change the lights to green
- - Change the lights to blue
- - Change the lights to the color red
- - Change the lights to the color green
- - Change the lights to the color blue
+- Change the lights to red
+- Change the lights to green
+- Change the lights to blue
+- Change the lights to the color red
+- Change the lights to the color green
+- Change the lights to the color blue
+
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -151,7 +166,7 @@ hangouts:
     ColorLight:
       sentences:
         - Change the lights to [the color] {color}
-{% raw %}
+
 intent_script:
   ColorLight:
     speech:
@@ -163,8 +178,9 @@ intent_script:
           - "{% if color == 'red' %}255{% else %}0{% endif %}"
           - "{% if color == 'green' %}255{% else %}0{% endif %}"
           - "{% if color == 'blue' %}255{% else %}0{% endif %}"
-{% endraw %}
 ```
+
+{% endraw %}
 
 ## {% linkable_title Services %}
 
@@ -186,3 +202,93 @@ Sends a message to the given conversations.
 | message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
 | data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
 
+### {% linkable_title Service `hangouts.reconnect` %}
+
+Reconnects the hangouts bot.
+
+| Service data attribute | Optional | Description                                      |
+|------------------------|----------|--------------------------------------------------|
+|                        |          |                                                  |
+
+## {% linkable_title Advanced %}
+
+### {% linkable_title Automatic reconnect after ip change %}
+
+The hangouts component can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+
+{% raw %}
+
+```yaml
+sensor:
+  - platform: rest
+    resource: https://api.ipify.org?format=json
+    name: External IP
+    value_template: '{{ value_json.ip }}'
+    scan_interval: 10
+
+automation:
+  - alias: Reconnect Hangouts
+    trigger:
+      - entity_id: sensor.external_ip
+        platform: state
+    condition:
+      - condition: template
+        value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+      - condition: template
+        value_template: '{{ not is_state("sensor.external_ip", "unavailable") }}'
+    action:
+      - service: hangouts.reconnect
+```
+
+{% endraw %}
+
+## {% linkable_title Notifications %}
+
+The `hangouts` platform allows you to deliver notifications from Home Assistant to [Google Hangouts](http://hangouts.google.com) conversations. Conversations can be both direct as well as group chats.
+
+To enable Hangouts notifications in your installation, you first need to configure the Hangouts component. Then, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry  
+notify:
+  - name: NOTIFIER_NAME
+    platform: hangouts
+    default_conversations:
+      - id: CONVERSATION_ID1
+      - id: CONVERSATION_ID2
+```
+
+{% configuration %}
+name:
+  description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  required: false
+  type: string
+default_conversations:
+  description: "The conversations all messages will be sent to, when no other target is given."
+  required: true
+  type: [map]
+  keys:
+    id:
+      description: "Specifies the id of the conversation. *The conversation id can be obtained from the `hangouts.conversations` entity.*"
+      required: true
+      type: string
+{% endconfiguration %}
+
+### {% linkable_title Finding the conversation ID %}
+
+The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in with the states developer tool that is shown as this icon <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> in the side bar. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
+
+```json
+0: {
+  "id": "<Hangout ID>",
+  "name": "A simple hangout",
+  "users": [
+    "Steve",
+    "Jo"
+  ]
+}
+```
+
+This may have more if the account is in multiple hangout conversations, for configuring the bot to be in a conversation you will need the ID that would be where `<Hangout ID>` is in that example. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
+
+To use notifications, please see the [getting started with automation page](/getting-started/automation/).

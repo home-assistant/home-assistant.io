@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-featured: false
 ---
 
 <p class='note'>
@@ -19,14 +18,32 @@ Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This a
 ```json
 {
   "email": "example@example.com",
-  "domains": ["example.com", "mqtt.example.com", "hass.example.com"]
+  "domains": ["example.com", "mqtt.example.com", "hass.example.com"],
+  "certfile": "fullchain.pem",
+  "keyfile": "privkey.pem"
 }
 ```
 
-Configuration variables:
-
-- **email** (*Required*): Your email address for registration on Let's Encrypt.
-- **domains** (*Required*): A list of domains to create/renew the certificate.
+{% configuration %}
+email:
+  description: Your email address for registration on Let's Encrypt.
+  required: true
+  type: string
+domains:
+  description: A list of domains to create/renew the certificate.
+  required: true
+  type: list
+certfile:
+  description: Name of the certfile that is created.  Leave as default value.
+  required: true
+  type: string
+  default: fullchain.pem
+keyfile:
+  description: Name of the keyfile that is created.  Leave as default value.
+  required: true
+  type: string
+  default: privkey.pem
+{% endconfiguration %}
 
 ## {% linkable_title Home Assistant configuration %}
 
@@ -61,4 +78,26 @@ Use this in your `automations.yaml` to attempt certificate renewal each day at m
       addon: core_letsencrypt
 ```
 
+If you are using the [Nginx Proxy add-on] you will need need to stop this during the renewal process. This can be achieved by stopping the add-on whilst restarting the Let's Encrypt add-on. This can be achieved the following configuration:
+
+```yaml
+- id: letsencrypt-renewal
+  alias: 'LetsEncrypt renewal'
+  trigger:
+  - platform: time
+    at: '00:00:00'
+  action:
+  - service: hassio.addon_stop
+    data:
+      addon: core_nginx_proxy
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+  - delay: '00:01:30'
+  - service: hassio.addon_start
+    data:
+      addon: core_nginx_proxy
+```
+
 [DuckDNS add-on]: /addons/duckdns/
+[Nginx Proxy add-on]: /addons/nginx_proxy/

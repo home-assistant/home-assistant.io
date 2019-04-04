@@ -8,13 +8,44 @@ comments: false
 sharing: true
 footer: true
 logo: vera.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Cover
+  - Light
+  - Lock
+  - Scene
+  - Sensor
+  - Switch
+  - Climate
 ha_release: pre 0.7
+redirect_from:
+  - /components/binary_sensor.vera/
+  - /components/cover.vera/
+  - /components/light.vera/
+  - /components/lock.vera/
+  - /components/scene.vera/
+  - /components/sensor.vera/
+  - /components/switch.vera/
+  - /components/climate.vera/
 ---
 
 The [Vera](http://getvera.com) hub is a controller mainly connecting to Z-Wave devices.
 
-Switches, Lights (inc Dimmers), Locks, Sensors, Binary sensors, and Scenes are supported - and will be automatically added when HA connects to your Vera controller.
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Cover
+- Light
+- Lock
+- Scene
+- Sensor
+- Switch
+- Climate
+
+and will be automatically added when HA connects to your Vera controller.
+
+## {% linkable_title Configuration %}
 
 To use Vera devices in your installation, add the following to your configuration.yaml file using the IP and port number of your Vera controller:
 
@@ -23,15 +54,18 @@ vera:
   vera_controller_url: http://192.168.1.161:3480/
 ```
 
-Configuration variables:
-
-- **vera_controller_url** (*Required*): The URL for your Vera device.
+{% configuration %}
+vera_controller_url:
+  description: The URL for your Vera device.
+  required: true
+  type: string
+{% endconfiguration %}
 
 <p class='note'>
   It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 </p>
 
-### {% linkable_title Configure devices %} 
+### {% linkable_title Configure devices %}
 
 By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this using the optional `lights` parameter as shown below.
 
@@ -48,6 +82,16 @@ vera:
   lights: [15, 17, 19, 21, 22, 24, 26, 43, 64, 70, 87]
 ```
 
-### {% linkable_title Using Z-Wave devices in automation %} 
+### {% linkable_title Using Z-Wave devices in automation %}
 
 If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the entity id. In the Home Assistant UI you'll find all entities listed under the <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> icon of the Developer Tools section. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the entity id on the left.
+
+### {% linkable_title Sensor %}
+
+The `vera` platform allows you to get data from your [Vera](http://getvera.com/) sensors from within Home Assistant.
+
+Please note that some vera sensors (such as _motion_ and _flood_  sensors) are _armable_ which means that vera will send alerts (email messages to txts) when they are _armed_ and change state.
+
+Home Assistant will display the state of these sensors regardless of the _armed_ state.
+
+To allow you to change the _armed state_ - Home Assistant will create a switch as well as a sensor for each _Armable_ sensor. You can hide these switches using customization if you wish.

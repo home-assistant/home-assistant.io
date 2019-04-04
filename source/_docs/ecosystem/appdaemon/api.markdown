@@ -317,10 +317,10 @@ state = self.get_state("switch")
 state = self.get_state("light.office_1")
 
 # Return the brightness attribute for light.office_1
-state = self.get_state("light.office_1", "brightness")
+state = self.get_state("light.office_1", attribute = "brightness")
 
 # Return the entire state for light.office_1
-state = self.get_state("light.office_1", "all")
+state = self.get_state("light.office_1", attribute = "all")
 ```
 
 ### {% linkable_title set_state() %}
@@ -1139,7 +1139,7 @@ Call service is the basic way of calling a service within AppDaemon. It can call
 #### {% linkable_title Synopsis %}
 
 ```python
-self.call_service(self, service, **kwargs)
+self.call_service(service, **kwargs)
 ```
 
 #### {% linkable_title Returns %}
@@ -1150,7 +1150,7 @@ None
 
 ##### {% linkable_title service %}
 
-The service name, e.g., `light.turn_on`.
+The service name, e.g., `light/turn_on`.
 
 ##### {% linkable_title \*\*kwargs %}
 

@@ -10,9 +10,8 @@ footer: true
 logo: modbus.png
 ha_category: Switch
 ha_release: pre 0.7
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
-
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
@@ -27,6 +26,7 @@ switch:
   slave: 1
   coils:
     - name: Switch1
+      hub: hub1
       slave: 1
       coil: 13
     - name: Switch2
@@ -34,6 +34,7 @@ switch:
       coil: 14
   registers:
     - name: Register1
+      hub: hub1
       slave: 1
       register: 11
       command_on: 1
@@ -46,6 +47,11 @@ coils:
   required: false
   type: map
   keys:
+    hub:
+      description: The name of the hub.
+      required: false
+      default: default
+      type: string
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).
       required: true
@@ -63,6 +69,11 @@ register:
   required: false
   type: map
   keys:
+    hub_name:
+      description: The hub to use.
+      required: false
+      default: default
+      type: string
     slave:
       description: The number of the slave (can be omitted for tcp and udp Modbus).
       required: true
@@ -86,7 +97,7 @@ register:
     verify_state:
       description: Define if is possible to readback the status of the switch.
       required: false
-      default: True
+      default: true
       type: boolean
     verify_register:
       description: Register to readback.

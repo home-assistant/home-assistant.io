@@ -10,7 +10,7 @@ footer: true
 logo: plex.png
 ha_category: Media Player
 ha_release: 0.22
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
@@ -27,13 +27,46 @@ sensor:
   - platform: plex
 ```
 
-Configuration variables:
-
-- **host** (*Optional*): The IP address of your Plex server. Defaults to `localhost`.
-- **port** (*Optional*): The port of your Plex Server. Defaults to `32400`.
-- **name** (*Optional*): Name of the Plex server. Defaults to "Plex".
-- **username** (*Optional*): The username for the remote Plex server.
-- **password** (*Optional*): The password for your given account on the remote Plex server.
-- **server** (*Optional*): The name of your remote Plex server.
-- **token** (*Optional*): X-Plex-Token of your remote Plex server.
-- **ssl** (*Optional*): Use HTTPS to connect to Plex server, *NOTE* host *must not* be an IP when this option is enabled. Defaults to "False"
+{% configuration %}
+host:
+  description: The IP address of your Plex server.
+  required: false
+  default: localhost
+  type: string
+port:
+  description: The port of your Plex Server.
+  required: false
+  default: 32400
+  type: integer
+name:
+  description: Name of the Plex server.
+  required: false
+  default: Plex
+  type: string
+username:
+  description: The username for the remote Plex server.
+  required: false
+  type: string
+password:
+  description: The password for your given account on the remote Plex server.
+  required: false
+  type: string
+server:
+  description: The name of your remote Plex server.
+  required: false
+  type: string
+token:
+  description: X-Plex-Token of your remote Plex server.
+  required: false
+  type: string
+ssl:
+  description: Use HTTPS to connect to Plex server, **NOTE:** host **must not** be an IP when this option is enabled.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Verify the SSL certificate of your Plex server. You may need to disable this check if your local server enforces secure connections with the default certificate.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}

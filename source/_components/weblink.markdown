@@ -15,6 +15,8 @@ ha_qa_scale: internal
 
 The `weblink` component allows you to display links in the Home Assistant frontend.
 
+## {% linkable_title Configuration %}
+
 To use this component in your installation, add something like the following to your `configuration.yaml` file:
 
 ```yaml
