@@ -19,6 +19,9 @@ It's time for release 0.91 and this release is all about streaming cameras. Home
 
 Thanks to [@hunterjm] for all this work on this! ❤️ Check the latest release of the [Home Assistant podcast](https://hasspodcast.io/home-assistant-podcast-47-0-91-and-streaming-cameras-everywhere-with-jason/) for an interview with [@hunterjm] about streams in Home Assistant.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Love the new streaming service in <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> 0.91!<br>Five vastly different techs in collab! &lt;3 <a href="https://t.co/Qk9rC3Uooi">pic.twitter.com/Qk9rC3Uooi</a></p>&mdash; Torbjörn Söderberg (@tubstr) <a href="https://twitter.com/tubstr/status/1113845749492662274?ref_src=twsrc%5Etfw">April 4, 2019</a>
+</blockquote>
+
 We're still in the process of updating more cameras to support the stream component. If you want to try it today, the easiest approach is to configure a [generic camera][generic docs] with a `stream_source` or buy a camera that supports the standard ONVIF protocol.
 
 A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
