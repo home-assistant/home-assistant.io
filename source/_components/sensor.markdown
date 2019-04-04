@@ -23,6 +23,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
 - **temperature**: Temperature in °C or °F.
+- **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
 - **timestamp**: Datetime object or timestamp string.
 
