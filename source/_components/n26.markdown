@@ -12,7 +12,7 @@ ha_category:
   - Finance
   - Sensor
   - Switch
-ha_release: "0.91"
+ha_release: 0.92
 featured: false
 ha_iot_class: "Local Polling"
 ---
