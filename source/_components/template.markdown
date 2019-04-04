@@ -61,6 +61,10 @@ sensor:
         required: false
         type: string
         default: None
+      unit_of_measurement_template:
+        description: Defines a template for the unit of measurement of the sensor (this overrides unit_of_measurement).
+        required: false
+        type: template
       value_template:
         description: Defines a template to get the state of the sensor.
         required: true
