@@ -22,6 +22,7 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 | Platform                                          | Source                        |
 |---------------------------------------------------|-------------------------------|
 | GeoJSON Events                                    | `geo_json_events`             |
+| IGN Sismología                                    | `ign_sismologia`              |
 | NSW Rural Fire Service Incidents                  | `nsw_rural_fire_service_feed` |
 | U.S. Geological Survey Earthquake Hazards Program | `usgs_earthquakes_feed`       |
 
