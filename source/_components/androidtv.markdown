@@ -181,6 +181,9 @@ If you receive the error message `Error while setting up platform androidtv` in 
 
    * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
 
+4. Some Android TV devices (e.g. Philips TVs running Android TV) only accept the initial adb connection request over their wi-fi interface. If you have the TV wired, you need to connect it to wi-fi and try the initial connection again. Once the authentication has been granted via wi-fi, you can connect to the TV over the wired interface as well.
+
+
 ## {% linkable_title Services %}
 
 ### {% linkable_title `media_player.select_source` %}
