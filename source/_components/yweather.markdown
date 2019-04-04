@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Yahoo Weather Sensor"
+title: "Yahoo Weather"
 description: "Instructions on how to integrate Yahoo Weather within Home Assistant."
 date: 2016-07-06 9:06
 sidebar: true
