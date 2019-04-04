@@ -25,7 +25,7 @@ Only observations for capital cities are publicly available. You can check the l
 There is currently support for the following device types within Home Assistant:
 
 - **[Weather](#weather)** - Easier to configure but less customizable and doesn't have support for conditions which is a key feature of the `weather` platforms.
-- **[Sensor](sensor)**
+- **[Sensor](#sensor)**
 
 ## {% linkable_title Weather %}
 
