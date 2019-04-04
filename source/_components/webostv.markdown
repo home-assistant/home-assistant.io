@@ -8,33 +8,34 @@ comments: false
 sharing: true
 footer: true
 logo: webos.png
-ha_category: Media Player
+ha_category:
+  - Media Player
+  - Notifications
 ha_iot_class: Local Polling
 ha_release: 0.18
 redirect_from:
  - /components/media_player.webostv/
+ - /components/notify.webostv/
 ---
 
-The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS
-Smart TV.
+The `webostv` platform allows you to control a [LG](http://www.lg.com/) webOS Smart TV.
 
-### {% linkable_title Setup %}
+There is currently support for the following device types within Home Assistant:
 
-To begin with enable *LG Connect Apps* feature in *Network* settings of the TV
-[instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
+- [Media Player](#media-player)
+- [Notifications](#notifications)
 
-Once basic configuration is added to your `configuration.yaml` *Configuration*
-card should prompt on your Home Assistants's states.
-Follow the instructions and accept pairing request on your TV.
+## {% linkable_title Media Player %}
 
-Pairing information will be saved to the `filename:` provided in configuration;
-this process is IP sensitive,
-in case the IP address of your TV would change in future.
+To begin with enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others).
+
+Once basic configuration is added to your `configuration.yaml` *Configuration* card should prompt on your Home Assistants's states. Follow the instructions and accept pairing request on your TV.
+
+Pairing information will be saved to the `filename:` provided in configuration. This process is IP sensitive, in case the IP address of your TV would change in future.
 
 ### {% linkable_title Configuration %}
 
-To add a TV to your installation,
-add the following to your `configuration.yaml` file:
+To add a TV to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,8 +76,7 @@ customize:
       type: list
 {% endconfiguration %}
 
-If you do not specify `host:`, all LG webOS Smart TVs within your network will
-be auto-discovered.
+If you do not specify `host:`, all LG webOS Smart TVs within your network will be auto-discovered.
 
 ### {% linkable_title Example %}
 
@@ -106,18 +106,11 @@ Avoid using `[ ]` in the `name:` of your device.
 
 ### {% linkable_title Turn on action %}
 
-Home Assistant is able to turn on a LG webOS Smart TV if you specify an action,
-like HDMI-CEC or WakeOnLan.
+Home Assistant is able to turn on a LG webOS Smart TV if you specify an action, like HDMI-CEC or WakeOnLan.
 
-Common for webOS 3.0 and higher would be to use WakeOnLan feature.
-To use this feature your TV should be connected to your network via Ethernet rather than
-Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV
-[instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others)
-(or *Mobile App* in *General* settings for older models) (*may vary by version).
+Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable *LG Connect Apps* feature in *Network* settings of the TV [instructions](http://www.lg.com/uk/support/product-help/CT00008334-1437131798537-others) (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
-On newer models (2017+), WakeOnLan may need to be enabled in the TV settings
-by going to Settings > General > Mobile TV On > Turn On Via WiFi
-[instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
+On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
 ```yaml
 # Example configuration.yaml entry
@@ -133,22 +126,15 @@ media_player:
         mac: "B4:E6:2A:1E:11:0F"
 ```
 
-Any other [actions](/docs/automation/action/) to power on the device can be
-configured.
+Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ### {% linkable_title Sources %}
 
-To obtain complete list of available sources currently configured on the TV,
-once the webOS TV is configured and linked, while its powered on head to the
-**Developer Tools** > **States**,
-find your `media_player.<name>` and use the sources listed in `source_list:`
-remembering to split them per line into your `sources:` configuration.
+To obtain complete list of available sources currently configured on the TV, once the webOS TV is configured and linked, while its powered on head to the **Developer Tools** > **States**, find your `media_player.<name>` and use the sources listed in `source_list:` remembering to split them per line into your `sources:` configuration.
 
 ### {% linkable_title Change channel through play_media service %}
 
-The `play_media` service can be used in a script to switch to the specified tv
-channel. It selects the best matching channel according to the `media_content_id`
-parameter:
+The `play_media` service can be used in a script to switch to the specified tv channel. It selects the best matching channel according to the `media_content_id` parameter:
 
  1. Channel number *(i.e. '1' or '6')*
  2. Exact channel name *(i.e. 'France 2' or 'CNN')*
@@ -172,8 +158,77 @@ data:
 
 ### {% linkable_title Next/Previous buttons %}
 
-The behaviour of the next and previsous buttons is different depending on the
-active source:
+The behaviour of the next and previsous buttons is different depending on the active source:
 
  - if the source is 'LiveTV' (television): next/previous buttons act as channel up/down
  - otherwise: next/previous buttons act as next/previous track
+
+## {% linkable_title Notifications %}
+
+The `webostv` notify platform allows you to send notifications to a LG webOS Smart TV.
+
+When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
+
+To add a TV to your installation, add the following to your `configuration.yaml` file and follow the configurator instructions:
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - platform: webostv
+    host: 192.168.0.112
+    name: livingroom_tv
+    filename: webostv.conf
+```
+
+{% configuration %}
+host:
+  description: The IP of the LG webOS Smart TV, e.g., 192.168.0.10
+  required: true
+  type: string
+name:
+  description: The name you would like to give to the LG webOS Smart TV.
+  required: true
+  type: string
+filename:
+  description: "The filename where the pairing key with the TV should be stored. This path is relative to Home Assistant's config directory. **NOTE**: When using multiple TVs each TV will need its own unique file."
+  required: false
+  type: string
+  default: webostv.conf
+icon:
+  description: The path to an image file to use as the icon in notifications.
+  required: false
+  type: [string, icon]
+{% endconfiguration %}
+
+A possible automation could be:
+
+```yaml
+# Example configuration.yaml entry
+automation:
+  - alias: Open a window
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.netatmo_livingroom_co2
+      above: 999
+    action:
+      service: notify.livingroom_tv
+      data:
+        message: "You should open a window! (Livingroom Co2: {{ states.sensor.netatmo_livingroom_co2.state }}ppm)"
+```
+
+The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:
+
+```yaml
+automation:
+  - alias: Front door motion
+    trigger:
+      platform: state
+      entity_id: binary_sensor.front_door_motion
+      to: 'on'
+    action:
+      service: notify.livingroom_tv
+      data:
+        message: "Movement detected: Front Door"
+        data:
+          icon: "/home/homeassistant/images/doorbell.png"
+```
