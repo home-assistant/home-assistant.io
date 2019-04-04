@@ -25,6 +25,10 @@ device_tracker:
     host: ROUTER_IP_ADDRESS
     username: YOUR_ADMIN_USERNAME
     password: YOUR_ADMIN_PASSWORD
+    type: lan
+    monitored_conditions:
+      - interface
+      - signal
 ```
 
 {% configuration %}
@@ -50,6 +54,32 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+type:
+  description: The type of devices to query from the router. (lan, wireless, dhcp)
+  required: false
+  type: string
+  default: lan
+monitored_conditions:
+  description: Wireless conditions to display in the frontend.
+  required: false
+  type: list
+  keys:
+    interface:
+      description: Display the interface name (w0, w1, w2)
+    tx_rate:
+      description: The connection speed of the downlink, in Mbps
+    rx_rate:
+      description: The connection speed of the uplink, in Mbps
+    info:
+      description: Connection type: Legacy, HT20, VHT80PS...
+    signal_db:
+      description: The transmitter power output, in dB
+    signal:
+      description: The signal quality of the connection to the wireless device represented by an integer between 0 and 1000
+    noise_db:
+      description: The noise level of the connection expressed in dB
+    snr:
+      description: The Signal-to-Noise ratio
 {% endconfiguration %}
 
 By default Home Assistant pulls information about connected devices from DD-WRT every 5 seconds.
