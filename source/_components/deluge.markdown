@@ -22,7 +22,7 @@ redirect_from:
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
-- [Switch](switch)
+- [Switch](#switch)
 
 ## {% linkable_title Sensor %}
 
