@@ -39,7 +39,7 @@ extra_arguments:
   description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
   required: false
   type: string
-  default: -pred 1
+  default: "-pred 1"
 {% endconfiguration %}
 
 ### {% linkable_title Image quality %}
