@@ -8,11 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: yahooweather.png
-ha_category: Weather
+ha_category:
+  - Weather
+  - Sensor
 ha_release: 0.24
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.yweather/
+ - /components/weather.yweather/
 ---
 
 <p class='note warning'>
