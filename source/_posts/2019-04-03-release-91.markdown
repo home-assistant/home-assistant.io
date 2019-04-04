@@ -2,7 +2,7 @@
 layout: post
 title: "0.91: More streaming, better Zigbee, cameras with ESPHome"
 description: "Big update that brings goodies across the board."
-date: 2019-03-27 00:11:03
+date: 2019-04-03 00:11:03
 date_formatted: "April 3, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -17,7 +17,7 @@ It's time for release 0.91 and this release is all about streaming cameras. Home
 - Support to ask Google Assistant to show your camera on its display or on a Chromecast
 - Preload streams so that bringing up a stream on a device is super fast. This can be configured on a per camera basis via the camera more info dialog.
 
-Thanks to [@hunterjm] for all this work on this! ❤️ Check the latest release of the [Home Assistant podcast](https://hasspodcast.io/) for an interview with [@hunterjm] about streams in Home Assistant.
+Thanks to [@hunterjm] for all this work on this! ❤️ Check the latest release of the [Home Assistant podcast](https://hasspodcast.io/home-assistant-podcast-47-0-91-and-streaming-cameras-everywhere-with-jason/) for an interview with [@hunterjm] about streams in Home Assistant.
 
 We're still in the process of updating more cameras to support the stream component. If you want to try it today, the easiest approach is to configure a [generic camera][generic docs] with a `stream_source` or buy a camera that supports the standard ONVIF protocol.
 
