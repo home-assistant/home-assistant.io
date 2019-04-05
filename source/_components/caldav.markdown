@@ -19,7 +19,7 @@ binary sensors. A different sensor will be created for each individual calendar,
 or you can specify custom calendars which match a criteria you define (more on
 that below). These sensors will be `on` if you have an on going event in that
 calendar or `off` if the event is later in time, or if there is no event at all.
-The WebDav calendar get updated roughly every 15 minutes.
+The WebDav calendars get updated roughly every 15 minutes.
 
 ### {% linkable_title Prerequisites %}
 
@@ -60,9 +60,8 @@ calendar:
 
 This example will generate default binary sensors for each calendar you have in
 your account. Those calendars will be `on` when there is an ongoing event and
-`off` if not. Events that last a whole day are ignored in those calendars.
-You have to setup custom calendars in order to take them into account or for
-advanced event filtering.
+`off` if not. Events that last a whole day are ignored by default in those calendars
+but can be included by setting the `include_all_day` parameter (see below).
 
 ### {% linkable_title Custom calendars %}
 
@@ -88,7 +87,8 @@ calendar:
 This will create two binary sensors for the calendar name Agenda: "HomeOffice"
 and "WarmupFlat". Those sensors will be `on` if there is an ongoing event
 matching the regular expression specified in `search`.
-In custom calendars, events that last a whole day are taken into account.
+In custom calendars, events that last a whole day are taken into account by default
+(but can be excluded by setting the `include_all_day` parameter).
 
 Please note that when you configure custom calendars,
 the default ones are not created anymore.
@@ -112,6 +112,9 @@ calendars:
     List of the calendars to filter.
     Empty or absent means no filtering, i.e. all calendars will be added.
   type: list
+include_all_day:
+  required: false
+  description: Include all-day events. Defaults to False.
 custom_calendars:
   required: false
   description: Details on any custom binary sensor calendars you want to create.
@@ -131,6 +134,9 @@ custom_calendars:
         Regular expression for filtering the events based on
         the content of their summary, description or location.
       type: string
+    include_all_day:
+      required: false
+      description: Include all-day events. Defaults to True.
 {% endconfiguration %}
 
 ### {% linkable_title Sensor attributes %}
