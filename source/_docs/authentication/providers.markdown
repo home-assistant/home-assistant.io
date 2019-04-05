@@ -32,8 +32,8 @@ Authentication providers are configured in your `configuration.yaml` under the `
 ```yaml
 homeassistant:
   auth_providers:
-   - type: homeassistant
-   - type: legacy_api_password
+    - type: homeassistant
+    - type: legacy_api_password
 ```
 
 ## {% linkable_title Available auth providers %}
@@ -51,7 +51,7 @@ This is the entry in `configuration.yaml` for Home Assistant auth:
 ```yaml
 homeassistant:
   auth_providers:
-   - type: homeassistant
+    - type: homeassistant
 ```
 
 If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically.
