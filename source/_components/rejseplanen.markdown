@@ -28,11 +28,23 @@ sensor:
     stop_id: 'YOUR_STOP_ID'
 ```
 
-The `stop_id` can be obtained by looking up the name of the stop at this link:
-
-<http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME>
-(Replace "STOP_NAME" with city or location you want id for)
-find the stop and copy the `id` field with the trailing zeros.
+The `stop_id` can be obtained by following this guide:
+- Go to <https://www.rejseplanen.dk/>
+- Make a search and fill in the location you want to find stop id for in the from (a) section. 
+- Fill in either a random or the destination in to (b) section.
+- Press on "detaljer" and find the name of the stop you are looking to find the stop id for.
+- Example search: (a): Jernaldervej 1, Søften, 8382 Hinnerup / (b): Odense St. (detaljer): Name of stop in this search is: Engdalsvej/Århusvej.
+- Now insert the stop name in the end of the base url <http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME>
+- In this case you will have to use this: <http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=Engdalsvej/%C3%85rhusvej>
+- You will se a output like this:
+```yaml
+"StopLocation":[{
+    "name":"Engdalsvej/Århusvej (Favrskov Kom)",
+    "x":"10078598",
+    "y":"56243456",
+    "id":"713000702"
+```
+- Find the name of you stop on the list, and the "id" is the one you are looking for.
 
 The sensor can filter the timetables by one or more routes, directions and types. The known types are listed in the table below.
 
