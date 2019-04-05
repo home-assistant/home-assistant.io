@@ -15,7 +15,7 @@ ha_iot_class: Local Push
 ha_qa_scale: internal
 ---
 
-The `stream` component provides a way to proxy live streams through Home Assistant. The component currently only supports the HLS format.
+The `stream` component provides a way to proxy live streams through Home Assistant. The component currently only supports proxying H.264 source streams to the HLS format.
 
 ## {% linkable_title Configuration %}
 
