@@ -69,6 +69,40 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 - Add support for Tfiac Climate component ([@fredrike] - [#21823]) ([tfiac docs]) (new-platform)
 - Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) ([daikin docs]) (new-platform)
 
+## {% linkable_title Release 0.91.1 - April 4 %}
+
+- Change URL handling ([@pvizeli] - [#22713]) ([hassio docs])
+- fix device class lookup for binary sensors ([@dmulcahey] - [#22724]) ([zha docs])
+- Fix ingress routing with / ([@pvizeli] - [#22728]) ([hassio docs])
+- Fix chunk streaming ([@pvizeli] - [#22730]) ([hassio docs])
+- Fix incorrect "Unavailable" Ambient sensors ([@bachya] - [#22734]) ([ambient_station docs])
+- Bump aioambient to 0.2.0 ([@bachya] - [#22736]) ([ambient_station docs])
+- Update Foscam stream for newer models ([@cwhits] - [#22744]) ([foscam docs])
+- use the input stream codec as the template for the output streams ([@hunterjm] - [#22747]) ([stream docs])
+- fixes configuration flow #22706 ([@fredrike] - [#22754]) ([daikin docs])
+
+[#22713]: https://github.com/home-assistant/home-assistant/pull/22713
+[#22724]: https://github.com/home-assistant/home-assistant/pull/22724
+[#22728]: https://github.com/home-assistant/home-assistant/pull/22728
+[#22730]: https://github.com/home-assistant/home-assistant/pull/22730
+[#22734]: https://github.com/home-assistant/home-assistant/pull/22734
+[#22736]: https://github.com/home-assistant/home-assistant/pull/22736
+[#22744]: https://github.com/home-assistant/home-assistant/pull/22744
+[#22747]: https://github.com/home-assistant/home-assistant/pull/22747
+[#22754]: https://github.com/home-assistant/home-assistant/pull/22754
+[@bachya]: https://github.com/bachya
+[@cwhits]: https://github.com/cwhits
+[@dmulcahey]: https://github.com/dmulcahey
+[@fredrike]: https://github.com/fredrike
+[@hunterjm]: https://github.com/hunterjm
+[@pvizeli]: https://github.com/pvizeli
+[ambient_station docs]: /components/ambient_station/
+[daikin docs]: /components/daikin/
+[foscam docs]: /components/foscam/
+[hassio docs]: /components/hassio/
+[stream docs]: /components/stream/
+[zha docs]: /components/zha/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
