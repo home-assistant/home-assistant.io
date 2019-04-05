@@ -46,6 +46,18 @@ The `stop_id` can be obtained by following this guide:
 ```
 - Find the name of you stop on the list, and the "id" is the one you are looking for.
 
+Full sensor configuration.yaml using the stop id guide:
+```yaml
+# Example using the stop id guide
+sensor:
+  - platform: rejseplanen
+    name: "Rejseplanen, Jernaldervej til Aarhus"
+    stop_id: '713000702'
+    route: 'Bus 200'
+    direction:
+      - 'Skanderborg Busterminal'
+```
+
 The sensor can filter the timetables by one or more routes, directions and types. The known types are listed in the table below.
 
 | Departure type | Description |
