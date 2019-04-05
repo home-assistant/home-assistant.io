@@ -22,6 +22,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **battery**: Percentage of battery that is left.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
+- **signal_strength**: Signal strength in dB or dBm.
 - **temperature**: Temperature in °C or °F.
 - **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
