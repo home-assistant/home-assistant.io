@@ -114,8 +114,7 @@ homekit:
                 required: false
                 type: string
               battery:
-                description: The `entity_id` of the battery entity for the accessory. The entity must
-                have the device_class of `battery` for it to function properly.
+                description: The `entity_id` of the battery entity for the accessory. The entity must have the device_class of `battery` for it to function properly.
                 required: false
                 type: string
                 default: '`<No entity_id>`'
