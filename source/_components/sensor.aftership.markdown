@@ -47,9 +47,9 @@ api_key:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Service `aftership_add_tracking` %}
+## {% linkable_title Service `add_tracking` %}
 
-You can use the service `sensor.aftership_add_tracking` to add trackings to Aftership.
+You can use the service `aftership.add_tracking` to add trackings to Aftership.
 
 | Service data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -57,9 +57,9 @@ You can use the service `sensor.aftership_add_tracking` to add trackings to Afte
 | `slug` | `False` | Carrier e.g. `fedex`
 | `title` | `False` | Friendly name of package
 
-## {% linkable_title Service `aftership_remove_tracking` %}
+## {% linkable_title Service `remove_tracking` %}
 
-You can use the service `sensor.aftership_remove_tracking` to remove trackings from Aftership.
+You can use the service `aftership.remove_tracking` to remove trackings from Aftership.
 
 | Service data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
