@@ -113,6 +113,12 @@ homekit:
                 description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
+              battery:
+                description: The `entity_id` of the battery entity for the accessory. The entity must
+                have the device_class of `battery` for it to function properly.
+                required: false
+                type: string
+                default: '`<No entity_id>`'
               code:
                 description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
                 required: false
