@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Switch](#switch)
 
-Set the jumpers on the PiFace board for address 0 (JP1: 1-2, JP2: 1-2).
+Set the jumpers on the PiFace board for a specific address (JP1: 1-2, JP2: 1-2). This address will be the hardware address for the board.
 
 ## {% linkable_title Use with HassOS %}
 
