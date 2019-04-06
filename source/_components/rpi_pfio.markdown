@@ -42,40 +42,52 @@ To use your PiFace Digital I/O module in your installation, add the following to
 # Example configuration.yaml entry
 binary_sensor:
   - platform: rpi_pfio
-    ports:
+    boards:
       0:
-        name: PIR Office
-        invert_logic: true
-      1:
-        name: Doorbell
-        settle_time: 50
+        ports:
+          0:
+            name: PIR Office
+            invert_logic: true
+          1:
+            name: Doorbell
+            settle_time: 50
 ```
 
 {% configuration %}
-ports:
-  description: List of used ports.
+boards:
+  description: The hardware address of the board (from 0 to 3).
   required: true
   type: map
   keys:
     num:
-      description: The port number.
+      description: The hardware address number.
       required: true
       type: map
       keys:
-        name:
-          description: The port name.
+        ports:
+          description: List of used ports.
           required: true
-          type: string
-        settle_time:
-          description: The time in milliseconds for port debouncing.
-          required: false
-          type: integer
-          default: 20
-        invert_logic:
-          description: If `true`, inverts the output logic to ACTIVE LOW.
-          required: false
-          type: boolean
-          default: "`false` (ACTIVE HIGH)"
+          type: map
+          keys:
+            num:
+              description: The port number.
+              required: true
+              type: map
+              keys:
+                name:
+                  description: The port name.
+                  required: true
+                  type: string
+                settle_time:
+                  description: The time in milliseconds for port debouncing.
+                  required: false
+                  type: integer
+                  default: 20
+                invert_logic:
+                  description: If `true`, inverts the output logic to ACTIVE LOW.
+                  required: false
+                  type: boolean
+                  default: "`false` (ACTIVE HIGH)"
 {% endconfiguration %}
 
 ## {% linkable_title Switch %}
@@ -88,32 +100,50 @@ To use your PiFace Digital I/O module in your installation, add the following to
 # Example configuration.yaml entry
 switch:
   - platform: rpi_pfio
-    ports:
+    boards:
       0:
-        name: Doorlock
-        invert_logic: true
-      1:
-        name: Light Desk
+        ports:
+          0:
+            name: Doorlock
+            invert_logic: true
+            initial_state: off
+          1:
+            name: Light Desk
 ```
 
 {% configuration %}
-ports:
-  description: Array of used ports.
+boards:
+  description: The hardware address of the board (from 0 to 3).
   required: true
-  type: list
+  type: map
   keys:
     num:
-      description: Port number.
+      description: The hardware address number.
       required: true
-      type: list
+      type: map
       keys:
-        name:
-          description: Port name.
+        ports:
+          description: Array of used ports.
           required: true
-          type: string
-        invert_logic:
-          description: If true, inverts the output logic to ACTIVE LOW.
-          required: false
-          default: false
-          type: boolean
+          type: list
+          keys:
+            num:
+              description: Port number.
+              required: true
+              type: list
+              keys:
+                name:
+                  description: Port name.
+                  required: true
+                  type: string
+                invert_logic:
+                  description: If true, inverts the output logic to ACTIVE LOW.
+                  required: false
+                  default: false
+                  type: boolean
+                initial_state:
+                  description: The initial state of the switch.
+                  required: false
+                  default: false
+                  type: boolean
 {% endconfiguration %}
