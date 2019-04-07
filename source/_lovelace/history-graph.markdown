@@ -33,7 +33,7 @@ entities:
   type: list
 hours_to_show:
   required: false
-  description: Hours to show.
+  description: Hours to show. (minimum of 10, maximum of 80)
   type: integer
   default: 24
 refresh_interval:
