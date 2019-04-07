@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "RFLink Cover"
-description: "Instructions on how to integrate RFLink Somfy RTS Cover into Home Assistant."
-date: 2017-08-08
+description: "Instructions on how to integrate RFLink Somfy RTS and KAKU ASUN-650 covers into Home Assistant."
+date: 2019-04-07
 sidebar: true
 comments: false
 sharing: true
@@ -17,7 +17,7 @@ The `rflink` component supports devices that use [RFLink gateway firmware](http:
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
-After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
+After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices. 
 
 ### {% linkable_title Setting up a Somfy RTS device %}
 
@@ -134,6 +134,25 @@ devices:
 ### {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support).
+
+### {% linkable_title KAKU ASUN-650 configuration examples %}
+
+KAKU ASUN-650 devices don't implement a stop command. The device is stopped by repeating the last command. The device is also wired the other way around, up and down directions are inverted when wired according to the KAKU documentation. A property named 'invert_up_down_command' is available to invert the up and down command:
+
+```yaml
+# Example configuration.yaml entry for KAKU ASUN-650 devices
+cover rflink:
+  - platform: rflink
+    device_defaults:
+      fire_event: false
+    devices:
+      newkaku_00000001_d:
+        name: livingroom
+        invert_up_down_command: true
+      newkaku_00000001_e:
+        name: master_bedroom
+        invert_up_down_command: true
+```
 
 ### {% linkable_title Additional configuration examples %}
 
