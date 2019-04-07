@@ -11,6 +11,7 @@ logo: bom.png
 ha_category:
   - Weather
   - Sensor
+  - Camera
 ha_release: 0.36
 ha_iot_class: Cloud Polling
 redirect_from:
