@@ -8,10 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: arduino.png
-ha_category: DIY
+ha_category:
+  - DIY
+  - Sensor
+  - Switch
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling
+redirect_from:
+  - /components/sensor.arduino/
+  - /components/switch.arduino/
 ---
 
 The [Arduino](https://www.arduino.cc/) device family are microcontroller boards that are often based on the ATmega328 chip. They come with digital input/output pins (some can be used as PWM outputs), analog inputs, and a USB connection.
@@ -20,6 +26,11 @@ The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of 
 There are a lot of extensions (so-called [shields](https://www.arduino.cc/en/Main/ArduinoShields)) available. Those shields can be plugged-in into the existing connectors and stacked on top of each other. This makes it possible to expand the capabilities of the Arduino boards.
 
 The `arduino` component is designed to let you use a directly attached board to your Home Assistant host over USB.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Sensor](#sensor)
+- [Switch](#switch)
 
 ## {% linkable_title Configuration %}
 
@@ -57,3 +68,86 @@ Add the user who is used to run Home Assistant to the groups to allow access to 
 ```bash
 $ sudo usermod -a -G dialout,lock $USER
 ```
+
+## {% linkable_title Sensor %}
+
+The `arduino` sensor platform allows you to get numerical values from an analog input pin of an [Arduino](https://www.arduino.cc/) board. Usually the value is between 0 and 1024.
+
+To enable an Arduino sensor with Home Assistant, add the following section to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  platform: arduino
+  pins:
+    1:
+      name: Door switch
+    0:
+      name: Brightness
+```
+
+{% configuration %}
+pins:
+  description: List of pins to use.
+  required: true
+  type: map
+  keys:
+    pin_number:
+      description: The pin number that corresponds with the pin numbering schema of your board.
+      required: true
+      type: map
+      keys:
+        name:
+          default: Name that will be used in the frontend for the pin.
+          type: string
+{% endconfiguration %}
+
+The 6 analog pins of an Arduino UNO are numbered from A0 to A5.
+
+## {% linkable_title Switch %}
+
+The `arduino` switch platform allows you to control the digital pins of your [Arduino](https://www.arduino.cc/) board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3, 5, 6, 9, 10, and 11 on an Arduino Uno) is not supported yet.
+
+To enable the Arduino pins with Home Assistant, add the following section to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  platform: arduino
+  pins:
+    11:
+      name: Fan Office
+    12:
+      name: Light Desk
+      initial: true
+      negate: true
+```
+
+{% configuration %}
+pins:
+  description: List of of pins to use.
+  required: true
+  type: map
+  keys:
+    pin_number:
+      description: The pin number that corresponds with the pin numbering schema of your board.
+      required: true
+      type: map
+      keys:
+        name:
+          default: Name that will be used in the frontend for the pin.
+          type: string
+          required: false
+        initial:
+          default: The initial value for this port.
+          type: boolean
+          required: false
+          default: false
+        negate:
+          default: If this pin should be inverted.
+          type: boolean
+          required: false
+          default: false
+{% endconfiguration %}
+
+The digital pins are numbered from 0 to 13 on a Arduino UNO. The available pins are 2 till 13. For testing purposes you can use pin 13 because with that pin you can control the internal LED.
