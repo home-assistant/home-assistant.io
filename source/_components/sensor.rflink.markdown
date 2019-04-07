@@ -64,6 +64,16 @@ devices:
           description: Override automatically detected unit of sensor.
           required: false
           type: string
+        expire_after:
+        description: Defines the number of seconds after the value expires (becomes None) if it's not updated.
+          required: false
+          type: integer
+          default: 0
+        force_update:
+          description: Write a new state to the state machine even if the value has not changed (that will update sensor's last_updated timestamp). Useful for sensors that only sends `On`.
+          required: false
+          type: boolean
+          default: false
         aliases:
           description: "Alternative RFLink ID's this device is known by."
           required: false
