@@ -33,7 +33,7 @@ The `stop_id` can be obtained through the following steps:
 For "Engdalsvej/Århusvej" you would have to use: http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=Engdalsvej/%C3%85rhusvej
 You will se a output like this:
 
-```json
+```text
 "StopLocation":[{
     "name":"Engdalsvej/Århusvej (Favrskov Kom)",
     "x":"10078598",
