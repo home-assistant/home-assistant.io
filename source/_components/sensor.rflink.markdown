@@ -65,7 +65,7 @@ devices:
           required: false
           type: string
         expire_after:
-        description: Defines the number of seconds after the value expires (becomes None) if it's not updated.
+          description: Defines the number of seconds after the value expires (becomes None) if it's not updated.
           required: false
           type: integer
           default: 0
