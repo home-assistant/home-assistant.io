@@ -65,6 +65,14 @@ sensor:
         description: Defines a template to get the state of the sensor.
         required: true
         type: template
+      manual_last_changed_template:
+        description: Defines a template to manually set a state's last_changed property.
+        required: false
+        type: template
+      manual_last_updated_template:
+        description: Defines a template to manually set a state's last_updated property.
+        required: false
+        type: template
       icon_template:
         description: Defines a template for the icon of the sensor.
         required: false
@@ -175,6 +183,25 @@ sensor:
         friendly_name: "Transmission Up Speed"
         unit_of_measurement: 'kB/s'
         value_template: "{{ states('sensor.transmission_up_speed')|float * 1024 }}"
+```
+{% endraw %}
+
+### {% linkable_title Change The last_changed and/or last_updated property %}
+
+This example shows how to change a sensor's state, last_changed and last_updated properties. In this example `states.sensor.remote_field_data` is an HTTP sensor, and the template is using multiple attributes from that sensor. This is useful when the data going to the HTTP sensor is asynchronous and the default time of the state change does not accurately represent when the state changed in the remote field.
+
+Note that you can use `manual_last_changed_template` and `manual_last_updated_template` together or separately.
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+    sensors:
+      remote_field_data_temperture:
+        friendly_name: "Field Data Temperature"
+        value_template: {{ states.sensor.remote_field_data.attributes.get("temp") }}
+        manual_last_changed_template: {{ states.sensor.remote_field_data.attributes.get("client_dt_changed") }}
+        manual_last_updated_template: {{ states.sensor.remote_field_data.attributes.get("client_dt_updated") }}
 ```
 {% endraw %}
 
