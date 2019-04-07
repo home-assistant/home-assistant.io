@@ -173,7 +173,6 @@ Otherwise everything following the hash sign would be considered a YAML comment.
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
 
-
 ### {% linkable_title Service `google.add_event` %}
 
 You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the component gets your time zone from your `configuration.yaml` file.
@@ -192,7 +191,6 @@ You can use the service `google.add_event` to create a new calendar event in a c
 <p class='note'>
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
 </p>
-
 
 ## {% linkable_title Using calendar in automations %}
 
