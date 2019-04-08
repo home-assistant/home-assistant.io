@@ -105,6 +105,61 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [stream docs]: /components/stream/
 [zha docs]: /components/zha/
 
+## {% linkable_title Release 0.91.2 - April 8 %}
+
+- Correctly load Mopar's config ([@rohankapoorcom] - [#22771]) ([mopar docs])
+- Fix konnected unique_id computation for switches ([@heythisisnate] - [#22777]) ([konnected docs]) (breaking change)
+- make the custom polling actually request state ([@dmulcahey] - [#22778]) ([zha docs])
+- ZHA Light debug logging. ([@Adminiuga] - [#22776]) ([zha docs])
+- Fix tado turn on off ([@wmalgadey] - [#22291]) ([tado docs])
+- Add new mobile_app webhook command: get_zones ([@robbiet480] - [#22604]) ([mobile_app docs])
+- Add optional rtsp_port for Foscam ([@cwhits] - [#22786]) ([foscam docs])
+- Improve yeelight imports ([@zewelor] - [#22804]) ([yeelight docs])
+- Add a new mobile_app webhook command to get config ([@robbiet480] - [#22813]) ([mobile_app docs])
+- Fix for optional values in the update_location webhook call ([@robbiet480] - [#22817]) ([mobile_app docs])
+- coerce duration and lookback to int so they can be used in template automation ([@hunterjm] - [#22819]) ([camera docs])
+- Fix for rate limits should be optional ([@robbiet480] - [#22823]) ([mobile_app docs])
+- Use relative imports in yeelight ([@zewelor] - [#22839]) ([yeelight docs])
+- Fix yeelight possible array change during iteration ([@zewelor] - [#22849]) ([yeelight docs])
+- Fix content_type handling ingress ([@pvizeli] - [#22864]) ([hassio docs])
+- Improve mobile_app sensor responses and expected values ([@robbiet480] - [#22884]) ([mobile_app docs])
+
+[#22291]: https://github.com/home-assistant/home-assistant/pull/22291
+[#22604]: https://github.com/home-assistant/home-assistant/pull/22604
+[#22771]: https://github.com/home-assistant/home-assistant/pull/22771
+[#22776]: https://github.com/home-assistant/home-assistant/pull/22776
+[#22777]: https://github.com/home-assistant/home-assistant/pull/22777
+[#22778]: https://github.com/home-assistant/home-assistant/pull/22778
+[#22786]: https://github.com/home-assistant/home-assistant/pull/22786
+[#22804]: https://github.com/home-assistant/home-assistant/pull/22804
+[#22813]: https://github.com/home-assistant/home-assistant/pull/22813
+[#22817]: https://github.com/home-assistant/home-assistant/pull/22817
+[#22819]: https://github.com/home-assistant/home-assistant/pull/22819
+[#22823]: https://github.com/home-assistant/home-assistant/pull/22823
+[#22839]: https://github.com/home-assistant/home-assistant/pull/22839
+[#22849]: https://github.com/home-assistant/home-assistant/pull/22849
+[#22864]: https://github.com/home-assistant/home-assistant/pull/22864
+[#22884]: https://github.com/home-assistant/home-assistant/pull/22884
+[@Adminiuga]: https://github.com/Adminiuga
+[@cwhits]: https://github.com/cwhits
+[@dmulcahey]: https://github.com/dmulcahey
+[@heythisisnate]: https://github.com/heythisisnate
+[@hunterjm]: https://github.com/hunterjm
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[@wmalgadey]: https://github.com/wmalgadey
+[@zewelor]: https://github.com/zewelor
+[camera docs]: /components/camera/
+[foscam docs]: /components/foscam/
+[hassio docs]: /components/hassio/
+[konnected docs]: /components/konnected/
+[mobile_app docs]: /components/mobile_app/
+[mopar docs]: /components/mopar/
+[tado docs]: /components/tado/
+[yeelight docs]: /components/yeelight/
+[zha docs]: /components/zha/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
