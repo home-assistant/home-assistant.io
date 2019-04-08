@@ -60,7 +60,7 @@ command_template:
   description: "The [template](/docs/configuration/templating/#processing-incoming-data) used for the command payload. Available variables: `action` and `code`."
   required: false
   type: string
-  default: {{action}}
+  default: action
 value_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
   required: false
