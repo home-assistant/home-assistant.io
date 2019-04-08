@@ -42,6 +42,8 @@ Trusted networks has been updated by [@awarecan] to allow specifying specific us
 
 This release adds camera support to the ESPHome integration. If you haven't heard about [ESPHome](https://www.esphome.io) yet, it allows you to create your own sensors and smart devices and configure them using YAML. With Home Assistant 0.91, it is now possible to integrate cameras. This means that you can have a WiFi enabled camera that integrates automatically into Home Assistant for as little as $9 😲.
 
+Check this cool demo, part of [this blog post](https://www.dopebuild.com/i-am-sorry-dave-i-am-unable-to-do-that/):
+
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
 </div>
