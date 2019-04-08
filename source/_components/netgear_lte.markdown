@@ -88,31 +88,31 @@ sensor:
         cell_id:
           description: The Cell ID, a number identifying the base station.
         wire_connected:
-          description: The wired uplink connection state, e.g. "Disconnected".
+          description: The wired uplink connection state, e.g., "Disconnected".
         mobile_connected:
-          description: The LTE connection state, e.g. "Connected".
+          description: The LTE connection state, e.g., "Connected".
         connection_text:
-          description: A connection text, e.g. "4G".
+          description: A connection text, e.g., "4G".
         connection_type:
-          description: The connection type, e.g. "IPv4Only".
+          description: The connection type, e.g., "IPv4Only".
         current_band:
-          description: The radio band used, e.g. "LTE B3".
+          description: The radio band used, e.g., "LTE B3".
         current_ps_service_type:
           description: The service type, e.g. "LTE".
         radio_quality:
-          description: A number with the radio quality in percent, e.g. "55"
+          description: A number with the radio quality in percent, e.g., "55"
         register_network_display:
           description: The name of the service provider.
         roaming:
-          description: A boolean showing whether the modem is currently roaming, e.g. "False".
+          description: A boolean showing whether the modem is currently roaming, e.g., "False".
         rx_level:
-          description: The RSRP value, a measurement of the received power level, e.g. "-95".
+          description: The RSRP value, a measurement of the received power level, e.g., "-95".
         sms:
           description: Number of unread SMS messages in the modem inbox.
         sms_total:
           description: Number of SMS messages in the modem inbox.
         tx_level:
-          description: Transmit power, e.g. "23".
+          description: Transmit power, e.g., "23".
         upstream:
           description: Current upstream connection, "WAN" or "LTE".
         usage:
