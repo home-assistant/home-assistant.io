@@ -15,7 +15,7 @@ ha_release: 0.92
 ha_iot_class: "Assumed State"
 ---
 
-The `Somfy MyLink` component platform is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It adds covers and scenes from the Somfy MyLink platform.
+The `Somfy MyLink` component platform is used as an interface to a compatible Somfy MyLink hub utilizing the `Synergy` API. It adds covers from the Somfy MyLink platform.
 
 To use your compatible `Somfy MyLink` devices in your installation, add the following to your `configuration.yaml` file:
 
