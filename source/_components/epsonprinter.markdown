@@ -40,9 +40,20 @@ host:
   required: true
   type: string
 monitored_conditions:
-  description: The cartridge colours to monitor. Valid values are: black,yellow,magenta,cyan and clean. Clean is the cleaning cartridge
+  description: The cartridge colours to monitor. 
   required: true
-  type: list 
+  type: map
+  keys:
+    black:
+      description: The black ink cartridge
+    yellow:
+      description: The yellow ink cartridge.
+    magenta:
+      description: The magenta (=red) ink cartridge.
+    cyan:
+      description: The cyan (=blue) ink cartridge.      
+    clean:
+      description: The cleaning cartridge.      
 {% endconfiguration %}
 
 Supported devices:
