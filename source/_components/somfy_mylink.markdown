@@ -39,6 +39,7 @@ default_reverse:
   description: Sets the default reversal status of the cover. Possible values are `true` or `false`. This value can be applied on a per-cover basis (see `entity_config` below)
   required: false
   type: boolean
+  default: false
 entity_config:
   description: Configuration for specific cover entities. All subordinate keys are the corresponding entity ids to the domains, e.g., `cover.bedroom_blinds`.
   required: false
@@ -53,6 +54,7 @@ entity_config:
           description: Reverses the direction of the cover. Possible values are `true` or `false`.
           required: false
           type: boolean
+          default: false
 {% endconfiguration %}
 
 ```yaml
@@ -60,8 +62,8 @@ entity_config:
 somfy_mylink:
   host: IP_ADDRESS
   system_id: SYSTEM_ID
-  default_reverse: false
+  default_reverse: true
   entity_config:
     cover.outdoor_awning:
-        reverse: true
+        reverse: false
 ```
