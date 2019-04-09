@@ -11,7 +11,7 @@ redirect_from: /getting-started/installation/
 ---
 
 
-## {% linkable_title Characteristics of different install methods for Home Assistant %}
+# {% linkable_title Characteristics of different install methods for Home Assistant %}
 
 You always get the full Home Assistant experience despite the installation method you choose to use.
 How you would like to run Home Assistant is a choice of taste, the setup you already have, knowledge and what you want to accomplish with Home Assistant.
@@ -33,8 +33,8 @@ You just have to configure it by yourself accordingly to your setup.
 | Home Assistant on Vagrant                     |     yes      |       no        |
 | Home Assistant on different operating Systems |     yes      |       no        |
 
+## Hass.io on HassOS
 
-### Hass.io on HassOS
 <div class="text-center" markdown="0">
     <div class='img-container'>
       <img src='/images/docs/architecture/hassio_on_hassos.svg' />
@@ -53,7 +53,7 @@ You will get:
 - [HassOS](https://github.com/home-assistant/hassos) will run on the underlying hardware.
 - Automatic updates of the operating system (OTA).
   
-### Hass.io on generic Linux server
+## Hass.io on generic Linux server
 
 <div class="text-center" markdown="0">
     <div class='img-container'>
@@ -70,7 +70,7 @@ You will get:
 - The possibility to build your own add-ons.
 - Full control and responsibilty of the operating system without automatic updates.
 
-### Hassbian
+## Hassbian
 
 <div class="text-center" markdown="0">
     <div class='img-container'>
@@ -90,7 +90,7 @@ You will get:
 - Adding functionlaty will need installation and configuration on the operation system.
 - Full control and responsibilty of the operating system without automatic updates.
 
-### Home Assistant with Docker
+## Home Assistant with Docker
 
 <div class="text-center" markdown="0">
     <div class='img-container'>
@@ -107,7 +107,7 @@ You will get:
 - Adding functionalty will need installation and configuration on the operation system.
 - Full control and responsibilty of the operating system without automatic updates.
 
-### Home Assistant on different operating Systems
+## Home Assistant on different operating Systems
 
 <div class="text-center" markdown="0">
     <div class='img-container'>
