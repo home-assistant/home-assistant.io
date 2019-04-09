@@ -31,6 +31,8 @@ homekit:
       - alarm_control_panel
       - light
       - media_player
+    include_entities:
+      - binary_sensor.living_room_motion
   entity_config:
     alarm_control_panel.home:
       code: 1234
@@ -116,7 +118,7 @@ homekit:
                 required: false
                 type: string
               linked_battery_sensor:
-                description: The `entity_id` of the `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
+                description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
               code:
@@ -446,6 +448,6 @@ Unfortunately, that sometimes happens at the moment. It might help to close the 
 
 To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
 
-#### {% linkable_title The linked battery sensor isn't recognized? %}
+#### {% linkable_title The linked battery sensor isn't recognized %}
 
 Try removing the entity from HomeKit and then adding it again. If you are adding this config option to an existing entity in HomeKit, any changes you make to this entity's config options won't appear until the accessory is removed from HomeKit and then re-added.
