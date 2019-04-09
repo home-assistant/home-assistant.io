@@ -168,6 +168,7 @@ You just have to configure it by yourself accordingly to your setup.
 This is a full appliance for running Home Assistant on your hardware using docker images running on HassOS.
 Home Assistant is running as a docker container as well as add-ons.
 You can add additional functionality through add-ons which are just preconfigured docker images to run with Home Assistant.
+You do not need to know docker when you only want to use the add-ons by the core team and the community.
 
 You will get:
 - Access to the add-ons from the core team.
@@ -185,6 +186,7 @@ You will get:
 </div>
 
 It is almost the same like Hass.io on HassOS but you do run Hass.io on your own operating system of choice instead of HassOS.
+You need to learn or know about docker.
 
 You will get:
 - full Home Assistant
@@ -206,6 +208,7 @@ You will get:
 
 Easy setup through an image which contains the operating system and automatic Home Assistant installation.
 Hassbian is based on Rasbian.
+You do not need to know docker.
 
 It is like any other linux distribution where you can install software via packages.
 
@@ -225,6 +228,7 @@ You will get:
 </div>
 
 You are installaing the Home Assistant docker container on a existing linux server.
+You need to learn or know about docker.
 
 You will get:
 - full Home Assistant
@@ -243,6 +247,7 @@ You will get:
 
 You install Home Assistant as any software on your operating system of your choice.
 If you want to have extra functionality you add more software and configure it by yourself.
+You do not need to know docker.
 
 What you will get:
 - full control and responsibilty for your operating system
