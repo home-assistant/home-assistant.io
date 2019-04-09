@@ -55,6 +55,7 @@ If **home** and **cameras** are not provided, all cameras will be displayed. For
 camera:
   platform: netatmo
   home: home_name
+  quality: medium
   cameras:
     - camera_name1
     - camera_name2
