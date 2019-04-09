@@ -172,7 +172,6 @@ You can add additional functionality through add-ons which are just preconfigure
 You will get:
 - Access to the add-ons from the core team.
 - Access to the add-ons from the community.
-- You can use any other Add-Ons
 - To possibility to build your own add-ons.
 - HassOS will run on the underlying hardware.
 - Automatic updates of the operating system (OTA).
