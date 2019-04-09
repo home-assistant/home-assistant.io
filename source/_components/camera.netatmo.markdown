@@ -41,6 +41,11 @@ cameras:
   keys:
     camera_name:
       description: Name of the camera to display.
+quality:
+  description: Quality of the live stream. (`'high'`, `'medium'`, `'low'` or `'poor'`)
+  required: false
+  type: string
+  default: high
 {% endconfiguration %}
 
 If **home** and **cameras** are not provided, all cameras will be displayed. For more control over your cameras check the configuration sample below.
