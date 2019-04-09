@@ -24,8 +24,6 @@ You always can add the functionality provided by an add-on by yourself if you ar
 You just have to configure it by yourself accordingly to your setup.
 </p>
 
-
-
 | Installation method                           | Access to OS | Hass.io Add-ons |
 |:----------------------------------------------|:------------:|:---------------:|
 | Hass.io on HassOS                             |      no      |       yes       |
@@ -37,7 +35,6 @@ You just have to configure it by yourself accordingly to your setup.
 
 
 ### Hass.io on HassOS
-
 <div class="text-center" markdown="0">
     <div class='img-container'>
       <img src='/images/docs/architecture/hassio_on_hassos.svg' />
