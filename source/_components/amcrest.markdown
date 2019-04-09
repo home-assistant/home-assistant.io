@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Camera
 - Sensor
-- Switch
+- Switch (deprecated)
 
 ## {% linkable_title Configuration %}
 
@@ -128,8 +128,8 @@ sensors:
     motion_detector:
       description: >
         Return `true`/`false` when motion is detected.  
-
-        **Note:** This sensor is deprecated and will be removed in a future release.
+        
+        **Note:** The motion_detector sensor is deprecated and will be removed in a future release.
         Use **binary_sensors** option **motion_detected** instead.
     sdcard:
       description: Return the SD card usage by reporting the total and used space.
@@ -139,7 +139,11 @@ sensors:
         configured for the given camera.
 switches:
   description: >
-    Switches to display in the frontend.
+    Switches to display in the frontend.  
+    
+    **Note:** Switches are deprecated and will be removed in a future release.  
+    Use camera services and attributes instead.  
+    
     The following switches can be monitored:
   required: false
   type: list
@@ -167,6 +171,67 @@ To check if your Amcrest camera is supported/tested, visit the
 [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix)
 link from the `amcrest` project.
 
+## {% linkable_title Camera Services %}
+
+Once loaded, the `camera` platform will expose Amcrest-specific services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
+
+Available services:
+`amcrest_enable_audio`, `amcrest_disable_audio`,
+`amcrest_enable_motion_recording`, `amcrest_disable_motion_recording`,
+`amcrest_enable_recording`, `amcrest_disable_recording`,
+`amcrest_goto_preset`, `amcrest_set_color_bw`,
+`amcrest_start_tour` and `amcrest_stop_tour`
+
+#### {% linkable_title Service `amcrest_enable_audio`/`amcrest_disable_audio` %}
+
+These services enable or disable the camera's audio stream.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+
+#### {% linkable_title Service `amcrest_enable_motion_recording`/`amcrest_disable_motion_recording` %}
+
+These services enable or disable the camera to record a clip to its configured storage location when motion is detected.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+
+#### {% linkable_title Service `amcrest_enable_recording`/`amcrest_disable_recording` %}
+
+These services enable or disable the camera to continuously record to its configured storage location.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+
+#### {% linkable_title Service `amcrest_goto_preset` %}
+
+This service will cause the camera to move to one of the PTZ locations configured within the camera.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`preset` | no | Preset number, starting from 1.
+
+#### {% linkable_title Service `amcrest_set_color_bw` %}
+
+This service will set the color mode of the camera.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+`color_bw` | no | One of `auto`, `bw` or `color`.
+
+#### {% linkable_title Service `amcrest_start_tour`/`amcrest_stop_tour` %}
+
+These services start or stop the camera's PTZ tour function.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+
 ## {% linkable_title Advanced Configuration %}
 
 You can also use this more advanced configuration example:
@@ -181,9 +246,6 @@ amcrest:
       - motion_detected
     sensors:
       - sdcard
-    switches:
-      - motion_detection
-      - motion_recording
 
   # Add second camera
   - host: IP_ADDRESS_CAMERA_2
