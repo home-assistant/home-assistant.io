@@ -10,7 +10,7 @@ footer: true
 logo: stiebel_eltron.png
 ha_category:
   - Climate
-ha_release: 0.91
+ha_release: 0.92
 ha_iot_class: "Local Polling"
 redirect_from:
   - /components/climate.stiebel_eltron/
