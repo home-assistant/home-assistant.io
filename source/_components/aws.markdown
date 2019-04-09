@@ -13,7 +13,7 @@ ha_category:
 ha_release: "0.91"
 ---
 
-The `aws` integration provides a single place to interact [Amazon Web Services](https://aws.amazon.com/). Current it provide a notification platform can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
+The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
 
 ## {% linkable_title Setup %}
 
