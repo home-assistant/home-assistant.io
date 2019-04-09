@@ -14,9 +14,9 @@ ha_iot_class: Local Polling
 ---
 
 
-The [KNX](http://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
+The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
-The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
+The component requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
 
 <p class='note warning'>
   Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
