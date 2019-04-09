@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Installation methods for Home Assistant"
+title: "Installation methods"
 description: "Which version to choose and why"
 date: 2017-02-15 08:00
 sidebar: true
