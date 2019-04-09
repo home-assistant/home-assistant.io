@@ -173,8 +173,8 @@ You do not need to know docker when you only want to use the add-ons by the core
 You will get:
 - Access to the add-ons from the core team.
 - Access to the add-ons from the community.
-- To possibility to build your own add-ons.
-- HassOS will run on the underlying hardware.
+- The possibility to build your own add-ons.
+- [HassOS](https://github.com/home-assistant/hassos) will run on the underlying hardware.
 - Automatic updates of the operating system (OTA).
   
 ### Hass.io on generic Linux server
@@ -189,14 +189,10 @@ It is almost the same like Hass.io on HassOS but you do run Hass.io on your own 
 You need to learn or know about docker.
 
 You will get:
-- full Home Assistant
-- Hass.io Add-Ons (some may not work properly)
-- Add-Ons from the core team
-- Add-Ons from the community
-- Third party Add-Ons
-- Availabilty to build your own Add-Ons (docker knowledge needed)
-- Hass.io Gui
-- full control and responsibilty for your operating system
+- Access to the add-ons from the core team.
+- Access to the add-ons from the community.
+- The possibility to build your own add-ons.
+- Full control and responsibilty of the operating system without automatic updates.
 
 ### Hassbian
 
@@ -213,11 +209,10 @@ You do not need to know docker.
 It is like any other linux distribution where you can install software via packages.
 
 You will get:
-- full Home Assistant
-- full control and responsibilty for your operating system
-- adding functionlaty will need installation and configuration (no docker knowledge needed)
-- no Hass.io Add-Ons
-- no Hass.io GUI
+- No access to the add-ons from the core team.
+- No access to the add-ons from the community.
+- Adding functionlaty will need installation and configuration on the operation system.
+- Full control and responsibilty of the operating system without automatic updates.
 
 ### Home Assistant with Docker
 
@@ -231,11 +226,10 @@ You are installaing the Home Assistant docker container on a existing linux serv
 You need to learn or know about docker.
 
 You will get:
-- full Home Assistant
-- full control and responsibilty for your operating system
-- adding functionalty will need installation and configuration (with or without docker)
-- no Hass.io Add-Ons
-- no Hass.io GUI
+- No access to the add-ons from the core team.
+- No access to the add-ons from the community.
+- Adding functionalty will need installation and configuration on the operation system.
+- Full control and responsibilty of the operating system without automatic updates.
 
 ### Home Assistant on different operating Systems
 
@@ -250,8 +244,7 @@ If you want to have extra functionality you add more software and configure it b
 You do not need to know docker.
 
 What you will get:
-- full control and responsibilty for your operating system
-- adding functionlaty will need installation and configuration (no docker knowledge needed)
-- no Hass.io Add-Ons
-- no Hass.io GUI
-- setup everything by yourself
+- No access to the add-ons from the core team.
+- No access to the add-ons from the community.
+- Adding functionalty will need installation and configuration on the operation system.
+- Full control and responsibilty of the operating system without automatic updates.
