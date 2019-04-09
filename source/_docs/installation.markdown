@@ -147,14 +147,14 @@ You just have to configure it by yourself accordingly to your setup.
 
 
 
-| Installation method                           | Access to OS | Hass.io Add-Ons |
-|:----------------------------------------------|:------------:|:--------------------------:|
-| Hass.io on HassOS                             |      no      |            yes             |
-| Hass.io on generic Linux server               |     yes      |            yes             |
-| Hassbian                                      |     yes      |            no             |
-| Home Assistant with Docker                    |     yes      |             no             |
-| Home Assistant on Vagrant                     |     yes      |             no             |
-| Home Assistant on different operating Systems |     yes      |             no             |
+| Installation method                           | Access to OS | Hass.io Add-ons |
+|:----------------------------------------------|:------------:|:---------------:|
+| Hass.io on HassOS                             |      no      |       yes       |
+| Hass.io on generic Linux server               |     yes      |       yes       |
+| Hassbian                                      |     yes      |       no        |
+| Home Assistant with Docker                    |     yes      |       no        |
+| Home Assistant on Vagrant                     |     yes      |       no        |
+| Home Assistant on different operating Systems |     yes      |       no        |
 
 
 ### Hass.io on HassOS
