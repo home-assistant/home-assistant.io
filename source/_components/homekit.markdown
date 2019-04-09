@@ -116,7 +116,7 @@ homekit:
                 required: false
                 type: string
               linked_battery_sensor:
-                description: The `entity_id` of the `sensor` entity to link to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
+                description: The `entity_id` of the `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
               code:
