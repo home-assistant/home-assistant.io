@@ -134,14 +134,14 @@ You may need to install additional libraries depending on the platforms/componen
 
 ## {% linkable_title Characteristics of different install methods for Home Assistant %}
 
-You always get the full Home Assistant expirience despite the installation method you choose to use.
-How you would like to run Home Assistant is a choice of taste, the setup you already have, knowlede and what you want to accomplish with home assistant.
+You always get the full Home Assistant experience despite the installation method you choose to use.
+How you would like to run Home Assistant is a choice of taste, the setup you already have, knowledge and what you want to accomplish with Home Assistant.
 
 <p class='note'>
-Add-Ons provide an easy way to add more functionality to your setup through the gui.
-Add-Ons in Hass.io are just docker containers containing some software.
+Add-ons provide an easy way to add more functionality to your setup through the GUI.
+Add-ons in Hass.io are essentially just docker containers containing some software.
 They are configured to for Home Assistant for easy setup.
-You always can add the functionaliy provided by an Add-On by yourself if you are **not** running Hass.io.
+You always can add the functionality provided by an add-on by yourself if you are **not** running Hass.io.
 You just have to configure it by yourself accordingly to your setup.
 </p>
 
@@ -166,17 +166,16 @@ You just have to configure it by yourself accordingly to your setup.
 </div>
 
 This is a full appliance for running Home Assistant on your hardware using docker images running on HassOS.
-Home Assistant is running as a docker container as well as Add-Ons.
-You can add additional functionality through Add-Ons which are just preconfigured docker images to run with Home Assistant.
+Home Assistant is running as a docker container as well as add-ons.
+You can add additional functionality through add-ons which are just preconfigured docker images to run with Home Assistant.
 
 You will get:
-- You can use Add-Ons from the core team
-- You can use Add-Ons from the community
+- Access to the add-ons from the core team.
+- Access to the add-ons from the community.
 - You can use any other Add-Ons
-- You can build your own Add-Ons (building and configuring docker images)
-- HassOS will run on the underling hardware
-- You do/can not need to touch the operating system
-- You can update HassOS via Hass.io GUI
+- To possibility to build your own add-ons.
+- HassOS will run on the underlying hardware.
+- Automatic updates of the operating system (OTA).
   
 ### Hass.io on generic Linux server
 
