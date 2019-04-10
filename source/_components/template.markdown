@@ -52,10 +52,6 @@ sensor:
         description: Defines a template for the name to be used in the frontend (this overrides friendly_name).
         required: false
         type: template
-      entity_id:
-        description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
-        required: false
-        type: string, list
       unit_of_measurement:
         description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
         required: false
@@ -88,9 +84,12 @@ If you are using the state of a platform that takes extra time to load, the Temp
 
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### {% linkable_title Entity IDs %}
+### {% linkable_title Sensor state updates %}
 
-The template engine will attempt to work out what entities should trigger an update of the sensor. This can fail, for example, if your template loops over the contents of a group. In this case, you can use `entity_id` to provide a list of entity IDs that will cause the sensor to update or you can run the service `homeassistant.update_entity` to update the sensor at will.
+The template engine works out what entities are used to trigger an update of the sensor and only recalculates the result when one of those entities change. This is robust to any type of template used, and the sensor state will be recalculated on any change of the referenced entity states.
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, create an interval-based
+automation that calls the service `homeassistant.update_entity` for the sensor requiring updates. See the [example below](#working-without-entities).
 
 ## {% linkable_title Examples %}
 
@@ -255,18 +254,20 @@ sensor:
 
 The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions).
 
-This template contains no entities that will trigger an update, so we add an `entity_id:` line with an entity that will force an update - here we're using a [date sensor](/components/sensor.time_date/) to get a daily update:
+This template contains no entities that will trigger an update, so we add in a reference to the `sensor.date` sensor from the [time_date](/components/time_date/), which will update once a day.
 
 {% raw %}
 ```yaml
 sensor:
-- platform: template
-  sensors:
-    nonsmoker:
-      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      entity_id: sensor.date
-      friendly_name: 'Not smoking'
-      unit_of_measurement: "Days"
+  - platform: time_date
+    display_options:
+      - 'date'
+  - platform: template
+    sensors:
+      nonsmoker:
+        value_template: '{{ states('sensor.date').state and (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        friendly_name: 'Not smoking'
+        unit_of_measurement: "Days"
 ```
 {% endraw %}
 
@@ -277,13 +278,12 @@ An alternative to this is to create an interval-based automation that calls the 
 {% raw %}
 ```yaml
 sensor:
-- platform: template
-  sensors:
-    nonsmoker:
-      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      entity_id: []
-      friendly_name: 'Not smoking'
-      unit_of_measurement: "Days"
+  - platform: template
+    sensors:
+      nonsmoker:
+        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        friendly_name: 'Not smoking'
+        unit_of_measurement: "Days"
 
 automation:
   - alias: 'nonsmoker_update'
