@@ -180,6 +180,7 @@ All language options are described in this table that you can use for the dark s
 |Azerbaijani|`az`|
 |Belarusian|`be`|
 |Bulgarian|`bg`|
+|Bengali|`bn`|
 |Bosnian|`bs`|
 |Catalan|`ca`|
 |Czech|`cs`|
@@ -187,11 +188,13 @@ All language options are described in this table that you can use for the dark s
 |German|`de`|
 |Greek|`el`|
 |English|`en`|
+|Esperanto|`eo`|
 |Spanish|`es`|
 |Estonian|`et`|
 |Finnish|`fi`|
 |French|`fr`|
 |Hebrew|`he`|
+|Hindi|`hi`|
 |Croatian|`hr`|
 |Hungarian|`hu`|
 |Indonesian|`id`|
@@ -199,11 +202,15 @@ All language options are described in this table that you can use for the dark s
 |Italian|`it`|
 |Japanese|`ja`|
 |Georgian|`ka`|
+|Kannada|`kn`|
 |Korean|`ko`|
 |Cornish|`kw`|
 |Latvian|`lv`|
+|Malayam|`ml`|
+|Marathi|`mr`|
 |Norwegian Bokmål|`nb`|
 |Dutch|`nl`|
+|Punjabi|`pa`|
 |Polish|`pl`|
 |Portuguese|`pt`|
 |Romanian|`ro`|
@@ -212,9 +219,12 @@ All language options are described in this table that you can use for the dark s
 |Slovenian|`sl`|
 |Serbian|`sr`|
 |Swedish|`sv`|
+|Tamil|`ta`|
+|Telugu|`te`|
 |Tetum|`tet`|
 |Turkish|`tr`|
 |Ukrainian|`uk`|
+|Urdu|`ur`|
 |Igpay Atinlay|`x-pig-latin`|
 |simplified Chinese|`zh`|
 |traditional Chinese|`zh-tw`|

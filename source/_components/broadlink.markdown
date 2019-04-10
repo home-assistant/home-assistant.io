@@ -1,23 +1,135 @@
 ---
 layout: page
-title: "Broadlink RM Switch"
-description: "Instructions on how to have Broadlink RM switches."
+title: "Broadlink"
+description: "Instructions on how to integrate Broadlink within Home Assistant."
 date: 2016-11-22 22:41
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: broadlink.png
-ha_category: Switch
+ha_category:
+  - Switch
+  - Sensor
 ha_release: 0.35
 ha_iot_class: Local Polling
 redirect_from:
  - /components/switch.broadlink/
+ - /components/sensor.broadlink/
 ---
+
+There is currently support for the following device types within Home Assistant:
+
+- [Sensor](#sensor)
+- [Switch](#switch)
+
+## {% linkable_title Sensor %}
+
+The `broadlink` sensor platform let you monitor data from an RM2 and A1 E-air. There is currently no support for the cloud API.
+
+To enable it, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: broadlink
+    host: IP_ADDRESS
+    mac: 'MAC_ADDRESS'
+    monitored_conditions:
+      - 'temperature'
+```
+
+Configuration options:
+{% configuration %}
+host:
+  description: The hostname/IP address to connect to.
+  required: true
+  type: string
+mac:
+  description: Device mac address.
+  required: true
+  type: string
+name:
+  description: Sensor name.
+  required: false
+  default: Broadlink sensor
+  type: String
+scan_interval:
+  description: Time in seconds to fetch data from sensors.
+  required: false
+  default: 300
+  type: integer
+timeout:
+  description: Timeout in seconds for the connection to the device.
+  required: false
+  default: 10
+  type: integer
+monitored_conditions:
+  description:
+  required: true
+  type: list
+  keys:
+    "'temperature'":
+      description: Temperature
+    "'humidity'":
+      description: Humidity
+    "'air_quality'":
+      description: Air quality
+    "'light'":
+      description: Light
+    "'noise'":
+      description: Noise
+{% endconfiguration %}
+
+To set it up, add the following information to your `configuration.yaml` file:
+
+Obtain sensor data from an A1:
+
+```yaml
+sensor:
+  - platform: broadlink
+    scan_interval: 60
+    host: IP_ADDRESS
+    mac: 'MAC_ADDRESS'
+    monitored_conditions:
+      - temperature
+      - humidity
+      - air_quality
+      - light
+      - noise
+```
+
+Obtain temperature data from an RM2:
+
+```yaml
+sensor:
+  - platform: broadlink
+    scan_interval: 60
+    host: IP_ADDRESS
+    mac: 'MAC_ADDRESS'
+    monitored_conditions:
+      - temperature
+```
+
+### {% linkable_title Microsoft Windows installation %}
+
+<p class='note'>
+The pycrypto library needs to be available on your platform. On a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed first.
+</p>
+
+The quickest way around this is to use a pre-built binary, e.g., from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
+
+Be sure to get the correct 64 or 32-bit binary for your system, the full command line will look something like the sample below for a 64-bit system:
+
+```bash
+pip install --use-wheel --no-index --find-links=https://github.com/sfbahr/PyCrypto-Wheels/raw/master/pycrypto-2.6.1-cp35-none-win_amd64.whl pycrypto
+```
+
+## {% linkable_title Switch %}
 
 This `Broadlink` switch platform allow to you control Broadlink [devices](http://www.ibroadlink.com/).
 
-## {% linkable_title Configuration %}
+### {% linkable_title Configuration %}
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -97,7 +209,7 @@ slots:
 
 Information about how to install on Windows can be found [here](/components/sensor.broadlink/#microsoft-windows-installation).
 
-## {% linkable_title How to obtain IR/RF packets? %}
+### {% linkable_title How to obtain IR/RF packets? %}
 
 Choose Call Service from the Developer Tools. Choose the service `switch.broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
@@ -177,7 +289,7 @@ switch:
       slot_4: 'Speaker slot'
 ```
 
-## {% linkable_title Service `broadlink_send_packet` %}
+### {% linkable_title Service `broadlink_send_packet` %}
 
 You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
 
@@ -198,7 +310,7 @@ script:
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
 ```
 
-## {% linkable_title Using E-Control remotes %}
+### {% linkable_title Using E-Control remotes %}
 
 If you already have your remotes learned on E-Control app you can use this method to "copy" them to Home Assistant.
 
@@ -246,7 +358,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 8. Convert the HEX codes to base64.
     Use [this](http://tomeko.net/online_tools/hex_to_base64.php?lang=en1) tool to convert the hex codes to base64 for use with Home Assistant.
 
-## {% linkable_title Using iOS and Windows to obtain codes %}
+### {% linkable_title Using iOS and Windows to obtain codes %}
 
 1. Use the E-Control app to learn the codes from all of your suitable remotes. Depending on the remote, try to add useful names for the buttons and/or the remotes. This will mean that you should only have to run this process once and will help with getting them quickly into Home Assistant. Dump the files in the app by navigating to the hamburger icon, select `share and select`, then choose `Share to other phones on WLAN`.
 
@@ -294,7 +406,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 
 6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your config.yaml file (or wherever you have your switches).
 
-## {% linkable_title Using Windows to obtain codes with Broadlink Manager %}
+### {% linkable_title Using Windows to obtain codes with Broadlink Manager %}
 
 1. Install Broadlink Manager from this SourceForge link [here](https://sourceforge.net/projects/broadlink-manager/).
 2. Open the application and hit "scan" to activate your broadlink device.
@@ -302,7 +414,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
 4. The "OnRawData Base64" is the value to be used with Home Assistant.
 
 
-## {% linkable_title Using Node-RED to obtain codes %}
+### {% linkable_title Using Node-RED to obtain codes %}
 
 1. Install the Broadlink Control palette in Node-RED (click the Hamburger menu at top right corner> Settings> Palette> Install and type Broadlink. Click install on the node-red-contrib-broadlink-control.
 2. Once installed, verify that the new palette titled broadlink is available in the nodes menu.
@@ -339,7 +451,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
     ```
 This is the code we need to transmit again to replicate the same remote function.
 
-## {% linkable_title Using Node red to Transmit Codes %}
+### {% linkable_title Using Node red to Transmit Codes %}
 
 1. Drag another RM node on the same flow we created earlier. The RM node should be configured to the RM device created earlier by default.
 2. In the Action field, select - Set from msg.payload -.

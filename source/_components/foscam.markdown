@@ -40,6 +40,11 @@ port:
   required: false
   default: 88
   type: integer
+rtsp_port:
+  description: The port that the camera uses for RTSP. This is normally auto-discovered but some models may need this set, such as the R2 and R2C.
+  required: false
+  default: None
+  type: integer
 username:
   description: The username for accessing your camera.
   required: true
