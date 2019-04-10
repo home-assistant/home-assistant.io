@@ -134,7 +134,8 @@ authtoken:
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
-  * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8)
+  * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
+  * Multi IO Box - 2x (*HmIP-MIOB*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
