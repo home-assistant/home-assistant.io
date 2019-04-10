@@ -58,10 +58,6 @@ allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
   type: boolean
-allow_hue_sensors:
-  description: Disable this to stop Home Assistant from importing the sensors defined on the Hue bridge.
-  required: false
-  type: boolean
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -73,7 +69,6 @@ hue:
     - host: DEVICE_IP_ADDRESS
       allow_unreachable: true
       allow_hue_groups: true
-      allow_hue_sensors: true
 ```
 
 ### {% linkable_title Migrating from older configuration %}
