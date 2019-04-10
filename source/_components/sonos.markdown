@@ -57,6 +57,7 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 ### {% linkable_title Service `media_player.sonos_join` %}
 
 Group players together under a single coordinator. This will make a new group or join to an existing group.
+
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `master` | no | A single `entity_id` that will become/stay the coordinator speaker.
@@ -65,6 +66,7 @@ Group players together under a single coordinator. This will make a new group or
 ### {% linkable_title Service `media_player.sonos_unjoin` %}
 
 Remove one or more speakers from their group of speakers. If no `entity_id` is provided, all speakers are unjoined.
+
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s to separate from their coordinator speaker.
