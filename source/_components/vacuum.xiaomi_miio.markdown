@@ -375,7 +375,7 @@ Software Required:
   ```bash
   java -jar abe.jar unpack backup.ab backup.tar
   ```
-  After that, you kann open the file with WinRaR or what ever you like.
+  After that, you will be able to open the file with WinRaR or what ever you like.
 6. Go to \apps\com.xiaomi.smarthome\db
 7. Open miio2.db with SQLite Browser
 8. You can find your device tokens in "devicerecord" table
