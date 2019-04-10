@@ -110,13 +110,12 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-### Entity IDs
+### {% linkable_title Sensor state updates %}
 
-The template engine will attempt to work out what entities should trigger an
-update of the sensor. This can fail, for example if your template loops over
-the contents of a group. In this case you can use `entity_id` to provide a
-list of entity IDs that will cause the sensor to update or you can run the
-service `homeassistant.update_entity` to update the sensor at will.
+The template engine works out what entities are used to trigger an update of the sensor and only recalculates the result when one of those entities change. This is robust to any type of template used, and the sensor state will be recalculated on any change of the referenced entity states.
+
+If you use a template that depends on the current time or some other non-deterministic result not sourced from entities, create an interval-based
+automation that calls the service `homeassistant.update_entity` for the sensor requiring updates. See the [example below](#working-without-entities).
 
 ## Examples
 
@@ -294,3 +293,47 @@ binary_sensor:
 ```
 
 {% endraw %}
+
+
+### {% linkable_title Working without entities %}
+
+The `template` sensors are not limited to use attributes from other entities but can also work with [Home Assistant's template extensions](/docs/configuration/templating/#home-assistant-template-extensions). If the template includes some non-deterministic property such as time in its calculation, the result will not continually update, but will only update when some entity referenced by the template updates. 
+
+There's a couple of options to manage this issue. This first example creates a `sensor.time` from the [time_date](/components/time_date/) component which updates every minute, and the binary sensor is triggered by this updating. The binary sensor returns true if in the first half of the hour:
+
+{% raw %}
+```yaml
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+
+binary_sensor:
+  - platform: template
+    sensors:
+      half_hour:
+        value_template: '{{ (states.sensor.time.state[3:]|int) < 30 }}'
+```
+{% endraw %}
+
+An alternative to this is to create an interval-based automation that calls the service `homeassistant.update_entity` for the entities requiring updates. This modified example updates every 2 minutes:
+
+{% raw %}
+```yaml
+binary_sensor:
+- platform: template
+  sensors:
+    half_hour:
+      value_template: '{{ now().minute < 30 }}'
+
+automation:
+  - alias: 'half_hour_update'
+    trigger:
+      - platform: time_pattern
+        minutes: '/2'
+    action:
+      - service: homeassistant.update_entity
+        entity_id: sensor.half_hour
+```
+{% endraw %}
+
