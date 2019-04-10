@@ -10,8 +10,6 @@ footer: true
 ha_category:
   - DIY
   - Binary Sensor
-  - Cover
-  - Switch
 ha_release: 0.92
 ha_iot_class: Local Push
 ---
@@ -58,49 +56,6 @@ invert_logic:
 {% endconfiguration %}
 
 Compared to the [Raspberry Pi GPIO](/components/rpi_gpio/) component, this component does not support pull-up resistors or port debouncing. Use external pull-ups and external port-debouncing.
-
-## {% linkable_title Switch %}
-
-The `orangepi_gpio` switch platform allows you to control the GPIOs of your Orange Pi or NanoPi.
-
-## {% linkable_title Configuration %}
-
-To use your Orange Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: orangepi_gpio
-    pinmode: pc
-    ports:
-      11: Fan Office
-      12: Light Desk
-```
-
-{% configuration %}
-pinmode:
-  description: Type of pinmode to use. This depends on which device you are actually using it ([PINMODE](/components/orangepi_gpio#pinmode)).
-  required: true
-  type: string
-ports:
-  description: Array of used ports.
-  required: true
-  type: list
-  keys:
-    port:
-      description:  Port numbers and corresponding names (GPIO #).
-      required: true
-      type: [integer, string]
-invert_logic:
-  description: If true, inverts the output logic to ACTIVE LOW.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
-
-<p class='note warning'>
-Note that a pin managed by HASS is expected to be exclusive to HASS.
-</p>
 
 ## {% linkable_title Pinmode %}
 
