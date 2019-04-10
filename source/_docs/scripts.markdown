@@ -93,6 +93,8 @@ Delays are useful for temporarily suspending your script and start it at a later
 
 Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will continue its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
+The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template as it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the (time_date)[/components/time_date/] component that will update minutely or daily.
+
 {% raw %}
 ```yaml
 # Wait until media player have stop the playing
