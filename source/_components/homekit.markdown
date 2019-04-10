@@ -48,6 +48,14 @@ homekit:
         - feature: play_pause
         - feature: play_stop
         - feature: toggle_mute
+    media_player.bedroom:
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: select_source
+        - feature: toggle_mute
+        - feature: volume_step
+      type: television
     switch.bedroom_outlet:
       type: outlet
 ```
