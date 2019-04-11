@@ -59,6 +59,11 @@ profile_name:
   description: A credentials profile name.
   required: false
   type: string
+validate:
+  description: Whether validate credential before use. Validate credential needs `IAM.GetUser` permission.
+  required: false
+  default: True
+  type: bool
 region_name:
   description: The region identifier to connect to.
   required: true
