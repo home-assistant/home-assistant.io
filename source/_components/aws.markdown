@@ -59,6 +59,11 @@ profile_name:
   description: A credentials profile name.
   required: false
   type: string
+validate:
+  description: Whether validate credential before use. Validate credential needs `IAM.GetUser` permission.
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### {% linkable_title Configuration for notify %}
