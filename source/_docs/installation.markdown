@@ -115,19 +115,3 @@ The following installs are only recommended for experienced users of those platf
     <div class='title'>FreeNAS</div>
   </a>
 </div>
-
-## {% linkable_title After installation %}
-
-Once Home Assistant is installed, execute the following code in a console/terminal to check if the setup was successful:
-
-```bash
-$ hass
-```
-
-The first start may take up to 20 minutes because the needed packages will be downloaded and installed. The web interface will be served on [http://localhost:8123](http://localhost:8123).
-
-For more details about `hass`, please refer to the [tools section](/docs/tools/hass/).
-
-If you're running a Linux-based platform, we suggest you follow the [VirtualEnv instructions](/docs/installation/virtualenv/) to avoid using `root`.
-
-You may need to install additional libraries depending on the platforms/components you want to use.
