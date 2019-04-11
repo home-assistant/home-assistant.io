@@ -21,16 +21,15 @@ The `rejseplanen` sensor will provide you with travel details for Danish public 
 
 The `stop_id` can be obtained through the following steps:
 
-- Go to [http://rejseplanen.dk](http://rejseplanen.dk)
-- Make a search and fill in the location you want to find stop ID for in the from's (a) section. 
-- Fill in either a random or the destination into the (b) section of the form.
-- Press on "detaljer" and find the name of the stop you are looking for.
-- Example search:
-    - Jernaldervej 1, Søften, 8382 Hinnerup
-    - Odense St. (detaljer) 
-- Now insert the stop name in the end of this URL: http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME
+If you know the exact name of the stop you can search the stop_id with the following url http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=STOP_NAME and put in the name of the stop instead of "STOP_NAME" in the end of the url.
 
-For "Engdalsvej/Århusvej" you would have to use: http://xmlopen.rejseplanen.dk/bin/rest.exe/location?format=json&input=Engdalsvej/%C3%85rhusvej
+If you don't know the name of the stop follow this guide:
+- Go to [https://www.openstreetmap.org](https://www.openstreetmap.org)
+- Make a search and fill in the location you want to find for. 
+- The url will look like this https://www.openstreetmap.org/#map=18/56.15756/10.20674
+- Now insert the coordinates for the location in the url, in this example it will be: http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&
+- You will now see the 30 stops closest to your location.
+
 You will se a output like this:
 
 ```text
@@ -75,7 +74,7 @@ departure_type:
 
 ## {% linkable_title Direction %}
 
-If you use the direction filter it's important to put correct destination or else the sensor will not work at all.
+If you use the `direction` filter it's important to put correct destination or else the sensor will not work at all.
 The direction has to be the destination(s) for the transport type(s) for the departure stop destination, and NOT the stop where you want to get off. Check [http://rejseplanen.dk](http://rejseplanen.dk), make a search and use the destinations from there in your configuration. Make sure you use the exact name as the destination(s).
 
 A working example on how to use this sensor with direction:
@@ -124,6 +123,7 @@ The sensor can filter the timetables by one or more routes, directions and types
 |--------------|-------------|
 | BUS | Normal bus |
 | EXB | Express bus |
+| LET | Letbanen |
 | M | Metro |
 | S | S-train |
 | REG | Regional train |
