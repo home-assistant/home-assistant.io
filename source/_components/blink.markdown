@@ -217,6 +217,6 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
       service: blink.save_video
       data:
           name: "My Camera"
-          filename: "/tmp/videos/blink_video_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.mp4
+          filename: "/tmp/videos/blink_video_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.mp4"
       
 ```
