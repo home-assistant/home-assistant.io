@@ -1,23 +1,24 @@
 ---
 layout: page
-title: "Pollen.com"
-description: "Instructions on how to use Pollen.com data within Home Assistant"
+title: "IQVIA"
+description: "Instructions on how to use IQVIA data within Home Assistant"
 date: 2018-01-10 19:20:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: pollen.jpg
+logo: iqvia.png
 ha_category: Health
 ha_release: 0.63
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.pollen/
+ - /components/pollen/
 ---
 
-The `pollen` sensor platform collects and displays allergy, asthma, and disease
-information (based on a U.S. ZIP code) from
-[Pollen.com](https://www.pollen.com/). Data measured includes:
+The `iqvia` sensor platform collects and displays allergy, asthma, and disease
+information (based on a U.S. ZIP code) from [IQVIA](https://www.iqvia.com/).
+Data measured includes:
 
 * Indicies for allergies, asthma and cold/flu indices
 * Trends
@@ -26,13 +27,12 @@ information (based on a U.S. ZIP code) from
 
 ## {% linkable_title Configuring the Platform %}
 
-To integrate `pollen` into Home Assistant, add the following section to your
+To integrate `iqvia` into Home Assistant, add the following section to your
 `configuration.yaml` file (adjusting the `monitored_conditions` list to your
 liking):
 
 ```yaml
-sensor:
-  platform: pollen
+iqvia:
   zip_code: "00544"
   monitored_conditions:
     - allergy_average_forecasted
@@ -86,8 +86,6 @@ Any index-related sensor will have a value between 0.0 and 12.0. The values
 map to the following human-friendly ratings:
 
 Range      | Rating
-redirect_from:
- - /components/sensor.pollen/
 ---------  | -----------
 0.0 - 2.4  | Low
 2.5 - 4.8  | Low/Medium
@@ -102,8 +100,6 @@ Several asthma-related sensors carry information regarding the top three
 Example values include:
 
 Pollutant | Symbol | More Info
-redirect_from:
- - /components/sensor.pollen/
 --------- | ------ | ---------
 Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)
 Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)
