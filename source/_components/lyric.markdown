@@ -14,10 +14,6 @@ ha_category:
   - Sensor
 ha_release: 0.92
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/climate.lyric/
-  - /components/hub.lyric/
-  - /components/sensor.lyric/
 ---
 
 The Honeywell Lyric component integrates the Lyric thermostat systems into Home Assistant.
