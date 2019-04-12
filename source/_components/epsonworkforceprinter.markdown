@@ -35,7 +35,7 @@ host:
   required: true
   type: string
 monitored_conditions:
-  description: The cartridge colours to monitor. Valid values are: black,yellow,magenta,cyan and clean. Clean is the cleaning cartridge
+  description: "The cartridge colours to monitor. Valid values are: `black`, `yellow`, `magenta`, `cyan` and `clean`. Clean is the cleaning cartridge."
   required: true
   type: list 
 {% endconfiguration %}
