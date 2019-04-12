@@ -46,6 +46,9 @@ iqvia:
     - asthma_index_tomorrow
     - asthma_index_yesterday
     - disease_average_forecasted
+    - disease_average_historical
+    - disease_index_today
+    - disease_index_yesterday
 ```
 
 {% configuration %}
@@ -79,6 +82,9 @@ The following metrics can be monitored:
 * Asthma Index: Tomorrow (`asthma_index_tomorrow`): the asthma index for tomorrow
 * Asthma Index: Yesterday (`asthma_index_yesterday`): the asthma index for yesterday
 * Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average forecasted cold/flu index over the next 5 days
+* Cold & Flu: Historical Average (`disease_average_historical`): the average historical cold/flu index over the past 30 days
+* Cold & Flu Index: Today (`disease_index_today`): the cold/flu index for today
+* Cold & Flu Index: Yesterday (`disease_index_yesterday`): the cold/flu index for yesterday
 
 ## {% linkable_title Understanding the Indices %}
 
