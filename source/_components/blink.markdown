@@ -204,8 +204,9 @@ Similar to the previous example, this automation will disarm blink when arriving
 
 When motion is detected, you can use the Blink Home-Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
 
-Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](https://www.home-assistant.io/docs/configuration/templating/).  (There's more than one way to add timestamps, so don't assume this is the best way to do it, since it very likely is not... but it _does_ work).
+Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](https://www.home-assistant.io/docs/configuration/templating/).
 
+{% raw %}
 ```yaml
 - id: save_blink_video_on_motion
   alias: Save Blink Video on Motion
@@ -217,6 +218,7 @@ Again, this example assumes your camera's name (in the blink app) is `My Camera`
       service: blink.save_video
       data:
           name: "My Camera"
-          filename: "/tmp/videos/blink_video_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.mp4"
+          filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
       
 ```
+{% endraw %}
