@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Epson Printer"
+title: "Epson Workforce Printer"
 description: "Instructions on how to integrate Epson Workforce Printer into Home Assistant."
 date: 2019-04-09 16:00
 sidebar: true
@@ -12,19 +12,19 @@ ha_category: Sensor
 ha_release: 0.93
 ha_iot_class: Local Polling
 redirect_from:
- - /components/sensor.epsonprinter/
+ - /components/sensor.epsonworkforceprinter/
 ---
 
-The `epson printer` platform allows you to monitor the ink levels of a Epson Workforce printer from Home
+The `epson workforce printer` platform allows you to monitor the ink levels of a Epson Workforce printer from Home
 Assistant.
 
-To add Epson Printer to your installation,
+To add Epson Workforce Printer to your installation,
 add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
-   - platform: epsonprinter
+   - platform: epsonworkforceprinter
      host: 192.168.0.123
      monitored_conditions:
      - black
