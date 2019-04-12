@@ -231,7 +231,7 @@ automation 3:
 
 ### {% linkable_title Webhook trigger %}
 
-Webhook triggers are triggered by web requests made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`.
+Webhook triggers are triggered by web requests made to the webhook endpoint: `/api/webhook/<webhook_id>`. This endpoint does not require authentication besides knowing the webhook id. You can either send encoded form or JSON data, available in the template as either `trigger.json` or `trigger.data`. URL query parameters are available in the template as `trigger.query`.
 
 ```yaml
 automation:
