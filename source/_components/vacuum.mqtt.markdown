@@ -121,7 +121,7 @@ error_topic:
   required: false
   type: string
 error_template:
-  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `charging_topic` is set.
+  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
   required: false
   type: string
 fan_speed_topic:
@@ -129,7 +129,7 @@ fan_speed_topic:
   required: false
   type: string
 fan_speed_template:
-  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum. This is required if `charging_topic` is set.
+  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
   required: false
   type: string
 set_fan_speed_topic:
