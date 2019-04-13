@@ -63,7 +63,7 @@ port:
   type: integer
 partitions:
   description: List of the partitions to operate on.
-  required: true
+  required: false
   type: [integer, list]
   keys:
     name:
@@ -71,7 +71,7 @@ partitions:
       required: true
       type: string    
     arm_home_mode:
-      description: The mode in which arm the partition when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what are the differences between them, please refer to Satel Integra manual.
+      description: The mode in which the partition is armed when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what the differences are between them, please refer to Satel Integra manual.
       required: false
       default: 1
       type: integer
