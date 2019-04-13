@@ -13,7 +13,7 @@ footer: true
 
 This has been tested on FreeNAS 11.2 and should also work on FreeBSD 11.x as well. These instructions assume you already have a running and accessible jail. For more information on creating a jail read the official FreeNAS User Guide regarding [Jails](https://www.ixsystems.com/documentation/freenas/11.2/jails.html). Once you have the jail available, follow the steps below. Directories used follow standard BSD conventions but can be adjusted as you wish.
 
-Create the user and group that Home Asssitant will run as. The user/group ID of `8123` can be replaced if this is already in use in your environment.
+Create the user and group that Home Assistant will run as. The user/group ID of `8123` can be replaced if this is already in use in your environment.
 
 ```bash
 # pw groupadd -n homeassistant -g 8123
@@ -146,5 +146,5 @@ Configure the service to start on boot and start the Home Assistant service:
 You can also restart the jail to ensure that Home Assistant starts on boot.
 
 <p class='note'>
-USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break". This doesn't impact the function of the Z-wave stick in Hass. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.
+USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break". This doesn't impact the function of the Z-Wave stick in Home Assistant. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.
 </p>
