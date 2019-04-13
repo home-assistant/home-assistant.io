@@ -45,6 +45,10 @@ host:
   required: false
   default: localhost
   type: string
+path:
+  description: Path to your SABnzbd instance corresponding to its `url_base` setting, e.g., `/sabnzbd`.
+  required: false
+  type: string
 name:
   description: The name of your SABnzbd instance (this will be the prefix for all created sensors).
   required: false
@@ -87,6 +91,7 @@ Available sensors are:
 sabnzbd:
   api_key: YOUR_SABNZBD_API_KEY
   host: 192.168.1.32
+  path: /sabnzbd
   name: sab
   port: 9090
   ssl: true
