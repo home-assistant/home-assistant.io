@@ -25,7 +25,7 @@ prometheus:
 ```
 
 {% configuration %}
-  homekit:
+  prometheus:
     description: Prometheus configuration.
     required: true
     type: map
