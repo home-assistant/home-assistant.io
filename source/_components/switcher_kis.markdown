@@ -28,21 +28,16 @@ To retrieve your device's details, please follow the instructions [here](https:/
 <p class='note warning'>
   Please note, for the Switcher-V2-Python script to run successfully, you need to configure your device to work locally.
 </p>
-
+<p class='note warning'>
+  Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.</br>
+  As this component is based on that script, please do not upgrade to version 3.0 until this issue is resolved.</br>
+  You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
+</p>
 ```yaml
-# Example of a minimal configuration.yaml entry
 switcher_kis:
   phone_id: 'REPLACE_WITH_PHONE_ID'
   device_id: 'REPLACE_WITH_DEVICE_ID'
   device_password: 'REPLACE_WITH_DEVICE_PASSWORD'
-
-# Example of a full configuration.yaml entry
-switcher_kis:
-  phone_id: 'REPLACE_WITH_PHONE_ID'
-  device_id: 'REPLACE_WITH_DEVICE_ID'
-  device_password: 'REPLACE_WITH_DEVICE_PASSWORD'
-  name: 'boiler'
-  icon: 'mdi:some-icon'
 ```
 
 {% configuration %}
@@ -58,25 +53,13 @@ device_password:
   description: The device's password.
   required: true
   type: string
-name:
-  description: A name of your choosing, will be used to create the entities id ('switch.switcher_kis_*name*', 'sensor.switcher_kis_*name*_schedule_3')
-  required: false
-  type: string
-  default: 'boiler'
-icon:
-  description: MDI icon, will be used for all entities.
-  required: false
-  type: icon 
 {% endconfiguration %}
 
 ## {% linkable_title Switch State Attributes %}
 
 | Attribute | Type | Description | Example |
 | --------- | ---- | ----------- | ------- |
-| `last_data_update` | datetime | The datetime of the last data updated received by the device. | 2019-02-09T13:09:12.004178 |
-| `last_state_change` | datetime | The datetime of the last change of device's state since the bridge started. | 2019-02-09T13:09:15.005698 |
-| `ip_address` | string | The IP address of the device. | '192.168.0.150' |
-| `device_name` | string | The device's configured name. | "Switcher Boiler" |
+| `friendly_name` | string | The device's configured name. | "Switcher Boiler" |
 | `auto_off_set` | string | The auto shutdown time limit configured on the device. | "01:30:00" |
 | `remaining_time` | string | Time remaining to shutdown (auto or timer). | "01:29:41" |
 | `electric_current` | float | The electric current in amps. | 12.5 |
