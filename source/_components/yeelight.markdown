@@ -27,7 +27,7 @@ After the lights are connected to the WiFi network and have been detected in Hom
 
 ```yaml
 # Example customize.yaml entry
-light.yeelight_rgb_XXXXXXXXXXXX:
+light.yeelight_color1_XXXXXXXXXXXX:
   friendly_name: Living Room
 light.yeelight_color2_XXXXXXXXXXXX:
   friendly_name: Downstairs Toilet
