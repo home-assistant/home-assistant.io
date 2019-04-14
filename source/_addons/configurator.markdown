@@ -37,7 +37,7 @@ Screenshot of the HASS Configurator.
 ```json
 {
   "dirsfirst": false,
-  "enforce_basepath": false,
+  "enforce_basepath": false
 }
 ```
 
