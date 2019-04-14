@@ -2,7 +2,7 @@
 layout: page
 title: "Configure Home Assistant"
 description: "Instructions to get Home Assistant configured."
-date: 2016-09-26 21:00
+date: 2019-94-14 14:15
 sidebar: true
 comments: false
 sharing: true
@@ -38,35 +38,10 @@ From the Hass.io main panel open the add-on store.
 
 The first add-on we should install is the HASS Configurator. With the HASS Configurator, you'll be able to edit your Home Assistant configuration from the web interface.
 
-Go to the add-on store (see the previous step), click on Configurator and click on "INSTALL". When installation is complete, the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on. Follow the steps below to setup the add-on.
+Go to the add-on store (see the previous step), click on Configurator and click on "INSTALL". When installation is complete, the UI will go to the add-on details page for the configurator. Here you will be able to change settings, start and stop the add-on.
 
- - Set a password on the Config box, don't forget to use quotes on your password
- 
- ```json
-{
-  "username": "admin",
-  "password": "YOUR_PASSWORD_WITH_QUOTES",
-  "certfile": "fullchain.pem",
-  "keyfile": "privkey.pem",
-  "ssl": false,
-  "allowed_networks": [
-    "192.168.0.0/16"
-  ],
-  "banned_ips": [
-    "8.8.8.8"
-  ],
-  "banlimit": 0,
-  "ignore_pattern": [
-    "__pycache__"
-  ],
-  "dirsfirst": false
-}
-```
-
- - Click on "SAVE" to save your new password
  - "START" the add-on
  - You will be able to click the "OPEN WEB UI" link to open the Web UI on a new window
- - Type your username and password that you recently saved
 
 Time for the first practice with the configurator. We're going to add the Configurator to the main Home Assistant sidebar:
 
@@ -75,16 +50,21 @@ Time for the first practice with the configurator. We're going to add the Config
  - Copy and paste the following to the end of the `configuration.yaml` file:
 
 ```yaml
-panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: http://hassio.local:3218
+panel_custom:
+  - name: hassio-main
+    sidebar_title: Configurator
+    sidebar_icon: mdi:wrench
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: configurator
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: "core_configurator"
 ```
 
  - Click the save icon in the top right to commit changes.
  - Verify the configuration by going to the config panel (Configuration in the sidebar) -> General -> Click the "Check Config" button and you should get "Configuration valid!"
- - Now Restart Home Assistant using the "restart" in the Server management section.
+ - Now Restart Home Assistant using the "restart" in the Server management section on that same page.
 
 ### {% linkable_title Editing config via Samba/Windows Networking %}
 
