@@ -2,7 +2,7 @@
 layout: page
 title: "STIEBEL ELTRON"
 description: "Instructions on how to integrate STIEBEL ELTRON integral ventilation and heat pump units into Home Assistant."
-date: 2019-02-23 16:30 +0200
+date: 2019-04-14 21:00 +0200
 sidebar: true
 comments: false
 sharing: true
@@ -12,8 +12,6 @@ ha_category:
   - Climate
 ha_release: 0.92
 ha_iot_class: "Local Polling"
-redirect_from:
-  - /components/climate.stiebel_eltron/
 ---
 
 The `stiebel_eltron` component lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
