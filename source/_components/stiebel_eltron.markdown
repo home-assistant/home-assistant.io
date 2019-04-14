@@ -11,7 +11,7 @@ logo: stiebel_eltron.png
 ha_category:
   - Climate
 ha_release: 0.92
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `stiebel_eltron` component lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
