@@ -59,7 +59,7 @@ device_password:
 
 | Attribute | Type | Description | Example |
 | --------- | ---- | ----------- | ------- |
-| `friendly_name` | string | The device's configured name. | "Switcher Boiler" |
+| `friendly_name` | string | Defaults to the device's configured name. | "Switcher Boiler" |
 | `auto_off_set` | string | The auto shutdown time limit configured on the device. | "01:30:00" |
 | `remaining_time` | string | Time remaining to shutdown (auto or timer). | "01:29:41" |
 | `electric_current` | float | The electric current in amps. | 12.5 |
