@@ -13,7 +13,7 @@ ha_category:
 redirect_from:
   - /components/switch.switcher_kis
 ha_release: "0.92"
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 This `Switcher` component allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
