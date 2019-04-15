@@ -25,18 +25,21 @@ It requires the following components:
 ## {% linkable_title Supported units %}
 
 By now, the following units are tested:
+
 - LWZ504e
 - LWZ304
 
 ## {% linkable_title Operation modes %}
 
 Only the standard HA operation modes are supported. The STIEBEL ELTRON modes are mapped and configurable as follows:
+
 - Auto (STATE_AUTO): Automatic mode
 - Eco (STATE_ECO): Standby mode
 - Manual (STATE_MANUAL): Manual mode
 - Off (STATE_OFF): DHW mode (domestic hot water mode, heating is switched off)
 
 The HA operation mode 'On' is displayed, if the following STIEBEL ELTRON modes are configured directly on the unit:
+
 - On (STATE_ON): Day mode, Setback mode or Emergency operation
 
 ## {% linkable_title Configuration %}
