@@ -61,7 +61,7 @@ If an add-on is going to support both, you should not have the add-on exposed on
 
 Are you an add-on developer looking to support Ingress on your add-on? [Check the developer documentation][dev-docs].
 
-## {% linkable_title FAQ & Known issues %}
+## {% linkable_title FAQ & Known Issues %}
 
 Hass.io Ingress is a new and complex technology. Without a doubt, now that everybody starts using it, we will discover new issues. Here are some frequently asked questions and some currently known issues with the Ingress feature.
 
