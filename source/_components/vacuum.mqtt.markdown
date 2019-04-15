@@ -50,12 +50,12 @@ retain:
   type: boolean
   default: false
 payload_turn_on:
-  description: "The payload to send to the `command_topic` to begin the cleaning cycle."
+  description: The payload to send to the `command_topic` to begin the cleaning cycle.
   required: false
   type: string
   default: turn_on
 payload_turn_off:
-  description: "The payload to send to the `command_topic` to turn the vacuum off."
+  description: The payload to send to the `command_topic` to turn the vacuum off.
   required: false
   type: string
   default: turn_off
@@ -97,7 +97,7 @@ charging_topic:
   required: false
   type: string
 charging_template:
-  description:  Defines a [template](/topics/templating/) to define the charging state of the vacuum. This is required if `charging_topic` is set.
+  description: Defines a [template](/topics/templating/) to define the charging state of the vacuum. This is required if `charging_topic` is set.
   required: false
   type: string
 cleaning_topic:
