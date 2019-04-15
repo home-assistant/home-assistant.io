@@ -71,7 +71,7 @@ Direct access to the add-on might now be disabled by default by the add-on devel
 * **After upgrading the add-on, my `panel_iframe` doesn’t work anymore.**<br>
 This is related to the question above. Once you enable direct access again, your iFrame panel will start working again. Until the automated panel integration lands in 0.92, you can also manually add a panel that points at Ingress.
 
-* **I cannot upgrade my add-on: “This update is no longer compatible with your system.”**</br>
+* **I cannot upgrade my add-on: “This update is no longer compatible with your system.”**<br>
 Please update your Home Assistant installation to 0.91.3 or higher.
 
 * **I cannot access the add-on via Ingress using the Tor Browser or Firefox.**</br>
