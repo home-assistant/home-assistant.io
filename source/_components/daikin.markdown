@@ -86,3 +86,7 @@ Some models only report outside temperature when they are turned on.
 ## {% linkable_title Switch %}
 
 Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.
+
+<p class='note'>
+Zones with the name `-` will be ignored, just as the AirBase application is working.
+</p>
