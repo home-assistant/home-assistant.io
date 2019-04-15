@@ -74,7 +74,7 @@ This is related to the question above. Once you enable direct access again, your
 * **I cannot upgrade my add-on: “This update is no longer compatible with your system.”**<br>
 Please update your Home Assistant installation to 0.91.3 or higher.
 
-* **I cannot access the add-on via Ingress using the Tor Browser or Firefox.**</br>
+* **I cannot access the add-on via Ingress using the Tor Browser or Firefox.**<br>
 We found a last minute issue impacting Firefox based browsers (including the Tor Browser). There are some issues accessing add-ons that use WebSockets. We have identified the issue and expect it to be solved with the release of Home Assistant 0.91.4.
 
 
