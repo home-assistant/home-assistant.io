@@ -68,7 +68,7 @@ Hass.io Ingress is a new and complex technology. Without a doubt, now that every
 * **After upgrading the add-on, I’m unable to access it directly.**</br>
 Direct access to the add-on might now be disabled by default by the add-on developer. If the add-on supports running Ingress + direct access, you can re-enable direct access by setting a port number in the “Network” section of the add-on configuration.
 
-* **After upgrading the add-on, my `panel_iframe` doesn’t work anymore.**</br>
+* **After upgrading the add-on, my `panel_iframe` doesn’t work anymore.**<br>
 This is related to the question above. Once you enable direct access again, your iFrame panel will start working again. Until the automated panel integration lands in 0.92, you can also manually add a panel that points at Ingress.
 
 * **I cannot upgrade my add-on: “This update is no longer compatible with your system.”**</br>
