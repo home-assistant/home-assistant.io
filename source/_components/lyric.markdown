@@ -35,8 +35,8 @@ To enable this component, add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 lyric:
-  client_id: !secret lyric_client_key
-  client_secret: !secret lyric_client_secret
+  client_id: 'myconsumerkey'
+  client_secret: 'myconsumersecret'
 ```
 
 {% configuration %}
