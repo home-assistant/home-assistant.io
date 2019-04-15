@@ -36,7 +36,7 @@ Community add-ons:
 You can recognize add-ons that support the Ingress feature by the Ingress icon on the add-on information tab:
 
 <p class='img'>
-<img src='/images/blog/2019-04-hassio-ingress/ingress-sign.png' alt='Add-on view with Ingress support'>
+<img src='/images/blog/2019-04-hassio-ingress/ingress_sign.png' alt='Add-on view with Ingress support'>
 Screenshot of an Add-on view with ingress support.
 </p>
 
