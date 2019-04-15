@@ -12,7 +12,7 @@ ha_category:
   - Switch
 redirect_from:
   - /components/switch.switcher_kis
-ha_release: "0.92"
+ha_release: 0.92
 ha_iot_class: Local Push
 ---
 
