@@ -15,7 +15,7 @@ Today we are proud to introduce a new feature for Hass.io called Ingress. Ingres
 
 <p class='img'>
 <img src='/images/blog/2019-04-hassio-ingress/ingress-demo.gif' alt='Ingress demo on Hass.io'>
-Demo with an Add-on on Ingress.
+Demo with an add-on on Ingress.
 </p>
 
 ## {% linkable_title Add-ons that already support Ingress %}
