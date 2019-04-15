@@ -65,7 +65,7 @@ Are you an add-on developer looking to support Ingress on your add-on? [Check th
 
 Hass.io Ingress is a new and complex technology. Without a doubt, now that everybody starts using it, we will discover new issues. Here are some frequently asked questions and some currently known issues with the Ingress feature.
 
-* **After upgrading the add-on, I’m unable to access it directly.**</br>
+* **After upgrading the add-on, I’m unable to access it directly.**<br>
 Direct access to the add-on might now be disabled by default by the add-on developer. If the add-on supports running Ingress + direct access, you can re-enable direct access by setting a port number in the “Network” section of the add-on configuration.
 
 * **After upgrading the add-on, my `panel_iframe` doesn’t work anymore.**<br>
