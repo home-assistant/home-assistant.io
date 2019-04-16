@@ -19,44 +19,42 @@ To use the `prometheus` component in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 prometheus:
+  filter:
+    include_entities:
+      - sensor.livingroom_temp
 ```
 
 {% configuration %}
-namespace:
-  description: The "namespace" that will be assigned to all the Prometheus metrics. This is the prefix of the metric name. E.g., having `myhass` as the namespace will cause the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default is to not add any prefix to the metrics name. (available in version 0.73.0 and later)
-  required: false
-  type: string
-filter:
-  description: Filtering directives for the components which should be included or excluded from recording.
-  required: false
-  type: list
-  keys:
-    exclude:
-      description: Excluded from recording.
-      required: false
-      type: list
-      keys:
-        entities:
-          description: The list of entity ids to be excluded from recording.
-          required: false
-          type: list
-        domains:
-          description: The list of domains to be excluded from recording.
-          required: false
-          type: list
-    include:
-      description: Included in recordings. If set, all other entities will not be recorded. Values set by the **exclude** option will prevail.
-      required: false
-      type: list
-      keys:
-        entities:
-          description: The list of entity ids to be included from recordings.
-          required: false
-          type: list
-        domains:
-          description: The list of domains to be included from recordings.
-          required: false
-          type: list
+  prometheus:
+    description: Prometheus configuration.
+    required: true
+    type: map
+    keys:
+      name:
+        description: The "namespace" that will be assigned to all the Prometheus metrics. This is the prefix of the metric name. E.g., having `myhass` as the namespace will cause the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default is to not add any prefix to the metrics name. (available in version 0.73.0 and later)
+        required: false
+        type: string
+      filter:
+        description: Filters for entities to be included/excluded from Prometheus.
+        required: false
+        type: map
+        keys:
+          include_domains:
+            description: Domains to be included.
+            required: false
+            type: list
+          include_entities:
+            description: Entities to be included.
+            required: false
+            type: list
+          exclude_domains:
+            description: Domains to be excluded.
+            required: false
+            type: list
+          exclude_entities:
+            description: Entities to be excluded.
+            required: false
+            type: list
 {% endconfiguration %}
 
 You can then configure Prometheus to fetch metrics from Home Assistant by adding to its `scrape_configs` configuration.
