@@ -11,7 +11,7 @@ logo: geniushub.png
 ha_category:
   - Climate
 ha_release: 0.92
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `geniushub` component links Home Assistant with your Genius Hub for controlling climate devices on your local network.
@@ -22,32 +22,37 @@ It uses this PyPi client library: https://pypi.org/project/geniushub-client/
 
 There are two distinct options for accessing a Genius Hub:
 
-#### Option 1: hub token only:
+### {% linkable_title Option 1: hub token only %}
+
  - requires a **hub token** obtained from https://my.geniushub.co.uk/tokens
  - uses the v1 API - which is well-documented
  - interrogates Heat Genius' own servers (so is slower, say 10-20s response time)
 
-#### Option 2: hub hostname/address with user credentials:
+### {% linkable_title Option 2: hub hostname/address with user credentials %}
+
  - requires your **username** & **password**, as used with https://www.geniushub.co.uk/app
  - uses the v3 API - results are WIP and may not be what you expect
  - interrogates the hub directly (so is faster, say 1s response time)
 
-{% linkable_title Examples %}
+## {% linkable_title Configuration %}
+
 To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
 
 If you want to poll Heat Genius' own servers:
+
 ```yaml
 # Example configuration.yaml entry, using a Hub Token
 geniushub:
   host: eyJhbGciXVCIsInZlciI6IjEuMC4w...
 ```
 If you want to poll the hub directly:
+
 ```yaml
 # Example configuration.yaml entry, directly polling the Hub
 geniushub:
-  host: 192.168.1.2
-  username: genius_hub_username
-  password: genius_hub_password
+  host: IP_ADDRESS
+  username: GENIUS_HUB_USERNAME
+  password: GENIUS_HUB_PASSWORD
 ```
 
 {% linkable_title Configuration %}
@@ -68,5 +73,3 @@ password:
   required: false
   type: integer
 {% endconfiguration %}
-
-
