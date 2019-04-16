@@ -238,9 +238,37 @@ Possible MQTT payloads:
 
 #### Send Custom Command
 
-MQTT topic: `vacuum/send_command`
+Vacuum send_command allows three parameters:
 
-MQTT payload for `send_command` can be an arbitrary value handled by the vacuum's MQTT-enabled firmware.
+- entity_id
+- command
+- params - optional
+
+If params are not provided it sends command as payload to MQTT send_command topic.
+If params are provided service sends json as payload with such structure:
+```
+{
+  'command': 'command',
+  'param1-key': 'param1-value'
+}
+```
+
+Service trigger example:
+```
+- alias: Push command based on sensor
+    trigger:
+      - platform: state
+        entity_id: sensor.sensor
+    action:
+      service: vacuum.send_command
+      data:
+        entity_id: 'vacuum.vacuum_entity'
+        command: 'custom_command'
+        params:
+          - key: value
+```
+
+MQTT topic: `vacuum/send_command`
 
 #### Status/Sensor Updates
 
