@@ -33,13 +33,15 @@ There are two distinct options for accessing a Genius Hub:
  - interrogates the hub directly (so is faster, say 1s response time)
 
 {% linkable_title Examples %}
-To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file:
+To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
+
+If you want to poll Heat Genius' own servers:
 ```yaml
 # Example configuration.yaml entry, using a Hub Token
 geniushub:
   host: eyJhbGciXVCIsInZlciI6IjEuMC4w...
 ```
-
+If you want to poll the hub directly:
 ```yaml
 # Example configuration.yaml entry, directly polling the Hub
 geniushub:
@@ -49,17 +51,21 @@ geniushub:
 ```
 
 {% linkable_title Configuration %}
+
+Note that if a `username` or `password` is provide, then the `host` will be used as a hostname/IP address rather than a Hub Token.
+
+{% configuration %}
 host:
   description: The Hub Token, or hostname/IP address of your Genius Hub
   required: true
   type: string
 username:
-  description: Genius Hub username (the host will be used as a hostname/IP address)
-  required: true
+  description: Genius Hub username
+  required: false
   type: string
 password:
   description: Genius Hub password
-  required: true
+  required: false
   type: integer
 {% endconfiguration %}
 
