@@ -8,12 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: smarthab.png
-ha_release: 0.89
+ha_release: 0.92
 ha_category:
   - Hub
   - Cover
   - Light
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/cover.smarthab/
   - /components/light.smarthab/
