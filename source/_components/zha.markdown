@@ -47,8 +47,13 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [Nortek GoControl QuickStick Combo Model HUSBZB-1 (Z-Wave & Zigbee USB Adapter)](https://www.nortekcontrol.com/products/2gig/husbzb-1-gocontrol-quickstick-combo/)
   - [Elelabs Zigbee USB Adapter](https://elelabs.com/products/elelabs_usb_adapter.html)
   - [Elelabs Zigbee Raspberry Pi Shield](https://elelabs.com/products/elelabs_zigbee_shield.html)
+  - Telegesis ETRX357USB (Note! This first have to be flashed with other EmberZNet firmware)
+  - Telegesis ETRX357USB-LRS (Note! This first have to be flashed with other EmberZNet firmware)
+  - Telegesis ETRX357USB-LRS+8M (Note! This first have to be flashed with other EmberZNet firmware)
 - XBee Zigbee based radios (via the [zigpy-xbee](https://github.com/zigpy/zigpy-xbee) library for zigpy)
+  - Digi XBee Series 3 (xbee3-24) modules
   - Digi XBee Series 2C (S2C) modules
+  - Digi XBee Series 2 (S2) modules (Note! This first have to be flashed with Zigbee Coordinator API firmware)
 - Dresden-Elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from Dresden-Elektronik](https://shop.dresden-elektronik.de/conbee-2.html)
   - [ConBee USB adapter from Dresden-Elektronik](https://www.dresden-elektronik.de/conbee/)
