@@ -23,7 +23,7 @@ Create the user and group that Home Assistant will run as. The user/group ID of 
 Install the necessary Python packages:
 
 ```bash
-# pkg update -y
+# pkg update
 # pkg upgrade
 # pkg install -y python37 py37-sqlite3 ca_root_nss
 # python3.7 -m ensurepip
