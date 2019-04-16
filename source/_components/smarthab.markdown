@@ -14,9 +14,6 @@ ha_category:
   - Cover
   - Light
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/cover.smarthab/
-  - /components/light.smarthab/
 ---
 
 If your home is fitted with [SmartHab](http://www.smarthab.fr/en/home/)'s 
