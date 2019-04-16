@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Google Text-to-Speech"
-description: "Instructions on how to setup Google Text-to-Speech with Home Assistant."
+title: "Google Translate Text-to-Speech"
+description: "Instructions on how to setup Google Translate Text-to-Speech with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -12,9 +12,14 @@ ha_category: Text-to-speech
 ha_release: 0.35
 redirect_from:
  - /components/tts.google/
+ - /components/google/
 ---
 
-The `google` text-to-speech platform uses [Google Text-to-Speech engine](https://console.developers.google.com/apis/library/texttospeech.googleapis.com) Text-to-Speech engine to read a text with natural sounding voices.
+The `google_translate` text-to-speech platform uses unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
+
+<p class='note'>
+This platform renamed to `google_translate` from `google` since release 0.92
+</p>
 
 ## {% linkable_title Configuration %}
 
@@ -23,7 +28,7 @@ To enable text-to-speech with Google, add the following lines to your `configura
 ```yaml
 # Example configuration.yaml entry
 tts:
-  - platform: google
+  - platform: google_translate
 ```
 
 {% configuration %}
@@ -44,7 +49,7 @@ A full configuration sample including optional variables:
 ```yaml
 # Example configuration.yaml entry
 tts:
-  - platform: google
+  - platform: google_translate
     language: 'de'
 ```
 
