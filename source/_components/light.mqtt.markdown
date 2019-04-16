@@ -9,10 +9,11 @@ sharing: true
 footer: true
 logo: mqtt.png
 ha_category: Light
-ha_iot_class: depends
+ha_iot_class: Configurable
 redirect_from:
  - /components/light.mqtt_json/
  - /components/light.mqtt_template/
+ha_release: 0.8
 ---
 
 The `mqtt` light platform with lets you control your MQTT enabled lights through one of the supported message schemas.
@@ -116,7 +117,7 @@ effect_list:
   type: string list
 hs_command_topic:
   description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
-  Range for Hue: 0° .. 360°, Range of Saturation: 0..100. 
+  Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
   Note: Brightness is sent separately in the `brightness_command_topic`."
   required: false
   type: string
@@ -639,7 +640,7 @@ light:
 
 - [MQTT JSON Light](https://github.com/mertenats/Open-Home-Automation/tree/master/ha_mqtt_rgbw_light_with_discovery) is another implementation for ESP8266 including [MQTT discovery](/docs/mqtt/discovery/).
 
-- [esphomelib](https://github.com/OttoWinter/esphomelib) is a library for ESP8266 and ESP32 boards that has many of Home Assistant's MQTT features (like [discovery](/docs/mqtt/discovery/)) pre-implemented and provides high-level abstractions for components such as lights or sensors.
+- [ESPHome](https://esphome.io) implements the JSON schema for MQTT based installs and supports [MQTT discovery](/docs/mqtt/discovery/).
 
 - [AiLight](https://github.com/stelgenhof/AiLight) is a custom firmware for the Ai-Thinker (and equivalent) RGBW WiFi light bulbs that has an ESP8266 onboard and controlled by the MY9291 LED driver. It implements the [MQTT JSON light](/components/light.mqtt_json/) platform and supports ON/OFF, RGBW colours, brightness, colour temperature, flashing and transitions. Also it includes [MQTT Auto Discovery](/docs/mqtt/discovery/)) and the MQTT Last Will and Testament is enabled as well.
 

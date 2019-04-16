@@ -8,6 +8,7 @@ comments: false
 sharing: true
 footer: true
 redirect_from: /components/air_pollutants/
+ha_release: 0.85
 ---
 
 The `air_quality` gather information about the air quality and pollution details.

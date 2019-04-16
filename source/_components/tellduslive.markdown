@@ -7,17 +7,18 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: telldus.png
-ha_category: 
+logo: tellduslive.svg
+ha_category:
   - Hub
   - Binary Sensor
   - Cover
   - Light
   - Sensor
   - Switch
-featured: false
 ha_release: 0.11
 ha_config_flow: true
+ha_qa_scale: gold
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.tellduslive/
   - /components/cover.tellduslive/
@@ -48,11 +49,15 @@ host:
   description: Host address to Tellstick Net or Tellstick ZNet for Local API, only useful when automatic discovery is not enabled.
   required: false
   type: string
-update_interval:
+scan_interval:
   description: Interval (in seconds) for polling the Telldus Live server (or the local server).
   required: false
   type: integer
   default: 60
 {% endconfiguration %}
+
+<p class='note'>
+It is only possible to configure the `scan_interval` when setting up the device. If the polling interval needs to be changed after the device is configured it must be changed manually by changing `"scan_interval": 60,` for the device in the file `.storage/core.config_entries`.
+</p>
 
 The component will offer configuration through the Home Assistant user interface where it will let you associate it with your Telldus Live account.

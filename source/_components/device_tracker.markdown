@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7
 ---
 
 Home Assistant can get information from your wireless router or third party services like iCloud or OwnTracks to track which devices are connected and considered "in home". Please check the sidebar for a list of  brands of supported wireless routers and services.
@@ -86,7 +87,7 @@ devicename:
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
 | `name`         | Host name or "Unnamed Device" | The friendly name of the device.                                                                         |
 | `mac`          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP.     |
-| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`.                                      |
+| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`. The path 'local' is mapped to the 'www' folder you create.                                     |
 | `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`.                        |
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |

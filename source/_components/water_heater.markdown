@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.81
 ---
 
 The `water_heater` component is built for the controlling and monitoring of hot water heaters.

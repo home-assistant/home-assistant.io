@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: geo_location.png
-ha_release: "0.78"
+ha_release: 0.78
 ---
 
 Geolocation aware entities are typically related to events in the real world in the vicinity of Home Assistant's location, like for example weather events, bush fires or earthquakes.
@@ -22,6 +22,7 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 | Platform                                          | Source                        |
 |---------------------------------------------------|-------------------------------|
 | GeoJSON Events                                    | `geo_json_events`             |
+| IGN Sismología                                    | `ign_sismologia`              |
 | NSW Rural Fire Service Incidents                  | `nsw_rural_fire_service_feed` |
 | U.S. Geological Survey Earthquake Hazards Program | `usgs_earthquakes_feed`       |
 

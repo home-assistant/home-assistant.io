@@ -14,9 +14,8 @@ ha_category:
   - Light
   - Scene
   - Switch
-featured: false
 ha_release: 0.37
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/cover.lutron/
   - /components/light.lutron/

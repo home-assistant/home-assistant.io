@@ -18,8 +18,8 @@ Screenshot of the Alarm Panel card.
 </p>
 
 ```yaml
-- type: alarm-panel
-  entity: alarm_control_panel.alarm
+type: alarm-panel
+entity: alarm_control_panel.alarm
 ```
 
 {% configuration %}
@@ -70,12 +70,12 @@ Screenshot of the Alarm Panel card.
 Define the State List:
 
 ```yaml
-- type: alarm-panel
-  name: House Alarm
-  entity: alarm_control_panel.alarm
-  states:
-    - arm_home
-    - arm_away
-    - arm_night
-    - armed_custom_bypass
+type: alarm-panel
+name: House Alarm
+entity: alarm_control_panel.alarm
+states:
+  - arm_home
+  - arm_away
+  - arm_night
+  - armed_custom_bypass
 ```

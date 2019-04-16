@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: emoncms.png
 ha_category: History
-featured: false
 ha_release: 0.31
 ---
 

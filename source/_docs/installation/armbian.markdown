@@ -13,7 +13,7 @@ footer: true
 
 Python 3.5.3 or later is required.
 
-Setup Python and `pip`
+Setup Python and `pip`:
 
 ```bash
 $ sudo apt-get update
@@ -23,10 +23,12 @@ $ sudo apt-get install python3-dev python3-pip
 Now that you installed python, there are two ways to install Home Assistant:
 1. It is recommended to install Home Assistant in a virtual environment to avoid using `root`, using the [VirtualEnv instructions](/docs/installation/virtualenv/)
 2. Alternatively, you can install Home Assistant for the user you created when first booting Armbian:
+
 ```bash
 $ sudo pip3 install homeassistant
 $ hass --open-ui
 ```
+
 Running these commands will:
 
  - Install Home Assistant

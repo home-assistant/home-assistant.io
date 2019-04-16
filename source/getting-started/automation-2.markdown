@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Your second Automation"
+title: "Your Second Automation"
 description: "Step by step guiding through making your second automation."
 date: 2016-04-24 08:30 +0100
 sidebar: true

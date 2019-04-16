@@ -9,7 +9,6 @@ sharing: true
 footer: true
 logo: dialogflow.png
 ha_category: Voice
-featured: false
 ha_release: 0.56
 redirect_from: /components/apiai/
 ---
@@ -44,12 +43,14 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - Click on "Create Agent"
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone
 - Click "Save"
-- Go to "Fulfillment" (in the left menu)
+- Go to project settings (cog symbol in left menu)
+- under "API VERSION" click on "V1 API"
+- Now go to "Fulfillment" (in the left menu)
 - Enable Webhook and set your Dialogflow webhook url as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save"
 - Create a new intent
 - Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g., `What is the temperature at home?`
-- In "Action" set some key (this will be the bind with Home Assistant configuration), eg.: GetTemperature
+- In "Action" set some key (this will be the bind with Home Assistant configuration), e.g.,: GetTemperature
 - In "Response" set "Cannot connect to Home Assistant or it is taking to long" (fall back response)
 - At the end of the page, click on "Fulfillment" and check "Use webhook"
 - Click "Save"
@@ -114,4 +115,3 @@ intent_script:
           entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
 ```
 {% endraw %}
-

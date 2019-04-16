@@ -1,21 +1,21 @@
 ---
 layout: post
 title: "0.87: SmartThings, Areas and Entity Registry UI."
-description: "Integrate SmartThings without issues"
-date: 2019-01-30 00:01:03
+description: "Integrate SmartThings with ease, place devices in areas and manage entities via the UI in yet another awesome Home Assistant release."
+date: 2019-02-06 00:01:03
 date_formatted: "February 6, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-02-release-87/smartthings.png
+og_image: /images/blog/2019-02-release-87/components.png
 ---
 
 <a href='/components/#version/0.87'><img src='/images/blog/2019-02-release-87/components.png' style='border: 0;box-shadow: none;'></a>
 
 Today we're releasing Home Assistant 0.87, our third release of the year. Besides a bunch of bugs squashing and performance improvements, we got some cool new features too.
 
-Let's start with the big one: we now support SmartThings. Via a custom app that can be installed inside SmartThings, you can now push the state of each device, as soon as it changes, to Home Assistant. No more fiddling with MQTT bridges or other solutions. Big shoutout to [@andrewsayre] for making this possible. Have a look at the [SmartThings docs] to get started.
+Let's start with the big one: we now support SmartThings. Via a custom app that can be installed inside SmartThings, you can now push the state of each device in SmartThings, as soon as it changes, to Home Assistant. No more fiddling with MQTT bridges or other solutions. Big shoutout to [@andrewsayre] for making this possible. Have a look at the [SmartThings docs] to get started.
 
 New in this release is a new area feature thanks to [@Kane610]. Areas will allow users to organize their devices by their physical area, like kitchen or living room. This will unlock a whole new range of possible new features (of which none are implemented yet). With this release, users will just be able to manage areas in the configuration panel and place devices in areas via the integration page. In the future, we're planning to add area based user permissions and a Lovelace area card. If you can't wait to start leveraging areas today, [@thomasloven] has created [a custom Lovelace card](https://github.com/thomasloven/lovelace-auto-entities) that can leverage areas.
 
@@ -46,10 +46,37 @@ If you prefer a podcast over release notes, check out [the Hass Podcast](https:/
 - Add Recollect Waste ([@stealthhacker] - [#20121]) ([sensor.recollect_waste docs]) (new-platform)
 - New Transmission component ([@MatteGary] - [#19230]) ([transmission docs]) ([sensor.transmission docs]) (breaking change) (new-platform)
 - Add support for FRITZ DECT 100 (temp sensor) ([@choss] - [#20308]) ([fritzbox docs]) ([sensor.fritzbox docs]) (new-platform)
-- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) ([updater docs]) (new-platform)
+- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) (new-platform)
 - Add sensor platform for Rova Garbage Collection ([@GidoHakvoort] - [#18868]) ([sensor.rova docs]) (new-platform)
 - Add SmartThings component and switch platform ([@andrewsayre] - [#20148]) ([smartthings docs]) ([switch.smartthings docs]) (new-platform)
 - Fix cloud webhook body ([@pvizeli] - [#20739]) ([cloud docs]) (beta fix) (new-platform)
+
+## {% linkable_title Release 0.87.1 - February 9 %}
+
+- Fix waze_travel_time component ERROR on startup ([@VirtualL] - [#20316]) ([sensor.waze_travel_time docs])
+- Add Transmission component 'scan_interval' option ([@jonudewux] - [#20575]) ([transmission docs])
+- Fix homekit_controller non-standard hk characteristics ([@Jc2k] - [#20824]) ([homekit_controller docs])
+- Fix STATE_UNLOCKED for verisure ([@Danielhiversen] - [#20858]) ([verisure docs])
+- Use text= instead of body= for creating web responses ([@balloob] - [#20879])
+- Upgrade zm-py to 0.3.3 ([@mnoorenberghe] - [#20886]) ([zoneminder docs])
+
+[#20316]: https://github.com/home-assistant/home-assistant/pull/20316
+[#20575]: https://github.com/home-assistant/home-assistant/pull/20575
+[#20824]: https://github.com/home-assistant/home-assistant/pull/20824
+[#20858]: https://github.com/home-assistant/home-assistant/pull/20858
+[#20879]: https://github.com/home-assistant/home-assistant/pull/20879
+[#20886]: https://github.com/home-assistant/home-assistant/pull/20886
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Jc2k]: https://github.com/Jc2k
+[@VirtualL]: https://github.com/VirtualL
+[@balloob]: https://github.com/balloob
+[@jonudewux]: https://github.com/jonudewux
+[@mnoorenberghe]: https://github.com/mnoorenberghe
+[homekit_controller docs]: /components/homekit_controller/
+[sensor.waze_travel_time docs]: /components/sensor.waze_travel_time/
+[transmission docs]: /components/transmission/
+[verisure docs]: /components/verisure/
+[zoneminder docs]: /components/zoneminder/
 
 ## {% linkable_title New Features %}
 
@@ -243,7 +270,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add remove commmand to entity registry ([@balloob] - [#20597]) ([config docs])
 - Fix map icons ([@bramkragten] - [#20602]) ([map docs])
 - Fix LIFX for single-zone strip extensions ([@amelchio] - [#20604]) ([light.lifx docs])
-- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) ([updater docs]) (new-platform)
+- RFC: Add system health component ([@balloob] - [#20436]) ([system_health docs]) (new-platform)
 - Update to the newest python-wink and fix push updates! ([@w1ll1am23] - [#20594]) ([wink docs])
 - Add lovelace systeam health ([@balloob] - [#20592]) ([lovelace docs])
 - Add sensor platform for Rova Garbage Collection ([@GidoHakvoort] - [#18868]) ([sensor.rova docs]) (new-platform)
@@ -471,6 +498,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@balloob]: https://github.com/balloob
 [@boralyl]: https://github.com/boralyl
 [@bramkragten]: https://github.com/bramkragten
+[@thomasloven]: https://github.com/thomasloven
 [@choss]: https://github.com/choss
 [@chrillux]: https://github.com/chrillux
 [@coreGreenberet]: https://github.com/coreGreenberet

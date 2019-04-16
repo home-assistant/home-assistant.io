@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.9
 ---
 
 Keeps track which locks are in your environment, their state and allows you to control them.

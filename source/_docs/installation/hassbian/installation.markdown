@@ -98,3 +98,33 @@ SSH to your system as the user `pi` and run:
 ```bash
 $ sudo hassbian-config upgrade hassbian
 ```
+
+## {% linkable_title Run a specific version %}
+
+In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
+
+```bash
+$ sudo hassbian-config upgrade homeassistant=0.XX.X
+```
+
+#### {% linkable_title Run the beta version %}
+
+If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
+
+```bash
+$ sudo hassbian-config upgrade homeassistant --beta
+```
+
+## {% linkable_title Run the development version %}
+
+If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
+
+<p class='note warning'>
+  The "dev" branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
+</p>
+
+For example:
+
+```bash
+$ sudo hassbian-config upgrade homeassistant --dev
+```

@@ -106,7 +106,43 @@ $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
 ```
 
-Once the last command executes restart the Home Assistant service to apply the latest updates.  Please keep in mind that some updates may take longer to boot up than others.  If Home Assistant fails to start make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
+Once the last command executes, restart the Home Assistant service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
+
+### {% linkable_title Run a specific version %}
+
+In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
+
+```bash
+$ sudo -u homeassistant -H -s
+$ source /srv/homeassistant/bin/activate
+$ pip3 install homeassistant==0.XX.X
+```
+
+### {% linkable_title Run the beta version %}
+
+If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
+
+```bash
+$ sudo -u homeassistant -H -s
+$ source /srv/homeassistant/bin/activate
+$ pip3 install --pre --upgrade homeassistant
+```
+
+### {% linkable_title Run the development version %}
+
+If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
+
+<p class='note warning'>
+  The "dev" branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
+</p>
+
+For example:
+
+```bash
+$ sudo -u homeassistant -H -s
+$ source /srv/homeassistant/bin/activate
+$ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
+```
 
 ### {% linkable_title Activating the virtual environment %}
 

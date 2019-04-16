@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ha_category: Binary Sensor
 ha_release: 0.9
-ha_iot_class: "depends"
+ha_iot_class: Configurable
 ---
 
 The `mqtt` binary sensor platform uses an MQTT message payload to set the binary sensor to one of two states: `on` or `off`.

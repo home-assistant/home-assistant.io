@@ -22,7 +22,7 @@ Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='n
 
 ### {% linkable_title The basics %}
 
-Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also omit `entity_id` and it will turn on all possible entities.
+Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
 service: homeassistant.turn_on

@@ -111,7 +111,6 @@ google_assistant:
   exposed_domains:
     - switch
     - light
-    - group
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -121,6 +120,8 @@ google_assistant:
     light.living_room:
       expose: false
       room: LIVING_ROOM
+    group.all_automations:
+      expose: false
 ```
 
 {% configuration %}
@@ -138,12 +139,12 @@ api_key:
   required: false
   type: string
 expose_by_default:
-  description: "Expose devices in all supported domains by default. If set to false, you need to either expose domains or add the expose configuration option to each entity in `entity_config` and set it to true."
+  description: "Expose devices in all supported domains by default. If `exposed_domains` domains is set, only these domains are exposed by default. If `expose_by_default` is set to false, devices have to be manually exposed in `entity_config`."
   required: false
   default: true
   type: boolean
 exposed_domains:
-  description: List of entity domains to expose to Google Assistant.
+  description: List of entity domains to expose to Google Assistant if `expose_by_default` is set to true. This has no effect if `expose_by_default` is set to false.
   required: false
   type: list
 entity_config:
@@ -178,6 +179,7 @@ entity_config:
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
+- camera (streaming, requires compatible camera)
 - group (on/off)
 - input_boolean (on/off)
 - scene (on)
@@ -186,10 +188,14 @@ Currently, the following domains are available to be used with Google Assistant,
 - fan (on/off/speed)
 - light (on/off/brightness/rgb color/color temp)
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
-- cover (on/off/set position (via set brightness))
+- cover (on/off/set position)
 - media_player (on/off/set volume (via set brightness)/source (via set input source))
 - climate (temperature setting, operation_mode)
 - vacuum (dock/start/stop/pause)
+
+<p class='note warning'>
+  The domain groups contains groups containing all items, by example group.all_automations. When telling Google Assistant to shut down everything, this will lead in this example to disabling all automations
+</p>
 
 ### {% linkable_title Media Player Sources %}
 
@@ -200,6 +206,10 @@ https://developers.google.com/actions/reference/smarthome/traits/modes
 #### Example Command:
 
 "Hey Google, change input source to TV on Living Room Receiver"
+
+### {% linkable_title Room/Area support %}
+
+Entities that have not got rooms explicitly set and that have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
 
 ### {% linkable_title Climate Operation Modes %}
 

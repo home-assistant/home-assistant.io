@@ -15,7 +15,7 @@ ha_category:
   - Light
   - Switch
 ha_release: 0.21
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.enocean/
   - /components/sensor.enocean/

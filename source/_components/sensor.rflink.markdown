@@ -10,10 +10,12 @@ footer: true
 logo: rflink.png
 ha_category: Sensor
 ha_release: 0.38
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+
+## {% linkable_title Configuration %}
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
@@ -72,7 +74,7 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-### {% linkable_title Sensors types%}
+## {% linkable_title Sensors types %}
 
 Sensor type values:
 
@@ -109,7 +111,7 @@ Sensor type values:
 - windspeed
 - windtemp
 
-### {% linkable_title Hiding/ignoring sensors %}
+## {% linkable_title Hiding/ignoring sensors %}
 
 Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
@@ -117,11 +119,11 @@ Sensors are added automatically when the RFLink gateway intercepts a wireless co
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
-### {% linkable_title Device support %}
+## {% linkable_title Device support %}
 
 See [device support](/components/rflink/#device-support)
 
-### {% linkable_title Additional configuration examples %}
+## {% linkable_title Additional configuration examples %}
 
 Multiple sensors with `automatic_add` disabled and `aliases`
 
@@ -148,4 +150,3 @@ sensor:
         aliases:
           - xiron_4001_bat
 ```
-

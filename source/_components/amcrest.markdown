@@ -8,39 +8,40 @@ comments: false
 sharing: true
 footer: true
 logo: amcrest.png
-ha_category: Hub
-ha_iot_class: "Local Polling"
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Camera
+  - Sensor
+  - Switch
+ha_iot_class: Local Polling
 ha_release: 0.49
+redirect_from:
+  - /components/camera.amcrest/
+  - /components/sensor.amcrest/
+  - /components/switch.amcrest/
 ---
 
-The `amcrest` camera platform allows you to integrate your
-[Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) IP camera in Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Camera
+- Sensor
+- Switch
 
 ## {% linkable_title Configuration %}
 
-To enable your camera in your installation,
-add the following to your `configuration.yaml` file:
+To enable your camera in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 amcrest:
-  - host: IP_ADDRESS_CAMERA_1
+  - host: IP_ADDRESS_CAMERA
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    sensors:
-      - motion_detector
-      - sdcard
-    switches:
-      - motion_detection
-      - motion_recording
 
- - host: IP_ADDRESS_CAMERA_2
-   username: YOUR_USERNAME
-   password: YOUR_PASSWORD
-   resolution: low
-   stream_source: snapshot
-   sensors:
-     - ptz_preset
 ```
 
 {% configuration %}
@@ -93,6 +94,7 @@ ffmpeg_arguments:
     image quality or video filter options.
   required: false
   type: string
+  default: -pred 1
 authentication:
   description: >
     Defines which authentication method to use only when **stream_source**
@@ -105,6 +107,16 @@ scan_interval:
   required: false
   type: integer
   default: 10
+binary_sensors:
+  description: >
+    Conditions to display in the frontend.
+    The following conditions can be monitored:
+  required: false
+  type: list
+  default: None
+  keys:
+    motion_detected:
+      description: "Return `on` when a motion is detected, `off` when not."
 sensors:
   description: >
     Conditions to display in the frontend.
@@ -114,7 +126,11 @@ sensors:
   default: None
   keys:
     motion_detector:
-      description: "Return `true`/`false` when a motion is detected."
+      description: >
+        Return `true`/`false` when motion is detected.  
+
+        **Note:** This sensor is deprecated and will be removed in a future release.
+        Use **binary_sensors** option **motion_detected** instead.
     sdcard:
       description: Return the SD card usage by reporting the total and used space.
     ptz_preset:
@@ -147,10 +163,41 @@ Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
 make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/)
 documentation to install the `ffmpeg`.
 
-Finish its configuration by visiting the
-[Amcrest sensor page](/components/sensor.amcrest/) or
-[Amcrest camera page](/components/camera.amcrest/).
-
 To check if your Amcrest camera is supported/tested, visit the
 [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix)
-link from the `python-amcrest` project.
+link from the `amcrest` project.
+
+## {% linkable_title Advanced Configuration %}
+
+You can also use this more advanced configuration example:
+
+```yaml
+# Example configuration.yaml entry
+amcrest:
+  - host: IP_ADDRESS_CAMERA_1
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    binary_sensors:
+      - motion_detected
+    sensors:
+      - sdcard
+    switches:
+      - motion_detection
+      - motion_recording
+
+  # Add second camera
+  - host: IP_ADDRESS_CAMERA_2
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+    name: Amcrest Camera 2
+    resolution: low
+    stream_source: snapshot
+    sensors:
+      - ptz_preset
+```
+
+To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
+
+<p class='note warning'>
+In previous versions, switch devices in setups with multiple cameras, would not have specific entity ID causing them to change randomly after each Home Assistant restart. The current version adds the name of the camera at the end of the switch entity ID, making it more specific and consistent and causes the name option to be required in a multi-camera system. This behavior matches the sensor behavior of the Amcrest component. Because of this, older automations may require updates to the entity ID.
+</p>

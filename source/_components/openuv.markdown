@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Sensor
 ha_release: 0.76
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 redirect_from:
   - /components/binary_sensor.openuv/
@@ -33,6 +33,23 @@ given by default) is limited to 50 API requests per day. Because different
 API plans and locations will have different requirements, the `openuv`
 component does not automatically query the API for new data after it initially
 loads. To request new data, the `update_data` service may be used.
+</p>
+
+<p class='note warning'>
+Each use of the `update_data` service will consume 1 or 2 API calls, depending
+on which monitored conditions are configured.
+
+If the OpenUV component is configured through the Home Assistant UI (via the
+`Configuration >> Integrations` panel), each service call will consume 2 API
+calls from the daily quota.
+
+If the OpenUV component is configured via `configuration.yaml`, service calls
+will consume 2 API calls if `monitored_conditions` contains both
+`uv_protection_window` and any other condition; any other scenarios will only
+consume 1 API call.
+
+Ensure that you understand these specifications when calling the `update_data`
+service.
 </p>
 
 ## {% linkable_title Configuration %}

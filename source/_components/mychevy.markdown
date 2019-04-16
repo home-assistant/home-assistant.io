@@ -10,7 +10,7 @@ footer: true
 logo: chevy.png
 ha_category: Car
 ha_release: 0.62
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.mychevy/
   - /components/sensor.mychevy/
