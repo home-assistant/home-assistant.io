@@ -10,60 +10,57 @@ footer: true
 logo: geniushub.png
 ha_category:
   - Climate
-  - Sensor
-  - Switch
-ha_release: 0.89
+ha_release: 0.92
 ha_iot_class: "Local Polling"
-redirect_from:
-  - /components/sensor.geniushub/
-  - /components/switch.geniushub/
 ---
 
-The `geniushub` component links Home Assistant with your Genius for controlling climate, sensors and switches on your local network. It does not call out to the public API..
+The `geniushub` component links Home Assistant with your Genius Hub for controlling climate devices on your local network.
 
-This component uses the an unofficial API reversed engineered from the Genius web app.
+Each zone controlled by your Genius hub will report back the state, mode, setpoint and temperature.  Other properties are available via `device_state_attributes`.
 
-To add your Genius Hub into your Home Assistant installation, add the following to your `configuration.yaml` file:
+It uses this PyPi client library: https://pypi.org/project/geniushub-client/
+
+There are two distinct options for accessing a Genius Hub:
+
+#### Option 1: hub token only:
+ - requires a **hub token** obtained from https://my.geniushub.co.uk/tokens
+ - uses the v1 API - which is well-documented
+ - interrogates Heat Genius' own servers (so is slower, say 10-20s response time)
+
+#### Option 2: hub hostname/address with user credentials:
+ - requires your **username** & **password**, as used with https://www.geniushub.co.uk/app
+ - uses the v3 API - results are WIP and may not be what you expect
+ - interrogates the hub directly (so is faster, say 1s response time)
+
+{% linkable_title Examples %}
+To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file:
+```yaml
+# Example configuration.yaml entry, using a Hub Token
+geniushub:
+  host: eyJhbGciXVCIsInZlciI6IjEuMC4w...
+```
 
 ```yaml
-# Example configuration.yaml entry
-lightwave:
+# Example configuration.yaml entry, directly polling the Hub
+geniushub:
   host: 192.168.1.2
   username: genius_hub_username
   password: genius_hub_password
-  scan_interval: 20
 ```
-{% configuration %}
+
+{% linkable_title Configuration %}
 host:
-  description: The local IP address of your Genius Hub
+  description: The Hub Token, or hostname/IP address of your Genius Hub
   required: true
   type: string
 username:
-  description: Genius Hub username
+  description: Genius Hub username (the host will be used as a hostname/IP address)
   required: true
   type: string
 password:
   description: Genius Hub password
   required: true
   type: integer
-scan_interval:
-  description: The interval in second to refresh data from your Genius Hub
-  required: false
-  type: integer
-  default: 20
-
 {% endconfiguration %}
 
-The Genius Hub component provide the control to the follow devices:
 
-**Zone**
-Each zone controlled by your Genius hub will report back the mode, set temperature and actual temperature
-
-**Switch**
-Each switch controlled by your Genius hub will report back the state of on or off
-
-**TRV**
-Each TRV will report back set point and battery level
-
-**Sensor**
-Each sensor will report back actual temperate, luminance, motion and battery level
