@@ -108,12 +108,12 @@ Possible value for each intervals attributes are:
 ### {% linkable_title About `weather_alert` sensor %}
 
 <p class='note warning'>
-  The weather alert is available for the metropolitan France.<br/>
+  The weather alert is available for the metropolitan France.
 </p>
 
 The `weather_alert` sensor value give the current weather alert status for the department linked to the city. Data is retrieve from [Météo-France vigilance website](http://vigilance.meteofrance.com/).
 
-The sensor attributes  give access to each type of alerts and date of the bulletin emitted by Météo-France.
+The sensor attributes give access to each type of alerts and date of the bulletin emitted by Météo-France.
 
 ### {% linkable_title Complete example %}
 
