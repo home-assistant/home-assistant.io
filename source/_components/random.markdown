@@ -1,24 +1,48 @@
 ---
 layout: page
-title: "Random Sensor"
-description: "Instructions on how to integrate random number sensors into Home Assistant."
+title: "Random"
+description: "Instructions on how to integrate random numbers into Home Assistant."
 date: 2016-10-30 12:10
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Utility
+ha_category:
+  - Utility
+  - Sensor
+  - Binary Sensor
 ha_iot_class: Local Polling
 ha_release: 0.32
 ha_qa_scale: internal
 redirect_from:
- - /components/sensor.random/
+  - /components/sensor.random/
+  - /components/binary_sensor.random/
 ---
 
-The `random` sensor platform is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn. This can be useful if you want to test automation rules. It generates a new value every time it is polled.
+## {% linkable_title Binary Sensor %}
 
-## {% linkable_title Configuration %}
+The `random` binary sensor platform is creating random states (`true`, 1, `on` or `false`, 0, `off`). This can be useful if you want to test automation rules. It generates a new state every time it is polled.
+
+To enable the random binary sensor, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: random
+```
+
+{% configuration %}
+name:
+  description: Name to use in the frontend.
+  required: false
+  type: string
+  default: Random Binary Sensor
+{% endconfiguration %}
+
+## {% linkable_title Sensor %}
+
+The `random` sensor platform is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn. This can be useful if you want to test automation rules. It generates a new value every time it is polled.
 
 To enable the random sensor, add the following lines to your `configuration.yaml` file:
 
