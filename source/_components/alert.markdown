@@ -241,29 +241,6 @@ alert:
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
-The next example uses a template for the alert name.
-
-{% raw %}
-```yaml
-alert:
-  garage_door:
-    name: Garage has been open for {{ relative_time(states.binary_sensor.garage.last_changed) }}
-    done_message: Garage is closed
-    entity_id: binary_sensor.garage
-    state: 'on'
-    repeat:
-      - 30
-      - 60
-      - 120
-    can_acknowledge: true
-    skip_first: true
-    notifiers:
-      - ryans_phone
-```
-{% endraw %}
-
-The resulting title of the alert could be `Garage has been open for 30 min`.
-
 ### {% linkable_title Additional parameters for notifiers  %}
 
 Some notifiers support more parameters (e.g., to set text color or action
