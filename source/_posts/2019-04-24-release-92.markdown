@@ -11,7 +11,7 @@ categories: Release-Notes
 og_image: /images/blog/2019-04-release-92/components.png
 ---
 
-- [Introducing integrations](https://developers.home-assistant.io/blog/2019/04/12/new-integration-structure.html)
+- All custom components will need an `__init__.py` file, this can be empty. For custom component developers, see the blog post [Introducing integrations](https://developers.home-assistant.io/blog/2019/04/12/new-integration-structure.html)
 - Lovelace can stream cameras (pending docs). Add `camera_view: live` to picture glance, picture entity, picture elements. Warn, can use a lot of data. We are exploring being able to add a mode to only show it on desktop.
 - If you are still receiving a message that your configuration contains extra keys, this is the last release that this will be a warning. In the next release this will be an error and the integration won't set up.
 
