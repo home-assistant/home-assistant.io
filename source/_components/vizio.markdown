@@ -96,7 +96,7 @@ host:
   required: true
   type: string
 access_token:
-  description: Authentication token you received in the last step of the pairing process. While this parameter is technically not required if you are integrating a TV into HA the integration will not work without one.
+  description: Authentication token you received in the last step of the pairing process (if applicable).
   required: false
   type: string
 device_class:
