@@ -160,6 +160,33 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [yeelight docs]: /components/yeelight/
 [zha docs]: /components/zha/
 
+## {% linkable_title Release 0.91.3 - April 10 %}
+
+- Fix position of add_entities of binary sensor ([@AZDane] - [#22866]) ([concord232 docs])
+- More Mobile app sensor fixes ([@robbiet480] - [#22914]) ([mobile_app docs])
+- Add cloudhook and remote UI vals to get_config ([@robbiet480] - [#22921]) ([mobile_app docs])
+- Bugfix: pass protocol out of header to application layer ([@pvizeli] - [#22955]) ([hassio docs])
+
+[#22866]: https://github.com/home-assistant/home-assistant/pull/22866
+[#22914]: https://github.com/home-assistant/home-assistant/pull/22914
+[#22921]: https://github.com/home-assistant/home-assistant/pull/22921
+[#22955]: https://github.com/home-assistant/home-assistant/pull/22955
+[@AZDane]: https://github.com/AZDane
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[concord232 docs]: /components/concord232/
+[hassio docs]: /components/hassio/
+[mobile_app docs]: /components/mobile_app/
+
+## {% linkable_title Release 0.91.4 - April 16 %}
+
+- Fix ingress bug with Firefox ([@pvizeli] - [#23121]) ([hassio docs]) ([http docs])
+
+[#23121]: https://github.com/home-assistant/home-assistant/pull/23121
+[@pvizeli]: https://github.com/pvizeli
+[hassio docs]: /components/hassio/
+[http docs]: /components/http/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
