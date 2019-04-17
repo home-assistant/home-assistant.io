@@ -347,3 +347,16 @@ The default priority of operators is that the filter (`|`) has priority over eve
 
 Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by that.
 
+### {% linkable_title Examples %}
+
+1. Days-To Countdown 
+Here we use the as_timestamp which converts dates/time to a "seconds since epoch" value, which allows us to easily perform subtraction.
+We then convert the difference (in seconds) back to number-of-days by division with 86400 (that's how many seconds in a day). 
+Result of the division is a float value, so we round this up and we have the number of days till an event. 
+
+{% raw %}
+```yaml
+{{ (((as_timestamp(now()) - as_timestamp(states.calendar.holiday.attributes.start_time))|abs /86400)| round(0) )}}
+```
+{% endraw %}
+
