@@ -21,7 +21,7 @@ If you don't need to receive messages, you can use the [broadcast](/components/t
 
 ## {% linkable_title Notification services %}
 
-Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `send_sticker`, `edit_message`, `edit_replymarkup`, `edit_caption` and `answer_callback_query`.
+Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `send_sticker`, `edit_message`, `edit_replymarkup`, `edit_caption`, `answer_callback_query`, `delete_message` and `leave_chat`.
 
 ### {% linkable_title Service `telegram_bot.send_message` %}
 
@@ -160,6 +160,14 @@ Delete a previously sent message in a conversation.
 |---------------------------|----------|--------------------------------------------------|
 | `message_id`              |       no | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to delete the message.  |
+
+### {% linkable_title Service `telegram_bot.leave_chat` %}
+
+Remove the bot from the chat group where it was added.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `chat_id`                 |       no | The chat_id from where to remove the bot.  |
 
 ## {% linkable_title `telegram` notification platform %}
 
