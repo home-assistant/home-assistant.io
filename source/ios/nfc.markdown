@@ -5,7 +5,7 @@ description: "The landing page for NFC tags containing Home Assistant Companion 
 release_date: 2019-04-17 15:00:00 -0700
 sidebar: false
 comments: false
-sharing: true
+sharing: false
 footer: true
 ---
 
