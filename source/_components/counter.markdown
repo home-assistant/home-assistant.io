@@ -101,7 +101,7 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-#### {% linkable_title Service `counter.setup` %}
+#### {% linkable_title Service `counter.configure` %}
 
 With this service the properties of the counter can be changed while running.
 
