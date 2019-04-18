@@ -34,7 +34,7 @@ There are two distinct options for accessing a Genius Hub:
  - uses the v3 API - results are WIP and may not be what you expect
  - polls the hub directly (so is faster, say 1s response time)
 
-{% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
 
