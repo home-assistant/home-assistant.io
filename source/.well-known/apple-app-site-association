@@ -7,6 +7,18 @@
         "paths": [
           "/ios/*"
         ]
+      },
+      {
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.beta",
+        "paths": [
+          "/ios/*"
+        ]
+      },
+      {
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.dev",
+        "paths": [
+          "/ios/*"
+        ]
       }
     ]
   }
