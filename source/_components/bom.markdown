@@ -142,9 +142,10 @@ is equivalent to this one
 ```yaml
 camera:
   - platform: bom
-    id: 733
-    frames: 4
+    id: '053'
     delta: 600
+    frames: 4
+    name: 'Carnarvon'
 ```
 
 #### {% linkable_title Using `filename` %}
