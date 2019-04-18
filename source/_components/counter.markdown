@@ -51,6 +51,14 @@ counter:
       required: false
       type: integer
       default: 1
+    minimum:
+      description: Minimum value the counter will have
+      required: false
+      type: integer
+    maximum:
+      description: Maximum value the counter will have
+      required: false
+      type: integer
     icon:
       description: Icon to display for the counter.
       required: false
@@ -93,6 +101,18 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
+#### {% linkable_title Service `counter.configure` %}
+
+With this service the properties of the counter can be changed while running.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `minimum`              |     yes  | Set new value for minimum. None disables minimum. |
+| `maximum`              |     yes  | Set new value for maximum. None disables maximum. |
+| `step`                 |     yes  | Set new value for step |
+
+
 
 ### {% linkable_title Use the service %}
 
@@ -103,4 +123,3 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
   "entity_id": "counter.my_custom_counter"
 }
 ```
-
