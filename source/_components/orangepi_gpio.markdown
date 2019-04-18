@@ -10,7 +10,7 @@ footer: true
 ha_category:
   - DIY
   - Binary Sensor
-ha_release: 0.92
+ha_release: 0.93
 ha_iot_class: Local Push
 ---
 
