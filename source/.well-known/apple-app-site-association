@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant",
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.dev",
         "paths": [
           "/ios/*"
         ]
@@ -15,7 +15,7 @@
         ]
       },
       {
-        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.dev",
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant",
         "paths": [
           "/ios/*"
         ]
