@@ -16,21 +16,21 @@ ha_iot_class: Local Polling
 
 The `geniushub` integration links Home Assistant with your Genius Hub for controlling climate devices (the hub does not have to be in the same network as HA).
 
-Each Zone controlled by your Genius hub will report back the state, mode, setpoint and temperature.  Other properties are available via the device's `state_attributes`.
+Each Zone controlled by your Genius hub will report back the state, mode, setpoint and temperature. Other properties are available via the device's `state_attributes`.
 
-It uses this PyPi client library: https://pypi.org/project/geniushub-client/
+It uses this PyPi client library: [https://pypi.org/project/geniushub-client/](https://pypi.org/project/geniushub-client/)
 
 There are two distinct options for accessing a Genius Hub:
 
 ### {% linkable_title Option 1: hub token only %}
 
- - requires a **hub token** obtained from https://my.geniushub.co.uk/tokens
+ - requires a **hub token** obtained from [https://my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens)
  - uses the v1 API - which is well-documented
  - polls Heat Genius' own servers (so is slower, say 10-20s response time)
 
 ### {% linkable_title Option 2: hub hostname/address with user credentials %}
 
- - requires your **username** & **password**, as used with https://www.geniushub.co.uk/app
+ - requires your **username** & **password**, as used with [https://www.geniushub.co.uk/app](https://www.geniushub.co.uk/app)
  - uses the v3 API - results are WIP and may not be what you expect
  - polls the hub directly (so is faster, say 1s response time)
 
