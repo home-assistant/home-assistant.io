@@ -58,7 +58,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://materialdesignicons.com/cheatsheet)). Prefix name with `mdi:`, ie `mdi:home`.
+  description: Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/3.5.95/)). Prefix name with `mdi:`, ie `mdi:home`.
   required: false
   type: string
 assumed_state:
