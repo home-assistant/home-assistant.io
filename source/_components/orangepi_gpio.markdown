@@ -36,7 +36,7 @@ binary_sensor:
 
 {% configuration %}
 pin_mode:
-  description: Type of pin mode to use. This depends on which device you are actually using it ([PIN_MODE](/components/orangepi_gpio#pin_mode)).
+  description: Type of pin mode to use. This depends on which device you are actually using ([PIN_MODE](/components/orangepi_gpio#pin_mode)).
   required: true
   type: string
 ports:
