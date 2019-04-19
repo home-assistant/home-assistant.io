@@ -25,13 +25,13 @@ To retrieve your device's details, please follow the instructions [here](https:/
 <p class='note warning'>
   Please note, the Switcher-V2-Python script is written in python 2.7 syntax, it won't run with python 3.x.
 </p>
+
 <p class='note warning'>
   Please note, for the Switcher-V2-Python script to run successfully, you need to configure your device to work locally.
 </p>
+
 <p class='note warning'>
-  Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.</br>
-  As this component is based on that script, please do not upgrade to version 3.0 until this issue is resolved.</br>
-  You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
+  Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.As this component is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
 </p>
 ```yaml
 switcher_kis:
