@@ -28,15 +28,15 @@ To use your Orange Pi's GPIO in your installation, add the following to your `co
 # Example configuration.yaml entry
 binary_sensor:
   - platform: orangepi_gpio
-    pinmode: pc
+    pin_mode: pc
     ports:
       11: PIR Office
       12: PIR Bedroom
 ```
 
 {% configuration %}
-pinmode:
-  description: Type of pinmode to use. This depends on which device you are actually using it ([PINMODE](/components/orangepi_gpio#pinmode)).
+pin_mode:
+  description: Type of pin mode to use. This depends on which device you are actually using ([PIN_MODE](/components/orangepi_gpio#pin_mode)).
   required: true
   type: string
 ports:
@@ -57,9 +57,9 @@ invert_logic:
 
 Compared to the [Raspberry Pi GPIO](/components/rpi_gpio/) component, this component does not support pull-up resistors or port debouncing. Use external pull-ups and external port-debouncing.
 
-## {% linkable_title Pinmode %}
+## {% linkable_title Pin_mode %}
 
-As this platform supports different types of GPIO pinouts for difference Orange Pi or Nano Pi devices, we use the `pinmode` value to specify which one to use. Enabled values are:
+As this platform supports different types of GPIO pinouts for difference Orange Pi or Nano Pi devices, we use the `pin_mode` value to specify which one to use. Enabled values are:
 
 | Value | Description |
 | ----- | ----------- |
