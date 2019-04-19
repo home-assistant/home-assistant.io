@@ -51,11 +51,16 @@ Time for the first practice with the configurator. We're going to add the Config
  - Copy and paste the following to the end of the `configuration.yaml` file:
 
 ```yaml
-panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: http://hassio.local:3218
+panel_custom:
+  - name: hassio-main
+    sidebar_title: Configurator
+    sidebar_icon: hass:settings
+    js_url: /api/hassio/app/entrypoint.js
+    url_path: configurator
+    embed_iframe: true
+    require_admin: true
+    config:
+      ingress: core_configurator
 ```
 
  - Click the save icon in the top right to commit changes.
