@@ -51,8 +51,9 @@ For example, the following action in an automation would take a recording from `
 action:
   service: camera.record
   data:
-    stream_source: rtsp://my.stream.feed:554
-    filename: '/tmp/my_stream.mp4'
+    entity_id: camera.quintal
+    filename: '/config/www/my_stream.mp4'
+    duration: 30
 ```
 
 ## {% linkable_title Troubleshooting %}
