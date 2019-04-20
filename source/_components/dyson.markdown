@@ -23,7 +23,7 @@ redirect_from:
   - /components/sensor.dyson/
 ---
 
-The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms.
+The `dyson` component is the main component to integrate all [Dyson](https://www.dyson.com) related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
