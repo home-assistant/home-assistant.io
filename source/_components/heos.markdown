@@ -49,7 +49,7 @@ A connection to a single device enables control for all devices in the HEOS acco
 
 #### {% linkable_title Url %}
 
-You can play a url through a HEOS media player using the `media_player.play_media` service.  The HEOS player must be able to reach the URL.  Example service data payload:
+You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
 
 ```json
 {
@@ -63,7 +63,7 @@ You can play a url through a HEOS media player using the `media_player.play_medi
 | ---------------------- | ----------- | ----------- |
 | `entity_id`            | `entity_id` of the player to play the URL
 | `media_content_type`   | Set to the value `url`
-| `media_content_id`     | The full URL to the stream.
+| `media_content_id`     | The full URL to the stream
 
 
 ## {% linkable_title Notes %}
