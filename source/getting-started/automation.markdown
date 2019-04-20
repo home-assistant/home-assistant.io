@@ -12,7 +12,7 @@ redirect_from:
  - /getting-started/automation-2/
 ---
 
-hen your devices are set up, it’s time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
+When your devices are set up, it’s time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**.
 
 In Home Assistant, open the menu by clicking on the top-left icon and click on configuration. Now click on automations. This is the automation screen from which you can manage all the automations in Home Assistant.
 
