@@ -86,7 +86,7 @@ listen:
 
 ## Automations
 
-Automations can be triggered on filesystem event data using a `data_template`. The following automation will send a notification with the name and folder of new files added to that folder:
+Automations can be triggered on new files created on the Minio server using the `data_template`.
 
 {% raw %}
 ```yaml
@@ -137,7 +137,7 @@ These services are provided:
 
 Download file.
 
-| Service data attribute    | Optional | Description                                       |
+| Service data attribute    | Required | Description                                       |
 |---------------------------|----------|---------------------------------------------------|
 | `bucket`                  |      yes | Bucket to use                                     |
 | `key`                     |      yes | Object key of the file                            |
@@ -147,7 +147,7 @@ Download file.
 
 Upload file.
 
-| Service data attribute    | Optional | Description                                       |
+| Service data attribute    | Required | Description                                       |
 |---------------------------|----------|---------------------------------------------------|
 | `bucket`                  |      yes | Bucket to use                                     |
 | `key`                     |      yes | Object key of the file                            |
@@ -157,7 +157,7 @@ Upload file.
 
 Delete file.
 
-| Service data attribute    | Optional | Description                                       |
+| Service data attribute    | Required | Description                                       |
 |---------------------------|----------|---------------------------------------------------|
 | `bucket`                  |      yes | Bucket to use                                     |
 | `key`                     |      yes | Object key of the file                            |
