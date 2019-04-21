@@ -106,5 +106,6 @@ acl_file /share/mosquitto/accesscontrollist
 user your-mqtt-user
 topic #
 ```
+You may need to add .txt to the end of accesscontrollist to get it to save.  Then after it is saved rename the file and remove the .txt
 
 The `/share` folder can be accessed via SMB, or on the host filesystem under `/usr/share/hassio/share`.
