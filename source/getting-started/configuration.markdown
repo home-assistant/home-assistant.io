@@ -22,7 +22,11 @@ We are going to help you make your first changes to `configuration.yaml`. To do 
 From the Hass.io main panel, open the add-on store.
 </p>
 
-Under the "Core" section you will find HASS Configurator. Click on Configurator and click on "INSTALL". When installation is complete, the UI will go to the add-on details page for the configurator. To start using it, click on "START" and then click on "OPEN WEB UI".
+Under the "Core" section you will find HASS Configurator.
+
+ - Click on Configurator and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the configurator.
+ - Now start the add-on by clicking on START.
+ - Open the user interface by clcking on OPEN WEB UI.
 
 Now let's make a small change using the configurator: we are going to change the name and location of your Home Assistant installation.
 

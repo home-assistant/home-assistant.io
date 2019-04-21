@@ -33,7 +33,7 @@ It's also possible to run an app on your phone to provide detailed location info
 
 <img src='/images/screenshots/badges-zone.png' style='float: right; margin-left: 8px; height: 100px;'>
 
-Zones allow you to name areas on a map. These areas can then be used to nam the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from the integration page in the configurations screen.
+Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from the integration page in the configurations screen.
 
 <p class='note'>
 The map view will hide all devices that are home.

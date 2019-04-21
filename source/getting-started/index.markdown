@@ -13,9 +13,9 @@ footer: true
 
 Note for contributors:
 
-The getting started guide aims at getting new users up and running as fast as
-possible. Nothing else. All other things should not be written down, as it
-creates a spaghetti of links and the user will lose focus.
+The getting started guide aims at getting new users get Home Assistant  up and
+running as fast as possible. Nothing else. All other things should not be
+written down, as it creates a spaghetti of links and the user will lose focus.
 
 So here are guidelines:
 
@@ -31,7 +31,7 @@ So here are guidelines:
 
 {% endcomment %}
 
-The goal of this getting started guide is to install [Hass.io](/hassio/) on a Raspberry Pi. Hass.io is our own all in one solution that turns your Raspberry Pi or another device into the ultimate home automation hub.
+The goal of this getting started guide is to get Home Assistant running on a Raspberry Pi. The easiest way to do this, is using [Hass.io](/hassio/). Hass.io is our own all in one solution that turns Raspberry Pi's and another devices into the ultimate home automation hubs.
 
 Follow this guide if you want to get started with Home Assistant easily, or if you have no or little Linux experience. For advanced users or if you don't have a [device that is supported by this guide][supported], check our [alternative installation methods](/docs/installation/). Once you finish your alternative installation, you can continue at the [next step][next-step].
 
@@ -39,7 +39,7 @@ Follow this guide if you want to get started with Home Assistant easily, or if y
 
 ### {% linkable_title Suggested hardware%}
 
-We will need a few things to get started with installing Home Assistant. For best performance, we suggest the latest Raspberry Pi 3 Model B+. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
+We will need a few things to get started with installing Home Assistant. The latest Raspberry Pi model makes a good and affordable starting point for your home automation journey. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
 - [Raspberry Pi 3 Model B+](http://a.co/ak2SQor) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
 - [Micro SD Card](http://a.co/gslOydD). Get one that is Class 10 as they are more reliable. Size 32 GB or bigger recommended.
@@ -68,7 +68,7 @@ We will need a few things to get started with installing Home Assistant. For bes
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply, so it turns on.
 1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
-1. Home Assistant will be available at [http://hassio:8123][host] if you're on Windows, otherwise at [http://hassio.local:8123][local].
+1. Home Assistant will be available at [http://hassio.local:8123][local]. If you are running an older Windows or have stricter network configuration, you might need to access Home Assistant at [http://hassio:8123][host].
 
 [local]: http://hassio.local:8123
 [host]: http://hassio:8123
