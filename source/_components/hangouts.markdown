@@ -41,22 +41,16 @@ Once the code is obtained fill in the form with your email, password and the aut
 
 ### {% linkable_title Steps to obtain Authorization Code %}:
 
-
 1. To obtain your authorization code, open [this URL](https://accounts.google.com/o/oauth2/programmatic_auth?scope=https%3A%2F%2Fwww.google.com%2Faccounts%2FOAuthLogin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&client_id=936475272427.apps.googleusercontent.com&device_name=hangups) in your browser.
-
 2. Log into your Google account normally.
-
 3. You should be redirected to a loading screen. Copy the `oauth_code` cookie value set by this page and paste it here.
 
 
 To obtain the `oauth_code` cookie value using Chrome or Firefox, follow the steps below:
 
 * Press F12 to open developer tools.
-
 * Select the "Application" (Chrome) or "Storage" (Firefox) tab.
-
 * In the sidebar, expand "Cookies" and select `https://accounts.google.com`
-
 * In the cookie list, double click on the value for the `oauth_code` cookie to select it, and copy the value. This is the authorization code
 
 
