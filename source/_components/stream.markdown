@@ -45,7 +45,7 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
-For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/tmp`.
+For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/config/www`.
 
 ```yaml
 action:
