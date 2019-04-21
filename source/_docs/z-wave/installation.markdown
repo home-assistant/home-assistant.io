@@ -274,4 +274,4 @@ WARNING: Out of frame flow! (0xfe).  Sending NAK
 WARNING: Checksum incorrect - sending NAK
 ```
 
-If you see any of these messages repeated in the log then _probably_ you've got something else running that's also using the Z-Wave controller. That might mean you've also got the OpenZ-Wave control panel (ozwcp) running, or a second instance of Home Assistant, or something else. You need to stop that other process to resolve this.
+If you see any of these messages repeated in the log then _probably_ you've got something else running that's also using the Z-Wave controller. That might mean you've also got the OpenZ-Wave control panel (ozwcp) running, a second instance of Home Assistant or something else. You need to stop that other process to resolve this.
