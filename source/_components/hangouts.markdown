@@ -45,14 +45,12 @@ Once the code is obtained fill in the form with your email, password and the aut
 2. Log into your Google account normally.
 3. You should be redirected to a loading screen. Copy the `oauth_code` cookie value set by this page and paste it here.
 
-
 To obtain the `oauth_code` cookie value using Chrome or Firefox, follow the steps below:
 
 * Press F12 to open developer tools.
 * Select the "Application" (Chrome) or "Storage" (Firefox) tab.
 * In the sidebar, expand "Cookies" and select `https://accounts.google.com`
 * In the cookie list, double click on the value for the `oauth_code` cookie to select it, and copy the value. This is the authorization code
-
 
 <p class='note'>
 You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.<br>
