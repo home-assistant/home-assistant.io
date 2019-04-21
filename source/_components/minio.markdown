@@ -62,6 +62,7 @@ listen:
   required: false
   default: "*"
   type: list
+  keys:
     bucket:
       description: Bucket to use
       required: true
