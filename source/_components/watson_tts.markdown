@@ -9,9 +9,7 @@ sharing: true
 footer: true
 logo: watson_tts.png
 ha_category: Text-to-speech
-ha_release: 0.92
-redirect_from:
- - /components/tts.watson_tts/
+ha_release: 0.93
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
@@ -31,7 +29,6 @@ To configure Watson TTS, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 tts:
   - platform: watson_tts
-    watson_url: https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize
     watson_apikey: your-generated-apikey
 ```
 
