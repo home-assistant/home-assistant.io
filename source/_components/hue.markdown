@@ -30,7 +30,7 @@ Once discovered, if you have a custom default view, locate `configurator.philips
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with Home Assistant again. To avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.
 
-Once registration is complete you should see the Hue lights listed as `light` entities, Hue presence sensors listed as `binary_sensor` entites, and Hue temperature and light level sensors listed as `sensor` entities. If you don't you may have to restart Home Assistant once more.
+Once registration is complete you should see the Hue lights listed as `light` entities, Hue presence sensors listed as `binary_sensor` entites, Hue temperature and light level sensors listed as `sensor` entities. If you don't you may have to restart Home Assistant once more.
 
 If you want to enable the component without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
 
