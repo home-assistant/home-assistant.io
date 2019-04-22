@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: aprs.png
-ha_release: 0.92
+ha_release: 0.93
 ha_category: Presence Detection
 ha_iot_class: Cloud Push
 ---
