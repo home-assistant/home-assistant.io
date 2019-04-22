@@ -40,7 +40,7 @@ name:
   type: string
 state_topic:
   description: The topic that contains all subtopics for the rooms.
-  required: false
+  required: true
   default: room_presence
   type: string
 timeout:
