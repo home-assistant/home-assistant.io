@@ -50,7 +50,7 @@ host:
   type: string
   default: rotate.aprs2.net
 timeout:
-  description: The amount of time to wait to connect to the APRS-IS network.
+  description: The number of seconds to wait to connect to the APRS-IS network before giving up.
   required: false
   type: float
   default: 30.0
