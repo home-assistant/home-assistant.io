@@ -148,7 +148,7 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 
 ### {% linkable_title Service `netgear_lte.connect_lte` %}
 
-This service call asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
+This service asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -156,7 +156,7 @@ This service call asks the modem to establish its LTE connection, useful if the 
 
 ### {% linkable_title Service `netgear_lte.delete_sms` %}
 
-The integration makes a service call available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+The integration makes a service available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -165,7 +165,7 @@ The integration makes a service call available to delete messages from the modem
 
 ### {% linkable_title Service `netgear_lte.set_option` %}
 
-This service call can set modem configuration options (otherwise available in the modem web UI).
+This service can set modem configuration options (otherwise available in the modem web UI).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
