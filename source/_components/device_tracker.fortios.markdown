@@ -1,17 +1,19 @@
 
-The `FortiOS` platform allows Home Assistant to track devices identified by a FortiGate from [Fortinet](https://www.fortinet.com).
+This component enables Home Assistant to do device tracking of devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
+
+The component rely on fortiosapi: https://pypi.org/project/fortiosapi/
+The component has been tested both on FortiGate appliance and FortiGate VM running SW FortiOS v. 6.0.x and 6.2.0.
 
 All devices with a MAC address identified by FortiGate would be tracked, this covers both Ethernet and WiFi devices, incl. devices detected by LLDP.
 
-The component is based on the `device_tracker` platform
-
+The component is based on the Home Assistant `device_tracker` platform.
 
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
   - platform: fortios
     host: 192.168.0.1
-    token: XXX 
+    token: YOUR_API_USER_KEY
     verify_ssl: False
 ```
 
@@ -21,7 +23,7 @@ device_tracker:
     required: true
     type: string
   token:
-    description: API token. See [Fortinet Devloper Network](https://fndn.fortinet.com) for how to create a API token.
+    description: See [Fortinet Devloper Network](https://fndn.fortinet.com) for how to create a API token. Remember this component only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
     required: true
     type: string
   verify_ssl:
