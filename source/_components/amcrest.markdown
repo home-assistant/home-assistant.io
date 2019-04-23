@@ -142,7 +142,7 @@ switches:
     Switches to display in the frontend.  
     
     **Note:** Switches are deprecated and will be removed in a future release.  
-    Use camera services and attributes instead.  
+    Use services and attributes instead.  
     
     The following switches can be monitored:
   required: false
@@ -167,7 +167,7 @@ Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
 make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/)
 documentation to install the `ffmpeg`.
 
-## {% linkable_title Camera Services %}
+## {% linkable_title Services %}
 
 Once loaded, the `amcrest` component will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
 
