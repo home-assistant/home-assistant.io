@@ -21,13 +21,13 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 # Example configuration.yaml entry
 sensor:
   - platform: fronius
-    host: 192.168.42.47
+    resource: http://192.168.42.47
     device: 1
-    type: inverter
+    sensor_type: inverter
 
   - platform: fronius
-    host: 192.168.42.47
-    type: inverter
+    resource: http://192.168.42.47
+    sensor_type: meter
     scope: system
 ```
 
@@ -56,11 +56,11 @@ The sensors depend on the state of the Fronius device, that's why it is recommen
     electricity_autonomy:  
       unit_of_measurement: '%'
       value_template: >
-        {% if states.sensor.fronius_power_flow_1921684249.attributes.relative_autonomy is defined %}
+        {% if states.sensor.fronius_power_flow_1921684249.attributes.relative_autonomy is defined -%}
           {{ states.sensor.fronius_power_flow_1921684249.attributes.relative_autonomy | float | round(2) }}
-        {% else %}
+        {%- else -%}
           0
-        {% endif %}
+        {%- endif %}
 ```
 
 The component is based on  [pyfronius library](https://github.com/nielstron/pyfronius) by Niels Mündler and Gerrit Beine.
