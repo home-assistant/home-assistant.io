@@ -178,7 +178,7 @@ json_attributes_topic:
   type: string
 {% endconfiguration %}
 
-### {% Legacy configuration example %}
+###  Legacy configuration example
 
 {% raw %}
 ```yaml
@@ -221,7 +221,7 @@ vacuum:
 ```
 {% endraw %}
 
-### {% Legacy MQTT Protocol %}
+### Legacy MQTT Protocol
 
 The above configuration for this component expects an MQTT protocol like the following.
 
@@ -394,7 +394,7 @@ vacuum:
 ```
 {% endraw %}
 
-### {% State MQTT Protocol %}
+### State MQTT Protocol
 
 The above configuration for this component expects an MQTT protocol like the following.
 
@@ -434,7 +434,7 @@ State has to be one of vacuum states supported by Home Assistant:
 - error.
 
 
-### {% Shared MQTT Protocol %}
+### Shared MQTT Protocol
 
 The configuration for this component expects an MQTT protocol like the following.
 These services are identical for both - legacy and state vacuum.
@@ -450,7 +450,7 @@ Possible MQTT payloads:
 - `high` - High fan speed
 - `max` - Max fan speed
 
-#### {% Send Custom Command %}
+#### Send Custom Command
 
 Vacuum send_command allows three parameters:
 
