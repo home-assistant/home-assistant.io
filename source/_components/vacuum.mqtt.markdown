@@ -15,9 +15,11 @@ ha_release: 0.54
 The `mqtt` vacuum component allows you to control your MQTT-enabled vacuum.
 There are 2 possible message schemas - `legacy` and `state`.
 New installation should use `state` schema as `legacy` is deprecated and might be removed someday in the future.
+`state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is preferred parent vacuum entity.
+
 This documentation has 3 sections. Config for `legacy` vacuum with examples, config for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
-# {% Configuration %}
+# Configuration
 
 To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
 
