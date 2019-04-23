@@ -57,19 +57,31 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Fix lightwave config validation ([@amelchio] - [#22576]) ([lightwave docs]) (breaking change)
-- Amcrest: Add on/off support & attributes. Bump amcrest to 1.3.0 ([@pnbruckner] - [#22418]) ([amcrest docs]) (breaking change)
-- Remove deprecated Insteon components ([@balloob] - [#22710]) ([insteon_local docs]) ([insteon_plm docs]) (breaking change)
-- Logi Circle public API refactor and config flow ([@evanjd] - [#20624]) ([logi_circle docs]) (breaking change)
-- Remove introduction component ([@balloob] - [#22944]) ([introduction docs]) (breaking change)
-- Check for supported features in media_player services ([@andrewsayre] - [#22878]) ([media_player docs]) (breaking change)
-- Google Assistant: Migrate light setting trait to use HSV color spectrum ([@balloob] - [#22980]) ([google_assistant docs]) (breaking change)
-- Load requirements and dependencies from manifests. Fallback to current `REQUIREMENTS` and `DEPENDENCIES` ([@rohankapoorcom] - [#22717]) (breaking change)
-- Add Satel_integra switchable outputs and multiple partitions ([@c-soft] - [#21992]) ([satel_integra docs]) (breaking change) (new-platform)
-- Deprecate implicit state_topic for MQTT discovery ([@emontnemery] - [#22998]) ([mqtt docs]) (breaking change)
-- Handle missing 'serialno' of Android TV ([@JeffLIrion] - [#22996]) ([androidtv docs]) (breaking change)
-- Rename google/tts.py to google_translate/tts.py ([@awarecan] - [#23090]) ([google docs]) ([google_translate docs]) ([tts docs]) (breaking change) (new-integration)
-- Changed scene unique IDs ([@pbalogh77] - [#22987]) ([fibaro docs]) (breaking change)
+- __lightwave__ - Lightwave configuration was not properly validated before but it is now. This can cause invalid configurations to finally be flagged as such. ([@amelchio] - [#22576]) ([lightwave docs]) 
+- __Amcrest__ - Remove Build Date, Version and Serial Number attributes from sensors. These values do not change during the life of the device and are not appropriate for state attributes. ([@pnbruckner] - [#22418]) ([amcrest docs]) 
+- __Insteon__ - Placeholders that forwarded users from insteon_plm and insteon_local to insteon component have been removed. ([@balloob] - [#22710]) ([insteon_local docs]) ([insteon_plm docs]) 
+- __Logi Circle__ - This is a breaking change to the Logi Circle integration which migrates from Logitech's private API to their public API.
+  * Authentication with Logi Circle's API is now performed using an authorization code grant, and is managed by the Integrations page. It's no longer possible to authenticate with a username and password directly. Please remove any existing configuration for the logi_circle integration and follow the directions here to configure the logi_circle integration with at least a client_id, client_secret, api_key and redirect_uri.
+   * Logi Circle camera and sensor entities are now auto-discovered once the integration is authenticated. Users should remove the logi_circle integration from camera and sensor platforms as this is no longer supported.
+   * Logi Circle services have been moved from the camera domain to the logi_circle domain
+   
+   Please check the documentation for further details. ([@evanjd] - [#20624]) ([logi_circle docs]) 
+- __Introduction__ - The introduction integration has been removed. It used to be part of the initially created configuration but no longer served a purpose. ([@balloob] - [#22944]) ([introduction docs]) 
+- __media_player__ - The Media Player component will now guard against calling services that are not supported by the entity. This means that if you attempt to invoke `media_player.turn_on`, but the entity does not indicate it can be turned on through `supported_features`, the service will not be called and will not log any message. This is a breaking change as in the past it have called the `turn_on` implementation. There may be platforms that do not properly set `supported_features` which may result in service calls not being invoked as in the past they would have been.([@andrewsayre] - [#22878]) ([media_player docs]) 
+- __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will get you improved color representation. ([@balloob] - [#22980]) ([google_assistant docs]) 
+- __Load requirements and dependencies from manifests__ - Developers: Setup entity platform will set up its component now despite DEPENDENCIES. ([@rohankapoorcom] - [#22717]) 
+- __Satel_integra__ -  The component now supports multiple partitions and this forced a configuration change. Instead of single parameters partition and single_home_mode there are now section partitions. Please see the documentation for further details. ([@c-soft] - [#21992]) ([satel_integra docs])  (new-platform)
+- __MQTT__ - MQTT discovery will not longer implicitly set state_topic except for mqtt.alarm_control_panel, mqtt.binary_sensor and mqtt.sensor. ([@emontnemery] - [#22998]) ([mqtt docs])
+- __Android TV__ - This will change the `unique_id` used to identify Android TV devices. As a result, users may find that the entity ID's of their `androidtv` media players have changed. This can be resolved by going to Configuration > Entity Registry and deleting those entries, then restarting HA. (Note: Fire TV devices are not affected.)([@JeffLIrion] - [#22996]) ([androidtv docs]) 
+- __Google TTS__ -  The `google tts` platform has changed to `google_translate`. Default configs will be migrated to the new platform during 0.92 startup. A manual update will be required if the user has changed default tts or is loading the tts configuration from another location. ([@awarecan] - [#23090]) ([google docs]) ([google_translate docs]) ([tts docs])  (new-integration)
+```
+# Text to speech
+tts:
+  - platform: google_translate
+    service_name: google_say
+```
+
+- __Fibaro__ - There was a potential unique ID collision which caused problems for some users, as scenes and devices were enumerated separately, so the same ID could be assigned if they were unnamed. The unique ID generation has been changed to avoid this, which is a breaking change with regard to scenes. ([@pbalogh77] - [#22987]) ([fibaro docs])
 
 ## {% linkable_title All changes %}
 
