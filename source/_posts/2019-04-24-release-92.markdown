@@ -74,13 +74,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __MQTT__ - MQTT discovery will not longer implicitly set `state_topic` except for `mqtt.alarm_control_panel`, `mqtt.binary_sensor` and `mqtt.sensor`. ([@emontnemery] - [#22998]) ([mqtt docs])
 - __Android TV__ - This will change the `unique_id` used to identify Android TV devices. As a result, users may find that the entity ID's of their `androidtv` media players have changed. This can be resolved by going to Configuration > Entity Registry and deleting those entries, then restarting HA. (Note: Fire TV devices are not affected.)([@JeffLIrion] - [#22996]) ([androidtv docs]) 
 - __Google TTS__ -  The `google tts` platform has changed to `google_translate`. Default configs will be migrated to the new platform during 0.92 startup. A manual update will be required if the user has changed default tts or is loading the tts configuration from another location. ([@awarecan] - [#23090]) ([google docs]) ([google_translate docs]) ([tts docs])  (new-integration)
-```
-# Text to speech
-tts:
-  - platform: google_translate
-    service_name: google_say
-```
-
 - __Fibaro__ - There was a potential unique ID collision which caused problems for some users, as scenes and devices were enumerated separately, so the same ID could be assigned if they were unnamed. The unique ID generation has been changed to avoid this, which is a breaking change with regard to scenes. ([@pbalogh77] - [#22987]) ([fibaro docs])
 
 ## {% linkable_title All changes %}
