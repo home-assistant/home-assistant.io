@@ -13,8 +13,11 @@ ha_release: 0.54
 ---
 
 The `mqtt` vacuum component allows you to control your MQTT-enabled vacuum.
+There are 2 possible message schemas - `legacy` and `state`.
+New installation should use `state` schema as `legacy` is deprecated and might be removed someday in the future.
+This documentation has 3 sections. Config for `legacy` vacuum with examples, config for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
-## {% linkable_title Configuration %}
+# {% Configuration %}
 
 To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
 
@@ -24,14 +27,23 @@ vacuum:
   - platform: mqtt
 ```
 
+# {% linkable_title Legacy Configuration %}
+
+## {% linkable_title Legacy schema configuration %}
+
 {% configuration %}
 name:
   description: The name of the vacuum.
   required: false
   type: string
   default: MQTT Vacuum
+schema:
+  description: The schema to use.
+  required: false
+  type: string
+  default: legacy
 supported_features:
-  description: "List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
+  description: List of features that the vacuum supports (possible values are `turn_on`, `turn_off`, `pause`, `stop`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
   required: false
   type: string list
   default: "`turn_on`, `turn_off`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
@@ -50,12 +62,12 @@ retain:
   type: boolean
   default: false
 payload_turn_on:
-  description: "The payload to send to the `command_topic` to begin the cleaning cycle."
+  description: The payload to send to the `command_topic` to begin the cleaning cycle.
   required: false
   type: string
   default: turn_on
 payload_turn_off:
-  description: "The payload to send to the `command_topic` to turn the vacuum off."
+  description: The payload to send to the `command_topic` to turn the vacuum off.
   required: false
   type: string
   default: turn_off
@@ -89,7 +101,7 @@ battery_level_topic:
   required: false
   type: string
 battery_level_template:
-  description: "Defines a [template](/topics/templating/) to define the battery level of the vacuum."
+  description: Defines a [template](/topics/templating/) to define the battery level of the vacuum.
   required: false
   type: string
 charging_topic:
@@ -97,7 +109,7 @@ charging_topic:
   required: false
   type: string
 charging_template:
-  description:  "Defines a [template](/topics/templating/) to define the charging state of the vacuum."
+  description:  Defines a [template](/topics/templating/) to define the charging state of the vacuum.
   required: false
   type: string
 cleaning_topic:
@@ -105,7 +117,7 @@ cleaning_topic:
   required: false
   type: string
 cleaning_template:
-  description: "Defines a [template](/topics/templating/) to define the cleaning state of the vacuum."
+  description: Defines a [template](/topics/templating/) to define the cleaning state of the vacuum.
   required: false
   type: string
 docked_topic:
@@ -113,7 +125,7 @@ docked_topic:
   required: false
   type: string
 docked_template:
-  description: "Defines a [template](/topics/templating/) to define the docked state of the vacuum."
+  description: Defines a [template](/topics/templating/) to define the docked state of the vacuum.
   required: false
   type: string
 error_topic:
@@ -121,7 +133,7 @@ error_topic:
   required: false
   type: string
 error_template:
-  description: "Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum."
+  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum.
   required: false
   type: string
 fan_speed_topic:
@@ -164,7 +176,7 @@ json_attributes_topic:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration example %}
+### {% Legacy configuration example %}
 
 {% raw %}
 ```yaml
@@ -207,11 +219,11 @@ vacuum:
 ```
 {% endraw %}
 
-### {% linkable_title Default MQTT Protocol %}
+### {% Legacy MQTT Protocol %}
 
 The above configuration for this component expects an MQTT protocol like the following.
 
-#### Basic Commands
+#### Legacy Basic Commands
 
 MQTT topic: `vacuum/command`
 
@@ -224,23 +236,6 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 - `start_pause` - Toggle the vacuum between cleaning and stopping
-
-#### Set Fan Speed
-
-MQTT topic: `vacuum/set_fan_speed`
-
-Possible MQTT payloads:
-
-- `min` - Minimum fan speed
-- `medium` - Medium fan speed
-- `high` - High fan speed
-- `max` - Max fan speed
-
-#### Send Custom Command
-
-MQTT topic: `vacuum/send_command`
-
-MQTT payload for `send_command` can be an arbitrary value handled by the vacuum's MQTT-enabled firmware.
 
 #### Status/Sensor Updates
 
@@ -258,6 +253,234 @@ MQTT payload:
     "error": "Error message"
 }
 ```
+
+# {% linkable_title State Configuration %}
+
+State MQTT vacuum configuration section.
+
+## {% linkable_title State schema configuration %}
+
+{% configuration %}
+name:
+  description: The name of the vacuum.
+  required: false
+  type: string
+  default: MQTT Vacuum
+schema:
+  description: The schema to use.
+  required: false
+  type: string
+  default: legacy
+supported_features:
+  description: "List of features that the vacuum supports (possible values are `start`, `stop`, `pause`, `return_home`, `battery`, `status`, `locate`, `clean_spot`, `fan_speed`, `send_command`)."
+  required: false
+  type: string list
+  default: "`start`, `stop`, `return_home`, `status`, `battery`, `clean_spot`"
+command_topic:
+  description: The MQTT topic to publish commands to control the vacuum.
+  required: false
+  type: string
+qos:
+  description: The maximum QoS level of the state topic.
+  required: false
+  type: integer
+  default: 0
+retain:
+  description: If the published message should have the retain flag on or not.
+  required: false
+  type: boolean
+  default: false
+payload_start:
+  description: "The payload to send to the `command_topic` to begin the cleaning cycle."
+  required: false
+  type: string
+  default: start
+payload_stop:
+  description: "The payload to send to the `command_topic` to stop cleaning."
+  required: false
+  type: string
+  default: stop
+payload_return_to_base:
+  description: The payload to send to the `command_topic` to tell the vacuum to return to base.
+  required: false
+  type: string
+  default: return_to_base
+payload_clean_spot:
+  description: The payload to send to the `command_topic` to begin a spot cleaning cycle.
+  required: false
+  type: string
+  default: clean_spot
+payload_locate:
+  description: The payload to send to the `command_topic` to locate the vacuum (typically plays a song).
+  required: false
+  type: string
+  default: locate
+payload_pause:
+  description: The payload to send to the `command_topic` to pause the vacuum.
+  required: false
+  type: string
+  default: pause
+state_topic:
+  description: The MQTT topic subscribed to receive state messages from the vacuum. State topic is extracting json if no `value_template` is defined.
+  required: false
+  type: string
+value_template:
+  description: "Defines a [template](/topics/templating/) to extract possible states from the vacuum."
+  required: false
+  type: string
+set_fan_speed_topic:
+  description: The MQTT topic to publish commands to control the vacuum's fan speed.
+  required: false
+  type: string
+fan_speed_list:
+  description: List of possible fan speeds for the vacuum.
+  required: false
+  type: string list
+send_command_topic:
+  description: The MQTT topic to publish custom commands to the vacuum.
+  required: false
+  type: string
+availability_topic:
+  description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+payload_available:
+  description: The payload that represents the available state.
+  required: false
+  type: string
+  default: online
+payload_not_available:
+  description: The payload that represents the unavailable state.
+  required: false
+  type: string
+  default: offline
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+{% endconfiguration %}
+
+### {% linkable_title State configuration example %}
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+vacuum:
+  - platform: mqtt
+    name: "MQTT Vacuum"
+    supported_features:
+      - start
+      - pause
+      - stop
+      - return_home
+      - battery
+      - status
+      - locate
+      - clean_spot
+      - fan_speed
+      - send_command
+    command_topic: "vacuum/command"
+    state_topic: "vacuum/state"
+    set_fan_speed_topic: "vacuum/set_fan_speed"
+    fan_speed_list:
+      - min
+      - medium
+      - high
+      - max
+    send_command_topic: 'vacuum/send_command'
+```
+{% endraw %}
+
+### {% State MQTT Protocol %}
+
+The above configuration for this component expects an MQTT protocol like the following.
+
+#### State Basic Commands
+
+MQTT topic: `vacuum/command`
+
+Possible MQTT payloads:
+
+- `start` - Start cleaning
+- `pause` - Pause cleaning
+- `return_to_base` - Return to base/dock
+- `stop` - Stop the vacuum.
+- `clean_spot` - Initialize a spot cleaning cycle
+- `locate` - Locate the vacuum (typically by playing a song)
+
+#### Status/Sensor Updates
+
+MQTT topic: `vacuum/state`
+
+MQTT payload:
+
+```json
+{
+    "battery_level": 61,
+    "state": "docked",
+    "fan_speed": "off"
+}
+```
+
+State has to be one of vacuum states supported by Home Assistant:
+- cleaning,
+- docked,
+- paused,
+- idle,
+- returning,
+- error.
+
+
+### {% Shared MQTT Protocol %}
+
+The configuration for this component expects an MQTT protocol like the following.
+These services are identical for both - legacy and state vacuum.
+
+#### Set Fan Speed
+
+MQTT topic: `vacuum/set_fan_speed`
+
+Possible MQTT payloads:
+
+- `min` - Minimum fan speed
+- `medium` - Medium fan speed
+- `high` - High fan speed
+- `max` - Max fan speed
+
+#### {% Send Custom Command %}
+
+Vacuum send_command allows three parameters:
+
+- entity_id
+- command
+- params - optional
+
+If params are not provided it sends command as payload to MQTT send_command topic.
+If params are provided service sends json as payload with such structure:
+```
+{
+  'command': 'command',
+  'param1-key': 'param1-value'
+}
+```
+
+Service trigger example:
+```
+- alias: Push command based on sensor
+    trigger:
+      - platform: state
+        entity_id: sensor.sensor
+    action:
+      service: vacuum.send_command
+      data:
+        entity_id: 'vacuum.vacuum_entity'
+        command: 'custom_command'
+        params:
+          - key: value
+```
+
+MQTT topic: `vacuum/send_command`
+
 
 ### {% linkable_title Usage with cloudless Xiaomi vacuums %}
 
