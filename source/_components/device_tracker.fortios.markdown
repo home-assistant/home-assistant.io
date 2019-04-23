@@ -18,11 +18,11 @@ device_tracker:
 ```
 
 {% configuration %}
-  host:
+host:
     description: Hostname or IP address of the FortiGate
     required: true
     type: string
-  token:
+token:
     description: See [Fortinet Devloper Network](https://fndn.fortinet.com) for how to create a API token. Remember this component only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
     required: true
     type: string
