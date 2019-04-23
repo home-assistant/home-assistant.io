@@ -10,9 +10,8 @@ footer: true
 ha_category: Energy
 logo: fronius.png
 ha_iot_class: "Local Polling"
-ha_release: 0.60
+ha_release: 0.90
 ---
-
 
 The `fronius` sensor will poll a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors (or attributes of sensors) in Home Assistant.
 
@@ -28,26 +27,8 @@ sensor:
 
   - platform: fronius
     host: 192.168.42.47
-    device: 2
-    type: inverter
-
-  - platform: fronius
-    host: 192.168.42.47
     type: inverter
     scope: system
-
-  - platform: fronius
-    host: 192.168.42.49
-    type: storage
-
-  - platform: fronius
-    host: 192.168.42.49
-    type: meter
-
-  - platform: fronius
-    host: 192.168.42.49
-    type: power_flow
-
 ```
 
 Configuration variables:
