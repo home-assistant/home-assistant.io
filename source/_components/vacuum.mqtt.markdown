@@ -368,6 +368,7 @@ json_attributes_topic:
 vacuum:
   - platform: mqtt
     name: "MQTT Vacuum"
+    schema: state
     supported_features:
       - start
       - pause
