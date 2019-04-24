@@ -8,7 +8,7 @@ comments: true
 sharing: true
 footer: true
 logo: supla.png
-ha_release: 0.91
+ha_release: 0.92
 ha_category:
   - Hub
   - Cover
