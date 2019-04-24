@@ -25,9 +25,6 @@ sensor:
     resource: FRONIUS_URL_HERE
     monitored_conditions:
     - sensor_type: inverter
-      device: 1
-    - sensor_type: meter
-      scope: system
 ```
 
 ### {% linkable_title Configuration variables %}
@@ -56,6 +53,24 @@ monitored_conditions:
       required: false
       default: `1` for inverters and `0` for storages according to Fronius Specs
 {% endconfiguration %}
+
+### {% linkable_title More complete example %}
+
+```yaml
+sensor:
+  - platform: fronius
+    resource: FRONIUS_URL_HERE
+    monitored_conditions:
+    - sensor_type: inverter
+      device: 1
+    - sensor_type: meter
+      scope: system
+    - sensor_type: meter
+      device: 3
+    - sensor_type: storage
+      device: 0
+    - sensor_type: power_flow
+```
 
 ### {% linkable_title Sensors configuration %}
 
