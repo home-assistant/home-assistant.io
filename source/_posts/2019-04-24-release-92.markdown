@@ -56,6 +56,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
+- __Google Assistant__ - You will now have to say a pin code before being able to control locks, doors and garage doors. You can set this pin in configuration -> cloud or, for manual installs, add `secure_devices_pin` to your config. ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
+- __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs])
 - __Lightwave__ - Lightwave configuration was not properly validated before but it is now. This can cause invalid configurations to finally be flagged as such. ([@amelchio] - [#22576]) ([lightwave docs])
 - __Amcrest__ - Remove Build Date, Version and Serial Number attributes from sensors. These values do not change during the life of the device and are not appropriate for state attributes. ([@pnbruckner] - [#22418]) ([amcrest docs])
 - __Insteon__ - Placeholders that forwarded users from insteon_plm and insteon_local to insteon component have been removed. ([@balloob] - [#22710])
@@ -67,14 +69,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
    Please check the documentation for further details. ([@evanjd] - [#20624]) ([logi_circle docs])
 - __Introduction__ - The introduction integration has been removed. It used to be part of the initially created configuration but no longer served a purpose. ([@balloob] - [#22944]) ([introduction docs])
 - __media_player__ - The `media_player` component will now guard against calling services that are not supported by the entity. This means that if you attempt to invoke `media_player.turn_on`, but the entity does not indicate it can be turned on through `supported_features`, the service will not be called and will not log any message. This is a breaking change as in the past it would have called the `turn_on` implementation. There may be platforms that do not properly set `supported_features` which may result in service calls not being invoked where they would have previously.([@andrewsayre] - [#22878]) ([media_player docs])
-- __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs])
 - __Load requirements and dependencies from manifests__ - Developers - Setup entity platform will set up its component now despite DEPENDENCIES. ([@rohankapoorcom] - [#22717])
 - __Satel Integra__ -  The component now supports multiple partitions and this required a configuration change. Instead of a single parameters partition and `single_home_mode` there are now section partitions. Please see the documentation for further details. ([@c-soft] - [#21992]) ([satel_integra docs])  (new-platform)
 - __MQTT__ - MQTT discovery will not longer implicitly set `state_topic` except for `mqtt.alarm_control_panel`, `mqtt.binary_sensor` and `mqtt.sensor`. ([@emontnemery] - [#22998]) ([mqtt docs])
 - __Android TV__ - This will change the `unique_id` used to identify Android TV devices. As a result, users may find that the entity ID's of their `androidtv` media players have changed. This can be resolved by going to Configuration > Entity Registry and deleting those entries, then restarting HA. (Note: Fire TV devices are not affected.)([@JeffLIrion] - [#22996]) ([androidtv docs])
 - __Google TTS__ -  The `google tts` platform has changed to `google_translate`. Default configs will be migrated to the new platform during 0.92 startup. A manual update will be required if the user has changed default tts or is loading the tts configuration from another location. ([@awarecan] - [#23090]) ([google docs]) ([google_translate docs]) ([tts docs])  (new-integration)
 - __Fibaro__ - There was a potential unique ID collision which caused problems for some users, as scenes and devices were enumerated separately, so the same ID could be assigned if they were unnamed. The unique ID generation has been changed to avoid this, which is a breaking change with regard to scenes. ([@pbalogh77] - [#22987]) ([fibaro docs])
-- Ask users for a pin when interacting with locks/garage doors ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
 
 ## {% linkable_title Beta Fixes %}
 
