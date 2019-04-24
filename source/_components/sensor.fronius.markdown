@@ -22,21 +22,20 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: fronius
     resource: http://192.168.42.47
-    device: 1
-    sensor_type: inverter
-
-  - platform: fronius
-    resource: http://192.168.42.47
-    sensor_type: meter
-    scope: system
+    monitored_conditions:
+    - sensor_type: inverter
+      device: 1
+    - sensor_type: meter
+      scope: system
 ```
 
 Configuration variables:
 
-- **host** (*Required*): The IP address of the Fronius device
-- **type** (*Required*): The kind of device, can be one of `inverter`, `storage`, `meter`, or `power_flow`
-- **scope** (*Optional*): The used for device type storage and inverter, can be either `device` (the default) or `system`.
-- **device** (*Optional*): The id of the device to poll, set by default to `1` for inverters and `0` for storages according to Fronius Specs.
+- **resource** (*Required*): The (IP) address of the Fronius device
+- **monitored_conditions** (*Required*): A list of sensors to be added to home assistant, each configured by
+    - **type** (*Required*): The kind of device, can be one of `inverter`, `storage`, `meter`, or `power_flow`
+    - **scope** (*Optional*): The used for device type storage and inverter, can be either `device` (the default) or `system`.
+    - **device** (*Optional*): The id of the device to poll, set by default to `1` for inverters and `0` for storages according to Fronius Specs.
 
 Sensors configuration:
 
