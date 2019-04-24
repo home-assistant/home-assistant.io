@@ -260,13 +260,13 @@ This template contains no entities that will trigger an update, so we add an `en
 {% raw %}
 ```yaml
 sensor:
-- platform: template
-  sensors:
-    nonsmoker:
-      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      entity_id: sensor.date
-      friendly_name: 'Not smoking'
-      unit_of_measurement: "Days"
+  - platform: template
+    sensors:
+      nonsmoker:
+        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        entity_id: sensor.date
+        friendly_name: 'Not smoking'
+        unit_of_measurement: "Days"
 ```
 {% endraw %}
 
@@ -277,13 +277,13 @@ An alternative to this is to create an interval-based automation that calls the 
 {% raw %}
 ```yaml
 sensor:
-- platform: template
-  sensors:
-    nonsmoker:
-      value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
-      entity_id: []
-      friendly_name: 'Not smoking'
-      unit_of_measurement: "Days"
+  - platform: template
+    sensors:
+      nonsmoker:
+        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("06.07.2018", "%d.%m.%Y")) ) / 86400 ) | round(2) }}'
+        entity_id: []
+        friendly_name: 'Not smoking'
+        unit_of_measurement: "Days"
 
 automation:
   - alias: 'nonsmoker_update'

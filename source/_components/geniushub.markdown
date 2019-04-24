@@ -16,9 +16,7 @@ ha_iot_class: Local Polling
 
 The `geniushub` integration links Home Assistant with your Genius Hub for controlling climate devices (the hub does not have to be in the same network as HA).
 
-Each Zone controlled by your Genius hub will report back the state, mode, setpoint and temperature. Other properties are available via the device's `state_attributes`.
-
-It uses this PyPi client library: [https://pypi.org/project/geniushub-client/](https://pypi.org/project/geniushub-client/)
+Each Zone controlled by your Genius hub will report back the state, mode, setpoint and temperature. Other properties are available via the device's attributes.
 
 There are two distinct options for accessing a Genius Hub:
 
