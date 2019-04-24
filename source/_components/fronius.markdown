@@ -35,7 +35,7 @@ sensor:
 {% configuration %}
 resource:
   description: The (IP) address of the Fronius device
-  required: string
+  required: true
   type: url
 monitored_conditions:
   description: Conditions to display in the frontend
