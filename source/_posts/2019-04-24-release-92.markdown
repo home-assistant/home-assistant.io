@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "0.92: HEOS, Somfy MyLink, Genius Hub"
-description: "Get your whole home audio "
+description: "With 0.92, get your whole home auto game on with the new HEOS integration while controlling your covers with Somfy."
 date: 2019-04-24 00:11:03
 date_formatted: "April 24, 2019"
 author: Paulus Schoutsen
