@@ -15,12 +15,10 @@ og_image: /images/blog/2019-04-release-92/components.png
 - Lovelace can stream cameras (pending docs). Add `camera_view: live` to picture glance, picture entity, picture elements. Warn, can use a lot of data. We are exploring being able to add a mode to only show it on desktop.
 - If you are still receiving a message that your configuration contains extra keys, this is the last release that this will be a warning. In the next release this will be an error and the integration won't set up.
 
-
 ## {% linkable_title New Integrations %}
 
 - Add N26 component ([@markusressel] - [#22684]) ([n26 docs]) (new-integration) (new-platform)
 - Add Somfy MyLink support for Covers ([@bendews] - [#22514]) ([somfy_mylink docs]) (new-integration) (new-platform)
-- Camera component for BOM integration ([@maddenp] - [#22816]) ([bomradarcam docs]) (new-integration) (new-platform)
 - Instituto Geográfico Nacional Sismología (Earthquakes) Feed platform ([@exxamalte] - [#22696]) ([ign_sismologia docs]) (new-integration) (new-platform)
 - Rename google/tts.py to google_translate/tts.py ([@awarecan] - [#23090]) ([google docs]) ([google_translate docs]) ([tts docs]) (breaking change) (new-integration)
 
@@ -33,7 +31,7 @@ og_image: /images/blog/2019-04-release-92/components.png
 - Add OASA Telematics greek public transport sensor component ([@panosmz] - [#22196]) ([oasa_telematics docs]) (new-platform)
 - Initial Fibaro HC Climate support ([@pbalogh77] - [#20256]) ([fibaro docs]) (new-platform)
 - Add Somfy MyLink support for Covers ([@bendews] - [#22514]) ([somfy_mylink docs]) (new-integration) (new-platform)
-- Camera component for BOM integration ([@maddenp] - [#22816]) ([bomradarcam docs]) (new-integration) (new-platform)
+- Camera component for BOM integration ([@maddenp] - [#22816]) ([bom docs]) (new-platform)
 - Add amcrest binary_sensors ([@pnbruckner] - [#22703]) ([amcrest docs]) (new-platform)
 - Binary sensors for netgear_lte ([@amelchio] - [#22902]) ([netgear_lte docs]) (new-platform)
 - Add ESPHome climate support ([@OttoWinter] - [#22859]) ([esphome docs]) (new-platform)
@@ -44,6 +42,7 @@ og_image: /images/blog/2019-04-release-92/components.png
 - Simplify esphome ([@OttoWinter] - [#22868]) ([esphome docs]) (new-platform)
 - Genius hub ([@GeoffAtHome] - [#21598]) ([geniushub docs]) (new-platform)
 - Added epson workforce component ([@ThaStealth] - [#23144]) ([epsonworkforce docs]) (new-platform)
+- Add basic support for native Hue sensors ([@mitchellrj] - [#22598]) ([hue docs]) (beta fix) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -57,24 +56,69 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- __Lightwave__ - Lightwave configuration was not properly validated before but it is now. This can cause invalid configurations to finally be flagged as such. ([@amelchio] - [#22576]) ([lightwave docs]) 
-- __Amcrest__ - Remove Build Date, Version and Serial Number attributes from sensors. These values do not change during the life of the device and are not appropriate for state attributes. ([@pnbruckner] - [#22418]) ([amcrest docs]) 
-- __Insteon__ - Placeholders that forwarded users from insteon_plm and insteon_local to insteon component have been removed. ([@balloob] - [#22710]) ([insteon_local docs]) ([insteon_plm docs]) 
+- __Lightwave__ - Lightwave configuration was not properly validated before but it is now. This can cause invalid configurations to finally be flagged as such. ([@amelchio] - [#22576]) ([lightwave docs])
+- __Amcrest__ - Remove Build Date, Version and Serial Number attributes from sensors. These values do not change during the life of the device and are not appropriate for state attributes. ([@pnbruckner] - [#22418]) ([amcrest docs])
+- __Insteon__ - Placeholders that forwarded users from insteon_plm and insteon_local to insteon component have been removed. ([@balloob] - [#22710])
 - __Logi Circle__ - This is a breaking change to the Logi Circle integration which migrates from Logitech's private API to their public API.
   * Authentication with Logi Circle's API is now performed using an authorization code grant, and is managed by the Integrations page. It's no longer possible to authenticate with a username and password directly. Please remove any existing configuration for the logi_circle integration and follow the directions here to configure the logi_circle integration with at least a client_id, client_secret, api_key and redirect_uri.
    * Logi Circle camera and sensor entities are now auto-discovered once the integration is authenticated. Users should remove the logi_circle integration from camera and sensor platforms as this is no longer supported.
    * Logi Circle services have been moved from the camera domain to the logi_circle domain
-   
-   Please check the documentation for further details. ([@evanjd] - [#20624]) ([logi_circle docs]) 
-- __Introduction__ - The introduction integration has been removed. It used to be part of the initially created configuration but no longer served a purpose. ([@balloob] - [#22944]) ([introduction docs]) 
-- __media_player__ - The `media_player` component will now guard against calling services that are not supported by the entity. This means that if you attempt to invoke `media_player.turn_on`, but the entity does not indicate it can be turned on through `supported_features`, the service will not be called and will not log any message. This is a breaking change as in the past it would have called the `turn_on` implementation. There may be platforms that do not properly set `supported_features` which may result in service calls not being invoked where they would have previously.([@andrewsayre] - [#22878]) ([media_player docs]) 
-- __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs]) 
-- __Load requirements and dependencies from manifests__ - Developers - Setup entity platform will set up its component now despite DEPENDENCIES. ([@rohankapoorcom] - [#22717]) 
+
+   Please check the documentation for further details. ([@evanjd] - [#20624]) ([logi_circle docs])
+- __Introduction__ - The introduction integration has been removed. It used to be part of the initially created configuration but no longer served a purpose. ([@balloob] - [#22944]) ([introduction docs])
+- __media_player__ - The `media_player` component will now guard against calling services that are not supported by the entity. This means that if you attempt to invoke `media_player.turn_on`, but the entity does not indicate it can be turned on through `supported_features`, the service will not be called and will not log any message. This is a breaking change as in the past it would have called the `turn_on` implementation. There may be platforms that do not properly set `supported_features` which may result in service calls not being invoked where they would have previously.([@andrewsayre] - [#22878]) ([media_player docs])
+- __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs])
+- __Load requirements and dependencies from manifests__ - Developers - Setup entity platform will set up its component now despite DEPENDENCIES. ([@rohankapoorcom] - [#22717])
 - __Satel Integra__ -  The component now supports multiple partitions and this required a configuration change. Instead of a single parameters partition and `single_home_mode` there are now section partitions. Please see the documentation for further details. ([@c-soft] - [#21992]) ([satel_integra docs])  (new-platform)
 - __MQTT__ - MQTT discovery will not longer implicitly set `state_topic` except for `mqtt.alarm_control_panel`, `mqtt.binary_sensor` and `mqtt.sensor`. ([@emontnemery] - [#22998]) ([mqtt docs])
-- __Android TV__ - This will change the `unique_id` used to identify Android TV devices. As a result, users may find that the entity ID's of their `androidtv` media players have changed. This can be resolved by going to Configuration > Entity Registry and deleting those entries, then restarting HA. (Note: Fire TV devices are not affected.)([@JeffLIrion] - [#22996]) ([androidtv docs]) 
+- __Android TV__ - This will change the `unique_id` used to identify Android TV devices. As a result, users may find that the entity ID's of their `androidtv` media players have changed. This can be resolved by going to Configuration > Entity Registry and deleting those entries, then restarting HA. (Note: Fire TV devices are not affected.)([@JeffLIrion] - [#22996]) ([androidtv docs])
 - __Google TTS__ -  The `google tts` platform has changed to `google_translate`. Default configs will be migrated to the new platform during 0.92 startup. A manual update will be required if the user has changed default tts or is loading the tts configuration from another location. ([@awarecan] - [#23090]) ([google docs]) ([google_translate docs]) ([tts docs])  (new-integration)
 - __Fibaro__ - There was a potential unique ID collision which caused problems for some users, as scenes and devices were enumerated separately, so the same ID could be assigned if they were unnamed. The unique ID generation has been changed to avoid this, which is a breaking change with regard to scenes. ([@pbalogh77] - [#22987]) ([fibaro docs])
+- Ask users for a pin when interacting with locks/garage doors ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
+
+## {% linkable_title Beta Fixes %}
+
+- Kill bluetooth LE scanning gracefully when asked to shut down. ([@mitchellrj] - [#22586]) ([bluetooth_le_tracker docs]) (beta fix)
+- Add basic support for native Hue sensors ([@mitchellrj] - [#22598]) ([hue docs]) (beta fix) (new-platform)
+- Google assistant skip missing type ([@elupus] - [#23174]) ([google_assistant docs]) (beta fix)
+- Fix empty components ([@balloob] - [#23177]) (beta fix)
+- Don't warn for missing services ([@balloob] - [#23182]) (beta fix)
+- Improve configuration schema for Geniushub integration ([@zxdavb] - [#23155]) ([geniushub docs]) (beta fix)
+- Fix niko home control dependency installation ([@NoUseFreak] - [#23176]) ([niko_home_control docs]) (beta fix)
+- Hass.io Add-on panel support for Ingress ([@pvizeli] - [#23185]) ([hassio docs]) (beta fix)
+- Hue motion senors are motion sensors, not presence sensors. ([@mitchellrj] - [#23193]) ([hue docs]) (beta fix)
+- Don't load component when fetching translations ([@balloob] - [#23196]) (beta fix)
+- Create empty services.yaml for esphome ([@OttoWinter] - [#23200]) (beta fix)
+- Create services.yaml for python_script and script ([@arsaboo] - [#23201]) ([python_script docs]) ([script docs]) (beta fix)
+- Set encoding before connecting ([@robbiet480] - [#23204]) ([mikrotik docs]) (beta fix)
+- Add services.yaml validator ([@balloob] - [#23205]) (beta fix)
+- Fix clearing error message for MQTT vacuum ([@emontnemery] - [#23206]) ([mqtt docs]) (beta fix)
+- Name sensors correctly ([@mitchellrj] - [#23208]) ([hue docs]) (beta fix)
+- Create services.yaml for Tuya ([@arsaboo] - [#23209]) (beta fix)
+- create services.yaml for shell_command ([@arsaboo] - [#23210]) (beta fix)
+- Add stub services.yaml and make validation mandatory ([@balloob] - [#23213]) (beta fix)
+- update zha-quirks ([@dmulcahey] - [#23215]) ([zha docs]) (beta fix)
+- fix bindable devices ([@dmulcahey] - [#23216]) ([zha docs]) (beta fix)
+- Add missing services.yaml file for hue ([@cgtobi] - [#23217]) (beta fix)
+- Ask users for a pin when interacting with locks/garage doors ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
+- Async fix for bluetooth stopping ([@balloob] - [#23225]) ([bluetooth_le_tracker docs]) (beta fix)
+- Return 0 instead of None ([@andrewsayre] - [#23261]) ([plex docs]) (beta fix)
+- Update pyheos and log service errors in HEOS integration ([@andrewsayre] - [#23222]) ([heos docs]) (beta fix)
+- Fix ESPHome setup errors in beta ([@OttoWinter] - [#23242]) ([esphome docs]) (beta fix)
+- Bump zigpy-deconz ([@damarco] - [#23270]) ([zha docs]) (beta fix)
+- Bump zigpy and zigpy-xbee ([@damarco] - [#23275]) ([zha docs]) (beta fix)
+- Show correct version for stable ([@ludeeus] - [#23291]) ([version docs]) (beta fix)
+- Bump skybellpy to 0.4.0 ([@austinmroczek] - [#23294]) ([skybell docs]) (beta fix)
+- Create services.yaml for input_datetime ([@VDRainer] - [#23303]) (beta fix)
+- Correct calculation and units of light level values. ([@mitchellrj] - [#23309]) ([hue docs]) (beta fix)
+- Fix hass.io panel_custom/frontend ([@pvizeli] - [#23313]) ([hassio docs]) (beta fix)
+- Dont cache integrations that are not found ([@balloob] - [#23316]) (beta fix)
+- Expose door cover/binary_sensor as door type ([@elupus] - [#23307]) ([google_assistant docs]) (beta fix)
+- Zestimate - Added check for the existence of data in response ([@dreed47] - [#23310]) ([zestimate docs]) (beta fix)
+- Always set latest pin ([@balloob] - [#23328]) ([cloud docs]) (beta fix)
+- Add sensor and binary senseor to default expose ([@balloob] - [#23332]) ([google_assistant docs]) (beta fix)
+- Support unicode in configuration migration ([@awarecan] - [#23335]) (beta fix)
+- Remove ghost folder ([@awarecan] - [#23350]) ([aws_lambda docs]) ([aws_sns docs]) ([aws_sqs docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -154,7 +198,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove all config deprecations invalidated in 0.91 ([@rohankapoorcom] - [#22704])
 - Validate manifests in CI ([@balloob] - [#22708])
 - Generate codeowners based on manifests ([@balloob] - [#22705])
-- Remove deprecated Insteon components ([@balloob] - [#22710]) ([insteon_local docs]) ([insteon_plm docs]) (breaking change)
+- Remove deprecated Insteon components ([@balloob] - [#22710]) (breaking change)
 - Allow users to set encoding of mikrotik connection ([@robbiet480] - [#22715]) ([mikrotik docs])
 - Only post coverage comment if coverage changes ([@MartinHjelmare] - [#22721])
 - Add 10 additional language options to DarkSky ([@VirtualL] - [#22719]) ([darksky docs])
@@ -214,7 +258,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Somfy MyLink support for Covers ([@bendews] - [#22514]) ([somfy_mylink docs]) (new-integration) (new-platform)
 - Fix ZHA Light color conversion. ([@Adminiuga] - [#22909]) ([zha docs])
 - Added features to Concord232 Alarm Panel ([@AZDane] - [#22892]) ([concord232 docs])
-- Camera component for BOM integration ([@maddenp] - [#22816]) ([bomradarcam docs]) (new-integration) (new-platform)
+- Camera component for BOM integration ([@maddenp] - [#22816]) ([bom docs]) (new-platform)
 - Add 'Assumed State' property to Somfy MyLink covers ([@bendews] - [#22922]) ([somfy_mylink docs])
 - Logi Circle public API refactor and config flow ([@evanjd] - [#20624]) ([logi_circle docs]) (breaking change)
 - Add amcrest binary_sensors ([@pnbruckner] - [#22703]) ([amcrest docs]) (new-platform)
@@ -346,6 +390,48 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support fetching/setting humidity of HomeKit controller thermostats ([@Jc2k] - [#23040]) ([homekit_controller docs])
 - Adding Telegram bot leave_chat() service ([@Limych] - [#22259]) ([telegram_bot docs])
 - Only create sensors if the station actually has values for them. ([@jvanderneutstulen] - [#20643]) ([luftdaten docs])
+- Kill bluetooth LE scanning gracefully when asked to shut down. ([@mitchellrj] - [#22586]) ([bluetooth_le_tracker docs]) (beta fix)
+- Add basic support for native Hue sensors ([@mitchellrj] - [#22598]) ([hue docs]) (beta fix) (new-platform)
+- Google assistant skip missing type ([@elupus] - [#23174]) ([google_assistant docs]) (beta fix)
+- Fix empty components ([@balloob] - [#23177]) (beta fix)
+- Don't warn for missing services ([@balloob] - [#23182]) (beta fix)
+- Improve configuration schema for Geniushub integration ([@zxdavb] - [#23155]) ([geniushub docs]) (beta fix)
+- Fix niko home control dependency installation ([@NoUseFreak] - [#23176]) ([niko_home_control docs]) (beta fix)
+- Hass.io Add-on panel support for Ingress ([@pvizeli] - [#23185]) ([hassio docs]) (beta fix)
+- Hue motion senors are motion sensors, not presence sensors. ([@mitchellrj] - [#23193]) ([hue docs]) (beta fix)
+- Don't load component when fetching translations ([@balloob] - [#23196]) (beta fix)
+- Create empty services.yaml for esphome ([@OttoWinter] - [#23200]) (beta fix)
+- Create services.yaml for python_script and script ([@arsaboo] - [#23201]) ([python_script docs]) ([script docs]) (beta fix)
+- Set encoding before connecting ([@robbiet480] - [#23204]) ([mikrotik docs]) (beta fix)
+- Add services.yaml validator ([@balloob] - [#23205]) (beta fix)
+- Fix clearing error message for MQTT vacuum ([@emontnemery] - [#23206]) ([mqtt docs]) (beta fix)
+- Name sensors correctly ([@mitchellrj] - [#23208]) ([hue docs]) (beta fix)
+- Create services.yaml for Tuya ([@arsaboo] - [#23209]) (beta fix)
+- create services.yaml for shell_command ([@arsaboo] - [#23210]) (beta fix)
+- Add stub services.yaml and make validation mandatory ([@balloob] - [#23213]) (beta fix)
+- update zha-quirks ([@dmulcahey] - [#23215]) ([zha docs]) (beta fix)
+- fix bindable devices ([@dmulcahey] - [#23216]) ([zha docs]) (beta fix)
+- Add missing services.yaml file for hue ([@cgtobi] - [#23217]) (beta fix)
+- Ask users for a pin when interacting with locks/garage doors ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
+- Async fix for bluetooth stopping ([@balloob] - [#23225]) ([bluetooth_le_tracker docs]) (beta fix)
+- Return 0 instead of None ([@andrewsayre] - [#23261]) ([plex docs]) (beta fix)
+- Backport missing folder fix from #23191 ([@Jc2k] - [#23297]) ([homekit_controller docs])
+- Update pyheos and log service errors in HEOS integration ([@andrewsayre] - [#23222]) ([heos docs]) (beta fix)
+- Fix ESPHome setup errors in beta ([@OttoWinter] - [#23242]) ([esphome docs]) (beta fix)
+- Bump zigpy-deconz ([@damarco] - [#23270]) ([zha docs]) (beta fix)
+- Bump zigpy and zigpy-xbee ([@damarco] - [#23275]) ([zha docs]) (beta fix)
+- Show correct version for stable ([@ludeeus] - [#23291]) ([version docs]) (beta fix)
+- Bump skybellpy to 0.4.0 ([@austinmroczek] - [#23294]) ([skybell docs]) (beta fix)
+- Create services.yaml for input_datetime ([@VDRainer] - [#23303]) (beta fix)
+- Correct calculation and units of light level values. ([@mitchellrj] - [#23309]) ([hue docs]) (beta fix)
+- Fix hass.io panel_custom/frontend ([@pvizeli] - [#23313]) ([hassio docs]) (beta fix)
+- Dont cache integrations that are not found ([@balloob] - [#23316]) (beta fix)
+- Expose door cover/binary_sensor as door type ([@elupus] - [#23307]) ([google_assistant docs]) (beta fix)
+- Zestimate - Added check for the existence of data in response ([@dreed47] - [#23310]) ([zestimate docs]) (beta fix)
+- Always set latest pin ([@balloob] - [#23328]) ([cloud docs]) (beta fix)
+- Add sensor and binary senseor to default expose ([@balloob] - [#23332]) ([google_assistant docs]) (beta fix)
+- Support unicode in configuration migration ([@awarecan] - [#23335]) (beta fix)
+- Remove ghost folder ([@awarecan] - [#23350]) ([aws_lambda docs]) ([aws_sns docs]) ([aws_sqs docs]) (beta fix)
 
 [#19590]: https://github.com/home-assistant/home-assistant/pull/19590
 [#20256]: https://github.com/home-assistant/home-assistant/pull/20256
@@ -404,10 +490,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#22576]: https://github.com/home-assistant/home-assistant/pull/22576
 [#22581]: https://github.com/home-assistant/home-assistant/pull/22581
 [#22583]: https://github.com/home-assistant/home-assistant/pull/22583
+[#22586]: https://github.com/home-assistant/home-assistant/pull/22586
 [#22589]: https://github.com/home-assistant/home-assistant/pull/22589
 [#22592]: https://github.com/home-assistant/home-assistant/pull/22592
 [#22593]: https://github.com/home-assistant/home-assistant/pull/22593
 [#22597]: https://github.com/home-assistant/home-assistant/pull/22597
+[#22598]: https://github.com/home-assistant/home-assistant/pull/22598
 [#22600]: https://github.com/home-assistant/home-assistant/pull/22600
 [#22606]: https://github.com/home-assistant/home-assistant/pull/22606
 [#22609]: https://github.com/home-assistant/home-assistant/pull/22609
@@ -611,10 +699,50 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#23149]: https://github.com/home-assistant/home-assistant/pull/23149
 [#23151]: https://github.com/home-assistant/home-assistant/pull/23151
 [#23152]: https://github.com/home-assistant/home-assistant/pull/23152
+[#23155]: https://github.com/home-assistant/home-assistant/pull/23155
 [#23156]: https://github.com/home-assistant/home-assistant/pull/23156
 [#23157]: https://github.com/home-assistant/home-assistant/pull/23157
 [#23159]: https://github.com/home-assistant/home-assistant/pull/23159
 [#23169]: https://github.com/home-assistant/home-assistant/pull/23169
+[#23174]: https://github.com/home-assistant/home-assistant/pull/23174
+[#23176]: https://github.com/home-assistant/home-assistant/pull/23176
+[#23177]: https://github.com/home-assistant/home-assistant/pull/23177
+[#23182]: https://github.com/home-assistant/home-assistant/pull/23182
+[#23185]: https://github.com/home-assistant/home-assistant/pull/23185
+[#23193]: https://github.com/home-assistant/home-assistant/pull/23193
+[#23196]: https://github.com/home-assistant/home-assistant/pull/23196
+[#23200]: https://github.com/home-assistant/home-assistant/pull/23200
+[#23201]: https://github.com/home-assistant/home-assistant/pull/23201
+[#23204]: https://github.com/home-assistant/home-assistant/pull/23204
+[#23205]: https://github.com/home-assistant/home-assistant/pull/23205
+[#23206]: https://github.com/home-assistant/home-assistant/pull/23206
+[#23208]: https://github.com/home-assistant/home-assistant/pull/23208
+[#23209]: https://github.com/home-assistant/home-assistant/pull/23209
+[#23210]: https://github.com/home-assistant/home-assistant/pull/23210
+[#23213]: https://github.com/home-assistant/home-assistant/pull/23213
+[#23215]: https://github.com/home-assistant/home-assistant/pull/23215
+[#23216]: https://github.com/home-assistant/home-assistant/pull/23216
+[#23217]: https://github.com/home-assistant/home-assistant/pull/23217
+[#23222]: https://github.com/home-assistant/home-assistant/pull/23222
+[#23223]: https://github.com/home-assistant/home-assistant/pull/23223
+[#23225]: https://github.com/home-assistant/home-assistant/pull/23225
+[#23242]: https://github.com/home-assistant/home-assistant/pull/23242
+[#23261]: https://github.com/home-assistant/home-assistant/pull/23261
+[#23270]: https://github.com/home-assistant/home-assistant/pull/23270
+[#23275]: https://github.com/home-assistant/home-assistant/pull/23275
+[#23291]: https://github.com/home-assistant/home-assistant/pull/23291
+[#23294]: https://github.com/home-assistant/home-assistant/pull/23294
+[#23297]: https://github.com/home-assistant/home-assistant/pull/23297
+[#23303]: https://github.com/home-assistant/home-assistant/pull/23303
+[#23307]: https://github.com/home-assistant/home-assistant/pull/23307
+[#23309]: https://github.com/home-assistant/home-assistant/pull/23309
+[#23310]: https://github.com/home-assistant/home-assistant/pull/23310
+[#23313]: https://github.com/home-assistant/home-assistant/pull/23313
+[#23316]: https://github.com/home-assistant/home-assistant/pull/23316
+[#23328]: https://github.com/home-assistant/home-assistant/pull/23328
+[#23332]: https://github.com/home-assistant/home-assistant/pull/23332
+[#23335]: https://github.com/home-assistant/home-assistant/pull/23335
+[#23350]: https://github.com/home-assistant/home-assistant/pull/23350
 [@AZDane]: https://github.com/AZDane
 [@ActuallyRuben]: https://github.com/ActuallyRuben
 [@Adminiuga]: https://github.com/Adminiuga
@@ -648,6 +776,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@amelchio]: https://github.com/amelchio
 [@andrewsayre]: https://github.com/andrewsayre
 [@aprosvetova]: https://github.com/aprosvetova
+[@arsaboo]: https://github.com/arsaboo
+[@austinmroczek]: https://github.com/austinmroczek
 [@autinerd]: https://github.com/autinerd
 [@awarecan]: https://github.com/awarecan
 [@bachya]: https://github.com/bachya
@@ -660,8 +790,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cgtobi]: https://github.com/cgtobi
 [@choss]: https://github.com/choss
 [@cmsimike]: https://github.com/cmsimike
+[@damarco]: https://github.com/damarco
 [@dgomes]: https://github.com/dgomes
 [@dmulcahey]: https://github.com/dmulcahey
+[@dreed47]: https://github.com/dreed47
 [@easink]: https://github.com/easink
 [@ehendrix23]: https://github.com/ehendrix23
 [@elupus]: https://github.com/elupus
@@ -680,9 +812,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kellerza]: https://github.com/kellerza
 [@kstaniek]: https://github.com/kstaniek
 [@loe]: https://github.com/loe
+[@ludeeus]: https://github.com/ludeeus
 [@maddenp]: https://github.com/maddenp
 [@markusressel]: https://github.com/markusressel
 [@mgiako]: https://github.com/mgiako
+[@mitchellrj]: https://github.com/mitchellrj
 [@molobrakos]: https://github.com/molobrakos
 [@mwegrzynek]: https://github.com/mwegrzynek
 [@mzdrale]: https://github.com/mzdrale
@@ -727,7 +861,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [axis docs]: /components/axis/
 [binary_sensor docs]: /components/binary_sensor/
 [bloomsky docs]: /components/bloomsky/
-[bomradarcam docs]: /components/bomradarcam/
+[bluetooth_le_tracker docs]: /components/bluetooth_le_tracker/
+[bom docs]: /components/bom/
 [broadlink docs]: /components/broadlink/
 [caldav docs]: /components/caldav/
 [camera docs]: /components/camera/
@@ -771,6 +906,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [gtfs docs]: /components/gtfs/
 [hangouts docs]: /components/hangouts/
 [harmony docs]: /components/harmony/
+[hassio docs]: /components/hassio/
 [heos docs]: /components/heos/
 [hikvisioncam docs]: /components/hikvisioncam/
 [homekit docs]: /components/homekit/
@@ -779,6 +915,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homematicip_cloud docs]: /components/homematicip_cloud/
 [honeywell docs]: /components/honeywell/
 [html5 docs]: /components/html5/
+[hue docs]: /components/hue/
 [ifttt docs]: /components/ifttt/
 [ign_sismologia docs]: /components/ign_sismologia/
 [influxdb docs]: /components/influxdb/
@@ -813,15 +950,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [osramlightify docs]: /components/osramlightify/
 [owntracks docs]: /components/owntracks/
 [person docs]: /components/person/
+[plex docs]: /components/plex/
+[python_script docs]: /components/python_script/
 [qwikswitch docs]: /components/qwikswitch/
 [raincloud docs]: /components/raincloud/
 [rainmachine docs]: /components/rainmachine/
 [rflink docs]: /components/rflink/
 [ring docs]: /components/ring/
 [satel_integra docs]: /components/satel_integra/
+[script docs]: /components/script/
 [sensor docs]: /components/sensor/
 [seventeentrack docs]: /components/seventeentrack/
 [simplisafe docs]: /components/simplisafe/
+[skybell docs]: /components/skybell/
 [somfy_mylink docs]: /components/somfy_mylink/
 [sonos docs]: /components/sonos/
 [stiebel_eltron docs]: /components/stiebel_eltron/
@@ -842,5 +983,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [xiaomi_miio docs]: /components/xiaomi_miio/
 [yeelight docs]: /components/yeelight/
 [zengge docs]: /components/zengge/
+[zestimate docs]: /components/zestimate/
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
