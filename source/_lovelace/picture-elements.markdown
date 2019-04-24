@@ -373,6 +373,10 @@ camera_image:
   required: false
   description: A camera entity.
   type: string
+camera_view:
+  required: false
+  description: "live" will show the live view if `stream` is enabled.  Default: auto.
+  type: string
 state_image:
   required: false
   description: '[State-based images](#how-to-use-state_image)'

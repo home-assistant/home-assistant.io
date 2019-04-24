@@ -30,6 +30,10 @@ camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
   type: string
+camera_view:
+  required: false
+  description: "live" will show the live view if `stream` is enabled.  Default: auto.
+  type: string
 image:
   required: false
   description: URL of an image.
