@@ -47,7 +47,7 @@ ptvsd:
 
 Ensure if this is a public-facing server, that the port is secured. One way of doing this is setting host to localhost and only allowing SSH tunnels in. Another would be to only access the server from the local network and only allow the HTTP/S port into hass.
 
-### {% linkable_title Example launch.json }
+### {% linkable_title Example launch.json %}
 
 ```json
 {
