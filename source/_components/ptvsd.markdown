@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: home-assistant.png
 ha_category: "Utility"
+redirect_from: /components/ptvsd/
 ha_qa_scale: internal
 ha_release: 0.92
 ---
@@ -43,11 +44,33 @@ ptvsd:
   port: 6789
 ```
 
+### {% linkable_title Configuration Variables %}
+
+{% configuration %}
+host:
+  description: The local host to listen on. 
+  required: false
+  default: 0.0.0.0 or all interfaces.
+  type: string
+port:
+  description: Port to listen on.
+  required: false
+  default: 5678
+  type: port
+wait:
+  description: If true, wait for the debugger to connect before starting up home assistatn.
+  required: false
+  default: False
+  type: boolean
+{% endconfiguration %}
+
 ### {% linkable_title Security %}
 
 Ensure if this is a public-facing server, that the port is secured. One way of doing this is setting host to localhost and only allowing SSH tunnels in. Another would be to only access the server from the local network and only allow the HTTP/S port into hass.
 
-### {% linkable_title Example launch.json %}
+### {% linkable_title Example `launch.json` %}
+
+This can be copied into your launch.json in the `.vscode` subdirectory in your Visual Studio Code project to connect to the debugger.
 
 ```json
 {
