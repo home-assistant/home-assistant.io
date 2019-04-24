@@ -81,5 +81,3 @@ The sensors depend on the state of the Fronius device, that's why it is recommen
           0
         {%- endif %}
 ```
-
-The component is based on  [pyfronius library](https://github.com/nielstron/pyfronius) by Niels Mündler and Gerrit Beine.
