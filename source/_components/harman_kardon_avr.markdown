@@ -10,8 +10,8 @@ footer: true
 logo: harman_kardon.png
 ha_category: Media Player
 ha_iot_class: Local Polling
-ha_release: 0.85.0
-redirect_from:	
+ha_release: 0.85
+redirect_from:
  - /components/media_player.harman_kardon_avr/
 ---
 
@@ -28,16 +28,7 @@ To add a Harman Kardon Network Receiver to your installation, add the following 
 # Example configuration.yaml entry
 media_player:
   - platform: harman_kardon_avr
-    name: NAME
     host: IP_ADDRESS
-    port: 10025
-    key_interval: 0.2
-    simulate_volume_set: False
-    sources:
-      - name: Television
-        source: TV
-      - name: Xbox One
-        source: Game
 ```
 
 {% configuration %}
@@ -86,3 +77,21 @@ A few notes:
 
 - The newest firmware automatically shuts down the AVR after a certain amount of time. The AVR is then not available on the network anymore, so the 'on' command will not work.
 - The AVR has no endpoints to determine the volume, muted, playing etc., so if the remote control is used, HA will not know the new states of the device.
+
+Full example:
+
+```yaml
+# Example configuration.yaml entry
+media_player:
+  - platform: harman_kardon_avr
+    name: NAME
+    host: IP_ADDRESS
+    port: 10025
+    key_interval: 0.2
+    simulate_volume_set: False
+    sources:
+      - name: Television
+        source: TV
+      - name: Xbox One
+        source: Game
+```
