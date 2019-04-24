@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: zigbee.png
 ha_category:
+  - Hub
   - Binary Sensor
   - Fan
   - Light
