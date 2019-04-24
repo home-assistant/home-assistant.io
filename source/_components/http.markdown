@@ -191,7 +191,7 @@ First create a Long-Lived Access Tokens in the Home Assistant UI at the bottom o
 For a quick test `curl` can be useful to "simulate" a device.
 
 ```bash
-$ curl -X POST -H "Authorization: LONG_LIVED_ACCESS_TOKEN" \
+$ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     -H "Content-Type: application/json" \
     -d '{"state": "off", "attributes": {"friendly_name": "Radio"}}' \
     http://localhost:8123/api/states/binary_sensor.radio
@@ -200,7 +200,7 @@ $ curl -X POST -H "Authorization: LONG_LIVED_ACCESS_TOKEN" \
 To check if the sensor is working, use again `curl` to retrieve the [current state](/developers/rest_api/#get-apistatesltentity_id).
 
 ```bash
-$ curl -X GET -H "Authorization: LONG_LIVED_ACCESS_TOKEN" \
+$ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        -H "Content-Type: application/json" \
        http://localhost:8123/api/states/binary_sensor.radio
 {
@@ -225,7 +225,7 @@ As already shown on the [API](/developers/rest_api/) page, it's very simple to u
 ```python
 response = requests.post(
         'http://localhost:8123/api/states/binary_sensor.radio',
-        headers={'Authorization': 'LONG_LIVED_ACCESS_TOKEN', 'content-type': 'application/json'},
+        headers={'Authorization': 'Bearer LONG_LIVED_ACCESS_TOKEN', 'content-type': 'application/json'},
         data=json.dumps({'state': 'on', 'attributes': {'friendly_name': 'Radio'}}))
 print(response.text)
 ```
@@ -236,7 +236,7 @@ print(response.text)
 
 ```bash
 $ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
-      Authorization:LONG_LIVED_ACCESS_TOKEN content-type:application/json state=off \
+      'Authorization:Bearer LONG_LIVED_ACCESS_TOKEN' content-type:application/json state=off \
       attributes:='{"friendly_name": "Radio"}'
 ```
 
