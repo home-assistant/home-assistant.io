@@ -107,9 +107,6 @@ device_class:
 EnOcean binary sensors have no state, they only generate 'button_pressed' events. The event data has following fields:
 
 - **id**: The ID of the device (see configuration).
-- **id_str**: The ID of the device, formatted as colon-delimited string: `01:90:84:3C`.
-- **entity_id**: The entity ID of the sensor.
-- **name**: The name of the sensor (see configuration).
 - **pushed**: `1` for a button press, `0` for a button release.
 - **which**: Always `0` when using the single rocket.  `0` or `1` when using the dual rocket switch.
 - **onoff**: `0` or `1` for either side of the rocket.
@@ -133,8 +130,6 @@ automation:
       data_template:
         entity_id: "{% raw %}{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}{% endraw %}"
 ```
-
-Note that you currently cannot enter an list of hexadecimal numbers in the automation Use the `id_str` property instead.
 
 ## {% linkable_title Light %}
 
