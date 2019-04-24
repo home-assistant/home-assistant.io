@@ -29,9 +29,9 @@ The `enocean` component adds support for some of these devices. You will need a 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor) (wall switches)
-- [Sensor](#sensor) (power meters, temperature sensors and humidity sensors)
-- [Light](#light) (dimmers)
+- [Binary Sensor](#binary-sensor) - Wall switches
+- [Sensor](#sensor) - Power meters, temperature sensors and humidity sensors
+- [Light](#light) - Dimmers
 - [Switch](#switch)
 
 However, due to the wide range of message types, not all devices will work without code changes.
@@ -50,6 +50,8 @@ If it does, it will most likely work.
 The available profiles are usually listed somewhere in the device manual. 
 
 Support for tech-in messages is not implemented.
+
+## {% linkable_title Hub %}
 
 To integrate an EnOcean controller with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -76,10 +78,11 @@ Tested with:
 - Omnio WS-CH-102
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+
 - F6-02-01 (Light and Blind Control - Application Style 2)
 - F6-02-02 (Light and Blind Control - Application Style 1)
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -135,7 +138,7 @@ automation:
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -164,11 +167,12 @@ name:
 ## {% linkable_title Sensor %}
 
 The EnOcean sensor platform currently supports the following device types:
+
  * [power sensor](#power-sensor)
  * [humidity sensor](#humidity-sensor)
  * [temperature sensor](#temperature-sensor)
  
-To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -215,6 +219,7 @@ sensor:
 ### {% linkable_title Humidity sensor %}
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+
 - Any profile that contains the humidity value at position **DB2.7** to **DB2.0**
 - **A5-04-01** - Temp. and Humidity Sensor, Range 0°C to +40°C and 0% to 100%
 - **A5-04-02** - Temp. and Humidity Sensor, Range -20°C to +60°C and 0% to 100%
@@ -236,6 +241,7 @@ sensor:
 This sensor has been tested with a generic STM-330 sensor, which is used in most indoor temperature sensor devices. 
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+
 - Any profile that contains an 8-bit temperature at position DB1.7 to DB1.0. 10-bit is not supported.
 - **A5-02-01** to **A5-02-1B** - Temperature Sensor with various temperature ranges
 - **A5-10-01** to **A5-10-14** - Room Operating Panels
@@ -260,7 +266,6 @@ sensor:
 
 The temperature sensor supports these additional configuration properties.
 
-
 {% configuration %}
 temp_min:
   description: The minimal temperature in °C your sensor supports.
@@ -284,13 +289,12 @@ range_max:
   default: 0
 {% endconfiguration %}
 
-
 Note that the default configuration values of _range_min_ and _range_max_ are not typos, the range is backwards for most sensors.
 However, some EEPs have a different, inverted range, which goes from 0 to 250. This includes the following EEPs:
+
 - **A5-04-01**
 - **A5-04-02**
 - **A5-10-10** to **A5-10-14**
-
 
 Adapt the `configuration.yaml` for those sensors:
 
@@ -309,7 +313,7 @@ sensor:
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
