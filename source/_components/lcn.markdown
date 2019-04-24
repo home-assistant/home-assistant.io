@@ -29,6 +29,7 @@ With this setup sending and receiving commands to and from LCN modules is possib
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary Sensor](#binary_sensor)
 - [Cover](#cover)
 - [Light](#light)
 - [Sensor](#sensor)
@@ -48,6 +49,11 @@ lcn:
       port: 4114
       username: lcn
       password: lcn
+
+  binary_sensors:
+    - name: Kitchen window
+      address: myhome.s0.m7
+      source: binsensor1
 
   covers:
     - name: Living room cover
@@ -109,6 +115,24 @@ connections:
       description: "Dimming mode for connected modules. The operation mode is programmed into the LCN modules by the LCN-PRO software and depends on their firmware. If you experience unexpected dimming behavior, the connection is probably in the wrong operation mode. Possible values: _steps50_, _steps200_"
       required: false
       default: steps50
+      type: string
+
+binary_sensors:
+  description: List of your binary sensors.
+  required: false
+  type: map
+  keys:
+    name:
+      description: "Name of the sensor."
+      required: true
+      type: string
+    address:
+      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    source:
+      description: "Sensor source ([BINSENSOR](/components/lcn#ports), [SETPOINT](/components/lcn#variables-and-units), [KEYS](/components/lcn#keys))."
+      required: true
       type: string
 
 covers:
@@ -244,6 +268,7 @@ The platforms and service calls use several predefined constants as parameters.
 | MOTOR_PORT | `motor1`, `motor2`, `motor3`, `motor4` |
 | LED_PORT | `led1`, `led2`, `led3`, `led4`, `led5`, `led6`, `led7`, `led8`, `led9`, `led10`, `led11`, `led12` |
 | LOGICOP_PORT | `logicop1`, `logicop2`, `logicop3`, `logicop4` |
+| BINSENSOR_PORT | `binsensor1`, `binsensor2`, `binsensor3`, `binsensor4`, `binsensor5`, `binsensor6`, `binsensor7`, `binsensor8` |
 
 The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay configuration will be used:
 
@@ -271,7 +296,22 @@ The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay conf
 | LED_STATE | `on`. `off`, `blink`, `flicker` |
 | LOGICOP_STATE | `not`. `or`, `and` |
 
+### {% linkable_title Keys %}:
+
+Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
+Examples: `a1`, `a5`, `d8`.
+
 ## {% linkable_title Platforms %}
+
+### {% linkable_title Binary Sensor %}
+
+The `lcn` binary sensor platform allows the monitoring of the following [LCN](http://www.lcn.eu) binary data sources:
+
+- Binary hardware sensors
+- Lock state of regulator setpoints
+- Lock state of keys
+
+The binary sensor can be used in automation scripts or in conjunction with `template` platforms.
 
 ### {% linkable_title Cover %}
 

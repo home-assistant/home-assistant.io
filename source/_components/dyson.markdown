@@ -139,6 +139,7 @@ The `dyson` fan platform allows you to control your Dyson Purifier fans.
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
+- Pure Cool 2018 (DP04 and TP04)
 
 ### {% linkable_title Attributes %}
 
@@ -146,8 +147,14 @@ There are several attributes which can be used for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
-| `is_night_mode` | A boolean that indicates if the night mode of the fan device is on.
-| `is_auto_mode` | A boolean that indicates if the auto mode of the fan device is on.
+| `night_mode` | A boolean that indicates if the night mode of the fan device is on.|
+| `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
+| `angle_low` | Int (between 5 and 355) that indicates the low angle of oscillation (only for DP04 and TP04).|
+| `angle_high` | Int (between 5 and 355) that indicates the high angle of oscillation (only for DP04 and TP04).|
+| `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04 and TP04).|
+| `timer` | Attribute that indicates the status of the auto power off timer, can be either 'OFF' or an integer representing the time remaining until shutdown in minutes (only for DP04 and TP04).|
+| `hepa filter` |  State of the fan's HEPA filter in % (only for DP04 and TP04).|
+| `carbon filter` | State of the fan's carbon filter in % (only for DP04 and TP04).|
 
 ## {% linkable_title Sensor %}
 

@@ -47,6 +47,15 @@ port:
   required: false
   type: integer
   default: 5007
+code:
+  description: If defined, specifies a code to enable or disable the alarm in the frontend.
+  required: false
+  type: string
+mode:
+  description: audible/silent if defined, specifies wether Alarm Panel should be audible or silent when armed in Home Mode.
+  required: false
+  type: string
+  default: audible
 {% endconfiguration %}
 
 ## {% linkable_title Binary Sensor %}

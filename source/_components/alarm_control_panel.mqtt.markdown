@@ -56,6 +56,15 @@ command_topic:
   description: The MQTT topic to publish commands to change the alarm state.
   required: true
   type: string
+command_template:
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) used for the command payload. Available variables: `action` and `code`."
+  required: false
+  type: string
+  default: action
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -86,7 +95,12 @@ code:
   required: false
   type: string
 code_arm_required:
-  description: If true the code is required to arm the alarm.
+  description: If true the code is required to arm the alarm. If false the code is not validated.
+  required: false
+  type: boolean
+  default: true
+code_disarm_required:
+  description: If true the code is required to disarm the alarm. If false the code is not validated.
   required: false
   type: boolean
   default: true

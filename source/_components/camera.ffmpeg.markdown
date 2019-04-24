@@ -39,10 +39,11 @@ extra_arguments:
   description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
   required: false
   type: string
+  default: "-pred 1"
 {% endconfiguration %}
 
 ### {% linkable_title Image quality %}
 
-You can control the image quality with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`.
+You can control the image quality with [`extra_arguments`](https://www.ffmpeg.org/ffmpeg-codecs.html#jpeg2000) `-q:v 2-32` or with lossless option `-pred 1`. Default is lossless.
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/components/ffmpeg/#troubleshooting).
