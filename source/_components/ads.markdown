@@ -22,7 +22,6 @@ redirect_from:
   - /components/light.ads/
   - /components/sensor.ads/
   - /components/switch.ads/
-  - /components/cover.ads/
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](http://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.
