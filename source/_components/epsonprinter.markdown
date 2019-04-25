@@ -11,8 +11,6 @@ logo: epson.png
 ha_category: Sensor
 ha_release: 0.92
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.epsonprinter/
 ---
 
 The `epson printer` platform allows you to monitor the ink levels of a Epson Workforce printer from Home
