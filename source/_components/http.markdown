@@ -139,6 +139,8 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
+Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 ## {% linkable_title IP filtering and banning %}
@@ -185,8 +187,6 @@ The JSON payload must contain the new state and can have a friendly name. The fr
 ```json
 {"state": "on", "attributes": {"friendly_name": "Radio"}}
 ```
-
-First create a Long-Lived Access Tokens in the Home Assistant UI at the bottom of your profile.
 
 For a quick test `curl` can be useful to "simulate" a device.
 
@@ -261,7 +261,6 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 ```json
 {"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temperature"}}
 ```
-First create a Long-Lived Access Tokens in the Home Assistant UI at the bottom of your profile.
 
 For a quick test, `curl` can be useful to "simulate" a device.
 
