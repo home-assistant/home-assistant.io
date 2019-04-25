@@ -21,7 +21,7 @@ add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
+sensor:
    - platform: epsonprinter
      host: IP_ADDRESS
      monitored_conditions:
