@@ -1,17 +1,16 @@
 ---
 layout: page
-title: "PTVSD Debugger"
-description: "Debugging from visual studio code."
+title: "PTVSD Debugger (Visual Studio Code)"
+description: "Debugging from Visual Studio Code."
 date: 2019-04-24 09:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
-ha_category: "Utility"
-redirect_from: /components/ptvsd/
+ha_category: 
+  - Utility
 ha_qa_scale: internal
-ha_release: 0.92
+ha_release: 0.93
 ---
 
 The `ptvsd` component allows you to connect the ptvsd debugger from visual studio code to connect to home assistant.
@@ -24,25 +23,6 @@ ptvsd:
 ```
 
 By default this will listen on address 0.0.0.0 port 5678, and will not wait for a connection.
-
-If you want to debug something in the boot-up sequence, configure the component to wait for a connection first:
-
-```yaml
-# Example configuration.yaml entry
-ptvsd:
-  wait: True
-```
-
-The ptvsd debugger is loaded quite early on in the boot-up sequence, before any other components.
-
-You can also listen on a different local address or port:
-
-```yaml
-# Example configuration.yaml entry
-ptvsd:
-  host: localhost
-  port: 6789
-```
 
 ### {% linkable_title Configuration Variables %}
 
@@ -64,9 +44,38 @@ wait:
   type: boolean
 {% endconfiguration %}
 
+### {% linkable_title Waiting at startup %}
+
+If you want to debug something in the boot-up sequence, configure the component to wait for a connection first:
+
+```yaml
+# Example configuration.yaml entry
+ptvsd:
+  wait: True
+```
+
+The ptvsd debugger is loaded quite early on in the boot-up sequence, before any other components.
+
+### {% linkable_title Alternate host and port %}
+
+You can also listen on a different server address or port:
+
+```yaml
+# Example configuration.yaml entry
+ptvsd:
+  host: localhost
+  port: 6789
+```
+
+This is useful for multi-homed servers, or for localhost only access
+
 ### {% linkable_title Security %}
 
-Ensure if this is a public-facing server, that the port is secured. One way of doing this is setting host to localhost and only allowing SSH tunnels in. Another would be to only access the server from the local network and only allow the HTTP/S port into hass.
+Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can **execute arbitary code** on the home assistant server, which is very unsafe.
+
+If the home assistant server is behind your firewall with only the http(s) port exposed, then this is safe from outside connections.
+
+Another way of securing the port is to set `host` to localhost and have a secured SSH TCP tunnel with a client certificate for access from the outside internet.
 
 ### {% linkable_title Example `launch.json` %}
 
