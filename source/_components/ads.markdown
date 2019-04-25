@@ -251,6 +251,6 @@ name:
   type: string
 device_class:
   required: false
-  description: Sets the class of the device, changing the device state and icon that is displayed on the UI
+  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (awning, blind, curtain, damper, door, garage, shade, shutter, window)
   type: device_class
 {% endconfiguration %}
