@@ -39,7 +39,6 @@ sensor:
       - 'temperature'
 ```
 
-Configuration options:
 {% configuration %}
 host:
   description: The hostname/IP address to connect to.
@@ -211,7 +210,7 @@ Information about how to install on Windows can be found [here](/components/sens
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 
-Choose Call Service from the Developer Tools. Choose the service `switch.broadlink_learn_command` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
+Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
 Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
 
@@ -291,10 +290,11 @@ switch:
 
 ### {% linkable_title Service `broadlink_send_packet` %}
 
-You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
+You can use the service `broadlink.send` to directly send IR packets without the need to assign a switch entity for each command.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
+| `host`   | no | IP address to send command to.
 | `packet` | no | String or list of strings that contain the packet data.
 
 Example:
@@ -303,8 +303,9 @@ Example:
 script:
   tv_select_source:
     sequence:
-      - service: switch.broadlink_send_packet_192_168_0_107
+      - service: broadlink.send
         data:
+          host: 192.168.0.107
           packet:
             - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
