@@ -288,7 +288,7 @@ switch:
       slot_4: 'Speaker slot'
 ```
 
-### {% linkable_title Service `broadlink_send_packet` %}
+### {% linkable_title Service `broadlink.send` %}
 
 You can use the service `broadlink.send` to directly send IR packets without the need to assign a switch entity for each command.
 
