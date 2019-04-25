@@ -14,6 +14,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Cover
 ha_release: "0.60"
 ha_iot_class: Local Push
 redirect_from:
@@ -21,6 +22,7 @@ redirect_from:
   - /components/light.ads/
   - /components/sensor.ads/
   - /components/switch.ads/
+  - /components/cover.ads/
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](http://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.
@@ -31,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Cover](#cover)
 
 ## {% linkable_title Configuration %}
 
@@ -128,7 +131,7 @@ adsvar:
 adsvar_brightness:
   required: false
   description: The name of the variable that controls the brightness, use an unsigned integer on the PLC side
-  type: integer
+  type: string
 name:
   required: false
   description: An identifier for the Light in the frontend
@@ -197,4 +200,57 @@ name:
   required: false
   description: An identifier for the switch in the frontend.
   type: string
+{% endconfiguration %}
+
+## {% linkable_title Cover %}
+
+The `ads` cover platform allows you to control your connected ADS covers.
+
+To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+file:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: ads
+    name: Curtain master bed room
+    adsvar_open: covers.master_bed_room_open
+    adsvar_close: covers.master_bed_room_close
+    adsvar_stop: covers.master_bed_room_stop
+    device_class: curtain
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the boolean variable that returns the current status of the cover (`True` = closed)
+  type: string
+adsvar_position:
+  required: false
+  description: The name of the variable that returns the current cover position, use a byte variable on the PLC side
+  type: string
+adsvar_set_position:
+  required: false
+  description: The name of the variable that sets the new cover position, use a byte variable on the PLC side
+  type: string
+adsvar_open:
+  required: false
+  description: The name of the boolean variable that triggers the cover to open
+  type: string
+adsvar_close:
+  required: false
+  description: The name of the boolean variable that triggers the cover to close
+  type: string
+adsvar_stop:
+  required: false
+  description: The name of the boolean variable that triggers the cover to stop
+  type: string
+name:
+  required: false
+  description: An identifier for the Cover in the frontend
+  type: string
+device_class:
+  required: false
+  description: Sets the class of the device, changing the device state and icon that is displayed on the UI
+  type: device_class
 {% endconfiguration %}
