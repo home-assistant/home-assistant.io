@@ -8,18 +8,26 @@ comments: false
 sharing: true
 footer: true
 logo: plex.png
-ha_category: Media Player
+ha_category:
+  - Media Player
+  - Sensor
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Polling
 redirect_from:
- - /components/media_player.plex/
+  - /components/media_player.plex/
+  - /components/sensor.plex/
 ---
 
 
 The `plex` platform allows you to connect to a [Plex Media Server](https://plex.tv). Once connected, [Plex Clients](https://www.plex.tv/apps-devices/) playing media from the connected Plex Media Server will show up as [Media Players](/components/media_player/) in Home Assistant. It will allow you to control media playback and see the current playing item.
 
-## {% linkable_title Setup %}
+There is currently support for the following device types within Home Assistant:
+
+- [Media Player](#setup---media-player)
+- [Sensor](#sensor)
+
+## {% linkable_title Setup - Media Player %}
 
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
 
@@ -51,13 +59,33 @@ In the event that [discovery](/components/discovery/) does not work (GDM disable
 {"IP_ADDRESS:PORT": {"token": "TOKEN", "ssl": false, "verify": true}}
 ```
 
-- **IP_ADDRESS** (*Required*): IP address of the Plex Media Server.
-- **PORT** (*Required*): Port where Plex is listening. Default is 32400.
-- **TOKEN** (*Optional*): Only if authentication is required. Set to `null` (without quotes) otherwise.
-- **ssl** (*Optional*): Whether to use SSL/TLS or not. Defaults to `false` if not present.
-- **verify** (*Optional*): Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `false`. Defaults to `true` if not present.
+{% configuration %}
+IP_ADDRESS:
+  description: IP address of the Plex Media Server.
+  required: true
+  type: string
+PORT:
+  description: Port where Plex is listening.
+  required: true
+  default: 32400
+  type: integer
+TOKEN:
+  description: Only if authentication is required. Set to `null` (without quotes) otherwise.
+  required: false
+  type: string
+ssl:
+  description: Whether to use SSL/TLS or not.
+  required: false
+  default: "`false`"
+  type: boolean
+verify:
+  description: Perform a verification of the certificate. To allow invalid or self-signed SSL certificates set it to `false`.
+  required: false
+  default: "`true`"
+  type: boolean
+{% endconfiguration %}
 
-## {% linkable_title Customization %}
+### {% linkable_title Customization %}
 
 You can customize the Plex component by adding any of the variables below to your configuration:
 
@@ -178,3 +206,63 @@ Plays a song, playlist, TV episode, or video on a connected client.
 
   If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
+
+## {% linkable_title Sensor %}
+
+The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
+
+If your Plex server is on the same local network as Home Assistant, all you need to provide in the `configuration.yaml` is the host or IP address. If you want to access a remote Plex server, you must provide the Plex username, password, and optionally the server name of the remote Plex server. If no server name is given it will use the first server listed. If you use the username and password, all servers in that account are monitored.
+
+If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
+
+If you want to enable the plex sensor, add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: plex
+```
+
+{% configuration %}
+host:
+  description: The IP address of your Plex server.
+  required: false
+  default: localhost
+  type: string
+port:
+  description: The port of your Plex Server.
+  required: false
+  default: 32400
+  type: integer
+name:
+  description: Name of the Plex server.
+  required: false
+  default: Plex
+  type: string
+username:
+  description: The username for the remote Plex server.
+  required: false
+  type: string
+password:
+  description: The password for your given account on the remote Plex server.
+  required: false
+  type: string
+server:
+  description: The name of your remote Plex server.
+  required: false
+  type: string
+token:
+  description: X-Plex-Token of your remote Plex server.
+  required: false
+  type: string
+ssl:
+  description: Use HTTPS to connect to Plex server, **NOTE:** host **must not** be an IP when this option is enabled.
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: Verify the SSL certificate of your Plex server. You may need to disable this check if your local server enforces secure connections with the default certificate.
+  required: false
+  default: true
+  type: boolean
+{% endconfiguration %}
