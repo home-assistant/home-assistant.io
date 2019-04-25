@@ -16,8 +16,7 @@ ha_iot_class: Local Polling
 The `epson printer` platform allows you to monitor the ink levels of a Epson Workforce printer from Home
 Assistant.
 
-To add Epson Printer to your installation,
-add the following to your `configuration.yaml` file:
+To add Epson Printer to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,9 +54,11 @@ monitored_conditions:
 {% endconfiguration %}
 
 Supported devices:
+
 - Epson Workforce printers who publish a HTTP page containing the ink cardridge levels
 
 Tested devices:
+
 - Epson WF3540
 
 To make this module work you need to connect your printer to your LAN.
