@@ -74,9 +74,56 @@ redirect_uri:
 
 ### {% linkable_title Camera %}
 
-The `logi_circle` camera platform allows you to view still frames from your [Logi Circle](https://circle.logi.com/) camera's live stream in Home Assistant.
+The `logi_circle` camera platform allows you to watch the live RTSP stream of your [Logi Circle](https://circle.logi.com/) camera's in Home Assistant.
 
 Logi Circle cameras support the `camera.turn_on` and `camera.turn_off` services. This will set the streaming mode property of your camera accordingly, controlling whether the live stream is available and activity recordings are captured.
+
+You can optionally specify FFMPEG arguments to be used when viewing the live RTSP stream. This is achieved by extending the [Logi Circle component](/components/logi_circle/) configuration in your `configuration.yaml` file with the following settings:
+
+```yaml
+# Example configuration.yaml entry
+logi_circle:
+  cameras:
+    ffmpeg_arguments: "-vf eq=brightness=0.06:saturation=2"
+```
+
+{% configuration %}
+camera:
+  description: Configuration to pass to all cameras.
+  required: false
+  type: map
+  keys:
+    ffmpeg_arguments:
+      description: >
+        Extra options to pass to ffmpeg, e.g.,
+        image quality or video filter options.
+      required: false
+      type: string
+{% endconfiguration %}
+
+These arguments are not used by the [live stream record service](/components/logi_circle/#service-logi_circlelivestream_record).
+
+#### {% linkable_title Resolving FFMPEG issues %}
+
+The camera's live stream cannot be demuxed on FFMPEG 3.2. You must upgrade to FFMPEG 3.3 or newer to resolve this issue.
+
+If you're running Home Assistant directly, you can simply upgrade your system FFMPEG version to resolve this issue. If you're running Home Assistant inside a docker container, you will need to download a static build of FFMPEG and reconfigure the ffmpeg platform to use the binary you downloaded.
+
+At the time of writing, FFMPEG versions 3.3 to 4.1.3 have been tested and validated working with Logi Circle cameras.
+
+<p class='note warning'>
+The FFMPEG download links provided below are not officially distributed builds of FFMPEG. Please practice your usual online security habits when downloading and installing FFMPEG from the supplied links.
+</p>
+
+1. [Download the latest version of FFMPEG appropriate for your processor architecture](https://www.johnvansickle.com/ffmpeg/). 
+2. Extract the tarball, eg. `tar -xJf ffmpeg-release-amd64-static.tar.xz`
+3. Copy or move `ffmpeg` from the extracted tarball to a folder that is mapped to your Home Assistant container. For the sake of example, we'll use the configuration folder. Create an `ffmpeg` folder in your Home Assistant configuration folder, and copy the `ffmpeg` binary there.
+4. Set the ffmpeg path in your configuration.yaml as follows:
+```yaml
+ffmpeg:
+  ffmpeg_bin: /config/ffmpeg/ffmpeg
+```
+5. Restart Home Assistant. The camera's live stream should now function.
 
 ### {% linkable_title Sensor %}
 
