@@ -42,11 +42,11 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. Take
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
-  - platform: 'withings'
+withings:
     client_id: <client id from previous step>
-    secret: <consumer secret from previous step>
-    profile: <name of user profile>
+    client_secret: <consumer secret from previous step>
+    profiles:
+        - <name of user profile>
 ```
 
 Withings supports multiple profiles per account. Each profile has a person's name to help distinguish who's data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish who's data you're looking at.
@@ -57,13 +57,12 @@ On the home assistant web page
   - Click `Check Config` and ensure your config looks good.
   - After config is correct, click `Restart`.
 - After Home assistant restarts.
-  - Goto the main home assistant page and click on the notifications. This is usually a bell icon in the top left of
-  the main page.
-  - You will see a configuration card for withings, click it.
-  - Read the description, it says who's profile you should allow access to. Keep that in mind for the next step.
+  - Got the integrations page.
+  - Toward the bottom of the page, you will see list item for Withings, click it.
+  - Select the profile you intend to pull data.
   - Click the link to be taken to the withing site to authorize the request.
   - Withings will provide you with a list of profiles to choose from (if you have more than one). Choose the profile
-  you saw in the description earlier. Otherwise data will be mixed up and things will get confusing.
+  you selected earlier. Otherwise homeassistant entity names will not match the data they are showing.
 - After you authorize at Withings, the Withings website will redirect your browser back to your callback uri.
 If your home assistant instance is not accessible publicly, you can change the url in the browser to match the 
 url of your server.
@@ -81,19 +80,19 @@ client_id:
   description: The OAuth client id (get from https://account.withings.com/partner/add_oauth2)
   required: true
   type: string
-secret:
+client_secret:
   description: The OAuth secret (get from https://account.withings.com/partner/add_oauth2)
   required: true
   type: string
-profile:
-  description: Withings supports multiple profiles per account. The person's name sensors will be associated with (just a name, it doesn't have to be perfect). During the authorization step, you will be asked to select this user from the Withings website.
+profiles:
+  description: Withings supports multiple profiles per account. Provide the person's name who you want home assistant entities to will be associated with (just a name, it doesn't have to be perfect). During the authorization step, you will be asked to select this user from the Withings website.
   required: true
-  type: string
+  type: map
 base_url:
   description: The base url to use when authorizing with Withings. This should be the same as the Callback Uri on your Withings account. `<baseurl>/api/withings/callback`
   required: false
   type: string
-  default: The base url provided in the `api` component config.
+  default: The base url provided in the `api` component.
 measurements:
   description: A list of measurements to create sensors for (and track).
   required: false
@@ -104,22 +103,32 @@ measurements:
       description:
     weight_lb:
       description:
+    weight_st:
+      description: Weight in stone.
     fat_mass_kg:
       description:
     fat_mass_lb:
       description:
+    fat_mass_st:
+      description: Fat mass in stone.
     fat_free_mass_kg:
       description:
     fat_free_mass_lb:
       description:
+    fat_free_mass_st:
+      description: Fat free in stone.
     muscle_mass_kg:
       description:
     muscle_mass_lb:
       description:
+    muscle_mass_st:
+      description: Muscle mass in stone.
     bone_mass_kg:
       description:
     bone_mass_lb:
       description:
+    bone_mass_st:
+      description: Bone mass in stone.
     height_m:
       description:
     height_cm:
