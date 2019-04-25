@@ -38,6 +38,8 @@ homekit:
       code: 1234
     binary_sensor.living_room_motion:
       linked_battery_sensor: sensor.living_room_motion_battery
+    climate.home_thermostat:
+      linked_humidity_sensor: sensor.home_humidity
     light.kitchen_table:
       name: Kitchen Table Light
     lock.front_door:
@@ -119,6 +121,10 @@ homekit:
                 type: string
               linked_battery_sensor:
                 description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
+                required: false
+                type: string
+              linked_humidity_sensor:
+                description: The `entity_id` of a `sensor` entity to use as the humidity of the thermostat. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect. Only applicable for `climate` entities.
                 required: false
                 type: string
               code:
@@ -448,6 +454,6 @@ Unfortunately, that sometimes happens at the moment. It might help to close the 
 
 To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
 
-#### {% linkable_title The linked battery sensor isn't recognized %}
+#### {% linkable_title The linked battery/humidity sensor isn't recognized %}
 
 Try removing the entity from HomeKit and then adding it again. If you are adding this config option to an existing entity in HomeKit, any changes you make to this entity's config options won't appear until the accessory is removed from HomeKit and then re-added.
