@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: withings.png
-ha_category: Health
-ha_release: 0.86.1
+ha_category: 
+  - Health
+  - Sensor
+ha_release: 0.93.0
 ha_iot_class: "Cloud Polling"
 ---
 
