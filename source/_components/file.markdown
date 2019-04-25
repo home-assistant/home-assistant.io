@@ -21,7 +21,7 @@ redirect_from:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Notifications](notifications)
+- [Notifications](#notifications)
 - [Sensor](#sensor)
 
 ## {% linkable_title Notifications %}
