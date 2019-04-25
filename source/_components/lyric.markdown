@@ -12,7 +12,7 @@ ha_category:
   - Hub
   - Climate
   - Sensor
-ha_release: 0.92
+ha_release: 0.93
 ha_iot_class: Cloud Polling
 ---
 
