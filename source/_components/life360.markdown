@@ -26,7 +26,6 @@ device_tracker:
   - platform: life360
     username: LIFE360_USERNAME
     password: LIFE360_PASSWORD
-    prefix: life360
 ```
 {% endraw %}
 
@@ -92,10 +91,10 @@ members:
   type: [string, list]
   default: Create trackers for all Members in all Circles.
 prefix:
-  description: Device ID prefix. Entity IDs will be in the form `device_tracker.PREFIX_FIRST_LAST`, or `device_tracker.PREFIX_NAME` if the Member has only one name.
+  description: Device ID prefix. Entity IDs will be in the form `device_tracker.PREFIX_FIRST_LAST`, or `device_tracker.PREFIX_NAME` if the Member has only one name. To use no prefix, specify `''`.
   required: false
   type: string
-  default: Entity IDs will be `device_tracker.FIRST_LAST` or `device_tracker.NAME`.
+  default: life360
 show_as_state:
   description: "One or more of: `driving`, `moving` and `places`. When specified these can cause the entity's state to show other statuses according to the [States](#states) chart below."
   required: false
@@ -167,7 +166,6 @@ device_tracker:
   - platform: life360
     username: LIFE360_USERNAME
     password: LIFE360_PASSWORD
-    prefix: life360
     add_zones:
       type: all
       scan_interval:
@@ -185,6 +183,8 @@ device_tracker:
       - mike, smith
       - Joe
       - Jones
+    # Do not use a device ID prefix.
+    prefix: ''
     show_as_state: [driving, moving]
     # Set comm error thresholds so first is not logged,
     # second is logged as a WARNING, and third and fourth
