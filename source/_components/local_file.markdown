@@ -29,6 +29,8 @@ camera:
   - platform: local_file
     file_path: /tmp/image.jpg
 ```
+Use full file_path (example): /config/www/images/image.jpg 
+and not just (example): /local/images/image.jpg
 
 {% configuration %}
 file_path:
