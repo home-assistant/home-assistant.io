@@ -53,7 +53,7 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 
 <p class='note'>
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
-    
+
 If you're still having trouble, make sure that you're not connected to the same network Home Assistant is running on, e.g., use 4G/LTE instead.
 </p>
 
@@ -129,11 +129,11 @@ project_id:
   description: Project ID from the Actions on Google console (looks like `words-2ab12`)
   required: true
   type: string
-allow_unlock:
-  description: "When True, allows Google Assistant to unlock locks."
+secure_devices_pin:
+  description: "Pin code to say when you want to interact with a secure device."
   required: false
-  type: boolean
-  default: false
+  type: string
+  default: ""
 api_key:
   description: Your Homegraph API key (for the `google_assistant.request_sync` service)
   required: false
@@ -199,8 +199,8 @@ Currently, the following domains are available to be used with Google Assistant,
 
 ### {% linkable_title Media Player Sources %}
 
-Media Player sources are sent via the Modes trait in Google Assistant.  
-There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:  
+Media Player sources are sent via the Modes trait in Google Assistant.
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:
 https://developers.google.com/actions/reference/smarthome/traits/modes
 
 #### Example Command:
@@ -213,7 +213,7 @@ Entities that have not got rooms explicitly set and that have been placed in Hom
 
 ### {% linkable_title Climate Operation Modes %}
 
-There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.  
+There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.
 Here are the modes that are currently available:
 
 - off
@@ -235,6 +235,8 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
   3. Enable Homegraph API to the new project.
   4. Generate a new API key.
   5. Again, create a new project in the [Actions on Google console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
+  
+Syncing may also fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is techincally in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant", this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again.
 
 ### {% linkable_title Troubleshooting with NGINX %}
 
