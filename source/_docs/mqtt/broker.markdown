@@ -59,7 +59,7 @@ mqtt:
 
 ### {% linkable_title Run your own %}
 
-Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](http://emqtt.io/), or [Mosca](http://www.mosca.io/).
+Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](https://github.com/emqx/emqx) or [Mosca](http://www.mosca.io/).
 
 ```yaml
 # Example configuration.yaml entry
