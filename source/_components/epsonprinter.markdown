@@ -25,7 +25,7 @@ add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 media_player:
    - platform: epsonprinter
-     host: 192.168.0.123
+     host: IP_ADDRESS
      monitored_conditions:
      - black
      - yellow
