@@ -39,7 +39,6 @@ sensor:
       - 'temperature'
 ```
 
-Configuration options:
 {% configuration %}
 host:
   description: The hostname/IP address to connect to.
