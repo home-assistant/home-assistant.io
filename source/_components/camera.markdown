@@ -57,7 +57,7 @@ Take a snapshot from a camera.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
-| `filename `            |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
+| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
@@ -73,9 +73,36 @@ action:
 ```
 {% endraw %}
 
+#### {% linkable_title Service `record` %}
+
+Make a `.mp4` recording from a camera stream. Requires `stream` component to be set up.
+
+Both `duration` and `lookback` options are suggestions, but should be consistent per camera.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
+| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/{{ entity_id }}.mp4`{% endraw %}. |
+| `duration`             |      yes | Target recording length (in seconds). Default: 30 |
+| `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
+
+The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+
+For example, the following action in an automation would take a recording from "yourcamera" and save it to /tmp with a timestamped filename.
+
+{% raw %}
+```yaml
+action:
+  service: camera.record
+  data:
+    entity_id: camera.yourcamera
+    filename: '/tmp/{{ entity_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+```
+{% endraw %}
+
 #### {% linkable_title Service `play_stream` %}
 
-Play a live stream from a camera to selected media player(s). Requires `stream` component to be set up.
+Play a live stream from a camera to selected media player(s). Requires [`stream`](/components/stream) component to be set up.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -102,3 +129,12 @@ A simple way to test if you have set up your `camera` platform correctly, is to 
   "entity_id": "camera.living_room_camera"
 }
 ```
+
+### {% linkable_title Preload Stream %}
+
+If your camera supports it, and the [`stream`](/components/stream) component is setup, You will notice a "Preload Stream" option in the top right of the dialog when clicking to view the camera stream.  This option will keep the stream alive, and preload the feed on Home Assistant startup.  This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration.  It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
+
+<p class='img'>
+  <img src='/images/components/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
+  Example showing the Preload Stream option in the camera dialog.
+</p>

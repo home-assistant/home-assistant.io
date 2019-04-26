@@ -103,7 +103,8 @@ acl_file /share/mosquitto/accesscontrollist
 
 3. Create `/share/mosquitto/accesscontrollist` with the contents:
 ```text
-topic readwrite #
+user your-mqtt-user
+topic #
 ```
 
 The `/share` folder can be accessed via SMB, or on the host filesystem under `/usr/share/hassio/share`.

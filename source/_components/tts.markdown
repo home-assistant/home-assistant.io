@@ -19,7 +19,7 @@ To get started, add the following lines to your `configuration.yaml` (example fo
 ```yaml
 # Example configuration.yaml entry for Google TTS service
 tts:
-  - platform: google
+  - platform: google_translate
 ```
 
 <p class='note'>
@@ -56,7 +56,7 @@ The extended example from above would look like the following sample:
 ```yaml
 # Example configuration.yaml entry for Google TTS service
 tts:
-  - platform: google
+  - platform: google_translate
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
@@ -96,8 +96,8 @@ The `say` service support `language` and on some platforms also `options` for se
 Say to all `media_player` device entities:
 
 ```yaml
-# Replace google_say with <platform>_say when you use a different platform.
-service: tts.google_say
+# Replace google_translate_say with <platform>_say when you use a different platform.
+service: tts.google_translate_say
 entity_id: "all"
 data:
   message: 'May the Force be with you.'
@@ -106,7 +106,7 @@ data:
 Say to the `media_player.floor` device entity:
 
 ```yaml
-service: tts.google_say
+service: tts.google_translate_say
 entity_id: media_player.floor
 data:
   message: 'May the Force be with you.'
@@ -115,7 +115,7 @@ data:
 Say to the `media_player.floor` device entity in French:
 
 ```yaml
-service: tts.google_say
+service: tts.google_translate_say
 entity_id: media_player.floor
 data:
   message: 'Que la force soit avec toi.'
@@ -125,7 +125,7 @@ data:
 With a template:
 
 ```yaml
-service: tts.google_say
+service: tts.google_translate_say
 data_template:
   message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
   cache: false

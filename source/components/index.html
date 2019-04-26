@@ -68,15 +68,6 @@ Support for these components is provided by the Home Assistant community.
   </div>
 </div>
 
-{% comment %}
-## Pages without categories
-{%- for component in components -%}
-  {% unless component.ha_category %}
-<p>{{ component.title }}</p>
-  {% endunless %}
-{%- endfor -%}
-{% endcomment %}
-
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"></script>

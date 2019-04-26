@@ -9,6 +9,8 @@ sharing: true
 footer: true
 ---
 
+<p class='note'>Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Remote UI</a> without requiring any configuration.</p>
+
 If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible.
 
 <p class='note warning'>
