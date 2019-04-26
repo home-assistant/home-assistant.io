@@ -70,19 +70,6 @@ hue:
       allow_hue_groups: true
 ```
 
-### {% linkable_title Migrating from older configuration %}
-
-In previous versions of the `hue` component the configuration looked different:
-
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: hue
-    host: DEVICE_IP_ADDRESS
-```
-
-You will need to convert each bridge into an entry in the new configuration style. See above for an example.
-
 ### {% linkable_title Multiple Hue bridges %}
 
 Multiple Hue bridges work transparently with discovery, you don't have to do anything. If you prefer to configure them manually and use multiple Hue bridges then it's needed that you provide a configuration file for every bridge. The bridges can't share a single configuration file.
