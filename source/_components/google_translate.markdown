@@ -60,5 +60,6 @@ If you are using SSL certificate or Docker, you may need to add the `base_url` c
 http:
   base_url: example.duckdns.org
 ```
-
+<p class='note'>
 The `base_url` configuration variable was added in 0.35.1, so make sure your Home Assistant version is **0.35.1 or above.**
+</p>
