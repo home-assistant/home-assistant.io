@@ -120,6 +120,10 @@ You also need to have Docker-CE installed. There are well-documented procedures 
   Be sure to install the official Docker-CE from the above listed URL.
 </p>
 
+<p class='note warning'>
+  Installing network-manager in a RaspberryPi may lose your network setup. If you lose connection try plugging in a keyboard and monitor, then run nmtui to reconfigure wifi.
+</p>
+
 To perform the Hass.io installation, run the following commands:
 
 ```bash
