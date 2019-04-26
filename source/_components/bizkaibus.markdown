@@ -19,6 +19,8 @@ The `bizkaibus` sensor will give you the time until the next bus in the selected
 
 The next website can help to determine the id of your bus stop. You can check if this is correct by going to [next link](http://apli.bizkaia.net/APPS/DANOK/TQ/DATOS_PARADAS/DATOS_Paradas.xml) and look the PR_CODE for the STOP_ID.
 
+For a correct use of the sensor the selected route must stop in the selected stop.
+
 Then add the data to your `configuration.yaml` file as shown in the example:
 
 ```yaml
