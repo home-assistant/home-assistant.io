@@ -335,6 +335,7 @@ The following components are currently supported:
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
+| person | Sensor | Support for `occupancy` device class. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
