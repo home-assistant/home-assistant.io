@@ -162,7 +162,7 @@ tilt_opened_value:
   description: The value that will be sent on an `open_cover_tilt` command.
   required: false
   type: integer
-  default: 0
+  default: 100
 tilt_status_optimistic:
   description: Flag that determines if tilt works in optimistic mode.
   required: false

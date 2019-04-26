@@ -35,7 +35,9 @@ There is currently support for the following device types within Home Assistant:
 
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
+- [FRITZ!Box 7430](https://en.avm.de/products/fritzbox/fritzbox-7430/)
 - [FRITZ!DECT 200](https://en.avm.de/products/fritzdect/fritzdect-200/)
+- [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
 
 ## {% linkable_title Setup %}

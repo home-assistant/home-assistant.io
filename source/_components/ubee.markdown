@@ -28,8 +28,13 @@ device_tracker:
 ```
 
 {% configuration %}
+model:
+  description: Ubee Router model, e.g. `EVW32C-0N`. If omitted, model will be detected automatically.
+  required: false
+  default: detect
+  type: string
 host:
-  description: The IP address of your router, e.g., `192.168.1.1`.
+  description: The IP address of your router, e.g. `192.168.1.1`.
   required: true
   type: string
 username:
@@ -41,6 +46,15 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+Supported models:
+- EVW3200-Wifi
+- EVW320B
+- EVW32C-0N
+
+<p class='note info'>
+This component uses <a href='https://github.com/mzdrale/pyubee'>pyUbee library</a>, which was tested with models listed above. If you have different model of <a href='http://www.ubeeinteractive.com/products'>Ubee Router</a> and it doesn't work with this component, please <a href='https://github.com/mzdrale/pyubee/issues/new'>create pyUbee issue</a> to request for support for your model.
+</p>
 
 By default, Home Assistant pulls information about connected devices from Ubee router every 5 seconds.
 See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

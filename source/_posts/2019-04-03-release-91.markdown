@@ -178,6 +178,15 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [hassio docs]: /components/hassio/
 [mobile_app docs]: /components/mobile_app/
 
+## {% linkable_title Release 0.91.4 - April 16 %}
+
+- Fix ingress bug with Firefox ([@pvizeli] - [#23121]) ([hassio docs]) ([http docs])
+
+[#23121]: https://github.com/home-assistant/home-assistant/pull/23121
+[@pvizeli]: https://github.com/pvizeli
+[hassio docs]: /components/hassio/
+[http docs]: /components/http/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
