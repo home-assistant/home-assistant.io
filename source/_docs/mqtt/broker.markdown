@@ -12,54 +12,10 @@ logo: mqtt.png
 
 The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
 
-### {% linkable_title Embedded broker %}
-
-Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
-
-| Setting        | Value |
-| -------------- | ----- |
-| Host           | localhost |
-| Port           | 1883 |
-| Protocol       | 3.1.1 |
-| User           | homeassistant |
-| Password       | _password set under mqtt settings_ |
-| Websocket port | 8080 |
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  password: hello
-```
-
-<p class='note'>
-Before release 0.76, the embedded broker would use your API password as a password to the MQTT user. This is no longer the case.
-</p>
-
-<p class='note warning'>
-There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
-</p>
-
-### {% linkable_title Owntracks%}
-
-To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).
-
-In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
-
-### {% linkable_title Settings %}
-
-If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
-
-```yaml
-# Example configuration.yaml entry
-mqtt:
-  embedded:
-    # Your HBMQTT config here. Example at:
-    # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
-```
-
 ### {% linkable_title Run your own %}
 
-Along with the embedded broker this is the most private option, but it requires a bit more work. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](https://github.com/emqx/emqx) or [Mosca](http://www.mosca.io/).
+This is the most private option, but it requires a little bit of work to setup. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](https://github.com/emqx/emqx) or [Mosca](http://www.mosca.io/).
+For hass.io users, the recommended setup method is to use the [Mosquitto MQTT broker addon](/addons/mosquitto).
 
 ```yaml
 # Example configuration.yaml entry
@@ -177,3 +133,51 @@ Home Assistant will automatically load the correct certificate if you connect to
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
 </p>
 
+### {% linkable_title Embedded broker (Deprecated)%}
+
+Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
+
+| Setting        | Value |
+| -------------- | ----- |
+| Host           | localhost |
+| Port           | 1883 |
+| Protocol       | 3.1.1 |
+| User           | homeassistant |
+| Password       | _password set under mqtt settings_ |
+| Websocket port | 8080 |
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  password: hello
+```
+
+<p class='note warning'>
+As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the functionality may be removed in a future release.
+</p>
+
+<p class='note'>
+Before release 0.76, the embedded broker would use your API password as a password to the MQTT user. This is no longer the case.
+</p>
+
+<p class='note warning'>
+There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
+</p>
+
+#### {% linkable_title Owntracks%}
+
+To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).
+
+In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
+
+#### {% linkable_title Settings %}
+
+If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
+
+```yaml
+# Example configuration.yaml entry
+mqtt:
+  embedded:
+    # Your HBMQTT config here. Example at:
+    # http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration
+```
