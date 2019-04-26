@@ -435,7 +435,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
    ```bash
    Property: msg.payload
    Format: Mustache template
-   Template field: enter '{{payload.data}}'.
+   Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
    Output as: Plain text
    ```
 9. Drag a Debug node to the right of the Template node and link them.
