@@ -55,6 +55,11 @@ action:
     filename: '/tmp/my_stream.mp4'
 ```
 
+## {% linkable_title Streaming in Lovelace %}
+
+As of Homeassistant version 0.92 you can now live-stream a camera feed directly in lovelace.
+To do this add a [picture-entity](/lovelace/picture-entity/) card with your stream-ready camera entity to one of your lovelace views.
+
 ## {% linkable_title Troubleshooting %}
 
 Some users on manual installs may see the following error in their logs after restarting:
