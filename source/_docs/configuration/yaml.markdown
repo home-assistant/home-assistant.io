@@ -111,3 +111,16 @@ This means that you've mistakenly entered a tab character, instead of spaces.
 Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
 
 If you're having trouble, check the case that Home Assistant is reporting in the dev-state menu, under *Developer tools*.
+
+### {% linkable_title Can't find configuration.yaml %}
+
+If you're having trouble finding configuration.yaml (or any other configuration files) you can try the following:
+
+1. Login to the server running Hassio (eg via ssh)
+1. Run "docker ps". This will list all the docker images currently running.
+1. Find the right docker image running Hassio. Write down the image id.
+1. Run "docker inspect $id". This will list the configuration of the image.
+1. Search "HostConfig Binds". It will list all the mappings between Docker and the local host. The path you are looking for should look like "/usr/share/hassio/homeassistant:/config/rw". This means the local path /usr/share/hassio/homeassistant is mapped as /config/rw inside the Docker container.
+
+
+
