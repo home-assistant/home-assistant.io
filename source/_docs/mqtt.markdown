@@ -16,7 +16,7 @@ To integrate MQTT into Home Assistant, add the following section to your `config
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  broker: 192.168.1.100
+  broker: IP_ADDRESS
 ```
 
 For detailed setup instructions, please refer to the [MQTT broker](/docs/mqtt/broker) documentation.
