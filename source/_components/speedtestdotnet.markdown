@@ -90,7 +90,7 @@ action:
 This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
 Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
 
-When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `sensor.update_speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test. You can turn on manual mode to disable the scheduled speed tests.
+When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `speedtestdotnet.speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test. You can turn on manual mode to disable the scheduled speed tests.
 
 ## {% linkable_title Examples %}
 
