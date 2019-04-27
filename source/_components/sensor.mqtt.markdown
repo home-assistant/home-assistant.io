@@ -161,12 +161,17 @@ The example sensor below shows a configuration example which uses a JSON dict: `
 # Example configuration.yaml entry
 sensor:
   - platform: mqtt
-    name: "RSSI"
+    name: "Timer 1"
     state_topic: "tele/sonoff/sensor"
-    unit_of_measurement: 'dBm'
     value_template: "{{ value_json.Timer1.Arm }}"
     json_attributes_topic: "tele/sonoff/sensor"
-    json_attributes_template: "{{ value_json['Timer1'] | tojson }}"
+    json_attributes_template: "{{ value_json.Timer1 | tojson }}"
+  - platform: mqtt
+    name: "Timer 2"
+    state_topic: "tele/sonoff/sensor"
+    value_template: "{{ value_json.Timer2.Arm }}"
+    json_attributes_topic: "tele/sonoff/sensor"
+    json_attributes_template: "{{ value_json.Timer2 | tojson }}"
 ```
 {% endraw %}
 
