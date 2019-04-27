@@ -80,10 +80,6 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 Click [here](https://www.trafikverket.se/trafikinformation/tag/?ArrDep=departure&) to see example of train station names.
 
-<p class='img'>
-  <img src='{{site_root}}/images/screenshots/get_trafikverket_weather_station_example.png' />
-</p>
-
 ## {% linkable_title Examples %}
 
 ```yaml
