@@ -184,6 +184,7 @@ json_attributes_topic:
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
+  type: template
 unique_id:
   description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
   required: false
