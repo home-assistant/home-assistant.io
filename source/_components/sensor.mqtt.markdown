@@ -152,6 +152,24 @@ sensor:
 ```
 {% endraw %}
 
+### {% linkable_title JSON attributes template configuration %}
+
+The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes.  Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: mqtt
+    name: "RSSI"
+    state_topic: "tele/sonoff/sensor"
+    unit_of_measurement: 'dBm'
+    value_template: "{{ value_json.Timer1.Arm }}"
+    json_attributes_topic: "tele/sonoff/sensor"
+    json_attributes_template: "{{ value_json['Timer1'] | tojson }}"
+```
+{% endraw %}
+
 ### {% linkable_title Get battery level %}
 
 If you are using the [OwnTracks](/components/device_tracker.owntracks/) and enable the reporting of the battery level then you can use a MQTT sensor to keep track of your battery. A regular MQTT message from OwnTracks looks like this:
