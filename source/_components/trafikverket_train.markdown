@@ -23,6 +23,16 @@ Use cases:
 - Retreive information for a specific departure time on a specific train line.
 - Set up alert or perform actions if your train is delayed or cancelled.
 
+Data that is retreived: 
+- Next departure for specific train line.
+- Canceled status.
+- Number of minutes delayed.
+- Planned time.
+- Estimated time.
+- Actual time.
+- Other information / additional texts
+- Deviations
+
 ## {% linkable_title Configuration %}
 
 To enable this sensor, use the following format in your `configuration.yaml`.
