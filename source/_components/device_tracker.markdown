@@ -115,3 +115,17 @@ If you want to track whether either your GPS based tracker or your local network
 ## {% linkable_title Device states %}
 
 The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (in lower case). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+
+## {% linkable_title `device_tracker.see` service %}
+
+The `device_tracker.see` service can be used to manually update the state of a device tracker:
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `dev_id`               |       no | The second half of the `entity_id`, for example `tardis` for `device_tracker.tardis` |
+| `location_name`        |       no | The location, `home`, `not_home`, or the name of the zone |
+| `host_name`            |      yes | The hostname of the device tracker |
+| `mac`                  |      yes | The MAC address of the entity (only specify if you're updating a network based tracker) |
+| `gps`                  |      yes | If you're providing a location, for example `[51.513845, -0.100539]` |
+| `gps_accuracy`         |      yes | The accuracy of the GPS fix |
+| `battery`              |      yes | The battery level of the device |
