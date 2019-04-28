@@ -29,12 +29,10 @@ camera:
   - platform: local_file
     file_path: /tmp/image.jpg
 ```
-Use full file_path (example): /config/www/images/image.jpg 
-and not just (example): /local/images/image.jpg
 
 {% configuration %}
 file_path:
-  description: File to serve as the camera.
+  description: "File to serve as the camera. Use a full path, e.g., `/config/www/images/image.jpg `."
   required: true
   type: string
 name:
