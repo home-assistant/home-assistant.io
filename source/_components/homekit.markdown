@@ -123,9 +123,10 @@ homekit:
                 required: false
                 type: string
               low_battery_threshold:
-                description: Minimum battery level before the accessory starts reporting a low battery. Default is 20.
+                description: Minimum battery level before the accessory starts reporting a low battery.
                 required: false
                 type: integer
+                default: 20
               code:
                 description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
                 required: false
