@@ -8,11 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: trafikverket.png
-ha_category: Transport
+ha_category:
+  - Transport
+  - Sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.trafikverket_train/
 ---
 
 Retreive train departure information from [Trafikverket](https://www.trafikverket.se/).
