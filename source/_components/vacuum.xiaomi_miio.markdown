@@ -129,7 +129,7 @@ automation:
     - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum
-        repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
+        repeats: '{{states.input_number.vacuum_passes.state|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 Array with inline zone:
@@ -144,7 +144,7 @@ automation:
     - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum
-        repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
+        repeats: '{{states.input_number.vacuum_passes.state|int}}'
         zone:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
