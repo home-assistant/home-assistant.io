@@ -19,17 +19,18 @@ redirect_from:
   - /components/light.hue/
 ---
 
-Philips Hue support is integrated into Home Assistant as a Hub that can drive the light platform. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).
+Philips Hue support is integrated into Home Assistant as a Hub that can drive the light & sensor platforms. The preferred way to setup the Philips Hue platform is by enabling the [discovery component](/components/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
 - Light
+- Motion sensors (including temperature & light level sensors)
 
 Once discovered, if you have a custom default view, locate `configurator.philips_hue` in the entities list ( < > ) and add it to a group in `configuration.yaml`. Restart Home Assistant so that the configurator is visible in the Home Assistant dashboard. Once Home Assistant is restarted, locate and click on `configurator.philips_hue` to bring up the initiation dialog. This will prompt you to press the Hue button to register the Hue hub in Home Assistant. Once complete, the configurator entity isn't needed anymore and can be removed from any visible group in `configuration.yaml`.
 
 When you configure the Hue bridge from Home Assistant, it writes a token to a file in your Home Assistant [configuration directory](/docs/configuration/). That token authenticates the communication with the Hue bridge. This token uses the Address of the Hue Bridge. If the IP address for the Hue Bridge changes, you will need to register the Hue Bridge with Home Assistant again. To avoid this you may set up DHCP registration for your Hue Bridge, so that it always has the same IP address.
 
-Once registration is complete you should see the Hue lights listed as `light` entities. If you don't you may have to restart Home Assistant once more. Add these light entities to `configuration.yaml` file and restart Home Assistant once more to complete the installation.
+Once registration is complete you should see the Hue lights listed as `light` entities, Hue presence sensors listed as `binary_sensor` entites, Hue temperature and light level sensors listed as `sensor` entities. If you don't you may have to restart Home Assistant once more.
 
 If you want to enable the component without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
 
