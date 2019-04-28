@@ -27,11 +27,11 @@ Data that is retreived:
 - Next departure for specific train line.
 - Canceled status.
 - Number of minutes delayed.
-- Planned time.
-- Estimated time.
-- Actual time.
-- Other information / additional texts
-- Deviations
+- Planned time if no delays occur.
+- Estimated time of arrival if delays occur.
+- Actual time - when it did arrive.
+- Other information / additional texts.
+- Deviations.
 
 ## {% linkable_title Configuration %}
 
