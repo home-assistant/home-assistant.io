@@ -9,6 +9,7 @@ sharing: true
 footer: true
 logo: zigbee.png
 ha_category:
+  - Hub
   - Binary Sensor
   - Fan
   - Light
@@ -16,6 +17,7 @@ ha_category:
   - Switch
 ha_release: 0.44
 ha_iot_class: Local Polling
+featured: true
 redirect_from:
   - /components/binary_sensor.zha/
   - /components/fan.zha/

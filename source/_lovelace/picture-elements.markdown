@@ -69,6 +69,10 @@ entity:
   required: true
   description: The entity id to use.
   type: string
+icon:
+  required: false
+  description: Overwrites icon.
+  type: string
 tap_action:
   required: false
   description: Action to take on tap
@@ -372,6 +376,11 @@ image:
 camera_image:
   required: false
   description: A camera entity.
+  type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
   type: string
 state_image:
   required: false

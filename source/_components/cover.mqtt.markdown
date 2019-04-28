@@ -162,7 +162,7 @@ tilt_opened_value:
   description: The value that will be sent on an `open_cover_tilt` command.
   required: false
   type: integer
-  default: 0
+  default: 100
 tilt_status_optimistic:
   description: Flag that determines if tilt works in optimistic mode.
   required: false
@@ -181,6 +181,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 unique_id:
   description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
   required: false

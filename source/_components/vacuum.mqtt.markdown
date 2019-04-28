@@ -109,7 +109,7 @@ charging_topic:
   required: false
   type: string
 charging_template:
-  description:  Defines a [template](/topics/templating/) to define the charging state of the vacuum.
+  description: Defines a [template](/topics/templating/) to define the charging state of the vacuum.
   required: false
   type: string
 cleaning_topic:
@@ -141,7 +141,7 @@ fan_speed_topic:
   required: false
   type: string
 fan_speed_template:
-  description: "Defines a [template](/topics/templating/) to define the fan speed of the vacuum."
+  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum.
   required: false
   type: string
 set_fan_speed_topic:
@@ -174,6 +174,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 {% endconfiguration %}
 
 ### {% linkable_title Legacy configuration example %}
@@ -407,6 +411,42 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
+#### {% linkable_title Send Custom Command %}
+
+Vacuum send_command allows three parameters:
+
+- entity_id
+- command
+- params - optional
+
+If params are not provided it sends command as payload to MQTT send_command topic.
+If params are provided service sends json as payload with such structure:
+
+```
+{
+  'command': 'command',
+  'param1-key': 'param1-value'
+}
+```
+
+Service trigger example:
+
+```
+- alias: Push command based on sensor
+    trigger:
+      - platform: state
+        entity_id: sensor.sensor
+    action:
+      service: vacuum.send_command
+      data:
+        entity_id: 'vacuum.vacuum_entity'
+        command: 'custom_command'
+        params:
+          - key: value
+```
+
+MQTT topic: `vacuum/send_command`
+
 #### {% linkable_title Status/Sensor Updates %}
 
 MQTT topic: `vacuum/state`
@@ -422,13 +462,13 @@ MQTT payload:
 ```
 
 State has to be one of vacuum states supported by Home Assistant:
+
 - cleaning,
 - docked,
 - paused,
 - idle,
 - returning,
 - error.
-
 
 ### {% linkable_title Shared MQTT Protocol %}
 
@@ -456,6 +496,7 @@ Vacuum send_command allows three parameters:
 
 If params are not provided it sends command as payload to MQTT send_command topic.
 If params are provided service sends json as payload with such structure:
+
 ```
 {
   'command': 'command',
@@ -464,6 +505,7 @@ If params are provided service sends json as payload with such structure:
 ```
 
 Service trigger example:
+
 ```
 - alias: Push command based on sensor
     trigger:

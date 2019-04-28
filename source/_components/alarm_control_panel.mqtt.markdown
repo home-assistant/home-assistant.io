@@ -56,6 +56,15 @@ command_topic:
   description: The MQTT topic to publish commands to change the alarm state.
   required: true
   type: string
+command_template:
+  description: "The [template](/docs/configuration/templating/#processing-incoming-data) used for the command payload. Available variables: `action` and `code`."
+  required: false
+  type: string
+  default: action
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the value."
+  required: false
+  type: template
 qos:
   description: The maximum QoS level of the state topic.
   required: false
@@ -86,7 +95,12 @@ code:
   required: false
   type: string
 code_arm_required:
-  description: If true the code is required to arm the alarm.
+  description: If true the code is required to arm the alarm. If false the code is not validated.
+  required: false
+  type: boolean
+  default: true
+code_disarm_required:
+  description: If true the code is required to disarm the alarm. If false the code is not validated.
   required: false
   type: boolean
   default: true
@@ -108,6 +122,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 device:
   description: 'Information about the device this alarm panel is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false
