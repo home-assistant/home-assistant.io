@@ -62,6 +62,11 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+max_accuracy:
+  description: Filter positions with higher accuracy than specified. Positions are not filtered if a custom _monitored_conditions_ is included, like an alarm.
+  required: false
+  type: integer
+  default: 0
 monitored_conditions:
   description: Additional traccar computed attributes or device-related attributes to include in the scan.
   required: false
