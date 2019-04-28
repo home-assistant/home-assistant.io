@@ -7,7 +7,9 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: System Monitor
+ha_category:
+  - System Monitor
+  - Sensor
 ha_release: 0.93
 ha_iot_class: Local Polling
 redirect_from:
