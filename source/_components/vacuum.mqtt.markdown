@@ -29,7 +29,9 @@ vacuum:
   - platform: mqtt
 ```
 
-### {% linkable_title Legacy Configuration %}
+## {% linkable_title Legacy Configuration %}
+
+Legacy MQTT vacuum configuration section.
 
 {% configuration %}
 name:
@@ -223,11 +225,11 @@ vacuum:
 ```
 {% endraw %}
 
-### {% linkable_title Legacy MQTT Protocol %}
+## {% linkable_title Legacy MQTT Protocol %}
 
 The above configuration for this component expects an MQTT protocol like the following.
 
-#### {% linkable_title Legacy Basic Commands %}
+### {% linkable_title Legacy Basic Commands %}
 
 MQTT topic: `vacuum/command`
 
@@ -241,7 +243,7 @@ Possible MQTT payloads:
 - `locate` - Locate the vacuum (typically by playing a song)
 - `start_pause` - Toggle the vacuum between cleaning and stopping
 
-#### {% linkable_title Status/Sensor Updates %}
+### {% linkable_title Status/Sensor Updates %}
 
 MQTT topic: `vacuum/state`
 
@@ -258,7 +260,7 @@ MQTT payload:
 }
 ```
 
-### {% linkable_title State Configuration %}
+## {% linkable_title State Configuration %}
 
 State MQTT vacuum configuration section.
 
@@ -362,7 +364,7 @@ json_attributes_topic:
   type: string
 {% endconfiguration %}
 
-#### {% linkable_title State configuration example %}
+### {% linkable_title State configuration example %}
 
 {% raw %}
 ```yaml
@@ -394,11 +396,11 @@ vacuum:
 ```
 {% endraw %}
 
-### {% linkable_title State MQTT Protocol %}
+## {% linkable_title State MQTT Protocol %}
 
 The above configuration for this component expects an MQTT protocol like the following.
 
-#### {% linkable_title State Basic Commands %}
+### {% linkable_title State Basic Commands %}
 
 MQTT topic: `vacuum/command`
 
@@ -411,7 +413,7 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
-#### {% linkable_title Send Custom Command %}
+### {% linkable_title Send Custom Command %}
 
 Vacuum send_command allows three parameters:
 
@@ -447,7 +449,7 @@ Service trigger example:
 
 MQTT topic: `vacuum/send_command`
 
-#### {% linkable_title Status/Sensor Updates %}
+### {% linkable_title Status/Sensor Updates %}
 
 MQTT topic: `vacuum/state`
 
@@ -470,12 +472,12 @@ State has to be one of vacuum states supported by Home Assistant:
 - returning,
 - error.
 
-### {% linkable_title Shared MQTT Protocol %}
+## {% linkable_title Shared MQTT Protocol %}
 
 The configuration for this component expects an MQTT protocol like the following.
 These services are identical for both - legacy and state vacuum.
 
-#### {% linkable_title Set Fan Speed %}
+### {% linkable_title Set Fan Speed %}
 
 MQTT topic: `vacuum/set_fan_speed`
 
@@ -486,7 +488,7 @@ Possible MQTT payloads:
 - `high` - High fan speed
 - `max` - Max fan speed
 
-#### {% linkable_title Send Custom Command %}
+### {% linkable_title Send Custom Command %}
 
 Vacuum send_command allows three parameters:
 
