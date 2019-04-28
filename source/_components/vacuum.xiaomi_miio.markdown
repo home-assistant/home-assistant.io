@@ -129,7 +129,7 @@ automation:
     - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum
-        repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
+        repeats: '{{states.input_number.vacuum_passes.state|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
 Array with inline zone:
@@ -144,7 +144,7 @@ automation:
     - service: vacuum.xiaomi_clean_zone
       data_template:
         entity_id: vacuum.xiaomi_vacuum
-        repeats_template: '{{states.input_number.vacuum_passes.state|int}}'
+        repeats: '{{states.input_number.vacuum_passes.state|int}}'
         zone:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
@@ -375,7 +375,7 @@ Software Required:
   ```bash
   java -jar abe.jar unpack backup.ab backup.tar
   ```
-  After that, you kann open the file with WinRaR or what ever you like.
+  After that, you will be able to open the file with WinRaR or what ever you like.
 6. Go to \apps\com.xiaomi.smarthome\db
 7. Open miio2.db with SQLite Browser
 8. You can find your device tokens in "devicerecord" table

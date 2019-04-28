@@ -62,3 +62,8 @@ show_on_map:
   type: boolean
   default: false
 {% endconfiguration %}
+
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/nmbs-card-example.png' />
+  <p>Example using the Lovelace Attributes card</p>
+</p>

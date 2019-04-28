@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Yahoo Weather Sensor"
+title: "Yahoo Weather"
 description: "Instructions on how to integrate Yahoo Weather within Home Assistant."
 date: 2016-07-06 9:06
 sidebar: true
@@ -8,11 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: yahooweather.png
-ha_category: Weather
+ha_category:
+  - Weather
+  - Sensor
 ha_release: 0.24
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.yweather/
+ - /components/weather.yweather/
 ---
 
 <p class='note warning'>

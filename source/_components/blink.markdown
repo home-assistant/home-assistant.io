@@ -142,3 +142,83 @@ homeassistant:
 ### {% linkable_title Other Services %}
 
 In addition to the services mentioned above, there are generic `camera` and `alarm_control_panel` services available for use as well. The `camera.enable_motion_detection` and `camera.disable_motion_detection` services allow for individual cameras to be enabled and disabled, respectively, within the Blink system. The `alarm_control_panel.alarm_arm_away` and `alarm_control_panel.alarm_disarm` services allow for the whole system to be armed and disarmed, respectively.
+
+
+## {% linkable_title Examples %}
+
+The following are some examples showing how to correctly make service calls using Blink:
+
+### {% linkable_title Snap Picture and Save Locally %}
+
+This example script shows how to take a picture with your camera, named `My Camera` in your Blink app (this is **not necessarily** the friendly name in home-assistant).  After snapping a picture, the image will then be saved to a local directory called `/tmp/my_image.jpg`.  Note that this example makes use of services found in the [camera component](https://www.home-assistant.io/components/camera#service-snapshot)
+
+```yaml
+alias: Blink Snap Picture
+sequence:
+    - service: blink.trigger_camera
+      data:
+          name: "My Camera"
+    - delay: 00:00:05  
+    - service: blink.blink_update
+    - service: camera.snapshot
+      data:
+          entity_id: camera.blink_my_camera
+          filename: /tmp/my_image.jpg
+```
+
+### {% linkable_title Arm Blink When Away %}
+
+This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled.  By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set.  If you want to manually enable motion detection for individual cameras, you can utilize the [appropriate camera service](https://www.home-assistant.io/components/camera#service-enable_motion_detection) but pelase note that motion will only be captured if the sync module is armed.
+
+Here, this example assumes your blink module is named `My Sync Module` and that you have [device trackers](https://www.home-assistant.io/components/device_tracker) set up for presence detection.
+
+```yaml
+- id: arm_blink_when_away
+  alias: Arm Blink When Away
+  trigger:
+      platform: state
+      entity_id: group.all_devices
+      to: 'not_home'
+  action:
+      service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.blink_my_sync_module 
+```
+
+### {% linkable_title Disarm Blink When Home %}
+
+Similar to the previous example, this automation will disarm blink when arriving home.
+
+```yaml
+- id: disarm_blink_when_home
+  alias: Disarm Blink When Home
+  trigger:
+      platform: state
+      entity_id: group.all_devices
+      to: 'home'
+  action:
+      service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.blink_my_sync_module 
+```
+
+### {% linkable_title Save Video Locally When Motion Detected %}
+
+When motion is detected, you can use the Blink Home-Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
+
+Again, this example assumes your camera's name (in the blink app) is `My Camera` and your sync module name is `My Sync Module`.  The file will be saved to `/tmp/videos/blink_video_{YYYMMDD_HHmmSS}.mp4` where `{YYYYMMDD_HHmmSS}` will be a timestamp create via the use of [templating](https://www.home-assistant.io/docs/configuration/templating/).
+
+{% raw %}
+```yaml
+- id: save_blink_video_on_motion
+  alias: Save Blink Video on Motion
+  trigger:
+      platform: state
+      entity_id: binary_sensor.blink_my_camera_motion_detected
+      to: 'on'
+  action:
+      service: blink.save_video
+      data:
+          name: "My Camera"
+          filename: "/tmp/videos/blink_video_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4"
+      
+```
+{% endraw %}

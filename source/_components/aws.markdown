@@ -13,7 +13,7 @@ ha_category:
 ha_release: "0.91"
 ---
 
-The `aws` integration provides a single place to interact [Amazon Web Services](https://aws.amazon.com/). Current it provide a notification platform can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
+The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
 
 ## {% linkable_title Setup %}
 
@@ -57,20 +57,6 @@ aws_secret_access_key:
   type: string
 profile_name:
   description: A credentials profile name.
-  required: false
-  type: string
-region_name:
-  description: The region identifier to connect to.
-  required: true
-  default: "`us-east-1`"
-  type: string
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  default: notify
-  type: string
-context:
-  description: An optional dictionary you can provide to pass custom context through to the Lambda function.
   required: false
   type: string
 {% endconfiguration %}

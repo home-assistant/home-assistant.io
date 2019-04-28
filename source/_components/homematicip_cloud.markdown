@@ -95,6 +95,7 @@ authtoken:
   * Window Rotary Handle Sensor (*HmIP-SRH*)
   * Smoke sensor and alarm (*HmIP-SWSD*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
+  * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Water Sensor (*HmIP-SWD*)
 
 * homematicip_cloud.climate
@@ -126,13 +127,15 @@ authtoken:
   * Temperature and Humidity Sensor with display - indoor (*HmIP-STHD*)
   * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
+  * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
   * Light Sensor - outdoor (*HmIP-SLO*)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
-  * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8)
+  * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
+  * Multi IO Box - 2x (*HmIP-MIOB*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)

@@ -53,6 +53,7 @@ Looking for [talking points](/help/talking-points/) or [trivia](/help/trivia)?
 
 Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 
+- [Magical Smart Home Upgrade Lets Muggles Control Their Homes With a Wand Too](https://gizmodo.com/magical-smart-home-upgrade-lets-muggles-control-their-h-1833941228) - April 2019
 - [Thomas-Krenn-Award 2019 – The winners](https://www.thomas-krenn.com/de/tkmag/tk-insights/thomas-krenn-award-2019-gewinner/) - March 2019
 - [How to set up and use Home Assistant: For Dummies edition](https://www.the-ambient.com/how-to/set-up-use-home-assistant-644) - October 2018
 - [DINAcon begeistert 200 Teilnehmende und die Award-Gewinner 2018](https://dinacon.ch/wp-content/uploads/sites/4/2018/10/2018-10-19_DINAcon2018_Medienmitteilung.pdf) - October 2018

@@ -19,6 +19,9 @@ It's time for release 0.91 and this release is all about streaming cameras. Home
 
 Thanks to [@hunterjm] for all this work on this! ❤️ Check the latest release of the [Home Assistant podcast](https://hasspodcast.io/home-assistant-podcast-47-0-91-and-streaming-cameras-everywhere-with-jason/) for an interview with [@hunterjm] about streams in Home Assistant.
 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Love the new streaming service in <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> 0.91!<br>Five vastly different techs in collab! &lt;3 <a href="https://t.co/Qk9rC3Uooi">pic.twitter.com/Qk9rC3Uooi</a></p>&mdash; Torbjörn Söderberg (@tubstr) <a href="https://twitter.com/tubstr/status/1113845749492662274?ref_src=twsrc%5Etfw">April 4, 2019</a>
+</blockquote>
+
 We're still in the process of updating more cameras to support the stream component. If you want to try it today, the easiest approach is to configure a [generic camera][generic docs] with a `stream_source` or buy a camera that supports the standard ONVIF protocol.
 
 A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI](https://www.circleci.com) and [Codecov](https://codecov.io/). CircleCI's advanced caching and code splitting controls has speed up tests significantly. Codecov tracks our code coverage and generates detailed reports for each contribution to see how well it is tested.
@@ -38,6 +41,8 @@ Trusted networks has been updated by [@awarecan] to allow specifying specific us
 ## {% linkable_title ESPHome Cameras %}
 
 This release adds camera support to the ESPHome integration. If you haven't heard about [ESPHome](https://www.esphome.io) yet, it allows you to create your own sensors and smart devices and configure them using YAML. With Home Assistant 0.91, it is now possible to integrate cameras. This means that you can have a WiFi enabled camera that integrates automatically into Home Assistant for as little as $9 😲.
+
+Check this cool demo, part of [this blog post](https://www.dopebuild.com/i-am-sorry-dave-i-am-unable-to-do-that/):
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
@@ -65,6 +70,122 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 - Add Freebox switch platform ([@SNoof85] - [#21710]) ([freebox docs]) (new-platform)
 - Add support for Tfiac Climate component ([@fredrike] - [#21823]) ([tfiac docs]) (new-platform)
 - Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) ([daikin docs]) (new-platform)
+
+## {% linkable_title Release 0.91.1 - April 4 %}
+
+- Change URL handling ([@pvizeli] - [#22713]) ([hassio docs])
+- fix device class lookup for binary sensors ([@dmulcahey] - [#22724]) ([zha docs])
+- Fix ingress routing with / ([@pvizeli] - [#22728]) ([hassio docs])
+- Fix chunk streaming ([@pvizeli] - [#22730]) ([hassio docs])
+- Fix incorrect "Unavailable" Ambient sensors ([@bachya] - [#22734]) ([ambient_station docs])
+- Bump aioambient to 0.2.0 ([@bachya] - [#22736]) ([ambient_station docs])
+- Update Foscam stream for newer models ([@cwhits] - [#22744]) ([foscam docs])
+- use the input stream codec as the template for the output streams ([@hunterjm] - [#22747]) ([stream docs])
+- fixes configuration flow #22706 ([@fredrike] - [#22754]) ([daikin docs])
+
+[#22713]: https://github.com/home-assistant/home-assistant/pull/22713
+[#22724]: https://github.com/home-assistant/home-assistant/pull/22724
+[#22728]: https://github.com/home-assistant/home-assistant/pull/22728
+[#22730]: https://github.com/home-assistant/home-assistant/pull/22730
+[#22734]: https://github.com/home-assistant/home-assistant/pull/22734
+[#22736]: https://github.com/home-assistant/home-assistant/pull/22736
+[#22744]: https://github.com/home-assistant/home-assistant/pull/22744
+[#22747]: https://github.com/home-assistant/home-assistant/pull/22747
+[#22754]: https://github.com/home-assistant/home-assistant/pull/22754
+[@bachya]: https://github.com/bachya
+[@cwhits]: https://github.com/cwhits
+[@dmulcahey]: https://github.com/dmulcahey
+[@fredrike]: https://github.com/fredrike
+[@hunterjm]: https://github.com/hunterjm
+[@pvizeli]: https://github.com/pvizeli
+[ambient_station docs]: /components/ambient_station/
+[daikin docs]: /components/daikin/
+[foscam docs]: /components/foscam/
+[hassio docs]: /components/hassio/
+[stream docs]: /components/stream/
+[zha docs]: /components/zha/
+
+## {% linkable_title Release 0.91.2 - April 8 %}
+
+- Correctly load Mopar's config ([@rohankapoorcom] - [#22771]) ([mopar docs])
+- Fix konnected unique_id computation for switches ([@heythisisnate] - [#22777]) ([konnected docs]) (breaking change)
+- make the custom polling actually request state ([@dmulcahey] - [#22778]) ([zha docs])
+- ZHA Light debug logging. ([@Adminiuga] - [#22776]) ([zha docs])
+- Fix tado turn on off ([@wmalgadey] - [#22291]) ([tado docs])
+- Add new mobile_app webhook command: get_zones ([@robbiet480] - [#22604]) ([mobile_app docs])
+- Add optional rtsp_port for Foscam ([@cwhits] - [#22786]) ([foscam docs])
+- Improve yeelight imports ([@zewelor] - [#22804]) ([yeelight docs])
+- Add a new mobile_app webhook command to get config ([@robbiet480] - [#22813]) ([mobile_app docs])
+- Fix for optional values in the update_location webhook call ([@robbiet480] - [#22817]) ([mobile_app docs])
+- coerce duration and lookback to int so they can be used in template automation ([@hunterjm] - [#22819]) ([camera docs])
+- Fix for rate limits should be optional ([@robbiet480] - [#22823]) ([mobile_app docs])
+- Use relative imports in yeelight ([@zewelor] - [#22839]) ([yeelight docs])
+- Fix yeelight possible array change during iteration ([@zewelor] - [#22849]) ([yeelight docs])
+- Fix content_type handling ingress ([@pvizeli] - [#22864]) ([hassio docs])
+- Improve mobile_app sensor responses and expected values ([@robbiet480] - [#22884]) ([mobile_app docs])
+
+[#22291]: https://github.com/home-assistant/home-assistant/pull/22291
+[#22604]: https://github.com/home-assistant/home-assistant/pull/22604
+[#22771]: https://github.com/home-assistant/home-assistant/pull/22771
+[#22776]: https://github.com/home-assistant/home-assistant/pull/22776
+[#22777]: https://github.com/home-assistant/home-assistant/pull/22777
+[#22778]: https://github.com/home-assistant/home-assistant/pull/22778
+[#22786]: https://github.com/home-assistant/home-assistant/pull/22786
+[#22804]: https://github.com/home-assistant/home-assistant/pull/22804
+[#22813]: https://github.com/home-assistant/home-assistant/pull/22813
+[#22817]: https://github.com/home-assistant/home-assistant/pull/22817
+[#22819]: https://github.com/home-assistant/home-assistant/pull/22819
+[#22823]: https://github.com/home-assistant/home-assistant/pull/22823
+[#22839]: https://github.com/home-assistant/home-assistant/pull/22839
+[#22849]: https://github.com/home-assistant/home-assistant/pull/22849
+[#22864]: https://github.com/home-assistant/home-assistant/pull/22864
+[#22884]: https://github.com/home-assistant/home-assistant/pull/22884
+[@Adminiuga]: https://github.com/Adminiuga
+[@cwhits]: https://github.com/cwhits
+[@dmulcahey]: https://github.com/dmulcahey
+[@heythisisnate]: https://github.com/heythisisnate
+[@hunterjm]: https://github.com/hunterjm
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[@rohankapoorcom]: https://github.com/rohankapoorcom
+[@wmalgadey]: https://github.com/wmalgadey
+[@zewelor]: https://github.com/zewelor
+[camera docs]: /components/camera/
+[foscam docs]: /components/foscam/
+[hassio docs]: /components/hassio/
+[konnected docs]: /components/konnected/
+[mobile_app docs]: /components/mobile_app/
+[mopar docs]: /components/mopar/
+[tado docs]: /components/tado/
+[yeelight docs]: /components/yeelight/
+[zha docs]: /components/zha/
+
+## {% linkable_title Release 0.91.3 - April 10 %}
+
+- Fix position of add_entities of binary sensor ([@AZDane] - [#22866]) ([concord232 docs])
+- More Mobile app sensor fixes ([@robbiet480] - [#22914]) ([mobile_app docs])
+- Add cloudhook and remote UI vals to get_config ([@robbiet480] - [#22921]) ([mobile_app docs])
+- Bugfix: pass protocol out of header to application layer ([@pvizeli] - [#22955]) ([hassio docs])
+
+[#22866]: https://github.com/home-assistant/home-assistant/pull/22866
+[#22914]: https://github.com/home-assistant/home-assistant/pull/22914
+[#22921]: https://github.com/home-assistant/home-assistant/pull/22921
+[#22955]: https://github.com/home-assistant/home-assistant/pull/22955
+[@AZDane]: https://github.com/AZDane
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[concord232 docs]: /components/concord232/
+[hassio docs]: /components/hassio/
+[mobile_app docs]: /components/mobile_app/
+
+## {% linkable_title Release 0.91.4 - April 16 %}
+
+- Fix ingress bug with Firefox ([@pvizeli] - [#23121]) ([hassio docs]) ([http docs])
+
+[#23121]: https://github.com/home-assistant/home-assistant/pull/23121
+[@pvizeli]: https://github.com/pvizeli
+[hassio docs]: /components/hassio/
+[http docs]: /components/http/
 
 ## {% linkable_title If you need help... %}
 
