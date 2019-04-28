@@ -45,9 +45,9 @@ A connection to a single device enables control for all devices in the HEOS acco
 
 ## {% linkable_title Services %}
 
-### {% linkable_title `media_player.play_media` %}
+### {% linkable_title Service `media_player.play_media` %}
 
-#### {% linkable_title Url %}
+#### {% linkable_title Play Url %}
 
 You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
 
