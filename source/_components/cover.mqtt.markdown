@@ -163,7 +163,7 @@ tilt_opened_value:
   required: false
   type: integer
   default: 100
-tilt_status_optimistic:
+tilt_optimistic:
   description: Flag that determines if tilt works in optimistic mode.
   required: false
   type: boolean
