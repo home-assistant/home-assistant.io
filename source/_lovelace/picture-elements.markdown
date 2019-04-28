@@ -257,7 +257,7 @@ icon:
   type: string
 title:
   required: false
-  description: Icon tooltip. Set to null to remove.
+  description: Icon tooltip. Set to null to hide.
   type: string
 entity:
   required: false
@@ -333,7 +333,7 @@ entity:
   type: string
 title:
   required: false
-  description: Image tooltip. Set to null to remove.
+  description: Image tooltip. Set to null to hide.
   type: string
 tap_action:
   required: false
