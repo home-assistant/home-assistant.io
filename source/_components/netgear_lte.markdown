@@ -146,14 +146,32 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 
 ## {% linkable_title Services %}
 
-### {% linkable_title Service `netgear_lte.delete_sms` %}
+### {% linkable_title Service `netgear_lte.connect_lte` %}
 
-The integration makes a service call available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+This service asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `host`                 | no       | The modem that should have a message deleted.
+| `host`                 | yes      | The modem that should connect (optional when just one modem is configured).
+
+### {% linkable_title Service `netgear_lte.delete_sms` %}
+
+The integration makes a service available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host`                 | yes      | The modem that should have a message deleted (optional when just one modem is configured).
 | `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
+
+### {% linkable_title Service `netgear_lte.set_option` %}
+
+This service can set modem configuration options (otherwise available in the modem web UI).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host`                 | yes      | The modem to set options on (optional when just one modem is configured).
+| `autoconnect`          | yes      | Autoconnect value: `never`/`home`/`always`, with `home` meaning "not roaming".
+| `failover`             | yes      | Failover mode: `wire` (wired connection only), `mobile` (mobile connection only), `auto` (wired connection with failover to mobile connection).
 
 ## {% linkable_title Examples %}
 
