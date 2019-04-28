@@ -624,7 +624,7 @@ To get the Z-Push Button 2 or the Z-Push Button 8 working in Home Assistant, you
 3. Make a backup of your `zwfcg` file, just in case.
 4. In the `zwcfg` file, find the `Node id` that corresponds to the number you noted in the first step.
 5. Within the `Node id` you identified, highlight everything between `<CommandClass id="91"` and `</CommandClass>` (inclusive) and paste in the following:
-  5.1 For the Z-Push Button 2:
+  - 5.1 For the Z-Push Button 2:
 
     ```xml
         <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">				<Instance index="1" />
@@ -634,7 +634,7 @@ To get the Z-Push Button 2 or the Z-Push Button 8 working in Home Assistant, you
         </CommandClass>
     ```
 
-  5.2 For the Z-Push Button 8:
+  - 5.2 For the Z-Push Button 8:
 
     ```xml
         <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">				<Instance index="1" />
