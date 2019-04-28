@@ -19,7 +19,7 @@ New installation should use `state` schema as `legacy` is deprecated and might b
 
 This documentation has 3 sections. Config for `legacy` vacuum with examples, config for `state` vacuum with examples and shared section with examples which are the same for both schemas.
 
-# Configuration
+## {% linkable_title Configuration %}
 
 To add your MQTT vacuum to your installation, add the following to your `configuration.yaml` file:
 
@@ -29,9 +29,7 @@ vacuum:
   - platform: mqtt
 ```
 
-# {% linkable_title Legacy Configuration %}
-
-## {% linkable_title Legacy schema configuration %}
+### {% linkable_title Legacy Configuration %}
 
 {% configuration %}
 name:
@@ -178,7 +176,7 @@ json_attributes_topic:
   type: string
 {% endconfiguration %}
 
-###  Legacy configuration example
+### {% linkable_title Legacy configuration example %}
 
 {% raw %}
 ```yaml
@@ -221,11 +219,11 @@ vacuum:
 ```
 {% endraw %}
 
-### Legacy MQTT Protocol
+### {% linkable_title Legacy MQTT Protocol %}
 
 The above configuration for this component expects an MQTT protocol like the following.
 
-#### Legacy Basic Commands
+#### {% linkable_title Legacy Basic Commands %}
 
 MQTT topic: `vacuum/command`
 
@@ -239,7 +237,7 @@ Possible MQTT payloads:
 - `locate` - Locate the vacuum (typically by playing a song)
 - `start_pause` - Toggle the vacuum between cleaning and stopping
 
-#### Status/Sensor Updates
+#### {% linkable_title Status/Sensor Updates %}
 
 MQTT topic: `vacuum/state`
 
@@ -256,11 +254,9 @@ MQTT payload:
 }
 ```
 
-# {% linkable_title State Configuration %}
+### {% linkable_title State Configuration %}
 
 State MQTT vacuum configuration section.
-
-## {% linkable_title State schema configuration %}
 
 {% configuration %}
 name:
@@ -362,7 +358,7 @@ json_attributes_topic:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title State configuration example %}
+#### {% linkable_title State configuration example %}
 
 {% raw %}
 ```yaml
@@ -394,11 +390,11 @@ vacuum:
 ```
 {% endraw %}
 
-### State MQTT Protocol
+### {% linkable_title State MQTT Protocol %}
 
 The above configuration for this component expects an MQTT protocol like the following.
 
-#### State Basic Commands
+#### {% linkable_title State Basic Commands %}
 
 MQTT topic: `vacuum/command`
 
@@ -411,7 +407,7 @@ Possible MQTT payloads:
 - `clean_spot` - Initialize a spot cleaning cycle
 - `locate` - Locate the vacuum (typically by playing a song)
 
-#### Status/Sensor Updates
+#### {% linkable_title Status/Sensor Updates %}
 
 MQTT topic: `vacuum/state`
 
@@ -434,12 +430,12 @@ State has to be one of vacuum states supported by Home Assistant:
 - error.
 
 
-### Shared MQTT Protocol
+### {% linkable_title Shared MQTT Protocol %}
 
 The configuration for this component expects an MQTT protocol like the following.
 These services are identical for both - legacy and state vacuum.
 
-#### Set Fan Speed
+#### {% linkable_title Set Fan Speed %}
 
 MQTT topic: `vacuum/set_fan_speed`
 
@@ -450,7 +446,7 @@ Possible MQTT payloads:
 - `high` - High fan speed
 - `max` - Max fan speed
 
-#### Send Custom Command
+#### {% linkable_title Send Custom Command %}
 
 Vacuum send_command allows three parameters:
 
@@ -484,12 +480,11 @@ Service trigger example:
 
 MQTT topic: `vacuum/send_command`
 
-
-### {% linkable_title Usage with cloudless Xiaomi vacuums %}
+## {% linkable_title Usage with cloudless Xiaomi vacuums %}
 
 This component is supported by the cloud-free Xiaomi Vacuum Webinterface [Valetudo](https://github.com/Hypfer/Valetudo).
 
-### {% linkable_title Retrofitting a non-wifi vacuums %}
+## {% linkable_title Retrofitting a non-wifi vacuums %}
 
 - Retrofitting your old Roomba with an ESP8266. [This repo](https://github.com/johnboiles/esp-roomba-mqtt) provides MQTT client firmware.
 - In you own a non-wifi Neato, you can refer to [this repo](https://github.com/jeroenterheerdt/neato-serial) that uses a Raspberry Pi to retrofit an old Neato.
