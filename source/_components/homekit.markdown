@@ -329,7 +329,7 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
-| device_tracker | Sensor | Support for `occupancy` device class. |
+| device_tracker / person | Sensor | Support for `occupancy` device class. |
 | fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
 | fan | Fan | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
