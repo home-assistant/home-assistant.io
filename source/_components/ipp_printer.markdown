@@ -12,8 +12,6 @@ ha_category:
   - Sensor
 ha_release: 0.93
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/sensor.ipp_printer/
 ---
 
 The `IPP printer` platform shows the status and the ink / toner levels of your printer.
