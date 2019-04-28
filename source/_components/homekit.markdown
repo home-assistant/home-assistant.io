@@ -31,9 +31,13 @@ homekit:
       - alarm_control_panel
       - light
       - media_player
+    include_entities:
+      - binary_sensor.living_room_motion
   entity_config:
     alarm_control_panel.home:
       code: 1234
+    binary_sensor.living_room_motion:
+      linked_battery_sensor: sensor.living_room_motion_battery
     light.kitchen_table:
       name: Kitchen Table Light
     lock.front_door:
@@ -111,6 +115,10 @@ homekit:
             keys:
               name:
                 description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
+                required: false
+                type: string
+              linked_battery_sensor:
+                description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
               code:
@@ -400,7 +408,7 @@ Pairing works fine when the filter is set to only include `demo.demo`, but fails
 #### {% linkable_title Pairing hangs - no error %}
 
 1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
-2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook ups to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable. 
+2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook ups to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
 #### {% linkable_title Duplicate AID found when attempting to add accessory %}
 
@@ -439,3 +447,7 @@ Unfortunately, that sometimes happens at the moment. It might help to close the 
 #### {% linkable_title Accessories not responding / behaving unusual - Upgrade from `0.65.x` %}
 
 To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
+
+#### {% linkable_title The linked battery sensor isn't recognized %}
+
+Try removing the entity from HomeKit and then adding it again. If you are adding this config option to an existing entity in HomeKit, any changes you make to this entity's config options won't appear until the accessory is removed from HomeKit and then re-added.

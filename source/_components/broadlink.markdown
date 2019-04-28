@@ -39,7 +39,6 @@ sensor:
       - 'temperature'
 ```
 
-Configuration options:
 {% configuration %}
 host:
   description: The hostname/IP address to connect to.
@@ -289,12 +288,13 @@ switch:
       slot_4: 'Speaker slot'
 ```
 
-### {% linkable_title Service `broadlink_send_packet` %}
+### {% linkable_title Service `broadlink.send` %}
 
-You can use the service `switch.broadlink_send_packet` to directly send IR packets without the need to assign a switch entity for each command.
+You can use the service `broadlink.send` to directly send IR packets without the need to assign a switch entity for each command.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
+| `host`   | no | IP address to send command to.
 | `packet` | no | String or list of strings that contain the packet data.
 
 Example:
@@ -303,8 +303,9 @@ Example:
 script:
   tv_select_source:
     sequence:
-      - service: switch.broadlink_send_packet_192_168_0_107
+      - service: broadlink.send
         data:
+          host: 192.168.0.107
           packet:
             - "JgCMAJSSFDYUNhQ2FBEUERQRFBEUERQ2FDYUNhQRFBEUERQRFBEUERQRFDYUERQRFBEUERQRFDYUNhQRFDYUNhQ2FDYUNhQABfWUkhQ2FDYUNhQRFBEUERQRFBEUNhQ2FDYUERQRFBEUERQRFBEUERQ2FBEUERQRFBEUERQ2FDYUERQ2FDYUNhQ2FDYUAA0FAAAAAAAAAAAAAAAA"
             - "JgBGAJSTFDUUNhM2ExITEhMSExITEhM2EzYTNhQRFBEUERQRFBEUNRQ2ExITNhMSExITNhMSExITEhM2ExITNhQ1FBEUNhMADQUAAA=="
@@ -434,7 +435,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
    ```bash
    Property: msg.payload
    Format: Mustache template
-   Template field: enter '{{payload.data}}'.
+   Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
    Output as: Plain text
    ```
 9. Drag a Debug node to the right of the Template node and link them.

@@ -10,6 +10,7 @@ footer: true
 logo: amcrest.png
 ha_category:
   - Hub
+  - Binary Sensor
   - Camera
   - Sensor
   - Switch
@@ -25,9 +26,10 @@ The `amcrest` camera platform allows you to integrate your [Amcrest](https://amc
 
 There is currently support for the following device types within Home Assistant:
 
-- [Camera](#camera)
-- [Sensor](#sensor)
-- [Switch](#switch)
+- Binary Sensor
+- Camera
+- Sensor
+- Switch
 
 ## {% linkable_title Configuration %}
 
@@ -92,6 +94,7 @@ ffmpeg_arguments:
     image quality or video filter options.
   required: false
   type: string
+  default: -pred 1
 authentication:
   description: >
     Defines which authentication method to use only when **stream_source**
@@ -104,6 +107,16 @@ scan_interval:
   required: false
   type: integer
   default: 10
+binary_sensors:
+  description: >
+    Conditions to display in the frontend.
+    The following conditions can be monitored:
+  required: false
+  type: list
+  default: None
+  keys:
+    motion_detected:
+      description: "Return `on` when a motion is detected, `off` when not."
 sensors:
   description: >
     Conditions to display in the frontend.
@@ -113,7 +126,11 @@ sensors:
   default: None
   keys:
     motion_detector:
-      description: "Return `true`/`false` when a motion is detected."
+      description: >
+        Return `true`/`false` when motion is detected.  
+
+        **Note:** This sensor is deprecated and will be removed in a future release.
+        Use **binary_sensors** option **motion_detected** instead.
     sdcard:
       description: Return the SD card usage by reporting the total and used space.
     ptz_preset:
@@ -148,7 +165,7 @@ documentation to install the `ffmpeg`.
 
 To check if your Amcrest camera is supported/tested, visit the
 [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix)
-link from the `python-amcrest` project.
+link from the `amcrest` project.
 
 ## {% linkable_title Advanced Configuration %}
 
@@ -160,8 +177,9 @@ amcrest:
   - host: IP_ADDRESS_CAMERA_1
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
+    binary_sensors:
+      - motion_detected
     sensors:
-      - motion_detector
       - sdcard
     switches:
       - motion_detection
@@ -171,39 +189,14 @@ amcrest:
   - host: IP_ADDRESS_CAMERA_2
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
+    name: Amcrest Camera 2
     resolution: low
     stream_source: snapshot
     sensors:
       - ptz_preset
 ```
 
-## {% linkable_title Camera %}
-
-Once you have enabled the [Amcrest component](/components/amcrest), you can add cameras to your Home Assistant configuration. add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: amcrest
-```
-
 To check if your Amcrest camera is supported/tested, visit the [supportability matrix](https://github.com/tchellomello/python-amcrest#supportability-matrix) link from the `python-amcrest` project.
-
-## {% linkable_title Sensor %}
-
-Once you have enabled the [Amcrest component](/components/amcrest), you can add sensors to your Home Assistant configuration. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: amcrest
-```
-
-## {% linkable_title Switch %}
-
-The `amcrest` switch platform lets you control settings of [Amcrest IP Camera](#camera) through Home Assistant.
-
-Switches will be configured automatically. Please refer to the [component](/components/amcrest/) configuration on how to setup.
 
 <p class='note warning'>
 In previous versions, switch devices in setups with multiple cameras, would not have specific entity ID causing them to change randomly after each Home Assistant restart. The current version adds the name of the camera at the end of the switch entity ID, making it more specific and consistent and causes the name option to be required in a multi-camera system. This behavior matches the sensor behavior of the Amcrest component. Because of this, older automations may require updates to the entity ID.

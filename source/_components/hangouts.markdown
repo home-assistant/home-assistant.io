@@ -27,16 +27,37 @@ There is currently support for the following device types within Home Assistant:
 Menu: *Configuration* -> *Integrations*
   
 Configure the integration:
+* Enter your **Google Mail Address** and **Password**
+* In the authentication form there is an Optional Field: **Authorization Code** which should only be used if you get an invalid login error with email and password (see note below for details).
+* If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
 
-- Enter your **Google Mail Address** and **Password**
-- If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
+## {% linkable_title Manual Authentication %}
+
+If you are sure your email and password are correct, but the component says the login is invalid then you would need to use the manual authentication method.
+
+To use the manual method, first you would need to obtain an authorization code (see <a href="#steps-to-obtain-authorization-code">instructions below</a> for details).
+
+Once the code is obtained fill in the form with your email, password and the authorization code to complete authentication.
+
+### {% linkable_title Steps to obtain Authorization Code %}:
+
+1. To obtain your authorization code, open [this URL](https://accounts.google.com/o/oauth2/programmatic_auth?scope=https%3A%2F%2Fwww.google.com%2Faccounts%2FOAuthLogin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&client_id=936475272427.apps.googleusercontent.com&device_name=hangups) in your browser.
+2. Log into your Google account normally.
+3. You should be redirected to a loading screen. Copy the `oauth_code` cookie value set by this page and paste it here.
+
+To obtain the `oauth_code` cookie value using Chrome or Firefox, follow the steps below:
+
+* Press F12 to open developer tools.
+* Select the "Application" (Chrome) or "Storage" (Firefox) tab.
+* In the sidebar, expand "Cookies" and select `https://accounts.google.com`
+* In the cookie list, double click on the value for the `oauth_code` cookie to select it, and copy the value. This is the authorization code
 
 <p class='note'>
 You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.<br>
 <br>
 If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.<br>
 <br>
-If you are sure your email and password are correct, but the component says the login is invalid, wait a few hours and try again. It might be that Google asks for a captcha which we can't support. Google does not provide official support for using bots with Google Hangouts, that's why we have to work around this.
+The manual authentication work-around is a result of unofficial support for using bots in hangouts from Google.
 </p>
 
 The authentication token will be generated and stored internally.

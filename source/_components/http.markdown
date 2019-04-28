@@ -69,7 +69,7 @@ ssl_key:
   required: false
   type: string
 cors_allowed_origins:
-  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, X-HA-access`. You must provide the exact Origin, i.e. `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
+  description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e. `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
   required: false
   type: string, list
 use_x_forwarded_for:
@@ -139,6 +139,8 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
+Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 ## {% linkable_title IP filtering and banning %}
@@ -189,7 +191,7 @@ The JSON payload must contain the new state and can have a friendly name. The fr
 For a quick test `curl` can be useful to "simulate" a device.
 
 ```bash
-$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     -H "Content-Type: application/json" \
     -d '{"state": "off", "attributes": {"friendly_name": "Radio"}}' \
     http://localhost:8123/api/states/binary_sensor.radio
@@ -198,7 +200,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
 To check if the sensor is working, use again `curl` to retrieve the [current state](/developers/rest_api/#get-apistatesltentity_id).
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        -H "Content-Type: application/json" \
        http://localhost:8123/api/states/binary_sensor.radio
 {
@@ -223,7 +225,7 @@ As already shown on the [API](/developers/rest_api/) page, it's very simple to u
 ```python
 response = requests.post(
         'http://localhost:8123/api/states/binary_sensor.radio',
-        headers={'x-ha-access': 'YOUR_PASSWORD', 'content-type': 'application/json'},
+        headers={'Authorization': 'Bearer LONG_LIVED_ACCESS_TOKEN', 'content-type': 'application/json'},
         data=json.dumps({'state': 'on', 'attributes': {'friendly_name': 'Radio'}}))
 print(response.text)
 ```
@@ -234,7 +236,7 @@ print(response.text)
 
 ```bash
 $ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
-      x-ha-access:YOUR_PASSWORD content-type:application/json state=off \
+      'Authorization:Bearer LONG_LIVED_ACCESS_TOKEN' content-type:application/json state=off \
       attributes:='{"friendly_name": "Radio"}'
 ```
 
@@ -263,7 +265,7 @@ You should choose a unique device name (DEVICE_NAME) to avoid clashes with other
 For a quick test, `curl` can be useful to "simulate" a device.
 
 ```bash
-$ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        -H "Content-Type: application/json" \
        -d '{"state": "20", "attributes": {"unit_of_measurement": "°C", "friendly_name": "Bathroom Temp"}}' \
        http://localhost:8123/api/states/sensor.bathroom_temperature
@@ -272,7 +274,7 @@ $ curl -X POST -H "x-ha-access: YOUR_PASSWORD" \
 You can then use `curl` again to retrieve the [current sensor state](/developers/rest_api/#get-apistatesltentity_id) and verify the sensor is working.
 
 ```bash
-$ curl -X GET -H "x-ha-access: YOUR_PASSWORD" \
+$ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        -H "Content-Type: application/json" \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 {
