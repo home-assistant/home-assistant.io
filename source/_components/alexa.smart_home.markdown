@@ -158,7 +158,6 @@ Now removed the long-lived access token if you want, copied the ARN of your Lamb
 - Click `SMART HOME` in the left navigation bar of build page.
 - Fill in `Default endpoint` under `2. Smart Home service endpoint` using the `ARN` you copied from your Lambda function configuration.
 
-
 ### {% linkable_title Account Linking %}
 
 Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa request be able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
@@ -192,7 +191,6 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * After you success login, you will be redirected back to Alexa app.
   * You can discovery your devices now. 
 - Now, you can ask your Echo or in Alexa App, *turn on bedroom* 🎉 
-
 
 ### {% linkable_title Alexa Component Configuration %}
 
