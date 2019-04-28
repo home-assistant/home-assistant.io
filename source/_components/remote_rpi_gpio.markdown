@@ -38,6 +38,18 @@ binary_sensor:
       12: PIR Bedroom
 ```
 
+or
+
+```yaml
+# Example configuration.yaml entry
+remote_rpi_gpio:
+  host: 10.0.1.9
+  binary_sensors:
+    6: Pin6
+  switches:
+    4: Pin4
+```
+
 {% configuration %}
 address:
   description: IP Address of remote Raspberry Pi
