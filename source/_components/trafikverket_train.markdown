@@ -24,6 +24,7 @@ Use cases:
 - Set up alert or perform actions if your train is delayed or cancelled.
 
 Data that is retreived: 
+
 - Next departure for specific train line.
 - Canceled status.
 - Number of minutes delayed.
@@ -78,8 +79,6 @@ trains:
       description: Departure time to monitor, if not entered it will retreive the next departure.
       required: true
       type: string
-    
-    
 {% endconfiguration %}
 
 ## {% linkable_title Obtaining API key %}
@@ -119,11 +118,11 @@ script:
           title: "{{ states.sensor[train_entity_id].attributes.friendly_name }}"
           message: >
             {{ states.sensor[train_entity_id].attributes.friendly_name }} är {{ '' }}
-            {%- if is_state('sensor.' + train_entity_id, 'delayed') -%}
+            {%- if is_state('sensor.[train_entity_id]', 'delayed') -%}
               försenat med {{ '' }}
               {{- states.sensor[train_entity_id].attributes.number_of_minutes_delayed|int -}}
                {{ '' }} minuter
-            {%- elif is_state('sensor.' + train_entity_id, 'canceled') -%}
+            {%- elif is_state('sensor.[train_entity_id]', 'canceled') -%}
               inställt
             {%- else -%}
               i tid
