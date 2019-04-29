@@ -120,7 +120,7 @@ since Samsung have used a different (encrypted) type of interface for these.
 
 If your model is not on the list then give it a test,
 if everything works correctly then add it to the list on
-[GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.samsungtv.markdown).
+[GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/samsungtv.markdown).
 The first letter (U, P, L, H & K) represent the screen type, e.g., LED or
 Plasma. The second letter represents the region, E is Europe, N is North America
 and A is Asia & Australia.
