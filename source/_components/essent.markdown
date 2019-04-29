@@ -13,9 +13,6 @@ ha_category:
   - Sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/energy.essent/
- - /components/sensor.essent/
 ---
 
 The `essent` platform uses [PyEssent](https://github.com/TheLastProject/PyEssent/) to communicate with the (undocumented) API of Dutch energy provider Essent. It provides sensors for each of your meters and tariffs, updated daily.
