@@ -53,14 +53,16 @@ client_secret:
   type: sting
 {% endconfiguration %}
 
-## {% linkable_title Athelete Sensors %}
+## {% linkable_title Sensor %}
 
-Each athelete sensor is configured with the `athlete` keyword.
+Each athlete sensor is configured with the `athlete` keyword.
 If they key is not present or has the value `me`, the currently logged-in athlete is used.
 
-### Athlete Details
+Gear and Club sensors are references using their numeric IDs which can be extracted from strava.com.
 
-Check stravalib for full list of supported fields: https://pythonhosted.org/stravalib/api.html#stravalib.model.Athlete
+### Athelete Details Sensors
+
+Check out the [`stravalib.model.Athlete`](https://pythonhosted.org/stravalib/api.html#stravalib.model.Athlete) documentation for full list of supported fields.
 
 ```yaml
 sensor:
@@ -72,18 +74,18 @@ sensor:
       - weight
 ```
 
-### Athlete Statistics
+### Athlete Statistics Sensors
 
-Check stravalib for full list of supported fields: https://pythonhosted.org/stravalib/api.html#stravalib.model.AthleteStats
+Check out the [`stravalib.model.AthleteStats`](https://pythonhosted.org/stravalib/api.html#stravalib.model.AthleteStats) documentation for full list of supported fields.
 
 There are the following groups of statistics:
 
-- recent_run_totals
-- recent_ride_totals
-- ytd_ride_totals
-- ytd_run_totals
-- all_ride_totals
-- all_ride_totals
+- `recent_run_totals`
+- `recent_ride_totals`
+- `ytd_ride_totals`
+- `ytd_run_totals`
+- `all_ride_totals`
+- `all_ride_totals`
 
 And the following two scalar statistics:
 
@@ -105,9 +107,9 @@ sensor:
       - recent_run_totals.moving_time
 ```
 
-## {% linkable_title Last Activity Sensor %}
+### Last Activity Sensors
 
-Check stravalib for full list of supported fields: https://pythonhosted.org/stravalib/api.html#stravalib.model.Activity
+Check out the [`stravalib.model.Activity`](https://pythonhosted.org/stravalib/api.html#stravalib.model.Activity) documentation for full list of supported fields.
 
 ```yaml
 sensor:
@@ -145,11 +147,11 @@ sensor:
       - workout_type
 ```
 
-## {% linkable_title Club Sensors %}
+### Gear Sensors
 
-### Shoes
+#### Shoes
 
-Check stravalib for full list of supported fields: https://pythonhosted.org/stravalib/api.html#stravalib.model.Shoe
+Check out the [`stravalib.model.Shoe`](https://pythonhosted.org/stravalib/api.html#stravalib.model.Shoe) documentation for full list of supported fields.
 
 ```yaml
 sensor:
@@ -164,9 +166,9 @@ sensor:
       - description
 ```
 
-### Bikes
+#### Bikes
 
-Check stravalib for full list of supported fields: https://pythonhosted.org/stravalib/api.html#stravalib.model.Bike
+Check out the [`stravalib.model.Bike`](https://pythonhosted.org/stravalib/api.html#stravalib.model.Bike) documentation for full list of supported fields.
 
 ```yaml
 sensor:
@@ -181,9 +183,9 @@ sensor:
       - frame_type
 ```
 
-## {% linkable_title Gear Sensors %}
+### Club Sensors
 
-Check stravalib for full list of supported fields: https://pythonhosted.org/stravalib/api.html#stravalib.model.Club
+Check out the [`stravalib.model.Club`](https://pythonhosted.org/stravalib/api.html#stravalib.model.Club) documentation for full list of supported fields.
 
 ```yaml
 sensor:
