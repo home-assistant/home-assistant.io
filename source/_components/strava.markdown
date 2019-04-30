@@ -10,10 +10,9 @@ footer: true
 logo: strava.png
 ha_category:
   - Sensor
-ha_release: 0.93.0
+  - Health
+ha_release: 0.93
 ha_iot_class: Cloud Polling
-redirect_from:
-  - /components/sensor.strava/
 ---
 
 The [Strava](https://www.strava.com/) Strava component for Home Assistant allows you to integrate statistiscs from your Strava activitities.
