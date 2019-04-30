@@ -38,6 +38,7 @@ homekit:
       code: 1234
     binary_sensor.living_room_motion:
       linked_battery_sensor: sensor.living_room_motion_battery
+      low_battery_threshold: 31
     light.kitchen_table:
       name: Kitchen Table Light
     lock.front_door:
@@ -121,6 +122,11 @@ homekit:
                 description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
+              low_battery_threshold:
+                description: Minimum battery level before the accessory starts reporting a low battery.
+                required: false
+                type: integer
+                default: 20
               code:
                 description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
                 required: false
