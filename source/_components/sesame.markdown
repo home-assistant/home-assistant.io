@@ -21,23 +21,20 @@ The `sesame` platform allows you to control your [Sesame](https://candyhouse.co/
 
 Your Sesame needs to be paired with a mobile device running the app in *virtual station* mode, or a standalone [Wi-Fi Access Point](https://candyhouse.co/collections/frontpage/products/wi-fi-access-point).
 
+You will also need to generate an API key from [my.candyhouse.co](https://my.candyhouse.co/#/credentials).
+
 Once you have remote access enabled using one of the above AND the Integration - cloud option enabled on the Sesame app for that lock settings, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 lock:
   - platform: sesame
-    email: YOUR_E_MAIL_ADDRESS
-    password: YOUR_PASSWORD
+    api_key: YOUR_API_KEY
 ```
 
 {% configuration %}
-email:
-  description: The email address for your Sesame account.
-  required: true
-  type: string
-password:
-  description: The password for your Sesame account.
+api_key:
+  description: The API key for your Sesame account.
   required: true
   type: string
 {% endconfiguration %}
