@@ -69,6 +69,10 @@ entity:
   required: true
   description: The entity id to use.
   type: string
+icon:
+  required: false
+  description: Overwrites icon.
+  type: string
 tap_action:
   required: false
   description: Action to take on tap

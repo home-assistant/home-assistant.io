@@ -51,6 +51,7 @@ Supported models:
 - EVW3200-Wifi
 - EVW320B
 - EVW32C-0N
+- EVW3226@UPC
 
 <p class='note info'>
 This component uses <a href='https://github.com/mzdrale/pyubee'>pyUbee library</a>, which was tested with models listed above. If you have different model of <a href='http://www.ubeeinteractive.com/products'>Ubee Router</a> and it doesn't work with this component, please <a href='https://github.com/mzdrale/pyubee/issues/new'>create pyUbee issue</a> to request for support for your model.

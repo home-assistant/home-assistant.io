@@ -38,6 +38,7 @@ homekit:
       code: 1234
     binary_sensor.living_room_motion:
       linked_battery_sensor: sensor.living_room_motion_battery
+      low_battery_threshold: 31
     climate.home_thermostat:
       linked_humidity_sensor: sensor.home_humidity
     light.kitchen_table:
@@ -123,6 +124,11 @@ homekit:
                 description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
+              low_battery_threshold:
+                description: Minimum battery level before the accessory starts reporting a low battery.
+                required: false
+                type: integer
+                default: 20
               linked_humidity_sensor:
                 description: The `entity_id` of a `sensor` entity to use as the humidity of the thermostat. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect. Only applicable for `climate` entities.
                 required: false
@@ -335,7 +341,7 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
-| device_tracker | Sensor | Support for `occupancy` device class. |
+| device_tracker / person | Sensor | Support for `occupancy` device class. |
 | fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
 | fan | Fan | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |

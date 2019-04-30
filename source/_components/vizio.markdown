@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Vizio SmartCast TV"
-description: "Instructions on how to integrate Vizio SmartCast TV into Home Assistant."
+title: "Vizio SmartCast Device"
+description: "Instructions on how to integrate Vizio SmartCast TVs and Sound Bars into Home Assistant."
 date: 2017-07-10 19:00
 sidebar: true
 comments: false
@@ -15,13 +15,17 @@ redirect_from:
  - /components/media_player.vizio/
 ---
 
-The `vizio` component will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs (2016+ models).
+The `vizio` component will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs and Sound Bars (2016+ models).
 
-## Pairing
-
-Before adding your TV to Home Assistant you'll need to pair it manually. To do so follow these steps:
+## {% linkable_title Find your device %}
 
 Install the command-line tool using `pip` (or you can choose to download it manually):
+
+```bash
+$ pip3 install pyvizio
+```
+
+or
 
 ```bash
 $ pip3 install git+https://github.com/vkorn/pyvizio.git@master
@@ -33,18 +37,30 @@ or
 $ pip3 install -I .
 ```
 
-Make sure that your TV is on before continuing.
-
-If you don't know IP address of your TV run following command:
-
-```bash
-$ pyvizio --ip=0 --auth=0 discover
+Find your device using the following command:
 ```
+pyvizio --ip=0 discover
+```
+
+and note it's IP address. If using your IP address by itself does not lead to success, you may need to append `:9000` or `:7345` to it when using it as a parameter in future commands.
+
+## {% linkable_title Pairing %}
+
+Before adding your device to Home Assistant you may need to pair it manually. For a Sound Bar, it is unclear how the device would notify you of a valid auth token, so it's best to first skip the pairing process entirely, specify a `device_class` of `soundbar` in your configuration, and try interacting with the entity to see if you have any success. If the media player controls aren't working, and if specifying different ports as mentioned above doesn't work, you will need to find a way to get the auth token during this process.
+
+To obtain an auth token, follow these steps:
+
+Make sure that your device is on before continuing.
+
+| Parameter       | Description          |
+|:----------------|:---------------------|
+| `ip`            | IP address (possibly including port) obtained from the previous section |
+| `device_type`   | The type of device you are connecting to. Options are `tv` or `soundbar` |
 
 Enter the following command to initiate pairing:
 
 ```bash
-$ pyvizio --ip={ip} pair
+$ pyvizio --ip={ip} --device_type={device_type} pair
 ```
 
 Initiation will show you two different values:
@@ -57,12 +73,12 @@ Initiation will show you two different values:
 Finally, at this point a PIN code should be displayed at the top of your TV. With all these values, you can now finish pairing:
 
 ```bash
-$ pyvizio --ip={ip} pair-finish --token={challenge_token} --pin={tv_pin}
+$ pyvizio --ip={ip} --device_type={device_type} pair-finish --token={challenge_token} --pin={pin}
 ```
 
 You will need the authentication token returned by this command to configure Home Assistant.
 
-## Configuration
+## {% linkable_title Configuration %}
 
 To add your Vizio TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -76,13 +92,18 @@ media_player:
 
 {% configuration %}
 host:
-  description: IP address of your TV.
+  description: IP address of your device.
   required: true
   type: string
 access_token:
-  description: Authentication token you received in the last step of the pairing process.
-  required: true
+  description: Authentication token you received in the last step of the pairing process (if applicable).
+  required: false
   type: string
+device_class:
+  description: The class of your device. Your choices are `tv` or `soundbar`
+  required: false
+  type: string
+  default: tv
 suppress_warning:
   description: Set to `true` to disable self-signed certificate warnings.
   required: false
@@ -90,16 +111,16 @@ suppress_warning:
   type: string
 {% endconfiguration %}
 
-## Notes and limitations
+## {% linkable_title Notes and limitations %}
 
-### Turning TV on
+### {% linkable_title Turning device on %}
 
-If the `Power Mode` of your TV is set to `Eco Mode`, turning the device ON won't work.
+If the `Power Mode` of your device is set to `Eco Mode`, turning the device ON won't work.
 
-### Changing tracks
+### {% linkable_title Changing tracks %}
 
 Changing tracks works like channels switching. If you have source other than regular TV it might end do nothing.
 
-### Sources
+### {% linkable_title Sources %}
 
-Source list shows all external devices connected to the TV through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).
+Source list shows all external devices connected to the device through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).
