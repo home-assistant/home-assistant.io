@@ -201,3 +201,70 @@ sensor:
       - member_count
       - url
 ```
+
+# Embedding Strava Map into Lovelace
+
+File `config/ui-lovelace.yaml`:
+```yaml
+resources:
+  - url: /local/strava-activity-card.js
+    type: js
+views:
+  - name: Strava
+    cards:
+    - type: custom:strava-activity-card
+      entity: sensor.last_activity_embed_token
+```
+
+File `config/configuration.yml`:
+```yaml
+lovelace:
+  mode: yaml
+
+sensor:
+  - platform: strava
+    athlete: me
+    last_activity:
+      - embed_token
+```
+
+
+File `config/www/strava-activty-card.js`:
+```js
+class StravaActivityCard extends HTMLElement {
+    set hass(hass) {
+      if (!this.content) {
+        const card = document.createElement('ha-card');
+        this.content = document.createElement('iframe');
+        this.content.style.border = 'none';
+        this.content.style.width = '100%';
+        this.content.style.height = '100%';
+        card.appendChild(this.content);
+        card.style.height = '400px';
+        this.appendChild(card);
+      }
+  
+      const entityId = this.config.entity;
+      const state = hass.states[entityId];
+      const activityId = state.attributes['activity_id'];
+      const embedToken = state.state;
+
+      if (state && this.activityId != activityId)
+        this.content.setAttribute('src', 'https://www.strava.com/activities/' + activityId + '/embed/' + embedToken);
+        this.activityId = activityId;
+    }
+  
+    setConfig(config) {
+      if (!config.entity) {
+        throw new Error('You need to define an entity');
+      }
+      this.config = config;
+    }
+
+    getCardSize() {
+      return 8; // 8 * 50 = 400 px
+    }
+  }
+  
+  customElements.define('strava-activity-card', StravaActivityCard);
+```
