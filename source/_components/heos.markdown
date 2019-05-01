@@ -47,6 +47,60 @@ A connection to a single device enables control for all devices on the network. 
 
 ### {% linkable_title Service `media_player.play_media` %}
 
+#### {% linkable_title Play Favorite %}
+
+You can play a HEOS favorite by number or name with the `media_player.play_media` service. Example service data payload:
+
+```json
+{
+  "entity_id": "media_player.office",
+  "media_content_type": "favorite",
+  "media_content_id": "1"
+}
+```
+
+| Attribute              | Description
+| ---------------------- | ----------- | ----------- |
+| `entity_id`            | `entity_id` of the player
+| `media_content_type`   | Set to the value `playlist`
+| `media_content_id`     | The nubmer (i.e. `1`) or name (i.e. `Thumbprint Radio`) of the HEOS favorite
+
+#### {% linkable_title Play Playlist %}
+
+You can play a HEOS playlist with the `media_player.play_media` service. Example service data payload:
+
+```json
+{
+  "entity_id": "media_player.office",
+  "media_content_type": "playlist",
+  "media_content_id": "Awesome Music"
+}
+```
+
+| Attribute              | Description
+| ---------------------- | ----------- | ----------- |
+| `entity_id`            | `entity_id` of the player
+| `media_content_type`   | Set to the value `playlist`
+| `media_content_id`     | The name of the HEOS playlist
+
+#### {% linkable_title Play Quick Select %}
+
+You can play a HEOS Quick Select by nubmer or name with the `media_player.play_media` service. Example service data payload:
+
+```json
+{
+  "entity_id": "media_player.office",
+  "media_content_type": "quick_select",
+  "media_content_id": "1"
+}
+```
+
+| Attribute              | Description
+| ---------------------- | ----------- | ----------- |
+| `entity_id`            | `entity_id` of the player
+| `media_content_type`   | Set to the value `quick_select`
+| `media_content_id`     | The quick select number (i.e. `1`) or name (i.e. `Quick Select 1`)
+
 #### {% linkable_title Play Url %}
 
 You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
