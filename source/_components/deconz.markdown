@@ -75,7 +75,7 @@ logger:
 
 ## {% linkable_title Device services %}
 
-Available services: `configure` and `deconz.refresh_devices`.
+Available services: `configure` and `deconz.device_refresh`.
 
 ### {% linkable_title Service `deconz.configure` %}
 
@@ -97,7 +97,7 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 
 { "field": "/config", "data": {"permitjoin": 60} }
 
-#### {% linkable_title Service `deconz.refresh_devices` %}
+#### {% linkable_title Service `deconz.device_refresh` %}
 
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
