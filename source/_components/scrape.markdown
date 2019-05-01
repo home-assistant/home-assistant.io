@@ -118,7 +118,8 @@ sensor:
   - platform: scrape
     resource: http://www.bfs.de/DE/themen/opt/uv/uv-index/prognose/prognose_node.html
     name: Coast Ostsee
-    select: 'p:nth-of-type(19)'
+    select: 'p'
+    index: 19
     unit_of_measurement: 'UV Index'
 ```
 
@@ -145,7 +146,8 @@ sensor:
   - platform: scrape
     resource: https://hasspodcast.io/feed/podcast
     name: Home Assistant Podcast
-    select: 'enclosure:nth-of-type(1)'
+    select: 'enclosure'
+    index: 1
     attribute: url
 ```
 
