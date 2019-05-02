@@ -13,10 +13,21 @@ ha_iot_class: Cloud Polling
 ha_release: 0.11
 ---
 
-The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation) or a
-[Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) devices.
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation), a
+[Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) device or the public sensors of others available via the [Netatmo API](https://weathermap.netatmo.com/) even if you don't own a Netatmo device.
 
-To enable the Netatmo sensor, you have to set up [netatmo](/components/netatmo/), this will use discovery to add your sensor.
+Currently the following conditions are supported:
+
+* temperature
+* pressure
+* humidity
+* rain
+* windstrength
+* guststrength
+
+To enable Netatmo sensors, you have to set up [netatmo](/components/netatmo/). By default this will use discovery to add your own sensors.
+
+Public sensors have to be set up manually.
 
 ## {% linkable_title Advanced configuration %}
 
@@ -29,6 +40,7 @@ To enable the Netatmo sensor, you first have to set up [netatmo](/components/net
 ```yaml
 # Example configuration.yaml entry
 sensor:
+  # Personal sensors
   - platform: netatmo
     station: STATION_NAME
     modules:
@@ -37,6 +49,21 @@ sensor:
       module_name2:
         - temperature
         - battery_vp
+
+  # Public sensor
+  - platform: netatmo
+    areas:
+      - lat_ne: 40.719
+        lon_ne: -73.735
+        lat_sw: 40.552
+        lon_sw: -74.105
+        monitored_conditions:
+          - temperature
+          - pressure
+          - humidity
+          - rain
+          - windstrength
+          - guststrength
 ```
 
 {% configuration %}
@@ -45,7 +72,7 @@ station:
   description: The name of the weather station. Needed if several stations are associated with the account.
   type: string
 modules:
-  required: true
+  required: false
   description: Modules to use. Multiple entries allowed. Please check the next section about how to retrieve the module names.
   type: list
   keys:
@@ -92,6 +119,41 @@ modules:
           description: Current battery status per module.
         battery_percent:
           description: Percentage of battery remaining per module.
+areas:
+  description: The list contains one or more areas to add as sensors.
+  required: false
+  type: map
+  keys:
+    lat_ne:
+      description: Latitude of north-eastern corner of area.
+      required: true
+      type: string
+    lon_ne:
+      description: Longitude of north-eastern corner of area.
+      required: true
+      type: string
+    lat_sw:
+      description: Latitude of south-western corner of area.
+      required: true
+      type: string
+    lon_sw:
+      description: Longitude of south-western corner of area.
+      required: true
+      type: string
+    monitored_conditions:
+      description: List of environment conditions to monitor.
+      required: true
+      type: list
+    name:
+      description: Name of the sensor.
+      required: false
+      type: string
+      default: Netatmo Public Data
+    mode:
+      description: "How to calculate the value of the sensor if there are multiple stations reporting data. Accepts `max` or `avg`."
+      required: false
+      type: string
+      default: avg
 {% endconfiguration %}
 
 ## {% linkable_title Find your modules name %}
