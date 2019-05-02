@@ -74,7 +74,7 @@ The configuration sample below shows how an entry can look like:
 # Example configuration.yaml entry
 tts:
   - platform: google_cloud_tts
-    key_file: hassio-41c29d59f2f5.json
+    key_file: googlecloudtts.json
     language: en
     gender: Male
     voice: en-US-Wavenet-F
