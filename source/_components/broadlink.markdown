@@ -478,3 +478,51 @@ This is the code we need to transmit again to replicate the same remote function
 The "status" : "OK" at the end is a feedback that the Broadlink RM device is connected and has transmitted the payload.
 
 Now you can add as many template nodes, each having a specific code, and add any type of input nodes to activate the template and transmit the code.
+
+### {% linkable_title Using broadlink_cli to obtain codes %}
+
+It is also possible to obtain codes using broadlink_cli from https://github.com/mjg59/python-broadlink (you can use my fork which already supports base64 encoding https://github.com/fenio/python-broadlink).
+I tested it only under Linux but it should probably work on other systems as well.
+
+Requirements:
+
+```bash
+pip install broadlink
+```
+
+Discovering your switch:
+
+```bash
+fenio@debian:~$ ./broadlink_discovery 
+Discovering...
+###########################################
+RM2
+# broadlink_cli --type 0x27a9 --host 192.168.0.209 --mac 76614842f7c8
+Device file data (to be used with --device @filename in broadlink_cli) : 
+0x27a9 192.168.0.209 76614842f7c8
+temperature = 0.0
+```
+
+Capture code:
+
+```bash
+fenio@debian:~$ ./broadlink_cli --host 192.168.0.209 --mac c8f742486176 --learn
+Learning...
+260058000001299312141116111312141212121310181013133714381238123911391239113813131337131312141015131410141312131313140f3a12391238123a1138143613391100054b0001274b12000c6e0001284913000d05
+Base64: JgBYAAABKZMSFBEWERMSFBISEhMQGBATEzcUOBI4EjkRORI5ETgTExM3ExMSFBAVExQQFBMSExMTFA86EjkSOBI6ETgUNhM5EQAFSwABJ0sSAAxuAAEoSRMADQU=
+```
+
+Testing:
+
+```bash
+fenio@debian:~$ ./broadlink_cli --host 192.168.0.209 --mac c8f742486176 --send '260058000001299312141116111312141212121310181013133714381238123911391239113813131337131312141015131410141312131313140f3a12391238123a1138143613391100054b0001274b12000c6e0001284913000d05'
+```
+
+For old / awkward devices almost every solution to capture IR codes failed for me. Another way you can try to get codes is by using data gathered by old, well known LIRC project.
+
+Assuming that your (or similar) device is in one of these dbs:
+
+- https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/
+ - https://github.com/probonopd/irdb/tree/master/
+
+you can grab irdb2broadlinkha.sh from https://github.com/molexx/irdb2broadlinkha and try to convert codes to format suitable for HA.
