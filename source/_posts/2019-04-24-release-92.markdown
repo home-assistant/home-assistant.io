@@ -104,7 +104,7 @@ Finally, if you are still receiving a message that your configuration contains e
 [soundtouch docs]: /components/soundtouch/
 [zestimate docs]: /components/zestimate/
 
-## {% linkable_title Release 0.92.2 - Mai 2 %}
+## {% linkable_title Release 0.92.2 - May 2 %}
 
 - Further improve IndieAuth redirect_uri lookup failure logs ([@robbiet480] - [#23183]) ([auth docs])
 - Don't create connections between sensors. Fixes #22787 ([@StevenLooman] - [#23202]) ([upnp docs])
