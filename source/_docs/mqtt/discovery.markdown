@@ -55,15 +55,16 @@ The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any 
 The discovery topic need to follow a specific format:
 
 ```text
-<discovery_prefix>/<component>/[<node_id>/]<object_id>/<>
+<discovery_prefix>/<component>/[<node_id>/]<object_id>/config
 ```
 
-- `<component>`: One of the supported components, eg. `binary_sensor`.
-- `<node_id>` (*Optional*):  ID of the node providing the topic.
+- `<component>`: One of the supported MQTT components, eg. `binary_sensor`.
+- `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic.
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`.
-- `<>`: The topic `config` or `state` which defines the current action.
 
-The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+
+If the component is `alarm_control_panel`, `binary_sensor`, or `sensor` and the mandatory `state_topic` is not present in the payload, `state_topic` will be automatically set to <discovery_prefix>/<component>/[<node_id>/]<object_id>/state. The automatic setting of `state_topic` id depracated and may be removed in a future version of Home Assistant.
 
 An empty payload will cause a previously discovered device to be deleted.
 
