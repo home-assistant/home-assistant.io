@@ -47,6 +47,7 @@ sensor:
        from: "Stockholm Central"
        to: "Malmö C"
        time: "9:25"
+       weekday: [mon, tue, wed, thu, fri]
        
      - name: "Next train to Uppsala"
        from: "Stockholm Central"
@@ -79,6 +80,11 @@ trains:
       description: Departure time to monitor, if not entered it will retreive the next departure.
       required: true
       type: string
+    weekday:
+      description: Specify which days in the week to monitor the specific departure.
+      required: false
+      type: list
+      default: "[mon, tue, wed, thu, fri, sat, sun]"
 {% endconfiguration %}
 
 ## {% linkable_title Obtaining API key %}
