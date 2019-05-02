@@ -40,7 +40,7 @@ beta:
   type: boolean
   default: false
 image:
-  description: The image you want to check against, this is only supported for `hassio`, see full list under.
+  description: The image you want to check against, this is only supported for `hassio` and `docker`, see full list under.
   required: false
   type: string
   default: default
@@ -51,7 +51,7 @@ source:
   default: local
 {% endconfiguration %}
 
-### {% linkable_title Supported images for Hassio %}
+### {% linkable_title Supported images for Hassio and Docker %}
 
 `default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `tinker`, `odroid-c2`, `odroid-xu`
 

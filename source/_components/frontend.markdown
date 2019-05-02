@@ -114,7 +114,7 @@ automation:
 
 ### {% linkable_title Manual Theme Selection %}
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile menu (before 0.77 it was in the Configuration panel under **General**  called "Set a theme"). You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile menu (accessed by clicking your user account initials at the top of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />
@@ -139,7 +139,7 @@ Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on a
 
 ### {% linkable_title Manual Language Selection %}
 
-The browser language is automatically detected. To use a different language, go to the user profile menu (before 0.77 it was found in **General** in the Configuration panel) and select one. It will be applied immediately.
+The browser language is automatically detected. To use a different language, go to the user profile menu (accessed by clicking your user account initials at the top of the sidebar) and select one. It will be applied immediately.
 
 <p class='img'>
   <img src='/images/frontend/user-language.png' />

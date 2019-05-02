@@ -32,7 +32,7 @@ camera:
 
 {% configuration %}
 file_path:
-  description: File to serve as the camera.
+  description: "File to serve as the camera. Use a full path, e.g., `/config/www/images/image.jpg `."
   required: true
   type: string
 name:

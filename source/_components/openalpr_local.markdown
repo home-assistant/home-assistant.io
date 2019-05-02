@@ -53,9 +53,9 @@ $ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```yaml
 # Example configuration.yaml entry
 image_processing:
- - platform: openalpr_local
-   region: eu
-   source:
+  - platform: openalpr_local
+    region: eu
+    source:
     - entity_id: camera.garage
 ```
 

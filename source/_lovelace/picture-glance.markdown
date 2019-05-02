@@ -38,6 +38,11 @@ camera_image:
   required: false
   description: Camera entity as Background image.
   type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
+  type: string
 state_image:
   required: false
   description: Background image based on entity state.

@@ -69,7 +69,8 @@ track_new_calendar:
 
 The next steps will require you to have Home Assistant running.
 
-After you have it running complete the Google authentication that pops up.
+After you have it running complete the Google authentication that pops up in notification (the little bell icon in the upper right corner).
+
 It will give you a URL and a code to enter. This will grant your Home Assistant
 service access to all the Google Calendars that the account you
 authenticate with can read. This is a Read-Only view of these calendars.
@@ -141,6 +142,11 @@ entities:
       required: false
       type: boolean
       default: true
+    max_results:
+      description: "Max number of entries to retrieve"
+      required: false
+      type: int
+      default: 5
 {% endconfiguration %}
 
 From this we will end up with the binary sensors `calendar.test_unimportant` and

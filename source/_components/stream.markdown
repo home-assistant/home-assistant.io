@@ -45,15 +45,21 @@ Both `duration` and `lookback` options are suggestions, but should be consistent
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
-For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/tmp`.
+For example, the following action in an automation would take a recording from `rtsp://my.stream.feed:554` and save it to `/config/www`.
 
 ```yaml
 action:
   service: camera.record
   data:
-    stream_source: rtsp://my.stream.feed:554
-    filename: '/tmp/my_stream.mp4'
+    entity_id: camera.quintal
+    filename: '/config/www/my_stream.mp4'
+    duration: 30
 ```
+
+## {% linkable_title Streaming in Lovelace %}
+
+As of Homeassistant version 0.92 you can now live-stream a camera feed directly in lovelace.
+To do this add either [picture-entity](/lovelace/picture-entity/), [picture-glance](/lovelace/picture-glance/) or [picture-elements](/lovelace/picture-elements/), set `camera_image` to a stream-ready camera entity and set `camera_view` to `live` in one of your lovelace views.
 
 ## {% linkable_title Troubleshooting %}
 

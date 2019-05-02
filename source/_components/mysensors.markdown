@@ -76,7 +76,7 @@ mysensors:
     type: integer
     default: true
   version:
-    description: Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0.
+    description: Specifies the MySensors protocol version to use. Supports versions 1.4 to 2.3.
     required: false
     type: string
     default: '1.4'
@@ -93,7 +93,7 @@ mysensors:
 {% endconfiguration %}
 
 <p class='note'>
-Not all features of MySensors 2.0 are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
+Not all features of MySensors 2.x are supported by Home Assistant yet. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under "related components" to see what message types are currently supported.
 </p>
 
 If you are using an original Arduino as a serial gateway, the port will be named `ttyACM*`. The exact number can be determined with the command shown below.
@@ -110,7 +110,7 @@ mqtt:
 ```
 
 <p class='note'>
-The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway is supported.
+The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
 </p>
 
 ### {% linkable_title Extended configuration example %}
@@ -153,7 +153,7 @@ Present a MySensors sensor or actuator, by following these steps:
 4. Write and upload your MySensors sketch to the sensor. Make sure you:
     - Send sketch name.
     - Present the sensor's `S_TYPE`.
-    - Send at least one initial value per `V_TYPE`. In version 2.0 of MySensors, this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
+    - Send at least one initial value per `V_TYPE`. In version 2.x of MySensors, this has to be done in the loop function. See below for an example in 2.0 of how to make sure the initial value has been received by the controller.
 5. Start the sensor.
 
 ```cpp

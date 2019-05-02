@@ -211,7 +211,7 @@ vacuum:
 
 The above configuration for this component expects an MQTT protocol like the following.
 
-#### Basic Commands
+#### {% linkable_title Basic Commands %}
 
 MQTT topic: `vacuum/command`
 
@@ -225,7 +225,7 @@ Possible MQTT payloads:
 - `locate` - Locate the vacuum (typically by playing a song)
 - `start_pause` - Toggle the vacuum between cleaning and stopping
 
-#### Set Fan Speed
+#### {% linkable_title Set Fan Speed %}
 
 MQTT topic: `vacuum/set_fan_speed`
 
@@ -236,13 +236,41 @@ Possible MQTT payloads:
 - `high` - High fan speed
 - `max` - Max fan speed
 
-#### Send Custom Command
+#### {% linkable_title Send Custom Command %}
+
+Vacuum send_command allows three parameters:
+
+- entity_id
+- command
+- params - optional
+
+If params are not provided it sends command as payload to MQTT send_command topic.
+If params are provided service sends json as payload with such structure:
+```
+{
+  'command': 'command',
+  'param1-key': 'param1-value'
+}
+```
+
+Service trigger example:
+```
+- alias: Push command based on sensor
+    trigger:
+      - platform: state
+        entity_id: sensor.sensor
+    action:
+      service: vacuum.send_command
+      data:
+        entity_id: 'vacuum.vacuum_entity'
+        command: 'custom_command'
+        params:
+          - key: value
+```
 
 MQTT topic: `vacuum/send_command`
 
-MQTT payload for `send_command` can be an arbitrary value handled by the vacuum's MQTT-enabled firmware.
-
-#### Status/Sensor Updates
+#### {% linkable_title Status/Sensor Updates %}
 
 MQTT topic: `vacuum/state`
 
