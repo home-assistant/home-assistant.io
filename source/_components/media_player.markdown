@@ -42,7 +42,7 @@ Available services: `turn_on`, `turn_off`, `toggle`, `volume_up`, `volume_down`,
 | `entity_id`            |      yes | Target a specific media player. Defaults to all.       |
 | `seek_position`        |       no | Position to seek to. The format is platform dependent. |
 
-#### {% linkable_title Service `media_player.media_play` %}
+#### {% linkable_title Service `media_player.play_media` %}
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
