@@ -49,18 +49,24 @@ base_url:
   required: false
   type: string
   default: value of ``http.base_url``
+service_name:
+  description: Define the service name.
+  required: false
+  type: string
+  default:  The service name default set to <platform>_say. For example, for google_translate tts, its service name default is `google_translate_say`.
 {% endconfiguration %}
 
 The extended example from above would look like the following sample:
 
 ```yaml
-# Example configuration.yaml entry for Google TTS service
+# Example configuration.yaml entry for Google Translate TTS service
 tts:
   - platform: google_translate
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
     base_url: http://192.168.0.10:8123
+    service_name: google_say
 ```
 
 <p class='note'>
@@ -91,7 +97,7 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 ## {% linkable_title Service say %}
 
-The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`.
+The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`. Since release 0.92, service name can be defined in configuration `service_name` option.
 
 Say to all `media_player` device entities:
 

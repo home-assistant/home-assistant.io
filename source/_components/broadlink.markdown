@@ -210,7 +210,7 @@ Information about how to install on Windows can be found [here](/components/sens
 
 ### {% linkable_title How to obtain IR/RF packets? %}
 
-Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:** and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
+Choose Call Service from the Developer Tools. Choose the service `broadlink.learn` from the list of **Available services:**, write in "Service Data" JSON with 1 field "host":"your_broadlink_IP" and hit **CALL SERVICE**. Press the button on your remote with in 20 seconds. The packet will be printed as a persistent notification in the States page of the web interface.
 
 Example config for `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl` and `rm_mini_shate` devices:
 
@@ -435,7 +435,7 @@ First get or learn all the remotes you want to add to Home Assistant in E-Contro
    ```bash
    Property: msg.payload
    Format: Mustache template
-   Template field: enter '{{payload.data}}'.
+   Template field: enter '{% raw %}{{payload.data}}{% endraw %}'.
    Output as: Plain text
    ```
 9. Drag a Debug node to the right of the Template node and link them.

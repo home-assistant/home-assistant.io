@@ -54,6 +54,109 @@ Finally, if you are still receiving a message that your configuration contains e
 - Added epson workforce component ([@ThaStealth] - [#23144]) ([epsonworkforce docs]) (new-platform)
 - Add basic support for native Hue sensors ([@mitchellrj] - [#22598]) ([hue docs]) (beta fix) (new-platform)
 
+## {% linkable_title Release 0.92.1 - April 26 %}
+
+- fix for issue #21381 ([@dreed47] - [#23306]) ([zestimate docs])
+- Bump ecovacs lib 2 ([@OverloadUT] - [#23354]) ([ecovacs docs])
+- Bump pyheos to 0.4.1 ([@andrewsayre] - [#23360]) ([heos docs])
+- async_setup_component stage_1_domains ([@frogkind] - [#23375])
+- Add error handling for migration failure ([@awarecan] - [#23383])
+- Broadlink fixup unintended breakage from service refactor ([@elupus] - [#23408]) ([broadlink docs])
+- Make setup more robust ([@balloob] - [#23414])
+- Add missing feature support flag ([@andrewsayre] - [#23417]) ([soundtouch docs])
+- Fix supported features gates in media_player volume up/down services ([@andrewsayre] - [#23419]) ([media_player docs])
+- Refactor netatmo to use hass.data ([@cgtobi] - [#23429]) ([netatmo docs])
+- Fix Flux component ([@nudded] - [#23431]) ([flux docs])
+- Fix daikin setup ([@fredrike] - [#23440]) ([daikin docs])
+- Fix point setup ([@fredrike] - [#23441]) ([point docs])
+
+[#23306]: https://github.com/home-assistant/home-assistant/pull/23306
+[#23354]: https://github.com/home-assistant/home-assistant/pull/23354
+[#23360]: https://github.com/home-assistant/home-assistant/pull/23360
+[#23375]: https://github.com/home-assistant/home-assistant/pull/23375
+[#23383]: https://github.com/home-assistant/home-assistant/pull/23383
+[#23408]: https://github.com/home-assistant/home-assistant/pull/23408
+[#23414]: https://github.com/home-assistant/home-assistant/pull/23414
+[#23417]: https://github.com/home-assistant/home-assistant/pull/23417
+[#23419]: https://github.com/home-assistant/home-assistant/pull/23419
+[#23429]: https://github.com/home-assistant/home-assistant/pull/23429
+[#23431]: https://github.com/home-assistant/home-assistant/pull/23431
+[#23440]: https://github.com/home-assistant/home-assistant/pull/23440
+[#23441]: https://github.com/home-assistant/home-assistant/pull/23441
+[@OverloadUT]: https://github.com/OverloadUT
+[@andrewsayre]: https://github.com/andrewsayre
+[@awarecan]: https://github.com/awarecan
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@dreed47]: https://github.com/dreed47
+[@elupus]: https://github.com/elupus
+[@fredrike]: https://github.com/fredrike
+[@frogkind]: https://github.com/frogkind
+[@nudded]: https://github.com/nudded
+[broadlink docs]: /components/broadlink/
+[daikin docs]: /components/daikin/
+[ecovacs docs]: /components/ecovacs/
+[flux docs]: /components/flux/
+[heos docs]: /components/heos/
+[media_player docs]: /components/media_player/
+[netatmo docs]: /components/netatmo/
+[point docs]: /components/point/
+[soundtouch docs]: /components/soundtouch/
+[zestimate docs]: /components/zestimate/
+
+## {% linkable_title Release 0.92.2 - May 2 %}
+
+- Further improve IndieAuth redirect_uri lookup failure logs ([@robbiet480] - [#23183]) ([auth docs])
+- Don't create connections between sensors. Fixes #22787 ([@StevenLooman] - [#23202]) ([upnp docs])
+- update geniushub client library to fix issue #23444 ([@zxdavb] - [#23450]) ([geniushub docs])
+- Fix netatmo_public sensor to use netatmo authentication ([@cgtobi] - [#23455]) ([netatmo_public docs])
+- Bump pychromecast ([@emontnemery] - [#23463]) ([cast docs])
+- Fix cleanup of dynamic group ([@emontnemery] - [#23475]) ([cast docs])
+- Fix Hue sensors returning None value ([@balloob] - [#23478]) ([hue docs])
+- Only include agent user ID in SYNC responses ([@balloob] - [#23497]) ([cloud docs]) ([google_assistant docs])
+- Fix media_player alexa power control bug ([@pvizeli] - [#23537]) ([alexa docs])
+- Fix problem with using Traccar event ([@klaasnicolaas] - [#23543]) ([traccar docs])
+- Fix authentication issue ([@ehendrix23] - [#23600]) ([myq docs])
+- Fix unexpected error thrown if instance_domain is not set ([@robbiet480] - [#23615]) ([cloud docs]) ([mobile_app docs])
+- Bump pyheos ([@andrewsayre] - [#23616]) ([heos docs])
+
+[#23183]: https://github.com/home-assistant/home-assistant/pull/23183
+[#23202]: https://github.com/home-assistant/home-assistant/pull/23202
+[#23450]: https://github.com/home-assistant/home-assistant/pull/23450
+[#23455]: https://github.com/home-assistant/home-assistant/pull/23455
+[#23463]: https://github.com/home-assistant/home-assistant/pull/23463
+[#23475]: https://github.com/home-assistant/home-assistant/pull/23475
+[#23478]: https://github.com/home-assistant/home-assistant/pull/23478
+[#23497]: https://github.com/home-assistant/home-assistant/pull/23497
+[#23537]: https://github.com/home-assistant/home-assistant/pull/23537
+[#23543]: https://github.com/home-assistant/home-assistant/pull/23543
+[#23600]: https://github.com/home-assistant/home-assistant/pull/23600
+[#23615]: https://github.com/home-assistant/home-assistant/pull/23615
+[#23616]: https://github.com/home-assistant/home-assistant/pull/23616
+[@StevenLooman]: https://github.com/StevenLooman
+[@andrewsayre]: https://github.com/andrewsayre
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@ehendrix23]: https://github.com/ehendrix23
+[@emontnemery]: https://github.com/emontnemery
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@pvizeli]: https://github.com/pvizeli
+[@robbiet480]: https://github.com/robbiet480
+[@zxdavb]: https://github.com/zxdavb
+[alexa docs]: https://www.home-assistant.io/components/alexa/
+[auth docs]: https://www.home-assistant.io/components/auth/
+[cast docs]: https://www.home-assistant.io/components/cast/
+[cloud docs]: https://www.home-assistant.io/components/cloud/
+[geniushub docs]: https://www.home-assistant.io/components/geniushub/
+[google_assistant docs]: https://www.home-assistant.io/components/google_assistant/
+[heos docs]: https://www.home-assistant.io/components/heos/
+[hue docs]: https://www.home-assistant.io/components/hue/
+[mobile_app docs]: https://www.home-assistant.io/components/mobile_app/
+[myq docs]: https://www.home-assistant.io/components/myq/
+[netatmo_public docs]: https://www.home-assistant.io/components/netatmo_public/
+[traccar docs]: https://www.home-assistant.io/components/traccar/
+[upnp docs]: https://www.home-assistant.io/components/upnp/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.

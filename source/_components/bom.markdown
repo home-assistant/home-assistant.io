@@ -250,7 +250,7 @@ monitored_conditions:
     air_temp:
       description: Air temperature in C.
     dewpt:
-      description: Drew point in C.
+      description: Dew point in C.
     press:
       description: Pressure in mbar.
     press_qnh:

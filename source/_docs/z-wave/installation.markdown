@@ -263,3 +263,15 @@ If you're getting errors like:
     openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
 
 Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux-except-hassbian).
+
+### {% linkable_title Random failures %}
+
+If you're having random failures of the mesh, devices going missing, things randomly not working, check your `OZW_Log.txt` for the following messages:
+
+```
+WARNING: 500ms passed without reading the rest of the frame...aborting frame read
+WARNING: Out of frame flow! (0xfe).  Sending NAK
+WARNING: Checksum incorrect - sending NAK
+```
+
+If you see any of these messages repeated in the log then _probably_ you've got something else running that's also using the Z-Wave controller. That might mean you've also got the OpenZ-Wave control panel (ozwcp) running, a second instance of Home Assistant or something else. You need to stop that other process to resolve this.
