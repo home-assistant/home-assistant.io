@@ -91,6 +91,21 @@ encoding:
   required: false
   type: string
   default: "ogg"
+speed:
+  description: "Default rate/speed of the voice, in the range [0.25, 4.0]. 1.0 is the normal native speed supported by the specific voice. 2.0 is twice as fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed."
+  required: false
+  type: float
+  default: "1.0"
+pitch:
+  description: "Default pitch of the voice, in the range [-20.0, 20.0]. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch."
+  required: false
+  type: float
+  default: "0"
+gain:
+  description: "Default volume gain (in dB) of the voice, in the range [-96.0, 16.0]. If unset, or set to a value of 0.0 (dB), will play at normal native signal amplitude. A value of -6.0 (dB) will play at approximately half the amplitude of the normal native signal amplitude. A value of +6.0 (dB) will play at approximately twice the amplitude of the normal native signal amplitude. Strongly recommend not to exceed +10 (dB) as there's usually no effective increase in loudness for any value greater than that."
+  required: false
+  type: float
+  default: "0"
 {% endconfiguration %}
 
 ### {% linkable_title Full configuration example %}
@@ -106,4 +121,7 @@ tts:
     gender: Male
     voice: en-US-Wavenet-F
     encoding: mp3
+    speed: 0.9
+    pitch: -2.5
+    gain: -5.0
 ```
