@@ -11,6 +11,8 @@ logo: netatmo.png
 ha_category: Weather
 ha_iot_class: Cloud Polling
 ha_release: 0.11
+redirect_from:
+ - /components/sensor.netatmo_public/
 ---
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation), a
