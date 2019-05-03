@@ -26,7 +26,7 @@ To enable this sensor, add the following lines to your `configuration.yaml`:
 ```yaml
 sensor:
   - platform: meteoalarm
-    country: 'NL' (use your own country digits)
+    country: 'NL'
     province: 'Groningen' (use your own province name)
     language: 'ne-NL' (use your language)
 ```
