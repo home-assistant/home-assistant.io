@@ -28,7 +28,7 @@ sensor:
   - platform: meteoalarm
     country: 'NL'
     province: 'Groningen'
-    language: 'ne-NL' (use your language)
+    language: 'ne-NL'
 ```
 
 {% configuration %}
