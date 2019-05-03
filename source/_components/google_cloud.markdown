@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: google_cloud.png
 ha_category: Text-to-speech
-ha_release: "0.93"
+ha_release: 0.93
 ---
 
 The `google_cloud` platform allow you to use [Google Cloud Platform](https://cloud.google.com/) API and integrate them into Home Assistant.
