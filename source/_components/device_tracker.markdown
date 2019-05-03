@@ -114,7 +114,7 @@ If you want to track whether either your GPS based tracker or your local network
 
 ## {% linkable_title Device states %}
 
-The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (in lower case). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
 
 ## {% linkable_title `device_tracker.see` service %}
 
