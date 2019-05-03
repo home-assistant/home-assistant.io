@@ -33,7 +33,7 @@ This month marked a year since Ubiquiti got involved, and also their last month,
 
 For the last year, the Home Assistant community has been working on building a user-friendly version of Home Assistant, also known as Home Assistant 1.0.
 
-We’re aiming to release Home Assistant 1.0 this year. With Home Assistant 1.0, installation and basic functionality can be done via a user interface. Advanced options will require entering an advanced mode or set up via configuration.yaml. Check out last year’s [state of the union](https://www.home-assistant.io/blog/2018/11/16/state-of-the-union/) for more details. We have started using [this project board](https://github.com/orgs/home-assistant/projects/1) to keep track of our progress.
+We’re aiming to release Home Assistant 1.0 this year. With Home Assistant 1.0, installation and basic functionality can be done via a user interface. Advanced options will require entering an advanced mode or set up via `configuration.yaml`. Check out last year’s [state of the union](https://www.home-assistant.io/blog/2018/11/16/state-of-the-union/) for more details. We have started using [this project board](https://github.com/orgs/home-assistant/projects/1) to keep track of our progress.
 
 While we’re working hard on Home Assistant 1.0, we have also started working on the next goal for post 1.0 launch: a better story for manufacturers and integrations.
 
