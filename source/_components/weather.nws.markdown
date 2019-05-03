@@ -39,7 +39,7 @@ weather:
     station: KADW
 ```
 
-A list of nearby stations is printed to the log with level `INFO` if no station is supplied.  Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php).  Codes with only three characters, for example `ADW`, should be prefixed with the letter K, `KADW`.
+A list of nearby stations is printed to the log with level `INFO` if no station is supplied. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php). Codes with only three characters, for example `ADW`, should be prefixed with the letter K, `KADW`.
 
 The default forecast is day and night, `mode: daynight`, while `mode: hourly` gives the forecast hourly.  The forecast is obtained from the latitude and longitude value, not the station.
 
@@ -75,4 +75,4 @@ station:
   default: "Closest station to `latitude` and `longitude`"
 {% endconfiguration %}
 
-Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api).  The [pynws](https://github.com/MatthewFlamm/pynws) library is used to retrieve data.
+Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api). The [pynws](https://github.com/MatthewFlamm/pynws) library is used to retrieve data.
