@@ -72,6 +72,7 @@ station:
   description: "METAR station code"
   required: false
   type: string
+  default: "Closest station to `latitude` and `longitude`"
 {% endconfiguration %}
 
 Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api).  The [pynws]() library is used to retrieve data.
