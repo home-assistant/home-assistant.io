@@ -45,7 +45,7 @@ monitored_conditions:
     black:
       description: The black ink cartridge
     photoblack:
-      description: The photo black ink cartridge (not supported by all printers)     
+      description: The photo black ink cartridge (not supported by all printers).
     yellow:
       description: The yellow ink cartridge.
     magenta:
