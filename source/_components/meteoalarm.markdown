@@ -35,7 +35,7 @@ sensor:
 name:
   description: Sensor name
   required: false
-  default: "meteoalarm"
+  default: meteoalarm
   type: string
 country:
   description: The 2 digits of your country
