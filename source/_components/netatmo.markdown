@@ -17,10 +17,10 @@ The `netatmo` component platform is the main component to integrate all Netatmo 
 
 There is currently support for the following device types within Home Assistant:
 	
-	- [Binary Sensor](#binary_sensor)
-	- [Camera](#camera)
-	- [Climate](#climate)
-	- [Sensor](#sensor)
+- [Binary Sensor](#binary_sensor)
+- [Camera](#camera)
+- [Climate](#climate)
+- [Sensor](#sensor)
 
 ## {% linkable_title Configuration %}
 
