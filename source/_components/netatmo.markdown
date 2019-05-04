@@ -8,9 +8,22 @@ comments: false
 sharing: true
 footer: true
 logo: netatmo.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Environment
+  - Weather
+  - Binary Sensor
+  - Sensor
+  - Climate
+  - Camera
 ha_release: "0.20"
 ha_iot_class: Cloud Polling
+redirect_from:
+  - /components/binary_sensor.netatmo/
+  - /components/camera.netatmo/
+  - /components/climate.netatmo/
+  - /components/sensor.netatmo/
+  - /components/public_sensor.netatmo/
 ---
 
 The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
