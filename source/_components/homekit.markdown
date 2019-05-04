@@ -135,7 +135,6 @@ homekit:
                     description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toggle_mute`. The media_player entity must support the feature to be valid.
                     required: true
                     type: string
-
               type:
                 description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
