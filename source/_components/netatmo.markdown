@@ -162,13 +162,6 @@ If you want to select a specific sensor,
 set discovery to `false` for [netatmo](/components/netatmo/)
 and add the following lines to your `configuration.yaml`:
 
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: netatmo
-```
-
 {% configuration %}
 home:
   description: Will use the cameras of this home only.
