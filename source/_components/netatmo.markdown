@@ -149,23 +149,11 @@ If you want to select a specific sensor,
 set discovery to `false` for [netatmo](/components/netatmo/)
 and add the following lines to your `configuration.yaml`:
 
+
 ```yaml
 # Example configuration.yaml entry
-binary_sensor:
-  platform: netatmo
-  home: home_name
-  timeout: 90
-  cameras:
-    - camera_name1
-  welcome_sensors:
-    - Someone known
-    - Someone unknown
-    - Motion
-  presence_sensors:
-    - Outdoor motion
-    - Outdoor human
-    - Outdoor animal
-    - Outdoor vehicle
+camera:
+  - platform: netatmo
 ```
 
 {% configuration %}
@@ -197,6 +185,25 @@ presence_sensors:
   required: false
   type: list
 {% endconfiguration %}
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  platform: netatmo
+  home: home_name
+  timeout: 90
+  cameras:
+    - camera_name1
+  welcome_sensors:
+    - Someone known
+    - Someone unknown
+    - Motion
+  presence_sensors:
+    - Outdoor motion
+    - Outdoor human
+    - Outdoor animal
+    - Outdoor vehicle
+```
 
 If **home** and **cameras** is not provided, all cameras will be used.
 If multiple cameras are available then each monitored conditions
