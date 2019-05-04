@@ -73,8 +73,8 @@ device_tracker:
   - platform: snmp
     host: 192.168.1.1
     community: USERNAME
-    authkey: AUTHPASS
-    privkey: PRIVPASS
+    auth_key: AUTHPASS
+    priv_key: PRIVPASS
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
@@ -91,11 +91,11 @@ baseoid:
   description: The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.
   required: true
   type: string
-authkey:
+auth_key:
   description: Authentication key for SNMPv3. Variable privkey must also be set.
   required: inclusive
   type: string
-privkey:
+priv_key:
   description: Privacy key SNMPv3. Variable authkey must also be set.
   required: inclusive
   type: string
