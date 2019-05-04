@@ -457,6 +457,6 @@ Try removing the entity from HomeKit and then adding it again. If you are adding
 
 Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed support features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added.
 
-#### {% linkable_title Can't control volume of your tv media player? %}
+#### {% linkable_title Can't control volume of your TV media player? %}
 
-The volume and play/pause controls will show up on the Remote app or Control Center. If your tv supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.
+The volume and play/pause controls will show up on the Remote app or Control Center. If your TV supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.
