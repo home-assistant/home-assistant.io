@@ -132,12 +132,12 @@ homekit:
                 type: list
                 keys:
                   feature:
-                    description: Name of the feature to add to the entity representation. Valid features for `switch` types are `on_off`, `play_pause`, `play_stop` and `toggle_mute`. Valid features for `television` types are `on_off`, `play_pause`, `play_stop`, and `toggle_mute`. The media_player entity must support the feature to be valid.
+                    description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toggle_mute`. The media_player entity must support the feature to be valid.
                     required: true
                     type: string
 
               type:
-                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
                 default: '`switch`'
@@ -336,7 +336,7 @@ The following components are currently supported:
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
-| media_player | TelevisionMediaPlayer | Represented as a Television and Remote accessory in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity and the `mode` list specified in `entity_config`. Must have `device_class: tv`. Requires iOS 12.2/macOS 10.14.4 or later. |
+| media_player | TelevisionMediaPlayer | All media players that have `tv` as their `device_class`.  Represented as a Television and Remote accessory in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
@@ -457,3 +457,7 @@ Try removing the entity from HomeKit and then adding it again. If you are adding
 #### {% linkable_title My media player is not showing up as a television accessory %}
 
 Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed support features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added.
+
+#### {% linkable_title Can't control volume of your tv media player? %}
+
+The volume and play/pause controls will show up on the Remote app or Control Center. If your tv supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.
