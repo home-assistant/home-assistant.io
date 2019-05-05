@@ -7,13 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: visual-studio.png
 ha_category: 
   - Utility
-ha_qa_scale: internal
 ha_release: 0.93
 ---
 
-The `ptvsd` component allows you to connect the ptvsd debugger from visual studio code to connect to home assistant.
+The `ptvsd` component allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.
+
+This is useful in testing changes on a local development install, or connecting to a production server to debug issues.
 
 To enable the `ptvsd` component add the following to your `configuration.yaml` file:
 
@@ -22,15 +24,13 @@ To enable the `ptvsd` component add the following to your `configuration.yaml` f
 ptvsd:
 ```
 
-By default this will listen on address 0.0.0.0 port 5678, and will not wait for a connection.
-
-### {% linkable_title Configuration Variables %}
+By default this will listen on all local interfaces, on port 5678, and will not wait for a connection.
 
 {% configuration %}
 host:
-  description: The local host to listen on. 
+  description: The local interface to listen on. 
   required: false
-  default: 0.0.0.0 or all interfaces.
+  default: 0.0.0.0 (all interfaces).
   type: string
 port:
   description: Port to listen on.
@@ -38,11 +38,19 @@ port:
   default: 5678
   type: port
 wait:
-  description: If true, wait for the debugger to connect before starting up home assistatn.
+  description: If true, wait for the debugger to connect before starting up home assistant.
   required: false
-  default: False
+  default: false
   type: boolean
 {% endconfiguration %}
+
+### {% linkable_title Security %}
+
+Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can *execute arbitary code* on the home assistant server, which is very unsafe.
+
+If the home assistant server is behind your firewall with only the http(s) port exposed, then this is safe from outside connections.
+
+Another way of securing the port is to set `host` to localhost and have a secured SSH TCP tunnel with a client certificate for access from the outside internet.
 
 ### {% linkable_title Waiting at startup %}
 
@@ -54,7 +62,7 @@ ptvsd:
   wait: True
 ```
 
-The ptvsd debugger is loaded quite early on in the boot-up sequence, before any other components.
+The ptvsd debugger is loaded quite early on in the boot-up sequence, before any other components. This will allow you to set breakpoints in `async_setup` or similar and debug the loading of the component.
 
 ### {% linkable_title Alternate host and port %}
 
@@ -69,17 +77,9 @@ ptvsd:
 
 This is useful for multi-homed servers, or for localhost only access
 
-### {% linkable_title Security %}
+### {% linkable_title Example Visual Studio Code configuration %}
 
-Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can **execute arbitary code** on the home assistant server, which is very unsafe.
-
-If the home assistant server is behind your firewall with only the http(s) port exposed, then this is safe from outside connections.
-
-Another way of securing the port is to set `host` to localhost and have a secured SSH TCP tunnel with a client certificate for access from the outside internet.
-
-### {% linkable_title Example `launch.json` %}
-
-This can be copied into your launch.json in the `.vscode` subdirectory in your Visual Studio Code project to connect to the debugger.
+This can be copied into your `launch.json` in the `.vscode` subdirectory in your Visual Studio Code project to connect to the debugger.
 
 ```json
 {
@@ -87,7 +87,7 @@ This can be copied into your launch.json in the `.vscode` subdirectory in your V
     "configurations": [        
         {
             // Example of attaching to local debug server running on WSL
-            "name": "Python: Attach",
+            "name": "Python: Attach Local",
             "type": "python",
             "request": "attach",
             "port": 5678,
