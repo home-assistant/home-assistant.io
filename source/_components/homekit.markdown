@@ -455,7 +455,7 @@ Try removing the entity from HomeKit and then adding it again. If you are adding
 
 #### {% linkable_title My media player is not showing up as a television accessory %}
 
-Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed support features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added.
+Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added.
 
 #### {% linkable_title Can't control volume of your TV media player? %}
 
