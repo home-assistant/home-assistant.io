@@ -72,25 +72,25 @@ key_file:
   required: false
   type: string
 language:
-  description: "Default language of the voice, e.g. `en`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
+  description: "Default language of the voice, e.g. `en-US`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
   required: false
   type: string
-  default: "`en`"
+  default: "`en-US`"
 gender:
-  description: "Default gender of the voice, e.g. `Male`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
+  description: "Default gender of the voice, e.g. `male`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
   required: false
   type: string
-  default: "`Neutral`"
+  default: "`neutral`"
 voice:
-  description: "Default voice name, e.g. `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
+  description: "Default voice name, e.g. `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)." **This parameter will override `language` and `gender` parameters if set.**
   required: false
   type: string
   default: "(None)"
 encoding:
-  description: "Default audio encoder. Supported encodings are `ogg`, `mp3` and `wav`."
+  description: "Default audio encoder. Supported encodings are `ogg_opus`, `mp3` and `linear16`."
   required: false
   type: string
-  default: "ogg"
+  default: "ogg_opus"
 speed:
   description: "Default rate/speed of the voice, in the range [0.25, 4.0]. 1.0 is the normal native speed supported by the specific voice. 2.0 is twice as fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed."
   required: false
@@ -106,6 +106,11 @@ gain:
   required: false
   type: float
   default: "0"
+profiles:
+  description: "An identifier which selects 'audio effects' profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given. Supported profile ids listed [here](https: //cloud.google.com/text-to-speech/docs/audio-profiles)."
+  required: false
+  type: list
+  default: "[]"
 {% endconfiguration %}
 
 ### {% linkable_title Full configuration example %}
@@ -117,11 +122,14 @@ The Google Cloud Text-to-Speech configuration can look like:
 tts:
   - platform: google_cloud
     key_file: googlecloud.json
-    language: en
-    gender: Male
+    language: en-US
+    gender: male
     voice: en-US-Wavenet-F
-    encoding: mp3
+    encoding: linear16
     speed: 0.9
     pitch: -2.5
     gain: -5.0
+    profiles:
+      - telephony-class-application
+      - wearable-class-device
 ```
