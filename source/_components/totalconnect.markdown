@@ -16,9 +16,10 @@ redirect_from:
 
 The `totalconnect` platform provides connectivity with the Honeywell TotalConnect alarm systems used by many alarm companies.
 
-This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`,  and `alarm_disarm`.
+This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`.
 
 This platform supports three alarm triggered states:
+
  - `triggered` is when sensors detected a burglar and/or a person pushed the Police or Medical button
  - `triggered_fire_smoke` is when fire or smoke is detected, or a person pushed the Fire button
  - `triggered_carbon_monoxide` is when carbon monoxide is detected
