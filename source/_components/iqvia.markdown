@@ -51,7 +51,7 @@ zip_code:
   required: true
   type: string
 monitored_conditions:
-  description: The metric types to monitor. Valid values are specified below.
+  description: The metric types to monitor.
   required: true
   type: list
   keys:
@@ -59,17 +59,17 @@ monitored_conditions:
       description: "The average forecasted allergy index over the next 5 days."
     allergy_index_today:
       description: "The allergy index for today."
-    allergy_index_tomorrow
+    allergy_index_tomorrow:
       description: "The allergy index for tomorrow."
-    asthma_average_forecasted
+    asthma_average_forecasted:
       description: "The average forecasted asthma index over the next 5 days."
-    asthma_index_today
+    asthma_index_today:
       description: "The asthma index for today."
-    asthma_index_tomorrow
+    asthma_index_tomorrow:
       description: "The asthma index for tomorrow."
-    disease_average_forecasted
+    disease_average_forecasted:
       description: "The average forecasted cold/flu index over the next 5 days."
-    disease_index_today
+    disease_index_today:
       description: "The cold/flu index for today."
 {% endconfiguration %}
 
