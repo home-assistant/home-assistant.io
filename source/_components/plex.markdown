@@ -37,7 +37,7 @@ If your Plex server has local authentication enabled or multiple users defined, 
   <img src='{{site_root}}/images/screenshots/plex-configure.png' />
 </p>
 
-If you don't know your token, see [Finding your account token / X-Plex-Token](https://support.plex.tv/hc/en-us/articles/204059436).
+To authorize your device, you'll first need to [click here to claim a token](https://plex.tv/claim).
 
 If your server enforces SSL connections, write "`on`" or "`true`" in the _"Use SSL"_ field. If it does not have a valid SSL certificate available but you still want to use it, write "`on`" or "`true`" in the _"Do not verify SSL"_ field as well.
 
