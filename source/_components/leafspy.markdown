@@ -15,7 +15,6 @@ ha_iot_class: Local Push
 
 Leaf Spy is an application for Android and iOS giving Nissan Leaf owners a better insight into their car and supports pushing certain data directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
 
-
 ### {% linkable_title Configuring the component %}
 
 1. Open the Home Assistant frontend
@@ -30,9 +29,9 @@ Leaf Spy is an application for Android and iOS giving Nissan Leaf owners a bette
 
 ### {% linkable_title Configuring the app %}
 
-
 Open the Leaf Spy app, go to `Menu` -> `Settings` and scroll down to `Server`. 
 Change the following settings:
+
  - `Enable`: Yes
  - `Send Interval` can be whatever you prefer.
  - `ID`: `<Car Name>`
