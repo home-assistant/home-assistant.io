@@ -82,7 +82,7 @@ gender:
   type: string
   default: "`neutral`"
 voice:
-  description: "Default voice name, e.g. `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)." Important! This parameter will override `language` and `gender` parameters if set.
+  description: "Default voice name, e.g. `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). **Important! This parameter will override `language` and `gender` parameters if set**."
   required: false
   type: string
   default: "(None)"
