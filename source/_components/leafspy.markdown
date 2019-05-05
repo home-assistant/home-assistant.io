@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: leafspy.png
 ha_category: Car
-ha_release: 0.93.0
+ha_release: 0.93
 ha_iot_class: Local Push
 ---
 
