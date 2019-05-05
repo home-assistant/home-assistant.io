@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: rotel.svg
-ha_release: 0.93.0
+ha_release: 0.93
 ha_category: Media Player
 ha_iot_class: Local Push
 ---
