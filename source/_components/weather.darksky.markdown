@@ -63,6 +63,11 @@ mode:
   required: false
   type: string
   default: hourly
+update_interval:
+  description: "The refresh delay. Can be `minutes: ##` (on a new line, plus indent) where `##` is the number of minutes. This can be useful if you have multiple city."
+  required: false
+  type: number
+  default: 3 minutes
 {% endconfiguration %}
 
 <p class='note'>
