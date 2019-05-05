@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Rotel Media Player"
-description: "Rotel Media Player platform implementation.   Currently only supports the Rotel RSP-1570 Processor."
+description: "Rotel Media Player platform implementation."
 date: 2019-04-27 09:00
 sidebar: true
 comments: false
