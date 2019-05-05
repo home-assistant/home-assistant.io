@@ -56,21 +56,21 @@ monitored_conditions:
   type: list
   keys:
     allergy_average_forecasted:
-      description: The average forecasted allergy index over the next 5 days.
+      description: "The average forecasted allergy index over the next 5 days."
     allergy_index_today:
-      description: The allergy index for today.
+      description: "The allergy index for today."
     allergy_index_tomorrow
-      description: The allergy index for tomorrow.
+      description: "The allergy index for tomorrow."
     asthma_average_forecasted
-      description: The average forecasted asthma index over the next 5 days.
+      description: "The average forecasted asthma index over the next 5 days."
     asthma_index_today
-      description: The asthma index for today.
+      description: "The asthma index for today."
     asthma_index_tomorrow
-      description: The asthma index for tomorrow.
+      description: "The asthma index for tomorrow."
     disease_average_forecasted
-      description: The average forecasted cold/flu index over the next 5 days.
+      description: "The average forecasted cold/flu index over the next 5 days."
     disease_index_today
-      description: The cold/flu index for today.
+      description: "The cold/flu index for today."
 {% endconfiguration %}
 
 <p class='note warning'>
