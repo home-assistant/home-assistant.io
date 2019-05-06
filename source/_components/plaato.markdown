@@ -13,7 +13,7 @@ ha_iot_class: "Cloud Push"
 ---
 
 This component sets up integration with [Plaato Airlock](https://www.plaato.io/). 
-Plaaro Airlock is a tool for beer brewers that wants a unique insight in the fermentation process. 
+Plaato Airlock is a tool for beer brewers that wants a unique insight in the fermentation process. 
 With this integration you get all your fermentation data available in Home Assistant! 
 
 ## {% linkable_title Configuration %}
