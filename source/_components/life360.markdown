@@ -39,20 +39,24 @@ password:
   required: true
   type: string
 add_zones:
-  description: Create or update Home Assistant zones based on Life360 Places.
+  description: Create or update Home Assistant zones based on Life360 Places. Can be `once` or a time interval. If `once`, then will create or update zones once at startup. If a time interval, in addition to creating or updating zones at startup, will also periodically check for any new, removed or modified Places.
+  required: false
+  type: [string, time]
+  default: Do not create or update zones.
+circles:
+  description: See [Filtering](#filtering) for a detailed description.
   required: false
   type: map
-  default: Do not create or update zones.
+  default: Include all Circles. Must specify **include** or **exclude**, but not both.
   keys:
-    type:
-      description: What zone(s) to create or update. Options are `all`, `except_home` and `only_home`. Life360 Places whose names match **home_place** (case insensitive) will only be used when **type** is set to `all` or `only_home`. Other Places will only be used when **type** is set to `all` or `except_home`.
-      required: true
-      type: string
-    scan_interval:
-      description: How often to create or update zones.
+    include:
+      description: Circles to include.
       required: false
-      type: time
-      default: Create or update zones only at startup.
+      type: [string, list]
+    exclude:
+      description: Circles to exclude.
+      required: false
+      type: [string, list]
 driving_speed:
   description: The minimum speed at which the device is considered to be "driving" (and which will also set the `driving` [attribute](#additional-attributes) to `true`. See also `Driving` state in [chart](#states) below.) MPH or KPH, depending on Home Assistant's unit system configuration.
   required: false
@@ -86,10 +90,33 @@ max_update_wait:
   required: false
   type: time
 members:
-  description: Life360 Members to create trackers for. Member names should be in the form of `first, last`. Or, if they only have one name in Life360, then simply `name`.
+  description: See [Filtering](#filtering) for a detailed description.
   required: false
-  type: [string, list]
-  default: Create trackers for all Members in all Circles.
+  type: map
+  default: Include all Members from all Circles. Must specify **include** or **exclude**, but not both.
+  keys:
+    include:
+      description: Members to include.
+      required: false
+      type: [string, list]
+    exclude:
+      description: Members to exclude.
+      required: false
+      type: [string, list]
+places:
+  description: See [Filtering](#filtering) for a detailed description.
+  required: false
+  type: map
+  default: Include all Places from all Circles. Must specify **include** or **exclude**, but not both.
+  keys:
+    include:
+      description: Places to include.
+      required: false
+      type: [string, list]
+    exclude:
+      description: Places to exclude.
+      required: false
+      type: [string, list]
 prefix:
   description: Device ID prefix. Entity IDs will be in the form `device_tracker.PREFIX_FIRST_LAST`, or `device_tracker.PREFIX_NAME` if the Member has only one name. To use no prefix, specify `''`.
   required: false
@@ -140,6 +167,20 @@ Service | Description
 -|-
 `life360.zones_from_places` | Update Home Assistant zones from Life360 Places per [**add_zones**](#add_zones) configuration. Only available if **add_zones** is specified.
 
+## {% linkable_title Filtering %}
+
+For most users filtering is not needed, and hence the corresponding configuration variables should simply not be used.
+
+However, in some circumstances it might be helpful to limit which Life360 Circles, Members and/or Places are used. For these cases **circles**, **members** and/or **places** can be used.
+
+**circles** can limit which Life360 Circles are used, and hence, which Members and/or Places are used.
+
+**members** can limit which Life360 Members will be tracked.
+
+**places** can limit which Life360 Places are used to create Home Assistant zones (see **add_zones**) and/or to set tracker states (see **show_as_state**.)
+
+Note that Life360's app and website typically only show Members' first names. However you must use their _full_ names here. If you're not sure what a Member's full name (i.e., first and last) is in Life360, ask them. Alternatively you can set [logger](https://www.home-assistant.io/components/logger/) to `debug` and look in `home-assistant.log`. The full names of all Life360 Circles & Members will be logged.
+
 ## {% linkable_title Home - Home Assistant vs Life360 %}
 
 Normally Home Assistant device trackers are "Home" when they enter `zone.home`. (See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zone) for details about how this zone is typically defined.) And Life360 normally considers your device "Home" when it enters the Place that coincides with your home (i.e., the Life360 "Home Place." See [**home_place**](#home_place) config variable.) Since the definitions of these areas can be different, this can lead to a disagreement between Home Assistant and Life360 as to whether or not you're "Home." There are three basic ways to avoid this situation.
@@ -148,7 +189,7 @@ The first is to manually make sure these two areas are defined the same -- i.e.,
 
 The second is to include `places` in the Home Assistant Life360 [**show_as_state**](#show_as_state) configuration variable. Whenever Life360 determines you are in its Home Place the corresponding Home Assistant device tracker's state will be set to `home`. But for this to solve the problem `zone.home` must be entirely contained within Life360's Home Place. If it isn't, and if you enter `zone.home` but not Life360's Home Place, then it is still possible for the two systems to disagree (i.e., Home Assistant indicating you're Home, but Life360 showing you're not.)
 
-The third, and probably the easiest and most foolproof way, is to configure this platform to automatically update `zone.home` to be the exact same size, and at the exact same location, as Life360's Home Place. To enable this, set [**add_zones**](#add_zones)' **type** to `all` or `only_home`.
+The third, and probably the easiest and most foolproof way, is to configure this platform to automatically update `zone.home` to be the exact same size, and at the exact same location, as Life360's Home Place. To enable this use [**add_zones**](#add_zones). When using this technique, you should make sure _not_ to exclude Life360's "Home Place." See [**home_place**](#home_place) and [**places**](#places).
 
 ## {% linkable_title Communication Errors %}
 
@@ -158,7 +199,7 @@ Therefore an optional filtering mechanism has been implemented to prevent incons
 
 ## {% linkable_title Examples %}
 
-### {% linkable_title Example full configuration %}
+### {% linkable_title Typical configuration %}
 
 {% raw %}
 ```yaml
@@ -167,30 +208,41 @@ device_tracker:
     username: LIFE360_USERNAME
     password: LIFE360_PASSWORD
     add_zones:
-      type: all
-      scan_interval:
         days: 1
     # MPH, assuming imperial units.
     # If using metric (KPH), equivalent would be 29.
     driving_speed: 18
-    filename: life360.conf
-    home_place: Home
     interval_seconds: 10
     max_gps_accuracy: 200
     max_update_wait:
       minutes: 45
-    members:
-      - mike, smith
-      - Joe
-      - Jones
-    # Do not use a device ID prefix.
-    prefix: ''
     show_as_state: [driving, moving]
     # Set comm error thresholds so first is not logged,
     # second is logged as a WARNING, and third and fourth
     # are logged as ERRORs.
     warning_threshold: 2
     error_threshold: 3
+```
+{% endraw %}
+
+### {% linkable_title Circe, Member and Place Filtering Example %}
+
+{% raw %}
+```yaml
+device_tracker:
+  - platform: life360
+    username: LIFE360_USERNAME
+    password: LIFE360_PASSWORD
+    circles:
+      include: [Our Family, Friends]
+    members:
+      exclude: John Doe
+    places:
+      include:
+        - Home
+        - Work (Dad)
+        - Work (Mom)
+        - School (Jane)
 ```
 {% endraw %}
 
