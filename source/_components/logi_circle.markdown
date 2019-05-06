@@ -34,9 +34,9 @@ The `logi_circle` implementation allows you to integrate your [Logi Circle](http
     * `circle:summaries`
 4. Request the `authorization_code` grant type.
 5. For the redirect URI, specify your Home Assistant URL followed by `/api/logi_circle`. For example, if your Home Assistant URL is `https://abc123.ui.nabu.casa`, then request `https://abc123.ui.nabu.casa/api/logi_circle`. The redirect URI must meet the following criteria:
- * The URL must be HTTPS with a SSL certificate issued by a trusted CA (ie. trusted by normal browsers).
- * At the time you submit your request to Logitech, you need to demonstrate that you have exclusive control of the fully qualified domain name in your redirect URI. An active HA instance at the redirect URI will suffice. If you don't want to expose your Home Assistant instance publicly, you may also place a static page at the redirect URI with a short message that you will manage redirection of the authorization token to your local Home Assistant instance. Free static hosts that issue subdomains for hosting (eg. Netlify) are permitted.
- * As the redirect URI must be public facing, no local/reserved TLDs are permitted (eg. .local, .localhost, .example, etc are not allowed).
+ * The URL must be HTTPS with a SSL certificate issued by a trusted CA (i.e., trusted by normal browsers).
+ * At the time you submit your request to Logitech, you need to demonstrate that you have exclusive control of the fully qualified domain name in your redirect URI. An active Home Assistant instance at the redirect URI will suffice. If you don't want to expose your Home Assistant instance publicly, you may also place a static page at the redirect URI with a short message that you will manage redirection of the authorization token to your local Home Assistant instance. Free static hosts that issue subdomains for hosting (e.g., Netlify) are permitted.
+ * As the redirect URI must be public facing, no local/reserved TLDs are permitted (eg. .local, .localhost, .example, etc. are not allowed).
 
 Please note that the turn-around time for API access takes a few business days after which you will be contacted by Logitech using the email address you provided in the form.
 
