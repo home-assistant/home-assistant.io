@@ -89,7 +89,7 @@ battery_level_topic:
   required: false
   type: string
 battery_level_template:
-  description: Defines a [template](/topics/templating/) to define the battery level of the vacuum.
+  description: Defines a [template](/topics/templating/) to define the battery level of the vacuum. This is required if `battery_level_topic` is set.
   required: false
   type: string
 charging_topic:
@@ -97,7 +97,7 @@ charging_topic:
   required: false
   type: string
 charging_template:
-  description: Defines a [template](/topics/templating/) to define the charging state of the vacuum.
+  description: Defines a [template](/topics/templating/) to define the charging state of the vacuum. This is required if `charging_topic` is set.
   required: false
   type: string
 cleaning_topic:
@@ -105,7 +105,7 @@ cleaning_topic:
   required: false
   type: string
 cleaning_template:
-  description: Defines a [template](/topics/templating/) to define the cleaning state of the vacuum.
+  description: Defines a [template](/topics/templating/) to define the cleaning state of the vacuum. This is required if `cleaning_topic` is set.
   required: false
   type: string
 docked_topic:
@@ -113,7 +113,7 @@ docked_topic:
   required: false
   type: string
 docked_template:
-  description: Defines a [template](/topics/templating/) to define the docked state of the vacuum.
+  description: Defines a [template](/topics/templating/) to define the docked state of the vacuum. This is required if `docked_topic` is set.
   required: false
   type: string
 error_topic:
@@ -121,7 +121,7 @@ error_topic:
   required: false
   type: string
 error_template:
-  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum.
+  description: Defines a [template](/topics/templating/) to define potential error messages emitted by the vacuum. This is required if `error_topic` is set.
   required: false
   type: string
 fan_speed_topic:
@@ -129,7 +129,7 @@ fan_speed_topic:
   required: false
   type: string
 fan_speed_template:
-  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum.
+  description: Defines a [template](/topics/templating/) to define the fan speed of the vacuum. This is required if `fan_speed_topic` is set.
   required: false
   type: string
 set_fan_speed_topic:
