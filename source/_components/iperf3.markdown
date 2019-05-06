@@ -17,11 +17,13 @@ redirect_from:
   - /components/sensor.iperf3/
 ---
 
-The `iperf3` sensor component allows you to measure network bandwidth performance against a private or public Iperf3 server.
+The `iperf3` sensor component allows you to measure network bandwidth performance against a private or public [Iperf3](http://software.es.net/iperf/index.html) server.
 
-Enabling this component will automatically create the Iperf3 Sensors for the monitored conditions (below).
+Enabling this component will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a Iperf3 test to run.
 
-By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a iperf3 test to run.
+## {% linkable_title Setup %}
+
+This component requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
 
 ## {% linkable_title Configuration %}
 
@@ -43,9 +45,9 @@ iperf3:
     type: list
     keys:
       download:
-        description: Download speed (Mbit/s)
+        description: The download speed (Mbit/s).
       upload:
-        description: Upload speed (Mbit/s)
+        description: The upload speed (Mbit/s).
   hosts:
     description: A list of Iperf3 servers to perform the test against.
     required: true
@@ -56,17 +58,17 @@ iperf3:
     default: 60 minutes
     type: time
   manual:
-    description: >
-      `true` or `false` to turn manual mode on or off. Manual mode will disable scheduled tests.
+    description: "`true` or `false` to turn manual mode on or off. Manual mode will disable scheduled tests."
     required: false
     type: boolean
     default: false
 {% endconfiguration %}
 
 Configuration variables (host):
+
 {% configuration %}
   host:
-    description: Server name/ip address running Iperf3 to test against.
+    description: Server name/IP address running Iperf3 to test against.
     required: true
     type: string
   port:
@@ -117,8 +119,12 @@ Once loaded, the `iperf3` component will expose a service (`iperf3.speedtest`) t
 | Service data attribute | Description |
 | `host` | String that point at a configured `host` from configuration.yaml. Otherwise, tests will be run against all configured hosts.
 
+Example Service data:
+
+```json
+{"host": "192.168.0.121"}
+```
 
 ## {% linkable_title Notes %}
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.
-- This component requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
