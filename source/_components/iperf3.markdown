@@ -58,13 +58,14 @@ iperf3:
     default: 60 minutes
     type: time
   manual:
-    description: `true` or `false` to turn manual mode on or off. Manual mode will disable scheduled tests.
+    description: "`true` or `false` to turn manual mode on or off. Manual mode will disable scheduled tests."
     required: false
     type: boolean
     default: false
 {% endconfiguration %}
 
 Configuration variables (host):
+
 {% configuration %}
   host:
     description: Server name/IP address running Iperf3 to test against.
