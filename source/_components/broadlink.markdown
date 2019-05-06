@@ -478,3 +478,18 @@ This is the code we need to transmit again to replicate the same remote function
 The "status" : "OK" at the end is a feedback that the Broadlink RM device is connected and has transmitted the payload.
 
 Now you can add as many template nodes, each having a specific code, and add any type of input nodes to activate the template and transmit the code.
+
+### {% linkable_title Using broadlink_cli to obtain codes %}
+
+It is also possible to obtain codes using `broadlink_cli` from [python-broadlink](https://github.com/mjg59/python-broadlink) project.
+
+### {% linkable_title Conversion of codes from other projects %}
+
+For old/awkward devices another possibility is to try to get codes by using data gathered by the LIRC project.
+
+Assuming that your (or similar) device is in one of these databases:
+
+- https://sourceforge.net/p/lirc-remotes/code/ci/master/tree/
+- https://github.com/probonopd/irdb/tree/master/
+
+You can grab `irdb2broadlinkha.sh` from [irdb2broadlinkha](https://github.com/molexx/irdb2broadlinkha) project and try to convert codes to format suitable for Home Assistant.
