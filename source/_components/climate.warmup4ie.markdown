@@ -9,11 +9,10 @@ sharing: true
 footer: true
 logo: warmup.png
 ha_category: Climate
-ha_release: 0.89
-ha_iot_class: "Cloud Polling" 
-ha_qa_scale: no score
+ha_release: 0.93
+ha_iot_class: Cloud Polling
+ha_qa_scale:
 ---
-
 
 The `warmup4ie` climate platform let you control Warmup 4IE thermostats from Home Assistant.
 
@@ -27,6 +26,7 @@ climate:
     location: YOUR_LOCATION_NAME
     room: YOUR_ROOM_NAME
 ```
+
 <p class='note'>
 To use this component, you have to setup an account at the warmup web site first and register your thermostat appropriately. See <https://my.warmup.com/login>.
 </p>
