@@ -47,4 +47,4 @@ name:
   type: string
 {% endconfiguration %}
 
-The public RTPI information is coming from Bizkaibus API (http://apli.bizkaia.net/APPS/DANOK/TQWS/TQ.ASMX).
+The public RTPI information is coming from [Bizkaibus API](http://apli.bizkaia.net/APPS/DANOK/TQWS/TQ.ASMX).
