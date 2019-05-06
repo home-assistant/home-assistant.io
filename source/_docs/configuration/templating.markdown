@@ -144,6 +144,33 @@ With strings:
 {% endraw %}
 
 
+### {% linkable_title Working with Groups %}
+
+The `expand` function and filter can be used to sort entities and expand groups. It outputs a sorted array of entities with no duplicates.
+
+#### {% linkable_title Expand examples %}
+
+{% raw %}
+```text
+{% for tracker in expand('device_tracker.paulus', 'group.child_trackers') %}
+  {{ state_attr(tracker, 'battery') }}
+  {%- if not loop.last %}, {% endif -%}
+{% endfor %}
+```
+{% endraw %}
+
+The same thing can also be expressed as a filter:
+
+{% raw %}
+```text
+{{ ['device_tracker.paulus', 'group.child_trackers'] | expand 
+  | selectattr("attributes.battery", 'defined')
+  | join(', ', attribute="attributes.battery") }}
+```
+{% endraw %}
+
+
+
 ### {% linkable_title Time %}
 - `now()` will be rendered as the current time in your time zone.
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
@@ -174,12 +201,14 @@ These can also be combined in any combination:
 ```
 {% endraw %}
 
-Find entities closest to the Home Assistant location:
+#### {% linkable_title Closest examples %}
+
+The closest function and filter will find the closest entity to the Home Assisant location:
 
 {% raw %}
 ```text
 Query all entities: {{ closest(states) }}
-Query all entities of a specific domain: {{ closest('states.device_tracker') }}
+Query all entities of a specific domain: {{ closest(states.device_tracker) }}
 Query all entities in group.children: {{ closest('group.children') }}
 Query all entities in group.children: {{ closest(states.group.children) }}
 ```
@@ -203,6 +232,30 @@ Since closest returns a state, we can combine it with distance too.
 ```
 {% endraw %}
 
+The last argument of the closest function has an implicit `expand`, and can take any iterable sequence of states or entity IDs, and will expand groups:
+
+{% raw %}
+```text
+Closest out of given entities: 
+    {{ closest(['group.children', states.device_tracker]) }}
+Closest to a coordinate:  
+    {{ closest(23.456, 23.456, ['group.children', states.device_tracker]) }}
+Closest to some entity: 
+    {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
+```
+
+It will also work as a filter over a iterable group of entities or groups:
+```text
+Closest out of given entities: 
+    {{ ['group.children', states.device_tracker] | closest }}
+Closest to a coordinate:  
+    {{ ['group.children', states.device_tracker] | closest(23.456, 23.456) }}
+Closest to some entity: 
+    {{ ['group.children', states.device_tracker] | closest(states.zone.school) }}
+```
+
+
+{% endraw %}
 
 ### {% linkable_title Formatting %}
 - `float` will format the output as float.
