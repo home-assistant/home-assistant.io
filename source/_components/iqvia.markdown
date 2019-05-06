@@ -36,16 +36,16 @@ iqvia:
   zip_code: "00544"
   monitored_conditions:
     - allergy_average_forecasted
-    - allergy_average_historical
     - allergy_index_today
     - allergy_index_tomorrow
     - allergy_index_yesterday
     - asthma_average_forecasted
-    - asthma_average_historical
     - asthma_index_today
     - asthma_index_tomorrow
     - asthma_index_yesterday
     - disease_average_forecasted
+    - disease_index_today
+    - disease_index_yesterday
 ```
 
 {% configuration %}
@@ -69,16 +69,16 @@ ZIP codes that start with 0 will cause errors.
 The following metrics can be monitored:
 
 * Allergy Index: Forecasted Average (`allergy_average_forecasted`): the average forecasted allergy index over the next 5 days
-* Allergy Index: Historical Average (`allergy_average_historical`): the average historical allergy index over the past 30 days
 * Allergy Index: Today (`allergy_index_today`): the allergy index for today
 * Allergy Index: Tomorrow (`allergy_index_tomorrow`): the allergy index for tomorrow
 * Allergy Index: Yesterday (`allergy_index_yesterday`): the allergy index for yesterday
 * Asthma Index: Forecasted Average (`asthma_average_forecasted`): the average forecasted asthma index over the next 5 days
-* Asthma Index: Historical Average (`asthma_average_historical`): the average historical asthma index over the past 30 days
 * Asthma Index: Today (`asthma_index_today`): the asthma index for today
 * Asthma Index: Tomorrow (`asthma_index_tomorrow`): the asthma index for tomorrow
 * Asthma Index: Yesterday (`asthma_index_yesterday`): the asthma index for yesterday
 * Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average forecasted cold/flu index over the next 5 days
+* Cold & Flu Index: Today (`disease_index_today`): the cold/flu index for today
+* Cold & Flu Index: Yesterday (`disease_index_yesterday`): the cold/flu index for yesterday
 
 ## {% linkable_title Understanding the Indices %}
 
