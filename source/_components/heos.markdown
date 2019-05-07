@@ -63,7 +63,7 @@ Use the sign-in service to sign the connected controller into a HEOS account so 
 
 ### {% linkable_title Service `heos.sign_out` %}
 
-Use the sign-out service to sign the connected controller out of a HEOS account. An error message is logged if sign-in is unsuccessful.  There are no parameters to this service.
+Use the sign-out service to sign the connected controller out of a HEOS account. An error message is logged if sign-out is unsuccessful.  There are no parameters to this service.
 
 ### {% linkable_title Service `media_player.play_media` %}
 
@@ -165,4 +165,4 @@ logger:
 If the HEOS controller is not signed in to a HEOS account, HEOS favorites will not be populated in the media player source selection and the service `media_player.play_media` for `favorite` and `playlist` will fail. Additionally, the following warning will be logged at startup:
 > IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites: Use the 'heos.sign_in' service to sign-in to a HEOS account
 
-To resolve this issue, use the `heos.sign_out` service to sign the controller into an account as documented above.
+To resolve this issue, use the `heos.sign_out` service to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentails are valid.
