@@ -139,18 +139,12 @@ measurements:
       description:
     height_imp:
       description: Height portrayed by strings like 5' 6", 6' 3", etc
-    temperature_c:
-      description: 
-    temperature_f:
-      description:
-    body_temperature_c:
-      description: Temperature normally used to determine if a person has a fever.
-    body_temperature_f:
-      description: Temperature normally used to determine if a person has a fever.
-    skin_temperature_c:
-      description:
-    skin_temperature_f:
-      description:
+    temperature_auto:
+      description: Temperature. Note; Home assistant automatically converts this value to your configured measurement system.
+    body_temperature_auto:
+      description: Temperature normally used to determine if a person has a fever. Note; Home assistant automatically converts this value to your configured measurement system.
+    skin_temperature_auto:
+      description: Skin temperature. Note; Home assistant automatically converts this value to your configured measurement system.
     fat_ratio_pct:
       description:
     diastolic_blood_pressure_mmhg:
