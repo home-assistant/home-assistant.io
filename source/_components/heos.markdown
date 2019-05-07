@@ -21,7 +21,6 @@ The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capab
 - Clear playlist
 - Select source from device physical inputs and HEOS favorites
 
-
 ## {% linkable_title Configuration %}
 
 HEOS devices are discovered and setup automatically when the [discovery](/components/discovery) component is enabled. Alternatively, the component can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
@@ -63,7 +62,7 @@ Use the sign-in service to sign the connected controller into a HEOS account so 
 
 ### {% linkable_title Service `heos.sign_out` %}
 
-Use the sign-out service to sign the connected controller out of a HEOS account. An error message is logged if sign-out is unsuccessful.  There are no parameters to this service.
+Use the sign-out service to sign the connected controller out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this service.
 
 ### {% linkable_title Service `media_player.play_media` %}
 
@@ -139,12 +138,10 @@ You can play a URL through a HEOS media player using the `media_player.play_medi
 | `media_content_type`   | Set to the value `url`
 | `media_content_id`     | The full URL to the stream
 
-
 ## {% linkable_title Notes %}
 
 - HEOS groups are not currently supported.
 - Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
-
 
 ## {% linkable_title Troubleshooing %}
 
