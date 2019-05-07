@@ -20,16 +20,20 @@ The `withings` sensor platform consumes data from various health products produc
 ## {% linkable_title Setup %}
 
 ### {% linkable_title Perquisites %}
+
 These perquisites are necessary only when creating your Withings developer account. It is important your service meets these requirements as the Withings site will check when you attempt to create your account.
+
 - Home assistant is accessible through a publicly resolvable domain name. An ip address or localhost will not work.
 - Service must be running on port 80 or 443 with SSL certs.
 
 Side Note: Upon account creation, Withings checks your server's settings by sending an HTTP HEAD request to the callback uri. While not tested, it may be possible to setup a webserver that responds to that path to avoid having your server online.
 
 ### {% linkable_title Account %}
+
 You must have a developer account to distribute the data. [Create a free development account](https://account.withings.com/partner/add_oauth2). 
 
 Values for your account:
+
 - Logo: Any reasonable picture will do.
 - Description: Personal app for collecting my data.
 - Contact Email: \<Your email address>
@@ -54,6 +58,7 @@ withings:
 Withings supports multiple profiles per account. Each profile has a person's name to help distinguish who's data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish who's data you're looking at.
 
 ### {% linkable_title Authorization %}
+
 On the home assistant web page
 - Goto `Configuraton` > `General`
   - Click `Check Config` and ensure your config looks good.
@@ -71,12 +76,14 @@ url of your server.
 
 That should do it. Data will begin synchronizing in 5 minutes and update every 5 minutes.
 
-
 ## {% linkable_title FAQ %}
+
 ### How can I get data for more than one profile?
+
 Create another sensor entry with the same client id and secret. Just be sure to change the profile to the name of the person you want to track. Then restart home assistant and authorize Withings for that profile.
 
 ## {% linkable_title Advanced Configuration %}
+
 {% configuration %}
 client_id:
   description: The OAuth client id (get from https://account.withings.com/partner/add_oauth2)
@@ -200,4 +207,3 @@ measurements:
     sleep_respiratory_max_bpm:
       description:
 {% endconfiguration %}
-
