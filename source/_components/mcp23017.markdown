@@ -91,7 +91,7 @@ To use the I/O pins of an mcp23017 connected to and I2C bus of your Raspberry Pi
 switch:
   - platform: mcp23017
     i2c_address: 0x20
-    ports:
+    pins:
       11: Fan Office
       12: Light Desk
 ```
@@ -119,7 +119,3 @@ invert_logic:
 {% endconfiguration %}
 
 For more details about the MCP23017 I2C I/O port expander you can find its datasheet here: [MCP23017](https://www.microchip.com/wwwproducts/en/MCP23017).
-
-<p class='note warning'>
-Note that a pin managed by HASS is expected to be exclusive to HASS.
-</p>
