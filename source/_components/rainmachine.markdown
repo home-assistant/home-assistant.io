@@ -21,7 +21,10 @@ redirect_from:
   - /components/switch.rainmachine/
 ---
 
-The `rainmachine` component is the main component to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
+The `rainmachine` component  integrates all platforms related to
+[RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
+Users can manage controllers over the local LAN or remotely via RainMachine's
+cloud API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,14 +34,21 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Base Configuration %}
 
-To connect to your RainMachine device, add the following to your `configuration.yaml` file:
+To connect to your RainMachine device, add the following to your
+`configuration.yaml` file:
 
 ```yaml
 rainmachine:
   controllers:
     - ip_address: 192.168.1.100
       password: YOUR_PASSWORD
+    - email: user@host.com
+      password: ANOTHER_PASSWORD
 ```
+
+Note that combinations of `ip_address` and `password` will create an integration
+over the local LAN, while combinations of `email` and `password` will create an
+integration over RainMachine's cloud API.
 
 To configure additional functionality, add configuration options beneath a `binary_sensor`, `sensor`, and/or `switches` key within the `rainmachine` sections of `configuration.yaml` as below:
 
