@@ -1,14 +1,14 @@
 ---
 layout: page
 title: MeteoAlarm Sensor
-description: "Instructions on how to set up MeteoAlarm sensors within Home Assistant."
+description: "Instructions on how to set up MeteoAlarm binary sensors within Home Assistant."
 date: 2019-05-03 16:50
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: meteoalarm.png
-ha_category: Sensor
+ha_category: Binary Sensor
 ha_release: 0.93
 ha_iot_class: Local Polling
 ---
@@ -19,10 +19,10 @@ The sensor state shows if applicable the warning message. The details are availa
 
 ## {% linkable_title Configuration %}
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this binary sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-sensor:
+binary_sensor:
   - platform: meteoalarm
     country: 'NL'
     province: 'Groningen'
@@ -30,7 +30,7 @@ sensor:
 
 {% configuration %}
 name:
-  description: Sensor name
+  description: Binary sensor name
   required: false
   default: meteoalarm
   type: string
@@ -38,7 +38,7 @@ country:
   description: The 2 digits of your country
   required: true
   type: string
-propvince:
+province:
   description: The province
   required: true
   type: string
@@ -52,7 +52,7 @@ language:
 
 {% linkable_title Example output %}
 
-When the state has not the state "no warnings" then the state will give you the following output. The default output of the sate is the 'headline' attribute.
+You will find an example below when the state is "on".
 
 {% raw %}
 attribution: Information provided by MeteoAlarm
@@ -93,13 +93,13 @@ automation:
   - alias: Alert me about weather warnings
     trigger:
       platform: state
-      entity_id: sensor.meteoalarm
-      from: ‘no warnings’
+      entity_id: binary_sensor.meteoalarm
+      from: ‘off’
     action:
       - service: notify.notify
         data_template:
-          title: '{{state_attr('sensor.meteoalarm', 'headline')}}'
-          message: "{{state_attr('sensor.meteoalarm', 'description')}} is effective on {{state_attr('sensor.meteoalarm', 'effective')}}"
+          title: '{{state_attr('binary_sensor.meteoalarm', 'headline')}}'
+          message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
 {% endraw %}
 
 <p class='note warning'>
