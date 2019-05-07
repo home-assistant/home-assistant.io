@@ -8,9 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: plaato.png
-ha_release: "0.93"
+ha_release: 0.93
 ha_category: Sensor
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ---
 
 This component sets up integration with [Plaato Airlock](https://www.plaato.io/). 
