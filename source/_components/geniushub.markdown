@@ -99,5 +99,5 @@ username:
 password:
   description: Your Genius Hub password
   required: false
-  type: integer
+  type: string
 {% endconfiguration %}
