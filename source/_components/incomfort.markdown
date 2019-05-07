@@ -51,5 +51,5 @@ username:
 password:
   description: The password of the Lan2RF gateway
   required: false
-  type: integer
+  type: string
 {% endconfiguration %}
