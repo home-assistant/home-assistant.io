@@ -45,6 +45,26 @@ A connection to a single device enables control for all devices on the network. 
 
 ## {% linkable_title Services %}
 
+### {% linkable_title Service `heos.sign_in` %}
+
+Use the sign-in service to sign the connected controller into a HEOS account so that it can retreive and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
+
+```json
+{
+  "username": "example@example.com",
+  "password": "password"
+}
+```
+
+| Attribute              | Description
+| ---------------------- | ---------------------------------------------------------|
+| `username`             | The username or email of the HEOS account. [Required]
+| `password`             | The password of the HEOS account. [Required]
+
+### {% linkable_title Service `heos.sign_out` %}
+
+Use the sign-out service to sign the connected controller out of a HEOS account. An error message is logged if sign-in is unsuccessful.  There are no parameters to this service.
+
 ### {% linkable_title Service `media_player.play_media` %}
 
 #### {% linkable_title Play Favorite %}
@@ -60,7 +80,7 @@ You can play a HEOS favorite by number or name with the `media_player.play_media
 ```
 
 | Attribute              | Description
-| ---------------------- | ----------- | ----------- |
+| ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
 | `media_content_type`   | Set to the value `playlist`
 | `media_content_id`     | The nubmer (i.e. `1`) or name (i.e. `Thumbprint Radio`) of the HEOS favorite
@@ -78,7 +98,7 @@ You can play a HEOS playlist with the `media_player.play_media` service. Example
 ```
 
 | Attribute              | Description
-| ---------------------- | ----------- | ----------- |
+| ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
 | `media_content_type`   | Set to the value `playlist`
 | `media_content_id`     | The name of the HEOS playlist
@@ -96,7 +116,7 @@ You can play a HEOS Quick Select by nubmer or name with the `media_player.play_m
 ```
 
 | Attribute              | Description
-| ---------------------- | ----------- | ----------- |
+| ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player
 | `media_content_type`   | Set to the value `quick_select`
 | `media_content_id`     | The quick select number (i.e. `1`) or name (i.e. `Quick Select 1`)
@@ -114,7 +134,7 @@ You can play a URL through a HEOS media player using the `media_player.play_medi
 ```
 
 | Attribute              | Description
-| ---------------------- | ----------- | ----------- |
+| ---------------------- | ---------------------------------------------------------|
 | `entity_id`            | `entity_id` of the player to play the URL
 | `media_content_type`   | Set to the value `url`
 | `media_content_id`     | The full URL to the stream
@@ -126,7 +146,9 @@ You can play a URL through a HEOS media player using the `media_player.play_medi
 - Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
 
 
-## {% linkable_title Debugging %}
+## {% linkable_title Troubleshooing %}
+
+### {% linkable_title Debugging %}
 
 The HEOS component will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml` to enable debug logging:
 
@@ -137,3 +159,10 @@ logger:
     homeassistant.components.heos: debug
     pyheos: debug
 ```
+
+### {% linkable_title Missing Favorites %}
+
+If the HEOS controller is not signed in to a HEOS account, HEOS favorites will not be populated in the media player source selection and the service `media_player.play_media` for `favorite` and `playlist` will fail. Additionally, the following warning will be logged at startup:
+> IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites: Use the 'heos.sign_in' service to sign-in to a HEOS account
+
+To resolve this issue, use the `heos.sign_out` service to sign the controller into an account as documented above.
