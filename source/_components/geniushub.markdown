@@ -2,7 +2,7 @@
 layout: page
 title: "Genius Hub"
 description: "Instructions on how to integrate Genius Hub with Home Assistant."
-date: 2019-05-07 16:00
+date: 2019-03-03 16:00
 sidebar: true
 comments: false
 sharing: true
@@ -22,6 +22,7 @@ Currently only **Radiator** and **Hot Water Temperature** zones are supported. W
 The device's `operating_mode` can be set to one of `off`, `timer`, `on` (i.e. **Override** mode) or `eco`. The `eco` mode is a proxy for the **Footprint** mode and so is only available to **Radiator** zones that have room sensors.
 
 Other properties are available via the device's state attributes, which includes a JSON data structure called `status`. For example, in the case of **Radiator** zones/`Climate` devices:
+
 ```json
 {
   "status": {
@@ -34,8 +35,11 @@ Other properties are available via the device's state attributes, which includes
     }
   }
 }
+
 ```
+
 This data can be accessed in automations, etc. via a value template. For example:
+
 {% raw %}
 ```
 value_template: "{{ state_attr('water_heater.boiler_h_w', 'status').override.setpoint }}"
@@ -43,6 +47,7 @@ value_template: "{{ state_attr('water_heater.boiler_h_w', 'status').override.set
 {% endraw %}
 
 In the specific case of **Radiator** zones with room sensors:
+
 {% raw %}
 ```
 value_template: "{{ state_attr('climate.main_room', 'status').occupied }}"
