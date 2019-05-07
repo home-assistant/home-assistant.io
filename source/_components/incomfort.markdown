@@ -2,7 +2,7 @@
 layout: page
 title: "Intergas InComfort"
 description: "Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant."
-date: 2019-05-07 16:00
+date: 2019-03-03 16:00
 sidebar: true
 comments: false
 sharing: true
