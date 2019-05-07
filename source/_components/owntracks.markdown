@@ -15,7 +15,7 @@ redirect_from:
  - /components/device_tracker.owntracks_http/
 ---
 
-OwnTracks is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
+[OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
 
 By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT.
 
@@ -42,7 +42,7 @@ By default the integration will listen for incoming messages from OwnTracks via 
 In the OwnTracks app, open sidebar and click on preferences, then on connection. Change the following settings:
 
  - Mode: Private HTTP
- - Host: `<url given to you when setting up the integration above>`
+ - Host: `<URL given to you when setting up the integration above>`
  - Identification:
    - Username: `<Username>`
    - Password: Can be left blank.
@@ -58,7 +58,7 @@ Your tracker device will be known in home assistant as `<Username>_<Device name>
 In the OwnTracks app, tap the (i) in the top left and click on settings. Change the following settings:
 
  - Mode: HTTP
- - URL: `<url given to you when setting up the integration>`
+ - URL: `<URL given to you when setting up the integration>`
  - Turn on authentication
  - User ID: `<Your name>`
 
@@ -124,7 +124,7 @@ owntracks:
 
 ## {% linkable_title Using Owntracks regions %}
 
-Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
+Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
 
 Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
