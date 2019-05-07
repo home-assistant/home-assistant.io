@@ -44,12 +44,12 @@ In the OwnTracks app, open sidebar and click on preferences, then on connection.
  - Mode: Private HTTP
  - Host: `<url given to you when setting up the integration above>`
  - Identification:
-   - Username:<Username>
+   - Username: `<Username>`
    - Password: Can be left blank.
-   - Device ID: `<Device name>
-   - Tracker ID: <xx> Two character tracker ID. (can be left blank)
+   - Device ID: `<Device name>`
+   - Tracker ID: `<xx>` Two character tracker ID. (can be left blank)
 
-Your tracker device will be known in home assistant as <Username>_<Device name>. If you entered a Tracker ID the tid attribute will  be set to that ID.
+Your tracker device will be known in home assistant as `<Username>_<Device name>`. If you entered a Tracker ID the tid attribute will  be set to that ID.
 
 ### {% linkable_title Configuring the app - iOS %}
 
