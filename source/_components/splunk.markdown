@@ -54,4 +54,25 @@ name:
   required: false
   default: HASS
   type: string
+filter:
+  description: Filters for entities to be included/excluded from Splunk. Default is to include all entities.
+  required: false
+  type: map
+  keys:
+    include_domains:
+      description: Domains to be included.
+      required: false
+      type: list
+    include_entities:
+      description: Entities to be included.
+      required: false
+      type: list
+    exclude_domains:
+      description: Domains to be excluded.
+      required: false
+      type: list
+    exclude_entities:
+      description: Entities to be excluded.
+      required: false
+      type: list
 {% endconfiguration %}
