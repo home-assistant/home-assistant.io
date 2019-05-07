@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: plaato.png
 ha_release: "0.93"
 ha_category: Sensor
 ha_iot_class: "Cloud Push"
@@ -19,5 +20,7 @@ With this integration you get all your fermentation data available in Home Assis
 ## {% linkable_title Configuration %}
 
 To configure Plaato Airlock, you must set it up via the integrations panel in the configuration screen. 
-This will give you the webhook URL to use in the Plaato mobile app configuration on the tab "Webhook". 
+This will give you the webhook URL to use in the PLAATO mobile app configuration on the tab "Webhook". 
 More information can be found [here](https://plaato.io/apps/help-center#!hc-general)
+
+This sensor platform was not made by Plaato. It is not official, not developed, and not supported by Plaato. 
