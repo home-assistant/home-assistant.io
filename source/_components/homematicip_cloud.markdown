@@ -96,6 +96,7 @@ authtoken:
   * Smoke sensor and alarm (*HmIP-SWSD*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
+  * Presence Sensor – indoor (*HmIP-SPI*)
   * Water Sensor (*HmIP-SWD*)
   * Remote Control - 8 buttons (*HmIP-RC8*) (battery only)
   * Wall-mount Remote Control - 2-button (*HmIP-WRC2*) (battery only)
@@ -135,6 +136,7 @@ authtoken:
   * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
+  * Presence Sensor – indoor (*HmIP-SPI*)
   * Light Sensor - outdoor (*HmIP-SLO*)
 
 * homematicip_cloud.switch
