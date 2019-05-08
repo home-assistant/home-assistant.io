@@ -15,6 +15,8 @@ ha_qa_scale: internal
 
 The `counter` component allows one to count occurrences fired by automations.
 
+## {% linkable_title Configuration %}
+
 To add a counter to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
