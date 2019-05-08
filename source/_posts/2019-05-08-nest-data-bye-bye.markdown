@@ -8,6 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Public-Service-Announcement
+og_image: /images/blog/2019-05-nest-data-bye-bye/notice.png
 ---
 
 Sigh. Another one. This time it's not a small one either: Nest is disabling their APIs.
