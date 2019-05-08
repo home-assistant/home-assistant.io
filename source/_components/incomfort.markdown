@@ -10,7 +10,7 @@ footer: true
 logo: incomfort.png
 ha_category:
   - Water heater
-ha_release: 0.94
+ha_release: 0.93
 ha_iot_class: Local Polling
 ---
 
@@ -18,7 +18,7 @@ The `incomfort` integration links Home Assistant with your Intergas Lan2RF gatew
 
 The **Water Heater** device will report back the `state` and `temperature`. Other properties are available via the device's attributes.
 
-In future, other entities will be added to this integration (e.g. a **Sensor** for CV pressure, and a **Climate** device for room temperature).
+In the future, other entities will be added to this integration (e.g. a **Sensor** for CV pressure, and a **Climate** device for room temperature).
 
 ### {% linkable_title Configuration %}
 
