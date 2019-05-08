@@ -75,7 +75,7 @@ mutable:
   default: true
   type: boolean
 name:
-  description: Make it possible to provide a name for the vehicles.
+  description: "Make it possible to provide a name for the vehicles. Note: Use all lower case letters when inputing your VIN number."
   required: false
   type: string
 resources:
@@ -140,7 +140,7 @@ volvooncall:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
   name:
-    abc123: 'Batmobile'
+    YOUR_VIN_NUMBER: 'NEW_NAME'
   resources:
     - odometer
     - lock
