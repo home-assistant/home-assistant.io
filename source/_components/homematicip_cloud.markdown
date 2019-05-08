@@ -152,14 +152,12 @@ authtoken:
   * Weather Sensor – pro (*HmIP-SWO-PR*)
   
 Additional info:
+
 Push button devices are only available with a battery sensor. This is due to a limitation of the ventor API (eq3).
 It' not possible to detect a key press event on these devices at the moment.
+
   * Remote Control - 8 buttons (*HmIP-RC8*)
   * Wall-mount Remote Control - 2-button (*HmIP-WRC2*)
   * Wall-mount Remote Control - 6-button (*HmIP-WRC6*)
   * Key Ring Remote Control - 4 buttons (*HmIP-KRC4*)
   * Key Ring Remote Control - alarm  (*HmIP-KRCA*)
-
-  
-
-
