@@ -41,6 +41,11 @@ cameras:
   keys:
     camera_name:
       description: Name of the camera to display.
+quality:
+  description: Quality of the live stream. (`'high'`, `'medium'`, `'low'` or `'poor'`)
+  required: false
+  type: string
+  default: high
 {% endconfiguration %}
 
 If **home** and **cameras** are not provided, all cameras will be displayed. For more control over your cameras check the configuration sample below.
@@ -50,6 +55,7 @@ If **home** and **cameras** are not provided, all cameras will be displayed. For
 camera:
   platform: netatmo
   home: home_name
+  quality: medium
   cameras:
     - camera_name1
     - camera_name2
