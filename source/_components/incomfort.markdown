@@ -46,10 +46,10 @@ host:
   type: string
 username:
   description: The username of the Lan2RF gateway
-  required: false
+  required: inclusive
   type: string
 password:
   description: The password of the Lan2RF gateway
-  required: false
+  required: inclusive
   type: string
 {% endconfiguration %}
