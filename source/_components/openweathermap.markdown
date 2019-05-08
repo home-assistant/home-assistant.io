@@ -85,50 +85,50 @@ sensor:
 ```
 
 {% configuration %}
-  api_key:
-    description: Your API key for OpenWeatherMap.
-    required: true
-    type: string
-  name:
-    description: Additional name for the sensors. Default to platform name.
-    required: false
-    default: OWM
-    type: string
-  forecast:
-    description: Enables the forecast. The default is to display the current conditions.
-    required: false
-    default: false
-    type: string
-  language:
-    description: The language in which you want text results to be returned. It's a two-characters string, e.g., `en`, `es`, `ru`, `it`, etc.
-    required: false
-    default: en
-    type: string
-  monitored_conditions:
-    description: Conditions to display in the frontend.
-    required: true
-    type: list
-    keys:
-      weather:
-        description: A human-readable text summary.
-      temperature:
-        description: The current temperature.
-      wind_speed:
-        description: The wind speed.
-      wind_bearing:
-        description: The wind bearing.
-      humidity:
-        description: The relative humidity.
-      pressure:
-        description: The sea-level air pressure in millibars.
-      clouds:
-        description: Description about cloud coverage.
-      rain:
-        description: The rain volume.
-      snow:
-        description: The snow volume.
-      weather_code:
-        description: The current weather condition code.
+api_key:
+  description: Your API key for OpenWeatherMap.
+  required: true
+  type: string
+name:
+  description: Additional name for the sensors. Default to platform name.
+  required: false
+  default: OWM
+  type: string
+forecast:
+  description: Enables the forecast. The default is to display the current conditions.
+  required: false
+  default: false
+  type: string
+language:
+  description: The language in which you want text results to be returned. It's a two-characters string, e.g., `en`, `es`, `ru`, `it`, etc.
+  required: false
+  default: en
+  type: string
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    weather:
+      description: A human-readable text summary.
+    temperature:
+      description: The current temperature.
+    wind_speed:
+      description: The wind speed.
+    wind_bearing:
+      description: The wind bearing.
+    humidity:
+      description: The relative humidity.
+    pressure:
+      description: The sea-level air pressure in millibars.
+    clouds:
+      description: Description about cloud coverage.
+    rain:
+      description: The rain volume.
+    snow:
+      description: The snow volume.
+    weather_code:
+      description: The current weather condition code.
 {% endconfiguration %}
 
 Details about the API are available in the [OpenWeatherMap documentation](http://openweathermap.org/api).
