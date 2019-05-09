@@ -26,7 +26,7 @@ These perquisites are necessary only when creating your Withings developer accou
 - Home assistant is accessible through a publicly resolvable domain name. An ip address or localhost will not work.
 - Service must be running on port 80 or 443 with SSL certs.
 
-Side Note: Upon account creation, Withings checks your server's settings by sending an HTTP HEAD request to the callback uri. While not tested, it may be possible to setup a webserver that responds to that path to avoid having your server online.
+Side Note: Upon account creation, Withings checks your server's settings by sending an HTTP HEAD request to the callback url. While not tested, it may be possible to setup a webserver that responds to that path to avoid having your server online.
 
 ### {% linkable_title Account %}
 
