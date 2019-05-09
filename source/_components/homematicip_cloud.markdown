@@ -153,8 +153,8 @@ authtoken:
   
 Additional info:
 
-Push button devices are only available with a battery sensor. This is due to a limitation of the ventor API (eq3).
-It' not possible to detect a key press event on these devices at the moment.
+Push button devices are only available with a battery sensor. This is due to a limitation of the vendor API (eq3).
+It's not possible to detect a key press event on these devices at the moment.
 
   * Remote Control - 8 buttons (*HmIP-RC8*)
   * Wall-mount Remote Control - 2-button (*HmIP-WRC2*)
