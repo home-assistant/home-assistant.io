@@ -103,6 +103,10 @@ octoprint:
               description: Time elapsed on current print job, in seconds.
             "Time Remaining":
               description: Time remaining on current print job, in seconds.
+            "Job File":
+              description: Current file printing.
+            "Printers Avaliable":
+              description: A count of avaliable printers.
     binary_sensors:
       description: Configuration for the binary sensors.
       required: false
@@ -185,3 +189,55 @@ name:
 ## {% linkable_title Sensor %}
 
 The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.
+
+## {% linkable_title Services %}
+
+There are a few services avaliable with this component.
+
+### {% linkable_title cancel_job %}
+
+Cancels the current job on the printer.
+
+### {% linkable_title command %}
+
+Sends a command to the printer. For example, you could send the gcode command `G28` which will auto home your printer.
+
+```json
+{
+  "command": "G28"
+}
+```
+
+### {% linkable_title connect %}
+
+Connects to the printer.
+
+### {% linkable_title disconnect %}
+
+Disconnects from the printer.
+
+### {% linkable_title pause_job %}
+
+Pauses the current job on the printer.
+
+### {% linkable_title resume_job %}
+
+Resumes the current job for a paused job.
+
+### {% linkable_title target_temperature %}
+
+Sets temperature target for the given tool or bed.
+
+```json
+{
+  "name": "bed",
+  "temperature": 60
+}
+```
+
+```json
+{
+  "name": "tool0",
+  "temperature": 210
+}
+```
