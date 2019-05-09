@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: smarthab.png
-ha_release: 0.92
+ha_release: 0.94
 ha_category:
   - Hub
   - Cover
