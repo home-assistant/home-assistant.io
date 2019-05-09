@@ -49,7 +49,7 @@ input_text:
         type: integer
         default: 0
       max:
-        description: Maximum length for the text value.
+        description: Maximum length for the text value. 255 is the maximum number of characters allowed in an entity state.
         required: false
         type: integer
         default: 100
