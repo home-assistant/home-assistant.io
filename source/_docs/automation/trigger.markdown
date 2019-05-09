@@ -130,9 +130,10 @@ automation:
 
 ### {% linkable_title Sun trigger %}
 
-Triggers when the sun is setting or rising. An optional time offset can be given to have it trigger a set time before or after the sun event (i.e. 45 minutes before sunset, when dusk is setting in).
+#### Sunset / Sunrise trigger
+Triggers when the sun is setting or rising, i.e. when the sun elevation reaches 0°.
 
-Sunrise as a trigger may need special attention as explained in time triggers below. This is due to the date changing at midnight and sunrise is at an earlier time on the following day.
+An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset). Since the duration of twilight is different throughout the year, it is recommended to use sun elevation triggers instead of `sunset` or `sunrise` with a time offset to trigger automations at the start of dusk or dawn.
 
 ```yaml
 automation:
@@ -140,11 +141,12 @@ automation:
     platform: sun
     # Possible values: sunset, sunrise
     event: sunset
-    # Optional time offset. This example is 45 minutes.
+    # Optional time offset. This example will trigger 45 minutes before sunrise.
     offset: '-00:45:00'
 ```
 
-Sometimes you may want more granular control over an automation based on the elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most things, a general number like -4 degrees is suitable and is used in this example:
+#### Sun elevation trigger
+Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most things intended to trigger during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
 
 {% raw %}
 ```yaml
@@ -162,11 +164,15 @@ automation:
 ```
 {% endraw %}
 
-If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) that will help you estimate what the solar angle will be at any specific time. Then from this, you can select from the defined twilight numbers. Although the actual amount of light depends on weather, topography and land cover, they are defined as:
+If you want to get more precise, start with the US Naval Observatory [tool](http://aa.usno.navy.mil/data/docs/AltAz.php) which will help you estimate what the solar elevation will be at any specific time. Then from this, you can select from the defined twilight numbers.
 
-- Civil twilight: Solar angle > -6°
-- Nautical twilight: Solar angle > -12°
-- Astronomical twilight: Solar angle > -18°
+Although the actual amount of light depends on weather, topography and land cover, they are defined as:
+
+- Civil twilight: 0° > Solar angle > -6°
+
+  This is what is meant by twilight for the average person: Under clear weather conditions, civil twilight approximates the limit at which solar illumination suffices for the human eye to clearly distinguish terrestrial objects. Enough illumination renders artificial sources unnecessary for most outdoor activities.
+- Nautical twilight: 6° > Solar angle > -12°
+- Astronomical twilight: 12° > Solar angle > -18°
     
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
