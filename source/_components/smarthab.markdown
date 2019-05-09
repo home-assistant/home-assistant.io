@@ -47,8 +47,4 @@ password:
     description: The SmartHab account's password.
     required: true
     type: string
-url:
-    description: The base URL of the API. Don't set this unless you need to.
-    required: false
-    type: string
 {% endconfiguration %}
