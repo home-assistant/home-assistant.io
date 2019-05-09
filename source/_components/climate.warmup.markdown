@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Warmup 4IE Thermostat"
-description: "Instructions on how to integrate Warmup 4IE thermostats within Home Assistant."
+title: "Warmup Thermostat"
+description: "Instructions on how to integrate Warmup (4IE) thermostats within Home Assistant."
 date: 2019-02-27 12:01
 sidebar: true
 comments: false
@@ -14,13 +14,13 @@ ha_iot_class: Cloud Polling
 ha_qa_scale:
 ---
 
-The `warmup4ie` climate platform let you control Warmup 4IE thermostats from Home Assistant.
+The `warmup` climate platform let you control Warmup 4IE thermostats from Home Assistant.
 
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 climate:
-  - platform: warmup4ie
+  - platform: warmup
     username: YOUR_E_MAIL_ADDRESS
     password: YOUR_PASSWORD
     location: YOUR_LOCATION_NAME
