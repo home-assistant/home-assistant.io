@@ -145,15 +145,15 @@ condition:
     condition: and  # 'twilight' condition: dusk and dawn, in typical locations
     conditions:
       - condition: template
-        value_template: '{{ states.sun.sun.attributes.elevation < 0 }}'
+        value_template: {% raw %}'{{ states.sun.sun.attributes.elevation < 0 }}'{% endraw %}
       - condition: template
-        value_template: '{{ states.sun.sun.attributes.elevation > -6 }}'
+        value_template: {% raw %}'{{ states.sun.sun.attributes.elevation > -6 }}'{% endraw %}
 ```
 
 ```yaml
 condition:
     condition: template  # 'night' condition: from dusk to dawn, in typical locations
-    value_template: '{{ states.sun.sun.attributes.elevation < -6 }}'
+    value_template: {% raw %}'{{ states.sun.sun.attributes.elevation < -6 }}'{% endraw %}
 ```
 
 #### Sunset/sunrise condition
