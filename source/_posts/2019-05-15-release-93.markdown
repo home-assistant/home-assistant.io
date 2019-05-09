@@ -13,6 +13,12 @@ og_image: /images/blog/2019-05-release-93/components.png
 
 <a href='/components/#version/0.93'><img src='/images/blog/2019-05-release-93/components.png' style='border: 0;box-shadow: none;'></a>
 
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0oIquYNEHaA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+
 ## {% linkable_title New Integrations %}
 
 - Adds Orange Pi GPIO platform ([@pascallj] - [#22541]) ([orangepi_gpio docs]) (new-integration) (new-platform)
