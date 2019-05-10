@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: warmup.png
 ha_category: Climate
-ha_release: 0.93
+ha_release: 0.94
 ha_iot_class: Cloud Polling
 ha_qa_scale:
 ---
