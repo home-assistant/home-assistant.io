@@ -139,6 +139,7 @@ condition:
 #### {% linkable_title Sun elevation condition %}
 The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night etc. when a trigger occurs.
 For an in depth explanation of sun elevation see [sun elevation trigger][sun_elevation_trigger].
+
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
 ```yaml
@@ -159,6 +160,7 @@ condition:
 
 #### {% linkable_title Sunset/sunrise condition %}
 The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
+
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
 <p class='note warning'>
