@@ -35,7 +35,7 @@ Both Google Home and Alexa use the device they were initially set up with for co
 </p>
 
 <p class='note'>
-Sleep Cycle: smart alarm clock app can use emulated_hue to turn on and off enitites. This feature is only implemented in the iOS app. The app requires the same configuration as Google Home and does not work if type is defined as alexa in configuration.
+Sleep Cycle: smart alarm clock app can use emulated_hue to turn on and off enitites. This feature is only implemented in the iOS app, see <a href="https://support.sleepcycle.com/hc/en-us/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-" target="_blank">Sleep Cycle support</a>. The app requires the same configuration as Google Home and does not work if type is defined as alexa in configuration.
 </p>
 
 ### {% linkable_title Configuration %}
