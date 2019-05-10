@@ -14,9 +14,6 @@ ha_category:
   - Switch
 ha_release: 
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.remote_rpi_gpio/
-  - /components/switch.remote_rpi_gpio/
 ---
 
 The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.
