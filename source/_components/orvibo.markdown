@@ -15,7 +15,7 @@ redirect_from:
 ---
 
 <p class='note warning'>
-Please be aware that the product ORVIBO WIFI SMART SOCKET S20 (LGS-20) has been recalled by the European authorities due to safety concerns. For more information, please visit [RAPEX information](https://ec.europa.eu/consumers/consumers_safety/safety_products/rapex/alerts/?event=main.listNotifications&lng=en). 
+Please be aware that the product ORVIBO WIFI SMART SOCKET S20 (LGS-20) has been recalled by the European authorities due to safety concerns. For more information, please visit [RAPEX information](https://ec.europa.eu/consumers/consumers_safety/safety_products/rapex/alerts/?event=viewProduct&reference=A12/1577/15&lng=en). 
 </p>
 
 
