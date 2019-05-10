@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Switch
 ha_release: 
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.remote_rpi_gpio/
   - /components/switch.remote_rpi_gpio/
