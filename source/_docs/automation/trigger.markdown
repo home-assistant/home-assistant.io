@@ -133,7 +133,13 @@ automation:
 #### {% linkable_title Sunset / Sunrise trigger %}
 Triggers when the sun is setting or rising, i.e. when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset). Since the duration of twilight is different throughout the year, it is recommended to use sun elevation triggers instead of `sunset` or `sunrise` with a time offset to trigger automations at the start of dusk or dawn.
+An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset).
+
+<p class='note'>
+Since the duration of twilight is different throughout the year, it is recommended to use [sun elevation triggers][sun_elevation_trigger]  instead of `sunset` or `sunrise` with a time offset to trigger automations during dusk or dawn.
+</p>
+
+[sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
 ```yaml
 automation:
