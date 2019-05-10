@@ -140,8 +140,6 @@ When configured, the platform will create three sensors for each configured air 
 - **Explanation:**
 
 AQI | Status | Description
-redirect_from:
- - /components/sensor.airvisual/
 ------- | :----------------: | ----------
 0 - 50  | **Good** | Air quality is considered satisfactory, and air pollution poses little or no risk
 51 - 100  | **Moderate** | Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution
@@ -164,8 +162,6 @@ redirect_from:
 - **Explanation:**
 
 Pollutant | Symbol | More Info
-redirect_from:
- - /components/sensor.airvisual/
 ------- | :----------------: | ----------
 Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
 Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)

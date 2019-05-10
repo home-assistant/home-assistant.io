@@ -10,8 +10,8 @@ footer: true
 logo: openalpr.png
 ha_category: Image Processing
 ha_release: 0.36
-redirect_from: /components/openalpr/
 redirect_from:
+ - /components/openalpr/
  - /components/image_processing.openalpr_local/
 ---
 
