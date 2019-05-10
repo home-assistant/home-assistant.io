@@ -34,6 +34,10 @@ It is recommended to assign a static IP address to the computer running Home Ass
 Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
 </p>
 
+<p class='note'>
+Sleep Cycle: smart alarm clock app can use emulated_hue to turn on and off enitites. This feature is only implemented in the iOS app. The app requires the same configuration as Google Home and does not work if type is defined as alexa in configuration.
+</p>
+
 ### {% linkable_title Configuration %}
 
 To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
