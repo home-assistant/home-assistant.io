@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: broadlink.png
-ha_category: Climate
-ha_release: 0.89
-ha_iot_class: "Local Polling"
+ha_category:
+  - Climate
+ha_release: 0.94
+ha_iot_class: Local Polling
 ---
 
 ## {% linkable_title Description %}
@@ -29,28 +30,28 @@ The `broadlink thermostat` climate platform is a thermostat implemented in Home 
 ```
 
 {% configuration %}
-  friendly_name:
-    description: Name of thermostat
-    required: true
-    type: string
-  mac:
-    description: Mac address of the thermostat
-    required: true
-    type: string
-  host:
-    description: Ip address of the thermostat
-    required: true
-    type: string
-  external_temp:
-    description: Use external temp sensor instead of internal one to display current temp
-    required: false
-    type: boolean
-    default: False
-  away_temp:
-    description: Set the default temp on away_mode
-    required: false
-    type: float
-    default: 12
+friendly_name:
+  description: Name of thermostat
+  required: true
+  type: string
+mac:
+  description: Mac address of the thermostat
+  required: true
+  type: string
+host:
+  description: Ip address of the thermostat
+  required: true
+  type: string
+external_temp:
+  description: Use external temp sensor instead of internal one to display current temp
+  required: false
+  type: boolean
+  default: False
+away_temp:
+  description: Set the default temp on away_mode
+  required: false
+  type: float
+  default: 12
 {% endconfiguration  %}
 
 A full configuration example looks like the one below. 
@@ -74,7 +75,6 @@ This platform supports a service to set the internal thermostat schedule scheme:
 
 `climate.broadlink_set_schedule`
 
-
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `week_start_1` | no | First starting period (week).
@@ -88,11 +88,9 @@ This platform supports a service to set the internal thermostat schedule scheme:
 | `away_temp` | no | Away Temperature.
 | `home_temp` | no | Home temperature.
 
-
 This platform supports a service to set the internal thermostat configuration:
 
 `climate.broadlink_set_advanced_conf`
-
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
