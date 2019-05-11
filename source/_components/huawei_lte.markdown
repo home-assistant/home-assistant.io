@@ -21,7 +21,7 @@ redirect_from:
   - /components/sensor.huawei_lte/
 ---
 
-The Huawei LTE router/modem integration for Home Assistant allows you to observe and control [Huawei LTE routers](https://consumer.huawei.com/en/smart-home/) or  [Huawei LTE modems](https://consumer.huawei.com/en/mobile-broadband/).
+The Huawei LTE router or Hilink modem integration for Home Assistant allows you to observe and control [Huawei LTE routers](https://consumer.huawei.com/en/smart-home/) or  [Huawei LTE modems](https://consumer.huawei.com/en/mobile-broadband/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -91,7 +91,7 @@ Routers we know to be working with this component based on the documentation of 
 
 ### {% linkable_title Tested modems %}
 
-- Huawei E3372
+- Huawei E3372 ( Hilink version )
 
 This is not a complete list. The component can probably connect to other Huawei LTE devices running similar firmware.
 
