@@ -191,6 +191,22 @@ Content-Type: application/json
 User-Agent: Home Assistant
 ```
 
+If you are accessing a resource protected by a `Bearer` token in an `Authorization` header, you can either put the token in the header field of the sensor configuration (not recommended) or store the token in your [`secrets.yaml`](/docs/configuration/secrets/) file. In that case, be sure to include the word `Bearer` in the `secrets` file.
+
+```yaml
+sensor:
+  - platform: rest
+    resource: http://IP_ADDRESS:5000/sensor
+    headers:
+      Authorization: !secret my_sensor_secret_token
+```
+
+Example entry for the `secrets.yaml` file:
+
+```yaml
+my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCxz6SBghQdS51
+```
+
 ### {% linkable_title Use GitHub to get the latest release of Home Assistant %}
 
 This sample is very similar to the [`updater`](/components/updater/) component but the information is received from GitHub.
