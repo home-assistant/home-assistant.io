@@ -86,8 +86,6 @@ Any index-related sensor will have a value between 0.0 and 12.0. The values
 map to the following human-friendly ratings:
 
 Range      | Rating
-redirect_from:
- - /components/sensor.pollen/
 ---------  | -----------
 0.0 - 2.4  | Low
 2.5 - 4.8  | Low/Medium
@@ -102,8 +100,6 @@ Several asthma-related sensors carry information regarding the top three
 Example values include:
 
 Pollutant | Symbol | More Info
-redirect_from:
- - /components/sensor.pollen/
 --------- | ------ | ---------
 Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)
 Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)

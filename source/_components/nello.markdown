@@ -54,8 +54,6 @@ password:
 Every time someone rings the bell, a `nello_bell_ring` event will be fired.
 
 Field | Description
-redirect_from:
- - /components/lock.nello/
 ----- | -----------
 `address` | Postal address of the lock.
 `date` | Date when the event occurred.
