@@ -147,7 +147,7 @@ allComponents.pop(); // remove placeholder element at the end
     var data = {
       components: [],
       image: function () {
-        if(this.logo === '') {
+        if (this.logo === '') {
           return '';
         } else {
           return '<img data-src="/images/supported_brands/' + this.logo + '">';
@@ -216,8 +216,8 @@ allComponents.pop(); // remove placeholder element at the end
    * update the browser location hash. This enables users to use the browser-history
    */
   function updateHash(newHash) {
-    if ('replaceState' in history) {
-      history.replaceState('', '', newHash);
+    if ('pushState' in history) {
+      history.pushState('', '', newHash);
     } else {
       location.hash = newHash;
     }
