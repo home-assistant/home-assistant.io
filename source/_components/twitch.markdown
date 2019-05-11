@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: twitch.png
-ha_category: Social
+ha_category:
+  - Social
 ha_release: "0.10"
 ha_iot_class: Cloud Polling
 redirect_from:

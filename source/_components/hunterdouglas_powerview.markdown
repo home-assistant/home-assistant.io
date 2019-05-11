@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: hunter-douglas-powerview.png
-ha_category: Scene
+ha_category:
+  - Scene
 ha_release: 0.15
 redirect_from:
  - /components/scene.hunterdouglas_powerview/

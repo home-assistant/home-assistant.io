@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Media Player
+ha_category:
+  - Media Player
 logo: gstreamer.png
 ha_release: 0.39
 ha_iot_class: Local Push

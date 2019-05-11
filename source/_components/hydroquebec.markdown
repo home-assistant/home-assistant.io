@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: hydroquebec.svg
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 0.35
 ha_iot_class: Cloud Polling
 redirect_from:

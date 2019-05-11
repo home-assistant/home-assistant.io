@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Utility
+ha_category:
+  - Utility
 logo: home-assistant.png
 ha_release: 0.28
 ha_iot_class: Local Push

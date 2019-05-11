@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: openhardwaremonitor.png
-ha_category: System Monitor
+ha_category:
+  - System Monitor
 ha_release: 0.48
 ha_iot_class: Local Polling
 redirect_from:

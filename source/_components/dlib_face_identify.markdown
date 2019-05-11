@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: dlib.png
-ha_category: Image Processing
+ha_category:
+  - Image Processing
 ha_release: 0.44
 redirect_from:
  - /components/image_processing.dlib_face_identify/

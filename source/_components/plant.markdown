@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Environment
+ha_category:
+  - Environment
 ha_release: 0.44
 ha_qa_scale: internal
 ---

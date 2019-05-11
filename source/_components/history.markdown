@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: History
+ha_category:
+  - History
 ha_release: pre 0.7
 ha_qa_scale: internal
 ---

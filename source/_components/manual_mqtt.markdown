@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Alarm
+ha_category:
+  - Alarm
 ha_release: "0.50"
 redirect_from:
  - /components/alarm_control_panel.manual_mqtt/

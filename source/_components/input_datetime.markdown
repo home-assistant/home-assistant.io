@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.55
 ha_qa_scale: internal
 ---

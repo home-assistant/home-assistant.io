@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: epson.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.92
 ha_iot_class: Local Polling
 ---

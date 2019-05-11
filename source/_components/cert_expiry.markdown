@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.44
 ha_iot_class: Configurable
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: onewire.png
-ha_category: DIY
+ha_category:
+  - DIY
 ha_release: 0.12
 ha_iot_class: Local Polling
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: Scene
+ha_category:
+  - Scene
 ha_release: 0.63
 ---
 

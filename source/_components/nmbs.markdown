@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sncb_nmbs.gif
-ha_category: Transport
+ha_category:
+  - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.85
 redirect_from:

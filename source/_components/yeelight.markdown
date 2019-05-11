@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: yeelight.png
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.32
 ha_iot_class: Local Polling
 redirect_from:

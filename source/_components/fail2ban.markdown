@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Network
+ha_category:
+  - Network
 ha_iot_class: Local Polling
 logo: fail2ban.png
 ha_release: 0.57

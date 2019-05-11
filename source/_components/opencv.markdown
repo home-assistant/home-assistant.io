@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: opencv.png
-ha_category: Image Processing
+ha_category:
+  - Image Processing
 ha_release: 0.47
 redirect_from:
  - /components/image_processing.opencv/

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: snips.png
-ha_category: Voice
+ha_category:
+  - Voice
 ha_release: 0.48
 ---
 

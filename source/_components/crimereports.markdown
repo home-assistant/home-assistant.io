@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Social
+ha_category:
+  - Social
 logo: crimereports.png
 ha_release: 0.42
 ha_iot_class: Cloud Polling

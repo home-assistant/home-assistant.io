@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: russound.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.49
 ha_iot_class: Local Push
 redirect_from:

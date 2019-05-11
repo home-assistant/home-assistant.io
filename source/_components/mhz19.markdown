@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mhz19_logo.png
-ha_category: DIY
+ha_category:
+  - DIY
 ha_release: 0.27
 ha_iot_class: Local Polling
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: amazon-alexa.png
-ha_category: Voice
+ha_category:
+  - Voice
 featured: false
 ha_release: "0.31"
 ---

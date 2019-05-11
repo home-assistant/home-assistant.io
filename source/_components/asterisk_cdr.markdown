@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: asterisk.png
-ha_category: Mailbox
+ha_category:
+  - Mailbox
 ha_release: 0.79
 redirect_from:
  - /components/mailbox.asterisk_cdr/

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: radiotherm.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_iot_class: Local Polling
 ha_release: 0.7.6
 redirect_from:

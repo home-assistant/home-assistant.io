@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: restful.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ---

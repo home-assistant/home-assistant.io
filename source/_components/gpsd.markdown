@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: gpsd.png
-ha_category: Utility
+ha_category:
+  - Utility
 ha_release: 0.26
 ha_iot_class: Local Polling
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: DIY
+ha_category:
+  - DIY
 ha_release: 0.58
 ha_iot_class: Local Polling
 redirect_from:

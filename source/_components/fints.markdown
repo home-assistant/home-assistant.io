@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Finance
+ha_category:
+  - Finance
 ha_release: "0.70"
 ha_iot_class: Local Push
 redirect_from:

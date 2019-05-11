@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: etherscan.png
-ha_category: Finance
+ha_category:
+  - Finance
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 redirect_from:

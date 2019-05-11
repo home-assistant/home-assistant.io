@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: 
+ha_category:
   - DIY
   - Sensor
 ha_release: "0.90"

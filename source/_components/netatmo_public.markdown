@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: netatmo.png
-ha_category: Environment
+ha_category:
+  - Environment
 ha_iot_class: Cloud Polling
 ha_release: 0.77
 redirect_from:

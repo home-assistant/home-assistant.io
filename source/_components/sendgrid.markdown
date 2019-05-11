@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sendgrid.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.14
 redirect_from:
  - /components/notify.sendgrid/

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ign-sismologia.png
-ha_category: Geolocation
+ha_category:
+  - Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.92
 ---

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: geo_location.png
-ha_category: Geolocation
+ha_category:
+  - Geolocation
 ha_iot_class: Cloud Polling
 ha_release: 0.79
 redirect_from:

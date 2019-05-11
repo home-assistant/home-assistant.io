@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Environment
+ha_category:
+  - Environment
 ha_release: "0.20"
 ha_iot_class: Local Polling
 ha_qa_scale: internal

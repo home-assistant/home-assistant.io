@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.29
 ha_iot_class: Local Push
 ---

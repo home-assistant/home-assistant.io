@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: netatmo.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: "0.20"
 ha_iot_class: Cloud Polling
 ---

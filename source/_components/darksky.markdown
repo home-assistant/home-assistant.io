@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: dark_sky.png
-ha_category: Weather
+ha_category:
+  - Weather
 ha_release: "0.30"
 redirect_from: /components/sensor.forecast/
 ha_iot_class: Cloud Polling

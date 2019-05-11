@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nello.png
-ha_category: Lock
+ha_category:
+  - Lock
 
 ha_release: 0.52
 ha_iot_class: Cloud Polling

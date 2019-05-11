@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: spotify.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 redirect_from:

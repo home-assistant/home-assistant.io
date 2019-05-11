@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: volvo.png
-ha_category: Car
+ha_category:
+  - Car
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: camcorder.png
-ha_category: Camera
+ha_category:
+  - Camera
 ha_iot_class: Local Push
 ha_release: 0.74
 redirect_from:
