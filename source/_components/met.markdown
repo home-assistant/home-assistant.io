@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: metno.png
-ha_category: Weather
+ha_category:
+  - Weather
 ha_release: 0.79
 ha_iot_class: Cloud Polling
 redirect_from:

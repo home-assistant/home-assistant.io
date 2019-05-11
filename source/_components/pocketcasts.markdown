@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: pocketcasts.png
-ha_category: Multimedia
+ha_category:
+  - Multimedia
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: upc.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.36
 redirect_from:
  - /components/device_tracker.upc_connect/

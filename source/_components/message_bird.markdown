@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: message_bird.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.16
 redirect_from:
  - /components/notify.message_bird/

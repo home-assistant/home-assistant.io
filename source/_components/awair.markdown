@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: awair.jpg
-ha_category: Health
+ha_category:
+  - Health
 ha_release: 0.84
 ha_iot_class: Cloud Polling
 redirect_from:

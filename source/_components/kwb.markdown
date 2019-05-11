@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: kwb.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_iot_class: Local Polling
 ha_release: "0.40"
 redirect_from:

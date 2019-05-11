@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: linux_battery.png
-ha_category: System Monitor
+ha_category:
+  - System Monitor
 ha_release: 0.28
 ha_iot_class: Local Polling
 redirect_from:

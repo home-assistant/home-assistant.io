@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: unitymedia.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.72
 redirect_from:

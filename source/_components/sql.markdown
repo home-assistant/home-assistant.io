@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sql.png
-ha_category: Utility
+ha_category:
+  - Utility
 ha_release: 0.63
 redirect_from:
  - /components/sensor.sql/

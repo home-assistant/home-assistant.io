@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: "ankuoo_recswitch.png"
 ha_release: 0.81
-ha_category: Switch
+ha_category:
+  - Switch
 ha_iot_class: Local Polling
 redirect_from:
  - /components/switch.recswitch/

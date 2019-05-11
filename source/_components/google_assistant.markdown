@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: google-assistant.png
-ha_category: Voice
+ha_category:
+  - Voice
 featured: true
 ha_release: 0.56
 ---

@@ -8,7 +8,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.23
 redirect_from:

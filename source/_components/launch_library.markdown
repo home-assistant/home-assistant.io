@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rocket.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.83
 redirect_from:

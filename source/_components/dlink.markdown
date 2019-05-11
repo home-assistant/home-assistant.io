@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: dlink.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.14
 redirect_from:

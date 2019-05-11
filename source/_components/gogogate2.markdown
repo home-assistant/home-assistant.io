@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: gogogate2.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.67
 ha_iot_class: Local Polling
 redirect_from:

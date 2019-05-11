@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: hitron.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.58
 redirect_from:
  - /components/device_tracker.hitron_coda/

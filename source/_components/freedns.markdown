@@ -8,7 +8,8 @@ comments: false
 sharing: true
 logo: afraid_freedns.png
 footer: true
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.67
 ---
 

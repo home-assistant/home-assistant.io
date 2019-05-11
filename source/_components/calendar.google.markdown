@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: google_calendar.png
-ha_category: Calendar
+ha_category:
+  - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ---

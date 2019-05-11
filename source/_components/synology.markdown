@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: synology.png
-ha_category: Camera
+ha_category:
+  - Camera
 ha_release: 0.31
 ha_iot_class: Local Polling
 redirect_from:

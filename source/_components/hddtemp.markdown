@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: System Monitor
+ha_category:
+  - System Monitor
 ha_release: 0.32
 ha_iot_class: Local Polling
 redirect_from:

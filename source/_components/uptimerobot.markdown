@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: uptimerobot.png
-ha_category: System Monitor
+ha_category:
+  - System Monitor
 ha_release: 0.72
 ha_iot_class: Cloud Polling
 redirect_from:

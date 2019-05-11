@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: radarr.png
-ha_category: Downloading
+ha_category:
+  - Downloading
 ha_release: 0.47
 redirect_from:
  - /components/sensor.radarr/

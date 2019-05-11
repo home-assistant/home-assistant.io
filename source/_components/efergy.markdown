@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: efergy.png
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 redirect_from:

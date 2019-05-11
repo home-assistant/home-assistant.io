@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: limitlessled_logo.png
-ha_category: Light
+ha_category:
+  - Light
 ha_iot_class: Assumed State
 ha_release: pre 0.7
 redirect_from:

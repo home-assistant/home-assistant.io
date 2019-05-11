@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: sytadin.png
 ha_release: 0.57
-ha_category: Transport
+ha_category:
+  - Transport
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.sytadin/

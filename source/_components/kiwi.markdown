@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: kiwi.png
-ha_category: Lock
+ha_category:
+  - Lock
 ha_release: 0.72
 ha_iot_class: Cloud Polling
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ddwrt.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: pre 0.7
 redirect_from:
  - /components/device_tracker.ddwrt/

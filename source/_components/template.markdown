@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
 logo: home-assistant.png

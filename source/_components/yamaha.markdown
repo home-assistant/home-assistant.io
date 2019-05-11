@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: yamaha.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.16
 redirect_from:
  - /components/media_player.yamaha/

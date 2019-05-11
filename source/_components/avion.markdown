@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Light
+ha_category:
+  - Light
 ha_iot_class: Assumed State
 logo: avi-on.png
 ha_release: 0.37

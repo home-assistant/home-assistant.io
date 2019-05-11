@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: microsoft.png
-ha_category: Image Processing
+ha_category:
+  - Image Processing
 ha_release: 0.37
 ---
 

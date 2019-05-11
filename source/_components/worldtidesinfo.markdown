@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: worldtidesinfo.png
-ha_category: Environment
+ha_category:
+  - Environment
 ha_release: 0.52
 redirect_from:
  - /components/sensor.worldtidesinfo/

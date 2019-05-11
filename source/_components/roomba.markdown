@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: irobot_roomba.png
-ha_category: Vacuum
+ha_category:
+  - Vacuum
 ha_release: 0.51
 redirect_from:
  - /components/vacuum.roomba/

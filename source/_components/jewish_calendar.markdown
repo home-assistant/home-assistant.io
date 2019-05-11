@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Calendar
+ha_category:
+  - Calendar
 ha_iot_class: Local Polling
 ha_release: 0.79
 redirect_from:

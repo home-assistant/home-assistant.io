@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: aftership.png
-ha_category: Postal Service
+ha_category:
+  - Postal Service
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 redirect_from:

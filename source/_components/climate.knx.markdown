@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.25
 ha_iot_class: Local Polling
 ---

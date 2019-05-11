@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: smtp.png
-ha_category: Mailbox
+ha_category:
+  - Mailbox
 ha_iot_class: Cloud Push
 ha_release: 0.25
 redirect_from:

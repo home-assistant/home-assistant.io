@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Vacuum
+ha_category:
+  - Vacuum
 ha_release: 0.51
 ha_iot_class: Local Polling
 ---

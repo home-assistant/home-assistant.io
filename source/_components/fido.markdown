@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: fido.png
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 redirect_from:

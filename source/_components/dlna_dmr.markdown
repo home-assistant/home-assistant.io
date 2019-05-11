@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: dlna.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.76
 ha_iot_class: Local Push
 redirect_from:

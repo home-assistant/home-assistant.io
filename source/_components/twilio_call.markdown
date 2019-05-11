@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: twilio.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.37
 redirect_from:
  - /components/notify.twilio_call/

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: keenetic.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.54
 redirect_from:
  - /components/device_tracker.keenetic_ndms2/

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: restful.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
 redirect_from:

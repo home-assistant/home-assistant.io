@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: tank_utility.png
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 0.53
 redirect_from:
  - /components/sensor.tank_utility/

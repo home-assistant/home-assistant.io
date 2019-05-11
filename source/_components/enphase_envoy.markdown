@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: enphase-logo.svg
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 0.76
 ha_iot_class: Local Polling
 redirect_from:

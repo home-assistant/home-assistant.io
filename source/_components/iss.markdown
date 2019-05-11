@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nasa.png
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: 0.36
 redirect_from:
  - /components/sensor.iss/

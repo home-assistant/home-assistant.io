@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: alarmdotcom.png
-ha_category: Alarm
+ha_category:
+  - Alarm
 ha_release: 0.11
 redirect_from:
  - /components/alarm_control_panel.alarmdotcom/

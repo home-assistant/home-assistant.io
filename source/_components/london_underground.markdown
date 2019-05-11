@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: london_underground.png
-ha_category: Transport
+ha_category:
+  - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.49
 redirect_from:

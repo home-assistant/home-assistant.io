@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: wunderlist.png
-ha_category: Calendar
+ha_category:
+  - Calendar
 ha_release: 0.84
 ---
 

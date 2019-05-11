@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: huawei.svg
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.51
 redirect_from:
  - /components/device_tracker.huawei_router/

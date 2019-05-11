@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: yale.png
-ha_category: Alarm
+ha_category:
+  - Alarm
 ha_release: 0.78
 redirect_from:
  - /components/alarm_control_panel.yale_smart_alarm/

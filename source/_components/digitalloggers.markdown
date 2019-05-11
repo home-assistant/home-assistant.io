@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: digitalloggers.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.35
 ha_iot_class: Local Polling
 redirect_from:

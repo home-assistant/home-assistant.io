@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nfandroidtv.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.32
 redirect_from:
  - /components/notify.nfandroidtv/

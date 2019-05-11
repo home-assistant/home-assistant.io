@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nuimo.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.29
 ha_iot_class: Local Polling
 ---

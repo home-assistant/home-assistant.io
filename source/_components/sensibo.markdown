@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sensibo.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 redirect_from:

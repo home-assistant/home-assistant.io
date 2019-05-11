@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: bt.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.82
 ha_iot_class: Local Polling
 redirect_from:

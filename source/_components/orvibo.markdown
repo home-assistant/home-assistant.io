@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: orvibo.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.8
 redirect_from:
  - /components/switch.orvibo/

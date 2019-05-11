@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: "0.50"
 ha_iot_class: Local Push
 ---

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 redirect_from:

@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.21
 logo: home-assistant.png
 ha_qa_scale: internal

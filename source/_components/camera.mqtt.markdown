@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Camera
+ha_category:
+  - Camera
 ha_release: 0.43
 ha_iot_class: Configurable
 ---

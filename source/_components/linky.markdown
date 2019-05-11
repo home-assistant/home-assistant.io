@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: enedis.png
 ha_release: 0.79
-ha_category: Energy
+ha_category:
+  - Energy
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.linky/
