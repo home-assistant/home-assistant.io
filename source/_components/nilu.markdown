@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nilu_logo.png
-ha_category: Health
+ha_category:
+  - Health
 ha_iot_class: Cloud Polling
 ha_release: 0.87
 redirect_from:

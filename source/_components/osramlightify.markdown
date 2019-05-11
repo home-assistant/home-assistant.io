@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: osramlightify.png
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.21
 redirect_from:
  - /components/light.osramlightify/

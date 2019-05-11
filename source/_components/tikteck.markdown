@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Light
+ha_category:
+  - Light
 ha_iot_class: Local Polling
 logo: tikteck.png
 ha_release: 0.36

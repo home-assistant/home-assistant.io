@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Finance
+ha_category:
+  - Finance
 logo: fixer-io.png
 ha_iot_class: Cloud Polling
 ha_release: 0.23

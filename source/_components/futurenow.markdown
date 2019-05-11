@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: p5.png
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.75
 redirect_from:
  - /components/light.futurenow/

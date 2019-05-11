@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: vesync.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.66
 redirect_from:
  - /components/switch.vesync/

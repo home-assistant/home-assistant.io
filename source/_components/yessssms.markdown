@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: yesssat.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.57
 redirect_from:
  - /components/notify.yessssms/

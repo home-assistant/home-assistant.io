@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Transport
+ha_category:
+  - Transport
 logo: gtt.png
 ha_iot_class: Cloud Polling
 ha_release: 0.85

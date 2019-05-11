@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: familyhub.png
-ha_category: Camera
+ha_category:
+  - Camera
 ha_release: "0.70"
 ha_iot_class: Local Polling
 redirect_from:

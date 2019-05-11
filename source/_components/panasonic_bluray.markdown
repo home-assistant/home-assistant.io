@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: panasonic.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.83
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: tautulli.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.82
 ha_iot_class: Local Polling
 redirect_from:

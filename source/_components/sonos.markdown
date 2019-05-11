@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sonos.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 featured: true
 ha_release: 0.7.3
 ha_iot_class: Local Polling

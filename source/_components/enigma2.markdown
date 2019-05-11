@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: openwebif.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 featured: false
 ha_release: "0.90"
 ha_iot_class: "Local Polling"

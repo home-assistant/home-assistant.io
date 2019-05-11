@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_iot_class: Configurable
 ha_release: 0.18
 ---

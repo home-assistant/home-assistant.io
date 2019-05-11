@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nederlandse_spoorwegen.png
-ha_category: Transport
+ha_category:
+  - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.57
 redirect_from:

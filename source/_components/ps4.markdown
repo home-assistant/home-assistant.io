@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ps4.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.89
 ha_iot_class: Local Polling
 ---

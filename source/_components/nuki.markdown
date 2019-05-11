@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nuki.png
-ha_category: Lock
+ha_category:
+  - Lock
 ha_release: 0.38
 ha_iot_class: Local Polling
 redirect_from:

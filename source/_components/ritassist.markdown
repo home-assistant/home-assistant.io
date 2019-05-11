@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ritassist.png
-ha_category: Car
+ha_category:
+  - Car
 ha_iot_class: Cloud Polling
 ha_release: 0.76
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ciscospark.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: "0.40"
 redirect_from:
  - /components/notify.ciscospark/

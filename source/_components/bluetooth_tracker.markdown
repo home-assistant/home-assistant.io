@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: bluetooth.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_iot_class: Local Polling
 ha_release: 0.18
 redirect_from:

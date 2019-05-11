@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: github.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.88
 ha_iot_class: Cloud Polling
 redirect_from:

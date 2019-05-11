@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Fan
+ha_category:
+  - Fan
 ha_release: 0.27
 ha_iot_class: Configurable
 ---

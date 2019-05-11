@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: heos.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.92
 ha_iot_class: Local Push
 ---

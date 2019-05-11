@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: 
+ha_category:
   - Other
 ha_release: "0.90"
 ha_iot_class: Local Push

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: tensorflow.png
-ha_category: Image Processing
+ha_category:
+  - Image Processing
 ha_iot_class: Local Polling
 ha_release: 0.82
 redirect_from:

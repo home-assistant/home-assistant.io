@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.36
 ha_iot_class: Local Polling
 redirect_from:

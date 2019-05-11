@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sigfox.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 0.68
 redirect_from:

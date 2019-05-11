@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: switchbot.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.78
 ha_iot_class: Local Polling
 redirect_from:

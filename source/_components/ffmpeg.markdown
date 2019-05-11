@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Image Processing
+ha_category:
+  - Image Processing
 ha_release: 0.29
 ---
 

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sony.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_iot_class: Local Push
 ha_release: 0.65
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 # logo: raspberry-pi.png
-ha_category: Water heater
+ha_category:
+  - Water heater
 ha_release: 0.87
 ha_iot_class: Local Polling
 redirect_from:

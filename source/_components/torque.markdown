@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: torque.png
-ha_category: Car
+ha_category:
+  - Car
 ha_release: "0.10"
 ha_iot_class: Cloud Polling
 redirect_from:

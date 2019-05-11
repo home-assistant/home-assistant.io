@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.53
 ha_iot_class: Local Push
 ---

@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Camera
+ha_category:
+  - Camera
 logo: camcorder.png
 ha_release: "0.40"
 ha_iot_class: Configurable

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: netbeheernederland.jpg
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 0.34
 ha_iot_class: Local Push
 redirect_from:

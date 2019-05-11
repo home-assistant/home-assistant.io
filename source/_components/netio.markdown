@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: netio.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.24
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: automatic.png
-ha_category: Car
+ha_category:
+  - Car
 ha_release: 0.28
 ha_iot_class: Cloud Push
 redirect_from:

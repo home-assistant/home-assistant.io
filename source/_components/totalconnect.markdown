@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: honeywell-tc.png
-ha_category: Alarm
+ha_category:
+  - Alarm
 ha_release: 0.42
 redirect_from:
  - /components/alarm_control_panel.totalconnect/

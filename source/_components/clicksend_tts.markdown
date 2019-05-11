@@ -12,8 +12,7 @@ ha_category:
   - Notifications
 ha_release: 0.55
 redirect_from: 
-  - /components/notify.clicksendaudio/
-redirect_from:
+ - /components/notify.clicksendaudio/
  - /components/notify.clicksend_tts/
 ---
 

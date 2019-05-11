@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rflink.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.38
 ---
 

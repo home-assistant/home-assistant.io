@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Alarm
+ha_category:
+  - Alarm
 ha_release: 0.7.6
 ha_qa_scale: internal
 redirect_from:

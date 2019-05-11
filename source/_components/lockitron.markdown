@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: lockitron.png
-ha_category: Lock
+ha_category:
+  - Lock
 ha_iot_class: Cloud Polling
 ha_release: 0.42
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: lifx.png
-ha_category: Scene
+ha_category:
+  - Scene
 ha_release: 0.43
 redirect_from:
  - /components/scene.lifx_cloud/

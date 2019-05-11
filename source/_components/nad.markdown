@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nad.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.36
 ha_iot_class: Local Polling
 redirect_from:

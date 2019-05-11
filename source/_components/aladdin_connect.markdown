@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: aladdin_connect.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.75
 ha_iot_class: Cloud Polling
 redirect_from:

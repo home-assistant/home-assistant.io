@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Voice
+ha_category:
+  - Voice
 ha_release: 0.64
 logo: apple-homekit.png
 ---

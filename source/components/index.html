@@ -61,7 +61,7 @@ Support for these components is provided by the Home Assistant community.
   <div class="grid__item five-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
-        <input type="text" name="search" id="search" class="search" placeholder="Search components...">
+        <input type="text" name="search" id="search" class="search" placeholder="Search components..." autofocus />
       </form>
     </div>
     <div class="hass-option-cards" id="componentContainer"> </div>
@@ -147,7 +147,7 @@ allComponents.pop(); // remove placeholder element at the end
     var data = {
       components: [],
       image: function () {
-        if(this.logo === '') {
+        if (this.logo === '') {
           return '';
         } else {
           return '<img data-src="/images/supported_brands/' + this.logo + '">';
@@ -216,8 +216,8 @@ allComponents.pop(); // remove placeholder element at the end
    * update the browser location hash. This enables users to use the browser-history
    */
   function updateHash(newHash) {
-    if ('replaceState' in history) {
-      history.replaceState('', '', newHash);
+    if ('pushState' in history) {
+      history.pushState('', '', newHash);
     } else {
       location.hash = newHash;
     }
@@ -265,9 +265,11 @@ allComponents.pop(); // remove placeholder element at the end
   $('.component-search input').keyup(debounce(function() {
     var text = $(this).val();
     // sanitize input
-    text = text.replace(/[(\?|\&\{\}\(\))]/gi, '');
-    updateHash('#search/' + text);
-    applyFilter();
+    text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
+    if (typeof text === "string" && text.length !== 0) {
+        updateHash('#search/' + text);
+        applyFilter();
+    }
   }, 500));
 
   window.addEventListener('hashchange', applyFilter);

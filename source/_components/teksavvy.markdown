@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: teksavvy.png
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.62
 ha_iot_class: Cloud Polling
 redirect_from:

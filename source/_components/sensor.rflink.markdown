@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rflink.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.38
 ha_iot_class: Local Polling
 ---

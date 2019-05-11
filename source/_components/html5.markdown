@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: html5.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.27
 redirect_from:
  - /components/notify.html5/

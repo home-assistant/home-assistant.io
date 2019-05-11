@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: raspberry-pi.png
-ha_category: DIY
+ha_category:
+  - DIY
 ha_release: 0.48
 ha_iot_class: Local Push
 redirect_from:

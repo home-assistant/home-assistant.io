@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: soundtouch.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.34
 ha_iot_class: Local Polling
 redirect_from:
