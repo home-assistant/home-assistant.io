@@ -45,10 +45,12 @@ areas:
 latitude:
   description: Latitude for component.
   required: false
+  type: float
   default: Your home zone latitude defined in your configuration.
 longitude:
   description: Longitude for component.
   required: false
+  type: float
   default: Your home zone longitude defined in your configuration.
 {% endconfiguration %}
 
