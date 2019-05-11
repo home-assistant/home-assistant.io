@@ -15,7 +15,7 @@ ha_release: 0.48
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
-The latest documentation can be found here: [Snips Platform Documentation](https://snips.gitbook.io/documentation/).
+The latest documentation can be found here: [Snips Platform Documentation](https://docs.snips.ai/).
 
 ![Snips Modules](/images/screenshots/snips_modules.png)
 
@@ -27,7 +27,7 @@ Snips takes voice or text as input and produces *intents* as output, which are e
 
 ### {% linkable_title Installation %}
 
-The Snips platform can be installed via the Snips APT/Debian repository. If you prefer to install the platform using the Docker distribution, check out our [Docker Installation Guide](https://github.com/snipsco/snips-platform-documentation/wiki/6.--Miscellaneous#using-docker).
+The Snips platform can be installed via the Snips APT/Debian repository.
 
 ```bash
 sudo apt-get update
@@ -77,7 +77,7 @@ Note that if you already have an assistant installed and wish to replace it then
 
 ### {% linkable_title Running Snips %}
 
-Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Audio Configuration](https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi#2-configuration).
+Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Microphones](https://docs.snips.ai/articles/raspberrypi/hardware/microphones).
 
 Start the Snips Voice Platform by starting the `snips-*` services:
 
@@ -97,7 +97,7 @@ As the Snips Platform parses this query into an intent, it will be published on 
 
 #### {% linkable_title Optional: specifying an external MQTT broker %}
 
-By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, we need to specify this in the `/etc/snips.toml` configuration file. For more information on configuring this, see the [Using an external MQTT broker](https://snips.gitbook.io/documentation/advanced-configuration/platform-configuration) article.
+By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, we need to specify this in the `/etc/snips.toml` configuration file. For more information on configuring this, see the [Snips Platform Configuration](https://docs.snips.ai/articles/platform/platform-configuration) article.
 
 ## {% linkable_title Home Assistant configuration %}
 
@@ -209,7 +209,7 @@ You can send TTS notifications to Snips using the `snips.say` and `snips.say_act
 
 ### {% linkable_title Snips Support %}
 
-There is an active [discord](https://discordapp.com/invite/3939Kqx) channel for further support.
+There is an active [Forum](https://forum.snips.ai) for further support.
 
 ### {% linkable_title Configuration Examples %}
 
