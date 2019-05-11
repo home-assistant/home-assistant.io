@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Huawei LTE Routers"
-description: "Instructions on how to integrate Huawei LTE routers with Home Assistant."
+title: "Huawei LTE Devices"
+description: "Instructions on how to integrate Huawei LTE device with Home Assistant."
 date: 2018-09-08 20:00
 sidebar: true
 comments: false
@@ -21,11 +21,11 @@ redirect_from:
   - /components/sensor.huawei_lte/
 ---
 
-The Huawei LTE router integration for Home Assistant allows you to observe and control [Huawei LTE routers](https://consumer.huawei.com/en/smart-home/).
+The Huawei LTE router/modem integration for Home Assistant allows you to observe and control [Huawei LTE routers](https://consumer.huawei.com/en/smart-home/) or  [Huawei LTE modems](https://consumer.huawei.com/en/mobile-broadband/).
 
 There is currently support for the following device types within Home Assistant:
 
-- [Presence Detection](#presence-detection) - a device tracker for connected devices
+- [Presence Detection](#presence-detection) - a device tracker for connected devices. Works only for routers
 - [Notifications](#notifications)
 - [Sensor](#sensor) - with device, signal, and traffic information
 
@@ -36,6 +36,7 @@ All platform requires you to have set up the [Huawei LTE component](#configurati
 To enable the component, add the following lines to your
 `configuration.yaml` file:
 
+## {% linkable_title Router %}
 ```yaml
 # Example configuration.yaml entry
 huawei_lte:
@@ -59,6 +60,26 @@ password:
   type: string
 {% endconfiguration %}
 
+## {% linkable_title Modem %}
+```yaml
+# Example configuration.yaml entry
+huawei_lte:
+  - url: http://192.168.100.1/
+    device_type: modem
+```
+
+{% configuration %}
+url:
+  description: URL of the modem web interface.
+  required: true
+  type: url
+device_type:
+  description: Device type.
+  required: true
+  type: string
+  
+{% endconfiguration %}
+
 ### {% linkable_title Tested routers %}
 
 Routers we know to be working with this component based on the documentation of used libraries and reports by users:
@@ -68,7 +89,11 @@ Routers we know to be working with this component based on the documentation of 
 - Huawei E5186s-22a
 - Huawei B618
 
-This is not a complete list. The component can probably connect to other Huawei LTE routers running similar firmware.
+### {% linkable_title Tested modems %}
+
+- Huawei E3372
+
+This is not a complete list. The component can probably connect to other Huawei LTE devices running similar firmware.
 
 ## {% linkable_title Presence Detection %}
 
@@ -86,7 +111,7 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 
 ## {% linkable_title Notifications %}
 
-The `huawei_lte` platform allows you to use a Huawei LTE router for notifications from Home Assistant. The messages will be sent as SMS text messages.
+The `huawei_lte` platform allows you to use a Huawei LTE device for notifications from Home Assistant. The messages will be sent as SMS text messages.
 
 ```yaml
 # Example configuration.yaml entry
@@ -106,7 +131,7 @@ name:
   default: notify
   type: string
 url:
-  description: The router to use. Not needed if you only have one.
+  description: The device to use. Not needed if you only have one.
   required: false
   type: url
 {% endconfiguration %}
@@ -115,9 +140,9 @@ To use notifications, please see the [getting started with automation page](/get
 
 ## {% linkable_title Sensor %}
 
-The `huawei_lte` sensor platform allows you to monitor Huawei LTE routers.
+The `huawei_lte` sensor platform allows you to monitor Huawei LTE device.
 
-The names for the item you want to monitor are dot separated paths to information returned by the router. The data set varies by router model. To see what your router provides, set logging level to debug and watch `homeassistant.components.huawei_lte` debug entries. The configuration variable description contains a few example paths just to illustrate the syntax. These may not be available on all routers or their semantics may differ, and there are quite likely many more that are not listed here.
+The names for the item you want to monitor are dot separated paths to information returned by the device. The data set varies by device model. To see what your device provides, set logging level to debug and watch `homeassistant.components.huawei_lte` debug entries. The configuration variable description contains a few example paths just to illustrate the syntax. These may not be available on all devices or their semantics may differ, and there are quite likely many more that are not listed here.
 
 To enable the sensor, add the following lines to your `configuration.yaml` file:
 
