@@ -48,7 +48,7 @@ Now login to the regular consumer portal, and in the hamburger menu there will b
 
 Now under the Name and Summary Section you will have an API key. Copy this key and use it in you configuration section below. Click the **X** to close the Developer section.
 
-To add the Ecobee component to Home Assistant, add the following information to your [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/) file:
+To add the Ecobee component to Home Assistant, add the following information to your [`configuration.yaml`](/docs/configuration/) file:
 
 ```yaml
 # Example configuration.yaml entry
