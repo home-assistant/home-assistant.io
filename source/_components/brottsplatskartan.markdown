@@ -2,7 +2,7 @@
 layout: page
 title: "Brottsplatskartan"
 description: "Instructions on how to integrate brottsplatskartan.se into Home Assistant."
-date: 2019-05-11 22:30
+date: 2018-12-02 20:00
 sidebar: true
 comments: false
 sharing: true
@@ -10,7 +10,7 @@ footer: true
 ha_category:
   - Social
 logo: brottsplatskartan.png
-ha_release: 0.94
+ha_release: 0.85
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.brottsplatskartan/
