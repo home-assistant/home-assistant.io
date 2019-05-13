@@ -26,6 +26,7 @@ climate:
   - platform: honeywell
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
+    region: us
     scan_interval: 600
 ```
 <p class='note'>
