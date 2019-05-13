@@ -54,7 +54,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.twilio_sms
+      service: notify.twilio_call
       data:
         message: 'The sun has set'
         target:
