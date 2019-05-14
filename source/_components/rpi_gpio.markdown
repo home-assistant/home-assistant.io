@@ -191,7 +191,7 @@ invert_logic:
   type: boolean
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#General_purpose_input-output_(GPIO)_connector) about the Raspberry Pi.
 
 <p class='note warning'>
 Note that a pin managed by HASS is expected to be exclusive to HASS.
