@@ -17,14 +17,12 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices. Currently, there is no support for Zone schedules.
+The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices. Currently, there is no support for Genius Hub issues and Zone schedules.
 
 It uses the [geniushub-client](https://pypi.org/project/geniushub-client/) library.
 
-### {% linkable_title Zones %}
-
+### Zones
 Each Zone controlled by your Genius hub will be exposed as either a:
-
  - `Climate` entity, for **Radiator** Zones, and
  - `Water Heater`, for **Hot Water Temperature** Zones
 
@@ -34,23 +32,14 @@ Each such entity will report back its mode, state, setpoint and current temperat
 
 In addition, the entity's mode and setpoint can be changed. The entity's `operating_mode` can be set to one of `off`, `timer`, `on` (i.e. **Override** mode) or `eco`. The `eco` mode is a proxy for the **Footprint** mode and so is only available to **Radiator** Zones that have room sensors.
 
-### {% linkable_title Devices %}
-
+### Devices
 If the Hub is directly polled using the v3 API (see below), then each Device controlled by your Genius hub will be exposed as either a:
-
  - `Sensor` entity with a % battery, for any Device with a battery (e.g. a Genius Valve), or
  - `Binary Sensor` entity with on/off state for any Device that is a switch (e.g. a Smart Plug)
 
 Each such entity will report back its primary state; in addition, `assigned_zone` and `last_comms` (last communications time) are available via the entity's attributes.
 
-### {% linkable_title Issues %}
-
-There are three `Sensor` entities that will indicate the number of **Errors**, **Warnings** and **Information** issues.
-
-Each such entity has a state attribute that will contain a list of any such issues. For example, `error_list`.
-
-### {% linkable_title State Attributes %}
-
+### State Attributes
 Other properties are available via each entity's state attributes. For example, in the case of **Radiator** Zones/`Climate` devices:
 
 ```json
