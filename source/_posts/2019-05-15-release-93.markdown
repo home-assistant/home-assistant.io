@@ -96,17 +96,53 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Add homematicip cloud temperature sensor from thermostats ([@SukramJ] - [#23263]) ([homematicip_cloud docs]) (breaking change)
-- Convert Pollen.com sensor into IQVIA component ([@bachya] - [#22986]) ([iqvia docs]) ([pollen docs]) (breaking change) (new-integration) (new-platform)
-- Remove support for deprecated Sonos configuration ([@amelchio] - [#23385]) ([sonos docs]) (breaking change)
-- Remove historical allergen and asthma sensors from IQVIA ([@bachya] - [#23258]) ([iqvia docs]) (breaking change)
-- Always pad mac addresses from nmap tracker with leading zeros ([@mikeage] - [#23492]) ([nmap_tracker docs]) (breaking change)
-- Convert frontend to do client-side modern JS detection ([@balloob] - [#23618]) ([frontend docs]) (breaking change)
-- Added option to select photoblack cartridge ([@ThaStealth] - [#23433]) ([epsonworkforce docs]) (breaking change)
-- Move Sonos services to sonos domain ([@amelchio] - [#23670]) ([sonos docs]) (breaking change)
-- Share snmp constants across all platforms ([@fabaff] - [#23678]) ([snmp docs]) (breaking change)
-- Merge netatmo_public sensor into the netatmo integration ([@cgtobi] - [#23531]) ([netatmo docs]) ([netatmo_public docs]) (breaking change)
-- Update Sesame component to use Candy House's library using the V3 API ([@zanglang] - [#23621]) ([sesame docs]) (breaking change)
+- __Homematic IP Cloud__ - Adds homematicip cloud temperature sensor from thermostats. Entity IDs of HmIP-SLO (Light Sensor Outdoor) will change and stale entities will need to be removed from the entity registry.  ([@SukramJ] - [#23263]) ([homematicip_cloud docs])
+- __Pollen.com__
+  * IQVIA is the parent company which hosts a variety of sites (https://pollen.com, https://flustar.com, etc.) from which valid data can come. To accommodate this, the Pollen.com sensor platform is now the IQVIA component and the configuration.yaml schema has changed accordingly. ([@bachya] - [#22986]) ([iqvia docs]) ([pollen docs])
+  * The IQVIA component no longer provides historical data for allergen and asthma conditions. Tactically, this means all historical sensors – including "Yesterday" sensors – will no longer appear; users will need to update any automations that previously relied on these sensors. ([@bachya] - [#23258]) ([iqvia docs])
+
+Example configuration:
+```
+iqvia:
+  zip_code: "12345"
+```
+
+   
+
+
+- __Sonos__
+  * Configuring the Sonos integration as a media_player: platform in configuration.yaml was deprecated in 0.72 and has now been removed. Please see the notes above in this release post as well as the component documentation for further info. ([@amelchio] - [#23385]) ([sonos docs])
+  * Sonos-specific services have been moved from the media_player domain to the sonos domain. For example, media_player.sonos_join has become sonos.join. Services sonos.set_sleep_timer, sonos.clear_sleep_timer, sonos.update_alarm and sonos.set_option now require the entity_id parameter and will not target all when it is missing. You can use all to target all. ([@amelchio] - [#23670]) ([sonos docs])
+
+
+- __Nmap__ - In Linux, and when running a setuid nmap, MAC addresses are reported with a leading zero in each byte. Under Mac OS X, when running the arp command, there is no leading zero. This makes it annoying to share config files between a Mac and Linux setup. This change fixes this by forcing MAC addresses to be zero padded, "breaking" Mac detection on a Mac by aligning it to the convention on Linux ([@mikeage] - [#23492]) ([nmap_tracker docs])
+- __Frontend__ - This change converts the frontend to do client-side modern JS detection. It is no longer possible to force the frontend version that is shown to a browser by specifying a javascript_version option. Instead, we use feature detection to make sure that each browser receives the latest supported version. Because of feature detection, we no longer have ES5 specific index pages, which means the option extra_html_url_es5 no longer does anything. All usages of extra_html_url should be migrated to use Lovelace imports.([@balloob] - [#23618]) ([frontend docs])
+- __Epson Workforce__ - This change adds the option to add photo black cartridge as a setting. It also corrects the spelling of "Inklevel" to "Ink level"([@ThaStealth] - [#23433]) ([epsonworkforce docs])
+
+Example configuration:
+```
+   - platform: epsonworkforce
+     host: IP_ADDRESS
+     monitored_conditions:
+     - black     
+     - photoblack
+     - yellow
+     - magenta
+     - cyan
+     - clean 
+```
+
+
+- __SNMP__ - The configuration of the SNMP device tracker was aligned with the other SNMP switch and the sensor configuration. If you are using authentication key and private key then change your configuration to auth_key: and priv_key:. ([@fabaff] - [#23678]) ([snmp docs])
+
+- __Netatmo__ The netatmo_public sensor will be merged into the netatmo integration. In the config platform: netatmo_public becomes platform: netatmo, everything else stays the same. ([@cgtobi] - [#23531]) ([netatmo docs]) ([netatmo_public docs])
+- __Sesame Smart Lock__ - The Sesame smart lock's 1.0 API uses a username/password pair to authenticate, and may be deprecated in the future. The V3 API uses an API key, so it will require users to update their HA config. ([@zanglang] - [#23621]) ([sesame docs])
+Example configuration:
+```
+lock:
+  - platform: sesame
+    api_key: !secret sesame_api_key
+```
 
 ## {% linkable_title Beta Fixes %}
 
