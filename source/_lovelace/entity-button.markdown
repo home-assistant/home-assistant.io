@@ -51,6 +51,11 @@ show_icon:
   description: Show icon.
   type: boolean
   default: "true"
+icon_height:
+  required: false
+  description: Set the height for the icon. This is in pixels which is handled by the config ui. (Advanced users can use other CSS values if they like)
+  type: string
+  default: auto
 tap_action:
   required: false
   description: Action to take on tap
