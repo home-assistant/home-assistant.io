@@ -11,6 +11,7 @@ logo: lcn.png
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Cover
   - Light
   - Sensor
@@ -31,6 +32,7 @@ With this setup sending and receiving commands to and from LCN modules is possib
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
 - [Sensor](#sensor)
@@ -56,6 +58,16 @@ lcn:
       address: myhome.s0.m7
       source: binsensor1
 
+  climates:
+    - name: Temperature bedroom
+      address: myhome.s0.m7
+      source: var1
+      setpoint: r1varsetpoint
+      min_temp: 17.
+      max_temp: 30.
+      lockable: true
+      unit_of_measurement: °C
+
   covers:
     - name: Living room cover
       address: myhome.s0.m7
@@ -72,7 +84,7 @@ lcn:
     - name: Temperature
       address: myhome.s0.m7
       source: var3
-      unit_of_measuremnt: °C
+      unit_of_measurement: °C
   
   switches:
     - name: Sprinkler switch
@@ -128,13 +140,55 @@ binary_sensors:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     source:
-      description: "Sensor source ([BINSENSOR](/components/lcn#ports), [SETPOINT](/components/lcn#variables-and-units), [KEYS](/components/lcn#keys))."
+      description: "Sensor source ([BINSENSOR](#ports), [SETPOINT](#variables-and-units), [KEYS](#keys))."
       required: true
       type: string
+
+climates:
+  description: List of your climate devices.
+  required: false
+  type: map
+  keys:
+    name:
+      description: "Name of the climate controller."
+      required: true
+      type: string
+    address:
+      description: "[Address](#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    source:
+      description: "Current temperature source ([VARIABLE](#variables-and-units))."
+      required: true
+      type: string
+    setpoint:
+      description: "Setpoint for target temperature ([VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units))."
+      required: true
+      type: string
+    unit_of_measurement:
+      description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
+      required: false
+      type: string
+      default: 'celsius'
+    min_temp:
+      description: "Minimum target temperature."
+      required: false
+      type: float
+      default: 7.
+    max_temp:
+      description: "Maximum target temperature."
+      required: false
+      type: float
+      default: 35.
+    lockable:
+      description: "Climate control can be locked."
+      required: false
+      type: bool
+      default: false
 
 covers:
   description: List of your covers.
@@ -146,11 +200,11 @@ covers:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     motor:
-      description: "Motor port ([MOTOR_PORT](/components/lcn#ports))."
+      description: "Motor port ([MOTOR_PORT](#ports))."
       required: true
       type: string
 
@@ -164,11 +218,11 @@ lights:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     output:
-      description: "Light source ([OUTPUT_PORT](/components/lcn#ports), [RELAY_PORT](/components/lcn#ports))."
+      description: "Light source ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
       required: true
       type: string
     dimmable:
@@ -192,15 +246,15 @@ sensors:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     source:
-      description: "Sensor source ([VARIABLE](/components/lcn#variables-and-units), [SETPOINT](/components/lcn#variables-and-units), [THRESHOLD](/components/lcn#variables-and-units), [S0_INPUT](/components/lcn#variables-and-units), [LED_PORT](/components/lcn#ports), [LOGICOP_PORT](/components/lcn#ports))."
+      description: "Sensor source ([VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units), [S0_INPUT](#variables-and-units), [LED_PORT](#ports), [LOGICOP_PORT](#ports))."
       required: true
       type: string
     unit_of_measurement:
-      description: "Measurement unit ([VAR_UNIT](/components/lcn#variables-and-units))."
+      description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
       required: false
       type: string
       default: 'native'
@@ -215,11 +269,11 @@ switches:
       required: true
       type: string
     address:
-      description: "[Address](/components/lcn#lcn-addresses) of the module/group."
+      description: "[Address](#lcn-addresses) of the module/group."
       required: true
       type: string
     output:
-      description: "Switch source ([OUTPUT_PORT](/components/lcn#ports), [RELAY_PORT](/components/lcn#ports))."
+      description: "Switch source ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
       required: true
       type: string
 {% endconfiguration %}
@@ -232,7 +286,7 @@ Modules can be arranged in _segments_. Segments can be addressed by their numeri
 
 LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
 
-The LCN component allow the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
+The LCN component allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
 
 Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
 
@@ -271,7 +325,7 @@ The platforms and service calls use several predefined constants as parameters.
 | LOGICOP_PORT | `logicop1`, `logicop2`, `logicop3`, `logicop4` |
 | BINSENSOR_PORT | `binsensor1`, `binsensor2`, `binsensor3`, `binsensor4`, `binsensor5`, `binsensor6`, `binsensor7`, `binsensor8` |
 
-The [MOTOR_PORT](/components/lcn#ports) values specify which hardware relay configuration will be used:
+The [MOTOR_PORT](#ports) values specify which hardware relay configuration will be used:
 
 | Motor    | Relay on/off | Relay up/down |
 | :------: | :----------: | :-----------: |
@@ -313,6 +367,17 @@ The `lcn` binary sensor platform allows the monitoring of the following [LCN](ht
 - Lock state of keys
 
 The binary sensor can be used in automation scripts or in conjunction with `template` platforms.
+
+### {% linkable_title Climate %}
+
+The `lcn` climate platform allows the control of the [LCN](http://www.lcn.eu) climate regulators.
+This platform depends on the correct configuration of the module's regulators which has to be done in the LCN-PRO programming software.
+You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature. 
+If the control is set lockable, the regulator can be turned on/off. 
+
+<p class='note'>
+If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](climate.generic_thermostat) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
+</p>
 
 ### {% linkable_title Cover %}
 
