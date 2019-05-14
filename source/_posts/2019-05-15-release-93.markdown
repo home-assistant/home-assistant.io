@@ -18,6 +18,33 @@ og_image: /images/blog/2019-05-release-93/components.png
 </div>
 
 
+## {% linkable_title Sonos %}
+
+The Sonos integration has a number of changes in this release, some of them breaking existing configuration.
+
+First, the Sonos custom services have been moved to the `sonos` domain. The new service names are as follows:
+- `sonos.join` (before: `media_player.sonos_join`)
+- `sonos.unjoin` (before: `media_player.sonos_unjoin`)
+- `sonos.snapshot` (before: `media_player.sonos_snapshot`)
+- `sonos.restore` (before: `media_player.sonos_restore`)
+- `sonos.set_sleep_timer` (before: `media_player.sonos_set_sleep_timer`)
+- `sonos.clear_sleep_timer` (before: `media_player.sonos_clear_sleep_timer`)
+- `sonos.update_alarm` (before: `media_player.sonos_update_alarm`)
+- `sonos.set_option` (before: `media_player.sonos_set_option`)
+
+The last four of those services no longer target all entities by default since that is usually a mistake. The `entity_id` attribute is thus becoming mandatory for those services. If you really do want to target all you can use `entity_id: all`.
+
+Next, YAML configuration of Sonos under the `media_player:` key is no longer accepted. While auto-configuration through the Integrations UI is now the preferred way, static configuration can still be specified under a `sonos:` key, for example:
+```yaml
+sonos:
+  media_player:
+    hosts:
+      - 192.0.2.25
+      - 192.0.2.26
+```
+
+For those of you that like to power down your Sonos, Home Assistant should now handle that without logging errors. Also, speakers that are powered on will be added to Home Assistant without needing a restart.
+
 
 ## {% linkable_title New Integrations %}
 
