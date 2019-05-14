@@ -44,4 +44,13 @@ http:
 
 A restart of Home Assistant is required for the changes to take effect.
 
+If you get any log error about _ssl_key_ or _ssl_certificate_ that is __not a file for dictionary value__ when run Home Assistant, you need to change owner or access permission of the .pem files as following:
+  
+```bash
+sudo chown homeassistant:homeassistant certificate.pem privkey.pem
+sudo chmod 755 certificate.pem privkey.pem
+```
+
 A tutorial "[Working with SSL Certificates, Private Keys and CSRs](https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs)" could give you some insight about special cases.
+
+
