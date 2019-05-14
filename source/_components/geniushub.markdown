@@ -10,15 +10,35 @@ footer: true
 logo: geniushub.png
 ha_category:
   - Climate
+  - Water Heater
+  - Sensor
+  - Binary Sensor
 ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub for controlling climate devices (the hub does not have to be in the same network as HA).
+The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices.
 
-Each Zone controlled by your Genius hub will report back the state, mode, setpoint and temperature. Other properties are available via the device's attributes.
+### Zones
+Each Zone controlled by your Genius hub will be exposed as either a:
+ - Climate entity, for `Radiator` Zones, and
+ - Water Heater, for `Hot Water Temperature` Zones
 
-There are two distinct options for accessing a Genius Hub:
+Other Zone types, such as `On / Off` Zones, are not currently supported.
+
+Each such entity will report back its mode, state, setpoint and current temperature; other properties are available via its attributes.  In addition, the entity's mode and setpoint can be changed.
+
+### Devices
+If the Hub is directly polled using the v3 API (see below), then each Device controlled by your Genius hub will be exposed as either a:
+ - Sensor entity with a % battery, for any Device with a battery (e.g. a Genius Valve), or
+ - Binary Sensor entity with on/off state for any Device that is a switch (e.g. a Smart Plug)
+
+Each such entity will report back its primary state; in addition, `assigned_zone` and `last_comms` (last communications time) are available via the entity's attributes.
+
+### Issues
+The is currently no support for issues (you can use the RESTful sensor for this).
+
+It uses the [geniushub-client](https://pypi.org/project/geniushub-client/); there are two distinct options for accessing a Genius Hub:
 
 ### {% linkable_title Option 1: hub token only %}
 
@@ -71,5 +91,5 @@ username:
 password:
   description: Your Genius Hub password
   required: false
-  type: integer
+  type: string
 {% endconfiguration %}
