@@ -40,11 +40,11 @@ smarthab:
 
 {% configuration %}
 email:
-    description: The email address of your SmartHab account.
-    required: true
-    type: string
+  description: The email address of your SmartHab account.
+  required: true
+  type: string
 password:
-    description: The SmartHab account's password.
-    required: true
-    type: string
+  description: The SmartHab account's password.
+  required: true
+  type: string
 {% endconfiguration %}
