@@ -17,6 +17,10 @@ og_image: /images/blog/2019-05-release-93/components.png
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0oIquYNEHaA" frameborder="0" allowfullscreen></iframe>
 </div>
 
+<p class='img'>
+<img src='/images/blog/2019-05-release-93/automation-editor.png' alt='Screenshot of the updated automation editor.'>
+Screenshot of the updated automation editor.
+</p>
 
 ## {% linkable_title Sonos %}
 
@@ -35,6 +39,7 @@ First, the Sonos custom services have been moved to the `sonos` domain. The new 
 The last four of those services no longer target all entities by default since that is usually a mistake. The `entity_id` attribute is thus becoming mandatory for those services. If you really do want to target all you can use `entity_id: all`.
 
 Next, YAML configuration of Sonos under the `media_player:` key is no longer accepted. While auto-configuration through the Integrations UI is now the preferred way, static configuration can still be specified under a `sonos:` key, for example:
+
 ```yaml
 sonos:
   media_player:
@@ -86,6 +91,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Add homematicip cloud temperature sensor from thermostats ([@SukramJ] - [#23263]) ([homematicip_cloud docs]) (breaking change)
 - Convert Pollen.com sensor into IQVIA component ([@bachya] - [#22986]) ([iqvia docs]) ([pollen docs]) (breaking change) (new-integration) (new-platform)
+- Remove support for deprecated Sonos configuration ([@amelchio] - [#23385]) ([sonos docs]) (breaking change)
 - Remove historical allergen and asthma sensors from IQVIA ([@bachya] - [#23258]) ([iqvia docs]) (breaking change)
 - Always pad mac addresses from nmap tracker with leading zeros ([@mikeage] - [#23492]) ([nmap_tracker docs]) (breaking change)
 - Convert frontend to do client-side modern JS detection ([@balloob] - [#23618]) ([frontend docs]) (breaking change)
@@ -94,6 +100,20 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Share snmp constants across all platforms ([@fabaff] - [#23678]) ([snmp docs]) (breaking change)
 - Merge netatmo_public sensor into the netatmo integration ([@cgtobi] - [#23531]) ([netatmo docs]) ([netatmo_public docs]) (breaking change)
 - Update Sesame component to use Candy House's library using the V3 API ([@zanglang] - [#23621]) ([sesame docs]) (breaking change)
+
+## {% linkable_title Beta Fixes %}
+
+- Sort discovered entries by 'st' to ensure getting the same device each discovery ([@StevenLooman] - [#23763]) ([upnp docs]) (beta fix)
+- Bump pyatmo to v1.11 ([@cgtobi] - [#23766]) ([netatmo docs]) (beta fix)
+- Fix for issue #23739. Added unique_id property so ([@dreed47] - [#23769]) ([zestimate docs]) (beta fix)
+- Beta Fix: ONVIF ([@hunterjm] - [#23787]) ([onvif docs]) (beta fix)
+- Synchronize Sonos service calls ([@amelchio] - [#23791]) ([sonos docs]) (beta fix)
+- Do not add coordinator to the ZHA entities. ([@Adminiuga] - [#23803]) ([zha docs]) (beta fix)
+- fix onvif wsdl import - take 2 ([@hunterjm] - [#23807]) ([onvif docs]) (beta fix)
+- Correct ZHA illumination conversion ([@dmulcahey] - [#23853]) ([zha docs]) (beta fix)
+- Fix ZHA battery when readings produce an unknown value ([@dmulcahey] - [#23854]) ([zha docs]) (beta fix)
+- bump zha-quirks ([@dmulcahey] - [#23855]) ([zha docs]) (beta fix)
+- Fix improper usage of body attribute on web.Response. Should be text since we arent sending bytes ([@robbiet480] - [#23857]) ([geofency docs]) ([locative docs]) ([mobile_app docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -175,7 +195,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add device info for Logi Circle camera and sensor entities ([@evanjd] - [#23373]) ([logi_circle docs])
 - Bump requirement to v55 ([@Kane610] - [#23410]) ([deconz docs])
 - restore battery_quantity for zha devices ([@vigonotion] - [#23320]) ([zha docs])
-- Remove support for deprecated Sonos configuration ([@amelchio] - [#23385]) ([sonos docs])
+- Remove support for deprecated Sonos configuration ([@amelchio] - [#23385]) ([sonos docs]) (breaking change)
 - Additional cleanup of IQVIA integration ([@bachya] - [#23403]) ([iqvia docs])
 - Add new nextbus sensor ([@ViViDboarder] - [#20197]) ([nextbus docs]) (new-platform)
 - Remove historical allergen and asthma sensors from IQVIA ([@bachya] - [#23258]) ([iqvia docs]) (breaking change)
@@ -312,6 +332,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update Sesame component to use Candy House's library using the V3 API ([@zanglang] - [#23621]) ([sesame docs]) (breaking change)
 - Upgrade zeroconf to 0.22.0 ([@BKPepe] - [#23524]) ([zeroconf docs])
 - No longer rely on requests ([@balloob] - [#23685]) ([ps4 docs])
+- Sort discovered entries by 'st' to ensure getting the same device each discovery ([@StevenLooman] - [#23763]) ([upnp docs]) (beta fix)
+- Bump pyatmo to v1.11 ([@cgtobi] - [#23766]) ([netatmo docs]) (beta fix)
+- Fix for issue #23739. Added unique_id property so ([@dreed47] - [#23769]) ([zestimate docs]) (beta fix)
+- Beta Fix: ONVIF ([@hunterjm] - [#23787]) ([onvif docs]) (beta fix)
+- Synchronize Sonos service calls ([@amelchio] - [#23791]) ([sonos docs]) (beta fix)
+- Do not add coordinator to the ZHA entities. ([@Adminiuga] - [#23803]) ([zha docs]) (beta fix)
+- fix onvif wsdl import - take 2 ([@hunterjm] - [#23807]) ([onvif docs]) (beta fix)
+- Correct ZHA illumination conversion ([@dmulcahey] - [#23853]) ([zha docs]) (beta fix)
+- Fix ZHA battery when readings produce an unknown value ([@dmulcahey] - [#23854]) ([zha docs]) (beta fix)
+- bump zha-quirks ([@dmulcahey] - [#23855]) ([zha docs]) (beta fix)
+- Fix improper usage of body attribute on web.Response. Should be text since we arent sending bytes ([@robbiet480] - [#23857]) ([geofency docs]) ([locative docs]) ([mobile_app docs]) (beta fix)
 
 [#20197]: https://github.com/home-assistant/home-assistant/pull/20197
 [#21244]: https://github.com/home-assistant/home-assistant/pull/21244
@@ -528,6 +559,17 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#23746]: https://github.com/home-assistant/home-assistant/pull/23746
 [#23751]: https://github.com/home-assistant/home-assistant/pull/23751
 [#23753]: https://github.com/home-assistant/home-assistant/pull/23753
+[#23763]: https://github.com/home-assistant/home-assistant/pull/23763
+[#23766]: https://github.com/home-assistant/home-assistant/pull/23766
+[#23769]: https://github.com/home-assistant/home-assistant/pull/23769
+[#23787]: https://github.com/home-assistant/home-assistant/pull/23787
+[#23791]: https://github.com/home-assistant/home-assistant/pull/23791
+[#23803]: https://github.com/home-assistant/home-assistant/pull/23803
+[#23807]: https://github.com/home-assistant/home-assistant/pull/23807
+[#23853]: https://github.com/home-assistant/home-assistant/pull/23853
+[#23854]: https://github.com/home-assistant/home-assistant/pull/23854
+[#23855]: https://github.com/home-assistant/home-assistant/pull/23855
+[#23857]: https://github.com/home-assistant/home-assistant/pull/23857
 [@4lloyd]: https://github.com/4lloyd
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
@@ -568,6 +610,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@chmielowiec]: https://github.com/chmielowiec
 [@cyrosy]: https://github.com/cyrosy
 [@dmulcahey]: https://github.com/dmulcahey
+[@dreed47]: https://github.com/dreed47
 [@droopanu]: https://github.com/droopanu
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
@@ -576,6 +619,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@fabaff]: https://github.com/fabaff
 [@flowolf]: https://github.com/flowolf
 [@fredrike]: https://github.com/fredrike
+[@hunterjm]: https://github.com/hunterjm
 [@itn3rd77]: https://github.com/itn3rd77
 [@ktnrg45]: https://github.com/ktnrg45
 [@ludeeus]: https://github.com/ludeeus
@@ -592,6 +636,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@pszafer]: https://github.com/pszafer
 [@pvizeli]: https://github.com/pvizeli
 [@raman325]: https://github.com/raman325
+[@robbiet480]: https://github.com/robbiet480
 [@robmarkcole]: https://github.com/robmarkcole
 [@rohankapoorcom]: https://github.com/rohankapoorcom
 [@rolfberkenbosch]: https://github.com/rolfberkenbosch
@@ -630,6 +675,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [evohome docs]: /components/evohome/
 [frontend docs]: /components/frontend/
 [geniushub docs]: /components/geniushub/
+[geofency docs]: /components/geofency/
 [glances docs]: /components/glances/
 [google docs]: /components/google/
 [google_assistant docs]: /components/google_assistant/
@@ -653,11 +699,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lifx docs]: /components/lifx/
 [liveboxplaytv docs]: /components/liveboxplaytv/
 [local_file docs]: /components/local_file/
+[locative docs]: /components/locative/
 [logi_circle docs]: /components/logi_circle/
 [mastodon docs]: /components/mastodon/
 [media_extractor docs]: /components/media_extractor/
 [media_player docs]: /components/media_player/
 [meteoalarm docs]: /components/meteoalarm/
+[mobile_app docs]: /components/mobile_app/
 [mqtt docs]: /components/mqtt/
 [mysensors docs]: /components/mysensors/
 [namecheapdns docs]: /components/namecheapdns/
