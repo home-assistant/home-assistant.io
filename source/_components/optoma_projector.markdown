@@ -10,10 +10,9 @@ footer: true
 logo: optoma.png
 ha_category:
   - Multimedia
+  - switch
 ha_iot_class: Local Polling
 ha_release: 0.94
-redirect_from:
- - /components/switch.optoma_projector/
 ---
 
 The `optoma_projector` switch platform allows you to control the state of a network enabled Optoma projector.
@@ -26,10 +25,7 @@ To use your Optoma Projector in your installation, add the following to your `co
 # Example configuration.yaml entry
 switch:
   - platform: optoma_projector
-    name: Projector
     host: 192.168.1.111
-    username: admin
-    password: admin
 ```
 
 {% configuration %}
