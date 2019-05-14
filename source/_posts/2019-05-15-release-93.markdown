@@ -13,6 +13,8 @@ og_image: /images/blog/2019-05-release-93/components.png
 
 <a href='/components/#version/0.93'><img src='/images/blog/2019-05-release-93/components.png' style='border: 0;box-shadow: none;'></a>
 
+- Onboarding has been updated to allow users to configure integrations during onboarding.
+
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0oIquYNEHaA" frameborder="0" allowfullscreen></iframe>
 </div>
@@ -21,6 +23,11 @@ og_image: /images/blog/2019-05-release-93/components.png
 <img src='/images/blog/2019-05-release-93/automation-editor.png' alt='Screenshot of the updated automation editor.'>
 Screenshot of the updated automation editor.
 </p>
+
+- When Lovelace is not configured, it will now use areas to group entities.
+- We have updated a [progress report](/blog/2019/05/03/update-from-the-field/) on our plans for the year
+- Nest has announced to [no longer allow access to their API](/blog/2019/05/08/nest-data-bye-bye/), integration will stop working at the end of August.
+
 
 ## {% linkable_title Sonos %}
 
