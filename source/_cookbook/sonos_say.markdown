@@ -19,10 +19,10 @@ script:
   sonos_say:
     alias: "Sonos TTS script"
     sequence:
-     - service: media_player.sonos_snapshot
+     - service: sonos.snapshot
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-     - service: media_player.sonos_unjoin
+     - service: sonos.unjoin
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
      - service: media_player.volume_set
@@ -34,7 +34,7 @@ script:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
          message: {% raw %}"{{ message }}"{% endraw %}
      - delay: {% raw %}"{{ delay }}"{% endraw %}
-     - service: media_player.sonos_restore
+     - service: sonos.restore
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
 ```
@@ -43,6 +43,7 @@ We call this now with:
 ```yaml
 automation:
   - alias: 'test'
+    initial_state: true
     trigger:
       - platform: state
         entity_id: input_boolean.mytest
@@ -53,6 +54,7 @@ automation:
           volume: 0.5
           message: 'Your husband coming home!'
           delay: '00:00:05'
+          
 ```
 Note that this example uses the `voicerss` text-to-speech platform. There are many platforms that can be used. The one installed by default with Home Assistant is Google TTS. This appears in your `configuration.yaml` file as:
 
