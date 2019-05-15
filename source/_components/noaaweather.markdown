@@ -39,12 +39,12 @@ name:
   type: string
 latitude:
   description: Latitude coordinate to monitor weather of (required if **longitude** is specified). Note that the value is rounded to four decimal places.
-  required: false
+  required: inclusive
   default: coordinates defined in your `configuration.yaml`
   type: float
 longitude:
   description: Longitude coordinate to monitor weather of (required if **latitude** is specified). Note that the value is rounded to four decimal places.
-  required: false
+  required: inclusive
   default: coordinates defined in your `configuration.yaml`
   type: float
 stationcode:
@@ -58,7 +58,7 @@ usahaweathercond:
   type: boolean
   default: false
 useragent:
-  description: The value supplied to the NOAA/NWS servers to indentify the source of the request. This should be set to a valid e-mail address, web site URL or other contact information. In the future this might need to be an API key.
+  description: The value supplied to the NOAA/NWS servers to indentify the source of the request. This should be set to a valid e-mail address, website URL or other contact information. In the future this might need to be an API key.
   required: false
   type: string
   default: ha-noaaweather
@@ -104,7 +104,6 @@ monitored_conditions:
     maxTemperatureLast24Hours:
       description: The maximum temperature measured in the previous 24 hour period. This value is only provided once per 24 hours.
 {% endconfiguration %}
-
 
 ### {% linkable_title Notes about measurements and stations %}
 
