@@ -49,15 +49,20 @@ To add this platform to your installation, add the following to your `configurat
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
   - platform: netdata
-    resources:
-      load:
+    resources:    
+      system_load:
         data_group: system.load
         element: load15
-      cpu:
-        data_group: system.cpu
-        element: system
+        icon: mdi:chip
+      core_temp:
+        data_group: sensors.pch_skylake-virtual-0_temperature
+        element: pch_skylake-virtual-0_temp1
+        icon: mdi:thermometer-lines
+      mem_avail:
+        data_group: mem.available
+        element: MemAvailable
+        icon: mdi:chip
 ```
 
 {% configuration %}
