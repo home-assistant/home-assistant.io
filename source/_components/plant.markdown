@@ -64,6 +64,15 @@ entity_id:
           description: Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
           required: false
           type: string
+    device:
+      description: name of the device to monitor. If your sensors are monitoring one single device (mydevicename) and are named 'sensor.mydevicename_moisture', 'sensor.mydevicename_battery', 'sensor.mydevicename_temperature', 'sensor.mydevicename_conductivity' and 'sensor.mydevicename_brightness', entering 'device: mydevicename' will replace the definition of the sensors.
+      required: false
+      type: string
+    min_moisture:
+      description: Minimum moisture level before triggering a problem.
+      required: false
+      default: 20
+      type: integer
     min_moisture:
       description: Minimum moisture level before triggering a problem.
       required: false
