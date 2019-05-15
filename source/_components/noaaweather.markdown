@@ -48,7 +48,7 @@ longitude:
   default: coordinates defined in your `configuration.yaml`
   type: float
 stationcode:
-  description: "The code for the NOAA/NWS weather reporting station. If it is specified, it must match one of the weather reporting stations listed by NOAA/NWS for the area around the point, typically those within 50-100 miles. The majority of thesei stations are airport locations, for which the station code is the ICAO airport code. Choices for the station codes for a location can be found by going to the weather.gov forecast page for the location and using the "More Local WX" link to get a list of available stations. The station code is part of the URL provided for the station: the upper case characters just before the ".html" suffix is the station code."
+  description: "The code for the NOAA/NWS weather reporting station. If it is specified, it must match one of the weather reporting stations listed by NOAA/NWS for the area around the point, typically those within 50-100 miles. The majority of thesei stations are airport locations, for which the station code is the ICAO airport code. Choices for the station codes for a location can be found by going to the weather.gov forecast page for the location and using the 'More Local WX' link to get a list of available stations. The station code is part of the URL provided for the station: the upper case characters just before the '.html' suffix is the station code."
   required: false
   type: string
   default: nearest weather reporting station to the specified point.
