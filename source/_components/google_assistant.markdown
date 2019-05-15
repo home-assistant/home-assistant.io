@@ -138,8 +138,8 @@ api_key:
   description: Your Homegraph API key (for the `google_assistant.request_sync` service)
   required: false
   type: string
-expose_by_default: (Changed in 0.84. Will not sync devices if set to false)
-  description: "Expose devices in all supported domains by default. If `exposed_domains` domains is set, only these domains are exposed by default. If `expose_by_default` is set to false, devices have to be manually exposed in `entity_config`."
+expose_by_default:
+  description: "(Changed in 0.84. Will not sync devices if set to false) - Expose devices in all supported domains by default. If `exposed_domains` domains is set, only these domains are exposed by default. If `expose_by_default` is set to false, devices have to be manually exposed in `entity_config`."
   required: false
   default: true
   type: boolean
