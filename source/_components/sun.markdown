@@ -73,3 +73,4 @@ which event (sunset or sunrise) and the offset.
 | `next_midnight` | Date and time of the next solar midnight (in UTC).
 | `elevation` |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
 | `azimuth` | Solar azimuth. The angle is shown clockwise from north.
+| `rising` | True if the Sun is currently rising, after solar midnight and before solar noon.
