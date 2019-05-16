@@ -29,7 +29,7 @@ redirect_from:
 The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
 
 There is currently support for the following device types within Home Assistant:
-	
+
 - [Binary Sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
@@ -221,7 +221,7 @@ The `netatmo` camera platform is consuming the information provided by a [Netatm
 
 ### {% linkable_title Camera Advanced configuration %}
 
-If you want to select a specific camera, 
+If you want to select a specific camera,
 set discovery to `false` for [netatmo](/components/netatmo/)
 and add the following lines to your `configuration.yaml`:
 
@@ -269,7 +269,7 @@ The `netatmo` thermostat platform is consuming the information provided by a [Ne
 
 ### {% linkable_title Camera Advanced configuration %}
 
-If you want to select specific homes or specific rooms, 
+If you want to select specific homes or specific rooms,
 set discovery to `false` for [netatmo](/components/netatmo/)
 and add the following lines to your `configuration.yaml`:
 
