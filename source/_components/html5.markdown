@@ -145,7 +145,7 @@ data:
 
 #### {% linkable_title Data %}
 
-Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`) will be sent back to you in the [callback events](#automating-notification-events).
+Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `priority`, `ttl`) will be sent back to you in the [callback events](#automating-notification-events).
 
 ```yaml
 title: Front door
@@ -219,6 +219,20 @@ data:
 ```
 
 If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e. `/map` would turn into `https://192.168.1.2:8123/map`.
+
+#### {% linkable_title TTL and Priority %}
+
+Newer Android versions introduced stronger battery optimization, so notifications by default are delivered only when phone is awake.
+Options TTL and priority tries to help users solve those problems. Default value of TTL is `86400s` and priority is `normal`.
+You can set priority to either `normal` or `high`. TTL is any integer value.
+
+```yaml
+title: Front door
+message: The front door is open
+data:
+  ttl: 86400
+  priority: high
+```
 
 ### {% linkable_title Dismiss %}
 

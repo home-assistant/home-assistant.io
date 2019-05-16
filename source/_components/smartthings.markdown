@@ -178,13 +178,12 @@ For a SmartThings Air Conditioner to be represented by the climate platform, it 
 | Capability                          |Climate Features
 |-------------------------------------|--------------------------------------------|
 | [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode) (required)            | `operation mode`
-| [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed) (required) | `fan mode`
+| `airConditionerFanMode` (required) | `fan mode`
 | [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) (required) | `on/off`
 | [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (required)    | `temperature`
 | [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (required) | `target temp`
 | [`demandResponseLoadControl`](https://docs.smartthings.com/en/latest/capabilities-reference.html#demand-response-load-control) | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)
 | [`powerConsumptionReport`](https://docs.smartthings.com/en/latest/capabilities-reference.html#power-consumption-report) | `power_consumption_end` (state attribute), `power_consumption_energy` (state attribute), `power_consumption_power` (state attribute), `power_consumption_start` (state attribute)
-  
 
 #### {% linkable_title Thermostats %}
 

@@ -82,6 +82,9 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
+  required: false
 json_attributes:
   description: (Deprecated, replaced by json_attributes_topic) A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
   required: false
@@ -147,6 +150,29 @@ sensor:
     payload_available: "online"
     payload_not_available: "offline"
     json_attributes_topic: "home/sensor1/attributes"
+```
+{% endraw %}
+
+### {% linkable_title JSON attributes template configuration %}
+
+The example sensor below shows a configuration example which uses a JSON dict: `{"Timer1":{"Arm": <status>, "Time": <time>}, "Timer2":{"Arm": <status>, "Time": <time>}}` on topic `tele/sonoff/sensor` with a template to add `Timer1.Arm` and `Timer1.Time` as extra attributes.  Extra attributes will be displayed in the frontend and can also be extracted in [Templates](/docs/configuration/templating/#attributes). For example, to extract the `Arm` attribute from the sensor below, use a template similar to: {% raw %}`{{ state_attr('sensor.timer1', 'Arm') }}`{% endraw %}.
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: mqtt
+    name: "Timer 1"
+    state_topic: "tele/sonoff/sensor"
+    value_template: "{{ value_json.Timer1.Arm }}"
+    json_attributes_topic: "tele/sonoff/sensor"
+    json_attributes_template: "{{ value_json.Timer1 | tojson }}"
+  - platform: mqtt
+    name: "Timer 2"
+    state_topic: "tele/sonoff/sensor"
+    value_template: "{{ value_json.Timer2.Arm }}"
+    json_attributes_topic: "tele/sonoff/sensor"
+    json_attributes_template: "{{ value_json.Timer2 | tojson }}"
 ```
 {% endraw %}
 

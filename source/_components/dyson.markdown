@@ -31,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Sensor
 - Vacuum
+- Air Quality
 
 ## {% linkable_title Configuration %}
 
@@ -158,9 +159,22 @@ There are several attributes which can be used for automations and templates.
 
 ## {% linkable_title Sensor %}
 
-The `dyson` sensor platform allows you to control your Dyson Purifier's filter life time.
+The `dyson` sensor platform provides temperature and humidity sensors.
+
+## {% linkable_title Air Quality %}
+
+The `dyson` air quality platform provides the following levels:
+
+- Particulate matter 2.5 (<= 2.5 μm) level.
+- Particulate matter 10 (<= 10 μm) level.
+- Air Quality Index (AQI).
+- NO2 (nitrogen dioxide) level.
+- VOC (Volatile organic compounds) level.
+
+Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
 
 ### {% linkable_title Supported fan devices %}
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
+- Pure Cool 2018 Models (TP04 and DP04)

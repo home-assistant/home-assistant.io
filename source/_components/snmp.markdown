@@ -21,7 +21,7 @@ redirect_from:
  - /components/device_tracker.snmp/
 ---
 
-A lot of WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks, and WiFi registrations.
+A lot of WiFi access points and WiFi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/manageing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and WiFi registrations.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -65,7 +65,7 @@ device_tracker:
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
-If you want to use encryption, you must enable SNMP version 3 by adding `authkey` and `privkey` variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
+If you want to use encryption, you must enable SNMP version 3 by adding `auth_key` and `priv_key` variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 3
@@ -73,8 +73,8 @@ device_tracker:
   - platform: snmp
     host: 192.168.1.1
     community: USERNAME
-    authkey: AUTHPASS
-    privkey: PRIVPASS
+    auth_key: AUTHPASS
+    priv_key: PRIVPASS
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
@@ -91,12 +91,12 @@ baseoid:
   description: The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.
   required: true
   type: string
-authkey:
-  description: Authentication key for SNMPv3. Variable privkey must also be set.
+auth_key:
+  description: A"uthentication key for SNMPv3. Variable `priv_key` must also be set."
   required: inclusive
   type: string
-privkey:
-  description: Privacy key SNMPv3. Variable authkey must also be set.
+priv_key:
+  description: "Privacy key SNMPv3. Variable `auth_key` must also be set."
   required: inclusive
   type: string
 {% endconfiguration %}
@@ -105,7 +105,7 @@ See the [device tracker component page](/components/device_tracker/) for instruc
 
 ## {% linkable_title Sensor %}
 
-The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems, and printers.
+The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems and printers.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -190,7 +190,7 @@ default_value:
   type: string
 {% endconfiguration %}
 
-Valid values for auth_protocol:
+Valid values for `auth_protocol`:
 
 - **none**
 - **hmac-md5**
@@ -200,7 +200,7 @@ Valid values for auth_protocol:
 - **hmac256-sha384**
 - **hmac384-sha512**
 
-Valid values for priv_protocol:
+Valid values for `priv_protocol`:
 
 - **none**
 - **des**
@@ -342,7 +342,7 @@ command_payload_off:
 
 You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
 
-Valid values for auth_protocol:
+Valid values for `auth_protocol`:
 
 - **none**
 - **hmac-md5**
@@ -352,7 +352,7 @@ Valid values for auth_protocol:
 - **hmac256-sha384**
 - **hmac384-sha512**
 
-Valid values for priv_protocol:
+Valid values for `priv_protocol`:
 
 - **none**
 - **des**

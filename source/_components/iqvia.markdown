@@ -1,24 +1,25 @@
 ---
 layout: page
-title: "Pollen.com"
-description: "Instructions on how to use Pollen.com data within Home Assistant"
+title: "IQVIA"
+description: "Instructions on how to use IQVIA data within Home Assistant"
 date: 2018-01-10 19:20:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: pollen.jpg
+logo: iqvia.png
 ha_category:
   - Health
 ha_release: 0.63
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.pollen/
+ - /components/pollen/
 ---
 
-The `pollen` sensor platform collects and displays allergy, asthma, and disease
-information (based on a U.S. ZIP code) from
-[Pollen.com](https://www.pollen.com/). Data measured includes:
+The `iqvia` sensor platform collects and displays allergy, asthma, and disease
+information (based on a U.S. ZIP code) from [IQVIA](https://www.iqvia.com/).
+Data measured includes:
 
 * Indicies for allergies, asthma and cold/flu indices
 * Trends
@@ -27,26 +28,25 @@ information (based on a U.S. ZIP code) from
 
 ## {% linkable_title Configuring the Platform %}
 
-To integrate `pollen` into Home Assistant, add the following section to your
+To integrate `iqvia` into Home Assistant, add the following section to your
 `configuration.yaml` file (adjusting the `monitored_conditions` list to your
 liking):
 
 ```yaml
-sensor:
-  platform: pollen
+iqvia:
   zip_code: "00544"
   monitored_conditions:
     - allergy_average_forecasted
-    - allergy_average_historical
     - allergy_index_today
     - allergy_index_tomorrow
     - allergy_index_yesterday
     - asthma_average_forecasted
-    - asthma_average_historical
     - asthma_index_today
     - asthma_index_tomorrow
     - asthma_index_yesterday
     - disease_average_forecasted
+    - disease_index_today
+    - disease_index_yesterday
 ```
 
 {% configuration %}
@@ -70,16 +70,16 @@ ZIP codes that start with 0 will cause errors.
 The following metrics can be monitored:
 
 * Allergy Index: Forecasted Average (`allergy_average_forecasted`): the average forecasted allergy index over the next 5 days
-* Allergy Index: Historical Average (`allergy_average_historical`): the average historical allergy index over the past 30 days
 * Allergy Index: Today (`allergy_index_today`): the allergy index for today
 * Allergy Index: Tomorrow (`allergy_index_tomorrow`): the allergy index for tomorrow
 * Allergy Index: Yesterday (`allergy_index_yesterday`): the allergy index for yesterday
 * Asthma Index: Forecasted Average (`asthma_average_forecasted`): the average forecasted asthma index over the next 5 days
-* Asthma Index: Historical Average (`asthma_average_historical`): the average historical asthma index over the past 30 days
 * Asthma Index: Today (`asthma_index_today`): the asthma index for today
 * Asthma Index: Tomorrow (`asthma_index_tomorrow`): the asthma index for tomorrow
 * Asthma Index: Yesterday (`asthma_index_yesterday`): the asthma index for yesterday
 * Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average forecasted cold/flu index over the next 5 days
+* Cold & Flu Index: Today (`disease_index_today`): the cold/flu index for today
+* Cold & Flu Index: Yesterday (`disease_index_yesterday`): the cold/flu index for yesterday
 
 ## {% linkable_title Understanding the Indices %}
 
