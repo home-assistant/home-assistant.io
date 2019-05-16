@@ -11,6 +11,12 @@ categories: Public-Service-Announcement
 og_image: /images/blog/2019-05-nest-data-bye-bye/notice.png
 ---
 
+**Update May 16:** Nest just announced [in a blog post](https://blog.google/products/google-nest/updates-works-with-nest/) that they changed their plan. It will still retire the Works with Nest program at the end of August, but it will no longer cut off existing users of the API. It will however still stop accepting new users at the end of August.
+
+Currently each Home Assistant user is required to create their own developer account to configure their Nest integration. We will reach out to Nest to see if we can become a partner so that users joining Home Assistant after August can still use Nest.
+
+---
+
 Sigh. Another one. This time it's not a small one either: Nest is disabling their APIs.
 
 We already saw [the writing on the wall in January](/blog/2019/01/24/nest-cannot-access-data/), but now [it's official](https://developers.nest.com/): Google announced that the Nest API will be turned off at the end of August, 2019. This means that in a little over three months, you will no longer be able to get your own data, that Google has collected in your home, and use it like you see fit.
