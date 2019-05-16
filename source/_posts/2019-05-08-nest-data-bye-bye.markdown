@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Nest to turn off their API"
+title: "[Update: new users only] Nest to turn off their API"
 description: "Nest has announced that they will shut down their API in August, no longer allowing you to access your data."
 date: 2019-05-08 00:01:00
 date_formatted: "May 8, 2019"
