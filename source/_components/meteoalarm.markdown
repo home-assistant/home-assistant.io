@@ -88,19 +88,18 @@ There are a few awareness levels:
 
 Below you find an example of an automation.
 
-{% raw %}
-automation:
-  - alias: Alert me about weather warnings
-    trigger:
-      platform: state
-      entity_id: binary_sensor.meteoalarm
-      from: ‘off’
-    action:
-      - service: notify.notify
-        data_template:
-          title: '{{state_attr('binary_sensor.meteoalarm', 'headline')}}'
-          message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
-{% endraw %}
+```yaml
+  alias: Alert me about weather warnings
+  trigger:
+    platform: state
+    entity_id: binary_sensor.meteoalarm
+    from: 'off'
+  action:
+    - service: persistent_notification.create
+      data_template:
+        title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"
+        message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
+```
 
 <p class='note warning'>
 This component is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
