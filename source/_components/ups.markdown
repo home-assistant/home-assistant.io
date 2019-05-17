@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ups.png
-ha_category: Postal Service
+ha_category:
+  - Postal Service
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 redirect_from:

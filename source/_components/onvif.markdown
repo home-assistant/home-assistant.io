@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: onvif.png
-ha_category: Camera
+ha_category:
+  - Camera
 ha_release: 0.47
 redirect_from:
  - /components/camera.onvif/

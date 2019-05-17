@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 logo: linksys.png
 ha_release: 0.48
 redirect_from:

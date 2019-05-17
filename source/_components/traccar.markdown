@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: traccar.png
 ha_release: 0.83
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_iot_class: Local Polling
 redirect_from:
  - /components/device_tracker.traccar/

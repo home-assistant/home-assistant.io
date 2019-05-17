@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: System Monitor
+ha_category:
+  - System Monitor
 ha_iot_class: Local Polling
 logo: pi_hole.png
 ha_release: 0.28

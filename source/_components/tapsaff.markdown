@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: tapsaff.png
-ha_category: Weather
+ha_category:
+  - Weather
 ha_release: 0.47
 ha_iot_class: Local Polling
 redirect_from:

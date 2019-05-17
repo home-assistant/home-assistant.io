@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rtorrent.png
-ha_category: Downloading
+ha_category:
+  - Downloading
 ha_release: 0.81
 ha_iot_class: Local Polling
 redirect_from:

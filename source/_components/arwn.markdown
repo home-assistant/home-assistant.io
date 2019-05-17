@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.31
 ha_iot_class: Local Polling
 redirect_from:

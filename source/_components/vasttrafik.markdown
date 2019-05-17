@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: vasttrafik.png
-ha_category: Transport
+ha_category:
+  - Transport
 ha_iot_class: Cloud Polling
 ha_release: "0.30"
 redirect_from:

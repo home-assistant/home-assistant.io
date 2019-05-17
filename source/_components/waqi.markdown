@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: waqi.png
-ha_category: Health
+ha_category:
+  - Health
 ha_release: 0.34
 ha_iot_class: Cloud Polling
 redirect_from:
@@ -48,8 +49,6 @@ stations:
 The value reported is an overall AQ index for the location. The values of the index can be interpreted as following:
 
 AQI | Status | Description
-redirect_from:
- - /components/sensor.waqi/
 ------- | :----------------: | ----------
 0 - 50  | **Good** | Air quality is considered satisfactory, and air pollution poses little or no risk
 51 - 100  | **Moderate** | Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution

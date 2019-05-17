@@ -56,6 +56,10 @@ style:
   description: Position and style the element using CSS.
   type: object
   default: "position: absolute, transform: translate(-50%, -50%)"
+title:
+  required: false
+  description: State badge tooltip. Set to null to hide.
+  type: string
 {% endconfiguration %}
 
 ### {% linkable_title Icon representing an entity state %}
@@ -72,6 +76,10 @@ entity:
 icon:
   required: false
   description: Overwrites icon.
+  type: string
+title:
+  required: false
+  description: Icon tooltip. Set to null to hide.
   type: string
 tap_action:
   required: false
@@ -148,6 +156,10 @@ prefix:
 suffix:
   required: false
   description: Text after entity state.
+  type: string
+title:
+  required: false
+  description: Label tooltip. Set to null to hide.
   type: string
 tap_action:
   required: false
@@ -245,7 +257,7 @@ icon:
   type: string
 title:
   required: false
-  description: Icon tooltip.
+  description: Icon tooltip. Set to null to hide.
   type: string
 entity:
   required: false
@@ -318,6 +330,10 @@ type:
 entity:
   required: false
   description: Entity to use for state_image and state_filter and also target for actions.
+  type: string
+title:
+  required: false
+  description: Image tooltip. Set to null to hide.
   type: string
 tap_action:
   required: false

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sony.png
-ha_category: Multimedia
+ha_category:
+  - Multimedia
 ha_iot_class: Local Polling
 ha_release: 0.89
 redirect_from:

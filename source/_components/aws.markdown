@@ -59,20 +59,11 @@ profile_name:
   description: A credentials profile name.
   required: false
   type: string
-region_name:
-  description: The region identifier to connect to.
-  required: true
-  default: "`us-east-1`"
-  type: string
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+validate:
+  description: Whether validate credential before use. Validate credential needs `IAM.GetUser` permission.
   required: false
-  default: notify
-  type: string
-context:
-  description: An optional dictionary you can provide to pass custom context through to the Lambda function.
-  required: false
-  type: string
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### {% linkable_title Configuration for notify %}

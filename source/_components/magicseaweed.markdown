@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: magicseaweed.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.75
 ha_iot_class: Cloud Polling
 redirect_from:

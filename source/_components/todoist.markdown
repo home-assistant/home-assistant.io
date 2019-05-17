@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: todoist.png
-ha_category: Calendar
+ha_category:
+  - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.54
 redirect_from:

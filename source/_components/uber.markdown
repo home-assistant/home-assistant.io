@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: uber.png
-ha_category: Transport
+ha_category:
+  - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.16
 redirect_from:

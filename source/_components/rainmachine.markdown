@@ -88,7 +88,7 @@ binary_sensors:
       description: The conditions to create sensors from.
       required: false
       type: list
-      default: all (`extra_water_on_hot_days`, `freeze`, `freeze_protection`, `hourly`, `month`, `raindelay`, `rainsensor`, `weekday`)
+      default: all (`extra_water_on_hot_days`, `flow_sensor`, `freeze`, `freeze_protection`, `hourly`, `month`, `raindelay`, `rainsensor`, `weekday`)
 sensors:
   description: Sensor-related configuration options.
   required: false
@@ -98,7 +98,7 @@ sensors:
       description: The conditions to create sensors from.
       required: false
       type: list
-      default: all (`freeze_protect_temp`)
+      default: all (`flow_sensor_clicks_cubic_meter`, `flow_sensor_consumed_liters`, `flow_sensor_start_index`, `flow_sensor_watering_clicks`,`freeze_protect_temp`)
 switches:
   description: Switch-related configuration options.
   required: false

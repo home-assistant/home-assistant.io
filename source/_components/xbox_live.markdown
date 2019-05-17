@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: xbox-live.png
-ha_category: Social
+ha_category:
+  - Social
 ha_iot_class: Cloud Polling
 ha_release: 0.28
 redirect_from:

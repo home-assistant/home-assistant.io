@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Automation
+ha_category:
+  - Automation
 logo: hdmi.png
 ha_release: 0.23
 ha_iot_class: Local Push

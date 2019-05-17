@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Epson Printer"
+title: "Epson Workforce"
 description: "Instructions on how to integrate Epson Workforce Printer into Home Assistant."
 date: 2019-04-09 16:00
 sidebar: true
@@ -8,23 +8,25 @@ comments: false
 sharing: true
 footer: true
 logo: epson.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `epson printer` platform allows you to monitor the ink levels of a Epson Workforce printer from Home
+The `epson workforce` platform allows you to monitor the ink levels of a Epson Workforce printer from Home
 Assistant.
 
-To add Epson Printer to your installation, add the following to your `configuration.yaml` file:
+To add Epson Workforce to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-   - platform: epsonprinter
+   - platform: epsonworkforce
      host: IP_ADDRESS
      monitored_conditions:
      - black
+     - photoblack
      - yellow
      - magenta
      - cyan
@@ -33,7 +35,7 @@ sensor:
 
 {% configuration %}
 host:
-  description: The host name or address of the Epson printer
+  description: The host name or address of the Epson workforce printer
   required: true
   type: string
 monitored_conditions:
@@ -43,6 +45,8 @@ monitored_conditions:
   keys:
     black:
       description: The black ink cartridge
+    photoblack:
+      description: The photo black ink cartridge (not supported by all printers).
     yellow:
       description: The yellow ink cartridge.
     magenta:
@@ -55,11 +59,14 @@ monitored_conditions:
 
 Supported devices:
 
-- Epson Workforce printers who publish a HTTP page containing the ink cardridge levels
+- Epson Workforce (and some EcoTank) printers who publish a HTTP page containing the ink cardridge levels
 
 Tested devices:
 
 - Epson WF3540
+- Epson WF3620
+- Epson WF3640
+- Epson EcoTank ET-77x0
 
 To make this module work you need to connect your printer to your LAN.
-The best is to navigate to the IP of the printer to check.
+The best is to navigate to the status page of the printer to check if it shows the page with the ink levels on the URL http://<IP_ADDRESS>/PRESENTATION/HTML/TOP/PRTINFO.HTML

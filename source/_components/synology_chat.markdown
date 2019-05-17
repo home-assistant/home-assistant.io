@@ -9,7 +9,8 @@ sharing: true
 footer: true
 ha_release: 0.65
 logo: synology.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 redirect_from:
  - /components/notify.synology_chat/
 ---

@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: google_maps.png
 ha_release: 0.67
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/device_tracker.google_maps/

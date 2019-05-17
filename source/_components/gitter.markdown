@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: gitter.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.47
 redirect_from:
  - /components/sensor.gitter/

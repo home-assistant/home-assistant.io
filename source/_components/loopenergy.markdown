@@ -8,11 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: loop.png
-ha_category: Energy
+ha_category:
+  - Energy
 ha_release: 0.17
 ha_iot_class: Cloud Push
-redirect_from: /components/sensor.loop_energy/
 redirect_from:
+ - /components/sensor.loop_energy/
  - /components/sensor.loopenergy/
 ---
 

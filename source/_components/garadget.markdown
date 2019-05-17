@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: garadget.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.32
 ha_iot_class: Cloud Polling
 redirect_from:

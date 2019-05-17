@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: apple.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.31
 ha_iot_class: Configurable
 ---

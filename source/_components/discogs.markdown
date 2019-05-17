@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Multimedia
+ha_category:
+  - Multimedia
 ha_release: 0.61
 logo: discogs.png
 ha_iot_class: Cloud Polling

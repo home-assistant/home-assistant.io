@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Intent
+ha_category:
+  - Intent
 ha_release: "0.50"
 ha_qa_scale: internal
 ---

@@ -55,15 +55,16 @@ The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any 
 The discovery topic need to follow a specific format:
 
 ```text
-<discovery_prefix>/<component>/[<node_id>/]<object_id>/<>
+<discovery_prefix>/<component>/[<node_id>/]<object_id>/config
 ```
 
-- `<component>`: One of the supported components, eg. `binary_sensor`.
-- `<node_id>` (*Optional*):  ID of the node providing the topic.
+- `<component>`: One of the supported MQTT components, eg. `binary_sensor`.
+- `<node_id>` (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic.
 - `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`.
-- `<>`: The topic `config` or `state` which defines the current action.
 
-The payload will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
+
+If the component is `alarm_control_panel`, `binary_sensor`, or `sensor` and the mandatory `state_topic` is not present in the payload, `state_topic` will be automatically set to <discovery_prefix>/<component>/[<node_id>/]<object_id>/state. The automatic setting of `state_topic` id depracated and may be removed in a future version of Home Assistant.
 
 An empty payload will cause a previously discovered device to be deleted.
 
@@ -98,6 +99,7 @@ Supported abbreviations:
     'cln_tpl':             'cleaning_template',
     'cmd_t':               'command_topic',
     'curr_temp_t':         'current_temperature_topic',
+    'curr_temp_tpl':       'current_temperature_template',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dock_t':              'docked_topic',
@@ -161,6 +163,7 @@ Supported abbreviations:
     'send_if_off':         'send_if_off',
     'set_pos_tpl':         'set_position_template',
     'set_pos_t':           'set_position_topic',
+    'pos_t':               'position_topic',
     'spd_cmd_t':           'speed_command_topic',
     'spd_stat_t':          'speed_state_topic',
     'spd_val_tpl':         'speed_value_template',
@@ -222,16 +225,16 @@ The following software has built-in support for MQTT discovery:
 
 ### {% linkable_title Examples %}
 
-A motion detection device which can be represented by a [binary sensor](/components/binary_sensor.mqtt/) for your garden would sent its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
+A motion detection device which can be represented by a [binary sensor](/components/binary_sensor.mqtt/) for your garden would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
 
 - Configuration topic: `homeassistant/binary_sensor/garden/config`
 - State topic: `homeassistant/binary_sensor/garden/state`
-- Payload:  `{"name": "garden", "device_class": "motion"}`
+- Payload:  `{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}`
 
 To create a new sensor manually. For more details please refer to the [MQTT testing section](/docs/mqtt/testing/).
 
 ```bash
-$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion"}'
+$ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/binary_sensor/garden/config" -m '{"name": "garden", "device_class": "motion", "state_topic": "homeassistant/binary_sensor/garden/state"}'
 ```
 Update the state.
 
@@ -249,11 +252,12 @@ Setting up a switch is similar but requires a `command_topic` as mentioned in th
 
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
-- Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set"}`
+- Command topic: `homeassistant/switch/irrigation/set`
+- Payload:  `{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}`
 
 ```bash
 $ mosquitto_pub -h 127.0.0.1 -p 1883 -t "homeassistant/switch/irrigation/config" \
-  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set"}'
+  -m '{"name": "garden", "command_topic": "homeassistant/switch/irrigation/set", "state_topic": "homeassistant/switch/irrigation/state"}'
 ```
 Set the state.
 
@@ -294,7 +298,7 @@ Setting up a climate component (heat only) with abbreviated configuration variab
   "temp_stat_t":"homeassistant/climate/livingroom/state",
   "temp_stat_tpl":"{{value_json.target_temp}}",
   "curr_temp_t":"homeassistant/climate/livingroom/state",
-  "current_temperature_template":"{{value_json.current_temp}}",
+  "curr_temp_tpl":"{{value_json.current_temp}}",
   "min_temp":"15",
   "max_temp":"25",
   "temp_step":"0.5",

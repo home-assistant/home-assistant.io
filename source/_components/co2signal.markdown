@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: co2signal.png
-ha_category: Environment
+ha_category:
+  - Environment
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 redirect_from:

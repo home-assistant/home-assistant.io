@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Light
+ha_category:
+  - Light
 ha_iot_class: Configurable
 redirect_from:
  - /components/light.mqtt_json/

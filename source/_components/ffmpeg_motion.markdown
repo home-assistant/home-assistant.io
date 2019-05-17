@@ -8,10 +8,11 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Image Processing
+ha_category:
+  - Image Processing
 ha_release: 0.27
-redirect_from: /components/binary_sensor.ffmpeg/
 redirect_from:
+ - /components/binary_sensor.ffmpeg/
  - /components/binary_sensor.ffmpeg_motion/
 ---
 

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.26
 ha_qa_scale: internal
 ---

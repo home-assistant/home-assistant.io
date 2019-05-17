@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: polly.png
-ha_category: Text-to-speech
+ha_category:
+  - Text-to-speech
 ha_release: 0.37
 redirect_from:
  - /components/tts.amazon_polly/

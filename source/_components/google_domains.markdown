@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: google_domains.png
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.57
 ---
 

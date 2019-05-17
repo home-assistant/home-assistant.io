@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sonos.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 featured: true
 ha_release: 0.7.3
 ha_iot_class: Local Polling
@@ -23,7 +24,7 @@ If you don't have the discovery component enabled, you can configure the Sonos c
 
 Sonos makes various services available to allow configuring groups. They are currently registered under the media player component.
 
-### {% linkable_title Service `media_player.sonos_snapshot` %}
+### {% linkable_title Service `sonos.snapshot` %}
 
 Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no `entity_id` is provided, all speakers are snapshotted.
 
@@ -37,12 +38,12 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group.
 
 
-### {% linkable_title Service `media_player.sonos_restore` %}
+### {% linkable_title Service `sonos.restore` %}
 
 Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
 
 <p class='note'>
-The playing queue is not snapshotted. Using `media_player.sonos_restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
+The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
 </p>
 
 <p class='note'>
@@ -54,24 +55,24 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group.
 
-### {% linkable_title Service `media_player.sonos_join` %}
+### {% linkable_title Service `sonos.join` %}
 
 Group players together under a single coordinator. This will make a new group or join to an existing group.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `master` | no | A single `entity_id` that will become/stay the coordinator speaker.
-| `entity_id` | no | String or list of `entity_id`s to join to the master.
+| `entity_id` | yes | String or list of `entity_id`s to join to the master.
 
-### {% linkable_title Service `media_player.sonos_unjoin` %}
+### {% linkable_title Service `sonos.unjoin` %}
 
 Remove one or more speakers from their group of speakers. If no `entity_id` is provided, all speakers are unjoined.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of `entity_id`s to separate from their coordinator speaker.
+| `entity_id` | yes | String or list of `entity_id`s to separate from their coordinator speaker.
 
-### {% linkable_title Service `media_player.sonos_set_sleep_timer` %}
+### {% linkable_title Service `sonos.set_sleep_timer` %}
 
 Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
 
@@ -80,7 +81,7 @@ Sets a timer that will turn off a speaker by tapering the volume down to 0 after
 | `entity_id` | no | String or list of `entity_id`s that will have their timers set.
 | `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
 
-### {% linkable_title Service `media_player.sonos_clear_sleep_timer` %}
+### {% linkable_title Service `sonos.clear_sleep_timer` %}
 
 Clear the sleep timer on a speaker, if one is set.
 
@@ -88,7 +89,7 @@ Clear the sleep timer on a speaker, if one is set.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 
-### {% linkable_title Service `media_player.sonos_update_alarm` %}
+### {% linkable_title Service `sonos.update_alarm` %}
 
 Update an existing Sonos alarm.
 
@@ -101,7 +102,7 @@ Update an existing Sonos alarm.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
-### {% linkable_title Service `media_player.sonos_set_option` %}
+### {% linkable_title Service `sonos.set_option` %}
 
 Set Sonos speaker options.
 

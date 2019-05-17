@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: magic_light.png
-ha_category: Light
+ha_category:
+  - Light
 ha_iot_class: Local Polling
 ha_release: 0.25
 redirect_from:

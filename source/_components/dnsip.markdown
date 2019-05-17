@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Network
+ha_category:
+  - Network
 ha_iot_class: Cloud Polling
 ha_release: "0.40"
 redirect_from:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: twilio.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.37
 redirect_from:
  - /components/notify.twilio_call/
@@ -53,7 +54,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.twilio_sms
+      service: notify.twilio_call
       data:
         message: 'The sun has set'
         target:

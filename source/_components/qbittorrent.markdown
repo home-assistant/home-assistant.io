@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: qbittorrent.png
-ha_category: Downloading
+ha_category:
+  - Downloading
 ha_release: 0.84
 ha_iot_class: Local Polling
 redirect_from:

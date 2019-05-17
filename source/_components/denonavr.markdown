@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: denon.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.7.2
 redirect_from:
@@ -25,6 +26,7 @@ Supported devices:
 - Denon AVR-X2100W
 - Denon AVR-X4100W
 - Denon AVR-X4300H
+- Denon AVR-X4500H
 - Denon AVR-1912
 - Denon AVR-2312CI
 - Denon AVR-3311CI

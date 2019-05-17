@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: hewlett_packard_enterprise.png
-ha_category: System Monitor
+ha_category:
+  - System Monitor
 ha_release: 0.27
 ha_iot_class: Local Polling
 redirect_from:

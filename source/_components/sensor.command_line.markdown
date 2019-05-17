@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Utility
+ha_category:
+  - Utility
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ---

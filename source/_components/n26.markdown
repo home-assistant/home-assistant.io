@@ -14,7 +14,7 @@ ha_category:
   - Switch
 ha_release: 0.92
 featured: false
-ha_iot_class: "Local Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The [N26](https://n26.com) integration for Home Assistant allows you to track your N26 account.

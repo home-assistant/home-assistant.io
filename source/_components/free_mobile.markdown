@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: free_mobile.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.11
 redirect_from:
  - /components/notify.free_mobile/

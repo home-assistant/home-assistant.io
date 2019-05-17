@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: google.png
-ha_category: Text-to-speech
+ha_category:
+  - Text-to-speech
 ha_release: 0.35
 redirect_from:
  - /components/tts.google/
@@ -18,7 +19,7 @@ redirect_from:
 The `google_translate` text-to-speech platform uses unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
 
 <p class='note'>
-This platform renamed to `google_translate` from `google` since release 0.92
+This platform renamed to `google_translate` from `google` since release 0.92.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -40,7 +41,7 @@ language:
 {% endconfiguration %}
 
 Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
-Use the 2 digit language code which you can find at the end of url when you click on Language name.
+Use the 2 digit language code which you can find at the end of URL when you click on Language name.
 
 ## {% linkable_title Full configuration example %}
 
@@ -60,5 +61,3 @@ If you are using SSL certificate or Docker, you may need to add the `base_url` c
 http:
   base_url: example.duckdns.org
 ```
-
-The `base_url` configuration variable was added in 0.35.1, so make sure your Home Assistant version is **0.35.1 or above.**

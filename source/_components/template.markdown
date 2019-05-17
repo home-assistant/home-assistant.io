@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
 logo: home-assistant.png
@@ -245,7 +246,7 @@ sensor:
             Power Consumption
           {% else %}
             Power Production
-          {% end %}
+          {% endif %}
         value_template: "{{ states('sensor.power_consumption') }}"
         unit_of_measurement: 'kW'
 ```

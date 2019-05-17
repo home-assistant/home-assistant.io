@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rfxtrx.png
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.7.5
 ha_iot_class: Assumed State
 ---

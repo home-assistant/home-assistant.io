@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Front end
+ha_category:
+  - Front end
 ha_release: 0.44
 ha_qa_scale: internal
 ---

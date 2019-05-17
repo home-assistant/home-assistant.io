@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_iot_class: Configurable
 ha_release: 0.18
 ---
@@ -163,7 +164,7 @@ tilt_opened_value:
   required: false
   type: integer
   default: 100
-tilt_status_optimistic:
+tilt_optimistic:
   description: Flag that determines if tilt works in optimistic mode.
   required: false
   type: boolean

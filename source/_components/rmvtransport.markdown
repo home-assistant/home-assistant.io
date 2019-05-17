@@ -8,14 +8,19 @@ comments: false
 sharing: true
 footer: true
 logo: RMV.png
-ha_category: Transport
+ha_category:
+  - Transport
 ha_release: 0.76
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/sensor.rmvtransport/
 ---
 
-The `rvmtransport` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
+The `rvmtransport` sensor will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
+
+## {% linkable_title Setup %}
+
+Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of valid station IDs.
 
 ## {% linkable_title Configuration %}
 
@@ -46,7 +51,7 @@ next_departure:
       default: The default is the station name.
       type: string
     station:
-      description: "ID of the stop or station, e.g. `3000010`. Visit [the RMV OpenData web site](https://opendata.rmv.de) to find a list of valid IDs."
+      description: "ID of the stop or station, e.g. `3000010`."
       required: true
       type: string
     destinations:

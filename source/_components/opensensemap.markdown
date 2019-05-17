@@ -8,11 +8,12 @@ comments: false
 sharing: true
 footer: true
 logo: opensensemap.png
-ha_category: Health
+ha_category:
+  - Health
 ha_release: 0.85
 ha_iot_class: Cloud Polling
-redirect_from: /components/air_pollutants.opensensemap/
 redirect_from:
+ - /components/air_pollutants.opensensemap/
  - /components/air_quality.opensensemap/
 ---
 

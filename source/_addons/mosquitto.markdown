@@ -103,7 +103,7 @@ acl_file /share/mosquitto/accesscontrollist
 
 3. Create `/share/mosquitto/accesscontrollist` with the contents:
 ```text
-user your-mqtt-user
+user [YOUR_MQTT_USER]
 topic #
 ```
 

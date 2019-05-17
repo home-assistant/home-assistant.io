@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: nissan.png
-ha_category: Car
+ha_category:
+  - Car
 ha_release: 0.89
 ha_iot_class: Cloud Polling
 redirect_from:

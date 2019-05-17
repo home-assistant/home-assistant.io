@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: flock.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.71
 redirect_from:
  - /components/notify.flock/

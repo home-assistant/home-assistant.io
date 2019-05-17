@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: microsoft.png
-ha_category: Text-to-speech
+ha_category:
+  - Text-to-speech
 ha_release: 0.57
 redirect_from:
  - /components/tts.microsoft/

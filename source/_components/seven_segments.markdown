@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Image Processing
+ha_category:
+  - Image Processing
 ha_release: 0.45
 og_image: /images/screenshots/ssocr.png
 ha_iot_class: Local Polling

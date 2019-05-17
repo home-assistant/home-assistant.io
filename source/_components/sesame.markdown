@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: sesame.png
-ha_category: Lock
+ha_category:
+  - Lock
 ha_iot_class: Cloud Polling
 ha_release: 0.47
 redirect_from:
@@ -38,4 +39,3 @@ api_key:
   required: true
   type: string
 {% endconfiguration %}
-

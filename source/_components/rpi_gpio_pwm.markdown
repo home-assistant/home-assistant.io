@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: DIY
+ha_category:
+  - DIY
 ha_iot_class: Local Push
 ha_release: 0.43
 logo: raspberry-pi.png

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mastodon.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.67
 redirect_from:
  - /components/notify.mastodon/
@@ -16,7 +17,11 @@ redirect_from:
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to delivery notifications from Home Assistant.
 
+### {% linkable_title Setup %}
+
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
+
+### {% linkable_title Configuration %}
 
 To add Mastodon to your installation, add the following to your `configuration.yaml` file:
 

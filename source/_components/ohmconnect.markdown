@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: "ohmconnect.png"
-ha_category: Energy
+ha_category:
+  - Energy
 ha_iot_class: Cloud Polling
 ha_release: 0.26
 redirect_from:

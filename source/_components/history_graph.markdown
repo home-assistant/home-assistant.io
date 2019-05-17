@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: History
+ha_category:
+  - History
 logo: home-assistant.png
 ha_release: 0.55
 ha_qa_scale: internal

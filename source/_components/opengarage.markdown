@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: opengarage.png
-ha_category: DIY
+ha_category:
+  - DIY
 ha_release: 0.44
 redirect_from:
  - /components/cover.opengarage/

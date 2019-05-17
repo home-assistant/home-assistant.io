@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: harman_kardon.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_iot_class: Local Polling
 ha_release: 0.85
 redirect_from:

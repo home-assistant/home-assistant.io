@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: file.png
-ha_category: Camera
+ha_category:
+  - Camera
 ha_iot_class: Local Polling
 ha_release: 0.22
 redirect_from:
@@ -32,7 +33,7 @@ camera:
 
 {% configuration %}
 file_path:
-  description: File to serve as the camera.
+  description: "File to serve as the camera. Use a full path, e.g., `/config/www/images/image.jpg `."
   required: true
   type: string
 name:

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: twitter.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.12
 redirect_from:
  - /components/notify.twitter/

@@ -624,4 +624,46 @@ switch:
             value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int - 16 }}"
 ```
+
+### {% linkable_title HeatIt/ThermoFloor Z-Push Button 2/8 Wall Switch %}
+
+To get the Z-Push Button 2 or the Z-Push Button 8 working in Home Assistant, you must first edit the `COMMAND_CLASS_CENTRAL_SCENE` in your `zwcfg` file.
+
+1. Go the Z-Wave control panel in Home Assistant and make a note of the node number your wall switch has been assigned.
+2. *Stop* Home Assistant.
+3. Make a backup of your `zwfcg` file, just in case.
+4. In the `zwcfg` file, find the `Node id` that corresponds to the number you noted in the first step.
+5. Within the `Node id` you identified, highlight everything between `<CommandClass id="91"` and `</CommandClass>` (inclusive) and paste in the following:
+    - 5.1 For the Z-Push Button 2:
+
+    ```xml
+        <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">				<Instance index="1" />
+	    <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="1" label="Button 1" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="2" label="Button 2" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        </CommandClass>
+    ```
+
+    - 5.2 For the Z-Push Button 8:
+
+    ```xml
+        <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">				<Instance index="1" />
+	    <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="1" label="Button 1" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="2" label="Button 2" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="3" label="Button 3" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="4" label="Button 4" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="5" label="Button 5" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="6" label="Button 6" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="7" label="Button 7" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="8" label="Button 8" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        </CommandClass>
+    ```
+
+6. Save the changes you made the `zwcfg` file and start Home Assistant back up.
+
+Button presses will trigger `zwave.scene_activated` with the following:
+
+- `scene_id`: the number of the button you press from top left (1) to bottom right (8)
+
 {% endraw %}
