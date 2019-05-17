@@ -28,11 +28,11 @@ Once you have remote access enabled using one of the above AND the Integration -
 # Example configuration.yaml entry
 lock:
   - platform: sesame
-    apy_key: YOUR_SESAPE_API_KEY
+    api_key: YOUR_SESAME_API_KEY
 ```
 
 {% configuration %}
-apy_key:
+api_key:
   description: Api Key obtained from the Sesame account
   required: true
   type: string
