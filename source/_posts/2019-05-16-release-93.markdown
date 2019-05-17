@@ -24,7 +24,7 @@ It's time for our 0.93 release and it is a whopping cool one. It's a day later t
 
 Last week we also wrote about [our updated plans](/blog/2019/05/03/update-from-the-field/) for Home Assistant for this year. If you haven't read it yet, worth the read!
 
-If you are a Nest user, we have some sad news: Google announced that they are [shutting down the Nest API](/blog/2019/05/08/nest-data-bye-bye/) at the end of August. This will cause Nest hardware to no longer work with Home Assistant (╯°□°）╯︵ ┻━┻
+If you are a Nest user, we have some sad news: Google announced that they are [shutting down the Nest API](/blog/2019/05/08/nest-data-bye-bye/) at the end of August. This will cause Nest hardware to no longer work with Home Assistant (╯°□°）╯︵ ┻━┻. **Update:** they have changed their plans, will only impact new users.
 
 As always, this release is accompanied by [a new episode of the Home Assistant podcast](https://hasspodcast.io/ha050/). Rohan and Phil discuss the new release, the Nest API and a lot more. This episode is their 50th episode already, congratulations on this milestone!
 
@@ -98,6 +98,25 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 - Added new binary sensor meteoalarm to get weather alerts in Europe ([@rolfberkenbosch] - [#23663]) ([meteoalarm docs]) (new-integration) (new-platform)
 - Add water_heater to geniushub, bump client library ([@zxdavb] - [#23384]) ([geniushub docs]) (new-platform)
 - New cover platform for ADS integration ([@carstenschroeder] - [#23377]) ([ads docs]) (new-platform)
+
+## {% linkable_title Release 0.93.1 - May 17 %}
+
+- Fix Hassio-version for Azure Pipelines ([@pvizeli] - [#23895])
+- Update Honeywell warning ([@balloob] - [#23913]) ([honeywell docs])
+- Switch media player to SWITCH type ([@elupus] - [#23914]) ([google_assistant docs])
+- Fix problem with cameras that don't support time ([@karlkar] - [#23924]) ([onvif docs])
+
+[#23895]: https://github.com/home-assistant/home-assistant/pull/23895
+[#23913]: https://github.com/home-assistant/home-assistant/pull/23913
+[#23914]: https://github.com/home-assistant/home-assistant/pull/23914
+[#23924]: https://github.com/home-assistant/home-assistant/pull/23924
+[@balloob]: https://github.com/balloob
+[@elupus]: https://github.com/elupus
+[@karlkar]: https://github.com/karlkar
+[@pvizeli]: https://github.com/pvizeli
+[google_assistant docs]: /components/google_assistant/
+[honeywell docs]: /components/honeywell/
+[onvif docs]: /components/onvif/
 
 ## {% linkable_title If you need help... %}
 
