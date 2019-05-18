@@ -64,7 +64,7 @@ devices:
       required: true
       type: string
     token:
-      description: Token to be used to authenticate Doorbird calls to Home Assistant. This can be obtained from your "Digital Passport" document provided with your Doorbird.
+      description: Token to be used to authenticate Doorbird calls to Home Assistant. This is a user defined value and should be unique across all Doorbird devices.
       required: true
       type: string
     name:
