@@ -7,19 +7,33 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: lupusec.jpg
-ha_category: Hub
+logo: lupusec.png
+ha_category:
+  - Hub
+  - Alarm
+  - Binary Sensor
+  - Switch
 ha_release: 0.83
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
+redirect_from:
+  - /components/alarm_control_panel.lupusec/
+  - /components/binary_sensor.lupusec/
+  - /components/switch.lupusec/
 ---
 
-The `Lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
+The `lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
 
-The following devices are supported by the underlying `lupupy` python library and integrated into hass.
+Supported units:
 
-- [Alarm Control Panel](/components/alarm_control_panel.lupusec/): Displays the alarm status and controls arming, disarming and home modus.
-- [Binary Sensor](/components/binary_sensor.lupusec/): Displays the status of binary sensors. Currently only Door and window sensors are supported.
-- [Switch](/components/switch.lupusec/): Turn off and on your Lupus power switches.
+- Lupusec XT1
+
+The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
+
+- **Alarm Control Panel**: Displays the alarm status and controls arming, disarming and home modus.
+- **Binary Sensor**: Displays the status of binary sensors. Currently only Door and window sensors are supported.
+- **Switch**: Turn off and on your Lupus power switches.
+
+## {% linkable_title Configuration %}
 
 To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
 
@@ -28,7 +42,7 @@ To use Lupusec devices in your installation, add the following `lupusec` section
 lupusec:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  ip_address: 192.168.178.35
+  ip_address: YOUR_IP_ADDRESS
 ```
 
 {% configuration %}
@@ -41,7 +55,7 @@ password:
   required: true
   type: string
 ip_address:
-  description: The IP-address of your Lupusec alarm panel.
+  description: The IP address of your Lupusec alarm panel.
   required: true
   type: string
 name:

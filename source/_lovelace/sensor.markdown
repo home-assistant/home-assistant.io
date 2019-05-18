@@ -61,7 +61,7 @@ theme:
 ## {% linkable_title Example %}
 
 ```yaml
-- type: sensor
-  entity: sensor.illumination
-  name: Illumination
+type: sensor
+entity: sensor.illumination
+name: Illumination
 ```

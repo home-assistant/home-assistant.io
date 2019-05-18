@@ -8,20 +8,35 @@ comments: false
 sharing: true
 footer: true
 logo: tesla.png
-ha_category: Car
+ha_category:
+  - Car
+  - Binary Sensor
+  - Climate
+  - Presence Detection
+  - Lock
+  - Sensor
+  - Switch
 ha_release: 0.53
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
+redirect_from:
+  - /components/binary_sensor.tesla/
+  - /components/device_tracker.tesla/
+  - /components/climate.tesla/
+  - /components/lock.tesla/
+  - /components/sensor.tesla/
+  - /components/switch.tesla/
 ---
 
 The `Tesla` component offers integration with the [Tesla](https://auth.tesla.com/login) cloud service and provides presence detection as well as sensors such as charger state and temperature.
 
 This component provides the following platforms:
- - Binary sensors - such as parking and charger connection.
- - Sensors - such as Battery level, Inside/Outside temperature, odometer, and estimated range.
- - Device tracker - to track location of your car
- - Lock - Door lock. Enables you to control Tesla's door lock
- - Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
- - Switch - Charger and max range switch. Allow you to start/stop charging and set max range charging.
+
+- Binary sensors - such as parking and charger connection.
+- Sensors - such as Battery level, Inside/Outside temperature, odometer, and estimated range.
+- Device tracker - to track location of your car
+- Lock - Door lock. Enables you to control Tesla's door lock
+- Climate - HVAC control. Allow you to control (turn on/off, set target temperature) your Tesla's HVAC system.
+- Switch - Charger and max range switch. Allow you to start/stop charging and set max range charging.
 
 ## {% linkable_title Configuration %}
 
@@ -30,7 +45,7 @@ To use Tesla in your installation, add the following to your `configuration.yaml
 ```yaml
 # Example configuration.yaml entry
 tesla:
-  username: YOUR_E_MAIL_ADDRESS
+  username: YOUR_EMAIL_ADDRESS
   password: YOUR_PASSWORD
 ```
 

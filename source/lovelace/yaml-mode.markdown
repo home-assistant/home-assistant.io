@@ -52,13 +52,8 @@ excluded_entities:
 views:
     # View tab title.
   - title: Example
-<<<<<<< HEAD
-    # Unique id for direct access /lovelace/${id} and editing it from the UI.
-    id: example
-=======
     # Unique path for direct access /lovelace/${path}
     path: example
->>>>>>> origin/current
     # Optional background (overwrites the global background).
     background: radial-gradient(crimson, skyblue)
     # Each view can have a different theme applied. Theme should be defined in the frontend.
@@ -66,12 +61,7 @@ views:
     # The cards to show on this view.
     cards:
         # The filter card will filter entities for their state
-<<<<<<< HEAD
-      - id: peoplehome # Every card needs an ID, for it to be edited from the UI.
-        type: entity-filter
-=======
       - type: entity-filter
->>>>>>> origin/current
         entities:
           - device_tracker.paulus
           - device_tracker.anne_there
@@ -110,5 +100,12 @@ views:
         content: >
           Welcome to your **Lovelace UI**.
 ```
+
+Your previously customized Lovelace UI won't be modifiable anymore and won't follow after you start writing code in the `<config>/ui-lovelace.yaml` file, but you can easily import it if you wish.
+
+  - Go in the `Overview` tab.
+  - Go in the three dots menu (top-right) and click on `Configure UI`.
+  - Go in the three dots menu again and click on `Raw config editor`.
+  - There you see the config for your actual Lovelace UI, you can copy that into the `<config>/ui-lovelace.yaml` file.
 
 Navigate to `<YOUR HASS URL>/lovelace`. When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.

@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: namecheap.png
-ha_category: Network
-featured: false
+ha_category:
+  - Network
 ha_release: 0.56
 ---
 

@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: emoncms.png
-ha_category: History
-featured: false
+ha_category:
+  - History
 ha_release: 0.31
 ---
 

@@ -8,8 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: google_calendar.png
-ha_category: Calendar
-ha_iot_class: "Cloud Polling"
+ha_category:
+  - Calendar
+ha_iot_class: Cloud Polling
 ha_release: 0.33
 ---
 
@@ -28,12 +29,14 @@ Generate a Client ID and Client Secret on
 1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
 1. Under APIs & Services > Credentials, click on the tab 'OAuth consent screen'.
-1. Set 'Product name shown to users' to anything you want. We suggest Home-Assistant.
+1. Set 'Product name shown to users' to anything you want. We suggest "Home-Assistant".
 1. Save this page. You don't have to fill out anything else there.
 1. Click 'Create credentials' -> OAuth client ID.
 1. Set the Application type to 'Other' and give this credential set a name then click Create.
 1. Save the client ID and secret as you will need to put these in your `configuration.yaml` file.
 1. Click on "Library", search for "Google Calendar API" and enable it.
+
+If you are adding more Google API scopes later to the OAuth than just "Google Calendar API" then you need to delete your token file. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 
 ## {% linkable_title Configuration %}
 
@@ -67,7 +70,8 @@ track_new_calendar:
 
 The next steps will require you to have Home Assistant running.
 
-After you have it running complete the Google authentication that pops up.
+After you have it running complete the Google authentication that pops up in notification (the little bell icon in the upper right corner).
+
 It will give you a URL and a code to enter. This will grant your Home Assistant
 service access to all the Google Calendars that the account you
 authenticate with can read. This is a Read-Only view of these calendars.
@@ -130,6 +134,7 @@ entities:
       description: >
         A set of characters that precede a number in the event title
         for designating a pre-trigger state change on the sensor.
+        This should be in the format of HH:MM or MM.
       required: false
       type: string
       default: "!!"
@@ -138,6 +143,11 @@ entities:
       required: false
       type: boolean
       default: true
+    max_results:
+      description: "Max number of entries to retrieve"
+      required: false
+      type: int
+      default: 5
 {% endconfiguration %}
 
 From this we will end up with the binary sensors `calendar.test_unimportant` and

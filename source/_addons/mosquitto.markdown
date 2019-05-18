@@ -28,7 +28,7 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
 ```
 
 <p class='warning note'>
-Make sure you use logins and disable anonymous access if you want to secure the system.
+Since version 4.1 of the addon, an explicit ACL definition is now required, [see these instructions](https://www.home-assistant.io/addons/mosquitto/#access-control-lists-acls).
 </p>
 
 {% configuration %}
@@ -55,6 +55,24 @@ This add-on is attached to the Home Assistant user system, so mqtt clients can m
 
 To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. If you have old MQTT settings available, remove this old integration and restart Home Assistant to see the new one.
 
+#### {% linkable_title Using Mosquitto with Hass.io %}
+
+1. Install the [Mosquitto add-on](/addons/mosquitto/) with the default configuration via 'Hass.io > ADD-ON STORE'. (Don't forget to start the add-on & verify that 'Start on boot' is enabled.)
+
+2. Create a new user for MQTT via the `Configuration > Users (manage users)`. (Note: This name cannot be "homeassistant" or "addon")
+
+3. Once back on-line, return to `Configuration > Integrations` and select configure next to `MQTT`.
+
+```text
+  Broker: YOUR_HASSIO_IP_ADDRESS
+  Port: 1883
+  Username: MQTT_USERNAME
+  Password: MQTT_PASSWORD
+```
+
+Note: .yaml modifications are not required. 
+See [testing your setup](/docs/mqtt/testing/) to verify the steps above.
+
 ### {% linkable_title Disable listening on insecure (1883) ports %}
 
 Remove the ports from the add-on page network card (set them as blank) to disable them.
@@ -68,13 +86,25 @@ See the following links for more information:
 * [Mosquitto topic restrictions](http://www.steves-internet-guide.com/topic-restriction-mosquitto-configuration/)
 * [Mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html)
 
-Add the following configuration to enable ACLs:
+Add the following configuration to enable **unrestricted** access to all topics.
 
-1. Set the `active` flag within the `customize` section to `true` in your configuration.
-2. Create a file in `/share/mosquitto` named `acl.conf` with the following contents:
+ 1. Enable the customize flag
+```json
+  "customize": {
+    "active": true,
+    "folder": "mosquitto"
+  },
+```
+
+2. Create `/share/mosquitto/acl.conf` with the contents:
 ```text
 acl_file /share/mosquitto/accesscontrollist
 ```
-3. Create a file in `/share/mosquitto` named `accesscontrollist` and add contents according to your requirements.
 
-The `/share` folder can be found on the host filesystem under `/usr/share/hassio/share`, or via the `Share` folder through SMB (Samba).
+3. Create `/share/mosquitto/accesscontrollist` with the contents:
+```text
+user [YOUR_MQTT_USER]
+topic #
+```
+
+The `/share` folder can be accessed via SMB, or on the host filesystem under `/usr/share/hassio/share`.

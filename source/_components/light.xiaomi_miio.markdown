@@ -8,8 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: philips.png
-ha_category: Light
-ha_iot_class: "Local Polling"
+ha_category:
+  - Light
+ha_iot_class: Local Polling
 ha_release: 0.53
 ---
 
@@ -87,9 +88,9 @@ Supported models: `philips.light.moonlight`
 
 * Power (on, off)
 * Brightness
-* Color (not implemented)
+* Color
 * Color temperature (153...588 mireds)
-* Scene (1, 2, 3, 4)
+* Scene (1, 2, 3, 4, 5, 6)
 * Attributes
   - model
   - scene

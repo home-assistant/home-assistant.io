@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: duckdns.png
-ha_category: Network
-featured: false
+ha_category:
+  - Network
 ha_release: 0.55
 ---
 
@@ -38,5 +38,5 @@ duckdns:
 {% endconfiguration %}
 
 <p class='note'>
-If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this component is not required. The add-on will keep your IP updated with DuckDNS.  
+If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this component is not required. The add-on will keep your IP updated with DuckDNS.
 </p>

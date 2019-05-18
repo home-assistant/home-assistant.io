@@ -7,9 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.48
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
@@ -67,6 +68,10 @@ cover:
         description: Defines a template to specify which icon to use.
         required: false
         type: template
+      device_class:
+        description: The [type/class](/components/cover/#device-class) of the cover to set the icon in the frontend.
+        required: false
+        type: string
       open_cover:
         description: Defines an action to run when the cover is opened. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
         required: inclusive

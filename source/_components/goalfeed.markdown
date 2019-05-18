@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: goalfeed.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.63
 ---
 

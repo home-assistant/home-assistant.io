@@ -8,17 +8,33 @@ comments: false
 sharing: true
 footer: true
 logo: owntracks.png
-ha_category: Presence Detection
-featured: false
+ha_category:
+  - Presence Detection
 ha_release: 0.7.4
 redirect_from:
  - /components/device_tracker.owntracks/
  - /components/device_tracker.owntracks_http/
 ---
 
-OwnTracks is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
+[OwnTracks](https://owntracks.org/) is a free and open source application for iOS and Android that allow you to track your location and send it directly to Home Assistant. It can be set up via the integrations panel in the configuration screen.
 
 By default the integration will listen for incoming messages from OwnTracks via HTTP. It will also listen for MQTT messages if Home Assistant is configured to use MQTT.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
+</div>
+
+### {% linkable_title Configuring the component %}
+
+1. Open the Home Assistant frontend
+1. Open Settings -> integrations
+1. If you see an Owntracks component under 'Configured', delete it.
+   - Click on it.
+   - Click on the trashcan icon in the upper right corner.
+1. Now, look for Owntracks in 'Setup new integration' and click on CONFIGURE.
+1. The login credentials and configuration for owntracks will be presented to you.
+   in a popup window. You will need these in the configuration for the app as mentioned below.
+1. Save these credentials somewhere, as there is no way to get it back at a later point in time if it is lost, besides         repeating step 1-5
 
 ### {% linkable_title Configuring the app - Android %}
 
@@ -27,10 +43,14 @@ By default the integration will listen for incoming messages from OwnTracks via 
 In the OwnTracks app, open sidebar and click on preferences, then on connection. Change the following settings:
 
  - Mode: Private HTTP
- - Host: `<url given to you when setting up the integration>`
+ - Host: `<URL given to you when setting up the integration above>`
  - Identification:
-   - Username: `<Your name>`
-   - Device ID: `<Your device name>`
+   - Username: `<Username>`
+   - Password: Can be left blank.
+   - Device ID: `<Device name>`
+   - Tracker ID: `<xx>` Two character tracker ID. (can be left blank)
+
+Your tracker device will be known in home assistant as `<Username>_<Device name>`. If you entered a Tracker ID the tid attribute will  be set to that ID.
 
 ### {% linkable_title Configuring the app - iOS %}
 
@@ -39,7 +59,7 @@ In the OwnTracks app, open sidebar and click on preferences, then on connection.
 In the OwnTracks app, tap the (i) in the top left and click on settings. Change the following settings:
 
  - Mode: HTTP
- - URL: `<url given to you when setting up the integration>`
+ - URL: `<URL given to you when setting up the integration>`
  - Turn on authentication
  - User ID: `<Your name>`
 
@@ -105,7 +125,7 @@ owntracks:
 
 ## {% linkable_title Using Owntracks regions %}
 
-Owntracks can track regions, and send region entry and exit information to Home Assistant (HA). You set up a region in the Owntracks app which you should name the same as your HA Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
+Owntracks can track regions, and send region entry and exit information to Home Assistant. You set up a region in the Owntracks app which you should name the same as your Home Assistant Zone, and then make sure to turn on the `share` option for the region in the owntracks app. Please see the [owntracks documentation](http://owntracks.org/booklet/guide/waypoints/).
 
 Home Assistant will use the enter and leave messages to set your zone location. Your location will be set to the center of zone when you enter. Location updates from OwnTracks will be ignored while you are inside a zone.
 
@@ -160,6 +180,6 @@ USERNAME_DEVICE_ID:
   mac: EA:AA:55:E7:C6:94
   picture: https://www.home-assistant.io/images/favicon-192x192.png
   gravatar: test@example.com
-  track: yes
-  hide_if_away: no
+  track: true
+  hide_if_away: false
 ```

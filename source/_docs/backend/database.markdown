@@ -124,4 +124,4 @@ The `VACUUM` command cleans your database.
 sqlite> VACUUM;
 ```
 
-For a more interactive way of working with the database, checkout our [Jupyter notebooks](http://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/tree/master/).
+For a more interactive way of working with the database, check the [Data Science Portal](https://data.home-assistant.io/).

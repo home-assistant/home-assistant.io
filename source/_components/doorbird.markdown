@@ -8,12 +8,23 @@ comments: false
 sharing: true
 footer: true
 logo: doorbird.png
-ha_category: Doorbell
-ha_release: "0.54"
-ha_iot_class: "Local Push"
+ha_category:
+  - Doorbell
+  - Camera
+  - Switch
+ha_release: 0.54
+ha_iot_class: Local Push
+redirect_from:
+  - /components/camera.doorbird/
+  - /components/switch.doorbird/
 ---
 
 The `doorbird` implementation allows you to integrate your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Camera](#camera) - View live and historical event based images.
+- [Switch](#switch) - Enable control of relays and camera night vision.
 
 ## {% linkable_title Setup %}
 
@@ -35,11 +46,11 @@ doorbird:
 
 {% configuration %}
 token:
-  description: Token to be used to authenticate Doorbird calls to Home Assistant.
+  description: Token to be used to authenticate Doorbird calls to Home Assistant. This can be obtained from your "Digital Passport" document provided with your Doorbird.
   required: true
   type: string
 devices:
-  description: List of doorbird devices.
+  description: List of Doorbird devices.
   required: true
   type: list
   keys:
@@ -48,7 +59,7 @@ devices:
       required: true
       type: string
     username:
-      description: The username of a non-administrator user account on the device. This user needs the "API-Operator" permission enabled on doorbird.
+      description: The username of a non-administrator user account on the device. This user needs the "API-Operator" permission enabled on Doorbird. It is recommended to set up a new account on your Doorbird for use with Home Assistant. This can be added via the Doorbird App by choosing Administration -> (User) Add. When the new account is created, you will need to enable the permission "API-Operator" in the "permissions" option.
       required: true
       type: string
     password:
@@ -69,19 +80,15 @@ devices:
       type: string
       keys:
         doorbell:
-          description: Monitor doorbell events
+          description: Monitor doorbell events.
         motion:
           description: Monitor motion events (Motion monitoring must be enabled on the doorstation via DoorBird app).
+        relay:
+          description: Monitor relay events. This event is fired even if a relay is not physically connected to the door station.  Can be used to lock/unlock any smart lock present in Home Assistant via the Doorbird app.
+
 {% endconfiguration %}
 
-The configuration above is also used by the following platforms:
-
-- [Camera](/components/camera.doorbird): View live and historical event based images.
-- [Switch](/components/switch.doorbird): Enable control of relays and camera night vision.
-
-
 ## {% linkable_title Full example %}
-
 
 ```yaml
 doorbird:
@@ -99,11 +106,12 @@ doorbird:
       monitored_conditions:
         - doorbell
         - motion
+        - relay
 ```
 
-## {% linkable_title Motion and Doorbell Events %}
+## {% linkable_title Events %}
 
-Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Home Assistant log file.
+Home Assistant will fire an event any time a `monitored_condition` happens on a doorstation.  Event names are created using the format `doorbird_{station}_{event}` (Examples: `doorbird_side_entry_button`, `doorbird_side_entry_motion`).  You can verify the assigned event names in the Available Events list on the Events developer view.
 
 <p class="note info">
 Home Assistant will register the monitored conditions with the device as schedule entries that correspond to favorites on startup. If you remove monitored conditions from your configuration, Home Assistant will attempt to remove these items from the device. However, in some cases, such as if the IP address of the machine running Home Assistant changes or if the device is renamed in your configuration, this will not work correctly and some data will be left in device storage.
@@ -114,7 +122,16 @@ Please note that clearing device registrations will prevent the device from send
 </p>
 
 #### {% linkable_title Event Data %}
-Each event includes live image and live video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions.  For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
+
+Each event includes live image and video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions.  For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
+
+The following keys are available on `event_data`:
+
+- `timestamp`
+- `live_video_url`
+- `live_image_url`
+- `rtsp_live_video_url`
+- `html5_viewer_url`
 
 <p class="note">
 The URLs on the event will be based on the configuration used to connect to your Doorbird device.  Ability to connect from outside your network will depend on your configuration.
@@ -130,4 +147,30 @@ The URLs on the event will be based on the configuration used to connect to your
   action:
     service: light.turn_on
       entity_id: light.side_entry_porch
+```
+
+## {% linkable_title Camera %}
+
+The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
+
+### {% linkable_title Configuration %}
+
+To enable the camera, add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: doorbird
+```
+
+## {% linkable_title Switch %}
+
+The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](http://www.doorbird.com/) video doorbell device.
+
+To enable this switch, add the following lines to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: doorbird
 ```

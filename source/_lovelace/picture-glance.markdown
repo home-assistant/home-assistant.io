@@ -38,6 +38,11 @@ camera_image:
   required: false
   description: Camera entity as Background image.
   type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
+  type: string
 state_image:
   required: false
   description: Background image based on entity state.
@@ -125,38 +130,47 @@ icon:
 ## {% linkable_title Examples %}
 
 ```yaml
-- type: picture-glance
-  title: Living room
-  entities:
-    - switch.decorative_lights
-    - light.ceiling_lights
-    - lock.front_door
-    - binary_sensor.movement_backyard
-    - binary_sensor.basement_floor_wet
-  image: /local/living_room.png
+type: picture-glance
+title: Living room
+entities:
+  - switch.decorative_lights
+  - light.ceiling_lights
+  - lock.front_door
+  - binary_sensor.movement_backyard
+  - binary_sensor.basement_floor_wet
+image: /local/living_room.png
 ```
 
 Display a camera image as background:
 
 ```yaml
-- type: picture-glance
-  title: Living room
-  entities:
-    - switch.decorative_lights
-    - light.ceiling_lights
-  camera_image: camera.demo_camera
+type: picture-glance
+title: Living room
+entities:
+  - switch.decorative_lights
+  - light.ceiling_lights
+camera_image: camera.demo_camera
+```
+
+Display a camera image without additional entities:
+
+```yaml
+type: picture-glance
+title: Front garden
+entities: []
+camera_image: camera.front_garden_camera
 ```
 
 Use different images based on entity state:
 
 ```yaml
-- type: picture-glance
-  title: Living room
-  entities:
-    - switch.decorative_lights
-    - light.ceiling_lights
-  state_image:
-    "on": /local/living_room_on.png
-    "off": /local/living_room_off.png
-  entity: group.living.room
+type: picture-glance
+title: Living room
+entities:
+  - switch.decorative_lights
+  - light.ceiling_lights
+state_image:
+  "on": /local/living_room_on.png
+  "off": /local/living_room_off.png
+entity: group.living.room
 ```

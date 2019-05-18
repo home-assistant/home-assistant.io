@@ -61,6 +61,8 @@ You can use the attachment parameters `content-type` and `hide-thumbnail` with c
 
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
+Note: This functionality is only available from iOS 11 onwards.
+
 ```yaml
 service: notify.ios_<your_device_id_here>
 data:
@@ -93,13 +95,13 @@ ios:
           - identifier: 'OPEN_COVER'
             title: 'Open Cover'
             activationMode: 'background'
-            authenticationRequired: yes
+            authenticationRequired: true
             destructive: no
           - identifier: 'CLOSE_COVER'
             title: 'Close Cover'
             activationMode: 'background'
-            authenticationRequired: yes
-            destructive: yes
+            authenticationRequired: true
+            destructive: true
 ```
 
 # Troubleshooting

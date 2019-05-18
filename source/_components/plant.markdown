@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Environment
+ha_category:
+  - Environment
 ha_release: 0.44
 ha_qa_scale: internal
 ---
@@ -63,7 +64,7 @@ entity_id:
           description: Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.
           required: false
           type: string
-    mind_moisture:
+    min_moisture:
       description: Minimum moisture level before triggering a problem.
       required: false
       default: 20

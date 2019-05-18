@@ -52,7 +52,7 @@ There are two ways to opt-out. The first way is by using the new `opt_out` optio
 
 ```yaml
 updater:
-  reporting: no
+  reporting: false
 ```
 
 You can also disable the updater component entirely by removing `updater:` from your `configuration.yaml` although **we would not suggest you do this** as you would miss any critical updates.

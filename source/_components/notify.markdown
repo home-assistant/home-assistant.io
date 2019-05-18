@@ -7,9 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_release: 0.7
 ---
 
 The `notify` component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
+
+If you want to send notifications to the Home Assistant Web Interface you may use the [Persistent Notification Component](/components/persistent_notification/).
 
 ## {% linkable_title Configuration %}
 

@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: telegram.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.42
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -21,7 +22,7 @@ If you don't need to receive messages, you can use the [broadcast](/components/t
 
 ## {% linkable_title Notification services %}
 
-Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `send_sticker`, `edit_message`, `edit_replymarkup`, `edit_caption` and `answer_callback_query`.
+Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `send_sticker`, `edit_message`, `edit_replymarkup`, `edit_caption`, `answer_callback_query`, `delete_message` and `leave_chat`.
 
 ### {% linkable_title Service `telegram_bot.send_message` %}
 
@@ -35,7 +36,7 @@ Send a notification.
 | `parse_mode`              |      yes | Parser for the message text: `html` or `markdown`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
-| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 ### {% linkable_title Service `telegram_bot.send_photo` and `telegram_bot.send_sticker` %}
@@ -51,8 +52,9 @@ Send a photo.
 | `password`                |      yes | Password for a URL which requires HTTP basic authentication. |
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
-| `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
-| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `disable_notification`     |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 ### {% linkable_title Service `telegram_bot.send_video` %}
@@ -69,7 +71,8 @@ Send a video.
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False. |
-| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 ### {% linkable_title Service `telegram_bot.send_document` %}
@@ -86,7 +89,8 @@ Send a document.
 | `authentication`          |      yes | Define which authentication method to use. Set to `digest` to use HTTP digest authentication. Defaults to `basic`. |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
-| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `verify_ssl`              |      yes | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True. |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 ### {% linkable_title Service `telegram_bot.send_location` %}
@@ -99,7 +103,7 @@ Send a location.
 | `longitude`               |       no | The longitude to send.  |
 | `target`                  |      yes | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`. |
 | `disable_notification`    |      yes | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
-| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. Example: `["/command1, /command2", "/command3"]` |
+| `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
 ### {% linkable_title Service `telegram_bot.edit_message` %}
@@ -150,6 +154,7 @@ Respond to a callback query originated by clicking on an online keyboard button.
 | `show_alert`              |      yes | True/false for show a permanent notification. Defaults to False. |
 
 ### {% linkable_title Service `telegram_bot.delete_message` %}
+
 Delete a previously sent message in a conversation.
 
 | Service data attribute    | Optional | Description                                      |
@@ -157,11 +162,19 @@ Delete a previously sent message in a conversation.
 | `message_id`              |       no | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to delete the message.  |
 
+### {% linkable_title Service `telegram_bot.leave_chat` %}
+
+Remove the bot from the chat group where it was added.
+
+| Service data attribute    | Optional | Description                                      |
+|---------------------------|----------|--------------------------------------------------|
+| `chat_id`                 |       no | The chat_id from where to remove the bot.  |
+
 ## {% linkable_title `telegram` notification platform %}
 
 The [`telegram` notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
-The required yaml configuration now reduces to:
+The required YAML configuration now reduces to:
 
 ```yaml
 notify:

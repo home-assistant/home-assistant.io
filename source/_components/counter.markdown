@@ -8,12 +8,15 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.53
 ha_qa_scale: internal
 ---
 
 The `counter` component allows one to count occurrences fired by automations.
+
+## {% linkable_title Configuration %}
 
 To add a counter to your installation, add the following to your `configuration.yaml` file:
 
@@ -45,12 +48,20 @@ counter:
       description: Try to restore the last known value when Home Assistant starts.
       required: false
       type: boolean
-      default: True
+      default: true
     step:
       description: Incremental/step value for the counter.
       required: false
       type: integer
       default: 1
+    minimum:
+      description: Minimum value the counter will have
+      required: false
+      type: integer
+    maximum:
+      description: Maximum value the counter will have
+      required: false
+      type: integer
     icon:
       description: Icon to display for the counter.
       required: false
@@ -61,9 +72,9 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 ### {% linkable_title Restore State %}
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as you your entity has `restore` set to `True` which is the default. To disable this feature, set `restore` to `False`.
+This component will automatically restore the state it had prior to Home Assistant stopping as long as you your entity has `restore` set to `true` which is the default. To disable this feature, set `restore` to `false`.
 
-If `restore` is set to `False`, the `initial` value will only be used when no previous state is found or when the counter is reset.
+If `restore` is set to `false`, the `initial` value will only be used when no previous state is found or when the counter is reset.
 
 ## {% linkable_title Services %}
 
@@ -93,6 +104,18 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
+#### {% linkable_title Service `counter.configure` %}
+
+With this service the properties of the counter can be changed while running.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `minimum`              |     yes  | Set new value for minimum. None disables minimum. |
+| `maximum`              |     yes  | Set new value for maximum. None disables maximum. |
+| `step`                 |     yes  | Set new value for step |
+
+
 
 ### {% linkable_title Use the service %}
 
@@ -103,4 +126,3 @@ Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
   "entity_id": "counter.my_custom_counter"
 }
 ```
-

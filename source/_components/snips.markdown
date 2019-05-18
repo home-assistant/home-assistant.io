@@ -8,13 +8,14 @@ comments: false
 sharing: true
 footer: true
 logo: snips.png
-ha_category: Voice
+ha_category:
+  - Voice
 ha_release: 0.48
 ---
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
-The latest documentation can be found here: [Snips Platform Documentation](https://snips.gitbook.io/documentation/).
+The latest documentation can be found here: [Snips Platform Documentation](https://docs.snips.ai/).
 
 ![Snips Modules](/images/screenshots/snips_modules.png)
 
@@ -22,12 +23,11 @@ Snips takes voice or text as input and produces *intents* as output, which are e
 
 ![Snips Modules](/images/screenshots/snips_nlu.png)
 
-
 ## {% linkable_title The Snips Voice Platform %}
 
 ### {% linkable_title Installation %}
 
-The Snips platform can be installed via the Snips APT/Debian repository. If you prefer to install the platform using the Docker distribution, check out our [Docker Installation Guide](https://github.com/snipsco/snips-platform-documentation/wiki/6.--Miscellaneous#using-docker).
+The Snips platform can be installed via the Snips APT/Debian repository.
 
 ```bash
 $ sudo apt-get update
@@ -77,7 +77,7 @@ Note that if you already have an assistant installed and wish to replace it then
 
 ### {% linkable_title Running Snips %}
 
-Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Audio Configuration](https://snips.gitbook.io/documentation/installing-snips/on-a-raspberry-pi#2-configuration).
+Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Microphones](https://docs.snips.ai/articles/raspberrypi/hardware/microphones).
 
 Start the Snips Voice Platform by starting the `snips-*` services:
 
@@ -97,7 +97,7 @@ As the Snips Platform parses this query into an intent, it will be published on 
 
 #### {% linkable_title Optional: specifying an external MQTT broker %}
 
-By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, we need to specify this in the `/etc/snips.toml` configuration file. For more information on configuring this, see the [Using an external MQTT broker](https://snips.gitbook.io/documentation/advanced-configuration/platform-configuration) article.
+By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, we need to specify this in the `/etc/snips.toml` configuration file. For more information on configuring this, see the [Snips Platform Configuration](https://docs.snips.ai/articles/platform/platform-configuration) article.
 
 ## {% linkable_title Home Assistant configuration %}
 
@@ -161,11 +161,11 @@ In the `data_template` block, we have access to special variables, corresponding
 
 ### {% linkable_title Special slots %}
 
-Several special values for slots are populated with the `siteId `the intent originated from and the probability value for the intent, the `sessionId` generate by the dialogue manager, and `slote_name` raw which will contain the raw, uninterpreted text of the slot value.
+Several special values for slots are populated with the `siteId` the intent originated from and the probability value for the intent, the `sessionId` generate by the dialogue manager, and `slote_name` raw which will contain the raw, uninterpreted text of the slot value.
 
 In the above example, the slots are plain strings. However, Snips has a duration builtin value used for setting timers and this will be parsed to a seconds value.
 
-In this example if we had an intent triggered with 'Set a timer for five minutes', `duration:` would equal 300 and `duration_raw:` would be set to 'five minutes'. The duration can be easily used to trigger Home Assistant events and the `duration_raw:` could be used to send a human readable response or alert. 
+In this example if we had an intent triggered with 'Set a timer for five minutes', `duration:` would equal 300 and `duration_raw:` would be set to 'five minutes'. The duration can be easily used to trigger Home Assistant events and the `duration_raw:` could be used to send a human readable response or alert.
 
 {% raw %}
 ```yaml
@@ -184,8 +184,6 @@ SetTimer:
       probability: "{{ probability }}"
 ```
 {% endraw %}
-
-
 
 ### {% linkable_title Sending TTS Notifications %}
 
@@ -209,10 +207,9 @@ You can send TTS notifications to Snips using the `snips.say` and `snips.say_act
 | `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
 | `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
 
-
 ### {% linkable_title Snips Support %}
 
-There is an active [discord](https://discordapp.com/invite/3939Kqx) channel for further support.
+There is an active [Forum](https://forum.snips.ai) for further support.
 
 ### {% linkable_title Configuration Examples %}
 
@@ -281,7 +278,7 @@ So now you can open and close your garage door, let's check the weather. Add the
 - platform: darksky
   name: "Dark Sky Weather"
   api_key: !secret dark_sky_key
-  update_interval:
+  scan_interval:
     minutes: 10
   monitored_conditions:
     - summary
@@ -308,4 +305,3 @@ intent_script:
         and {{ states('sensor.dark_sky_weather_hourly_summary') }}
 ```
 {% endraw %}
-

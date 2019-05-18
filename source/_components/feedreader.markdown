@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rss.gif
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.18
 ---
 

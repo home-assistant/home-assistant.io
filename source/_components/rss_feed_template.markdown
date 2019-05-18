@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Front end
+ha_category:
+  - Front end
 ha_release: 0.44
 ha_qa_scale: internal
 ---
@@ -23,7 +24,7 @@ rss_feed_template:
   # Accessible on <Home Assistant url>/api/rss_template/garden
   # Example: https://localhost:8123/api/rss_template/garden
   garden:
-    requires_api_password: False
+    requires_api_password: false
     title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}{% endraw %}"
     items:
     - title: "Outside temperature"

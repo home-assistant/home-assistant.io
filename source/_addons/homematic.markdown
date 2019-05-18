@@ -118,7 +118,7 @@ homematic:
       port: 2000
     hmip:
       host: core-homematic
-      port: 2001
+      port: 2010
 ```
 
 ## {% linkable_title Raspberry Pi3 %}

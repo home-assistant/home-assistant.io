@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "Other"
+ha_category:
+  - Other
 ha_qa_scale: internal
+ha_release: 0.7
 ---
 
 This offers the official frontend to control Home Assistant.
@@ -68,7 +70,7 @@ frontend:
       primary-color: blue
 ```
 
-The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.js](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.js).
+The example above defined two themes named `happy` and `sad`. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.ts).
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
@@ -77,7 +79,7 @@ Check our [community forums](https://community.home-assistant.io/c/projects/them
 There are 2 themes-related services:
 
  - `frontend.reload_themes`: reloads theme configuration from your `configuration.yaml` file.
- - `frontend.set_theme(name)`: sets backend-preferred theme name. 
+ - `frontend.set_theme(name)`: sets backend-preferred theme name.
 
 Example in automation:
 
@@ -96,15 +98,15 @@ automation:
         name: happy
 ```
 
-To enable "night mode": 
+To enable "night mode":
 
 ```yaml
 automation:
   - alias: 'Set dark theme for the night'
-    initial_state: True
+    initial_state: true
     trigger:
       - platform: time
-        at: '21:00'
+        at: '21:00:00'
     action:
       - service: frontend.set_theme
         data:
@@ -113,7 +115,7 @@ automation:
 
 ### {% linkable_title Manual Theme Selection %}
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile menu (before 0.77 it was in the Configuration panel under **General**  called "Set a theme"). You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile menu (accessed by clicking your user account initials at the top of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />
@@ -138,7 +140,7 @@ Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on a
 
 ### {% linkable_title Manual Language Selection %}
 
-The browser language is automatically detected. To use a different language, go to the user profile menu (before 0.77 it was found in **General** in the Configuration panel) and select one. It will be applied immediately.
+The browser language is automatically detected. To use a different language, go to the user profile menu (accessed by clicking your user account initials at the top of the sidebar) and select one. It will be applied immediately.
 
 <p class='img'>
   <img src='/images/frontend/user-language.png' />

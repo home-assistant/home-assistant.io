@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: "0.50"
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 

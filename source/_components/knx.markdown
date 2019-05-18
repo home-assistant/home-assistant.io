@@ -8,15 +8,16 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.24
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
-The [KNX](http://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
+The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
-The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
+The component requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
 
 <p class='note warning'>
   Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
@@ -52,6 +53,11 @@ config_file:
   description: The path for XKNX configuration file.
   required: false
   type: string
+rate_limit:
+  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
+  required: false
+  default: 20
+  type: integer
 {% endconfiguration %}
 
 If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
@@ -93,7 +99,7 @@ local_ip:
 
 ```yaml
 knx:
-  fire_event: True
+  fire_event: true
   fire_event_filter: ["1/0/*", "6/2,3,4-6/*"]
 ```
 

@@ -87,11 +87,17 @@ If your device isn't responding to this process, possibly because you've factory
 
 1. Go to the *States* menu under *Developer tools* in the Home Assistant frontend
 2. Click on the name of the `zwave.` entity you want to remove
-3. At the top, edit the JSON attributes to replace `false` with `true` for `"is_failed": false,` so that it reads `"is_failed": true,`
-4. Click **Set State**
-5. Go to the Z-Wave control panel in the Home Assistant frontend
-6. Click the **Remove Failed Node** button in the *Z-Wave Network Management* card
-7. The device will now be removed, but that won't show until you restart Home Assistant 
+3. Make note of the entity's "node_id" value as you will need to re-add the "node_id" attribute and value in step 4.
+4. At the top, edit the JSON attributes to replace `false` with `true` for `"is_failed": false,` so that it reads `"is_failed": true.` Also add the "node_id" value to the number listed in the entity's attribute. The JSON attributes should look something like below:
+
+    ```yaml
+    {"node_id":6, "is_failed":true}
+    ```
+
+5. Click **Set State**
+6. Go to the Z-Wave control panel in the Home Assistant frontend
+7. Click the **Remove Failed Node** button in the *Z-Wave Node Management* card
+8. The device will now be removed, but that won't show until you restart Home Assistant 
 
 ## {% linkable_title Troubleshooting %}
 

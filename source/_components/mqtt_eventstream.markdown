@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.11
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
 
 The `mqtt_eventstream` component connects two Home Assistant instances via MQTT.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Text-to-Speech (TTS)"
-description: "Instructions on how to setup Text-to-Speech (TTS) with Home Assistant."
+description: "Instructions on how to set up Text-to-Speech (TTS) with Home Assistant."
 date: 2016-12-13 07:00
 sidebar: true
 comments: false
@@ -17,9 +17,9 @@ Text-to-Speech (TTS) enables Home Assistant to speak to you.
 To get started, add the following lines to your `configuration.yaml` (example for Google):
 
 ```yaml
-# Example configuration.yaml entry for google tts service
+# Example configuration.yaml entry for Google TTS service
 tts:
-  - platform: google
+  - platform: google_translate
 ```
 
 <p class='note'>
@@ -33,7 +33,7 @@ cache:
   description: Allow TTS to cache voice file to local storage.
   required: false
   type: boolean
-  default: True
+  default: true
 cache_dir:
   description: Folder name or path to a folder for caching files.
   required: false
@@ -49,19 +49,29 @@ base_url:
   required: false
   type: string
   default: value of ``http.base_url``
+service_name:
+  description: Define the service name.
+  required: false
+  type: string
+  default:  The service name default set to <platform>_say. For example, for google_translate tts, its service name default is `google_translate_say`.
 {% endconfiguration %}
 
 The extended example from above would look like the following sample:
 
 ```yaml
-# Example configuration.yaml entry for Google TTS service
+# Example configuration.yaml entry for Google Translate TTS service
 tts:
-  - platform: google
+  - platform: google_translate
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
     base_url: http://192.168.0.10:8123
+    service_name: google_say
 ```
+
+<p class='note'>
+In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the `base_url` that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
+</p>
 
 ## {% linkable_title When do you need to set `base_url` here? %}
 
@@ -87,20 +97,22 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 ## {% linkable_title Service say %}
 
-The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`.
+The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`. Since release 0.92, service name can be defined in configuration `service_name` option.
 
 Say to all `media_player` device entities:
 
 ```yaml
-# Replace google_say with <platform>_say when you use a different platform.
-service: tts.google_say
+# Replace google_translate_say with <platform>_say when you use a different platform.
+service: tts.google_translate_say
+entity_id: "all"
 data:
   message: 'May the Force be with you.'
 ```
+
 Say to the `media_player.floor` device entity:
 
 ```yaml
-service: tts.google_say
+service: tts.google_translate_say
 entity_id: media_player.floor
 data:
   message: 'May the Force be with you.'
@@ -109,7 +121,7 @@ data:
 Say to the `media_player.floor` device entity in French:
 
 ```yaml
-service: tts.google_say
+service: tts.google_translate_say
 entity_id: media_player.floor
 data:
   message: 'Que la force soit avec toi.'
@@ -119,7 +131,7 @@ data:
 With a template:
 
 ```yaml
-service: tts.google_say
+service: tts.google_translate_say
 data_template:
   message: "Temperature is {% raw %}{{states('sensor.temperature')}}{% endraw %}."
   cache: false
@@ -131,7 +143,7 @@ The component has two caches. Both caches can be controlled with the `cache` opt
 
 ## {% linkable_title REST Api %}
 
-#### {% linkable_title POST /api/tts_get_url %}
+### {% linkable_title POST /api/tts_get_url %}
 
 Returns an URL to the generated TTS file. Platform and message are required.
 

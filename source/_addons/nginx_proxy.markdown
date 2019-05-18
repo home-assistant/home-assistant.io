@@ -11,7 +11,7 @@ footer: true
 
 Sets up an SSL proxy with NGINX and redirect port 80 to 443. Make sure you have generated a certificate before you start this add-on.
 
-In the `http` section of the `configuration.yaml` file remove `ssl_certificate` and `ssl_key` and don't enter the port in the `base_url` to avoid an HTTP 502 error.
+In the `http` section of the `configuration.yaml` file remove `ssl_certificate`, `ssl_key` and `server_port` and don't enter the port in the `base_url` to avoid an HTTP 502 error.
 
 ```json
 {
@@ -41,8 +41,8 @@ keyfile:
   required: true
   type: string
 hsts:
-  description: Value for the [`Strict-Transport-Security`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) HTTP header to send. If empty or `null`, the header is not sent.
-  required: false
+  description: Value for the [`Strict-Transport-Security`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) HTTP header to send. If empty, the header is not sent.
+  required: true
   type: string
 customize:
   description: If true, additional NGINX configuration files for the default server and additional servers are read from files in the `/share` directory specified by the `default` and `servers` variables.

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: avahi.png
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.18
 ---
 
@@ -41,6 +42,6 @@ Browsing domain 'local' on -1.-1 ...
 Browsing for services of type '_home-assistant._tcp' in domain 'local' on 4.0 ...
 Found service 'Home' of type '_home-assistant._tcp' in domain 'local' on 4.0.
 Service data for service 'Home' of type '_home-assistant._tcp' in domain 'local' on 4.0:
-	Host Home._home-assistant._tcp.local (192.168.0.70), port 8123, TXT data:
+   Host Home._home-assistant._tcp.local (192.168.0.70), port 8123, TXT data:
 ['requires_api_password=true', 'base_url=http://192.168.0.70:8123', 'version=0.41.0']
 ```

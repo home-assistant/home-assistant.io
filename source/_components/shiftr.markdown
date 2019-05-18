@@ -8,8 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: shiftr.png
-ha_category: "History"
-featured: false
+ha_category:
+  - "History"
 ha_release: 0.48
 ---
 
@@ -38,4 +38,3 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-

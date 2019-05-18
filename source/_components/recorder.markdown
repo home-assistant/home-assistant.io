@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "History"
+ha_category:
+  - "History"
 ha_release: pre 0.7
 ha_qa_scale: internal
 ---
@@ -131,10 +132,6 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
 | `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
 
-<p class='note'>
-Purging does not necessarily remove all entries before a given date. For example, to be able to recover after startup, the last known state for each entry is never purged. This is true even if the entry is already removed from your configuration.
-</p>
-
 ## {% linkable_title Custom database engines %}
 
 | Database engine | `db_url`                                                 |
@@ -150,7 +147,7 @@ Purging does not necessarily remove all entries before a given date. For example
 | MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
 <p class='note'>
-If you use MariaDB 10 you need to add port 3307 (or another port depending on which port is used by, for example: your hosting provider.) to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:3307/DB_NAME?charset=utf8`.
+Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
 </p>
 
 <p class='note'>

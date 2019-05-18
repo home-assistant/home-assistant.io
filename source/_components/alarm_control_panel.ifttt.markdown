@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ifttt.png
-ha_category: Alarm
+ha_category:
+  - Alarm
 ha_release: 0.66
 ---
 

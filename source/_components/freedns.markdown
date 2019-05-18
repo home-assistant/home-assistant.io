@@ -8,7 +8,8 @@ comments: false
 sharing: true
 logo: afraid_freedns.png
 footer: true
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.67
 ---
 
@@ -44,7 +45,7 @@ freedns:
     description: The full update URL. This is exclusive to `access_token`.
     required: false
     type: string
-  update_interval:
+  scan_interval:
     description: How often to call the update service.
     required: false
     type: time period

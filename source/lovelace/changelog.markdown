@@ -8,6 +8,67 @@ comments: false
 sharing: true
 footer: true
 ---
+## {% linkable_title Changes in 0.88.0 %}
+- 📣 Disable toast notifications for successful operations ([#2700](https://github.com/home-assistant/home-assistant-polymer/pull/2822))
+- 📣 Color Picker: Toggleable between segmented and continuous ([#2806](https://github.com/home-assistant/home-assistant-polymer/pull/2806))
+- 📣 Theming: New CSS card style `ha-card-box-shadow` ([#2855](https://github.com/home-assistant/home-assistant-polymer/pull/2855))
+- 🔧 Fix login issue on Firefox ([#2860](https://github.com/home-assistant/home-assistant-polymer/pull/2860))
+- 🔧 [light card]: Fix click events ([#2850](https://github.com/home-assistant/home-assistant-polymer/pull/2850))
+
+## {% linkable_title Changes in 0.87.0 %}
+- 📣 MDI icons updated to [3.3.92](https://cdn.materialdesignicons.com/3.3.92/)
+- 📣 Theming: New CSS card style `ha-card-border-radius`
+- 📣 Theming: New CSS card style `ha-card-background`
+- 📣 New system-health card in dev-info
+- 📣 UI Editor: YAML syntax support
+- 📣 UI Editor: Line numbers
+- 📣 UI Editor: Now supports columns on wide screens
+- 📣 Notifications: Indicator updated to show count of pending notifications
+- 📣 [thermostat card]: more-info button added
+- 📣 [light card]: more-info button added
+- 🔧 [thermostat card]: Fix slider
+- 🔧 groups are now togglable
+
+## {% linkable_title Changes in 0.86.0 %}
+- 📣 Lovelace is now the default UI for Home Assistant!
+- 📣 New Lovelace [demos](https://demo.home-assistant.io/#/lovelace/0) page
+- 🔧 [thermostat card]: Fix sizing
+- 🔧 [gauge card]: Fix sizing
+- 🔧 [iframe card]: Fix card size
+
+
+## {% linkable_title Changes in 0.85.1 %}
+- 🔧 UI Editor: Fix removal of `resources` on save
+- 🔧 Auto-gen correctly converts weblink entities to [weblink row]
+- 🔧 The [weblink row] opens links in new tabs
+
+## {% linkable_title Changes in 0.85.0 %}
+- 📣 [map card]: New config `geo_location_sources`
+- 📣 [alarm panel card]: Hide keypad if `code_format` attribute is not "Number"
+- 📣 [alarm panel card]: Hide code input field if `code_format` attribute is not set
+- 📣 UI Editor for [picture card]
+- 📣 UI Editor for [weather forecast card]
+- 📣 UI Editor for [plant status card]
+- 📣 UI Editor for [media control card]
+- 📣 UI Editor for [iframe card]
+- 📣 UI Editor for [sensor card]
+- 📣 UI Editor for [shopping list card]
+- 📣 UI Editor for [light card]
+- 📣 UI Editor for [gauge card]
+- 📣 UI Editor for [markdown card]
+- 📣 UI Editor for [alarm panel card]
+- 📣 UI Editor for [thermostat card]
+- 📣 UI Editor for [entity button card]
+- 📣 UI Editor for [map card]
+- 🔧 [thermostat card] Step logic updated to match more-info behavior
+- 🔧 [weather forecast card] Proper RTL support
+- 🔧 [thermostat card] Set minimum height of card
+- 🔧 Fix incorrect state display being cached
+- 🔧 Fix `service-button` element `service_data` usage
+- 🔧 Fix `picture-elements` element positioning to account for card title
+- 🔧 Fix undefined [plant status card]/[weather forecast card]
+
+
 ## {% linkable_title Changes in 0.84.0 %}
 
 ### Breaking Changes
@@ -232,3 +293,5 @@ footer: true
 [thermostat card]: /lovelace/thermostat/
 [vertical stack card]: /lovelace/vertical-stack/
 [weather forecast card]: /lovelace/weather-forecast/
+
+[weblink row]: /lovelace/entities/#weblink

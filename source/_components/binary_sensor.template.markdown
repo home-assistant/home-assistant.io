@@ -7,9 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: 0.12
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
@@ -60,7 +61,7 @@ sensors:
           type: device_class
           default: None
         value_template:
-          description: Defines a template to set the state of the sensor.
+          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
           required: true
           type: template
         icon_template:
@@ -115,7 +116,7 @@ determine if the furnace is running by checking that it is over some threshold:
 
 {% raw %}
 ```yaml
-sensor:
+binary_sensor:
   - platform: template
     sensors:
       furnace_on:

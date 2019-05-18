@@ -65,7 +65,7 @@ TOTP is _time based_ so it relies on your Home Assistant clock being accurate. I
 
 ### {% linkable_title Notify multi-factor authentication module %}
 
-The Notify MFA module uses the [notify component](https://www.home-assistant.io/components/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
+The Notify MFA module uses the [notify component](/components/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
 
 #### {% linkable_title Setting up TOTP %}
 

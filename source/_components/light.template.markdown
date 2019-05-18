@@ -7,9 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.46
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---

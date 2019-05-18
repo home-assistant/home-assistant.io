@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rflink.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.38
 ---
 
@@ -68,7 +69,7 @@ reconnect_interval:
 # Example configuration.yaml entry
 rflink:
   port: /dev/serial/by-id/usb-id01234
-  wait_for_ack: False
+  wait_for_ack: false
   ignore_devices:
     - newkaku_000001_01
     - digitech_*
@@ -131,7 +132,7 @@ For example:
 # Example configuration.yaml entry
 rflink:
   port: /dev/serial/by-id/usb-id01234
-  wait_for_ack: False
+  wait_for_ack: false
   ignore_devices:
     - newkaku_000001_01
     - digitech_*

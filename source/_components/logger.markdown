@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "Utility"
+ha_category:
+  - Utility
 ha_qa_scale: internal
+ha_release: 0.8
 ---
 
 The `logger` component lets you define the level of logging activities in Home
@@ -33,6 +35,7 @@ logger:
   logs:
     homeassistant.components.device_tracker: critical
     homeassistant.components.camera: critical
+    custom_components.my_integration: critical
 ```
 
 To ignore all messages lower than critical and log event for specified
@@ -47,6 +50,7 @@ logger:
     homeassistant.components.rfxtrx: debug
     homeassistant.components.device_tracker: critical
     homeassistant.components.camera: critical
+    custom_components.my_integration: debug
 ```
 
 {% configuration %}
@@ -105,6 +109,7 @@ service: logger.set_level
 data:
   homeassistant.components: warning
   homeassistant.components.media_player.yamaha: debug
+  custom_components.my_integration: debug
 ```
 
 The log information are stored in the

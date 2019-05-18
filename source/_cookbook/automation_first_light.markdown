@@ -30,8 +30,8 @@ automation:
   - alias: Enable First Morning Trigger
     trigger:
       - platform: time
-        at: '5:00'
-    action: 
+        at: '05:00:00'
+    action:
       service: homeassistant.turn_on
       entity_id: input_boolean.trigger_first_morning
 
@@ -41,12 +41,12 @@ automation:
       - platform: sun
         event: sunrise
         offset: "01:00:00"
-    action: 
+    action:
       service: homeassistant.turn_off
       entity_id: input_boolean.trigger_first_morning
 
 
-      
+
 # This is the main automation. It triggers when my motion sensor is triggered
 # (in this case, a motion sensor from a security system attached to my Vera)
   - alias: First Morning Motion
@@ -59,17 +59,17 @@ automation:
         condition: state
         entity_id: input_boolean.trigger_first_morning
         state: 'on'
-        
+
     action:
       # turn off the "waiting" boolean regardless of whether lights will turn on
       # so that this happens only once
       - service: homeassistant.turn_off
         entity_id: input_boolean.trigger_first_morning
-        
+
       # But only turn on lights if the living room and kitchen lights are off or dimmed
-      # If a condition tests false, the automation will end 
+      # If a condition tests false, the automation will end
       - condition: and
-        conditions: 
+        conditions:
           - condition: numeric_state
             entity_id: light.livingroom_ec
             # if light is off, force a 0, otherwise use the brightness value
@@ -84,13 +84,13 @@ automation:
             entity_id: light.kitchen_ceiling
             value_template: {% raw %}'{% if states.light.kitchen_ceiling.state == "on"  %}{{ states.light.kitchen_ceiling.attributes.brightness }}{% else %}0{% endif %}'{% endraw %}
             below: 128
-                
+
       # Trigger a scene
       # You could add as many services or scenes as you'd like
       - service: scene.turn_on
         entity_id: scene.morning_first_motion
 
-      
+
 ```
 
 #### {% linkable_title The Scene %}
@@ -98,7 +98,7 @@ automation:
 Here is the Scene that is called via the Automations above.
 
 ```yaml
-# here's the scene that gets called. Lights in 
+# here's the scene that gets called. Lights in
 # my living room and kitchen turn on.
 scene:
   - name: Morning First Motion

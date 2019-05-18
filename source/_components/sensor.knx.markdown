@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.29
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors.
@@ -29,7 +30,6 @@ sensor:
     address: '2/0/0'
 ```
 
-
 {% configuration %}
 address:
   description: KNX group address of the sensor.
@@ -44,7 +44,6 @@ type:
   required: false
   type: string
 {% endconfiguration %}
-
 
 | type               | unit | expected KNX DPT |
 |--------------------|------|------------------|
@@ -78,8 +77,6 @@ type:
 | 4byte_signed       |      | 13.*             |
 | DPT-14             |      | 14.*             |
 | 4byte_float        |      | 14.*             |
-
-
 
 ## {% linkable_title Full example %}
 

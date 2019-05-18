@@ -8,8 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: dominos.png
-ha_category: Other
-ha_iot_class: "Cloud Polling"
+ha_category:
+  - Other
+ha_iot_class: Cloud Polling
 ha_release: 0.59
 ---
 

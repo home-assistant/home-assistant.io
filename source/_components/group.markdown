@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Organization
+ha_category:
+  - Organization
 ha_qa_scale: internal
+ha_release: pre 0.7
 ---
 
 Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting `view: true` under the group definition. This will make the group available as a new tab in the frontend.
@@ -61,7 +63,7 @@ name:
   required: false
   type: string
 view:
-  description: "If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: yes` cannot be used as entities in other views."
+  description: "If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: true` cannot be used as entities in other views."
   required: false
   type: boolean
 icon:

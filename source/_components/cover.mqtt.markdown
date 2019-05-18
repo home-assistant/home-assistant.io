@@ -8,12 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Cover
-ha_iot_class: "depends"
+ha_category:
+  - Cover
+ha_iot_class: Configurable
 ha_release: 0.18
 ---
 
-The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter, or a garage door).
+The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter or a garage door).
 
 ## {% linkable_title Configuration %}
 
@@ -38,20 +39,19 @@ To use your MQTT cover in your installation, add the following to your `configur
 # Example configuration.yaml entry
 cover:
   - platform: mqtt
-    name: "MQTT Cover"
     command_topic: "home-assistant/cover/set"
 ```
 
 {% configuration %}
+command_topic:
+  description: The MQTT topic to publish commands to control the cover.
+  required: false
+  type: string
 name:
   description: The name of the cover.
   required: false
   type: string
   default: MQTT Cover
-command_topic:
-  description: The MQTT topic to publish commands to control the cover.
-  required: false
-  type: string
 payload_open:
   description: The command payload that opens the cover.
   required: false
@@ -68,7 +68,7 @@ payload_stop:
   type: string
   default: STOP
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. Use only if not using get_position_topic. State topic can only read open/close state. Cannot read position state.
+  description: The MQTT topic subscribed to receive cover state messages. Use only if not using `position_topic`. State topic can only read open/close state. Cannot read position state. If `position_topic` is set `state_topic` is ignored.
   required: false
   type: string
 state_open:
@@ -82,9 +82,9 @@ state_closed:
   type: string
   default: closed
 position_topic:
-  description: The MQTT topic subscribed to receive cover position messages. Always in favor if used together with state_topic.
+  description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
   required: false
-  type: integer
+  type: string
 position_open:
   description: Number which represents open position.
   required: false
@@ -129,11 +129,11 @@ value_template:
   required: false
   type: string
 set_position_topic:
-  description: The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic. Use template if position topic wants different values than within range `position_closed` - `position_open`. If template is not defined and `position_closed != 100` and `position_open != 0` then proper position value is calculated from percentage position.
+  description: "The MQTT topic to publish position commands to. You need to set position_topic as well if you want to use position topic. Use template if position topic wants different values than within range `position_closed` - `position_open`. If template is not defined and `position_closed != 100` and `position_open != 0` then proper position value is calculated from percentage position."
   required: false
   type: string
 set_position_template:
-  description: " Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
+  description: "Defines a [template](/topics/templating/) to define the position to be sent to the `set_position_topic` topic. Incoming position value is available for use in the template `{{position}}`. If no template is defined, the position (0-100) will be calculated according to `position_open` and `position_closed` values."
   required: false
   type: string
 tilt_command_topic:
@@ -163,8 +163,8 @@ tilt_opened_value:
   description: The value that will be sent on an `open_cover_tilt` command.
   required: false
   type: integer
-  default: 0
-tilt_status_optimistic:
+  default: 100
+tilt_optimistic:
   description: Flag that determines if tilt works in optimistic mode.
   required: false
   type: boolean
@@ -174,12 +174,24 @@ tilt_invert_state:
   required: false
   type: boolean
   default: false
+device_class:
+  description: The [type/class](/components/cover/#device-class) of the cover to set the icon in the frontend.
+  required: false
+  type: string
+json_attributes_topic:
+  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  required: false
+  type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 unique_id:
   description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
   required: false
   type: string
 device:
-  description: 'Information about the device this cover is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
+  description: "Information about the device this cover is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
   required: false
   type: map
   keys:
@@ -188,23 +200,23 @@ device:
       required: false
       type: list, string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false
       type: list
     manufacturer:
-      description: 'The manufacturer of the device.'
+      description: The manufacturer of the device.
       required: false
       type: string
     model:
-      description: 'The model of the device.'
+      description: The model of the device.
       required: false
       type: string
     name:
-      description: 'The name of the device.'
+      description: The name of the device.
       required: false
       type: string
     sw_version:
-      description: 'The firmware version of the device.'
+      description: The firmware version of the device.
       required: false
       type: string
 {% endconfiguration %}
@@ -217,6 +229,7 @@ In this section you will find some real-life examples of how to use this platfor
 
 The example below shows a full configuration for a cover without tilt with state topic only.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 cover:
@@ -235,13 +248,15 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: '{{ value.x }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Full configuration position topic without tilt %}
 
 The example below shows a full configuration for a cover without tilt with position topic.
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 cover:
@@ -261,8 +276,9 @@ cover:
     payload_available: "online"
     payload_not_available: "offline"
     optimistic: false
-    value_template: '{% raw %}{{ value.x }}{% endraw %}'
+    value_template: '{{ value.x }}'
 ```
+{% endraw %}
 
 ### {% linkable_title Full configuration %}
 

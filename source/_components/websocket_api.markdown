@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "Other"
+ha_category:
+  - "Other"
 ha_qa_scale: internal
+ha_release: 0.34
 ---
 
 The `websocket_api` component set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This component depends on the [`http` component](/components/http/).
@@ -26,3 +28,13 @@ websocket_api:
 ```
 
 For details to use the WebSocket API, please refer to the [WebSocket API documentation](/developers/websocket_api/) .
+
+## {% linkable_title Track current connections %}
+
+The websocket API provides a sensor that will keep track of the number of current connected clients. You can add it by adding the following to your configuration:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  platform: websocket_api
+```

@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_qa_scale: internal
+ha_release: 0.7
 ---
 
 The `script` component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.
@@ -27,8 +29,7 @@ script:
           message: Current temperature is {% raw %}{{ states.sensor.temperature.state }}{% endraw %}
 ```
 <p class='note'>
-Script names (e.g., `message_temperature` in the example above) are not allowed to contain dash (minus) characters, i.e. `-`.
-The preferred way to separate words for better readability is to use underscore (`_`) characters. 
+Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters. 
 </p>
 
 ```yaml

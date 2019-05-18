@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: History
+ha_category:
+  - History
 ha_release: pre 0.7
 ha_qa_scale: internal
 ---
@@ -134,7 +135,7 @@ you can set the flag `use_include_order` to true.
 ```yaml
 # Example configuration.yaml entry using specified entity display order
 history:
-  use_include_order: True
+  use_include_order: true
   include:
     entities:
       - sun.sun

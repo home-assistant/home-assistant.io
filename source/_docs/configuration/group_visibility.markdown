@@ -20,7 +20,7 @@ To change visibility of a group, use the service `group.set_visibility`, pass th
 service: group.set_visibility
 entity_id: group.basement
 data:
-  visible: False
+  visible: false
 ```
 
 <p class='note'>
@@ -42,7 +42,7 @@ automation:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: False
+      visible: false
 
 automation 2:
   trigger:
@@ -52,7 +52,7 @@ automation 2:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: True
+      visible: true
 ```
 
 ## {% linkable_title Easier automations %}

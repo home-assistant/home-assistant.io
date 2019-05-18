@@ -25,7 +25,7 @@ Here is where you [include and exclude](/docs/z-wave/adding/) Z-Wave devices fro
 * **Remove Node** puts the controller into exclusion mode, so you can exclude (remove) a device. Note that you can exclude a non-secure device that's been added to another network
 * **Cancel Command** cancels any of the above
 
-* **Heal Network** tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can refigure out optimal routing.
+* **Heal Network** tells the controller to "heal" the Z-Wave network. Basically asks the nodes to tell the controller all of their neighbors so the controller can recompute optimal routing.
 * **Start Network** starts the Z-Wave network
 * **Stop Network** stops the Z-Wave network
 * **Soft Reset** tells the controller to do a "soft reset." This is not supposed to lose any data, but different controllers can behave differently to a "soft reset" command, and may cause the Z-Wave network to hang.
@@ -104,7 +104,7 @@ There may be multiple groups, that are used for different purposes. The manual o
 
 #### {% linkable_title Broadcast group %}
 
-Some Z-Wave devices may associate themselves with the broadcast group (group 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. There's no way to clear this from the control panel, but you can use the `zwave.change_association` service:
+Some Z-Wave devices may associate themselves with the broadcast node (node 255). You'll be able to tell if this has happened if opening a door (or triggering a motion sensor) causes lights to come on, and closing the door (or the motion sensor going clear) causes lights to run off. You can get rid of this by selecting any target node. If the group has node 255 in it, a *Remove broadcast* button will appear. You can also use the `zwave.change_association` service:
 
 ```json
 {"association": "remove", "node_id": 3, "group": 1, "target_node_id": 255}

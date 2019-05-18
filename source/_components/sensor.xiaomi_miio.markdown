@@ -8,8 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Health
-ha_iot_class: "Local Polling"
+ha_category:
+  - Health
+ha_iot_class: Local Polling
 ha_release: 0.66
 ---
 

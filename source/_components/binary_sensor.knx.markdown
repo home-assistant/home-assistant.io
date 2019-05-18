@@ -8,9 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: knx.png
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: 0.24
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.13
 ha_qa_scale: internal
 ---
@@ -23,8 +24,8 @@ input_select:
   who_cooks:
     name: Who cooks today
     options:
-     - Paulus
-     - Anne Therese
+      - Paulus
+      - Anne Therese
     initial: Anne Therese
     icon: mdi:panda
   living_room_preset:
