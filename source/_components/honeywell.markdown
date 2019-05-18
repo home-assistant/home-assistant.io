@@ -17,9 +17,19 @@ redirect_from:
 ---
 
 
-The `honeywell` climate platform let you control Honeywell Connected thermostats from Home Assistant.
+The `honeywell` climate platform lets you control Honeywell Connected thermostats from Home Assistant.
 
-To set it up, add the following information to your `configuration.yaml` file:
+Unusually, this integration is a combination of two distinct Honeywell products, one based in the US (using the [somecomfort](https://github.com/kk7ds/somecomfort) client library) and the other in the EU (using [evohomeclient](https://github.com/watchforstock/evohome-client)).
+
+The EU-based functionality is being [deprecated](https://github.com/home-assistant/home-assistant/pull/23913) as support for such systems is now provided by the [evohome integration](https://www.home-assistant.io/components/evohome/). If you are using evohomeclient, you should switch to using that integration instead of this one.
+
+### {% linkable_title Configuration %}
+
+To set up this integration, add the following information to your `configuration.yaml` file:
+
+<p class='note warning'>
+  If your system does not require `region: us`, then use [evohome](https://www.home-assistant.io/components/evohome/) instead.
+</p>
 
 ```yaml
 climate:
@@ -27,6 +37,7 @@ climate:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
     scan_interval: 600
+    region: us
 ```
 <p class='note'>
 Scan interval is expressed in seconds. Omitting or mis-configuring `scan_interval` may result in too-frequent polling and cause you to be rate-limited by Honeywell.
@@ -42,7 +53,7 @@ password:
   required: true
   type: string
 region:
-  description: Region identifier (either 'eu' or 'us').  Use the `somecomfort` client library for `us`, and evohome-client for `eu`.
+  description: Region identifier (either 'eu' or 'us'). Note that support for 'eu' regions is being deprecated (see above).
   required: false
   default: eu
   type: string
