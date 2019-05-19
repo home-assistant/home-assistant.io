@@ -13,8 +13,6 @@ ha_category:
   - Energy
 ha_release: 0.94
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.solaredge_local/
 ---
 
 The `solaredge_local` platform uses the local API available on some SolarEdge Inveters to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
