@@ -10,7 +10,7 @@ footer: true
 ---
 
 <p class='note'>
-If you are using Hass.io or Hassbian, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io or the [DuckDNS suite](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/duckdns.md) for Hassbian to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
+If you are using Hass.io or Hassbian, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io or the [DuckDNS suite](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/suites/duckdns.md) for Hassbian to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
 </p>
 
 <p class='note warning'>
