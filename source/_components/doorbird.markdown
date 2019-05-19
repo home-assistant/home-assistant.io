@@ -98,7 +98,7 @@ doorbird:
       password: YOUR_PASSWORD
       token: CUSTOM_TOKEN_2
       name: Driveway Gate
-      monitored_conditions:
+      events:
         - doorbell_1
         - somebody_pressed_the_button
         - relay_unlocked
