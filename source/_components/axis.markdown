@@ -18,7 +18,6 @@ ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.axis/
   - /components/camera.axis/
-  - /components/switch.axis/
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.
