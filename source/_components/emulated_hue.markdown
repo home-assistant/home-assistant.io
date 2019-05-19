@@ -32,7 +32,7 @@ It is recommended to assign a static IP address to the computer running Home Ass
 </p>
 
 <p class='note'>
-Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
+Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue. To recover your emulated_hue functionallity, backup your config/emulated_hue_ids.json file, delete the original one and reboot your Home Assistant instance.
 </p>
 
 ### {% linkable_title Configuration %}
