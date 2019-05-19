@@ -35,7 +35,7 @@ To use the SolarEdge sensors in your installation, add the following to your con
 # Example configuration.yaml entry
 sensor:
   platform: solaredge_local
-  ip_address: 192.168.1.130
+  ip_address: IP_ADDRESS
   monitored_conditions:
     - lifetime_energy
     - energy_this_year
