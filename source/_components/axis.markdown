@@ -11,12 +11,14 @@ logo: axis.png
 ha_category:
   - Camera
   - Binary Sensor
+  - Switch
 ha_config_flow: true
 ha_release: 0.45
 ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.axis/
   - /components/camera.axis/
+  - /components/switch.axis/
 ---
 
 [Axis Communications](https://www.axis.com/) devices are surveillance cameras, speakers, access control and other security-related network connected hardware. Event API works with firmware 5.50 and newer.
@@ -43,3 +45,11 @@ The following sensor types are supported:
 - Passive IR motion detection
 - Sound detection
 - Day/night mode
+- Inputs and Supervised Inputs
+
+## {% linkable_title Switch %}
+
+The following controllable port types are supported:
+
+- Output
+- Relay
