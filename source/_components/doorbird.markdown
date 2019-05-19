@@ -76,7 +76,7 @@ devices:
       required: false
       type: string
     events:
-      description: Custom event names to be registered on the device.  User defined values.  Special characters should be avoided.
+      description: Custom event names to be registered on the device. User defined values. Special characters should be avoided.
       required: false
       type: list
       
@@ -108,11 +108,11 @@ doorbird:
 
 ## {% linkable_title Events %}
 
-Events can be defined for each configured DoorBird device independently.  These events will be registered on the device and can be attached to a schedule via the DoorBird app. 
+Events can be defined for each configured DoorBird device independently. These events will be registered on the device and can be attached to a schedule via the DoorBird app. 
 
 See [Schedules](#schedules) section below for details on how to configure schedules.
 
-Event names will be prefixed by `doorbird_`.  For example, the example event `somebody_pressed_the_button` will be seen in Home Assistant as `doorbird_somebody_pressed_the_button`.  This is to prevent conflicts with other events.
+Event names will be prefixed by `doorbird_`. For example, the example event `somebody_pressed_the_button` will be seen in Home Assistant as `doorbird_somebody_pressed_the_button`. This is to prevent conflicts with other events.
 
 See [Automation Example](#automation_example) section below for details on how to use the event names in an automation.
 
@@ -130,7 +130,7 @@ Please note that clearing device events will require configuration steps above t
 
 #### {% linkable_title Event Data %}
 
-Each event will include live image and video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions.  For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
+Each event will include live image and video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions. For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
 
 The following keys are available on `event_data`:
 
@@ -141,7 +141,7 @@ The following keys are available on `event_data`:
 - `html5_viewer_url`
 
 <p class="note">
-The URLs on the event will be based on the configuration used to connect to your Doorbird device.  Ability to connect from outside your network will depend on your configuration.
+The URLs on the event will be based on the configuration used to connect to your Doorbird device. Ability to connect from outside your network will depend on your configuration.
 </p>
 
 #### {% linkable_title Schedules %}
@@ -157,7 +157,7 @@ For iOS, the schedules can be found by navigating to the following areas of the 
 
 Once you are on the desired schedule, click the dropdown button in the upper left to switch to the HTTP Calls view. Now if you click on the heading just above the schedule, you can select the event you would like to be called for the particular schedule that is being viewed.
 
-On the desired event, you should be able to specify blocks of time for when you would like the event to be sent to Home Assistant.  If you want the event to always send, the square in the upper right can be used to populate the entire schedule.  Events will be fired to Home Assistant for blocks of time that are blue.
+On the desired event, you should be able to specify blocks of time for when you would like the event to be sent to Home Assistant. If you want the event to always send, the square in the upper right can be used to populate the entire schedule. Events will be fired to Home Assistant for blocks of time that are blue.
 
 Remember to complete the schedule assignment steps above for each event type that you registered.
 
