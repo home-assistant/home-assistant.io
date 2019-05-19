@@ -8,7 +8,9 @@ comments: false
 sharing: true
 footer: true
 logo: solaredge.png
-ha_category: Sensor
+ha_category:
+  - Sensor
+  - Energy
 ha_release: 0.94
 ha_iot_class: Local Polling
 redirect_from:
