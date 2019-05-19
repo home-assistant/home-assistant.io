@@ -17,7 +17,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices. Currently, there is no support for Genius Hub issues and Zone schedules.
+The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices. Currently, there is no support for Zone schedules.
 
 It uses the [geniushub-client](https://pypi.org/project/geniushub-client/) library.
 
@@ -42,6 +42,12 @@ If the Hub is directly polled using the v3 API (see below), then each Device con
  - `Binary Sensor` entity with on/off state for any Device that is a switch (e.g. a Smart Plug)
 
 Each such entity will report back its primary state; in addition, `assigned_zone` and `last_comms` (last communications time) are available via the entity's attributes.
+
+### {% linkable_title Issues %}
+
+There are three `Sensor` entities that will indicate the number of **Errors**, **Warnings** and **Information** issues.
+
+Each such entity has a state attribute that will contain a list of any such issues. For example, `error_list`.
 
 ### {% linkable_title State Attributes %}
 
