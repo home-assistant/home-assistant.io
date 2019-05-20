@@ -106,4 +106,4 @@ In case you want to add Philips Hue bulbs that have previously been added to ano
 
 ## {% linkable_title ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts %}
 
-On Linux hosts ZHA can fail to start during HA startup or restarts because the HUSBZB-1 device is being claimed by the host's modemmanager service.  To fix this disable the modemmanger on the host system.
+On Linux hosts ZHA can fail to start during HA startup or restarts because the HUSBZB-1 device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
