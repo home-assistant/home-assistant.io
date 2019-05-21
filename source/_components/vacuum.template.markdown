@@ -2,13 +2,13 @@
 layout: page
 title: "Template Vacuum"
 description: "Instructions how to setup Template vacuums within Home Assistant."
-date: 2018-10-07 16:00
+date: 2019-05-20 16:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 ha_category: Vacuum
-ha_release: 0.80
+ha_release: 0.94
 ha_iot_class: "Local Push"
 logo: home-assistant.png
 ha_qa_scale: internal
