@@ -43,6 +43,33 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 - `dimension_names`: Names shown in the frontend.
 - `dimension_ids`: Names to use for `element`.
 
+Alternatively you can browse to the built in Netdata API in your browser `http://[Netdata_Instance]:19999/api/v1/allmetrics?format=json` and search for the `data_group` identified in the Netdata frontend.  
+
+```JSON
+	"system.load": {
+		"name":"system.load",
+		"context":"system.load",
+		"units":"load",
+		"last_updated": 1558446920,
+		"dimensions": {
+			"load1": {
+				"name": "load1",
+				"value": 0.1250000
+			},
+			"load5": {
+				"name": "load5",
+				"value": 0.1290000
+			},
+			"load15": {
+				"name": "load15",
+				"value": 0.1430000
+			}
+		}
+	},
+```
+
+Once you the `data_group` and the `element` have been identified from the JSON  it can be configured as per the example below. 
+
 ## {% linkable_title Configuration %}
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
@@ -54,16 +81,14 @@ To add this platform to your installation, add the following to your `configurat
       system_load:
         data_group: system.load
         element: load15
-        icon: mdi:chip
-      core_temp:
-        data_group: sensors.pch_skylake-virtual-0_temperature
-        element: pch_skylake-virtual-0_temp1
-        icon: mdi:thermometer-lines
-      mem_avail:
-        data_group: mem.available
-        element: MemAvailable
-        icon: mdi:chip
 ```
+
+
+
+
+
+
+
 
 {% configuration %}
 host:
