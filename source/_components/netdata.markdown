@@ -68,7 +68,7 @@ Alternatively you can browse to the built in Netdata API in your browser `http:/
 	},
 ```
 
-Once you the `data_group` and the `element` have been identified from the JSON  it can be configured as per the example below. 
+Once the `data_group` and the `element` have been identified from the JSON  it can be configured as per the example below. 
 
 ## {% linkable_title Configuration %}
 
