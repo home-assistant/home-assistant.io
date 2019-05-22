@@ -52,11 +52,6 @@ stationcode:
   required: false
   type: string
   default: nearest weather reporting station to the specified point.
-usahaweathercond:
-  description: If `false`, the values provided for textDescription will be used as received from the NOAA/NWS response. If `true`, the values will be converted to Home Assistant's standard weather condition text values.
-  required: false
-  type: boolean
-  default: false
 useragent:
   description: The value supplied to the NOAA/NWS servers to indentify the source of the request. This should be set to a valid e-mail address, website URL or other contact information. In the future this might need to be an API key.
   required: false
