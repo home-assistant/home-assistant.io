@@ -118,6 +118,31 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 [honeywell docs]: /components/honeywell/
 [onvif docs]: /components/onvif/
 
+## {% linkable_title Release 0.93.2 - May 22 %}
+
+- Fix auto version update Hass.io ([@pvizeli] - [#23935])
+- Bump pytraccar ([@ludeeus] - [#23939]) ([traccar docs])
+- Fixes issue with multiple alerts ([@ludeeus] - [#23945]) ([alert docs])
+- Setup integration dependencies before loading it ([@aerialls] - [#23957])
+- Make Discord payload data key not required ([@cyrosy] - [#23964]) ([discord docs])
+- upgrade broadlink library ([@Danielhiversen] - [#23966]) ([broadlink docs])
+
+[#23935]: https://github.com/home-assistant/home-assistant/pull/23935
+[#23939]: https://github.com/home-assistant/home-assistant/pull/23939
+[#23945]: https://github.com/home-assistant/home-assistant/pull/23945
+[#23957]: https://github.com/home-assistant/home-assistant/pull/23957
+[#23964]: https://github.com/home-assistant/home-assistant/pull/23964
+[#23966]: https://github.com/home-assistant/home-assistant/pull/23966
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@aerialls]: https://github.com/aerialls
+[@cyrosy]: https://github.com/cyrosy
+[@ludeeus]: https://github.com/ludeeus
+[@pvizeli]: https://github.com/pvizeli
+[alert docs]: /components/alert/
+[broadlink docs]: /components/broadlink/
+[discord docs]: /components/discord/
+[traccar docs]: /components/traccar/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
