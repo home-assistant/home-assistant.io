@@ -1,8 +1,8 @@
 ---
 layout: page
-title: "Raspberry Pi GPIO"
-description: "Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant."
-date: 2016-08-30 19:00
+title: "Nano Pi GPIO"
+description: "Instructions on how to integrate the GPIO capability of a Nano Pi NEO/NEO2 into Home Assistant."
+date: 2019-05-24 01:30
 sidebar: true
 comments: false
 sharing: true
@@ -16,25 +16,25 @@ ha_category:
 ha_release: pre 0.7
 ha_iot_class: Local Push
 redirect_from:
-  - /components/binary_sensor.rpi_gpio/
-  - /components/cover.rpi_gpio/
-  - /components/switch.rpi_gpio/
+  - /components/binary_sensor.npi_gpio/
+  - /components/cover.npi_gpio/
+  - /components/switch.npi_gpio/
 ---
 
-The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.
+The `npi_gpio` component is the base for all related GPIO platforms in Home Assistant. It is based on `rpi_gpio` component of Raspberry Pi.
 
 ## {% linkable_title Binary Sensor %}
 
-The `rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `npi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [Nano Pi](http://www.nanopi.org/).
 
 ## {% linkable_title Configuration %}
 
-To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
+To use your Nano Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
-  - platform: rpi_gpio
+  - platform: npi_gpio
     ports:
       11: PIR Office
       12: PIR Bedroom
@@ -47,7 +47,7 @@ ports:
   type: map
   keys:
     "port: name":
-      description: The port numbers (BCM mode pin numbers) and corresponding names.
+      description: The port numbers (BOARD mode pin numbers) and corresponding names.
       required: true
       type: string
 bouncetime:
@@ -69,30 +69,29 @@ pull_mode:
   default: "`UP`"
 {% endconfiguration %}
 
-For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
+Nano Pi use `BOARD` mode to match exacty the pin physical position on the board with a sequential number.
+For more details about the GPIO layout, visit the Wiki [article](http://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO#Diagram.2C_Layout_and_Dimension) about the Nano Pi NEO.
 
 ## {% linkable_title Cover %}
 
-The `rpi_gpio` cover platform allows you to use a Raspberry Pi to control your cover such as Garage doors.
+The `npi_gpio` cover platform allows you to use a Nano Pi to control your cover such as Garage doors.
 
-It uses two pins on the Raspberry Pi.
+It uses two ports on the Nano Pi.
 
-- The `state_pin` will detect if the cover is closed, and
-- the `relay_pin` will trigger the cover to open or close.
-
-Although you do not need Andrews Hilliday's software controller when you run Home Assistant, he has written clear instructions on how to hook your garage door and sensors up to your Raspberry Pi, which can be found [here](https://github.com/andrewshilliday/garage-door-controller#hardware-setup).
+- The `state_port` will detect if the cover is closed, and
+- the `relay_port` will trigger the cover to open or close.
 
 ## {% linkable_title Configuration %}
 
-To enable Raspberry Pi Covers in your installation, add the following to your `configuration.yaml` file:
+To enable Nano Pi Covers in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 cover:
-  - platform: rpi_gpio
+  - platform: npi_gpio
     covers:
-      - relay_pin: 10
-        state_pin: 11
+      - relay_port: 10
+        state_port: 11
 ```
 
 {% configuration %}
@@ -122,11 +121,11 @@ covers:
   type: list
   keys:
     relay_pin:
-      description: The pin of your Raspberry Pi where the relay is connected.
+      description: The pin of your Nano Pi where the relay is connected.
       required: true
       type: integer
     state_pin:
-      description: The pin of your Raspberry Pi to retrieve the state.
+      description: The pin of your Nano Pi to retrieve the state.
       required: true
       type: integer
     name:
@@ -140,35 +139,31 @@ covers:
 ```yaml
 # Example configuration.yaml entry
 cover:
-  - platform: rpi_gpio
+  - platform: npi_gpio
     relay_time: 0.2
     invert_relay: false
     state_pull_mode: 'UP'
     invert_state: true
     covers:
-      - relay_pin: 10
-        state_pin: 11
-      - relay_pin: 12
-        state_pin: 13
+      - relay_port: 10
+        state_port: 11
+      - relay_port: 12
+        state_port: 13
         name: 'Right door'
 ```
 
-## {% linkable_title Remote Raspberry Pi Cover %}
-
-If you don't have Home Assistant running on your Raspberry Pi and you want to use it as a remote cover instead, there is a project called [GarageQTPi](https://github.com/Jerrkawz/GarageQTPi) that will work remotely with the [MQTT Cover Component](/components/cover.mqtt/). Follow the Github instructions to install and configure GarageQTPi and once configured follow the Home Assistant instructions to configure the MQTT Cover.
-
 ## {% linkable_title Switch %}
 
-The `rpi_gpio` switch platform allows you to control the GPIOs of your [Raspberry Pi](https://www.raspberrypi.org/).
+The `npi_gpio` switch platform allows you to control the GPIOs of your [Nano Pi](http://www.nanopi.org/).
 
 ## {% linkable_title Configuration %}
 
-To use your Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
+To use your Nano Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 switch:
-  - platform: rpi_gpio
+  - platform: npi_gpio
     ports:
       11: Fan Office
       12: Light Desk
@@ -197,13 +192,13 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 Note that a pin managed by HASS is expected to be exclusive to HASS.
 </p>
 
-A common question is what does Port refer to, this number is the actual GPIO #, not the pin #.
-For example, if you have a relay connected to pin 11 its GPIO # is 17.
+A common question is what does Port refer to, in Nano Pi boards this number is the physical pin #.
+For example, if you have a relay connected to pin 11 its GPIO # is 11.
 
 ```yaml
 # Example configuration.yaml entry
 switch:
-  - platform: rpi_gpio
+  - platform: npi_gpio
     ports:
       17: Speaker Relay
 ```
