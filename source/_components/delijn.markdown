@@ -41,7 +41,7 @@ next_departure:
   required: true
   type: list
   keys:
-     subscriptionkey:
+    subscriptionkey:
       description: "Subscription key needed to access De Lijn API's."
       required: true
       type: string
