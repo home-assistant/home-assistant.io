@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: raspberry-pi.png
+logo: nanopi-logo.png
 ha_category:
   - DIY
   - Binary Sensor
