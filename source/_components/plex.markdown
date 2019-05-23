@@ -95,7 +95,6 @@ media_player:
   - platform: plex
     entity_namespace: 'plex'
     include_non_clients: true
-    scan_interval: 5
     show_all_controls: false
     use_custom_entity_ids: true
     use_episode_art: true
@@ -113,11 +112,6 @@ include_non_clients:
   required: false
   default: false
   type: boolean
-scan_interval:
-  description: "Amount in seconds in between polling for device’s current activity."
-  required: false
-  default: 10
-  type: int
 show_all_controls:
   description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
   required: false
