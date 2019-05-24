@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_release: "0.94"
+ha_release: 0.94
 ha_category: 
   - Transport
 ha_iot_class: Cloud Polling
