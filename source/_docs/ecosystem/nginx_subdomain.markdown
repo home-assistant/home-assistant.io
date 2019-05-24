@@ -64,7 +64,7 @@ You want another instance available at https://countryside.example.org
 
 You can either :
  * Create a new user, `bob`, to hold the configuration file in `/home/bob/.homeassistant/configuration.yaml` and run Home Assistant as this new user
- * Create another configuration directory in `/home/alice/.homeassistan2/configuration.yaml` and run Home Assistant using `hass --config /home/alice/.homeassistant2/`
+ * Create another configuration directory in `/home/alice/.homeassistant2/configuration.yaml` and run Home Assistant using `hass --config /home/alice/.homeassistant2/`
 
 In both solution, change port number used by modifying `configuration.yaml` file.
 
