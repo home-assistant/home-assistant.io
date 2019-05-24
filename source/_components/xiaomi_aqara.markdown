@@ -58,7 +58,7 @@ Please note, there are two versions of the hub: v1 and v2. v1 can be used with H
 
 ## {% linkable_title Setup %}
 
-Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
+Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://visser.io/2017/12/how-to-connect-the-xiaomi-mi-gateway-to-domoticz/).
 
 To enable {{ page.title }} in your installation, add the following to your `configuration.yaml` file:
 
