@@ -10,6 +10,7 @@ footer: true
 ha_release: 0.94
 ha_category: 
   - Transport
+  - Sensor
 ha_iot_class: Cloud Polling
 ha_qa_scale: 
 ---
@@ -32,19 +33,18 @@ sensor:
     sub_key: 'SUBSCRIPTION_KEY'
     nextpassage:
     - stop_id: 'STOP_ID'
-      max_passages: MAX_NUMBER_OF_PASSAGES
 ```
 
 {% configuration %}
-next_departure:
+subscriptionkey:
+  description: "Subscription key needed to access De Lijn API's."
+  required: true
+  type: string
+next_passage:
   description: One or multiple departure sensors.
   required: true
   type: list
   keys:
-    subscriptionkey:
-      description: "Subscription key needed to access De Lijn API's."
-      required: true
-      type: string
     stops:
       description: "ID of the stop, e.g. `200552`."
       required: true
@@ -60,7 +60,7 @@ next_departure:
 
 ### {% linkable_title Full configuration %}
 
-The example below shows a full configuration with two sensors, only the abcdefg needs to be replaced with an actual API subscription key.
+The example below shows a full configuration with two sensors, only the abcdefg needs to be replaced with an actual API subscription key. The first stop_id will return the default next 5 passages, the second stop_id has been forced to return the next 20 passages.
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,7 +70,6 @@ sensor:
     sub_key: 'abcdefg'
     nextpassage:
     - stop_id: '200018'
-      max_passages: 5
     - stop_id: '201169'
       max_passages: 20
 ```
