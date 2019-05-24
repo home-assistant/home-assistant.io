@@ -93,7 +93,6 @@ You can customize the Plex component by adding any of the variables below to you
 # Example configuration.yaml entry
 media_player:
   - platform: plex
-    entity_namespace: 'plex'
     include_non_clients: true
     scan_interval: 5
     show_all_controls: false
@@ -103,10 +102,6 @@ media_player:
 ```
 
 {% configuration %}
-entity_namespace:
-  description: "Prefix for entity ID's. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_"
-  required: false
-  type: string
 include_non_clients:
   description: "Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's)."
   required: false
