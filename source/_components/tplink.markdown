@@ -151,6 +151,8 @@ Currently supported devices includes the following:
 - Archer C9 firmware version 150811
 - EAP-225 AP with latest firmware version
 - Archer D9 firmware version 0.9.1 0.1 v0041.0 Build 160224 Rel.59129n
+- Omada Controller version 3.1.4
+
 
 <p class='note'>
 TP-Link devices typically only allow one login at a time to the admin console.  This component will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant. Home Assistant takes a few seconds to login, collect data, and log out. If you log into the admin console manually, remember to log out so that Home Assistant can log in again.
