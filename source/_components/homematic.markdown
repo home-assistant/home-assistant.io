@@ -354,6 +354,20 @@ action:
     value: 23.0
 ```
 
+Manually set the active profile on thermostat:
+
+```yaml
+...
+action:
+  service: homematic.set_device_value
+  data:
+    address: LEQ1234567
+    channel: 1
+    param: ACTIVE_PROFILE
+    value: 1
+    value_type: int
+```
+
 Set the week program of a wall thermostat:
 
 ```yaml
