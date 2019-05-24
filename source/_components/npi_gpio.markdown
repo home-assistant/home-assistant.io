@@ -13,12 +13,8 @@ ha_category:
   - Binary Sensor
   - Cover
   - Switch
-ha_release: pre 0.94
+ha_release: 0.94
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.npi_gpio/
-  - /components/cover.npi_gpio/
-  - /components/switch.npi_gpio/
 ---
 
 The `npi_gpio` component is the base for all related GPIO platforms in Home Assistant. It is based on `rpi_gpio` component of Raspberry Pi.
