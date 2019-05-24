@@ -73,3 +73,6 @@ sensor:
     - stop_id: '201169'
       max_passages: 20
 ```
+
+## {% linkable_title Custom lovelace card %}
+Works best with the following custom lovelace card: https://github.com/bollewolle/delijn-card
