@@ -13,7 +13,7 @@ ha_category:
   - Binary Sensor
   - Cover
   - Switch
-ha_release: pre 0.7
+ha_release: pre 0.93.2
 ha_iot_class: Local Push
 redirect_from:
   - /components/binary_sensor.npi_gpio/
