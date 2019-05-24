@@ -36,16 +36,16 @@ sensor:
 ```
 
 {% configuration %}
-subscriptionkey:
+sub_key:
   description: "Subscription key needed to access De Lijn API's."
   required: true
   type: string
-next_passage:
+nextpassage:
   description: One or multiple departure sensors.
   required: true
   type: list
   keys:
-    stops:
+    stop_id:
       description: "ID of the stop, e.g. `200552`."
       required: true
       type: string
