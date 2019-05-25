@@ -30,7 +30,7 @@ prometheus:
     required: true
     type: map
     keys:
-      name:
+      namespace:
         description: The "namespace" that will be assigned to all the Prometheus metrics. This is the prefix of the metric name. E.g., having `myhass` as the namespace will cause the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default is to not add any prefix to the metrics name. (available in version 0.73.0 and later)
         required: false
         type: string
