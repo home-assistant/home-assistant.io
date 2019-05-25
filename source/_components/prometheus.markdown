@@ -20,44 +20,89 @@ To use the `prometheus` component in your installation, add the following to you
 ```yaml
 # Example configuration.yaml entry
 prometheus:
+  namespace: hass
+  component_config_glob:
+    sensor.*_hum:
+      override_metric: humidity_percent
+    sensor.*_temp:
+      override_metric: temperature_c
+    sensor.temperature*:
+      override_metric: temperature_c
+    sensor.*_bat:
+      override_metric: battery_percent
+  filter:
+    include_domains:
+      - sensor
 ```
 
 {% configuration %}
-namespace:
-  description: The "namespace" that will be assigned to all the Prometheus metrics. This is the prefix of the metric name. E.g., having `myhass` as the namespace will cause the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default is to not add any prefix to the metrics name. (available in version 0.73.0 and later)
-  required: false
-  type: string
-filter:
-  description: Filtering directives for the components which should be included or excluded from recording.
-  required: false
-  type: list
+prometheus:
+  description: Prometheus configuration.
+  required: true
+  type: map
   keys:
-    exclude:
-      description: Excluded from recording.
+    namespace:
+      description: The "namespace" that will be assigned to all the Prometheus metrics. This is the prefix of the metric name. E.g., having `myhass` as the namespace will cause the device tracker metrics to be `myhass_device_tracker_state`, the switch metrics to be `myhass_switch_state` and so on. The default is to not add any prefix to the metrics name. (available in version 0.73.0 and later)
       required: false
-      type: list
-      keys:
-        entities:
-          description: The list of entity ids to be excluded from recording.
-          required: false
-          type: list
-        domains:
-          description: The list of domains to be excluded from recording.
-          required: false
-          type: list
-    include:
-      description: Included in recordings. If set, all other entities will not be recorded. Values set by the **exclude** option will prevail.
+      type: string
+    filter:
+      description: Filters for entities to be included/excluded from Prometheus.
       required: false
-      type: list
+      type: map
       keys:
-        entities:
-          description: The list of entity ids to be included from recordings.
+        include_domains:
+          description: Domains to be included.
           required: false
           type: list
-        domains:
-          description: The list of domains to be included from recordings.
+        include_entities:
+          description: Entities to be included.
           required: false
           type: list
+        exclude_domains:
+          description: Domains to be excluded.
+          required: false
+          type: list
+        exclude_entities:
+          description: Entities to be excluded.
+          required: false
+          type: list
+    default_metric:
+      type: string
+      description: Metric name to use when an entity doesn't have a unit. 
+      required: false
+      default: uses the entity id of the entity
+    override_metric:
+      type: string
+      description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+      required: false
+    component_config:
+      type: string
+      required: false
+      description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+      keys:
+        override_metric:
+          type: string
+          description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+          required: false
+    component_config_domain:
+      type: string
+      required: false
+      description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+      keys:
+        override_metric:
+          type: string
+          description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+          required: false
+    component_config_glob: 
+      type: string
+      required: false
+      description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+      keys:
+        override_metric:
+          type: string
+          description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+          required: false
+
 {% endconfiguration %}
 
 You can then configure Prometheus to fetch metrics from Home Assistant by adding to its `scrape_configs` configuration.
