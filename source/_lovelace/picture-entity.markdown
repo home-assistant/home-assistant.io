@@ -144,7 +144,7 @@ tap_action:
   service: camera.snapshot
   service_data:
     entity_id: camera.backdoor
-    filename: '/shared/backdoor-{{ now().strftime(''%Y-%m-%d-%H%M%S'') }}.jpg'
+    filename: '/shared/backdoor-{{ now().strftime('%Y-%m-%d-%H%M%S') }}.jpg'
 ```
 
 The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](https://www.home-assistant.io/docs/configuration/basic/)).
