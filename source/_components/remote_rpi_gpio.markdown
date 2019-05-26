@@ -30,21 +30,16 @@ To use your Remote Raspberry Pi's GPIO in your installation, add the following t
 # Example configuration.yaml entry
 binary_sensor:
   - platform: remote_rpi_gpio
+    address: <address of remote pi>
     ports:
       11: PIR Office
       12: PIR Bedroom
-```
-
-or
-
-```yaml
-# Example configuration.yaml entry
-remote_rpi_gpio:
-  host: 10.0.1.9
-  binary_sensors:
-    6: Pin6
-  switches:
-    4: Pin4
+      
+switch:
+  - platform: remote_rpi_gpio
+    address: <address of remote pi>
+    ports:
+      4: Garage Relay
 ```
 
 {% configuration %}
