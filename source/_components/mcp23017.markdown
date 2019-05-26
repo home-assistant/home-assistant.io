@@ -18,13 +18,15 @@ ha_iot_class: Local Polling
 
 The `mcp23017` component is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding sections.
 
+For more details about the MCP23017 I2C I/O port expander you can find its datasheet here: [MCP23017](https://www.microchip.com/wwwproducts/en/MCP23017).
+
 ## {% linkable_title Binary Sensor %}
 
 The `mcp23017` binary sensor platform allows you to read sensor values from the I/O pins of your [MCP23017 I2C I/O expander](https://www.adafruit.com/product/732).
 
 The pin numbers are from 0 to 15 where: 0-7 correspond to port A (A1-A8) and 8-15 to port B (B1-B8).
 
-## {% linkable_title Configuration %}
+### {% linkable_title Configuration %}
 
 To use the I/O pins of an mcp23017 connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
 
@@ -74,15 +76,13 @@ pull_mode:
 
 NOTE: MCP23017 only has internal pull-up resistors, if you want to use pull-down you will have to wire your own pull-down resistors.
 
-For more details about the MCP23017 I2C I/O port expander you can find its datasheet here: [MCP23017](https://www.microchip.com/wwwproducts/en/MCP23017).
-
 ## {% linkable_title Switch %}
 
 The `mcp23017` switch platform allows you to write to the I/O pins of your [MCP23017 I2C I/O expander](https://www.adafruit.com/product/732).
 
 The pin numbers are from 0 to 15 where: 0-7 correspond to port A (A1-A8) and 8-15 to port B (B1-B8).
 
-## {% linkable_title Configuration %}
+### {% linkable_title Configuration %}
 
 To use the I/O pins of an mcp23017 connected to an I2C bus of your Raspberry Pi as switches, add the following to your `configuration.yaml` file:
 
@@ -117,5 +117,3 @@ invert_logic:
   default: false
   type: boolean
 {% endconfiguration %}
-
-For more details about the MCP23017 I2C I/O port expander you can find its datasheet here: [MCP23017](https://www.microchip.com/wwwproducts/en/MCP23017).
