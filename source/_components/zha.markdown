@@ -13,6 +13,7 @@ ha_category:
   - Binary Sensor
   - Fan
   - Light
+  - Lock
   - Sensor
   - Switch
 ha_release: 0.44
@@ -22,6 +23,7 @@ redirect_from:
   - /components/binary_sensor.zha/
   - /components/fan.zha/
   - /components/light.zha/
+  - /components/lock.zha/
   - /components/sensor.zha/
   - /components/switch.zha/
 ---
@@ -34,6 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor
 - Sensor
 - Light
+- Lock
 - Switch
 - Fan
 
