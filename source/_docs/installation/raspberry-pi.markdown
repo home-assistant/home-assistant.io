@@ -10,52 +10,27 @@ footer: true
 redirect_from: /getting-started/installation-raspberry-pi/
 ---
 
-This installation of Home Assistant requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
-
-You must have Python 3.5.3 or later installed (including the package `python3-dev`) which is the case for Raspbian Stretch.
-
 <p class='note'>
 Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well.  This guide is also referred to as the "Advanced Guide" for a virtual environment install.
 </p>
 
-<p class='note warning'>
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
-</p>
+This installation of Home Assistant requires the Raspberry Pi to run [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/). The installation will be installed in a [Virtual Environment](/docs/installation/virtualenv) with minimal overhead. Instructions assume this is a new installation of Raspbian Lite.
 
-Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
-You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
+You must have Python 3.5.3 or later installed (including the package `python3-dev`) which is the case for Raspbian Stretch.
 
-```bash
-$ ssh pi@ipaddress
-```
-
-Changing the default password is encouraged.
-
-```bash
-$ passwd
-```
-
-Update the system.
-
-```bash
-$ sudo apt-get update
-$ sudo apt-get upgrade -y
-```
-
-Install the dependencies.
+Install the dependencies:
 
 ```bash
 $ sudo apt-get install python3 python3-venv python3-pip libffi-dev libssl-dev
 ```
 
-Add an account for Home Assistant called `homeassistant`.
-Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio` adds the user to the `dialout` and the `gpio` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
+Add an account for Home Assistant called `homeassistant`.  Since this account is only for running Home Assistant `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio` add the user to the `dialout` and the `gpio` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO:
 
 ```bash
 $ sudo useradd -rm homeassistant -G dialout,gpio
 ```
 
-Next we will create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
+Create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
 
 ```bash
 $ cd /srv
@@ -63,7 +38,7 @@ $ sudo mkdir homeassistant
 $ sudo chown homeassistant:homeassistant homeassistant
 ```
 
-Next up is to create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account.
+Create and change to a virtual environment for Home Assistant. This will be done as the `homeassistant` account:
 
 ```bash
 $ sudo -u homeassistant -H -s
@@ -71,19 +46,19 @@ $ cd /srv/homeassistant
 $ python3 -m venv .
 $ source bin/activate
 ```
-Once you have activated the virtual environment (notice the prompt change) you will need to run the following command to install a required python package.
+Once you have activated the virtual environment (notice the prompt change) you will need to run the following command to install a required python package:
 
 ```bash
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ python3 -m pip install wheel
 ```
 
-Once you have installed the required python package it is now time to install Home Assistant!
+Install Home Assistant:
 
 ```bash
 (homeassistant) homeassistant@raspberrypi:/srv/homeassistant $ pip3 install homeassistant
 ```
 
-Start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
+Start Home Assistant for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any initial dependencies:
 
 ```bash
 (homeassistant) $ hass
@@ -98,7 +73,7 @@ If you want to setup `hass` as a daemon and autostart it on boot please refer to
 
 ### {% linkable_title Updating %}
 
-To update to the latest version of Home Assistant follow these simple steps:
+To update to the latest version of Home Assistant follow these steps:
 
 ```bash
 $ sudo -u homeassistant -H -s
@@ -110,7 +85,7 @@ Once the last command executes, restart the Home Assistant service to apply the 
 
 ### {% linkable_title Run a specific version %}
 
-In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
+In the event that a Home Assistant version doesn't work correctly with your hardware, you can downgrade to a previous release. For example:
 
 ```bash
 $ sudo -u homeassistant -H -s
