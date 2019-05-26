@@ -16,7 +16,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `mcp23017` component is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.
+The `mcp23017` component is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding sections.
 
 ## {% linkable_title Binary Sensor %}
 
