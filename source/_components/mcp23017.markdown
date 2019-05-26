@@ -26,7 +26,7 @@ The pin numbers are from 0 to 15 where: 0-7 correspond to port A (A1-A8) and 8-1
 
 ## {% linkable_title Configuration %}
 
-To use the I/O pins of an mcp23017 connected to and I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
+To use the I/O pins of an mcp23017 connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
