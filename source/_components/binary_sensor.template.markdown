@@ -215,3 +215,28 @@ binary_sensor:
              or is_state('binary_sensor.family_room_144', 'on') }}
 ```
 {% endraw %}
+
+
+### {% linkable_title Change the icon when state changes %}
+
+This example demonstrates how to use `icon_template` to change the entity's icon
+as the state changes.
+
+{% raw %}
+```yaml
+binary_sensor:
+  - platform: template
+    sensors:
+      sun_up:
+        entity_id:
+          - sun.sun
+        value_template: >-
+          {{ is_state("sun.sun", "above_horizon") }}
+        icon_template: >-
+          {% if is_state("binary_sensor.sun_up", "on") %}
+            mdi:weather-sunset-up
+          {% else %}
+            mdi:weather-sunset-down
+          {% endif %}
+```
+{% endraw %}
