@@ -23,7 +23,6 @@ redirect_from:
   - /components/binary_sensor.zha/
   - /components/fan.zha/
   - /components/light.zha/
-  - /components/lock.zha/
   - /components/sensor.zha/
   - /components/switch.zha/
 ---
