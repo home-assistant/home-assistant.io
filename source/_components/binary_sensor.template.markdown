@@ -219,11 +219,14 @@ binary_sensor:
 
 ### {% linkable_title Change the icon when state changes %}
 
-This example demonstrates how to use `icon_template` to change the entity's icon
-as the state changes.
+This example demonstrates how to use `icon_template` to change the entity's
+icon as its state changes, it evaluates the state of it's own sensor and uses a 
+conditional statement to output the appropriate icon. 
+
 
 {% raw %}
 ```yaml
+sun:
 binary_sensor:
   - platform: template
     sensors:
