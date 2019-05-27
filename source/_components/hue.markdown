@@ -58,6 +58,10 @@ allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
   type: boolean
+scan_interval:
+  description: Set the scan interval for polling the bridge. For sensors you can lower the value for faster detection. The V1 bridge can get unreachable if set to low.
+  required: false
+  type: float
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
@@ -69,6 +73,7 @@ hue:
     - host: DEVICE_IP_ADDRESS
       allow_unreachable: true
       allow_hue_groups: true
+      scan_interval: 5
 ```
 
 ### {% linkable_title Multiple Hue bridges %}
