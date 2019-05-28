@@ -41,6 +41,8 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
+A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/components/light/#service-lightturn_on).
+
 ### {% linkable_title Use templates to decide which service to call %}
 
 You can use [templating] support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.
