@@ -36,12 +36,6 @@ To use the SolarEdge sensors in your installation, add the following to your con
 sensor:
   platform: solaredge_local
   ip_address: IP_ADDRESS
-  monitored_conditions:
-    - lifetime_energy
-    - energy_this_year
-    - energy_this_month
-    - energy_today
-    - current_power
 ```
 {% endraw %}
 
@@ -55,23 +49,6 @@ name:
   required: false
   default: SolarEdge
   type: string
-monitored_conditions:
-  description: SolarEdge Site information to be monitored. The following conditions can be monitored.
-  required: false
-  type: list
-  default: current_power
-  keys:
-    lifetime_energy:
-      description: Lifetime energy generated at your SolarEdge Site in Wh
-    energy_this_year:
-      description: Energy generated this year at your SolarEdge Site in Wh
-    energy_this_month:
-      description: Energy generated this month at your SolarEdge Site in Wh
-    energy_today:
-      description: Energy generated today at your SolarEdge Site in Wh
-    current_power:
-      description: Current generated power in W
-
 {% endconfiguration %}
 
 If no **monitored_conditions** are specified, only **current_power** will be enabled.
@@ -86,12 +63,7 @@ A full configuration entry would look like the sample below.
 sensor:
   - platform: solaredge_local
     name: SolarEdge
-    monitored_conditions:
-      - current_power
-      - energy_today
-      - energy_this_month
-      - energy_this_year
-      - lifetime_energy
+    ip_address: 192.168.1.123
 ```
 {% endraw %}
 
