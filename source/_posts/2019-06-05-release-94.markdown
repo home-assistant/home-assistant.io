@@ -14,7 +14,9 @@ og_image: /images/blog/2019-06-release-94/components.png
 <a href='/components/#version/0.94'><img src='/images/blog/2019-06-release-94/components.png' style='border: 0;box-shadow: none;'></a>
 
 New:
- - Possible to store core config in storage. Configuration.yaml will override storage.
- - Onboarding updated to set core config
+ - Possible to store core config in storage. If set in configuration.yaml, it will override storage. Note that configuration.yaml will no longer contain any automatic detected values when writing initial configuration. This feature is available via the UI during onboarding.
+ - Step added to onboarding to allow configuring name, location, timezone and unit system.
  - Python 3.5.3 deprecated, support will be dropped in the first release after August 1.
+ - Add UI to manage Google Entities exposed via Home Assistant Cloud. To use, remove filters from configuration.yaml. Also allows disabling 2 factor authentication on a per device basis.
+ - Discovery has been redone. Integrations can now specify how they are discoverable via Zeroconf or SSDP in their manifest, this will be picked up by the zeroconf and ssdp integrations.
  - More cool stuff?
