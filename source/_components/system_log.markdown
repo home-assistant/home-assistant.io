@@ -141,8 +141,9 @@ automation:
       to: 'on'
     action:
       service: system_log.write
-      message: 'Door opened!'
-      level: info
+      data_template:
+        message: 'Door opened!'
+        level: info
 ```
 {% endraw %}
 
