@@ -38,7 +38,7 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
 ```
 
  - Start Home Assistant
- - Call service `python_script/hello_world` with parameters
+ - Call service `python_script.hello_world` with parameters
 
 ```json
 {

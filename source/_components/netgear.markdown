@@ -18,6 +18,10 @@ redirect_from:
 
 This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
 
+<p class='note'>
+A recent updates of Orbi APs introduced a bug which takes several hours to detects presence on your local network. The current workaround is to force this component to use the Orbi's API v2 by adding the `accesspoints:` node to your configuration.
+</p>
+
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml

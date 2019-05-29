@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Nest to turn off their API"
+title: "[Update: new users only] Nest to turn off their API"
 description: "Nest has announced that they will shut down their API in August, no longer allowing you to access your data."
 date: 2019-05-08 00:01:00
 date_formatted: "May 8, 2019"
@@ -9,6 +9,12 @@ author_twitter: balloob
 comments: true
 categories: Public-Service-Announcement
 og_image: /images/blog/2019-05-nest-data-bye-bye/notice.png
+---
+
+**Update May 16:** Nest just announced [in a blog post](https://blog.google/products/google-nest/updates-works-with-nest/) that they changed their plan. It will still retire the Works with Nest program at the end of August, but it will no longer cut off existing users of the API. It will however still stop accepting new users at the end of August.
+
+Currently each Home Assistant user is required to create their own developer account to configure their Nest integration. We will reach out to Nest to see if we can become a partner so that users joining Home Assistant after August can still use Nest.
+
 ---
 
 Sigh. Another one. This time it's not a small one either: Nest is disabling their APIs.
