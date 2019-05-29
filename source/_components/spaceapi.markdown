@@ -116,7 +116,7 @@ sensors:
 
 The list of sensors can be any sensor, not just temperature or humidity.
 
-## Sensor specific location
+## {% linkable_title Sensor specific location %}
 
 The [SpaceAPI specification](https://spaceapi.io/pages/docs.html) requires every sensor to provide a location. 
 In order to set a sensor specific location do the following steps: 
