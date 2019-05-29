@@ -103,12 +103,14 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: [https://github.com/vanviegen/hue-thief/](https://github.com/vanviegen/hue-thief/)
 
+## {% linkable_title Troubleshooting %}
 
-## {% linkable_title ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts %}
+### {% linkable_title ZHA Start up issue with Home-Assistant Docker/Hass.io installs on linux hosts %}
 
 On Linux hosts ZHA can fail to start during HA startup or restarts because the zigbee USB device is being claimed by the host's modemmanager service. To fix this disable the modemmanger on the host system.
 
 To remove modemmanager from an Debian/Ubuntu host run this command:
-```
+
+```bash
 sudo apt-get purge modemmanager
 ```
