@@ -162,6 +162,7 @@ python:
   - "3.5"
 before_install:
   - mv travis_secrets.yaml secrets.yaml
+  - sudo apt-get install -y libudev-dev
 install:
   - pip3 install homeassistant
 script:
