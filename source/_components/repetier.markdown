@@ -12,8 +12,8 @@ ha_category:
   - Hub
   - Sensor
 featured: false
-ha_release: 0.93
-ha_iot_class: "Local Polling"
+ha_release: 0.94
+ha_iot_class: Local Polling
 ---
 
 [Repetier-Server](https://www.repetier-server.com/) is a 3D printer/CNC server, able to control multiple devices on the same server.
@@ -103,6 +103,7 @@ camera:
 ### {% linkable_title Retrieve API-key %}
 
 To generate the needed API-key do the following:
+
 * Go to your Repetier Server web-console
 * Push the settings icon (the gear icon)
 * Select User Profiles.
