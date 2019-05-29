@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: solax-logo.png
-ha_category: Sensor
-ha_release: 0.91
+ha_category:
+  - Energy
+  - Sensor
+ha_release: 0.94
 ha_iot_class: Local Polling
 ---
 
@@ -33,17 +35,7 @@ ip_address:
   type: string
 {% endconfiguration %}
 
-
-### {% linkable_title Full configuration sample %}
-
-A full configuration entry would look like the sample below.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: solax
-    ip_address: 192.168.0.3
-```
+### {% linkable_title Optional template sensor %}
 
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/components/sensor.template/).
 
