@@ -12,7 +12,7 @@ ha_category:
   - DIY
   - Binary Sensor
   - Switch
-ha_release: 
+ha_release: 0.94 
 ha_iot_class: Local Push
 ---
 
@@ -21,8 +21,6 @@ The `rpi_gpio` component is the base for all related GPIO platforms in Home Assi
 ## {% linkable_title Binary Sensor %}
 
 The `remote_rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
-
-## {% linkable_title Configuration %}
 
 To use your Remote Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -76,8 +74,6 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 ## {% linkable_title Switch %}
 
 The `remote_rpi_gpio` switch platform allows you to control the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
-
-## {% linkable_title Configuration %}
 
 To use your Remote Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
 
