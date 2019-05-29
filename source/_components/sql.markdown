@@ -131,7 +131,7 @@ sensor:
 
 #### {% linkable_title MariaDB/MySQL %}
 
-Change table_schema="`hass`" for the name that you use as the database name, to ensure that your sensor will work properly.
+Change `table_schema="hass"` to the name that you use as the database name, to ensure that your sensor will work properly.
 
 {% raw %}
 ```yaml
