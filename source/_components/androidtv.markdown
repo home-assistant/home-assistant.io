@@ -208,7 +208,7 @@ stop_netflix:
 
 ### {% linkable_title `androidtv.adb_command` %}
 
-The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `{{ state_attr('media_player.fire_tv_living_room', 'adb_response') }}`) and logged at the INFO level.
+The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
