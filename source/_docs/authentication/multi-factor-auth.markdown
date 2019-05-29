@@ -75,15 +75,17 @@ Add Notify MFA to your `configuration.yaml` file like this:
 homeassistant:
   auth_mfa_modules:
     - type: notify
+      include:
+        - notify_entity
 ```
 
 {% configuration %}
 exclude:
-  description: The list of notifying services you want to exclude.
+  description: The list of notifying service entitys you want to exclude.
   required: false
   type: list
 include:
-  description: The list of notifying services you want to include.
+  description: The list of notifying service entitys you want to include.
   required: false
   type: list
 message:
