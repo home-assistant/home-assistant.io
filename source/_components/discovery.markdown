@@ -25,6 +25,7 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [DirecTV receivers](/components/media_player.directv/)
  * [DLNA DMR enabled devices](/components/media_player.dlna_dmr/)
  * [Enigma2 media player](/components/media_player.enigma2/)
+ * [ESPHome](/components/esphome/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
  * [HomeKit](/components/homekit_controller/)
