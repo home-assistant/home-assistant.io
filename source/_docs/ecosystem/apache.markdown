@@ -28,7 +28,7 @@ Enable [`mod_proxy_wstunnel`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_ws
 $ sudo a2enmod proxy_wstunnel
 ```
 
-To be able to access to your Home Assistant instance by using https://home.example.org, add to following file to `/etc/httpd/conf/extra/` as `hass.conf`
+To be able to access to your Home Assistant instance by using https://home.example.org, add the following file to `/etc/httpd/conf/extra/` as `hass.conf`
 
 ```text
 <VirtualHost *:443>

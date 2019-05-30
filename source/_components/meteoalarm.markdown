@@ -54,7 +54,7 @@ language:
 
 You will find an example below when the state is "on".
 
-{% raw %}
+```
 attribution: Information provided by MeteoAlarm
 language: en-GB
 category: Met
@@ -76,7 +76,7 @@ awareness_type: 8; forest-fire
 unit_of_measurement:
 friendly_name: meteoalarm
 icon: mdi:alert
-{% endraw %}
+```
 
 There are a few awareness levels:
 
@@ -89,6 +89,7 @@ There are a few awareness levels:
 Below you find an example of an automation.
 
 {% raw %}
+```yaml
 automation:
   - alias: Alert me about weather warnings
     trigger:
@@ -100,6 +101,7 @@ automation:
         data_template:
           title: '{{state_attr('binary_sensor.meteoalarm', 'headline')}}'
           message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
+```
 {% endraw %}
 
 <p class='note warning'>

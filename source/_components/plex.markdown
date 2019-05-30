@@ -93,8 +93,6 @@ You can customize the Plex component by adding any of the variables below to you
 # Example configuration.yaml entry
 media_player:
   - platform: plex
-    include_non_clients: true
-    scan_interval: 5
     show_all_controls: false
     use_episode_art: true
     remove_unavailable_clients: true
@@ -102,16 +100,6 @@ media_player:
 ```
 
 {% configuration %}
-include_non_clients:
-  description: "Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's)."
-  required: false
-  default: false
-  type: boolean
-scan_interval:
-  description: "Amount in seconds in between polling for device’s current activity."
-  required: false
-  default: 10
-  type: int
 show_all_controls:
   description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
   required: false
