@@ -14,12 +14,13 @@ og_image: /images/blog/2019-06-release-94/components.png
 <a href='/components/#version/0.94'><img src='/images/blog/2019-06-release-94/components.png' style='border: 0;box-shadow: none;'></a>
 
 New:
- - Possible to store core config in storage. If set in configuration.yaml, it will override storage. Note that configuration.yaml will no longer contain any automatic detected values when writing initial configuration. This feature is available via the UI during onboarding.
+ - Possible to store core config in storage. If set in configuration.yaml, it will override storage (this is what anyone coming from 0.93 has). Note that configuration.yaml will no longer contain any automatic detected values when writing initial configuration. This feature is available via the UI during onboarding.
+ - Allow deletion of scripts/automations via the UI editor.
+ - This is the first release where a user can use a subset of Home Assistant without using configuration.yaml.
  - Step added to onboarding to allow configuring name, location, timezone and unit system.
  - Python 3.5.3 deprecated, support will be dropped in the first release after August 1.
  - Add UI to manage Google Entities exposed via Home Assistant Cloud. To use, remove filters from configuration.yaml. Also allows disabling 2 factor authentication on a per device basis.
- - Discovery has been redone. Integrations can now specify how they are discoverable via Zeroconf or SSDP in their manifest, this will be picked up by the zeroconf and ssdp integrations.
- - More cool stuff?
+ - Discovery has been redone. Integrations can now specify how they are discoverable via Zeroconf or SSDP in their manifest, this will be picked up by the zeroconf and ssdp integrations. The new discovery is non-obtrusive: nothing is added to your configuration without approval by the user. You can find integrations pending approval in the discovered section of the integrations page in the config.
 
 ## {% linkable_title New Integrations %}
 
