@@ -57,7 +57,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - Quiet the chatty sun.sun ([@Swamp-Ig] - [#23832]) ([sun docs]) (breaking change)
 - Doorbird Refactor ([@oblogic7] - [#23892]) ([doorbird docs]) (breaking change)
-- ESPHome component to use zeroconf discovery ([@Kane610] - [#24043]) ([esphome docs]) (breaking change)
 - Always update all Plex client types ([@jjlawren] - [#24038]) ([plex docs]) (breaking change)
 - Fix entity id naming when not using first install ([@tkjacobsen] - [#23606]) ([verisure docs]) (breaking change)
 - Update the name of Zestimate sensors ([@dreed47] - [#23770]) ([zestimate docs]) (breaking change)
