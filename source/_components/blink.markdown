@@ -73,6 +73,16 @@ sensors:
       required: false
       type: list
       default: all (`battery`, `temperature`, `wifi_strength`)
+offset:
+  description: How far back in time (minutes) to look for motion. Motion is determined if a new video has been recorded between now and the last time you refreshed plus this offset.
+  required: false
+  type: integer
+  default: 1
+mode:
+  description: Set to 'legacy' to enable use of old API endpoint subdomains (APIs can differ based on region, so use this if you are having issues with the integration).
+  required: false
+  type: string
+  default: not set
 {% endconfiguration %}
 
 Once Home Assistant starts, the `blink` component will create the following platforms:

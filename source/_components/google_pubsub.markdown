@@ -55,9 +55,8 @@ credentials_json:
   type: string
 filter:
   description: Filter domains and entities for Google Cloud Pub/Sub.
-  required: false
+  required: true
   type: map
-  default: Includes all entities from all domains
   keys:
     include_domains:
       description: List of domains to include (e.g., `light`).

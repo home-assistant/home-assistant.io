@@ -12,7 +12,7 @@ redirect_from: /components/lovelace/
 
 Lovelace is the name of the Home Assistant user interface. It is a fast, customizable and powerful way for users to manage their homes, working both on mobile and desktop.
 
- - [24 cards](https://www.home-assistant.io/lovelace/alarm-panel/) to place and configure as you like.
+ - 24 different cards to place and configure as you like.
  - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
  - Fast. Using a static config allows us to build up the UI once.
  - Customizable.

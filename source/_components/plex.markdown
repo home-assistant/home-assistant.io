@@ -94,7 +94,6 @@ You can customize the Plex component by adding any of the variables below to you
 media_player:
   - platform: plex
     entity_namespace: 'plex'
-    include_non_clients: true
     show_all_controls: false
     use_custom_entity_ids: true
     use_episode_art: true
@@ -107,11 +106,6 @@ entity_namespace:
   description: "Prefix for entity ID's. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_"
   required: false
   type: string
-include_non_clients:
-  description: "Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's)."
-  required: false
-  default: false
-  type: boolean
 show_all_controls:
   description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
   required: false
