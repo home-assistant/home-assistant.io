@@ -9,7 +9,8 @@ sharing: true
 footer: true
 logo: life360.png
 ha_release: 0.95
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_iot_class: Cloud Polling
 ---
 
