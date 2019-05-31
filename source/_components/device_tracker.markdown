@@ -7,14 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category:
+  - Presence Detection
 ha_release: 0.7
 ---
 
-Home Assistant can get information from your wireless router or third party services like iCloud or OwnTracks to track which devices are connected and considered "in home". Please check the sidebar for a list of  brands of supported wireless routers and services.
-
-There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/nmap_tracker/) to scan the network for devices.
-
-An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time.
+The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
 ## {% linkable_title Configuring a `device_tracker` platform %}
 
@@ -24,8 +22,8 @@ To get started add the following lines to your `configuration.yaml` (example for
 # Example configuration.yaml entry for Netgear device
 device_tracker:
   - platform: netgear
-    host: 192.168.1.1
-    username: admin
+    host: IP_ADDRESS
+    username: YOUR_USERNAME
     password: YOUR_PASSWORD
     new_device_defaults:
       track_new_devices: true
@@ -54,8 +52,8 @@ The extended example from above would look like the following sample:
 # Example configuration.yaml entry for Netgear device
 device_tracker:
   - platform: netgear
-    host: 192.168.1.1
-    username: admin
+    host: IP_ADDRESS
+    username: YOUR_USERNAME
     interval_seconds: 10
     consider_home: 180
     new_device_defaults:
@@ -93,24 +91,6 @@ devicename:
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |
 | `hide_if_away` | false                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home.                                |
 | `consider_home` | [uses platform setting]      | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                 |
-
-## {% linkable_title Using GPS device trackers with local network device trackers %}
-
-GPS based device trackers (like [OwnTracks](/components/owntracks/), [GPSLogger](/components/gpslogger) and others) can also be used with local network device trackers, such as [Nmap](/components/nmap_tracker/) or [Netgear](/components/netgear/). To do this, fill in the `mac` field to the entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by *the source that reported last*. The naming convention for known device list is `<username>_<device-id>` and could be set in the app configuration.
-
-An example showing the inclusion of the `mac` field for multiple platform tracking. The `mac` field was added to the GPS based device tracker entry and will enable tracking by all platforms that track via the `mac` address.
-
-```yaml
-USERNAME_DEVICE_ID:
-  name: Friendly Name
-  mac: EA:AA:55:E7:C6:94
-  picture: https://www.home-assistant.io/images/favicon-192x192.png
-  gravatar: test@example.com
-  track: true
-  hide_if_away: false
-```
-
-If you want to track whether either your GPS based tracker or your local network tracker, identify you as being at home, use [a group](/components/group/) instead.
 
 ## {% linkable_title Device states %}
 

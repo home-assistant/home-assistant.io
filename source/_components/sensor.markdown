@@ -7,28 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category:
+  - Sensor
 ha_release: 0.7
 ---
 
 Sensors are gathering information about states and conditions.
 
-Home Assistant currently supports a wide range of sensors. They are able to display information which are provides by Home Assistant directly, are gathered from web services, and, of course, physical devices. Please check the sidebar for a full list of supported sensor platforms.
-
-## {% linkable_title Device Class %}
-
-The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for sensors:
-
-- **None**: Generic sensor. This is the default and doesn't need to be set.
-- **battery**: Percentage of battery that is left.
-- **humidity**: Percentage of humidity in the air.
-- **illuminance**: The current light level in lx or lm.
-- **signal_strength**: Signal strength in dB or dBm.
-- **temperature**: Temperature in °C or °F.
-- **power**: Power in W or kW.
-- **pressure**: Pressure in hPa or mbar.
-- **timestamp**: Datetime object or timestamp string.
+Home Assistant currently supports a wide range of sensors. They are able to display information which are provides by Home Assistant directly, are gathered from web services, and, of course, physical devices.
 
 <p class='img'>
 <img src='/images/screenshots/sensor_device_classes_icons.png' />
-Example of various device class icons for sensors.
 </p>

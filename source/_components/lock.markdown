@@ -7,6 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category:
+  - Lock
 ha_release: 0.9
 ---
 
