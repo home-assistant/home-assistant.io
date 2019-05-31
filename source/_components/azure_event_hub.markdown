@@ -33,9 +33,9 @@ Add the following lines to your `configuration.yaml` file:
 # Example configuration.yaml entry
 azure_event_hub:
   event_hub_namespace: NAMESPACE_NAME
-  event_hub_instance_name:  EVENT HUB INSTANCE NAME
-  event_hub_sas_policy: SAS POLICY NAME
-  event_hub_sas_key: SAS KEY
+  event_hub_instance_name: EVENT_HUB_INSTANCE_NAME
+  event_hub_sas_policy: SAS_POLICY_NAME
+  event_hub_sas_key: SAS_KEY
   filter:
     include_domains:
     - homeassistant
@@ -87,6 +87,7 @@ filter:
 <p class='note warning'>
   Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space. 
 </p>
+
 <p class='note warning'>
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </p>
