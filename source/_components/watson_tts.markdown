@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: watson_tts.png
 ha_category: Text-to-speech
-ha_release: 0.93
+ha_release: 0.94
 ---
 
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
@@ -29,7 +29,7 @@ To configure Watson TTS, add the following lines to your `configuration.yaml`:
 # Example configuration.yaml entry
 tts:
   - platform: watson_tts
-    watson_apikey: your-generated-apikey
+    watson_apikey: YOUR_GENERATED_APIKEY
 ```
 
 You can get these tokens after you generated the credentials on the IBM Cloud console:
