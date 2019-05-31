@@ -208,7 +208,7 @@ stop_netflix:
 
 ### {% linkable_title `androidtv.adb_command` %}
 
-The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device.
+The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -240,4 +240,4 @@ Available key commands include:
 
 The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/e1c07176efc9216cdcff8245c920224c0234ea56/androidtv/constants.py#L115-L155).
 
-You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be logged at the INFO level and can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
+You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level, this information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
