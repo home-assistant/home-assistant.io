@@ -7,19 +7,12 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+ha_category:
+  - Climate
 ha_release: 0.19
 ---
 
-
 The `climate` component is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) and thermostat devices.
- 
-To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-climate:
-  platform: demo
-```
 
 ## {% linkable_title Services %}
 
@@ -238,13 +231,3 @@ Turn climate device off
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Targets all when omitted.
-
-#### {% linkable_title Customization  %}
-
-The step for the setpoint can be adjusted (default to 0,5 increments) by adding the following line into configuration
-
-```yaml
-customize:
-  - entity_id
-      target_temp_step: 1
-```
