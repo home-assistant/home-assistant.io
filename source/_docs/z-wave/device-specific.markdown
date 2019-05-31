@@ -167,7 +167,7 @@ Some models of the Zooz Toggle switches ship with an instruction manual with inc
 
 ## {% linkable_title Central Scene configuration %}
 
-To provide Central Scene support you need to shut Home Assistant down and modify your `zwcfg_*.xml` file according to the following guides.
+To provide Central Scene support you need to **shut Home Assistant down** and modify your `zwcfg_*.xml` file according to the following guides.
 
 ### {% linkable_title Inovelli Scene Capable On/Off and Dimmer Wall Switches %}
 
@@ -386,7 +386,7 @@ Button four release|4|1
 
 Use the same configuration as for the Aeotec Wallmote.
 
-### {% linkable_title HANK One-key Scene Controller HKZN-SCN01 %}
+### {% linkable_title HANK One-key Scene Controller HKZN-SCN01/HKZW-SCN01 %}
 
 For the HANK One-key Scene Controller, you may need to update the `COMMAND_CLASS_CENTRAL_SCENE` for each node in your `zwcfg` file with the following:
 
