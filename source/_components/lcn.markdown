@@ -44,7 +44,6 @@ There is currently support for the following device types within Home Assistant:
   They are ideal to be used in automation scripts or for the `template` platforms.
 </p>
 
-
 ## {% linkable_title Configuration %}
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
