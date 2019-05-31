@@ -167,7 +167,7 @@ Some models of the Zooz Toggle switches ship with an instruction manual with inc
 
 ## {% linkable_title Central Scene configuration %}
 
-To provide Central Scene support you need to **shut Home Assistant down** and modify your `zwcfg_*.xml` file according to the following guides.
+To provide Central Scene support you need to **shutdown Home Assistant** and modify your `zwcfg_*.xml` file according to the following guides.
 
 ### {% linkable_title Inovelli Scene Capable On/Off and Dimmer Wall Switches %}
 
