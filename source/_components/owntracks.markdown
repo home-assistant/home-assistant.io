@@ -24,17 +24,9 @@ By default the integration will listen for incoming messages from OwnTracks via 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title Configuring the component %}
+## {% linkable_title Configuration %}
 
-1. Open the Home Assistant frontend
-1. Open Settings -> integrations
-1. If you see an Owntracks component under 'Configured', delete it.
-   - Click on it.
-   - Click on the trashcan icon in the upper right corner.
-1. Now, look for Owntracks in 'Setup new integration' and click on CONFIGURE.
-1. The login credentials and configuration for owntracks will be presented to you.
-   in a popup window. You will need these in the configuration for the app as mentioned below.
-1. Save these credentials somewhere, as there is no way to get it back at a later point in time if it is lost, besides         repeating step 1-5
+To configure OwnTracks, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration (below).
 
 ### {% linkable_title Configuring the app - Android %}
 
@@ -43,7 +35,7 @@ By default the integration will listen for incoming messages from OwnTracks via 
 In the OwnTracks app, open sidebar and click on preferences, then on connection. Change the following settings:
 
  - Mode: Private HTTP
- - Host: `<URL given to you when setting up the integration above>`
+ - Host: `<URL given to you when setting up the integration>`
  - Identification:
    - Username: `<Username>`
    - Password: Can be left blank.
@@ -167,19 +159,3 @@ By default, any Owntracks user connected to Home Assistant can export their wayp
 
 1. The configuration variable `waypoints` can be set to `false` which will disable importing waypoints for all users.
 2. The configuration variable `waypoint_whitelist` can contain a list of users who are allowed to import waypoints.
-
-## {% linkable_title Using Owntracks with other device trackers %}
-
-Owntracks can also be used with other device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the Owntracks entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by the source that reported last. The naming convention for known device list is `<username>_<device-id>` and could be set in app configuration. More details about this config can found in [device tracker](/components/device_tracker/).
-
-An example showing the inclusion of the `mac` field for multiple component tracking. The `mac` field will need to be added to the `owntracks` device and will enable tracking by all components that track via the `mac` address.
-
-```yaml
-USERNAME_DEVICE_ID:
-  name: Friendly Name
-  mac: EA:AA:55:E7:C6:94
-  picture: https://www.home-assistant.io/images/favicon-192x192.png
-  gravatar: test@example.com
-  track: true
-  hide_if_away: false
-```
