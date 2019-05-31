@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: watson_tts.png
-ha_category: Text-to-speech
+ha_category:
+  - Text-to-speech
 ha_release: 0.94
 ---
 
