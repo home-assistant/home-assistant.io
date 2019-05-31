@@ -8,7 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: adguard.png
-ha_category: Network
+ha_category:
+  - Network
+  - Sensor
+  - Switch
 ha_release: 0.95
 ha_iot_class: Local Polling
 ---
