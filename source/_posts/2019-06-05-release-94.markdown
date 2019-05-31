@@ -20,8 +20,8 @@ New:
  - Step added to onboarding to allow configuring name, location, timezone and unit system.
  - Python 3.5.3 deprecated, support will be dropped in the first release after August 1.
  - Add UI to manage Google Entities exposed via Home Assistant Cloud. To use, remove filters from configuration.yaml. Also allows disabling 2 factor authentication on a per device basis.
- - Discovery has been redone. Integrations can now specify how they are discoverable via Zeroconf, SSDP or HomeKit in their manifest, this will be picked up by the zeroconf and ssdp integrations. The new discovery is non-obtrusive: nothing is added to your configuration without approval by the user. You can find integrations pending approval in the discovered section of the integrations page in the config. Only a handful of integrations have been migrated to the new approach in this release. Thanks to [@Kane610], [@Jc2k]
-
+ - Discovery has been redone. Integrations can now specify how they are discoverable via Zeroconf, SSDP or HomeKit in their manifest, this will be picked up by the zeroconf and ssdp integrations, which are part of the default config. The new discovery is non-obtrusive: nothing is added to your configuration without approval by the user. You can find integrations pending approval in the discovered section of the integrations page in the config. Only a handful of integrations have been migrated to the new approach in this release. Thanks to [@Kane610], [@Jc2k]. If you are not using the `default_config` integration, add `ssdp:` and `zeroconf:` to your configuration.yaml.
+ - We are bringing the device tracker integration into the age of modern integrations. The first step has been to migrating the platforms that use config entries like OwnTracks and GPSLogger. This means that for these integrations, you will now be able to use things like entity registry to change entity ID and name.
 
 ## {% linkable_title New Integrations %}
 
