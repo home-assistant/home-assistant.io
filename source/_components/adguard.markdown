@@ -10,7 +10,7 @@ footer: true
 logo: adguard.png
 ha_category: Network
 ha_release: 0.95
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 AdGuard Home is a network-wide ad-and-tracker blocking DNS server with parental
