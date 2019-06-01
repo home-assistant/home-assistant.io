@@ -73,9 +73,7 @@ name:
   type: string
   default: REST Binary Sensor
 device_class:
-  description: >
-    The [type/class](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes) of
-    the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:

@@ -55,7 +55,7 @@ devices:
           required: false
           type: list
         device_class:
-          description: The [type or class of the sensor](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes) to set the icon in the frontend.
+          description: Sets the [class of the device](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         off_delay:
