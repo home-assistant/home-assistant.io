@@ -38,6 +38,12 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
+<p class='note'>
+  Please note: Besides the implemented platforms the `lcn` component offers a variety of [service calls](#services).
+  These service calls cover functionalities of the LCN system which cannot be represented by the platform implementations.
+  They are ideal to be used in automation scripts or for the `template` platforms.
+</p>
+
 ## {% linkable_title Configuration %}
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
@@ -343,6 +349,8 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | THRESHOLD | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
 | S0_INPUT | `s0input1`, `s0input2`, `s0input3`, `s0input4` |
 | VAR_UNIT | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree` |
+| TIME_UNIT | `seconds`, `minutes`, `hours`, `days` |
+| RELVARREF | `current`, `prog` |
 
 ### {% linkable_title States %}:
 
@@ -414,3 +422,256 @@ The `lcn` switch platform allows the control of the following [LCN](http://www.l
 
 - Output ports
 - Relays
+
+## {% linkable_title Services %}
+
+In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
+Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them. 
+
+### {% linkable_title Service `output_abs` %}
+
+Set absolute brightness of output port in percent.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
+| `brightness` | Yes | Absolute brightness in percent | 0..100 | 
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+
+Example:
+
+```
+{"address": "myhome.0.7", "output": "output1", "brightness": 100, "transition": 0}
+```
+
+### {% linkable_title Service `output_rel` %}
+
+Set relative brightness of output port in percent.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
+| `brightness` | Yes | Relative brightness in percent | -100..100 | 
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+
+Example:
+
+```
+{"address": "myhome.0.7", "output": "output1", "brightness": 30}
+```
+
+### {% linkable_title Service `output_toggle` %}
+
+Toggle output port.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+
+Example:
+
+```
+{"address": "myhome.0.7", "output": "output1", "transition": 0}
+```
+
+### {% linkable_title Service `relays` %}
+
+Set the relays status. The relays states are defined as a string with eight characters.
+Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=nochange).
+
+Example states:  `t---001-`
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `state` | No | Relay states as string |
+
+Example:
+
+```
+{"address": "myhome.0.7", "state": "t---001-"}
+```
+
+### {% linkable_title Service `led` %}
+
+Set the led status.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `state` | No | Led state as string | [LED_STATE](#states) |
+
+Example:
+
+```
+{"address": "myhome.0.7", "led": "led6", "state": "blink"}
+```
+
+### {% linkable_title Service `var_abs` %}
+
+Set the absolute value of a variable or setpoint.
+If `value` is not defined, it is assumed to be 0.
+If `unit_of_measurement` is not defined, it is assumed to be `native`.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `variable` | No | Variable name | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
+| `value` | Yes | Variable value | _any positive number_ |
+| `unit_of_measurement` | Yes | Variable unit | [VAR_UNIT](#variables-and-units) |
+
+Example:
+
+```
+{"address": "myhome.0.7", "variable": "var1", "value": 75, "unit_of_measurement": "%"}
+```
+
+<p class='note'>
+  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+  Otherwise the module might show unexpected behaviors or return error messages.
+</p>
+
+### {% linkable_title Service `var_rel` %}
+
+Set the relative value of a variable or setpoint.
+If `value` is not defined, it is assumed to be 0.
+If `unit_of_measurement` is not defined, it is assumed to be `native`.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `variable` | No | Variable name | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units) |
+| `value` | Yes | Variable value | _any positive or negative number_ |
+| `unit_of_measurement` | Yes | Variable unit | [VAR_UNIT](#variables-and-units) |
+
+Example:
+
+```
+{"address": "myhome.0.7", "variable": "var1", "value": 10, "unit_of_measurement": "%"}
+```
+
+<p class='note'>
+  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+  Otherwise the module might show unexpected behavior or return error messages.
+</p>
+
+### {% linkable_title Service `var_reset` %}
+
+Reset value of variable or setpoint.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `variable` | No | Variable name | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
+
+Example:
+
+```
+{"address": "myhome.0.7", "variable": "var1"}
+```
+
+<p class='note'>
+  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+  Otherwise the module might show unexpected behavior or return error messages.
+</p>
+
+### {% linkable_title Service `lock_regulator` %}
+
+Locks a regulator setpoint.
+If `state` is not defined, it is assumed to be `False`.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `setpoint` | No | Setpoint name | [SETPOINT](#variables-and-units) |
+| `state` | Yes | Lock state | true, false |
+
+Example:
+
+```
+{"address": "myhome.0.7", "setpoint": "r1varsetpoint", "state": true}
+```
+
+### {% linkable_title Service `send_keys` %}
+
+Send keys (which executes bound commands).
+The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
+If `state` is not defined, it is assumed to be `hit`.
+The command allow the sending of keys immediately or deferred. For a deferred sendig the attributes `time` and `time_unit` have to be specified. For deferred sending the only key state allowed is `hit`.
+If `time_unit` is not defined, it is assumed to be `seconds`.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `keys` | No | Keys string |
+| `state` | Yes | Keys state | [SENDKEYCOMMANDS](#states) |
+| `time` | Yes | Deferred time | 0.. |
+| `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
+
+Examples:
+
+```
+{"address": "myhome.0.7", "keys": "a1a5d8", "state": "hit"}
+{"address": "myhome.0.7", "keys": "a1a5d8", "time": 5, "time_unit": "s"}
+```
+
+### {% linkable_title Service `lock_keys` %}
+
+Locks keys.
+If table is not defined, it is assumend to be table `a`.
+The key lock states are defined as a string with eight characters. Each character represents the state change of a key lock (1=on, 0=off, t=toggle, -=nochange).
+The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only tabley `a` is allowed.
+If `time_unit` is not defined, it is assumed to be `seconds`.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `table` | Yes | Table with keys to lock |
+| `state` | No | Key lock states as string | [SENDKEYCOMMANDS](#states) |
+| `time` | Yes | Time period to lock | 0.. |
+| `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
+
+Examples:
+
+```
+{"address": "myhome.0.7", "table": "a", "state": "1---t0--"}
+{"address": "myhome.0.7", "state": "1---t0--", "time": 10, "time_unit": "s"}
+```
+
+### {% linkable_title Service `dyn_text` %}
+
+Send dynamic text to LCN-GTxD displays.
+The displays support four rows for text messages.
+Each row can be set independently and can store up to 60 characters (encoded in UTF-8).
+
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `row` | No | Text row 1..4 |
+| `text` | No | Text to send for the specified row |
+
+Example:
+
+```
+{"address": "myhome.0.7", "row": 1, "text": "text in row 1"}
+```
+
+### {% linkable_title Service `pck` %}
+
+Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
+
+| Service data attribute | Optional | Description  | Values |
+| ---------------------- | -------- | -----------  | ------ |
+| `address` | No | [LCN address](#lcn-addresses) |
+| `pck` | No | PCK command |
+
+Example:
+
+```
+{"address": "myhome.0.7", "pck": "PIN4"}
+```
