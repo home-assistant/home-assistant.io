@@ -250,6 +250,6 @@ name:
   type: string
 device_class:
   required: false
-  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (awning, blind, curtain, damper, door, garage, shade, shutter, window)
+  description: Sets the [class of the device](https://developers.home-assistant.io/docs/en/entity_cover.html#device-classes), changing the device state and icon that is displayed on the UI.
   type: device_class
 {% endconfiguration %}

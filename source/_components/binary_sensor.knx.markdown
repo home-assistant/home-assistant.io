@@ -37,7 +37,7 @@ name:
   required: false
   type: string
 device_class:
-  description: HASS device class e.g., "motion".
+  description: The [type/device class](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes) e.g., "motion".
   required: false
   type: string
 significant_bit:
