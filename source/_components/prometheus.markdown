@@ -9,7 +9,7 @@ sharing: true
 logo: prometheus.png
 footer: true
 ha_category:
-  - "History"
+  - History
 ha_release: 0.49
 ---
 
