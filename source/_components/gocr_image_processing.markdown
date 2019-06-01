@@ -8,6 +8,28 @@ $ sudo dnf -y install gocr # Fedora
 $ sudo apt install gocr # Ubuntu
 $ brew install gocr # macOS
 ```
+For a docker managed version of Homeassistant, here is how to get a homeassistant Docker image that has gocr installed:
+
+First, create the following Dockerfile:
+`
+FROM homeassistant/home-assistant
+
+RUN wget http://www-e.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz -O gocr.tar.gz
+RUN tar -zxvf gocr.tar.gz
+
+RUN bash gocr-0.52/configure
+RUN make -C gocr-0.52 install
+RUN rm -R gocr*
+`
+Once you have the Dockerfile, run the following command to create the Docker image (this can take some time):
+
+`docker build . -t homeassistant.`
+
+You can than run this image with the following command:
+`docker run -d --name="home-assistant-cluster" --restart unless-stopped -v /srv/homeautomation/hass-config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistantimage`
+
+You now have a Docker managed homeassistant with GOCR compiled. You can use this component with it.
+
 
 To enable the OCR of any text in your installation, add the following to your `configuration.yaml` file:
 
