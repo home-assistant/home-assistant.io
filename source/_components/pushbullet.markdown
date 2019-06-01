@@ -23,6 +23,10 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Notifications](#notifications)
 
+<p class='note'>
+The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
+</p>
+
 ### {% linkable_title Sensor %}
 
 The `pushbullet` sensor platform reads messages from [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends. This sensor platform provides sensors that show the properties of the latest received Pushbullet notification mirror.
@@ -83,7 +87,7 @@ All properties will be displayed as attributes. The properties array are just fo
 
 ## {% linkable_title Notifications %}
 
-The `pushbullet` notification platform sends messages to [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends.
+The `pushbullet` notification platform sends messages to [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends. The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
 
 To enable Pushbullet notifications in your installation, add the following to your `configuration.yaml` file:
 
