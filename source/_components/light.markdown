@@ -7,8 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
 ha_category:
   - Light
+ha_qa_scale: internal
 ha_release: pre 0.7
 ---
 
