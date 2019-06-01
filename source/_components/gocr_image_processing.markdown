@@ -28,6 +28,7 @@ Once you have the Dockerfile, run the following command to create the Docker ima
 `docker build . -t homeassistant.`
 
 You can than run this image with the following command:
+
 `docker run -d --name="home-assistant-cluster" --restart unless-stopped -v /srv/homeautomation/hass-config:/config -v /etc/localtime:/etc/localtime:ro --net=host homeassistantimage`
 
 You now have a Docker managed homeassistant with GOCR compiled. You can use this component with it.
