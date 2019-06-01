@@ -138,7 +138,7 @@ image_processing:
     extra_arguments: "-m 2 -p /etc/homeassistant/gocr/db/ -m 256"
 ```
 With the help of a [template sensor](/components/sensor.template/), the value can be shown as badge.
-{% raw %}
+
 ```yaml
 sensor :
   - platform: template
@@ -148,4 +148,3 @@ sensor :
         unit_of_measurement: "°C"
         value_template: "{{ states('image_processing.livingroom_temperature_ocr') | float }}"
 ```
-{% endraw %}
