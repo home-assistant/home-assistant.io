@@ -11,7 +11,8 @@ $ brew install gocr # macOS
 For a docker managed version of Homeassistant, here is how to get a homeassistant Docker image that has gocr installed:
 
 First, create the following Dockerfile:
-`
+
+```
 FROM homeassistant/home-assistant
 
 RUN wget http://www-e.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz -O gocr.tar.gz
@@ -20,7 +21,8 @@ RUN tar -zxvf gocr.tar.gz
 RUN bash gocr-0.52/configure
 RUN make -C gocr-0.52 install
 RUN rm -R gocr*
-`
+```
+
 Once you have the Dockerfile, run the following command to create the Docker image (this can take some time):
 
 `docker build . -t homeassistant.`
