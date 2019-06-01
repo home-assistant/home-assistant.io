@@ -63,7 +63,7 @@ devices:
       required: false
       type: string
     device_class:
-      description: "The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend."
+      description: "The [type or class of the sensor](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes) to set the icon in the frontend."
       required: false
       type: device_class
     fire_event:

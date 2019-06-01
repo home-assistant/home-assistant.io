@@ -31,6 +31,7 @@ binary_sensor:
 <p class='note'>
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
 </p>
+
 {% configuration %}
 command:
   description: The action to take to get the value.
@@ -42,7 +43,7 @@ name:
   type: string
   default: "*name* from the device"
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: The [type/class](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes) of the sensor to set the icon in the frontend.
   required: false
   type: string
 payload_on:

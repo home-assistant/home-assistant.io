@@ -78,7 +78,7 @@ i2c_hats:
           default: false
           type: boolean
         device_class:
-          description: See device classes in [binary_sensor component](/components/binary_sensor/).
+          description: See device classes in [binary_sensor component](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes).
           required: false
           default: "None"
           type: string

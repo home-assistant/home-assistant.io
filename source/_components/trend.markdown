@@ -55,7 +55,7 @@ sensors:
       type: string
     device_class:
       description: >
-        The [type/class](/components/binary_sensor/#device-class) of
+        The [type/class](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes) of
         the sensor to set the icon in the frontend.
       required: false
       type: string
