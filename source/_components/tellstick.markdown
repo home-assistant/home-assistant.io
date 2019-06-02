@@ -107,6 +107,10 @@ sensor:
   description: "Entry for a sensor with the ID and its name, e.g., ID: Name."
   required: false
   type: string
+max_age:
+  description: "Only add sensors that has received a value within this time (seconds)"
+  required: false
+  type: integer
 only_named:
   description: Only add and include specified sensors. If this is not specified all sensors will be imported and the names will be based on each sensor's ID number.
   required: false
@@ -145,6 +149,7 @@ sensor:
   - platform: tellstick
     temperature_scale: "°C"
     datatype_mask: 1
+    max_age: 300
     only_named:
       - id: 135
         name: Outside
