@@ -9,15 +9,11 @@ sharing: true
 footer: true
 logo: jlr.png
 ha_category:
-  - Car
   - Binary Sensor
   - Sensor
   - Car
 ha_release: 0.95
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/binary_sensor.jlrincontrol/
- - /components/sensor.jlrincontrol/
 ---
 
 The `JLRIncontrol` component allows you to view the status of your Jaguar/Land Rover vehicle in Home Assistant.
@@ -35,7 +31,6 @@ Add the following lines to your `configuration.yaml` file:
 jlrincontrol:
   username: 'EMAIL_ADDRESS'
   password: 'PASSWORD'
-  scan_interval: 300
   name:
     17digitvehiclevin: 'Some name for your vehicle'
 ```
