@@ -10,8 +10,11 @@ footer: true
 logo: jlr.png
 ha_category:
   - Car
-ha_release: 0.94
-ha_iot_class: Polling
+  - Binary Sensor
+  - Sensor
+  - Car
+ha_release: 0.95
+ha_iot_class: Cloud Polling
 redirect_from:
  - /components/binary_sensor.jlrincontrol/
  - /components/sensor.jlrincontrol/
@@ -30,8 +33,8 @@ Add the following lines to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 jlrincontrol:
-  username: 'email@domain.com'
-  password: 'password'
+  username: 'EMAIL_ADDRESS'
+  password: 'PASSWORD'
   scan_interval: 300
   name:
     17digitvehiclevin: 'Some name for your vehicle'
