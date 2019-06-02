@@ -9,6 +9,8 @@ sharing: true
 footer: true
 ha_category:
   - Sensor
+  - Utility
+  - Sensor
 ha_release: 0.95
 ha_iot_class: Local Push
 ha_qa_scale: internal
