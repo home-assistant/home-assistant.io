@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-<<<<<<< HEAD
 ha_category:
   - Sensor
 ha_release: 0.95
@@ -85,28 +84,6 @@ Example of how a daily average temperature configuration can look:
 
 ```yaml
 # Example configuration.yaml entry
-
-=======
-logo: home-assistant.png
-ha_category:
-  - Sensor
-ha_release: 0.95
-ha_iot_class: Local Push
-ha_qa_scale: internal
----
-
-The `weightedaverage` sensor calculates an average value from another sensor, that is weighted according to the duration for each individual sensor value.
-This is useful when the source sensor state is updated at uneven intervals, typically a temperature sensor that is only updated when the temperature changes. The weighted average takes into account the 'weight' (i.e. the duration) for each temperature.
-The sensor also records the maximum and minimum sensor values for the given duration, as well as the top rates at which the sensor value has ascended or descended.
-
-
-## {% linkable_title Configuration %}
-
-To add the weighted average sensor to your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
->>>>>>> branch 'weighted-average' of https://github.com/stafbulp/home-assistant.io.git
 sensor:
   - platform: weightedaverage
     name: daily_average_temperature
