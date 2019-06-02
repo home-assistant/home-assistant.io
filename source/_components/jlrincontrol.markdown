@@ -54,6 +54,7 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
 <p class='note warning'>
   Set scan_interval to something reasonable to avoid hammering the JLR servers unncessarily. Minimum allowed is 60 seconds, and there is no maximum.
 </p>
