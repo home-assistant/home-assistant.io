@@ -24,6 +24,6 @@ The configurator component allows components to request information from the use
 - Input fields can be defined with a description, and optional type
 - It will trigger a callback when the button is pressed
 
-The Hue component in [the demo](/demo) and Plex are implemented using the configurator. See [the source of the demo component](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/demo.py#L132) for a simple example.
+The Hue component in [the demo](/demo) and Plex are implemented using the configurator. See [the source of the demo component](https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/demo) for a simple example.
 
-See [the source](https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/configurator.py#L39) for more details on how to use the configurator component.
+See [the source](https://github.com/home-assistant/home-assistant/tree/dev/homeassistant/components/configurator) for more details on how to use the configurator component.
