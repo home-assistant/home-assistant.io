@@ -145,7 +145,7 @@ server {
     proxy_buffering off;
 
     location / {
-        proxy_pass http://localhost:8123;
+        proxy_pass http://127.0.0.1:8123;
         proxy_set_header Host $host;
         proxy_redirect http:// https://;
         proxy_http_version 1.1;
