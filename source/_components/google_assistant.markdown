@@ -193,6 +193,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - media_player (on/off/set volume (via set brightness)/source (via set input source))
 - climate (temperature setting, operation_mode)
 - vacuum (dock/start/stop/pause)
+- sensor (temperature setting, only for temperature sensor)
 
 <p class='note warning'>
   The domain groups contains groups containing all items, by example group.all_automations. When telling Google Assistant to shut down everything, this will lead in this example to disabling all automations
