@@ -8,7 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-06-release-94/components.png
+og_image: /images/blog/2019-06-release-94/google-ui.png
 ---
 
 <a href='/components/#version/0.94'><img src='/images/blog/2019-06-release-94/components.png' style='border: 0;box-shadow: none;'></a>
@@ -26,6 +26,8 @@ Another cool new feature is the total revamp of how you manage which entities ar
 <img src='/images/blog/2019-06-release-94/google-ui.png' alt='Screenshot of the new user interface to manage which entities are exposed to Google Assistant.'>
 Screenshot of the new user interface to manage which entities are exposed to Google Assistant.
 </p>
+
+<!--more-->
 
 ## {% linkable_title Discovery %}
 
@@ -83,8 +85,6 @@ This approach did make us change how packages are installed when running Home As
 ## {% linkable_title Reporting Issues %}
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
-
-<!--more-->
 
 ## {% linkable_title Breaking Changes %}
 
