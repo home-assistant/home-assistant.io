@@ -14,8 +14,7 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ---
 
-[Elgato Avea](http://web.archive.org/web/20170930210431/https://www.elgato.com/avea) is a Bluetooth light bulb that is no longer supported by the manufacturer. The `avea` integration allows
-you to control all your avea bulbs with Home Assistant.
+[Elgato Avea](http://web.archive.org/web/20170930210431/https://www.elgato.com/avea) is a Bluetooth light bulb that is no longer supported by the manufacturer. The `avea` integration allows you to control all your avea bulbs with Home Assistant.
 
 ### {% linkable_title Configuration Details %}
 
