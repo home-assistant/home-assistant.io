@@ -13,15 +13,47 @@ og_image: /images/blog/2019-06-release-94/components.png
 
 <a href='/components/#version/0.94'><img src='/images/blog/2019-06-release-94/components.png' style='border: 0;box-shadow: none;'></a>
 
-New:
- - Possible to store core config in storage. If set in configuration.yaml, it will override storage (this is what anyone coming from 0.93 has). Note that configuration.yaml will no longer contain any automatic detected values when writing initial configuration. This feature is available via the UI during onboarding. Big thanks to [@emontnemery] for this contribution.
- - Allow deletion of scripts/automations via the UI editor.
- - This is the first release where a user can use a subset of Home Assistant without using configuration.yaml.
- - Step added to onboarding to allow configuring name, location, timezone and unit system.
- - Python 3.5.3 deprecated, support will be dropped in the first release after August 1.
- - Add UI to manage Google Entities exposed via Home Assistant Cloud. To use, remove filters from configuration.yaml. Also allows disabling 2 factor authentication on a per device basis.
- - Discovery has been redone. Integrations can now specify how they are discoverable via Zeroconf, SSDP or HomeKit in their manifest, this will be picked up by the zeroconf and ssdp integrations, which are part of the default config. The new discovery is non-obtrusive: nothing is added to your configuration without approval by the user. You can find integrations pending approval in the discovered section of the integrations page in the config. Only a handful of integrations have been migrated to the new approach in this release. Thanks to [@Kane610], [@Jc2k]. If you are not using the `default_config` integration, add `ssdp:` and `zeroconf:` to your configuration.yaml.
- - We are bringing the device tracker integration into the age of modern integrations. The first step has been to migrating the platforms that use config entries like OwnTracks and GPSLogger. This means that for these integrations, you will now be able to use things like entity registry to change entity ID and name.
+It is time for the 0.94 release and there is some seriously good stuff in this release. We're working hard on polishing everything and getting ready for the big Home Assistant 1.0 release. And we're getting closer. So close actually, that this is the first release that can be installed and configured without touching any `configuration.yaml`! Onboard, configure integrations, manage automations and scripts all from the UI.
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The 0.94 release of <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> will be the first release where you can onboard, configure integrations (not all) and set up automations without touching configuration.yaml. <a href="https://t.co/AZNG1VWhF1">pic.twitter.com/AZNG1VWhF1</a></p>&mdash; Paulus Schoutsen (@balloob) <a href="https://twitter.com/balloob/status/1132872128796057600?ref_src=twsrc%5Etfw">May 27, 2019</a>
+</blockquote>
+
+This milestone has been achieved thanks to the hard work by [@emontnemery] who contributed the ability to store the core config in storage: name, location, unit system, time zone. We still allow users to store their core configuration in `configuration.yaml`, which will take precedent when defined. This means that it is a non-breaking change. Core config is now set during onboarding and can be edited in the general page of the config panel.
+
+Another cool new feature is the total revamp of how you manage which entities are exposed to Google Assistant via Home Assistant Cloud. From the cloud UI you can now click "Manage Entities" and you are brought to the Google Assistant entity manager. From here you can enable which entities are exposed and, if you deem appropriate, choose to disable the two factor authentication on your garage door (the asking for a pin).
+
+<p class='img'>
+<img src='/images/blog/2019-06-release-94/google-ui.png' alt='Screenshot of the new user interface to manage which entities are exposed to Google Assistant.'>
+Screenshot of the new user interface to manage which entities are exposed to Google Assistant.
+</p>
+
+## {% linkable_title Discovery %}
+
+Discovery has been mordernized thanks to [@Kane610] and with the input from [@Jc2k]. Each integration is now able to specify how they can be discovered in their manifest, and the new `zeroconf` and `ssdp` integrations will do the rest. The new discovery is non-obtrusive: no devices are set up without approval by the user. Instead, you will need to approve each discovered integration. You can find them in the discovered section of the integrations page in the config. Only a handful of integrations have been migrated to the new approach in this release.
+
+The new discovery is now part of the default config. If you are not using the default config, add `ssdp:` and `zeroconf:` to your configuration.yaml.
+
+## {% linkable_title Deprecating Python 3.5 support %}
+
+This release has deprecated support for the almost 4 year old version 3.5 of Python. The first release after August 1 will drop support. This is part of our newly adopted [Python support approach](https://github.com/home-assistant/architecture/blob/master/adr/0002-minimum-supported-python-version.md).
+
+This will only impact you if you are running a custom installation of Home Assistant. This will not impact anyone using Hass.io or Docker.
+
+## {% linkable_title Modernizing the device tracker %}
+
+This release also introduces a long overdue overhaul of how the device tracker works. We are introducing this overhaul piece by piece, focusing first on device tracker platforms that push their updates to Home Assistant: mobile app, OwnTracks, GeoFency, GPSLogger and Locative.
+
+These integrations will no longer use `known_devices.yaml` but instead use entities, like all other integrations in Home Assistant. You can change the name and entity ID via the UI. It is no longer posible to merge the devices with other device tracker entities. This was flaky at best. You should now use the new person integration for this.
+
+## {% linkable_title Improved hass.io builds %}
+
+We have been working hard on improving Hass.io builds. A build can now be online in as little as 10 minutes after a new release has been tagged. This is thanks to a new wheel-based infrastructure build by [@pvizeli] with input from [@frenck]. With Python wheels, we will build all the requirements of integrations ahead of time, and only download them to your hass.io installation when you update your Home Assistant version.
+
+This approach did make us change how packages are installed when running Home Assistant inside a Docker container. It will now install the packages into the Python environment instead of storing them in the `deps` folder inside your config folder.
+
+**Note:** If you are using Hass.io or a dockerized version of Home Assistant, this release will one time clear the `deps` folder in your config folder.
+
+[@frenck]: https://github.com/frenck
 
 ## {% linkable_title New Integrations %}
 
