@@ -37,9 +37,9 @@ The new discovery is now part of the default config. If you are not using the de
 
 ## {% linkable_title Deprecating Python 3.5 support %}
 
-This release has deprecated support for the almost 4 year old version 3.5 of Python. The first release after August 1 will drop support. This is part of our newly adopted [Python support approach](https://github.com/home-assistant/architecture/blob/master/adr/0002-minimum-supported-python-version.md).
+This release has deprecated support for the almost 4 year old version 3.5 of Python. The first Home Assistant release after August 1 will drop support. This is part of our newly adopted [Python support approach](https://github.com/home-assistant/architecture/blob/master/adr/0002-minimum-supported-python-version.md).
 
-This will only impact you if you are running a custom installation of Home Assistant. This will not impact anyone using Hass.io or Docker.
+This will only impact you if you are running a custom installation of Home Assistant. This will not impact anyone using Hass.io or Docker. If you are using hassbian, you can upgrade Python by following [these instructions](https://github.com/home-assistant/hassbian-scripts/blob/dev/docs/suites/python.md).
 
 ## {% linkable_title Modernizing the device tracker %}
 
