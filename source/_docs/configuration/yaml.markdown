@@ -93,6 +93,7 @@ lights: !include lights.yaml
 ```
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
+
 ### {% linkable_title Code reusability %}
 Another YAML feature is an 'Anchor' to include some common default properties in (many) other objects. This can be usefull if you have a number of basically the same platform/component/sensor like MQTT sensors. With `&` an anchor is created. With `<<:` you can include the definition of the anchor:
 
