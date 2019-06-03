@@ -93,6 +93,25 @@ lights: !include lights.yaml
 ```
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
+### {% linkable_title Code reusability %}
+Another YAML feature is an 'Anchor' to include some common default properties in (many) other objects. This can be usefull if you have a number of basically the same platform/component/sensor like MQTT sensors. With `&` an anchor is created. With `<<:` you can include the definition of the anchor:
+
+```yaml
+- &def_omnik
+  platform: mqtt
+  name: "Omnik Temp"
+  unit_of_measurement: '°C'
+  state_topic: "Omnik/values"
+  value_template: "{{ value_json.T }}"
+  availability_topic: "Omnik/status"
+  payload_available: "online"
+  payload_not_available: "offline"
+
+- <<: *def_omnik
+  name: "Omnik AC Power"
+  unit_of_measurement: 'W'
+  value_template: "{{ value_json.P }}"
+```
 
 ## {% linkable_title Common Issues %}
 
