@@ -55,9 +55,7 @@ name:
   type: string
   default: REST Sensor
 device_class:
-  description: >
-    The [type/class](/components/sensor/) of
-    the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:

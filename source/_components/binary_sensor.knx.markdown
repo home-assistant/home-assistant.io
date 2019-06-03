@@ -37,7 +37,7 @@ name:
   required: false
   type: string
 device_class:
-  description: HASS device class e.g., "motion".
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 significant_bit:
