@@ -175,7 +175,7 @@ tilt_invert_state:
   type: boolean
   default: false
 device_class:
-  description: Sets the [class of the device](https://developers.home-assistant.io/docs/en/entity_cover.html#device-classes), changing the device state and icon that is displayed on the frontend.
+  description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 json_attributes_topic:

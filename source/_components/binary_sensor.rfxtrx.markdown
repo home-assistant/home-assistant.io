@@ -63,7 +63,7 @@ devices:
       required: false
       type: string
     device_class:
-      description: Sets the [class of the device](https://developers.home-assistant.io/docs/en/entity_binary_sensor.html#available-device-classes), changing the device state and icon that is displayed on the frontend.
+      description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
       required: false
       type: device_class
     fire_event:
