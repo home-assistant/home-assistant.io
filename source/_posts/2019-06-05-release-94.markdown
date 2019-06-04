@@ -50,11 +50,11 @@ These integrations will no longer use `known_devices.yaml` but instead use entit
 
 ## {% linkable_title Improved hass.io builds %}
 
-We have been working hard on improving Hass.io builds. A build can now be online in as little as 30 minutes after a new release has been tagged. This is thanks to a new wheel-based infrastructure build by [@pvizeli] with input from [@frenck]. With Python wheels, we will build all the requirements of integrations ahead of time, and only download them to your hass.io installation when you update your Home Assistant version.
+We have been working hard on improving Hass.io builds. It's our goal to make the update process faster and more predictable. A build can now be online in as little as 30 minutes after a new release has been tagged. This is thanks to a new wheel-based infrastructure build by [@pvizeli] with input from [@frenck]. With Python wheels, we will build all the requirements of integrations ahead of time, and only download them to your hass.io installation when you update your Home Assistant version. This means that Home Assistant will use less space as we only download the things that are needed.
 
 We changed how packages are installed when running Home Assistant inside a Docker container. It will now install the packages into the Python environment inside the container, instead of storing them in the `deps` folder inside your config folder which lived outside the container.
 
-**Note:** Because of the new way packages are installed, Home Assistant will take longer to start the first time it is launched after an upgrade. Don't worry and let it finish! We are working on making this process faster in the future.
+**Note:** Because of the new way packages are installed, Home Assistant on Hass.io will take longer to start the first time it is launched after an upgrade. Don't worry and let it finish! We are working on making this process faster in the future.
 
 **Note 2:** If you are using Hass.io or a dockerized version of Home Assistant, this release will one time clear the `deps` folder in your config folder.
 
