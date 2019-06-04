@@ -24,3 +24,10 @@ To integrate this into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 ssdp:
 ```
+
+## {% linkable_title Discovered Integrations %}
+
+The following integrations are automatically discovered by the SSDP integration:
+
+ - Deconz
+ - Philips Hue

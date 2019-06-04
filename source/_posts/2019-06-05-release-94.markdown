@@ -50,9 +50,9 @@ These integrations will no longer use `known_devices.yaml` but instead use entit
 
 ## {% linkable_title Improved hass.io builds %}
 
-We have been working hard on improving Hass.io builds. It's our goal to make the update process faster and more predictable. A build can now be online in as little as 30 minutes after a new release has been tagged. This is thanks to a new wheel-based infrastructure build by [@pvizeli] with input from [@frenck]. With Python wheels, we will build all the requirements of integrations ahead of time, and only download them to your hass.io installation when you update your Home Assistant version. This means that Home Assistant will use less space as we only download the things that are needed.
+We have been working hard on improving Hass.io builds. It's our goal to make the update process faster and more predictable. A build can now be online in as little as 30 minutes after a new release has been tagged. This is thanks to a new wheel-based infrastructure build by [@pvizeli] with input from [@frenck]. With Python wheels, we will build all the requirements of integrations ahead of time, and so a new version of Home Assistant is now just putting pieces together.
 
-We changed how packages are installed when running Home Assistant inside a Docker container. It will now install the packages into the Python environment inside the container, instead of storing them in the `deps` folder inside your config folder which lived outside the container.
+Because of this, we changed how packages are installed when running Home Assistant inside a Docker container. It will now install the packages into the Python environment inside the container, instead of storing them in the `config/deps` folder, which lived outside the container.
 
 **Note:** Because of the new way packages are installed, Home Assistant on Hass.io will take longer to start the first time it is launched after an upgrade. Don't worry and let it finish! We are working on making this process faster in the future.
 
@@ -127,6 +127,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump aioesphomeapi to 2.1.0 ([@OttoWinter] - [#24278]) ([esphome docs]) (beta fix)
 - Fix cors on the index view ([@balloob] - [#24283]) ([http docs]) (beta fix)
 - Remove deps folder in config when on Docker ([@balloob] - [#24284]) (beta fix)
+- Guard against bad states in Mobile App/OwnTracks ([@balloob] - [#24292]) ([mobile_app docs]) ([owntracks docs]) (beta fix)
+- Create progress file for pip installs ([@pvizeli] - [#24297]) (beta fix)
+- Run SSDP discovery in parallel ([@balloob] - [#24299]) ([ssdp docs]) (beta fix)
+- Upgrade Zeroconf to 0.23 ([@balloob] - [#24300]) ([zeroconf docs]) (beta fix)
+- address is deprecated in favor of addresses ([@Kane610] - [#24302]) ([zeroconf docs]) (beta fix)
+- Fix OwnTracks race condition ([@balloob] - [#24303]) ([owntracks docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -293,6 +299,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump aioesphomeapi to 2.1.0 ([@OttoWinter] - [#24278]) ([esphome docs]) (beta fix)
 - Fix cors on the index view ([@balloob] - [#24283]) ([http docs]) (beta fix)
 - Remove deps folder in config when on Docker ([@balloob] - [#24284]) (beta fix)
+- Guard against bad states in Mobile App/OwnTracks ([@balloob] - [#24292]) ([mobile_app docs]) ([owntracks docs]) (beta fix)
+- Create progress file for pip installs ([@pvizeli] - [#24297]) (beta fix)
+- Run SSDP discovery in parallel ([@balloob] - [#24299]) ([ssdp docs]) (beta fix)
+- Upgrade Zeroconf to 0.23 ([@balloob] - [#24300]) ([zeroconf docs]) (beta fix)
+- address is deprecated in favor of addresses ([@Kane610] - [#24302]) ([zeroconf docs]) (beta fix)
+- Fix OwnTracks race condition ([@balloob] - [#24303]) ([owntracks docs]) (beta fix)
 
 [#21225]: https://github.com/home-assistant/home-assistant/pull/21225
 [#21658]: https://github.com/home-assistant/home-assistant/pull/21658
@@ -457,6 +469,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24278]: https://github.com/home-assistant/home-assistant/pull/24278
 [#24283]: https://github.com/home-assistant/home-assistant/pull/24283
 [#24284]: https://github.com/home-assistant/home-assistant/pull/24284
+[#24292]: https://github.com/home-assistant/home-assistant/pull/24292
+[#24297]: https://github.com/home-assistant/home-assistant/pull/24297
+[#24299]: https://github.com/home-assistant/home-assistant/pull/24299
+[#24300]: https://github.com/home-assistant/home-assistant/pull/24300
+[#24302]: https://github.com/home-assistant/home-assistant/pull/24302
+[#24303]: https://github.com/home-assistant/home-assistant/pull/24303
 [@Adminiuga]: https://github.com/Adminiuga
 [@BKPepe]: https://github.com/BKPepe
 [@Bouni]: https://github.com/Bouni
