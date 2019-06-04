@@ -15,8 +15,9 @@ og_image: /images/blog/2019-06-release-94/google-ui.png
 
 It is time for the 0.94 release and there is some seriously good stuff in this release. We're working hard on polishing everything and getting ready for the big Home Assistant 1.0 release. And we're getting closer. So close actually, that this is the first release that can be installed and configured without touching a text editor! Onboard, configure integrations, manage automations and scripts all from the UI.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The 0.94 release of <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> will be the first release where you can onboard, configure integrations (not all) and set up automations without touching configuration.yaml. <a href="https://t.co/AZNG1VWhF1">pic.twitter.com/AZNG1VWhF1</a></p>&mdash; Paulus Schoutsen (@balloob) <a href="https://twitter.com/balloob/status/1132872128796057600?ref_src=twsrc%5Etfw">May 27, 2019</a>
-</blockquote>
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/mTFX-_jB2xw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 This milestone has been achieved thanks to the hard work by [@emontnemery] who contributed the ability to store the core config in storage: name, location, unit system, time zone. We still allow users to store their core configuration in `configuration.yaml`, which will take precedent when defined. This means that it is a non-breaking change. Core config is now set during onboarding and can be edited in the general page of the config panel.
 
