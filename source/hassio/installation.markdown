@@ -144,7 +144,7 @@ $ sudo -i
 # curl -fsSL get.docker.com | sh
 ```
 
-And to intall Hass.io the one below. That one is used also for other distributions.
+And to install Hass.io the one below. That one is used also for other distributions.
 
 ```bash
 # curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
