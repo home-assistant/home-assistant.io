@@ -18,26 +18,27 @@ The `life360` integration allows you to detect presence using the [unofficial AP
 
 ## {% linkable_title Life360 Account %}
 
-You must first [create a Life360 account](https://www.life360.com/websignup). Then add the following section to your `configuration.yaml` file:
+You must first [create a Life360 account](https://www.life360.com/websignup).
 
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-life360:
-  - username: LIFE360_USERNAME
-    password: LIFE360_PASSWORD
-```
-{% endraw %}
+Then in the Home Assistant user interface (UI), click on Configuration in the left pane, then on Integrations and then on the yellow circle in the lower-right corner to "Set up a new integration." Scroll through the list and click on Life360. Enter your Life360 username and password and click SUBMIT. You can add as many Life360 accounts as you like.
+
+If you would like to set any advanced options, see the following section. You may want to do this before entering your Life360 account information in the UI, or you can change it at any time. You can also enter your account information in the configuration file (in addition to, or instead of, the UI) if you prefer.
 
 {% configuration %}
-username:
-  description: Your Life360 username.
-  required: true
-  type: string
-password:
-  description: Your Life360 password.
-  required: true
-  type: string
+accounts:
+  description: Your Life360 account information.
+  required: false
+  type: [list, map]
+  default: None
+  keys:
+    username:
+      description: Your Life360 username.
+      required: true
+      type: string
+    password:
+      description: Your Life360 password.
+      required: true
+      type: string
 circles:
   description: See [Filtering](#filtering) for a detailed description. Must specify **include** or **exclude**, but not both.
   required: false
@@ -136,7 +137,7 @@ Normally Home Assistant device trackers are "Home" when they enter `zone.home`. 
 
 See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zone) for details about how HA zones are defined. If you'd like to create HA zones from Life360 Places (e.g., to make HA's `zone.home` be identicial to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when HA starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
 ```text
-2019-05-31 12:16:58 DEBUG (SyncWorker_3) [homeassistant.components.life360.device_tracker] My Family Circle: will be included
+2019-05-31 12:16:58 DEBUG (SyncWorker_3) [homeassistant.components.life360.device_tracker] My Family Circle: will be included, id=xxxxx
 2019-05-31 12:16:58 DEBUG (SyncWorker_3) [homeassistant.components.life360.device_tracker] Circle's Places:
 - name: Home
   latitude: XX.XXX
@@ -157,20 +158,18 @@ Therefore an optional filtering mechanism has been implemented to prevent incons
 {% raw %}
 ```yaml
 life360:
-  - username: LIFE360_USERNAME
-    password: LIFE360_PASSWORD
-    # MPH, assuming imperial units.
-    # If using metric (KPH), equivalent would be 29.
-    driving_speed: 18
-    interval_seconds: 10
-    max_gps_accuracy: 200
-    max_update_wait:
-      minutes: 45
-    # Set comm error thresholds so first is not logged,
-    # second is logged as a WARNING, and third and fourth
-    # are logged as ERRORs.
-    warning_threshold: 2
-    error_threshold: 3
+  # MPH, assuming imperial units.
+  # If using metric (KPH), equivalent would be 29.
+  driving_speed: 18
+  interval_seconds: 10
+  max_gps_accuracy: 200
+  max_update_wait:
+    minutes: 45
+  # Set comm error thresholds so first is not logged,
+  # second is logged as a WARNING, and third and fourth
+  # are logged as ERRORs.
+  warning_threshold: 2
+  error_threshold: 3
 ```
 {% endraw %}
 
@@ -179,14 +178,23 @@ life360:
 {% raw %}
 ```yaml
 life360:
-  - username: LIFE360_USERNAME
-    password: LIFE360_PASSWORD
-    # Only track Members that are in these Circles.
-    circles:
-      include: [My Family, Friends]
-    # But do not track this Member.
-    members:
-      exclude: John Doe
+  # Only track Members that are in these Circles.
+  circles:
+    include: [My Family, Friends]
+  # But do not track this Member.
+  members:
+    exclude: John Doe
+```
+{% endraw %}
+
+### {% linkable_title Entering accounts in configuration %}
+
+{% raw %}
+```yaml
+life360:
+  accounts:
+    - username: LIFE360_USERNAME
+      password: LIFE360_PASSWORD
 ```
 {% endraw %}
 
