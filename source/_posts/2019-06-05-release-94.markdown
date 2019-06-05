@@ -2,7 +2,7 @@
 layout: post
 title: "0.94: SmartHab, Watson TTS, Azure Event Hub"
 description: "Onboarding: This is the first release that can be installed and configured without touching a text editor!"
-date: 2019-05-29 04:11:03
+date: 2019-06-04 04:11:03
 date_formatted: "June 5, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -107,10 +107,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
            - relay_1
            - lock_relay
     ```
- 
+
  - __Plex__
    * Configuration option `include_non_clients` has been removed. The component was unnecessarily complicated with separate update methods for Plex devices and Plex sessions. This change always updates all known Plex clients regardless of type. The previous design also had issues where the Plex sessions are never polled if there are no Plex clients connected at startup and only 'session' client types connect after that point. This leads to a failure to discover new devices. This is a breaking change if the config option `include_non_clients` is being used since it has been removed. ([@jjlawren] - [#24038]) ([plex docs])
-   
+
    * Configuration options use_custom_entity_ids and entity_namespace have been removed. This change will prepend the display name (and therefore the default entity_id) of each newly created entity with 'Plex' for easy identification. Users may customize each display name and entity_id as desired via the Entity Registry. Entities created before this PR will not be affected as the unique_id remains the same. ([@jjlawren] - [#24072]) ([plex docs])
 
 - __Verisure__ - Base entity_id of alarm_control_panel on alias of installation set by giid rather than first installation. This is a breaking change as it will change entity_id of alarm_control_panel in cases where a user is configuring an installation using giid that is not the first installation. ([@tkjacobsen] - [#23606]) ([verisure docs])
