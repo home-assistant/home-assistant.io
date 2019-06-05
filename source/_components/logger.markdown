@@ -33,8 +33,7 @@ components:
 logger:
   default: info
   logs:
-    homeassistant.components.device_tracker: critical
-    homeassistant.components.camera: critical
+    homeassistant.components.yamaha: critical
     custom_components.my_integration: critical
 ```
 
@@ -48,9 +47,8 @@ logger:
   logs:
     homeassistant.components: info
     homeassistant.components.rfxtrx: debug
-    homeassistant.components.device_tracker: critical
-    homeassistant.components.camera: critical
-    homeassistant.components.yamaha.media_player: debug
+    homeassistant.components.lifx: warning
+    homeassistant.components.yamaha: debug
     custom_components.my_integration: debug
 ```
 
@@ -109,7 +107,7 @@ An example call might look like this:
 service: logger.set_level
 data:
   homeassistant.components: warning
-  homeassistant.components.yamaha.media_player: debug
+  homeassistant.components.yamaha: debug
   custom_components.my_integration: debug
 ```
 
