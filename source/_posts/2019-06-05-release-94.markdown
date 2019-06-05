@@ -2,7 +2,7 @@
 layout: post
 title: "0.94: SmartHab, Watson TTS, Azure Event Hub"
 description: "Onboarding: This is the first release that can be installed and configured without touching a text editor!"
-date: 2019-06-04 04:11:03
+date: 2019-06-05 04:11:03
 date_formatted: "June 5, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
