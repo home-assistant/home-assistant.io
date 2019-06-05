@@ -50,6 +50,7 @@ logger:
     homeassistant.components.rfxtrx: debug
     homeassistant.components.device_tracker: critical
     homeassistant.components.camera: critical
+    homeassistant.components.yamaha.media_player: debug
     custom_components.my_integration: debug
 ```
 
@@ -108,7 +109,7 @@ An example call might look like this:
 service: logger.set_level
 data:
   homeassistant.components: warning
-  homeassistant.components.media_player.yamaha: debug
+  homeassistant.components.yamaha.media_player: debug
   custom_components.my_integration: debug
 ```
 
