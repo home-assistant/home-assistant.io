@@ -96,7 +96,15 @@ authtoken:
   * Smoke sensor and alarm (*HmIP-SWSD*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
+  * Presence Sensor – indoor (*HmIP-SPI*)
   * Water Sensor (*HmIP-SWD*)
+  * Remote Control - 8 buttons (*HmIP-RC8*) (battery only)
+  * Wall-mount Remote Control - 2-button (*HmIP-WRC2*) (battery only)
+  * Wall-mount Remote Control - 6-button (*HmIP-WRC6*) (battery only)
+  * Key Ring Remote Control - 4 buttons (*HmIP-KRC4*) (battery only)
+  * Key Ring Remote Control - alarm  (*HmIP-KRCA*) (battery only)
+  * Alarm Siren (*HmIP-ASIR, -B1*) (battery only)
+  * Remote Control for brand switches – 2-button (*HmIP-BRC2*) (battery only)
 
 * homematicip_cloud.climate
   * Climate group (*HmIP-HeatingGroup*)
@@ -116,7 +124,7 @@ authtoken:
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
   * Dimming actuator for brand switches (*HmIP-BDT*)
   * Dimming actuator flush-mount (*HmIP-FDT*)
-  * Switch Actuator and Meter – flush-mount (*HmIP-FSM*)
+  * Pluggable Dimmer – trailing edge (*HmIP-PDT*)
   * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
 
 * homematicip_cloud.sensor
@@ -128,12 +136,13 @@ authtoken:
   * Temperature and Humidity sensor - outdoor (*HmIP-STHO, -A*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
   * Motion Detector with Brightness Sensor - outdoor (*HmIP-SMO*)
+  * Presence Sensor – indoor (*HmIP-SPI*)
   * Light Sensor - outdoor (*HmIP-SLO*)
 
 * homematicip_cloud.switch
   * Pluggable Switch (*HmIP-PS*)
   * Pluggable Switch and Meter (*HmIP-PSM*) - should also work with (*HmIP-PSM-CH, -IT, -UK, -PE*)
-  * Switch Actuator for brand switches – with signal lamp (*HmIP-BSL*)
+  * Switch Actuator and Meter – flush-mount (*HmIP-FSM, -FSM16*)
   * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
   * Multi IO Box - 2x (*HmIP-MIOB*)
 
@@ -141,4 +150,14 @@ authtoken:
   * Weather Sensor – basic (*HmIP-SWO-B*)
   * Weather Sensor – plus (*HmIP-SWO-PL*)
   * Weather Sensor – pro (*HmIP-SWO-PR*)
+  
+Additional info:
 
+Push button devices are only available with a battery sensor. This is due to a limitation of the vendor API (eq3).
+It's not possible to detect a key press event on these devices at the moment.
+
+  * Remote Control - 8 buttons (*HmIP-RC8*)
+  * Wall-mount Remote Control - 2-button (*HmIP-WRC2*)
+  * Wall-mount Remote Control - 6-button (*HmIP-WRC6*)
+  * Key Ring Remote Control - 4 buttons (*HmIP-KRC4*)
+  * Key Ring Remote Control - alarm  (*HmIP-KRCA*)
