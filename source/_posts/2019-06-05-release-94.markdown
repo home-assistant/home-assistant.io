@@ -88,15 +88,37 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Breaking Changes %}
 
-- Quiet the chatty sun.sun ([@Swamp-Ig] - [#23832]) ([sun docs]) (breaking change)
-- Doorbird Refactor ([@oblogic7] - [#23892]) ([doorbird docs]) (breaking change)
-- Always update all Plex client types ([@jjlawren] - [#24038]) ([plex docs]) (breaking change)
-- Fix entity id naming when not using first install ([@tkjacobsen] - [#23606]) ([verisure docs]) (breaking change)
-- Update the name of Zestimate sensors ([@dreed47] - [#23770]) ([zestimate docs]) (breaking change)
-- Remove custom entity_id naming ([@jjlawren] - [#24072]) ([plex docs]) (breaking change)
-- Deprecate Python 3.5.3 ([@balloob] - [#24177]) (breaking change)
-- Dynamic panels ([@balloob] - [#24184]) (breaking change) (beta fix)
-- add a deprecation warning for tplink device_tracker ([@rytilahti] - [#24236]) ([tplink docs]) (breaking change) (beta fix)
+- __Sun__ - Inspired by a [reddit](https://www.reddit.com/r/homeassistant/comments/bm62hl/sunsun_chatty_sensor_psa/) report, the sun.sun sensor has been tuned so that it doesn't update nearly as frequently. Previously the sun.sun sensor was updating every 30 seconds, day and night. Now it updates dependent on the solar elevation. This could possibly be a breaking change for some users as it updates less frequently. ([@Swamp-Ig] - [#23832]) ([sun docs])
+- __Doorbird__ -_Refactored_- This change cleans up the code for the component quite a bit. Schedule manipulation has been removed and HTTP views have been consolidated. The configuration changes should result in an overall easier experience for setting up a Doorbird in HA and allow for new Doorbird events to be utilized without having to update the component as often. No changes for switches or camera integrations of this component. ([@oblogic7] - [#23892]) ([doorbird docs])
+
+   Example configuration:
+   ```
+   doorbird:
+     devices:
+       - host: 10.10.10.10
+         token: 12345678abcd
+         name: Side Entry
+         username: abcd1234
+         password: abcd4321
+         events:
+           - button_1
+           - unit_1_button
+           - movement
+           - relay_1
+           - lock_relay
+    ```
+ 
+ - __Plex__
+   * Configuration option `include_non_clients` has been removed. The component was unnecessarily complicated with separate update methods for Plex devices and Plex sessions. This change always updates all known Plex clients regardless of type. The previous design also had issues where the Plex sessions are never polled if there are no Plex clients connected at startup and only 'session' client types connect after that point. This leads to a failure to discover new devices. This is a breaking change if the config option `include_non_clients` is being used since it has been removed. ([@jjlawren] - [#24038]) ([plex docs])
+   
+   * Configuration options use_custom_entity_ids and entity_namespace have been removed. This change will prepend the display name (and therefore the default entity_id) of each newly created entity with 'Plex' for easy identification. Users may customize each display name and entity_id as desired via the Entity Registry. Entities created before this PR will not be affected as the unique_id remains the same. ([@jjlawren] - [#24072]) ([plex docs])
+
+- __Verisure__ - Base entity_id of alarm_control_panel on alias of installation set by giid rather than first installation. This is a breaking change as it will change entity_id of alarm_control_panel in cases where a user is configuring an installation using giid that is not the first installation. ([@tkjacobsen] - [#23606]) ([verisure docs])
+- __Zestimate__ - Changed name property to return Zestimate and the property address. This will make it easier to distinguish multiple Zestimate sensor entities in the UI and is a breaking change as it will change entity_id of Zestimate sensors. If you have automations relying on your Zestimate sensor(s) you may need to revisit them to fix the ID's to the new ones. Also, you may need to update your Zestimate sensor(s) in your Lovelace UI. ([@dreed47] - [#23770]) ([zestimate docs])
+
+- __Python__ - _Deprecation_ - Python 3.5.3 support will be removed in the first release after August 1, 2019. This release will print a warning if a soon to be unsupported Python version is used. A notification will be present if Home Assistant is run under 3.6.0. ([@balloob] - [#24177])
+- __Async__ - _Developers only_ - `hass.components.frontend.async_register_built_in_panel` is no longer an async function. This allows removing panels form the frontend on the fly, and fires and event when panels are added/removed so the frontend knows when to reload. ([@balloob] - [#24184])
+- __TP-Link__ - _Distress Signal_ - Add a deprecation warning for tplink device_tracker ([@rytilahti] - [#24236]) ([tplink docs])
 
 ## {% linkable_title Beta Fixes %}
 
