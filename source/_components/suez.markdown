@@ -12,10 +12,7 @@ ha_release: 0.95
 ha_category:
   - Water
   - Sensor
-  - Water
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.suez/
 ---
 
 The `suez_water` sensor platform fetches your last day consumption of water from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.
