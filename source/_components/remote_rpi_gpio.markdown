@@ -16,7 +16,7 @@ ha_release: 0.94
 ha_iot_class: Local Push
 ---
 
-The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.
+The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding sections.
 
 ## {% linkable_title Binary Sensor %}
 
@@ -28,21 +28,15 @@ To use your Remote Raspberry Pi's GPIO in your installation, add the following t
 # Example configuration.yaml entry
 binary_sensor:
   - platform: remote_rpi_gpio
-    host: <address of remote pi>
+    host: IP_ADDRESS_OF_REMOTE_PI
     ports:
       11: PIR Office
       12: PIR Bedroom
-      
-switch:
-  - platform: remote_rpi_gpio
-    host: <address of remote pi>
-    ports:
-      4: Garage Relay
 ```
 
 {% configuration %}
 host:
-  description: IP Address of remote Raspberry Pi
+  description: IP Address of remote Raspberry Pi.
   required: true
   type: string
 ports:
@@ -81,7 +75,7 @@ To use your Remote Raspberry Pi's GPIO in your installation, add the following t
 # Example configuration.yaml entry
 switch:
   - platform: remote_rpi_gpio
-    host: 192.168.0.123
+    host: IP_ADDRESS_OF_REMOTE_PI
     ports:
       11: Fan Office
       12: Light Desk
@@ -89,7 +83,7 @@ switch:
 
 {% configuration %}
 host:
-  description: IP Address of remote Raspberry Pi
+  description: IP Address of remote Raspberry Pi.
   required: true
   type: string
 ports:
@@ -114,7 +108,7 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 Note that a pin managed by HASS is expected to be exclusive to HASS.
 </p>
 
-A common question is what does Port refer to, this number is the actual GPIO #, not the pin #.
+A common question is what does port refer to, this number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.
 
 ```yaml
