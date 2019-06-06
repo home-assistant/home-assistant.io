@@ -27,7 +27,7 @@ zeroconf:
 
 ## {% linkable_title Discovered Integrations %}
 
-The following integrations are automatically discovered by the SSDP integration:
+The following integrations are automatically discovered by the Zeroconf integration:
 
  - Axis
  - ESPHome
