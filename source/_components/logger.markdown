@@ -48,6 +48,9 @@ logger:
     # log level for HA core
     homeassistant.core: fatal
     
+    # log level for MQTT integration
+    homeassistant.components.mqtt: warning
+    
     # log level for SmartThings lights
     homeassistant.components.smartthings.light: info
 
@@ -55,7 +58,7 @@ logger:
     custom_components.my_integration: debug
 
     # log level for the `aiohttp` Python package
-    aiohttp: critical
+    aiohttp: error
 ```
 
 {% configuration %}
@@ -113,9 +116,10 @@ An example call might look like this:
 service: logger.set_level
 data:
   homeassistant.core: fatal
+  homeassistant.components.mqtt: warning
   homeassistant.components.smartthings.light: info
   custom_components.my_integration: debug
-  aiohttp: critical
+  aiohttp: error
 ```
 
 The log information are stored in the
