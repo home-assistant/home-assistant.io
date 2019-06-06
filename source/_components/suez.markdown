@@ -16,7 +16,17 @@ redirect_from:
  - /components/sensor.suez/
 ---
 
-The `suez_water` sensor platform fetches your last day consumption of water from [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.
+The `suez_water` sensor platform fetches your last day consumption of water from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.
+
+It also gets the following data:
+
+- Daily consumption for current month
+- Daily consumption for previous month
+- Monthly consumption for the last 26 months
+- Highest monthly consumption
+- Last year total consumption
+- Current year total consumption
+
 
 ## {% linkable_title Configuration %}
 
