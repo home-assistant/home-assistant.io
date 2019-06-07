@@ -10,7 +10,6 @@ footer: true
 logo: suez.png
 ha_release: 0.95
 ha_category:
-  - Water
   - Sensor
 ha_iot_class: Cloud Polling
 ---
