@@ -107,16 +107,6 @@ scan_interval:
   required: false
   type: integer
   default: 10
-max_errors:
-  description: Defines how many consecutive errors will be interpreted as the camera being offline. Minimum value is 3.
-  required: false
-  type: integer
-  default: 5
-recheck_interval:
-  description: Defines interval at which camera will be "pinged" when offline to see when it comes back online. Minimum value is 15 seconds.
-  required: false
-  type: time
-  default: 1 minute
 binary_sensors:
   description: >
     Conditions to display in the frontend.
@@ -250,9 +240,6 @@ amcrest:
   - host: IP_ADDRESS_CAMERA_1
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    max_errors: 3
-    recheck_interval:
-      seconds: 15
     binary_sensors:
       - motion_detected
       - online
