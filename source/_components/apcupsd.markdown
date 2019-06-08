@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-## {% Hass.io Installation %}
+## {% linkable_title Hass.io Installation %}
 
 Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Hass.io. Keep in mind that we can't give you support for this add-on. 
 
