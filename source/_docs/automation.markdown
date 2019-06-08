@@ -49,14 +49,14 @@ Actions are all about calling services. To explore the available services open t
 
 ### {% linkable_title Automation initial state %}
 
-When you create a new automation, it will be disabled (and therefore won't trigger) unless you explicitly add `initial_state: true` to it or turn it on manually via UI/another automation/developer tools.
+When you create a new automation, it will be enabled unless you explicitly add `initial_state: false` to it or turn it off manually via UI/another automation/developer tools. In case automations need to be always enabled or disabled upon Home Assistant start, then you can set the `initial_state` in your automations. Otherwise, the previous state will be restored.
 
-In case automations need to be enabled or disabled upon Home Assistant restart, then you have to set the `initial_state` in your automations. Otherwise, the previous state will be restored. Please note that if for some reason Home Assistant cannot restore the previous state, e.g., because of an interrupted or failed startup, it will result in the automation being disabled on the next Home Assistant startup.
+Please note that if for some reason Home Assistant cannot restore the previous state, it will result in the automation being enabled.
 
 ```text
 automation:
 - alias: Automation Name
-  initial_state: true
+  initial_state: false
   trigger:
   ...
 ```
