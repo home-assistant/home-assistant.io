@@ -10,10 +10,9 @@ footer: true
 logo: benadryl_pollen.png
 ha_category:
   - Sensor
+  - Health
 ha_release: 0.95
 ha_iot_class: Cloud Polling
-redirect_from:
- - /components/sensor.pollen_benadryl/
 ---
 
 The Benadryl Social Pollen Count sensor pulls the current pollen count from the [website](https://www.benadryl.co.uk/social-pollen-count) to your instance.
