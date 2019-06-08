@@ -26,6 +26,12 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
+## {% linkable_title Hass.io Installation %}
+
+Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Hass.io. Keep in mind that we can't give you support for this add-on. 
+
+After installation, follow the instructions on the Github page to configure the plugin. Then continue to follow the integration configurations below.
+
 ## {% linkable_title Configuration %}
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
@@ -127,13 +133,33 @@ OUTPUTV  : 218.4 Volts
 [...]
 ```
 
-Use the (case insensitive) values from the left hand column:
+Use the values from the left hand column (lower case required).
+
+Full Example Configuration:
 
 ```yaml
 sensor:
   - platform: apcupsd
     resources:
+      - apc
+      - date
+      - hostname
+      - version
+      - upsname
+      - cable
+      - driver
+      - upsmode
+      - starttime
+      - model
+      - status
       - linev
       - loadpct
+      - bcharge
       - timeleft
+      - mbattchg
+      - mintimel
+      - maxtime
+      - maxlinev
+      - minlinev
+      - outputv
 ```
