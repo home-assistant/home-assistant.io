@@ -24,12 +24,13 @@ To add a VLC media player to your installation, add the following to your `confi
 # Example configuration.yaml entry
 media_player:
   - platform: vlc-telnet
+    host: "127.0.0.1"
     password: "test"
 ```
 
 {% configuration %}
 name:
-  description: The name to use in the frontend.
+  description: The name to use in the frontend. The default value is *VLC-TELNET*
   required: false
   type: string
 pasword:
@@ -37,8 +38,8 @@ pasword:
   required: true
   type: string
 host:
-  description: The hostname or IP address where the VLC Player is running. The default value is *localhost*
-  required: false
+  description: The hostname or IP address where the VLC Player is running.
+  required: true
   type: string
 port:
   description: The port number where the VLC Player is running. The default value is *4212*
@@ -66,4 +67,4 @@ media_player:
 
 ##### {% linkable_title Additional configuration for Rasperry Pi %}
 
-You can run a VLC Media Player directly on your Hassio installation using the [hassio-local-vlc add-on](https://github.com/rodripf/hassio-local-vlc)
+You can run a VLC Media Player inside your Hassio installation using the [hassio-local-vlc add-on](https://github.com/rodripf/hassio-local-vlc). Using it you can play files on the local network, Internet or files and playlist locally saved to the /share folder of your Hassio installation.
