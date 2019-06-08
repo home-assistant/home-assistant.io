@@ -88,7 +88,7 @@ authtoken:
 ## {% linkable_title Implemented and tested devices %}
 
 * homematicip_cloud.alarm_control_panel
-  * Security zones (*HmIP-SecurityZone*)
+  * Combined Alarm Control Panal with INTERNAL and EXTERNAL Security zones (*HmIP-SecurityZone*)
 
 * homematicip_cloud.binary_sensor
   * Window and door contact (*HmIP-SWDO, -I*)
