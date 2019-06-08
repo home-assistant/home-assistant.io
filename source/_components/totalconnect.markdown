@@ -33,6 +33,13 @@ alarm_control_panel:
     password: YOUR_PASSWORD
 ```
 
+Starting in Home Assistant version 0.95, add the following lines to your `configuration.yaml`:
+```yaml
+totalconnect:
+    username: YOUR_USERNAME
+    password: YOUR_PASSWORD
+```
+
 {% configuration %}
 name:
   description: Name of device in Home Assistant.
@@ -47,6 +54,8 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+You are highly encouraged to create a Total Connect user account specifically for Home Assistant.  It should not have full administrative privileges.
 
 ## {% linkable_title Automation example %}
 
