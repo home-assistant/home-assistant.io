@@ -33,7 +33,7 @@ Screenshot of the new user interface to manage which entities are exposed to Goo
 
 ## {% linkable_title Discovery %}
 
-Discovery has been mordernized thanks to [@Kane610] and with the input from [@Jc2k]. Each integration is now able to specify how they can be discovered in their manifest, and the new `zeroconf` and `ssdp` integrations will do the rest. The new discovery is non-obtrusive: no devices are set up without approval by the user. Instead, you will need to approve each discovered integration. You can find them in the discovered section of the integrations page in the config. Only a handful of integrations have been migrated to the new approach in this release: Hue, LIFX, Deconz, Trådfri, Axis, ESPHome, HomeKit Controller.
+Discovery has been modernized thanks to [@Kane610] and with the input from [@Jc2k]. Each integration is now able to specify how they can be discovered in their manifest, and the new `zeroconf` and `ssdp` integrations will do the rest. The new discovery is non-obtrusive: no devices are set up without approval by the user. Instead, you will need to approve each discovered integration. You can find them in the discovered section of the integrations page in the config. Only a handful of integrations have been migrated to the new approach in this release: Hue, LIFX, Deconz, Trådfri, Axis, ESPHome, HomeKit Controller.
 
 The new discovery is now part of the default config. If you are not using the default config, add `ssdp:` and `zeroconf:` to your configuration.yaml.
 
