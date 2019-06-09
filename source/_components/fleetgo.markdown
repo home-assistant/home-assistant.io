@@ -1,22 +1,22 @@
 ---
 layout: page
-title: "RitAssist"
-description: "Instructions on how to use a RitAssist as a device tracker."
+title: "FleetGO"
+description: "Instructions on how to use a FleetGO as a device tracker."
 date: 2018-06-15 22:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: ritassist.png
+logo: fleetgo.png
 ha_category:
   - Car
 ha_iot_class: Cloud Polling
 ha_release: 0.76
 redirect_from:
- - /components/device_tracker.ritassist/
+ - /components/device_tracker.fleetgo/
 ---
 
-The `ritassist` device tracker platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
+The `fleetgo` device tracker platform allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
 ## {% linkable_title Setup %}
 
@@ -29,30 +29,30 @@ To use this device tracker in your installation, add the following to your `conf
 ```yaml
 # Example configuration.yaml entry
 device_tracker:
-  - platform: ritassist
+  - platform: fleetgo
     client_id: YOUR_CLIENT_ID
     client_secret: YOUR_CLIENT_SECRET
-    username: YOUR_RITASSIST_USERNAME
-    password: YOUR_RITASSIST_PASSWORD
+    username: YOUR_FLEETGO_USERNAME
+    password: YOUR_FLEETGO_PASSWORD
     include:
         - LICENSE_PLATE
 ```
 
 {% configuration %}
 client_id:
-  description: The client ID used to connect to the RitAssist API.
+  description: The client ID used to connect to the FleetGO API.
   required: true
   type: string
 client_secret:
-  description: The client secret used to connect to the RitAssist API.
+  description: The client secret used to connect to the FleetGO API.
   required: true
   type: string
 username:
-  description: Your RitAssist username.
+  description: Your FleetGO username.
   required: true
   type: string
 password:
-  description: Your RitAssist password.
+  description: Your FleetGO password.
   required: true
   type: string
 include:
