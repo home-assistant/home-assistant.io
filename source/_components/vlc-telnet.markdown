@@ -12,8 +12,6 @@ ha_category:
   - Media Player
 ha_release: 0.95
 ha_iot_class: Local Polling
-redirect_from:
- - /components/media_player.vlc/
 ---
 
 The `vlc-telnet` platform allows you to control a [VLC media player](http://www.videolan.org/vlc/index.html) using the built in telnet interface.
@@ -31,7 +29,7 @@ media_player:
 {% configuration %}
 name:
   default: VLC-TELNET
-  description: The name to use in the frontend. The default value is *VLC-TELNET*
+  description: The name to use in the frontend.
   required: false
   type: string
 pasword:
@@ -43,7 +41,8 @@ host:
   required: true
   type: string
 port:
-  description: The port number where the VLC Player is running. The default value is *4212*
+  default: 4212
+  description: The port number where the VLC Player is running.
   required: false
   type: integer
 {% endconfiguration %}
@@ -60,10 +59,10 @@ A full configuration for VLC could look like the one below:
 # Example configuration.yaml entry
 media_player:
   - platform: vlc-telnet
-    name: speaker_1
-    host: "192.168.1.56"
-    port: 4321
-    password: "secure_password"
+    name: NAME
+    host: IP_ADDRESS
+    port: PORT
+    password: PASSWORD
 ```
 
 ##### {% linkable_title Additional configuration for Rasperry Pi %}
