@@ -30,6 +30,7 @@ media_player:
 
 {% configuration %}
 name:
+  default: VLC-TELNET
   description: The name to use in the frontend. The default value is *VLC-TELNET*
   required: false
   type: string
