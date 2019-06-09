@@ -24,7 +24,7 @@ To add a VLC media player to your installation, add the following to your `confi
 # Example configuration.yaml entry
 media_player:
   - platform: vlc-telnet
-    host: "127.0.0.1"
+    host: IP_ADDRESS
     password: "test"
 ```
 
