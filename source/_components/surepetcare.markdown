@@ -2,7 +2,7 @@
 layout: page
 title: "Sure Petcare"
 description: "Instructions how to integrate the Sure Petcare cat and pet flaps into Home Assistant."
-date: 2019-06-09 20:00
+date: 2019-06-08 20:00
 sidebar: true
 comments: false
 sharing: true
@@ -28,7 +28,6 @@ surepetcare:
   flaps: [{id: 2337, name: Flap}]
   pets: [{id: 3337, name: Pet}]
 ```
-
 
 {% configuration %}
   username:
