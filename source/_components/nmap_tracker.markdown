@@ -92,7 +92,7 @@ An example of how the Nmap scanner can be customized:
 
 ### {% linkable_title Linux capabilities %}
 
-On Linux systems you can extend the functionality of Nmap, without having to run it as root, by using *Linux capabilities*. Be sure to specify the full path to wherever you installed Nmap:
+On Linux systems (such as Hass.io) you can extend the functionality of Nmap, without having to run it as root, by using *Linux capabilities*. Be sure to specify the full path to wherever you installed Nmap:
 
 ```bash
 $ sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
