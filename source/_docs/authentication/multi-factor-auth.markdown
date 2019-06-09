@@ -85,7 +85,7 @@ exclude:
   required: false
   type: list
 include:
-  description: The list of notifying service entitys you want to include.
+  description: The list of notifying service entities you want to include.
   required: false
   type: list
 message:
