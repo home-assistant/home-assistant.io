@@ -2,7 +2,7 @@
 layout: page
 title: "Sure Petcare"
 description: "Instructions how to integrate the Sure Petcare cat and pet flaps into Home Assistant."
-date: 2019-06-10 20:00
+date: 2019-06-09 20:00
 sidebar: true
 comments: false
 sharing: true
