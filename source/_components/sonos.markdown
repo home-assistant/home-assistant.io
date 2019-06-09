@@ -35,7 +35,7 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | The speakers to snapshot.
-| `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group.
+| `with_group` | yes (Default: True)| Should we also snapshot the group layout and the state of other speakers in the group.
 
 
 ### {% linkable_title Service `sonos.restore` %}
@@ -53,7 +53,7 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored.
-| `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group.
+| `with_group` | yes (Default: True)| Should we also restore the group layout and the state of other speakers in the group.
 
 ### {% linkable_title Service `sonos.join` %}
 
