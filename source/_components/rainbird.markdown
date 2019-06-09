@@ -106,11 +106,11 @@ friendly_name:
   required: false
   type: string
 trigger_time:
-  description: The default duration to sprinkle the zone.
+  description: The default duration to sprinkle the zone in minutes.
   required: true
   type: integer
 scan_interval:
-  description: How fast to refresh the switch.
+  description: How fast to refresh the switch in minutes.
   required: false
   type: integer
 {% endconfiguration %}
