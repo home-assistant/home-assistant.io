@@ -43,22 +43,52 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 - `dimension_names`: Names shown in the frontend.
 - `dimension_ids`: Names to use for `element`.
 
+Alternatively you can browse to the built in Netdata API in your browser `http://[Netdata_Instance]:19999/api/v1/allmetrics?format=json` and search for the `data_group` identified in the Netdata frontend.  
+
+```JSON
+	"system.load": {
+		"name":"system.load",
+		"context":"system.load",
+		"units":"load",
+		"last_updated": 1558446920,
+		"dimensions": {
+			"load1": {
+				"name": "load1",
+				"value": 0.1250000
+			},
+			"load5": {
+				"name": "load5",
+				"value": 0.1290000
+			},
+			"load15": {
+				"name": "load15",
+				"value": 0.1430000
+			}
+		}
+	},
+```
+
+Once the `data_group` and the `element` have been identified from the JSON  it can be configured as per the example below. 
+
 ## {% linkable_title Configuration %}
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-sensor:
   - platform: netdata
-    resources:
-      load:
+    resources:    
+      system_load:
         data_group: system.load
         element: load15
-      cpu:
-        data_group: system.cpu
-        element: system
 ```
+
+
+
+
+
+
+
 
 {% configuration %}
 host:
