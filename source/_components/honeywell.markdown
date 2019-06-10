@@ -16,13 +16,9 @@ redirect_from:
  - /components/climate.honeywell/
 ---
 
-<p class='note'>
-There is a great deal of confusion over this integration. Please take the time to fully understand the causes of this confusion before you raise an issue, or submit a PR.
-</p>
-
 The `honeywell` climate platform lets you control Honeywell TCC (Total Connect Comfort) climate systems from Home Assistant. It does not integrate with Honeywell TCC alarm systems.
 
-Unfortunately, this integration is incorrectly implemented as a combination of two _distinct_ climate systems, one being US-based, the other is EU-based; they are _not_ interchangeable. Before you proceed, please be clear which client library is appropriate to your system.
+There is some potential confusion over this integration because it is currently implemented as a combination of two _distinct_ climate systems, one being US-based, the other is EU-based. Importantly, these two regions are _not_ interchangeable, so you must clear which applies to your climate system.
 
 ## {% linkable_title US-based Systems %}
 
@@ -30,23 +26,17 @@ These systems are based in North America, and temperatures are usually in Fahren
 
 If your system is US-based, then you can access your system via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
-<p class='note'>
-For historical reasons, this is not the default region, and so you _must_ have `region: us` in your **configuration.yaml** file for US-based systems (this requirement may be relaxed in future, see below).
-</p>
-
 ## {% linkable_title EU-based Systems %}
 
 These systems are based in Europe (including the UK & Ireland), and temperatures are usually in Celsius. They would likely be heating-only systems. They use the [evohome-client](https://github.com/watchforstock/evohome-client) client library. In this integration, this is called the `eu` region.
 
 If your system is US-based, then you can access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
-<p class='note'>
-The `eu` region is being deprecated, as there is better support available via the [evohome](/components/evohome/) integration. Unfortunately, **evohome** does not yet have support for DHW, but will do so before this region is fully deprecated (a PR for this has been submitted).
-</p>
+The `eu` region is being deprecated, and ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
 
 ## {% linkable_title Configuration %}
 
-To set up this integration, first confirm your region (i.e. which website is a good start), then add the following information to your **configuration.yaml** file (the below example is for US-based systems):
+To set up this integration, first confirm your region, then add the following information to your **configuration.yaml** file (the below example is for US-based systems):
 
 ```yaml
 climate:
