@@ -116,7 +116,6 @@ authtoken:
     * Temperature and humidity Sensor with display (*HmIP-STHD*)
     
 * homematicip_cloud.cover
-  * Blind actuator for brand switches (*HmIP-BBL*)
   * Shutter actuator brand-mount (*HmIP-BROLL*)
   * Shutter actuator flush-mount (*HmIP-FROLL*)    
 
