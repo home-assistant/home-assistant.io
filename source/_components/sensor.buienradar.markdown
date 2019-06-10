@@ -46,7 +46,7 @@ longitude:
   required: false
   type: float
 timeframe:
-  description: "Minutes to look ahead for precipitation forecast (min: 5 / max: 120)."
+  description: "Minutes to look ahead for precipitation forecast (minimum 5, maximum 120)."
   required: false
   default: 60
   type: integer
