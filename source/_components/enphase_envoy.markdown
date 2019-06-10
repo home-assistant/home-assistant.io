@@ -51,7 +51,7 @@ monitored_conditions:
   type: list
   keys:
     production:
-      description: The power in W being produced by the solar panels. This will also expose production values from individual inverters, as attributes of the entity, if supported.
+      description: The power in W being produced by the solar panels. This will also expose production values from individual inverters, as attributes of the entity, if supported. The values for all the individual inverters may not add up to the total production value, due to slower updating on the individual inverters.
     daily_production:
       description: The energy in Wh produced that day.
     seven_days_production:
