@@ -50,9 +50,11 @@ surepetcare:
       id:
         description: The Sure Petcare id of a flap
         required: true
+        type: integer
       name:
         description: A name for the flap
         required: true
+        type: string
   pets:
     description: Pets managed by Sure Petcare flap(s)
     required: true
@@ -61,9 +63,26 @@ surepetcare:
       id:
         description: The Sure Petcare id of a pet
         required: true
+        type: integer
       name:
         description: The name of the pet
         required: true
+        type: string
+  icon:
+    description: "Icon to display (e.g., `mdi:cat`)"
+    required: false
+    default: "mdi:cat"
+    type: string
+  scan_interval:
+    description: "Minimum time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
+    required: false
+    default: 3 minutes
+    type: time
+  device_class:
+    description: The type/class of the sensor to set the icon in the frontend.
+    required: false
+    default: lock
+    type: device_class
 {% endconfiguration %}
 
 #### {% linkable_title Getting the IDs of your household, flaps and pets %}
