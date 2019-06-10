@@ -45,7 +45,7 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 
 Alternatively you can browse to the built in Netdata API in your browser `http://[Netdata_Instance]:19999/api/v1/allmetrics?format=json` and search for the `data_group` identified in the Netdata frontend. In the example JSON below the data group is "system.load".
 
-```JSON
+```json
 	"system.load": {
 		"name":"system.load",
 		"context":"system.load",
