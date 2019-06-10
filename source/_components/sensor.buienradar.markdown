@@ -72,7 +72,7 @@ monitored_conditions:
     symbol:
       description: A symbol for the current weather with the full current condition (in Dutch).
     feeltemperature:
-      description: The current feel temperature (in [C](https://en.wikipedia.org/wiki/Celsius)).
+      description: "The current feel temperature (in [C](https://en.wikipedia.org/wiki/Celsius))."
     humidity:
       description: The relative humidity (%).
     temperature:
