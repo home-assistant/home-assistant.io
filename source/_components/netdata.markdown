@@ -43,7 +43,7 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 - `dimension_names`: Names shown in the frontend.
 - `dimension_ids`: Names to use for `element`.
 
-Alternatively you can browse to the built in Netdata API in your browser `http://[Netdata_Instance]:19999/api/v1/allmetrics?format=json` and search for the `data_group` identified in the Netdata frontend.  
+Alternatively you can browse to the built in Netdata API in your browser `http://[Netdata_Instance]:19999/api/v1/allmetrics?format=json` and search for the `data_group` identified in the Netdata frontend. In the example JSON below the data group is "system.load".
 
 ```JSON
 	"system.load": {
@@ -68,11 +68,11 @@ Alternatively you can browse to the built in Netdata API in your browser `http:/
 	},
 ```
 
-Once the `data_group` and the `element` have been identified from the JSON  it can be configured as per the example below. 
+Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your configuration.yaml like the example below. 
 
 ## {% linkable_title Configuration %}
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add this component to your installation, add the following to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,7 +84,24 @@ sensor:
         element: load15
 ```
 
+Multiple `data_group` and `element` entities can be added to he sensor
 
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: netdata
+    host: '192.168.1.2' # optional
+    port: '19999' # optional
+    name: SomeHostName # optional
+    resources: 
+      system_load: # sensor name
+        data_group: system.load 
+        element: load15
+      core0_freq:
+        data_group: 'cpu.cpufreq'
+        element: 'cpu0'
+        icon: mdi:chip
+```
 
 
 
