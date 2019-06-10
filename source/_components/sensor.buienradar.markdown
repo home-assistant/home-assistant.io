@@ -38,11 +38,11 @@ name:
   required: false
   type: string
 latitude:
-  description: Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+  description: "Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl."
   required: false
   type: float
 longitude:
-  description: Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+  description: "Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl."
   required: false
   type: float
 timeframe:
@@ -58,11 +58,11 @@ monitored_conditions:
     stationname:
       description: The name of the selected meteo-station.
     barometerfc:
-      description: A numeric barametric forecast (1..7)
+      description: A numeric barametric forecast (1 to 7)
     barometerfcname:
-      description: A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.).   
+      description: "A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.)."
     conditioncode:
-      description: A symbol and a unique code identifying the current weather condition ([a..z]).
+      description: "A symbol and a unique code identifying the current weather condition ([a..z])."
     condition:
       description: A symbol and the current weather condition (`clear`, `cloudy`, `fog`, `rainy`, `snowy` or `lightning`).
     conditiondetailed:
