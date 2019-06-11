@@ -118,6 +118,33 @@ Because of this, we changed how packages are installed when running Home Assista
 [wemo docs]: /components/wemo/
 [wink docs]: /components/wink/
 
+## {% linkable_title Release 0.94.2 - June 11 %}
+
+- Load the SSDP component only when it's needed ([@aerialls] - [#24420]) ([deconz docs]) ([hue docs])
+- Axis discovery MAC filter ([@Kane610] - [#24442]) ([axis docs])
+- Remember gpslogger entities across restarts (fixes #24432) ([@andkit] - [#24444]) ([gpslogger docs])
+- Update Hass.io when core config is updated ([@balloob] - [#24461]) ([hassio docs])
+- Sun listener to adapt to core config updates ([@balloob] - [#24464])
+- Update home zone when core config updated ([@balloob] - [#24237]) ([config docs]) ([zone docs])
+
+[#24237]: https://github.com/home-assistant/home-assistant/pull/24237
+[#24420]: https://github.com/home-assistant/home-assistant/pull/24420
+[#24442]: https://github.com/home-assistant/home-assistant/pull/24442
+[#24444]: https://github.com/home-assistant/home-assistant/pull/24444
+[#24461]: https://github.com/home-assistant/home-assistant/pull/24461
+[#24464]: https://github.com/home-assistant/home-assistant/pull/24464
+[@Kane610]: https://github.com/Kane610
+[@aerialls]: https://github.com/aerialls
+[@andkit]: https://github.com/andkit
+[@balloob]: https://github.com/balloob
+[axis docs]: /components/axis/
+[config docs]: /components/config/
+[deconz docs]: /components/deconz/
+[gpslogger docs]: /components/gpslogger/
+[hassio docs]: /components/hassio/
+[hue docs]: /components/hue/
+[zone docs]: /components/zone/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
