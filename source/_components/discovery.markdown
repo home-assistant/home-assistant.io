@@ -94,7 +94,6 @@ Valid values for ignore are:
  * `openhome`: Linn / Openhome
  * `panasonic_viera`: Panasonic Viera
  * `philips_hue`: Philips Hue
- * `plex_mediaserver`: Plex media server
  * `roku`: Roku media player
  * `sabnzbd`: SABnzbd downloader
  * `samsung_printer`: Samsung SyncThru Printer
@@ -106,6 +105,9 @@ Valid values for ignore are:
  * `yamaha`: Yamaha media player
  * `yeelight`: Yeelight lamps and bulbs (not only Yeelight Sunflower bulb)
  * `xiaomi_gw`: Xiaomi Aqara gateway
+
+Enabled by default:
+ * `plex_mediaserver`: Plex media server
 
 Valid values for enable are:
 
