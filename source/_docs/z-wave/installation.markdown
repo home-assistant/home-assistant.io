@@ -223,6 +223,14 @@ $ ls /dev/cu.usbmodem*
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
+### {% linkable_title Device not starting up correctly %}
+
+If your device not starting up correctly, and you have Ubunutu host on Intel NUC, then run command in Ubuntu:
+
+```bash
+ubuntu$ systemctl disable ModemManager.service
+```
+
 ### {% linkable_title Component could not be set up %}
 
 Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path (here we're using `/dev/ttyAMA0` for our Razberry board):
