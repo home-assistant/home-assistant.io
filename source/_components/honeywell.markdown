@@ -18,21 +18,25 @@ redirect_from:
 
 The `honeywell` climate platform lets you control Honeywell TCC (Total Connect Comfort) climate systems from Home Assistant. It does not integrate with Honeywell TCC alarm systems.
 
-There is some potential confusion over this integration because it is currently implemented as a combination of two _distinct_ climate systems, one being US-based, the other is EU-based. Importantly, these two regions are _not_ interchangeable, so you must clear which applies to your climate system.
+<p class='note'>
+There is some potential confusion over this integration because it is currently implemented as a combination of two _distinct_ climate systems, one being US-based, the other is EU-based.
+
+These two regions are _not_ interchangeable, so you must clear which applies to your climate system.
+</p>
 
 ## {% linkable_title US-based Systems %}
 
-These systems are based in North America, and temperatures are usually in Fahrenheit. They would likely be HVAC systems. They use the [somecomfort](https://github.com/kk7ds/somecomfort) client library. In this integration, this is called the `us` region.
+These systems are based in North America, and temperatures are usually in Fahrenheit. They would likely be HVAC systems. They always use the [somecomfort](https://github.com/kk7ds/somecomfort) client library. In this integration, this is called the `us` region.
 
 If your system is US-based, then you can access your system via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
 ## {% linkable_title EU-based Systems %}
 
-These systems are based in Europe (including the UK & Ireland), and temperatures are usually in Celsius. They would likely be heating-only systems. They use the [evohome-client](https://github.com/watchforstock/evohome-client) client library. In this integration, this is called the `eu` region.
+These systems are based in Europe (including the UK & Ireland), and temperatures are usually in Celsius. They would likely be heating-only systems. They always use the [evohome-client](https://github.com/watchforstock/evohome-client) client library. In this integration, this is called the `eu` region.
 
 If your system is US-based, then you can access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
 
-The `eu` region is being deprecated, and ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
+The `eu` region is soon to be deprecated, and ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
 
 ## {% linkable_title Configuration %}
 
