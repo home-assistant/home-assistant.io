@@ -52,7 +52,7 @@ If the home assistant server is behind your firewall with only the http(s) port 
 
 Another way of securing the port is to set `host` to localhost and have a secured SSH TCP tunnel with a client certificate for access from the outside internet.
 
-### {% Memory Use %}
+### {% linkable_title Memory Use %}
 
 There have been reports of continually increasing memory use while the debugger is running, although this doesn't seem to appear on all systems. Only configure the debugger on a persistent server when it's actually required.
 
