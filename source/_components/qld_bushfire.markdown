@@ -14,9 +14,10 @@ ha_release: 0.95
 ---
 
 The `qld_bushfire` platform lets you integrate a 
-[Queensland Bushfire GeoRSS feed](https://www.ruralfire.qld.gov.au/map/Pages/default.aspx) 
-containing bushfire alerts. It retrieves alerts from a feed and shows 
-information of those alerts filtered by distance to Home Assistant's location.
+[GeoRSS feed](https://www.ruralfire.qld.gov.au/map/Pages/default.aspx) 
+containing bushfire alerts for Queensland. It retrieves alerts from a feed 
+and shows information of those alerts filtered by distance to Home Assistant's 
+location.
 
 Entities are generated, updated and removed automatically with each update 
 from the feed. Each entity defines latitude and longitude and will be shown 
@@ -29,6 +30,12 @@ of each entity.
 </p>
 
 The data is updated every 5 minutes.
+
+<p class='note'>
+The material used by this integration is provided under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode).
+It has only been modified for the purpose of presenting the material in Home Assistant.
+Please refer to the [creator's copyright notice](https://www.qfes.qld.gov.au/Pages/copyright.aspx) for more information.
+</p>
 
 ## {% linkable_title Configuration %}
 
