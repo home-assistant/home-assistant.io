@@ -167,7 +167,7 @@ Remember to complete the schedule assignment steps above for each event type tha
 - alias: Doorbird Ring
   trigger:
     platform: event
-    event_type: doorbird_somebody_pressed_the_button
+    event_type: doorbird_driveway_gate_somebody_pressed_the_button
   action:
     service: light.turn_on
       entity_id: light.side_entry_porch
