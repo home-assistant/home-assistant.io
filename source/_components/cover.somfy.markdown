@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: somfy.png
 ha_category: Cover
-ha_release: 0.84
+ha_release: 0.95
 ---
 
 The `somfy` cover platform lets you control covers added to your Tahoma or Connexoon Box in Home Assistant.
