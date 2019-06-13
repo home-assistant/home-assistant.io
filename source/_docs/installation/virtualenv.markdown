@@ -10,9 +10,9 @@ footer: true
 redirect_from: /getting-started/installation-virtualenv/
 ---
 
-If you already have Python 3.5.3 or later installed, you can easily give Home Assistant a spin.
+If you already have Python 3.6 or later installed (we suggest 3.7 or later), you can easily give Home Assistant a spin.
 
-It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.5/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
+It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.6/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
 _(If you're on a Debian based system, you will need to install Python virtual environment support using `apt-get install python3-pip python3-venv`. You may also need to install development libraries using `apt-get install build-essential libssl-dev libffi-dev python3-dev`.)_
 
@@ -109,7 +109,7 @@ Looking for more advanced guides? Check our [Raspbian guide](/docs/installation/
 
 ### {% linkable_title After upgrading Python %}
 
-If you've upgraded Python (for example, you were running 3.5.2 and now you've installed 3.5.4) then you'll need to build a new virtual environment. Simply rename your existing virtual environment directory:
+If you've upgraded Python (for example, you were running 3.7.1 and now you've installed 3.7.3) then you'll need to build a new virtual environment. Simply rename your existing virtual environment directory:
 
 ```bash
 $ mv homeassistant homeassistant.old
