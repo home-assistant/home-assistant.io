@@ -26,6 +26,7 @@ To use the `synologydsm` sensor in your installation, add the following to your 
 # Example configuration.yaml entry
 sensor:
   - platform: synologydsm
+    name: DEVICE NAME
     host: IP_ADDRESS_OF_SYNOLOGY_NAS
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
@@ -36,6 +37,11 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  description: The name of your device
+  required: false
+  default: Synology DSM
+  type: string
 host:
   description: The IP address of the Synology NAS to monitor.
   required: true
