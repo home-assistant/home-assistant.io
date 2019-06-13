@@ -12,7 +12,7 @@ ha_category:
   - Binary Sensor
   - Lock
   - Sensor
-ha_release: 0.94
+ha_release: 0.95
 redirect_from:
   - /components/binary_sensor.keba/
   - /components/lock.keba/
