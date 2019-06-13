@@ -75,4 +75,4 @@ If your battery drains too fast then you can tune the performance of GPSLogger u
   Performance
 </p>
 
-A request can be forced from the app to test if everything is working fine/
+A request can be forced from the app to test if everything is working fine.
