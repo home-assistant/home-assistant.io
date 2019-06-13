@@ -145,6 +145,22 @@ Because of this, we changed how packages are installed when running Home Assista
 [hue docs]: /components/hue/
 [zone docs]: /components/zone/
 
+## {% linkable_title Release 0.94.3 - June 12 %}
+
+- Fix errors when renewing remote UI certs ([@balloob] - [#24481]) ([cloud docs])
+- Watson TTS: Fix missing comma preventing other voices ([@aidbish] - [#24487]) ([watson_tts docs])
+- Fix owntracks source_type for location messages with default trigger ([@pnbruckner] - [#24503]) ([owntracks docs])
+
+[#24481]: https://github.com/home-assistant/home-assistant/pull/24481
+[#24487]: https://github.com/home-assistant/home-assistant/pull/24487
+[#24503]: https://github.com/home-assistant/home-assistant/pull/24503
+[@aidbish]: https://github.com/aidbish
+[@balloob]: https://github.com/balloob
+[@pnbruckner]: https://github.com/pnbruckner
+[cloud docs]: /components/cloud/
+[owntracks docs]: /components/owntracks/
+[watson_tts docs]: /components/watson_tts/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
