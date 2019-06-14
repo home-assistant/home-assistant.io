@@ -57,7 +57,7 @@ Install Home Assistant itself:
 % exit
 ```
 
-Create an `rc.d` script for the system-level service that enables Home Assistant to start when the jail starts. Create a file at `/usr/local/etc/rc.d/homeassistant` with the following contents:
+Create an `rc.d` script for the system-level service that enables Home Assistant to start when the jail starts. Create a file at `/usr/local/etc/rc.d/homeassistant` (create the directory with `mkdir -p /usr/local/etc/rc.d` if necessary) with the following contents:
 
 ```bash
 #!/bin/sh
