@@ -49,7 +49,8 @@ port:
 
 Only the "music" media type is supported for now.
 
-This service will control any instance of VLC player on the network with the telnet interface activated. To activate the telnet interface on your VLC Player please read the [official VLC documentation](https://wiki.videolan.org/Documentation:Modules/telnet/).
+This service will control any instance of VLC player on the network with the telnet interface activated. 
+To activate the telnet interface on your VLC Player please read the [official VLC documentation](https://wiki.videolan.org/Documentation:Modules/telnet/). Also remember to add a firewall rule allowing inbound connections for the port used in the device running VLC.
 
 ## {% linkable_title Full configuration %}
 
@@ -59,10 +60,10 @@ A full configuration for VLC could look like the one below:
 # Example configuration.yaml entry
 media_player:
   - platform: vlc-telnet
-    name: NAME
-    host: IP_ADDRESS
-    port: PORT
-    password: PASSWORD
+    name: Remote Player
+    host: 192.168.1.48
+    port: 4212
+    password: your-secure-password
 ```
 
 ##### {% linkable_title Additional configuration for Rasperry Pi %}
