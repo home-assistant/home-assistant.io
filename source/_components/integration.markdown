@@ -18,7 +18,7 @@ redirect_from:
  - /components/sensor.integration/
 ---
 
-The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
+The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
 
 ## {% linkable_title Configuration %}
 
