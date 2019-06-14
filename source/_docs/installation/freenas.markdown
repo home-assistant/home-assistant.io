@@ -27,6 +27,8 @@ Install the necessary Python packages:
 # pkg upgrade
 # pkg install -y python37 py37-sqlite3 ca_root_nss
 # python3.7 -m ensurepip
+# pip3 install --upgrade pip
+# pip3 install --upgrade virtualenv
 ```
 
 Create the configuration directory:
@@ -48,8 +50,8 @@ Install Home Assistant itself:
 ```bash
 # su homeassistant
 % cd /usr/local/share/homeassistant
-% source ./bin/activate.csh
 % virtualenv -p python3.7 .
+% source ./bin/activate.csh
 % pip3 install homeassistant
 % deactivate
 % exit
