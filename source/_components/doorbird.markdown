@@ -112,7 +112,7 @@ Events can be defined for each configured DoorBird device independently. These e
 
 See [Schedules](#schedules) section below for details on how to configure schedules.
 
-Event names will be prefixed by `doorbird_`. For example, the example event `somebody_pressed_the_button` will be seen in Home Assistant as `doorbird_somebody_pressed_the_button`. This is to prevent conflicts with other events.
+Event names will be prefixed by `doorbird_devicename`. For example, the example event `somebody_pressed_the_button` for the device 'Driveway Gate' will be seen in Home Assistant as `doorbird_driveway_gate_somebody_pressed_the_button`. This is to prevent conflicts with other events.
 
 See [Automation Example](#automation_example) section below for details on how to use the event names in an automation.
 
@@ -167,7 +167,7 @@ Remember to complete the schedule assignment steps above for each event type tha
 - alias: Doorbird Ring
   trigger:
     platform: event
-    event_type: doorbird_somebody_pressed_the_button
+    event_type: doorbird_driveway_gate_somebody_pressed_the_button
   action:
     service: light.turn_on
       entity_id: light.side_entry_porch
