@@ -72,27 +72,25 @@ Once the `data_group` "system.load" and the `element` "load15" have been identif
 
 ## {% linkable_title Configuration %}
 
-To add this component to your installation, add the following to your `configuration.yaml`.
+Add the following to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: netdata
     resources:    
-      system_load:
+      load:
         data_group: system.load
         element: load15
 ```
-
-Multiple `data_group` and `element` entities can be added to he sensor
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: netdata
-    host: '192.168.1.2' # optional
-    port: '19999' # optional
-    name: SomeHostName # optional
+    host: '192.168.1.2'
+    port: '19999'
+    name: SomeHostName
     resources: 
       system_load: # sensor name
         data_group: system.load 
