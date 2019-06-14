@@ -92,7 +92,7 @@ sensor:
     port: '19999'
     name: SomeHostName
     resources: 
-      system_load: # sensor name
+      system_load:
         data_group: system.load 
         element: load15
       core0_freq:
@@ -100,11 +100,6 @@ sensor:
         element: 'cpu0'
         icon: mdi:chip
 ```
-
-
-
-
-
 
 {% configuration %}
 host:
