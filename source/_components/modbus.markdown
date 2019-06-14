@@ -128,12 +128,12 @@ modbus:
   - type: tcp
     host: IP_ADDRESS_1
     port: 2020
-    hub: hub1
+    name: hub1
 
   - type: tcp
     host: IP_ADDRESS_2
     port: 501
-    hub: hub2
+    name: hub2
 ```
 
 ### {% linkable_title Services %}
@@ -147,7 +147,7 @@ modbus:
 
 | Attribute | Description |
 | --------- | ----------- |
-| hub       | Hub name (defaults to 'default' when omitted) |
+| name      | Hub name (defaults to 'default' when omitted) |
 | unit      | Slave address (set to 255 you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
