@@ -35,21 +35,6 @@ sensor:
 
 Tip: Use the [secret](https://www.home-assistant.io/docs/configuration/secrets/) mechanism to store your Enedis account credentials.
 
-```yaml
-# All options Linky configuration.yaml
-sensor:
-  - platform: linky
-    username: YOUR_LINKY_USERNAME
-    password: YOUR_LINKY_PASSWORD
-    timeout: 10
-    monitored_conditions:
-      - yesterday
-      - current_month
-      - last_month
-      - current_year
-      - last_year
-```
-
 {% configuration %}
 username:
   description: The Enedis account username.
@@ -81,3 +66,20 @@ monitored_conditions:
     last_year:
       description: To monitor your last year consumption in kWh.
 {% endconfiguration %}
+
+### {% linkable_title Full Configuration %}
+
+```yaml
+# All options Linky configuration.yaml
+sensor:
+  - platform: linky
+    username: YOUR_LINKY_USERNAME
+    password: YOUR_LINKY_PASSWORD
+    timeout: 10
+    monitored_conditions:
+      - yesterday
+      - current_month
+      - last_month
+      - current_year
+      - last_year
+```
