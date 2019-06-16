@@ -130,7 +130,7 @@ resources:
           default: false
 {% endconfiguration %}
 
-### {% linkable_title Full Configuration %}
+### {% linkable_title Full Example %}
 
 ```yaml
 # Example configuration.yaml entry
