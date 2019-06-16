@@ -42,17 +42,17 @@ switcher_kis:
 
 {% configuration %}
 phone_id:
-description: The device's phone id.
-required: true
-type: string
+  description: The device's phone id.
+  required: true
+  type: string
 device_id:
-description: The device's id.
-required: true
-type: string
+  description: The device's id.
+  required: true
+  type: string
 device_password:
-description: The device's password.
-required: true
-type: string
+  description: The device's password.
+  required: true
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Switch State Attributes %}
@@ -68,3 +68,16 @@ type: string
 <p class='note warning'>
   Please note, the following attributes are not eligible when the device is off and therefore will not appear as state attributes: `remaining_time`, `electric_current`, `current_power_w`.
 </p>
+
+## {% linkable_title Services %}
+
+### {% linkable_title Service: `switcher_kis.set_auto_off` %}
+
+You can use the `switcher_kis.set_auto_off` service to set the auto-off configuration setting for the device.
+
+Meaning the device will turn itself off when reaching the auto-off configuration limit.
+
+| Service Field | Mandatory | Description                                                                            | Example                    |
+| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
+| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation. | switch.switcher_kis_boiler |
+| `auto_off`    | Yes       | Time period string containing hours and minutes.                                       | "02:30"                    |
