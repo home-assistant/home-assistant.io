@@ -123,6 +123,8 @@ You can also check what hardware has been found using the [hassio command](/hass
 $ hassio hardware info
 ```
 
+The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+
 ### {% linkable_title Docker %}
 
 You do not need to install any software to use Z-Wave.
@@ -138,6 +140,8 @@ If the path of `/dev/ttyACM0` doesn't work then you can find the path of the sti
 ```bash
 $ ls -1tr /dev/tty*|tail -n 1
 ```
+
+The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
 ### {% linkable_title Hassbian %}
 
