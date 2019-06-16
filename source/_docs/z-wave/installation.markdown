@@ -143,7 +143,6 @@ $ ls -1tr /dev/tty*|tail -n 1
 
 The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
-
 ### {% linkable_title Hassbian %}
 
 You do not need to install any software to use Z-Wave.
