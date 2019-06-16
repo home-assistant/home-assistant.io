@@ -84,23 +84,6 @@ sensor:
         element: load15
 ```
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: netdata
-    host: '192.168.1.2'
-    port: '19999'
-    name: SomeHostName
-    resources: 
-      system_load:
-        data_group: system.load 
-        element: load15
-      core0_freq:
-        data_group: 'cpu.cpufreq'
-        element: 'cpu0'
-        icon: mdi:chip
-```
-
 {% configuration %}
 host:
   description: The IP address or hostname of your Netdata instance.
@@ -146,3 +129,22 @@ resources:
           type: boolean
           default: false
 {% endconfiguration %}
+
+### {% linkable_title Full Configuration %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: netdata
+    host: '192.168.1.2'
+    port: '19999'
+    name: SomeHostName
+    resources: 
+      system_load:
+        data_group: system.load 
+        element: load15
+      core0_freq:
+        data_group: 'cpu.cpufreq'
+        element: 'cpu0'
+        icon: mdi:chip
+```
