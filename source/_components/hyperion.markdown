@@ -65,7 +65,7 @@ light:
     default: "['HDMI', 'Cinema brighten lights', 'Cinema dim lights', 'Knight rider', 'Blue mood blobs', 'Cold mood blobs', 'Full color mood blobs', 'Green mood blobs', 'Red mood blobs', 'Warm mood blobs', 'Police Lights Single', 'Police Lights Solid', 'Rainbow mood', 'Rainbow swirl fast', 'Rainbow swirl', 'Random', 'Running dots', 'System Shutdown', 'Snake', 'Sparks Color', 'Sparks', 'Strobe blue', 'Strobe Raspbmc', 'Strobe white', 'Color traces', 'UDP multicast listener', 'UDP listener', 'X-Mas']"
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## {% linkable_title Examples %}
 
 To start Hyperion with an effect, use the following automation:
 
@@ -87,39 +87,35 @@ automation:
 To have the lights playing a effect when pausing, idle or turn off a media player like plex you can use this example:
 
 ```
-###### Set hyperion effect after playback -----------
-  - alias: Set hyperion effect after playback
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: media_player.plex_iiidefcontoweriii
-        to: 'off'
-      - platform: state
-        entity_id: media_player.plex_iiidefcontoweriii
-        to: 'paused'
-      - platform: state
-        entity_id: media_player.plex_iiidefcontoweriii
-        to: 'idle'
-    action:
-      - service: light.turn_on
-        data:
-          entity_id: light.hyperion
-          effect: "Full color mood blobs"
+- alias: Set hyperion effect after playback
+  trigger:
+    - platform: state
+      entity_id: media_player.plex_iiidefcontoweriii
+      to: 'off'
+    - platform: state
+      entity_id: media_player.plex_iiidefcontoweriii
+      to: 'paused'
+    - platform: state
+      entity_id: media_player.plex_iiidefcontoweriii
+      to: 'idle'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hyperion
+        effect: "Full color mood blobs"
 ```
 
-To capture the screen when playing something of a media_player you can use this example"
+To capture the screen when playing something of a media_player you can use this example:
 
 ```
-###### Set hyperion capture when starting movie -----------
-  - alias: Set hyperion when playback starts
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: media_player.plex_iiidefcontoweriii
-        to: 'playing'
-    action:
-      - service: light.turn_on
-        data:
-          entity_id: light.hyperion
-          effect: HDMI
+- alias: Set hyperion when playback starts
+  trigger:
+    - platform: state
+      entity_id: media_player.plex_iiidefcontoweriii
+      to: 'playing'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hyperion
+        effect: HDMI
 ```
