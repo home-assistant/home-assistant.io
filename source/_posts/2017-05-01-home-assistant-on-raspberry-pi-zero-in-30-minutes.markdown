@@ -11,6 +11,10 @@ categories: How-To
 og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png
 ---
 
+<p class='note warning'>
+  ***This article is very outdated*** guide. If you follow it you will be installing a very outdated version of Hassbian, on a hardware platform only suitable for testing.  ***We strongly recommend you do not follow this article***.
+</p>
+
 <p class="img">
   <img src="/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
 </p>
