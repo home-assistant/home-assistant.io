@@ -163,8 +163,8 @@ switch:
     state_topic: "home/bedroom/switch1"
     command_topic: "home/bedroom/switch1/set"
     availability_topic: "home/bedroom/switch1/available"
-    payload_on: "ON"
-    payload_off: "OFF"
+    payload_available: "online"
+    payload_not_available: "offline"
     state_on: "ON"
     state_off: "OFF"
     optimistic: false
