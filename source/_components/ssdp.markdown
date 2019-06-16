@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "SSDP"
+title: "SSDP - Simple Service Discovery Protocol"
 description: "Discover integrations on the network using the SSDP protocol."
 date: 2019-06-02 18:50
 sidebar: true
@@ -12,7 +12,7 @@ ha_category:
 ha_release: 0.94
 ---
 
-The `ssdp` integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the config panel.
+The `ssdp` "Simple Service Discovery Protocol" integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the config panel.
 
 Integrations can opt-in to be found by adding [an SSDP section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#ssdp) to their manifest.json.
 
