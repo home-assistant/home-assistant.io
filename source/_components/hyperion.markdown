@@ -44,7 +44,7 @@ light:
     required: false
     type: string
   priority:
-    description: The priority of the Hyperion instance.
+    description: The priority of the Hyperion instance make sure this is higher then the system prio in hyperion itself.
     required: false
     type: int
     default: 128
@@ -82,4 +82,44 @@ automation:
       data:
         entity_id: light.hyperion
         effect: "Full color mood blobs"
+```
+
+To have the lights playing a effect when pausing, idle or turn off a media player like plex you can use this example:
+
+```
+###### Set hyperion effect after playback -----------
+  - alias: Set hyperion effect after playback
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: media_player.plex_iiidefcontoweriii
+        to: 'off'
+      - platform: state
+        entity_id: media_player.plex_iiidefcontoweriii
+        to: 'paused'
+      - platform: state
+        entity_id: media_player.plex_iiidefcontoweriii
+        to: 'idle'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hyperion
+          effect: "Full color mood blobs"
+```
+
+To capture the screen when playing something of a media_player you can use this example"
+
+```
+###### Set hyperion capture when starting movie -----------
+  - alias: Set hyperion when playback starts
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: media_player.plex_iiidefcontoweriii
+        to: 'playing'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.hyperion
+          effect: HDMI
 ```
