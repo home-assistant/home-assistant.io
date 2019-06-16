@@ -42,28 +42,28 @@ switcher_kis:
 
 {% configuration %}
 phone_id:
-  description: The device's phone id.
-  required: true
-  type: string
+description: The device's phone id.
+required: true
+type: string
 device_id:
-  description: The device's id.
-  required: true
-  type: string
+description: The device's id.
+required: true
+type: string
 device_password:
-  description: The device's password.
-  required: true
-  type: string
+description: The device's password.
+required: true
+type: string
 {% endconfiguration %}
 
 ## {% linkable_title Switch State Attributes %}
 
-| Attribute | Type | Description | Example |
-| --------- | ---- | ----------- | ------- |
-| `friendly_name` | string | Defaults to the device's configured name. | "Switcher Boiler" |
-| `auto_off_set` | string | The auto shutdown time limit configured on the device. | "01:30:00" |
-| `remaining_time` | string | Time remaining to shutdown (auto or timer). | "01:29:41" |
-| `electric_current` | float | The electric current in amps. | 12.5 |
-| `current_power_w` | integer | The current power used in watts. | 2756 |
+| Attribute          | Type    | Description                                            | Example           |
+| ------------------ | ------- | ------------------------------------------------------ | ----------------- |
+| `friendly_name`    | string  | Defaults to the device's configured name.              | "Switcher Boiler" |
+| `auto_off_set`     | string  | The auto shutdown time limit configured on the device. | "01:30:00"        |
+| `remaining_time`   | string  | Time remaining to shutdown (auto or timer).            | "01:29:41"        |
+| `electric_current` | float   | The electric current in amps.                          | 12.5              |
+| `current_power_w`  | integer | The current power used in watts.                       | 2756              |
 
 <p class='note warning'>
   Please note, the following attributes are not eligible when the device is off and therefore will not appear as state attributes: `remaining_time`, `electric_current`, `current_power_w`.
