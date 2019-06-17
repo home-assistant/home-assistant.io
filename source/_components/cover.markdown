@@ -71,7 +71,7 @@ Set cover tilt position of one or multiple covers.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
-| `position` | no | Integer between 0 and 100.
+| `tilt_position` | no | Integer between 0 and 100.
 
 #### {% linkable_title Automation example  %}
 
@@ -84,5 +84,5 @@ automation:
     - service: cover.set_cover_tilt_position
       data:
         entity_id: cover.demo
-        position: 50
+        tilt_position: 50
 ```
