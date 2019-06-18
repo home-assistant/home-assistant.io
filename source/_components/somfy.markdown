@@ -12,7 +12,6 @@ ha_category:
   - Hub
 ha_iot_class: Cloud Polling
 ha_release: 0.95
-ha_qa_scale: gold
 ---
 
 The Somfy component will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [tahoma](/components/tahoma/) component.
@@ -29,8 +28,8 @@ To connect Somfy, you need to set up a developer account.
   - Callback URL: `<YOUR_HOME_ASSISTANT_URL>/auth/somfy/callback`
   - Description: Home Assistant instance
   - Product: Somfy Open API
-5. Once Home Assistant restarted, go to Configuration>Integration.
-6. Select the Somfy integrations.
+5. Once Home Assistant restarted, go to Configuration>Integrations.
+6. Select the Somfy integration.
 
 ### {% linkable_title Configuration %}
 
