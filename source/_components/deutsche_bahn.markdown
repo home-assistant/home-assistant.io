@@ -38,7 +38,7 @@ to:
   required: true
   type: string
 offset:
-  description: 
+  description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
   required: false
   type: time
   default: 00:00
