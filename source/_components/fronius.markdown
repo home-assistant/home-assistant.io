@@ -76,6 +76,7 @@ sensor:
 
 The sensors depend on the state of the Fronius device, that's why it is recommended to use template sensors as an interface:
 
+{% raw %}
 ```yaml
 - platform: template
   sensors:
@@ -96,3 +97,4 @@ The sensors depend on the state of the Fronius device, that's why it is recommen
           0
         {%- endif %}
 ```
+{% endraw %}
