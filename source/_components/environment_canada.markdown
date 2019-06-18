@@ -24,7 +24,7 @@ The following device types and data are supported:
 - [Sensor](#sensor) - Current conditions and alerts
 - [Camera](#camera) - Radar imagery
 
-##Location Selection
+## {% linkable_title Location Selection %}
 
 Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
 
