@@ -17,7 +17,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices, and visibility of any associated Issues. Currently, there is no support for Zone schedules.
+The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices, and visibility of any Issues. Currently, there is no support for Zone schedules.
 
 It uses the [geniushub-client](https://pypi.org/project/geniushub-client/) library.
 
