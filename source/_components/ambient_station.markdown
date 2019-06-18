@@ -6,7 +6,8 @@ date: 2018-11-15 08:00
 sidebar: true
 comments: false
 logo: ambient_weather.png
-ha_category: Weather
+ha_category:
+  - Weather
 ha_release: 0.85
 ha_iot_class: Cloud Push
 redirect_from:
@@ -20,7 +21,7 @@ via personal weather stations from [Ambient Weather](https://ambientweather.net)
 
 Using this component requires both an Application Key and an API Key. To
 generate both, simply utilize the profile section of
-[your Ambient Weather dashboard](https:/dashboard.ambientweather.net).
+[your Ambient Weather dashboard](https://dashboard.ambientweather.net).
 
 ## {% linkable_title Configuration %}
 

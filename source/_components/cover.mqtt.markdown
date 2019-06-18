@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_iot_class: Configurable
 ha_release: 0.18
 ---
@@ -143,6 +144,10 @@ tilt_status_topic:
   description: The MQTT topic subscribed to receive tilt status update values.
   required: false
   type: string
+tilt_status_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. "
+  required: false
+  type: string
 tilt_min:
   description: The minimum tilt value.
   required: false
@@ -162,8 +167,8 @@ tilt_opened_value:
   description: The value that will be sent on an `open_cover_tilt` command.
   required: false
   type: integer
-  default: 0
-tilt_status_optimistic:
+  default: 100
+tilt_optimistic:
   description: Flag that determines if tilt works in optimistic mode.
   required: false
   type: boolean
@@ -181,6 +186,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 unique_id:
   description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
   required: false
@@ -301,6 +310,7 @@ cover:
     value_template: '{{ value.x }}'
     tilt_command_topic: 'home-assistant/cover/tilt'
     tilt_status_topic: 'home-assistant/cover/tilt-state'
+    tilt_status_template: '{{ value_json["PWM"]["PWM1"] }}'
     tilt_min: 0
     tilt_max: 180
     tilt_closed_value: 70

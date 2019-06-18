@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.27
 ha_iot_class: Local Push
 ha_qa_scale: internal
@@ -48,6 +49,9 @@ emulated_hue:
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
+# Required for Echo Dot 3
+  host_ip: YOUR.HASSIO.IP.ADDRESS
+  listen_port: 80
 ```
 
 {% configuration %}

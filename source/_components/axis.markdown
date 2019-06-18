@@ -11,6 +11,7 @@ logo: axis.png
 ha_category:
   - Camera
   - Binary Sensor
+  - Switch
 ha_config_flow: true
 ha_release: 0.45
 ha_iot_class: Local Push
@@ -43,3 +44,11 @@ The following sensor types are supported:
 - Passive IR motion detection
 - Sound detection
 - Day/night mode
+- Inputs and Supervised Inputs
+
+## {% linkable_title Switch %}
+
+The following controllable port types are supported:
+
+- Output
+- Relay

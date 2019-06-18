@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: spaceapi.png
-ha_category: Social
+ha_category:
+  - Social
 ha_release: "0.70"
 ---
 
@@ -112,6 +113,20 @@ sensors:
       required: true
       type: entity_id
 {% endconfiguration %}
+
+The list of sensors can be any sensor, not just temperature or humidity.
+
+## {% linkable_title Sensor specific location %}
+
+The [SpaceAPI specification](https://spaceapi.io/pages/docs.html) requires every sensor to provide a location. 
+In order to set a sensor specific location do the following steps: 
+
+1. Go to Configuration -> Customization
+2. Select the sensor entity
+3. Pick "Other" from the attribute override pulldown
+4. Set the attribute name to location and the attribute value to your desired location
+
+If no location is set, the location defined in the HA config is used.
 
 ## {% linkable_title Examples %}
 

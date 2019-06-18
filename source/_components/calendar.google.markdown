@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: google_calendar.png
-ha_category: Calendar
+ha_category:
+  - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ---
@@ -19,6 +20,7 @@ The sensors created can trigger based on any event on the calendar or only for
 matching events. When you first setup this component it will generate a new
 configuration file `google_calendars.yaml` that will contain information about
 all of the calendars you can see.
+It also exposes a service to add an event to one of your Google Calendars.
 
 ## {% linkable_title Prerequisites %}
 
@@ -69,7 +71,8 @@ track_new_calendar:
 
 The next steps will require you to have Home Assistant running.
 
-After you have it running complete the Google authentication that pops up.
+After you have it running complete the Google authentication that pops up in notification (the little bell icon in the upper right corner).
+
 It will give you a URL and a code to enter. This will grant your Home Assistant
 service access to all the Google Calendars that the account you
 authenticate with can read. This is a Read-Only view of these calendars.
@@ -171,6 +174,25 @@ Otherwise everything following the hash sign would be considered a YAML comment.
  - **location**: The event Location.
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
+
+### {% linkable_title Service `google.add_event` %}
+
+You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the component gets your time zone from your `configuration.yaml` file.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `calendar_id` | no | The id of the calendar you want. |	Your email
+| `summary` | no | Acts as the title of the event. | Bowling
+| `description` | yes | The description of the event. | Birthday bowling
+| `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
+| `end_date_time` | yes | The date and time the event should end. | 2019-03-10 23:00:00
+| `start_date` | yes | The date the whole day event should start. | 2019-03-10
+| `end_date` | yes | The date the whole day event should end. | 2019-03-11
+| `in` | yes | Days or weeks that you want to create the event in. | "days": 2
+
+<p class='note'>
+You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
+</p>
 
 ## {% linkable_title Using calendar in automations %}
 

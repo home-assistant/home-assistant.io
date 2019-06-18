@@ -8,12 +8,34 @@ comments: false
 sharing: true
 footer: true
 logo: netatmo.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Environment
+  - Weather
+  - Binary Sensor
+  - Sensor
+  - Climate
+  - Camera
 ha_release: "0.20"
 ha_iot_class: Cloud Polling
+redirect_from:
+  - /components/binary_sensor.netatmo/
+  - /components/camera.netatmo/
+  - /components/climate.netatmo/
+  - /components/sensor.netatmo/
+  - /components/public_sensor.netatmo/
 ---
 
 The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Binary Sensor](#binary-sensor)
+- [Camera](#camera)
+- [Climate](#climate)
+- [Sensor](#sensor)
+
+## {% linkable_title Configuration %}
 
 To enable the Netatmo component, add the following lines to your `configuration.yaml`:
 
@@ -129,3 +151,309 @@ There are two services to manually add and drop the webhooks. This might be usef
 | ------- | ----------- |
 | addwebhook | Subscribe to webhooks. By default the automatically generated URL will be used. But you can pass `{"url": "https://yourdomain.com/yourwebhook/"}` as service data to the service call if you want to use a manually created [webhook trigger](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger). In this case you have to manually process the data that is sent by Netatmo.
 | dropwebhook | Unsubscribe existing webhooks.
+
+## {% linkable_title Binary Sensor %}
+
+This component allows you to get the latest event seen by the camera.
+
+### {% linkable_title Binary Sensor Advanced configuration %}
+
+If you want to select a specific sensor,
+set discovery to `false` for [netatmo](/components/netatmo/)
+and add the following lines to your `configuration.yaml`:
+
+{% configuration %}
+home:
+  description: Will use the cameras of this home only.
+  required: false
+  type: string
+timeout:
+  description: >
+    The Welcome/Presence binary sensors will
+    stay on for X seconds after detection.
+  required: false
+  type: integer
+  default: 90
+cameras:
+  description: List of cameras entity IDs to display.
+  required: false
+  type: list
+welcome_sensors:
+  description: >
+    List of monitored conditions. Possible values are
+    'Someone known', 'Someone unknown' and 'Motion'.
+  required: false
+  type: list
+presence_sensors:
+  description: >
+    List of monitored conditions. Possible values are 'Outdoor motion',
+    'Outdoor human', 'Outdoor animal' and 'Outdoor vehicle'.
+  required: false
+  type: list
+{% endconfiguration %}
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  platform: netatmo
+  home: home_name
+  timeout: 90
+  cameras:
+    - camera_name1
+  welcome_sensors:
+    - Someone known
+    - Someone unknown
+    - Motion
+  presence_sensors:
+    - Outdoor motion
+    - Outdoor human
+    - Outdoor animal
+    - Outdoor vehicle
+```
+
+If **home** and **cameras** is not provided, all cameras will be used.
+If multiple cameras are available then each monitored conditions
+will create a specific sensor for each camera
+
+## {% linkable_title Camera %}
+
+The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
+
+### {% linkable_title Camera Advanced configuration %}
+
+If you want to select a specific camera,
+set discovery to `false` for [netatmo](/components/netatmo/)
+and add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: netatmo
+```
+
+{% configuration %}
+home:
+  description: Will display the cameras of this home only.
+  required: false
+  type: string
+cameras:
+  description: Cameras to use. Multiple entities allowed.
+  required: false
+  type: list
+  keys:
+    camera_name:
+      description: Name of the camera to display.
+quality:
+  description: Quality of the live stream. (`'high'`, `'medium'`, `'low'` or `'poor'`)
+  required: false
+  type: string
+  default: high
+{% endconfiguration %}
+
+If **home** and **cameras** are not provided, all cameras will be displayed. For more control over your cameras check the configuration sample below.
+
+```yaml
+# Example configuration.yaml entry
+camera:
+  platform: netatmo
+  home: home_name
+  quality: medium
+  cameras:
+    - camera_name1
+    - camera_name2
+```
+
+## {% linkable_title Climate %}
+
+The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This component allows you to view the current temperature and setpoint.
+
+### {% linkable_title Camera Advanced configuration %}
+
+If you want to select specific homes or specific rooms,
+set discovery to `false` for [netatmo](/components/netatmo/)
+and add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: netatmo
+```
+
+{% configuration %}
+homes:
+  description: Will display the thermostats of the homes listed.
+  required: false
+  type: list
+  keys:
+    name:
+      required: true
+      description: The home name.
+    rooms:
+      description: Rooms to be displayed. Multiple entities allowed.
+      required: false
+      type: [list, string]
+      description: List of the names of the rooms to be displayed.
+{% endconfiguration %}
+
+If **homes** and **rooms** are not provided, all thermostats will be displayed.
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  platform: netatmo
+  homes:
+    - name: home1_name
+      rooms:
+        - room1_name
+        - room2_name
+    - name: home2_name
+      rooms:
+        - room3_name
+        - room4_name
+        - room5_name
+```
+
+## {% linkable_title Sensor %}
+
+The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation), a
+[Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) device or the public sensors of others available via the [Netatmo API](https://weathermap.netatmo.com/) even if you don't own a Netatmo device.
+
+Public sensors have to be set up manually. Currently the following conditions are supported for the public sensors:
+
+* temperature
+* pressure
+* humidity
+* rain
+* windstrength
+* guststrength
+
+## {% linkable_title Advanced sensor configuration %}
+
+If you want to select a specific sensor, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  # Personal sensors
+  - platform: netatmo
+    station: STATION_NAME
+    modules:
+      module_name1:
+        - temperature
+      module_name2:
+        - temperature
+        - battery_vp
+
+  # Public sensor
+  - platform: netatmo
+    areas:
+      - lat_ne: 40.719
+        lon_ne: -73.735
+        lat_sw: 40.552
+        lon_sw: -74.105
+        monitored_conditions:
+          - temperature
+          - pressure
+          - humidity
+          - rain
+          - windstrength
+          - guststrength
+```
+
+{% configuration %}
+station:
+  required: false
+  description: The name of the weather station. Needed if several stations are associated with the account.
+  type: string
+modules:
+  required: false
+  description: Modules to use. Multiple entries allowed. Please check the next section about how to retrieve the module names.
+  type: list
+  keys:
+    module_name:
+      type: list
+      required: true
+      description: Name of the module.
+      keys:
+        temperature:
+          description: Current temperature.
+        co2:
+          description: CO2 concentration in ppm.
+        pressure:
+          description: Pressure in mbar.
+        noise:
+          description: Noise level in dB.
+        humidity:
+          description: "Humidity in %."
+        health_idx:
+          description: "Air health as one of the values Healthy, Fine, Fair, Poor, Unhealthy."
+        rain:
+          description: Estimated rainfall for today in mm.
+        sum_rain_1:
+          description: Rainfall in the last hour in mm.
+        sum_rain_24:
+          description: "Rainfall in mm from 00:00am - 23:59pm."
+        windangle:
+          description: Wind angle
+        windstrength:
+          description: Wind strength
+        gustangle:
+          description: Wind gust angle
+        guststrength:
+          description: Wind gust strength
+        min_temp:
+          description: Min temperature for today
+        max_temp:
+          description: Max temperature for today
+        rf_status:
+          description: "Current radio status per module. (90=low, 60=highest)"
+        wifi_status:
+          description: Wifi status per Base station
+        battery_vp:
+          description: Current battery status per module.
+        battery_percent:
+          description: Percentage of battery remaining per module.
+areas:
+  description: The list contains one or more areas to add as sensors.
+  required: false
+  type: map
+  keys:
+    lat_ne:
+      description: Latitude of north-eastern corner of area.
+      required: true
+      type: string
+    lon_ne:
+      description: Longitude of north-eastern corner of area.
+      required: true
+      type: string
+    lat_sw:
+      description: Latitude of south-western corner of area.
+      required: true
+      type: string
+    lon_sw:
+      description: Longitude of south-western corner of area.
+      required: true
+      type: string
+    monitored_conditions:
+      description: List of environment conditions to monitor.
+      required: true
+      type: list
+    name:
+      description: Name of the sensor.
+      required: false
+      type: string
+      default: Netatmo Public Data
+    mode:
+      description: "How to calculate the value of the sensor if there are multiple stations reporting data. Accepts `max` or `avg`."
+      required: false
+      type: string
+      default: avg
+{% endconfiguration %}
+
+## {% linkable_title Find your modules name %}
+
+You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters. You have to provide these name in your Home Assistant `configuration.yaml` file.
+
+<p class='img'>
+<img src='/images/screenshots/netatmo_module.png' />
+</p>

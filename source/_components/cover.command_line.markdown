@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: command_line.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.14
 ha_iot_class: Local Polling
 ---

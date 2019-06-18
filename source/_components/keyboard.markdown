@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: keyboard.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: pre 0.7
 ---
 

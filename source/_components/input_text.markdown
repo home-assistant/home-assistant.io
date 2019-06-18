@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.53
 ha_qa_scale: internal
 ---
@@ -49,7 +50,7 @@ input_text:
         type: integer
         default: 0
       max:
-        description: Maximum length for the text value.
+        description: Maximum length for the text value. 255 is the maximum number of characters allowed in an entity state.
         required: false
         type: integer
         default: 100

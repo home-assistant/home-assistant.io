@@ -135,7 +135,7 @@ You can also get the script to abort after the timeout by using `continue_on_tim
 
 {% raw %}
 ```yaml
-# Wait until a valve is < 10 or continue after 1 minute.
+# Wait until a valve is < 10 or abort after 1 minute.
 - wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
   timeout: '00:01:00'
   continue_on_timeout: 'false'

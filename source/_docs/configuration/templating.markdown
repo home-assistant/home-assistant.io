@@ -330,11 +330,9 @@ To evaluate a response, go to the <img src='/images/screenshots/developer-tool-t
 ### {% linkable_title `entity_id` that begins with a number %}
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
 
+### {% linkable_title Templates without entities using `now()` %}
 
-
-### {% linkable_title Templates using `now()` %}
-
-Rendering templates with time (`now()`) is dangerous as updates only trigger templates in sensors based on entity state changes.
+Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/components/sensor.template/#working-without-entities)
 
 
 ### {% linkable_title Priority of operators %}

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: "Other"
+ha_category:
+  - "Other"
 ha_qa_scale: internal
 ha_release: 0.87
 ---

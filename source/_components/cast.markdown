@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: google_cast.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling

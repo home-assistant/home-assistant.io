@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: locative.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.86
 ha_iot_class: Cloud Push
 redirect_from:

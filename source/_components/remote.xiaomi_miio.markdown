@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Remote
+ha_category:
+  - Remote
 ha_release: 0.63
 ha_iot_class: Local Polling
 ---

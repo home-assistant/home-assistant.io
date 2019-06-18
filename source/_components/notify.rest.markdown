@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: restful.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.13
 ---
 

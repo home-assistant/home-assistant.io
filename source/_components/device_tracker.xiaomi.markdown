@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: xiaomi.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.36
 ---
 
