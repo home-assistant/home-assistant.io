@@ -33,8 +33,6 @@ sensor:
     password: YOUR_LINKY_PASSWORD
 ```
 
-Tip: Use the [secret](https://www.home-assistant.io/docs/configuration/secrets/) mechanism to store your Enedis account credentials.
-
 {% configuration %}
 username:
   description: The Enedis account username.
