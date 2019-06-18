@@ -60,8 +60,8 @@ Each such entity has a state attribute that will contain a list of any such issu
     data_template:
       title: "Genius Hub has errors"
       message: >-
-        Genius Hub has the following {{ states('sensor.errors')}} errors:
-        {{ state_attr('sensor.errors', 'error_list')}}
+        Genius Hub has the following {{ states('sensor.errors') }} errors:
+        {{ state_attr('sensor.errors', 'error_list') }}
 ```
 
 ### {% linkable_title State Attributes %}
