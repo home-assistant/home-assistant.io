@@ -26,7 +26,7 @@ First, you need to create an Enedis account [here](https://espace-client-connexi
 And then, add the Linky sensor to your `configuration.yaml` file like below:
 
 ```yaml
-# Basic Linky configuration.yaml
+# Example configuration.yaml entry
 sensor:
   - platform: linky
     username: YOUR_LINKY_USERNAME
