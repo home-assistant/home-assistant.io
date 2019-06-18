@@ -47,7 +47,7 @@ This will only impact you if you are running a custom installation of Home Assis
 
 This release also introduces a long overdue overhaul of how the device tracker works. We are introducing this overhaul piece by piece, focusing first on device tracker platforms that push their updates to Home Assistant: mobile app, OwnTracks, GeoFency, GPSLogger and Locative.
 
-These integrations will no longer use `known_devices.yaml` but instead use entities, like all other integrations in Home Assistant. You can change the name and entity ID via the UI. It is no longer posible to merge the devices with other device tracker entities. This was flaky at best. You should now use the new person integration for this.
+These integrations will no longer use `known_devices.yaml` but instead use entities, like all other integrations in Home Assistant. You can change the name and entity ID via the UI. It is no longer posible to merge the devices with other device tracker entities, this includes using the `see` service. This was flaky at best. You should now use the new person integration for this.
 
 ## {% linkable_title Improved hass.io builds %}
 
