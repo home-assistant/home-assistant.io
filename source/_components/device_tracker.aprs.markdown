@@ -15,7 +15,6 @@ ha_iot_class: Cloud Push
 
 The `aprs` [(Automatic Packet Reporting System)](https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System) device tracker component connects to the [APRS-IS](http://aprs-is.net/) network for tracking amateur radio devices.
 
-
 ## {% linkable_title Configuration %}
 
 To enable APRS tracking in Home Assistant, add the following section to `configuration.yaml`:
@@ -57,4 +56,4 @@ timeout:
 {% endconfiguration %}
 
 Verified connections are only required to send data to the APRS-IS network, which the `aprs` platform does not yet do.
-However you are free to verify your connection if you know your APRS password.
+However, you are free to verify your connection if you know your APRS password.
