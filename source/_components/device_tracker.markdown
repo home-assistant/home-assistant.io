@@ -12,7 +12,7 @@ ha_release: 0.7
 
 Home Assistant can get information from your wireless router or third party services like iCloud or OwnTracks to track which devices are connected and considered "in home". Please check the sidebar for a list of  brands of supported wireless routers and services.
 
-There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/device_tracker.nmap_tracker/) to scan the network for devices.
+There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/nmap_tracker/) to scan the network for devices.
 
 An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time.
 
@@ -62,7 +62,7 @@ device_tracker:
       track_new_devices: true
 ```
 
-Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
+Multiple device trackers can be used in parallel, such as [Owntracks](/components/owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/nmap_tracker/). The state of the device will be determined by the source that reported last.
 
 ## {% linkable_title `known_devices.yaml` %}
 
@@ -96,7 +96,7 @@ devicename:
 
 ## {% linkable_title Using GPS device trackers with local network device trackers %}
 
-GPS based device trackers (like [OwnTracks](/components/device_tracker.owntracks/), [GPSLogger](/components/device_tracker.gpslogger) and others) can also be used with local network device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by *the source that reported last*. The naming convention for known device list is `<username>_<device-id>` and could be set in the app configuration.
+GPS based device trackers (like [OwnTracks](/components/owntracks/), [GPSLogger](/components/gpslogger) and others) can also be used with local network device trackers, such as [Nmap](/components/nmap_tracker/) or [Netgear](/components/netgear/). To do this, fill in the `mac` field to the entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by *the source that reported last*. The naming convention for known device list is `<username>_<device-id>` and could be set in the app configuration.
 
 An example showing the inclusion of the `mac` field for multiple platform tracking. The `mac` field was added to the GPS based device tracker entry and will enable tracking by all platforms that track via the `mac` address.
 
@@ -114,4 +114,18 @@ If you want to track whether either your GPS based tracker or your local network
 
 ## {% linkable_title Device states %}
 
-The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (in lower case). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+
+## {% linkable_title `device_tracker.see` service %}
+
+The `device_tracker.see` service can be used to manually update the state of a device tracker:
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `dev_id`               |       no | The second half of the `entity_id`, for example `tardis` for `device_tracker.tardis` |
+| `location_name`        |       no | The location, `home`, `not_home`, or the name of the zone |
+| `host_name`            |      yes | The hostname of the device tracker |
+| `mac`                  |      yes | The MAC address of the entity (only specify if you're updating a network based tracker) |
+| `gps`                  |      yes | If you're providing a location, for example `[51.513845, -0.100539]` |
+| `gps_accuracy`         |      yes | The accuracy of the GPS fix |
+| `battery`              |      yes | The battery level of the device |

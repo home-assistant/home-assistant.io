@@ -8,7 +8,8 @@ comments: false
 sharing: true
 logo: datadog.png
 footer: true
-ha_category: History
+ha_category:
+  - History
 ha_release: 0.45
 ---
 

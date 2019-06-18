@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: lirc.gif
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.21
 ha_iot_class: Local Push
 ---

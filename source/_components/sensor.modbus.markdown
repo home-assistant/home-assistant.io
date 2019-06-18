@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: modbus.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ---

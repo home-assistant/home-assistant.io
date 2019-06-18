@@ -26,7 +26,7 @@ vacuum:
 
 ### {% linkable_title Component services %}
 
-Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_home`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
+Available services: `turn_on`, `turn_off`, `start_pause`, `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fanspeed` and `send_command`.
 
 Before calling one of these services, make sure your vacuum platform supports it.
 
@@ -78,7 +78,7 @@ Stop the current activity of the vacuum.
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific vacuum. Else targets all.        |
 
-#### {% linkable_title Service `vacuum.return_to_home` %}
+#### {% linkable_title Service `vacuum.return_to_base` %}
 
 Tell the vacuum to return home.
 

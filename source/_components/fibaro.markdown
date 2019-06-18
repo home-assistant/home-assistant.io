@@ -11,6 +11,7 @@ logo: fibaro.png
 ha_category:
   - Hub
   - Binary Sensor
+  - Climate
   - Cover
   - Light
   - Sensor
@@ -33,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor
 - Cover
+- Climate
 - Light
 - Sensor
 - Scene

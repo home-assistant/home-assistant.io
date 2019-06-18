@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: androidtv.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 redirect_from:
@@ -181,6 +182,8 @@ If you receive the error message `Error while setting up platform androidtv` in 
 
    * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
 
+4. Some Android TV devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to WiFi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
+
 ## {% linkable_title Services %}
 
 ### {% linkable_title `media_player.select_source` %}
@@ -205,7 +208,7 @@ stop_netflix:
 
 ### {% linkable_title `androidtv.adb_command` %}
 
-The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device.
+The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -237,4 +240,4 @@ Available key commands include:
 
 The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/e1c07176efc9216cdcff8245c920224c0234ea56/androidtv/constants.py#L115-L155).
 
-You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be logged at the INFO level and can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
+You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level, this information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.

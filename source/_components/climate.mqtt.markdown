@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.55
 ha_iot_class: Local Polling
 ---
@@ -128,6 +129,22 @@ temperature_state_template:
   description: A template to render the value received on the `temperature_state_topic` with.
   required: false
   type: template
+temperature_low_command_topic:
+  description: The MQTT topic to publish commands to change the target low temperature.
+  required: false
+  type: string
+temperature_low_state_topic:
+  description: The MQTT topic to subscribe for changes in the target low temperature. If this is not set, the target low temperature works in optimistic mode (see below).
+  required: false
+  type: string
+temperature_high_command_topic:
+  description: The MQTT topic to publish commands to change the high target temperature.
+  required: false
+  type: string
+temperature_high_state_topic:
+  description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
+  required: false
+  type: string
 fan_mode_command_topic:
   description: The MQTT topic to publish commands to change the fan mode.
   required: false
@@ -215,6 +232,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 device:
   description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false

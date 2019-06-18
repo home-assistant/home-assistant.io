@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Media Player
+ha_category:
+  - Media Player
 ha_release: 0.49
 ha_qa_scale: internal
 ---

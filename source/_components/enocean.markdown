@@ -29,19 +29,29 @@ The `enocean` component adds support for some of these devices. You will need a 
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor (wall switches)
-- Sensor (power meters)
-- Light (dimmers)
-- Switch
+- [Binary Sensor](#binary-sensor) - Wall switches
+- [Sensor](#sensor) - Power meters, temperature sensors and humidity sensors
+- [Light](#light) - Dimmers
+- [Switch](#switch)
 
-However, only a few devices have been confirmed to work. These are:
+However, due to the wide range of message types, not all devices will work without code changes.
+The following devices have been confirmed to work out of the box:
 
 - Eltako FUD61 dimmer
 - Eltako FT55 battery-less wall switch
 - Jung ENOA590WW battery-less wall switch
+- Omnio WS-CH-102-L-rw battery-less wall switch
 - Permundo PSC234 (switch and power monitor)
+- EnOcean STM-330 temperature sensor
 
-Other devices will most likely need some changes in the Home Assistant code in order to work. Support for teaching of devices is also missing at this time.
+
+If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). 
+If it does, it will most likely work. 
+The available profiles are usually listed somewhere in the device manual. 
+
+Support for tech-in messages is not implemented.
+
+## {% linkable_title Hub %}
 
 To integrate an EnOcean controller with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -65,12 +75,14 @@ Tested with:
 
 - Eltako FT55 which uses the EnOcean PTM 215 module
 - [TRIO2SYS Wall switches](http://www.trio2sys.fr/index.php/fr/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
+- Omnio WS-CH-102
 
-All switches using theses modules are expected to work. Other devices will most likely not work without changing the Home Assistant code.
+The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
 
-## {% linkable_title Configuration %}
+- F6-02-01 (Light and Blind Control - Application Style 2)
+- F6-02-02 (Light and Blind Control - Application Style 1)
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -95,7 +107,7 @@ device_class:
   type: device_class
 {% endconfiguration %}
 
-EnOcean binary sensors only generate 'button_pressed' events. The event data has following four fields:
+EnOcean binary sensors have no state, they only generate 'button_pressed' events. The event data has following fields:
 
 - **id**: The ID of the device (see configuration).
 - **pushed**: `1` for a button press, `0` for a button release.
@@ -126,7 +138,7 @@ automation:
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -154,35 +166,154 @@ name:
 
 ## {% linkable_title Sensor %}
 
-The `enocean` sensor platform currently only allows reading out the power measured in a Permundo PSC234 switch.
+The EnOcean sensor platform currently supports the following device types:
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](../enocean) and then add the following to your `configuration.yaml` file:
+ * [power sensor](#power-sensor)
+ * [humidity sensor](#humidity-sensor)
+ * [temperature sensor](#temperature-sensor)
+ 
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: enocean
-    name: Television
+  - name: Television
+    platform: enocean
     id: [0x01,0x90,0x84,0x3C]
 ```
 
 {% configuration %}
 id:
-  description: The ID of the device. This is a 4 bytes long number.
+  description: The ID of the device. This is the 4 bytes long identifier of your device.
   required: true
   type: list
 name:
-  description: An identifier for the switch
-  required: true
-  default: EnOcean sensor
+  description: An identifier for the sensor in the frontend.
+  required: false
   type: string
+  default: EnOcean sensor
+device_class:
+  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  required: false
+  type: device_class
+  default: powersensor
 {% endconfiguration %}
+
+
+### {% linkable_title Power sensor %}
+
+This has been tested with a Permundo PSC234 switch, but any device sending EEP **A5-12-01** messages will work.
+
+Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - name: Television
+    platform: enocean
+    id: [0x01,0x90,0x84,0x3C]
+    device_class: powersensor
+```
+
+
+### {% linkable_title Humidity sensor %}
+
+The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+
+- Any profile that contains the humidity value at position **DB2.7** to **DB2.0**
+- **A5-04-01** - Temp. and Humidity Sensor, Range 0°C to +40°C and 0% to 100%
+- **A5-04-02** - Temp. and Humidity Sensor, Range -20°C to +60°C and 0% to 100%
+- **A5-10-10** to **A5-10-14** - Room Operating Panels
+
+Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - name: Bathroom
+    platform: enocean
+    id: [0x01,0x90,0x84,0x3C]
+    device_class: humidity
+```
+
+### {% linkable_title Temperature sensor %}
+
+This sensor has been tested with a generic STM-330 sensor, which is used in most indoor temperature sensor devices. 
+
+The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+
+- Any profile that contains an 8-bit temperature at position DB1.7 to DB1.0. 10-bit is not supported.
+- **A5-02-01** to **A5-02-1B** - Temperature Sensor with various temperature ranges
+- **A5-10-01** to **A5-10-14** - Room Operating Panels
+- **A5-04-01** - Temp. and Humidity Sensor, Range 0°C to +40°C and 0% to 100%
+- **A5-04-02** - Temp. and Humidity Sensor, Range -20°C to +60°C and 0% to 100%
+- **A5-10-10** - Temp. and Humidity Sensor and Set Point
+- **A5-10-12** - Temp. and Humidity Sensor, Set Point and Occupancy Control
+
+Check the manual of your temperature sensor to figure out what EEP it uses. 
+If you do not know, make an educated guess and check the reported values. It's easiest to validate the temperature at the boundaries of the range, so maybe put the sensor into the fridge for a while. 
+
+Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - name: Living Room
+    platform: enocean
+    id: [0x01,0x90,0x84,0x3C]
+    device_class: temperature
+```
+
+The temperature sensor supports these additional configuration properties.
+
+{% configuration %}
+temp_min:
+  description: The minimal temperature in °C your sensor supports.
+  required: false
+  type: integer
+  default: 0
+temp_max:
+  description: The maximum temperature in °C your sensor supports.
+  required: false
+  type: integer
+  default: 40
+range_min:
+  description: The range value your sensor reports for `temp_min`
+  required: false
+  type: integer
+  default: 255
+range_max:
+  description: The range value your sensor reports for `temp_max`
+  required: false
+  type: integer
+  default: 0
+{% endconfiguration %}
+
+Note that the default configuration values of _range_min_ and _range_max_ are not typos, the range is backwards for most sensors.
+However, some EEPs have a different, inverted range, which goes from 0 to 250. This includes the following EEPs:
+
+- **A5-04-01**
+- **A5-04-02**
+- **A5-10-10** to **A5-10-14**
+
+Adapt the `configuration.yaml` for those sensors:
+
+```yaml
+# Example configuration.yaml entry for EEP A5-10-10
+sensor:
+  - name: Living Room
+    platform: enocean
+    id: [0x01,0x90,0x84,0x3C]
+    device_class: temperature
+    range_min: 0
+    range_max: 250
+```
 
 ## {% linkable_title Switch %}
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](/components/enocean/) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

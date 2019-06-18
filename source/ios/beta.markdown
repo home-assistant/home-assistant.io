@@ -9,4 +9,4 @@ sharing: true
 footer: true
 ---
 
-<script>document.location.href = 'https://testflight.apple.com/join/XCUga7ko';</script>
+<script>document.location.href = 'https://testflight.apple.com/join/VBsqCiBv';</script>

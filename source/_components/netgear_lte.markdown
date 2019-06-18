@@ -13,6 +13,7 @@ ha_category:
   - Network
   - Notifications
   - Sensor
+  - Binary Sensor
 ha_iot_class: Local Polling
 redirect_from:
   - /components/notify.netgear_lte/
@@ -23,14 +24,11 @@ The Netgear LTE integration for Home Assistant allows you to observe and control
 
 There is currently support for the following device types within Home Assistant:
 
-- [Notifications](#notifications)
-- [Sensor](#sensor)
+- Notifications
+- Sensors
+- Binary Sensors
 
-The integration provides:
-
-* a notify service that will send an SMS
-* a sensor with the number of unread SMS messages in the inbox
-* a sensor with data usage
+The integration supports sending notifications with SMS, reporting incoming SMS with events and reporting the modem and connection state in a number of sensors and binary sensors.
 
 ## {% linkable_title Configuration %}
 
@@ -48,6 +46,10 @@ netgear_lte:
       monitored_conditions:
         - usage
         - sms
+    binary_sensor:
+      monitored_conditions:
+        - wire_connected
+        - mobile_connected
 ```
 
 {% configuration %}
@@ -84,23 +86,50 @@ sensor:
       default: usage
       type: list
       keys:
+        cell_id:
+          description: The Cell ID, a number identifying the base station.
+        connection_text:
+          description: A connection text, e.g., "4G".
+        connection_type:
+          description: The connection type, e.g., "IPv4Only".
+        current_band:
+          description: The radio band used, e.g., "LTE B3".
+        current_ps_service_type:
+          description: The service type, e.g. "LTE".
+        radio_quality:
+          description: A number with the radio quality in percent, e.g., "55"
+        register_network_display:
+          description: The name of the service provider.
+        rx_level:
+          description: The RSRP value, a measurement of the received power level, e.g., "-95".
         sms:
           description: Number of unread SMS messages in the modem inbox.
+        sms_total:
+          description: Number of SMS messages in the modem inbox.
+        tx_level:
+          description: Transmit power, e.g., "23".
+        upstream:
+          description: Current upstream connection, "WAN" or "LTE".
         usage:
           description: Amount of data transferred.
+binary_sensor:
+  description: Configuration options for binary sensors.
+  required: false
+  type: map
+  keys:
+    monitored_conditions:
+      description: Binary sensor types to create.
+      required: false
+      default: mobile_connected
+      type: list
+      keys:
+        mobile_connected:
+          description: The LTE connection state.
+        wire_connected:
+          description: The wired uplink connection state.
+        roaming:
+          description: The current roaming state.
 {% endconfiguration %}
-
-## {% linkable_title Notifications %}
-
-The `netgear_lte` integration allows you to use a Netgear LTE modem for notifications from Home Assistant. The message will be sent as an SMS text message.
-
-If you do not supply `notify` configuration, a default notification service with no default recipient is created.
-
-## {% linkable_title Sensor %}
-
-The `netgear_lte` integration allows you to monitor your Netgear LTE modem.
-
-If you do not supply `sensor` configuration, a default set of sensors is created.
 
 ## {% linkable_title Events %}
 
@@ -117,14 +146,32 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 
 ## {% linkable_title Services %}
 
-### {% linkable_title Service `netgear_lte.delete_sms` %}
+### {% linkable_title Service `netgear_lte.connect_lte` %}
 
-The integration makes a service call available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+This service asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `host`                 | no       | The modem that should have a message deleted.
+| `host`                 | yes      | The modem that should connect (optional when just one modem is configured).
+
+### {% linkable_title Service `netgear_lte.delete_sms` %}
+
+The integration makes a service available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host`                 | yes      | The modem that should have a message deleted (optional when just one modem is configured).
 | `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
+
+### {% linkable_title Service `netgear_lte.set_option` %}
+
+This service can set modem configuration options (otherwise available in the modem web UI).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `host`                 | yes      | The modem to set options on (optional when just one modem is configured).
+| `autoconnect`          | yes      | Autoconnect value: `never`/`home`/`always`, with `home` meaning "not roaming".
+| `failover`             | yes      | Failover mode: `wire` (wired connection only), `mobile` (mobile connection only), `auto` (wired connection with failover to mobile connection).
 
 ## {% linkable_title Examples %}
 

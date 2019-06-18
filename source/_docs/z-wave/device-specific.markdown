@@ -45,7 +45,13 @@ Turn on "Disco lights":
 $ echo -e -n "\x01\x08\x00\xF2\x51\x01\x01\x05\x01\x50" > /dev/serial/by-id/usb-0658_0200-if00
 ```
 
-If the above two commands give errors about not having that device, you should try replacing the `/dev/serial/by-id/usb-0658_0200-if00` with `/dev/ttyACM0` or `/dev/ttyACM1` (depending on which tty your aeotec stick is addressed to).  
+If the above two commands give errors about not having that device, you should try replacing the `/dev/serial/by-id/usb-0658_0200-if00` with `/dev/ttyACM0` or `/dev/ttyACM1` (depending on which tty your Aeotec stick is addressed to).
+
+On some systems, such as macOS, you need to pipe the output of the `echo` command, rather than redirecting to the serial device, to something like `cu` (replacing `/dev/zstick` acccordingly) to properly set the baud rate to 115200 bps:
+
+```bash
+echo -e -n "...turn on/off string from examples above..." | cu -l /dev/zstick -s 115200
+```
 
 ### {% linkable_title Razberry Board %}
 
@@ -300,7 +306,7 @@ Press circle and plus simultaneously to wake up the device.
 
 <!-- from https://products.z-wavealliance.org/products/2817 -->
 
-Once you've added the NanoMote to your z-wave network, you'll need to update your zwcfg*.xml file with the below xml data.  Stop Home Assistant and open your zwcfg*.xml file (located in your config folder).  Find the NanoMote device section and then its corresponding `CommandClass` section with id="91".  Replace the entire CommandClass section with the below xml data.  Save the file and restart Home Assistant.  
+Once you've added the NanoMote to your z-wave network, you'll need to update your zwcfg_\*.xml file with the below xml data. Stop Home Assistant and open your zwcfg_\*.xml file (located in your config folder). Find the NanoMote device section and then its corresponding `CommandClass` section with id="91". Replace the entire CommandClass section with the below xml data. Save the file and restart Home Assistant.  
 
 ```xml
     <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">
@@ -618,4 +624,46 @@ switch:
             value_id: "{{ state_attr('sensor.scene_contrl_indicator','value_id') }}"
             value: "{{ states('sensor.scene_contrl_indicator')|int - 16 }}"
 ```
+
+### {% linkable_title HeatIt/ThermoFloor Z-Push Button 2/8 Wall Switch %}
+
+To get the Z-Push Button 2 or the Z-Push Button 8 working in Home Assistant, you must first edit the `COMMAND_CLASS_CENTRAL_SCENE` in your `zwcfg` file.
+
+1. Go the Z-Wave control panel in Home Assistant and make a note of the node number your wall switch has been assigned.
+2. *Stop* Home Assistant.
+3. Make a backup of your `zwfcg` file, just in case.
+4. In the `zwcfg` file, find the `Node id` that corresponds to the number you noted in the first step.
+5. Within the `Node id` you identified, highlight everything between `<CommandClass id="91"` and `</CommandClass>` (inclusive) and paste in the following:
+    - 5.1 For the Z-Push Button 2:
+
+    ```xml
+        <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">				<Instance index="1" />
+	    <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="1" label="Button 1" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="2" label="Button 2" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        </CommandClass>
+    ```
+
+    - 5.2 For the Z-Push Button 8:
+
+    ```xml
+        <CommandClass id="91" name="COMMAND_CLASS_CENTRAL_SCENE" version="1" request_flags="4" innif="true" scenecount="0">				<Instance index="1" />
+	    <Value type="int" genre="system" instance="1" index="0" label="Scene Count" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="1" label="Button 1" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="2" label="Button 2" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="3" label="Button 3" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="4" label="Button 4" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="5" label="Button 5" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="6" label="Button 6" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="7" label="Button 7" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+	    <Value type="int" genre="user" instance="1" index="8" label="Button 8" units="" read_only="true" write_only="false" verify_changes="false" poll_intensity="0" min="-2147483648" max="2147483647" value="0" />
+        </CommandClass>
+    ```
+
+6. Save the changes you made the `zwcfg` file and start Home Assistant back up.
+
+Button presses will trigger `zwave.scene_activated` with the following:
+
+- `scene_id`: the number of the button you press from top left (1) to bottom right (8)
+
 {% endraw %}

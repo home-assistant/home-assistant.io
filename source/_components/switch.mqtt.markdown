@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Switch
+ha_category:
+  - Switch
 ha_release: 0.7
 ha_iot_class: Configurable
 ---
@@ -54,12 +55,12 @@ state_on:
   description: The payload that represents the on state.
   required: false
   type: string
-  default: "ON"
+  default: "`payload_on` if defined, else ON"
 state_off:
   description: The payload that represents the off state.
   required: false
   type: string
-  default: "OFF"
+  default: "`payload_off` if defined, else OFF"
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
   required: false
@@ -107,6 +108,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 device:
   description: "Information about the device this switch is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set."
   required: false

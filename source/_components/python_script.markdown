@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.47
 ha_qa_scale: internal
 ---
@@ -37,7 +38,7 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
 ```
 
  - Start Home Assistant
- - Call service `python_script/hello_world` with parameters
+ - Call service `python_script.hello_world` with parameters
 
 ```json
 {

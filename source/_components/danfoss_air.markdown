@@ -65,3 +65,5 @@ The following sensors are supported.
 The following switches are supported.
 
 - **Boost:** Switch to manually activate boost.
+- **Bypass:** Switch to manually activate bypass.
+- **Automatic bypass:** Switch to enable automatic bypass.

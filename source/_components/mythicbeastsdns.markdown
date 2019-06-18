@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Network
+ha_category:
+  - Network
 ha_release: 0.85
 ha_iot_class: Cloud Push
 logo: mythic_beasts.png

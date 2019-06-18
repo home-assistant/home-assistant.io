@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: mqtt.png
-ha_category: Hub
+ha_category:
+  - Hub
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Push

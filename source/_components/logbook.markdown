@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: logbook.png
-ha_category: "History"
+ha_category:
+  - History
 ha_release: 0.7
 ---
 

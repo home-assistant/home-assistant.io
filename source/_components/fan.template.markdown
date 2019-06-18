@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Fan
+ha_category:
+  - Fan
 ha_release: 0.69
 ha_iot_class: Local Push
 logo: home-assistant.png

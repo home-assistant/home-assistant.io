@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: dialogflow.png
-ha_category: Voice
+ha_category:
+  - Voice
 ha_release: 0.56
 redirect_from: /components/apiai/
 ---

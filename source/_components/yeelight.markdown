@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: yeelight.png
-ha_category: Light
+ha_category:
+  - Light
 ha_release: 0.32
 ha_iot_class: Local Polling
 redirect_from:
@@ -20,14 +21,14 @@ The `yeelight` component allows you to control your Yeelight Wifi bulbs with Hom
 There is currently support for the following device types within Home Assistant:
 
 - **Light** - The yeelight platform for supporting lights.
-- **Sensor** - The yeelight platform for supporting sensors. Currenctly only nightlight mode sensor, for ceiling lights.
+- **Sensor** - The yeelight platform for supporting sensors. Currently only nightlight mode sensor, for ceiling lights.
 
 ### {% linkable_title Example configuration (Automatic) %}
 After the lights are connected to the WiFi network and have been detected in Home Assistant, the discovered names will be shown in the `Light` section of the `Overview` view. Add the following lines to your `customize.yaml` file:
 
 ```yaml
 # Example customize.yaml entry
-light.yeelight_rgb_XXXXXXXXXXXX:
+light.yeelight_color1_XXXXXXXXXXXX:
   friendly_name: Living Room
 light.yeelight_color2_XXXXXXXXXXXX:
   friendly_name: Downstairs Toilet

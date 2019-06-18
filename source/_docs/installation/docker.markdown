@@ -49,7 +49,8 @@ $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config -
 ```
 
 When running Home Assistant in Docker on Windows, you may have some difficulty getting ports to map for routing (since the `--net=host` switch actually applies to the hypervisor's network interface). To get around this, you will need to add port proxy ipv4 rules to your local Windows machine, like so (Replacing '192.168.1.10' with whatever your Windows IP is, and '10.0.50.2' with whatever your Docker container's IP is):
-```
+
+```bash
 netsh interface portproxy add v4tov4 listenaddress=192.168.1.10 listenport=8123 connectaddress=10.0.50.2 connectport=8123
 netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=8123 connectaddress=10.0.50.2 connectport=8123
 ```
@@ -125,7 +126,8 @@ The steps would be:
 
  - Install "Container Station" package on your Qnap NAS
  - Launch Container Station and move to "Create Container"-section 
- - Search image  "homeassistant/home-assistant" with Docker hub and click on "Install"
+ - Search image "homeassistant/home-assistant" with Docker hub and click on "Install"
+   Make attention to CPU architecture of your NAS. For ARM CPU types the correct image is "homeassistant/armhf-homeassistant"
  - Choose "latest" version and click next
  - Choose a container-name you want (e.g., "homeassistant")
  - Click on "Advanced Settings"
