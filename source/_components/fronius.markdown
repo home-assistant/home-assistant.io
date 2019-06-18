@@ -16,7 +16,6 @@ ha_release: 0.93
 ---
 
 The `fronius` sensor will poll a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors (or attributes of sensors) in Home Assistant.
-
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
