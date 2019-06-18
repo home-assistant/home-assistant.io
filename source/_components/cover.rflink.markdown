@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: rflink.png
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.55
 ---
 

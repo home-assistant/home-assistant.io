@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: 0.12
 ha_iot_class: Local Push
 logo: home-assistant.png
@@ -60,7 +61,7 @@ sensors:
           type: device_class
           default: None
         value_template:
-          description: Defines a template to set the state of the sensor.
+          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
           required: true
           type: template
         icon_template:
@@ -245,5 +246,32 @@ binary_sensor:
             {% else %}
               {{ state_attr('device_tracker.my_device_gps','longitude') }}
             {% endif %}
+```
+{% endraw %}
+
+### {% linkable_title Change the icon when state changes %}
+
+This example demonstrates how to use `icon_template` to change the entity's
+icon as its state changes, it evaluates the state of its own sensor and uses a 
+conditional statement to output the appropriate icon. 
+
+
+{% raw %}
+```yaml
+sun:
+binary_sensor:
+  - platform: template
+    sensors:
+      sun_up:
+        entity_id:
+          - sun.sun
+        value_template: >-
+          {{ is_state("sun.sun", "above_horizon") }}
+        icon_template: >-
+          {% if is_state("binary_sensor.sun_up", "on") %}
+            mdi:weather-sunset-up
+          {% else %}
+            mdi:weather-sunset-down
+          {% endif %}
 ```
 {% endraw %}

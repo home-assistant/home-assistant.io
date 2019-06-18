@@ -30,6 +30,11 @@ camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
   type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
+  type: string
 image:
   required: false
   description: URL of an image.
@@ -127,3 +132,21 @@ state_image:
   "on": /local/bed_light_on.png
   "off": /local/bed_light_off.png
 ```
+
+Displaying a live feed from an FFMPEG camera:
+
+{% raw %}
+```yaml
+type: picture-entity
+entity: camera.backdoor
+camera_view: live
+tap_action:
+  action: call-service
+  service: camera.snapshot
+  service_data:
+    entity_id: camera.backdoor
+    filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
+```
+{% endraw %}
+
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](https://www.home-assistant.io/docs/configuration/basic/)).

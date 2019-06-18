@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.58
 ha_qa_scale: internal
 ---
@@ -42,6 +43,16 @@ fire_event:
 ### {% linkable_title Service `clear` %}
 
 To manually clear the system log, call this service.
+
+### {% linkable_title Service `write` %}
+
+Write a log entry
+
+| Service data attribute | Optional | Description                                                                     |
+| ---------------------- | -------- | ------------------------------------------------------------------------------- |
+| `message`              | no       | Message to log                                                                  |
+| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.          |
+| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'.  |
 
 ## {% linkable_title Events %}
 
@@ -114,3 +125,25 @@ automation:
         message: '{{ trigger.event.data.message }}'
 ```
 {% endraw %}
+
+### {% linkable_title Writing to log %}
+
+This automation will create a new log entry when the door is opened:
+
+{% raw %}
+```yaml
+automation:
+  - alias: Log door opened
+    trigger:
+      platform: state
+      entity_id: binary_sensor.door
+      from: 'off'
+      to: 'on'
+    action:
+      service: system_log.write
+      data_template:
+        message: 'Door opened!'
+        level: info
+```
+{% endraw %}
+

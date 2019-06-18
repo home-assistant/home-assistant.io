@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: twilio.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: "0.40"
 ---
 

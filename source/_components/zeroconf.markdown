@@ -8,11 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: avahi.png
-ha_category: Network
+ha_category:
+  - Network
+ha_qa_scale: internal
 ha_release: 0.18
 ---
 
-The `zeroconf` component exposes your Home Assistant to the local network using [Zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking). Zeroconf is also sometimes known as Bonjour, Rendezvous, and Avahi.
+The `zeroconf` integration exposes your Home Assistant to the local network using [Zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking). It can also discover and automatically configure devices on your network. Zeroconf is also sometimes known as Bonjour, Rendezvous, and Avahi.
 
 ## {% linkable_title Configuration %}
 
@@ -22,6 +24,17 @@ To integrate this into Home Assistant, add the following section to your `config
 # Example configuration.yaml entry
 zeroconf:
 ```
+
+### {% linkable_title Discoverable services %}
+
+Currently the `zeroconf` integration can detect:
+
+ * [Axis Communications security devices](/components/axis/)
+ * [ESPHome](/components/esphome/)
+ * [HomeKit](/components/homekit_controller/)
+ * [IKEA Trådfri (Tradfri)](/components/tradfri/)
+
+### {% linkable_title Discovering Home Assistant %}
 
 The registration will include meta-data about the Home Assistant instance, including a base URL that can be used to access Home Assistant, the currently running Home Assistant version, and whether an API password is needed to access the instance. The examples below show two ways to retrieve the details for testing.
 

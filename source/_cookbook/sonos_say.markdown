@@ -19,10 +19,10 @@ script:
   sonos_say:
     alias: "Sonos TTS script"
     sequence:
-     - service: media_player.sonos_snapshot
+     - service: sonos.snapshot
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
-     - service: media_player.sonos_unjoin
+     - service: sonos.unjoin
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
      - service: media_player.volume_set
@@ -34,7 +34,7 @@ script:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
          message: {% raw %}"{{ message }}"{% endraw %}
      - delay: {% raw %}"{{ delay }}"{% endraw %}
-     - service: media_player.sonos_restore
+     - service: sonos.restore
        data_template:
          entity_id: {% raw %}"{{ sonos_entity }}"{% endraw %}
 ```

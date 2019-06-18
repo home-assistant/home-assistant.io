@@ -23,7 +23,7 @@ redirect_from:
   - /components/sensor.dyson/
 ---
 
-The `dyson` component is the main component to integrate all [Dyson](https://dyson.com) related platforms.
+The `dyson` component is the main component to integrate all [Dyson](https://www.dyson.com) related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Sensor
 - Vacuum
+- Air Quality
 
 ## {% linkable_title Configuration %}
 
@@ -139,6 +140,7 @@ The `dyson` fan platform allows you to control your Dyson Purifier fans.
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
+- Pure Cool 2018 (DP04 and TP04)
 
 ### {% linkable_title Attributes %}
 
@@ -146,14 +148,33 @@ There are several attributes which can be used for automations and templates.
 
 | Attribute | Description |
 | --------- | ----------- |
-| `is_night_mode` | A boolean that indicates if the night mode of the fan device is on.
-| `is_auto_mode` | A boolean that indicates if the auto mode of the fan device is on.
+| `night_mode` | A boolean that indicates if the night mode of the fan device is on.|
+| `auto_mode` | A boolean that indicates if the auto mode of the fan device is on.|
+| `angle_low` | Int (between 5 and 355) that indicates the low angle of oscillation (only for DP04 and TP04).|
+| `angle_high` | Int (between 5 and 355) that indicates the high angle of oscillation (only for DP04 and TP04).|
+| `flow_direction_front` | Boolean that indicates if the frontal flow direction is enabled (only for DP04 and TP04).|
+| `timer` | Attribute that indicates the status of the auto power off timer, can be either 'OFF' or an integer representing the time remaining until shutdown in minutes (only for DP04 and TP04).|
+| `hepa filter` |  State of the fan's HEPA filter in % (only for DP04 and TP04).|
+| `carbon filter` | State of the fan's carbon filter in % (only for DP04 and TP04).|
 
 ## {% linkable_title Sensor %}
 
-The `dyson` sensor platform allows you to control your Dyson Purifier's filter life time.
+The `dyson` sensor platform provides temperature and humidity sensors.
+
+## {% linkable_title Air Quality %}
+
+The `dyson` air quality platform provides the following levels:
+
+- Particulate matter 2.5 (<= 2.5 μm) level.
+- Particulate matter 10 (<= 10 μm) level.
+- Air Quality Index (AQI).
+- NO2 (nitrogen dioxide) level.
+- VOC (Volatile organic compounds) level.
+
+Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
 
 ### {% linkable_title Supported fan devices %}
 
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
+- Pure Cool 2018 Models (TP04 and DP04)

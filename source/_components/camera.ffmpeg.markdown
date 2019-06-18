@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ffmpeg.png
-ha_category: Camera
+ha_category:
+  - Camera
 ha_release: 0.26
 ha_iot_class: Local Polling
 ---
@@ -39,7 +40,7 @@ extra_arguments:
   description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options.
   required: false
   type: string
-  default: `-pred 1`
+  default: "-pred 1"
 {% endconfiguration %}
 
 ### {% linkable_title Image quality %}

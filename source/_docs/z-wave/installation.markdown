@@ -37,11 +37,6 @@ config_path:
   required: false
   type: string
   default: the 'config' that is installed by python-openzwave
-autoheal:
-  description: Allows disabling auto Z-Wave heal at midnight.
-  required: false
-  type: boolean
-  default: true
 polling_interval:
   description: The time period in milliseconds between polls of a nodes value. Be careful about using polling values below 30000 (30 seconds) as polling can flood the zwave network and cause problems.
   required: false
@@ -49,6 +44,11 @@ polling_interval:
   default: 60000
 debug:
   description: Print verbose z-wave info to log.
+  required: false
+  type: boolean
+  default: false
+autoheal:
+  description: Allows enabling auto Z-Wave heal at midnight. Warning, this is in efficient and [should not be used](https://github.com/home-assistant/architecture/issues/81#issuecomment-478444085).
   required: false
   type: boolean
   default: false
@@ -82,13 +82,12 @@ device_config / device_config_domain / device_config_glob:
       required: false
       type: boolean
       default: false
+    invert_percent:
+      description: Inverts the percentage of the position for the cover domain. This will invert the position and state reporting.
+      required: false
+      type: boolean
+      default: false  
 {% endconfiguration %}
-
-<p class='note'>
-As of Home Assistant 0.81, the Z-Wave `usb_path` and `network_key` options are configured through the Integrations page in Home Assistant. Specifying a `zwave:` section in `configuration.yaml` is no longer required unless you need to customize other settings, such as `device_config`, `polling_interval`, etc.
-  
-If you change the `usb_path` or `network_key` in your `configuration.yaml` then this will not be updated in the integration. You'll need to remove and re-add the Integration for these changes to take effect.
-</p>
 
 ### {% linkable_title Network Key %}
 
@@ -269,3 +268,15 @@ If you're getting errors like:
     openzwave-embed/open-zwave-master/libopenzwave.a: No such file or directory
 
 Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux-except-hassbian).
+
+### {% linkable_title Random failures %}
+
+If you're having random failures of the mesh, devices going missing, things randomly not working, check your `OZW_Log.txt` for the following messages:
+
+```
+WARNING: 500ms passed without reading the rest of the frame...aborting frame read
+WARNING: Out of frame flow! (0xfe).  Sending NAK
+WARNING: Checksum incorrect - sending NAK
+```
+
+If you see any of these messages repeated in the log then _probably_ you've got something else running that's also using the Z-Wave controller. That might mean you've also got the OpenZ-Wave control panel (ozwcp) running, a second instance of Home Assistant or something else. You need to stop that other process to resolve this.

@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: ifttt.png
-ha_category: Automation
+ha_category:
+  - Automation
 featured: true
 ha_iot_class: Cloud Push
 ha_release: 0.80

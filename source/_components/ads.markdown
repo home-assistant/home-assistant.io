@@ -14,6 +14,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Cover
 ha_release: "0.60"
 ha_iot_class: Local Push
 redirect_from:
@@ -31,6 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Cover](#cover)
 
 ## {% linkable_title Configuration %}
 
@@ -80,7 +82,7 @@ Service parameters:
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -109,7 +111,7 @@ device_class:
 
 The `ads` light platform allows you to control your connecte ADS lights.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -128,7 +130,7 @@ adsvar:
 adsvar_brightness:
   required: false
   description: The name of the variable that controls the brightness, use an unsigned integer on the PLC side
-  type: integer
+  type: string
 name:
   required: false
   description: An identifier for the Light in the frontend
@@ -139,7 +141,7 @@ name:
 
 The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -178,7 +180,7 @@ The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 
 
 The `ads` switch platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
 
-To use your ADS device, you first have to set up your [ADS hub](/components/ads/) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
 file:
 
 ```yaml
@@ -197,4 +199,57 @@ name:
   required: false
   description: An identifier for the switch in the frontend.
   type: string
+{% endconfiguration %}
+
+## {% linkable_title Cover %}
+
+The `ads` cover platform allows you to control your connected ADS covers.
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+file:
+
+```yaml
+# Example configuration.yaml entry
+cover:
+  - platform: ads
+    name: Curtain master bed room
+    adsvar_open: covers.master_bed_room_open
+    adsvar_close: covers.master_bed_room_close
+    adsvar_stop: covers.master_bed_room_stop
+    device_class: curtain
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the boolean variable that returns the current status of the cover (`True` = closed)
+  type: string
+adsvar_position:
+  required: false
+  description: The name of the variable that returns the current cover position, use a byte variable on the PLC side
+  type: string
+adsvar_set_position:
+  required: false
+  description: The name of the variable that sets the new cover position, use a byte variable on the PLC side
+  type: string
+adsvar_open:
+  required: false
+  description: The name of the boolean variable that triggers the cover to open
+  type: string
+adsvar_close:
+  required: false
+  description: The name of the boolean variable that triggers the cover to close
+  type: string
+adsvar_stop:
+  required: false
+  description: The name of the boolean variable that triggers the cover to stop
+  type: string
+name:
+  required: false
+  description: An identifier for the Cover in the frontend
+  type: string
+device_class:
+  required: false
+  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (awning, blind, curtain, damper, door, garage, shade, shutter, window)
+  type: device_class
 {% endconfiguration %}

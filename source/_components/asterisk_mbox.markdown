@@ -8,7 +8,8 @@ comments: false
 sharing: true
 footer: true
 logo: asterisk.png
-ha_category: Mailbox
+ha_category:
+  - Mailbox
 ha_iot_class: Local Push
 ha_release: 0.51
 redirect_from:
