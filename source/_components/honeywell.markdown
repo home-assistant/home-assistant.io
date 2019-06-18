@@ -73,10 +73,10 @@ away_cool_temperature:
   description: "(*only for the US region*) Cooling setpoint when away mode is on, in degrees Fahrenheit."
   required: false
   default: 88
-  type: int
+  type: integer
 away_heat_temperature:
   description: "(*only for the US region*) Heating setpoint when away mode is on, in degrees Fahrenheit."
   required: false
   default: 61
-  type: int
+  type: integer
 {% endconfiguration %}
