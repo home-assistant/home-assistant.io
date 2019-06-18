@@ -9,14 +9,14 @@ sharing: true
 footer: true
 logo: google_cloud.png
 ha_category: Text-to-speech
-ha_release: 0.94
+ha_release: 0.95
 ---
 
-The `google_cloud` platform allow you to use [Google Cloud Platform](https://cloud.google.com/) API and integrate them into Home Assistant.
+The `google_cloud` platform allows you to use [Google Cloud Platform](https://cloud.google.com/) API and integrate them into Home Assistant.
 
-## {% linkable_title Platform configuration %}
+## {% linkable_title Configuration %}
 
-To use Google Cloud Platform you need to provide `config` directory relative path of [`API key`](#obtaining-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
+To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,27 +25,33 @@ tts:
     key_file: googlecloud.json
 ```
 
-## {% linkable_title Obtaining API key %}
+## {% linkable_title Obtaining an API key %}
+
 API key obtaining process described in corresponding documentation:
+
 * [Text-to-Speach](https://cloud.google.com/text-to-speech/docs/quickstart-protocol)
 * [Speach-to-Text](https://cloud.google.com/speech-to-text/docs/quickstart-protocol)
 * [Geocoding](https://cloud.google.com/translate/docs/quickstart)
 
 Basic instruction for all APIs:
+
 1. Visit [Cloud Resource Manager](https://console.cloud.google.com/cloud-resource-manager).
 2. Click `CREATE PROJECT` button at the top.
 3. Specify convenient `Project name` and click `CREATE` button.
 4. [Make sure that billing is enabled for your Google Cloud Platform project](https://cloud.google.com/billing/docs/how-to/modify-project).
-5. Enable needed Cloud API visiting one of the links below or [APIs library](https://console.cloud.google.com/apis/library), selecting your `Project` from dropdown list and clicking `Continue` button:
+5. Enable needed Cloud API visiting one of the links below or [APIs library](https://console.cloud.google.com/apis/library), selecting your `Project` from the dropdown list and clicking the `Continue` button:
+
     * [Text-to-Speech](https://console.cloud.google.com/flows/enableapi?apiid=texttospeech.googleapis.com)
     * [Speech-to-Text](https://console.cloud.google.com/flows/enableapi?apiid=speech.googleapis.com)
     * [Geocoding](https://console.cloud.google.com/flows/enableapi?apiid=geocoding-backend.googleapis.com)
+
 6. Set up authentication:
+
     1. Visit [this link](https://console.cloud.google.com/apis/credentials/serviceaccountkey)
     2. From the `Service account` list, select `New service account`.
     3. In the `Service account name` field, enter any name.
 
-    If you are requsting Text-to-Speech API key:
+    If you are requesting Text-to-Speech API key:
 
     4. Don't select a value from the Role list. **No role is required to access this service**.
     5. Click `Create`. A note appears, warning that this service account has no role.
@@ -75,37 +81,36 @@ language:
   description: "Default language of the voice, e.g. `en-US`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
   required: false
   type: string
-  default: "`en-US`"
+  default: en-US
 gender:
   description: "Default gender of the voice, e.g. `male`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
   required: false
   type: string
-  default: "`neutral`"
+  default: neutral
 voice:
   description: "Default voice name, e.g. `en-US-Wavenet-F`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). **Important! This parameter will override `language` and `gender` parameters if set**."
   required: false
   type: string
-  default: "(None)"
 encoding:
   description: "Default audio encoder. Supported encodings are `ogg_opus`, `mp3` and `linear16`."
   required: false
   type: string
-  default: "ogg_opus"
+  default: ogg_opus
 speed:
   description: "Default rate/speed of the voice, in the range [0.25, 4.0]. 1.0 is the normal native speed supported by the specific voice. 2.0 is twice as fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed."
   required: false
   type: float
-  default: "1.0"
+  default: 1.0
 pitch:
-  description: "Default pitch of the voice, in the range [-20.0, 20.0]. 20 means increase 20 semitones from the original pitch. -20 means decrease 20 semitones from the original pitch."
+  description: "Default pitch of the voice, in the range [-20.0, 20.0]. 20 means increase of 20 semitones from the original pitch. -20 means decrease of 20 semitones from the original pitch."
   required: false
   type: float
-  default: "0"
+  default: 0.0
 gain:
   description: "Default volume gain (in dB) of the voice, in the range [-96.0, 16.0]. If unset, or set to a value of 0.0 (dB), will play at normal native signal amplitude. A value of -6.0 (dB) will play at approximately half the amplitude of the normal native signal amplitude. A value of +6.0 (dB) will play at approximately twice the amplitude of the normal native signal amplitude. Strongly recommend not to exceed +10 (dB) as there's usually no effective increase in loudness for any value greater than that."
   required: false
   type: float
-  default: "0"
+  default: 0.0
 profiles:
   description: "An identifier which selects 'audio effects' profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given. Supported profile ids listed [here](https: //cloud.google.com/text-to-speech/docs/audio-profiles)."
   required: false
