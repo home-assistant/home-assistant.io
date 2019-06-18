@@ -71,7 +71,7 @@ code_template:
   type: string
 code_arm_required:
   description: >
-    If true the code is required to arm the alarm. If false the code is not validated.
+   If true, the code is required to arm the alarm. If false, the code is not validated.
   required: false
   type: boolean
   default: true
