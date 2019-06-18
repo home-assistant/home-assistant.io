@@ -49,6 +49,7 @@ There are three `Sensor` entities that will indicate the number of **Errors**, *
 
 Each such entity has a state attribute that will contain a list of any such issues which can be used in automations, etc. For example:
 
+{% raw %}
 ```yaml
 - alias: GeniusHub Error Alerts
   trigger:
@@ -63,6 +64,7 @@ Each such entity has a state attribute that will contain a list of any such issu
         Genius Hub has the following {{ states('sensor.errors') }} errors:
         {{ state_attr('sensor.errors', 'error_list') }}
 ```
+{% endraw %}
 
 ### {% linkable_title State Attributes %}
 
