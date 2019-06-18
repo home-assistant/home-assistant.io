@@ -49,3 +49,14 @@ client_secret:
   required: true
   type: string
 {% endconfiguration %}
+
+### {% linkable_title Potential duplicate with the Tahoma component %}
+If you use the [tahoma](/component/tahoma) component, you will have to exclude the covers added by this one. Otherwise they will be added twice.
+
+```yaml
+# Example configuration.yaml entry
+tahoma:
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  exclude: ['rts:RollerShutterRTSComponent','rts:CurtainRTSComponent','rts:BlindRTSComponent','rts:VenetianBlindRTSComponent','rts:DualCurtainRTSComponent','rts:ExteriorVenetianBlindRTSComponent','io:ExteriorVenetianBlindIOComponent','io:RollerShutterUnoIOComponent','io:RollerShutterWithLowSpeedManagementIOComponent','io:RollerShutterVeluxIOComponent','io:RollerShutterGenericIOComponent','io:WindowOpenerVeluxIOComponent','io:VerticalExteriorAwningIOComponent','io:HorizontalAwningIOComponent']
+```
