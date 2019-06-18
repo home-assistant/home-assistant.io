@@ -117,6 +117,8 @@ binary_sensors:
   keys:
     motion_detected:
       description: "Return `on` when a motion is detected, `off` when not."
+    online:
+      description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
 sensors:
   description: >
     Conditions to display in the frontend.
@@ -240,6 +242,7 @@ amcrest:
     password: YOUR_PASSWORD
     binary_sensors:
       - motion_detected
+      - online
     sensors:
       - sdcard
 
