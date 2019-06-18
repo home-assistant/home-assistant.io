@@ -63,6 +63,15 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+max_accuracy:
+  description: Filter positions with higher accuracy than specified.
+  required: false
+  type: integer
+  default: 0
+skip_accuracy_filter_on:
+  description: Skip filter positon by "max_accuracy filter" if any of specified attributes are pressent on the traccar message.
+  required: false
+  type: list
 monitored_conditions:
   description: Additional traccar computed attributes or device-related attributes to include in the scan.
   required: false
