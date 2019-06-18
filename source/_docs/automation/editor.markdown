@@ -103,6 +103,6 @@ For example, the below automation will be triggered when the sun goes from below
 ```
 
 <p class='note'>
-Any comments in the YAML file will be lost when you update an automation via the editor.
+Any comments in the YAML file will be lost and templates will be reformatted when you update an automation via the editor.
 </p>
 
