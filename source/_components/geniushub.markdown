@@ -119,7 +119,7 @@ geniushub:
 ### {% linkable_title Option 2: hub hostname/address with user credentials %}
 
  - requires your **username** & **password**, as used with [www.geniushub.co.uk/app](https://www.geniushub.co.uk/app)
- - uses the v3 API - unofficial, but there are additional features (e.g. battery levels)
+ - uses the v3 API - unofficial, but there are additional features (e.g., battery levels)
  - polls the hub directly (so is faster, say ~1s response time)
 
 ```yaml
@@ -134,19 +134,19 @@ Note that if a `host` is used instead of `token`, then the `username` and `passw
 
 {% configuration %}
 token:
-  description: The Hub Token of the Genius Hub
+  description: The Hub Token of the Genius Hub.
   required: true
   type: string
 host:
-  description: The hostname/IP address of the Genius Hub
+  description: The hostname/IP address of the Genius Hub.
   required: true
   type: string
 username:
-  description: Your Genius Hub username
+  description: Your Genius Hub username.
   required: false
   type: string
 password:
-  description: Your Genius Hub password
+  description: Your Genius Hub password.
   required: false
   type: string
 {% endconfiguration %}
