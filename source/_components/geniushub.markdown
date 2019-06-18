@@ -17,7 +17,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices. Currently, there is no support for Genius Hub issues and Zone schedules.
+The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices, and visibility of any associated Issues. Currently, there is no support for Zone schedules.
 
 It uses the [geniushub-client](https://pypi.org/project/geniushub-client/) library.
 
@@ -43,6 +43,27 @@ If the Hub is directly polled using the v3 API (see below), then each Device con
 
 Each such entity will report back its primary state; in addition, `assigned_zone` and `last_comms` (last communications time) are available via the entity's attributes.
 
+### {% linkable_title Issues %}
+
+There are three `Sensor` entities that will indicate the number of **Errors**, **Warnings** and **Information** issues.
+
+Each such entity has a state attribute that will contain a list of any such issues which can be used in automations, etc. For example:
+
+```yaml
+- alias: GeniusHub Error Alerts
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.errors
+    above: 0
+  action:
+  - service: notify.pushbullet_notifier
+    data_template:
+      title: "Genius Hub has errors"
+      message: >-
+        Genius Hub has the following {{ states('sensor.errors')}} errors:
+        {{ state_attr('sensor.errors', 'error_list')}}
+```
+
 ### {% linkable_title State Attributes %}
 
 Other properties are available via each entity's state attributes. For example, in the case of **Radiator** Zones/`Climate` devices:
@@ -63,19 +84,15 @@ Other properties are available via each entity's state attributes. For example, 
 
 This data can be accessed in automations, etc. via a value template. For example:
 
-{% raw %}
-```
+```yaml
 value_template: "{{ state_attr('water_heater.boiler_h_w', 'status').override.setpoint }}"
 ```
-{% endraw %}
 
 In the specific case of **Radiator** zones with room sensors:
 
-{% raw %}
-```
+```yaml
 value_template: "{{ state_attr('climate.main_room', 'status').occupied }}"
 ```
-{% endraw %}
 
 ## {% linkable_title Configuration %}
 
@@ -85,7 +102,7 @@ To add your Genius Hub into your Home Assistant installation, add one of the fol
 
  - requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens)
  - uses the v1 API - which is well-documented
- - polls Heat Genius' own servers (so is slower, say 5-10s response time)
+ - polls Heat Genius' own servers (so is slower, say ~5-10s response time)
 
 ```yaml
 # Example configuration.yaml entry, using a Hub Token
@@ -96,8 +113,8 @@ geniushub:
 ### {% linkable_title Option 2: hub hostname/address with user credentials %}
 
  - requires your **username** & **password**, as used with [www.geniushub.co.uk/app](https://www.geniushub.co.uk/app)
- - uses the v3 API - results are WIP and may not be what you expect
- - polls the hub directly (so is faster, say 1s response time)
+ - uses the v3 API - results are WIP and may not be what you expect, but there are additional features
+ - polls the hub directly (so is faster, say ~1s response time)
 
 ```yaml
 # Example configuration.yaml entry, directly polling the Hub
