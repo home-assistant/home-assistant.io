@@ -49,37 +49,4 @@ timeout:
   required: false
   type: integer
   default: 10
-monitored_conditions:
-  description: The consumption types to monitor.
-  required: false
-  type: list
-  default: all
-  keys:
-    yesterday:
-      description: To monitor your yesterday consumption in kWh.
-    current_month:
-      description: To monitor your current month consumption in kWh.
-    last_month:
-      description: To monitor your last month consumption in kWh.
-    current_year:
-      description: To monitor your current year consumption in kWh.
-    last_year:
-      description: To monitor your last year consumption in kWh.
 {% endconfiguration %}
-
-### {% linkable_title Full Configuration %}
-
-```yaml
-# All options Linky configuration.yaml
-sensor:
-  - platform: linky
-    username: YOUR_LINKY_USERNAME
-    password: YOUR_LINKY_PASSWORD
-    timeout: 10
-    monitored_conditions:
-      - yesterday
-      - current_month
-      - last_month
-      - current_year
-      - last_year
-```
