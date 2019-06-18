@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Somfy"
-description: "Instructions on how to setup the Somfy hub within Home Assistant."
+description: "Instructions on how to set up the Somfy hub within Home Assistant."
 date: 2019-06-07 12:00
 sidebar: true
 comments: false
@@ -19,18 +19,18 @@ The Somfy component will allow users to integrate their Somfy devices into Home 
 
 ### {% linkable_title Setting up developer account %}
 
-To connect Somfy, you need to setup a developer account.
+To connect Somfy, you need to set up a developer account.
 
-1. Vist [https://developer.somfy.com](https://developer.somfy.com)
-2. Login using your Somfy credentials
-3. Open the *My Apps* menu
-4. Add a new App
+1. Visit [https://developer.somfy.com](https://developer.somfy.com).
+2. Log in using your Somfy credentials.
+3. Open the *My Apps* menu.
+4. Add a new App:
   - App Name: Home Assistant
   - Callback URL: `<YOUR_HOME_ASSISTANT_URL>/auth/somfy/callback`
   - Description: Home Assistant instance
   - Product: Somfy Open API
-5. Once Home Assistant restarted, go to Configuration>Integration
-6. Select the Somfy integrations
+5. Once Home Assistant restarted, go to Configuration>Integration.
+6. Select the Somfy integrations.
 
 ### {% linkable_title Configuration %}
 
@@ -54,7 +54,7 @@ client_secret:
 
 ### {% linkable_title Potential duplicate with the Tahoma component %}
 
-If you use the [tahoma](/component/tahoma) component, you will have to exclude the covers added by this one. Otherwise they will be added twice.
+If you use the [tahoma](/component/tahoma) component, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
 
 ```yaml
 # Example configuration.yaml entry
