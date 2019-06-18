@@ -48,8 +48,7 @@ code_template:
   required: exclusive
   type: string
 code_arm_required:
-  description: >
-    If true the code is required to arm the alarm.
+  description: If true, the code is required to arm the alarm.
   required: false
   type: boolean
   default: true
