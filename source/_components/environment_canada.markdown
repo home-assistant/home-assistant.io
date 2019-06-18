@@ -12,7 +12,7 @@ ha_category:
   - Weather
   - Sensor
   - Camera
-ha_release: 0.94
+ha_release: 0.95
 ha_iot_class: Cloud Polling
 ---
 
@@ -29,6 +29,7 @@ The following device types and data are supported:
 Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
 
 For each platform, the location to use is determined according to the following hierarchy:
+
   - Location ID specified in platform configuration (optional)
   - Closest station to latitude/longitude specified in platform configuration (optional
   - Closest station to latitude/longitude specified in Home Assistant core configuration
@@ -60,8 +61,8 @@ longitude:
   description: Part of a set of coordinates to use when finding the closest weather station.
   required: inclusive
   type: float
-station: 
-  description: The station code of a specific weather station to use. Station codes must be in the form `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code. If provided, this station will be used and any lat/lon coordinates provided will be ignored. 
+station:
+  description: The station code of a specific weather station to use. Station codes must be in the form `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored.
   required: false
   type: string
 name:
@@ -102,8 +103,8 @@ longitude:
   description: Part of a set of coordinates to use when finding the closest weather station.
   required: inclusive
   type: float
-station: 
-  description: The station code of a specific weather station to use. If provided, this station will be used and any lat/lon coordinates provided will be ignored. Station codes must be in the form of `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code. 
+station:
+  description: The station code of a specific weather station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Station codes must be in the form of `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code. 
   required: false
   type: string
 name:
@@ -117,35 +118,35 @@ monitored_conditions:
   default: All keys
   keys:
     temperature:
-      description: The current temperature, in ºC
+      description: The current temperature, in ºC.
     dewpoint:
-      description: The current dewpoint, in ºC
+      description: The current dewpoint, in ºC.
     wind_chill:
-      description: The current wind chill, in ºC
+      description: The current wind chill, in ºC.
     humidex:
-      description: The current humidex, in ºC
+      description: The current humidex, in ºC.
     pressure:
-      description: The current air pressure, in kPa
+      description: The current air pressure, in kPa.
     tendency:
-      description: The current air pressure tendency, e.g. "Rising" or "Falling"
+      description: The current air pressure tendency, e.g. "Rising" or "Falling".
     humidity:
-      description: The current humidity, in %
+      description: The current humidity, in %.
     visibility:
-      description: The current visibility, in km
+      description: The current visibility, in km.
     condition:
-      description: A brief text statement of the current weather conditions, e.g. "Sunny"
+      description: A brief text statement of the current weather conditions, e.g. "Sunny".
     wind_speed:
-      description: The current sustained wind speed, in km/h
+      description: The current sustained wind speed, in km/h.
     wind_gust:
-      description: The current wind gust, in km/h
+      description: The current wind gust, in km/h.
     wind_dir:
-      description: The current cardinal wind direction, e.g. "SSW"
+      description: The current cardinal wind direction, e.g. "SSW".
     high_temp:
-      description: The next forecast high temperature, in ºC
+      description: The next forecast high temperature, in ºC.
     low_temp:
-      description: The next forecast low temperature, in ºC
+      description: The next forecast low temperature, in ºC.
     pop:
-      description: The next forecast probability of precipitation, in %
+      description: The next forecast probability of precipitation, in %.
     warnings:
       description: Current warning alerts.
     watches:
@@ -185,7 +186,7 @@ longitude:
   required: inclusive
   type: float
 station: 
-  description: The station code of a specific radar station to use. If provided, this station will be used and any lat/lon coordinates provided will be ignored.
+  description: The station code of a specific radar station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored.
   required: false
   type: string
 name:
@@ -196,10 +197,10 @@ loop:
   description: Boolean setting to determine whether to display an animated GIF of images from the last 2 hours. If `false`, the latest still image will be displayed.
   required: false
   default: true
-  type: boolean 
+  type: boolean
 precip_type:
-  description: Determines whether to use the intesity bands for rain or snow. Valid values are RAIN and SNOW.
+  description: Determines whether to use the intensity bands for rain or snow. Valid values are RAIN and SNOW.
   required: false
   type: string
-  default: RAIN from April to October, SNOW from November to March 
+  default: RAIN from April to October, SNOW from November to March
 {% endconfiguration %}
