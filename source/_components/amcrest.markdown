@@ -158,7 +158,7 @@ control_light:
     Automatically control the camera's indicator light, turning it on if the audio or video streams are enabled, and turning it off if both streams are disabled.
   required: false
   type: boolean
-  default: True
+  default: true
 {% endconfiguration %}
 
 **Note:** Amcrest cameras with newer firmware no longer have the ability to
