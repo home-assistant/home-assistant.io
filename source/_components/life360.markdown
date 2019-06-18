@@ -68,7 +68,7 @@ interval_seconds:
   type: integer
   default: 12
 max_gps_accuracy:
-  description: If specified, and reported GPS accuracy is larger (i.e., *less* accurate), then update is ignored.
+  description: If specified, and the reported GPS accuracy is larger (i.e., *less* accurate), then update is ignored.
   required: false
   type: float
 max_update_wait:
@@ -90,7 +90,7 @@ members:
       required: false
       type: [string, list]
 prefix:
-  description: Device ID prefix. Entity IDs will be in the form `device_tracker.PREFIX_FIRST_LAST`, or `device_tracker.PREFIX_NAME` if the Member has only one name. To use no prefix, specify `''`.
+  description: Device ID prefix. Entity IDs will be in the form of `device_tracker.PREFIX_FIRST_LAST`, or `device_tracker.PREFIX_NAME` if the Member has only one name. To use no prefix, specify `''`.
   required: false
   type: string
   default: life360
@@ -104,22 +104,22 @@ warning_threshold:
 
 Attribute | Description
 -|-
-address | Address of current location, or `none`.
+address | Address of the current location, or `none`.
 at_loc_since | Date and time when first at current location (in UTC.)
 battery_charging | Device is charging (`true`/`false`.)
 driving | Device movement indicates driving (`true`/`false`.)
 last_seen | Date and time when Life360 last updated device location (in UTC.)
 moving | Device is moving (`true`/`false`.)
-place | Name of Life360 Place where device is located, or `none` if not located within one.
+place | Name of Life360 Place where the device is located, or `none` if not located within one.
 raw_speed | "Raw" speed value provided by Life360 server. (Units unknown.)
 speed | Estimated speed of device (in MPH or KPH depending on Home Assistant's unit system configuration.)
 wifi_on | Device WiFi is turned on (`true`/`false`.)
 
 ## {% linkable_title Filtering %}
 
-For most users filtering is not needed, and in such cases the corresponding configuration variables should simply not be used.
+For most users, filtering is not needed, and in such cases, the corresponding configuration variables should not be used.
 
-However, in some circumstances it might be helpful to limit which Life360 Circles and/or Members are used. For these cases [**circles**](#circles) and/or [**members**](#members) can be used.
+However, in some circumstances, it might be helpful to limit which Life360 Circles and/or Members are used. For these cases [**circles**](#circles) and/or [**members**](#members) can be used.
 
 **circles** can limit which Life360 Circles are used.
 
@@ -127,15 +127,16 @@ However, in some circumstances it might be helpful to limit which Life360 Circle
 
 For a particular Member to be tracked, they must be included (or at least not excluded), and must be in at least one of the included Circles. See [example configuration](#circle-and-member-filtering-example) below.
 
-Note that Life360's app and website typically only show Members' first names. However you must use their _full_ names here. If you're not sure what a Member's full name (i.e., first and last) is in Life360, ask them. Alternatively you can set [`logger`](https://www.home-assistant.io/components/logger/) to `debug` and look in `home-assistant.log`. The full names of all Life360 Circles & Members will be logged.
+Note that Life360's app and website typically only show Members' first names. However, you must use their _full_ names here. If you're not sure what a Member's full name (i.e., first and last) is in Life360, ask them. Alternatively, you can set the  [`logger`](https://www.home-assistant.io/components/logger/) to `debug` and look in `home-assistant.log`. The full names of all Life360 Circles & Members will be logged.
 
-## {% linkable_title Home - Home Assistant vs Life360 %}
+## {% linkable_title Home - Home Assistant vs. Life360 %}
 
-Normally Home Assistant device trackers are "Home" when they enter `zone.home`. And Life360 normally considers your device "Home" when it enters the Place that coincides with your home. Since the definitions of these areas can be different, this can lead to a disagreement between Home Assistant and Life360 as to whether or not you're "Home." To avoid this, make sure these two areas are defined the same -- i.e., same location and radius. (See next section.)
+Normally Home Assistant device trackers are "Home" when they enter `zone.home`. Also, Life360 normally considers your device "Home" when it enters the Place that coincides with your home. Since the definitions of these areas can be different, this can lead to a disagreement between Home Assistant and Life360 as to whether or not you're "Home." To avoid this, make sure these two areas are defined the same -- i.e., same location and radius. (See next section.)
 
 ## {% linkable_title Home Assistant Zones & Life360 Places %}
 
-See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zone) for details about how HA zones are defined. If you'd like to create HA zones from Life360 Places (e.g., to make HA's `zone.home` be identicial to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when HA starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
+See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zone) for details about how HA zones are defined. If you'd like to create HA zones from Life360 Places (e.g., to make HA's `zone.home` be identical to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when HA starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
+
 ```text
 2019-05-31 12:16:58 DEBUG (SyncWorker_3) [homeassistant.components.life360.device_tracker] My Family Circle: will be included, id=xxxxx
 2019-05-31 12:16:58 DEBUG (SyncWorker_3) [homeassistant.components.life360.device_tracker] Circle's Places:
@@ -149,7 +150,7 @@ See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zon
 
 It is not uncommon for communication errors to occur between Home Assistant and the Life360 server. This can happen for many reasons, including Internet connection issues, Life360 server load, etc. However, in most cases, they are temporary and do not significantly affect the ability to keep device_tracker entities up to date.
 
-Therefore an optional filtering mechanism has been implemented to prevent inconsequential communication errors from filling the log, while still logging unusual error activity. Two thresholds are defined: [**warning_threshold**](#warning_threshold) and [**error_threshold**](#error_threshold). When a particular type of communication error happens on consecutive update cycles, it will not be logged until the number of occurences reaches these thresholds. When the number reaches **warning_threshold** (but does not exceed **error_threshold**, and only if **warning_threshold** is defined) it will be logged as a WARNING. Once the number reaches **error_threshold** it will be logged as an ERROR. Only two consecutive communication errors of a particular type will be logged as an ERROR, after which it will no longer be logged until it stops occuring and then happens again.
+Therefore, an optional filtering mechanism has been implemented to prevent inconsequential communication errors from filling the log, while still logging unusual error activity. Two thresholds are defined: [**warning_threshold**](#warning_threshold) and [**error_threshold**](#error_threshold). When a particular type of communication error happens on consecutive update cycles, it will not be logged until the number of occurrences reaches these thresholds. When the number reaches **warning_threshold** (but does not exceed **error_threshold**, and only if **warning_threshold** is defined), it will be logged as a WARNING. Once the number reaches **error_threshold**, it will be logged as an ERROR. Only two consecutive communication errors of a particular type will be logged as an ERROR, after which it will no longer be logged until it stops occurring and then happens again.
 
 ## {% linkable_title Examples %}
 
@@ -159,7 +160,7 @@ Therefore an optional filtering mechanism has been implemented to prevent incons
 ```yaml
 life360:
   # MPH, assuming imperial units.
-  # If using metric (KPH), equivalent would be 29.
+  # If using metric (KPH), the equivalent would be 29.
   driving_speed: 18
   interval_seconds: 10
   max_gps_accuracy: 200
