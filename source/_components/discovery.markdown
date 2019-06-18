@@ -17,7 +17,6 @@ ha_release: 0.7
 Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` component can detect:
 
  * [Apple TV](/components/apple_tv/)
- * [Axis Communications security devices](/components/axis/)
  * [Belkin WeMo switches](/components/wemo/)
  * [Bluesound speakers](/components/media_player.bluesound/)
  * [Bose Soundtouch speakers](/components/media_player.soundtouch/)
@@ -27,8 +26,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Enigma2 media player](/components/media_player.enigma2/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
- * [HomeKit](/components/homekit_controller/)
- * [IKEA Trådfri (Tradfri)](/components/tradfri/)
  * [Linn / Openhome](/components/media_player.openhome/)
  * [Logitech Harmony Hub](/components/remote.harmony/)
  * [Logitech media server (Squeezebox)](/components/media_player.squeezebox/)
@@ -49,6 +46,10 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
 for Philips Hue it will require some configuration from the user.
+
+<p class='note'>
+  Zeroconf discoverable integrations [Axis](/components/axis/)/[ESPHome](/components/esphome/)/[HomeKit](/components/homekit_controller/)/[Tradfri](/components/tradfri/) have been migrated to use [zeroconf](/components/zeroconf) integration to initiate discovery.
+</p>
 
 To load this component, add the following lines to your `configuration.yaml`:
 
@@ -76,7 +77,6 @@ enable:
 Valid values for ignore are:
 
  * `apple_tv`: Apple TV
- * `axis`: Axis Communications security devices
  * `belkin_wemo`: Belkin WeMo switches
  * `bluesound`: Bluesound speakers
  * `bose_soundtouch`: Bose Soundtouch speakers
@@ -87,7 +87,6 @@ Valid values for ignore are:
  * `google_cast`: Google Cast
  * `harmony`: Logitech Harmony Hub
  * `igd`: Internet Gateway Device
- * `ikea_tradfri`: IKEA Trådfri (Tradfri)
  * `logitech_mediaserver`: Logitech media server (Squeezebox)
  * `netgear_router`: Netgear routers
  * `octoprint`: Octoprint
@@ -110,7 +109,6 @@ Valid values for ignore are:
 Valid values for enable are:
 
  * `dlna_dmr`: DLNA DMR enabled devices
- * `homekit`: HomeKit accessories
 
 ## {% linkable_title Troubleshooting %}
 
@@ -135,7 +133,3 @@ If you see `Not initializing discovery because could not install dependency netd
 ### {% linkable_title DSM and Synology %}
 
 For DSM/Synology, install via debian-chroot [see this forum post](https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15).
-
-## {% linkable_title New platforms %}
-
-If you are developing a new platform, please read [how to make your platform discoverable](/developers/component_discovery/) for further details.
