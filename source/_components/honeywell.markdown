@@ -21,7 +21,7 @@ The `honeywell` climate platform lets you control Honeywell TCC (Total Connect C
 <p class='note'>
 There is some potential confusion over this integration because it is currently implemented as a combination of two _distinct_ climate systems, one being US-based, the other is EU-based.
 
-These two regions are _not_ interchangeable, so you must clear which applies to your climate system.
+These two regions are _not_ interchangeable, so you must be clear which applies to your climate system.
 </p>
 
 ## {% linkable_title US-based Systems %}
@@ -49,9 +49,10 @@ climate:
     password: YOUR_PASSWORD
     region: us
 ```
+
 {% configuration %}
 username:
-  description: Email address of an account with access the the TCC website for your region.
+  description: Email address of an account with access the TCC website for your region.
   required: true
   type: string
 password:
@@ -64,17 +65,17 @@ region:
   default: eu
   type: string
 away_temperature:
-  description: "(*only for the eu region*) Heating setpoint when away mode is on, in degrees Celsius."
+  description: "(*only for the EU region*) Heating setpoint when away mode is on, in degrees Celsius."
   required: false
   default: 16.0
   type: float
 away_cool_temperature:
-  description: "(*only for the us region*) Cooling setpoint when away mode is on, in degrees Fahrenheit."
+  description: "(*only for the US region*) Cooling setpoint when away mode is on, in degrees Fahrenheit."
   required: false
   default: 88
   type: int
 away_heat_temperature:
-  description: "(*only for the us region*) Heating setpoint when away mode is on, in degrees Fahrenheit."
+  description: "(*only for the US region*) Heating setpoint when away mode is on, in degrees Fahrenheit."
   required: false
   default: 61
   type: int
