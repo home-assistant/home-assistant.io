@@ -84,15 +84,19 @@ Other properties are available via each entity's state attributes. For example, 
 
 This data can be accessed in automations, etc. via a value template. For example:
 
+{% raw %}
 ```yaml
 value_template: "{{ state_attr('water_heater.boiler_h_w', 'status').override.setpoint }}"
 ```
+{% endraw %}
 
 In the specific case of **Radiator** zones with room sensors:
 
+{% raw %}
 ```yaml
 value_template: "{{ state_attr('climate.main_room', 'status').occupied }}"
 ```
+{% endraw %}
 
 ## {% linkable_title Configuration %}
 
