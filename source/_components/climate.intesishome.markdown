@@ -45,6 +45,7 @@ By default the component will be named using the friendly device name from the I
 If internet connectivity is lost the device will be marked as unavailable after 5 minutes.
 
 ### {% linkable_title Supported services %}
+
 Available services: 
 - `climate.set_temperature`
 - `climate.set_fan_mode`
