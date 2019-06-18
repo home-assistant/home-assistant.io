@@ -69,6 +69,12 @@ code_template:
     Only one of **code** and **code_template** can be specified.
   required: exclusive
   type: string
+code_arm_required:
+  description: >
+   If true, the code is required to arm the alarm. If false, the code is not validated.
+  required: false
+  type: boolean
+  default: true
 delay_time:
   description: The time in seconds of delay added to the triggered state's **pending_time** before triggering the alarm.
   required: false
