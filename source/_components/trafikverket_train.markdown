@@ -11,7 +11,7 @@ logo: trafikverket.png
 ha_category:
   - Transport
   - Sensor
-ha_release: 0.93
+ha_release: 0.96
 ha_iot_class: Cloud Polling
 ---
 
@@ -47,7 +47,6 @@ sensor:
        from: "Stockholm Central"
        to: "Malmö C"
        time: "9:25"
-       weekday: [mon, tue, wed, thu, fri]
        
      - name: "Next train to Uppsala"
        from: "Stockholm Central"
@@ -106,13 +105,21 @@ sensor:
     from: Sölvesborg
     to: Kristianstad C
     time: "07:28"
+    weekday: [mon, tue, wed, thu, fri]
+    
   - name: "Train from work early"
     from: Kristianstad C
     to: Sölvesborg
     time: "16:38"
+    
   - name: "Train from work late"
     from: Kristianstad C
     to: Sölvesborg
     time: "17:02"
+    weekday: [sat, sun]
+    
+  - name: "Next train to Uppsala"
+    from: "Stockholm Central"
+    to: "Uppsala C"
     
 ```
