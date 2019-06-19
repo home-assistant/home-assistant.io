@@ -27,7 +27,7 @@ Please provide the release which contains the issue.
 
 ### {% linkable_title Last working Home Assistant release (if known) %}
 
-If possible, provide the latest release of which you know that the component or platform was working. Home Assistant is evolving very fast and issues may already be addressed or be introduced by a recent change.
+If possible, provide the latest release of which you know that the integration or platform was working. Home Assistant is evolving very fast and issues may already be addressed or be introduced by a recent change.
 
 ### {% linkable_title Operating environment (Hass.io/Docker/Windows/etc.) %}
 
@@ -44,7 +44,7 @@ Please add the link to the documention of the component/platform in question. E.
 
 Provide a summary of your issue and tell us what's wrong.
 
-There are components and platform which require additional steps (installing third-party tools, compilers, etc.) to get your setup working. Please describe the steps you took and the ones to reproduce the issue if needed.
+There are integrations and platform which require additional steps (installing third-party tools, compilers, etc.) to get your setup working. Please describe the steps you took and the ones to reproduce the issue if needed.
 
 ### {% linkable_title Problem-relevant `configuration.yaml` entries %}
 

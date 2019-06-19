@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-The `zwave` component exposes multiple services to help maintain the network. All of these are available through the Z-Wave control panel.
+The `zwave` integration exposes multiple services to help maintain the network. All of these are available through the Z-Wave control panel.
 
 | Service                | Description                                                                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -10,7 +10,7 @@ footer: true
 redirect_from: /topics/packages/
 ---
 
-Packages in Home Assistant provide a way to bundle different component's configuration together. We already learned about the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/docs/configuration/devices/) page. Both of these configuration methods require you to create the component key in the main `configuration.yaml` file. With packages we have a way to include different components, or different configuration parts using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
+Packages in Home Assistant provide a way to bundle different component's configuration together. We already learned about the two configuration styles (specifying platforms entries together or individually) on the [adding devices](/docs/configuration/devices/) page. Both of these configuration methods require you to create the integration key in the main `configuration.yaml` file. With packages we have a way to include different components, or different configuration parts using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
 
 <p class='note tip'>
 Note that if you use packages for your configuration, the configuration reloading buttons in the configuration panel will not reload your packages.
@@ -26,7 +26,7 @@ homeassistant:
       ...package configuration here...
 ```
 
-The package configuration can include: `switch`, `light`, `automation`, `groups`, or most other Home Assistant components including hardware platforms.
+The package configuration can include: `switch`, `light`, `automation`, `groups`, or most other Home Assistant integrations including hardware platforms.
 
 It can be specified inline or in a separate YAML file using `!include`.
 
@@ -67,7 +67,7 @@ light:
 
 There are some rules for packages that will be merged:
 
-1. Platform based components (`light`, `switch`, etc) can always be merged.
+1. Platform based integrations (`light`, `switch`, etc) can always be merged.
 2. Components where entities are identified by a key that will represent the entity_id (`{key: config}`) need to have unique 'keys' between packages and the main configuration file. 
 
     For example if we have the following in the main config. You are not allowed to re-use "my_input" again for `input_boolean` in a package:
@@ -76,10 +76,10 @@ There are some rules for packages that will be merged:
     input_boolean:
       my_input:
     ```
-3. Any component that is not a platform [2], or dictionaries with Entity ID keys [3] can only be merged if its keys, except those for lists, are solely defined once.
+3. Any integration that is not a platform [2], or dictionaries with Entity ID keys [3] can only be merged if its keys, except those for lists, are solely defined once.
 
 <p class='note tip'>
-Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the component name.
+Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the integration name.
 </p>
 
 ### {% linkable_title Create a packages folder %}

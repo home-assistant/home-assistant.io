@@ -13,7 +13,7 @@ Hass.io is a managed environment, which means you can't install applications tha
 
 There are three options if you need to run a script which reads data from a sensor or sends commands to other devices on Hass.io.
 
-The first option is to write a custom component for Home Assistant. This implies that you can communicate with your device using Python. For more information about developing a custom component, take a look at [custom-component development][custom-component].
+The first option is to write a custom integration for Home Assistant. This implies that you can communicate with your device using Python. For more information about developing a custom component, take a look at [custom-component development][custom-component].
 
 The second option is to use STDIN inside an add-on and use the service `hassio.addon_stdin` to send data. For more information, have a look at [internal add-on communication][communication]. Here you will also find how you can easily access the Home Assistant Rest API.
 

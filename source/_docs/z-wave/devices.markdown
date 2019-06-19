@@ -22,7 +22,7 @@ Many sensors and actors can directly control other devices through a capability 
 
 The *node* is the presence of the device on the Z-Wave mesh. Once you've added a device to Home Assistant, the node is represented by an `entity_id` that starts with `zwave`.
 
-The *entity* is an individual component of the node. It may be a sensor that you read from, or a control that you operate. For any node, there will be at least one entity (for the node itself) and if it exposes any controls or sensors there will be at least one entity per control or sensor. The [entities](/docs/z-wave/entities) that are created depend on the Command Class the device supports.
+The *entity* is an individual integration of the node. It may be a sensor that you read from, or a control that you operate. For any node, there will be at least one entity (for the node itself) and if it exposes any controls or sensors there will be at least one entity per control or sensor. The [entities](/docs/z-wave/entities) that are created depend on the Command Class the device supports.
 
 ## {% linkable_title Z-Wave, Plus, Security 2 %}
 

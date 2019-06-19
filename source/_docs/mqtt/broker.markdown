@@ -10,7 +10,7 @@ footer: true
 logo: mqtt.png
 ---
 
-The MQTT component needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
+The MQTT integration needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
 
 ### {% linkable_title Run your own %}
 

@@ -19,7 +19,7 @@ INFO [homeassistant.components.automation] Initialized rule Rainy Day
 INFO [homeassistant.components.automation] Initialized rule Rain is over
 ```
 
-The Logbook component will show a line entry when an automation is triggered. You can look at the previous entry to determine which trigger in the rule triggered the event.
+The Logbook integration will show a line entry when an automation is triggered. You can look at the previous entry to determine which trigger in the rule triggered the event.
 
 ![Logbook example](/images/components/automation/logbook.png)
 

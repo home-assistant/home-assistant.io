@@ -68,12 +68,12 @@ device_config / device_config_domain / device_config_glob:
       type: integer
       default: 0
     refresh_value:
-      description: Enable refreshing of the node value. Only the light component uses this.
+      description: Enable refreshing of the node value. Only the light integration uses this.
       required: false
       type: boolean
       default: false
     delay:
-      description: Specify the delay for refreshing of node value. Only the light component uses this.
+      description: Specify the delay for refreshing of node value. Only the light integration uses this.
       required: false
       type: integer
       default: 5
@@ -107,7 +107,7 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 On platforms other than Hass.io and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
-The first run after adding a device is when the `zwave` component will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
+The first run after adding a device is when the `zwave` integration will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
 ## {% linkable_title Platform specific instructions %}
 

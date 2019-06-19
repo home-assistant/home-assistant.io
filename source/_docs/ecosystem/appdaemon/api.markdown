@@ -282,7 +282,7 @@ In most cases, the attribute `state` has the most important value in it, e.g., f
 get_state(entity = None, attribute = None)
 ```
 
-`get_state()` is used to query the state of any component within Home Assistant. State updates are continuously tracked so this call runs locally and does not require AppDaemon to call back to Home Assistant and as such is very efficient.
+`get_state()` is used to query the state of any integration within Home Assistant. State updates are continuously tracked so this call runs locally and does not require AppDaemon to call back to Home Assistant and as such is very efficient.
 
 #### {% linkable_title Returns %}
 
@@ -788,7 +788,7 @@ Function to be invoked when the requested state change occurs. It must conform t
 
 ##### {% linkable_title time %}
 
-A Python `time` object that specifies when the callback will occur, the hour component of the time object is ignored. If the time specified is in the past, the callback will occur the next hour at the specified time. If time is not supplied, the callback will start an hour from the time that `run_hourly()` was executed.
+A Python `time` object that specifies when the callback will occur, the hour integration of the time object is ignored. If the time specified is in the past, the callback will occur the next hour at the specified time. If time is not supplied, the callback will start an hour from the time that `run_hourly()` was executed.
 
 ##### {% linkable_title \*\*kwargs %}
 
@@ -1348,7 +1348,7 @@ self.notify("", "Switching mode to Evening")
 
 ### {% linkable_title About Events %}
 
-Events are a fundamental part of how Home Assistant works under the covers. HA has an event bus that all components can read and write to, enabling components to inform other components when important events take place. We have already seen how state changes can be propagated to AppDaemon - a state change however is merely an example of an event within Home Assistant. There are several other event types, among them are:
+Events are a fundamental part of how Home Assistant works under the covers. HA has an event bus that all integrations can read and write to, enabling integrations to inform other integrations when important events take place. We have already seen how state changes can be propagated to AppDaemon - a state change however is merely an example of an event within Home Assistant. There are several other event types, among them are:
 
 - `homeassistant_start`
 - `homeassistant_stop`
@@ -1490,7 +1490,7 @@ service, kwargs = self.info_listen_event(handle)
 
 ### {% linkable_title fire_event() %}
 
-Fire an event on the Home Assistant bus, for other components to hear.
+Fire an event on the Home Assistant bus, for other integrations to hear.
 
 #### {% linkable_title Synopsis %}
 
@@ -1536,7 +1536,7 @@ A dictionary containing any additional information associated with the event.
 
 ### {% linkable_title Use of Events for Signaling between Home Assistant and AppDaemon %}
 
-Home Assistant allows for the creation of custom events and existing components can send and receive them. This provides a useful mechanism for signaling back and forth between Home Assistant and AppDaemon. For instance, if you would like to create a UI Element to fire off some code in Home Assistant, all that is necessary is to create a script to fire a custom event, then subscribe to that event in AppDaemon. The script would look something like this:
+Home Assistant allows for the creation of custom events and existing integrations can send and receive them. This provides a useful mechanism for signaling back and forth between Home Assistant and AppDaemon. For instance, if you would like to create a UI Element to fire off some code in Home Assistant, all that is necessary is to create a script to fire a custom event, then subscribe to that event in AppDaemon. The script would look something like this:
 
 ```yaml
 alias: Day
