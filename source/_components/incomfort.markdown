@@ -28,6 +28,8 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 In addition, there is a **Sensor** for CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
 
 To send an alert if the CV pressure is too low or too high, consider the following automation:
+
+{% raw %}
 ```yaml
 - alias: Low CV Pressure Alert
   trigger:
@@ -42,6 +44,7 @@ To send an alert if the CV pressure is too low or too high, consider the followi
         {{ trigger.to_state.attributes.friendly_name }}
         is low, {{ trigger.to_state.state }} bar.
 ```
+{% endraw %}
 
 Other properties are available via each device's attributes.
 
