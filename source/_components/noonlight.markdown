@@ -26,14 +26,9 @@ Noonlight service is currently available in the United States.
 
 ## {% linkable_title How it Works %}
 
-Noonlight connects to emergency 9-1-1 services in all 50 U.S. states. Backed by a UL-compliant alarm monitoring center and staffed 24/7 
-with live operators in the United States, Noonlight is standing by to send help to your home at a moment's notice.
+Noonlight connects to emergency 9-1-1 services in all 50 U.S. states. Backed by a UL-compliant alarm monitoring center and staffed 24/7 with live operators in the United States, Noonlight is standing by to send help to your home at a moment's notice.
 
-When integrated with Home Assistant, a **Noonlight Alarm** switch will appear in your list of entities. When the Noonlight Alarm switch
-is turned _on_, this will send an emergency signal to Noonlight. You will be contacted by text and voice at the phone number associated
-with your Noonlight account. If you confirm the emergency with the Noonlight operator, or if you're unable to respond, Noonlight will dispatch
-local emergency services to your home using the [longitude and latitude coordinates](/docs/configuration/basic/#latitude)
-specified in your Home Assistant configuration.
+When integrated with Home Assistant, a **Noonlight Alarm** switch will appear in your list of entities. When the Noonlight Alarm switch is turned _on_, this will send an emergency signal to Noonlight. You will be contacted by text and voice at the phone number associated with your Noonlight account. If you confirm the emergency with the Noonlight operator, or if you're unable to respond, Noonlight will dispatch local emergency services to your home using the [longitude and latitude coordinates](/docs/configuration/basic/#latitude) specified in your Home Assistant configuration.
 
 **False alarm?** No problem. Just tell the Noonlight operator your PIN when you are contacted and the alarm will be canceled. We're glad you're safe!
 
@@ -43,8 +38,7 @@ The _Noonlight Switch_ can be activated by any Home Assistant automation, just l
 
 Setup requires a U.S. based mobile phone number.
 
-1. Ensure that your [longitude and latitude coordinates](/docs/configuration/basic/#latitude) are set accurately so that Noonlight knows
-where to send help.
+1. Ensure that your [longitude and latitude coordinates](/docs/configuration/basic/#latitude) are set accurately so that Noonlight knows where to send help.
 
 1. Click the button below to set up a Noonlight account and authorize Home Assistant to create alarms on your behalf:
     
@@ -64,8 +58,8 @@ A `noonlight` section must be present in the `configuration.yaml` file to enable
 ```yaml
 # Example configuration.yaml entry
 noonlight:
-  id: aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee
-  secret: xxxxxxxxxxx
+  id: NOONLIGHT_ID
+  secret: NOONLIGHT_SECRET
   api_endpoint: https://api.noonlight.com/platform/v1
   token_endpoint: https://noonlight.konnected.io/dev/ha/token
 ```
