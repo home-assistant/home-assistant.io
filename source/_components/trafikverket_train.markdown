@@ -27,7 +27,7 @@ Data that is retrieved:
 
 - Next departure for specific train line.
 - Canceled status.
-- Number of minutes delayed.
+- The number of minutes delayed.
 - Planned time if no delays occur.
 - Estimated time of arrival if delays occur.
 - Actual time - when it did arrive.
