@@ -23,7 +23,7 @@ host:
     required: true
     type: string
 token:
-    description: See [Fortinet Devloper Network](https://fndn.fortinet.com) for how to create a API token. Remember this component only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
+    description: See [Fortinet Developer Network](https://fndn.fortinet.com) for how to create an API token. Remember this component only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access.
     required: true
     type: string
   verify_ssl:
