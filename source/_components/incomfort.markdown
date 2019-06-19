@@ -25,7 +25,7 @@ Note that the `temperature` will switch between the CV and Tap temperatures acco
 
 Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `target_temperature` (setpoint) and `current_temperature` and the setpoint can be changed.
 
-In addition, there is a **Sensor** for CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `True` if there is a fault with the boiler.
+In addition, there is a **Sensor** for CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
 
 To send an alert if the CV pressure is too low or too high, consider the following automation:
 ```yaml
