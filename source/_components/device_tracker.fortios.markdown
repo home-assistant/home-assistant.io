@@ -31,3 +31,4 @@ token:
     required: false
     type: boolean
 {% endconfiguration %}
+
