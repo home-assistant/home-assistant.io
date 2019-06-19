@@ -161,6 +161,22 @@ Because of this, we changed how packages are installed when running Home Assista
 [owntracks docs]: /components/owntracks/
 [watson_tts docs]: /components/watson_tts/
 
+## {% linkable_title Release 0.94.4 - June 19 %}
+
+- Fixing tplink issues with offline devices during setup ([@vangorra] - [#23668]) ([tplink docs])
+- Fix zeroconf migration messing up ESPHome discovery ([@OttoWinter] - [#24578]) ([esphome docs])
+- Fixed issue #24335 ([@Swamp-Ig] - [#24612]) ([sun docs])
+
+[#23668]: https://github.com/home-assistant/home-assistant/pull/23668
+[#24578]: https://github.com/home-assistant/home-assistant/pull/24578
+[#24612]: https://github.com/home-assistant/home-assistant/pull/24612
+[@OttoWinter]: https://github.com/OttoWinter
+[@Swamp-Ig]: https://github.com/Swamp-Ig
+[@vangorra]: https://github.com/vangorra
+[esphome docs]: /components/esphome/
+[sun docs]: /components/sun/
+[tplink docs]: /components/tplink/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
