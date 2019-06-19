@@ -32,7 +32,7 @@ Noonlight connects to emergency 9-1-1 services in all 50 U.S. states. Backed by 
 with live operators in the United States, Noonlight is standing by to send help to your home at a moment's notice.
 
 When integrated with Home Assistant, a **Noonlight Alarm** switch will appear in your list of entities. When the Noonlight Alarm switch
-is turned _on_, this will send an emergency signal to Noonlight. You will be contacted within by text and voice at the phone number associated
+is turned _on_, this will send an emergency signal to Noonlight. You will be contacted by text and voice at the phone number associated
 with your Noonlight account. If you confirm the emergency with the Noonlight operator, or if you're unable to respond, Noonlight will dispatch
 local emergency services to your home using the [longitude and latitude coordinates](/docs/configuration/basic/#latitude)
 specified in your Home Assistant configuration.
@@ -116,7 +116,7 @@ automation:
 
 ```yaml
 automation:
-  - alias: 'Activate Noonlight Alarm when alarm is triggered'
+  - alias: 'Activate Noonlight Alarm when smoke is detected'
     trigger:
       - platform: state
         entity_id: binary_sensor.smoke_alarm
