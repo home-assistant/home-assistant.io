@@ -7,15 +7,15 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_release: "0.95"
+ha_release: 0.95
 ha_category:
-  - hub
+  - Hub
   - Sensor
   - Switch
 ha_iot_class: "Local Polling"
 ---
 
-The `VersaSense` component supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
+The `VersaSense` integration supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
 
 ## {% linkable_title Configuration %}
 
@@ -36,7 +36,7 @@ host:
 
 All Versasense gateways with software version >= 1.0.2.10
 
-The component is tested with following peripherals and devices:
+The integration is tested with following peripherals and devices:
 
 - S03 S04: Temperature and Humidity sensor
 - S06: Barometric Pressure sensor
