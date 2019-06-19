@@ -9,7 +9,7 @@ sharing: true
 footer: true
 logo: intesishome.png
 ha_category: Climate
-ha_release: 
+ha_release: 0.96
 ha_iot_class: "Cloud Push"
 ---
 
@@ -28,7 +28,7 @@ climate:
 
 {% configuration %}
 username:
-  description: Your username for IntesisHome
+  description: Your username for [IntesisHome.com](https://user.intesishome.com) 
   required: true
   type: string
 password:
@@ -36,9 +36,6 @@ password:
   required: true
   type: string
 {% endconfiguration %}
-
-- **username** (*Required*): Username of an account authorised to control your IntesisHome device on [IntesisHome.com](https://user.intesishome.com).
-- **password** (*Required*): Password for the IntesisHome account.
 
 This component opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
 By default the component will be named using the friendly device name from the IntesisHome website or application.
