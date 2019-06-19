@@ -92,7 +92,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 
 ## {% linkable_title Train station names %}
 
-Click [here](https://www.trafikverket.se/trafikinformation/tag/?ArrDep=departure&) to see example of train station names.
+Click [here](https://www.trafikverket.se/trafikinformation/tag/?ArrDep=departure&) to see an example of train station names.
 
 ## {% linkable_title Examples %}
 
