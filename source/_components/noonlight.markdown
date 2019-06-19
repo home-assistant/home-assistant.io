@@ -97,7 +97,7 @@ This example is using the [Manual Alarm component](/components/manual/)
 
 ```yaml
 automation:
-  - alias: 'Activate Noonlight Alarm when security system is triggered'
+  - alias: 'Activate Noonlight Alarm when the security system is triggered'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.ha_alarm
