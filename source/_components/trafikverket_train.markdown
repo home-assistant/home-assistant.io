@@ -23,7 +23,7 @@ Use cases:
 - Retrieve information for specific departure time on a specific train line.
 - Set up an alert or perform actions if your train is delayed or canceled.
 
-Data that is retreived: 
+Data that is retrieved: 
 
 - Next departure for specific train line.
 - Canceled status.
