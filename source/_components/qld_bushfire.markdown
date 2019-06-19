@@ -53,7 +53,6 @@ categories:
   description: List of category names found in the feed. Only alerts from the feed that match any of these categories are included. Valid categories are 'Emergency Warning', 'Watch and Act', 'Advice', 'Notification' and 'Information'.
   required: false
   type: list
-  default: None. Any alert regardless of its category will be included.
 radius:
   description: The distance in kilometers around Home Assistant's coordinates in which bushfire alerts are included.
   required: false
@@ -63,12 +62,12 @@ latitude:
   description: Latitude of the coordinates around which events are considered.
   required: false
   type: string
-  default: Latitude defined in your `configuration.yaml`
+  default: Latitude defined in your configuration
 longitude:
   description: Longitude of the coordinates around which events are considered.
   required: false
   type: string
-  default: Longitude defined in your `configuration.yaml`
+  default: Longitude defined in your configuration
 {% endconfiguration %}
 
 
@@ -86,7 +85,7 @@ the standard ones:
 | title            | Original title from the feed. |
 | publication_date | Date and time when this alert was first published. |
 | updated_date     | Date and time when this alert was last updated. |
-| status           | Status of the alert, for example "Patrolled", "Going", "Contained" |
+| status           | Status of the alert, for example, "Patrolled", "Going", "Contained" |
 
 ## {% linkable_title Full Configuration %}
 
