@@ -27,7 +27,7 @@ token:
     required: true
     type: string
   verify_ssl:
-    description: if the SSL certificate should be verified. In most home cases users do not have a verified certificate. Default=False.
+    description: if the SSL certificate should be verified. In most home cases users do not have a verified certificate.
     required: false
     type: boolean
 {% endconfiguration %}
