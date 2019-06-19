@@ -90,13 +90,13 @@ To have the lights playing a effect when pausing, idle or turn off a media playe
 - alias: Set hyperion effect after playback
   trigger:
     - platform: state
-      entity_id: media_player.plex_iiidefcontoweriii
+      entity_id: media_player.plex
       to: 'off'
     - platform: state
-      entity_id: media_player.plex_iiidefcontoweriii
+      entity_id: media_player.plex.plex
       to: 'paused'
     - platform: state
-      entity_id: media_player.plex_iiidefcontoweriii
+      entity_id: media_player.plex.plex
       to: 'idle'
   action:
     - service: light.turn_on
@@ -111,7 +111,7 @@ To capture the screen when playing something of a media_player you can use this 
 - alias: Set hyperion when playback starts
   trigger:
     - platform: state
-      entity_id: media_player.plex_iiidefcontoweriii
+      entity_id: media_player.plex
       to: 'playing'
   action:
     - service: light.turn_on
