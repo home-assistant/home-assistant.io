@@ -46,7 +46,8 @@ If internet connectivity is lost the device will be marked as unavailable after 
 
 ### {% linkable_title Supported services %}
 
-Available services: 
+Available services:
+
 - `climate.set_temperature`
 - `climate.set_fan_mode`
 - `climate.set_operation_mode`
