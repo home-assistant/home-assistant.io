@@ -25,7 +25,7 @@ Use cases:
 
 Data that is retrieved: 
 
-- Next departure for specific train line.
+- Next departure for the specific train line.
 - Canceled status.
 - The number of minutes delayed.
 - Planned time if no delays occur.
