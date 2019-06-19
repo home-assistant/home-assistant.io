@@ -38,11 +38,13 @@ host:
   required: true
   type: string
 username:
-  description: Username to log into the Optoma web ui (default is admin).
+  description: Username to log into the Optoma web ui.
+  default: admin
   required: false
   type: string
 password:
-  description: Password to log into the Optoma web ui (default is admin).
+  description: Password to log into the Optoma web ui.
+  default: admin
   required: false
   type: string
 {% endconfiguration %}
