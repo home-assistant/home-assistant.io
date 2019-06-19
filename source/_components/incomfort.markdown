@@ -31,8 +31,6 @@ Other properties are available via each device's attributes.
 
 To add your Lan2RF gateway into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
 
-The hub does not have to be in the same network as HA.
-
 Older gateways do not require user authentication::
 
 ```yaml
@@ -49,6 +47,8 @@ incomfort:
   username: USERNAME
   password: PASSWORD
 ```
+
+The hub does not have to be in the same network as HA.
 
 {% configuration %}
 host:
