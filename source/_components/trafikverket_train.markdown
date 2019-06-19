@@ -41,7 +41,7 @@ To enable this sensor, use the following format in your `configuration.yaml`.
 ```yaml
 sensor:
    - platform: trafikverket_train
-     api_key: !secret trafikverket_api
+     api_key: TRAFIKVERKET_API
      trains:
      - name: "Morning train to Malmö"
        from: "Stockholm Central"
