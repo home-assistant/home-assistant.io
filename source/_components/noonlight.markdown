@@ -10,15 +10,13 @@ footer: true
 logo: noonlight.png
 ha_category:
   - Switch
-ha_release: "0.96"
-redirect_from:
-  - /components/switch.noonlight/
+ha_release: 0.96
 ---
 
 [Noonlight](https://noonlight.com) connects your smart home to local emergency services to help keep you safe in case of a break-in, fire, or medical emergency.
 
 <p class='note warning'>
-This integration is currently using a _sandbox_ API. It will not actually contact emergency servies at this time!
+This integration is currently using a _sandbox_ API. It will not actually contact emergency services at this time!
 Pending approval from Noonlight, this notice will be removed once the live API has been activated.   
 </p> 
 
@@ -26,7 +24,7 @@ Pending approval from Noonlight, this notice will be removed once the live API h
 Noonlight service is currently available in the United States.
 </p> 
 
-### {% linkable_title How it Works %}
+## {% linkable_title How it Works %}
 
 Noonlight connects to emergency 9-1-1 services in all 50 U.S. states. Backed by a UL-compliant alarm monitoring center and staffed 24/7 
 with live operators in the United States, Noonlight is standing by to send help to your home at a moment's notice.
@@ -37,11 +35,11 @@ with your Noonlight account. If you confirm the emergency with the Noonlight ope
 local emergency services to your home using the [longitude and latitude coordinates](/docs/configuration/basic/#latitude)
 specified in your Home Assistant configuration.
 
-**False alarm?** No problem. Just tell the Noonlight operator your PIN when you are contacted and the alarm will be cancelled. We're glad you're safe!
+**False alarm?** No problem. Just tell the Noonlight operator your PIN when you are contacted and the alarm will be canceled. We're glad you're safe!
 
 The _Noonlight Switch_ can be activated by any Home Assistant automation, just like any type of switch! [See examples below](#automation-examples).
 
-### {% linkable_title Initial Setup %}
+## {% linkable_title Initial set up %}
 
 Setup requires a U.S. based mobile phone number.
 
@@ -61,7 +59,7 @@ where to send help.
 
 A `noonlight` section must be present in the `configuration.yaml` file to enable the Noonlight Alarm entity.
 
-**Note:** This configuration snippet will be generated for you automatically to copy and paste when you follow the [initial setup steps](#initial-setup)
+**Note:** This configuration snippet will be generated for you automatically to copy and paste when you follow the [initial setup steps](#initial-set-up)
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,9 +71,8 @@ noonlight:
 ```
 
 {% configuration %}
-
 id:
-  description: A unique identifier assigned to you when you complete the [initial setup steps](#initial-setup)
+  description: A unique identifier assigned to you when you complete the [initial setup steps](#initial-set-up)
   required: true
   type: string
 secret:
@@ -85,17 +82,16 @@ secret:
 api_endpoint:
   description: The Noonlight API endpoint used when creating an alarm
   required: true
-  type: url
+  type: string
 token_endpoint:
   description: The OAuth endpoint used to refresh your Noonlight auth token (hosted by [Konnected](https://konnected.io))
   required: true
-  type: url
-  
+  type: string
 {% endconfiguration%}  
 
-### {% linkable_title Automation Examples %}
+## {% linkable_title Automation Examples %}
 
-#### Notify Noonlight when an intrusion alarm is triggered
+### {% linkable_title Notify Noonlight when an intrusion alarm is triggered %}
 
 This example is using the [Manual Alarm component](/components/manual/)
 
@@ -112,7 +108,7 @@ automation:
 
 ```
 
-#### Notify Noonlight when a smoke detector detects smoke
+### {% linkable_title Notify Noonlight when a smoke detector detects smoke %}
 
 ```yaml
 automation:
@@ -127,7 +123,7 @@ automation:
 
 ```
 
-### {% linkable_title Warnings & Disclaimers %}
+## {% linkable_title Warnings & Disclaimers %}
 
 <p class='note warning'>
 **Requires an Internet connection!** Home Assistant must have an active internet connection for this to work!
