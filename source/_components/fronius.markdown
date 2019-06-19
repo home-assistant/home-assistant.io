@@ -2,7 +2,7 @@
 layout: page
 title: "Fronius"
 description: "Instructions on how to connect your Fronius Inverter to Home Assistant."
-date: 2018-01-05 11:43:00
+date: 2018-01-05 11:43
 sidebar: true
 comments: false
 sharing: true
@@ -21,7 +21,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 ```yaml
 sensor:
   - platform: fronius
-    resource: FRONIUS_URL_HERE
+    resource: FRONIUS_IP_ADRESS
     monitored_conditions:
     - sensor_type: inverter
 ```
@@ -43,22 +43,25 @@ monitored_conditions:
       required: true
       type: string
     scope:
-      description: The used for device type for storage and inverter, can be either `device` or `system`
+      description: The device type for storage and inverter, can be either `device` or `system`
       required: false
       type: string
       default: `device`
     device:
-      description: The id of the device to poll, set by default to 
+      description: The id of the device to poll
       required: false
-      default: `1` for inverters and `0` for storages according to Fronius Specs
+      default: `1` for inverters and `0` for storages in compliance with Fronius Specs
 {% endconfiguration %}
 
 ### {% linkable_title More complete example %}
 
+When including more of the components that one fronius device offers, 
+a list of sensors that are to be integrated can be given like below.
+
 ```yaml
 sensor:
   - platform: fronius
-    resource: FRONIUS_URL_HERE
+    resource: FRONIUS_IP_ADDRESS
     monitored_conditions:
     - sensor_type: inverter
       device: 1
@@ -73,7 +76,8 @@ sensor:
 
 ### {% linkable_title Sensors configuration %}
 
-The sensors depend on the state of the Fronius device, that's why it is recommended to use template sensors as an interface:
+To extract more detailed values from the state of each integrated sensor and to circumvent undefined values,
+it is recommended to use template sensors as an interface:
 
 {% raw %}
 ```yaml
