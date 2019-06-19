@@ -15,7 +15,7 @@ redirect_from:
  - /components/notify.mastodon/
 ---
 
-The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to delivery notifications from Home Assistant.
+The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
 
 ### {% linkable_title Setup %}
 
