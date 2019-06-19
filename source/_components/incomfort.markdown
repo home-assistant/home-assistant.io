@@ -21,9 +21,27 @@ The `incomfort` integration links Home Assistant with your Intergas Lan2RF gatew
 
 The boiler is represented as a **Water Heater** device. It will report the boiler's `state` and `temperature` (current temperature). The gateway does not expose any means to directly control the boiler or change its configuration.
 
+Note that the `temperature` will switch between the CV and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
+
 Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `target_temperature` (setpoint) and `current_temperature` and the setpoint can be changed.
 
 In addition, there is a **Sensor** for CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `True` if there is a fault with the boiler.
+
+To send an alert if the CV pressure is too low or too high, consider the following automation:
+```yaml
+- alias: Low CV Pressure Alert
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.cv_pressure
+    below: 1.0
+  action:
+  - service: notify.pushbullet_notifier
+    data_template:
+      title: "Warning: Low CH Pressure"
+      message: >-
+        {{ trigger.to_state.attributes.friendly_name }}
+        is low, {{ trigger.to_state.state }} bar.
+```
 
 Other properties are available via each device's attributes.
 
@@ -31,13 +49,14 @@ Other properties are available via each device's attributes.
 
 To add your Lan2RF gateway into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
 
-Older gateways do not require user authentication::
+Older gateways do not require user authentication:
 
 ```yaml
 # Example configuration.yaml entry, older firmware with no user credentials
 incomfort:
   host: IP_ADDRESS
 ```
+
 Alternatively, if a **username** & **password** is printed on the back of the gateway:
 
 ```yaml
