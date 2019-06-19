@@ -14,9 +14,6 @@ ha_category:
   - Switch
 ha_release: 0.95
 ha_iot_class: Local Push
-redirect_from:
-  - /components/binary_sensor.rpi_pfio2/
-  - /components/switch.rpi_pfio2/
 ---
 
 The `rpi_pfio2` component is the base for all related [PiFace Digital2 I/O (PFIO)](http://www.piface.org.uk/) platforms in Home Assistant. There is no setup needed for the component itself; for the platforms, please check their corresponding pages.
