@@ -76,7 +76,7 @@ trains:
       required: true
       type: string
     time:
-      description: Departure time to monitor, if not entered it will retreive the next departure.
+      description: Departure time to monitor, if not entered it will retrieve the next departure.
       required: true
       type: string
     weekday:
