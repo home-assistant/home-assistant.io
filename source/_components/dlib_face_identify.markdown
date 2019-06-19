@@ -55,7 +55,6 @@ confidence:
   required: false
   type: float
   default: 0.6
-
 {% endconfiguration %}
 
 <p class='note'>
