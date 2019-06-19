@@ -81,7 +81,7 @@ homeassistant:
 
 {% configuration %}
 exclude:
-  description: The list of notifying service entitys you want to exclude.
+  description: The list of notifying service entities you want to exclude.
   required: false
   type: list
 include:
