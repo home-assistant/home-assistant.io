@@ -25,7 +25,7 @@ To use your Optoma Projector in your installation, add the following to your `co
 # Example configuration.yaml entry
 switch:
   - platform: optoma_projector
-    host: 192.168.1.111
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
