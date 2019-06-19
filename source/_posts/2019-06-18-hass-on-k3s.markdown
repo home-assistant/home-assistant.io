@@ -1,0 +1,488 @@
+---
+layout: post
+title: "Home Assistant on Kubernetes"
+description: "Run Home Assistant on Kubernetes with k3s."
+date: 2019-06-18 06:24:55 +0000
+date_formatted: "June 18, 2019"
+author: Thibault Cohen
+author_twitter: ttb_lt
+comments: true
+categories: How-To Kubernetes
+og_image: /images/blog/2018-06-esphomelib/social.png
+---
+
+I'm a kind of old user, (more than 2 years and half) and contributor of Home Assistant.
+I started using before Hassio was created, on a small AMD Fusion E450 laptop, in a python virtual environment.
+
+Then Hassio came out.
+
+Today, Hassio is the easiest to run Home Assistant today.
+It's docker based, it can run on x86_64 and arm (raspberry pi).
+
+Few month ago, I got the opportiny to update my Home Assistant server to a Core i5 2520m.
+So I started to look at Hassio.
+Reading the documentation, I understood that's Hassio is like a Docker container orchestrator like Kubernetes.
+
+I have been working with Kubernetes since the version 1.1 and I can see that docker is progressively abandonned to use only containerd (and runc).
+
+There is a small interesting Kubernetes distribution called [k3s](k3s.io). This is a Kubernetes for IOT :)
+So I tried to get home assistant running on k3s. And it's working, pretty well.
+
+I will describe here exactly what I did:
+
+<!--more-->
+
+## {% linkable_title Installation %}
+
+### {% linkable_title Hardware %}
+
+The server is a x86_64 (Core i5 2520m with 8Go of RAM) but you could use a Raspberry Pi 3, running Debian Sid (but you could use raspbian)
+
+### {% linkable_title Debian requirements %}
+
+As root, on the hass server:
+
+```bash
+# Upgrade
+echo > deb http://debian.bhs.mirrors.ovh.net/debian/ sid main contrib non-free > /etc/apt/sources.list
+apt-get update
+apt-get dist-upgrade -y
+# Mandatory
+apt install sudo wget rsync apache2-utils
+# Optional, add any packages you want
+apt install sudo vim wget screen htop upower haveged rsync apache2-utils
+
+# Some settings (only needed for some laptop)
+update-alternatives --config editor
+usermod -G sudo myuser
+sed -i 's/^IgnoreLid.*/IgnoreLid=True/' UPower.conf
+sed -i 's/^#HandleLidSwitch=.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
+
+# Date
+sed -i 's/.NTP=.*/NTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org/' /etc/systemd/timesyncd.conf
+rm -f /etc/localtime
+ln -s /usr/share/zoneinfo/America/Montreal /etc/localtime
+echo America/Montreal > /etc/timezone
+```
+For Raspbian, you can try to "translate" these commands
+
+
+### {% linkable_title K3s installation %}
+
+As root, on the hass server:
+
+```bash
+export K3S_VERSION=0.6.0
+wget -O /usr/local/bin/k3s https://github.com/rancher/k3s/releases/download/v${K3S_VERSION}/k3s
+chmod +x /usr/local/bin/k3s
+
+cat << EOF > /etc/systemd/system/k3s.service  
+[Unit]
+Description=Lightweight Kubernetes
+Documentation=https://k3s.io
+After=network.target
+
+[Service]
+ExecStartPre=-/sbin/modprobe br_netfilter
+ExecStartPre=-/sbin/modprobe overlay
+ExecStart=/usr/local/bin/k3s server
+KillMode=process
+Delegate=yes
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl enable k3s
+```
+
+### {% linkable_title K3s start %}
+
+As root, on the hass server:
+
+```bash
+systemctl start k3s
+```
+
+Congratulations ! you have your own kubernetes cluster !
+
+
+### {% linkable_title Kubernetes Requirements %}
+
+#### 1. Storage class
+
+First we need a storage class for persistant volumes:
+
+```bash
+cat <<EOF | k3s kubectl apply -f -
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: local-storage
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+```
+
+#### 2. Mail server
+
+We need to create a postfix server as realy of our personnal mail address, to send email easily from the cluster
+
+First we create secret to access to the SMTP server (could be gmail or other)
+```bash
+k3s kubectl -n tcohen-reviews create secret generic postfix-secret --from-literal=username=MySMPTUsername --from-literal=password=MySMTPPassword
+```
+
+Then we deploy our first container, running postix server as relay:
+
+```bash
+cat <<EOF | k3s kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postfix
+  labels:
+    app: postfix
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postfix 
+  template:
+    metadata:
+      labels:
+        app: postfix
+    spec:
+      containers:
+      - name: postfix
+        image: juanluisbaptiste/postfix:latest
+        ports:
+        - containerPort: 25
+        env:
+        - name: SMTP_SERVER
+          value: smtp.gmail.com
+        - name: SMTP_PORT
+          value: "587"
+        - name: SMTP_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: postfix-secret
+              key: username
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postfix-secret
+              key: password
+        - name: SERVER_HOSTNAME
+          value: myserver.mydomain.com
+        - name: SMTP_NETWORKS
+          value: 10.42.0.0/24
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: postfix
+spec:
+  selector:
+    app: postfix
+  ports:
+  - protocol: TCP
+    port: 25
+    targetPort: 25
+    name: postfix
+EOF
+```
+
+
+#### 3. Home Assistant Database
+
+I choose to run Mariadb as database for Home assistant
+
+```bash
+mkdir -p /data/mariadb/databases
+cat <<EOF | k3s kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  labels:
+    app: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  template:
+    metadata:
+      labels:
+        app: mariadb
+    spec:
+      containers:
+      - name: mariadb
+        image: homeassistant/amd64-addon-mariadb:1.2
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - mountPath: /data/databases
+          name: mariadb-data
+          #- mountPath: /data/options.json
+          # name: mariadb-options
+        - name: mariadb-options
+          mountPath: /data
+      volumes:
+      - name: mariadb-data
+        hostPath:
+          # directory location on host
+          path: /data/mariadb/databases
+          # this field is optional
+          type: Directory
+      - name: mariadb-options
+        configMap:
+          # Provide the name of the ConfigMap containing the files you want
+          # to add to the container
+          name: mariadb-options
+          #          items:
+          #- key: special.level
+          #  path: options.json
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mariadb
+spec:
+  selector:
+    app: mariadb
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mariadb-options
+data:
+  options.json: |
+    {
+      "databases": ["homeassistant"],
+      "logins": [
+        {"username": "username", "host": "%", "password": "password"}
+      ],
+      "rights": [
+         {"username": "username", "host": "%", "database": "homeassistant", "grant": "ALL PRIVILEGES ON"}
+      ]
+    }
+EOF
+```
+
+
+#### 4. MQTT
+
+```bash
+cat <<EOF | k3s kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt
+  labels:
+    app: mqtt
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mqtt 
+  template:
+    metadata:
+      labels:
+        app: mqtt
+    spec:
+      containers:
+      - name: mosquitto
+        image: homeassistant/amd64-addon-mosquitto:4.1
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 8080
+        - containerPort: 1883
+        - containerPort: 1884
+        volumeMounts:
+        - mountPath: /data
+          name: mqtt-data
+        - name: mqtt-options
+          mountPath: /data/options.json
+          subPath: options.json
+      volumes:
+      - name: mqtt-data
+        hostPath:
+          # directory location on host
+          path: /data/mqtt/
+          # this field is optional
+          type: Directory
+      - name: mqtt-options
+        configMap:
+          # Provide the name of the ConfigMap containing the files you want
+          # to add to the container
+          name: mqtt-options
+          #          items:
+          #- key: special.level
+          #  path: options.json
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mqtt
+spec:
+  selector:
+    app: mqtt
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 1883
+    targetPort: 1883
+    name: mqtt
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    name: socat
+  - protocol: TCP
+    port: 1884
+    targetPort: 1884
+    name: websocket
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqtt-options
+data:
+  options.json: |
+    {
+      "logins": [
+         {"username": "username", "password": "password"}
+      ],
+      "anonymous": false,
+      "customize": {
+        "active": false,
+        "folder": "mosquitto"
+      },
+      "certfile": "fullchain.pem",
+      "keyfile": "privkey.pem"
+    }
+```
+
+#### 5. Home assistant
+
+```bash
+cat <<EOF | k3s kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hass
+  labels:
+    app: home-assistant
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: home-assistant
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+    spec:
+      dnsPolicy: ClusterFirstWithHostNet
+      hostNetwork: true
+      containers:
+      - name: home-assistant
+        image: homeassistant/home-assistant:0.94.3
+        securityContext:
+          privileged: true
+        ports:
+        - containerPort: 8123
+        volumeMounts:
+        - name: hass-config
+          mountPath: /config
+        readinessProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        livenessProbe:
+          tcpSocket:
+            port: 8123
+          initialDelaySeconds: 15
+          periodSeconds: 30
+      volumes:
+      - name: hass-config
+        hostPath:
+          # directory location on host
+          path: /data/hass/config
+          # this field is optional
+          type: Directory
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hass
+spec:
+  selector:
+    app: home-assistant
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 8123
+    targetPort: 8123
+``` 
+
+
+## TODO
+
+1. Port all Hassio add-ons to Kubernetes (so create manifest files for each Hassio add-ons)
+   * Home-assistant, mqtt, mariadb, adb and configurator are already done
+2. Add Kubernetes support to Hassio controller
+
+## Thoughts
+Home-Assistant has been running for more then 9 weeks without issue (but updates) since a 20 hour electrical downtime.
+The issues I got are not related to Kubernetes but to Home Assistant configuration.
+
+So, for sure, this way is much difficult than the Hassio way.
+
+But, I'm pretty Hassio will move to this solution in the future, because Kubernetes is becoming the default container orchestrator (and more) in the world and also because docker doesn't seem to be the future of the container runtime.
+
+One of my dreams is to be able to run K3s agent on a Raspberry Zero W, in order to manage those devices through Kubernetes (using taint/nodeSelector)
+For example, I run a deployment in my K3s cluster running librespot and snapcast server. I would love to deploy a snapcast client on all my Raspberry Pi Zero W with a specific taint. With this, I just have to build a Prebacked Raspbian image with k3s installed (or maybe [k3os](k3os.io) ??) and when the Pi start, it automagically join the cluster and do what it's supposed to do (in this case, play music through snapcast).
+With this, I can imagine that all kind of Raspi IOT devices could be a part of a home Kubernetes cluster.
+
+## Optional stuff
+
+### {% linkable_title Install kubectl %}
+
+You need the kubectl binary installed on your personnal computer (not the hass server)
+
+If it's not already done, please follow those [instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+### {% linkable_title Get kubeconfig file %}
+
+from your personnal computer, where *HASS_SERVER_IP* is the IP of your hass server;
+
+```bash
+scp root@HASS_SERVER_IP:/etc/rancher/k3s/k3s.yaml ~/.kube/config
+```
+
+Note: If you have already a file *~/.kube/config* you have to merge the k3s one with the existing one
+
+Select the hass cluster
+
+```bash
+kubectl config use-context default
+```
+
+You are ready to deploy stuff on K3s from you laptop
+
