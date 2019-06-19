@@ -4,7 +4,7 @@ This component enables Home Assistant to do device tracking of devices with a MA
 The component relies on the [fortiosapi](https://pypi.org/project/fortiosapi/).
 The component has been tested both on FortiGate appliance and FortiGate VM running SW FortiOS v. 6.0.x and 6.2.0.
 
-All devices with a MAC address identified by FortiGate would be tracked, this covers both Ethernet and WiFi devices, incl. devices detected by LLDP.
+All devices with a MAC address identified by FortiGate would be tracked, this covers both Ethernet and WiFi devices, including devices detected by LLDP.
 
 The component is based on the Home Assistant `device_tracker` platform.
 
