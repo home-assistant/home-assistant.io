@@ -49,17 +49,18 @@ Once saved, the "Client Id" and "Consumer Secret" fields will be populated. Take
 ```yaml
 # Example configuration.yaml entry
 withings:
-    client_id: <client id from previous step>
-    client_secret: <consumer secret from previous step>
-    profiles:
-        - <name of user profile>
+  client_id: CLIENT_ID
+  client_secret: CLIENT_SECRET
+  profiles:
+    - <name of user profile>
 ```
 
 Withings supports multiple profiles per account. Each profile has a person's name to help distinguish who's data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish who's data you're looking at.
 
 ### {% linkable_title Authorization %}
 
-On the home assistant web page
+On the home assistant web page:
+
 - Goto `Configuraton` > `General`
   - Click `Check Config` and ensure your config looks good.
   - After config is correct, click `Restart`.
@@ -71,6 +72,7 @@ On the home assistant web page
   - Withings will provide you with a list of profiles to choose from (if you have more than one). Choose the profile
   you selected earlier. Otherwise homeassistant entity names will not match the data they are showing.
 - After you authorize at Withings, the Withings website will redirect your browser back to your callback uri.
+
 If your home assistant instance is not accessible publicly, you can change the url in the browser to match the 
 url of your server.
 
