@@ -64,7 +64,7 @@ The discovery topic need to follow a specific format:
 
 The payload must be a JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added. This means that missing variables will be filled with the platform's default values. All configuration variables which are *required* must be present in the initial payload send to `/config`.
 
-If the component is `alarm_control_panel`, `binary_sensor`, or `sensor` and the mandatory `state_topic` is not present in the payload, `state_topic` will be automatically set to <discovery_prefix>/<component>/[<node_id>/]<object_id>/state. The automatic setting of `state_topic` id depracated and may be removed in a future version of Home Assistant.
+If the integration is `alarm_control_panel`, `binary_sensor`, or `sensor` and the mandatory `state_topic` is not present in the payload, `state_topic` will be automatically set to <discovery_prefix>/<component>/[<node_id>/]<object_id>/state. The automatic setting of `state_topic` id depracated and may be removed in a future version of Home Assistant.
 
 An empty payload will cause a previously discovered device to be deleted.
 
@@ -288,7 +288,7 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 - State topic: `homeassistant/switch/irrigation/state`
 - Payload:  `{"~": "homeassistant/switch/irrigation", "name": "garden", "cmd_t": "~/set", "stat_t": "~/state"}`
 
-Setting up a climate component (heat only) with abbreviated configuration variable names to reduce payload length.
+Setting up a climate integration (heat only) with abbreviated configuration variable names to reduce payload length.
 
 - Configuration topic: `homeassistant/climate/livingroom/config`
 - Configuration payload:

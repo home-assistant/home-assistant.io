@@ -33,8 +33,7 @@ components:
 logger:
   default: info
   logs:
-    homeassistant.components.device_tracker: critical
-    homeassistant.components.camera: critical
+    homeassistant.components.yamaha: critical
     custom_components.my_integration: critical
 ```
 
@@ -46,11 +45,20 @@ components:
 logger:
   default: critical
   logs:
-    homeassistant.components: info
-    homeassistant.components.rfxtrx: debug
-    homeassistant.components.device_tracker: critical
-    homeassistant.components.camera: critical
+    # log level for HA core
+    homeassistant.core: fatal
+    
+    # log level for MQTT integration
+    homeassistant.components.mqtt: warning
+    
+    # log level for SmartThings lights
+    homeassistant.components.smartthings.light: info
+
+    # log level for a custom component
     custom_components.my_integration: debug
+
+    # log level for the `aiohttp` Python package
+    aiohttp: error
 ```
 
 {% configuration %}
@@ -107,9 +115,11 @@ An example call might look like this:
 ```yaml
 service: logger.set_level
 data:
-  homeassistant.components: warning
-  homeassistant.components.media_player.yamaha: debug
+  homeassistant.core: fatal
+  homeassistant.components.mqtt: warning
+  homeassistant.components.smartthings.light: info
   custom_components.my_integration: debug
+  aiohttp: error
 ```
 
 The log information are stored in the

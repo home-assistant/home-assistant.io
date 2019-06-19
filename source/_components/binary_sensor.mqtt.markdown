@@ -87,7 +87,7 @@ unique_id:
   required: false
   type: string
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 value_template:

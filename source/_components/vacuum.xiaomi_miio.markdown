@@ -250,7 +250,7 @@ The information output is:
 
 To fetch the token follow these instructions depending on your mobile phone platform.
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/).
 2. Download and extract the [MiToolKit.zip](https://github.com/ultrara1n/MiToolkit/releases).
 3. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
 4. Change the MiToolKit language to English if you need to.
@@ -278,7 +278,7 @@ source /srv/homeassistant/bin/activate
 
 To fetch the token follow these instructions depending on your mobile phone platform.
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/).
 2. Enable developer mode, USB debugging and plug the Android phone into the computer.
 3. Get ADB by running `apt-get install android-tools-adb` or `apt-get install adb`.
 4. `adb devices` should list your device. Consult the ADB manual if necessary.
@@ -313,7 +313,7 @@ source /srv/homeassistant/bin/activate
 
 To fetch the token follow these instructions depending on your mobile phone platform.
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/).
 2. Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.
 3. Get ADB (e.g, using `apt-get install android-tools-adb`).
 4. The command `adb devices` should list your device.
@@ -326,7 +326,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 ### {% linkable_title iOS %}
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with the Mi Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.
 3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
@@ -351,7 +351,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 
 1. Configure the robot with the Mi-Home app.
 2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up the Mi-Home app in BlueStacks and login to synchronize devices.
+3. Set up [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) in BlueStacks and login to synchronize devices.
 4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
 
 ### {% linkable_title Selecting token manually (Windows and Android) %}
@@ -361,10 +361,10 @@ The following instruction explained an alternative method, in case the MiToolKit
 Software Required:
 
 - Android ADB is contained in [Android SDK](https://developer.android.com/studio/releases/platform-tools)
-- [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
+- [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
 - [Android Backup Extractor](https://sourceforge.net/projects/adbextractor/)
 - [SQLite Browser](https://sqlitebrowser.org/)
-1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device
+1. Install an old Version of MiHome (e.g. Mi Home version 5.0.30) on your Android-Device
 2. Open MiHome, log-in and add your devices
 3. Enable USB-Debugging on your Android
 4. Create a backup from your MiHome App, by using adb

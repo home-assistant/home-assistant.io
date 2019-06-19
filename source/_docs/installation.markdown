@@ -45,7 +45,7 @@ NUC i7/i9 | Pure power, you should not have *any* performance issues
 
 ## {% linkable_title Recommended %}
 
-These install options are fully supported by Home Assistant's documentation. For example, if a component requires that you install something to make it work on one of these methods then the component page will document the steps required.
+These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
@@ -55,16 +55,16 @@ These install options are fully supported by Home Assistant's documentation. For
 
 ## {% linkable_title Alternative installs %}
 
-If you use these install methods, we assume that you know how to manage and administer the operating system you're using. Due to the range of platforms on which these install methods can be used, component documentation may only tell you what you have to install, not how to install it.
+If you use these install methods, we assume that you know how to manage and administer the operating system you're using. Due to the range of platforms on which these install methods can be used, integration documentation may only tell you what you have to install, not how to install it.
 
 **Method**|**You have**|**Recommended for**
 :-----|:-----|:-----
-[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.5.3 or later|Those familiar with their operating system
-[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.5.3 or later|Developers
+[venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.6 or later|Those familiar with their operating system
+[venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.6 or later|Developers
 
 ## {% linkable_title Community provided guides %}
 
-These guides are provided as-is. Some of these install methods are more limited than the methods above. Some components may not work due to limitations of the platform or because required Python packages aren't available for that platform.
+These guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform or because required Python packages aren't available for that platform.
 
 <div class="text-center hass-option-cards" markdown="0">
   <a class='option-card' href='/docs/installation/armbian/'>

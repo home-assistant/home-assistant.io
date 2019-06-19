@@ -10,7 +10,7 @@ footer: true
 redirect_from: /docs/hassbian/integrations/
 ---
 
-Some components that are specific for the Raspberry Pi can require some further configuration outside of Home Assistant. All commands below are assumed to be executed with the `pi` account. For full documentation of these components refer to the [components](/components) page.
+Some integrations that are specific for the Raspberry Pi can require some further configuration outside of Home Assistant. All commands below are assumed to be executed with the `pi` account. For full documentation of these integrations refer to the [components](/components) page.
 
 ### {% linkable_title Bluetooth Tracker %}
 
@@ -23,8 +23,8 @@ Software needed for the tracker is pre-installed so just follow the [Bluetooth T
 Each of the following devices are connected to the GPIO pins on the Raspberry Pi.
 For more details about the GPIO layout, visit the [documentation](https://www.raspberrypi.org/documentation/usage/gpio/) from the Raspberry Pi foundation.
 
-Permission have been given to the `homeassistant` user to use the GPIO pins and all of the following components should require no underlying changes to work.
-Just follow the component pages for each on how to add them to your Home Assistant installation.
+Permission have been given to the `homeassistant` user to use the GPIO pins and all of the following integrations should require no underlying changes to work.
+Just follow the integration pages for each on how to add them to your Home Assistant installation.
 
  - [DHT Sensor](/components/sensor.dht/)
  - [Raspberry Pi Cover](/components/cover.rpi_gpio/)

@@ -25,7 +25,7 @@ The location of the folder differs between operating systems:
 
 If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
 
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains components to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
+Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
 If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
 

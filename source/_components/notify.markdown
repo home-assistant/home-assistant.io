@@ -7,6 +7,10 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
+ha_category:
+  - Notifications
+ha_qa_scale: internal
 ha_release: 0.7
 ---
 
@@ -14,19 +18,7 @@ The `notify` component makes it possible to send notifications to a wide variety
 
 If you want to send notifications to the Home Assistant Web Interface you may use the [Persistent Notification Component](/components/persistent_notification/).
 
-## {% linkable_title Configuration %}
-
-```yaml
-# Example configuration.yaml entry
-notify:
-  - platform: pushbullet
-    name: NOTIFY_NAME
-    api_key: YOUR_API_KEY
-```
-
-The **name** parameter is optional but needed if you want to use multiple platforms. The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied.
-
-### {% linkable_title Service %}
+## {% linkable_title Service %}
 
 Once loaded, the `notify` platform will expose a service that can be called to send notifications.
 

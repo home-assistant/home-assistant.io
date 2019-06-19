@@ -71,7 +71,7 @@ The steps would be:
 * Choose a container-name you want (e.g., "homeassistant")
 * Click on "Advanced Settings"
 * Set "Enable auto-restart" if you like
-* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs.
+* Within "Volume" click on "Add Folder" and choose either an existing folder or add a new folder. The "mount path" has to be "/config", so that Home Assistant will use it for the configs and logs. It is therefore recommended that the folder you choose should be named "config" or "homeassistant/config" to avoid confusion when referencing it within service calls.
 * Within "Network" select "Use same network as Docker Host"
 * To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](http://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 * Confirm the "Advanced Settings"
@@ -220,7 +220,7 @@ $ docker-compose restart
 
 ### {% linkable_title Exposing Devices %}
 
-In order to use Z-Wave, Zigbee or other components that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
+In order to use Z-Wave, Zigbee or other integrations that require access to devices, you need to map the appropriate device into the container. Ensure the user that is running the container has the correct privileges to access the `/dev/tty*` file, then add the device mapping to your docker command:
 
 ```bash
 $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \

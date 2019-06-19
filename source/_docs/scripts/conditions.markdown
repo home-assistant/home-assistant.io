@@ -120,9 +120,58 @@ condition:
 
 ### {% linkable_title Sun condition %}
 
-The sun condition can test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
+#### {% linkable_title Sun state condition %}
+
+The sun state can be used to test if the sun has set or risen.
+
+```yaml
+condition:
+    condition: state  # 'day' condition: from sunrise until sunset
+    entity_id: sun.sun
+    state: 'above_horizon'
+```
+
+```yaml
+condition:
+    condition: state  # from sunset until sunrise
+    entity_id: sun.sun
+    state: 'below_horizon'
+```
+
+#### {% linkable_title Sun elevation condition %}
+
+The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night etc. when a trigger occurs.
+For an in depth explanation of sun elevation see [sun elevation trigger][sun_elevation_trigger].
+
+[sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
+
+```yaml
+condition:
+    condition: and  # 'twilight' condition: dusk and dawn, in typical locations
+    conditions:
+      - condition: template
+        value_template: {% raw %}'{{ states.sun.sun.attributes.elevation < 0 }}'{% endraw %}
+      - condition: template
+        value_template: {% raw %}'{{ states.sun.sun.attributes.elevation > -6 }}'{% endraw %}
+```
+
+```yaml
+condition:
+    condition: template  # 'night' condition: from dusk to dawn, in typical locations
+    value_template: {% raw %}'{{ states.sun.sun.attributes.elevation < -6 }}'{% endraw %}
+```
+
+#### {% linkable_title Sunset/sunrise condition %}
+
+The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
+
+<p class='note warning'>
+The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with highly skewed local time zone.
+
+It is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
+</p>
 
 ```yaml
 condition:

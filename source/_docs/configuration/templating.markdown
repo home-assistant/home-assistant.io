@@ -232,9 +232,9 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 
 ## {% linkable_title Processing incoming data %}
 
-The other part of templating is processing incoming data. It allows you to modify incoming data and extract only the data you care about. This will only work for platforms and components that mention support for this in their documentation.
+The other part of templating is processing incoming data. It allows you to modify incoming data and extract only the data you care about. This will only work for platforms and integrations that mention support for this in their documentation.
 
-It depends per component or platform, but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
+It depends per integration or platform, but it is common to be able to define a template using the `value_template` configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:
 
 | Variable     | Description                        |
 |--------------|------------------------------------|

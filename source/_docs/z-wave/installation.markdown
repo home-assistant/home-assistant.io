@@ -48,7 +48,7 @@ debug:
   type: boolean
   default: false
 autoheal:
-  description: Allows enabling auto Z-Wave heal at midnight. Warning, this is in efficient and [should not be used](https://github.com/home-assistant/architecture/issues/81#issuecomment-478444085).
+  description: Allows enabling auto Z-Wave heal at midnight. Warning, this is inefficient and [should not be used](https://github.com/home-assistant/architecture/issues/81#issuecomment-478444085).
   required: false
   type: boolean
   default: false
@@ -68,12 +68,12 @@ device_config / device_config_domain / device_config_glob:
       type: integer
       default: 0
     refresh_value:
-      description: Enable refreshing of the node value. Only the light component uses this.
+      description: Enable refreshing of the node value. Only the light integration uses this.
       required: false
       type: boolean
       default: false
     delay:
-      description: Specify the delay for refreshing of node value. Only the light component uses this.
+      description: Specify the delay for refreshing of node value. Only the light integration uses this.
       required: false
       type: integer
       default: 5
@@ -112,7 +112,7 @@ Ensure you keep a backup of this key. If you have to rebuild your system and don
 
 On platforms other than Hass.io and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
-The first run after adding a device is when the `zwave` component will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
+The first run after adding a device is when the `zwave` integration will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
 ## {% linkable_title Platform specific instructions %}
 
@@ -127,6 +127,8 @@ You can also check what hardware has been found using the [hassio command](/hass
 ```bash
 $ hassio hardware info
 ```
+
+The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
 ### {% linkable_title Docker %}
 
@@ -143,6 +145,8 @@ If the path of `/dev/ttyACM0` doesn't work then you can find the path of the sti
 ```bash
 $ ls -1tr /dev/tty*|tail -n 1
 ```
+
+The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
 ### {% linkable_title Hassbian %}
 

@@ -18,7 +18,7 @@ Screenshot of Home Assistant's Developer Tools.
 
 | Section | Icon | Description |
 | ------- |------| ----- |
-| Services | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Calls services from components |
+| Services | <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Calls services from integrations |
 | States | <img src='/images/screenshots/developer-tool-states-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Sets the representation of an entity |
 | Events | <img src='/images/screenshots/developer-tool-events-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Fires events |
 | Templates | <img src='/images/screenshots/developer-tool-templates-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> | Renders templates |
@@ -31,7 +31,7 @@ The Developer Tools is meant for **all** (not just for the developers) to quickl
 
 This section is used to call Services that are available in the ServiceRegistry.
 
-The list of services in the “Service” drop down are automatically populated based on the components that are found in the configuration, automation and script files.  If a desired service does not exist, it means either the component is not configured properly or not defined in the configuration, automation or script files.
+The list of services in the “Service” drop down are automatically populated based on the integrations that are found in the configuration, automation and script files.  If a desired service does not exist, it means either the integration is not configured properly or not defined in the configuration, automation or script files.
 
 When a Service is selected, and if that service requires an `entity_id` to be passed, the “Entity” drop down will automatically be populated with corresponding entities.
 
@@ -94,7 +94,7 @@ For more information about jinja2, visit [jinja2 documentation](http://jinja.poc
 
 {% linkable_title mqtt %}
 
-This section is only visible if the MQTT component is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/components/mqtt/) component.
+This section is only visible if the MQTT integration is configured. To configure MQTT, add `mqtt:` to the `configuration.yaml` file. For more information, refer to the [mqtt](/components/mqtt/) component.
 
 Even though MQTT in general provides deeper functionality, the developer tools section of MQTT is limited to publishing messages to a given topic. It supports templates for the payload. To publish a message, simply specify the topic name and the payload and click “PUBLISH” button.
 

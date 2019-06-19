@@ -10,7 +10,7 @@ footer: true
 ha_category: Automation in Python Examples
 ---
 
-Example component to target an `entity_id` to:
+Example integration to target an `entity_id` to:
 
  - turn it on at 7AM in the morning
  - turn it on if anyone comes home and it is off
@@ -57,7 +57,7 @@ from homeassistant.helpers.event import (async_track_state_change,
 # The domain of your component. Should be equal to the name of your component.
 DOMAIN = "example"
 
-# List of component names (string) your component depends upon.
+# List of integration names (string) your integration depends upon.
 # We depend on group because group will be loaded after all the components that
 # initialize devices have been setup.
 DEPENDENCIES = ['group', 'device_tracker', 'light']

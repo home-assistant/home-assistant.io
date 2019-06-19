@@ -7,12 +7,16 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
+ha_category:
+  - Sensor
+ha_qa_scale: internal
 ha_release: 0.7
 ---
 
 Sensors are gathering information about states and conditions.
 
-Home Assistant currently supports a wide range of sensors. They are able to display information which are provides by Home Assistant directly, are gathered from web services, and, of course, physical devices. Please check the sidebar for a full list of supported sensor platforms.
+Home Assistant currently supports a wide range of sensors. They are able to display information which are provides by Home Assistant directly, are gathered from web services, and, of course, physical devices.
 
 ## {% linkable_title Device Class %}
 

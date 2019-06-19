@@ -16,9 +16,7 @@ redirect_from:
  - /components/device_tracker.gpslogger/
 ---
 
-This component sets up integration with [GPSLogger](http://code.mendhak.com/gpslogger/). GPSLogger is an open source app for [Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) that allows users to set up a `POST` request to update GPS coordinates. This can be configured with Home Assistant to update your location.
-
-Enabling this component will automatically enable the GPSLogger Device Tracker.
+This component sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
 
 ## {% linkable_title Configuration %}
 
@@ -77,4 +75,4 @@ If your battery drains too fast then you can tune the performance of GPSLogger u
   Performance
 </p>
 
-A request can be forced from the app to test if everything is working fine. A successful request will update the `known_devices.yaml` file with the device's serial number.
+A request can be forced from the app to test if everything is working fine.

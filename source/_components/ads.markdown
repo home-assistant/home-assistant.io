@@ -102,7 +102,7 @@ name:
   required: false
   type: string
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 {% endconfiguration %}
@@ -250,6 +250,6 @@ name:
   type: string
 device_class:
   required: false
-  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (awning, blind, curtain, damper, door, garage, shade, shutter, window)
+  description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
   type: device_class
 {% endconfiguration %}

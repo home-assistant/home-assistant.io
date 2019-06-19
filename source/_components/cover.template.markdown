@@ -69,7 +69,7 @@ cover:
         required: false
         type: template
       device_class:
-        description: The [type/class](/components/cover/#device-class) of the cover to set the icon in the frontend.
+        description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
         required: false
         type: string
       open_cover:

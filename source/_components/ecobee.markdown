@@ -320,7 +320,7 @@ are not implemented for this thermostat.
 
 ### {% linkable_title Service `set_away_mode` %}
 
-Turns the away mode on or off for the thermostat.
+Turns Away Mode on or off, ignoring the next scheduled activity. This setting will override the thermostat Hold Duration setting, even if you set the hold duration to "Until the next scheduled activity" within thermostat preferences.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -330,12 +330,12 @@ Turns the away mode on or off for the thermostat.
 ### {% linkable_title Service `set_hold_mode` %}
 
 Puts the thermostat into the given hold mode. For 'home', 'away', 'sleep',
-and any other hold based on a reference climate, the
-target temperature is taken from the reference climate.
+and any other hold based on a comfort setting, the
+target temperature is set to whatever is programmed in the comfort setting.
 For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.
-It is not possible to set a vacation hold; such hold has to be
-defined on the thermostat directly. However, a vacation hold can be
+If the thermostat Hold Duration is set to "Until the next scheduled activity" within thermostat preferences, then the next scheduled activity will change this hold mode.
+Note that it is not possible to set a vacation hold; this must be defined on the thermostat directly. However, a vacation hold can be
 canceled.
 
 | Service data attribute | Optional | Description |

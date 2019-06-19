@@ -15,7 +15,7 @@ Scripts are a sequence of actions that Home Assistant will execute. Scripts are 
 The script syntax basic structure is a list of key/value maps that contain actions. If a script contains only 1 action, the wrapping list can be omitted.
 
 ```yaml
-# Example script component containing script syntax
+# Example script integration containing script syntax
 script:
   example_script:
     sequence:
@@ -144,7 +144,7 @@ You can also get the script to abort after the timeout by using `continue_on_tim
 
 ### {% linkable_title Fire an Event %}
 
-This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another component that something is happening. For instance, in the below example it is used to create an entry in the logbook.
+This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
 ```yaml
 - event: LOGBOOK_ENTRY

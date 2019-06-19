@@ -19,7 +19,7 @@ Here's the summary of what you *must* do to secure your Home Assistant system:
 - Configure [secrets](/docs/configuration/secrets/) (but do remember to back them up)
 - Regularly keep the system up to date
 
-If you only want to use components supported by [Home Assistant cloud](/cloud/) then you don't need to enable remote access. This is obviously the most secure option, but does mean that you're relying on a cloud service for that functionality.
+If you only want to use integrations supported by [Home Assistant cloud](/cloud/) then you don't need to enable remote access. This is obviously the most secure option, but does mean that you're relying on a cloud service for that functionality.
 
 - For remote access to the UI, use a [VPN](http://www.pivpn.io/), [Tor](/docs/ecosystem/tor/) or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/)
 - For remote access for components, use a [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) certificate
@@ -45,7 +45,7 @@ If you only want remote access for access to the web UI then we advise that you 
 - [Tor](/docs/ecosystem/tor/), which also avoids the need for port forwarding
 - An [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/) to connect to your frontend
 
-### {% linkable_title Remote access for components %}
+### {% linkable_title Remote access for integrations %}
 
 For remote access for a component, for example, a device tracker, you have to enable access to the API by:
 

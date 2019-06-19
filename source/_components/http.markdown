@@ -119,8 +119,7 @@ http:
     - https://www.home-assistant.io
   use_x_forwarded_for: true
   trusted_proxies:
-    - 127.0.0.1
-    - ::1
+    - 10.0.0.200
   ip_ban_enabled: true
   login_attempts_threshold: 5
 ```

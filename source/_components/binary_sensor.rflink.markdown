@@ -55,7 +55,7 @@ devices:
           required: false
           type: list
         device_class:
-          description: The [type or class of the sensor](/components/binary_sensor/#device-class) to set the icon in the frontend.
+          description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
         off_delay:

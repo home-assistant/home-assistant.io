@@ -52,7 +52,7 @@ config:
 
 The automation editor reads and writes to the file `automations.yaml` in the root of your [configuration](/docs/configuration/) folder. 
 Currently, both the name of this file and its location are fixed.
-Make sure that you have set up the automation component to read from it:
+Make sure that you have set up the automation integration to read from it:
 
 ```yaml
 # Configuration.yaml example
@@ -103,6 +103,6 @@ For example, the below automation will be triggered when the sun goes from below
 ```
 
 <p class='note'>
-Any comments in the YAML file will be lost when you update an automation via the editor.
+Any comments in the YAML file will be lost and templates will be reformatted when you update an automation via the editor.
 </p>
 

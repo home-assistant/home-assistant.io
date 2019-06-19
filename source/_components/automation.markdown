@@ -26,6 +26,7 @@ Starting with 0.28 your automation rules can be controlled with the frontend.
 This allows one to reload the automation without restarting Home Assistant
 itself. If you don't want to see the automation rule in your frontend use
 `hide_entity: true` to hide it.
+
 You can also use `initial_state: 'false'` so that the automation
 is not automatically turned on after a Home Assistant reboot.
 
@@ -33,7 +34,7 @@ is not automatically turned on after a Home Assistant reboot.
 automation:
   - alias: Door alarm
     hide_entity: true
-    initial_state: 'true'
+    initial_state: true
     trigger:
       - platform: state
   ...
