@@ -20,7 +20,7 @@ Retreive train departure information from [Trafikverket](https://www.trafikverke
 Use cases:
 
 - Retrieve the next departure and information connected to it for a specific train line.
-- Retreive information for a specific departure time on a specific train line.
+- Retrieve information for specific departure time on a specific train line.
 - Set up alert or perform actions if your train is delayed or cancelled.
 
 Data that is retreived: 
