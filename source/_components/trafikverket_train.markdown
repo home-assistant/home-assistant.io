@@ -15,7 +15,7 @@ ha_release: 0.96
 ha_iot_class: Cloud Polling
 ---
 
-Retreive train departure information from [Trafikverket](https://www.trafikverket.se/).
+Retrieve train departure information from [Trafikverket](https://www.trafikverket.se/).
 
 Use cases:
 
