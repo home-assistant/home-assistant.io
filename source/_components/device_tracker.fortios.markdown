@@ -12,7 +12,7 @@ The component is based on the Home Assistant `device_tracker` platform.
 # Example configuration.yaml entry
 device_tracker:
   - platform: fortios
-    host: 192.168.0.1
+    host: YOUR_HOST
     token: YOUR_API_USER_KEY
     verify_ssl: False
 ```
