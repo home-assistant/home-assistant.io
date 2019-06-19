@@ -30,7 +30,6 @@ image_processing:
    faces:
      Jon: /home/hass/jon.jpg
      Bob: /home/hass/bob.jpg
-   confidence: 0.6
 ```
 
 {% configuration %}
@@ -54,7 +53,7 @@ faces:
 confidence:
   description: How much distance between faces to consider it a match. Using tolerance values lower than 0.6 will make the comparison more strict.
   required: false
-  type: integer
+  type: float
   default: 0.6
 
 {% endconfiguration %}
