@@ -29,7 +29,7 @@ Certain visitors to Home Assistant’s websites choose to interact with Home Ass
 
 ## {% linkable_title Aggregated Statistics %}
 
-Home Assistant may collect statistics about the behavior of visitors to its websites. For instance, Home Assistant may monitor the most popular component documentation. Home Assistant may display this information publicly or provide it to others. However, Home Assistant does not disclose personally-identifying information other than as described below.
+Home Assistant may collect statistics about the behavior of visitors to its websites. For instance, Home Assistant may monitor the most popular integration documentation. Home Assistant may display this information publicly or provide it to others. However, Home Assistant does not disclose personally-identifying information other than as described below.
 
 ## {% linkable_title Information We Collect from Other Sources %}
 

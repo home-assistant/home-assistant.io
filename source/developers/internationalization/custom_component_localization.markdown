@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Custom Component Localization"
-description: "Translating custom components in Home Assistant"
+description: "Translating custom integrations in Home Assistant"
 date: 2018-03-01 18:00
 sidebar: true
 comments: false

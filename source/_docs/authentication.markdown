@@ -73,7 +73,7 @@ If you see this, you need to add an [`api_password`](/components/http/#api_passw
 
 ### {% linkable_title Bearer token informational messages %}
 
-If you see the following, then this is a message for component developers, to tell them they need to update how they authenticate to Home Assistant. As an end user you don't need to do anything:
+If you see the following, then this is a message for integration developers, to tell them they need to update how they authenticate to Home Assistant. As an end user you don't need to do anything:
 
 ```txt
 INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4

@@ -21,7 +21,7 @@ Further [details about the fingerprint/server banner](/docs/security/webserver/)
 
 ## {% linkable_title Porosity %}
 
-The default port of Home Assistant is 8123. This is the port where the [`frontend`](/components/frontend/) and the [`API`](/components/api/) is served. Both are depending on the [`http`](/components/http/) component which contains the capability to adjust the settings like `server_host` or `server_port`.
+The default port of Home Assistant is 8123. This is the port where the [`frontend`](/components/frontend/) and the [`API`](/components/api/) is served. Both are depending on the [`http`](/components/http/) integration which contains the capability to adjust the settings like `server_host` or `server_port`.
 
 See the [open ports](/docs/security/porosity/) of a Hass.io instance with various add-ons.
 

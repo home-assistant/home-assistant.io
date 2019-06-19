@@ -24,7 +24,7 @@ import homeassistant.loader as loader
 # The domain of your component. Should be equal to the name of your component.
 DOMAIN = 'hello_mqtt'
 
-# List of component names (string) your component depends upon.
+# List of integration names (string) your integration depends upon.
 DEPENDENCIES = ['mqtt']
 
 
@@ -63,7 +63,7 @@ def setup(hass, config):
     return True
 ```
 
-Load the component by adding the following to your `configuration.yaml`. When your component is loaded, a new entity should popup and there should be a new service available to call.
+Load the integration by adding the following to your `configuration.yaml`. When your integration is loaded, a new entity should popup and there should be a new service available to call.
 
 ```yaml
 # configuration.yaml entry

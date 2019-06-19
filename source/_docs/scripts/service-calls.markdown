@@ -10,11 +10,11 @@ footer: true
 redirect_from: /getting-started/scripts-service-calls/
 ---
 
-Various components allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.
+Various integrations allow calling services when a certain event occurs. The most common one is calling a service when an automation trigger happens. But a service can also be called from a script or via the Amazon Echo.
 
-The configuration options to call a config are the same between all components and are described on this page.
+The configuration options to call a config are the same between all integrations and are described on this page.
 
-Examples on this page will be given as part of an automation component configuration but different approaches can be used for other components too.
+Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
 <p class='note'>
 Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> service developer tool in the frontend to discover available services.
