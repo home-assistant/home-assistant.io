@@ -1,0 +1,47 @@
+---
+layout: page
+title: "VersaSense"
+description: "Integrate your VersaSense MicroPnP devices."
+date: 2019-06-15 16:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_release: "0.95"
+ha_category:
+  - hub
+  - Sensor
+  - Switch
+ha_iot_class: "Local Polling"
+---
+
+The `VersaSense` component supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
+
+## {% linkable_title Configuration %}
+
+```yaml
+# Example configuration.yaml entry
+versasense:
+  host: GATEWAY_URI
+```
+
+{% configuration %}
+host:
+  description: "The IP address or hostname of the VersaSense gateway. Including *protocol* and *port* e.g. https://gateway.versasense.com:8889"
+  required: true
+  type: string
+{% endconfiguration %}
+
+## {% linkable_title Supported hardware %}
+
+All Versasense gateways with software version >= 1.0.2.10
+
+The component is tested with following peripherals and devices:
+
+- S03 S04: Temperature and Humidity sensor
+- S06: Barometric Pressure sensor
+- S10: Light sensor
+- S17: Object detection sensor
+- S19: Buzzer actuator
+- Pxx: SmartMesh IP Hub
+- M01: SmartMesh Edge Gateway
