@@ -1,0 +1,22 @@
+---
+layout: post
+title: "0.95: TBD - UPDATE DATE"
+description: "TBD"
+date: 2019-06-19 04:11:03
+date_formatted: "June 26, 2019"
+author: Paulus Schoutsen
+author_twitter: balloob
+comments: true
+categories: Release-Notes
+og_image: /images/blog/2019-06-release-95/google-ui.png
+redirect_from: /blog/2019/05/29/release-95/
+---
+
+<a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
+
+- Updated Alexa things: UI to manage what Alexa can see, exposed entities pushed to Alexa on change, opt-in state reporting.
+- Better suitability for RV: new `homeassistant.set_location` service and the Met weather service is now able to track your location.
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
