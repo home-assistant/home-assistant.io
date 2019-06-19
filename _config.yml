@@ -3,12 +3,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: https://home-assistant.io
+url: https://www.home-assistant.io
 title: Home Assistant
-subtitle: Open-source home automation platform running on Python 3
+subtitle: Open source home automation that puts local control and privacy first.
 author: Home Assistant
 simple_search: https://www.google.com/search
-description: Home Assistant is an open-source home automation platform running on Python 3.
+description: Open source home automation that puts local control and privacy first.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -32,10 +32,12 @@ destination: public/
 plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: kramdown
-timezone: UTC
 
-# highlighter: coderay
+markdown: kramdown
+highlighter: rouge
+timezone: UTC
+liquid:
+  error_mode: strict
 
 kramdown:
   input: GFM
@@ -46,11 +48,9 @@ kramdown:
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   parse_block_html: true
 
-highlighter: rouge
-
-gems:
+plugins:
+  - jekyll-redirect-from
   - jekyll-time-to-read
-  - octopress-filters
   - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index
@@ -72,7 +72,13 @@ collections:
     output: true
   cookbook:
     output: true
-  topics:
+  docs:
+    output: true
+  addons:
+    output: true
+  faq:
+    output: true
+  lovelace:
     output: true
 
 # ----------------------- #
@@ -93,11 +99,6 @@ twitter_tweet_button: true
 google_plus_one: true
 google_plus_one_size: standard
 
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-googleplus_user: +PaulusSchoutsen
-googleplus_hidden: true
-
 # Pinboard
 pinboard_user:
 pinboard_count: 3
@@ -116,6 +117,17 @@ google_analytics_tracking_id: UA-57927901-1
 # Facebook Like
 facebook_like: true
 
+# Liquid template compressor
+compress_html:
+  clippings: []
+  comments: []
+  endings: []
+  ignore:
+    envs: []
+  blanklines: true
+  profile: false
+  startings: []
+
 social:
   visible: false
   facebook:
@@ -124,6 +136,22 @@ social:
   twitter:
     account: home_assistant
 
+# Home Assistant release details
 current_major_version: 0
-current_minor_version: 31
-current_patch_version: 1
+current_minor_version: 93
+current_patch_version: 2
+date_released: 2019-05-22
+
+# Either # or the anchor link to latest release notes in the blog post.
+# Must be prefixed with a # and have double quotes around it.
+# Major release:
+patch_version_notes: ""
+# Minor release (Example #release-0431---april-25):
+
+# Date we moved to Discourse for comments
+# disqus_end_date: 2018-01-26 0:00:00
+# Disqus is adding gross ads, move all comments to discourse.
+disqus_end_date: 2010-01-26 0:00:00
+
+# Support .well-known directory
+include: [".well-known"]

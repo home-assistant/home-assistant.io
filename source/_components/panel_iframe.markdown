@@ -1,21 +1,23 @@
 ---
 layout: page
 title: "Panel iFrame"
-description: "Instructions how to add iFrames in the frontend of Home Assistant."
+description: "Instructions on how to add iFrames in the frontend of Home Assistant."
 date: 2015-07-17 18:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Front end
+ha_category:
+  - Front end
 ha_release: 0.25
+ha_qa_scale: internal
 ---
 
 
 The `panel_iframe` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
 
-<p class='note warning'>If you are accessing home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.</p>
+<p class='note warning'>If you are accessing Home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.</p>
 
 To enable Panel iFrames in your installation, add the following to your `configuration.yaml` file:
 
@@ -28,12 +30,39 @@ panel_iframe:
   fridge:
     title: 'Fridge'
     url: 'http://192.168.1.5'
+  otherapp:
+    title: 'Other App'
+    url: '/otherapp'
 ```
 
-Configuration variables:
 
-- **[panel_name]** (*Required*): Name of the panel.
-  - **title** (*Required*): Friendly title for the panel. Will be used in the sidebar.
-  - **icon** (*Optional*): Icon for entry. Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
-  - **url** (*Required*): The URL to open.
+{% configuration %}
+  panel_iframe:
+    description: Enables the panel_iframe component. Only allowed once.
+    required: true
+    type: map
+    keys:
+      panel_name:
+        description: Name of the panel. Only allowed once.
+        required: true
+        type: map
+        keys:
+          title:
+            description: Friendly title for the panel. Will be used in the sidebar.
+            required: true
+            type: string
+          url:
+            description: The absolute URL or relative URL with an absolute path to open.
+            required: true
+            type: string
+          icon:
+            description: Icon for entry.
+            required: false
+            type: icon
+          require_admin:
+            description: If admin access is required to see this iframe.
+            required: false
+            type: boolean
+{% endconfiguration %}
 
+<p class='note warning'>Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.</p>

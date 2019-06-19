@@ -10,7 +10,9 @@ footer: true
 ha_category: User Interface
 ---
 
-Using the [generic camera platform] you can present any image on the internet as a camera. Starting release 0.27 these urls can also be based on a template. This example uses this functionality to point a generic camera at the Google Maps static image API and pass in the location of a device.
+Using the [generic camera platform] you can present any image on the internet as a camera. Starting release 0.27 these URLs can also be based on a template. This example uses this functionality to point a generic camera at the Google Maps static image API and pass in the location of a device.
+
+As of June 2018, Google has changed the API limits for static maps. You now need to have a Google Maps API key. Instructions for registering a key can be found  [here](https://github.com/googlemaps/google-maps-services-python#api-keys). Replace `YOUR_API_KEY` with the key you registered.
 
 It also leverages the `limit_refetch_to_url_change` option to ensure that we do not make a lot of requests to the Google Maps API.
 
@@ -20,7 +22,7 @@ It also leverages the `limit_refetch_to_url_change` option to ensure that we do 
 camera:
   name: Paulus
   platform: generic
-  still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}{% endraw %}
+  still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}{% endraw %}&key=YOUR_API_KEY
   limit_refetch_to_url_change: true
 ```
 

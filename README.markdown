@@ -1,36 +1,34 @@
+[![Discord](https://img.shields.io/discord/330944238910963714.svg)](https://discord.gg/CxqDrfU)
+[![Travis branch](https://img.shields.io/travis/home-assistant/home-assistant.github.io/next.svg)](https://travis-ci.org/home-assistant/home-assistant.github.io)
+[![Krihelimeter](https://img.shields.io/badge/Krihelimeter-unknown-brightgreen.svg)](http://www.krihelinator.xyz)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 # Home Assistant website
 
 This is the source for the [Home-Assistant.io website](https://home-assistant.io).
 
 ## Setup
 
-Setting up to contribute to documentation and the process for submitting pull requests is [explained here](https://home-assistant.io/developers/website/).
+Setting up to contribute to documentation and the process for submitting pull requests is explained in the [developer documentation](https://developers.home-assistant.io/docs/documentation_index.html).
 
 ## Site preview
 
 In order to make the preview available on [http://127.0.0.1:4000](http://127.0.0.1:4000), use the command as follows:
 
 ```bash
-$ rake preview
+bundle exec rake preview
 ```
 
-### Setup on Fedora and CentOS
-On Fedora 22 and later or CentOS 7.1.1503, Ruby is not available by default. Please take the notes here as a little guide for the Ruby installation process. 
+## Speeding up site generation
+
+Every release we post long changelogs to the website. This slows down generation of the website significantly! We include some tools to temporarily exclude the blog posts that you're not working on out of the way.
 
 ```bash
-$ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
-$ curl -L get.rvm.io | bash -s stable
-$ source ~/.profile
-$ rvm requirements
-$ rvm install ruby-2.2.3
-$ rvm use ruby-2.2.3 --default
-$ ruby -v
+bundle exec rake isolate[filename-of-blogpost]
 ```
 
-The last command will give you something like this: `ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-linux]`. Then install `bundler`.
+When you're done working on the site, run the following command to move the posts back again:
 
 ```bash
-$ gem install bundler
+bundle exec rake integrate
 ```
-
-Now you can follow the [setup instructions](https://home-assistant.io/developers/website/).

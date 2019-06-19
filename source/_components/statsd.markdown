@@ -8,7 +8,8 @@ comments: false
 sharing: true
 logo: statsd.png
 footer: true
-ha_category: "History"
+ha_category:
+  - "History"
 ha_release: 0.12
 ---
 
@@ -21,13 +22,48 @@ To use the `statsd` component in your installation, add the following to your `c
 statsd:
 ```
 
-Configuration variables:
+{% configuration %}
+host:
+  description: "IP address of your StatsD host, e.g., 192.168.1.10."
+  required: true
+  default: localhost
+  type: string
+port:
+  description: Port to use.
+  required: false
+  default: 8125
+  type: integer
+prefix:
+  description: Prefix to use.
+  required: false
+  default: hass
+  type: string
+rate:
+  description: The sample rate.
+  required: false
+  default: 1
+  type: integer
+log_attributes:
+  description: Log state and attribute changes. This changes the default stats path.
+  required: false
+  default: false
+  type: boolean
+value_mapping:
+  description: Map non-numerical values to numerical ones.
+  required: false
+  type: list
+{% endconfiguration %}
 
-- **host** (*Optional*): IP address of your StatsD host, eg. 192.168.1.10. Defaults to `localhost`.
-- **port** (*Optional*): Port to use. Defaults to 8125.
-- **prefix** (*Optional*): Prefix to use. Defaults to `hass`.
-- **rate** (*Optional*): The sample rate. Defaults to 1.
-- **log_attributes** (*Optional*): Log state and attribute changes. This changes the default stats path.
+Full example:
+
+```yaml
+# Example configuration.yaml entry
+statsd:
+  prefix: home
+  rate: 5
+  value_mapping:
+    cooling: 1
+    heating: 10
+```
 
 StatsD supports various [backends](https://github.com/etsy/statsd/blob/master/docs/backend.md).
-

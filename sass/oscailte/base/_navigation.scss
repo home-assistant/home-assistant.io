@@ -87,11 +87,12 @@ header .grid {
   background: $site-background;
   box-shadow: inset 0px 5px $navigation-color;
   color: $navigation-color;
-  padding: 40px 12px 24px;
+  padding-top: 40px;
+  padding-bottom: 24px;
 }
 
-.toggle{ 
-  z-index: 20; 
+.toggle{
+  z-index: 20;
 }
 
 @media only screen and (max-width: $menu-collapse){

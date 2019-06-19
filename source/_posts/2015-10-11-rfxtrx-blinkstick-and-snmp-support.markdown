@@ -10,7 +10,7 @@ comments: true
 categories: Release-Notes
 ---
 
-We discovered two issues annoying enough to warrent the release of 0.7.5:
+We discovered two issues annoying enough to warrant the release of 0.7.5:
 
 - Home Assistant package did not include the CloudMQTT certificate.
 - A bug in the core caused issues when some platforms are loaded twice.

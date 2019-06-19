@@ -8,10 +8,13 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_qa_scale: internal
+ha_release: 0.7
 ---
 
-The introduction component will show a card in the UI with steps on how to get started. It will also print the same message to the console when starting up.
+<p class='note warning'>This integration has been removed in Home Assistant 0.92. The UI will now take care of this text.</p>
+
+The introduction component will show a card in the UI with 'Welcome Home!' and steps on how to get started. It will also print the same message to the console when starting up.
 
 The introduction component is loaded by default on a new Home Assistant instance.
 

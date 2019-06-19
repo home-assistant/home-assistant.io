@@ -15,7 +15,7 @@ og_image: /images/blog/2015-10-esp8266-temp/ha-sensor.png
 
 I recently learned about the ESP8266, a $5 chip that includes WiFi and is Arduino compatible. This means that all your DIY projects can now be done for a fraction of the price.
 
-For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Asssistant can pick it up.
+For this tutorial, I'll walk through how to get going with ESP8266, get the temperature and humidity and report it to MQTT where Home Assistant can pick it up.
 
 <p class='img'>
 <img src='/images/blog/2015-10-esp8266-temp/setup.png' />

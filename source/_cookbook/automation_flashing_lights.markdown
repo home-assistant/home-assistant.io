@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 #### {% linkable_title Flashing lights triggered by an alarm %}
 
-For flashing regular lights in case the the triggering of an alarm.
+For flashing regular lights in case an alarm is triggered.
 
 ```yaml
 # AlmAct1 - switch to activate the alarm in Room1
@@ -23,7 +23,7 @@ automation:
   trigger:
     platform: state
     entity_id: binary_sensor.PIR1
-    state: 'on'
+    to: 'on'
   condition:
     - condition: state
       entity_id: switch.AlmAct1
@@ -41,7 +41,7 @@ automation:
   trigger:
     platform: state
     entity_id: switch.AlmSnd1
-    state: 'on'
+    to: 'on'
   action:
     service: script.turn_on
     entity_id: script.flash_room1
@@ -50,7 +50,7 @@ automation:
   trigger:
     platform: state
     entity_id: switch.REL1
-    state: 'off'
+    to: 'off'
   condition:
     condition: state
     entity_id: switch.AlmSnd1
@@ -97,6 +97,14 @@ script:
         service: homeassistant.turn_off
         data:
           entity_id: switch.REL1
+      - alias: loop_room1
+        service: script.turn_on
+        data:
+          entity_id: script.flash_loop
+
+  flash_loop:
+    alias: Flash loop
+    sequence:
       - delay:
           # time for flash light off
           seconds: 1

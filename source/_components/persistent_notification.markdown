@@ -8,8 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: home-assistant.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.23
+ha_qa_scale: internal
 ---
 
 The `persistent_notification` can be used to show a message on the frontend that has to be dismissed by the user.
@@ -30,7 +32,7 @@ The service `persistent_notification/create` takes in `message`, `title`, and `n
 
 The `persistent_notification` component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
-In an [action](https://home-assistant.io/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
+In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
 ```yaml
 action:
@@ -39,6 +41,64 @@ action:
     message: "Your message goes here"
     title: "Custom subject"
 ```
+
+The service `persistent_notification/dismiss` requires a `notification_id`.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `notification_id`      |      no  | the `notification_id` is required to identify the notification that should be removed.
+
+This service allows you to remove a notifications by script or automation.
+
+```yaml
+action:
+  service: persistent_notification.dismiss
+  data:
+    notification_id: "1234"
+```
+
+This automation example shows a notification when the Z-Wave network is starting and removes it when the network is ready.
+
+```yaml
+- alias: 'Z-Wave network is starting'
+  trigger:
+    - platform: event
+      event_type: zwave.network_start
+  action:
+    - service: persistent_notification.create
+      data:
+        title: "Z-Wave"
+        message: "Z-Wave network is starting..."
+        notification_id: zwave
+
+- alias: 'Z-Wave network is ready'
+  trigger:
+    - platform: event
+      event_type: zwave.network_ready
+  action:
+    - service: persistent_notification.dismiss
+      data:
+        notification_id: zwave
+```
+
+### {% linkable_title Markdown support %}
+
+The message attribute supports the [Markdown formatting syntax](https://daringfireball.net/projects/markdown/syntax). Some examples are:
+
+| Type | Message |
+| ---- | ------- |
+| Headline 1 | `# Headline` |
+| Headline 2 | `## Headline` |
+| Newline | `\n` |
+| Bold | `**My bold text**` |
+| Cursive | `*My cursive text*` |
+| Link | `[Link](https://home-assistant.io/)` |
+| Image | `![image](/local/my_image.jpg)` |
+
+<p class="note">
+  `/local/` in this context refers to the `.homeassistant/www/` folder.
+</p>
+
 
 ### {% linkable_title Create a persistent notification %}
 
@@ -52,5 +112,3 @@ Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='serv
 }
 ```
 This will create the notification entry shown above.
-
-NOTE: if you have defined a ```default_view:``` in your ```Groups:``` configuration you will need to include ```persistent_notification.<notification_id>``` e.g. ```persistent_notification.1234``` as per the example above, to your Groups configuration, in order to see the notification after creating it. 

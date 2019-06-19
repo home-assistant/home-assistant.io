@@ -11,7 +11,7 @@ og_image: /images/supported_brands/glances.png
 ---
 
 <img src='/images/supported_brands/glances.png' style='border:none; box-shadow: none; float: right;' height='80' />
-Inspried by a [feature requests](https://github.com/home-assistant/home-assistant/issues/310) I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the [systemmonitor](/components/sensor.systemmonitor/) sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present. 
+Inspired by a [feature requests](https://github.com/home-assistant/home-assistant/issues/310) I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the [systemmonitor](/components/sensor.systemmonitor/) sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present. 
 
 <!--more-->
 

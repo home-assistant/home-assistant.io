@@ -180,7 +180,7 @@ stone, and you are encouranged to override and experiment with them.
 It is tempting to modify their vaules in the inuit.css submodule but this is
 **not** the correct method for modifying inuit.css, and in doing so you will
 prevent yourself from being able to update inuit.css’ core library. The correct
-proceedure is to redefine that variable in `_vars.scss` found in the inuit.css
+procedure is to redefine that variable in `_vars.scss` found in the inuit.css
 web template. Let’s take an example…
 
 In inuit.css’ `_defaults.scss` we find the following:

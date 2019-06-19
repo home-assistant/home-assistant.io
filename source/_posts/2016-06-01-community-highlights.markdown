@@ -37,7 +37,7 @@ Muhammed Kilic has created a video how to make your Home Assistant instance acce
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UM15pRk56h8" frameborder="0" allowfullscreen></iframe>
 </div>
 
-[chat room]: https://gitter.im/home-assistant/home-assistant
+[chat room]: https://discord.gg/c5DvZ4e
 [SceneGen]: https://github.com/acockburn/scenegen
 [Andrew Cockburn]: https://github.com/acockburn
 [BRUH Automation]: http://www.bruhautomation.com/
