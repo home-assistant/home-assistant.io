@@ -19,7 +19,7 @@ device_tracker:
 
 {% configuration %}
 host:
-    description: Hostname or IP address of the FortiGate
+    description: Hostname or IP address of the FortiGate.
     required: true
     type: string
 token:
