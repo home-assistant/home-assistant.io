@@ -23,7 +23,6 @@ Supported devices:
 - AVR 750
 - Likely other AVRs
 
-
 To add a Yamaha Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
