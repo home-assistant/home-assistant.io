@@ -11,7 +11,7 @@ ha_category:
   - Energy
   - Sensor
 logo: fronius.png
-ha_iot_class: Local Polling
+ha_iot_class: "Local Polling"
 ha_release: 0.93
 ---
 
@@ -30,27 +30,27 @@ sensor:
 
 {% configuration %}
 resource:
-  description: The (IP) address of the Fronius device
+  description: "The (IP) address of the Fronius device"
   required: true
   type: string
 monitored_conditions:
-  description: Conditions to display in the frontend
+  description: "Conditions to display in the frontend"
   required: true
   type: list
   keys:
     type:
-      description: The kind of device, can be one of `inverter`, `storage`, `meter`, or `power_flow`
+      description: "The kind of device, can be one of `inverter`, `storage`, `meter`, or `power_flow`"
       required: true
       type: string
     scope:
-      description: The device type for storage and inverter, can be either `device` or `system`
+      description: "The device type for storage and inverter, can be either `device` or `system`"
       required: false
       type: string
-      default: `device`
+      default: "`device`"
     device:
-      description: The id of the device to poll
+      description: "The id of the device to poll"
       required: false
-      default: `1` for inverters and `0` for storages in compliance with Fronius Specs
+      default: "`1` for inverters and `0` for storages in compliance with Fronius Specs"
 {% endconfiguration %}
 
 ### {% linkable_title More complete example %}
