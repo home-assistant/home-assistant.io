@@ -11,11 +11,14 @@ ha_category:
   - Energy
   - Sensor
 logo: fronius.png
-ha_iot_class: "Local Polling"
-ha_release: 0.93
+ha_iot_class: Local Polling
+ha_release: 0.96
 ---
 
 The `fronius` sensor will poll a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors (or attributes of sensors) in Home Assistant.
+
+## {% linkable_title Configuration %}
+
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
 ```yaml
@@ -25,8 +28,6 @@ sensor:
     monitored_conditions:
     - sensor_type: inverter
 ```
-
-### {% linkable_title Configuration variables %}
 
 {% configuration %}
 resource:
@@ -53,9 +54,9 @@ monitored_conditions:
       default: "\"1\" for inverters and \"0\" for other devices such as storages in compliance with Fronius Specs"
 {% endconfiguration %}
 
-### {% linkable_title More complete example %}
+## {% linkable_title Examples %}
 
-When including more of the components that one fronius device offers, 
+When including more of the components that one Fronius device offers, 
 a list of sensors that are to be integrated can be given like below.
 
 ```yaml
@@ -74,7 +75,7 @@ sensor:
     - sensor_type: power_flow
 ```
 
-### {% linkable_title Sensors configuration %}
+## {% linkable_title Sensors configuration %}
 
 To extract more detailed values from the state of each integrated sensor and to circumvent undefined values,
 it is recommended to use template sensors as an interface:
