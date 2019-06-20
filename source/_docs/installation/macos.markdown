@@ -16,7 +16,7 @@ To run Home Assistant on macOS you need to install Python first. Download Python
 Open a terminal and install Home Assistant in a virtual environment:
 
 ```bash
-$ pip3 install virtualenv
+$ pip3 install venv
 $ virtualenv homeassistant
 $ source homeassistant/bin/activate
 $ pip3 install homeassistant
