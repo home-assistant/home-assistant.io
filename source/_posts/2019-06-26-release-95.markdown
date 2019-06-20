@@ -19,7 +19,7 @@ redirect_from: /blog/2019/05/29/release-95/
   - the Met weather entity can be set up to automatically track your location.
 
 - AdGuard
-- Life360
+- Life360. If you were using the custom integration, please [read the instructions](https://community.home-assistant.io/t/life360-device-tracker-platform/52406/1077)
 
 - Updated Alexa: UI to manage what Alexa can see, exposed entities pushed to Alexa on change (including cleaning up no longer exposed ones), opt-in state reporting.
 
