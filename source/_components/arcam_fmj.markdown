@@ -21,6 +21,7 @@ Supported devices:
 - AVR 750
 - Likely other AVRs
 
+## {% linkable_title Configuration %}
 To add a Arcam FMJ to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
