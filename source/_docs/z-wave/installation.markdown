@@ -223,12 +223,16 @@ $ ls /dev/cu.usbmodem*
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
-### {% linkable_title Device not starting up correctly %}
+## {% linkable_title Ubuntu and Debian based host system %}
 
-If your device not starting up correctly, and you have Ubunutu host on Intel NUC, then run command in Ubuntu:
+If your instance is running on a Debian based system, e.g., Ubuntu, the ModemManager may cause unexpected issues.
 
-```bash
-ubuntu$ systemctl disable ModemManager.service
+The ModemManager might be claiming or interfering with a USB Z-Wave stick, like the much used Aeotec ones. If you experience issues where the stick stops responding, needs to be re-plugged or Home Assistant needs a restart to get Z-Wave back, chances are high that the ModemManager is causing the issue.
+
+ Execute the following command on your host system to disable the ModemManager:
+
+ ```bash
+systemctl disable ModemManager.service
 ```
 
 ### {% linkable_title Component could not be set up %}
