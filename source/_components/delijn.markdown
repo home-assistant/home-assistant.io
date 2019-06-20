@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_release: 0.94
+ha_release: 0.96
 ha_category: 
   - Transport
   - Sensor
@@ -15,7 +15,7 @@ ha_iot_class: Cloud Polling
 ha_qa_scale: 
 ---
 
-The `delijn` sensor will give you the departure time of the next bus, tram or subway a specifi stop of the De Lijn public transport network in Flanders (Belgium).
+The `delijn` sensor will give you the departure time of the next bus, tram or subway a specific stop of the De Lijn public transport network in Flanders (Belgium).
 
 ## {% linkable_title Setup %}
 
@@ -74,5 +74,6 @@ sensor:
       max_passages: 20
 ```
 
-## {% linkable_title Custom lovelace card %}
-Works best with the following custom lovelace card: https://github.com/bollewolle/delijn-card
+## {% linkable_title Custom Lovelace card %}
+
+Works best with the following custom Lovelace card: https://github.com/bollewolle/delijn-card
