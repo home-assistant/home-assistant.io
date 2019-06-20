@@ -53,7 +53,7 @@ servers:
       type: string
       default: 127.0.0.1
     port:
-      description: Port of the CUPS print server.
+      description: The port number of the CUPS print server.
       required: false
       type: integer
       default: 631
