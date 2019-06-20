@@ -83,7 +83,7 @@ media_player:
 Arcam FMJ receivers turn of their network port when in standby, the component will try to
 reconnect to the receiver every 5 seconds. This mean powering on the first zone is not
 possible over the builtin network connection. Two options for complete power control
-exists: IR or Serial gatway.
+exists: IR or Serial gateway.
 
 ### {% linkable_title IR command %}
 Use an IR blaster to send command to turn device on using these discrete codes:
