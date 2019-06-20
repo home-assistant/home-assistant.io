@@ -48,7 +48,7 @@ servers:
       required: true
       type: list
     host:
-      description: IP address of the CUPS print server.
+      description: The IP address of the CUPS print server.
       required: false
       type: string
       default: 127.0.0.1
