@@ -12,7 +12,7 @@ ha_category:
   - Multimedia
   - switch
 ha_iot_class: Local Polling
-ha_release: 0.94
+ha_release: 0.96
 ---
 
 The `optoma_projector` switch platform allows you to control the state of a network enabled Optoma projector.
