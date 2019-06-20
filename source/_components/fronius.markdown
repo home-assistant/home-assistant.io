@@ -30,7 +30,7 @@ sensor:
 
 {% configuration %}
 resource:
-  description: "The (IP) address of the Fronius device"
+  description: "The IP address of the Fronius device"
   required: true
   type: string
 monitored_conditions:
@@ -39,18 +39,18 @@ monitored_conditions:
   type: list
   keys:
     type:
-      description: "The kind of device, can be one of `inverter`, `storage`, `meter`, or `power_flow`"
+      description: "The kind of device, can be one of \"inverter\", \"storage\", \"meter\", or \"power_flow\""
       required: true
       type: string
     scope:
-      description: "The device type for storage and inverter, can be either `device` or `system`"
+      description: "The device type for storage and inverter, can be either \"device\" or \"system\""
       required: false
       type: string
-      default: "`device`"
+      default: "device"
     device:
       description: "The id of the device to poll"
       required: false
-      default: "`1` for inverters and `0` for storages in compliance with Fronius Specs"
+      default: "\"1\" for inverters and \"0\" for storages in compliance with Fronius Specs"
 {% endconfiguration %}
 
 ### {% linkable_title More complete example %}
