@@ -91,7 +91,7 @@ Use an IR blaster to send command to turn device on using these discrete codes:
  - Zone 2: Protocol: NEC1 Device: 23 Function: 123
 
 ### {% linkable_title Serial Port to network gateway %}
-Use a network to serial port gateway to connect to the serial port of the
+Use a network to a serial port gateway to connect to the serial port of the
 receiver. The serial port is always available and can power on device.
 This is the most reliable communication method as well.
 
