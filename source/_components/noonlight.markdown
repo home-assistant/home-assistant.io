@@ -61,7 +61,7 @@ noonlight:
   id: NOONLIGHT_ID
   secret: NOONLIGHT_SECRET
   api_endpoint: https://api.noonlight.com/platform/v1
-  token_endpoint: https://noonlight.konnected.io/dev/ha/token
+  token_endpoint: https://noonlight.konnected.io/ha/token
 ```
 
 {% configuration %}
@@ -91,7 +91,7 @@ This example is using the [Manual Alarm component](/components/manual/)
 
 ```yaml
 automation:
-  - alias: 'Activate Noonlight Alarm when the security system is triggered'
+  - alias: 'Activate the Noonlight Alarm when the security system is triggered'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.ha_alarm
@@ -106,7 +106,7 @@ automation:
 
 ```yaml
 automation:
-  - alias: 'Activate Noonlight Alarm when smoke is detected'
+  - alias: 'Activate the Noonlight Alarm when smoke is detected'
     trigger:
       - platform: state
         entity_id: binary_sensor.smoke_alarm
