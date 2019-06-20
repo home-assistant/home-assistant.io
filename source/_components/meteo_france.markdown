@@ -67,7 +67,7 @@ meteo_france:
       thunder_chance:
         description: Probability of thunderstorm for the day.
       weather_alert:
-        description: Weather alert status
+        description: Weather alert status.
 {% endconfiguration %}
 
 ### {% linkable_title About `city` configuration %}
