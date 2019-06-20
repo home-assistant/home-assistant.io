@@ -26,7 +26,7 @@ To add a Arcam FMJ to your installation, add the following to your `configuratio
 ```yaml
 # Minimal example configuration.yaml entry
 arcam_fmj:
-  - host: hostname
+  - host: HOSTNAME
     zone:
       1:
 ```
@@ -61,7 +61,7 @@ zone:
 # Larger example configuration.yaml entry
 media_player:
   - platform: arcam_fmj
-    host: hostname
+    host: HOSTNAME
     zone:
       1:
         name: "Zone 1 name"
