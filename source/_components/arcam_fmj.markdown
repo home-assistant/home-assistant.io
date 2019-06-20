@@ -79,18 +79,18 @@ media_player:
             packet: JgAYADodHTo6Oh0dHR0dHR0dHR06Oh0dHQALZw0FAAAAAAAAAAAAAAAAAAA=
 ```
 
-### {% linkable_title Power state %}
+## {% linkable_title Power state %}
 Arcam FMJ receivers turn of their network port when in standby, the component will try to
 reconnect to the receiver every 5 seconds. This mean powering on the first zone is not
 possible over the builtin network connection. Two options for complete power control
 exists: IR or Serial gatway.
 
-#### IR command
+### {% linkable_title IR command %}
 Use an IR blaster to send command to turn device on using these discrete codes:
  - Zone 1: Protocol: NEC1 Device: 16 Function: 123
  - Zone 2: Protocol: NEC1 Device: 23 Function: 123
 
-#### Serial Port to network gateway
+### {% linkable_title Serial Port to network gateway %}
 Use a network to serial port gateway to connect to the serial port of the
 receiver. The serial port is always available and can power on device.
 This is the most reliable communication method as well.
