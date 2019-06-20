@@ -81,13 +81,13 @@ media_player:
 ```
 
 ## {% linkable_title Power state %}
-Arcam FMJ receivers turn of their network port when in standby, the component will try to
+Arcam FMJ receivers turn off their network port when in standby, the component will try to
 reconnect to the receiver every 5 seconds. This mean powering on the first zone is not
 possible over the builtin network connection. Two options for complete power control
 exists: IR or Serial gateway.
 
 ### {% linkable_title IR command %}
-Use an IR blaster to send command to turn device on using these discrete codes:
+Use an IR blaster to send a command to turn the device on using these discrete codes:
  - Zone 1: Protocol: NEC1 Device: 16 Function: 123
  - Zone 2: Protocol: NEC1 Device: 23 Function: 123
 
