@@ -2,7 +2,7 @@
 layout: page
 title: "Fronius"
 description: "Instructions on how to connect your Fronius Inverter to Home Assistant."
-date: 2018-01-05 11:43
+date: 2019-06-20 00:00
 sidebar: true
 comments: false
 sharing: true
