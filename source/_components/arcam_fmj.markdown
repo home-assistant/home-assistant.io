@@ -40,7 +40,7 @@ port:
   description: Port to connect to.
   required: false
   default: 50000
-  type: int
+  type: integer
 zone:
   description: Per zone specific configuration
   type: map
