@@ -21,4 +21,4 @@ $ source homeassistant/bin/activate
 $ pip3 install homeassistant
 ```
 
-You can then configure Home Assistant to autostart by following [this guide](/docs/autostart/macos/)
+You can then configure Home Assistant to autostart by following [this guide](/docs/autostart/macos/).
