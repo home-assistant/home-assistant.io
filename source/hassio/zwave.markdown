@@ -16,7 +16,7 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-### {% linkable_title RAZBERRY BOARD %}
+## {% linkable_title RAZBERRY BOARD %}
 
 If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there. The `config.txt` is not accessible from your Hass.io system, you may need to open the SD card on a Windows or Linux system.):
 
@@ -31,7 +31,7 @@ zwave:
   usb_path: /dev/ttyAMA0
 ```
 
-### {% linkable_title HUSBZB-1 %}
+## {% linkable_title HUSBZB-1 %}
 
 ```yaml
 zwave:
@@ -42,12 +42,16 @@ zha:
   database_path: /config/zigbee.db
 ```
 
-### {% linkable_title INTEL NUC %}
+## {% linkable_title Ubuntu and Debian based host system %}
 
-If you have INTEL NUC and host Ubuntu, on some system's the Z-Wave Aeotec stick is not starting up correctly - no Z-Wave nodes on Home Assistant start. Then you have to disable ModemManager:
+If your instance is running on a Debian based system, e.g., Ubuntu, the ModemManager may cause unexpected issues.
+
+The ModemManager might be claiming or interfering with a USB Z-Wave stick, like the much used Aeotec ones. If you experience issues where the stick stops responding, needs to be re-plugged or Home Assistant needs a restart to get Z-Wave back, chances are high that the ModemManager is causing the issue.
+
+Execute the following command on your host system to disable the ModemManager:
 
 ```bash
-ubuntu$ systemctl disable ModemManager.service
+systemctl disable ModemManager.service
 ```
 
 ### {% linkable_title Finding the path %}
