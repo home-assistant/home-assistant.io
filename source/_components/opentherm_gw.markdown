@@ -73,10 +73,6 @@ climate:
       default: false
 {% endconfiguration %}
 
-## Supported Variables
-
-The list above contains all supported variables. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` integration and look for the status updates.
-
 ## Services
 
 ### Service `opentherm_gw.reset_gateway`
