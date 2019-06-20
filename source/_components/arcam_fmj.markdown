@@ -31,28 +31,6 @@ arcam_fmj:
       1:
 ```
 
-```yaml
-# Larger example configuration.yaml entry
-media_player:
-  - platform: arcam_fmj
-    host: hostname
-    zone:
-      1:
-        name: "Zone 1 name"
-        turn_on:
-          service: 'broadlink.send'
-          data:
-            host: BROADLINK_IR_IP
-            packet: JgAVADodHTo6HR0dHR0dOh0dHR06Oh0dHQ0FAA==            
-      2:
-        name: "Zone 2 name"
-        turn_on:
-          service: 'broadlink.send'
-          data:
-            host: BROADLINK_IR_IP
-            packet: JgAYADodHTo6Oh0dHR0dHR0dHR06Oh0dHQALZw0FAAAAAAAAAAAAAAAAAAA=
-```
-
 {% configuration %}
 host:
   description: IP address or hostname of the device.
@@ -79,6 +57,27 @@ zone:
         type: action
 {% endconfiguration %}
 
+```yaml
+# Larger example configuration.yaml entry
+media_player:
+  - platform: arcam_fmj
+    host: hostname
+    zone:
+      1:
+        name: "Zone 1 name"
+        turn_on:
+          service: 'broadlink.send'
+          data:
+            host: BROADLINK_IR_IP
+            packet: JgAVADodHTo6HR0dHR0dOh0dHR06Oh0dHQ0FAA==
+      2:
+        name: "Zone 2 name"
+        turn_on:
+          service: 'broadlink.send'
+          data:
+            host: BROADLINK_IR_IP
+            packet: JgAYADodHTo6Oh0dHR0dHR0dHR06Oh0dHQALZw0FAAAAAAAAAAAAAAAAAAA=
+```
 
 ### {% linkable_title Power state %}
 Arcam FMJ receivers turn of their network port when in standby, the component will try to
