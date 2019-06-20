@@ -10,11 +10,8 @@ footer: true
 ha_category:
   - Fan
   - Sensor
-ha_release: 0.95
+ha_release: 0.96
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/fan.vallox/
-  - /components/sensor.vallox/
 ---
 
 The `vallox` component lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
@@ -45,9 +42,14 @@ name:
   required: false
   default: Vallox
   type: string
+sensors:
+  description: Include sensor reports. Optionally, provide a list of specific sensors.
+  required: false
+  default: All sensors.
+  type: list
 {% endconfiguration %}
 
-## Fan Services
+## {% linkable_title Fan Services %}
 
 ### {% linkable_title Service `fan.vallox_set_profile_fan_speed_home` %}
 
@@ -77,7 +79,7 @@ Set the fan speed of the `Boost` profile.
 | `entity_id`            |       no | Entitiy id of the fan, e.g.`fan.vallox`.        |
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-## Sensors
+## {% linkable_title Sensors %}
 
 The following sensors are available:
 
