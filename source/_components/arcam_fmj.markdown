@@ -92,6 +92,6 @@ Use an IR blaster to send command to turn device on using these discrete codes:
 
 ### {% linkable_title Serial Port to network gateway %}
 Use a network to a serial port gateway to connect to the serial port of the
-receiver. The serial port is always available and can power on device.
+receiver. The serial port is always available and can power on the device.
 This is the most reliable communication method as well.
 
