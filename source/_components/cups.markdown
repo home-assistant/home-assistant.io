@@ -30,27 +30,37 @@ To enable the CUPS sensor, add the following lines to your `configuration.yaml`:
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  - platform: cups
-    printers:
-      - C410
-      - C430
+  - platform: cups      
+  - servers:
+      - printers:
+          - C410
+          - C430
+      - host: 192.168.1.50
+        port: 631
+        printers:
+          - C450
 ```
 
 {% configuration %}
-printers:
-  description: List of printers to add.
+servers:
+  description: List of CUPS servers to add.
   required: true
   type: list
-host:
-  description: IP address of the CUPS print server.
-  required: false
-  type: string
-  default: 127.0.0.1
-port:
-  description: Port of the CUPS print server.
-  required: false
-  type: integer
-  default: 631
+  keys:
+    printers:
+      description: List of printers to add.
+      required: true
+      type: list
+    host:
+      description: IP address of the CUPS print server.
+      required: false
+      type: string
+      default: 127.0.0.1
+    port:
+      description: Port of the CUPS print server.
+      required: false
+      type: integer
+      default: 631
 {% endconfiguration %}
 
 <p class='note'>
