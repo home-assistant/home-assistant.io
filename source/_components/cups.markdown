@@ -35,10 +35,6 @@ sensor:
       - printers:
           - C410
           - C430
-      - host: 192.168.1.50
-        port: 631
-        printers:
-          - C450
 ```
 
 {% configuration %}
