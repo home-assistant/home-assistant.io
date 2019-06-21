@@ -16,7 +16,7 @@ ha_iot_class: Local Polling
 
 The `vallox` component lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
 
-The component's fan platform allows you to either turn on/off the complete unit via toggle switch, or select a ventilation profile from a dropdown menu and therefore indirectly the fan speed. The four standard Vallox profiles are provided:
+The component's fan platform allows you to either turn on/off the complete unit via the toggle switch or select a ventilation profile from a dropdown menu and therefore indirectly the fan speed. The four standard Vallox profiles are provided:
 
 - `At Home`
 - `Away`
@@ -25,7 +25,7 @@ The component's fan platform allows you to either turn on/off the complete unit 
 
 Also, there is a sensor platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
 
-### {% linkable_title Configuration %}
+## {% linkable_title Configuration %}
 
 ```yaml
 vallox:
@@ -57,7 +57,7 @@ Set the fan speed of the `Home` profile.
 
 | Service data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
-| `entity_id`            |       no | Entitiy id of the fan, e.g.`fan.vallox`.        |
+| `entity_id`            |       no | Entity id of the fan, e.g., `fan.vallox`.        |
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
 
@@ -67,7 +67,7 @@ Set the fan speed of the `Away` profile.
 
 | Service data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
-| `entity_id`            |       no | Entitiy id of the fan, e.g.`fan.vallox`.        |
+| `entity_id`            |       no | Entity id of the fan, e.g., `fan.vallox`.        |
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
 ### {% linkable_title Service `fan.vallox_set_profile_fan_speed_boost` %}
@@ -76,7 +76,7 @@ Set the fan speed of the `Boost` profile.
 
 | Service data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
-| `entity_id`            |       no | Entitiy id of the fan, e.g.`fan.vallox`.        |
+| `entity_id`            |       no | Entity id of the fan, e.g., `fan.vallox`.        |
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
 ## {% linkable_title Sensors %}
