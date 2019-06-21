@@ -441,8 +441,13 @@ Set absolute brightness of output port in percent.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "brightness": 100, "transition": 0}
+```yaml
+service: output_abs
+data:
+  addres: myhome.0.7
+  output: output1
+  brightness: 100
+  transition: 0
 ```
 
 ### {% linkable_title Service `output_rel` %}
@@ -458,8 +463,12 @@ Set relative brightness of output port in percent.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "brightness": 30}
+```yaml
+service: output_rel
+data:
+  address: myhome.0.7
+  output: output1
+  brightness: 30
 ```
 
 ### {% linkable_title Service `output_toggle` %}
@@ -474,8 +483,12 @@ Toggle output port.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "transition": 0}
+```yaml
+service: output_toggle
+data:
+  address: myhome.0.7
+  output: output1
+  transition: 0
 ```
 
 ### {% linkable_title Service `relays` %}
@@ -492,8 +505,11 @@ Example states:  `t---001-`
 
 Example:
 
-```
-{"address": "myhome.0.7", "state": "t---001-"}
+```yaml
+service: relays
+data:
+  address: myhome.0.7
+  state: t---001-
 ```
 
 ### {% linkable_title Service `led` %}
@@ -507,8 +523,12 @@ Set the led status.
 
 Example:
 
-```
-{"address": "myhome.0.7", "led": "led6", "state": "blink"}
+```yaml
+service: led
+data:
+  address: myhome.0.7
+  led: led6
+  state: blink
 ```
 
 ### {% linkable_title Service `var_abs` %}
@@ -526,8 +546,13 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1", "value": 75, "unit_of_measurement": "%"}
+```yaml
+service: var_abs
+data:
+  address: myhome.0.7
+  variable: var1
+  value: 75
+  unit_of_measurement: %
 ```
 
 <p class='note'>
@@ -550,8 +575,13 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1", "value": 10, "unit_of_measurement": "%"}
+```yaml
+service: var_rel
+data:
+  address: myhome.0.7
+  variable: var1
+  value: 10
+  unit_of_measurement: %
 ```
 
 <p class='note'>
@@ -570,8 +600,11 @@ Reset value of variable or setpoint.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1"}
+```yaml
+service: var_reset:
+data:
+  address: myhome.0.7
+  variable: var1
 ```
 
 <p class='note'>
@@ -592,8 +625,12 @@ If `state` is not defined, it is assumed to be `False`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "setpoint": "r1varsetpoint", "state": true}
+```yaml
+service: lock_regulator
+data:
+  address: myhome.0.7
+  setpoint: r1varsetpoint
+  state: true
 ```
 
 ### {% linkable_title Service `send_keys` %}
@@ -614,9 +651,23 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 
 Examples:
 
+Send keys immediately:
+```yaml
+service: send_keys
+data:
+  address: myhome.0.7
+  keys: a1a5d8
+  state: hit
 ```
-{"address": "myhome.0.7", "keys": "a1a5d8", "state": "hit"}
-{"address": "myhome.0.7", "keys": "a1a5d8", "time": 5, "time_unit": "s"}
+
+Send keys deferred:
+```yaml
+service: send_keys
+data:
+  address: myhome.0.7
+  keys: a1a5d8
+  time: 5
+  time_unit: s
 ```
 
 ### {% linkable_title Service `lock_keys` %}
@@ -624,7 +675,7 @@ Examples:
 Locks keys.
 If table is not defined, it is assumend to be table `a`.
 The key lock states are defined as a string with eight characters. Each character represents the state change of a key lock (1=on, 0=off, t=toggle, -=nochange).
-The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only tabley `a` is allowed.
+The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only table `a` is allowed.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
 | Service data attribute | Optional | Description  | Values |
@@ -637,9 +688,23 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 
 Examples:
 
+Lock keys forever:
+```yaml
+service: lock_keys
+data:
+  address: myhome.0.7
+  table: a
+  state: 1---t0--
 ```
-{"address": "myhome.0.7", "table": "a", "state": "1---t0--"}
-{"address": "myhome.0.7", "state": "1---t0--", "time": 10, "time_unit": "s"}
+
+Lock keys for a specified time period:
+```yaml
+service: lock_keys
+data:
+  address: myhome.0.7
+  state: 1---t0--
+  time: 10
+  time_unit: s
 ```
 
 ### {% linkable_title Service `dyn_text` %}
@@ -657,8 +722,12 @@ Each row can be set independently and can store up to 60 characters (encoded in 
 
 Example:
 
-```
-{"address": "myhome.0.7", "row": 1, "text": "text in row 1"}
+```yaml
+service: dyn_text
+data:
+  address: myhome.0.7
+  row: 1
+  text: "text in row 1"
 ```
 
 ### {% linkable_title Service `pck` %}
@@ -672,6 +741,9 @@ Send arbitrary PCK command. Only the command part of the PCK command has to be s
 
 Example:
 
-```
-{"address": "myhome.0.7", "pck": "PIN4"}
+```yaml
+service: pck
+data:
+  address: myhome.0.7
+  pck: PIN4
 ```
