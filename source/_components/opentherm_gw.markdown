@@ -173,196 +173,196 @@ The following `sensor` entities will be created for each configured gateway. The
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
 </p>
 
-- <b>burner_hours</b><br />
+- **burner_hours**  
   Boiler flame on time.
 
-- <b>burner_starts</b><br />
+- **burner_starts**  
   Number of burner starts.
 
-- <b>ch_pump_hours</b><br />
+- **ch_pump_hours**  
   Central heating pump running time.
 
-- <b>ch_pump_starts</b><br />
+- **ch_pump_starts**  
   Number of central heating pump starts.
 
-- <b>ch_water_pressure</b><br />
+- **ch_water_pressure**  
   Central heating water pressure.
 
-- <b>ch_water_temp</b><br />
+- **ch_water_temp**  
   Central heating water temperature.
 
-- <b>ch_water_temp_2</b><br />
+- **ch_water_temp_2**  
   Central heating 2 water temperature.
 
-- <b>control_setpoint</b><br />
+- **control_setpoint**  
   Central heating water target temperature.
 
-- <b>control_setpoint_2</b><br />
+- **control_setpoint_2**  
   Central heating 2 water target temperature.
 
-- <b>cooling_control</b><br />
+- **cooling_control**  
   Cooling control signal value.
 
-- <b>dhw_burner_hours</b><br />
+- **dhw_burner_hours**  
   Hot water flame on time.
 
-- <b>dhw_burner_starts</b><br />
+- **dhw_burner_starts**  
   Number of hot water burner starts.
 
-- <b>dhw_flow_rate</b><br />
+- **dhw_flow_rate**  
   Hot water flow rate.
 
-- <b>dhw_pump_hours</b><br />
+- **dhw_pump_hours**  
   Hot water pump running time.
 
-- <b>dhw_pump_starts</b><br />
+- **dhw_pump_starts**  
   Number of hot water pump starts.
 
-- <b>dhw_setpoint</b><br />
+- **dhw_setpoint**  
   Hot water target temperature.
 
-- <b>dhw_temp</b><br />
+- **dhw_temp**  
   Hot water temperature.
 
-- <b>dhw_temp_2</b><br />
+- **dhw_temp_2**  
   Hot water 2 temperature.
 
-- <b>exhaust_temp</b><br />
+- **exhaust_temp**  
   Boiler exhaust temperature.
 
-- <b>master_memberid</b><br />
+- **master_memberid**  
   Thermostat member ID.
 
-- <b>master_ot_version</b><br />
+- **master_ot_version**  
   Thermostat OpenTherm protocol version.
 
-- <b>master_product_type</b><br />
+- **master_product_type**  
   Thermostat product type.
 
-- <b>master_product_version</b><br />
+- **master_product_version**  
   Thermostat product version.
 
-- <b>max_ch_setpoint</b><br />
+- **max_ch_setpoint**  
   Boiler maximum central heating water temperature.
 
-- <b>oem_diag</b><br />
+- **oem_diag**  
   OEM diagnostic information.
 
-- <b>otgw_about</b><br />
+- **otgw_about**  
   OpenTherm Gateway firmware version.
 
-- <b>otgw_build</b><br />
+- **otgw_build**  
   OpenTherm Gateway firmware build date and time.
 
-- <b>otgw_clockmhz</b><br />
+- **otgw_clockmhz**  
   OpenTherm Gateway firmware design clock speed.
 
-- <b>otgw_dhw_ovrd</b><br />
+- **otgw_dhw_ovrd**  
   OpenTherm Gateway hot water override status.
 
-- <b>otgw_gpio_a</b><br />
+- **otgw_gpio_a**  
   OpenTherm Gateway GPIO port A operating mode.
 
-- <b>otgw_gpio_b</b><br />
+- **otgw_gpio_b**  
   OpenTherm Gateway GPIO port B operating mode.
 
-- <b>otgw_led_a</b><br />
+- **otgw_led_a**  
   OpenTherm Gateway LED A operating mode.
 
-- <b>otgw_led_b</b><br />
+- **otgw_led_b**  
   OpenTherm Gateway LED B operating mode.
 
-- <b>otgw_led_c</b><br />
+- **otgw_led_c**  
   OpenTherm Gateway LED C operating mode.
 
-- <b>otgw_led_d</b><br />
+- **otgw_led_d**  
   OpenTherm Gateway LED D operating mode.
 
-- <b>otgw_led_e</b><br />
+- **otgw_led_e**  
   OpenTherm Gateway LED E operating mode.
 
-- <b>otgw_led_f</b><br />
+- **otgw_led_f**  
   OpenTherm Gateway LED F operating mode.
 
-- <b>otgw_mode</b><br />
+- **otgw_mode**  
   OpenTherm Gateway operating mode.
 
-- <b>otgw_setback_temp</b><br />
+- **otgw_setback_temp**  
   OpenTherm Gateway setback temperature for `away mode`.
 
-- <b>otgw_setpoint_ovrd_mode</b><br />
+- **otgw_setpoint_ovrd_mode**  
   OpenTherm Gateway central heating setpoint override mode.
 
-- <b>otgw_smart_pwr</b><br />
+- **otgw_smart_pwr**  
   OpenTherm Gateway smart power operating mode.
 
-- <b>otgw_thermostat_detect</b><br />
+- **otgw_thermostat_detect**  
   OpenTherm Gateway automatic thermostat detection status.
 
-- <b>otgw_vref</b><br />
+- **otgw_vref**  
   OpenTherm Gateway voltage reference setting.
 
-- <b>outside_temp</b><br />
+- **outside_temp**  
   Outside temperature as reported in the OpenTherm protocol.
 
-- <b>relative_mod_level</b><br />
+- **relative_mod_level**  
   Relative modulation level.
 
-- <b>return_water_temp</b><br />
+- **return_water_temp**  
   Boiler return water temperature.
 
-- <b>room_setpoint</b><br />
+- **room_setpoint**  
   Room target temperature.
 
-- <b>room_setpoint_2</b><br />
+- **room_setpoint_2**  
   Room 2 target temperature.
 
-- <b>room_setpoint_ovrd</b><br />
+- **room_setpoint_ovrd**  
   Room target temperature override value.
 
-- <b>room_temp</b><br />
+- **room_temp**  
   Current room temperature.
 
-- <b>slave_ch_max_setp</b><br />
+- **slave_ch_max_setp**  
   Maximum boiler supported central heating water target temperature.
 
-- <b>slave_ch_min_setp</b><br />
+- **slave_ch_min_setp**  
   Minimum boiler supported central heating water target temperature.
 
-- <b>slave_dhw_max_setp</b><br />
+- **slave_dhw_max_setp**  
   Maximum boiler supported hot water target temperature.
 
-- <b>slave_dhw_min_setp</b><br />
+- **slave_dhw_min_setp**  
   Minimum boiler supported hot water target temperature.
 
-- <b>slave_max_capacity</b><br />
+- **slave_max_capacity**  
   Maximum boiler capacity.
 
-- <b>slave_max_relative_modulation</b><br />
+- **slave_max_relative_modulation**  
   Maximum boiler supported relative modulation.
 
-- <b>slave_memberid</b><br />
+- **slave_memberid**  
   Boiler member ID.
 
-- <b>slave_min_mod_level</b><br />
+- **slave_min_mod_level**  
   Minimum boiler supported modulation level.
 
-- <b>slave_oem_fault</b><br />
+- **slave_oem_fault**  
   Boiler OEM fault indication.
 
-- <b>slave_ot_version</b><br />
+- **slave_ot_version**  
   Boiler OpenTherm protocol version.
 
-- <b>slave_product_type</b><br />
+- **slave_product_type**  
   Boiler product type.
 
-- <b>slave_product_version</b><br />
+- **slave_product_version**  
   Boiler product version.
 
-- <b>solar_coll_temp</b><br />
+- **solar_coll_temp**  
   Solar collector temperature.
 
-- <b>solar_storage_temp</b><br />
+- **solar_storage_temp**  
   Solar storage unit temperature.
 
 
@@ -373,106 +373,106 @@ The following `binary_sensor` entities will be created for each configured gatew
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
 </p>
 
-- <b>master_ch2_enabled</b><br />
+- **master_ch2_enabled**  
   Thermostat requests central heating 2 on.
 
-- <b>master_ch_enabled</b><br />
+- **master_ch_enabled**  
   Thermostat requests central heating on.
 
-- <b>master_cooling_enabled</b><br />
+- **master_cooling_enabled**  
   Thermostat requests cooling.
 
-- <b>master_dhw_enabled</b><br />
+- **master_dhw_enabled**  
   Thermostat requests hot water to be heated.
 
-- <b>master_otc_enabled</b><br />
+- **master_otc_enabled**  
   Thermostat is using outside temperature correction.
 
-- <b>otgw_gpio_a_state</b><br />
+- **otgw_gpio_a_state**  
   OpenTherm Gateway GPIO A state.
 
-- <b>otgw_gpio_b_state</b><br />
+- **otgw_gpio_b_state**  
   OpenTherm Gateway GPIO B state.
 
-- <b>otgw_ignore_transitions</b><br />
+- **otgw_ignore_transitions**  
   OpenTherm Gateway ignores ripples in the signal during high/low transitions.
 
-- <b>otgw_ovrd_high_byte</b><br />
+- **otgw_ovrd_high_byte**  
   OpenTherm Gateway overrides high byte with message ID 100.
 
-- <b>remote_rw_dhw</b><br />
+- **remote_rw_dhw**  
   Boiler supports writing hot water setpoint.
 
-- <b>remote_rw_max_ch</b><br />
+- **remote_rw_max_ch**  
   Boiler supports writing maximum central heating setpoint.
 
-- <b>remote_transfer_dhw</b><br />
+- **remote_transfer_dhw**  
   Boiler supports reading hot water setpoint.
 
-- <b>remote_transfer_max_ch</b><br />
+- **remote_transfer_max_ch**  
   Boiler supports reading maximum central heating setpoint.
 
-- <b>rovrd_auto_prio</b><br />
+- **rovrd_auto_prio**  
   Programmed room setpoint change takes priority over remote override setting.
 
-- <b>rovrd_man_prio</b><br />
+- **rovrd_man_prio**  
   Manual room setpoint change takes priority over remote override setting.
 
-- <b>slave_air_pressure_fault</b><br />
+- **slave_air_pressure_fault**  
   Boiler reports air pressure fault.
 
-- <b>slave_ch2_active</b><br />
+- **slave_ch2_active**  
   Boiler reports central heating 2 active.
 
-- <b>slave_ch2_present</b><br />
+- **slave_ch2_present**  
   Boiler has a central heating 2 circuit.
 
-- <b>slave_ch_active</b><br />
+- **slave_ch_active**  
   Boiler reports central heating active.
 
-- <b>slave_control_type</b><br />
+- **slave_control_type**  
   Boiler control type ('off' is modulating, 'on' is on/off).
 
-- <b>slave_cooling_active</b><br />
+- **slave_cooling_active**  
   Boiler reports cooling active.
 
-- <b>slave_cooling_supported</b><br />
+- **slave_cooling_supported**  
   Boiler supports cooling.
 
-- <b>slave_dhw_active</b><br />
+- **slave_dhw_active**  
   Boiler reports hot water active.
 
-- <b>slave_dhw_config</b><br />
+- **slave_dhw_config**  
   Boiler hot water mode ('off' is instantaneous or unspecified, 'on' is storage tank).
 
-- <b>slave_dhw_present</b><br />
+- **slave_dhw_present**  
   Boiler reports hot water present.
 
-- <b>slave_diagnostic_indication</b><br />
+- **slave_diagnostic_indication**  
   Boiler diagnostic indication.
 
-- <b>slave_fault_indication</b><br />
+- **slave_fault_indication**  
   Boiler fault indication.
 
-- <b>slave_flame_on</b><br />
+- **slave_flame_on**  
   Boiler reports flame on.
 
-- <b>slave_gas_fault</b><br />
+- **slave_gas_fault**  
   Boiler reports gas fault.
 
-- <b>slave_low_water_pressure</b><br />
+- **slave_low_water_pressure**  
   Boiler reports low water pressure.
 
-- <b>slave_master_low_off_pump</b><br />
+- **slave_master_low_off_pump**  
   Boiler supports low-off and pump control commands (this sensor is inverted, 'on' is not supported, 'off' is supported)
 
-- <b>slave_remote_reset</b><br />
+- **slave_remote_reset**  
   Boiler reports 'lockout-reset' supported.
 
-- <b>slave_service_required</b><br />
+- **slave_service_required**  
   Boiler reports service required.
 
-- <b>slave_water_overtemp</b><br />
+- **slave_water_overtemp**  
   Boiler reports water overtemperature.
 
 
