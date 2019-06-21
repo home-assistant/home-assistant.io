@@ -356,8 +356,9 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 
 | Constant | Values |
 | -------- | ------ |
-| LED_STATE | `on`. `off`, `blink`, `flicker` |
-| LOGICOP_STATE | `not`. `or`, `and` |
+| LED_STATE | `on`, `off`, `blink`, `flicker` |
+| LOGICOP_STATE | `not`, `or`, `and` |
+| KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
 ### {% linkable_title Keys %}:
 
@@ -645,7 +646,7 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
 | `keys` | No | Keys string |
-| `state` | Yes | Keys state | [SENDKEYCOMMANDS](#states) |
+| `state` | Yes | Keys state | [KEY_STATE](#states) |
 | `time` | Yes | Deferred time | 0.. |
 | `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
 
@@ -682,7 +683,7 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
 | `table` | Yes | Table with keys to lock |
-| `state` | No | Key lock states as string | [SENDKEYCOMMANDS](#states) |
+| `state` | No | Key lock states as string | [KEY_STATE](#states) |
 | `time` | Yes | Time period to lock | 0.. |
 | `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
 
