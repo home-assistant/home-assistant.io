@@ -160,7 +160,7 @@ scan_interval:
 {% endconfiguration %}
 
 <p class='note'>
-Please note that some monitored conditions, such as `temperature_high` or `temperature_high`, may only work when setting the `forecast` attribute to at least `0` (current day).
+Please note that some monitored conditions, such as `temperature_high` or `temperature_low`, may only work when setting the `forecast` attribute to at least `0` (current day).
 </p>
 
 #### {% linkable_title Time period dictionary example %}
