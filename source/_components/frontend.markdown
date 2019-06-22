@@ -45,8 +45,12 @@ frontend:
     description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `latest` javascript mode."
     required: false
     type: list
-  extra_html_url_es5:
-    description: "List of additional [resources](/developers/frontend_creating_custom_ui/) to load in `es5` javascript mode."
+  extra_module_url:
+    description: "List of additional javascript modules to load."
+    required: false
+    type: list
+  extra_js_url_es5:
+    description: "List of additional javascript code to load in `es5` javascript mode."
     required: false
     type: list
   development_repo:
