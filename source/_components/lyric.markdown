@@ -2,7 +2,7 @@
 layout: page
 title: "Honeywell Lyric"
 description: "How to integrate Honeywell Lyric thermostat systems into Home Assistant."
-date: 2019-04-11 20:00
+date: 2019-06-22 20:00
 sidebar: true
 comments: false
 sharing: true
@@ -12,7 +12,7 @@ ha_category:
   - Hub
   - Climate
   - Sensor
-ha_release: 0.93
+ha_release: 0.95
 ha_iot_class: Cloud Polling
 ---
 
@@ -28,33 +28,28 @@ To set up this component, you will need to set up a developer account with Honey
     1. Callback URL: This needs to be the same url as your `base_url` + `/api/lyric/authenticate`. If you have not set this, it will be the ip address of your ha instance. For example: `http://192.168.1.120:8123/api/lyric/authenticate`.
 1. Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret`.
 
-## {% linkable_title Configuration %}
+## {% linkable_title Configuration via the frontend %}
 
-To enable this component, add the following to your `configuration.yaml` file:
+Menu: **Configuration** -> **Integrations**.
 
-```yaml
-# Example configuration.yaml entry
-lyric:
-  client_id: 'myconsumerkey'
-  client_secret: 'myconsumersecret'
-```
+1. Click on the `+` sign to add an integration and click on **Honeywell Lyric**.
+1. Add your `client_id` and `client_secret` and press submit.
+1. You will then be directed to login to Honeywell. Use your login and allow access to your devices.
 
-{% configuration %}
-client_id:
-  description: The `Consumer Key` of your developer app.
-  required: true
-  type: string
-client_secret:
-  description: The `Consumer Secret` of your developer app.
-  required: true
-  type: string
-redirect_uri:
-  description: This will override the redirect url. This is generally not needed, but may help if you use a special setup.
-  required: false
-  type: string
-{% endconfiguration %}
+The integration will then be available.
 
-## {% linkable_title Avaliable Services %}
+## {% linkable_title Sensors %}
+
+Alongside the climate platform, there will be a number of sensors available to you.
+
+- Temperature - The thermostat's temperature sensor
+- Humidity - The thermostat's humidity sensor
+- Temperature Outside - Lyric's reported outdoor temperature
+- Humidity Outside - Lyric's reported outdoor temperature
+- Next Period Time - The next change on your thermostat's schedule
+- Status - The thermostat's reported status. (Following schedule, held until etc.)
+
+## {% linkable_title Available Services %}
 
 There are a couple of services specific to the lyric component to manage your thermostat.
 
