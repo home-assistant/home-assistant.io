@@ -20,7 +20,7 @@ Any current iZone unit with ducted reverse cycle airconditioning and the CB wire
 
 ## {% linkable_title Configuration %}
 
-The Daikin component can be configured in two ways. 
+The iZone component can be configured in two ways. 
 
 - Via the integrations configuration of the Home Assistant user interface.
 - Or via the `configuration.yaml` file by adding the following:
@@ -35,6 +35,13 @@ izone:
   exclude:
     - "000013170"
 ```
+
+{% configuration %}
+exclude:
+  description: Exclude particular units from integration with home assistant.
+  required: false
+  type: list
+{% endconfiguration %}
 
 ## {% linkable_title Network settings %}
 
