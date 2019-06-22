@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 ha_category: Climate
-ha_release: 0.95
+ha_release: 0.96
 ha_iot_class: Local Push
 ---
 
