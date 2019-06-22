@@ -70,6 +70,7 @@ Currently known supported models:
 - EH5300
 - EH5600
 - ES5500
+- ES5700
 - ES6300
 - ES6800
 - F4580
