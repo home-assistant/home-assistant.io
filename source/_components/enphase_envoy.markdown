@@ -51,7 +51,7 @@ monitored_conditions:
   type: list
   keys:
     production:
-      description: The power in W being produced by the solar panels. This will also expose production values from individual inverters, as attributes of the entity, if supported. The values for all the individual inverters may not add up to the total production value, due to slower updating on the individual inverters.
+      description: The power in W being produced by the solar panels.
     daily_production:
       description: The energy in Wh produced that day.
     seven_days_production:
@@ -67,5 +67,5 @@ monitored_conditions:
     lifetime_consumption:
       description: The energy in Wh consumed in the lifetime of the Envoy.
     inverters:
-      description: The power in W being produced by each micro-inverter. This will create a separate sensor for each micro-inverter you have installed. (Note: These sensors will only update about every 15 minutes, this is a limitation of the Enphase Envoy API)
+      description: The power in W being produced by each micro-inverter. This will create a separate sensor for each micro-inverter you have installed. These sensors will only update about every 15 minutes, this is a limitation of the Enphase Envoy API.
 {% endconfiguration %}
