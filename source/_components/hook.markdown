@@ -17,7 +17,7 @@ redirect_from:
 
 The `hook` component allows you to control the [Hook Smart Home Hub](http://www.hooksmarthome.com/) from within Home Assistant.
 
-Hook allows you to control cheap mains electrical outlets, like these ones at [Amazon](https://www.amazon.com/Etekcity-Wireless-Electrical-Household-Appliances/dp/B00DQELHBS).
+Hook allows you to control cheap mains electrical outlets, like these ones at [Amazon](https://amzn.to/2WVZdGG).
 
 In short, Hook is an RF to Wi-Fi bridge, controlling devices that receive commands at 315MHz and 433MHz. Unfortunately, this does not allow Hook to determine if the command was successful, so the state is assumed.
 

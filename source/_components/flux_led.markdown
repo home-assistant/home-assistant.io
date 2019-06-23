@@ -21,14 +21,14 @@ The `flux_led` support is integrated into Home Assistant as a light platform. Se
 Example of bulbs:
 
 - [Flux Smart Lighting](http://www.fluxsmartlighting.com/)
-- [MagicLight® Plus - WiFi Smart LED Light Bulb4](https://www.amazon.com/gp/product/B00NOC93NG)
-- [Flux WiFi Smart LED Light Bulb4](http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE)
-- [WIFI smart LED light Bulb1](http://smile.amazon.com/gp/product/B01CS1EZYK)
+- [MagicLight® Plus - WiFi Smart LED Light Bulb4](https://amzn.to/2X0Zath)
+- [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
+- [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
 
 Examples of controllers:
 
-- [Ledenet WiFi RGBW Controller](https://www.amazon.com/gp/product/B01DY56N8U)
-- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://www.amazon.com/dp/B01JZ2SI6Q)
+- [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
+- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
 
 ### {% linkable_title Configuration Details %}
