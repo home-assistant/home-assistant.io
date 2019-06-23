@@ -11,12 +11,14 @@ logo: knx.png
 ha_category:
   - Switch
 ha_release: 0.24
-ha_iot_class: Local Polling
+ha_iot_class: "Local Push"
 ---
 
-The `knx` switch component is used as in interface to switching actuators.
+<p class='note'>
+  The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+</p>
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` switch component is used as an interface to switching actuators.
 
 ## {% linkable_title Configuration %}
 

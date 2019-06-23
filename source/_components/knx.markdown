@@ -11,16 +11,16 @@ logo: knx.png
 ha_category:
   - Hub
 ha_release: 0.24
-ha_iot_class: Local Polling
+ha_iot_class: "Local Push"
 ---
 
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
-The component requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
+The component requires a local KNX/IP interface or a KNX/IP router. Through this, it will send and receive commands to and from other devices to the KNX bus.
 
-<p class='note warning'>
-  Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
+<p class='note'>
+  Please note, the `knx` platform does not support Windows.
 </p>
 
 There is currently support for the following device types within Home Assistant:
@@ -74,19 +74,21 @@ knx:
 host:
   description: Host of the KNX/IP tunneling device.
   type: string
+  required: true
 port:
   description: Port of the KNX/IP tunneling device.
   type: integer
+  required: false
 local_ip:
   description: IP of the local interface.
   type: string
+  required: false
 {% endconfiguration %}
 
 Explicit connection to a KNX/IP routing device:
 
 ```yaml
 knx:
-  config_file: '/path/to/xknx.yaml'
   routing:
      local_ip: '192.168.2.109'
 ```
@@ -95,6 +97,7 @@ knx:
 local_ip:
   description: The local IP address of interface (which should be used for multicasting).
   type: string
+  required: true
 {% endconfiguration %}
 
 ```yaml
@@ -121,7 +124,7 @@ state_updater:
 
 ### {% linkable_title Services %}
 
-In order to directly interact with the KNX bus, you can now use the following service:
+In order to directly interact with the KNX bus, you can use the following service:
 
 ```
 Domain: knx
@@ -149,6 +152,12 @@ knx:
     - type: 'temperature'
       entity_id: 'sensor.owm_temperature'
       address: '0/0/2'
+    - type: 'string'
+      address: '0/6/4'
+      entity_id: "sensor.owm_weather"
+    - type: 'binary'
+      entity_id: 'binary_sensor.kitchen_window'
+      address: '0/6/5'
     - type: 'time'
       address: '0/0/1'
     - type: 'datetime'
@@ -157,16 +166,14 @@ knx:
 
 {% configuration %}
 type:
-  description: Type of the exposed value. Either time or datetime or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g., "temperature" or "humidity").
+  description: Type of the exposed value. Either 'binary', 'time', 'date', 'datetime' or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g., "temperature" or "humidity").
   type: string
+  required: true
 entity_id:
-  description: Entity id of the HASS component to be exposed. Not necessary for types time and datetime.
+  description: Entity id of the HASS component to be exposed. Not needed for types time, date and datetime.
   type: string
 address:
   description: KNX group address.
   type: string
+  required: true
 {% endconfiguration %}
-
-### {% linkable_title Known issues %}
-
-Due to lame multicast support the routing abstraction and the gateway scanner only work with Python >=3.5.

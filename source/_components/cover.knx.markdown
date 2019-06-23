@@ -11,13 +11,14 @@ logo: knx.png
 ha_category:
   - Cover
 ha_release: 0.48
-ha_iot_class: Local Polling
+ha_iot_class: "Local Push"
 ---
 
+<p class='note'>
+  The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+</p>
 
-The `knx` cover platform is used as in interface with KNX covers.
-
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` cover platform is used as an interface to KNX covers.
 
 To use your KNX covers in your installation, add the following to your `configuration.yaml` file:
 

@@ -11,10 +11,17 @@ logo: knx.png
 ha_category:
   - Binary Sensor
 ha_release: 0.24
-ha_iot_class: Local Polling
+ha_iot_class: "Local Push"
 ---
 
+<p class='note'>
+  The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+</p>
+
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
+
+Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Component - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
+
 
 ## {% linkable_title Configuration %}
 
