@@ -33,6 +33,11 @@ ip_address:
   description: The IP address of your Solax system.
   required: true
   type: string
+name:
+  required: false
+  type: string
+  default: Solax
+  description: Give your inverters a custom name, distinguish between multiple inverters.
 {% endconfiguration %}
 
 ### {% linkable_title Optional template sensor %}
