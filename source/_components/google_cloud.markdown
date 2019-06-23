@@ -29,8 +29,8 @@ tts:
 
 API key obtaining process described in corresponding documentation:
 
-* [Text-to-Speach](https://cloud.google.com/text-to-speech/docs/quickstart-protocol)
-* [Speach-to-Text](https://cloud.google.com/speech-to-text/docs/quickstart-protocol)
+* [Text-to-Speech](https://cloud.google.com/text-to-speech/docs/quickstart-protocol)
+* [Speech-to-Text](https://cloud.google.com/speech-to-text/docs/quickstart-protocol)
 * [Geocoding](https://developers.google.com/maps/documentation/geocoding/start)
 
 Basic instruction for all APIs:
@@ -70,7 +70,7 @@ The Cloud Text-to-Speech API is priced monthly based on the amount of characters
 | Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
 | WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
-### {% linkable_title Text-to-Speach configuration %}
+### {% linkable_title Text-to-Speech configuration %}
 
 {% configuration %}
 key_file:
