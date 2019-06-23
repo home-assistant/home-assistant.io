@@ -50,7 +50,7 @@ monitored_conditions:
     device:
       description: "The id of the device to poll"
       required: false
-      default: "\"1\" for inverters and \"0\" for storages in compliance with Fronius Specs"
+      default: "\"1\" for inverters and \"0\" for other devices such as storages in compliance with Fronius Specs"
 {% endconfiguration %}
 
 ### {% linkable_title More complete example %}
