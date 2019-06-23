@@ -16,7 +16,7 @@ ha_qa_scale: internal
 ---
 
 <p class='note warning'>
-Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or (Nabu Casa cloud](https://www.home-assistant.io/components/cloud) component.
+Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or [Nabu Casa cloud](https://www.home-assistant.io/components/cloud) component.
 </p>
 
 The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
