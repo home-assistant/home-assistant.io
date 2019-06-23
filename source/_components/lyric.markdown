@@ -25,7 +25,7 @@ To set up this component, you will need to set up a developer account with Honey
 1. Go to the [developer site](http://developer.honeywell.com) and register an account.
 1. Next, create a [new app](https://developer.honeywell.com/user/me/apps/add) via the `my apps` section.
     1. App Name: You can use any name here.
-    1. Callback URL: This needs to be the same url as your `base_url` + `/api/lyric/authenticate`. If you have not set this, it will be the ip address of your ha instance. For example: `http://192.168.1.120:8123/api/lyric/authenticate`.
+    1. Callback URL: This needs to be the same url as your `base_url` + `/auth/lyric/callback`. If you have not set this, it will be the ip address of your ha instance. For example: `http://192.168.1.120:8123/auth/lyric/callback`.
 1. Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret`.
 
 ## {% linkable_title Configuration via the frontend %}
