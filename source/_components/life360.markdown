@@ -94,6 +94,10 @@ prefix:
   required: false
   type: string
   default: life360
+show_as_state:
+  description: If device is not in a Home Assistant zone, it is determined to be driving (see attribute of same name) and `driving` is specified, the state of entity will be set to `driving`. If device is not in a zone, it is determined to be moving and `moving` is specified, then state of entity will be set to `moving`.
+  required: false
+  type: [string, list]
 warning_threshold:
   description: See [Communication Errors](#communication-errors) for a detailed description.
   required: false
@@ -166,6 +170,9 @@ life360:
   max_gps_accuracy: 200
   max_update_wait:
     minutes: 45
+  show_as_state:
+    - driving
+    - moving
   # Set comm error thresholds so first is not logged,
   # second is logged as a WARNING, and third and fourth
   # are logged as ERRORs.
