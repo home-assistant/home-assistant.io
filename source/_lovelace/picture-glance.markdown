@@ -35,7 +35,7 @@ image:
   description: Background image URL.
   type: string
 camera_image:
-  required: false
+  required: true
   description: Camera entity as Background image.
   type: string
 camera_view:
