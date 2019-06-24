@@ -35,6 +35,7 @@ redirect_from: /blog/2019/05/29/release-95/
 - Life360 integration ([@pnbruckner] - [#24227]) ([life360 docs]) (new-integration) (new-platform)
 - Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration) (new-platform)
 - Queensland bushfire alert feed platform ([@exxamalte] - [#24473]) ([qld_bushfire docs]) (new-integration)
+- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
 
 ## {% linkable_title New Platforms %}
 
@@ -52,6 +53,7 @@ redirect_from: /blog/2019/05/29/release-95/
 - Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration) (new-platform)
 - Add incomfort sensor and binary_sensor ([@zxdavb] - [#23812]) ([incomfort docs]) (new-platform)
 - Added ELV PCA 301 smart emeter switch ([@majuss] - [#23300]) ([elv docs]) (new-platform)
+- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
@@ -79,6 +81,29 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added name to sensors ([@cliffordwhansen] - [#24525]) ([synologydsm docs]) (breaking change)
 - Battery attribute & accuracy filter ([@GoNzCiD] - [#24277]) ([traccar docs]) (breaking change)
 - Added percent to the disk,memory and swap percent labels ([@cliffordwhansen] - [#24575]) ([glances docs]) (breaking change)
+- Save cached logi_circle tokens in config folder ([@evanjd] - [#24726]) ([logi_circle docs]) (breaking change) (beta fix)
+
+## {% linkable_title Beta Fixes %}
+
+- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
+- Fix device tracker see for entity registry entities ([@MartinHjelmare] - [#24633]) ([device_tracker docs]) (beta fix)
+- Bump ZHA dependencies. ([@Adminiuga] - [#24637]) ([zha docs]) (beta fix)
+- Update LIFX brightness during long transitions ([@amelchio] - [#24653]) ([lifx docs]) (beta fix)
+- Upgrade blinkpy==0.14.1 for startup bugfix ([@fronzbot] - [#24656]) ([blink docs]) (beta fix)
+- Warn when user tries run custom config flow ([@balloob] - [#24657]) (beta fix)
+- Bump pysmartthings ([@andrewsayre] - [#24659]) ([smartthings docs]) (beta fix)
+- Prefere binary with wheels ([@pvizeli] - [#24669]) (beta fix)
+- Allow extra js modules to be included in frontend ([@thomasloven] - [#24675]) ([frontend docs]) (beta fix)
+- Fix time expression parsing ([@amelchio] - [#24696]) (beta fix)
+- ZHA fix device type mappings ([@dmulcahey] - [#24699]) ([zha docs]) (beta fix)
+- Bump version pyatmo to 2.0.1 ([@cgtobi] - [#24703]) ([netatmo docs]) (beta fix)
+- Extend websocket method usage to port 8002 in Samsung TV media player ([@2sheds] - [#24716]) ([samsungtv docs]) (beta fix)
+- Update ZHA dependencies ([@dmulcahey] - [#24718]) ([zha docs]) (beta fix)
+- Add show_as_state options to Life360 ([@pnbruckner] - [#24725]) ([life360 docs]) (beta fix)
+- Save cached logi_circle tokens in config folder ([@evanjd] - [#24726]) ([logi_circle docs]) (breaking change) (beta fix)
+- Update ZHA dependencies. ([@Adminiuga] - [#24736]) ([zha docs]) (beta fix)
+- AdGuard to update entry ([@balloob] - [#24737]) ([adguard docs]) (beta fix)
+- Update pysonos to 0.0.17 ([@amelchio] - [#24740]) ([sonos docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -244,6 +269,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add weather alert sensor to meteo france component ([@oncleben31] - [#23128]) ([meteo_france docs])
 - Set up Met during onboarding ([@balloob] - [#24622]) ([met docs]) ([onboarding docs])
 - Added ELV PCA 301 smart emeter switch ([@majuss] - [#23300]) ([elv docs]) (new-platform)
+- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
+- Fix device tracker see for entity registry entities ([@MartinHjelmare] - [#24633]) ([device_tracker docs]) (beta fix)
+- Bump ZHA dependencies. ([@Adminiuga] - [#24637]) ([zha docs]) (beta fix)
+- Update LIFX brightness during long transitions ([@amelchio] - [#24653]) ([lifx docs]) (beta fix)
+- Upgrade blinkpy==0.14.1 for startup bugfix ([@fronzbot] - [#24656]) ([blink docs]) (beta fix)
+- Warn when user tries run custom config flow ([@balloob] - [#24657]) (beta fix)
+- Bump pysmartthings ([@andrewsayre] - [#24659]) ([smartthings docs]) (beta fix)
+- Prefere binary with wheels ([@pvizeli] - [#24669]) (beta fix)
+- Allow extra js modules to be included in frontend ([@thomasloven] - [#24675]) ([frontend docs]) (beta fix)
+- Fix time expression parsing ([@amelchio] - [#24696]) (beta fix)
+- ZHA fix device type mappings ([@dmulcahey] - [#24699]) ([zha docs]) (beta fix)
+- Bump version pyatmo to 2.0.1 ([@cgtobi] - [#24703]) ([netatmo docs]) (beta fix)
+- Extend websocket method usage to port 8002 in Samsung TV media player ([@2sheds] - [#24716]) ([samsungtv docs]) (beta fix)
+- Update ZHA dependencies ([@dmulcahey] - [#24718]) ([zha docs]) (beta fix)
+- Add show_as_state options to Life360 ([@pnbruckner] - [#24725]) ([life360 docs]) (beta fix)
+- Save cached logi_circle tokens in config folder ([@evanjd] - [#24726]) ([logi_circle docs]) (breaking change) (beta fix)
+- Update ZHA dependencies. ([@Adminiuga] - [#24736]) ([zha docs]) (beta fix)
+- AdGuard to update entry ([@balloob] - [#24737]) ([adguard docs]) (beta fix)
+- Update pysonos to 0.0.17 ([@amelchio] - [#24740]) ([sonos docs]) (beta fix)
 
 [#19548]: https://github.com/home-assistant/home-assistant/pull/19548
 [#21110]: https://github.com/home-assistant/home-assistant/pull/21110
@@ -305,6 +349,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24279]: https://github.com/home-assistant/home-assistant/pull/24279
 [#24280]: https://github.com/home-assistant/home-assistant/pull/24280
 [#24289]: https://github.com/home-assistant/home-assistant/pull/24289
+[#24290]: https://github.com/home-assistant/home-assistant/pull/24290
 [#24294]: https://github.com/home-assistant/home-assistant/pull/24294
 [#24301]: https://github.com/home-assistant/home-assistant/pull/24301
 [#24304]: https://github.com/home-assistant/home-assistant/pull/24304
@@ -407,6 +452,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24622]: https://github.com/home-assistant/home-assistant/pull/24622
 [#24624]: https://github.com/home-assistant/home-assistant/pull/24624
 [#24627]: https://github.com/home-assistant/home-assistant/pull/24627
+[#24633]: https://github.com/home-assistant/home-assistant/pull/24633
+[#24637]: https://github.com/home-assistant/home-assistant/pull/24637
+[#24653]: https://github.com/home-assistant/home-assistant/pull/24653
+[#24656]: https://github.com/home-assistant/home-assistant/pull/24656
+[#24657]: https://github.com/home-assistant/home-assistant/pull/24657
+[#24659]: https://github.com/home-assistant/home-assistant/pull/24659
+[#24669]: https://github.com/home-assistant/home-assistant/pull/24669
+[#24675]: https://github.com/home-assistant/home-assistant/pull/24675
+[#24696]: https://github.com/home-assistant/home-assistant/pull/24696
+[#24699]: https://github.com/home-assistant/home-assistant/pull/24699
+[#24703]: https://github.com/home-assistant/home-assistant/pull/24703
+[#24716]: https://github.com/home-assistant/home-assistant/pull/24716
+[#24718]: https://github.com/home-assistant/home-assistant/pull/24718
+[#24725]: https://github.com/home-assistant/home-assistant/pull/24725
+[#24726]: https://github.com/home-assistant/home-assistant/pull/24726
+[#24736]: https://github.com/home-assistant/home-assistant/pull/24736
+[#24737]: https://github.com/home-assistant/home-assistant/pull/24737
+[#24740]: https://github.com/home-assistant/home-assistant/pull/24740
+[@2sheds]: https://github.com/2sheds
 [@Adminiuga]: https://github.com/Adminiuga
 [@BackSlasher]: https://github.com/BackSlasher
 [@Cereal2nd]: https://github.com/Cereal2nd
@@ -420,6 +484,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@JumpMaster]: https://github.com/JumpMaster
 [@Kane610]: https://github.com/Kane610
 [@Klikini]: https://github.com/Klikini
+[@MartinHjelmare]: https://github.com/MartinHjelmare
 [@OttoWinter]: https://github.com/OttoWinter
 [@Petro31]: https://github.com/Petro31
 [@PhilRW]: https://github.com/PhilRW
@@ -431,6 +496,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@alengwenus]: https://github.com/alengwenus
 [@amelchio]: https://github.com/amelchio
 [@andre-richter]: https://github.com/andre-richter
+[@andrewsayre]: https://github.com/andrewsayre
 [@austinmroczek]: https://github.com/austinmroczek
 [@bachya]: https://github.com/bachya
 [@balloob]: https://github.com/balloob
@@ -448,11 +514,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@drobtravels]: https://github.com/drobtravels
 [@emontnemery]: https://github.com/emontnemery
 [@escoand]: https://github.com/escoand
+[@evanjd]: https://github.com/evanjd
 [@exxamalte]: https://github.com/exxamalte
 [@fabaff]: https://github.com/fabaff
 [@felipediel]: https://github.com/felipediel
 [@foxel]: https://github.com/foxel
 [@frenck]: https://github.com/frenck
+[@fronzbot]: https://github.com/fronzbot
 [@gibman]: https://github.com/gibman
 [@gonzalezcalleja]: https://github.com/gonzalezcalleja
 [@isabellaalstrom]: https://github.com/isabellaalstrom
@@ -476,6 +544,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@pvizeli]: https://github.com/pvizeli
 [@reinder83]: https://github.com/reinder83
 [@robbiet480]: https://github.com/robbiet480
+[@rodripf]: https://github.com/rodripf
 [@rolfberkenbosch]: https://github.com/rolfberkenbosch
 [@scarface-4711]: https://github.com/scarface-4711
 [@scop]: https://github.com/scop
@@ -502,6 +571,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [asuswrt docs]: /components/asuswrt/
 [automation docs]: /components/automation/
 [awair docs]: /components/awair/
+[blink docs]: /components/blink/
 [broadlink docs]: /components/broadlink/
 [buienradar docs]: /components/buienradar/
 [cast docs]: /components/cast/
@@ -513,6 +583,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [deluge docs]: /components/deluge/
 [demo docs]: /components/demo/
 [denonavr docs]: /components/denonavr/
+[device_tracker docs]: /components/device_tracker/
 [discord docs]: /components/discord/
 [discovery docs]: /components/discovery/
 [dlib_face_identify docs]: /components/dlib_face_identify/
@@ -520,6 +591,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [elv docs]: /components/elv/
 [environment_canada docs]: /components/environment_canada/
 [esphome docs]: /components/esphome/
+[frontend docs]: /components/frontend/
 [geniushub docs]: /components/geniushub/
 [gitlab_ci docs]: /components/gitlab_ci/
 [glances docs]: /components/glances/
@@ -537,8 +609,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [keenetic_ndms2 docs]: /components/keenetic_ndms2/
 [lcn docs]: /components/lcn/
 [life360 docs]: /components/life360/
+[lifx docs]: /components/lifx/
 [light docs]: /components/light/
 [linky docs]: /components/linky/
+[logi_circle docs]: /components/logi_circle/
 [manual docs]: /components/manual/
 [manual_mqtt docs]: /components/manual_mqtt/
 [mastodon docs]: /components/mastodon/
@@ -564,6 +638,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [simplisafe docs]: /components/simplisafe/
 [sisyphus docs]: /components/sisyphus/
 [sma docs]: /components/sma/
+[smartthings docs]: /components/smartthings/
 [smarty docs]: /components/smarty/
 [solaredge_local docs]: /components/solaredge_local/
 [somfy docs]: /components/somfy/
@@ -583,6 +658,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [velbus docs]: /components/velbus/
 [velux docs]: /components/velux/
 [vera docs]: /components/vera/
+[vlc_telnet docs]: /components/vlc_telnet/
 [waze_travel_time docs]: /components/waze_travel_time/
 [webostv docs]: /components/webostv/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
