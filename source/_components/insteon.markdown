@@ -198,6 +198,7 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
+- **insteon.load_all_databases**: Load the All-Link Database for all devices.  WARNING - This will run for a LONG time.
 - **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
 - **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
 - **insteon.print_im_all_link_database**: Print the All-Link Database for the INSTEON Modem (IM).
@@ -258,6 +259,24 @@ light:
     address: 1a2b3c
 ```
 
+### {% linkable_title INSTEON Scenes %}
+
+Trigger an INSTEON scene on or off is done via automations. Two services are provied to support this feature:
+- **insteon.scene_on**
+  - **group**: (required) The INSTEON scene number to trigger.
+- **insteon.scene_off**
+  - **group**: (required) The INSTEON scene to turn off
+
+```yaml
+automation:
+  # Trigger an INSTEON scene 25
+  - id: trigger_scene_25_on
+    alias: Turn on scene 25
+    action:
+    - service: insteon.scene_on
+       group: 25
+```
+
 ### {% linkable_title Events and Mini-Remotes %}
 
 Mini-Remote devices do not appear as Home Assistant entities, they generate events. The following events are available:
@@ -265,7 +284,7 @@ Mini-Remote devices do not appear as Home Assistant entities, they generate even
 - **insteon.button_on**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote the values are `a` to `d`. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
-- **insteon.button_of**
+- **insteon.button_off**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote the values are a to d. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
 
@@ -274,33 +293,37 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 ```yaml
 automation:
   # 4 or 8 button remote with button c pressed
-  trigger:
-    platform: event
-    event_type: insteon.button_on
+  - id: light_on
+    alias: Turn a light on
+    trigger:
+    - platform: event
+      event_type: insteon.button_on
     event_data:
       address: 1a2b3c
       button: c
-  condition:
+    condition:
     - condition: state
       entity_id: light.some_light
       state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.some_light
+    action:
+    - service: light.turn_on
+      entity_id: light.some_light
 
   # single button remote
-  trigger:
-    platform: event
-    event_type: insteon.button_on
-    event_data:
-      address: 1a2b3c
-  condition:
-    - condition: state
-      entity_id: light.some_light
-      state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.some_light
+    - id: light_off
+      alias: Turn a light off
+      trigger:
+      - platform: event
+        event_type: insteon.button_on
+      event_data:
+        address: 1a2b3c
+      condition:
+      - condition: state
+        entity_id: light.some_light
+        state: 'off'
+      action:
+      - service: light.turn_on
+        entity_id: light.some_light
 ```
 
 ### {% linkable_title Known Issues with the INSTEON Hub %}
