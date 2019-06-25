@@ -274,7 +274,7 @@ automation:
     alias: Turn on scene 25
     action:
     - service: insteon.scene_on
-       group: 25
+      group: 25
 ```
 
 ### {% linkable_title Events and Mini-Remotes %}
