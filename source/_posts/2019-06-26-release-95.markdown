@@ -14,6 +14,7 @@ redirect_from: /blog/2019/05/29/release-95/
 
 <a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
 
+- Raspberry Pi 4 got announced. We are STOKED. Working on making Hass.io images available soon. On a side note, there is a special Application class for SD Cards which can give you a lot better performance. Recommended. Generally, don't go cheap on the SD Cards, it really helps with reliability.
 - Better suitability for running Home Assistant in RVs:
   - new `homeassistant.set_location` service to dynamically set the location of the instance
   - the Met weather entity can be set up to automatically track your location.
