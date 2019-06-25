@@ -1,4 +1,7 @@
 
+title: "Device Tracker FortiOS"
+description: "Instructions on how to use Fortinet FortiOS to track devices in Home Assistant."
+
 This component enables Home Assistant to do device tracking of devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
 
 The component relies on the [fortiosapi](https://pypi.org/project/fortiosapi/).
