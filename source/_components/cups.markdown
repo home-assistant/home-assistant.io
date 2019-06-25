@@ -69,7 +69,7 @@ Default configuration for an IPP printer:
 # Example configuration.yaml entry for an IPP printer
 sensor:
   - platform: cups
-    host: <your printer IP here>
+    host: PRINTER_IP
     is_cups_server: false
     printers:
       - ipp/print
