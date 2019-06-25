@@ -27,6 +27,9 @@ redirect_from: /blog/2019/05/29/release-95/
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
+- We realized that the default database clean up script never automatically ran. This is fixed in this release and so now the defaults will kick in: daily all things older than 10 days will be removed. This is configurable via the recorder integration, check [the docs][recorder docs].
+- If you had some warnings in the last few releases about invalid slugs or extra keys that should be removed. Those warnings will now be errors.
+
 ## {% linkable_title New Integrations %}
 
 - Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration) (new-platform)
@@ -39,21 +42,15 @@ redirect_from: /blog/2019/05/29/release-95/
 
 ## {% linkable_title New Platforms %}
 
-- Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration) (new-platform)
 - Add LCN scene platform ([@alengwenus] - [#24242]) ([lcn docs]) (new-platform)
-- SolarEdge Local Component ([@drobtravels] - [#23996]) ([solaredge_local docs]) (new-integration) (new-platform)
 - Add Environment Canada weather, sensor, and camera platforms ([@michaeldavie] - [#21110]) ([environment_canada docs]) (new-platform)
-- Google Cloud Platform component (TTS) ([@lufton] - [#23629]) ([google_cloud docs]) (new-integration) (new-platform)
 - Support for Salda Smarty XV/XP Ventilation Unit ([@z0mbieprocess] - [#21491]) ([smarty docs]) (new-platform)
-- Life360 integration ([@pnbruckner] - [#24227]) ([life360 docs]) (new-integration) (new-platform)
 - Add support for ZHA door locks #2 ([@presslab-us] - [#24344]) ([zha docs]) (new-platform)
 - Somfy open api ([@tetienne] - [#19548]) ([somfy docs]) (new-platform)
 - Add APRS device tracker component ([@PhilRW] - [#22469]) ([aprs docs]) (new-platform)
 - Camera platform for buienradar imagery ([@ties] - [#23358]) ([buienradar docs]) (new-platform)
-- Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration) (new-platform)
 - Add incomfort sensor and binary_sensor ([@zxdavb] - [#23812]) ([incomfort docs]) (new-platform)
 - Added ELV PCA 301 smart emeter switch ([@majuss] - [#23300]) ([elv docs]) (new-platform)
-- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
 
 ## {% linkable_title If you need help... %}
 
