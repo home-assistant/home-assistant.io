@@ -60,7 +60,7 @@ api_key:
 | `slug` | `False` | string | Carrier e.g. `fedex`
 | `title` | `False` | string | Friendly name of package
 
- ## {% linkable_title Service `remove_tracking` %}
+## {% linkable_title Service `remove_tracking` %}
 
  You can use the service `aftership.remove_tracking` to remove trackings from Aftership.
 
