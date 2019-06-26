@@ -144,6 +144,10 @@ tilt_status_topic:
   description: The MQTT topic subscribed to receive tilt status update values.
   required: false
   type: string
+tilt_status_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. "
+  required: false
+  type: string
 tilt_min:
   description: The minimum tilt value.
   required: false
@@ -306,6 +310,7 @@ cover:
     value_template: '{{ value.x }}'
     tilt_command_topic: 'home-assistant/cover/tilt'
     tilt_status_topic: 'home-assistant/cover/tilt-state'
+    tilt_status_template: '{{ value_json["PWM"]["PWM1"] }}'
     tilt_min: 0
     tilt_max: 180
     tilt_closed_value: 70

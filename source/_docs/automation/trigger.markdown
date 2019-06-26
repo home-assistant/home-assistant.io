@@ -186,7 +186,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ### {% linkable_title Template trigger %}
 
-Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false before it will fire again.
+Template triggers work by evaluating a [template](/docs/configuration/templating/) on every state change for all of the recognized entities. The trigger will fire if the state change caused the template to render 'true'. This is achieved by having the template result in a true boolean expression (`{% raw %}{{ is_state('device_tracker.paulus', 'home') }}{% endraw %}`) or by having the template render 'true' (example below). Being a boolean expression the template must evaluate to false (or anything other than true) before it will fire again.
 With template triggers you can also evaluate attribute changes by using is_state_attr (`{% raw %}{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}{% endraw %}`)
 
 {% raw %}
@@ -195,6 +195,9 @@ automation:
   trigger:
     platform: template
     value_template: "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
+
+    # If given, will trigger when template remains true for X time.
+    for: '00:01:00'
 ```
 {% endraw %}
 

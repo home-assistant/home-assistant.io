@@ -35,7 +35,7 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 
 ### {% linkable_title Cover control services %}
 
-Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`
+Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

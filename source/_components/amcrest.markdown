@@ -117,6 +117,8 @@ binary_sensors:
   keys:
     motion_detected:
       description: "Return `on` when a motion is detected, `off` when not."
+    online:
+      description: "Return `on` when camera is available (i.e., responding to commands), `off` when not."
 sensors:
   description: >
     Conditions to display in the frontend.
@@ -153,6 +155,12 @@ switches:
       description: Enable/disable motion detection setting.
     motion_recording:
       description: Enable/disable recording on motion detection setting.
+control_light:
+  description: >
+    Automatically control the camera's indicator light, turning it on if the audio or video streams are enabled, and turning it off if both streams are disabled.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 **Note:** Amcrest cameras with newer firmware no longer have the ability to
@@ -240,6 +248,7 @@ amcrest:
     password: YOUR_PASSWORD
     binary_sensors:
       - motion_detected
+      - online
     sensors:
       - sdcard
 

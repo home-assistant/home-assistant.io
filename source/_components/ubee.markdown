@@ -51,6 +51,7 @@ password:
 Supported models:
 - EVW3200-Wifi
 - EVW320B
+- EVW321B
 - EVW32C-0N
 - EVW3226@UPC
 

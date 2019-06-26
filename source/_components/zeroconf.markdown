@@ -9,6 +9,7 @@ sharing: true
 footer: true
 ha_category:
   - Network
+ha_qa_scale: internal
 ha_release: 0.18
 ---
 
@@ -18,19 +19,9 @@ Integrations can opt-in to be found by adding either [a Zeroconf section](https:
 
 ## {% linkable_title Configuration %}
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+To have Home Assistant scan for integrations using zeroconf and HomeKit, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 zeroconf:
 ```
-
-## {% linkable_title Discovered Integrations %}
-
-The following integrations are automatically discovered by the Zeroconf integration:
-
- - Axis
- - ESPHome
- - HomeKit Controller
- - LIFX
- - Trådfri

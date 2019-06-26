@@ -14,6 +14,7 @@ ha_category:
   - Climate
   - Cover
   - Light
+  - Scene
   - Sensor
   - Switch
 ha_release: 0.85
@@ -35,6 +36,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
+- [Scene](#scene)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -84,6 +86,14 @@ lcn:
       address: myhome.s0.m7
       output: output1
       dimmable: true
+      transition: 5
+
+  scenes:
+    - name: Romantic
+      address: myhome.s0.m7
+      register: 1
+      scene: 4
+      outputs: [output1, output2, relais1, relais3, relais4]
       transition: 5
 
   sensors:
@@ -242,6 +252,37 @@ lights:
       type: int
       default: 0
 
+scenes:
+  description: List of your scenes.
+  required: false
+  type: map
+  keys:
+    name:
+      description: "Name of the scene."
+      required: true
+      type: string
+    address:
+      description: "[Address](#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    register:
+      description: Number of scene register (0..9).
+      required: true
+      type: int
+    scene:
+      description: Number of scene (0..9).
+      required: true
+      type: int
+    outputs:
+      description: "List of ports ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
+      required: false
+      type: list
+    transition:
+      description: Transition (ramp) time in seconds.
+      required: false
+      type: int
+      default: None
+
 sensors:
   description: List of your sensors.
   required: false
@@ -397,6 +438,10 @@ The `lcn` light platform allows the control of the following [LCN](http://www.lc
 
 - (Dimmable) output ports
 - Relays
+
+### {% linkable_title Scene %}
+
+The `lcn` scene platform allows the activation of previously programmed [LCN](http://www.lcn.eu) scenes.
 
 ### {% linkable_title Sensor %}
 

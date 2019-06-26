@@ -36,6 +36,11 @@ sensor:
 ```
 
 {% configuration %}
+name:
+  description: The name of your device
+  required: false
+  default: Synology DSM
+  type: string
 host:
   description: The IP address of the Synology NAS to monitor.
   required: true

@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Weather
 
-It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file.
+It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file, including weather alerts from [Vigilance Météo-France](http://vigilance.meteofrance.com)
 
 ## {% linkable_title Configuration %}
 
@@ -66,6 +66,8 @@ meteo_france:
         description: Probability of snow for the day.
       thunder_chance:
         description: Probability of thunderstorm for the day.
+      weather_alert:
+        description: Weather alert status.
 {% endconfiguration %}
 
 ### {% linkable_title About `city` configuration %}
@@ -103,6 +105,16 @@ Possible value for each intervals attributes are:
 - 3 Moderate rain
 - 4 Heavy rain
 
+### {% linkable_title About `weather_alert` sensor %}
+
+<p class='note warning'>
+  The weather alert is available for the metropolitan France.
+</p>
+
+The `weather_alert` sensor value give the current weather alert status for the department linked to the city. Data is retrieve from [Météo-France vigilance website](http://vigilance.meteofrance.com/).
+
+The sensor attributes give access to each type of alerts and date of the bulletin emitted by Météo-France.
+
 ### {% linkable_title Complete example %}
 
 This is an example for 3 cities forecast with different monitored conditions:
@@ -121,6 +133,7 @@ meteo_france:
         - wind_speed
         - temperature
         - uv
+        - weather_alert
   - city: 'Oslo, norvege'
     monitored_conditions:
       - temperature
