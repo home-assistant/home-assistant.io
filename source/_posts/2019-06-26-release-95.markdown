@@ -40,7 +40,7 @@ One cool new feature: because parental control is now available as a switch, you
 <a href="https://youtu.be/IyoHpU8JxSs?t=6324">
 <img src='/images/blog/2019-06-release-95/frenck.png' alt='Screenshot of Frenck during his stream demoing AdGuard.'>
 </a>
-Frenck shows a demo of the AdGuard integration during his stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the full stream.</a>
+Frenck shows a demo of the AdGuard integration during his stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the demo.</a>
 </p>
 
 ## {% linkable_title Life360 %}
@@ -51,7 +51,7 @@ If you are migrating from the custom integration, [please read the instructions]
 
 ## {% linkable_title Improved Alexa integration %}
 
-One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is reflected instantly inside Alexa. Add an entity? Control it instantly via Alexa.
+One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is instantly reflected inside Alexa. Add an entity? Control it instantly via Alexa.
 
 However, we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
 
