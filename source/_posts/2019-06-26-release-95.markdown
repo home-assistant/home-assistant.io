@@ -13,22 +13,22 @@ og_image: /images/blog/2019-06-release-95/social.png
 
 <a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
 
-It is time for release 0.95. And guess what? It's good. First things first, did you see [the new Raspberry Pi 4](https://www.raspberrypi.org/blog/raspberry-pi-4-on-sale-now-from-35/)? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. But you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
+It is time for release 0.95, and guess what? It's good! First things first, did you see [the new Raspberry Pi 4](https://www.raspberrypi.org/blog/raspberry-pi-4-on-sale-now-from-35/)? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. However, you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
-Talking about Hass.io support, we've ordered ours and work to add support will start shortly 🚀. And while we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
+Talking about Hass.io support, we've ordered ours and work to add support will start shortly 🚀. Since we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
 
 ## {% linkable_title RV Assistant %}
 
 Home Assistant is not just limited to homes. Recently we had a boat owner on [Home Assistant podcast episode 48](https://hasspodcast.io/ha048/), and Home Assistant also powers recreational vehicles (RV) ([like this schoolbus](https://thisisthebus.com/our-tech-stack.html)).
 
-In the last release we introduced support for the core config to be updated without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant/set_location`. With this service you can automatically change the location that Home Assistant is located. Once updated, it will automatically update all the things that rely on the location, like your sunset triggers and your current weather (only [Met][met docs] supported now).
+In the last release, we introduced support for the core config to be updated without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant.set_location`. With this service, you can automatically change the location that Home Assistant is located. Once updated, it automatically updates all the things that rely on the location, like your sunset triggers and your current weather (only [Met][met docs] supported now).
 
-## {% linkable_title AdGuard - local adblocking %}
+## {% linkable_title AdGuard Home - local ad-and-tracker bloking %}
 
-Here at Home Assistant we're big fans of privacy and we're always working on improving it. So this brings us to [AdGuard](https://adguard.com/). AdGuard is a local DNS server that will automatically block any device looking up a domain that is used to serve ads. And thanks to [@frenck], starting release 0.95, this has a top notch integration with Home Assistant:
+Here at Home Assistant, we're big fans of privacy and we're always working on improving it. So this brings us to [AdGuard](https://adguard.com/). AdGuard Home is a local DNS server that automatically blocks any device looking up a domain that is used to serve ads, spreads malware, or isn't appropriate for your kids. Thanks to [@frenck], starting release 0.95, it has a top-notch integration with Home Assistant:
 
- - One click install the AdGuard Hass.io add-on from the [Community add-ons](https://github.com/hassio-addons/repository/blob/master/README.md).
- - Home Assistant automatically detects the Hass.io add-on and offers to set it up. (It works with standalone installs too, but you need to [manually configure it][adguard docs])
+ - One-click install the AdGuard add-on from the [Community Hass.io Add-ons](https://github.com/hassio-addons/repository/blob/master/README.md).
+ - Home Assistant automatically detects the Hass.io add-on and offers to set it up. (It works with standalone installs too, see the [AdGuard integration documentation][adguard docs] on how to configure it.)
  - DONE!
 
 One cool new feature: because parental control is now available as a switch, you can control AdGuard via Alexa and Google: "Hey Google, turn on parental control" 😲.
@@ -37,7 +37,7 @@ One cool new feature: because parental control is now available as a switch, you
 <a href="https://youtu.be/IyoHpU8JxSs?t=6324">
 <img src='/images/blog/2019-06-release-95/frenck.png' alt='Screenshot of Frenck during his stream demoing AdGuard.'>
 </a>
-Frenck shows a demo of AdGuard during the stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the full stream.</a>
+Frenck shows a demo of the AdGuard integration during his stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the full stream.</a>
 </p>
 
 ## {% linkable_title Life360 %}
@@ -48,9 +48,9 @@ If you are migrating from the custom integration, [please read the instructions]
 
 ## {% linkable_title Improved Alexa integration %}
 
-One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. And Alexa actually offers some cool features around this. Any change you make will now be instantly reflected inside Alexa. Add an entity? Control it instantly via Alexa.
+One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is reflected instantly inside Alexa. Add an entity? Control it instantly via Alexa.
 
-But we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities will be sent to Amazon as soon as they happen. This allows Amazon Echos with displays to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
+However, we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -65,9 +65,9 @@ But we didn't stop there. The [manual installations of Alexa](https://www.home-a
 
 ## {% linkable_title Noteworthy breaking changes %}
 
-For the last couple of releases we've been printing warnings if your configuration contained invalid slugs or extra keys. Starting with this release, these warnings are now errors. No procrastination anymore, you'll need to fix it now.
+For the last couple of releases, we've been printing warnings if your configuration contained invalid slugs or extra keys. Starting with this release, these warnings are now errors. No procrastination anymore, you'll need to fix it now.
 
-We have also realized that the default database clean up task never automatically ran as intended. Instead of running every night, cleaning up your history so that it only contains the last 10 days, it never ran. Oopsie. This is fixed in this release and so now the defaults will kick in. Want to adjust how much history you want to retain? Check [the docs][recorder docs].
+We have also realized that the default database clean up task never automatically ran as intended. Instead of running every night, cleaning up your history so that it only contains the last 10 days, it never ran. Oopsie. We've fixed it in this release, so now the defaults kick in. Want to adjust how much history you want to retain? Check [the docs][recorder docs].
 
 ## {% linkable_title New Integrations %}
 
