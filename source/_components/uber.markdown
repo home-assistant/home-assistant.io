@@ -15,6 +15,7 @@ ha_release: 0.16
 redirect_from:
  - /components/sensor.uber/
 ---
+## This component has been deprecated as of June 13, 2019 as Uber closed their public api.
 
 The `uber` sensor will give you time and price estimates for all available [Uber](https://uber.com) products at the given location. The `ATTRIBUTES` are used to provide extra information about products, such as estimated trip duration, distance and vehicle capacity. By default, 2 sensors will be created for each product at the given `start` location, one for pickup time and one for current price. The sensor is powered by the official Uber [API](https://developer.uber.com/).
 
