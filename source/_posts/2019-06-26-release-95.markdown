@@ -14,7 +14,7 @@ redirect_from: /blog/2019/05/29/release-95/
 
 <a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
 
-It is time for release 0.95. And guess what? It's good. First things first, did you see the new Raspberry Pi 4? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. But you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
+It is time for release 0.95. And guess what? It's good. First things first, did you see [the new Raspberry Pi 4](https://www.raspberrypi.org/blog/raspberry-pi-4-on-sale-now-from-35/)? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. But you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
 Talking about Hass.io support, we've ordered ours and work to add support will start shortly 🚀. And while we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
 
