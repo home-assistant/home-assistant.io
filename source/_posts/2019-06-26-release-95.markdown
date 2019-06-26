@@ -8,8 +8,7 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-06-release-95/google-ui.png
-redirect_from: /blog/2019/05/29/release-95/
+og_image: /images/blog/2019-06-release-95/social.png
 ---
 
 <a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
