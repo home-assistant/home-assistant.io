@@ -67,7 +67,7 @@ However, we didn't stop there. The [manual installations of Alexa](https://www.h
 
 For the last couple of releases, we've been printing warnings if your configuration contained invalid slugs or extra keys. Starting with this release, these warnings are now errors. No procrastination anymore, you'll need to fix it now.
 
-We have also realized that the default database clean up task never automatically ran as intended. Instead of running every night, cleaning up your history so that it only contains the last 10 days, it never ran. Oopsie. We've fixed it in this and so now the defaults kick in. Want to adjust how much history you want to retain? Check [the docs][recorder docs].
+We have also realized that the default database clean up task never automatically ran as intended. Instead of running every night, cleaning up your history so that it only contains the last 10 days, it never ran. Oopsie. We've fixed it in this release, so now the defaults kick in. Want to adjust how much history you want to retain? Check [the docs][recorder docs].
 
 ## {% linkable_title New Integrations %}
 
