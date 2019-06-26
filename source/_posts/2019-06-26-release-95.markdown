@@ -28,7 +28,7 @@ In the last release, we introduced support for the core config to be updated wit
 Here at Home Assistant, we're big fans of privacy and we're always working on improving it. So this brings us to [AdGuard](https://adguard.com/). AdGuard Home is a local DNS server that automatically blocks any device looking up a domain that is used to serve ads, spreads malware, or isn't appropriate for your kids. Thanks to [@frenck], starting release 0.95, it has a top-notch integration with Home Assistant:
 
  - One-click install the AdGuard add-on from the [Community Hass.io Add-ons](https://github.com/hassio-addons/repository/blob/master/README.md).
- - Home Assistant automatically detects the Hass.io add-on and offers to set it up. (It works with standalone installs too, see the [manually configure it][adguard docs])
+ - Home Assistant automatically detects the Hass.io add-on and offers to set it up. (It works with standalone installs too, see the [AdGuard integration documentation][adguard docs] on how to configure it.)
  - DONE!
 
 One cool new feature: because parental control is now available as a switch, you can control AdGuard via Alexa and Google: "Hey Google, turn on parental control" 😲.
