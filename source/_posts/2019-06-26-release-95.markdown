@@ -15,7 +15,10 @@ og_image: /images/blog/2019-06-release-95/social.png
 
 It is time for release 0.95, and guess what? It's good! First things first, did you see [the new Raspberry Pi 4](https://www.raspberrypi.org/blog/raspberry-pi-4-on-sale-now-from-35/)? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. However, you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
-Talking about Hass.io support, we've ordered ours and work to add support will start shortly 🚀. Since we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
+Talking about Hass.io support, we've received ours and work to add support will start shortly 🚀. Since we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">LOOK WHAT WE HAVE HERE 😍 <a href="https://t.co/HrEu1a272Y">pic.twitter.com/HrEu1a272Y</a></p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1143808786983006208?ref_src=twsrc%5Etfw">June 26, 2019</a>
+</blockquote>
 
 ## {% linkable_title RV Assistant %}
 
@@ -23,7 +26,7 @@ Home Assistant is not just limited to homes. Recently we had a boat owner on [Ho
 
 In the last release, we introduced support for the core config to be updated without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant.set_location`. With this service, you can automatically change the location that Home Assistant is located. Once updated, it automatically updates all the things that rely on the location, like your sunset triggers and your current weather (only [Met][met docs] supported now).
 
-## {% linkable_title AdGuard Home - local ad-and-tracker bloking %}
+## {% linkable_title AdGuard Home - local ad-and-tracker blocking %}
 
 Here at Home Assistant, we're big fans of privacy and we're always working on improving it. So this brings us to [AdGuard](https://adguard.com/). AdGuard Home is a local DNS server that automatically blocks any device looking up a domain that is used to serve ads, spreads malware, or isn't appropriate for your kids. Thanks to [@frenck], starting release 0.95, it has a top-notch integration with Home Assistant:
 
@@ -71,13 +74,13 @@ We have also realized that the default database clean up task never automaticall
 
 ## {% linkable_title New Integrations %}
 
-- Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration) (new-platform)
-- SolarEdge Local Component ([@drobtravels] - [#23996]) ([solaredge_local docs]) (new-integration) (new-platform)
-- Google Cloud Platform component (TTS) ([@lufton] - [#23629]) ([google_cloud docs]) (new-integration) (new-platform)
-- Life360 integration ([@pnbruckner] - [#24227]) ([life360 docs]) (new-integration) (new-platform)
-- Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration) (new-platform)
+- Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration)
+- SolarEdge Local Component ([@drobtravels] - [#23996]) ([solaredge_local docs]) (new-integration)
+- Google Cloud Platform component (TTS) ([@lufton] - [#23629]) ([google_cloud docs]) (new-integration)
+- Life360 integration ([@pnbruckner] - [#24227]) ([life360 docs]) (new-integration)
+- Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration)
 - Queensland bushfire alert feed platform ([@exxamalte] - [#24473]) ([qld_bushfire docs]) (new-integration)
-- VLC telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
+- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration)
 
 ## {% linkable_title New Platforms %}
 
@@ -121,7 +124,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## {% linkable_title Beta Fixes %}
 
-- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
+- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration)
 - Fix device tracker see for entity registry entities ([@MartinHjelmare] - [#24633]) ([device_tracker docs]) (beta fix)
 - Bump ZHA dependencies. ([@Adminiuga] - [#24637]) ([zha docs]) (beta fix)
 - Update LIFX brightness during long transitions ([@amelchio] - [#24653]) ([lifx docs]) (beta fix)
@@ -140,6 +143,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update ZHA dependencies. ([@Adminiuga] - [#24736]) ([zha docs]) (beta fix)
 - AdGuard to update entry ([@balloob] - [#24737]) ([adguard docs]) (beta fix)
 - Update pysonos to 0.0.17 ([@amelchio] - [#24740]) ([sonos docs]) (beta fix)
+- Clean up Google Config ([@balloob] - [#24663]) ([cloud docs]) ([google_assistant docs]) (beta fix)
+- Fix locative device update ([@MartinHjelmare] - [#24744]) ([locative docs]) (beta fix)
+- Improve Alexa error handling ([@balloob] - [#24745]) ([alexa docs]) ([cloud docs]) ([websocket_api docs]) (beta fix)
+- Bump pyatmo to v2.1.0 ([@cgtobi] - [#24724]) ([netatmo docs]) (beta fix)
+- Handle timeouts gracefully ([@cgtobi] - [#24752]) ([netatmo docs]) (beta fix)
+- Update Waze route dependency to 0.10 ([@johntdyer] - [#24754]) ([waze_travel_time docs]) (beta fix)
+- Ignore duplicate tradfri discovery ([@balloob] - [#24759]) ([tradfri docs]) (beta fix)
+- Return correct name for met.no ([@Danielhiversen] - [#24763]) ([met docs]) (beta fix)
 
 ## {% linkable_title All changes %}
 
@@ -159,7 +170,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - fix gitlab_ci sad icon ([@Emilv2] - [#24241]) ([gitlab_ci docs])
 - Add details to triggered state for total connect alarms ([@austinmroczek] - [#24106]) ([totalconnect docs])
 - Bump python-velbus version for velbus component ([@Cereal2nd] - [#24226]) ([velbus docs])
-- Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration) (new-platform)
+- Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration)
 - Fix typo in integration component ([@Emilv2] - [#24250]) ([integration docs])
 - Replace pyunifi with aiounifi in UniFi device tracker ([@Kane610] - [#24149]) ([unifi docs])
 - Add service for adding event to google component ([@isabellaalstrom] - [#22473]) ([google docs]) (breaking change)
@@ -172,7 +183,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add LCN scene platform ([@alengwenus] - [#24242]) ([lcn docs]) (new-platform)
 - Add support for learning new commands ([@felipediel] - [#23888]) ([remote docs])
 - Upgrade to newer version of rflink with improve error handling on incoming data. ([@aequitas] - [#24263]) ([rflink docs])
-- SolarEdge Local Component ([@drobtravels] - [#23996]) ([solaredge_local docs]) (new-integration) (new-platform)
+- SolarEdge Local Component ([@drobtravels] - [#23996]) ([solaredge_local docs]) (new-integration)
 - Push to version 0.7.9 of denonavr ([@scarface-4711] - [#24260]) ([denonavr docs])
 - Bump simplipy to 3.4.2 ([@bachya] - [#24326]) ([simplisafe docs])
 - Meteofrance fix 24244 ([@victorcerutti] - [#24315]) ([meteo_france docs])
@@ -188,7 +199,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add new movement type "actively" of the Xiaomi Vibration Sensor ([@syssi] - [#24334]) ([xiaomi_aqara docs])
 - Fix set_cover_position of the xiaomi_aqara cover for LAN protocol v2 ([@syssi] - [#24333]) ([xiaomi_aqara docs])
 - Add Environment Canada weather, sensor, and camera platforms ([@michaeldavie] - [#21110]) ([environment_canada docs]) (new-platform)
-- Google Cloud Platform component (TTS) ([@lufton] - [#23629]) ([google_cloud docs]) (new-integration) (new-platform)
+- Google Cloud Platform component (TTS) ([@lufton] - [#23629]) ([google_cloud docs]) (new-integration)
 - Add Streamlabs Water Monitor ([@cpopp] - [#21205]) ([streamlabswater docs])
 - ebusd: added check for monitored conditions validity within correct circuit ([@danielkucera] - [#22461]) ([ebusd docs])
 - Bring the Sisyphus integration to silver quality ([@jkeljo] - [#22457]) ([sisyphus docs])
@@ -197,7 +208,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add templating to MQTT Cover tilt_status ([@tommyjlong] - [#24355]) ([mqtt docs])
 - Upgrade ruamel.yaml to 0.15.97 ([@fabaff] - [#24350])
 - Bump regenmaschine to 1.5.1 ([@bachya] - [#24358]) ([rainmachine docs])
-- Life360 integration ([@pnbruckner] - [#24227]) ([life360 docs]) (new-integration) (new-platform)
+- Life360 integration ([@pnbruckner] - [#24227]) ([life360 docs]) (new-integration)
 - Refactor Waze Travel Time & Update Requirements ([@Petro31] - [#22428]) ([waze_travel_time docs])
 - Update pyhomematic ([@danielperna84] - [#24368]) ([homematic docs])
 - Add service to update core location ([@balloob] - [#24328]) ([homeassistant docs])
@@ -282,7 +293,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add code_arm_required to manual alarm ([@JumpMaster] - [#22618]) ([demo docs]) ([manual docs])
 - Add source selection to Samsung TV media player ([@escoand] - [#22612]) ([samsungtv docs])
 - Fix alarm control panel tests ([@balloob] - [#24586])
-- Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration) (new-platform)
+- Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration)
 - Fix honeywell issue #18932 ([@zxdavb] - [#24402]) ([honeywell docs])
 - Bump base Somfy MyLink library version ([@bendews] - [#24587]) ([somfy_mylink docs])
 - Better pairing for Xiaomi devices in ZHA ([@dmulcahey] - [#24564]) ([zha docs])
@@ -305,7 +316,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add weather alert sensor to meteo france component ([@oncleben31] - [#23128]) ([meteo_france docs])
 - Set up Met during onboarding ([@balloob] - [#24622]) ([met docs]) ([onboarding docs])
 - Added ELV PCA 301 smart emeter switch ([@majuss] - [#23300]) ([elv docs]) (new-platform)
-- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
+- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration)
 - Fix device tracker see for entity registry entities ([@MartinHjelmare] - [#24633]) ([device_tracker docs]) (beta fix)
 - Bump ZHA dependencies. ([@Adminiuga] - [#24637]) ([zha docs]) (beta fix)
 - Update LIFX brightness during long transitions ([@amelchio] - [#24653]) ([lifx docs]) (beta fix)
@@ -324,6 +335,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update ZHA dependencies. ([@Adminiuga] - [#24736]) ([zha docs]) (beta fix)
 - AdGuard to update entry ([@balloob] - [#24737]) ([adguard docs]) (beta fix)
 - Update pysonos to 0.0.17 ([@amelchio] - [#24740]) ([sonos docs]) (beta fix)
+- Clean up Google Config ([@balloob] - [#24663]) ([cloud docs]) ([google_assistant docs]) (beta fix)
+- Fix locative device update ([@MartinHjelmare] - [#24744]) ([locative docs]) (beta fix)
+- Improve Alexa error handling ([@balloob] - [#24745]) ([alexa docs]) ([cloud docs]) ([websocket_api docs]) (beta fix)
+- Bump pyatmo to v2.1.0 ([@cgtobi] - [#24724]) ([netatmo docs]) (beta fix)
+- Handle timeouts gracefully ([@cgtobi] - [#24752]) ([netatmo docs]) (beta fix)
+- Update Waze route dependency to 0.10 ([@johntdyer] - [#24754]) ([waze_travel_time docs]) (beta fix)
+- Ignore duplicate tradfri discovery ([@balloob] - [#24759]) ([tradfri docs]) (beta fix)
+- Return correct name for met.no ([@Danielhiversen] - [#24763]) ([met docs]) (beta fix)
 
 [#19548]: https://github.com/home-assistant/home-assistant/pull/19548
 [#21110]: https://github.com/home-assistant/home-assistant/pull/21110
@@ -494,6 +513,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24656]: https://github.com/home-assistant/home-assistant/pull/24656
 [#24657]: https://github.com/home-assistant/home-assistant/pull/24657
 [#24659]: https://github.com/home-assistant/home-assistant/pull/24659
+[#24663]: https://github.com/home-assistant/home-assistant/pull/24663
 [#24669]: https://github.com/home-assistant/home-assistant/pull/24669
 [#24675]: https://github.com/home-assistant/home-assistant/pull/24675
 [#24696]: https://github.com/home-assistant/home-assistant/pull/24696
@@ -501,11 +521,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24703]: https://github.com/home-assistant/home-assistant/pull/24703
 [#24716]: https://github.com/home-assistant/home-assistant/pull/24716
 [#24718]: https://github.com/home-assistant/home-assistant/pull/24718
+[#24724]: https://github.com/home-assistant/home-assistant/pull/24724
 [#24725]: https://github.com/home-assistant/home-assistant/pull/24725
 [#24726]: https://github.com/home-assistant/home-assistant/pull/24726
 [#24736]: https://github.com/home-assistant/home-assistant/pull/24736
 [#24737]: https://github.com/home-assistant/home-assistant/pull/24737
 [#24740]: https://github.com/home-assistant/home-assistant/pull/24740
+[#24744]: https://github.com/home-assistant/home-assistant/pull/24744
+[#24745]: https://github.com/home-assistant/home-assistant/pull/24745
+[#24752]: https://github.com/home-assistant/home-assistant/pull/24752
+[#24754]: https://github.com/home-assistant/home-assistant/pull/24754
+[#24759]: https://github.com/home-assistant/home-assistant/pull/24759
+[#24763]: https://github.com/home-assistant/home-assistant/pull/24763
 [@2sheds]: https://github.com/2sheds
 [@Adminiuga]: https://github.com/Adminiuga
 [@BackSlasher]: https://github.com/BackSlasher
@@ -562,6 +589,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@isabellaalstrom]: https://github.com/isabellaalstrom
 [@jjlawren]: https://github.com/jjlawren
 [@jkeljo]: https://github.com/jkeljo
+[@johntdyer]: https://github.com/johntdyer
 [@jurriaan]: https://github.com/jurriaan
 [@jwater7]: https://github.com/jwater7
 [@kbickar]: https://github.com/kbickar
@@ -632,6 +660,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [gitlab_ci docs]: /components/gitlab_ci/
 [glances docs]: /components/glances/
 [google docs]: /components/google/
+[google_assistant docs]: /components/google_assistant/
 [google_cloud docs]: /components/google_cloud/
 [heos docs]: /components/heos/
 [homeassistant docs]: /components/homeassistant/
@@ -648,6 +677,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lifx docs]: /components/lifx/
 [light docs]: /components/light/
 [linky docs]: /components/linky/
+[locative docs]: /components/locative/
 [logi_circle docs]: /components/logi_circle/
 [manual docs]: /components/manual/
 [manual_mqtt docs]: /components/manual_mqtt/
@@ -688,6 +718,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [toon docs]: /components/toon/
 [totalconnect docs]: /components/totalconnect/
 [traccar docs]: /components/traccar/
+[tradfri docs]: /components/tradfri/
 [ubee docs]: /components/ubee/
 [uber docs]: /components/uber/
 [unifi docs]: /components/unifi/
@@ -697,6 +728,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vlc_telnet docs]: /components/vlc_telnet/
 [waze_travel_time docs]: /components/waze_travel_time/
 [webostv docs]: /components/webostv/
+[websocket_api docs]: /components/websocket_api/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [yeelight docs]: /components/yeelight/
 [yr docs]: /components/yr/
