@@ -16,19 +16,17 @@ redirect_from: /blog/2019/05/29/release-95/
 
 It is time for release 0.95. And guess what? It's good. First things first, did you see the new Raspberry Pi 4? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. But you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
-Talking about Hass.io support, we've ordered ours and work to add support will start shortly.
-
-And while we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
+Talking about Hass.io support, we've ordered ours and work to add support will start shortly 🚀. And while we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
 
 ## {% linkable_title RV Assistant %}
 
-Home Assistant is not just limited to homes. Recently we had a boat owner on [Home Assistant podcast episode 48](https://hasspodcast.io/ha048/), and Home Assistant has also powered recreational vehicles (RV) in the past ([like this schoolbus](https://thisisthebus.com/our-tech-stack.html)).
+Home Assistant is not just limited to homes. Recently we had a boat owner on [Home Assistant podcast episode 48](https://hasspodcast.io/ha048/), and Home Assistant also powers recreational vehicles (RV) ([like this schoolbus](https://thisisthebus.com/our-tech-stack.html)).
 
-In the last release we introduced support for the core config to be updated on the fly, without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant/set_location`. This service can be used to change the location that Home Assistant is located. Once updated, it will automatically update all the things that rely on the location, like your sunset triggers and your weather (only [Met][met docs] supported now).
+In the last release we introduced support for the core config to be updated without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant/set_location`. With this service you can automatically change the location that Home Assistant is located. Once updated, it will automatically update all the things that rely on the location, like your sunset triggers and your current weather (only [Met][met docs] supported now).
 
 ## {% linkable_title AdGuard - local adblocking %}
 
-Here at Home Assistant we're big fans of privacy and we're also working on sharing this with you, the users. So this brings us to [AdGuard](https://adguard.com/). AdGuard is a local DNS server that will automatically block any lookup of a domain that is used to serve ads. And thanks to [@frenck], starting release 0.95, this has a top notch integration with Home Assistant:
+Here at Home Assistant we're big fans of privacy and we're always working on improving it. So this brings us to [AdGuard](https://adguard.com/). AdGuard is a local DNS server that will automatically block any device looking up a domain that is used to serve ads. And thanks to [@frenck], starting release 0.95, this has a top notch integration with Home Assistant:
 
  - One click install the AdGuard Hass.io add-on from the [Community add-ons](https://github.com/hassio-addons/repository/blob/master/README.md).
  - Home Assistant automatically detects the Hass.io add-on and offers to set it up. (It works with standalone installs too, but you need to [manually configure it][adguard docs])
@@ -39,24 +37,27 @@ One cool new feature: because parental control is now available as a switch, you
 <p class='img'>
 <a href="https://youtu.be/IyoHpU8JxSs?t=6324">
 <img src='/images/blog/2019-06-release-95/frenck.png' alt='Screenshot of Frenck during his stream demoing AdGuard.'>
+</a>
 Frenck shows a demo of AdGuard during the stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the full stream.</a>
 </p>
 
 ## {% linkable_title Life360 %}
 
-More goodies. Keep paying attention as we're not done yet. Also new in 0.95 is the [Life360 integration][life360 docs] thanks to the hard work by [@pnbruckner]. This integration started its life over a year ago [on the forums as a custom integration](https://community.home-assistant.io/t/life360-device-tracker-platform/52406) and has now been merged in. Life360 is an app to allow friends or family members to share location with each other.
+More goodies. Keep paying attention as we're not done yet. Also new in 0.95 is the [Life360 integration][life360 docs] thanks to the hard work by [@pnbruckner]. This integration started its life a little over 360 days ago [on the forums as a custom integration](https://community.home-assistant.io/t/life360-device-tracker-platform/52406) and has now become part of Home Assistant. Life360 is an app to allow friends or family members to share location with each other.
 
 If you are migrating from the custom integration, [please read the instructions](https://community.home-assistant.io/t/life360-device-tracker-platform/52406/1077).
 
 ## {% linkable_title Improved Alexa integration %}
 
-One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed via the user interface. And Alexa actually offers some cool features around this. Any change you make will now be instantly reflected inside Alexa. Add an entity? Get notified instantly that it has been added to Alexa.
+One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. And Alexa actually offers some cool features around this. Any change you make will now be instantly reflected inside Alexa. Add an entity? Control it instantly via Alexa.
 
-But we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities will be sent to Amazon, allowing Amazon Echos with display to instantly reflect the state and allow you to create routines inside Amazon powered by your Home Assistant entities.
+But we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities will be sent to Amazon as soon as they happen. This allows Amazon Echos with displays to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+
+## {% linkable_title More icons available %}
 
 [Austin Andrews](https://twitter.com/templarian), the lead designer of Material Design Icons, informed us that Material Design Icons 3.7.95 has been released. It includes a handful of the top requested Home Assistant icons (and a total of 100 new icons!).
 
