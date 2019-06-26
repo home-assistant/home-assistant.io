@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "0.95: TBD - UPDATE DATE"
-description: "TBD"
-date: 2019-06-19 04:11:03
+title: "0.95: AdGuard, Life360, Plaato Airlock"
+description: "Manage Alexa UI, improved RV support, even more icons available."
+date: 2019-06-26 04:11:03
 date_formatted: "June 26, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
@@ -14,27 +14,60 @@ redirect_from: /blog/2019/05/29/release-95/
 
 <a href='/components/#version/0.95'><img src='/images/blog/2019-06-release-95/components.png' style='border: 0;box-shadow: none;'></a>
 
-- Raspberry Pi 4 got announced. We are STOKED. Working on making Hass.io images available soon. On a side note, there is a special Application class for SD Cards which can give you a lot better performance. Recommended. Generally, don't go cheap on the SD Cards, it really helps with reliability.
-- Better suitability for running Home Assistant in RVs:
-  - new `homeassistant.set_location` service to dynamically set the location of the instance
-  - the Met weather entity can be set up to automatically track your location.
+It is time for release 0.95. And guess what? It's good. First things first, did you see the new Raspberry Pi 4? 3x as fast as the model 3, gigabit ethernet port actually supports gigabit speeds now, faster memory read/write, oh well, faster everything! [The benchmarks are impressive.](https://www.raspberrypi.org/magpi/raspberry-pi-4-specs-benchmarks/) Best of all? The base price stayed the same. But you can now also pay more for upgraded models with more memory, which is great if you like to install all the hass.io add-ons.
 
-- AdGuard
-- Life360. If you were using the custom integration, please [read the instructions](https://community.home-assistant.io/t/life360-device-tracker-platform/52406/1077)
+Talking about Hass.io support, we've ordered ours and work to add support will start shortly.
 
-- Updated Alexa: UI to manage what Alexa can see, exposed entities pushed to Alexa on change (including cleaning up no longer exposed ones), opt-in state reporting.
+And while we're discussing Raspberry Pi's, can we talk SD cards really quick? Quality matters. When you buy SD Cards get the pro variants, preferably the ones that are [class A1](https://amzn.to/2WYUVtm) or, even better, [class A2](https://amzn.to/2X0Z2di). The A stands for application and they are optimized for running apps, like Home Assistant.
+
+## {% linkable_title RV Assistant %}
+
+Home Assistant is not just limited to homes. Recently we had a boat owner on [Home Assistant podcast episode 48](https://hasspodcast.io/ha048/), and Home Assistant has also powered recreational vehicles (RV) in the past ([like this schoolbus](https://thisisthebus.com/our-tech-stack.html)).
+
+In the last release we introduced support for the core config to be updated on the fly, without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant/set_location`. This service can be used to change the location that Home Assistant is located. Once updated, it will automatically update all the things that rely on the location, like your sunset triggers and your weather (only [Met][met docs] supported now).
+
+## {% linkable_title AdGuard - local adblocking %}
+
+Here at Home Assistant we're big fans of privacy and we're also working on sharing this with you, the users. So this brings us to [AdGuard](https://adguard.com/). AdGuard is a local DNS server that will automatically block any lookup of a domain that is used to serve ads. And thanks to [@frenck], starting release 0.95, this has a top notch integration with Home Assistant:
+
+ - One click install the AdGuard Hass.io add-on from the [Community add-ons](https://github.com/hassio-addons/repository/blob/master/README.md).
+ - Home Assistant automatically detects the Hass.io add-on and offers to set it up. (It works with standalone installs too, but you need to [manually configure it][adguard docs])
+ - DONE!
+
+One cool new feature: because parental control is now available as a switch, you can control AdGuard via Alexa and Google: "Hey Google, turn on parental control" 😲.
+
+<p class='img'>
+<a href="https://youtu.be/IyoHpU8JxSs?t=6324">
+<img src='/images/blog/2019-06-release-95/frenck.png' alt='Screenshot of Frenck during his stream demoing AdGuard.'>
+Frenck shows a demo of AdGuard during the stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the full stream.</a>
+</p>
+
+## {% linkable_title Life360 %}
+
+More goodies. Keep paying attention as we're not done yet. Also new in 0.95 is the [Life360 integration][life360 docs] thanks to the hard work by [@pnbruckner]. This integration started its life over a year ago [on the forums as a custom integration](https://community.home-assistant.io/t/life360-device-tracker-platform/52406) and has now been merged in. Life360 is an app to allow friends or family members to share location with each other.
+
+If you are migrating from the custom integration, [please read the instructions](https://community.home-assistant.io/t/life360-device-tracker-platform/52406/1077).
+
+## {% linkable_title Improved Alexa integration %}
+
+One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed via the user interface. And Alexa actually offers some cool features around this. Any change you make will now be instantly reflected inside Alexa. Add an entity? Get notified instantly that it has been added to Alexa.
+
+But we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities will be sent to Amazon, allowing Amazon Echos with display to instantly reflect the state and allow you to create routines inside Amazon powered by your Home Assistant entities.
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-- We realized that the default database clean up script never automatically ran. This is fixed in this release and so now the defaults will kick in: daily all things older than 10 days will be removed. This is configurable via the recorder integration, check [the docs][recorder docs].
-- If you had some warnings in the last few releases about invalid slugs or extra keys that should be removed. Those warnings will now be errors.
-
-[Austin Andrews](https://twitter.com/templarian) informed us that Material Design Icons 3.7.95 has been released. It includes a handful of the top requested Home Assistant icons (and a total of 100 new icons!).
+[Austin Andrews](https://twitter.com/templarian), the lead designer of Material Design Icons, informed us that Material Design Icons 3.7.95 has been released. It includes a handful of the top requested Home Assistant icons (and a total of 100 new icons!).
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Released `v3.7.95` to NPM/CDN. 100 new icons! 🧙‍♂️ Preview: <a href="https://t.co/N02X3rnQ8N">https://t.co/N02X3rnQ8N</a> Read more: <a href="https://t.co/CHQ3TEdVM2">https://t.co/CHQ3TEdVM2</a> <a href="https://twitter.com/hashtag/MaterialDesign?src=hash&amp;ref_src=twsrc%5Etfw">#MaterialDesign</a> <a href="https://twitter.com/hashtag/OpenSource?src=hash&amp;ref_src=twsrc%5Etfw">#OpenSource</a> <a href="https://t.co/LlWy8RfFVu">pic.twitter.com/LlWy8RfFVu</a></p>&mdash; Material Icons (@MaterialIcons) <a href="https://twitter.com/MaterialIcons/status/1142474126004760576?ref_src=twsrc%5Etfw">June 22, 2019</a>
 </blockquote>
+
+## {% linkable_title Noteworthy breaking changes %}
+
+For the last couple of releases we've been printing warnings if your configuration contained invalid slugs or extra keys. Starting with this release, these warnings are now errors. No procrastination anymore, you'll need to fix it now.
+
+We have also realized that the default database clean up task never automatically ran as intended. Instead of running every night, cleaning up your history so that it only contains the last 10 days, it never ran. Oopsie. This is fixed in this release and so now the defaults will kick in. Want to adjust how much history you want to retain? Check [the docs][recorder docs].
 
 ## {% linkable_title New Integrations %}
 
@@ -44,7 +77,7 @@ redirect_from: /blog/2019/05/29/release-95/
 - Life360 integration ([@pnbruckner] - [#24227]) ([life360 docs]) (new-integration) (new-platform)
 - Adds integration for Plaato Airlock ([@JohNan] - [#23727]) ([plaato docs]) (new-integration) (new-platform)
 - Queensland bushfire alert feed platform ([@exxamalte] - [#24473]) ([qld_bushfire docs]) (new-integration)
-- Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
+- VLC telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration) (new-platform)
 
 ## {% linkable_title New Platforms %}
 
