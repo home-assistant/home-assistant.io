@@ -70,7 +70,7 @@ The Cloud Text-to-Speech API is priced monthly based on the amount of characters
 | Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
 | WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
-### {% linkable_title Text-to-Speach configuration %}
+### {% linkable_title Text-to-Speech configuration %}
 
 {% configuration %}
 key_file:
