@@ -94,6 +94,22 @@ We have also realized that the default database clean up task never automaticall
 - Add incomfort sensor and binary_sensor ([@zxdavb] - [#23812]) ([incomfort docs]) (new-platform)
 - Added ELV PCA 301 smart emeter switch ([@majuss] - [#23300]) ([elv docs]) (new-platform)
 
+## {% linkable_title Release 0.95.1 - June 26 %}
+
+- Fix life360 exception when no location provided ([@pnbruckner] - [#24777]) ([life360 docs])
+- Pubnub to 1.0.8 ([@w1ll1am23] - [#24781]) ([wink docs])
+- Catch uncaught Alexa error ([@balloob] - [#24785]) ([cloud docs])
+
+[#24777]: https://github.com/home-assistant/home-assistant/pull/24777
+[#24781]: https://github.com/home-assistant/home-assistant/pull/24781
+[#24785]: https://github.com/home-assistant/home-assistant/pull/24785
+[@balloob]: https://github.com/balloob
+[@pnbruckner]: https://github.com/pnbruckner
+[@w1ll1am23]: https://github.com/w1ll1am23
+[cloud docs]: /components/cloud/
+[life360 docs]: /components/life360/
+[wink docs]: /components/wink/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
