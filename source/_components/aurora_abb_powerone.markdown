@@ -10,10 +10,9 @@ footer: true
 logo: home-assistant.png
 ha_category:
   - Sensor
+  - Energy
 ha_release: 0.95.1
 ha_iot_class: Local Polling
-redirect_from:
- - /components/sensor.aurora_abb_powerone/
 ---
 This implements a direct RS485 connection to a solar inverter in the 
 PVI-3.0/3.6/4.2-TL-OUTD ABB series, and may work on others.
