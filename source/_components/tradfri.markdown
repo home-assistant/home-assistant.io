@@ -56,7 +56,11 @@ allow_tradfri_groups:
 
 ### {% linkable_title Firmware updates %}
 
-After updating the firmware of your IKEA Trådfri Gateway it might be necessary to repeat the configuration process. If you encounter problems, delete the `.tradfri_psk.conf` file in your `.homeassistant` directory, restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup. Possible errors: `Fatal DTLS error: code 115`.
+After updating the firmware of your IKEA Trådfri Gateway it might be necessary to repeat the configuration process. Possible errors: `Fatal DTLS error: code 115`. If you encounter problems:
+- when configured using the integration: remove the integration through Settings > Integrations > Tradfri > delete using trash can icon;
+- with manual configuration: delete the `.tradfri_psk.conf` file in your `.homeassistant` directory;
+
+Then restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup.
 
 ### {% linkable_title Compilation issues %}
 
