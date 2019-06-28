@@ -11,7 +11,7 @@ logo: home-assistant.png
 ha_category:
   - Sensor
   - Energy
-ha_release: 0.95.1
+ha_release: 0.96
 ha_iot_class: Local Polling
 ---
 
