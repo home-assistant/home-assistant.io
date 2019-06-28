@@ -14,9 +14,9 @@ ha_release: 0.96
 ha_iot_class: Local Polling
 ---
 
-The `vallox` component lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
+The `vallox` integration lets you control any Vallox ventilation unit that is supported by the [vallox_websocket_api](https://github.com/yozik04/vallox_websocket_api) (follow the link for a list of supported units).
 
-The component's **fan** platform allows you to either turn on/off the complete unit via the toggle switch or select a ventilation profile through the service `vallox/set_profile`. The four standard Vallox profiles are provided:
+The **fan** platform of this integration allows you to either turn on/off the complete unit via the toggle switch or select a ventilation profile through the service `vallox/set_profile`. The four standard Vallox profiles are provided:
 
 - `At Home`
 - `Away`
