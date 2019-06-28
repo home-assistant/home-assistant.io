@@ -110,6 +110,32 @@ We have also realized that the default database clean up task never automaticall
 [life360 docs]: /components/life360/
 [wink docs]: /components/wink/
 
+## {% linkable_title Release 0.95.2 - June 28 %}
+
+- Fix netatmo weatherstation setup error ([@cgtobi] - [#24788]) ([netatmo docs])
+- Update azure-pipelines-release.yml for Azure Pipelines ([@pvizeli] - [#24800])
+- Make sure entity config is never none ([@balloob] - [#24801]) ([google_assistant docs])
+- Bump ZHA quirks module ([@dmulcahey] - [#24802]) ([zha docs])
+- Fix another Life360 bug ([@pnbruckner] - [#24805]) ([life360 docs])
+- Fix calling empty script turn off ([@balloob] - [#24827]) ([script docs])
+
+[#24788]: https://github.com/home-assistant/home-assistant/pull/24788
+[#24800]: https://github.com/home-assistant/home-assistant/pull/24800
+[#24801]: https://github.com/home-assistant/home-assistant/pull/24801
+[#24802]: https://github.com/home-assistant/home-assistant/pull/24802
+[#24805]: https://github.com/home-assistant/home-assistant/pull/24805
+[#24827]: https://github.com/home-assistant/home-assistant/pull/24827
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@dmulcahey]: https://github.com/dmulcahey
+[@pnbruckner]: https://github.com/pnbruckner
+[@pvizeli]: https://github.com/pvizeli
+[google_assistant docs]: /components/google_assistant/
+[life360 docs]: /components/life360/
+[netatmo docs]: /components/netatmo/
+[script docs]: /components/script/
+[zha docs]: /components/zha/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
