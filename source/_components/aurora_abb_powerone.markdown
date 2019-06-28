@@ -14,6 +14,7 @@ ha_category:
 ha_release: 0.95.1
 ha_iot_class: Local Polling
 ---
+
 This implements a direct RS485 connection to a solar inverter in the 
 PVI-3.0/3.6/4.2-TL-OUTD ABB series, and may work on others.
 The inverter was formerly made by PowerOne who got taken over by ABB.
@@ -53,11 +54,9 @@ address:
   type: integer
 {% endconfiguration %}
 
-{% raw %}
 ```yaml
 # Example configuration.yaml entry for aurora_abb_powerone platform
 sensor:
   - platform: aurora_abb_powerone
     rs485: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0'
 ```
-{% endraw %}
