@@ -95,7 +95,7 @@ encoding:
   description: "Default audio encoder. Supported encodings are `ogg_opus`, `mp3` and `linear16`."
   required: false
   type: string
-  default: ogg_opus
+  default: mp3
 speed:
   description: "Default rate/speed of the voice, in the range [0.25, 4.0]. 1.0 is the normal native speed supported by the specific voice. 2.0 is twice as fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed."
   required: false
