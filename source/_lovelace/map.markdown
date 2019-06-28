@@ -45,7 +45,7 @@ default_zoom:
   default: 14 (or whatever zoom level is required to fit all visible markers)
 dark_mode:
   required: false
-  description: Enable a dark theme for the map
+  description: Enable a dark theme for the map.
   type: boolean
   default: false
 {% endconfiguration %}
