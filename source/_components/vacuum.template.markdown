@@ -14,7 +14,7 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform creates vacuums that combine components and provides the
+The `template` platform creates vacuums that combine integrations and provides the
 ability to run scripts or invoke services for each of the start, pause, stop,
 return_to_base, clean_spot, locate and set_fan_speed commands of a vacuum.
 
@@ -90,6 +90,7 @@ vacuum:
 ## {% linkable_title Examples %}
 
 ### {% linkable_title Control vacuum with Harmony Hub %}
+
 This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/components/remote.harmony/).
 
 ```yaml
@@ -118,6 +119,7 @@ vacuum:
 ```
 
 ### {% linkable_title Vacuum with state %}
+
 This example shows how to use templates to specify the state of the vacuum.
 
 {% raw %}
