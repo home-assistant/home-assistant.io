@@ -57,18 +57,24 @@ script:
  Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
 ### {% linkable_title States %}
+
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
-- `states.sensor.temperature` returns the state object for `sensor.temperature`.
+- `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value).
 
+<p class='note warning'>
+  Avoid using `states.sensor.temperature`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+</p>
+
 Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
 
 #### {% linkable_title States examples %}
+
 The next two statements result in the same value if the state exists. The second one will result in an error if the state does not exist.
 
 {% raw %}
