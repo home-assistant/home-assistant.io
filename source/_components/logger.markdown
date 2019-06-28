@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Logger"
-description: "Instructions on how to enable the logger component for Home Assistant."
+description: "Instructions on how to enable the logger integration for Home Assistant."
 date: 2015-11-12 17:00
 sidebar: true
 comments: false
@@ -14,10 +14,10 @@ ha_qa_scale: internal
 ha_release: 0.8
 ---
 
-The `logger` component lets you define the level of logging activities in Home
+The `logger` integration lets you define the level of logging activities in Home
 Assistant.
 
-To enable the `logger` component in your installation,
+To enable the `logger` integration in your installation,
 add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -68,7 +68,7 @@ logger:
     type: '[log_level](#log-levels)'
     default: debug
   logs:
-    description: List of components and their log level.
+    description: List of integrations and their log level.
     required: false
     type: map
     keys:
@@ -94,7 +94,7 @@ Possible log severity levels, listed in order from most severe to least severe, 
 
 ### {% linkable_title Service `set_default_level` %}
 
-You can alter the default log level (for components without a specified log
+You can alter the default log level (for integrations without a specified log
 level) using the service `logger.set_default_level`.
 
 An example call might look like this:
@@ -107,7 +107,7 @@ data:
 
 ### {% linkable_title Service `set_level` %}
 
-You can alter log level for one or several components using the service
+You can alter log level for one or several integrations using the service
 `logger.set_level`. It accepts the same format as `logs` in the configuration.
 
 An example call might look like this:

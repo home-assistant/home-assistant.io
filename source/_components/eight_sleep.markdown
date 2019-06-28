@@ -19,7 +19,7 @@ redirect_from:
   - /components/sensor.eight_sleep/
 ---
 
-The `eight_sleep` component allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.
+The `eight_sleep` integration allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.
 
 There is currently support for the following device types within Home Assistant:
 

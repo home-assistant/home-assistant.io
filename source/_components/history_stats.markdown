@@ -17,9 +17,9 @@ redirect_from:
  - /components/sensor.history_stats/
 ---
 
-The `history_stats` sensor platform provides quick statistics about another component or platforms, using data from the [history](/components/history/).
+The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [history](/components/history/).
 
-It can track how long the component has been in a specific state, in a custom time period.
+It can track how long the integration has been in a specific state, in a custom time period.
 
 Examples of what you can track:
 
@@ -86,15 +86,15 @@ duration:
 
 ## {% linkable_title Sensor type %}
 
-Depending on the sensor type you choose, the `history_stats` component can show different values:
+Depending on the sensor type you choose, the `history_stats` integration can show different values:
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times the component you track was changed to the state you track
+- **count**: How many times the integration you track was changed to the state you track
 
 ## {% linkable_title Time periods %}
 
-The `history_stats` component will execute a measure within a precise time period. You should always provide 2 of the following :
+The `history_stats` integration will execute a measure within a precise time period. You should always provide 2 of the following :
 - When the period starts (`start` variable)
 - When the period ends (`end` variable)
 - How long is the period (`duration` variable)

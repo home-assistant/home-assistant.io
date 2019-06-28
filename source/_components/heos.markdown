@@ -24,7 +24,7 @@ The HEOS integration adds support for [HEOS](http://heosbydenon.denon.com) capab
 
 ## {% linkable_title Configuration %}
 
-HEOS devices are discovered and setup automatically when the [discovery](/components/discovery) component is enabled. Alternatively, the component can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
+HEOS devices are discovered and setup automatically when the [discovery](/components/discovery) integration is enabled. Alternatively, the integration can be setup through the frontend control panel integrations page or manually by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -148,7 +148,7 @@ You can play a URL through a HEOS media player using the `media_player.play_medi
 
 ### {% linkable_title Debugging %}
 
-The HEOS component will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml` to enable debug logging:
 
 ```yaml
 logger:

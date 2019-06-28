@@ -14,8 +14,8 @@ ha_release: 0.38
 ha_qa_scale: internal
 ---
 
-The `alert` component is designed to notify you when problematic issues arise.
-For example, if the garage door is left open, the `alert` component can be used
+The `alert` integration is designed to notify you when problematic issues arise.
+For example, if the garage door is left open, the `alert` integration can be used
 remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
 water leak sensors, or any condition that may need your attention.
@@ -25,7 +25,7 @@ This entity allows you to silence an alert until it is resolved.
 
 ### {% linkable_title Basic Example %}
 
-The `alert` component makes use of any of the `notifications` components. To
+The `alert` integration makes use of any of the `notifications` components. To
 setup the `alert` component, first, you must setup a `notification` component.
 Then, add the following to your configuration file:
 
@@ -97,7 +97,7 @@ done_message:
   required: false
   type: template
 notifiers:
-  description: "List of `notification` components to use for alerts."
+  description: "List of `notification` integrations to use for alerts."
   required: true
   type: list
 data:
@@ -145,7 +145,7 @@ alert:
 
 ### {% linkable_title Complex Alert Criteria %}
 
-By design, the `alert` component only handles very simple criteria for firing.
+By design, the `alert` integration only handles very simple criteria for firing.
 That is, it only checks if a single entity's state is equal to a value. At some
 point, it may be desirable to have an alert with a more complex criteria.
 Possibly, when a battery percentage falls below a threshold. Maybe you want to

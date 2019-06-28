@@ -16,7 +16,7 @@ ha_release: 0.69
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/getting-started/automation-trigger/#zone-trigger) or [condition](/getting-started/automation-condition/#zone-condition) inside automation setups.
 
-The `zone` component uses YAML sequences to configure multiple zones:
+The `zone` integration uses YAML sequences to configure multiple zones:
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,7 +72,7 @@ To find the latitude/longitude of a certain place you can use [Google Maps](http
 
 ## {% linkable_title Home zone %}
 
-If no configuration is given, the `zone` component will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
+If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration and name it **'Home'**.
 
 <p class='note'>
 Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI.

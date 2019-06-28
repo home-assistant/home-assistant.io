@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Netatmo"
-description: "Instructions on how to integrate Netatmo component into Home Assistant."
+description: "Instructions on how to integrate Netatmo integration into Home Assistant."
 date: 2016-06-02 08:10
 sidebar: true
 comments: false
@@ -26,7 +26,7 @@ redirect_from:
   - /components/public_sensor.netatmo/
 ---
 
-The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
+The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -101,7 +101,7 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 
 The Welcome and Presence cameras can send instant events to Home Assistant by using webhooks. There are different types of events, each with slightly different data attached. To enable the webhooks add `webhooks: true` to your configuration. It is also required to have your camera enabled in Home Assistant. You can do this either by manually setting up the [platform](https://www.home-assistant.io/components/camera.netatmo/) or by enabeling [discovery](https://www.home-assistant.io/components/netatmo/#discovery).
 
-To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](https://www.home-assistant.io/addons/duckdns/)) and you need to have the base_url configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)).
+To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](https://www.home-assistant.io/addons/duckdns/)) and you need to have the base_url configured for the HTTP integration ([docs](https://www.home-assistant.io/components/http/#base_url)).
 
 Events coming in from Netatmo will be available as events in Home Assistant and are fired as netatmo_*, along with their data. You can use this event to trigger automations.
 
@@ -141,7 +141,7 @@ The Welcome camera additionally has these attributes for `netatmo_person` events
 | is_known | Boolean value if the person is known.
 | face_url | URL to a picture of the person.
 
-The `netatmo_other` event passes all the webhook data through for all webhook events that don't match any of the above. Set the [level of logging](https://www.home-assistant.io/components/logger/) for the `netatmo` component to `debug` to view the data in the Home Assistant logs.
+The `netatmo_other` event passes all the webhook data through for all webhook events that don't match any of the above. Set the [level of logging](https://www.home-assistant.io/components/logger/) for the `netatmo` integration to `debug` to view the data in the Home Assistant logs.
 
 ### {% linkable_title Services (only for webhooks) %}
 
@@ -154,7 +154,7 @@ There are two services to manually add and drop the webhooks. This might be usef
 
 ## {% linkable_title Binary Sensor %}
 
-This component allows you to get the latest event seen by the camera.
+This integration allows you to get the latest event seen by the camera.
 
 ### {% linkable_title Binary Sensor Advanced configuration %}
 
@@ -217,7 +217,7 @@ will create a specific sensor for each camera
 
 ## {% linkable_title Camera %}
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
+The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This integration allows you to view the current photo created by the Camera.
 
 ### {% linkable_title Camera Advanced configuration %}
 
@@ -265,7 +265,7 @@ camera:
 
 ## {% linkable_title Climate %}
 
-The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This component allows you to view the current temperature and setpoint.
+The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This integration allows you to view the current temperature and setpoint.
 
 ### {% linkable_title Camera Advanced configuration %}
 

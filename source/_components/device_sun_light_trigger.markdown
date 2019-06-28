@@ -14,13 +14,13 @@ ha_qa_scale: internal
 ha_release: pre 0.7
 ---
 
-Home Assistant has a built-in component called `device_sun_light_trigger` to help you automate your lights. The component will:
+Home Assistant has a built-in integration called `device_sun_light_trigger` to help you automate your lights. The integration will:
 
  * Fade in the lights when the sun is setting and there are people home
  * Turn on the lights when people get home after the sun has set
  * Turn off the lights when all people leave the house
 
-This component requires the components [sun](/components/sun/), [device_tracker](/components/device_tracker/) and [light](/components/light/) to be enabled.
+This integration requires the integrations [sun](/components/sun/), [device_tracker](/components/device_tracker/) and [light](/components/light/) to be enabled.
 
 To enable this component, add the following lines to your `configuration.yaml` file:
 

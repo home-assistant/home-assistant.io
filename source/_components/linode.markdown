@@ -19,7 +19,7 @@ redirect_from:
   - /components/switch.linode/
 ---
 
-The `linode` component allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
+The `linode` integration allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

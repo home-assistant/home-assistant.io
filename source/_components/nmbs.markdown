@@ -32,7 +32,7 @@ sensor:
     exclude_vias: true
 ```
 
-The stations can only be provided by their standard names and not ids. The list of stations can be checked on the NMBS/SCNB website but for most accurate results check them on the [iRail API page](https://api.irail.be/stations/) which this component uses internally.
+The stations can only be provided by their standard names and not ids. The list of stations can be checked on the NMBS/SCNB website but for most accurate results check them on the [iRail API page](https://api.irail.be/stations/) which this integration uses internally.
 
 {% configuration %}
 station_from:

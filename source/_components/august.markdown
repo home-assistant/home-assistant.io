@@ -21,7 +21,7 @@ redirect_from:
   - /components/lock.august/
 ---
 
-The `august` component allows you to integrate your [August](http://august.com) devices in Home Assistant.
+The `august` integration allows you to integrate your [August](http://august.com) devices in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

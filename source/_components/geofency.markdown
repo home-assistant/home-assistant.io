@@ -16,7 +16,7 @@ redirect_from:
   - /components/device_tracker.geofency/
 ---
 
-This component sets up integration with [Geofency](http://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.
+This integration sets up integration with [Geofency](http://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.
 
 ## {% linkable_title Configuration %}
 
@@ -33,7 +33,7 @@ mobile_beacons:
   type: list
 {% endconfiguration %}
 
-A sample configuration for the `geofency` component when using mobile beacons is shown below:
+A sample configuration for the `geofency` integration when using mobile beacons is shown below:
 
 ```yaml
 # Example configuration.yaml entry

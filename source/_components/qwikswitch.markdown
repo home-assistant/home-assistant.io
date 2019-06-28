@@ -22,7 +22,7 @@ redirect_from:
   - /components/switch.qwikswitch/
 ---
 
-The `qwikswitch` component is the main component to integrate various [QwikSwitch](http://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
+The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](http://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-The `qwikswitch` component discovers all devices from QS Mobile. Currently, Relays and LED dimmers are discovered in Home Assistant. Relay devices are [lights](/components/light.qwikswitch/) by default, and can be configured as [switches](/components/switch.qwikswitch/).
+The `qwikswitch` integration discovers all devices from QS Mobile. Currently, Relays and LED dimmers are discovered in Home Assistant. Relay devices are [lights](/components/light.qwikswitch/) by default, and can be configured as [switches](/components/switch.qwikswitch/).
 
 {% linkable_title Configuration %}
 

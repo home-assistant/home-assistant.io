@@ -24,8 +24,8 @@ The WebDav calendar get updated roughly every 15 minutes.
 
 ### {% linkable_title Prerequisites %}
 
-You need to have a CalDav server and credentials for it. This component was
-tested against [Baikal](http://sabre.io/baikal/) but any component complying
+You need to have a CalDav server and credentials for it. This integration was
+tested against [Baikal](http://sabre.io/baikal/) but any integration complying
 with the RFC4791 should work. [Nextcloud](https://nextcloud.com/)
 and [Owncloud](https://owncloud.org/) work fine.
 

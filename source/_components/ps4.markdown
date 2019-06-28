@@ -14,10 +14,10 @@ ha_release: 0.89
 ha_iot_class: Local Polling
 ---
 
-The `ps4` component allows you to control a
+The `ps4` integration allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
 
-- This component supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
+- This integration supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
 
 ## {% linkable_title Requirements %}
 
@@ -41,7 +41,7 @@ The `ps4` component allows you to control a
 
 ## {% linkable_title Granting Port Access %}
 
-The PlayStation 4 component requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
+The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
 
 <p class='note warning'>
   Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
@@ -77,7 +77,7 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 
 To find your system Python path:
 
-- Add the [System Health](https://www.home-assistant.io/components/system_health/) component to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/dev-info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
+- Add the [System Health](https://www.home-assistant.io/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/dev-info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
 
   ```bash
   whereis python<version>
@@ -111,12 +111,12 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 ## {% linkable_title Configuration %}
 
 <p class='note'>
-  The PlayStation 4 component does not use entries from `configuration.yaml`. You must configure this component by using `Integrations`
+  The PlayStation 4 integration does not use entries from `configuration.yaml`. You must configure this integration by using `Integrations`
 </p>
 
 ## {% linkable_title Regions %}
 
-Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The component will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
+Some titles will have different SKUs in the PlayStation Store database depending on your region. You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found, although it will take longer to do so and may fetch an incorrect cover.
 
 |  Available Regions                                                          | Unavailable Regions        |
 | --------------------------------------------------------------------------- | -------------------------- |

@@ -137,7 +137,7 @@ media_player:
 
 ## {% linkable_title ADB Setup %}
 
-This component works by sending ADB commands to your Android TV / Fire TV device. There are two ways to accomplish this:
+This integration works by sending ADB commands to your Android TV / Fire TV device. There are two ways to accomplish this:
 
 ### {% linkable_title 1. ADB Server %}
 
@@ -180,7 +180,7 @@ If you receive the error message `Error while setting up platform androidtv` in 
 
    * Your key is not pre-authenticated. Before using the `adbkey` in Home Assistant, you _**must**_ connect to your device using the ADB binary and tell it to always allow connections from this computer. For more information, see the section [ADB Authentication](#adb-authentication) above.
 
-   * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
+   * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the integration should work.
 
 4. Some Android TV devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to WiFi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
 

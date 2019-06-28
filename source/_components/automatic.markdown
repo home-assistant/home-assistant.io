@@ -80,4 +80,4 @@ automation:
   You can obtain the correct ID for your vehicle from your known_devices.yaml file. Be sure to lower-case any letters contained in your vehicle's ID when using it in an automation trigger.
 </p>
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the cars to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the cars to be tracked.

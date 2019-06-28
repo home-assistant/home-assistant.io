@@ -15,7 +15,7 @@ ha_release: 0.63
 
 The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
 ## {% linkable_title Configuration %}
 

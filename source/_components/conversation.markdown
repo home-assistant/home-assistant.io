@@ -14,7 +14,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The conversation component allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
+The conversation integration allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` service with the transcribed text.
 
 <p class='img'>
   <img src="/images/screenshots/voice-commands.png" />
@@ -28,7 +28,7 @@ conversation:
 
 {% configuration %}
 intents:
-  description: Intents that the conversation component should understand.
+  description: Intents that the conversation integration should understand.
   required: false
   type: map
   keys:

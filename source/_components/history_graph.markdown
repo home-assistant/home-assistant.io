@@ -18,9 +18,9 @@ ha_qa_scale: internal
   <img src='{{site_root}}/images/screenshots/history_graph.png' />
 </p>
 
-The `history_graph` component will make the UI display a graph similar to the graphs in `more-info` popups and the [history](/components/history/) panel. If you want to add history graphs to the Lovelace UI, please check the [History Graph Card](/lovelace/history-graph/) configuration as it slightly differs from the component.
+The `history_graph` integration will make the UI display a graph similar to the graphs in `more-info` popups and the [history](/components/history/) panel. If you want to add history graphs to the Lovelace UI, please check the [History Graph Card](/lovelace/history-graph/) configuration as it slightly differs from the component.
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+To use this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Minimal configuration.yaml entry

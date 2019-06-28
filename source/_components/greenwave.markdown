@@ -16,9 +16,9 @@ redirect_from:
  - /components/light.greenwave/
 ---
 
-This component communicates with the Greenwave Reality (TCP Connected) Gateway to allow control of all lights and fixtures registered to the gateway. Bulbs and Fixtures can be created and modified inside the TCP Lighting App for Android and iOS.
+This integration communicates with the Greenwave Reality (TCP Connected) Gateway to allow control of all lights and fixtures registered to the gateway. Bulbs and Fixtures can be created and modified inside the TCP Lighting App for Android and iOS.
 
-This component has been tested on firmware revisions:
+This integration has been tested on firmware revisions:
 
 - 2.0.105
 

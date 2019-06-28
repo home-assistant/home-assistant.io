@@ -19,14 +19,14 @@ redirect_from:
   - /components/switch.eufy/
 ---
 
-The `eufy` component is the main component to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
+The `eufy` integration is the main integration to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - Light
 - Switch
 
-Supported devices will be discovered after the `eufy` component is configured:
+Supported devices will be discovered after the `eufy` integration is configured:
 
 ```yaml
 # Example configuration.yaml entry

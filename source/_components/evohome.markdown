@@ -17,7 +17,7 @@ redirect_from:
   - /components/climate.evohome/
 ---
 
-The `evohome` component is the main component to set up and integrate all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, primarily the Honeywell evohome multi-zone CH/DHW system. It does not support the home security functionality of TCC.
+The `evohome` integration is the main integration to set up and integrate all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, primarily the Honeywell evohome multi-zone CH/DHW system. It does not support the home security functionality of TCC.
 
 It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library and so will let you control (only) EU/international systems. It _does not_ leverage the [somecomfort](https://github.com/kk7ds/somecomfort) client library as used by US-based systems; for those, you may find what you need at the [honeywell climate platform](/components/climate.honeywell/).
 
@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Configuration %}
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+To use this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -63,7 +63,7 @@ This is an IoT cloud-polling device, and the recommended minimum `scan_interval`
 
 ## {% linkable_title Climate %}
 
-It is distinct from - but related to - the [`honeywell`](/components/climate.honeywell/) climate platform, which also allows (limited) integration with Honeywell Connected thermostats; these two components may well be usable side-by-side, but YMMV.
+It is distinct from - but related to - the [`honeywell`](/components/climate.honeywell/) climate platform, which also allows (limited) integration with Honeywell Connected thermostats; these two integrations may well be usable side-by-side, but YMMV.
 
 The evohome evotouch Controller supports seven distict operating modes: Auto, AutoWithEco, Away, DayOff, HeatingOff, and Custom; AutoWithReset is a 7th, hidden, mode.
 

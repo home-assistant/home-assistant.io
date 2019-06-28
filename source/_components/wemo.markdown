@@ -23,7 +23,7 @@ redirect_from:
   - /components/switch.wemo/
 ---
 
-The `wemo` component is the main component to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
+The `wemo` integration is the main integration to integrate various [Belkin WeMo](http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -46,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
     type: list
 {% endconfiguration %}
 
-Supported devices will be automatically discovered if the optional `discovery` configuration item is omitted or set to true or if the `discovery` component is enabled. If the `discovery` configuration item is set to false, then automatic discovery of WeMo devices is disabled both for the `wemo` component and for the `discovery` component. Loading the `wemo` component with the `discovery` configuration item omitted or set to true will scan the local network for WeMo devices, even if you are not using the `discovery` component.
+Supported devices will be automatically discovered if the optional `discovery` configuration item is omitted or set to true or if the `discovery` integration is enabled. If the `discovery` configuration item is set to false, then automatic discovery of WeMo devices is disabled both for the `wemo` integration and for the `discovery` component. Loading the `wemo` integration with the `discovery` configuration item omitted or set to true will scan the local network for WeMo devices, even if you are not using the `discovery` component.
 
 ```yaml
 # Example configuration.yaml entry with automatic discovery enabled (by omitting the discovery configuration item)
@@ -88,7 +88,7 @@ wemo:
 
 The `wemo` platform allows you to control your Belkin WeMo humidifiers from within Home Assistant. This includes support for the [Holmes Smart Humidifier](https://www.holmesproducts.com/wemo-humidifier.html).
 
-WeMo devices are automatically discovered if the `discovery` component is enabled.
+WeMo devices are automatically discovered if the `discovery` integration is enabled.
 
 ### {% linkable_title Attributes %}
 

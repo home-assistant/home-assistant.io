@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Microsoft Face"
-description: "Instructions on how to integrate Microsoft Face component into Home Assistant."
+description: "Instructions on how to integrate Microsoft Face integration into Home Assistant."
 date: 2017-01-25 00:00
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.37
 ---
 
-The `microsoft_face` component platform is the main component for Microsoft
+The `microsoft_face` integration platform is the main integration for Microsoft
 Azure Cognitive service
 [Face](https://azure.microsoft.com/en-us/services/cognitive-services/face/).
 All data are stored in your own private instance in the Azure cloud.

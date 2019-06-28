@@ -14,7 +14,7 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `stiebel_eltron` component lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
+The `stiebel_eltron` integration lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
 
 It requires the following components:
 
@@ -66,7 +66,7 @@ hub:
 {% endconfiguration %}
 
 <p class='note'>
-This component requires the [Modbus](/components/modbus/) component to be set up to work
+This integration requires the [Modbus](/components/modbus/) integration to be set up to work
 </p>
 
 Full configuration example including modbus setup shown below:

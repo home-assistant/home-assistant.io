@@ -14,7 +14,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.95
 ---
 
-The Somfy component will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [tahoma](/components/tahoma/) component.
+The Somfy integration will allow users to integrate their Somfy devices into Home Assistant using the [official API](https://developer.somfy.com/somfy-open-api/apis), unlike the [tahoma](/components/tahoma/) component.
 
 ### {% linkable_title Setting up developer account %}
 
@@ -51,7 +51,7 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Potential duplicate with the Tahoma component %}
+### {% linkable_title Potential duplicate with the Tahoma integration %}
 
 If you use the [tahoma](/component/tahoma) component, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
 

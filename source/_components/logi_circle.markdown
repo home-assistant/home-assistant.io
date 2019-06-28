@@ -85,7 +85,7 @@ Logi Circle cameras support the `camera.turn_on` and `camera.turn_off` services.
 
 The `logi_circle` sensor platform lets you monitor sensors connected to your [Logi Circle](https://circle.logi.com) cameras in Home Assistant.
 
-To customize which sensors are setup, you can extend the Logi Circle component configuration in your `configuration.yaml` file with the following settings:
+To customize which sensors are setup, you can extend the Logi Circle integration configuration in your `configuration.yaml` file with the following settings:
 
 ```yaml
 # Example configuration.yaml entry

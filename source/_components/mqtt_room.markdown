@@ -69,7 +69,7 @@ Example JSON that should be published to the room topics:
 
 ### {% linkable_title Setting up clients %}
 
-This component works with any software that is sending data in the given format. Each client should post the discovered devices in its own subtopic of the configured topic.
+This integration works with any software that is sending data in the given format. Each client should post the discovered devices in its own subtopic of the configured topic.
 Instead of developing your own application, you can also use any of these already existing clients:
 
 - [**room-assistant**](https://github.com/mKeRix/room-assistant): looks for Bluetooth LE beacons, based on Node.js

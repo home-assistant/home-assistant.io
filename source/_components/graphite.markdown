@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.13
 ---
 
-The `graphite` component records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
+The `graphite` integration records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
 
 To enable this component, add the following lines to your `configuration.yaml`:
 

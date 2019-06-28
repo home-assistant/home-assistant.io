@@ -27,7 +27,7 @@ redirect_from:
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](http://www.lcn.eu) hardware devices.
 
-The component requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
+The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
 With this setup sending and receiving commands to and from LCN modules is possible.
 
 There is currently support for the following device types within Home Assistant:
@@ -41,7 +41,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 <p class='note'>
-  Please note: Besides the implemented platforms the `lcn` component offers a variety of [service calls](#services).
+  Please note: Besides the implemented platforms the `lcn` integration offers a variety of [service calls](#services).
   These service calls cover functionalities of the LCN system which cannot be represented by the platform implementations.
   They are ideal to be used in automation scripts or for the `template` platforms.
 </p>
@@ -333,7 +333,7 @@ Modules can be arranged in _segments_. Segments can be addressed by their numeri
 
 LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
 
-The LCN component allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
+The LCN integration allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
 
 Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
 

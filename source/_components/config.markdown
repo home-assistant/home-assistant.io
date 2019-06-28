@@ -14,7 +14,7 @@ ha_release: 0.39
 ha_qa_scale: internal
 ---
 
-The `config` component is designed to display panels in the frontend to configure and manage parts of Home Assistant.
+The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
 
 To enable the configuration panel, add the following to your `configuration.yaml` file:
 

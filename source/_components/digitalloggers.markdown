@@ -63,4 +63,4 @@ cycletime:
 
 Your relays will be available in the form `switch.fantasticrelaydevice_individualrelayname`
 
-**Note:** There is currently a limitation of the [dlipower library](https://github.com/dwighthubbard/python-dlipower) used by the `digitalloggers` component that communication is only available over port 80.
+**Note:** There is currently a limitation of the [dlipower library](https://github.com/dwighthubbard/python-dlipower) used by the `digitalloggers` integration that communication is only available over port 80.

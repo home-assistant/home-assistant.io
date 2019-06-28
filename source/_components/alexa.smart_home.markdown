@@ -58,7 +58,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 ### {% linkable_title Create Your Lambda Function %}
 
-Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration component in Home Assistant will process the request and send back the response. Your Lambda function will delivery the response back to Alexa.
+Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will delivery the response back to Alexa.
 
 <p class='info'>
 There already are some great tutorials and solutions in our community to achieve same goal "Create your Alexa Smart Home Skill to connect Home Assistant", for example: [Haaska](https://github.com/mike-grant/haaska/wiki).

@@ -13,11 +13,11 @@ ha_category:
 ha_release: 0.57
 ---
 
-With the `no_ip` component you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
+With the `no_ip` integration you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
 
 Note that it does not confirm your hostname (as is required periodically for free domain names); you will still need to do that manually.
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

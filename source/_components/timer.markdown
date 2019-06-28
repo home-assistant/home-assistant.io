@@ -14,7 +14,7 @@ ha_release: 0.57
 ha_qa_scale: internal
 ---
 
-The `timer` component aims to simplify automations based on (dynamic) durations.
+The `timer` integration aims to simplify automations based on (dynamic) durations.
 
 When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restart the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
@@ -154,7 +154,7 @@ timer:
 
 ### {% linkable_title Control a timer manually %}
 
-With the [`script`](/components/script/) component you would be able to control a timer (see above for a `timer` configuration sample) manually.
+With the [`script`](/components/script/) integration you would be able to control a timer (see above for a `timer` configuration sample) manually.
 
 ```yaml
 script:

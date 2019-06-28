@@ -105,5 +105,5 @@ automation:
 {% endraw %}
 
 <p class='note warning'>
-This component is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
+This integration is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
 </p>

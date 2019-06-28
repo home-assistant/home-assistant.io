@@ -33,7 +33,7 @@ xs1:
   host: "192.168.2.100"
 ```
 
-The component will automatically detect the configuration of the XS1 Gateway only **on initialization** which currently means when Home Assistant boots. When you change the configuration of the XS1 you (currently) have to restart Home Assistant to see the effects.
+The integration will automatically detect the configuration of the XS1 Gateway only **on initialization** which currently means when Home Assistant boots. When you change the configuration of the XS1 you (currently) have to restart Home Assistant to see the effects.
 
 {% configuration %}
 host:
@@ -63,7 +63,7 @@ password:
 ## {% linkable_title Supported Device Types %}
 
 <p class='note warning'>
-This component currently only covers part of the device types supported by the XS1 gateway, unsupported types are simply ignored.
+This integration currently only covers part of the device types supported by the XS1 gateway, unsupported types are simply ignored.
 </p>
 
 ### {% linkable_title Sensors %}

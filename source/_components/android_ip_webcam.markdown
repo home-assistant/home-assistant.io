@@ -23,7 +23,7 @@ redirect_from:
   - /components/switch.android_ip_webcam/
 ---
 
-The `android_ip_webcam` component turns any Android phone or tablet into a network camera with multiple viewing options.
+The `android_ip_webcam` integration turns any Android phone or tablet into a network camera with multiple viewing options.
 
 It's setup as an MJPEG camera and all settings as switches inside of Home Assistant. You can also expose the sensors. If you have multiple phones, you can use all options inside a list.
 
@@ -193,7 +193,7 @@ binary_sensor:
 
 ## {% linkable_title Camera %}
 
-The `android_ip_webcam` component adds a camera by default if you choose not to use the component but still want to see the video feed then the [`mjpeg` camera](/components/camera.mjpeg/) platform can be used.
+The `android_ip_webcam` integration adds a camera by default if you choose not to use the integration but still want to see the video feed then the [`mjpeg` camera](/components/camera.mjpeg/) platform can be used.
 
 ## {% linkable_title Configuration %}
 

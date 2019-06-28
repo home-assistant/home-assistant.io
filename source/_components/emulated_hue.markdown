@@ -19,7 +19,7 @@ ha_qa_scale: internal
 Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or [Nabu Casa cloud](https://www.home-assistant.io/components/cloud) component.
 </p>
 
-The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
+The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
@@ -61,7 +61,7 @@ type:
   type: string
   default: google_home
 host_ip:
-  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
+  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the integration will attempt to determine the IP address on its own.
   required: false
   type: string
 listen_port:
@@ -136,7 +136,7 @@ These attributes used to be found under the `customize` section of `homeassistan
 
 ### {% linkable_title Troubleshooting %}
 
-You can verify that the `emulated_hue` component has been loaded and is responding by pointing a local browser to the following URL:
+You can verify that the `emulated_hue` integration has been loaded and is responding by pointing a local browser to the following URL:
 
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.

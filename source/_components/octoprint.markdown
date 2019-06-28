@@ -19,7 +19,7 @@ redirect_from:
   - /components/sensor.octoprint/
 ---
 
-[OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main component to integrate OctoPrint sensors.
+[OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.
 
 There is currently support for the following device types within Home Assistant:
 

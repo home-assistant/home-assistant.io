@@ -20,7 +20,7 @@ redirect_from:
   - /components/sensor.daikin/
 ---
 
-The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
+The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -36,7 +36,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Configuration %}
 
-The Daikin component can be configured in three ways. 
+The Daikin integration can be configured in three ways. 
 
 - Automatically via the [discovery]({{site_root}}/components/discovery/) component.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.

@@ -92,7 +92,7 @@ dhcp_software:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 ## {% linkable_title Troubleshooting %}
 
@@ -186,7 +186,7 @@ Connection: keep-alive
 
 {"jsonrpc":"2.0","id":1,"result":{}}
 ```
-11. In this case we are actually receiving a valid response with no data. The request says that we are looking for ARP information from `hostapd.*`, which is the access point on the router. In my environment I don't use the AP on the router, and so it was correctly returning no data. Armed with this information, I know that I cannot use this component for device tracking or presence.
+11. In this case we are actually receiving a valid response with no data. The request says that we are looking for ARP information from `hostapd.*`, which is the access point on the router. In my environment I don't use the AP on the router, and so it was correctly returning no data. Armed with this information, I know that I cannot use this integration for device tracking or presence.
 
 ### {% linkable_title Cleanup %}
 

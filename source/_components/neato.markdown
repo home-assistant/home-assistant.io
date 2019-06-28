@@ -19,7 +19,7 @@ redirect_from:
   - /components/vacuum.neato/
 ---
 
-The `neato` component allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
+The `neato` integration allows you to control your [Neato Botvac Connected Robots](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
 
 To enable `neato` in your installation, add the following to your `configuration.yaml` file:
 

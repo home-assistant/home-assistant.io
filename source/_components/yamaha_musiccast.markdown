@@ -47,7 +47,7 @@ interval_seconds:
 
 ### {% linkable_title Supported operations %}
 
-Currently, this component supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
+Currently, this integration supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
 
 ### {% linkable_title Example configuration %}
 

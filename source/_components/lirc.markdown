@@ -16,7 +16,7 @@ ha_iot_class: Local Push
 
 [LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/components/automation/).
 
-Sending IR commands is not supported in this component (yet), but can be accomplished using the [shell_command component](/components/shell_command/) in conjunction with the `irsend` command.
+Sending IR commands is not supported in this integration (yet), but can be accomplished using the [shell_command component](/components/shell_command/) in conjunction with the `irsend` command.
 
 ### {% linkable_title Installation %}
 
@@ -82,7 +82,7 @@ lirc:
 
 #### {% linkable_title Events %}
 
-The LIRC component fires `ir_command_received` events on the bus. You can capture the events and respond to them in automation scripts like this:
+The LIRC integration fires `ir_command_received` events on the bus. You can capture the events and respond to them in automation scripts like this:
 
 ```yaml
 # Example configuration.yaml automation entry

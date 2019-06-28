@@ -19,8 +19,8 @@ redirect_from:
   - /components/switch.bbb_gpio/
 ---
 
-The `bbb_gpio` component is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.
-There is no setup needed for the component itself.
+The `bbb_gpio` integration is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.
+There is no setup needed for the integration itself.
 
 ## {% linkable_title Binary Sensor %}
 

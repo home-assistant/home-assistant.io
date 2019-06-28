@@ -35,7 +35,7 @@ api_key:
   required: true
   type: string
 name:
-  description: Additional name for the weather component in Home Assistant.
+  description: Additional name for the weather integration in Home Assistant.
   required: false
   type: string
   default: Met Office

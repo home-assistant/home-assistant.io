@@ -15,14 +15,14 @@ logo: energy_meter.png
 ha_qa_scale: internal
 ---
 
-The `utility meter` component provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
+The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <p class='note'>
-Sensors created with this component are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the component was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant.
+Sensors created with this integration are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant.
 </p>
 
 ## {% linkable_title Configuration %}

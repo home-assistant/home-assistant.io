@@ -15,7 +15,7 @@ ha_release: 0.67
 ha_qa_scale: internal
 ---
 
-This component adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
+This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
 
 * `created`
 * `deleted`
@@ -26,7 +26,7 @@ Configured folders must be added to [whitelist_external_dirs](/docs/configuratio
 
 ## {% linkable_title Configuration %}
 
-To enable the Folder Watcher component in your installation, add the following to your `configuration.yaml` file:
+To enable the Folder Watcher integration in your installation, add the following to your `configuration.yaml` file:
 
 {% raw %}
 ```yaml

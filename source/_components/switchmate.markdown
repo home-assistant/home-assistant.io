@@ -44,4 +44,4 @@ flip_on_off:
   default: false
 {% endconfiguration %}
 
-The component is tested with SwitchMate Lighting Control Rocker and SwitchMate Lighting Control Toggle.
+The integration is tested with SwitchMate Lighting Control Rocker and SwitchMate Lighting Control Toggle.

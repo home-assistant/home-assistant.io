@@ -20,7 +20,7 @@ redirect_from:
   - /components/sensor.openuv/
 ---
 
-The `openuv` component displays UV and Ozone data from [openuv.io](http://openuv.io).
+The `openuv` integration displays UV and Ozone data from [openuv.io](http://openuv.io).
 
 ## {% linkable_title Generating an API Key %}
 
@@ -39,11 +39,11 @@ loads. To request new data, the `update_data` service may be used.
 Each use of the `update_data` service will consume 1 or 2 API calls, depending
 on which monitored conditions are configured.
 
-If the OpenUV component is configured through the Home Assistant UI (via the
+If the OpenUV integration is configured through the Home Assistant UI (via the
 `Configuration >> Integrations` panel), each service call will consume 2 API
 calls from the daily quota.
 
-If the OpenUV component is configured via `configuration.yaml`, service calls
+If the OpenUV integration is configured via `configuration.yaml`, service calls
 will consume 2 API calls if `monitored_conditions` contains both
 `uv_protection_window` and any other condition; any other scenarios will only
 consume 1 API call.

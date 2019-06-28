@@ -19,7 +19,7 @@ redirect_from:
   - /components/climate.spider/
 ---
 
-The `spider` component is the main component to integrate all [Itho Daalderop Spider](https://www.ithodaalderop.nl/spider-thermostaat) related platforms. You will need your Spider account information (username, password) to discover and control devices which are related to your account.
+The `spider` integration is the main integration to integrate all [Itho Daalderop Spider](https://www.ithodaalderop.nl/spider-thermostaat) related platforms. You will need your Spider account information (username, password) to discover and control devices which are related to your account.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -52,11 +52,11 @@ scan_interval:
 {% endconfiguration %}
 
 <p class='note warning'>
-This component is not affiliated with Itho Daalderop Spider and retrieves data from the endpoints of the mobile application. Use at your own risk.
+This integration is not affiliated with Itho Daalderop Spider and retrieves data from the endpoints of the mobile application. Use at your own risk.
 </p>
 
 ### {% linkable_title Climate %}
 
 <p class='note'>
-Although this component lets you change the operation mode to heating or cooling, it doesn't necessarily mean your boiler can. Spider is not aware of your current situation.
+Although this integration lets you change the operation mode to heating or cooling, it doesn't necessarily mean your boiler can. Spider is not aware of your current situation.
 </p>

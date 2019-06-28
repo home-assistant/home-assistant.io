@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.94
 ---
 
-The `Azure Event Hub` component allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) or to a [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin). 
+The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) or to a [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin). 
 
 ## {% linkable_title First time setup %}
 
@@ -23,7 +23,7 @@ You need to create a Event Hub namespace and a Event Hub in that namespace, you 
 
 You must then create a Shared Access Policy for the Event Hub with 'Send' claims or use the RootManageAccessKey from your namespace (this key has additional claims, including managing the event hub and listening, which are not needed for this purpose), for more details on the security of Event Hubs [go here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-authentication-and-security-model-overview).
 
-Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the component itself.
+Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
 
 ## {% linkable_title Configuration %}
 

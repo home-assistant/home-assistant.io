@@ -13,11 +13,11 @@ ha_category:
 ha_release: "0.70"
 ---
 
-The `spaceapi` component allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
+The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
 
 ## {% linkable_title Configuration %}
 
-To setup the `spaceapi` component in your installation, add the following to your `configuration.yaml` file:
+To setup the `spaceapi` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

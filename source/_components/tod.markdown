@@ -67,7 +67,7 @@ after_offset:
 
 ## {% linkable_title Considerations %}
 
-The primary purpose of this sensor is to use a simple time range definition instead of creating a complex template with references to `sun.sun` component attributes.
+The primary purpose of this sensor is to use a simple time range definition instead of creating a complex template with references to `sun.sun` integration attributes.
 
 The sensor state is ON when this condition `after` + `after_offset` <= `current time` < `before` + `before_offset`.
 

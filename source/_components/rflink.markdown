@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.38
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
@@ -25,7 +25,7 @@ Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Color
 
 A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
 
-This component is tested with the following hardware/software:
+This integration is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
@@ -120,7 +120,7 @@ sensor:
 
 [RFLink Switches](/components/switch.rflink/) and [RFLink Binary Sensors](/components/binary_sensor.rflink/) cannot be added automatically. 
 
-The RFLink component does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
+The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
 
 ### {% linkable_title Ignoring devices %}
 
@@ -147,7 +147,7 @@ Wildcards only work at the end of the ID, not in the middle or front!
 
 ### {% linkable_title Device support %}
 
-Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself.
+Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
 
 ### {% linkable_title Device Incorrectly Identified %}
 
@@ -156,7 +156,7 @@ If you find a device is recognized differently, with different protocols or the 
 ### {% linkable_title Technical Overview %}
 
 - The`rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
-- This component uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
+- This integration uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet ID's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
 

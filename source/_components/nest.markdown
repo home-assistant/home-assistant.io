@@ -24,7 +24,7 @@ redirect_from:
 ha_release: 0.7
 ---
 
-The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
+The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -50,7 +50,7 @@ There is currently support for the following device types within Home Assistant:
     * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
 9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
-10. Add the Nest component to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
+10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
@@ -207,7 +207,7 @@ You must have the [Nest component](/components/nest/) configured to use the plat
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` component is configured and the required configuration for the `nest binary sensor` is set.
+You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -277,7 +277,7 @@ Please note due to limitations with the European Nest Thermostat E, integration 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
 <p class='note'>
-The sensors will be setup if the `nest` component is configured and the required configuration for the `nest sensor` is set.
+The sensors will be setup if the `nest` integration is configured and the required configuration for the `nest sensor` is set.
 </p>
 
 ## {% linkable_title Configuration %}

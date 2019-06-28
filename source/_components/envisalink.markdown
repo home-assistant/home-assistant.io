@@ -20,7 +20,7 @@ redirect_from:
   - /components/sensor.envisalink/
 ---
 
-The `envisalink` component will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this component is built. Currently, the Envisalink version 4 is the latest model. This component supports both the evl3 and the evl4.
+The `envisalink` integration will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
 
 Please visit the [eyezon website](http://www.eyezon.com/) for further information about the evl3 and evl4 boards.
 
@@ -80,7 +80,7 @@ password:
   required: true
   type: string
 code:
-  description: Your alarm panel's code, for authenticating user input during arm/disarm.  If you do not provide this value, the component will prompt the user to enter the code at runtime.
+  description: Your alarm panel's code, for authenticating user input during arm/disarm.  If you do not provide this value, the integration will prompt the user to enter the code at runtime.
   required: false
   type: string
 port:
@@ -104,7 +104,7 @@ zonedump_interval:
   default: 30
   type: integer
 timeout:
-  description: A network connectivity timeout when communicating with the envisalink. If connection is not obtained by this time (in seconds) the component will stop trying to connect.
+  description: A network connectivity timeout when communicating with the envisalink. If connection is not obtained by this time (in seconds) the integration will stop trying to connect.
   required: false
   default: 10
   type: integer
@@ -128,7 +128,7 @@ zones:
       default: opening
       type: string
 partitions:
-  description: Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor components are loaded.
+  description: Again, Envisalink boards do not tell us what is in use and what is not, so each partition must be configured with a partition name. If no partition parameter is specified, then no alarm_panel or sensor integrations are loaded.
   required: false
   type: integer
   keys:

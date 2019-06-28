@@ -20,7 +20,7 @@ redirect_from:
  - /components/device_tracker.volvooncall/
 ---
 
-The `volvooncall` component offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
+The `volvooncall` integration offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
 
 ## {% linkable_title Configuration %}
 

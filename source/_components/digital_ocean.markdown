@@ -19,7 +19,7 @@ redirect_from:
   - /components/switch.digital_ocean/
 ---
 
-The `digital_ocean` component allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
+The `digital_ocean` integration allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

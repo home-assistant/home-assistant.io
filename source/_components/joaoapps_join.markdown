@@ -16,7 +16,7 @@ redirect_from:
   - /components/notify.joaoapps_join/
 ---
 
-The `joaoapps_join` component exposes services from
+The `joaoapps_join` integration exposes services from
 [Join](http://joaoapps.com/join). In Home Assistant, the Join features are
 divided up in two locations, the Join component, and the Join notify platform.
 The notify platform allows us to send messages to Join devices, the component
@@ -102,7 +102,7 @@ You can use them like so:
 }
 ```
 
-The services exposed in the `joaoapps_join` component can be used with the
+The services exposed in the `joaoapps_join` integration can be used with the
 service data described below:
 
 | Service                       | Data                                                              |

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Datetime"
-description: "Instructions on how to integrate the Input Datetime component into Home Assistant."
+description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
 date: 2017-09-14 16:01
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.55
 ha_qa_scale: internal
 ---
 
-The `input_datetime` component allows the user to define date and time values
+The `input_datetime` integration allows the user to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
@@ -81,13 +81,13 @@ automations and templates.
 
 ### {% linkable_title Restore State %}
 
-This component will automatically restore the state it had prior to Home
+This integration will automatically restore the state it had prior to Home
 Assistant stopping as long as your entity does **not** have a set value for
 `initial`.  To disable this feature, set a valid value for `initial`.
 
 ### {% linkable_title Services %}
 
-This component provides a service to modify the state of the `input_datetime`.
+This integration provides a service to modify the state of the `input_datetime`.
 
 | Service | Data | Description |
 | ----- | ----- | ----- |

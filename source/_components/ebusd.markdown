@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "ebusd"
-description: "The ebusd component allows the integration between eBUS heating system and Home Assistant."
+description: "The ebusd integration allows the integration between eBUS heating system and Home Assistant."
 date: 2018-12-27 15:00
 sidebar: true
 comments: false

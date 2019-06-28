@@ -18,7 +18,7 @@ redirect_from:
   - /components/remote.kira/
 ---
 
-The `kira` component is the main component to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.
+The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -93,7 +93,7 @@ If no sensors or remotes are specified, a sensor with default values will be add
 
 ### {% linkable_title Code Configuration %}
 
-The first time the Kira component is loaded, `kira_codes.yaml` will be created in the Home Assistant configuration directory.
+The first time the Kira integration is loaded, `kira_codes.yaml` will be created in the Home Assistant configuration directory.
 
 ```yaml
 # Example kira_codes.yaml entry

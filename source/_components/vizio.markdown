@@ -16,7 +16,7 @@ redirect_from:
  - /components/media_player.vizio/
 ---
 
-The `vizio` component will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs and Sound Bars (2016+ models).
+The `vizio` integration will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs and Sound Bars (2016+ models).
 
 ## {% linkable_title Find your device %}
 

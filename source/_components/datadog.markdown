@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.45
 ---
 
-The `datadog` component sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](http://docs.datadoghq.com/guides/basic_agent_usage/).
+The `datadog` integration sends all state changes to [Datadog](https://www.datadoghq.com/) using a [Datadog Agent](http://docs.datadoghq.com/guides/basic_agent_usage/).
 
 Datadog allows you to analyze, monitor, cross-reference and alert upon your data. You can use it to detect statistical anomalies, see graphs across multiple sources in real-time, send critical alerts to Slack, etc.
 
@@ -21,13 +21,13 @@ Datadog allows you to analyze, monitor, cross-reference and alert upon your data
   <img src='{{site_root}}/images/screenshots/datadog-board-example.png' />
 </p>
 
-The component also sends events from the logbook into Datadog, allowing you to correlate these events with your data.
+The integration also sends events from the logbook into Datadog, allowing you to correlate these events with your data.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/datadog-event-stream.png' />
 </p>
 
-To use the `datadog` component in your installation, add the following to your `configuration.yaml` file:
+To use the `datadog` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

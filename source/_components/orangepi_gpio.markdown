@@ -14,7 +14,7 @@ ha_release: 0.93
 ha_iot_class: Local Push
 ---
 
-The `orangepi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.
+The `orangepi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
 
 ## {% linkable_title Binary Sensor %}
 
@@ -55,7 +55,7 @@ invert_logic:
   default: "`false` (ACTIVE HIGH)"
 {% endconfiguration %}
 
-Compared to the [Raspberry Pi GPIO](/components/rpi_gpio/) component, this component does not support pull-up resistors or port debouncing. Use external pull-ups and external port-debouncing.
+Compared to the [Raspberry Pi GPIO](/components/rpi_gpio/) component, this integration does not support pull-up resistors or port debouncing. Use external pull-ups and external port-debouncing.
 
 ## {% linkable_title Pin_mode %}
 
@@ -70,7 +70,7 @@ As this platform supports different types of GPIO pinouts for difference Orange 
 | `neocore2` | Supports the NanoPi Neocore 2 |
 
 ## {% linkable_title Additional steps %}
-This component uses the `SYSFS` filesystem to get control of the GPIOs. Therefore an operatings system with `CONFIG_GPIO_SYSFS` is required. As far as I know, most out-of-the-box distributions still enable this by default.
+This integration uses the `SYSFS` filesystem to get control of the GPIOs. Therefore an operatings system with `CONFIG_GPIO_SYSFS` is required. As far as I know, most out-of-the-box distributions still enable this by default.
 
 As of Linux 4.8 sysfs-gpio is marked as obsolete. However as of today, the alternative GPIO character device is not widely used. Therefore we will use this until the new character device is more widely supported.
 

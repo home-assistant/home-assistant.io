@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.67
 ---
 
-With the `freedns` component you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
+With the `freedns` integration you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
 
 ## {% linkable_title Setup %}
 
@@ -28,7 +28,7 @@ You need to determine your update URL or your access token.
 
 ## {% linkable_title Configuration %}
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

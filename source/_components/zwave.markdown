@@ -64,7 +64,7 @@ Thermostats with support for fan modes or different operating modes, will be han
 If the thermostat supports different operating modes, you will get one thermostat entity for each mode. These can be hidden with settings using the customize setting in the `configuration.yaml` file.
 </p>
 
-To enable the climate component for your Z-Wave network, add the following to your `configuration.yaml` file.
+To enable the climate integration for your Z-Wave network, add the following to your `configuration.yaml` file.
 
 ```yaml
 climate:

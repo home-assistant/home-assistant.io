@@ -14,13 +14,13 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `recorder` component is responsible for storing details in a database, which then are handled by the [`history` component](/components/history/).
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` component](/components/history/).
 
 Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
 The default database engine is [SQLite](https://www.sqlite.org/) which doesn't require any configuration. The database is stored in your Home Assistant configuration directory (`.homeassistant`) and called `home-assistant_v2.db`.
 
-To change the defaults for the `recorder` component in your installation, add the following to your `configuration.yaml` file:
+To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +48,7 @@ recorder:
       default: 1
       type: integer
     exclude:
-      description: Configure which components should be excluded from recordings.
+      description: Configure which integrations should be excluded from recordings.
       required: false
       type: map
       keys:
@@ -61,7 +61,7 @@ recorder:
           required: false
           type: List
     include:
-      description: Configure which components should be included in recordings. If set, all other entities will not be recorded.
+      description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
       type: map
       keys:
@@ -129,7 +129,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the component `purge_keep_days` configuration)
+| `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)
 | `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
 
 ## {% linkable_title Custom database engines %}

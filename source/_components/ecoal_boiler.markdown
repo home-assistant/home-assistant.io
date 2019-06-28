@@ -17,7 +17,7 @@ redirect_from:
  - /components/switch.ecoal_boiler/
 ---
 
-The `ecoal_boiler` component is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
+The `ecoal_boiler` integration is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
 
 ## {% linkable_title Configuration %}
 

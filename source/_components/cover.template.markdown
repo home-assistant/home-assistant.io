@@ -15,7 +15,7 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform can create covers that combine components and provides
+The `template` platform can create covers that combine integrations and provides
 the ability to run scripts or invoke services for each of the open,
 close, stop, position and tilt commands of a cover.
 

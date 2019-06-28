@@ -111,7 +111,7 @@ Home Assistant does its best to [determine what task in each project is "most" i
 
  - **location**: Not used.
 
- - **start_time**: The last time the Todoist component got updated. Usually within the last 15 minutes.
+ - **start_time**: The last time the Todoist integration got updated. Usually within the last 15 minutes.
 
  - **end_time**: When the task is due.
 

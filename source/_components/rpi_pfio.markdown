@@ -19,7 +19,7 @@ redirect_from:
   - /components/switch.rpi_pfio/
 ---
 
-The `rpi_pfio` component is the base for all related [PiFace Digital I/O (PFIO)](http://www.piface.org.uk/) platforms in Home Assistant. There is no setup needed for the component itself; for the platforms, please check their corresponding pages.
+The `rpi_pfio` integration is the base for all related [PiFace Digital I/O (PFIO)](http://www.piface.org.uk/) platforms in Home Assistant. There is no setup needed for the integration itself; for the platforms, please check their corresponding pages.
 
 There is currently support for the following device types within Home Assistant:
 
