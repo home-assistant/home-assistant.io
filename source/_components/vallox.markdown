@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: vallox.png
 ha_category:
   - Fan
   - Sensor
