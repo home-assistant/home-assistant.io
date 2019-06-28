@@ -201,6 +201,21 @@ automation:
 ```
 {% endraw %}
 
+You can also use templates in the `for` option.
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
+    for:
+      minutes: "{{ states('input_number.minutes')|int(0) }}"
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when the `value_template` becomes `true`.
+
 <p class='note warning'>
 Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
 </p>
