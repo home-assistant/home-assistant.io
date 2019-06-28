@@ -75,4 +75,20 @@ monitored_conditions:
       description: Total number of seen clients.
 {% endconfiguration %}
 
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: pi_hole
+    host: xxx.xxx.x.x
+    monitored_conditions:
+      - ads_blocked_today
+      - ads_percentage_today
+      - dns_queries_today
+      - domains_being_blocked
+      - queries_cached
+      - queries_forwarded
+      - unique_clients
+      - unique_domains
+```
+
 This sensor platform was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.
