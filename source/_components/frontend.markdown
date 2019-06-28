@@ -128,7 +128,7 @@ When themes are enabled in the `configuration.yaml` file, a new option will show
 
 ## {% linkable_title Loading extra HTML %}
 
-Starting with version 0.53 you can specify extra HTML files to load.
+Starting with version 0.53 you can specify extra HTML files to load, and starting with version 0.95 extra JS modules.
 
 Example:
 
@@ -137,10 +137,12 @@ Example:
 frontend:
   extra_html_url:
     - https://example.com/file1.html
-    - /file2.html
+    - /local/file2.html
+  extra_module_url:
+    - /local/my_module.js
 ```
 
-Those will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels).
+Html will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels), and modules via `<script type='module' scr='{{ extra_module }}'></script>`.
 
 ### {% linkable_title Manual Language Selection %}
 
