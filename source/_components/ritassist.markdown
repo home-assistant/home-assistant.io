@@ -61,7 +61,7 @@ include:
   type: strings
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
 
 ## {% linkable_title Available attributes %}
 

@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.57
 ---
 
-The `Remember The Milk` (RTM) component allows you to create tasks in [remember_the_milk](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The component allows you to have several RTM accounts in parallel.
+The `Remember The Milk` (RTM) integration allows you to create tasks in [remember_the_milk](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
 
 ## {% linkable_title Setup %}
 
@@ -60,7 +60,7 @@ In the background Home Assistant downloaded a "token" from the Remember The Milk
 
 ## {% linkable_title Creating/updating tasks with service ```create_task```%}
 
-This component offers a new service domain ```remember_the_milk``` with the services ```<account>_create_task```. You can call this service with the argument ```name``` and the optional parameter ```id``` to create a new task in your Remember The Milk account. You can call this service from your usual automations.
+This integration offers a new service domain ```remember_the_milk``` with the services ```<account>_create_task```. You can call this service with the argument ```name``` and the optional parameter ```id``` to create a new task in your Remember The Milk account. You can call this service from your usual automations.
 
 If you set an ```id``` and a task with that id exists already, the existing task is updated, rather than creating a new task. This way you can change the name of the task. If you do not set an ```id```, a new task is created with every call. If you're using this from an automation, you could use the name of your automation as id or the entity that triggered the task to be created. This way you can later on update or complete this task.
 

@@ -61,7 +61,7 @@ The sensor exposes the different round trip times values measured by `ping` as a
 - `round trip time min`
 - `round trip time max`
 
-The default polling interval is 5 minutes. As many components [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the devices every 30 seconds.
+The default polling interval is 5 minutes. As many integrations [based on the entity class](/docs/configuration/platform_options), it is possible to overwrite this scan interval by specifying a `scan_interval` configuration key (value in seconds). In the example below we setup the `ping` binary sensor to poll the devices every 30 seconds.
 
 ```yaml
 # Example configuration.yaml entry to ping host 192.168.0.1 with 2 packets every 30 seconds.
@@ -107,4 +107,4 @@ count:
   type: integer
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

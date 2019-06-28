@@ -14,7 +14,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The `script` component allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script component will create an entity for each script and allow them to be controlled via services.
+The `script` integration allows users to specify a sequence of actions to be executed by Home Assistant when turned on. The script integration will create an entity for each script and allow them to be controlled via services.
 
 The sequence of actions is specified using the [Home Assistant Script Syntax](/getting-started/scripts/).
 

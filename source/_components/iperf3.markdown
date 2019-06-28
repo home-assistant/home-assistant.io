@@ -17,13 +17,13 @@ redirect_from:
   - /components/sensor.iperf3/
 ---
 
-The `iperf3` sensor component allows you to measure network bandwidth performance against a private or public [Iperf3](http://software.es.net/iperf/index.html) server.
+The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](http://software.es.net/iperf/index.html) server.
 
-Enabling this component will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a Iperf3 test to run.
+Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a Iperf3 test to run.
 
 ## {% linkable_title Setup %}
 
-This component requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
+This integration requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
 
 ## {% linkable_title Configuration %}
 
@@ -114,7 +114,7 @@ You can use the service `sensor.iperf3_update` to trigger a manual speed test fo
 
 ### {% linkable_title Service %}
 
-Once loaded, the `iperf3` component will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
+Once loaded, the `iperf3` integration will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 
 | Service data attribute | Description |
 | `host` | String that point at a configured `host` from configuration.yaml. Otherwise, tests will be run against all configured hosts.

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "N26"
-description: "Instructions on how to integrate N26 component within Home Assistant."
+description: "Instructions on how to integrate N26 integration within Home Assistant."
 date: 2019-03-11 20:00
 sidebar: true
 comments: false

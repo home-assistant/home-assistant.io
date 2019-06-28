@@ -19,7 +19,7 @@ redirect_from:
   - /components/switch.upcloud/
 ---
 
-The `upcloud` component allows you to access the information about your [UpCloud](https://www.upcloud.com/) servers from Home Assistant.
+The `upcloud` integration allows you to access the information about your [UpCloud](https://www.upcloud.com/) servers from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

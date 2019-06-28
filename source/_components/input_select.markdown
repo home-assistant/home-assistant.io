@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Select"
-description: "Instructions on how to integrate the Input Select component into Home Assistant."
+description: "Instructions on how to integrate the Input Select integration into Home Assistant."
 date: 2016-02-02 17:00
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.13
 ha_qa_scale: internal
 ---
 
-The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
+The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
 To enable this platform in your installation, add the following lines to your `configuration.yaml`:
 
@@ -66,11 +66,11 @@ Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, a
 
 ### {% linkable_title Restore State %}
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
 ### {% linkable_title Services %}
 
-This components provide three services to modify the state of the `input_select`.
+This integrations provide three services to modify the state of the `input_select`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |

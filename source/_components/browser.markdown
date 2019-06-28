@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Browser"
-description: "Instructions on how to setup the browser component with Home Assistant."
+description: "Instructions on how to setup the browser integration with Home Assistant."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_qa_scale: internal
 ha_release: pre 0.7
 ---
 
-The `browser` component provides a service to open URLs in the default browser on the host machine.
+The `browser` integration provides a service to open URLs in the default browser on the host machine.
 
 ## {% linkable_title Configuration %}
 

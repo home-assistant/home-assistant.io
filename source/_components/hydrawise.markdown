@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.hydrawise/
 ---
 
-The `hydrawise` component allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
+The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

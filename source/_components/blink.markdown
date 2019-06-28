@@ -23,7 +23,7 @@ redirect_from:
   - /components/sensor.blink/
 ---
 
-The `blink` component lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
+The `blink` integration lets you view camera images and motion events from [Blink](http://blinkforhome.com) camera and security systems.
 
 ## {% linkable_title Setup %}
 
@@ -85,7 +85,7 @@ mode:
   default: not set
 {% endconfiguration %}
 
-Once Home Assistant starts, the `blink` component will create the following platforms:
+Once Home Assistant starts, the `blink` integration will create the following platforms:
 
 - An `alarm_control_panel` to arm/disarm the whole blink system (note, `alarm_arm_home` is not implemented and will not actually do anything, despite it being an option in the GUI).
 - A `camera` for each camera linked to your Blink sync module.

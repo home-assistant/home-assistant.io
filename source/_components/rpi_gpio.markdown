@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.rpi_gpio/
 ---
 
-The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding pages.
+The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding pages.
 
 ## {% linkable_title Binary Sensor %}
 

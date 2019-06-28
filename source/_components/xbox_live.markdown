@@ -16,7 +16,7 @@ redirect_from:
  - /components/sensor.xbox_live/
 ---
 
-The Xbox Live component is able to track [Xbox](http://xbox.com/) profiles.
+The Xbox Live integration is able to track [Xbox](http://xbox.com/) profiles.
 
 To use this sensor you need a free API key from
 [XboxAPI.com](http://xboxapi.com).

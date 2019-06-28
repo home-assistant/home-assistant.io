@@ -13,9 +13,9 @@ ha_category:
 ha_release: 0.81
 ---
 
-With the `route53` component can you keep your AWS Route53 DNS records up to date.
+With the `route53` integration can you keep your AWS Route53 DNS records up to date.
 
-The component will run every hour, but can also be started manually by using the service `route53.update_records` under services.
+The integration will run every hour, but can also be started manually by using the service `route53.update_records` under services.
 
 Please note that this platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
 
@@ -61,11 +61,11 @@ Here is an IAM Policy sample, don't forget to update your Zone ID on the Resourc
 
 4. Once this has been done, create a new user called `homeassistant` and add the IAM policy to the user, allowing it to manage this DNS resource.
 
-5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the component definition YAML.
+5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the integration definition YAML.
 
 ## {% linkable_title Configuration %}
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

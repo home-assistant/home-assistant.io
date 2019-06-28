@@ -25,7 +25,7 @@ redirect_from:
 
 This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/programs/daemon.html) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication.
 
-The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other components (e.g., automation). Additionally a send service is provided to send RF codes.
+The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other integrations (e.g., automation). Additionally a send service is provided to send RF codes.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -111,11 +111,11 @@ name:
   required: false
   type: string
 payload_on:
-  description: "Variable `on` value. The component will recognize this as logical '1'."
+  description: "Variable `on` value. The integration will recognize this as logical '1'."
   required: false
   type: [string, float, integer]
 payload_off:
-  description: "Variable `off` value. The component will recognize this as logical '0'."
+  description: "Variable `off` value. The integration will recognize this as logical '0'."
   required: false
   type: [string, float, integer]
 disarm_after_trigger:

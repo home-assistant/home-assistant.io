@@ -59,7 +59,7 @@ It is recommended to create a dedicated user on Arlo website to be used within H
 
 Finish its configuration by visiting the [Arlo sensor page](/components/sensor.arlo/) or [Arlo camera page](/components/camera.arlo/) or [Arlo control panel page](/components/alarm_control_panel.arlo/). Arlo also has a service call `arlo.update` that can be manually called to force an update prior to the regular scheduled interval.
 
-The Arlo component also provides a camera service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
+The Arlo integration also provides a camera service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
 
 ```yaml
 #automation.yaml
@@ -142,7 +142,7 @@ More examples and configuration options can be found on the [Manual Alarm Contro
 
 ## {% linkable_title Camera %}
 
-This component is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
+This integration is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
 
 ### {% linkable_title Configuration %}
 

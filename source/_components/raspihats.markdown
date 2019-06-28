@@ -19,7 +19,7 @@ redirect_from:
   - /components/switch.raspihats/
 ---
 
-The `raspihats` component is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the component itself.
+The `raspihats` integration is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the integration itself.
 
 ## {% linkable_title Binary Sensor %}
 

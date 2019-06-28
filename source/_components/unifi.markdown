@@ -34,9 +34,9 @@ Home Assistant offers UniFi integration through **Configuration** -> **Integrati
 
 Enter `host address`, `user name` and `password` and then continue to select which `site` you want to connect to Home Assistant. The user must have administrator privileges.
 
-## {% linkable_title Debugging component %}
+## {% linkable_title Debugging integration %}
 
-If you have problems with UniFi or the component you can add debug prints to the log.
+If you have problems with UniFi or the integration you can add debug prints to the log.
 
 ```yaml
 logger:
@@ -112,7 +112,7 @@ monitored_conditions:
 
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 ### {% linkable_title Configuring Users %}
 
@@ -120,7 +120,7 @@ The Unifi controller allows you to create multiple users on it besides the main 
 
 ### {% linkable_title Conflicts with MQTT %}
 
-The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
+The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the Unifi controller in a dedicated virtual machine to avoid that situation.
 

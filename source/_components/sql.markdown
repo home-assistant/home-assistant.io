@@ -16,7 +16,7 @@ redirect_from:
 ---
 
 The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
-This can be used to present statistics about Home Assistant sensors if used with the `recorder` component database. It can also be used with an external data source.
+This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
 ## {% linkable_title Configuration %}
 

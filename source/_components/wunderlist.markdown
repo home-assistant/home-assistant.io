@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.84
 ---
 
-The `wunderlist` component allows you to create tasks in [Wunderlist](https://www.wunderlist.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., Congratulate Dani.
+The `wunderlist` integration allows you to create tasks in [Wunderlist](https://www.wunderlist.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., Congratulate Dani.
 
 ## {% linkable_title Setup %}
 
@@ -46,7 +46,7 @@ access_token:
 
 ## {% linkable_title Creating tasks with service `create_task`%}
 
-This component offers a new service domain `wunderlist` with the service `create_task`.
+This integration offers a new service domain `wunderlist` with the service `create_task`.
 You can call this service with the argument  `list_name` the argument `name` and the optional parameter `starred` to create a new task.
 
 | Service data attribute | Optional | Description | Example |

@@ -19,7 +19,7 @@ redirect_from:
   - /components/sensor.transmission/
 ---
 
-The `transmission` component allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` integration allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
 ## {% linkable_title Setup %}
 
@@ -100,7 +100,7 @@ monitored_conditions:
 
 ## {% linkable_title Event Automation %}
 
-The Transmission component is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
+The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
 
 Possible events are:
 

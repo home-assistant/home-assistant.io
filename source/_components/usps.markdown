@@ -29,14 +29,14 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Prerequisites %}
 
-This component requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
+This integration requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
 
 <p class='note warning'>
 If you are using a Raspberry Pi, you must use PhantomJS.
 </p>
 
 <p class='note warning'>
-Hass.io containers are based on Alpine Linux. PhantomJS is not available for Alpine Linux. Therefore it is currently not possible to use this component on Hass.io.
+Hass.io containers are based on Alpine Linux. PhantomJS is not available for Alpine Linux. Therefore it is currently not possible to use this integration on Hass.io.
 </p>
 
 ### {% linkable_title PhantomJS %}
@@ -100,7 +100,7 @@ The USPS sensor logs into the MyUSPS website to scrape package data. It does not
 
 ## {% linkable_title Camera %}
 
-The `usps` camera component allows you to view the mail piece images made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS sensors](#sensor).
+The `usps` camera integration allows you to view the mail piece images made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS sensors](#sensor).
 
 ### {% linkable_title Configuration %}
 
@@ -113,10 +113,10 @@ camera:
     scan_interval: 5
 ```
 
-To enable this camera in your installation, set up the USPS component first.
+To enable this camera in your installation, set up the USPS integration first.
 
 ## {% linkable_title Sensor %}
 
-The `usps` sensor component allows you to view statistics on incoming mail and packages made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS camera](#camera).
+The `usps` sensor integration allows you to view statistics on incoming mail and packages made available through USPS via the Informed Delivery service.  You must "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see mail images. This works in concert with [USPS camera](#camera).
 
-To enable this sensor in your installation, set up the USPS component first.
+To enable this sensor in your installation, set up the USPS integration first.

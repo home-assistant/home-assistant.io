@@ -20,7 +20,7 @@ redirect_from:
   - /components/sensor.freebox/
 ---
 
-The `freebox` component allows you to observe and control [Freebox router](http://www.free.fr/).
+The `freebox` integration allows you to observe and control [Freebox router](http://www.free.fr/).
 
 There is currently support for the following device types within Home Assistant:
 

@@ -66,4 +66,4 @@ Then (after a reboot): you can setup the sensor using:
 
 ## {% linkable_title Calibration %}
 
-The MH-Z19B version of the sensor has Automatic Baseline Calibration enabled by default, which will calibrate the 400PPM level to the lowest measured PPM in the last 24h cycle. Currently the component does not allow turning this functionaly off.
+The MH-Z19B version of the sensor has Automatic Baseline Calibration enabled by default, which will calibrate the 400PPM level to the lowest measured PPM in the last 24h cycle. Currently the integration does not allow turning this functionaly off.

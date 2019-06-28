@@ -18,7 +18,7 @@ redirect_from:
   - /components/sensor.luftdaten/
 ---
 
-The `luftdaten` component will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
+The `luftdaten` integration will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
 
 ## {% linkable_title Setup %}
 
@@ -109,4 +109,4 @@ luftdaten:
 
 The `luftdaten` sensor platform will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
 
-You must have the `luftdaten` component (from above) configured to use this platform. After configuring that component, sensors will automatically appear.
+You must have the `luftdaten` integration (from above) configured to use this platform. After configuring that component, sensors will automatically appear.

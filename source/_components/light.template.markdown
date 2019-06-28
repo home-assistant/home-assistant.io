@@ -15,7 +15,7 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform creates lights that combine components and provides the
+The `template` platform creates lights that combine integrations and provides the
 ability to run scripts or invoke services for each of the on, off, and
 brightness commands of a light.
 

@@ -22,7 +22,7 @@ Supported devices:
 
 - The SK range
 
-Compatible devices will be automatically added if the [`discovery`](/components/discovery/) component is enabled.
+Compatible devices will be automatically added if the [`discovery`](/components/discovery/) integration is enabled.
 
 ### {% linkable_title Supported operations %}
 

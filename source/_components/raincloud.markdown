@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.raincloud/
 ---
 
-The `raincloud` component allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
+The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

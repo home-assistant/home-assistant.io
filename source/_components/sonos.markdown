@@ -16,9 +16,9 @@ ha_iot_class: Local Polling
 redirect_from: /components/media_player.sonos/
 ---
 
-The `sonos` component allows you to control your [Sonos](https://www.sonos.com) HiFi wireless speakers and audio components from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.
+The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) HiFi wireless speakers and audio integrations from Home Assistant. By default it supports auto-discovery provided by Home Assistant, and you don't need to add anything to your `configuration.yaml`.
 
-If you don't have the discovery component enabled, you can configure the Sonos component by going to the integrations page inside the config panel.
+If you don't have the discovery integration enabled, you can configure the Sonos integration by going to the integrations page inside the config panel.
 
 ## {% linkable_title Services %}
 

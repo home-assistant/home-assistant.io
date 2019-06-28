@@ -62,7 +62,7 @@ ip_address:
 
 ## {% linkable_title Service %}
 
-The ADS component will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
+The ADS integration will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
 
 ```json
 {

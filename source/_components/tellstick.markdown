@@ -23,7 +23,7 @@ redirect_from:
   - /components/switch.tellstick/
 ---
 
-The `tellstick` component integrates [TellStick](https://telldus.com/produkt/z-wave-gateway-tellstick-znet-lite-ver-2/) devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are a number of vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).
+The `tellstick` integration integrates [TellStick](https://telldus.com/produkt/z-wave-gateway-tellstick-znet-lite-ver-2/) devices into Home Assistant. This integration allows users to add switches, lights, and sensors which are communicating with 433 MHz. There are a number of vendors (Capidi Elro, Intertechno, Nexa, Proove, Sartano, and Viking) who are selling products that work with TellStick. For more details, please check the TellStick [protocol list](http://developer.telldus.com/wiki/TellStick_conf).
 
 There is currently support for the following device types within Home Assistant:
 

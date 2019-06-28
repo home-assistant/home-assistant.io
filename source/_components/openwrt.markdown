@@ -48,4 +48,4 @@ device_tracker:
 
 To get the best of both worlds, you can combine the two approaches, running both a periodic device scanner and an event-based device tracker.
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

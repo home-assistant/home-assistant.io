@@ -14,11 +14,11 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The camera component allows you to use IP cameras with Home Assistant.
+The camera integration allows you to use IP cameras with Home Assistant.
 
 ### {% linkable_title Streaming Video %}
 
-If your camera supports it, and the [`stream`](/components/stream) component is setup, you will be able to stream your cameras in the frontend and on supported media players.
+If your camera supports it, and the [`stream`](/components/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
 
 This option will keep the stream alive, and preload the feed on Home Assistant startup. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
 
@@ -36,13 +36,13 @@ Available services: `turn_on`, `turn_off`, `enable_motion_detection`, `disable_m
 
 #### {% linkable_title Service `play_stream` %}
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/components/stream) component to be set up.
+Play a live stream from a camera to selected media player(s). Requires [`stream`](/components/stream) integration to be set up.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.living_room_camera`. |
 | `media_player`         |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
-| `format`               |      yes | Stream format supported by `stream` component and selected `media_player`. Default: `hls` |
+| `format`               |      yes | Stream format supported by `stream` integration and selected `media_player`. Default: `hls` |
 
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
@@ -111,7 +111,7 @@ action:
 
 #### {% linkable_title Service `record` %}
 
-Make a `.mp4` recording from a camera stream. Requires `stream` component to be set up.
+Make a `.mp4` recording from a camera stream. Requires `stream` integration to be set up.
 
 Both `duration` and `lookback` options are suggestions, but should be consistent per camera.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
 

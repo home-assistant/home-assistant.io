@@ -19,7 +19,7 @@ redirect_from:
   - /components/sensor.asuswrt/
 ---
 
-The `asuswrt` component is the main component to connect to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
+The `asuswrt` integration is the main integration to connect to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -120,7 +120,7 @@ The example above, creates the following sensors:
 
 ## {% linkable_title Padavan custom firmware (The rt-n56u project) %}
 
-The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this component can still be used for the rt-n56u project by linking `dnsmasq.leases` during the boot process of the router.
+The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this integration can still be used for the rt-n56u project by linking `dnsmasq.leases` during the boot process of the router.
 
 Follow these steps to setup the link.
 

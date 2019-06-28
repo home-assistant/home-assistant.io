@@ -19,7 +19,7 @@ redirect_from:
   - /components/weather.meteo_france/
 ---
 
-The `meteo_france` component uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
+The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -72,7 +72,7 @@ meteo_france:
 
 ### {% linkable_title About `city` configuration %}
 
-This component use the Météo-France search API to get the first city from the results returned.
+This integration use the Météo-France search API to get the first city from the results returned.
 
 It works well with french postal code, city name, etc. In case your expected result doesn't come first, you can set a more specified query like `<city name>, <postal_code>`.
 

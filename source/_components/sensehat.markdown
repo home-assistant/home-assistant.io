@@ -190,7 +190,7 @@ ln -s /usr/lib/python3/dist-packages/RTIMU.cpython-35m-arm-linux-gnueabihf.so /s
 sudo reboot
 ```
 
-Unfortunately enabling the SenseHAT Sensor component for a Virtual Environment install of Home Assistant fails with errors.
+Unfortunately enabling the SenseHAT Sensor integration for a Virtual Environment install of Home Assistant fails with errors.
 _(The Raspberry Pi All-In-One installer and HASSbian both run Home Assistant in an virtual environment)._
 These issues have been discussed in the repository issue [#5093](https://github.com/home-assistant/home-assistant/issues/5093)
 

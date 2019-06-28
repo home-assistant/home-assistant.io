@@ -16,7 +16,7 @@ ha_iot_class: Local Push
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors.
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
 ## {% linkable_title Configuration %}
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Downloader"
-description: "Instructions on how to setup the downloader component with Home Assistant."
+description: "Instructions on how to setup the downloader integration with Home Assistant."
 date: 2015-01-24 14:39
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `downloader` component provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
+The `downloader` integration provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
 
 To enable it, add the following lines to your `configuration.yaml` file:
 

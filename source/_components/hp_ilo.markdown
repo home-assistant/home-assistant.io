@@ -28,7 +28,7 @@ Some more details about what can be retrieved from these sensors is available in
 
 ## {% linkable_title Configuration %}
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+To use this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

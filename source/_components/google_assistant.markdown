@@ -14,7 +14,7 @@ featured: true
 ha_release: 0.56
 ---
 
-The `google_assistant` component allows you to control things via Google Assistant (on your mobile or tablet) or a Google Home device.
+The `google_assistant` integration allows you to control things via Google Assistant (on your mobile or tablet) or a Google Home device.
 
 ## {% linkable_title Automatic setup via Home Assistant Cloud %}
 
@@ -24,7 +24,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 ## {% linkable_title Manual setup %}
 
-The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
+The Google Assistant integration requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 <p class='note warning'>
 To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing.
@@ -81,7 +81,7 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
-4. Add the `google_assistant` component configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
+4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
 5. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
 <p class='note'>

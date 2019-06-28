@@ -21,11 +21,11 @@ You have to have an AWS account to use Amazon Web Services, create one [here](ht
 
 The `lambda`, `sns` and `sqs` services, used in the `aws` component, all provide an **Always Free** tier for all users even after the 12-month period. The general usage in Home Automation will most likely not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/) and [SQS Pricing](https://aws.amazon.com/sqs/pricing/) for more details.
 
-The `aws` component is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) to communicate with Amazon Web Services, which is also used by the [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shares the same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and how to manage them on your local system securely.
+The `aws` integration is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) to communicate with Amazon Web Services, which is also used by the [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shares the same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and how to manage them on your local system securely.
 
 ## {% linkable_title Configuration %}
 
-To use the `aws` component and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
+To use the `aws` integration and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,7 +35,7 @@ aws:
       aws_access_key_id: AWS_ID
       aws_secret_access_key: AWS_SECRET
   notify:
-    # use the first credential defined in aws component by default
+    # use the first credential defined in aws integration by default
     - service: lambda
       region_name: us-east-1
 ```

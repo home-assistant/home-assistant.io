@@ -16,7 +16,7 @@ redirect_from:
  - /components/sensor.gpsd/
 ---
 
-The `gpsd` component is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
+The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
 
 ## {% linkable_title Setup %}
 

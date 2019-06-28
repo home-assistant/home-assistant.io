@@ -27,7 +27,7 @@ redirect_from:
   - /components/switch.tuya/
 ---
 
-The `tuya` component is the main component to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+The `tuya` integration is the main integration to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
 
 There is currently support for the following device types within Home Assistant:
 

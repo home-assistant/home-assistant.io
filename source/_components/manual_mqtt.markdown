@@ -19,7 +19,7 @@ The `mqtt` platform extends the [manual alarm](/components/alarm_control_panel.m
 
 It's essentially the opposite of the [MQTT Alarm Panel](/components/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
-The component will accept the following commands from your Alarm Panel via the `command_topic`:
+The integration will accept the following commands from your Alarm Panel via the `command_topic`:
 
 - `DISARM`
 - `ARM_HOME`

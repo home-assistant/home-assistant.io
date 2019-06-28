@@ -14,7 +14,7 @@ ha_qa_scale: internal
 ha_release: 0.19
 ---
 
-The `climate` component is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) and thermostat devices.
+The `climate` integration is built for the controlling and monitoring of HVAC (heating, ventilating, and air conditioning) and thermostat devices.
 
 ## {% linkable_title Services %}
 

@@ -15,7 +15,7 @@ redirect_from:
  - /components/notify.pushover/
 ---
 
-The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows components to send messages to the user using Pushover.
+The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.
 
 ## {% linkable_title Configuration %}
 
@@ -67,7 +67,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 When sending a notification, optional parameters can also be set as per the pushover [API documentation](https://pushover.net/api).
 
-Example notification triggered from the Alexa component for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
+Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
 
 {% raw %}
 

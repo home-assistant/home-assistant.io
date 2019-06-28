@@ -13,11 +13,11 @@ ha_category:
 ha_release: 0.93
 ---
 
-The `ptvsd` component allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.
+The `ptvsd` integration allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.
 
 This is useful in testing changes on a local development install, or connecting to a production server to debug issues.
 
-To enable the `ptvsd` component add the following to your `configuration.yaml` file:
+To enable the `ptvsd` integration add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +58,7 @@ There have been reports of continually increasing memory use while the debugger 
 
 ### {% linkable_title Waiting at startup %}
 
-If you want to debug something in the boot-up sequence, configure the component to wait for a connection first:
+If you want to debug something in the boot-up sequence, configure the integration to wait for a connection first:
 
 ```yaml
 # Example configuration.yaml entry

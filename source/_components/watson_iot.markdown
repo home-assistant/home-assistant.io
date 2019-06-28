@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.72
 ---
 
-The `watson_iot` component enables you to link the devices in Home Assistant
+The `watson_iot` integration enables you to link the devices in Home Assistant
 with an [IBM Watson IoT Platform instance](https://www.ibm.com/us-en/marketplace/internet-of-things-cloud).
 
 ## {% linkable_title Configuration %}
@@ -58,7 +58,7 @@ token:
   required: true
   type: string
 exclude:
-  description: Configure which components should be excluded from recording to Watson IoT Platform.
+  description: Configure which integrations should be excluded from recording to Watson IoT Platform.
   required: false
   type: map
   keys:
@@ -71,7 +71,7 @@ exclude:
       required: false
       type: list
 include:
-  description: Configure which components should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **blacklist** option will prevail.
+  description: Configure which integrations should be included in recordings to Watson IoT Platform. If set, all other entities will not be recorded to Watson IoT Platform. Values set by the **blacklist** option will prevail.
   required: false
   type: map
   keys:

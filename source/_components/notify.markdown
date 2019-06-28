@@ -14,7 +14,7 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-The `notify` component makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
+The `notify` integration makes it possible to send notifications to a wide variety of platforms. Please check the sidebar for a full list of platforms that are supported.
 
 If you want to send notifications to the Home Assistant Web Interface you may use the [Persistent Notification Component](/components/persistent_notification/).
 
@@ -29,7 +29,7 @@ Once loaded, the `notify` platform will expose a service that can be called to s
 | `target`               |      yes | Some platforms will allow specifying a recipient that will receive the notification. See your platform page if it is supported.
 | `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
 
-The notification component supports specifying [templates](/topics/templating/) with `data_template`. This will allow you to use the current state of Home Assistant in your notifications.
+The notification integration supports specifying [templates](/topics/templating/) with `data_template`. This will allow you to use the current state of Home Assistant in your notifications.
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 

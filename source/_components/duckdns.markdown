@@ -13,11 +13,11 @@ ha_category:
 ha_release: 0.55
 ---
 
-With the DuckDNS component you can keep your DuckDNS record up to date. DuckDNS is a free dynamic DNS service that allows you to point a subdomain under `duckdns.org` at your computer.
+With the DuckDNS integration you can keep your DuckDNS record up to date. DuckDNS is a free dynamic DNS service that allows you to point a subdomain under `duckdns.org` at your computer.
 
 ## {% linkable_title Configuration %}
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,5 +38,5 @@ duckdns:
 {% endconfiguration %}
 
 <p class='note'>
-If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this component is not required. The add-on will keep your IP updated with DuckDNS.
+If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this integration is not required. The add-on will keep your IP updated with DuckDNS.
 </p>

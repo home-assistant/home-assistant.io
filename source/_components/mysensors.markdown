@@ -14,7 +14,7 @@ ha_iot_class: Local Push
 ha_release: 0.73
 ---
 
-The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This component will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
+The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
 
 ### {% linkable_title Configuration %}
 
@@ -149,7 +149,7 @@ mysensors:
 Present a MySensors sensor or actuator, by following these steps:
 
 1. Connect the serial gateway to your computer or the Ethernet or MQTT gateway to your network.
-2. Configure the MySensors component in `configuration.yaml`.
+2. Configure the MySensors integration in `configuration.yaml`.
 3. Start Home Assistant.
 4. Write and upload your MySensors sketch to the sensor. Make sure you:
     - Send sketch name.
@@ -253,7 +253,7 @@ Message validation was introduced in version 0.52 of Home Assistant.
 
 ### {% linkable_title Debug logging %}
 
-If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` component and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our github issue tracker.
+If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the `mysensors` integration and the `mysensors` package. This will help you see what is going on. Make sure you use these logging settings to collect a log sample if you report an issue about the `mysensors` integration in our github issue tracker.
 ```yaml
 logger:
   default: info

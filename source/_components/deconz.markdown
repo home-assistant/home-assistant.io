@@ -61,9 +61,9 @@ If you don't have the API key, you can generate an API key for deCONZ by using t
 
 You can manually add deCONZ by going to the integrations page.
 
-## {% linkable_title Debugging component %}
+## {% linkable_title Debugging integration %}
 
-If you have problems with deCONZ or the component you can add debug prints to the log.
+If you have problems with deCONZ or the integration you can add debug prints to the log.
 
 ```yaml
 logger:

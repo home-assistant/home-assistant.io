@@ -21,7 +21,7 @@ redirect_from:
   - /components/sensor.tado/
 ---
 
-The `tado` component platform is used as an interface to the [my.tado.com](https://my.tado.com/webapp/#/account/sign-in) website.
+The `tado` integration platform is used as an interface to the [my.tado.com](https://my.tado.com/webapp/#/account/sign-in) website.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -90,7 +90,7 @@ home_id:
 After configuration, your device has to be at home at least once before showing up as *home* or *away*.
 Polling Tado API for presence information will happen at most once every 30 seconds.
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked. Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked. Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
 
 ### {% linkable_title Finding your `home_id` %}
 

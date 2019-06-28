@@ -67,7 +67,7 @@ search:
 
 ### {% linkable_title Configuring IMAP Searches %}
 
-By default, this component will count unread emails. By configuring the search string, you can count other results, for example:
+By default, this integration will count unread emails. By configuring the search string, you can count other results, for example:
 
 * `ALL` to count all emails in a folder
 * `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))

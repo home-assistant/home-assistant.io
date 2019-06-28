@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "IHC"
-description: "Instructions on how to integrate the IHC components with Home Assistant"
+description: "Instructions on how to integrate the IHC integrations with Home Assistant"
 date: 2017-11-11 22:00
 sidebar: true
 comments: false
@@ -71,13 +71,13 @@ info:
 
 ## {% linkable_title Auto setup of IHC products %}
 
-If the auto setup is enabled, the `ihc` component will automatically find IHC products and insert these as devices in Home Assistant. To disable this set auto_setup to false. See the individual device types for a list of IHC products to be recognized automatically.
+If the auto setup is enabled, the `ihc` integration will automatically find IHC products and insert these as devices in Home Assistant. To disable this set auto_setup to false. See the individual device types for a list of IHC products to be recognized automatically.
 
 Components will get a default name that is a combination of the IHC group and IHC resource id. If you want to change the display names use the [Customizing entities](/docs/configuration/customizing-devices/).
 
 ## {% linkable_title Manual setup %}
 
-Each device is associated with an IHC resource id. To manually setup components you specify resource ids from the IHC project. The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand.
+Each device is associated with an IHC resource id. To manually setup integrations you specify resource ids from the IHC project. The IHC project is the file you edit/upload to the IHC Controller using LK IHC Visual - or similar program if your controller is not the LK brand.
 
 The project file is an XML file and you can view it with any text/XML editor. You can rename it to have the XML extension and use a browser like Chrome or Internet Explorer. The resources are the \<airlink_xxx> or \<dataline_xxx> elements. Shown as inputs or outputs of products in the IHC application. You can also use inputs and outputs from function blocks. These are the \<resource_input> and \<resource_output> elements from the project file.
 

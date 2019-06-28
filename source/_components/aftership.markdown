@@ -70,5 +70,5 @@ api_key:
 | `slug` | `True` | string | Carrier e.g. `fedex`
 
 <p class='note info'>
-This component retrieves data from AfterShip public REST API, but the component is not affiliated with AfterShip.
+This integration retrieves data from AfterShip public REST API, but the integration is not affiliated with AfterShip.
 </p>

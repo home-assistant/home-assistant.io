@@ -13,11 +13,11 @@ ha_category:
 ha_release: 0.57
 ---
 
-With the Google Domains component you can keep your Google Domains record up to date.
+With the Google Domains integration you can keep your Google Domains record up to date.
 
 ## {% linkable_title Configuration %}
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

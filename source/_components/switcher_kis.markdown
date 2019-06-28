@@ -16,7 +16,7 @@ ha_release: 0.93
 ha_iot_class: Local Push
 ---
 
-This `Switcher` component allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
+This `Switcher` integration allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
 
 To enable it, add an entry to your `configuration.yaml` according to the following configuration instructions.
 
@@ -31,7 +31,7 @@ To retrieve your device's details, please follow the instructions [here](https:/
 </p>
 
 <p class='note warning'>
-  Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.As this component is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
+  Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.As this integration is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
 </p>
 ```yaml
 switcher_kis:

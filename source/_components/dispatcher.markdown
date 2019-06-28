@@ -24,7 +24,7 @@ The `dispatcher` camera platform allows developers to create virtual camera's.
 
 ## {% linkable_title Configuration %}
 
-You would normally not add this camera to your configuration directly but have it be discovered by one of the components that uses it.
+You would normally not add this camera to your configuration directly but have it be discovered by one of the integrations that uses it.
 
 ```yaml
 # Example configuration.yaml entry

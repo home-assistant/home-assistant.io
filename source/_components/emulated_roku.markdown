@@ -14,7 +14,7 @@ ha_release: 0.86
 ha_iot_class: Local Push
 ---
 
-This component integrates an emulated Roku API into Home Assistant,
+This integration integrates an emulated Roku API into Home Assistant,
 so remotes such as Harmony and Android apps can connect to it through WiFi as if it were a Roku player.
 Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.
 Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.
@@ -24,14 +24,14 @@ Windows is not supported because Home Assistant uses `ProactorEventLoop` which d
 </p>
 
 <p class='note warning'>
-This component opens an unauthenticated API on the host, allowing anything on the local network to access
+This integration opens an unauthenticated API on the host, allowing anything on the local network to access
 your Home Assistant instance through the automations you create with emulated Roku as the trigger.
 Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's ip or DNS name)
 </p>
 
 ## {% linkable_title Configuration %}
 
-The component is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
+The integration is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
 
 If you wish to configure advanced options, you can add the following entry in `configuration.yaml`.
 
@@ -53,7 +53,7 @@ listen_port:
   required: true
   type: integer
 host_ip:
-  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
+  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the integration will attempt to determine the IP address on its own.
   required: false
   type: string
 advertise_ip:

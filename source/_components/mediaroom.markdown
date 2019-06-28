@@ -16,7 +16,7 @@ redirect_from:
  - /components/media_player.mediaroom/
 ---
 
-The `mediaroom` component allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
+The `mediaroom` integration allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
 
 To add a Mediaroom STB to your installation, add the following to your `configuration.yaml` file:
 
@@ -38,7 +38,7 @@ media_player:
     type: string
     default: Mediaroom STB
   optimistic:
-    description: In case the component cannot determine the status of the box, consider the box always ON.
+    description: In case the integration cannot determine the status of the box, consider the box always ON.
     required: false
     type: boolean
     default: false
@@ -46,13 +46,13 @@ media_player:
 
 Notice that all parameters are optional, and discovery should configure everything for you.
 
-#### {% linkable_title Using the Mediaroom component %}
+#### {% linkable_title Using the Mediaroom integration %}
 
-The component has been developed for Portuguese TV operators currently using the Mediaroom platform, but should also work in other deployments in which the STB can be controlled remotely through a socket on port 8082.
+The integration has been developed for Portuguese TV operators currently using the Mediaroom platform, but should also work in other deployments in which the STB can be controlled remotely through a socket on port 8082.
 
 In most cases (single STB) you just need to setup the *platform* and discovery will do the rest.
 
-If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the component will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
+If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the integration will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
 
 ## {% linkable_title Examples %}
 

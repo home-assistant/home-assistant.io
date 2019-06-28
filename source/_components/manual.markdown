@@ -92,7 +92,7 @@ armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
 
 ## {% linkable_title State machine %}
 
-The state machine of the manual alarm component is complex but powerful.  The
+The state machine of the manual alarm integration is complex but powerful.  The
 transitions are timed according to three values, **delay_time**, **pending_time**
 and **trigger_time**.  The values in turn can come from the default configuration
 variable or from a state-specific override.

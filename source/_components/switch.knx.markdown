@@ -14,9 +14,9 @@ ha_release: 0.24
 ha_iot_class: Local Polling
 ---
 
-The `knx` switch component is used as in interface to switching actuators.
+The `knx` switch integration is used as in interface to switching actuators.
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
 ## {% linkable_title Configuration %}
 

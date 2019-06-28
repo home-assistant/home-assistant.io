@@ -67,7 +67,7 @@ Multiple device trackers can be used in parallel, such as [Owntracks](/component
 ## {% linkable_title `known_devices.yaml` %}
 
 <p class='note warning'>
-As of 0.94 `known_devices.yaml` is being phased out, and no longer used by all trackers. Depending on the component you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, and Locative.
+As of 0.94 `known_devices.yaml` is being phased out, and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, and Locative.
 </p>
 
 Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
