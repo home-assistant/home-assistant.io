@@ -142,7 +142,7 @@ frontend:
     - /local/my_module.js
 ```
 
-Html will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels), and modules via `<script type='module' scr='{{ extra_module }}'></script>`.
+HTML will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels), and modules via `<script type='module' scr='{{ extra_module }}'></script>`.
 
 ### {% linkable_title Manual Language Selection %}
 
