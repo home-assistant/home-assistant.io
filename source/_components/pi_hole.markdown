@@ -75,11 +75,13 @@ monitored_conditions:
       description: Total number of seen clients.
 {% endconfiguration %}
 
+### {% linkable_title Full example %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: pi_hole
-    host: xxx.xxx.x.x
+    host: IP_ADDRESS
     monitored_conditions:
       - ads_blocked_today
       - ads_percentage_today
