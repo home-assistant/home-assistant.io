@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-logo: home-assistant.png
+logo: powerone.png
 ha_category:
   - Sensor
   - Energy
