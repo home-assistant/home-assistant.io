@@ -50,13 +50,14 @@ rs485:
 address:
   description: The address of the inverter - only need to set this if you have changed your inverter away from the default address of 2.
   required: false
-  default: SolarEdge
   type: integer
+  default: 2
 {% endconfiguration %}
 
 ```yaml
 # Example configuration.yaml entry for aurora_abb_powerone platform
 sensor:
   - platform: aurora_abb_powerone
+    address: 2
     rs485: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0'
 ```
