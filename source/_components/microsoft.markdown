@@ -35,7 +35,7 @@ api_key:
   required: true
   type: string
 language:
-  description: The language to use. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well. For a list of supported languages please check here [Supported Languages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/microsoft/tts.py#L20)
+  description: The language to use. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well. For the supported languages check the list of [available languages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/microsoft/tts.py#L20).
   required: false
   type: string
   default: "`en-us`"
