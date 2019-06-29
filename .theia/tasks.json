@@ -10,7 +10,7 @@
                 "generate"
             ],
             "options": {
-                "cwd": "${workspaceFolder}",
+                "cwd": "${workspaceFolder}"
             }        
         },
         {
@@ -23,8 +23,8 @@
                 "preview"
             ],
             "options": {
-                "cwd": "${workspaceFolder}",
+                "cwd": "${workspaceFolder}"
             }        
-        },
+        }
     ]
 }
