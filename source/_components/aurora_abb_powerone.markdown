@@ -22,7 +22,7 @@ The inverter was formerly made by PowerOne who got taken over by ABB.
 The TCP/IP method of commuicating with inverters is supported by the 
 Python library, but not by this implementation in this integration.
 
-The component provides a single sensor which reports the live power output
+This integration provides a single sensor which reports the live power output
 in watts.
 
 Note the PV inverter will be unresponsive to communications when in darkness.
