@@ -112,6 +112,19 @@ headers:
   description: The headers for the requests.
   required: false
   type: list, string
+json_attributes:
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
+  reqired: false
+  type: list, string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from the response. Can be used in conjuction with `json_attributes` to filter a nested response object. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
+force_update:
+  description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
+  reqired: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 <p class='note warning'>

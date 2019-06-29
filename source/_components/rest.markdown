@@ -100,6 +100,10 @@ json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   reqired: false
   type: list, string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from the response. Can be used in conjuction with `json_attributes` to filter a nested response object. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
@@ -340,5 +344,22 @@ sensor:
         value_template: '{{ states.sensor.room_sensors.attributes["bedroom2"]["temperature"] }}'
         device_class: temperature
         unit_of_measurement: '°C'
+```
+{% endraw %}
+
+
+Using the same example above, if you were only interested in Bedroom 1's temperature and wanted to keep the humidity and battery info as a state attribute, you could use the `json_attributes_template`:
+
+{% raw %}
+```yaml
+sensor:
+  - platform: rest
+    name: room_sensors
+    resource: http://<address_to_rest_service>
+    json_attributes:
+      - humidity
+      - battery
+    value_template: "{{ value_json[bedroom1][temperature] }}"
+    json_attributes_template: "{{ value_json[bedroom1] | tojson }}"
 ```
 {% endraw %}
