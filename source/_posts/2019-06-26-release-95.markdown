@@ -144,6 +144,19 @@ We have also realized that the default database clean up task never automaticall
 [@balloob]: https://github.com/balloob
 [cloud docs]: /components/cloud/
 
+## {% linkable_title Release 0.95.4 - June 28 %}
+
+- Improve autodiscovered yeelights model detection ([@zewelor] - [#24671]) ([yeelight docs])
+- Guard for None entity config ([@balloob] - [#24838]) ([alexa docs]) ([cloud docs])
+
+[#24671]: https://github.com/home-assistant/home-assistant/pull/24671
+[#24838]: https://github.com/home-assistant/home-assistant/pull/24838
+[@balloob]: https://github.com/balloob
+[@zewelor]: https://github.com/zewelor
+[alexa docs]: /components/alexa/
+[cloud docs]: /components/cloud/
+[yeelight docs]: /components/yeelight/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
