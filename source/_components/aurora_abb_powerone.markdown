@@ -39,7 +39,7 @@ rs485 with the serial port that your device is connected to.
 # Example configuration.yaml entry
 sensor:
   - platform: aurora_abb_powerone
-    rs485: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0'
+    rs485: 'SERIAL_PORT'
 ```
 
 {% configuration %}
