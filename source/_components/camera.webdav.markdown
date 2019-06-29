@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "WebDAV Camera"
-description: "Instructions on how to pull images from a WebDAV share within home assistant."
+description: "Instructions on how to pull images from a WebDAV share within Home Assistant."
 date: 2019-03-31 20:00
 sidebar: true
 comments: false
