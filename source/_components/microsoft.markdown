@@ -35,7 +35,7 @@ api_key:
   required: true
   type: string
 language:
-  description: The language to use. Accepted values are listed below. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well.
+  description: The language to use. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well. For a list of supported languages please check here https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/microsoft/tts.py#L20
   required: false
   type: string
   default: "`en-us`"
@@ -70,13 +70,6 @@ contour:
   type: string
 {% endconfiguration %}
 
-Languages supported by this integration.
-  'ar-eg', 'ar-sa', 'ca-es', 'cs-cz', 'da-dk', 'de-at', 'de-ch', 'de-de',
-  'el-gr', 'en-au', 'en-ca', 'en-gb', 'en-ie', 'en-in', 'en-us', 'es-es',
-  'es-mx', 'fi-fi', 'fr-ca', 'fr-ch', 'fr-fr', 'he-il', 'hi-in', 'hu-hu',
-  'id-id', 'it-it', 'ja-jp', 'ko-kr', 'nb-no', 'nl-nl', 'pl-pl', 'pt-br',
-  'pt-pt', 'ro-ro', 'ru-ru', 'sk-sk', 'sv-se', 'th-th', 'tr-tr', 'zh-cn',
-  'zh-hk', 'zh-tw'
   
 ## {% linkable_title Full configuration example %}
 
