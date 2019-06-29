@@ -52,7 +52,7 @@ Add an account for Home Assistant called `homeassistant`.
 Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio` adds the user to the `dialout` and the `gpio` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
 
 ```bash
-$ sudo useradd -rm homeassistant -G dialout,gpio
+$ sudo useradd -rm homeassistant -G dialout,gpio,i2c
 ```
 
 Next we will create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
