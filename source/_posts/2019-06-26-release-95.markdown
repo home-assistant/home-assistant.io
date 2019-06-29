@@ -136,6 +136,14 @@ We have also realized that the default database clean up task never automaticall
 [script docs]: /components/script/
 [zha docs]: /components/zha/
 
+## {% linkable_title Release 0.95.3 - June 28 %}
+
+- Alexa sync state report ([@balloob] - [#24835]) ([cloud docs])
+
+[#24835]: https://github.com/home-assistant/home-assistant/pull/24835
+[@balloob]: https://github.com/balloob
+[cloud docs]: /components/cloud/
+
 ## {% linkable_title If you need help... %}
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
