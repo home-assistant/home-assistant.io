@@ -19,7 +19,7 @@ This implements a direct RS485 connection to a solar inverter in the
 PVI-3.0/3.6/4.2-TL-OUTD ABB series, and may work on others.
 The inverter was formerly made by PowerOne who got taken over by ABB.
 
-The TCP/IP method of commuicating with inverters is supported by the 
+The TCP/IP method of communicating with inverters is supported by the 
 Python library, but not by this implementation in this integration.
 
 This integration provides a single sensor which reports the live power output
