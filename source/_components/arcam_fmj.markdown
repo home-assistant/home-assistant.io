@@ -12,7 +12,7 @@ ha_category: Media Player
 ha_release: 0.96
 ---
 
-The `arcam_fmj` platform allows you to control [Arcam FMJ Receveivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
+The `arcam_fmj` integration allows you to control [Arcam FMJ Receveivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
 
 Supported devices:
 
