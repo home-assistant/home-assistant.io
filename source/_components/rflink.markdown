@@ -31,6 +31,10 @@ This integration is tested with the following hardware/software:
 
 ## {% linkable_title Configuration %}
 
+<p class='note warning'>
+Due to a bug that seems related to how the hass.io container interacts with the serial device, this might not work if you are running hass.io. See here for various work arounds: https://github.com/home-assistant/home-assistant/issues/23942
+</p>
+
 To enable RFLink in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
