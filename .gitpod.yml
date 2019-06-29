@@ -1,0 +1,16 @@
+tasks:
+  - init: gem install bundler -v 2.0.1
+  - init: bundle install
+ports:
+  - port: 4000
+    onOpen: open-browser
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: false
+    addBadge: true
+    addLabel: false
