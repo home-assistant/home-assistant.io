@@ -25,15 +25,12 @@ Python library, but not by this implementation in this integration.
 This integration provides a single sensor which reports the live power output
 in watts.
 
-Note the PV inverter will be unresponsive to communications when in darkness.
-
-This is caught by the implementation which returns 'None' if there is no 
-response.
+Note the PV inverter will be unresponsive to communications when in darkness, 
+so the value 'unknown' will be displayed during the night.
 
 ## {% linkable_title Configuration %}
 
-Add the following to your `configuration.yaml` file, replacing the text after 
-rs485 with the serial port that your device is connected to.
+Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
