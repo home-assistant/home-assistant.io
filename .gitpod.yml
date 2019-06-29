@@ -1,5 +1,3 @@
-image:
-  file: .gitpod.dockerfile
 tasks:
   - init: gem install bundler -v 2.0.1
   - init: bundle install
