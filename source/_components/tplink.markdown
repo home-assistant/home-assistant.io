@@ -84,7 +84,16 @@ light:
       required: true
       type: string
 switch:
-  description: List of switch devices.
+  description: List of on/off switch devices.
+  required: false
+  type: list
+  keys:
+    host:
+      description: Hostname or IP address of the device.
+      required: true
+      type: string
+dimmer:
+  description: List of dimmable switch devices.
   required: false
   type: list
   keys:
@@ -106,6 +115,9 @@ tplink:
   switch:
     - host: 192.168.200.3
     - host: 192.168.200.4
+  dimmer:
+    - host: 192.168.200.5
+    - host: 192.168.200.6
 ```
 
 ## {% linkable_title Extracting Energy Sensor data %}
