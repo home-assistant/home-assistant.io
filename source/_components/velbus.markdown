@@ -31,6 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Sensor
 - Switch
+- Cover
 
 ## {% linkable_title Configuration %}
 
