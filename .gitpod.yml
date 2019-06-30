@@ -1,6 +1,7 @@
 tasks:
   - init: gem install bundler -v 2.0.1
   - init: bundle install
+  - init: bundle exec rake generate
 ports:
   - port: 4000
     onOpen: open-browser
