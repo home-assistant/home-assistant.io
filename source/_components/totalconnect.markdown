@@ -56,7 +56,7 @@ password:
   type: string
 {% endconfiguration %}
 
-You are highly encouraged to create a Total Connect user account specifically for Home Assistant.  It should not have full administrative privileges.
+You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
 
 ## {% linkable_title Automation example %}
 
