@@ -49,7 +49,7 @@ $ sudo apt-get install python3 python3-venv python3-pip libffi-dev libssl-dev
 ```
 
 Add an account for Home Assistant called `homeassistant`.
-Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio` adds the user to the `dialout` and the `gpio` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
+Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio,i2c` adds the user to the `dialout`, `gpio` and the `i2c` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
 
 ```bash
 $ sudo useradd -rm homeassistant -G dialout,gpio,i2c
