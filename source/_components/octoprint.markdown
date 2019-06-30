@@ -105,8 +105,8 @@ octoprint:
               description: Time remaining on current print job, in seconds.
             "Job File":
               description: Current file printing.
-            "Printers Avaliable":
-              description: A count of avaliable printers.
+            "Printers Available":
+              description: A count of available printers.
     binary_sensors:
       description: Configuration for the binary sensors.
       required: false
@@ -192,7 +192,7 @@ The `octoprint` sensor platform let you monitor various states of your 3D printe
 
 ## {% linkable_title Services %}
 
-There are a few services avaliable with this component.
+There are a few services available with this component.
 
 ### {% linkable_title cancel_job %}
 
