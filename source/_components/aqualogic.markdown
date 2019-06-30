@@ -19,7 +19,7 @@ redirect_from:
   - /components/switch.aqualogic/
 ---
 
-The AquaLogic component provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.
+The AquaLogic integration provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## {% linkable_title Configuration %}
 
-To add the AquaLogic component to your installation, add the following to your `configuration.yaml` file:
+To add the AquaLogic integration to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

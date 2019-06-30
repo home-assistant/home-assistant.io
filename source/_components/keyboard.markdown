@@ -13,7 +13,7 @@ ha_category:
 ha_release: pre 0.7
 ---
 
-The `keyboard` component simulates key presses on the host machine. It currently offers the following Buttons as a Service (BaaS):
+The `keyboard` integration simulates key presses on the host machine. It currently offers the following Buttons as a Service (BaaS):
 
 - `keyboard/volume_up`
 - `keyboard/volume_down`

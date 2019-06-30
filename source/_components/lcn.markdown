@@ -27,7 +27,7 @@ redirect_from:
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](http://www.lcn.eu) hardware devices.
 
-The component requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
+The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
 With this setup sending and receiving commands to and from LCN modules is possible.
 
 There is currently support for the following device types within Home Assistant:
@@ -41,7 +41,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 <p class='note'>
-  Please note: Besides the implemented platforms the `lcn` component offers a variety of [service calls](#services).
+  Please note: Besides the implemented platforms the `lcn` integration offers a variety of [service calls](#services).
   These service calls cover functionalities of the LCN system which cannot be represented by the platform implementations.
   They are ideal to be used in automation scripts or for the `template` platforms.
 </p>
@@ -333,7 +333,7 @@ Modules can be arranged in _segments_. Segments can be addressed by their numeri
 
 LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
 
-The LCN component allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
+The LCN integration allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
 
 Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
 
@@ -397,8 +397,9 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 
 | Constant | Values |
 | -------- | ------ |
-| LED_STATE | `on`. `off`, `blink`, `flicker` |
-| LOGICOP_STATE | `not`. `or`, `and` |
+| LED_STATE | `on`, `off`, `blink`, `flicker` |
+| LOGICOP_STATE | `not`, `or`, `and` |
+| KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
 ### {% linkable_title Keys %}:
 
@@ -486,8 +487,13 @@ Set absolute brightness of output port in percent.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "brightness": 100, "transition": 0}
+```yaml
+service: output_abs
+data:
+  addres: myhome.0.7
+  output: output1
+  brightness: 100
+  transition: 0
 ```
 
 ### {% linkable_title Service `output_rel` %}
@@ -503,8 +509,12 @@ Set relative brightness of output port in percent.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "brightness": 30}
+```yaml
+service: output_rel
+data:
+  address: myhome.0.7
+  output: output1
+  brightness: 30
 ```
 
 ### {% linkable_title Service `output_toggle` %}
@@ -519,8 +529,12 @@ Toggle output port.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "transition": 0}
+```yaml
+service: output_toggle
+data:
+  address: myhome.0.7
+  output: output1
+  transition: 0
 ```
 
 ### {% linkable_title Service `relays` %}
@@ -537,8 +551,11 @@ Example states:  `t---001-`
 
 Example:
 
-```
-{"address": "myhome.0.7", "state": "t---001-"}
+```yaml
+service: relays
+data:
+  address: myhome.0.7
+  state: t---001-
 ```
 
 ### {% linkable_title Service `led` %}
@@ -552,8 +569,12 @@ Set the led status.
 
 Example:
 
-```
-{"address": "myhome.0.7", "led": "led6", "state": "blink"}
+```yaml
+service: led
+data:
+  address: myhome.0.7
+  led: led6
+  state: blink
 ```
 
 ### {% linkable_title Service `var_abs` %}
@@ -571,8 +592,13 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1", "value": 75, "unit_of_measurement": "%"}
+```yaml
+service: var_abs
+data:
+  address: myhome.0.7
+  variable: var1
+  value: 75
+  unit_of_measurement: %
 ```
 
 <p class='note'>
@@ -595,8 +621,13 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1", "value": 10, "unit_of_measurement": "%"}
+```yaml
+service: var_rel
+data:
+  address: myhome.0.7
+  variable: var1
+  value: 10
+  unit_of_measurement: %
 ```
 
 <p class='note'>
@@ -615,8 +646,11 @@ Reset value of variable or setpoint.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1"}
+```yaml
+service: var_reset:
+data:
+  address: myhome.0.7
+  variable: var1
 ```
 
 <p class='note'>
@@ -637,8 +671,12 @@ If `state` is not defined, it is assumed to be `False`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "setpoint": "r1varsetpoint", "state": true}
+```yaml
+service: lock_regulator
+data:
+  address: myhome.0.7
+  setpoint: r1varsetpoint
+  state: true
 ```
 
 ### {% linkable_title Service `send_keys` %}
@@ -653,15 +691,29 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
 | `keys` | No | Keys string |
-| `state` | Yes | Keys state | [SENDKEYCOMMANDS](#states) |
+| `state` | Yes | Keys state | [KEY_STATE](#states) |
 | `time` | Yes | Deferred time | 0.. |
 | `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
 
 Examples:
 
+Send keys immediately:
+```yaml
+service: send_keys
+data:
+  address: myhome.0.7
+  keys: a1a5d8
+  state: hit
 ```
-{"address": "myhome.0.7", "keys": "a1a5d8", "state": "hit"}
-{"address": "myhome.0.7", "keys": "a1a5d8", "time": 5, "time_unit": "s"}
+
+Send keys deferred:
+```yaml
+service: send_keys
+data:
+  address: myhome.0.7
+  keys: a1a5d8
+  time: 5
+  time_unit: s
 ```
 
 ### {% linkable_title Service `lock_keys` %}
@@ -669,22 +721,36 @@ Examples:
 Locks keys.
 If table is not defined, it is assumend to be table `a`.
 The key lock states are defined as a string with eight characters. Each character represents the state change of a key lock (1=on, 0=off, t=toggle, -=nochange).
-The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only tabley `a` is allowed.
+The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only table `a` is allowed.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
 | `table` | Yes | Table with keys to lock |
-| `state` | No | Key lock states as string | [SENDKEYCOMMANDS](#states) |
+| `state` | No | Key lock states as string | [KEY_STATE](#states) |
 | `time` | Yes | Time period to lock | 0.. |
 | `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
 
 Examples:
 
+Lock keys forever:
+```yaml
+service: lock_keys
+data:
+  address: myhome.0.7
+  table: a
+  state: 1---t0--
 ```
-{"address": "myhome.0.7", "table": "a", "state": "1---t0--"}
-{"address": "myhome.0.7", "state": "1---t0--", "time": 10, "time_unit": "s"}
+
+Lock keys for a specified time period:
+```yaml
+service: lock_keys
+data:
+  address: myhome.0.7
+  state: 1---t0--
+  time: 10
+  time_unit: s
 ```
 
 ### {% linkable_title Service `dyn_text` %}
@@ -702,8 +768,12 @@ Each row can be set independently and can store up to 60 characters (encoded in 
 
 Example:
 
-```
-{"address": "myhome.0.7", "row": 1, "text": "text in row 1"}
+```yaml
+service: dyn_text
+data:
+  address: myhome.0.7
+  row: 1
+  text: "text in row 1"
 ```
 
 ### {% linkable_title Service `pck` %}
@@ -717,6 +787,9 @@ Send arbitrary PCK command. Only the command part of the PCK command has to be s
 
 Example:
 
-```
-{"address": "myhome.0.7", "pck": "PIN4"}
+```yaml
+service: pck
+data:
+  address: myhome.0.7
+  pck: PIN4
 ```

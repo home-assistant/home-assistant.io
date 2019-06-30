@@ -14,14 +14,14 @@ ha_release: 0.44
 ha_iot_class: Local Polling
 ---
 
-The `knx light` component is used as an interface to control knx actuators for lighting applications such as:
+The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
 
 - switching actuators
 - dimming actuators
 - LED controllers
 - DALI gateways
 
-The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly to use this component, see [KNX Component](/components/knx).
 
 ## {% linkable_title Configuration %}
 

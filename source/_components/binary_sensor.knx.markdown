@@ -18,7 +18,7 @@ The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary
 
 ## {% linkable_title Configuration %}
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
 ```yaml
 # Example configuration.yaml entry

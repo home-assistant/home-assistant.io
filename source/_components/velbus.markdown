@@ -23,7 +23,7 @@ redirect_from:
   - /components/switch.velbus/
 ---
 
-The `velbus` component supports the Velbus USB, Velbus serial and a TCP/IP gateway.
+The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
 There is currently support for the following device types within Home Assistant:
 

@@ -17,7 +17,7 @@ redirect_from:
   - /components/vacuum.ecovacs/
 ---
 
-The `ecovacs` component is the main component to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
+The `ecovacs` integration is the main integration to integrate all [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums. You will need your Ecovacs account information (username, password) to discover and control vacuums in your account.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -62,7 +62,7 @@ The library that talks to the Ecovacs servers is in a very early state and still
 
 Please see the [sucks library documentation](https://github.com/wpietri/sucks) for some more information about what has been tested, and check out the GitHub issues to see if the issue you're having is known or being worked on.
 
-If you have an issue with the Ecovacs component, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs component and the underlying `sucks` library, place this in your `configuration.yaml` file:
+If you have an issue with the Ecovacs component, please file a [GitHub Issue](https://github.com/home-assistant/home-assistant/issues) and include your Home Assistant logs in the report. To get full debug output from both the Ecovacs integration and the underlying `sucks` library, place this in your `configuration.yaml` file:
 
 ```yaml
 logger:

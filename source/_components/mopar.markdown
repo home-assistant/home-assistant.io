@@ -19,7 +19,7 @@ redirect_from:
  - /components/sensor.mopar/
 ---
 
-The `mopar` component provides the following for owners of FCA vehicles with a uConnect subscription:
+The `mopar` integration provides the following for owners of FCA vehicles with a uConnect subscription:
 
 - Sensor per vehicle with vehicle health report and other meta-data
 - Lock per vehicle allowing to lock/unlock the vehicle

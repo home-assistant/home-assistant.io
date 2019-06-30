@@ -31,7 +31,7 @@ redirect_from:
   - /components/sensor.abode/
 ---
 
-The `abode` component will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
+The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
 
 Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
 
@@ -88,13 +88,13 @@ polling:
 exclude:
   description: >
     A list of devices to exclude from Home Assistant by their Abode `device_id`
-    or `automation_id`, found within the component attributes.
+    or `automation_id`, found within the integration attributes.
   required: false
   type: list
 lights:
   description: >
     A list of switch devices that Home Assistant should treat as lights by the
-    switches Abode `device_id`, found within the component attributes.
+    switches Abode `device_id`, found within the integration attributes.
   required: false
   type: list
 {% endconfiguration %}
@@ -159,16 +159,16 @@ Trigger a quick action automation on your Abode system.
 
 ### {% linkable_title Binary Sensor %}
 
-This component will add `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+This integration will add `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
 
-This component will also list all Abode `Quick Actions` that are set up. You can trigger these quick actions by passing the `entity_id` of your quick action binary sensor to the [trigger_quick_action service](/components/abode/#trigger_quick_action).
+This integration will also list all Abode `Quick Actions` that are set up. You can trigger these quick actions by passing the `entity_id` of your quick action binary sensor to the [trigger_quick_action service](/components/abode/#trigger_quick_action).
 
 ### {% linkable_title Light %}
 
-This component will automatically add `Lights` configured in your Abode account. You can reclassify `Switches` to show up within Home Assistant as lights by listing the Abode device ID in your [configuration](/components/abode/#configuration).
+This integration will automatically add `Lights` configured in your Abode account. You can reclassify `Switches` to show up within Home Assistant as lights by listing the Abode device ID in your [configuration](/components/abode/#configuration).
 
 ### {% linkable_title Switch %}
 
-This component will automatically add `Power Switches` configured in your Abode account. You can reclassify switches to show up within Home Assistant as `Lights` by listing the Abode device ID in your [configuration](/components/abode/#configuration).
+This integration will automatically add `Power Switches` configured in your Abode account. You can reclassify switches to show up within Home Assistant as `Lights` by listing the Abode device ID in your [configuration](/components/abode/#configuration).
 
-This component will also list all Abode `Automations` that are set up within the Abode system, allowing you to activate and deactivate the automations.
+This integration will also list all Abode `Automations` that are set up within the Abode system, allowing you to activate and deactivate the automations.

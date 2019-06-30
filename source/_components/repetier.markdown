@@ -17,7 +17,7 @@ ha_iot_class: Local Polling
 ---
 
 [Repetier-Server](https://www.repetier-server.com/) is a 3D printer/CNC server, able to control multiple devices on the same server.
-This component handles the main integration to the server.
+This integration handles the main integration to the server.
 
 There is currently support for the following device types within Home Assistant:
 

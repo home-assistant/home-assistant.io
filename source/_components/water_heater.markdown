@@ -10,7 +10,7 @@ footer: true
 ha_release: 0.81
 ---
 
-The `water_heater` component is built for the controlling and monitoring of hot water heaters.
+The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
 
 To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
 

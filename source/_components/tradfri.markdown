@@ -22,7 +22,7 @@ redirect_from:
   - /components/switch.tradfri/
 ---
 
-The `tradfri` component support the IKEA Trådfri Gateway (a.k.a. IKEA Tradfri hub/bridge). The gateway can control compatible Zigbee-based lights (certified ZigBee Light Link products) connected to it and Home Assistant will automatically discover the gateways presence on your local network, if `discovery:` is present in your `configuration.yaml` file.
+The `tradfri` integration support the IKEA Trådfri Gateway (a.k.a. IKEA Tradfri hub/bridge). The gateway can control compatible Zigbee-based lights (certified ZigBee Light Link products) connected to it and Home Assistant will automatically discover the gateways presence on your local network, if `discovery:` is present in your `configuration.yaml` file.
 
 You will be prompted to configure the gateway through the Home Assistant interface. The configuration process is very simple, when prompted, enter the security key printed on the physical sticker that is on the bottom of the IKEA Trådfri Gateway, then click configure.
 
@@ -56,7 +56,11 @@ allow_tradfri_groups:
 
 ### {% linkable_title Firmware updates %}
 
-After updating the firmware of your IKEA Trådfri Gateway it might be necessary to repeat the configuration process. If you encounter problems, delete the `.tradfri_psk.conf` file in your `.homeassistant` directory, restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup. Possible errors: `Fatal DTLS error: code 115`.
+After updating the firmware of your IKEA Trådfri Gateway it might be necessary to repeat the configuration process. Possible errors: `Fatal DTLS error: code 115`. If you encounter problems:
+- when configured using the integration: remove the integration through Settings > Integrations > Tradfri > delete using trash can icon;
+- with manual configuration: delete the `.tradfri_psk.conf` file in your `.homeassistant` directory;
+
+Then restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup.
 
 ### {% linkable_title Compilation issues %}
 

@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.rainmachine/
 ---
 
-The `rainmachine` component is the main component to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
+The `rainmachine` integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](http://www.rainmachine.com/).
 
 There is currently support for the following device types within Home Assistant:
 

@@ -21,15 +21,22 @@ redirect_from:
   - /components/sensor.opentherm_gw/
 ---
 
-The `opentherm_gw` component is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
+The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
 
-This component will add a single `climate` entity and multiple `sensor` and `binary_sensor` entities to Home Assistant for each configured gateway.
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Climate
+- Sensor
+
+This integration will add a single `climate` entity and multiple `sensor` and `binary_sensor` entities to Home Assistant for each configured gateway.
 
 <p class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
 </p>
 
 # {% linkable_title Configuration %}
+
 In this example, one gateway is configured with `gateway_id` `living_room`.
 ```yaml
 # Example configuration.yaml entry
@@ -66,7 +73,11 @@ climate:
       default: false
 {% endconfiguration %}
 
-# {% linkable_title Services %}
+## {% linkable_title Supported Variables %}
+
+The list above contains all supported variables. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` integration and look for the status updates.
+
+## {% linkable_title Services %}
 
 ### {% linkable_title Service `opentherm_gw.reset_gateway` %}
 

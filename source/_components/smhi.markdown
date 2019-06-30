@@ -17,7 +17,7 @@ redirect_from:
   - /components/weather.smhi/
 ---
 
-The `smhi` component adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
+The `smhi` integration adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
 
 There is currently support for the following device types within Home Assistant:
 

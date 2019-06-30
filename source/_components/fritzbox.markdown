@@ -22,7 +22,7 @@ redirect_from:
   - /components/sensor.fritzbox/
 ---
 
-The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
+The [AVM](https://en.avm.de) Fritzbox integration for Home Assistant allows you to integrate the switch and climate devices.
 
 There is currently support for the following device types within Home Assistant:
 

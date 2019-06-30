@@ -186,7 +186,7 @@ As indicated in the table on top of this page there are 3 versions of the button
 
 #### {% linkable_title Xiaomi Cube %}
 
-Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`. The component stores the last action as the attribute `last_action`.
+Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`. The integration stores the last action as the attribute `last_action`.
 
 ```yaml
 - alias: Cube event flip90

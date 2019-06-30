@@ -14,7 +14,7 @@ ha_qa_scale: internal
 ha_release: pre 0.7
 ---
 
-This component allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
+This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
 
 ### {% linkable_title Default turn-on values %}
 

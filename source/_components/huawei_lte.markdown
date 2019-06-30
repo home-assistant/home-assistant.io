@@ -61,14 +61,14 @@ password:
 
 ### {% linkable_title Tested routers %}
 
-Routers we know to be working with this component based on the documentation of used libraries and reports by users:
+Routers we know to be working with this integration based on the documentation of used libraries and reports by users:
 
 - Huawei B310s-22
 - Huawei B525s-23a
 - Huawei E5186s-22a
 - Huawei B618
 
-This is not a complete list. The component can probably connect to other Huawei LTE routers running similar firmware.
+This is not a complete list. The integration can probably connect to other Huawei LTE routers running similar firmware.
 
 ## {% linkable_title Presence Detection %}
 
@@ -82,7 +82,7 @@ device_tracker:
   - platform: huawei_lte
 ```
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 ## {% linkable_title Notifications %}
 

@@ -19,7 +19,7 @@ redirect_from:
   - /components/switch.edp_redy/
 ---
 
-[EDP re:dy](https://www.edp.pt/particulares/servicos/redy/) is a Home Automation platform from Portuguese energy provider EDP, that allows control of appliances and other devices, as well as monitoring power consumption. This component allows integrating EDP re:dy into Home Assistant.
+[EDP re:dy](https://www.edp.pt/particulares/servicos/redy/) is a Home Automation platform from Portuguese energy provider EDP, that allows control of appliances and other devices, as well as monitoring power consumption. This integration allows integrating EDP re:dy into Home Assistant.
 
 ## {% linkable_title Configuration %}
 

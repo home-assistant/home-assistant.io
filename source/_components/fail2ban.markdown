@@ -67,7 +67,7 @@ For those of us using Docker, the above tutorial may not be sufficient. The foll
 
 #### {% linkable_title Set http logger %}
 
-In your `configuration.yaml` file, add the following to the `logger` component to ensure that Home Assistant prints failed login attempts to the log.
+In your `configuration.yaml` file, add the following to the `logger` integration to ensure that Home Assistant prints failed login attempts to the log.
 
 ```yaml
 logger:

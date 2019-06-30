@@ -16,7 +16,7 @@ ha_iot_class: Local Push
 
 Receive signals from a keyboard and use it as a remote control.
 
-This component allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
+This integration allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
 
 The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
 
@@ -84,9 +84,9 @@ automation:
 
 ## {% linkable_title Disconnections %}
 
-This component manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
+This integration manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
 
-If the keyboard disconnects, the component will fire an event `keyboard_remote_disconnected`.
+If the keyboard disconnects, the integration will fire an event `keyboard_remote_disconnected`.
 When the keyboard reconnects, an event `keyboard_remote_connected` will be fired.
 
 Here's an automation example that plays a sound through a media player whenever the keyboard connects/disconnects:

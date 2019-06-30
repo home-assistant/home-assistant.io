@@ -62,7 +62,7 @@ proxy_params:
   required: false
   type: string
 url:
-  description: Allow to overwrite the `base_url` from the [`http`](/components/http/) component for different configurations (`https://<public_url>:<port>`).
+  description: Allow to overwrite the `base_url` from the [`http`](/components/http/) integration for different configurations (`https://<public_url>:<port>`).
   required: false
   type: string
 trusted_networks:

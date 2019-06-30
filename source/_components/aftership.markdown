@@ -60,7 +60,7 @@ api_key:
 | `slug` | `False` | string | Carrier e.g. `fedex`
 | `title` | `False` | string | Friendly name of package
 
- ## {% linkable_title Service `remove_tracking` %}
+## {% linkable_title Service `remove_tracking` %}
 
  You can use the service `aftership.remove_tracking` to remove trackings from Aftership.
 
@@ -70,5 +70,5 @@ api_key:
 | `slug` | `True` | string | Carrier e.g. `fedex`
 
 <p class='note info'>
-This component retrieves data from AfterShip public REST API, but the component is not affiliated with AfterShip.
+This integration retrieves data from AfterShip public REST API, but the integration is not affiliated with AfterShip.
 </p>

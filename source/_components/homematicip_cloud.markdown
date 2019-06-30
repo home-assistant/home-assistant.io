@@ -29,7 +29,7 @@ redirect_from:
   - /components/switch.homematicip_cloud/
 ---
 
-The [HomematicIP](http://www.homematic-ip.com) component platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
+The [HomematicIP](http://www.homematic-ip.com) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. The [homematicip-rest-api](https://github.com/coreGreenberet/homematicip-rest-api) is used for communicating. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -42,7 +42,7 @@ There is currently support for the following device types within Home Assistant:
 * Switch
 * Weather
 
-## {% linkable_title Setup the component via the frontend %}
+## {% linkable_title Setup the integration via the frontend %}
 
 Menu: *Configuration* -> *Integrations*
 
@@ -53,7 +53,7 @@ Fill the form:
 
 The authentification token will be generated and stored internally.
 
-## {% linkable_title Setup the component using the configuration files %}
+## {% linkable_title Setup the integration using the configuration files %}
 
 Generate the authentication token:
 

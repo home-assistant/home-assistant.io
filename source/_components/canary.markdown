@@ -20,7 +20,7 @@ redirect_from:
   - /components/sensor.canary/
 ---
 
-The `canary` component allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
+The `canary` integration allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

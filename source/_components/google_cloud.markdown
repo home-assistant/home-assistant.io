@@ -112,7 +112,7 @@ gain:
   type: float
   default: 0.0
 profiles:
-  description: "An identifier which selects 'audio effects' profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given. Supported profile ids listed [here](https: //cloud.google.com/text-to-speech/docs/audio-profiles)."
+  description: "An identifier which selects 'audio effects' profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given. Supported profile ids listed [here](https://cloud.google.com/text-to-speech/docs/audio-profiles)."
   required: false
   type: list
   default: "[]"

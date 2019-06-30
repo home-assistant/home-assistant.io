@@ -43,7 +43,7 @@ redirect_from:
   - /components/switch.smartthings/
 ---
 
-Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings component is the main component to integrate all SmartThings related platforms. The basic features of this integration include:
+Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings integration is the main integration to integrate all SmartThings related platforms. The basic features of this integration include:
 
 1. Controlling SmartThings devices with pushed state updates from SmartThings.
 2. Entities automatically added, removed, or updated when changed in SmartThings (upon Home Assistant restart).
@@ -62,7 +62,7 @@ The SmartThings integration utilizes a webhook to receive push updates from the 
 
 ### {% linkable_title Cloudhook via Nabu Casa %}
 
-If you are using Home Assistant Cloud (Nabu Casa) the integration will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the component prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
+If you are using Home Assistant Cloud (Nabu Casa) the integration will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the integration prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant Cloud is configured and logged-in with a non-expired subscription.
@@ -90,7 +90,7 @@ If you are using Home Assistant Cloud (Nabu Casa) the integration will create a 
 ### {% linkable_title Configure Home Assistant %}
 
 <p class='note info'>
-The SmartThings component is configured exclusively through the front-end. Manual setup through `configuration.yaml` is not available at this time.
+The SmartThings integration is configured exclusively through the front-end. Manual setup through `configuration.yaml` is not available at this time.
 </p>
 
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'SmartThings' and click 'Configure'.
@@ -110,11 +110,11 @@ See the [troubleshooting](#troubleshooting) if you are having issues setting up 
 
 ## {% linkable_title Events %}
 
-The SmartThings component triggers events for select device capabilities.
+The SmartThings integration triggers events for select device capabilities.
 
 ### {% linkable_title smartthings.button %}
 
-The component will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is actuated and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
+The integration will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is actuated and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
 
 ```json
 {
@@ -128,7 +128,7 @@ The component will trigger an event when a device with the [button](https://smar
 
 | Attribute                 | Description
 |---------------------------|------------------------------------------------------------------|
-`component_id`              | Describes which component of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.
+`component_id`              | Describes which integration of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.
 `device_id`                 | The unique id of the device in SmartThings. This can be located in the HASS device registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `value`                     | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device).
@@ -138,7 +138,7 @@ Event data payloads are logged at the debug level, see [debugging](#debugging) f
 
 ## {% linkable_title Platforms %}
 
-SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
+SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings integration maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
 
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
@@ -312,7 +312,7 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 
 Perform the following steps if you receive one of the following error messages while attempting to setup the integration (this does not apply when integrated through Home Assistant Cloud):
 
-- "SmartThings could not validate the endpoint configured in base_url. Please review the component requirements."
+- "SmartThings could not validate the endpoint configured in base_url. Please review the integration requirements."
 - "Unable to setup the SmartApp. Please try again."
 
 #### {% linkable_title Checklist %}
@@ -344,11 +344,11 @@ Perform the following steps if you receive one of the following error messages w
     {"pingData": {"challenge": "00000000-0000-0000-0000-000000000000"}}
     ```
 
-If you have completed the checklist above and are still unable to setup the platform, [activate debug logging](#debugging) for the SmartThings component and include the log messages up until the point of failure in [a new issue](https://github.com/home-assistant/home-assistant/issues).
+If you have completed the checklist above and are still unable to setup the platform, [activate debug logging](#debugging) for the SmartThings integration and include the log messages up until the point of failure in [a new issue](https://github.com/home-assistant/home-assistant/issues).
 
 ### {% linkable_title Debugging %}
 
-The SmartThings component will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml`:
+The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml`:
 
 ```yaml
 logger:

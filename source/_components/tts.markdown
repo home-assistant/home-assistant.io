@@ -26,7 +26,7 @@ tts:
 Depending on your setup, you might need to set a base URL (`base_url`) inside the [http component](/components/http/) or in the parameters of this component.
 </p>
 
-The following optional parameters can be used with any platform. However, the TTS component will only look for global settings under the configuration of the first configured platform:
+The following optional parameters can be used with any platform. However, the TTS integration will only look for global settings under the configuration of the first configured platform:
 
 {% configuration %}
 cache:
@@ -139,7 +139,7 @@ data_template:
 
 ## {% linkable_title Cache %}
 
-The component has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
+The integration has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
 
 ## {% linkable_title REST Api %}
 

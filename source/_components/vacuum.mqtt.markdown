@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.54
 ---
 
-The `mqtt` vacuum component allows you to control your MQTT-enabled vacuum.
+The `mqtt` vacuum integration allows you to control your MQTT-enabled vacuum.
 There are 2 possible message schemas - `legacy` and `state`.
 New installation should use `state` schema as `legacy` is deprecated and might be removed someday in the future.
 `state` schema is preferred because the vacuum will then be represented as a `StateVacuumDevice` which is preferred parent vacuum entity.
@@ -228,7 +228,7 @@ vacuum:
 
 ## {% linkable_title Legacy MQTT Protocol %}
 
-The above configuration for this component expects an MQTT protocol like the following.
+The above configuration for this integration expects an MQTT protocol like the following.
 
 ### {% linkable_title Legacy Basic Commands %}
 
@@ -399,7 +399,7 @@ vacuum:
 
 ## {% linkable_title State MQTT Protocol %}
 
-The above configuration for this component expects an MQTT protocol like the following.
+The above configuration for this integration expects an MQTT protocol like the following.
 
 ### {% linkable_title State Basic Commands %}
 
@@ -475,7 +475,7 @@ State has to be one of vacuum states supported by Home Assistant:
 
 ## {% linkable_title Shared MQTT Protocol %}
 
-The configuration for this component expects an MQTT protocol like the following.
+The configuration for this integration expects an MQTT protocol like the following.
 These services are identical for both - legacy and state vacuum.
 
 ### {% linkable_title Set Fan Speed %}
@@ -527,7 +527,7 @@ MQTT topic: `vacuum/send_command`
 
 ### {% linkable_title Usage with cloudless Xiaomi vacuums %}
 
-This component is supported by the cloud-free Xiaomi Vacuum Webinterface [Valetudo](https://github.com/Hypfer/Valetudo).
+This integration is supported by the cloud-free Xiaomi Vacuum Webinterface [Valetudo](https://github.com/Hypfer/Valetudo).
 
 ### {% linkable_title Retrofitting a non-wifi vacuums %}
 

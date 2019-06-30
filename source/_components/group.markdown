@@ -66,7 +66,7 @@ control:
 
 ## {% linkable_title Default groups %}
 
-Some components automatically create special groups containing component entities. These groups are named like `group.all_...`, for example:
+Some integrations automatically create special groups containing integration entities. These groups are named like `group.all_...`, for example:
 
 - `group.all_switches`
 - `group.all_lights`

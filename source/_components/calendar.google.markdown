@@ -17,7 +17,7 @@ ha_release: 0.33
 The `google` calendar platform allows you to connect to your
 [Google Calendars](https://calendar.google.com) and generate binary sensors.
 The sensors created can trigger based on any event on the calendar or only for
-matching events. When you first setup this component it will generate a new
+matching events. When you first setup this integration it will generate a new
 configuration file `google_calendars.yaml` that will contain information about
 all of the calendars you can see.
 It also exposes a service to add an event to one of your Google Calendars.
@@ -177,7 +177,7 @@ Otherwise everything following the hash sign would be considered a YAML comment.
 
 ### {% linkable_title Service `google.add_event` %}
 
-You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the component gets your time zone from your `configuration.yaml` file.
+You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|

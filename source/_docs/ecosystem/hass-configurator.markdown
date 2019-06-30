@@ -37,7 +37,7 @@ Screenshot of the HASS Configurator.
 This tool allows you to browse your filesystem and modify files. So be careful which files you edit, or you might break critical parts of your system.<br />
 Consider running the configurator as a user with limited privileges to limit possible damage.</p>
 
-### {% linkable_title Installation (Linux, OS X) %}
+### {% linkable_title Installation (Linux, macOS) %}
 There are no dependencies on Python modules that are not part of the standard library. And all the fancy JavaScript libraries are loaded from CDN (which means this doesn't work when you're offline).
 - Copy [configurator.py](https://github.com/danielperna84/hass-configurator/blob/master/configurator.py) to your Home Assistant configuration directory (e.g `/home/homeassistant/.homeassistant`): `wget https://raw.githubusercontent.com/danielperna84/hass-configurator/master/configurator.py`
 - Make it executable: `sudo chmod 755 configurator.py`

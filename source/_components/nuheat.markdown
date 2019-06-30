@@ -16,7 +16,7 @@ redirect_from:
   - /components/climate.nuheat/
 ---
 
-The `nuheat` component lets control your connected [NuHeat Signature]([NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat)) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
+The `nuheat` integration lets control your connected [NuHeat Signature]([NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat)) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 

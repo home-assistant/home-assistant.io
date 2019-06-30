@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.vultr/
 ---
 
-The `vultr` component allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

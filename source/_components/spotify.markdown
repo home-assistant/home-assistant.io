@@ -25,7 +25,7 @@ The `spotify` media player platform allows you to control
 - Spotify application, properly configured (see below)
 
 <p class='note'>
-Controlling the Spotify component (pause, play, next, etc.) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+Controlling the Spotify integration (pause, play, next, etc.) requires a Premium account. If you do not have a Premium account, the integration in the frontend will not show the controls.
 </p>
 
 To create the required Spotify application:

@@ -15,7 +15,7 @@ redirect_from:
  - /components/tts.microsoft/
 ---
 
-The `microsoft` text-to-speech platform uses [Microsoft Text-to-Speech engine](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home) to read a text with natural sounding voices. This component uses an API that is part of the Cognitive Services offering and is known as the Bing Speech API.
+The `microsoft` text-to-speech platform uses [Microsoft Text-to-Speech engine](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Bing Speech API.
 You will need an API key, which is free. You can use your [Azure subscription](https://azure.microsoft.com) or get an API key on the [Cognitive Services site](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
 ## {% linkable_title Configuration %}
@@ -35,7 +35,7 @@ api_key:
   required: true
   type: string
 language:
-  description: The language to use. Accepted values are listed in the documentation mentioned below. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well.
+  description: The language to use. Note that if you set the language to anything other than the default, you will need to specify a matching voice type as well. For the supported languages check the list of [available languages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/microsoft/tts.py#L20).
   required: false
   type: string
   default: "`en-us`"
@@ -70,6 +70,7 @@ contour:
   type: string
 {% endconfiguration %}
 
+  
 ## {% linkable_title Full configuration example %}
 
 A full configuration sample including optional variables:

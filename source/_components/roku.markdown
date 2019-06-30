@@ -19,14 +19,14 @@ redirect_from:
   - /components/media_player.roku/
 ---
 
-The [Roku](http://www.roku.com/) component allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).
+The [Roku](http://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
 - Media Player
 - Remote
 
-The `roku` component can also be forced to load by adding the following lines to your `configuration.yaml`:
+The `roku` integration can also be forced to load by adding the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry

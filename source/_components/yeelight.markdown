@@ -16,7 +16,7 @@ redirect_from:
   - /components/light.yeelight/
 ---
 
-The `yeelight` component allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
+The `yeelight` integration allows you to control your Yeelight Wifi bulbs with Home Assistant. There are two possible methods for configuration of the Yeelight: Manual or Automatic.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -110,7 +110,7 @@ custom_effects:
 {% endconfiguration %}
 
 #### {% linkable_title Music mode  %}
-Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the component and it tries to keep the connection open, which may not be wanted in all use-cases.
+Per default the bulb limits the amount of requests per minute to 60, a limitation which can be bypassed by enabling the music mode. In music mode the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
 **Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from HASS the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
 ### {% linkable_title Initial setup %}
@@ -124,7 +124,7 @@ Information on how to enable "LAN Mode" can be found [here](https://getyeti.co/p
 ### {% linkable_title Supported models %}
 
 <p class='note warning'>
-This component is tested to work with the following models. If you have a different model and it is working please let us know.
+This integration is tested to work with the following models. If you have a different model and it is working please let us know.
 </p>
 
 | Model ID   | Model number | Product name                                     |

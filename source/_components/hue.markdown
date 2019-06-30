@@ -32,7 +32,7 @@ When you configure the Hue bridge from Home Assistant, it writes a token to a fi
 
 Once registration is complete you should see the Hue lights listed as `light` entities, Hue presence sensors listed as `binary_sensor` entites, Hue temperature and light level sensors listed as `sensor` entities. If you don't you may have to restart Home Assistant once more.
 
-If you want to enable the component without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
+If you want to enable the integration without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,7 +43,7 @@ hue:
 
 {% configuration %}
 host:
-  description: The IP address of the device, e.g., 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+  description: The IP address of the device, e.g., 192.168.1.10. Required if not using the `discovery` integration to discover Hue bridges.
   required: true
   type: string
 allow_unreachable:

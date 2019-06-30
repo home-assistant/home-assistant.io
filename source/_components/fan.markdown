@@ -14,4 +14,4 @@ ha_qa_scale: internal
 ha_release: 0.27
 ---
 
-The `fan` component is built for the controlling of fan devices.
+The `fan` integration is built for the controlling of fan devices.

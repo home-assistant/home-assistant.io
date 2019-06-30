@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "HomeKit"
-description: "Instructions on how to set up the HomeKit component in Home Assistant."
+description: "Instructions on how to set up the HomeKit integration in Home Assistant."
 date: 2018-02-20 17:30
 sidebar: true
 comments: false
@@ -13,7 +13,7 @@ ha_release: 0.64
 logo: apple-homekit.png
 ---
 
-The `homekit` component allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <p class="note">
   If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/components/homekit_controller/) component.
@@ -71,7 +71,7 @@ homekit:
         type: integer
         default: 51827
       name:
-        description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
+        description: Need to be individual for each instance of Home Assistant using the integration on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
         required: false
         type: string
         default: '`Home Assistant Bridge`'
@@ -152,7 +152,7 @@ homekit:
 
 ## {% linkable_title Setup %}
 
-To enable the HomeKit component in Home Assistant, add the following to your configuration file:
+To enable the HomeKit integration in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
@@ -169,7 +169,7 @@ After Home Assistant has started, the entities specified by the filter are expos
 6. Follow the setup by clicking on `Next` and lastly `Done` in the top right-hand corner.
 7. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
 
-After the setup is completed, you should be able to control your Home Assistant components through Apple's Home and Siri.
+After the setup is completed, you should be able to control your Home Assistant integrations through Apple's Home and Siri.
 
 ## {% linkable_title Move Home Assistant install %}
 
@@ -181,7 +181,7 @@ Before you copy it, make sure to stop the old and new Home Assistant instances f
 
 ### {% linkable_title Accessory ID %}
 
-Currently, this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
 
 ### {% linkable_title Device Limit %}
 
@@ -195,7 +195,7 @@ A common situation might be if you decide to disable parts of the configuration 
 
 ## {% linkable_title Disable Auto Start %}
 
-Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: false`, you can call the service `homekit.start`.
+Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` integration is started, can be added. To start `HomeKit` when `auto_start: false`, you can call the service `homekit.start`.
 
 If you have Z-Wave entities you want to be exposed to HomeKit, then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
 
@@ -223,7 +223,7 @@ automation:
 ```
 {% endraw %}
 
-For a general delay where your component doesn't generate an event, you can also do:
+For a general delay where your integration doesn't generate an event, you can also do:
 
 {% raw %}
 ```yaml
@@ -324,7 +324,7 @@ To avoid any errors, after you have successfully paired your Home Assistant Brid
 
 ## {% linkable_title Supported Components %}
 
-The following components are currently supported:
+The following integrations are currently supported:
 
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
@@ -434,11 +434,11 @@ Check if the domain of your entity is [supported](#supported-components). If it 
 
 #### {% linkable_title HomeKit doesn't work on second Home Assistant instance %}
 
-To use the HomeKit component with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
+To use the HomeKit integration with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
 
 #### {% linkable_title Specific entity doesn't work %}
 
-Although we try our best, some entities don't work with the HomeKit component yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
+Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
 
 #### {% linkable_title Accessories are all listed as not responding %}
 

@@ -25,7 +25,7 @@ The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of 
 
 There are a lot of extensions (so-called [shields](https://www.arduino.cc/en/Main/ArduinoShields)) available. Those shields can be plugged-in into the existing connectors and stacked on top of each other. This makes it possible to expand the capabilities of the Arduino boards.
 
-The `arduino` component is designed to let you use a directly attached board to your Home Assistant host over USB.
+The `arduino` integration is designed to let you use a directly attached board to your Home Assistant host over USB.
 
 There is currently support for the following device types within Home Assistant:
 

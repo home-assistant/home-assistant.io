@@ -27,7 +27,7 @@ A sensor platform for Dutch Smart Meters which comply to DSMR (Dutch Smart Meter
 <img src='/images/screenshots/dsmr.png' />
 </p>
 
-This component is known to work for:
+This integration is known to work for:
 
 - Iskra ME382 / MT382 (DSMR 2.2)
 - ISKRA AM550 (DSMR 5.0)
@@ -47,6 +47,10 @@ USB serial converters:
 Serial to network proxies:
 
 - ser2net - <http://ser2net.sourceforge.net/>
+
+DIY solutions (ESP8266 based):
+
+- [esp8266_p1meter (fliphess)](https://github.com/fliphess/esp8266_p1meter)
 
 ```yaml
 # Example configuration.yaml entry
@@ -149,6 +153,6 @@ DSMR is a standard to which Dutch smartmeters must comply. It specifies that the
 
 The contents of this telegram differ between version but they generally consist of lines with 'obis' (Object Identification System, a numerical ID for a value) followed with the value and unit.
 
-This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this component are create during bootstrap.
+This module sets up an asynchronous reading loop using the `dsmr_parser` module which waits for a complete telegram, parser it and puts it on an async queue as a dictionary of `obis`/object mapping. The numeric value and unit of each value can be read from the objects attributes. Because the `obis` are know for each DSMR version the Entities for this integration are create during bootstrap.
 
 Another loop (DSMR class) is setup which reads the telegram queue, stores/caches the latest telegram and notifies the Entities that the telegram has been updated.

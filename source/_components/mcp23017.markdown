@@ -16,7 +16,7 @@ ha_release: 0.94
 ha_iot_class: Local Polling
 ---
 
-The `mcp23017` component is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding sections.
+The `mcp23017` integration is the base for all related mcp23017 platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.
 
 For more details about the MCP23017 I2C I/O port expander you can find its datasheet here: [MCP23017](https://www.microchip.com/wwwproducts/en/MCP23017).
 

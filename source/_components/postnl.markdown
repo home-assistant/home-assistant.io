@@ -48,5 +48,5 @@ password:
 {% endconfiguration %}
 
 <p class='note warning'>
-This component is not affiliated with PostNL and retrieves data from the endpoints of the mobile application. Use at your own risk.
+This integration is not affiliated with PostNL and retrieves data from the endpoints of the mobile application. Use at your own risk.
 </p>

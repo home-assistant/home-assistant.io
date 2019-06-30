@@ -18,7 +18,7 @@ redirect_from:
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
 memory usage, CPU usage, and running processes. This platform has superseded the
-process component which is now considered deprecated.
+process integration which is now considered deprecated.
 
 To add this platform to your installation,
 add the following to your `configuration.yaml` file:

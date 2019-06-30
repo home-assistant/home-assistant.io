@@ -35,7 +35,7 @@ plant:
 
 {% configuration %}
 entity_id:
-  description: Set by you and is used by the component as the `entity_id`.
+  description: Set by you and is used by the integration as the `entity_id`.
   required: true
   type: list
   keys:

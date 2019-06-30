@@ -177,7 +177,7 @@ documentation to install the `ffmpeg`.
 
 ## {% linkable_title Services %}
 
-Once loaded, the `amcrest` component will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
+Once loaded, the `amcrest` integration will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
 
 Available services:
 `enable_audio`, `disable_audio`,

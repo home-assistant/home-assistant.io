@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.scsgate/
 ---
 
-The SCSGate component support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.
+The SCSGate integration support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -46,7 +46,7 @@ device:
 
 ### {% linkable_title How to find the scs_id for your devices %}
 
-The SCSGate component relies on the [scsgate](https://github.com/flavio/scsgate) Python module.
+The SCSGate integration relies on the [scsgate](https://github.com/flavio/scsgate) Python module.
 
 This module provides also a command line tool called `scs-monitor`. This program can be used to find the IDs of your lights, switches and roller shutters and produce the YAML snippet to insert into your `configuration.yaml` file.
 

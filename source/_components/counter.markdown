@@ -14,7 +14,7 @@ ha_release: 0.53
 ha_qa_scale: internal
 ---
 
-The `counter` component allows one to count occurrences fired by automations.
+The `counter` integration allows one to count occurrences fired by automations.
 
 ## {% linkable_title Configuration %}
 
@@ -72,7 +72,7 @@ Pick an icon that you can find on [materialdesignicons.com](https://materialdesi
 
 ### {% linkable_title Restore State %}
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as you your entity has `restore` set to `true` which is the default. To disable this feature, set `restore` to `false`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as you your entity has `restore` set to `true` which is the default. To disable this feature, set `restore` to `false`.
 
 If `restore` is set to `false`, the `initial` value will only be used when no previous state is found or when the counter is reset.
 

@@ -34,7 +34,7 @@ host:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 Also known to be working with the following devices:
  - Irish Virgin Media Super Hub 3.0

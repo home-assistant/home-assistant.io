@@ -109,5 +109,5 @@ automation:
 {% endraw %}
 
 <p class='note warning'>
-This component is not affiliated with Rova and retrieves data from the endpoints of their website. Use at your own risk.
+This integration is not affiliated with Rova and retrieves data from the endpoints of their website. Use at your own risk.
 </p>

@@ -22,13 +22,13 @@ redirect_from:
   - /components/sensor.bmw_connected_drive/
 ---
 
-The `bmw_connected_drive` component lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
+The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account, and a Connected Drive enabled vehicle for this to work.
 
-The `bmw_connected_drive` component also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
+The `bmw_connected_drive` integration also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/m1n3rva/bimmer_connected) on github.
 
-This component provides the following platforms:
+This integration provides the following platforms:
 
 - Binary Sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
 - Device tracker: The location of your car.
@@ -38,7 +38,7 @@ This component provides the following platforms:
 
 ## {% linkable_title Configuration %}
 
-To enable this component in your installation, add the following to your
+To enable this integration in your installation, add the following to your
 `configuration.yaml` file:
 
 ```yaml
@@ -81,13 +81,13 @@ bmw_connected_drive:
 
 ## {% linkable_title Services %}
 
-The `bmw_connected_drive` component offers several services. In case you need to provide the vehicle identification number (VIN) as a parameter, you can see the VIN in the attributes of the device tracker for the vehicle. The VIN is a 17 digit alphanumeric string, e.g., `WBANXXXXXX1234567`.
+The `bmw_connected_drive` integration offers several services. In case you need to provide the vehicle identification number (VIN) as a parameter, you can see the VIN in the attributes of the device tracker for the vehicle. The VIN is a 17 digit alphanumeric string, e.g., `WBANXXXXXX1234567`.
 
 Using these services will impact the state of your vehicle. So use these services with care!
 
 ### {% linkable_title Locking and unlocking %}
 
-The vehicle can be locked and unlocked via the lock component that is created automatically for each vehicle. Before invoking these services, make sure it's safe to lock/unlock the vehicle in the current situation.
+The vehicle can be locked and unlocked via the lock integration that is created automatically for each vehicle. Before invoking these services, make sure it's safe to lock/unlock the vehicle in the current situation.
 
 ### {% linkable_title Air condition %}
 

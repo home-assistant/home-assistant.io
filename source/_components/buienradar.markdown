@@ -32,15 +32,15 @@ weather:
 
 {% configuration %}
 name:
-  description: "You can specify a name of the component, but do not have to. If you specify a name, the weather component will get an entity name of `weather.[name]`; if no name is specified, it will try to set its name to `weather.BR_[stationname]`. However at the moment in time, the entity is created, no data has been retrieved yet, so the entity will get named `weather.BR_unknown_station`. Later the station name will be known and get updated, but the entity name remains."
+  description: "You can specify a name of the component, but do not have to. If you specify a name, the weather integration will get an entity name of `weather.[name]`; if no name is specified, it will try to set its name to `weather.BR_[stationname]`. However at the moment in time, the entity is created, no data has been retrieved yet, so the entity will get named `weather.BR_unknown_station`. Later the station name will be known and get updated, but the entity name remains."
   required: false
   type: string
 latitude:
-  description: Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration but can be overridden/changed in this component to select a different location for Buienradar.
+  description: Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration but can be overridden/changed in this integration to select a different location for Buienradar.
   required: false
   type: float
 longitude:
-  description: Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration but can be overridden/changed in this component to select a different location for Buienradar.
+  description: Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration but can be overridden/changed in this integration to select a different location for Buienradar.
   required: false
   type: float
 forecast:

@@ -47,8 +47,8 @@ Next I wrote [scripts](/components/script/) that are run whenever the washer or 
 Materials used:
 
  - [Moteino](https://lowpowerlab.com/moteino/)
- - [2 x Accelerometers](http://www.amazon.com/gp/product/B008BOPN40)
- - [2 x Reed switch](http://www.amazon.com/gp/product/B004PARDRO)
+ - [2 x Accelerometers](https://amzn.to/2WXa2s5)
+ - [2 x Reed switch](https://amzn.to/2X0ZuZ2)
  - [Home Assistant](/)
 
 [Sketch for the Moteino is available here.](https://codebender.cc/sketch:144743)
@@ -144,4 +144,3 @@ Resources used:
 
  - [Inspiration and Help with Arduino code](http://www.instructables.com/id/Uber-Home-Automation-w-Arduino-Pi/step13/Washer-Dryer-Smartifier-Water-Leak-Sensor/)
  - [Moteino Code](https://github.com/LowPowerLab/RFM69/)
-

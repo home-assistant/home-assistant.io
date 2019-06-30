@@ -20,7 +20,7 @@ redirect_from:
   - /components/sensor.http/
 ---
 
-The `http` component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -103,7 +103,7 @@ ssl_profile:
 {% endconfiguration %}
 
 <p class='note'>
-Configuring trusted_networks via the `http` component will be deprecated and moved to `auth_providers` instead. For instructions, see <a href="https://www.home-assistant.io/docs/authentication/providers/#trusted-networks">trusted networks</a>. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2.
+Configuring trusted_networks via the `http` integration will be deprecated and moved to `auth_providers` instead. For instructions, see <a href="https://www.home-assistant.io/docs/authentication/providers/#trusted-networks">trusted networks</a>. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2.
 </p>
 
 The sample below shows a configuration entry with possible values:
@@ -130,7 +130,7 @@ Or use a self signed certificate following the instructions here [Self-signed ce
 
 ## {% linkable_title APIs %}
 
-On top of the `http` component is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
+On top of the `http` integration is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 

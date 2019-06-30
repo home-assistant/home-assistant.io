@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.29
 ---
 
-The `ffmpeg` component allows other Home Assistant components to process video and audio streams. This component supports all FFmpeg versions since 3.0.0; if you have an older version, please update.
+The `ffmpeg` integration allows other Home Assistant integrations to process video and audio streams. This integration supports all FFmpeg versions since 3.0.0; if you have an older version, please update.
 
 <p class='note'>
 You need the `ffmpeg` binary in your system path. On Hassbian you will need to login as the `pi` user and `sudo apt install ffmpeg`. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want [hardware acceleration](https://trac.ffmpeg.org/wiki/HWAccelIntro) support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are available on the [FFmpeg](http://www.ffmpeg.org/) website.

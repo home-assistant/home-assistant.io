@@ -19,14 +19,14 @@ redirect_from:
   - /components/sensor.dovado/
 ---
 
-The `dovado` component manages communication with the [Dovado](http://www.dovado.com/) router.
+The `dovado` integration manages communication with the [Dovado](http://www.dovado.com/) router.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](/components/dovado/#notifications)
 - [Sensor](/components/dovado/#sensor)
 
-To add a Dovado component to your installation, add the following to your `configuration.yaml` file:
+To add a Dovado integration to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

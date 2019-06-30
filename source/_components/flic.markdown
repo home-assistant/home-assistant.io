@@ -48,7 +48,7 @@ port:
   type: integer
   default: 5551
 discovery:
-  description: If `true` then the component is configured to constantly scan for new buttons.
+  description: If `true` then the integration is configured to constantly scan for new buttons.
   required: false
   type: boolean
   default: true
@@ -73,7 +73,7 @@ If discovery is enabled, you can add a new button by pressing it for at least 7 
 
 #### {% linkable_title Events %}
 
-The flic component fires `flic_click` events on the bus. You can capture the events and respond to them in automation scripts like this:
+The flic integration fires `flic_click` events on the bus. You can capture the events and respond to them in automation scripts like this:
 
 ```yaml
 # Example configuration.yaml automation entry
@@ -97,7 +97,7 @@ Event data:
 - **click_type**: The type of click. Possible values are `single`, `double` and `hold`.
 - **queued_time**: The amount of time this event was queued on the button, in seconds.
 
-To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/components/notify.html5/). Visit the [notification component page](/components/notify/) for more information on setting up notifications.
+To help detect and debug flic button clicks, you can use this automation that send a notification on very click type of every button. This example uses the [HTML5 push notification platform](/components/notify.html5/). Visit the [notification integration page](/components/notify/) for more information on setting up notifications.
 
 ```yaml
 automation:

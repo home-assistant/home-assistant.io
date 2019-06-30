@@ -27,7 +27,7 @@ redirect_from:
 ha_release: 0.39
 ---
 
-This component adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
+This integration adds "local push" support for INSTEON Modems allowing linked INSTEON devices to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -250,7 +250,7 @@ insteon:
 
 ### {% linkable_title What NOT to do %}
 
-Insteon Modem is a top-level component and device discovery will identify the Home Assistant platform the device belongs in. As such, do not declare Insteon devices in other platforms. For example, this configuration will NOT work:
+Insteon Modem is a top-level integration and device discovery will identify the Home Assistant platform the device belongs in. As such, do not declare Insteon devices in other platforms. For example, this configuration will NOT work:
 
 ```yaml
 light:

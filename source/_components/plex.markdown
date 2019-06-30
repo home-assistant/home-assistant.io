@@ -87,7 +87,7 @@ verify:
 
 ### {% linkable_title Customization %}
 
-You can customize the Plex component by adding any of the variables below to your configuration:
+You can customize the Plex integration by adding any of the variables below to your configuration:
 
 ```yaml
 # Example configuration.yaml entry

@@ -17,14 +17,14 @@ redirect_from:
   - /components/sensor.influxdb/
 ---
 
-The `influxdb` component makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
+The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or if you're using Hass.io, [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
 <p class='note'>
-The `influxdb` database component runs parallel to the Home Assistant database. It does not replace it.
+The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
 </p>
 
 ## {% linkable_title Configuration %}
@@ -74,7 +74,7 @@ verify_ssl:
   default: true
 max_retries:
   type: integer
-  description: Set this to allow the component to retry if there was a network error when transmitting data.
+  description: Set this to allow the integration to retry if there was a network error when transmitting data.
   required: false
   default: 0
 default_measurement:
@@ -88,7 +88,7 @@ override_measurement:
   required: false
 exclude:
   type: list
-  description:  Configure which components should be excluded from recording to InfluxDB.
+  description:  Configure which integrations should be excluded from recording to InfluxDB.
   required: false
   keys:
     entities:
@@ -101,7 +101,7 @@ exclude:
       required: false
 include:
   type: list
-  description:  Configure which components should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the **exclude** lists will take precedence.
+  description:  Configure which integrations should be included in recordings to InfluxDB. If set, all other entities will not be recorded to InfluxDB. Values set by the **exclude** lists will take precedence.
   required: false
   keys:
     entities:
@@ -133,7 +133,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific integration override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string

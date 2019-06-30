@@ -16,7 +16,7 @@ ha_iot_class: Configurable
 
 The `mqtt` alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.
 
-The component will accept the following states from your Alarm Panel (in lower case):
+The integration will accept the following states from your Alarm Panel (in lower case):
 
 - `disarmed`
 - `armed_home`
@@ -25,7 +25,7 @@ The component will accept the following states from your Alarm Panel (in lower c
 - `pending`
 - `triggered`
 
-The component can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
+The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
 ## {% linkable_title Configuration %}
 

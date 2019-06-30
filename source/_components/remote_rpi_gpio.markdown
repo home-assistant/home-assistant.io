@@ -16,7 +16,7 @@ ha_release: 0.94
 ha_iot_class: Local Push
 ---
 
-The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding sections.
+The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.
 
 ## {% linkable_title Binary Sensor %}
 

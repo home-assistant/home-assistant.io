@@ -14,7 +14,7 @@ ha_release: 0.26
 ha_iot_class: Cloud Polling and Cloud Push
 ---
 
-The `foursquare` component accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
+The `foursquare` integration accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,7 +50,7 @@ After that, you will get redirected to your `REDIRECT_URL` with the `access_toke
 
 ### {% linkable_title Real-Time API %}
 
-The component accepts pushes from Foursquare at `/api/foursquare`. The route does not require authentication.
+The integration accepts pushes from Foursquare at `/api/foursquare`. The route does not require authentication.
 
 Foursquare check-in events can be used out of the box to trigger automation actions, e.g.:
 

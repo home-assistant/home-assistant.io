@@ -17,7 +17,7 @@ ha_iot_class: Local Polling
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
-The component requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
+The integration requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
 
 <p class='note warning'>
   Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
@@ -113,7 +113,7 @@ fire_event_filter:
   required: inclusive
   type: [list, string]
 state_updater:
-  description: The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
+  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
   required: false
   default: true
   type: boolean
@@ -140,7 +140,7 @@ payload:
 
 ### {% linkable_title Exposing sensor values or time to knx bus %}
 
-KNX component is able to expose time or sensor values to KNX bus. The component will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
+KNX integration is able to expose time or sensor values to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 
 ```yaml
 # Example configuration.yaml entry
@@ -160,7 +160,7 @@ type:
   description: Type of the exposed value. Either time or datetime or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g., "temperature" or "humidity").
   type: string
 entity_id:
-  description: Entity id of the HASS component to be exposed. Not necessary for types time and datetime.
+  description: Entity id of the HASS integration to be exposed. Not necessary for types time and datetime.
   type: string
 address:
   description: KNX group address.

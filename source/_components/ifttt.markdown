@@ -19,7 +19,7 @@ ha_release: 0.80
 
 ## {% linkable_title Sending events from IFTTT to Home Assistant %}
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](/components/http/#base_url)).
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/components/http/#base_url)).
 
 ### {% linkable_title Setting up the integration %}
 
@@ -66,7 +66,7 @@ ifttt:
 Property screen of the Maker Channel
 </p>
 
-Once you have added your key to your `configuration.yaml` file, restart your Home Assistant server. This will load up the IFTTT component and make a service available to trigger events in IFTTT.
+Once you have added your key to your `configuration.yaml` file, restart your Home Assistant server. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
 
 <p class='note'>
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.

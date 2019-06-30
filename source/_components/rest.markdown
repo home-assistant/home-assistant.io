@@ -207,7 +207,7 @@ my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCx
 
 ### {% linkable_title Use GitHub to get the latest release of Home Assistant %}
 
-This sample is very similar to the [`updater`](/components/updater/) component but the information is received from GitHub.
+This sample is very similar to the [`updater`](/components/updater/) integration but the information is received from GitHub.
 
 ```yaml
 sensor:

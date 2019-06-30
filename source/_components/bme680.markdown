@@ -99,7 +99,7 @@ gas_heater_duration:
   default: 150
   type: integer
 aq_burn_in_time:
-  description: The duration to perform gas resistance measurements to establish a stable baseline measurements for Air Quality calculations in seconds. The burn in time is only performed when the sensor component is first initialized.
+  description: The duration to perform gas resistance measurements to establish a stable baseline measurements for Air Quality calculations in seconds. The burn in time is only performed when the sensor integration is first initialized.
   required: false
   default: 300
   type: integer

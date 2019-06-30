@@ -21,7 +21,7 @@ Keeps track which locks are in your environment, their state and allows you to c
 
 ### {% linkable_title Services %}
 
-A lock component provides the following services:
+A lock integration provides the following services:
 
 #### {% linkable_title Service `lock.lock` %} 
 

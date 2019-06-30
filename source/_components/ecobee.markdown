@@ -25,7 +25,7 @@ redirect_from:
   - /components/weather.ecobee/
 ---
 
-The `ecobee` component lets you control a thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats.
+The `ecobee` integration lets you control a thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats.
 
 ## {% linkable_title Configuration %}
 
@@ -48,7 +48,7 @@ Now login to the regular consumer portal, and in the hamburger menu there will b
 
 Now under the Name and Summary Section you will have an API key. Copy this key and use it in you configuration section below. Click the **X** to close the Developer section.
 
-To add the Ecobee component to Home Assistant, add the following information to your [`configuration.yaml`](/docs/configuration/) file:
+To add the Ecobee integration to Home Assistant, add the following information to your [`configuration.yaml`](/docs/configuration/) file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,11 +58,11 @@ ecobee:
 
 [Restart Home Assistant](https://www.home-assistant.io/docs/configuration/#reloading-changes) for the changes to take effect.
 
-The first time you (re)run Home Assistant with this component it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
+The first time you (re)run Home Assistant with this integration it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
 
 The PIN can be found from the Home Assistant portal on the Ecobee card or from the **configurator.ecobee** entity in states in the portal.
 
-- If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this you can temporarily comment out the `default_view` section or add the `configurator.ecobee` component to your `default_view` and restart Home Assistant.
+- If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this you can temporarily comment out the `default_view` section or add the `configurator.ecobee` integration to your `default_view` and restart Home Assistant.
 
 Once you enter the PIN on the ecobee site, wait approximately 5 minutes and then click on the **I have authorized the app** link at the bottom of the ecobee pop-up window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full ecobee card with all of the sensors populated or see the list of sensors in the developer tools. Now you can re-enable your `default_view` (if you had to disable it) and add the ecobee sensors to a group and/or view.
 
@@ -87,7 +87,7 @@ If for whatever reason you delete and re-create your ecobee app at ecobee.com su
 
 ## {% linkable_title Notifications %}
 
-To get your Ecobee notifications working with Home Assistant, you must first have the main Ecobee component loaded and running. Once you have that configured, you can setup this component to send messages to your Ecobee device.
+To get your Ecobee notifications working with Home Assistant, you must first have the main Ecobee integration loaded and running. Once you have that configured, you can setup this integration to send messages to your Ecobee device.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 

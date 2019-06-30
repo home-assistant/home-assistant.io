@@ -16,13 +16,13 @@ redirect_from:
   - /components/notify.hangouts/
 ---
 
-This component allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
+This integration allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
-## {% linkable_title Setup the component via the frontend %}
+## {% linkable_title Setup the integration via the frontend %}
 
 Menu: *Configuration* -> *Integrations*
   
@@ -33,7 +33,7 @@ Configure the integration:
 
 ## {% linkable_title Manual Authentication %}
 
-If you are sure your email and password are correct, but the component says the login is invalid then you would need to use the manual authentication method.
+If you are sure your email and password are correct, but the integration says the login is invalid then you would need to use the manual authentication method.
 
 To use the manual method, first you would need to obtain an authorization code (see <a href="#steps-to-obtain-authorization-code">instructions below</a> for details).
 
@@ -83,7 +83,7 @@ hangouts:
 
 {% configuration %}
 intents:
-  description: "Intents that the hangouts component should understand."
+  description: "Intents that the hangouts integration should understand."
   required: false
   type: map
   default: empty
@@ -131,7 +131,7 @@ error_suppressed_conversations:
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
-The intent `HangoutsHelp` is part of the component and return a list of all sentences the component unterstand in this conversation.
+The intent `HangoutsHelp` is part of the integration and return a list of all sentences the integration unterstand in this conversation.
 
 ## {% linkable_title Adding sentences %}
 
@@ -235,7 +235,7 @@ Reconnects the hangouts bot.
 
 ### {% linkable_title Automatic reconnect after ip change %}
 
-The hangouts component can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+The hangouts integration can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
 
 {% raw %}
 

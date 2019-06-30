@@ -23,7 +23,7 @@ redirect_from:
   - /components/sensor.dyson/
 ---
 
-The `dyson` component is the main component to integrate all [Dyson](https://www.dyson.com) related platforms.
+The `dyson` integration is the main integration to integrate all [Dyson](https://www.dyson.com) related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -107,7 +107,7 @@ The `dyson` vacuum platform allows you to control your Dyson 360 Eye robot vacuu
 
 ### {% linkable_title Component services %}
 
-This component support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
+This integration support the following services (see [Vacuum Cleaner Robots](/components/vacuum/)):
 
 - [`turn_on`](/components/vacuum/#service-vacuumturn_on)
 - [`turn_off`](/components/vacuum/#service-vacuumturn_off)
@@ -124,7 +124,7 @@ The `dyson` climate platform allows you to control your Dyson Pure Hot+Cool Fan 
 
 ### {% linkable_title Component services %}
 
-This component supports the following services (see [Climate](/components/climate/)):
+This integration supports the following services (see [Climate](/components/climate/)):
 
 - [`turn_on`](/components/climate/#service-climateturn_on)
 - [`turn_off`](/components/climate/#service-climateturn_off)
