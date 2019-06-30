@@ -28,7 +28,7 @@ rss_feed_template:
     title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}{% endraw %}"
     items:
     - title: "Outside temperature"
-      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states.sensor.temp_outside.state}} °C{% endif %}{% endraw %}"
+      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}{% endraw %}"
 ```
 
 {% configuration %}

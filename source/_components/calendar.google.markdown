@@ -215,6 +215,6 @@ For example, the actions following this condition will only be executed for even
 ```yaml
     condition:
         condition: template
-        value_template: "{{states.calendar.calendar_name.attributes.message == 'vacation' }}"
+        value_template: "{{is_state_attr('calendar.calendar_name', 'message', 'vacation') }}"
 ```
 {% endraw %}

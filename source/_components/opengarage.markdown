@@ -105,7 +105,7 @@ sensor:
     garage_car_present:
       friendly_name: 'Honda in Garage'
       value_template: {% raw %}'{% if states.cover.honda %}
-          {% if states.cover.honda.state == "open" %}
+          {% if is_state('cover.honda', 'open') %}
             n/a
           {% elif ((states.cover.honda.attributes["distance_sensor"] > 40) and (states.cover.honda.attributes["distance_sensor"] < 100)) %}
             Yes

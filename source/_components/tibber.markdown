@@ -90,13 +90,13 @@ The electricity price can be used to make automations. The sensor has a `max_pri
     minutes: 1
   condition:
     condition: template
-    value_template: '{{ float(states.sensor.electricity_price_hamretunet_10.state) > 0.9 * float(states.sensor.electricity_price_hamretunet_10.attributes.max_price) }}'
+    value_template: '{{ float(states('sensor.electricity_price_hamretunet_10')) > 0.9 * float(state_attr('sensor.electricity_price_hamretunet_10', 'max_price')) }}'
   action:
    - service: notify.pushbullet
      data:
        title: "Electricity price"
        target: "device/daniel_telefon_cat"
-       message: "The electricity price is now {{ states.sensor.electricity_price_hamretunet_10.state }}"
+       message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
 
 {% endraw %}

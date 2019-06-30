@@ -218,6 +218,6 @@ sensor:
       power:
         friendly_name: "Current Power"
         unit_of_measurement: "W"
-        value_template: "{{ states.switch.office.attributes.current_power_w }}"
+        value_template: "{{ state_attr('switch.office', 'current_power_w') }}"
 ```
 {% endraw %}

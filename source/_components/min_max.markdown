@@ -23,9 +23,9 @@ This sensor is an alternative to the [template sensor](/components/sensor.templa
 
 {% raw %}
 ```yaml
-{{ ((float(states.sensor.kitchen_temperature.state) +
-     float(states.sensor.living_room_temperature.state) +
-     float(states.sensor.office_temperature.state)) / 3) | round(2)
+{{ ((float(states('sensor.kitchen_temperature')) +
+     float(states('sensor.living_room_temperature')) +
+     float(states('sensor.office_temperature'))) / 3) | round(2)
 }}
 ```
 {% endraw %}

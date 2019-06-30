@@ -155,7 +155,7 @@ automation:
         data_template:
           entity_id: light.lamp
           brightness: >
-            {% set bri = states.light.lamp.attributes.brightness | int %}
+            {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri+30, 249] | min }}
 
   - alias: 'Decrease brightness of lamp from dimmer'
@@ -171,7 +171,7 @@ automation:
         data_template:
           entity_id: light.lamp
           brightness: >
-            {% set bri = states.light.lamp.attributes.brightness | int %}
+            {% set bri = state_attr('light.lamp', 'brightness') | int %}
             {{ [bri-30, 0] | max }}
 ```
 
