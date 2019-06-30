@@ -21,7 +21,6 @@ redirect_from:
   - /components/sensor.velbus/
   - /components/binary_sensor.velbus/
   - /components/switch.velbus/
-  - /components/cover.velbus/
 ---
 
 The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.
