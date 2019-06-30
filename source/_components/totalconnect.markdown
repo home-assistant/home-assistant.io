@@ -26,16 +26,6 @@ If you have issues running this component, you may require `libxml2-dev` and `li
 To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
-# Example configuration.yaml entry
-alarm_control_panel:
-  - platform: totalconnect
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-Add the following lines to your `configuration.yaml`:
-
-```yaml
 totalconnect:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
