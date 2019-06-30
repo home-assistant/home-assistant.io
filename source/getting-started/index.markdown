@@ -41,10 +41,19 @@ Follow this guide if you want to get started with Home Assistant easily, or if y
 
 We will need a few things to get started with installing Home Assistant. The latest Raspberry Pi model makes a good and affordable starting point for your home automation journey. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
-- [Raspberry Pi 3 Model B+](https://amzn.to/2IAyNl0) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
+- [Raspberry Pi 4 Model B](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/), 1 GB RAM version is enough, but if you can afford it, 2 or 4 GB RAM won't hurt + [Power Supply](https://www.raspberrypi.org/products/type-c-power-supply/) (at least 3.0A)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. Size 32 GB or bigger recommended.
 - SD Card reader. Part of most laptops, and also available as [standalone USB sticks](https://amzn.to/2WWxntY) (the brand doesn't matter, just pick the cheapest)
 - Ethernet cable (optional, Hass.io can work with WiFi as well)
+
+
+<p class='note'>
+For advanced users:
+ 
+- Alternatively you can invest in small SSD and USB-Sata adapter: for example [Samsung 850 Evo 120GB or more] (https://smile.amazon.com/Samsung-250GB-Internal-MZ-76E250B-AM/dp/B07864WMK8/) and high quality [Usb-Sata adapter] (https://smile.amazon.com/UGREEN-External-Enclosure-Adapter-Housing/dp/B06XWRRMYX)
+Such SSD will be much faster and more reliable than even fastest SD card 
+However take into account that Hass.io won't work from external drive, you will need to use Hasbpian or manual install on Raspbian etc.
+</p>
 
 ### {% linkable_title Software requirements %}
 
@@ -63,9 +72,9 @@ We will need a few things to get started with installing Home Assistant. The lat
    - Create a folder named `network` in the root of the newly formatted USB-stick.
    - Within that folder create a file named `my-network` without extension.
    - Copy one of [the examples] to the `my-network` file and adjust accordingly.
-   - Plug the USB-stick into the Raspberry Pi 3.
+   - Plug the USB-stick into the Raspberry Pi.
 
-1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
+1. Insert the SD card into your Raspberry Pi. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply, so it turns on.
 1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
 1. Home Assistant will be available at [http://hassio.local:8123][local]. If you are running an older Windows or have stricter network configuration, you might need to access Home Assistant at [http://hassio:8123][host].
