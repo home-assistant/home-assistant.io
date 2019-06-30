@@ -213,7 +213,7 @@ automation:
     action:
       service: notify.livingroom_tv
       data:
-        message: "You should open a window! (Livingroom Co2: {{ states.sensor.netatmo_livingroom_co2.state }}ppm)"
+        message: "You should open a window! (Livingroom Co2: {{ states('sensor.netatmo_livingroom_co2') }}ppm)"
 ```
 
 The icon can be overridden for individual notifications by providing a path to an alternative icon image to use:

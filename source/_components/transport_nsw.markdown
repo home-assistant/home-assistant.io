@@ -100,7 +100,7 @@ The sensor returns n/a if no stop event is found within the next 24h. A `templat
         {% if is_state_attr('sensor.bus', 'due', 'n/a') %}
           No schedule found
         {% else %}
-          {{ states.sensor.bus.attributes.route }} in {{ states.sensor.bus.attributes.due }}m ({{ states.sensor.bus.attributes.delay }})
+          {{ state_attr('sensor.bus', 'route') }} in {{ state_attr('sensor.bus', 'due') }}m ({{ state_attr('sensor.bus', 'delay') }})
         {% endif %}
 ```
 {% endraw %}

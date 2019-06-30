@@ -93,5 +93,5 @@ sensor:
 ```
 
 The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away.
-The second sensor returns U2 and U8 departures from Sendlinger Tor and stores a total of 5 departures in attributes. To retrieve the time until the second departure, you would use states.sensor.ENTITY_NAME.attributes.departures[1].time.
+The second sensor returns U2 and U8 departures from Sendlinger Tor and stores a total of 5 departures in attributes. To retrieve the time until the second departure, you would use state_attr('sensor.ENTITY_NAME', 'departures')[1].time.
 The third sensor returns all south-bound U-Bahn trains from Scheidplatz.

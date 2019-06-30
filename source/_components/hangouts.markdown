@@ -155,7 +155,7 @@ hangouts:
 intent_script:
   Ping:
     speech:
-      text: I know {{ states.hangouts.conversations.state }} conversations
+      text: I know {{ states('hangouts.conversations') }} conversations
 ```
 
 {% endraw %}

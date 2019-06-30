@@ -263,22 +263,22 @@ sensor:
   - platform: template
     sensors:
       owm_weather:
-        value_template: '{{ states.sensor.owm_report.attributes.weather[0]["description"].title() }}'
-        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"].lower()+".png" }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'weather')[0]["description"].title() }}'
+        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+state_attr('sensor.owm_report', 'weather')[0]["icon"].lower()+".png" }}'
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: 'Outside temp'
-        value_template: '{{ states.sensor.owm_report.attributes.main["temp"]-273.15 }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'main')["temp"]-273.15 }}'
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:
         friendly_name: 'Outside pressure'
-        value_template: '{{ states.sensor.owm_report.attributes.main["pressure"] }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'main')["pressure"] }}'
         unit_of_measurement: "hP"
         entity_id: sensor.owm_report
       owm_humidity:
         friendly_name: 'Outside humidity'
-        value_template: '{{ states.sensor.owm_report.attributes.main["humidity"] }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'main')["humidity"] }}'
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
 ```

@@ -141,7 +141,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
     - service: notify.html5
       data_template:
         title: Gas alarm!
-        message: 'Gas with a density of {% raw %}{{ states.binary_sensor.natgas_sensor_158dxxxxxxxxxx.attributes.density }}{% endraw %} detected.'
+        message: 'Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected.'
 ```
 
 #### {% linkable_title Xiaomi Wireless Button %}
@@ -268,11 +268,11 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     entity_id: light.gateway_light_34xxxxxxxx13
     data_template:
       brightness: {% raw %}>-
-        {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
-          {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60 >= 10 %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60}}
+        {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
+          {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60 >= 10 %}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60}}
           {% else %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness')}}
           {% endif %}
         {% else %}
           10
@@ -290,11 +290,11 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     entity_id: light.gateway_light_34xxxxxxxx13
     data_template:
       brightness: {% raw %}>-
-        {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
-          {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60 <= 255 %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60}}
+        {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
+          {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60 <= 255 %}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60}}
           {% else %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness')}}
           {% endif %}
         {% else %}
           10

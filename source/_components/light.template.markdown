@@ -92,7 +92,7 @@ Template Light may get an `unknown` state during startup. This results
 in error messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
-{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
+{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
@@ -118,7 +118,7 @@ light:
         friendly_name: "Receiver Volume"
         value_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               off
             {% else %}
               on
@@ -143,7 +143,7 @@ light:
             volume_level: "{{ (brightness / 255 * 100)|int / 100 }}"
         level_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {{ (states.media_player.receiver.attributes.volume_level|float * 255)|int }}
+            {{ (state_attr('media_player.receiver', 'volume_level')|float * 255)|int }}
           {% else %}
             0
           {% endif %}
@@ -163,7 +163,7 @@ light:
         friendly_name: "Receiver Volume"
         value_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               off
             {% else %}
               on
@@ -173,7 +173,7 @@ light:
           {% endif %}
         icon_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               mdi:lightbulb-off
             {% else %}
               mdi:lightbulb-on
@@ -207,7 +207,7 @@ light:
         friendly_name: "Receiver Volume"
         value_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               off
             {% else %}
               on
@@ -217,7 +217,7 @@ light:
           {% endif %}
         icon_template: >-
           {% if is_state('media_player.receiver', 'on') %}
-            {% if states.media_player.receiver.attributes.is_volume_muted %}
+            {% if state_attr('media_player.receiver', 'is_volume_muted') %}
               /local/lightbulb-off.png
             {% else %}
               /local/lightbulb-on.png

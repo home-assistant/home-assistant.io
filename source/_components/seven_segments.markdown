@@ -146,7 +146,7 @@ sensor:
   - platform: template
     sensors:
       power_meter:
-        value_template: '{{ states.image_processing.sevensegment_ocr_seven_segments.state }}'
+        value_template: '{{ states('image_processing.sevensegment_ocr_seven_segments') }}'
         friendly_name: 'Ampere'
         unit_of_measurement: 'A'
 ```

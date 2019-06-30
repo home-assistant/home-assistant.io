@@ -52,7 +52,7 @@ sensor:
   platform: template
   sensors:
     next_departure:
-      value_template: '{% raw %}{{ states.sensor.munich_to_ulm.attributes.next }}{% endraw %}'
+      value_template: '{% raw %}{{ state_attr('sensor.munich_to_ulm', 'next') }}{% endraw %}'
       friendly_name: 'Next departure'
 ```
 

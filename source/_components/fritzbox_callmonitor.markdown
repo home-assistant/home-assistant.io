@@ -124,11 +124,11 @@ automation:
             {% if is_state("sensor.phone", "idle") %}
               Phone is idle
             {% elif is_state("sensor.phone", "dialing") %}
-              Calling {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
+              Calling {{ state_attr('sensor.phone', 'to_name') }} ({{ state_attr('sensor.phone', 'to') }})
             {% elif is_state("sensor.phone", "ringing") %}
-              Incoming call from {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
+              Incoming call from {{ state_attr('sensor.phone', 'from_name') }} ({{ state_attr('sensor.phone', 'from') }})
             {% else %}
-              Talking to {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
+              Talking to {{ state_attr('sensor.phone', 'with_name') }} ({{ state_attr('sensor.phone', 'with') }})
             {% endif %}
 ```
 {% endraw %}
