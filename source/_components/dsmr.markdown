@@ -48,6 +48,10 @@ Serial to network proxies:
 
 - ser2net - <http://ser2net.sourceforge.net/>
 
+DIY solutions (ESP8266 based):
+
+- [esp8266_p1meter (fliphess)](https://github.com/fliphess/esp8266_p1meter)
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
