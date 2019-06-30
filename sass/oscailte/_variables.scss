@@ -19,7 +19,7 @@ $white:             #fff !default;
 
 // Accent colors
 // -------------------------
-$blue:              #049cdb !default;
+$blue:              #038fc7 !default;
 $blueDark:          #0064cd !default;
 $green:             #46a546 !default;
 $red:               #9d261d !default;
@@ -53,9 +53,9 @@ $footer-height: 100px;
 $primary-color:     $blue;
 $secondary-color:   $green;
 // -------------------------
-$site-background:   #F5F5F5;
-$header-background: $white;
-$footer-background: $header-background;
+$site-background:   $white;
+$header-background: $blue;
+$footer-background: #F5F5F5;
 $text-color:        $grayDarker;
 $title-color:       $primary-color;
 $link-color:        $primary-color;
