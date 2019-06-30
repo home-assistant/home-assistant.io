@@ -52,7 +52,7 @@ For advanced users:
  
 - Alternatively you can invest in small SSD and USB-Sata adapter: for example [Samsung 850 Evo 120GB or more] (https://smile.amazon.com/Samsung-250GB-Internal-MZ-76E250B-AM/dp/B07864WMK8/) and high quality [Usb-Sata adapter] (https://smile.amazon.com/UGREEN-External-Enclosure-Adapter-Housing/dp/B06XWRRMYX)
 Such SSD will be much faster and more reliable than even fastest SD card 
-However take into account that Hass.io won't work from external drive, you will need to use Hasbpian or manual install on Raspbian etc.
+However take into account that Hass.io won't work from external drive, you will need to use Hassbian or manual install on Raspbian etc.
 </p>
 
 ### {% linkable_title Software requirements %}
