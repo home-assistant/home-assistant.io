@@ -13,7 +13,37 @@ ha_category:
 ha_release: 0.88
 ---
 
-This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded can be found [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/default_config/manifest.json).
+This integration is a meta-component and configures a default set of integrations for Home Assistant to load. The integrations that will be loaded are:
+
+[automation](https://www.home-assistant.io/components/automation/)
+
+[cloud](https://www.home-assistant.io/components/cloud/)
+
+[config](https://www.home-assistant.io/components/config/)
+
+[frontend](https://www.home-assistant.io/components/frontend/)
+
+[history](https://www.home-assistant.io/components/history/)
+
+[logbook](https://www.home-assistant.io/components/logbook/)
+
+[map](https://www.home-assistant.io/components/map/)
+
+[mobile_app](https://www.home-assistant.io/components/mobile_app/)
+
+[person](https://www.home-assistant.io/components/person/)
+
+[script](https://www.home-assistant.io/components/script/)
+
+[ssdp](https://www.home-assistant.io/components/ssdp/)
+
+[sun](https://www.home-assistant.io/components/sun/)
+
+[system_health](https://www.home-assistant.io/components/system_health/)
+
+[updater](https://www.home-assistant.io/components/updater/)
+
+[zeroconf](https://www.home-assistant.io/components/zeroconf/)
 
 ## {% linkable_title Configuration %}
 
