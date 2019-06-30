@@ -19,7 +19,7 @@ If you have questions about deleting or correcting your personal data please con
 
 ## {% linkable_title Website Visitors %}
 
-Like most website operators, Home Assistant collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. Home Assistant’s purpose in collecting non-personally identifying information is to better understand how Home Assistant’s visitors use its website. From time to time, Home Assistant may release non-personally-identifying information in the aggregate, e.g., by publishing a report on trends in the usage of its website.
+Like most website operators, Home Assistant collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. Home Assistant uses the Google Analytics service for this. Home Assistant’s purpose in collecting non-personally identifying information is to better understand how Home Assistant’s visitors use its website. From time to time, Home Assistant may release non-personally-identifying information in the aggregate, e.g., by publishing a report on trends in the usage of its website.
 
 Home Assistant also collects potentially personally-identifying information like Internet Protocol (IP) addresses for logged in users and for users leaving comments on the blog or forums. Home Assistant only discloses logged in user and commenter IP addresses under the same circumstances that it uses and discloses personally-identifying information as described below.
 
@@ -33,7 +33,7 @@ Home Assistant may collect statistics about the behavior of visitors to its webs
 
 ## {% linkable_title Information We Collect from Other Sources %}
 
-With your authorization, we may also obtain information about you from other sources. For example, if you create or log into your WordPress.com account through a social media service (like Facebook or Google) or if you connect your account to a social media service, we will receive information from that service (such as your username, basic profile information, and friends list) via the authorization procedures used by that service. The information we receive depends on which services you authorize and any options that are available.
+With your authorization, we may also obtain information about you from other sources. For example, if you create or log into your Home Assistant Community account through a social media service (like Facebook or Google) or if you connect your account to a social media service, we will receive information from that service (such as your username, basic profile information, and friends list) via the authorization procedures used by that service. The information we receive depends on which services you authorize and any options that are available.
 
 ## {% linkable_title Protection of Certain Personally-Identifying Information %}
 
