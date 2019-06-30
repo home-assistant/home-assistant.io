@@ -118,6 +118,7 @@ downloader:
 
 Then you can use the following `action` in your automation (this will save the video file under `<config>/downloads/ring_<camera_name>/`):
 
+{% raw %}
 ```yaml
 action:
   - service: downloader.download_file
@@ -126,6 +127,7 @@ action:
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
       filename: "{{state_attr('camera.front_door', 'friendly_name')}}"
 ```
+{% endraw %}
 
 If you want to use `python_script`, enable it your `configuration.yaml` file first:
 

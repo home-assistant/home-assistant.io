@@ -119,6 +119,7 @@ Start the cleaning operation in the areas selected for the number of repeats ind
 Example of `vacuum.xiaomi_clean_zone` use:
 
 Inline array:
+{% raw %}
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -133,7 +134,10 @@ automation:
         repeats: '{{states('input_number.vacuum_passes')|int}}'
         zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
 ```
+{% endraw %}
+
 Array with inline zone:
+{% raw %}
 ```yaml
 automation:
   - alias: Test vacuum zone3
@@ -150,6 +154,8 @@ automation:
         - [30914,26007,35514,28807]
         - [20232,22496,26032,26496]
 ```
+{% endraw %}
+
 Array mode:
 ```yaml
 automation:
