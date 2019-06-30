@@ -33,7 +33,8 @@ alarm_control_panel:
     password: YOUR_PASSWORD
 ```
 
-Starting in Home Assistant version 0.95, add the following lines to your `configuration.yaml`:
+Add the following lines to your `configuration.yaml`:
+
 ```yaml
 totalconnect:
     username: YOUR_USERNAME
