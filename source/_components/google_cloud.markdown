@@ -16,7 +16,7 @@ The `google_cloud` platform allows you to use [Google Cloud Platform](https://cl
 
 ## {% linkable_title Configuration %}
 
-To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
+To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-an-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -74,7 +74,7 @@ The Cloud Text-to-Speech API is priced monthly based on the amount of characters
 
 {% configuration %}
 key_file:
-  description: "The [`API key`](#obtaining-api-key) file to use with Google Cloud Platform. If not specified `os.environ['GOOGLE_APPLICATION_CREDENTIALS']` path will be used."
+  description: "The [`API key`](#obtaining-an-api-key) file to use with Google Cloud Platform. If not specified `os.environ['GOOGLE_APPLICATION_CREDENTIALS']` path will be used."
   required: false
   type: string
 language:
