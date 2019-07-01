@@ -84,8 +84,8 @@ If any commands need to run before executing hass (like loading a virtual enviro
 PRE_EXEC=""
 # Typically /usr/bin/hass
 HASS_BIN="hass"
-RUN_AS="USER"
-PID_DIR="/var/run"
+RUN_AS="homeassistant"
+PID_DIR="/var/run/hass"
 PID_FILE="$PID_DIR/hass.pid"
 CONFIG_DIR="/var/opt/homeassistant"
 LOG_DIR="/var/log/homeassistant"
@@ -100,7 +100,7 @@ start() {
     return 1
   fi
   echo -n 'Starting service… ' >&2
-  local CMD="$PRE_EXEC $HASS_BIN $FLAGS;"
+  local CMD="$PRE_EXEC $HASS_BIN $FLAGS"
   su -s /bin/bash -c "$CMD" $RUN_AS
   if [ $? -ne 0 ]; then
     echo "Failed" >&2
@@ -161,7 +161,7 @@ remove_piddir() {
     if [ -e "$PID_FILE" ]; then
       rm -fv "$PID_FILE"
     fi
-    rmdir -fv "$PID_DIR"
+    rmdir -v "$PID_DIR"
   fi
 }
 
@@ -220,7 +220,7 @@ start() {
     return 1
   fi
   echo -n 'Starting service… ' >&2
-  local CMD="$PRE_EXEC $HASS_BIN $FLAGS;"
+  local CMD="$PRE_EXEC $HASS_BIN $FLAGS"
   su -s /bin/bash -c "$CMD" $RUN_AS
   if [ $? -ne 0 ]; then
     echo "Failed" >&2
@@ -281,7 +281,7 @@ remove_piddir() {
     if [ -e "$PID_FILE" ]; then
       rm -fv "$PID_FILE"
     fi
-    rmdir -fv "$PID_DIR"
+    rmdir -v "$PID_DIR"
   fi
 }
 
