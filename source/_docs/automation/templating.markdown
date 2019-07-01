@@ -145,6 +145,7 @@ The following tables show the available trigger data per platform.
 | `trigger.entity_id` | Entity ID that caused change.
 | `trigger.from_state` | Previous [state object] of entity that caused change.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
+| `trigger.for` | Timedelta object how long state has been to state, if any.
 
 ### {% linkable_title time %}
 
