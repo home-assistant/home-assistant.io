@@ -101,6 +101,11 @@ station:
   description: The station code of a specific weather station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Station codes must be in the form of `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code. 
   required: false
   type: string
+language:
+  description: Language to use for entity display names and textual data (English or French).
+  required: false
+  type: string
+  default: english
 name:
   description: Name to be used for the sensor entities.
   required: false
@@ -141,6 +146,10 @@ monitored_conditions:
       description: The next forecast low temperature, in ºC.
     pop:
       description: The next forecast probability of precipitation, in %.
+    forecast_period:
+      description: The time period covered by the next forecast, e.g. "tonight".
+    text_summary:
+      description: A textual description of the next forecast period.
     warnings:
       description: Current warning alerts.
     watches:
