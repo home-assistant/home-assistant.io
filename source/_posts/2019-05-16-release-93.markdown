@@ -17,7 +17,7 @@ It's time for our 0.93 release and it is a whopping cool one. It's a day later t
 
 <div class='videoWrapper'>
   <iframe
-      src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye"
+      src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye&autoplay=false"
       width="560" height="315"
       frameborder="0" allowfullscreen></iframe>
 </div>
