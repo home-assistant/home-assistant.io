@@ -16,26 +16,26 @@ The tool is available by running `hassbian-config`.
 ### Install scripts
 To view the available suites run `hassbian-config show` or have a look at the [hassbian-scripts repository][hassbian-repo].  
 These are some of the available suites:  
- - [AppDaemon](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/appdaemon.md)
- - [Duck DNS](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/duckdns.md) _This can also be configured to generate Let's Encrypt SSL certificates_
- - [Homebridge](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/homebridge.md)
- - [Mosquitto](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/mosquitto.md)
- - [Samba](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/samba.md)
- - [Webterminal](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/webterminal.md)
+ - [AppDaemon](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/appdaemon.md)
+ - [Duck DNS](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/duckdns.md) _This can also be configured to generate Let's Encrypt SSL certificates_
+ - [Homebridge](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/homebridge.md)
+ - [Mosquitto](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/mosquitto.md)
+ - [Samba](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/samba.md)
+ - [Webterminal](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/docs/webterminal.md)
  - Various database engines.
-   - [MariaDB](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/mariadb.md)
-   - [PostgreSQL](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/postgresql.md)
-   - [MS SQL](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/mssql.md)
+   - [MariaDB](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/mariadb.md)
+   - [PostgreSQL](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/postgresql.md)
+   - [MS SQL](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/mssql.md)
 
  To install any of them simply run `sudo hassbian-config install SUITE`.
 
 ### Upgrade scripts
 To view the available suites run `hassbian-config show` or have a look at the [hassbian-scripts repository][hassbian-repo].  
 These are some of the available suites:  
-- [AppDaemon](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/appdaemon.md)
-- [Hassbian](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/hassbian.md)
-- [Home Assistant](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/homeassistant.md)
-- [hassbian-config (hassbian-scripts)](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/hassbian_config.md)
+- [AppDaemon](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/appdaemon.md)
+- [Hassbian](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/hassbian.md)
+- [Home Assistant](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/homeassistant.md)
+- [hassbian-config (hassbian-scripts)](https://github.com/home-assistant/hassbian-scripts/tree/dev/docs/suites/hassbian_config.md)
 
 To upgrade any of them simply run `sudo hassbian-config upgrade SUITE`.
 
