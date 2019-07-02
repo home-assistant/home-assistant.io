@@ -11,6 +11,7 @@ redirect_from: /docs/hassbian/common-tasks/
 ---
 
 ### {% linkable_title Login to the Raspberry Pi %}
+
 To login to your Raspberry Pi running Hassbian you're going to be using a ssh client. Depending on your platform there are several alternatives for doing this. Linux and Mac OS generally have a ssh client installed. Windows users are recommended to download and install the ssh client [Putty][ssh-putty].
 
 Connect to the Raspberry Pi over ssh. Default user name is `pi` and password is `raspberry`.
@@ -25,6 +26,7 @@ Windows users start [Putty][ssh-putty], enter the IP address of the Raspberry Pi
 Optionally, starting with Windows 10 anniversary update, you can use the built-in '[Bash on Windows][bash-windows]' to use SSH if you have enabled Developer mode and have installed the "Windows Subsystem for Linux (beta)" feature.
 
 ### {% linkable_title Start/Stop/Restart Home Assistant %}
+
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -61,6 +63,7 @@ This will in order do the following:
 - Start the Home Assistant service.
 
 ### {% linkable_title Manually launch Home Assistant %}
+
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -72,6 +75,7 @@ $ hass
 This will start Home Assistant in your shell and output anything that ends up in the log and more into the console. This will fail if the Home Assistant service is already running so don't forget to [stop][stop-homeassistant] it first. If you want the log output to be colored, execute `hass --script check_config` first. This will install the `colorlog` module.
 
 ### {% linkable_title Check your configuration %}
+
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -83,6 +87,7 @@ $ hass --script check_config
 This will output any errors in your configuration files to console.
 
 ### {% linkable_title Read the Home Assistant log file %}
+
 Log in as the `pi` account and execute the following commands:
 
 ```bash
@@ -130,5 +135,5 @@ $ sudo raspi-config
 
 [configuring-homeassistant]: /getting-started/configuration/
 [ssh-putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[stop-homeassistant]: /getting-started/installation-raspberry-pi-image/#startstoprestart-home-assistant-on-hassbian
+[stop-homeassistant]: /docs/installation/hassbian/common-tasks/#startstoprestart-home-assistant
 [bash-windows]: https://msdn.microsoft.com/en-us/commandline/wsl/about
