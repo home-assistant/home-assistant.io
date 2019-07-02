@@ -8,7 +8,7 @@ comments: false
 sharing: true
 footer: true
 logo: suez.png
-ha_release: 0.95
+ha_release: 0.96
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
