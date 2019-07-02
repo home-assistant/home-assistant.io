@@ -65,7 +65,7 @@ entity_id:
           required: false
           type: string
     device:
-      description: name of the device to monitor. If your sensors are monitoring one single device (mydevicename) and are named 'sensor.mydevicename_moisture', 'sensor.mydevicename_battery', 'sensor.mydevicename_temperature', 'sensor.mydevicename_conductivity' and 'sensor.mydevicename_brightness', entering 'device: mydevicename' will replace the definition of the sensors.
+      description: "name of the device to monitor. If your sensors are monitoring one single device (mydevicename) and are named 'sensor.mydevicename_moisture', 'sensor.mydevicename_battery', 'sensor.mydevicename_temperature', 'sensor.mydevicename_conductivity' and 'sensor.mydevicename_brightness', entering 'device: mydevicename' will replace the definition of the sensors."
       required: false
       type: string
     min_moisture:
@@ -122,7 +122,9 @@ entity_id:
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
+
 ### Using plain MQTT sensor to get the data
+
 This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
 Another good source of this data would be the [Mi Flora](/components/sensor.miflora/) component.
 
