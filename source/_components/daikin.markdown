@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 
 The Daikin integration can be configured in three ways. 
 
-- Automatically via the [discovery]({{site_root}}/components/discovery/) component.
+- Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.
 - Or via the `configuration.yaml` file by adding the following:
 

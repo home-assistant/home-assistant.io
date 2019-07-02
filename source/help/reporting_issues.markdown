@@ -33,12 +33,12 @@ If possible, provide the latest release of which you know that the integration o
 
 There are many different ways to run Home Assistant. In this section please mention which you are using, e.g., manual installation, [Hass.io](/hassio/), Hasbian or as container (Docker). It can help if you mention which operating system you are using because not all are supported on the same level.
 
-### {% linkable_title Component/platform %}
+### {% linkable_title Integration/platform %}
 
-Please add the link to the documention of the component/platform in question. E.g.,
+Please add the link to the documention of the integration/platform in question. E.g.,
 
 - issue with the `random` sensor: [/components/sensor.random/](/components/sensor.random/)
-- issue with the `hue` component: [/components/hue/](/components/hue/)
+- issue with the `hue` integration: [/components/hue/](/components/hue/)
 
 ### {% linkable_title Description of problem %}
 

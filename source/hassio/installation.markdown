@@ -116,7 +116,7 @@ The packages you need to have available on your system that will run Hass.io may
  - software-properties-common
 
 <p class='note warning'>
-   The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+   The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 </p>
 
 ### {% linkable_title Arch Linux %}

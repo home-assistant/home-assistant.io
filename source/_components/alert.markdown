@@ -25,8 +25,8 @@ This entity allows you to silence an alert until it is resolved.
 
 ### {% linkable_title Basic Example %}
 
-The `alert` integration makes use of any of the `notifications` components. To
-setup the `alert` component, first, you must setup a `notification` component.
+The `alert` integration makes use of any of the `notifications` integrations. To
+setup the `alert` integration, first, you must setup a `notification` integration.
 Then, add the following to your configuration file:
 
 ```yaml

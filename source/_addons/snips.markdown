@@ -68,7 +68,7 @@ tts_platform:
 
 ### {% linkable_title Home Assistant configuration %}
 
-A simple configuration just requires this. Consult [Snips.ai component](/components/snips/) for more options.
+A simple configuration just requires this. Consult [Snips.ai integration](/components/snips/) for more options.
 
 ```yaml
 snips:
@@ -98,7 +98,7 @@ Next create a weather sensor, e.g., one for (Dark Sky)[/components/sensor.darksk
     - temperature_min
 ```
 
-Next add this to your `configuration.yaml` file to reference a new `intent_script` component. This is a good practice to [split your configuration files](/docs/configuration/splitting_configuration/) up.
+Next add this to your `configuration.yaml` file to reference a new `intent_script` integration. This is a good practice to [split your configuration files](/docs/configuration/splitting_configuration/) up.
 
 ```yaml
 intent_script: !include intent_script.yaml

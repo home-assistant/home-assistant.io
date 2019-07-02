@@ -7,7 +7,8 @@ sidebar: false
 comments: false
 sharing: true
 footer: true
-redirect_from: /components/cloud.alexa/
+redirect_from:
+  - /components/cloud.alexa/
 ---
 
 Home Assistant Cloud is a subscription service provided by our partner Nabu Casa, Inc. Check out [the Nabu Casa website](https://www.nabucasa.com/config/amazon_alexa/) for help with the Amazon Alexa integration via Home Assistant Cloud.

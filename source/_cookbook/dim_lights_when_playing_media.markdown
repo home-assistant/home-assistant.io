@@ -12,7 +12,7 @@ ha_category: Automation Examples
 
 Like it how the lights dim up/down at the movies? Do it at home as well!
 
-This example uses the [media player](/components/media_player/), [lights](/components/light/) (transitions) and the [sun](/components/sun/) component. We'll use actions to detect media player state changes and [scenes](/components/scene/) to control multiple lights and transition between scenes.
+This example uses the [media player](/components/media_player/), [lights](/components/light/) (transitions) and the [sun](/components/sun/) integration. We'll use actions to detect media player state changes and [scenes](/components/scene/) to control multiple lights and transition between scenes.
 
 #### {% linkable_title Scenes %}
 One scene for normal light, one for when movies are on. A 2 second transition gives a nice 'feel' to the switch.
