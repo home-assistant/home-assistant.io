@@ -37,6 +37,7 @@ To enable the component, add the following lines to your
 `configuration.yaml` file:
 
 ## {% linkable_title Router %}
+
 ```yaml
 # Example configuration.yaml entry
 huawei_lte:
@@ -61,6 +62,7 @@ password:
 {% endconfiguration %}
 
 ## {% linkable_title Modem %}
+
 ```yaml
 # Example configuration.yaml entry
 huawei_lte:
