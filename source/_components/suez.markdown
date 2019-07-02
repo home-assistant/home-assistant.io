@@ -25,7 +25,6 @@ It also gets the following data:
 - Last year total consumption
 - Current year total consumption
 
-
 ## {% linkable_title Configuration %}
 
 To add the Suez Water sensor to your installation, add your _Tout Sur Mon Eau_ account credentials and your `counter_id` to your `configuration.yaml` file:
