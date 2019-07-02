@@ -33,6 +33,7 @@ n26:
 ```
 
 It is possible to add more than one account:
+
 ```yaml
 # Example configuration.yaml entry
 n26:
