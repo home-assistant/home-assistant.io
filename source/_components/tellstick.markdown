@@ -108,7 +108,7 @@ sensor:
   required: false
   type: string
 max_age:
-  description: "Only add sensors that has received a value within this time (seconds)"
+  description: Only add sensors that has received a value within this time (seconds).
   required: false
   type: integer
 only_named:
