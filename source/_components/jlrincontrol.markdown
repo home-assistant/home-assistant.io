@@ -12,7 +12,7 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Car
-ha_release: 0.95
+ha_release: 0.96
 ha_iot_class: Cloud Polling
 ---
 
