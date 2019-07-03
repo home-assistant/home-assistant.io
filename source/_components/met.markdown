@@ -18,29 +18,34 @@ redirect_from:
 
 The `met` platform uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
 
+<p class='note warning'>
+  Configuration of the Met.no platform via configuration.yaml is deprecated from version 0.95 
+</p>
+ 
 ## {% linkable_title Configuration %}
 
-To add Met to your installation, add the following to your `configuration.yaml` file:
+To add Met.no to your installation, go to Configuration >> Integrations in the UI and enable the Met.no integration.
 
-```yaml
-weather:
-  - platform: met
-```
+Configuration variables:
 
 {% configuration %}
-latitude:
-  description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
-  required: false
-  type: number
-  default: Provided by Home Assistant configuration
-longitude:
-  description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
-  required: false
-  type: number
-  default: Provided by Home Assistant configuration
-altitude:
-  description: Manually specify altitude. By default the value will be taken from the Home Assistant configuration.
-  required: false
-  type: number
-  default: Provided by Home Assistant configuration
+Name: 
+  Description: Manually specify Name. 
+  Required: true
+  Default: Provided by Home Assistant configuration
+Latitude:
+  Description: Manually specify latitude. 
+  Required: true
+  Type: number
+  Default: Provided by Home Assistant configuration
+Longitude:
+  Description: Manually specify longitude. 
+  Required: true
+  Type: number
+  Default: Provided by Home Assistant configuration
+Altitude:
+  Description: Manually specify altitude. By default the value will be taken from the Home Assistant configuration.
+  Required: false
+  Type: number
+  Default: Provided by Home Assistant configuration
 {% endconfiguration %}
