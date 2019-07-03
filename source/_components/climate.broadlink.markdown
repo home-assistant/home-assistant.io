@@ -10,13 +10,11 @@ footer: true
 logo: broadlink.png
 ha_category:
   - Climate
-ha_release: 0.94
+ha_release: 0.96
 ha_iot_class: Local Polling
 ---
 
-## {% linkable_title Description %}
-
-The `broadlink thermostat` climate platform is a thermostat implemented in Home Assistant. It work with numbers of Wifi thermostat (solds by Beok, Floureon, Beca Energy, Seesii...) like `Floureon Smart Wi-Fi Thermostat`, `Beok TGT70WIFI-EP Smart Wifi Thermostat`, `SeeSii Thermostat WiFi`...
+The `broadlink thermostat` climate platform is a thermostat implemented in Home Assistant. It works with numbers of Wifi thermostat (sold by Beok, Floureon, Beca Energy, Seesii...) like `Floureon Smart Wi-Fi Thermostat`, `Beok TGT70WIFI-EP Smart Wifi Thermostat`, `SeeSii Thermostat WiFi`...
 
 ## {% linkable_title Configuration %}
 
@@ -31,24 +29,24 @@ The `broadlink thermostat` climate platform is a thermostat implemented in Home 
 
 {% configuration %}
 friendly_name:
-  description: Name of thermostat
+  description: Name of thermostat.
   required: true
   type: string
 mac:
-  description: Mac address of the thermostat
+  description: Mac address of the thermostat.
   required: true
   type: string
 host:
-  description: Ip address of the thermostat
+  description: IP address of the thermostat.
   required: true
   type: string
 external_temp:
-  description: Use external temp sensor instead of internal one to display current temp
+  description: Use external temperature sensor instead of internal one to display current temperature.
   required: false
   type: boolean
   default: False
 away_temp:
-  description: Set the default temp on away_mode
+  description: Set the default temperature on away_mode.
   required: false
   type: float
   default: 12
@@ -56,7 +54,7 @@ away_temp:
 
 A full configuration example looks like the one below. 
 
-## {% linkable_title Exemple %}
+## {% linkable_title Example %}
 
 ```yaml
 # Full example configuration.yaml entry
@@ -85,7 +83,7 @@ This platform supports a service to set the internal thermostat schedule scheme:
 | `week_stop_3` | no | Third ending period (week).
 | `weekend_start` | no | Starting period (weekend).
 | `weekend_stop` | no | Ending period (weekend).
-| `away_temp` | no | Away Temperature.
+| `away_temp` | no | Away temperature.
 | `home_temp` | no | Home temperature.
 
 This platform supports a service to set the internal thermostat configuration:
@@ -99,7 +97,7 @@ This platform supports a service to set the internal thermostat configuration:
 | `dif` | no | Deadzone for floor temprature. 1 to 9. Factory default = 2
 | `svh` | no | Upper temperature limit for internal sensor. 5 to 99. Factory default = 35.
 | `svl` | no | Lower temperature limit for internal sensor. 5 to 99. Factory default = 5.
-| `freeze` | no | nti-freezing function 0 for anti-freezing function shut down, 1 for anti-freezing function open. Factory default = 0
+| `freeze` | no | Anti-freezing function 0 for anti-freezing function shut down, 1 for anti-freezing function open. Factory default = 0
 | `adj` | no | Actual temperature calibration. Prescision 0.1.
-| `pon` | no | Power on memory. 0 for power on memory off, 1 for power on memory on. Factory default = 0
+| `pon` | no | Power on memory. 0 for power on memory off, 1 for power on memory on. Factory default = 0.
 | `sen` | no | Sensor mode. 0 for internal sensor, 1 for external sensor, 2 for internal control temperature, external limit temperature. Factory default = 0.
