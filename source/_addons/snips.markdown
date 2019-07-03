@@ -17,7 +17,7 @@ The Snips add-on depends on the Mosquitto add on to bridge to Home Assistant, so
 
 Home Assistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
 
-The Snips add-on by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a [Shopping List](https://www.home-assistant.io/components/shopping_list/) if that integration is enabled.
+The Snips add-on by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a [Shopping List](/components/shopping_list/) if that integration is enabled.
 
 If using a USB microphone and speakers plugged into the Raspberry Pi output, Snips will work without any change to the configuration. Trying saying things like:
 
