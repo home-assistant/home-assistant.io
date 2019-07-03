@@ -10,7 +10,7 @@ footer: true
 logo: avea.png
 ha_category:
   - Light
-ha_release: 0.95
+ha_release: 0.96
 ha_iot_class: Local Polling
 ---
 
