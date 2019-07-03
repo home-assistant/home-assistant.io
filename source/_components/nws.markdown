@@ -10,7 +10,7 @@ footer: true
 featured: false
 #logo: nws.png
 ha_category: Weather
-ha_release: 0.93
+ha_release: 0.96
 ha_iot_class: Cloud Polling
 ---
 
