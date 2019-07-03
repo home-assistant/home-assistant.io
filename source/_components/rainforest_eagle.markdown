@@ -44,3 +44,39 @@ install_code:
   required: true
   type: string
 {% endconfiguration %}
+<<<<<<< HEAD
+=======
+
+## {% linkable_title Examples %}
+
+In this section you find some real-life examples of how to use this sensor.
+
+### {% linkable_title Limit monitored metrics to demand %}
+
+This example shows how to collect only energy power readings.
+
+```yaml
+sensor:
+  - platform: rainforest_eagle
+    ip_address: IP_FOR_EAGLE
+    cloud_id: CLOUD_ID_FROM_EAGLE
+    install_code: INSTALL_CODE_FROM_EAGLE
+    monitored_conditions:
+      - instantanous_demand
+```
+
+### {% linkable_title Limit monitored metrics to Demand and Net Power Readings %}                                                          
+
+This example shows how to collect only energy power readings and net power usage.
+
+```yaml
+sensor:
+  - platform: rainforest_eagle
+    ip_address: IP_FOR_EAGLE
+    cloud_id: CLOUD_ID_FROM_EAGLE
+    install_code: INSTALL_CODE_FROM_EAGLE
+    monitored_conditions:
+      - instantanous_demand
+      - summation_total
+```
+>>>>>>> a9f4522857afbdbdace6c3d8f652644d8d822c64
