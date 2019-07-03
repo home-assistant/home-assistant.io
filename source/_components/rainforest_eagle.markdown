@@ -3,6 +3,7 @@ layout: page
 title: "Rainforest Eagle-200"
 description: "Instructions on how to setup the Rainforest Eagle-200 with Home Assistant."
 date: 2019-07-02 18:00
+logo: rainforest_automation_logo.png
 sidebar: true
 comments: false
 sharing: true
@@ -31,6 +32,17 @@ sensor:
 
 ```
 
+```yaml
+# example configuration.yaml entry, limiting the metrics to demand only
+sensor:
+  - platform: rainforest_eagle
+    ip_address: IP_FOR_EAGLE
+    cloud_id: CLOUD_ID_FROM_EAGLE
+    install_code: INSTALL_CODE_FROM_EAGLE
+    monitored_conditions:
+      - instantanous_demand
+```
+
 {% configuration %}
 ip_address:
   description: The local IP address of your Eagle-200 device.
@@ -44,4 +56,17 @@ install_code:
   description: The Install Code that is printed on the bottom of the Eagle-200
   required: true
   type: string
+monitored_conditions:
+  description: The list of conditions to monitor.
+  required: false
+  type: list
+  keys:
+    instantanous_demand:
+      description: The power in kW being demanded by the electric meter.
+    summation_delivered:
+      description: The energy in kWh delivered to the electric meter.
+    summation_received:
+      description: The energy in kWh received from the electric meter.
+    summation_total:
+      description: Net energy in kWh, summation_delivered minus summation_received.
 {% endconfiguration %}
