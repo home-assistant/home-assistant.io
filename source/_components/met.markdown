@@ -26,26 +26,24 @@ The `met` platform uses the [Met.no](https://met.no/) web service as a source fo
 
 To add Met.no to your installation, go to Configuration >> Integrations in the UI and enable the Met.no integration.
 
-Configuration variables:
-
 {% configuration %}
-Name: 
-  Description: Manually specify Name. 
-  Required: true
-  Default: Provided by Home Assistant configuration
-Latitude:
-  Description: Manually specify latitude. 
-  Required: true
-  Type: number
-  Default: Provided by Home Assistant configuration
-Longitude:
-  Description: Manually specify longitude. 
-  Required: true
-  Type: number
-  Default: Provided by Home Assistant configuration
-Altitude:
-  Description: Manually specify altitude. By default the value will be taken from the Home Assistant configuration.
-  Required: false
-  Type: number
-  Default: Provided by Home Assistant configuration
+name: 
+  description: Manually specify Name. 
+  required: true
+  default: Provided by Home Assistant configuration
+latitude:
+  description: Manually specify latitude. 
+  required: true
+  type: number
+  default: Provided by Home Assistant configuration
+longitude:
+  description: Manually specify longitude. 
+  required: true
+  type: number
+  default: Provided by Home Assistant configuration
+altitude:
+  description: Manually specify altitude. By default the value will be taken from the Home Assistant configuration.
+  required: false
+  type: number
+  default: Provided by Home Assistant configuration
 {% endconfiguration %}
