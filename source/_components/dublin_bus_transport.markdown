@@ -20,7 +20,7 @@ The `dublin_bus_transport` sensor will give you the time until the next two depa
 
 The [Dublin Bus](https://www.dublinbus.ie/RTPI/) website can help to determine the id of your bus stop. You can check if this is correct by going to
 
-https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=[Stop ID]
+https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=[Stop ID]
 
 Then add the data to your `configuration.yaml` file as shown in the example:
 
@@ -47,4 +47,4 @@ name:
   type: string
 {% endconfiguration %}
 
-The public RTPI information is coming from [Dub Linked](https://data.dublinked.ie/).
+The public RTPI information is coming from [Dub Linked](https://data.smartdublin.ie/).
