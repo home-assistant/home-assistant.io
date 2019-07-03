@@ -49,7 +49,7 @@ scan_interval:
   type: int
 name:
   description: "Make it possible to provide a name for the vehicles. Note: Use all lower case letters when inputing your VIN number."
-  required: false
+  required: true
   type: string
 {% endconfiguration %}
 
