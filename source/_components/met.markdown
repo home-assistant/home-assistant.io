@@ -25,8 +25,10 @@ The `met` platform uses the [Met.no](https://met.no/) web service as a source fo
 ## {% linkable_title Configuration %}
 
 To add Met.no to your installation, go to Configuration >> Integrations in the UI and enable the Met.no integration.
-{% configuration %}  
-Confuration items:
+
+Configuration variables:
+
+{% configuration %}
 Name: 
   Description: Manually specify Name. 
   Required: true
@@ -46,5 +48,5 @@ Altitude:
   Required: false
   Type: number
   Default: Provided by Home Assistant configuration
- {% endconfiguration %}
+{% endconfiguration %}
 
