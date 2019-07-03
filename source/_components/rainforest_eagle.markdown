@@ -62,7 +62,7 @@ monitored_conditions:
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Limit monitored metrics to demand%}
+### {% linkable_title Limit monitored metrics to demand %}
 
 This example shows how to collect only energy power readings.
 
@@ -76,7 +76,7 @@ sensor:
       - instantanous_demand
 ```
 
-### {% linkable_title Limit monitored metrics to Demand and Net Power Readings%}                                                          
+### {% linkable_title Limit monitored metrics to Demand and Net Power Readings %}                                                          
 
 This example shows how to collect only energy power readings and net power usage.
 
