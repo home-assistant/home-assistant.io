@@ -17,7 +17,7 @@ Isn't it obvious? Home Assistant is the good soul that is assisting you in your 
 
 ### {% linkable_title Website %}
 
-The website [https://www.home-assistant.io](/) was launched on December 18, 2014 and contains documentation about the setup process, the platforms and components, and for the developers.
+The website [https://www.home-assistant.io](/) was launched on December 18, 2014 and contains documentation about the setup process, the platforms and integrations, and for the developers.
 
 ### {% linkable_title Logo %}
 

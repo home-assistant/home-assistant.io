@@ -16,7 +16,7 @@ ha_iot_class: Local Polling
 
 The `knx` climate platform is used as in interface with KNX thermostats.
 
-The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
 To use your KNX thermostats in your installation, add the following lines to your `configuration.yaml` file:
 

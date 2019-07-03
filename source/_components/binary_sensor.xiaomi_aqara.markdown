@@ -16,7 +16,7 @@ ha_iot_class: Local Push
 
 The `xiaomi aqara` binary sensor platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) binary sensors.
 
-The requirement is that you have setup the [`xiaomi aqara` component](/components/xiaomi_aqara/).
+The requirement is that you have setup the [`xiaomi aqara` integration](/components/xiaomi_aqara/).
 
 ### {% linkable_title Type of sensors supported %}
 

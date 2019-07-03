@@ -90,7 +90,7 @@ This means that we can now ask Alexa things like:
 
 ## {% linkable_title Configuring Home Assistant %}
 
-When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
+When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) integration.
 
 To enable Alexa, add the following entry to your `configuration.yaml` file:
 

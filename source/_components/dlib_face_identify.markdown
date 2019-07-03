@@ -17,7 +17,7 @@ redirect_from:
 
 The `dlib_face_identify` image processing platform allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform allow you to identify persons on camera and fire an event with identify persons.
 
-For using the result inside an automation rule, take a look at the [component](/components/image_processing/) page.
+For using the result inside an automation rule, take a look at the [integration](/components/image_processing/) page.
 
 ### {% linkable_title Configuration Home Assistant %}
 

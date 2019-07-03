@@ -19,7 +19,7 @@ ha_release: "0.54"
 While the Skills API described above allows for arbitrary intents, all
 utterances must begin with "Alexa, tell $invocation_name ..."
 
-The [Emulated Hue component][emulated-hue-component] provides a simpler
+The [Emulated Hue integration][emulated-hue-component] provides a simpler
 interface such as, "Alexa, turn on the kitchen light". However, it has some
 limitations since everything looks like a light bulb.
 

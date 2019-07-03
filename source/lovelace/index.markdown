@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /components/lovelace/
+redirect_from:
+  - /components/lovelace/
 ---
 
 Lovelace is the name of the Home Assistant user interface. It is a fast, customizable and powerful way for users to manage their homes, working both on mobile and desktop.

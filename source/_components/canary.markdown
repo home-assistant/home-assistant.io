@@ -57,7 +57,7 @@ timeout:
   default: 10
 {% endconfiguration %}
 
-Once loaded, your front end will have the following components:
+Once loaded, your front end will have the following integrations:
 
 - A camera image triggered by motion for each camera.
 - An alarm control panel for each location.
@@ -67,9 +67,9 @@ Once loaded, your front end will have the following components:
 
 ## {% linkable_title Camera %}
 
-The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.
+The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` integration](/components/ffmpeg/) to be already configured.
 
-Once you have [Canary component](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
+Once you have [Canary integration](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
 
 ## {% linkable_title Configuration %}
 
@@ -82,7 +82,7 @@ camera:
 
 {% configuration %}
 ffmpeg_arguments:
-  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
+  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg integration](/components/ffmpeg).
   required: false
   type: string
 {% endconfiguration %}
