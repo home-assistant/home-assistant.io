@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "VeSync Switch"
-description: "Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant."
+title: "VeSync Smart Devices"
+description: "Instructions on how to set up VeSync Switches, Outlets and Fans Device Integration."
 date: 2018-03-09 02:11
 sidebar: true
 comments: false
@@ -10,27 +10,52 @@ footer: true
 logo: vesync.png
 ha_category:
   - Switch
+  - Fan
 ha_release: 0.66
 redirect_from:
  - /components/switch.vesync/
+ - /components/fan.vesync/
 ---
 
-The `vesync` switch platform enables integration with Etekcity VeSync smart wall switches and outlets.
+The `vesync` integration enables you to control the Levoit air purifier and Etekcity smart switches and outlets connected to the VeSync App.
 
-VeSync outlets are low-cost wifi smart plugs that offer energy monitoring and work with popular voice assistants.
+The devices must be added to the VeSync App before they can be discovered by this component.
 
-Supports both the 7A round outlets and 15A rectangular outlets, as well as the in wall switches.
+The following platforms are supported:
+
+- **switch**
+- **fan**
+
+## {% linkable_title Supported Devices %}
+
+This integration supports devices controllable by the VeSync App.  The following devices are supported by this integration:
+
+### {% linkable_title Plugs %}
+
+- Etekcity 7 Amp US oulet - ESW01-USA (Round)
+- Etekcity 10 Amp US outlet - ESW10-USA (Round)
+- Etekcity 10 Amp EU outlet - ESW10-EU (Round)
+- Etekcity 15 Amp US outlet - ESW15-USA (Rectangular)
+
+### {% linkable_title Switches %}
+
+- Etekcity In Wall Smart Switch (EWSL01-USA)
+
+### {$ linkable_title Fans %}
+
+- Levoit Air Purifier - LV-PUR131S
+
 
 ## {% linkable_title Configuration %}
 
-To use your VeSync switches, you must first register your switches with the VeSync app. Once registration is complete you must add the following to your `configuration.yaml` file:
+To use this integration, all devices must be registered with the VeSync App. Once registration is complete you can add the VeSync component by adding the VeSync integration in the configuration section of the frontend and entering your username and password.  You can also use the traditional configuration method by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: vesync
+vesync:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
+    time_zone: TIME_ZONE
 ```
 
 {% configuration %}
@@ -42,13 +67,62 @@ password:
   description: Password needed to log in to VeSync.
   required: true
   type: string
+time_zone:
+  description: Custom time zone for calculating energy usage for week, month and year (Not used for Air Purifier).  If you enter nothing, it will default to the configured time zone in Home Assistant and if time zone is not configured it will default to UTC.
+  required: false
+  type: time_zone
 {% endconfiguration %}
 
-## {% linkable_title Exposed Attributes %}
+## {% linkable_title Outlet Exposed Attributes %}
 
-VeSync switches will expose the following details for only the smart outlets. Energy monitoring not available for in-wall switches.
+VeSync outlets will expose the following details for only the smart outlets. Energy monitoring not available for in-wall switches.
 
-| Attribute           | Description                                                         | Example         |
-| ------------------- | ------------------------------------------------------------------- | --------------- |
-| `current_power_w`   | The present power consumption of the switch in watts.               | 100             |
-| `today_energy_kwh`  | The kilowatt hours used by the switch during the previous 24 hours. | 0.12            |
+| Attribute               | Description                                                             | Example         |
+| ----------------------- | ----------------------------------------------------------------------- | --------------- |
+| `current_power_w`       | The present power consumption of the switch in watts.                   | 100             |
+| `today_energy_kwh`      | The kilowatt hours used by the switch during the previous 24 hours.     | 0.12            |
+| `active_time`           | The number of minutes the device has been on                            | 43              |
+| `voltage`               | Current voltage of the device                                           | 120.32          |
+| `weekly_energy_total`   | Total energy usage for week starting from Monday 12:01AM in kWh         | 14.74           |
+| `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
+| `yearly_energy_total`   | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25          |
+
+
+## {% linkable_title Air Purifier Exposed Attributes %}
+
+Levoit Air Purifier has the following attributes available:
+| Attribute               | Description                                                             | Example         |
+| ----------------------- | ----------------------------------------------------------------------- | --------------- |
+| `mode`                  | Returns the mode of the fan                                             | Auto/Manual/Off |
+| `filter_life`           | Percentage of the life remaining for the filter                         | 97              |
+| `active_time`           | The number of minutes the device has been on                            | 43              |
+| `air_quality`           | Air quality reading of purifier                                         | Excellent       |
+| `screen_status`         | Returns whether screen is on or off                                     | on              |
+
+
+## {% linkable_title Extracting Attribute data %}
+
+In order to get the attributes readings from supported devices, such as energy from outlets or fan attributes, you'll have to create a [template sensor](/components/switch.template/).
+
+In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
+
+Adapted from the [TP-Link Component](https://www.home-assistant.io/components/tplink/#plugs).
+
+{% raw %}
+```yaml
+sensor:
+  - platform: template
+      vesync_switch_watts:
+        friendly_name_template: "{{ states.switch.vesync_switch.name}} Current Consumption"
+        value_template: '{{ states.switch.vesync_switch.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      vesync_switch_total_kwh:
+        friendly_name_template: "{{ states.switch.vesync_switch.name}} Total Consumption"
+        value_template: '{{ states.switch.vesync_switch.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      vesync_switch_volts:
+        friendly_name_template: "{{ states.switch.vesync_switch.name}} Voltage"
+        value_template: '{{ states.switch.vesync_switch.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+```
+{% endraw %}
