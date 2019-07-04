@@ -23,7 +23,7 @@ This can simplify the GUI and make it easier to write automations. You can mark 
 
 In optimistic mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from the template. Try to enable it, if experiencing incorrect lock operation.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Template Locks in your installation, add the following to your `configuration.yaml` file:
 
@@ -70,15 +70,15 @@ lock:
     default: false
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 If you are using the state of a platform that takes extra time to load, the Template Lock may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this lock.
 
-### {% linkable_title Lock from Switch %}
+### Lock from Switch
 
 This example shows a lock that copies data from a switch.
 
@@ -99,7 +99,7 @@ lock:
 ```
 {% endraw %}
 
-### {% linkable_title Optimistic Mode %}
+### Optimistic Mode
 
 This example shows a lock in optimistic mode. This lock will immediately change state after command and will not wait for state update from the sensor.
 
@@ -121,7 +121,7 @@ lock:
 ```
 {% endraw %}
 
-### {% linkable_title Sensor and Two Switches %}
+### Sensor and Two Switches
 
 This example shows a lock that takes its state from a sensor, and uses two momentary switches to control a device.
 

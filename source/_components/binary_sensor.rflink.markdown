@@ -69,15 +69,15 @@ devices:
           default: false
 {% endconfiguration %}
 
-### {% linkable_title Sensor state %}
+### Sensor state
 
 Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support)
 
-### {% linkable_title Additional configuration examples %}
+### Additional configuration examples
 
 Multiple sensors with custom name and device class and set off_delay
 

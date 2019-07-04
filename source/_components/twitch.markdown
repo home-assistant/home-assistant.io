@@ -18,11 +18,11 @@ redirect_from:
 
 The `twitch` platform will allow you to monitor [Twitch](http://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
 
-## {% linkable_title Setup %}
+## Setup
 
 Create a new app at "Register Your Application" in the [Twitch developer portal](https://glass.twitch.tv/console/apps). Then get the **Client ID** for the new app.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Twitch with your installation, add the following to your `configuration.yaml` file:
 

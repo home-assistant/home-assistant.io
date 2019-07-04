@@ -18,7 +18,7 @@ redirect_from:
 
 The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Hyperion light in your installation, add the following to your `configuration.yaml` file:
 
@@ -65,7 +65,7 @@ light:
     default: "['HDMI', 'Cinema brighten lights', 'Cinema dim lights', 'Knight rider', 'Blue mood blobs', 'Cold mood blobs', 'Full color mood blobs', 'Green mood blobs', 'Red mood blobs', 'Warm mood blobs', 'Police Lights Single', 'Police Lights Solid', 'Rainbow mood', 'Rainbow swirl fast', 'Rainbow swirl', 'Random', 'Running dots', 'System Shutdown', 'Snake', 'Sparks Color', 'Sparks', 'Strobe blue', 'Strobe Raspbmc', 'Strobe white', 'Color traces', 'UDP multicast listener', 'UDP listener', 'X-Mas']"
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 To start Hyperion with an effect, use the following automation:
 

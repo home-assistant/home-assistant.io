@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 Currently only doorbells are supported by this sensor.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
 
@@ -53,7 +53,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 Once you have enabled the [Ring component](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
 
@@ -77,7 +77,7 @@ monitored_conditions:
 
 Currently it supports doorbell, external chimes and stickup cameras.
 
-## {% linkable_title Camera %}
+## Camera
 
 <p class='note'>
 Please note that downloading and playing Ring video will require a Ring Protect plan.
@@ -107,7 +107,7 @@ scan_interval:
 
 Currently it supports doorbell and stickup cameras.
 
-## {% linkable_title Saving the videos captured by your Ring Door Bell %}
+## Saving the videos captured by your Ring Door Bell
 
 You can save locally the latest video captured by your Ring Door Bell using the [downloader](/components/downloader) along with either an [automation](/components/automation) or [python_script](/components/python_script). First, enable the [downloader](/components/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
 
@@ -155,7 +155,7 @@ data = {
 hass.services.call('downloader', 'download_file', data)
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 Once you have enabled the [Ring component](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
 

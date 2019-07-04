@@ -25,7 +25,7 @@ This integration allows you to write Python scripts that are exposed as services
 [hass-api]: /developers/development_hass_object/
 [logger-api]: https://docs.python.org/3.4/library/logging.html#logger-objects
 
-## {% linkable_title Writing your first script %}
+## Writing your first script
 
  - Add to `configuration.yaml`: `python_script:`
  - Create folder `<config>/python_scripts`
@@ -46,7 +46,7 @@ hass.bus.fire(name, { "wow": "from a Python script!" })
 }
 ```
 
-## {% linkable_title Calling Services %}
+## Calling Services
 
 The following example shows how to call a service from `python_script`. This script takes two parameters: `entity_id` (required), `rgb_color` (optional) and calls `light.turn_on` service by setting the brightness value to `255`.
 

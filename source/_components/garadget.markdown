@@ -19,7 +19,7 @@ redirect_from:
 
 The `garadget` cover platform lets you control [Garadget](http://www.garadget.com/) garage door futurizers through Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Garadget Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -73,7 +73,7 @@ covers:
 
 If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
 
-## {% linkable_title Example %}
+## Example
 
 <p class='img'>
   <img src='{{site_root}}/images/components/garadget/cover_garadget_details.png' />

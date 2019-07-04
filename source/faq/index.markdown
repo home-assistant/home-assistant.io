@@ -18,12 +18,12 @@ This is a community curated list of frequently asked questions (FAQ) about the i
 
 {% for category in categories %}
 
-## {% linkable_title {{ category }} %}
+## {{ category }}
 
   {% for entry in faq %}
     {% if entry.ha_category == category %}
 
-### {% linkable_title {{ entry.title }} %}
+### {{ entry.title }}
 
 {{entry.content}}
     {% endif %}

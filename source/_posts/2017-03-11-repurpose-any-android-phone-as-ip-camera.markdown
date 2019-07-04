@@ -69,7 +69,7 @@ twilio:
 ### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-### {% linkable_title Release 0.40.1 - March 16 %}
+### Release 0.40.1 - March 16
 
 - Fix wake_on_lan ping with None as host ([@iamtpage] - [#6532])
 - Don't start the push updater if the Apple TV is 'off' ([@jnewland] - [#6552])
@@ -81,7 +81,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix Osram Lightify colors ([@deisi] - [#6598])
 - Bugfix RFLINK remove group ([@pvizeli] - [#6580])
 
-### {% linkable_title Release 0.40.2 - March 22 %}
+### Release 0.40.2 - March 22
 
 Hot fix release to fix dependency issues. More detailed information about the issue in [this blog post](/blog/2017/03/22/broken-dependencies/).
 

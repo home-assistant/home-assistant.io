@@ -76,7 +76,7 @@ file.
 | process                | Binary, e.g., `octave-cli` |
 | last_boot              |                           |
 
-## {% linkable_title Linux specific %}
+## Linux specific
 
 To retrieve all available network interfaces on a Linux System, execute the
 `ifconfig` command.
@@ -85,7 +85,7 @@ To retrieve all available network interfaces on a Linux System, execute the
 ifconfig -a | sed 's/[ \t].*//;/^$/d'
 ```
 
-## {% linkable_title Windows specific %}
+## Windows specific
 
 When running this platform on Microsoft Windows, Typically,
 the default interface would be called `Local Area Connection`,

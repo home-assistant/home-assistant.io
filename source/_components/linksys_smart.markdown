@@ -22,11 +22,11 @@ Tested routers:
 - Linksys WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless Router
 - Linksys WRT1900ACS Dual-band Wi-Fi Router
 
-## {% linkable_title Setup %}
+## Setup
 
 For this platform to work correctly, it is necessary to disable the "Access via wireless" feature in the Local Management Access section of the router administration page. If "Access via wireless" is not disabled, a connectivity conflict arises because the Home Assistant integration is trying to pass userid and password, but the router is only expecting a password.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a Linksys Smart Wifi Router in your Home Assistant installation, add the following to your `configuration.yaml` file:
 

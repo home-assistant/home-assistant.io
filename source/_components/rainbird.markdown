@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following to your `configuration.yaml` file:
 
@@ -52,7 +52,7 @@ password:
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
 </p>
 
-## {% linkable_title Sensor %}
+## Sensor
 
 This `rainbird` sensor allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 
@@ -74,7 +74,7 @@ monitored_conditions:
       description: Returns the sensor level.
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 This `rainbird` switch platform allows interacting with [LNK WiFi](http://www.rainbird.com/landscape/products/controllers/LNK-WiFi.htm) module of the Rain Bird Irrigation system in Home Assistant.
 

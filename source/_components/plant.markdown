@@ -16,7 +16,7 @@ ha_qa_scale: internal
 
 This`plant`component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your `plant` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -112,7 +112,7 @@ entity_id:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 ### Using plain MQTT sensor to get the data
 This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
 Another good source of this data would be the [Mi Flora](/components/sensor.miflora/) component.

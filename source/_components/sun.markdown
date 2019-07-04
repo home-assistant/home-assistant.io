@@ -21,7 +21,7 @@ below the horizon. The sun can be used within automation as
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 [sun_condition]: /docs/scripts/conditions/#sun-condition
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,7 +39,7 @@ elevation:
 <img src='/images/screenshots/more-info-dialog-sun.png' />
 </p>
 
-## {% linkable_title Implementation Details %}
+## Implementation Details
 
 The sun's event listener will call the service when the sun rises or sets with
 an offset.
@@ -56,7 +56,7 @@ which event (sunset or sunrise) and the offset.
 }
 ```
 
-### {% linkable_title Maintains entity `sun.sun` %}
+### Maintains entity `sun.sun`
 
 | Possible state | Description |
 | --------- | ----------- |

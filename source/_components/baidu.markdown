@@ -17,7 +17,7 @@ redirect_from:
 
 The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To get started, add the following lines to your `configuration.yaml`:
 

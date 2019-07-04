@@ -13,7 +13,7 @@ redirect_from: /docs/hassbian/customization/
 To allow you to customize your installation further, we have included a tool called `hassbian-config`. This tool comes with a set of suites that can easily be installed or upgraded for easier customization of your Home Assistant installation.
 The tool is available by running `hassbian-config`.
 
-### {% linkable_title Install scripts %}
+### Install scripts
 
 To view the available suites run `hassbian-config show` or have a look at the [hassbian-scripts repository][hassbian-repo].
 These are some of the available suites:
@@ -39,7 +39,7 @@ These are some of the available suites:
 
 To install any of them simply run `sudo hassbian-config install SUITE`.
 
-### {% linkable_title Upgrade scripts %}
+### Upgrade scripts
 
 To view the available suites run `hassbian-config show` or have a look at the [hassbian-scripts repository][hassbian-repo].
 These are some of the available suites:

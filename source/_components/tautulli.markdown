@@ -31,11 +31,11 @@ The `tautulli` sensor platform will monitor activity on a given [Tautulli Server
 
 More user statistics can be added with the `monitored_conditions` configuration option, this will add one attribute per user in addition to the users current `activity`.
 
-## {% linkable_title Setup %}
+## Setup
 
 To find your `api_key` open the Tautulli web interface and navigate to `Settings` and then to `Web interface`, the `api_key` will be at the bottom of that page.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 If you want to enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -80,7 +80,7 @@ monitored_conditions:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Full example for the configuration %}
+## Full example for the configuration
 
 ```yaml
 # Example configuration.yaml entry

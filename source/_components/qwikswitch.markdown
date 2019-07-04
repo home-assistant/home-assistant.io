@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 
 The `qwikswitch` integration discovers all devices from QS Mobile. Currently, Relays and LED dimmers are discovered in Home Assistant. Relay devices are [lights](/components/light.qwikswitch/) by default, and can be configured as [switches](/components/switch.qwikswitch/).
 
-{% linkable_title Configuration %}
+Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -97,7 +97,7 @@ sensors:
       type: string
 {% endconfiguration %}
 
-### {% linkable_title QwikSwitch Events %}
+### QwikSwitch Events
 
 QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
 
@@ -123,7 +123,7 @@ The list of recognized commands can be extended for Keyfobs, door sensors, and P
 
 On some QS Mobile servers button events are only generated for switches added to the QS Mobile application, so it might be best to test button presses through the `/&listen` API
 
-### {% linkable_title Qwikswitch Sensors %}
+### Qwikswitch Sensors
 
 The sensor configuration is a list of sensors. Depending on the type of sensor, it will be a sensor or binary_sensor.
 
@@ -146,7 +146,7 @@ qwikswitch:
       type: imod
 ```
 
-### {% linkable_title Switch %}
+### Switch
 
 The `qwikswitch` platform allows you to control your [QwikSwitch](http://www.qwikswitch.co.za/) relays as switches from within Home Assistant.
 

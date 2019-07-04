@@ -17,7 +17,7 @@ redirect_from:
 
 Integration between [ebusd](https://github.com/john30/ebusd/) daemon for communication with eBUS heating systems, and Home Assistant using sensor component.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Enable the sensor by adding the following to your `configuration.yaml` file:
 

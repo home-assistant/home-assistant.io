@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You will need your Canary login information (username, usually your email address, and password) to use this module.
 
@@ -65,13 +65,13 @@ Once loaded, your front end will have the following integrations:
 - A sensor per camera that reports humidity.
 - A sensor per camera that reports air quality.
 
-## {% linkable_title Camera %}
+## Camera
 
 The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` integration](/components/ffmpeg/) to be already configured.
 
 Once you have [Canary integration](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You can add the following to your `configuration.yaml` file to configure `canary` camera with optional settings:
 
@@ -87,7 +87,7 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `canary` sensor platform allows you to integrate the sensors of your [Canary](https://canary.is) devices in Home Assistant.
 

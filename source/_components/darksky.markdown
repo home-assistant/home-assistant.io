@@ -19,7 +19,7 @@ redirect_from:
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
 
-## {% linkable_title Setup %}
+## Setup
 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
@@ -27,7 +27,7 @@ You need an API key which is free but requires [registration](https://darksky.ne
 [Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
 
@@ -163,7 +163,7 @@ scan_interval:
 Please note that some monitored conditions, such as `temperature_high` or `temperature_low`, may only work when setting the `forecast` attribute to at least `0` (current day).
 </p>
 
-#### {% linkable_title Time period dictionary example %}
+#### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -175,7 +175,7 @@ scan_interval:
   milliseconds: 0
 ```
 
-#### {% linkable_title Language options %}
+#### Language options
 
 All language options are described in this table that you can use for the dark sky sensor.
 

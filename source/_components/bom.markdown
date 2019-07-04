@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the BOM weather platform to your installation, add the following to your `configuration.yaml` file:
 
@@ -53,7 +53,7 @@ This platform is an alternative to the [`bom`](#sensor) sensor.
 The weather platform is easier to configure but less customizable.
 </p>
 
-## {% linkable_title Camera %}
+## Camera
 
 The `bom` camera platform uses the [Australian Bureau of Meteorology (BOM)](http://www.bom.gov.au) [radar web service](http://www.bom.gov.au/australia/radar/) as a source to generate an animated radar image.
 
@@ -95,7 +95,7 @@ filename:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Valid `location` values %}
+### Valid `location` values
 
 ```
 Adelaide        Albany          AliceSprings    Bairnsdale      Bowen
@@ -112,9 +112,9 @@ Weipa           WillisIs        Wollongong      Woomera         Wyndham
 Yarrawonga
 ```
 
-### {% linkable_title Examples %}
+### Examples
 
-#### {% linkable_title Using `location` and `name` %}
+#### Using `location` and `name`
 
 Example `configuration.yaml` entry to display the `Townsville` radar with a camera named `mytowsvilleradar`:
 
@@ -125,7 +125,7 @@ camera:
     location: Townsville
 ```
 
-#### {% linkable_title Using `id`, `delta` and `frames` %}
+#### Using `id`, `delta` and `frames`
 
 In the event BOM creates a new radar, or a radar's ID changes, you may define a custom `id` along with corresponding `delta` and `frames` values. You may also specify custom `delta` and `frames` values, along with a valid `location`, to override the default values for an existing radar. You may not define `location` and `id` in the same entity; you must specify one or the other. If `id` is specified, then `delta` and `frames` values _must_ be provided. If `location` is specified, `delta` and `frames` _may_ be provided to override the default values.
 
@@ -148,7 +148,7 @@ camera:
     name: 'Carnarvon'
 ```
 
-#### {% linkable_title Using `filename` %}
+#### Using `filename`
 
 This option can be specified to save the animated radar-imagery GIF to the given filesystem path.
 
@@ -163,7 +163,7 @@ camera:
 
 The file will be updated every `delta` seconds when the camera regenerates the animation.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `bom` sensor platform uses the [Australian Bureau of Meteorology (BOM)](http://www.bom.gov.au) as a source for current (half-hourly) meteorological data.
 

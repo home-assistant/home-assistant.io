@@ -38,7 +38,7 @@ The following extras are included on the image:
  - SSH server is enabled.
  - A tool called [`hassbian-config`](https://github.com/home-assistant/hassbian-scripts#hassbian-scripts). 
 
-### {% linkable_title Wireless Network %}
+### Wireless Network
 
 After flashing the image to your SD Card open the partition `boot` and create a new file `wpa_supplicant.conf`. Edit the file and enter your network credentials. For more information visit [Setting up WiFi for Raspbian][wifi-setup]. During start the file will automatically be copied in the right folder and the network connection will be established. The file could look like this:
 
@@ -68,7 +68,7 @@ Hard blocked: no
 
 To unblock it, execute `$ sudo rfkill unblock wifi`.
 
-### {% linkable_title Technical Details %}
+### Technical Details
 
  - Home Assistant is installed in a virtual Python environment at `/srv/homeassistant/`
  - Home Assistant will be started as a service run by the user `homeassistant`
@@ -79,11 +79,11 @@ To unblock it, execute `$ sudo rfkill unblock wifi`.
 [http://hassbian.local:8123]: http://hassbian.local:8123
 [wifi-setup]: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
 
-## {% linkable_title Updating %}
+## Updating
 
 The [Hassbian Scripts](https://github.com/home-assistant/hassbian-scripts) are the easiest way of updating both the host operating system, and Home Assistant.
 
-### {% linkable_title Updating Home Assistant %}
+### Updating Home Assistant
 
 SSH to your system as the user `pi` and run:
 
@@ -91,7 +91,7 @@ SSH to your system as the user `pi` and run:
 $ sudo hassbian-config upgrade homeassistant
 ```
 
-### {% linkable_title Updating the host operating system %}
+### Updating the host operating system
 
 SSH to your system as the user `pi` and run:
 
@@ -99,7 +99,7 @@ SSH to your system as the user `pi` and run:
 $ sudo hassbian-config upgrade hassbian
 ```
 
-## {% linkable_title Run a specific version %}
+## Run a specific version
 
 In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
 
@@ -107,7 +107,7 @@ In the event that a Home Assistant version doesn't play well with your hardware 
 $ sudo hassbian-config upgrade homeassistant=0.XX.X
 ```
 
-#### {% linkable_title Run the beta version %}
+#### Run the beta version
 
 If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
 
@@ -115,7 +115,7 @@ If you would like to test next release before anyone else, you can install the b
 $ sudo hassbian-config upgrade homeassistant --beta
 ```
 
-## {% linkable_title Run the development version %}
+## Run the development version
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 

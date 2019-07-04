@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - Light (Belkin WeMo LED lights and [Smart Dimmer Switch](http://www.belkin.com/us/F7C059-Belkin/p/P-F7C059/))
 - Switch ([Belkin WeMo Switches](https://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/) and includes support for Wemo enabled [Mr. Coffee](http://www.mrcoffee.com/wemo-landing-page.html) smart coffee makers.)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 {% configuration %}
   discovery:
@@ -72,7 +72,7 @@ Note that if you use static device entries, you may want to set up your router (
 
 If the device doesn't seem to work and all you see is the state "unavailable" on your dashboard, check that your firewall doesn't block incoming requests on port 8989, since this is the port to which the WeMo devices send their updates.
 
-## {% linkable_title Emulated devices %}
+## Emulated devices
 
 Various software that emulate WeMo devices often use alternative ports. Static configuration should include the port value:
 
@@ -84,13 +84,13 @@ wemo:
     - 192.168.52.172:52002
 ```
 
-## {% linkable_title Fan %}
+## Fan
 
 The `wemo` platform allows you to control your Belkin WeMo humidifiers from within Home Assistant. This includes support for the [Holmes Smart Humidifier](https://www.holmesproducts.com/wemo-humidifier.html).
 
 WeMo devices are automatically discovered if the `discovery` integration is enabled.
 
-### {% linkable_title Attributes %}
+### Attributes
 
 There are several attributes which can be used for automations and templates:
 
@@ -103,7 +103,7 @@ There are several attributes which can be used for automations and templates:
 | `target_humidity` | An integer that indicates the desired relative humidity percentage (this is constrained to the humidity settings of the device, which are 45, 50, 55, 60, and 100).
 | `water level` | String that indicates whether the water level is Good, Low, or Empty.
 
-### {% linkable_title Services %}
+### Services
 
 There are several services which can be used for automations and control of the humidifier:
 

@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the AquaLogic integration to your installation, add the following to your `configuration.yaml` file:
 
@@ -48,7 +48,7 @@ port:
   type: int
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 Once you have enabled the AquaLogic component, add the following to your `configuration.yaml` file:
 
@@ -87,7 +87,7 @@ monitored_conditions:
       description: The current system status.
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 Once you have enabled the AquaLogic component, add the following to your `configuration.yaml` file:
 

@@ -106,7 +106,7 @@ source:
       type: string
 {% endconfiguration %}
 
-### {% linkable_title Setup process %}
+### Setup process
 
 It's suggested that the first attempt to determine the needed parameters is using `ssocr` directly. This may require a couple of iterations to get the result
 

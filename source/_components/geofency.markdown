@@ -18,7 +18,7 @@ redirect_from:
 
 This integration sets up integration with [Geofency](http://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To configure Geofency, you must set it up via the integrations panel in the configuration screen. You must then configure the iOS app (via the Webhook feature) to send a POST request to your Home Assistant server at the webhook URL provided by the integration during setup. Use the default POST format. Make sure to enable the 'Update Geo-Position' functionality for mobile beacons.
 
@@ -43,7 +43,7 @@ geofency:
     - keys
 ```
 
-### {% linkable_title Zones %}
+### Zones
 
 When you enter a geofence or stationary beacon, your location name in Home Assistant will be set to the name of the geofence or beacon location in Geofency. When you exit a geofence or stationary beacon, your location name in Home Assistant will be set to `not home`. For mobile beacons, the location name will be `not_home` whenever the beacon is entered or exited outside of a [zone](/components/zone/), otherwise, it will be set to the name of the zone.
 

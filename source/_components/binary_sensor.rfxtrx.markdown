@@ -23,7 +23,7 @@ them may be recognized under the X10 protocol but most of them are recognized
 under the *Lighting4* protocol. The rfxtrx binary sensor integration provides
 some special options for them, while other rfxtrx protocols should work too.
 
-## {% linkable_title Setting up your devices %}
+## Setting up your devices
 
 Once you have set up your [rfxtrx hub](/components/rfxtrx/), the easiest way
 to find your binary sensors is to add this to your `configuration.yaml`:
@@ -133,7 +133,7 @@ binary_sensor:
       seconds: 5
 ```
 
-### {% linkable_title Options for PT-2262 devices under the Lighting4 protocol %}
+### Options for PT-2262 devices under the Lighting4 protocol
 
 When a data packet is transmitted by a PT-2262 device using the Lighting4
 protocol, there is no way to automatically extract the device identifier and the
@@ -203,7 +203,7 @@ This automatic guess should work most of the time but there is
 no guarantee on that. You should activate it only when you
 want to configure your new devices and leave it off otherwise.
 
-### {% linkable_title Known working devices %}
+### Known working devices
 
 The following devices are known to work with the rfxtrx binary sensor component.
 There are too many other to list.

@@ -27,7 +27,7 @@ Supported devices:
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
-## {% linkable_title Telnet platform %}
+## Telnet platform
 
 ```yaml
 # Example configuration.yaml entry

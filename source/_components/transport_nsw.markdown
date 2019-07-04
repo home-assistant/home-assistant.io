@@ -18,7 +18,7 @@ redirect_from:
 
 The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
 
-## {% linkable_title Setup %}
+## Setup
 
 Prerequisite is a free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/).
 
@@ -26,7 +26,7 @@ In order to find your stop id, go to Google maps and click on any bus/train/ferr
 
 As a default the sensor picks up the next mode of transport leaving from a stop id.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml` file:
 
@@ -63,7 +63,7 @@ name:
 
 The public information is provided from [Transport NSW](https://opendata.transport.nsw.gov.au/).
 
-## {% linkable_title Examples %}
+## Examples
 
 More example configurations for bus or ferry.
 

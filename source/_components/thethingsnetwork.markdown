@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-## {% linkable_title Setup %}
+## Setup
 
 Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications**.
 
@@ -49,7 +49,7 @@ You need an access key to be able to read the data from your application.
 Access keys
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this component, add the following lines to your `configuration.yaml`:
 
@@ -71,13 +71,13 @@ access_key:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `thethingsnetwork` sensor platform allows you to get data from a [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/).
 
 This platform requires that the [The Things Network component](#configuration) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
 
-### {% linkable_title Prerequisites %}
+### Prerequisites
 
 Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications** and go to **Integrations**.
 
@@ -116,7 +116,7 @@ Select **Devices** to get the ID of your device that you want to use.
 Devices overview
 </p>
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 

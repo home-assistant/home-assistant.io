@@ -24,7 +24,7 @@ This means that ISS is 10° above the horizon of your home.
 You can check in the attributes of the sensor to see the timestamp for the next
 rise of the station, its current coordinates, and the number of people in space.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add ISS binary sensor to your installation,
 add the following to your `configuration.yaml` file:
@@ -53,7 +53,7 @@ If you set `show_on_map: true` then the location attributes are named `latitude`
 The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
 </p>
 
-### {% linkable_title Show position on map with camera platform %}
+### Show position on map with camera platform
 
 The [generic camera platform](/components/camera.mjpeg/) offers
 the possibility to show the location of the ISS on OpenStreetMap.

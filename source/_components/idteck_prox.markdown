@@ -18,7 +18,7 @@ ha_iot_class: Local Push
 
 An `idteck_prox_keycard` event is fired whenever a card or key sequence has been entered.  The event contains 'card' - the card/key sequence, and the 'name' of the card reader.  Checking 'card' against known card numbers can be used as the basis of an entry control system, or as part of a check-in/check-out system.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ``` yaml
 # Example configuration.yaml entry

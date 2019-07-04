@@ -21,13 +21,13 @@ In the meanwhile, some great new integrations have landed, including yet another
 
 This is going to be the last release that supports Python 3.4. Starting with the next release, the minimum version required will be Python 3.5.3. [Learn more here.](/blog/2017/10/06/deprecating-python-3.4-support/)
 
-## {% linkable_title HomeKit %}
+## HomeKit
 
 Native HomeKit support has arrived! Thanks to @cdce8p It is now possible to expose some devices over HomeKit to allow control via Siri and other things speaking the HomeKit protocol. Initial support has been added for temperature sensors and cover devices. Expect more devices to be added soon.
 
 [Check the HomeKit docs][HomeKit docs]
 
-## {% linkable_title Hass.io UI update %}
+## Hass.io UI update
 
 Some of you already noticed that your Hass.io panel looks a bit different since this morning: @pvizeli pressed the ~~red~~ green button and the new UI got live. The Hass.io team ([@frenck] [@pvizeli] [@ryanm101]) is doing a great job in adding new features (like partial or encrypted snapshots) to the Hass.io backend and fixing bugs. However, those features where only added to the command line tools but not to the frontend.
 
@@ -35,19 +35,19 @@ That's where [@c727] and [@ciotlosm] jumped in. They made new features accessibl
 
 We know that some features are still missing or broken, we are fixing this right now! Check this [issue](https://github.com/home-assistant/home-assistant-polymer/issues/912) first before you report any issues related to the Hass.io panel, please.
 
-## {% linkable_title Chart.js %}
+## Chart.js
 
 The frontend is now rendering the graphs and charts using Chart.js thanks to the hard work by [@fanthos]. This means that you can now render all the charts without being connected to the internet!
 
-## {% linkable_title August integration %}
+## August integration
 
 Major new integration by [@snjoetw]: August locks and door bells! Lock and unlock from Home Assistant and detect when your doorbell is rung or senses motion. Awesome!
 
-## {% linkable_title Cast bug fixes %}
+## Cast bug fixes
 
 [@OttoWinter] has crushed a bunch of bugs for our ChromeCast integration. Including that nasy Cast group discovery issue! He is working on some more improvements that should arrive soon, stay tuned. Awesome work Otto!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Support for August doorbell ([@snjoetw] - [#11124]) ([august docs]) ([binary_sensor.august docs]) ([camera.august docs]) ([lock.august docs]) (new-platform)
 - Add new component: BMW connected drive ([@ChristianKuehnel] - [#12277]) ([bmw_connected_drive docs]) ([device_tracker.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs]) (new-platform)
@@ -60,7 +60,7 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - Spotcrime ([@jcconnell] - [#12460]) ([sensor.spotcrime docs]) (new-platform)
 - Add Tahoma scenes ([@bakedraccoon] - [#12498]) ([scene docs]) ([tahoma docs]) (new-platform)
 
-## {% linkable_title Release 0.64.1 - February 27 %}
+## Release 0.64.1 - February 27
 
 - Frontend: Don't put unit of sensor on new line ([@NovapaX])
 - Frontend: Fix display issues on iOS 9.3.5 ([@NovapaX])
@@ -82,7 +82,7 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - MQTT: Fix doing async inside sync context ([@OttoWinter])
 - Fix DarSky humidity precision ([@PhilRW])
 
-## {% linkable_title Release 0.64.2 - March 1 %}
+## Release 0.64.2 - March 1
 
 - updated to bimmer_connected 0.4.1 ([@ChristianKuehnel] - [#12759]) ([bmw_connected_drive docs])
 - Revert optimized logbook SQL ([@amelchio] - [#12762]) ([logbook docs])
@@ -94,24 +94,24 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - Fix dead Sonos web interface with some music sources ([@amelchio] - [#12796]) ([media_player.sonos docs])
 - Unique IDs for Plex Clients ([@ryanm101] - [#12799]) ([media_player.plex docs])
 
-## {% linkable_title Release 0.64.3 - March 2 %}
+## Release 0.64.3 - March 2
 
 - is_allowed_path: Also test folder #12788 #12807 ([@kellerza] - [#12810])
 - Fix sensibo default IDs to be according to schema ([@andrey-git] - [#12837]) ([climate.sensibo docs])
 - Cloud: handle unauth better ([@balloob] - [#12840]) ([cloud docs])
 - Handle Hue errors better ([@balloob] - [#12845]) ([hue docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Home Assistant now defaults to purge recorded history that is older than 10 days. If you want to keep your recorded data for longer than that, you must configure the number of days to retain _before starting 0.64 for the first time_, for example:
     ```yaml
@@ -133,7 +133,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
  ([@happyleavesaoc] - [#12465]) ([usps docs]) (breaking change)
 - LimitlessLED has been converted to assumed state. Will no longer turn the lights off when restarting Home Assistant. Will no longer revert changes made by other controllers. ([@amelchio] - [#12475]) ([light.limitlessled docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - device_tracker.asuswrt: Clean up unused connection param ([@trisk] - [#12262]) ([device_tracker.asuswrt docs])
 - Fix some rfxtrx devices with multiple sensors ([@neffs] - [#12264]) ([sensor.rfxtrx docs])

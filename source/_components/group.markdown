@@ -64,7 +64,7 @@ control:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Default groups %}
+## Default groups
 
 Some integrations automatically create special groups containing integration entities. These groups are named like `group.all_...`, for example:
 
@@ -76,13 +76,13 @@ Some integrations automatically create special groups containing integration ent
 
 You can see list of these groups in  **State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
 
-## {% linkable_title Group behavior %}
+## Group behavior
 
 By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
 
 ---
 
-## {% linkable_title Old user interface %}
+## Old user interface
 
 This section only applies if you've not moved off the deprecated `/states` user interface.
 
@@ -171,7 +171,7 @@ group:
       - group.all_scripts
 ```
 
-## {% linkable_title Customize group order %}
+## Customize group order
 You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
 
 ```yaml

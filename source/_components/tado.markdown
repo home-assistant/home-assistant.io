@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Presence Detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your tado thermostats in your installation, add the following to your `configuration.yaml` file:
 
@@ -55,7 +55,7 @@ The tado thermostats are internet connected thermostats. There exists an unoffic
 
 It currently supports presenting the current temperature, the setting temperature and the current operation mode. Switching the mode is also supported. If no user is at home anymore, the devices are showing the away-state. Switching to away-mode is not supported.
 
-## {% linkable_title Presence Detection %}
+## Presence Detection
 
 The `tado` device tracker is using the [Tado Smart Thermostat](https://www.tado.com/) and its support for person presence detection based on smartphone location by geofencing.
 
@@ -92,7 +92,7 @@ Polling Tado API for presence information will happen at most once every 30 seco
 
 See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked. Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
 
-### {% linkable_title Finding your `home_id` %}
+### Finding your `home_id`
 
 Find your `home_id` by browsing to `https://my.tado.com/api/v2/me?username=YOUR_USERNAME&password=YOUR_PASSWORD`. There you'll see something like the following:
 

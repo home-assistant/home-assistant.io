@@ -19,7 +19,7 @@ redirect_from:
 
 Some pre-defined classifiers can be found [here](https://github.com/opencv/opencv/tree/master/data).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To setup OpenCV with Home Assistant, add the following section to your `configuration.yaml` file:
 

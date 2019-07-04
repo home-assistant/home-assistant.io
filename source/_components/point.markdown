@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,7 +52,7 @@ client_secret:
   type: string
 {% endconfiguration %}
 
-# {% linkable_title Device types %}
+# Device types
 
 The integration supports the following device types within Home Assistant:
   - [Alarm](#alarm)
@@ -63,7 +63,7 @@ The integration supports the following device types within Home Assistant:
 The Point is just active occasionally so the [Sensors](#sensor) are only updated every hour or so. The [Binary Sensors](#binary-sensor) are however updated via [Cloud Push](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
 </p>
 
-## {% linkable_title Alarm %}
+## Alarm
 
 Each home configured in the Point mobile application will show up as a separate alarm control panel. The panels allow **arming** and **disarming** of the Point home alarm system.
 
@@ -71,7 +71,7 @@ Each home configured in the Point mobile application will show up as a separate 
 The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implememented.
 </p>
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 Each Point exposes the following binary sensors:
 
@@ -90,7 +90,7 @@ Each Point exposes the following binary sensors:
 The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a breif moment and are then switched back to `Off`.
 </p>
 
-### {% linkable_title Automation example %}
+### Automation example
 
 The following example show how to implement an automation for the **button_press** binary sensor.
 
@@ -111,7 +111,7 @@ automation:
 ```
 {% endraw %}
 
-### {% linkable_title Webhook events %}
+### Webhook events
 
 The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant as webhooks with the `event_type` set to `point_webhook_received`. Below is an example of how to use such a webhook do note the `trigger.event.data.event.device_id` which translates to the id of the Point device that sent the event.
 
@@ -135,7 +135,7 @@ automation:
 ```
 {% endraw %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 Each Point exposes the following sensors:
 

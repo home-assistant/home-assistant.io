@@ -17,7 +17,7 @@ redirect_from:
 
 This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/en-us/srm) router.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

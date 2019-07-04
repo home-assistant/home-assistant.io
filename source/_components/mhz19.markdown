@@ -22,7 +22,7 @@ Check out the [Open Home Automation web site](https://www.open-homeautomation.co
 
 **Note:** the new version MH-Z19B requires the VIN to be connected to a 5V pin, rather than 3.3V.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -50,7 +50,7 @@ sensor:
       - temperature
 ```
 
-## {% linkable_title Raspberry Pi 3(+) GPIO UART and Hass.io %}
+## Raspberry Pi 3(+) GPIO UART and Hass.io
 
 To directly connect the sensor on the GPIO pins of a RPi, first append the following to `config.txt` in the boot directory:
 
@@ -64,6 +64,6 @@ Then (after a reboot): you can setup the sensor using:
   serial_device: /dev/tty.S0
 ```
 
-## {% linkable_title Calibration %}
+## Calibration
 
 The MH-Z19B version of the sensor has Automatic Baseline Calibration enabled by default, which will calibrate the 400PPM level to the lowest measured PPM in the last 24h cycle. Currently the integration does not allow turning this functionaly off.

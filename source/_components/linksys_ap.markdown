@@ -19,7 +19,7 @@ The `linksys_ap` platform offers presence detection by looking at connected devi
 
 It was tested with a LAPAC1750 AC1750 Dual Band Access Point.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a Linksys Access Point in your installation, add the following to your `configuration.yaml` file:
 
@@ -52,7 +52,7 @@ verify_ssl:
   type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Example for all configuration options:
 

@@ -21,7 +21,7 @@ discovered if you enable [the discovery integration(/components/discovery/). If
 you don't have the discovery integration enabled, you can enable the Cast
 integration by going to the Integrations page inside the config panel.
 
-## {% linkable_title Advanced use %}
+## Advanced use
 
 The Cast integration has some extra configuration options available for advanced
 users. You will still need to create a config entry to initialize the Cast

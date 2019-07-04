@@ -18,7 +18,7 @@ redirect_from:
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
 

@@ -33,7 +33,7 @@ Now install and activate the [Samba](/addons/samba/) add-on so you can upload yo
 
 Now it's time to start Snips for the first time. You can configure the microphone and sound card using the Add-on interface. Now start the add-on.
 
-### {% linkable_title Add-On configuration %}
+### Add-On configuration
 
 ```json
 {
@@ -66,7 +66,7 @@ tts_platform:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 A simple configuration just requires this. Consult [Snips.ai integration](/components/snips/) for more options.
 
@@ -74,11 +74,11 @@ A simple configuration just requires this. Consult [Snips.ai integration](/compo
 snips:
 ```
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 There is an active [discord](https://discordapp.com/invite/3939Kqx) channel for further support.
 
-### {% linkable_title Examples %}
+### Examples
 
 So now you can turn lights on and off, let's check the weather. Log on to the [console](https://console.snips.ai/). If this is your first time, create a new assistant and add the Home Assistant skill, along with the Weather skill by snips. Download your assistant manually and copy it to the `/share` folder on your HassIO installation using the Samba add-on.
 

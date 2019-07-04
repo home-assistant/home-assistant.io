@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Notify](/components/notify.knx)
 - [Scene](/components/scene.knx)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -119,7 +119,7 @@ state_updater:
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
 In order to directly interact with the KNX bus, you can now use the following service:
 
@@ -138,7 +138,7 @@ payload:
   type: [integer, list]
 {% endconfiguration %}
 
-### {% linkable_title Exposing sensor values or time to knx bus %}
+### Exposing sensor values or time to knx bus
 
 KNX integration is able to expose time or sensor values to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 
@@ -167,6 +167,6 @@ address:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Known issues %}
+### Known issues
 
 Due to lame multicast support the routing abstraction and the gateway scanner only work with Python >=3.5.

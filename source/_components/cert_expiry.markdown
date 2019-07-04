@@ -18,7 +18,7 @@ redirect_from:
 
 The `cert_expiry` sensor fetches information from a configured URL and displays the certificate expiry in days.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the Certificate Expiry sensor to your installation, add these options to `configuration.yaml` file:
 

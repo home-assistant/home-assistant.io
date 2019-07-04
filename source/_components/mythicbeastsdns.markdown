@@ -16,7 +16,7 @@ logo: mythic_beasts.png
 
 With the `mythicbeastsdns` integration you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 

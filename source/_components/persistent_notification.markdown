@@ -20,7 +20,7 @@ The `persistent_notification` can be used to show a message on the frontend that
   <img src='/images/screenshots/persistent-notification.png' />
 </p>
 
-### {% linkable_title Service %}
+### Service
 
 The service `persistent_notification/create` takes in `message`, `title`, and `notification_id`.
 
@@ -81,7 +81,7 @@ This automation example shows a notification when the Z-Wave network is starting
         notification_id: zwave
 ```
 
-### {% linkable_title Markdown support %}
+### Markdown support
 
 The message attribute supports the [Markdown formatting syntax](https://daringfireball.net/projects/markdown/syntax). Some examples are:
 
@@ -100,7 +100,7 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 </p>
 
 
-### {% linkable_title Create a persistent notification %}
+### Create a persistent notification
 
 Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools** to call the `persistent_notification` service. Select `persistent_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 

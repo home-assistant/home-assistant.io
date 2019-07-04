@@ -41,13 +41,13 @@ host:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `roku_scan` %}
+### Service `roku_scan`
 
 Scans the local network for Rokus. All found devices are presented as a persistent notification.
 
-## {% linkable_title Remote %}
+## Remote
 
 The `roku` remote platform allows you to send remote control buttons to a Roku device. It is automatically set up when a Roku is configured.
 

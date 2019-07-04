@@ -34,7 +34,7 @@ And while Ryan was fixing distribution, I have been hard at work in giving Home 
 
 <!--more-->
 
-### {% linkable_title Migration to version 0.7 %}
+### Migration to version 0.7
 
 For this example, let's say we have an old Home Assistant installation in `/home/paulus/home-assistant`.
 
@@ -50,7 +50,7 @@ It If you want to have the configuration in a different location, for example `/
 $ hass --config /home/paulus/home-assistant-config
 ```
 
-### {% linkable_title New platforms %}
+### New platforms
 
 And last, but not least: new platforms!
 

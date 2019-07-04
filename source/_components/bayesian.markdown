@@ -21,7 +21,7 @@ The `bayesian` binary sensor platform observes the state from multiple sensors a
 
 This allows for the detection of complex events that may not be readily observable, e.g., cooking, showering, in bed, the start of a morning routine, etc. It can also be used to gain greater confidence about events that _are_ directly observable, but for which the sensors can be unreliable, e.g., presence.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Bayesian sensor, add the following lines to your `configuration.yaml`:
 
@@ -90,7 +90,7 @@ observations:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Full examples %}
+## Full examples
 
 The following is an example for the `state` observation platform.
 

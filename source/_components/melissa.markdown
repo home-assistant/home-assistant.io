@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 The climate platform will be automatically configured if Melissa integration is configured.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set the Melissa integration up, add the following information to your `configuration.yaml` file:
 

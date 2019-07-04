@@ -30,7 +30,7 @@ Other things to be aware of:
 - Template sensors will no longer auto update if we can't find relevant entities in the template. You'll want to review your template sensors and consider adding relevant `entity_id` entries or use the new `homeassistant.update_entity` service.
 - Water heaters get their own platform separate from `climate`, because you're not a fish living inside the hot water tank
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add support for ElkM1 alarm/automation panel ([@gwww] - [#16952]) ([elkm1 docs]) ([alarm_control_panel.elkm1 docs]) (new-platform)
 - Water heater support ([@w1ll1am23] - [#17058]) ([water_heater docs]) (new-platform)
@@ -55,12 +55,12 @@ Other things to be aware of:
 - Add new rtorrent sensor ([@terorie] - [#17421]) ([sensor.rtorrent docs]) (new-platform)
 - Elk-M1 climate ([@gwww] - [#17679]) ([elkm1 docs]) ([climate.elkm1 docs]) (beta fix) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Add LogBook support to HomeKit ([@ehendrix23] - [#17180]) ([homekit docs]) ([logbook docs]) (new-feature)
 - Add water_heater support to HomeKit ([@cdce8p] - [#17614]) ([homekit docs]) (new-feature)
 
-## {% linkable_title Release 0.81.1 - October 27 %}
+## Release 0.81.1 - October 27
 
 - Switch to using Client from twilio.rest rather than the deleted TwilioRestClient ([@rohankapoorcom] - [#17885]) ([twilio docs])
 - Fixes an issue with OpenUV config import failing ([@bachya] - [#17831]) ([openuv docs]) (breaking change)
@@ -78,7 +78,7 @@ Other things to be aware of:
 [openuv docs]: /components/openuv/
 [twilio docs]: /components/twilio/
 
-## {% linkable_title Release 0.81.2 - October 29 %}
+## Release 0.81.2 - October 29
 
 - Fix controller not being stored when setup fails and sequentially fails the retry functionality ([@Kane610] - [#17927]) ([unifi docs])
 - Pass hass_config to load_platform ([@balloob] - [#17952])
@@ -96,7 +96,7 @@ Other things to be aware of:
 
 _0.81.3 was skipped because it broke LL._
 
-## {% linkable_title Release 0.81.4 - November 2 %}
+## Release 0.81.4 - November 2
 
 - fix naming bug ([@helto4real] - [#17976]) ([weather.smhi docs])
 - Konnected: Pass hass_config to load_platform ([@heythisisnate] - [#18027]) ([konnected docs])
@@ -122,26 +122,26 @@ _0.81.3 was skipped because it broke LL._
 [switch.flux docs]: /components/switch.flux/
 [weather.smhi docs]: /components/weather.smhi/
 
-## {% linkable_title Release 0.81.5 - November 3 %}
+## Release 0.81.5 - November 3
 
 - Fix lovelace
 - Remove FFmpeg input tests (@jjlawren - #18131)
 
-## {% linkable_title Release 0.81.6 - November 4 %}
+## Release 0.81.6 - November 4
 
 - Bugfix discovery (delete/mqtt) call for Hass.io  #18159
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - LIFX can now be configured from the integrations page in the config panel and advanced configuration is available through the `lifx:` component configuration. Configuring LIFX via light platform config no longer works. ([@amelchio] - [#17201]) ([lifx docs]) ([light.lifx docs]) (breaking change)
 - Daikin Climate now follows the official operating modes, making it compatible with Google Assistant, Alexa and HomeKit. ([@MatteGary] - [#16913]) ([climate.daikin docs]) (breaking change)
@@ -156,7 +156,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Removing ryobi gdo as API is no longer available. ([@guillaume1410] - [#17637]) (breaking change)
 - The way columns are handled in the glance card has changed ([#1832]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Geo location trigger added ([@exxamalte] - [#16967]) ([automation.zone docs]) (beta fix)
 - Add lovelace websocket get and set card ([@bramkragten] - [#17600]) ([lovelace docs]) (beta fix)
@@ -173,7 +173,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - SMHI weather component not showing correct values in current forecast ([@helto4real] - [#17783]) ([smhi docs]) ([weather.smhi docs]) (beta fix)
 - Fix unloading an entry can leave states around ([@balloob] - [#17786]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Adding myself as melissa owner ([@kennedyshead] - [#17157])
 - Update core, add myself and introduce grouping ([@fabaff] - [#17175])

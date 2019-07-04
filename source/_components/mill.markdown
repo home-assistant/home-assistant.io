@@ -18,7 +18,7 @@ redirect_from:
 
 Integrates Mill heater into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
@@ -40,7 +40,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Component services %}
+## Component services
 
 This platform supports a service to set the temperature for the room connected to heater in the Mill app:
 

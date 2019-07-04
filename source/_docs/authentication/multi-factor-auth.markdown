@@ -21,15 +21,15 @@ You can use MFA with any of the other authentication providers. If more than one
 
 You can turn MFA on and off in the [profile page](/docs/authentication/#your-account-profile) for your user account.
 
-## {% linkable_title Available MFA modules %}
+## Available MFA modules
 
-### {% linkable_title Time-based One-Time Password MFA module %}
+### Time-based One-Time Password MFA module
 
 [Time-based One-Time Password](https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm) (TOTP) is widely adopted in modern authentication systems.
 
 Home Assistant generates a secret key which is synchronized with an app on your phone. Every thirty seconds or so the phone app generates a random six digit number. Because Home Assistant knows the secret key, it knows which number will be generated. If you enter the correct digits, then you're in.
 
-#### {% linkable_title Setting up TOTP %}
+#### Setting up TOTP
 
 Enable TOTP in your `configuration.yaml` like this:
 
@@ -55,7 +55,7 @@ Please treat the secret key like a password - never expose it to others.
 
 Your phone app will now start generating a different six-digit code every thirty seconds or so. Enter one of these into Home Assistant under the QR code where it asks for a _Code_. Home Assistant and your phone app are now in sync and you can now use the code displayed in the app to log in.
 
-#### {% linkable_title Using TOTP %}
+#### Using TOTP
 
 Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in. 
 
@@ -63,11 +63,11 @@ Once TOTP is enabled, Home Assistant requires the latest code from your phone ap
 TOTP is _time based_ so it relies on your Home Assistant clock being accurate. If the verification keeps failing, make sure the clock on Home Assistant is correct.
 </p>
 
-### {% linkable_title Notify multi-factor authentication module %}
+### Notify multi-factor authentication module
 
 The Notify MFA module uses the [notify component](/components/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
 
-#### {% linkable_title Setting up TOTP %}
+#### Setting up TOTP
 
 Add Notify MFA to your `configuration.yaml` file like this:
 

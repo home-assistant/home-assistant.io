@@ -19,11 +19,11 @@ redirect_from:
 
 The `opensensemap` air quality platform will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
 
-## {% linkable_title Setup %}
+## Setup
 
 To get the ID of a station you need to select it on the [openSense map](https://opensensemap.org/) and find it in the addressbar of your browser. It's the last part of the URL, e.g., `5b450e565dc1ec001bf7cd1d` [https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d](https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d).
 
-## {% linkable_title Manual Configuration %}
+## Manual Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 

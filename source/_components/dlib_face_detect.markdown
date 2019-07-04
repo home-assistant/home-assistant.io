@@ -19,7 +19,7 @@ The `dlib_face_detect` image processing platform allows you to use the [Dlib](ht
 
 This can be used to trigger an automation rule. Further info is on the [integration](/components/image_processing/) page.
 
-### {% linkable_title Configuration Home Assistant %}
+### Configuration Home Assistant
 
 ```yaml
 # Example configuration.yaml entry

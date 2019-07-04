@@ -18,7 +18,7 @@ redirect_from:
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the `qnap` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -122,11 +122,11 @@ monitored_conditions:
       description: Displays the used space of the volume as a percentage (creates a new entry for each volume).
 {% endconfiguration %}
 
-### {% linkable_title Self-signed certificates %}
+### Self-signed certificates
 
 If your QNAP device uses self-signed certificates, set the `verify_ssl` option to `false`.
 
-### {% linkable_title QNAP device support: %}
+### QNAP device support:
 
 This integration has been tested on the following devices:
 

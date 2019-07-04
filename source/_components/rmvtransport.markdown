@@ -18,11 +18,11 @@ redirect_from:
 
 The `rvmtransport` sensor will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
 
-## {% linkable_title Setup %}
+## Setup
 
 Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of valid station IDs.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -83,9 +83,9 @@ next_departure:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration with three sensors that showcase the various configuration options.
 

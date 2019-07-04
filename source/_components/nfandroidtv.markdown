@@ -96,7 +96,7 @@ This is a fully customized JSON you can use to test how the final notification w
 }
 ```
 
-### {% linkable_title Service data for sending images %}
+### Service data for sending images
 
 The following attributes can be placed inside `data` to send images.
 

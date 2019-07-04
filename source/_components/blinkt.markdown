@@ -18,7 +18,7 @@ redirect_from:
 
 The `blinkt` light platform lets you control the [Blinkt!](https://shop.pimoroni.com/products/blinkt) board, featuring eight super-bright RGB LEDs.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable `blinkt` in your installation, add the following to your `configuration.yaml` file:
 

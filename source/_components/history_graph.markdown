@@ -53,7 +53,7 @@ refresh:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Full Example %}
+### Full Example
 
 ```yaml
 # Full configuration.yaml entry

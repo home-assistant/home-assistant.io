@@ -17,7 +17,7 @@ The `MeteoAlarm` platform allows one to watch for weather alerts in europe from 
 
 The binary sensor state shows if applicable the warning message. The details are available as attribute.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this binary sensor, add the following lines to your `configuration.yaml`:
 
@@ -50,7 +50,7 @@ language:
 {% endconfiguration %}
 
 
-{% linkable_title Example output %}
+Example output
 
 You will find an example below when the state is "on".
 
@@ -84,7 +84,7 @@ There are a few awareness levels:
 * 3; orange; Severe
 * 4; red; High
 
-{% linkable_title Example automation %}
+Example automation
 
 Below you find an example of an automation.
 

@@ -16,7 +16,7 @@ ha_release: 0.27
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
 
-## {% linkable_title Device Class %}
+## Device Class
 
 The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
 
@@ -31,9 +31,9 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Cover control services %}
+### Cover control services
 
 Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
 
@@ -41,7 +41,7 @@ Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`,
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
 
-### {% linkable_title Service `cover.set_cover_position` %}
+### Service `cover.set_cover_position`
 
 Set cover position of one or multiple covers.
 
@@ -50,7 +50,7 @@ Set cover position of one or multiple covers.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
 | `position` | no | Integer between 0 and 100.
 
-#### {% linkable_title Automation example  %}
+#### Automation example 
 
 ```yaml
 automation:
@@ -64,7 +64,7 @@ automation:
         position: 50
 ```
 
-### {% linkable_title Service `cover.set_cover_tilt_position` %}
+### Service `cover.set_cover_tilt_position`
 
 Set cover tilt position of one or multiple covers.
 
@@ -73,7 +73,7 @@ Set cover tilt position of one or multiple covers.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Else targets all.
 | `tilt_position` | no | Integer between 0 and 100.
 
-#### {% linkable_title Automation example  %}
+#### Automation example 
 
 ```yaml
 automation:

@@ -19,7 +19,7 @@ Telegram chatbot polling implementation.
 
 One of two bot implementations supported by Telegram. Your Home Assistant does not have to be exposed to the internet.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 

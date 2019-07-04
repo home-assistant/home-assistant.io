@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `mfi` sensor platform to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
 
@@ -69,7 +69,7 @@ verify_ssl:
   type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `mfi` switch platform to allow you to control [mFi Controllable Power Outlets](https://www.ubnt.com/mfi/mpower/).
 
