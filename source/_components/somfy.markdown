@@ -53,7 +53,7 @@ client_secret:
 
 ### {% linkable_title Potential duplicate with the Tahoma integration %}
 
-If you use the [tahoma](/component/tahoma) component, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
+If you use the [tahoma](/components/tahoma) component, you will have to exclude the covers added by this one. Otherwise, they will be added twice.
 
 ```yaml
 # Example configuration.yaml entry
