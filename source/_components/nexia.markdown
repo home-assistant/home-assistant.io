@@ -33,10 +33,10 @@ You can get ```YOUR_HOUSE_ID``` by logging into [Nexia](https://www.nexiahome.co
 and then getting the number that comes between ```https://www.mynexia.com/houses/``` and ```/climate```. 
 
 ```
-https://www.mynexia.com/houses/YOUR_HOUSE_ID/climate
+https://www.mynexia.com/houses/<YOUR_HOUSE_ID>/climate
 ```
 
-You will put ```YOUR_HOUSE_ID``` into the configuration as a number and not a string.
+You will put ```YOUR_HOUSE_ID``` into the configuration as an integer and not a string.
 
 ```yaml
 # Example configuration.yaml entry
