@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Scene
   - Switch
+  - Fan
 ha_release: 0.41
 ha_iot_class: Local Polling
 ---
@@ -22,6 +23,7 @@ The currently supported Caseta devices are:
 - Wall switches as [switches](#switch)
 - Scenes as [scenes](#scene)
 - Lutron shades as [covers](#cover)
+- Lutron smart [fan](#fan) speed control
 
 When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
 
@@ -55,6 +57,10 @@ lutron_caseta:
     required: true
     description: The list of certificate authorities (usually only one) that Home Assistant will expect when connecting to the bridge.
     type: string
+  cert_required:
+    required: false
+    description: Used to set the ssl_context verify mode to required or none. Not used by Home Assistant but needed by the underlying api. The default is false and for standard bridges this should work.
+    type: boolean
 {% endconfiguration %}
 
 <div class='note'>
@@ -104,3 +110,11 @@ For dimmable lights including wall and plug-in dimmers, see the light section on
 For more information on working with switches in Home Assistant, see the [Switches component](/integrations/switch/).
 
 Available services: `switch.turn_on` and `switch.turn_off`.
+
+## Fan
+
+After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bathroom Vanity' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
+
+For more information on working with fans in Home Assistant, see the [Fans component](/components/fan/).
+
+Available services: `fan.turn_on`, `fan.turn_off`, and `fan.set_speed`.
