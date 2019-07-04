@@ -20,7 +20,7 @@ The `aftership` platform allows one to track deliveries by [AfterShip](https://w
 
 The sensor value shows the number of packages that are not in `Delivered` state. As attributes are the number of packages per status.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use this sensor, you need an [AfterShip Account](https://accounts.aftership.com/register) and set up an API Key. To set up an API Key go to [AfterShip API](https://secure.aftership.com/#/settings/api) page, and copy existing key or generate a new one.
 
@@ -28,7 +28,7 @@ To use this sensor, you need an [AfterShip Account](https://accounts.aftership.c
 AfterShip recently started requiring having a credit card on file even if you are only using the free plan. That does not change the functionality of the platform, just something to be aware of.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -50,7 +50,7 @@ api_key:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Service `add_tracking` %}
+## Service `add_tracking`
 
  You can use the service `aftership.add_tracking` to add trackings to Aftership.
 
@@ -60,7 +60,7 @@ api_key:
 | `slug` | `False` | string | Carrier e.g. `fedex`
 | `title` | `False` | string | Friendly name of package
 
-## {% linkable_title Service `remove_tracking` %}
+## Service `remove_tracking`
 
  You can use the service `aftership.remove_tracking` to remove trackings from Aftership.
 

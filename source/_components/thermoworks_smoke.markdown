@@ -22,7 +22,7 @@ This requires a [Smoke WiFi Gateway](https://www.thermoworks.com/Smoke-Gateway) 
 You will need to have previously registered your smoke to your account via the mobile app and provide
 the email and password you used to in the configuration for this sensor in order to connect and pull your data.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the sensors to your installation, add the following to your `configuration.yaml` file:
 
@@ -53,11 +53,11 @@ exclude:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 This section includes some examples of how to use this sensor.
 
-### {% linkable_title Only Probe 1 %}
+### Only Probe 1
 
 This will show only Probe 1 with min and max data.
 
@@ -75,7 +75,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Ignore a Device %}
+### Ignore a Device
 
 This will exclude a device from creating sensors. You would replace `"00:00:00:00:00:00"` with your device's serial number.
 
@@ -91,7 +91,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Notify when Probe 1 goes above a certain temperature %}
+### Notify when Probe 1 goes above a certain temperature
 
 This will use an automation to trigger a notification when Probe 1 goes above a temperature stored in an input_number variable.
 By default, your smoke is named "My Smoke" in the app. If you have changed it you will need to change the sensor name from `my_smoke_probe_1` to `your_name_probe_1`.

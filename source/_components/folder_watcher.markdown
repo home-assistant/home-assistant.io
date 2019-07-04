@@ -24,7 +24,7 @@ This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system
 
 Configured folders must be added to [whitelist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Folder Watcher integration in your installation, add the following to your `configuration.yaml` file:
 

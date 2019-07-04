@@ -15,11 +15,11 @@ ha_release: 0.57
 
 The `Remember The Milk` (RTM) integration allows you to create tasks in [remember_the_milk](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
 
-## {% linkable_title Setup %}
+## Setup
 
 The setup consists of two steps: getting an API key and registering your account
 
-### {% linkable_title Step 1: API key %}
+### Step 1: API key
 
 To be able to use this component, you need a Remember The Milk account and you need to apply for your own [API key](https://www.rememberthemilk.com/services/api/keys.rtm). With the API key you will also receive your personal `shared secret`. Both of them need to be stored in your Home Assistant configuration:
 
@@ -48,7 +48,7 @@ remember_the_milk:
     type: string
 {% endconfiguration %}
 
-### {% linkable_title Step 2: registering your account %}
+### Step 2: registering your account
 
 After saving the configuration, you need to (re-)start Home Assistant. On the first start you will notice a new "Configuration" panel appearing on the Home Assistant page. After opening the configuration page, follow the link "Remember The Milk login". This will take you to a login page where you have to log in with your normal Remember The Milk credentials. This will authorize Home Assistant to access your Remember The Milk account.
 
@@ -58,7 +58,7 @@ If the registration was successful, the Configuration panel will disappear from 
 
 In the background Home Assistant downloaded a "token" from the Remember The Milk server which is stored in the `remember_the_milk.conf` file locally. So you only need to register once. After that the token is used to authenticate with the server.
 
-## {% linkable_title Creating/updating tasks with service ```create_task```%}
+## Creating/updating tasks with service ```create_task```
 
 This integration offers a new service domain ```remember_the_milk``` with the services ```<account>_create_task```. You can call this service with the argument ```name``` and the optional parameter ```id``` to create a new task in your Remember The Milk account. You can call this service from your usual automations.
 
@@ -74,7 +74,7 @@ At the moment, smart syntax is *not* supported when updating tasks. All smart sy
 | name | no  | Name of the new task, you can use the smart syntax here. | "do this ^today #from_hass" |
 | id   | yes | Identifier for the task you're creating, can be used to update or complete the task later on | "myid" |
 
-## {% linkable_title Completing tasks with service  ```complete_task```%}
+## Completing tasks with service  ```complete_task```
 
 Complete a tasks that was privously created from Home Assistant. You can not complete tasks that were created outside of Home Assistant.
 
@@ -84,7 +84,7 @@ If you have created your task with an ```id```, calling ```<account>_complete_ta
 |-----------------------|----------|-------------|---------|
 | id | no | Identifier that was defined when creating the task | "myid" |
 
-## {% linkable_title Automation example %}
+## Automation example
 
 Here's an example for an automation that creates a new task whenever ```sensor.mysensor``` is ```on``` and completes it when the sensor reports ```off```. This way it reminds you to switch it off. By using the ```entity_id``` as id for the task, you can use the same rule also for multiple sensors.
 
@@ -111,6 +111,6 @@ Here's an example for an automation that creates a new task whenever ```sensor.m
 
 ```
 
-## {% linkable_title Disclaimer %}
+## Disclaimer
 
 This product uses the Remember The Milk API but is not endorsed or certified by Remember The Milk.

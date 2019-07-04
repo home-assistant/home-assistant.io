@@ -18,7 +18,7 @@ redirect_from:
 
 The `prezzibenzina` platform allows you to monitor the fuel prices with [PrezziBenzina.it](https://www.prezzibenzina.it/) from within Home Assistant and setup automations based on the information.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use this sensor you need the station ID. To get this information go to [PrezziBenzina.it](https://www.prezzibenzina.it/) with your browser and find your station. Then copy the ID from the URL bar.
 
@@ -26,7 +26,7 @@ To use this sensor you need the station ID. To get this information go to [Prezz
 https://www.prezzibenzina.it/distributori/STATION_ID/
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -52,7 +52,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 This is a full example of the sensor:
 

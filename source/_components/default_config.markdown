@@ -31,7 +31,7 @@ This integration is a meta-component and configures a default set of integration
 - [updater](/components/updater/)
 - [zeroconf](/components/zeroconf/)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 

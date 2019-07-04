@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To get started, add the devices to your `configuration.yaml` file.
 
@@ -66,7 +66,7 @@ port:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Cover %}
+## Cover
 
 This `tellstick` cover platform allows you to control your [TellStick](http://www.telldus.se/products/tellstick) covers.
 
@@ -78,7 +78,7 @@ cover:
   - platform: tellstick
 ```
 
-## {% linkable_title Light %}
+## Light
 
 This `tellstick` light platform allows you to control your [TellStick](http://www.telldus.se/products/tellstick) dimmers.
 
@@ -90,7 +90,7 @@ light:
   platform: tellstick
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `tellstick` sensor platform allows you to get current meteorological data from a [TellStick](http://www.telldus.se/products/tellstick) device.
 
@@ -133,11 +133,11 @@ datatype_mask:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -152,7 +152,7 @@ sensor:
         name: Inside
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 This `tellstick` switch platform allows you to control [TellStick](http://www.telldus.se/products/tellstick) devices.
 

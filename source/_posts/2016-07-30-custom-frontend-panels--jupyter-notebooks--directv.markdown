@@ -57,18 +57,18 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 - Qwikswitch: Stability fixes ([@kellerza])
 - Light: [Hyperion] keeps now track of active color ([@schneefux])
 
-### {% linkable_title Hotfix 0.25.1 - August 1 %}
+### Hotfix 0.25.1 - August 1
 
 - Light - Z-Wave: Bring back delayed value update behavior ([@jnewland])
 - Recorder: Properly close session after execute ([@kellerza])
 - Media Player - Kodi: No longer block startup if connecting to wrong port ([@shoekstra])
 - Downgrade voluptuous to 0.8.9 as it blocked the upgrade for some ([@balloob])
 
-### {% linkable_title Hotfix 0.25.2 - August 2 %}
+### Hotfix 0.25.2 - August 2
 
 - Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - Google Voice SMS notification support was removed.
 

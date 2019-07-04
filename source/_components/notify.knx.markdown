@@ -18,7 +18,7 @@ The `knx` notify platform allows you to send notifications to [KNX](http://www.k
 
 The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX switch in your installation, add the following lines to your `configuration.yaml` file:
 

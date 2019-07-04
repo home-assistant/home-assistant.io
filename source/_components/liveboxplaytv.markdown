@@ -18,7 +18,7 @@ redirect_from:
 
 The `liveboxplaytv` platform allows you to control [Orange Livebox Play TV appliances](https://boutique.orange.fr/internet/decodeur-tv-livebox).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add an Orange Livebox Play TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -46,7 +46,7 @@ port:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Full configuration %}
+## Full configuration
 
 A full configuration example for an Orange TV appliance can look like this:
 

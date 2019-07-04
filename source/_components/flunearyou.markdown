@@ -21,7 +21,7 @@ territories to get information regarding reported flu symptoms from Flu Near
 You. The platform can return user-reported information as well reports from the
 Center for Disease Control (CDC).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the platform, add the following lines to your `configuration.yaml`
 file:
@@ -49,7 +49,7 @@ longitude:
   default: The longitude defined under the `homeassistant` key in `configuration.yaml`.
 {% endconfiguration %}
 
-## {% linkable_title Sensor Types %}
+## Sensor Types
 
 ### User Report
 

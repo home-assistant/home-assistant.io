@@ -12,7 +12,7 @@ ha_release: 0.35
 
 Text-to-Speech (TTS) enables Home Assistant to speak to you.
 
-## {% linkable_title Configuring a `tts` platform %}
+## Configuring a `tts` platform
 
 To get started, add the following lines to your `configuration.yaml` (example for Google):
 
@@ -73,19 +73,19 @@ tts:
 In the above example, `base_url` is custom to this particular TTS platform configuration. It is not suggesting that you use the `base_url` that you have set for your core Home Assistant configuration. The reason you might need to do this is outlined in the next section.
 </p>
 
-## {% linkable_title When do you need to set `base_url` here? %}
+## When do you need to set `base_url` here?
 
 The general answer is "whenever the global `base_url` set in [http component](/components/http/) is not adequate to allow the `say` service to run". The `say` service operates by generating a media file that contains the speech corresponding to the text passed to the service. Then the `say` service sends a message to the media device with a URL pointing to the file. The device fetches the media file at the URL and plays the media. Some combinations of a media device, network configuration and Home Assistant configuration can make it so that the device cannot fetch the media file.
 
 The following sections describe some of the problems encountered with media devices.
 
-### {% linkable_title Self-signed certificates %}
+### Self-signed certificates
 
 This problem occurs when your Home Assistant instance is configured to be accessed through SSL, and you are using a self-signed certificate.
 
 The `tts` service will send an `https://` URL to the media device, which will check the certificate, and reject it. So it won't play your file. If you could make the device accept your certificate, it would play the file. However, many media devices do not allow changing settings to accept self-signed certificates. Ultimately, your option may be to serve files to the device as `http://` rather than `https://`. To do this, you *could* change the `base_url` setting in [http component](/components/http/), but that would turn off SSL for all services that use `base_url`. Instead, setting a `base_url` for the `tts` service allows turning off SSL only for this component.
 
-### {% linkable_title Google cast devices %}
+### Google cast devices
 
 The Google cast devices (Google Home, Chromecast, etc.) present the following problems:
 
@@ -95,7 +95,7 @@ The Google cast devices (Google Home, Chromecast, etc.) present the following pr
 
 * An alternative way to force Google cast devices to use internal DNS is to block them from accessing Google DNS at the firewall/router level. This would be useful in the case, for example, where your internal IP of HASS is a private IP and you have your internal DNS server (quite often a split-brain DNS scenario). This method works on both Google Home Mini and Google Chromecasts.
 
-## {% linkable_title Service say %}
+## Service say
 
 The `say` service support `language` and on some platforms also `options` for set, i.e., *voice, motion, speed, etc*. The text for speech is set with `message`. Since release 0.92, service name can be defined in configuration `service_name` option.
 
@@ -137,13 +137,13 @@ data_template:
   cache: false
 ```
 
-## {% linkable_title Cache %}
+## Cache
 
 The integration has two caches. Both caches can be controlled with the `cache` option in the platform configuration or the service call `say`. A long time cache will be located on the file system. The in-memory cache for fast responses to media players will be auto-cleaned after a short period.
 
-## {% linkable_title REST Api %}
+## REST Api
 
-### {% linkable_title POST /api/tts_get_url %}
+### POST /api/tts_get_url
 
 Returns an URL to the generated TTS file. Platform and message are required.
 

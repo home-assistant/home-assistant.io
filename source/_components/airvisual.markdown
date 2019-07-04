@@ -26,7 +26,7 @@ The Community API key is valid for 12 months after which it will expire. You mus
 The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Modification of this (via the `scan_interval` key) to a too-low value may result in your API key being deactivated.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the platform and gather data via latitude/longitude, add the following lines to your `configuration.yaml` file:
 
@@ -80,7 +80,7 @@ country:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Example Configurations %}
+## Example Configurations
 
 Configuration using custom Latitude and Longitude:
 
@@ -111,7 +111,7 @@ sensor:
     country: USA
 ```
 
-## {% linkable_title Determining the City/State/Country %}
+## Determining the City/State/Country
 
 To easily determine the proper values for a particular location, use the [AirVisual region directory](https://airvisual.com/world). Once you browse to the particular city you want, take note of the breadcrumb title, which is of the form `country > state/region > city`. Use this information to fill out `configuration.yaml`.
 
@@ -129,7 +129,7 @@ sensor:
     country: brazil
 ```
 
-## {% linkable_title Sensor Types %}
+## Sensor Types
 
 When configured, the platform will create three sensors for each configured air quality standard:
 

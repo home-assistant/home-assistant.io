@@ -17,15 +17,15 @@ ha_release: 0.80
 
 [IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT component, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
 
-## {% linkable_title Sending events from IFTTT to Home Assistant %}
+## Sending events from IFTTT to Home Assistant
 
 To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/components/http/#base_url)).
 
-### {% linkable_title Setting up the integration %}
+### Setting up the integration
 
 To set it up, go to the integrations page in the configuration screen and find IFTTT. Click on configure. Follow the instructions on the screen to configure IFTTT.
 
-### {% linkable_title Using the incoming data %}
+### Using the incoming data
 
 Events coming in from IFTTT will be available as events in Home Assistant and are fired as `ifttt_webhook_received`. The data specified in IFTTT will be available as the event data. You can use this event to trigger automations.
 
@@ -50,7 +50,7 @@ automation:
       entity_id: '{% raw %}{{ trigger.event.data.entity_id }}{% endraw %}'
 ```
 
-## {% linkable_title Sending events to IFTTT %}
+## Sending events to IFTTT
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,7 +72,7 @@ Once you have added your key to your `configuration.yaml` file, restart your Hom
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
 </p>
 
-### {% linkable_title Multiple IFTTT keys %}
+### Multiple IFTTT keys
 
 If you have multiple IFTTT users you can specify multiple IFTTT keys with:
 
@@ -85,7 +85,7 @@ ifttt:
 ```
 
 
-### {% linkable_title Testing your trigger %}
+### Testing your trigger
 
 You can use the **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the **Call Service** screen. Fill in the following values:
 
@@ -111,7 +111,7 @@ Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_
 
 The `target` field can contain a single key name or a list of key names.
 
-### {% linkable_title Setting up a recipe %}
+### Setting up a recipe
 
 Press the *New applet* button and search for *Webhooks*.
 
@@ -168,7 +168,7 @@ ifttt_notify:
 ```
 {% endraw %}
 
-### {% linkable_title Additional Channel Examples %}
+### Additional Channel Examples
 
 Additional examples of using IFTTT channels can be found below.
 

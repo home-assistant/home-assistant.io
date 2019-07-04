@@ -60,7 +60,7 @@ dark_mode:
   be used to zoom the map _out_ by default.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
 type: map

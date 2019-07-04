@@ -12,7 +12,7 @@ logo: mqtt.png
 
 The MQTT integration needs you to run an MQTT broker for Home Assistant to connect to. There are four options, each with various degrees of ease of setup and privacy.
 
-### {% linkable_title Run your own %}
+### Run your own
 
 This is the most private option, but it requires a little bit of work to setup. There are multiple free and open-source brokers to pick from: e.g., [Mosquitto](http://mosquitto.org/), [EMQ](https://github.com/emqx/emqx) or [Mosca](http://www.mosca.io/).
 For hass.io users, the recommended setup method is to use the [Mosquitto MQTT broker addon](/addons/mosquitto).
@@ -85,7 +85,7 @@ After=network.target mosquitto.service
 If you are running a Mosquitto instance on a different server with proper SSL encryption using a service like Let's Encrypt you may have to set the certificate to the operating systems own `.crt` certificates file. In the instance of Ubuntu this would be `certificate: /etc/ssl/certs/ca-certificates.crt`
 </p>
 
-### {% linkable_title Public broker %}
+### Public broker
 
 The Mosquitto project runs a [public broker](http://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home.
 
@@ -101,7 +101,7 @@ mqtt:
   certificate: /home/paulus/downloads/mosquitto.org.crt
 ```
 
-### {% linkable_title CloudMQTT %}
+### CloudMQTT
 
 [CloudMQTT](https://www.cloudmqtt.com) is a hosted private MQTT instance that is free for up to 10 connected devices. This is enough to get started with for example [OwnTracks](/components/device_tracker.owntracks/) and give you a taste of what is possible.
 
@@ -133,7 +133,7 @@ Home Assistant will automatically load the correct certificate if you connect to
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then add `certificate: auto` to your broker configuration and restart Home Assistant.
 </p>
 
-### {% linkable_title Embedded broker (Deprecated)%}
+### Embedded broker (Deprecated)
 
 Home Assistant contains an embedded MQTT broker called [HBMQTT](https://pypi.python.org/pypi/hbmqtt). If you don't have an MQTT broker, you can configure this one to be used. If configured, Home Assistant will automatically connect to it.
 
@@ -164,13 +164,13 @@ Before release 0.76, the embedded broker would use your API password as a passwo
 There is [an issue](https://github.com/beerfactory/hbmqtt/issues/62) with the HBMQTT broker and the WebSocket connection that is causing a memory leak. If you experience this issue, consider using another broker like Mosquitto.
 </p>
 
-#### {% linkable_title Owntracks%}
+#### Owntracks
 
 To use Owntracks with the internal broker a small configuration change must be made in order for the app to use MQTT protocol 3.1.1 (Protocol Level 4).
 
 In the Owntracks preferences (Android: v1.2.3+, iOS: v9.5.1+) open **Configuration Management**; Find the value named `mqttProtocolLevel` and set the value to `4`. The application will now use MQTT 3.1.1 to connect, which is compatible with the embedded broker.
 
-#### {% linkable_title Settings %}
+#### Settings
 
 If you want to customize the settings of the embedded broker, use `embedded:` and the values shown in the [HBMQTT Broker configuration](http://hbmqtt.readthedocs.org/en/latest/references/broker.html#broker-configuration). This will replace the default configuration.
 

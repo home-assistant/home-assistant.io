@@ -43,7 +43,7 @@ mqtt:
 
 This allows you to connect to the MQTT broker with user `homeassistant` and password `hello`.
 
-## {% linkable_title Additional features %}
+## Additional features
 
 - [Certificate](/docs/mqtt/certificate/)
 - [Discovery](/docs/mqtt/discovery/)

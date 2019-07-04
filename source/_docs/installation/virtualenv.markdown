@@ -20,7 +20,7 @@ _(If you're on a Debian based system, you will need to install Python virtual en
 It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) which allows for the installation to run as a `homeassistant` user. The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
 </p>
 
-### {% linkable_title Install %}
+### Install
 
  1. Create a virtual environment in your current directory:
     ```
@@ -49,7 +49,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
     ```
  8. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take up to 20 minutes before the web interface is available
  
-### {% linkable_title Upgrade %}
+### Upgrade
 
  1. Stop Home Assistant
 
@@ -62,7 +62,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
  3. Start Home Assistant
  4. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take up to 20 minutes before the web interface is available
 
-### {% linkable_title Run a specific version %}
+### Run a specific version
 
 In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
 
@@ -72,7 +72,7 @@ $ source bin/activate
 $ pip3 install homeassistant==0.XX.X
 ```
 
-#### {% linkable_title Run the beta version %}
+#### Run the beta version
 
 If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
 
@@ -82,7 +82,7 @@ $ source bin/activate
 $ pip3 install --pre --upgrade homeassistant
 ```
 
-#### {% linkable_title Run the development version %}
+#### Run the development version
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 
@@ -98,7 +98,7 @@ $ source bin/activate
 $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
 ```
 
-### {% linkable_title Notes %}
+### Notes
 
 - In the future, if you want to start Home Assistant manually again, follow step 2, 3 and 5.
 - It's recommended to run Home Assistant as a dedicated user.
@@ -107,7 +107,7 @@ $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@
 Looking for more advanced guides? Check our [Raspbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
 </p>
 
-### {% linkable_title After upgrading Python %}
+### After upgrading Python
 
 If you've upgraded Python (for example, you were running 3.7.1 and now you've installed 3.7.3) then you'll need to build a new virtual environment. Simply rename your existing virtual environment directory:
 

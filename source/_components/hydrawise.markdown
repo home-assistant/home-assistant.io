@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following to your `configuration.yaml` file:
 
@@ -53,7 +53,7 @@ scan_interval:
 
 To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/account) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as the `API_KEY`.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
 
@@ -78,7 +78,7 @@ monitored_conditions:
       description: This will indicate `on` when there is a connection to the Hydrawise cloud. It is not an indication of whether the irrigation controller hardware is online.
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
 
@@ -101,7 +101,7 @@ monitored_conditions:
       description: The day and time when the next scheduled automatic watering cycle will start. If the zone is suspended then the value will be `NS` to indicate Not Scheduled.
   {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 Once you have enabled the `hydrawise` component, add the following to your `configuration.yaml` file:
 
@@ -129,7 +129,7 @@ monitored_conditions:
       description: Enables the manual watering control for this zone.
 {% endconfiguration %}
 
-### {% linkable_title Switch Operation %}
+### Switch Operation
 
 When `auto_watering` is `on` the irrigation zone will follow the Smart Watering schedule set through the Hydrawise [mobile or web app](https://www.hydrawise.com). When the `auto_watering` switch is `off` the zone's Smart Watering schedule is suspended for 1 year.
 

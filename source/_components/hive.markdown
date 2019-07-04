@@ -62,7 +62,7 @@ scan_interval:
   default: 2
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `hive` binary sensor integration integrates your Hive sensors into Home Assistant.
 
@@ -71,7 +71,7 @@ The platform supports the following Hive products:
 - Hive Window or Door Sensor
 - Hive Motion Sensor
 
-## {% linkable_title Climate %}
+## Climate
 
 The `hive` climate platform integrates your Hive thermostat and hot water into Home Assistant, enabling control of setting the **mode** and setting the **target temperature**.
 
@@ -83,7 +83,7 @@ The platform supports the following Hive products:
 - Hive Multizone
 - Hot water control
 
-## {% linkable_title Light %}
+## Light
 
 The `hive` light platform integrates your Hive lights into Home Assistant, enabling control of various settings, depending on the model light.
 
@@ -93,7 +93,7 @@ The platform supports the following Hive products:
 - Hive Active Light Cool to Warm White
 - Hive Active Light Color Changing
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `hive` sensor integration exposes Hive data as a sensor.
 
@@ -102,7 +102,7 @@ The platform exposes the following sensors:
 - Hive Hub Online Status
 - Hive Outside Temperature
 
-## {% linkable_title Switch %}
+## Switch
 
 The `hive` switch platform integrates your Hive plugs into Home Assistant, enabling control of your devices.
 

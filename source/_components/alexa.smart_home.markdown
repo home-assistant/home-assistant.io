@@ -14,7 +14,7 @@ featured: false
 ha_release: "0.54"
 ---
 
-## {% linkable_title Amazon Alexa Smart Home %}
+## Amazon Alexa Smart Home
 
 While the Skills API described above allows for arbitrary intents, all
 utterances must begin with "Alexa, tell $invocation_name ..."
@@ -38,13 +38,13 @@ With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instan
 For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 </p>
 
-### {% linkable_title Requirements %}
+### Requirements
 
 - Amazon Developer Account. You can sign on [here](https://developer.amazon.com).
 - An [AWS account](https://aws.amazon.com/free/) is need if you want to use Smart Home Skill API. Part of your Smart Home Skill will be hosted on [AWS Lambda](https://aws.amazon.com/lambda/pricing/). However you don't need worry the cost, AWS Lambda allow free to use up to 1 millions requests and 1GB outbound data transfer per month.
 - Smart Home API also needs your Home Assistant instance can be accessed from Internet. We strongly suggest you host HTTPS server and use validation certificate. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Hass.io, using the [Let's Encrypt](/addons/lets_encrypt/) and [Duck DNS](/addons/duckdns/) add-ons is the easiest method.
 
-### {% linkable_title Create Your Amazon Alexa Smart Home Skill %}
+### Create Your Amazon Alexa Smart Home Skill
 
 - Sign in [Alexa Developer Console][alexa-dev-console], you can create your free account on the sign in page.
 - Go to `Alexa Skills` page if you are not, click `Create Skill` button to start the process.
@@ -56,7 +56,7 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 - In next screen, make sure *v3* is selected in `Payload version`.
 - Now, you have created a skeleton of Smart Home skill. Next step we will do some "real" developer work. You can keep Alex Developer Console opened, we need change the skill configuration later.
 
-### {% linkable_title Create Your Lambda Function %}
+### Create Your Lambda Function
 
 Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will delivery the response back to Alexa.
 
@@ -70,7 +70,7 @@ Amazon also provided a [step-by-step guide](https://developer.amazon.com/docs/sm
 
 OK, let's go. You first need sign in your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
 
-#### {% linkable_title Create an IAM Role for Lambda %} 
+#### Create an IAM Role for Lambda 
 
 First thing you need to do after sing in [AWS console](https://console.aws.amazon.com/) is to create an IAM Role for Lambda execution. AWS has very strict access control, you have to specific define and assign the permissions.
 
@@ -83,7 +83,7 @@ First thing you need to do after sing in [AWS console](https://console.aws.amazo
 - You can skip `Add tags` page, click `Next: Review`.
 - Give your new role a name, such as `AWSLambdaBasicExecutionRole-SmartHome`, then click `Create role` button. You should be able to find your new role in the roles list now.
 
-#### {% linkable_title Create a Lambda function and add code %}
+#### Create a Lambda function and add code
 
 Next you need create a Lambda function.
 
@@ -111,7 +111,7 @@ Next you need create a Lambda function.
 - Now scroll up to the top, click `Save` button.
 - You need copy the ARN displayed in the top of the page, which is the identify of this Lambda function. You will need this ARN to continue Alexa Smart Home skill configuration later.
 
-#### {% linkable_title Test the Lambda function %}
+#### Test the Lambda function
 
 Now, you have created the Lambda function, before you can test it, you have to set up your Home Assistant. Put following minimal configuration to your configuration.yaml, it will exposures all of your supported device and automation to Alexa. Check the [configuration section](#alexa-component-configuration) if you want more control of the exposure. 
 
@@ -150,7 +150,7 @@ Now, you can login to your Home Assistant and [generate a long-lived access toke
 
 This time, you will get a list of your devices as the response. 🎉 
 
-### {% linkable_title Config the Smart Home Service Endpoint %}
+### Config the Smart Home Service Endpoint
 
 Now removed the long-lived access token if you want, copied the ARN of your Lambda function, then back to [Alexa Developer Console][alexa-dev-console]. You will finish the configuration of the Smart Home skill.
 
@@ -159,7 +159,7 @@ Now removed the long-lived access token if you want, copied the ARN of your Lamb
 - Click `SMART HOME` in the left navigation bar of build page.
 - Fill in `Default endpoint` under `2. Smart Home service endpoint` using the `ARN` you copied from your Lambda function configuration.
 
-### {% linkable_title Account Linking %}
+### Account Linking
 
 Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa request be able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet.
 
@@ -193,7 +193,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * You can discovery your devices now. 
 - Now, you can ask your Echo or in Alexa App, *turn on bedroom* 🎉 
 
-### {% linkable_title Alexa Component Configuration %}
+### Alexa Component Configuration
 
 Example configuration:
 
@@ -226,7 +226,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available."
 
 
-### {% linkable_title Alexa web-based app %}
+### Alexa web-based app
 
 The following is a list of regions and the corresponding URL for the web-based Alexa app:
 

@@ -18,7 +18,7 @@ redirect_from:
 
 The `pocketcasts` sensor platform lets one monitor the podcasts at [Pocket Casts](https://play.pocketcasts.com/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

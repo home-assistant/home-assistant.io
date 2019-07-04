@@ -23,7 +23,7 @@ redirect_from:
 
 This integration allows you to connect your [ESPHome](https://esphome.io) devices directly into Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
 
-## {% linkable_title Setup the integration via the integrations screen %}
+## Setup the integration via the integrations screen
 
 Menu: *Configuration* -> *Integrations*
 

@@ -18,7 +18,7 @@ redirect_from:
 
 [ROVA](https://rova.nl) is a waste collection company that operates in the center and east of the Netherlands. The `rova` platform uses an unofficial [ROVA](https://rova.nl) API to allow you to get your waste collection schedule and integrate this in your Home Assistant installation.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the ROVA sensor in your installation, add the following to your configuration.yaml file:
 
@@ -65,7 +65,7 @@ monitored_conditions:
 
 If no **monitored_conditions** are specified, only **bio** will be enabled.
 
-### {% linkable_title Full configuration sample %}
+### Full configuration sample
 
 A full configuration entry would look like the sample below.
 

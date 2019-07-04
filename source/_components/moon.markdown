@@ -19,7 +19,7 @@ redirect_from:
 
 The `moon` sensor platform is tracking the moon phases.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the moon sensor, add the following lines to your `configuration.yaml`:
 

@@ -79,7 +79,7 @@ We will be releasing a hot fix today to migrate our integration to another local
 
 **Update 6 (19 dec):** Home Assistant 0.84.4 has been released with a fix. The Logitech Harmony integration works again (for now?). We switched to their local websocket API.
 
-### {% linkable_title Reverting the software update %}
+### Reverting the software update
 
 <p class='note'>
 If you're using Home Assistant, consider upgrading to 0.84.4 instead of downgrading your hub.

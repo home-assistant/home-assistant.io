@@ -26,7 +26,7 @@ At the moment, the free CO2Signal API only supports the average carbon intensity
 The "free" API key is limited to a limited number of calls. Too many requests can result in data loss.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set up this platform, get your [API key](https://www.co2signal.com/) and add the following lines to your `configuration.yaml` file:
 
@@ -78,7 +78,7 @@ sensor:
     country_code: YOUR_COUNTRY_CODE
 ```
 
-## {% linkable_title Example Configurations %}
+## Example Configurations
 
 Configuration using custom latitude and longitude:
 
@@ -99,7 +99,7 @@ sensor:
     country_code: BE
 ```
 
-## {% linkable_title Sensor Types %}
+## Sensor Types
 
 When configured, the platform will create one sensor for each configured location.
 

@@ -18,7 +18,7 @@ The `updater` integration will check daily for new releases. It will show a badg
 
 The updater integration will also collect basic information about the running Home Assistant instance and its environment. The information includes the current Home Assistant version, the time zone, Python version and operating system information. No identifiable information (i.e., IP address, GPS coordinates, etc.) will ever be collected. If you are concerned about your privacy, you are welcome to scrutinize the Python [source code](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/updater.py#L91).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -58,7 +58,7 @@ It is possible to report the integrations that you are using to the Home Assista
 ]
 ```
 
-## {% linkable_title Notification %}
+## Notification
 
 For an added bonus, an automation integration can be created to send a message with a notifier when that state of this component's entity changes.
 

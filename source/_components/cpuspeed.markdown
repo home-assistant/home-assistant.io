@@ -24,7 +24,7 @@ The `cpuspeed` sensor platform to allow you to monitor the current CPU speed.
   You can't use this sensor in a Container (like Hass.io) as it requires access to the physical CPU. Also, not all [ARM CPUs](https://github.com/workhorsy/py-cpuinfo/#cpu-support) are supported.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

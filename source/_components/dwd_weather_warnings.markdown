@@ -21,7 +21,7 @@ The `dwd_weather_warnings` sensor platform uses the [Deutsche Wetter Dienst (DWD
 - A name is optional but if multiple regions are used a name will be required.
 - The sensor checks for new data every 15 minutes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the DWD WarnApp sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -54,7 +54,7 @@ name:
   default: DWD-Weather-Warnings
 {% endconfiguration %}
 
-### {% linkable_title Attributes %}
+### Attributes
 
 | Attribute    | Description                            |
 | ------------ | -------------------------------------- |

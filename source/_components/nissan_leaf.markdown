@@ -25,7 +25,7 @@ The `nissan_leaf` integration offers integration with the [NissanConnect EV](htt
 * a device tracker to locate the car (only on later Leaf models)
 * services to request updates from the car and to request the car starts charging.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Nissan Leaf in your installation, add the following to your `configuration.yaml` file:
 
@@ -70,7 +70,7 @@ update_interval_climate:
   type: time
 {% endconfiguration %}
 
-## {% linkable_title Full configuration sample %}
+## Full configuration sample
 
 A more advanced example for setting the update interval:
 
@@ -90,7 +90,7 @@ nissan_leaf:
   force_miles: true
 ```
 
-## {% linkable_title Starting a Charge %}
+## Starting a Charge
 
 You can use the `nissan_leaf.start_charge` service to send a request to the Nissan servers to start a charge. The car must be plugged in!  The service requires you to provide the vehicle identification number (VIN) as a parameter. You can see the VIN on the attributes of all the entities created by this component, except the device_tracker.
 
@@ -100,7 +100,7 @@ You can use the `nissan_leaf.start_charge` service to send a request to the Niss
     vin: '1HGBH41JXMN109186'             # replace
 ```
 
-## {% linkable_title Updating on-demand using Automation %}
+## Updating on-demand using Automation
 
 You can also use the `nissan_leaf.update` service to request an on-demand update. To update almost exclusively via the service set the `update_interval` to a high value in the integration configuration.  The service requests the VIN number as described above.
 
@@ -121,7 +121,7 @@ You can also use the `nissan_leaf.update` service to request an on-demand update
         vin: '1HGBH41JXMN109186'             # replace
 ```
 
-## {% linkable_title Hints %}
+## Hints
 
 * The update interval has a minimum of two minutes.
 * Requesting updates uses a small amount of power from the 12 V battery. The 12 V battery charges from the main traction battery when the car is not plugged in. If the car is left plugged in for a long time, or if the main traction battery is very low then the 12 V battery may gradually discharge. A low update interval may cause the 12 V battery to become flat.  When the 12 V battery is flat the car will not start. _Do not set the update interval too low.  Use at your own risk._

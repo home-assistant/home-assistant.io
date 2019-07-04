@@ -24,7 +24,7 @@ This integration will provide:
 - [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices;
 - [sensor](/components/sensor/) platform to track the alarms and the timers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate the `googlehome` integration in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -66,7 +66,7 @@ devices:
       default: true
 {% endconfiguration %}
 
-## {% linkable_title Device types %}
+## Device types
 
 Device type | Description
 -- | --
@@ -74,7 +74,7 @@ Device type | Description
 2 | Low Energy - LE-only
 3 | Dual Mode - BR/EDR/LE
 
-## {% linkable_title Notes %}
+## Notes
 
 Devices will appear in the format `device_tracker.<home hub ip>_<device mac address>`. Note that dots are removed from the IP and BT MAC addresses.
 

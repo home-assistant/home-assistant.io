@@ -27,7 +27,7 @@ The integration will accept the following states from your Alarm Panel (in lower
 
 The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 

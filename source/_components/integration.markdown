@@ -20,7 +20,7 @@ redirect_from:
 
 The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Integration Sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -68,7 +68,7 @@ method:
 
 If 'unit' is set then 'unit_prefix' and 'unit_time' are ignored.
 
-## {% linkable_title Energy %}
+## Energy
 
 An `integration` sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 

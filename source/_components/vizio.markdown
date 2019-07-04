@@ -18,7 +18,7 @@ redirect_from:
 
 The `vizio` integration will allow you to control [SmartCast](https://www.vizio.com/smartcast-app) compatible TVs and Sound Bars (2016+ models).
 
-## {% linkable_title Find your device %}
+## Find your device
 
 Install the command-line tool using `pip` (or you can choose to download it manually):
 
@@ -45,7 +45,7 @@ pyvizio --ip=0 discover
 
 and note it's IP address. If using your IP address by itself does not lead to success, you may need to append `:9000` or `:7345` to it when using it as a parameter in future commands.
 
-## {% linkable_title Pairing %}
+## Pairing
 
 Before adding your device to Home Assistant you may need to pair it manually. For a Sound Bar, it is unclear how the device would notify you of a valid auth token, so it's best to first skip the pairing process entirely, specify a `device_class` of `soundbar` in your configuration, and try interacting with the entity to see if you have any success. If the media player controls aren't working, and if specifying different ports as mentioned above doesn't work, you will need to find a way to get the auth token during this process.
 
@@ -79,7 +79,7 @@ $ pyvizio --ip={ip} --device_type={device_type} pair-finish --token={challenge_t
 
 You will need the authentication token returned by this command to configure Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Vizio TV to your installation, add the following to your `configuration.yaml` file:
 
@@ -112,16 +112,16 @@ suppress_warning:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Notes and limitations %}
+## Notes and limitations
 
-### {% linkable_title Turning device on %}
+### Turning device on
 
 If the `Power Mode` of your device is set to `Eco Mode`, turning the device ON won't work.
 
-### {% linkable_title Changing tracks %}
+### Changing tracks
 
 Changing tracks works like channels switching. If you have source other than regular TV it might end do nothing.
 
-### {% linkable_title Sources %}
+### Sources
 
 Source list shows all external devices connected to the device through HDMI plus list of internal devices (TV mode, Chrome Cast, etc.).

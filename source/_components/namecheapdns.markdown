@@ -19,7 +19,7 @@ With the `namecheapdns` integration you can automatically update your dynamic DN
 Namecheap only supports IPv4 addresses to update.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 

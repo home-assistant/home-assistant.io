@@ -18,7 +18,7 @@ The `twilio` integration enables the sending of notifications via SMS and the cr
 A free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
 Calls are limited to 10 minutes and will play a short trial message before your message runs. Upgraded accounts have no limitation.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this notification integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -40,7 +40,7 @@ auth_token:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Usage %}
+### Usage
 
 After configuring the base Twilio component, add and configure either or both of the [twilio SMS](/components/notify.twilio_sms/) and [twilio Phone](/components/notify.twilio_call) integrations to utilize the notification functionality.
 

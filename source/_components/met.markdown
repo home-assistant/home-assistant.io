@@ -22,7 +22,7 @@ The `met` platform uses the [Met.no](https://met.no/) web service as a source fo
   Configuration of the Met.no platform via configuration.yaml is deprecated from version 0.95 
 </p>
  
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Met.no to your installation, go to Configuration >> Integrations in the UI and enable the Met.no integration. By default the values will be taken from the Home Assistant configuration.
 

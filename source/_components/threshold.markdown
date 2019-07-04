@@ -29,7 +29,7 @@ It's an alternative to the template binary sensor's `value_template:` to get the
 ```
 {% endraw %}
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the threshold sensor, add the following lines to your `configuration.yaml`:
 

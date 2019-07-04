@@ -37,7 +37,7 @@ Follow this guide if you want to get started with Home Assistant easily, or if y
 
 [supported]: /hassio/installation/
 
-### {% linkable_title Suggested hardware%}
+### Suggested hardware
 
 We will need a few things to get started with installing Home Assistant. The latest Raspberry Pi model makes a good and affordable starting point for your home automation journey. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
@@ -46,14 +46,14 @@ We will need a few things to get started with installing Home Assistant. The lat
 - SD Card reader. Part of most laptops, and also available as [standalone USB sticks](https://amzn.to/2WWxntY) (the brand doesn't matter, just pick the cheapest)
 - Ethernet cable (optional, Hass.io can work with WiFi as well)
 
-### {% linkable_title Software requirements %}
+### Software requirements
 
 - Download the Hass.io image for [your device](/hassio/installation/)
 - Download [balenaEtcher] to write the image to an SD card
 
 [balenaEtcher]: https://www.balena.io/etcher
 
-### {% linkable_title Installing Hass.io %}
+### Installing Hass.io
 
 1. Put the SD card in your SD card reader.
 1. Open balenaEtcher, select the Hass.io image and flash it to the SD card.

@@ -96,7 +96,7 @@ use_led:
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Notes %}
+### Notes
 
 #### X, Y, Z axes
 
@@ -108,7 +108,7 @@ use_led:
 
 - voltage readings are done in the 0-3.3V range, please do not connect higher voltages than that! See the [Enviro pHAT's getting started guide](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) regarding how to make a voltage divider
 
-### {% linkable_title Give the values friendly names & icons %}
+### Give the values friendly names & icons
 
 Add something like the following to your [customize section](/docs/configuration/customizing-devices/):
 

@@ -17,7 +17,7 @@ redirect_from:
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable OpenGarage Covers in your installation, add the following to your `configuration.yaml` file:
 

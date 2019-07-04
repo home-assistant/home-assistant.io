@@ -18,7 +18,7 @@ Today we are proud to introduce a new feature for Hass.io called Ingress. Ingres
 Demo with an add-on on Ingress.
 </p>
 
-## {% linkable_title Add-ons that already support Ingress %}
+## Add-ons that already support Ingress
 
 Some add-ons already have been upgraded to support the new Ingress feature. Here are a couple of add-ons that support Ingress and are available on the add-on store right now:
 
@@ -42,18 +42,18 @@ Screenshot of an Add-on view with ingress support.
 
 Please note, that in order to upgrade or install these Ingress enabled add-ons, you need to be running Home Assistant 0.91.3.
 
-## {% linkable_title What’s next %}
+## What’s next
 
 Releasing the Ingress feature is just a start. It allows us to make even better integrations in the future. For the upcoming Home Assistant 0.92 release, we will be adding support to add links to your add-ons to the Home Assistant sidebar via a toggle on the add-on details page. The link will open the add-on Ingress interface, embedding the add-on in the Home Assistant UI. This will make it look and feel like a single system.
 
-## {% linkable_title Other new things %}
+## Other new things
 
 While adding Ingress support, we have tweaked and polished some other things in the Hass.io user interface:
 
 * Network ports in the add-on view now have a description, so you know what they are being used for.
 * Reloading the add-on store will now show a spinner to indicate that reloading is being done.
 
-## {% linkable_title For add-on developers %}
+## For add-on developers
 
 Ingress is added as an additional feature that add-on authors can choose to support starting today, granted that the application in the add-on supports it. The old approach of exposing add-ons on different ports will remain available. It will be up to add-on authors to choose what to support, including an option to support both.
 
@@ -61,7 +61,7 @@ If an add-on is going to support both, you should not have the add-on exposed on
 
 Are you an add-on developer looking to support Ingress on your add-on? [Check the developer documentation][dev-docs].
 
-## {% linkable_title FAQ & Known Issues %}
+## FAQ & Known Issues
 
 Hass.io Ingress is a new and complex technology. Without a doubt, now that everybody starts using it, we will discover new issues. Here are some frequently asked questions and some currently known issues with the Ingress feature.
 

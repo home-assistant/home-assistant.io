@@ -23,7 +23,7 @@ Synology has disabled the livestreaming API and the integration is currently bro
 There is an unsupported preview fix available. (8.2.3-5829) - Instructions can be found [here](https://www.vcloudinfo.com/2019/04/how-to-manually-upgrade-your-synology-surveillance-system-firmware.html) for updating manually.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable your Surveillance Station cameras in your installation, add the following to your `configuration.yaml` file:
 
@@ -70,7 +70,7 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 A full sample configuration for the `synology` camera platform is shown below:
 

@@ -17,7 +17,7 @@ redirect_from:
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
 
-## {% linkable_title Configuring `mikrotik` device tracker %}
+## Configuring `mikrotik` device tracker
 
 You have to enable accessing the RouterOS API on your router to use this platform.
 
@@ -75,7 +75,7 @@ method:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Use a certificate %}
+## Use a certificate
 
 To use SSL to connect to the API (via `api-ssl` instead of `api` service) further configuration is required at RouterOS side. You have to upload or generate a certificate and configure `api-ssl` service to use it. Here is an example of a self-signed certificate:
 
@@ -94,7 +94,7 @@ If everything is working fine you can disable the pure `api` service in RouterOS
 /ip service disable api
 ```
 
-## {% linkable_title The user privileges in RouterOS %}
+## The user privileges in RouterOS
 
 To use this device tracker you need restricted privileges only. To enhance the security of your MikroTik device create a "read only" user who is able to connect to API only:
 
@@ -104,7 +104,7 @@ To use this device tracker you need restricted privileges only. To enhance the s
 /user set password="YOUR_PASSWORD" homeassistant
 ```
 
-## {% linkable_title Using the additional configuration to the `mikrotik` device tracker entry in your `configuration.yaml` file: %}
+## Using the additional configuration to the `mikrotik` device tracker entry in your `configuration.yaml` file:
 
 ```yaml
 device_tracker:

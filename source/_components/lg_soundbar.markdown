@@ -24,6 +24,6 @@ Supported devices:
 
 Compatible devices will be automatically added if the [`discovery`](/components/discovery/) integration is enabled.
 
-### {% linkable_title Supported operations %}
+### Supported operations
 
 - These devices support mute, volume control, source selection and mode selection.

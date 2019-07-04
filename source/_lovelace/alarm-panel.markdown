@@ -52,7 +52,7 @@ states:
       description: Arm Custom Bypass
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title Example:
 

@@ -19,11 +19,11 @@ Keeps track which locks are in your environment, their state and allows you to c
  * Maintains a state per lock and a combined state `all_locks`.
  * Registers services `lock.lock`, `lock.unlock` and `lock.open` (unlatch) to control locks.
 
-### {% linkable_title Services %}
+### Services
 
 A lock integration provides the following services:
 
-#### {% linkable_title Service `lock.lock` %} 
+#### Service `lock.lock` 
 
 Lock your door, the attribute should appear under a 'data' attribute for the service.
 
@@ -31,7 +31,7 @@ Lock your door, the attribute should appear under a 'data' attribute for the ser
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Entity of the relevant lock.                          |
 
-##### {% linkable_title Example %}
+##### Example
 
 ```yaml
 action:
@@ -40,7 +40,7 @@ action:
     entity_id: lock.my_place
 ```
 
-#### {% linkable_title Service `lock.unlock` %} 
+#### Service `lock.unlock` 
 
 Unlock your door, the attribute should appear under a 'data' attribute for the service.
 
@@ -48,7 +48,7 @@ Unlock your door, the attribute should appear under a 'data' attribute for the s
 |---------------------------|----------|-------------------------------------------------------|
 | `entity_id`               |       no | Entity of the relevant lock.                          |
 
-##### {% linkable_title Example %}
+##### Example
 
 ```yaml
 action:
@@ -57,7 +57,7 @@ action:
     entity_id: lock.my_place
 ```
 
-### {% linkable_title Use the services %}
+### Use the services
 
 Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available services (**Services:** on the left). Enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 

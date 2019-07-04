@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate your Mochad units with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -46,7 +46,7 @@ port:
   default: 1099
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 A full configuration sample could look like the one below:
 
@@ -57,7 +57,7 @@ mochad:
   port: 1099
 ```
 
-## {% linkable_title Light %}
+## Light
 
 The `mochad` light platform lets you control an X10 enabled dimmer/light device.
 
@@ -94,7 +94,7 @@ brightness_levels:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `mochad` switch platform lets you control an X10 enabled switch device.
 

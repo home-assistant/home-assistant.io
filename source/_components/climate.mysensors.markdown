@@ -44,7 +44,7 @@ You can use V_TEMP to send the current temperature from the node to Home Assista
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch for MySensors 2.x %}
+### Example sketch for MySensors 2.x
 
 
 ```cpp
@@ -190,7 +190,7 @@ void sendHeatpumpCommand() {
 }
 ```
 
-### {% linkable_title Example sketch for MySensors 1.x %}
+### Example sketch for MySensors 1.x
 
 ```cpp
 /*

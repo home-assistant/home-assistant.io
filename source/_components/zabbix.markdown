@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set the Zabbix integration up, add the following information to your `configuration.yaml` file:
 
@@ -58,7 +58,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,7 +70,7 @@ zabbix:
   password: PASSWORD
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](http://www.zabbix.com/) monitoring instance.
 

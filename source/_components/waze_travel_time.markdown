@@ -20,7 +20,7 @@ The `waze_travel_time` sensor provides travel time from the [Waze](https://www.w
 
 Unit system is set to metric system.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this sensor in your installation, add the following `sensor` section to your `configuration.yaml` file:
 
@@ -73,7 +73,7 @@ vehicle_type:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Example using dynamic destination %}
+## Example using dynamic destination
 
 Using the flexible option to set a sensor value to the `destination`, you can setup a single Waze integration that will calculate travel time to multiple optional locations on demand.
 

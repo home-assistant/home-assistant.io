@@ -78,11 +78,11 @@ name (e.g., from "Kitchen Lightswitch" to "Kitchen Switch" or
 do so without needing to change existing automations or API calls.
 See aREST device below for an example.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this switch.
 
-### {% linkable_title aREST device %}
+### aREST device
 
 The example below is doing the same as the
 [aREST switch](/components/switch.arest/).
@@ -107,7 +107,7 @@ Given this example, in the UI one would see the `friendly_name` of
 `entity_id` `switch.arest_pin_four`, which is what one would use in
 [`automation`](/components/automation/) or in [API calls](/developers/).
 
-### {% linkable_title Shutdown your local host %}
+### Shutdown your local host
 
 This switch will shutdown your system that is hosting Home Assistant.
 
@@ -124,7 +124,7 @@ switch:
       command_off: "/usr/sbin/poweroff"
 ```
 
-### {% linkable_title Control your VLC player %}
+### Control your VLC player
 
 This switch will control a local VLC media player
 ([Source](https://community.home-assistant.io/t/vlc-player/106)).
@@ -139,7 +139,7 @@ switch:
       command_off: "pkill vlc"
 ```
 
-### {% linkable_title Control Foscam Motion Sensor %}
+### Control Foscam Motion Sensor
 
 This switch will control the motion sensor of Foscam Webcams which Support CGI
 Commands ([Source](http://www.ipcamcontrol.net/files/Foscam%20IPCamera%20CGI%20User%20Guide-V1.0.4.pdf)).

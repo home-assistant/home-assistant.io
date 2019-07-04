@@ -18,7 +18,7 @@ ha_iot_class: Local Push
 
 The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `remote_rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
 
@@ -65,7 +65,7 @@ pull_mode:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `remote_rpi_gpio` switch platform allows you to control the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
 

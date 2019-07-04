@@ -74,7 +74,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Example `play_media` script %}
+### Example `play_media` script
 
 The `play_media` function can be used to open web pages and other media types (images, movies) in the TV web browser.
 

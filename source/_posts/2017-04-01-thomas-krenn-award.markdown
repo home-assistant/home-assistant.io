@@ -23,7 +23,7 @@ As a raffle would be to easy, we make a contest out of it. This means that we ar
 Create an entry in our [Forum][forum]. Be creative and use your imagination.
 
 
-### {% linkable_title The details %}
+### The details
 
 - Jury: The Home Assistant community
 - Dead line: April, 23 2017 - 23.59 UTC

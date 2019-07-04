@@ -15,11 +15,11 @@ og_image: /images/blog/2017-06-0.47/components.png
 
 In this release a ton of new stuff! And who doesn't like new stuff? This release we're passing the 700 integrations for Home Assistant. As of today [we're 1369 days old][first-commit], which means that roughly every two days a new integration gets added!
 
-## {% linkable_title Python Scripts %}
+## Python Scripts
 
 The biggest change is a new type of script component: [Python scripts][python_script docs]. This new component will allow you to write scripts to manipulate Home Assistant: call services, set states and fire events. Each Python script is made available as a service. Head over to [the docs][python_script docs] to see how to get started.
 
-## {% linkable_title Updater %}
+## Updater
 
 The updater has received a new opt-in option to let us know which components you use. This will allow us to focus development efforts on the components that are popular.
 
@@ -30,7 +30,7 @@ updater:
 
 And as a reminder. We will never share gathered data in a manner that can be used to identify anyone. We do plan on making aggregate data public soon. This will include total number of users and which hardware/software platform people use to run Home Assistant.
 
-## {% linkable_title Z-Wave %}
+## Z-Wave
 
 Z-Wave is also getting a big update in this release. The confusing entity_ids will be on their way out. There is a [zwave blog post] that gives more detail, but the upgrade steps will be as follows:
 
@@ -42,7 +42,7 @@ Z-Wave is also getting a big update in this release. The confusing entity_ids wi
 6.  Restart Home Assistant to run with new IDs.
 7.  The old entity IDs will be available in the more info dialog to trace down any remaining errors.
 
-## {% linkable_title Monkey Patching Python 3.6 %}
+## Monkey Patching Python 3.6
 
 Some people have noticed that running Home Assistant under Python 3.6 can lead to segfaults. It seems to be related to the [earlier segfault issues][old-bug] that we experienced when we released the asyncio-based core. We thought that those issues would have been fixed when [Python bug 26617] was resolved. Although we see less reports compared to the old bug, there are still users [experiencing them][new-bug] ([gdb stacktrace points at `PyObject_GC_Del()`][gdb]).
 
@@ -58,7 +58,7 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 [gdb]: https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009
 [Ben Bangert]: https://github.com/bbangert
 
-## {% linkable_title Release 0.47.1 - June 21 %}
+## Release 0.47.1 - June 21
 
 - Fix Vera lights issue #8098 ([@tsvi] - [#8101]) ([light.vera docs])
 - Fix Dyson async_add_job ([@CharlesBlonde] - [#8113]) ([fan.dyson docs]) ([sensor.dyson docs])
@@ -66,7 +66,7 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 - Fixed iTach command parsing with empty data ([@alanfischer] - [#8104]) ([remote.itach docs])
 - Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
 
-## {% linkable_title New platforms %}
+## New platforms
 
 - Added a Taps Aff binary sensor ([@bazwilliams] - [#7880]) ([binary_sensor.tapsaff docs]) (new-platform)
 - lock.sesame: New lock platform for Sesame smart locks ([@trisk] - [#7873]) ([lock.sesame docs]) (new-platform)
@@ -84,14 +84,14 @@ To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 has
 - Update mailgun ([@happyleavesaoc] - [#7984]) ([mailgun docs]) ([notify.mailgun docs]) (breaking change) (new-platform)
 - Add Flexit AC climate platform ([@Sabesto] - [#7871]) ([climate.flexit docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - Update opencv config to match other image processors ([@Teagan42] - [#7864]) ([image_processing.opencv docs]) (breaking change)
 
@@ -159,7 +159,7 @@ automation:
 - Use standard entity_ids for zwave entities. This also introduces a small API breakage, where `EVENT_SCENE_ACTIVATED` and `EVENT_NODE_EVENT` will no longer supply an `object_id`. They will now be tied to the node entity_id. ([@armills] - [#7786]) ([zwave docs]) ([light.zwave docs]) (breaking change)
 - Fix attribute entities. Home Assistant will no longer filter out entities that are 'falsey'. So you might see more entity attributes show up. ([@pvizeli] - [#8066]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update squeezebox.py ([@molobrakos] - [#7617]) ([media_player.squeezebox docs])
 - Fix html5 unsub ([@balloob] - [#7874]) ([notify.html5 docs])

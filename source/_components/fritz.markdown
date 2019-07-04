@@ -18,13 +18,13 @@ redirect_from:
 
 The `fritz` platform offers presence detection by looking at connected devices to a [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) based router.
 
-## {% linkable_title Setup %}
+## Setup
 
 <p class='note warning'>
 It might be necessary to install additional packages: <code>$ sudo apt-get install python3-lxml libxslt-dev libxml2-dev zlib1g-dev</code>
 If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>$ pip3 install lxml</code>; be patient this will take a while.</p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use an Fritz!Box router in your installation, add the following to your `configuration.yaml` file:
 

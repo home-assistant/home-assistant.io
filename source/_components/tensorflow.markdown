@@ -23,7 +23,7 @@ The `tensorflow` image processing platform allows you to detect and recognize ob
   `$ sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
 </p>
 
-## {% linkable_title Setup %}
+## Setup
 
 You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==1.11.0`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. Hass.io is not yet supported but an addon is under development.
 
@@ -46,7 +46,7 @@ This integration requires files to be downloaded, compiled on your computer, and
   - `research/object_detection/utils`
   - `research/object_detection/protos`
 
-## {% linkable_title Model Selection %}
+## Model Selection
 
 Lastly, it is time to pick a model. It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
 
@@ -54,7 +54,7 @@ The trade-off between the different models is accuracy vs speed.  Users with a d
 
 Whichever model you choose, download it and place the `frozen_inference_graph.pb` file in the `tensorflow` folder in your configuration directory.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -161,6 +161,6 @@ image_processing:
         - truck
 ```
 
-## {% linkable_title Optimising resources %}
+## Optimising resources
 
 [Image processing components](/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.

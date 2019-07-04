@@ -20,13 +20,13 @@ The `flic` platform allows you to receive click events from [flic](https://flic.
 
 The platform does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 
-#### {% linkable_title Service setup %}
+#### Service setup
 
 If you are using Hass.io, you can run the service locally by [installing](/hassio/installing_third_party_addons/) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/hassio-addons). On a Hass.io installation that's not yet based on HassOS, you also need to install the [bluetooth add-on](/addons/bluetooth_bcm43xx/).
 
 For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [OS X](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 
-#### {% linkable_title Configuration %}
+#### Configuration
 
 To use your flic buttons in your installation, add the following to your `configuration.yaml` file:
 
@@ -63,15 +63,15 @@ timeout:
   default: 3
 {% endconfiguration %}
 
-#### {% linkable_title Discovery %}
+#### Discovery
 
 If discovery is enabled, you can add a new button by pressing it for at least 7 seconds. The button will be paired with the flic service and added to Home Assistant. Otherwise, you have to manually pair it with the flic service. The Home Assistant platform will not scan for new buttons and will only connect to buttons already paired.
 
-#### {% linkable_title Timeout %}
+#### Timeout
 
  When the flic button is triggered while disconnected from flic service, it will queue all events and try to connect and transmit them as soon as possible. The timeout variable can be used to stop events from triggering if too much time passed between the action and the notification in Home Assistant.
 
-#### {% linkable_title Events %}
+#### Events
 
 The flic integration fires `flic_click` events on the bus. You can capture the events and respond to them in automation scripts like this:
 
@@ -113,6 +113,6 @@ automation:
           message: {% raw %}"flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"{% endraw %}
 ```
 
-##### {% linkable_title Ignoring Click Types %}
+##### Ignoring Click Types
 
 For some purposes it might make sense to exclude a specific click type from triggering click events. For example when ignoring double clicks, pressing the button twice fast results in two `single` instead of a `double` click event. This is very useful for applications where you want to click fast.

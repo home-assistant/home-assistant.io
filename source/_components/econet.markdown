@@ -19,7 +19,7 @@ redirect_from:
 
 The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](http://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `econet` water heater platform, add the following information to your `configuration.yaml` file:
 
@@ -42,7 +42,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Service `econet.add_vacation` %}
+### Service `econet.add_vacation`
 
 You can use the service `econet.add_vacation` to create a new vacation for your EcoNet water heaters.
 
@@ -56,7 +56,7 @@ You can use the service `econet.add_vacation` to create a new vacation for your 
 The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
 </p>
 
-### {% linkable_title Service `econet.delete_vacation` %}
+### Service `econet.delete_vacation`
 
 You can use the service `econet.delete_vacation` to remove all vacations from an EcoNet water heater.
 

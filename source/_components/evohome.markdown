@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -61,7 +61,7 @@ scan_interval:
 
 This is an IoT cloud-polling device, and the recommended minimum `scan_interval` is 300 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 
-## {% linkable_title Climate %}
+## Climate
 
 It is distinct from - but related to - the [`honeywell`](/components/climate.honeywell/) climate platform, which also allows (limited) integration with Honeywell Connected thermostats; these two integrations may well be usable side-by-side, but YMMV.
 

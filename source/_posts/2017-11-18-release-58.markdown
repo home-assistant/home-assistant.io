@@ -17,7 +17,7 @@ og_image: /images/blog/2017-11-0.58/components.png
 The Hass.io release of 0.58 will be delayed by a couple of days because Pascal is moving this weekend.
 </p>
 
-## {% linkable_title Translation update %}
+## Translation update
 
 Translations are up and running in full speed. Shortly after the last release we got our translation pipeline figured out. [@armills] and [@c727] are doing an amazing job managing this project. We've doubled the number of supported languages to 42 and the amount of keys to translate went from 8 to 130. Our translators are on top of their game and 79% is already translated.
 
@@ -27,7 +27,7 @@ And because more translations is more better, [@robbiet480] has added the iOS ap
 
 [Learn more about how to help with translations](/blog/2017/11/05/frontend-translations/)
 
-## {% linkable_title Frontend improvements continue %}
+## Frontend improvements continue
 
 Thanks to [@Andrey-git] we now are able to serve the frontend in modern JavaScript. Leveraging modern JavaScript makes the frontend faster to load and run. For now it's opt-in but we're looking into making it opt-out in the future. The ES5 version of the frontend will remain available for older devices.
 
@@ -42,7 +42,7 @@ frontend:
 For Custom UI users: your custom UI will need to be updated before it can work with the new version of the frontend.
 </p>
 
-### {% linkable_title System log enhanced %}
+### System log enhanced
 
 Our about screen that shows the error logs has gained a nice upgrade by [@postlund]. Now the 50 latest exceptions will be displayed with the option to get more information.
 
@@ -51,7 +51,7 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
     Screenshot of the about screen showing the system log.
 </p>
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - pyLoad download sensor ([@iMarkus] - [#10089]) ([sensor.pyload docs]) (new-platform)
 - Add LaCrosse sensor platform ([@hthiery] - [#10195]) ([sensor.lacrosse docs]) (new-platform)
@@ -62,7 +62,7 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
 - Add basic backend support for a system log ([@postlund] - [#10492]) ([system_log docs]) (new-platform)
 - New sensor viaggiatreno. ([@fabfurnari] - [#10522]) ([sensor.viaggiatreno docs]) (new-platform)
 
-## {% linkable_title Release 0.58.1 - November 21 %}
+## Release 0.58.1 - November 21
 
 - Fix yweather ([@tinloaf] - [#10661]) ([weather.yweather docs])
 - Properly initialize Harmony remote ([@amelchio] - [#10665]) ([remote.harmony docs])
@@ -70,23 +70,23 @@ Our about screen that shows the error logs has gained a nice upgrade by [@postlu
 - Fix for time_date sensor ([@etsinko] - [#10694]) ([sensor.time_date docs])
 - Frontend fixes ([@andrey-git] [@armills] [@balloob])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
  - `hass.states.is_state_attr(entity_id, attribute, value)` has been removed. The template version still exists. Unused method parameter `wait` has been removed from `hass.bus.async_fire` ([@balloob] - [#10305]) (breaking change)
 - Refactor Neato botvac components as a vacuum ([@jabesq] - [#9946]) ([neato docs])  ([switch.neato docs]) ([vacuum.neato docs]) (breaking change) (new-platform)
 - Lutron released a firmware updated for the Caseta system which removed our ability to connect to and control the bridge device over SSH, breaking compatibility with pylutron_caseta and Home Assistant. Component has been updated to work again, please see the docs on how to set it up. ([@mdonoughe] - [#10286]) ([lutron_caseta docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Bump python-miio for improved device support ([@syssi] - [#10294]) ([light.xiaomi_miio docs]) ([switch.xiaomi_miio docs])
 - pyLoad download sensor ([@iMarkus] - [#10089]) ([sensor.pyload docs]) (new-platform)

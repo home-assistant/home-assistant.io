@@ -14,7 +14,7 @@ featured: false
 ha_release: "0.10"
 ---
 
-## {% linkable_title I want to build custom commands to use with Echo %}
+## I want to build custom commands to use with Echo
 
 The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
 
@@ -22,7 +22,7 @@ The built-in Alexa integration allows you to integrate Home Assistant into Alexa
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title Requirements %}
+### Requirements
 
 Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are OK because our skills will only run in development mode. Read more on [our blog][blog-lets-encrypt] about how to set up encryption for Home Assistant. When running Hass.io, using the [Let's Encrypt](/addons/lets_encrypt/) and [Duck DNS](/addons/duckdns/) add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using [this AWS Lambda proxy for Alexa skills](https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230).
 
@@ -49,7 +49,7 @@ To get started with Alexa skills:
 
 You can use this [specially sized Home Assistant logo][large-icon] as the large icon and [this one][small-icon] as the small one.
 
-### {% linkable_title Configuring your Amazon Alexa skill %}
+### Configuring your Amazon Alexa skill
 
 Alexa works based on intents. Each intent has a name and variable slots. For example, a `LocateIntent` with a slot that contains a `User`. Example intent schema:
 
@@ -88,7 +88,7 @@ This means that we can now ask Alexa things like:
 - Alexa, ask Home Assistant where Paul is
 - Alexa, ask Home Assistant where we are
 
-## {% linkable_title Configuring Home Assistant %}
+## Configuring Home Assistant
 
 When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) integration.
 
@@ -98,7 +98,7 @@ To enable Alexa, add the following entry to your `configuration.yaml` file:
 alexa:
 ```
 
-### {% linkable_title Working With Scenes %}
+### Working With Scenes
 
 One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.
 
@@ -157,7 +157,7 @@ Here we are using [templates] to take the name we gave to Alexa e.g., `downstair
 
 Now say `Alexa ask Home Assistant to activate <some scene>` and Alexa will activate that scene for you.
 
-### {% linkable_title Adding Scripts %}
+### Adding Scripts
 
 We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:
 
@@ -203,7 +203,7 @@ intent_script:
 
 Now say `Alexa ask Home Assistant to run <some script>` and Alexa will run that script for you.
 
-### {% linkable_title Support for Launch Requests %}
+### Support for Launch Requests
 
 There may be times when you want to respond to a launch request initiated from a command such as "Alexa, Red Alert!".
 
@@ -227,7 +227,7 @@ intent_script:
       text: OK
 ```
 
-## {% linkable_title Giving Alexa Some Personality %}
+## Giving Alexa Some Personality
 
 In the examples above, we told Alexa to say `OK` when she successfully completed the task. This is effective but a little dull! We can again use [templates] to spice things up a little.
 

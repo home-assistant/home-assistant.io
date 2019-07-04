@@ -32,7 +32,7 @@ This sensor is an alternative to the [template sensor](/components/sensor.templa
 
 Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `min_max` sensor, add the following lines to your `configuration.yaml`:
 

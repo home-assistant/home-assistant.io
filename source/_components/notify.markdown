@@ -18,7 +18,7 @@ The `notify` integration makes it possible to send notifications to a wide varie
 
 If you want to send notifications to the Home Assistant Web Interface you may use the [Persistent Notification Component](/components/persistent_notification/).
 
-## {% linkable_title Service %}
+## Service
 
 Once loaded, the `notify` platform will expose a service that can be called to send notifications.
 
@@ -41,7 +41,7 @@ action:
     title: "Custom subject"
 ```
 
-### {% linkable_title Test if it works %}
+### Test if it works
 
 A simple way to test if you have set up your notify platform correctly, is to use <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
 

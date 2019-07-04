@@ -20,7 +20,7 @@ Examples on this page will be given as part of an automation integration configu
 Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> service developer tool in the frontend to discover available services.
 </p>
 
-### {% linkable_title The basics %}
+### The basics
 
 Call the service `homeassistant.turn_on` on the entity `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
 
@@ -29,7 +29,7 @@ service: homeassistant.turn_on
 entity_id: group.living_room
 ```
 
-### {% linkable_title Passing data to the service call %}
+### Passing data to the service call
 
 You can also specify other parameters beside the entity to target. For example, the light turn on service allows specifying the brightness.
 
@@ -43,7 +43,7 @@ data:
 
 A full list of the parameters for a service can be found on the documentation page of each component, in the same way as it's done for the `light.turn_on` [service](/components/light/#service-lightturn_on).
 
-### {% linkable_title Use templates to decide which service to call %}
+### Use templates to decide which service to call
 
 You can use [templating] support to dynamically choose which service to call. For example, you can call a certain service based on if a light is on.
 
@@ -57,7 +57,7 @@ service_template: >
 entity_id: switch.ac
 ```
 
-### {% linkable_title Using the Services Developer Tool %}
+### Using the Services Developer Tool
 
 You can use the Services Developer Tool to test data to pass in a service call.
 For example, you may test turning on or off a 'group' (See [groups] for more info)
@@ -67,7 +67,7 @@ To turn a group on or off, pass the following info:
 - Service: `turn_on`
 - Service Data: `{ "entity_id": "group.kitchen" }`
 
-### {% linkable_title Use templates to determine the attributes %}
+### Use templates to determine the attributes
 
 Templates can also be used for the data that you pass to the service call.
 
@@ -83,7 +83,7 @@ data_template:
   temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
 ```
 
-### {% linkable_title `homeassistant` services %}
+### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:
 

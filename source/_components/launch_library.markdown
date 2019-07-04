@@ -18,7 +18,7 @@ redirect_from:
 
 The `launch_library` sensor will provide you with information about the next planned space launch.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the data to your `configuration.yaml` file as shown in the example:
 

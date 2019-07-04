@@ -27,17 +27,17 @@ There is currently support for the following device types within Home Assistant:
 The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
 </p>
 
-### {% linkable_title Sensor %}
+### Sensor
 
 The `pushbullet` sensor platform reads messages from [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends. This sensor platform provides sensors that show the properties of the latest received Pushbullet notification mirror.
 
-### {% linkable_title Setup %}
+### Setup
 
 Notification Mirroring allows users to see their Android device's notifications on their computer. It must be first enabled in the app and is currently only available on the Android platform. For more information, please see [this announcement](https://blog.pushbullet.com/2013/11/12/real-time-notification-mirroring-from-android-to-your-computer/) on the Pushbullet Blog.
 
 Go to [https://www.pushbullet.com/#settings/account](https://www.pushbullet.com/#settings/account) to retrieve your API key/access token.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable the Pushbullet sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -85,7 +85,7 @@ monitored_conditions:
 
 All properties will be displayed as attributes. The properties array are just for logging the sensor readings for multiple properties.
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `pushbullet` notification platform sends messages to [Pushbullet](https://www.pushbullet.com/), a free service to send information between your phones, browsers, and friends. The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
 
@@ -111,7 +111,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Usage %}
+### Usage
 
 Pushbullet is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
 
@@ -123,7 +123,7 @@ Email | `email/` | Contact's email address | `email/email@example.com`
 
 If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
 
-#### {% linkable_title Example service payload %}
+#### Example service payload
 
 ```json
 {
@@ -138,7 +138,7 @@ If using targets, your own account's email address functions as 'send to all dev
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-### {% linkable_title URL support %}
+### URL support
 
 ```yaml
 action:
@@ -152,7 +152,7 @@ action:
 
 - **url** (*Required*): Page URL to send with Pushbullet.
 
-### {% linkable_title File support %}
+### File support
 
 ```yaml
 action:
@@ -166,7 +166,7 @@ action:
 
 - **file** (*Required*): File to send with Pushbullet.
 
-### {% linkable_title File URL support %}
+### File URL support
 
 ```yaml
 action:
@@ -180,7 +180,7 @@ action:
 
 - **file_url** (*Required*): File to send with Pushbullet.
 
-### {% linkable_title Single target %}
+### Single target
 
 ```yaml
   action:

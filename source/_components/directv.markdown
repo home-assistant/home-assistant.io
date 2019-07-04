@@ -91,13 +91,13 @@ media_player:
 
 It is important to notice that the host and port variables for slave/Genie receivers are the same as the master receiver.
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Media control services %}
+### Media control services
 
 Available services: turn_on, turn_off, media_play, media_pause, media_stop, media_next_track, media_previous_track, play_media
 
-#### {% linkable_title Service `media_player.play_media` %}
+#### Service `media_player.play_media`
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

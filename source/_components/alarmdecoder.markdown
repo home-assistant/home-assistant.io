@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 
 This is a fully event-based component. Any event sent by the AlarmDecoder device will be immediately reflected within Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 An `alarmdecoder` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -122,7 +122,7 @@ zones:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title Alarm Control Panel %}
+## Alarm Control Panel
 
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
@@ -136,7 +136,7 @@ There are several attributes available on the alarm panel to give you more infor
 - `ready`: Set to `true` if your system is ready to be armed. Any faults, including motions sensors, will make this value `false`.
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
 
-## {% linkable_title Services %}
+## Services
 
 The Alarm Decoder integration gives you access to several services for you to control your alarm with.
 
@@ -150,11 +150,11 @@ The Alarm Decoder integration gives you access to several services for you to co
 `alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
 </p>
 
-### {% linkable_title Examples %}
+### Examples
 
 Using a combination of the available services and attributes, you can create switch templates.
 
-### {% linkable_title Chime Status and Control %}
+### Chime Status and Control
 
 {% raw %}
 ```yaml

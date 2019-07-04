@@ -21,7 +21,7 @@ The `xfinity` device tracker platform offers presence detection by looking at co
 
 It was tested with an Xfinity Gateway model TG1682G.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use an Xfinity Gateway in your installation, add the following to your `configuration.yaml` file:
 

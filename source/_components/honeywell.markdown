@@ -24,13 +24,13 @@ There is some potential confusion over this integration because it is currently 
 These two regions are _not_ interchangeable, so you must be clear which applies to your climate system.
 </p>
 
-## {% linkable_title US-based Systems %}
+## US-based Systems
 
 These systems are based in North America, and temperatures are usually in Fahrenheit. They would likely be HVAC systems. They always use the [somecomfort](https://github.com/kk7ds/somecomfort) client library. In this integration, this is called the `us` region.
 
 If your system is US-based, then you can access your system via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
 
-## {% linkable_title EU-based Systems %}
+## EU-based Systems
 
 These systems are based in Europe (including the UK & Ireland), and temperatures are usually in Celsius. They would likely be heating-only systems. They always use the [evohome-client](https://github.com/watchforstock/evohome-client) client library. In this integration, this is called the `eu` region.
 
@@ -38,7 +38,7 @@ If your system is US-based, then you can access it via [https://international.my
 
 The `eu` region is soon to be deprecated, and ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set up this integration, first confirm your region, then add the following information to your **configuration.yaml** file (the below example is for US-based systems):
 

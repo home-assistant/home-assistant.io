@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The default InfluxDB configuration doesn't enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven't made any configuration changes, add the following to your `configuration.yaml` file:
 
@@ -150,9 +150,9 @@ component_config_glob:
       required: false
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 influxdb:
@@ -180,7 +180,7 @@ influxdb:
     source: hass
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be use to present statistic about home_assistant sensors if used with the `influxdb` history component. It can also be used with an external data source.
 
@@ -267,9 +267,9 @@ queries:
       default: value
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example configuration entry below create two request to your local InfluxDB instance, one to the database `db1`, the other to `db2`:
 

@@ -15,7 +15,7 @@ og_image: /images/blog/2018-05-0.69/components.png
 
 Not much time to write a great intro this time as we're hanging out at PyCon! Some fixes for the Hue and Wink colors thanks to [@amelchio]. Initial foundation for users has landed, it's not anywhere near usable. We'll keep hacking on it. Google Assistant for Home Assistant Cloud now supports room hints. This will cause Google Assistant put the devices in the right groups when you link your account.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Support Xiaomi Mijia Bluetooth Wireless Temperature and Humidity Sensor ([@ratcashdev] - [#13955]) ([sensor.mitemp_bt docs]) (new-platform)
 - Move RainMachine to component/hub model ([@bachya] - [#14085]) ([rainmachine docs]) ([switch.rainmachine docs]) (breaking change) (new-platform)
@@ -24,20 +24,20 @@ Not much time to write a great intro this time as we're hanging out at PyCon! So
 - Issue/add template fans ([@giangvo] - [#12027]) ([fan.template docs]) (new-platform)
 - Matrix Chatbot ([@tinloaf] - [#13355]) ([matrix docs]) ([notify docs]) (breaking change) (new-platform)
 
-## {% linkable_title Release 0.69.1 - May 12 %}
+## Release 0.69.1 - May 12
 
 - Fix loading of Matrix chatbot ([@tinloaf] - [#14346]) ([matrix docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Pollen.com: Added attributes on top 3 allergens. This caused attribute names `primary_allergen_genus`, `primary_allergen_name` and `primary_allergen_type` to be suffixed with `_1` ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
 - Add Sonos device attribute with grouping information. The `media_player.sonos` attribute `is_coordinator` has been removed; the new attribute `sonos_group` (listing all group members, coordinator first) can be used instead. ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
@@ -58,7 +58,7 @@ rainmachine:
     zone_run_time: 240
 ```
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Add missing 'sensor' to ABODE_PLATFORMS ([@jloutsenhizer] - [#14313]) ([abode docs]) (beta fix)
 - Add debounce to move_cover ([@cdce8p] - [#14314]) ([homekit docs]) (beta fix)
@@ -68,7 +68,7 @@ rainmachine:
 - Ignore more loading errors ([@balloob] - [#14331]) (beta fix)
 - Ignore NaN values for influxdb ([@amelchio] - [#14347]) ([influxdb docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Pollen.com: Added attributes on top 3 allergens ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
 - Expose the condition code on condition sensors ([@maddox] - [#14011]) ([sensor.yweather docs])

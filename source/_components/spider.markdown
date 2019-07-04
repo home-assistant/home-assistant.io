@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Switch
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Spider devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -55,7 +55,7 @@ scan_interval:
 This integration is not affiliated with Itho Daalderop Spider and retrieves data from the endpoints of the mobile application. Use at your own risk.
 </p>
 
-### {% linkable_title Climate %}
+### Climate
 
 <p class='note'>
 Although this integration lets you change the operation mode to heating or cooling, it doesn't necessarily mean your boiler can. Spider is not aware of your current situation.

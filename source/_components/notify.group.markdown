@@ -16,7 +16,7 @@ ha_qa_scale: internal
 
 The `group` notification platform allows you to combine multiple `notify` platforms into a single service.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,7 +50,7 @@ services:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 An example on how to use it in an automation:
 

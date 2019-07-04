@@ -15,7 +15,7 @@ ha_release: 0.67
 
 With the `freedns` integration you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
 
-## {% linkable_title Setup %}
+## Setup
 
 You need to determine your update URL or your access token.
 
@@ -26,7 +26,7 @@ You need to determine your update URL or your access token.
 5. The access token is the part at the end of the link: `https://freedns.afraid.org/dynamic/update.php?YOUR_UPDATE_TOKEN`
 6. Either put the token as `access_token` _or_ the whole URL into the `url` attribute.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 

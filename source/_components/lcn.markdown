@@ -46,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
   They are ideal to be used in automation scripts or for the `template` platforms.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
 You have to specify at least one ip/port with login credentials for a PCHK host.
@@ -325,7 +325,7 @@ switches:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title LCN Addresses %}
+## LCN Addresses
 
 LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
 
@@ -357,11 +357,11 @@ s0.g7
 
 Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, the first connection defined in the [configuration](#configuration) will be used.
 
-## {% linkable_title LCN Constants %}
+## LCN Constants
 
 The platforms and service calls use several predefined constants as parameters.
 
-### {% linkable_title Ports %}
+### Ports
 
 | Constant | Values |
 | -------- | ------ |
@@ -381,7 +381,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | `motor3` | `relay5`     | `relay6`      |
 | `motor4` | `relay7`     | `relay8`      |
 
-### {% linkable_title Variables and Units %}
+### Variables and Units
 
 | Constant | Values |
 | -------- | ------ |
@@ -393,7 +393,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | TIME_UNIT | `seconds`, `minutes`, `hours`, `days` |
 | RELVARREF | `current`, `prog` |
 
-### {% linkable_title States %}:
+### States:
 
 | Constant | Values |
 | -------- | ------ |
@@ -401,14 +401,14 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | LOGICOP_STATE | `not`, `or`, `and` |
 | KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
-### {% linkable_title Keys %}:
+### Keys:
 
 Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
 Examples: `a1`, `a5`, `d8`.
 
-## {% linkable_title Platforms %}
+## Platforms
 
-### {% linkable_title Binary Sensor %}
+### Binary Sensor
 
 The `lcn` binary sensor platform allows the monitoring of the following [LCN](http://www.lcn.eu) binary data sources:
 
@@ -418,7 +418,7 @@ The `lcn` binary sensor platform allows the monitoring of the following [LCN](ht
 
 The binary sensor can be used in automation scripts or in conjunction with `template` platforms.
 
-### {% linkable_title Climate %}
+### Climate
 
 The `lcn` climate platform allows the control of the [LCN](http://www.lcn.eu) climate regulators.
 This platform depends on the correct configuration of the module's regulators which has to be done in the LCN-PRO programming software.
@@ -429,22 +429,22 @@ If the control is set lockable, the regulator can be turned on/off.
 If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](climate.generic_thermostat) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
 </p>
 
-### {% linkable_title Cover %}
+### Cover
 
 The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays which have been configured as motor controllers.
 
-### {% linkable_title Light %}
+### Light
 
 The `lcn` light platform allows the control of the following [LCN](http://www.lcn.eu) ports:
 
 - (Dimmable) output ports
 - Relays
 
-### {% linkable_title Scene %}
+### Scene
 
 The `lcn` scene platform allows the activation of previously programmed [LCN](http://www.lcn.eu) scenes.
 
-### {% linkable_title Sensor %}
+### Sensor
 
 The `lcn` sensor platform allows the monitoring of the following [LCN](http://www.lcn.eu) data sources:
 
@@ -462,19 +462,19 @@ The sensor can be used in automation scripts or in conjunction with `template` p
   Otherwise the module might show unexpected behavior or return error messages.
 </p>
 
-### {% linkable_title Switch %}
+### Switch
 
 The `lcn` switch platform allows the control of the following [LCN](http://www.lcn.eu) ports:
 
 - Output ports
 - Relays
 
-## {% linkable_title Services %}
+## Services
 
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
 Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them. 
 
-### {% linkable_title Service `output_abs` %}
+### Service `output_abs`
 
 Set absolute brightness of output port in percent.
 
@@ -496,7 +496,7 @@ data:
   transition: 0
 ```
 
-### {% linkable_title Service `output_rel` %}
+### Service `output_rel`
 
 Set relative brightness of output port in percent.
 
@@ -517,7 +517,7 @@ data:
   brightness: 30
 ```
 
-### {% linkable_title Service `output_toggle` %}
+### Service `output_toggle`
 
 Toggle output port.
 
@@ -537,7 +537,7 @@ data:
   transition: 0
 ```
 
-### {% linkable_title Service `relays` %}
+### Service `relays`
 
 Set the relays status. The relays states are defined as a string with eight characters.
 Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=nochange).
@@ -558,7 +558,7 @@ data:
   state: t---001-
 ```
 
-### {% linkable_title Service `led` %}
+### Service `led`
 
 Set the led status.
 
@@ -577,7 +577,7 @@ data:
   state: blink
 ```
 
-### {% linkable_title Service `var_abs` %}
+### Service `var_abs`
 
 Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -606,7 +606,7 @@ data:
   Otherwise the module might show unexpected behaviors or return error messages.
 </p>
 
-### {% linkable_title Service `var_rel` %}
+### Service `var_rel`
 
 Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -635,7 +635,7 @@ data:
   Otherwise the module might show unexpected behavior or return error messages.
 </p>
 
-### {% linkable_title Service `var_reset` %}
+### Service `var_reset`
 
 Reset value of variable or setpoint.
 
@@ -658,7 +658,7 @@ data:
   Otherwise the module might show unexpected behavior or return error messages.
 </p>
 
-### {% linkable_title Service `lock_regulator` %}
+### Service `lock_regulator`
 
 Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
@@ -679,7 +679,7 @@ data:
   state: true
 ```
 
-### {% linkable_title Service `send_keys` %}
+### Service `send_keys`
 
 Send keys (which executes bound commands).
 The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
@@ -716,7 +716,7 @@ data:
   time_unit: s
 ```
 
-### {% linkable_title Service `lock_keys` %}
+### Service `lock_keys`
 
 Locks keys.
 If table is not defined, it is assumend to be table `a`.
@@ -753,7 +753,7 @@ data:
   time_unit: s
 ```
 
-### {% linkable_title Service `dyn_text` %}
+### Service `dyn_text`
 
 Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
@@ -776,7 +776,7 @@ data:
   text: "text in row 1"
 ```
 
-### {% linkable_title Service `pck` %}
+### Service `pck`
 
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 

@@ -77,7 +77,7 @@ logger:
         type: '[log_level](#log-levels)'
 {% endconfiguration %}
 
-### {% linkable_title Log Levels %}
+### Log Levels
 
 Possible log severity levels, listed in order from most severe to least severe, are:
 
@@ -90,9 +90,9 @@ Possible log severity levels, listed in order from most severe to least severe, 
 - debug
 - notset
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `set_default_level` %}
+### Service `set_default_level`
 
 You can alter the default log level (for integrations without a specified log
 level) using the service `logger.set_default_level`.
@@ -105,7 +105,7 @@ data:
   level: info
 ```
 
-### {% linkable_title Service `set_level` %}
+### Service `set_level`
 
 You can alter log level for one or several integrations using the service
 `logger.set_level`. It accepts the same format as `logs` in the configuration.

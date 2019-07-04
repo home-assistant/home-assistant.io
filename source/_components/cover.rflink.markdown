@@ -20,7 +20,7 @@ First, you have to set up your [RFLink hub](/components/rflink/).
 
 After configuring the RFLink hub, covers will be automatically discovered and added. Except the Somfy RTS devices.
 
-### {% linkable_title Setting up a Somfy RTS device %}
+### Setting up a Somfy RTS device
 
 You have to add the Somfy RTS manually with the supplied RFlinkLoader (Windows only).
 
@@ -132,11 +132,11 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support).
 
-### {% linkable_title Additional configuration examples %}
+### Additional configuration examples
 
 Multiple covers with custom names and aliases
 

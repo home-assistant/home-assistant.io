@@ -32,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,7 +75,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,7 +89,7 @@ zoneminder:
     password: YOUR_PASSWORD
 ```
 
-### {% linkable_title Service %}
+### Service
 
 Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
 
@@ -108,17 +108,17 @@ action:
     name: Home
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `zoneminder` binary sensor platform lets you monitor the availability of your [ZoneMinder](https://www.zoneminder.com) install.
 
 Each binary_sensor created will be named after the hostname used when configuring the [ZoneMinder component](/components/zoneminder/).
 
-## {% linkable_title Camera %}
+## Camera
 
 The `zoneminder` camera platform lets you monitor the current stream of your [ZoneMinder](https://www.zoneminder.com) cameras.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -128,7 +128,7 @@ camera:
   - platform: zoneminder
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events, the current state of the cameras and ZoneMinder's current run state.
 
@@ -164,7 +164,7 @@ monitored_conditions:
       description: Events in the last hour.
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.
 

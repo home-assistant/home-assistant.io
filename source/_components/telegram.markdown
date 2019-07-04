@@ -18,7 +18,7 @@ redirect_from:
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
 
-## {% linkable_title Setup %}
+## Setup
 
 The requirements are:
 
@@ -74,7 +74,7 @@ $ python3
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -109,7 +109,7 @@ chat_id:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-### {% linkable_title Text message %}
+### Text message
 
 ```yaml
 ...
@@ -143,7 +143,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Photo support %}
+### Photo support
 
 ```yaml
 ...
@@ -217,7 +217,7 @@ homeassistant:
 ```
 </p>
 
-### {% linkable_title Video support %}
+### Video support
 
 ```yaml
 ...
@@ -278,7 +278,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Document support %}
+### Document support
 
 ```yaml
 ...
@@ -337,7 +337,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Location support %}
+### Location support
 
 ```yaml
 ...
