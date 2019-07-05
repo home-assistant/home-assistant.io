@@ -106,6 +106,30 @@ automation:
 ```
 {% endraw %}
 
+You can also use templates in the `for` option.
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id:
+      - sensor.temperature_1
+      - sensor.temperature_2
+    above: 80
+    for:
+      minutes: "{{ states('input_number.high_temp_min')|int }}"
+      seconds: "{{ states('input_number.high_temp_sec')|int }}"
+  action:
+    service: persistent_notification.create
+    data_template:
+      message: >
+        {{ trigger.to_state.name }} too high for {{ trigger.for }}!
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when an entity changes as specified.
+
 ### State trigger
 
 Triggers when the state of a given entity changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.

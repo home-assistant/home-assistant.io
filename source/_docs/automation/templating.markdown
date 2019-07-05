@@ -118,6 +118,7 @@ The following tables show the available trigger data per platform.
 | `trigger.above` | The above threshold, if any.
 | `trigger.from_state` | The previous [state object] of the entity.
 | `trigger.to_state` | The new [state object] that triggered trigger.
+| `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
 ### state
 
