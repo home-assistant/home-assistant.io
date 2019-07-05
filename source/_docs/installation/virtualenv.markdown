@@ -14,11 +14,14 @@ If you already have Python 3.6 or later installed (we suggest 3.7 or later), you
 
 It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.6/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
-_(If you're on a Debian based system, you will need to install Python virtual environment support using `apt-get install python3-pip python3-venv`. You may also need to install development libraries using `apt-get install build-essential libssl-dev libffi-dev python3-dev`.)_
-
-<p class='Note'>
-It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) which allows for the installation to run as a `homeassistant` user. The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
+<p class='note'>
+This is a generic guide for running Home Assistant under Python. We recommend to use [our recommended installation guides](/docs/installation/#recommended). The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
 </p>
+
+{% comment %}
+This page describes installation instructions for a pure Python installation.
+It should not contain any OS specific instructions.
+{% endcomment %}
 
 ### Install
 
@@ -34,20 +37,15 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
     ```
     $ source bin/activate
     ```
- 4. Install wheel:
-    ```
-    $ python3 -m pip install wheel
-    ```
- 5. Install Home Assistant:
+ 4. Install Home Assistant:
     ```
     $ python3 -m pip install homeassistant
     ```    
- 6. Configure it to [autostart](/docs/autostart/)
- 7. Or run Home Assistant manually:
+ 5. Run Home Assistant:
     ```
     $ hass --open-ui
     ```
- 8. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take up to 20 minutes before the web interface is available
+ 6. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take a couple of minutes before the web interface is available. This can take longer if you're using lower-end hardware like a Raspberry Pi Zero.
  
 ### Upgrade
 
@@ -60,7 +58,7 @@ It is recommended to use the [advanced guide](/docs/installation/raspberry-pi/) 
     $ python3 -m pip install --upgrade homeassistant
     ```
  3. Start Home Assistant
- 4. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take up to 20 minutes before the web interface is available
+ 4. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take some time before the web interface is available, depending on how many integrations need to be upgraded.
 
 ### Run a specific version
 
@@ -74,7 +72,7 @@ $ pip3 install homeassistant==0.XX.X
 
 #### Run the beta version
 
-If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
+If you would like to test next release before anyone else, you can install the beta version, for example:
 
 ```bash
 $ cd homeassistant
@@ -102,6 +100,7 @@ $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@
 
 - In the future, if you want to start Home Assistant manually again, follow step 2, 3 and 5.
 - It's recommended to run Home Assistant as a dedicated user.
+- If you want Home Assistant to automatically start at boot, check the [autostart docs](/docs/autostart/)
 
 <p class='info'>
 Looking for more advanced guides? Check our [Raspbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
@@ -114,4 +113,5 @@ If you've upgraded Python (for example, you were running 3.7.1 and now you've in
 ```bash
 $ mv homeassistant homeassistant.old
 ```
-Then follow the [Install](/docs/installation/virtualenv/#install) steps again, being sure to use the newly installed version of Python.
+
+Then follow the [Install](#install) steps again, being sure to use the newly installed version of Python.
