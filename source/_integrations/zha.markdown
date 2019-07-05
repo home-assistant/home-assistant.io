@@ -56,7 +56,19 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [PiZiGate](https://zigate.fr/produit/pizigate-v1-0/)
   - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/) (work in progress)
 
-## Configuration
+## Configuration - GUI
+Visit `http://homeassistant-ip:8123/config/integrations/dashboard` which will put you on the `configuration` -> `integrations` page.
+
+Use the plus button in the bottom right to add a new integration called `ZHA`.
+
+In the popup:
+  - USB Device Path - on a rpi will be something like `/dev/ttyUSB0`
+  - Radio type - select device type
+  - Submit
+
+The success dialog will appear or an error will be displayed in the popup. An error is likely if homeassistant can't access the usb device (see troubleshooting) or your device is not upto date.
+
+## Configuration - Manual
 
 To configure the component, select ZHA on the Integrations page and provide the path to your Zigbee USB stick.
 
@@ -102,6 +114,16 @@ enable_quirks:
 
 To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
+## Adding devices
+
+Go to the `Configuration` page and select the `ZHA` element that was added by the configuration steps above
+
+Click `ADD DEVICES` to start a scan for devices.
+
+Reset your zigbee devices according to your manufacturer instructions (lights turn on and off upto 10 times, switches using the reset pin)
+
+Devices will now become visible and can be added to `Areas`
+
 ## Troubleshooting
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
@@ -129,4 +151,29 @@ To remove modemmanager from an Debian/Ubuntu host run this command:
 
 ```bash
 sudo apt-get purge modemmanager
+```
+
+### Can't connect to usb device and using docker
+If you can't connect as you are using docker you must forward your device from the host machine to the docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using docker compose:
+#### Docker Compose
+Install docker-compose for your platform (rpi - `sudo apt-get install docker-compose`).
+
+Create a docker-compose.yml with the following data:
+```yaml
+version: '2'
+services:
+  homeassistant:
+    # customisable name
+    container_name: home-assistant
+    
+    # must be image for your platform, this is the rpi3 variant
+    image: homeassistant/raspberrypi3-homeassistant
+    volumes:
+      - <DIRECTORY HOLDING HOME ASSISTANT CONFIG FILES>:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      # your usb device forwarding to the docker image
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    restart: always
+    network_mode: host
 ```
