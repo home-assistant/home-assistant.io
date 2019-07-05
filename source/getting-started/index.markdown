@@ -31,15 +31,15 @@ So here are guidelines:
 
 {% endcomment %}
 
-The goal of this getting started guide is to get Home Assistant running on a Raspberry Pi. The easiest way to do this is by using [Hass.io](/hassio/), which is our own all in one solution that turns Raspberry Pi's and another devices into the ultimate home automation hubs.
+The goal of this getting started guide is to get Home Assistant running on a Raspberry Pi. The easiest way to do this is by using [Hass.io](/hassio/), which is our own all in one solution that turns Raspberry Pi's and other devices into the ultimate home automation hubs.
 
-Follow this guide if you want to get started with Home Assistant easily, or if you have no or little Linux experience. For advanced users or if you don't have a [device that is supported by this guide][supported], check our [alternative installation methods](/docs/installation/). Once you finish your alternative installation, you can continue at the [next step][next-step].
+Follow this guide if you want to get started with Home Assistant easily, or if you have little or no Linux experience. For advanced users or if you don't have a [device that is supported by this guide][supported], check our [alternative installation methods](/docs/installation/). Once you finish your alternative installation, you can continue at the [next step][next-step].
 
 [supported]: /hassio/installation/
 
 ### Suggested hardware
 
-We will need a few things to get started with installing Home Assistant. The latest Raspberry Pi model makes a good and affordable starting point for your home automation journey. Links below are linking to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
+We will need a few things to get started with installing Home Assistant. The latest Raspberry Pi model makes a good and affordable starting point for your home automation journey. Links below lead to Amazon US. If you're not in the US, you should be able to find these items in web stores in your country.
 
 - [Raspberry Pi 3 Model B+](https://amzn.to/2IAyNl0) + [Power Supply](https://www.raspberrypi.org/help/faqs/#powerReqs) (at least 2.5A)
 - [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. Size 32 GB or bigger recommended.
