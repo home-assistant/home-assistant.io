@@ -15,7 +15,7 @@ If you already have Python 3.6 or later installed (we suggest 3.7 or later), you
 It's recommended when installing Python packages that you use a [virtual environment](https://docs.python.org/3.6/library/venv.html#module-venv). This will make sure that your Python installation and Home Assistant installation won't impact one another. The following steps will work on most UNIX like systems.
 
 <p class='note'>
-This is a generic guide for running Home Assistant under Python. We recommend to use [our recommended installation guides](/docs/installation/#recommended) or use one of the community contributed guides for [your device or operationg system](/docs/installation/#community-provided-guides). The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
+This is a generic guide for running Home Assistant under Python. We recommend to use [our recommended installation guides](/docs/installation/#recommended). Alternatively you can use one of the community contributed guides for [your device or operationg system](/docs/installation/#community-provided-guides). The steps below may be shorter but some users find difficulty when applying updates and may run into issues.
 </p>
 
 ### Install
@@ -40,7 +40,7 @@ This is a generic guide for running Home Assistant under Python. We recommend to
     ```
     $ hass --open-ui
     ```
- 6. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take a couple of minutes before the web interface is available
+ 6. You can now reach the web interface on `http://ipaddress:8123/` - the first start may take a couple of minutes before the web interface is available. This can take longer if you're using lower-end hardware like a Raspberry Pi Zero.
  
 ### Upgrade
 
