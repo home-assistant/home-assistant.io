@@ -45,6 +45,12 @@ name:
 
 Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
 
+Media can be included with messages by setting the optional `media_url` variable.
+[Per the Twilio documentation, only `.gif`, `.png`, or `.jpeg` content is supported,
+and this feature is only suported in the US and Canada.][mms]
+
+[mms]: https://www.twilio.com/docs/sms/send-messages#include-media-in-your-messages
+
 ```yaml
 # Example automation notification entry
 automation:
@@ -59,4 +65,6 @@ automation:
         target:
           - '+14151234567'
           - '+15105555555'
+        data:
+          - media_url: 'https://www.home-assistant.io/images/supported_brands/home-assistant.png'
 ```
