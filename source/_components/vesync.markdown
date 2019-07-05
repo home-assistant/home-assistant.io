@@ -14,7 +14,6 @@ ha_category:
 ha_release: 0.66
 redirect_from:
  - /components/switch.vesync/
- - /components/fan.vesync/
 ---
 
 The `vesync` integration enables you to control the Levoit air purifier and Etekcity smart switches and outlets connected to the VeSync App.
