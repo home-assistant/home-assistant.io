@@ -19,7 +19,7 @@ This is a generic guide for running Home Assistant under Python. We recommend to
 </p>
 
 {% comment %}
-This page desribes installation instructions for a pure Python installation.
+This page describes installation instructions for a pure Python installation.
 It should not contain any OS specific instructions.
 {% endcomment %}
 
@@ -72,7 +72,7 @@ $ pip3 install homeassistant==0.XX.X
 
 #### Run the beta version
 
-If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
+If you would like to test next release before anyone else, you can install the beta version, for example:
 
 ```bash
 $ cd homeassistant
@@ -113,4 +113,5 @@ If you've upgraded Python (for example, you were running 3.7.1 and now you've in
 ```bash
 $ mv homeassistant homeassistant.old
 ```
+
 Then follow the [Install](#install) steps again, being sure to use the newly installed version of Python.
