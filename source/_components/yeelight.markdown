@@ -138,7 +138,7 @@ This integration is tested to work with the following models. If you have a diff
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - WIFI Version!        |
-| `bslamp1`  | MJCTD02YL    | Xiaomi Mijia Bedside Lamp II  (enable LAN control protocol via Yeelight app)                   |
+| `bslamp1`  | MJCTD02YL    | Xiaomi Mijia Bedside Lamp II                     |
 | `RGBW`     | MJDP02YL     | Mi Led smart Lamp - white and color WIFI Version |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
