@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - Switch
 - Cover
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The gateway needs to be configured by adding the following lines to your `configuration.yaml` file:
 

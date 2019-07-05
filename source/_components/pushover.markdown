@@ -17,7 +17,7 @@ redirect_from:
 
 The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In order to get an API key you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 

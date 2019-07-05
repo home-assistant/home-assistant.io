@@ -60,7 +60,7 @@ frontend:
 {% endconfiguration %}
 
 
-## {% linkable_title Defining Themes %}
+## Defining Themes
 
 Starting with version 0.49 you can define themes:
 
@@ -78,7 +78,7 @@ The example above defined two themes named `happy` and `sad`. For each theme you
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
-### {% linkable_title Theme automation %}
+### Theme automation
 
 There are 2 themes-related services:
 
@@ -117,7 +117,7 @@ automation:
           name: darkred
 ```
 
-### {% linkable_title Manual Theme Selection %}
+### Manual Theme Selection
 
 When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile menu (accessed by clicking your user account initials at the top of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 
@@ -126,7 +126,7 @@ When themes are enabled in the `configuration.yaml` file, a new option will show
   Set a theme
 </p>
 
-## {% linkable_title Loading extra HTML %}
+## Loading extra HTML
 
 Starting with version 0.53 you can specify extra HTML files to load, and starting with version 0.95 extra JS modules.
 
@@ -144,7 +144,7 @@ frontend:
 
 HTML will be loaded via `<link rel='import' href='{{ extra_url }}' async>` on any page (states and panels), and modules via `<script type='module' scr='{{ extra_module }}'></script>`.
 
-### {% linkable_title Manual Language Selection %}
+### Manual Language Selection
 
 The browser language is automatically detected. To use a different language, go to the user profile menu (accessed by clicking your user account initials at the top of the sidebar) and select one. It will be applied immediately.
 

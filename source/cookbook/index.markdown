@@ -29,7 +29,7 @@ A great place to find popular configurations is on this [GitHub search](https://
 {% assign categories = cookbook | map: 'ha_category' | uniq | sort %}
 
 {% for category in categories %}
-### {% linkable_title {{ category }} %}
+### {{ category }}
 
   {% if category == 'Automation Examples' %}
 

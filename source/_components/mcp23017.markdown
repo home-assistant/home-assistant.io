@@ -20,13 +20,13 @@ The `mcp23017` integration is the base for all related mcp23017 platforms in Hom
 
 For more details about the MCP23017 I2C I/O port expander you can find its datasheet here: [MCP23017](https://www.microchip.com/wwwproducts/en/MCP23017).
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `mcp23017` binary sensor platform allows you to read sensor values from the I/O pins of your [MCP23017 I2C I/O expander](https://www.adafruit.com/product/732).
 
 The pin numbers are from 0 to 15 where: 0-7 correspond to port A (A1-A8) and 8-15 to port B (B1-B8).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use the I/O pins of an mcp23017 connected to an I2C bus of your Raspberry Pi as binary sensors, add the following to your `configuration.yaml` file:
 
@@ -78,13 +78,13 @@ pull_mode:
   MCP23017 only has internal pull-up resistors, if you want to use pull-down you will have to wire your own pull-down resistors.
 </p>
 
-## {% linkable_title Switch %}
+## Switch
 
 The `mcp23017` switch platform allows you to write to the I/O pins of your [MCP23017 I2C I/O expander](https://www.adafruit.com/product/732).
 
 The pin numbers are from 0 to 15 where: 0-7 correspond to port A (A1-A8) and 8-15 to port B (B1-B8).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use the I/O pins of an mcp23017 connected to an I2C bus of your Raspberry Pi as switches, add the following to your `configuration.yaml` file:
 

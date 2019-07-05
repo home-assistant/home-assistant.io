@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 You must have the <a href="#configuration">OctoPrint component</a> configured (below) to use the sensor and binary sensor. After configuring that component, the sensors and binary sensors automatically appear.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To get started with the OctoPrint API, please follow the directions on their [site](http://docs.octoprint.org/en/master/api/general.html). Once OctoPrint is configured you will need to add your API key and host to your `configuration.yaml`.
 
@@ -151,7 +151,7 @@ camera:
     mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `octoprint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.
 
@@ -182,6 +182,6 @@ name:
   default: OctoPrint
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.

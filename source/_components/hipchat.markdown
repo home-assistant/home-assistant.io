@@ -73,7 +73,7 @@ host:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title HipChat service data %}
+### HipChat service data
 
 The following attributes can be placed `data` for extended functionality.
 

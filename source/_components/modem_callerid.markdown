@@ -19,7 +19,7 @@ The `modem_callerid` sensor platform uses an available modem for collecting call
 
 When the sensor detects a new call, its state changes to 'ring' for each ring and 'callerid' when caller id information is received. It returns to 'idle' once ringing stops. The state event includes an attribute payload that includes the time of the call, name and number.
 
-## {% linkable_title Setup %}
+## Setup
 
 To find the path of your USB modem, run:
 
@@ -35,7 +35,7 @@ sudo usermod -a -G dialout homeassistant
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml`:
 
@@ -68,7 +68,7 @@ If Home Assistant (`hass`) runs with another user (e.g., `homeassistant` on Hass
 
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/modem`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
 
-## {% linkable_title Examples %}
+## Examples
 
 Some example automations:
 
@@ -83,7 +83,7 @@ automation:
     action:
       service: notify.notify
       data:
-        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }} at {{ states.sensor.modem_callerid.attributes.cid_number }} '
+        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }} at {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
   - alias: Notify CallerID webui
     trigger:
       platform: state
@@ -93,7 +93,7 @@ automation:
       service: persistent_notification.create
       data:
         title: "Call from"
-        message: '{{ states.sensor.modem_callerid.attributes.cid_time.strftime("%I:%M %p") }} {{ states.sensor.modem_callerid.attributes.cid_name }}  {{ states.sensor.modem_callerid.attributes.cid_number }} '
+        message: '{{ state_attr('sensor.modem_callerid', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.modem_callerid', 'cid_name') }}  {{ state_attr('sensor.modem_callerid', 'cid_number') }} '
   - alias: Say CallerID
     trigger:
       platform: state
@@ -102,6 +102,6 @@ automation:
     action:
       service: tts.google_say
       data_template:
-        message: 'Call from {{ states.sensor.modem_callerid.attributes.cid_name }}'
+        message: 'Call from {{ state_attr('sensor.modem_callerid', 'cid_name') }}'
 ```
 {% endraw %}

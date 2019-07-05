@@ -19,7 +19,7 @@ The integration will run every hour, but can also be started manually by using t
 
 Please note that this platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
 
-## {% linkable_title Setup %}
+## Setup
 
 You will need to configure your AWS Account with a suitable IAM policy and API keys for this to function.
 
@@ -63,7 +63,7 @@ Here is an IAM Policy sample, don't forget to update your Zone ID on the Resourc
 
 5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the integration definition YAML.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 

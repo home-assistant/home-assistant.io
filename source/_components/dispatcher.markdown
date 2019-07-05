@@ -22,7 +22,7 @@ This platform is meant for developers only.
 
 The `dispatcher` camera platform allows developers to create virtual camera's.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You would normally not add this camera to your configuration directly but have it be discovered by one of the integrations that uses it.
 

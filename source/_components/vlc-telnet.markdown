@@ -52,7 +52,7 @@ Only the "music" media type is supported for now.
 This service will control any instance of VLC player on the network with the telnet interface activated. 
 To activate the telnet interface on your VLC Player please read the [official VLC documentation](https://wiki.videolan.org/Documentation:Modules/telnet/). Also remember to add a firewall rule allowing inbound connections for the port used in the device running VLC.
 
-## {% linkable_title Full configuration %}
+## Full configuration
 
 A full configuration for VLC could look like the one below:
 
@@ -66,6 +66,6 @@ media_player:
     password: your-secure-password
 ```
 
-##### {% linkable_title Additional configuration for Rasperry Pi %}
+##### Additional configuration for Rasperry Pi
 
 You can run a VLC Media Player inside your Hassio installation using the [hassio-local-vlc add-on](https://github.com/rodripf/hassio-local-vlc). Using it you can play files on the local network, Internet or files and playlist locally saved to the /share folder of your Hassio installation.

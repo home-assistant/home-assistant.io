@@ -17,7 +17,7 @@ redirect_from:
 
 This `temper` sensor platform allows you to get the current temperature from a TEMPer device.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your TEMPer sensor in your installation, add the following to your `configuration.yaml` file:
 

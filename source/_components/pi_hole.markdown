@@ -18,7 +18,7 @@ redirect_from:
 
 The `pi_hole` sensor platform displays the statistical summary of a [Pi-hole](https://pi-hole.net/) system.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -75,7 +75,7 @@ monitored_conditions:
       description: Total number of seen clients.
 {% endconfiguration %}
 
-### {% linkable_title Full example %}
+### Full example
 
 ```yaml
 # Example configuration.yaml entry

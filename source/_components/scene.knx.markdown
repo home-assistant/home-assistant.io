@@ -17,7 +17,7 @@ The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes
 
 The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX scence in your installation, add the following to your `configuration.yaml` file:
 

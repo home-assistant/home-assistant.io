@@ -22,7 +22,7 @@ The current functionality allows setting the temperature as well as controlling 
 As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)),
 we report target temperature also as current one.
 
-### {% linkable_title Testing the connectivity %}
+### Testing the connectivity
 
 Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can be done with the eq3cli tool:
 
@@ -39,7 +39,7 @@ Current mode: auto dst
 Valve: 0
 ```
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry

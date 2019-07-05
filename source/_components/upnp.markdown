@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 Please note that UPnP or NAT-PMP needs to be enabled on your router for this integration to work.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -65,7 +65,7 @@ ports:
   default: Open same port on external router as that HASS runs locally and forwards it.
 {% endconfiguration %}
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
 If Home Assistant is not able to discover UPnP sensors, it may be because the local IP address was not auto-detected correctly. To prevent this, you may add the `local_ip` option to your UPnP configuration:
 

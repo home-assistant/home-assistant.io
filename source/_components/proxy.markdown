@@ -20,7 +20,7 @@ The current post-processing supports resizing and/or cropping the image/MJPEG as
 
 The current proxy capabilities are intended to reduce the camera bandwidth for slower internet connections.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant.  Next, add the following to your `configuration.yaml` file:
 
@@ -97,7 +97,7 @@ cache_images:
   type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Example of using two Camera proxies along with a Foscam camera:
 

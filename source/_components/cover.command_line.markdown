@@ -70,11 +70,11 @@ covers:
           type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry

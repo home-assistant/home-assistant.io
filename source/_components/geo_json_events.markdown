@@ -23,7 +23,7 @@ Entities are generated, updated and removed automatically with each update from 
 
 The data is updated every 5 minutes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate a GeoJSON feed, add the following lines to your `configuration.yaml`. This is an example configuration showing [earthquake data provided by the U.S. Geological Survey](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
 
@@ -56,7 +56,7 @@ longitude:
   default: Longitude defined in your `configuration.yaml`
 {% endconfiguration %}
 
-## {% linkable_title State Attributes %}
+## State Attributes
 
 The following state attributes are available for each entity in addition to the standard ones:
 
@@ -67,7 +67,7 @@ The following state attributes are available for each entity in addition to the 
 | source      | `geo_json_events` to be used in conjunction with `geo_location` automation trigger. |
 | external_id | The external ID used in the feed to identify the event in the feed. |
 
-## {% linkable_title Advanced Configuration Example %}
+## Advanced Configuration Example
 
 When integrating several GeoJSON feeds, it may be useful to distinguish the entities of different feeds. The easiest way to do that is by defining an [`entity_namespace`](/docs/configuration/platform_options/#entity-namespace/) for each platform which will prefix each entity ID with the defined value.
 

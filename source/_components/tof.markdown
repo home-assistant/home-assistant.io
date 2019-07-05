@@ -23,7 +23,7 @@ Tested devices:
 - [VL53L1X](https://www.st.com/en/imaging-and-photonics-solutions/vl53l1x.html)
 - [Schematic](https://cdn.sparkfun.com/assets/3/5/c/e/2/Qwiic_Distance_Sensor_-_VL53L1X.pdf)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the VL53L1X sensor in your installation, add to your `configuration.yaml`:
 
@@ -56,7 +56,7 @@ xshut:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 The distance is measured in millimeters, according to the VL53L1X specifications.
 
@@ -70,7 +70,7 @@ sensor:
 ```
 Several devices may be attached and a GPIO port from RPI is used for reset. XSHUT signal is generated pulsing LOW at initialization and after that, it is kept HIGH all time. This version uses VL53L1X long-range mode that may reach up to 4 meters.
 
-## {% linkable_title Directions for installing i2c on Raspberry Pi %}
+## Directions for installing i2c on Raspberry Pi
 
 Enable the I2c interface with the Raspberry Pi configuration utility:
 
@@ -94,7 +94,7 @@ $ sudo addgroup homeassistant i2c
 $ sudo reboot
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+### Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 

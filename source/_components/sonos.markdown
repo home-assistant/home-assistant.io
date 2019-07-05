@@ -20,11 +20,11 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 If you don't have the discovery integration enabled, you can configure the Sonos integration by going to the integrations page inside the config panel.
 
-## {% linkable_title Services %}
+## Services
 
 Sonos makes various services available to allow configuring groups. They are currently registered under the media player component.
 
-### {% linkable_title Service `sonos.snapshot` %}
+### Service `sonos.snapshot`
 
 Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no `entity_id` is provided, all speakers are snapshotted.
 
@@ -38,7 +38,7 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
 
 
-### {% linkable_title Service `sonos.restore` %}
+### Service `sonos.restore`
 
 Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
 
@@ -55,7 +55,7 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
 
-### {% linkable_title Service `sonos.join` %}
+### Service `sonos.join`
 
 Group players together under a single coordinator. This will make a new group or join to an existing group.
 
@@ -64,7 +64,7 @@ Group players together under a single coordinator. This will make a new group or
 | `master` | no | A single `entity_id` that will become/stay the coordinator speaker.
 | `entity_id` | yes | String or list of `entity_id`s to join to the master.
 
-### {% linkable_title Service `sonos.unjoin` %}
+### Service `sonos.unjoin`
 
 Remove one or more speakers from their group of speakers. If no `entity_id` is provided, all speakers are unjoined.
 
@@ -72,7 +72,7 @@ Remove one or more speakers from their group of speakers. If no `entity_id` is p
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s to separate from their coordinator speaker.
 
-### {% linkable_title Service `sonos.set_sleep_timer` %}
+### Service `sonos.set_sleep_timer`
 
 Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
 
@@ -81,7 +81,7 @@ Sets a timer that will turn off a speaker by tapering the volume down to 0 after
 | `entity_id` | no | String or list of `entity_id`s that will have their timers set.
 | `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
 
-### {% linkable_title Service `sonos.clear_sleep_timer` %}
+### Service `sonos.clear_sleep_timer`
 
 Clear the sleep timer on a speaker, if one is set.
 
@@ -89,7 +89,7 @@ Clear the sleep timer on a speaker, if one is set.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 
-### {% linkable_title Service `sonos.update_alarm` %}
+### Service `sonos.update_alarm`
 
 Update an existing Sonos alarm.
 
@@ -102,7 +102,7 @@ Update an existing Sonos alarm.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
-### {% linkable_title Service `sonos.set_option` %}
+### Service `sonos.set_option`
 
 Set Sonos speaker options.
 
@@ -114,7 +114,7 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
 
-## {% linkable_title Advanced use %}
+## Advanced use
 
 For advanced uses, there are some manual configuration options available.
 

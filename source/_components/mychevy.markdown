@@ -24,7 +24,7 @@ This integration provides the following platforms:
 - Binary sensors: if the car is plugged in
 - Sensors: Battery Level, Charge Mode, EST Range, Total Distance Traveled
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use MyChevy in your installation, add the following to your `configuration.yaml` file:
 
@@ -51,7 +51,7 @@ country:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Limitations %}
+### Limitations
 
 The architecture of the GM automotive networking imposes some limitations on the functionality of the component.
 

@@ -123,7 +123,7 @@ recorder:
 
 If you only want to hide events from your history, take a look at the [`history` component](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` component. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
-### {% linkable_title Service `purge` %}
+### Service `purge`
 
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 
@@ -132,7 +132,7 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | `keep_days`            |      yes | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)
 | `repack`               |      yes | Rewrite the entire database, possibly saving some disk space. Only supported for SQLite and requires at least as much disk space free as the database currently uses.
 
-## {% linkable_title Custom database engines %}
+## Custom database engines
 
 | Database engine | `db_url`                                                 |
 | :---------------|:---------------------------------------------------------|
@@ -160,7 +160,7 @@ If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.co
 If you are using the default `FULL` recovery model for MS SQL Server you will need to manually backup your log file to prevent your transaction log from growing too large. It is recommended you change the recovery model to `SIMPLE` unless you are worried about data loss between backups.
 </p>
 
-### {% linkable_title Database startup %}
+### Database startup
 
 If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) then you should edit the service file.
 
@@ -182,11 +182,11 @@ Save the file then reload `systemctl`:
 $ sudo systemctl daemon-reload
 ```
 
-## {% linkable_title Installation notes %}
+## Installation notes
 
 Not all Python bindings for the chosen database engine can be installed directly. This section contains additional details that should help you to get it working.
 
-### {% linkable_title MariaDB and MySQL %}
+### MariaDB and MySQL
 
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
 
@@ -216,7 +216,7 @@ After installing the dependencies, it is required to create the database manuall
 
 Once Home Assistant finds the database, with the right level of permissions, all the required tables will then be automatically created and the data will be populated accordingly.
 
-### {% linkable_title PostgreSQL %}
+### PostgreSQL
 
 For PostgreSQL you may have to install a few dependencies:
 
@@ -241,7 +241,7 @@ $ sudo -i -u postgres psql -c "SELECT pg_reload_conf();"
 ```
 A service restart will work as well.
 
-### {% linkable_title MS SQL Server %}
+### MS SQL Server
 
 For MS SQL Server you may have to install a few dependencies:
 

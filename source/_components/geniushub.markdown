@@ -21,7 +21,7 @@ The `geniushub` integration links Home Assistant with your Genius Hub for contro
 
 It uses the [geniushub-client](https://pypi.org/project/geniushub-client/) library.
 
-### {% linkable_title Zones %}
+### Zones
 
 Each Zone controlled by your Genius hub will be exposed as either a:
 
@@ -34,7 +34,7 @@ Each such entity will report back its mode, state, setpoint and current temperat
 
 In addition, the entity's mode and setpoint can be changed. The entity's `operating_mode` can be set to one of `off`, `timer`, `on` (i.e. **Override** mode) or `eco`. The `eco` mode is a proxy for the **Footprint** mode and so is only available to **Radiator** Zones that have room sensors.
 
-### {% linkable_title Devices %}
+### Devices
 
 If the Hub is directly polled using the v3 API (see below), then each Device controlled by your Genius hub will be exposed as either a:
 
@@ -43,7 +43,7 @@ If the Hub is directly polled using the v3 API (see below), then each Device con
 
 Each such entity will report back its primary state; in addition, `assigned_zone` and `last_comms` (last communications time) are available via the entity's attributes.
 
-### {% linkable_title Issues %}
+### Issues
 
 There are three `Sensor` entities that will indicate the number of **Errors**, **Warnings** and **Information** issues.
 
@@ -66,7 +66,7 @@ Each such entity has a state attribute that will contain a list of any such issu
 ```
 {% endraw %}
 
-### {% linkable_title State Attributes %}
+### State Attributes
 
 Other properties are available via each entity's state attributes. For example, in the case of **Radiator** Zones/`Climate` devices:
 
@@ -100,11 +100,11 @@ value_template: "{{ state_attr('climate.main_room', 'status').occupied }}"
 ```
 {% endraw %}
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
 
-### {% linkable_title Option 1: hub token only %}
+### Option 1: hub token only
 
  - requires a **hub token** obtained from [my.geniushub.co.uk/tokens](https://my.geniushub.co.uk/tokens)
  - uses the v1 API - which is well-documented
@@ -116,7 +116,7 @@ geniushub:
   token: GENIUS_HUB_TOKEN
 ```
 
-### {% linkable_title Option 2: hub hostname/address with user credentials %}
+### Option 2: hub hostname/address with user credentials
 
  - requires your **username** & **password**, as used with [www.geniushub.co.uk/app](https://www.geniushub.co.uk/app)
  - uses the v3 API - unofficial, but there are additional features (e.g., battery levels)

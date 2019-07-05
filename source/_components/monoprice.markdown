@@ -60,7 +60,7 @@ sources:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Service `snapshot` %}
+### Service `snapshot`
 
 Take a snapshot of one or more zones' states. This service, and the following one are useful if you want to play a doorbell or notification sound and resume playback afterward. If no `entity_id` is provided, all zones are snapshotted.
 
@@ -74,7 +74,7 @@ The following attributes are stored in a snapshot:
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of zones.
 
-### {% linkable_title Service `restore` %}
+### Service `restore`
 
 Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all zones are restored.
 

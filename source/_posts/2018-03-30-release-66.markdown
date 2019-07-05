@@ -36,18 +36,18 @@ A quick note if you are using Philips Hue and a Hue custom component: it will no
 - Add trafikverket_weatherstation sensor platform ([@Qxlkdr] - [#12115]) ([sensor.trafikverket_weatherstation docs]) (new-platform)
 - Security fix & lock for HomeMatic ([@PH89] - [#11980]) ([homematic docs]) ([lock docs]) ([lock.homematic docs]) (breaking change) (new-platform)
 
-## {% linkable_title Release 0.66.1 - April 1 %}
+## Release 0.66.1 - April 1
 
 - Update frontend to fix climate and chart issues ([@NovapaX] & [@c727])
 - Fix mqtt_json color commands ([@armills] - [#13617]) ([light.mqtt_json docs])
 - Add pincode fallback ([@cdce8p] - [#13587]) ([homekit docs])
 - Fix mysensors sensor type lookup ([@MartinHjelmare] - [#13574]) ([sensor.mysensors docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 

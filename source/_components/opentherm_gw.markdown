@@ -35,7 +35,7 @@ This integration will add a single `climate` entity and multiple `sensor` and `b
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
 </p>
 
-# {% linkable_title Configuration %}
+# Configuration
 
 In this example, one gateway is configured with `gateway_id` `living_room`.
 ```yaml
@@ -73,13 +73,13 @@ climate:
       default: false
 {% endconfiguration %}
 
-## {% linkable_title Supported Variables %}
+## Supported Variables
 
 The list above contains all supported variables. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` integration and look for the status updates.
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `opentherm_gw.reset_gateway` %}
+### Service `opentherm_gw.reset_gateway`
 
 Reset the OpenTherm Gateway.
 
@@ -87,7 +87,7 @@ Reset the OpenTherm Gateway.
 | ---------------------- | -------- | ----------- |
 | `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
 
-### {% linkable_title Service `opentherm_gw.set_clock` %}
+### Service `opentherm_gw.set_clock`
 
 Provide the time and day of week to the OpenTherm Gateway. The value provided here will be forwarded to the thermostat on the next date/time request from the thermostat. The OpenTherm Gateway does not have the ability to accurately keep track of time, so it will only retain the information provided here for a maximum of about 61 seconds.
 
@@ -97,7 +97,7 @@ Provide the time and day of week to the OpenTherm Gateway. The value provided he
 | `date` | yes | Today's date | Date from which the day of week will be extracted. Format: `YYYY-MM-DD`.
 | `time` | yes | Current time | Time in 24h format.
 
-### {% linkable_title Service `opentherm_gw.set_control_setpoint` %}
+### Service `opentherm_gw.set_control_setpoint`
 
 <p class='note warning'>
 Improper use of this service may continuously keep your central heating system active, resulting in an overheated house and a significant increase in gas and/or electricity consumption.
@@ -116,7 +116,7 @@ In a normal situation, the thermostat will calculate and control the central hea
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
 </p>
 
-### {% linkable_title Service `opentherm_gw.set_gpio_mode` %}
+### Service `opentherm_gw.set_gpio_mode`
 
 Configure the GPIO behavior on the OpenTherm Gateway.
 For an explanation of the possible modes, see [GPIO modes](#gpio-modes)
@@ -127,7 +127,7 @@ For an explanation of the possible modes, see [GPIO modes](#gpio-modes)
 | `id` | no | The GPIO ID, `A` or `B`.
 | `mode` | no | The GPIO mode to be set.
 
-### {% linkable_title Service `opentherm_gw.set_led_mode` %}
+### Service `opentherm_gw.set_led_mode`
 
 Configure the function of the LEDs on the OpenTherm Gateway.
 For a list of possible modes with explanation, see [LED modes](#led-modes)
@@ -138,7 +138,7 @@ For a list of possible modes with explanation, see [LED modes](#led-modes)
 | `id` | no | The LED ID, accepted values are `A` through `F`.
 | `mode` | no | The LED mode to be set.
 
-### {% linkable_title Service `opentherm_gw.set_max_modulation` %}
+### Service `opentherm_gw.set_max_modulation`
 
 <p class='note warning'>
 Improper use of this service may impair the performance of your central heating system.
@@ -157,7 +157,7 @@ In a normal situation, the thermostat will control the maximum modulation level 
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
 </p>
 
-### {% linkable_title Service `opentherm_gw.set_outside_temperature` %}
+### Service `opentherm_gw.set_outside_temperature`
 
 Provide the outside temperature to the thermostat.
 If your thermostat is unable to display an outside temperature and does not support OTC (Outside Temperature Correction), this has no effect. Note that not all thermostats are able to display the full supported range.
@@ -167,7 +167,7 @@ If your thermostat is unable to display an outside temperature and does not supp
 | `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
 | `temperature` | no | The outside temperature to provide to the thermostat. Accepted values are `-40.0` through `64.0`. Any value above `64.0` will clear a previously configured value (suggestion: `99`).
 
-### {% linkable_title Service `opentherm_gw.set_setback_temperature` %}
+### Service `opentherm_gw.set_setback_temperature`
 
 Configure the setback temperature on the OpenTherm Gateway.
 The value you provide here will be used with the GPIO `home` (5) and `away` (6) modes.
@@ -177,7 +177,7 @@ The value you provide here will be used with the GPIO `home` (5) and `away` (6) 
 | `gateway_id` | no | The `gateway_id` as specified in `configuration.yaml`.
 | `temperature` | no  | The setback temperature. Accepted values are `0.0` through `30.0`.
 
-## {% linkable_title Sensors %}
+## Sensors
 
 The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs.
 <p class='note'>
@@ -486,8 +486,7 @@ Not all boilers and thermostats properly support all OpenTherm features, so not 
 - **slave_water_overtemp**  
   Boiler reports water overtemperature.
 
-
-## {% linkable_title GPIO modes %}
+## GPIO modes
 
 Possible modes and their meaning for the GPIO pins are listed here:
 {% comment %}
@@ -503,7 +502,7 @@ Possible modes and their meaning for the GPIO pins are listed here:
 * 7\. Away - Set thermostat to setback temperature when pulled high.
 * 8\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
 
-## {% linkable_title LED modes %}
+## LED modes
 
 Possible LED modes and their meaning are listed here:
 
@@ -521,7 +520,7 @@ Possible LED modes and their meaning are listed here:
 * P. Raised power mode active on thermostat interface.
 
 
-# {% linkable_title Example %}
+# Example
 
 A full configuration example with two configured OpenTherm Gateways - one connected via USB, the other over the network - looks like the one below.
 

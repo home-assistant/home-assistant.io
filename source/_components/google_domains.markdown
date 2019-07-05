@@ -15,7 +15,7 @@ ha_release: 0.57
 
 With the Google Domains integration you can keep your Google Domains record up to date.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 

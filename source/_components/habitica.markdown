@@ -65,7 +65,7 @@ sensors:
   default: all (`name`, `hp`, `maxHealth`, `mp`, `maxMP`, `exp`, `toNextLevel`, `lvl`, `gp`, `class`)
 {% endconfiguration %}
 
-### {% linkable_title API Service Parameters %}
+### API Service Parameters
 
 The API is exposed to Home Assistant as a service called `habitica.api_call`. To call it you should specify this keys in service data:
 

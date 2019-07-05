@@ -76,7 +76,7 @@ Use a DHCP reservation on your router to reserve the address or in the PRO model
 
 To get Lutron Caseta roller, honeycomb shades, lights, scene and switch working with Home Assistant. First follow the instructions for the general Lutron Caseta integration above.
 
-## {% linkable_title Cover %}
+## Cover
 
 After setup, shades will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a shade called 'Living Room Window' will appear in Home Assistant as `cover.living_room_window`.
 
@@ -84,7 +84,7 @@ For more information on working with shades in Home Assistant, see the [Covers c
 
 Available services: `cover.open_cover`, `cover.close_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
 
-## {% linkable_title Light %}
+## Light
 
 After setup, dimmable lights including wall and plug-in dimmers will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light called 'Bedroom Lamp' will appear in Home Assistant as `light.bedroom_lamp`.
 
@@ -94,7 +94,7 @@ For more information on working with lights in Home Assistant, see the [Lights c
 
 Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness` and `brightness_pct`.
 
-## {% linkable_title Scene %}
+## Scene
 
 The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes that are created in the Lutron mobile app.
 
@@ -104,7 +104,7 @@ For more information on working with scenes in Home Assistant, see the [Scenes c
 
 Available services: `scene.turn_on`.
 
-## {% linkable_title Switch %}
+## Switch
 
 After setup, switches will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bathroom Vanity' will appear in Home Assistant as `switch.master_bathroom_vanity`.
 

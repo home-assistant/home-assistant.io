@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the `dweet` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -57,11 +57,11 @@ whitelist:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `dweet` sensor platform allows you to get details from your devices which are publishing their values to [Dweet.io](https://dweet.io/).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use Dweet.io sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -95,7 +95,7 @@ unit_of_measurement:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration sample %}
+### Full configuration sample
 
 A full configuration entry could look like the sample below.
 
@@ -111,7 +111,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Interacting with Dweet.io %}
+### Interacting with Dweet.io
 
 You can easily send dweets from the command-line to test your sensor with `curl`.
 

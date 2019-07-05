@@ -21,7 +21,7 @@ script to provide an HTTP API. Details of the necessary modifications can be fou
 [here](http://www.homeautomationforgeeks.com/openhab_http.shtml#kankun) (be sure to install the JSON version
 of the script as linked above).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
 

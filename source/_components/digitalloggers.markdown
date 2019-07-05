@@ -18,7 +18,7 @@ redirect_from:
 
 The `digitalloggers` switch platform allows you to control the state of your [Digital Loggers](http://www.digital-loggers.com/dinfaqs.html) switches.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your digitalloggers switch in your installation, add the following to your `configuration.yaml` file:
 

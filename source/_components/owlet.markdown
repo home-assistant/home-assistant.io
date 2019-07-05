@@ -22,17 +22,17 @@ Configuring this integration will enable tracking of heart rate, oxygen level, m
 
 This integration enables the following platforms automatically:
 
-#### {% linkable_title Binary Sensors %}
+#### Binary Sensors
 
 - Base Station Status
 - Motion
 
-#### {% linkable_title Sensors %}
+#### Sensors
 
 - Heart rate
 - Oxygen level
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry

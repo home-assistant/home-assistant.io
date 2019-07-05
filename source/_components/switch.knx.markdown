@@ -18,7 +18,7 @@ The `knx` switch integration is used as in interface to switching actuators.
 
 The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX switch in your installation, add the following to your `configuration.yaml` file:
 

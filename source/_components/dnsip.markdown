@@ -23,7 +23,7 @@ The `dnsip` sensor will expose an IP address, fetched via DNS resolution, as its
 
 You may also override the nameserver that is being used by setting the `resolver` parameter to any nameserver you like.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -66,7 +66,7 @@ scan_interval:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Extended example %}
+## Extended example
 
 ```yaml
 # Example configuration.yaml entry

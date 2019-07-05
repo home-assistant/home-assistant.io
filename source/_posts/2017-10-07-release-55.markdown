@@ -15,22 +15,22 @@ og_image: /images/blog/2017-10-0.55/components.png
 
 Beside the improved Wink support which was contributed by [@w1ll1am23], ships this release a wide variety of new components and platforms. The `input_slider` components has received a makeover by [@BioSehnsucht] and is now [`input_number`][input_number docs]. [@tinloaf] added a feature that allows you to enter dates: [`input_datetime`][input_datetime docs]. Both will help you to improve your automation rules.
 
-## {% linkable_title DuckDNS %}
+## DuckDNS
 Using Home Assistant with [DuckDNS](http://www.duckdns.org) for Dynamic DNS (DDNS or DynDNS) is an [old story](/blog/2015/12/13/setup-encryption-using-lets-encrypt/). DuckDNS  is also integrated in [Hass.io](/addons/duckdns/). 0.55 ships a component for non Hass.io users to get a similar feature.
 
-## {% linkable_title Recorder %}
+## Recorder
 The purging of data was [improved][recorder docs]. With `purge_interval` you can schedule regular purges of older events and states. In combination you can specify with `purge_keep_days` the amount of days you want to keep. The new service `recorder.purge` allows you to handle this task when needed.
 
-## {% linkable_title Owntracks %}
+## Owntracks
 [Owntracks](http://owntracks.org/) is an easy way to track your devices. For some times we have the device tracker which depends on [MQTT][device_tracker.owntracks docs] but thanks to a new feature in Owntracks we can now offer support for HTTP. The [new platform][device_tracker.owntracks_http docs] doesn't require a MQTT broker but sends messages directly as HTTP requests to Home Assistant.
 
-## {% linkable_title Tibber %}
+## Tibber
 This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor provides the current electricity price if you are a [Tibber](https://tibber.com/) customer. This will allow you to make automation for turning off the heater when the electricity price is high or only charge your electric car when the prices are low. We further plan to add support for showing future electricity prices and historic electricity consumption data. Tibber is currently only available in Norway and Sweden
 
-## {% linkable_title The Things Network %}
+## The Things Network
 [The Things Network](https://www.thethingsnetwork.org/) (TTN) is a [LoRaWAN](https://www.thethingsnetwork.org/wiki/LoRaWAN/Home) based network especially designed for IoT devices. With this [integration][thethingsnetwork docs] one can observe the state of devices which are out of range of the local WiFi network as long as they are connected to a TTN gateway.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - GeoRSS sensor ([@exxamalte] - [#9331]) ([sensor.geo_rss_events docs]) (new-platform)
 - Add DuckDNS component ([@balloob] - [#9556]) ([duckdns docs]) (new-platform)
@@ -43,7 +43,7 @@ This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor p
 - Updating clicksendaudio component based on feedback ([@jeroenterheerdt] - [#9692]) ([notify.clicksendaudio docs]) (new-platform)
 - Support for The Things Network ([@fabaff] - [#9627]) ([thethingsnetwork docs]) ([sensor.thethingsnetwork docs]) (new-platform)
 
-## {% linkable_title 0.55.1 - October 15 %}
+## 0.55.1 - October 15
 
 - Fix for TypeError in synology camera ([@snjoetw] - [#9754]) ([camera.synology docs])
 - missing is_closed ( rflink cover fix ) ([@passie] - [#9776]) ([cover.rflink docs])
@@ -53,15 +53,15 @@ This release introduces a new sensor: [Tibber][sensor.tibber docs]. The sensor p
 - Bugfix/9811 jinja autoescape ([@GenericStudent] - [#9842])
 - Livebox Play TV bug: fix #9839 ([@pschmitt] - [#9880]) ([media_player.liveboxplaytv docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - history_graph component: If your component used `history.get_significant_states` function then you need to adjust the string `entity_id` parameter has been changed to a list of strings `entity_ids` parameter. ([@andrey-git] - [#9472]) ([history_graph docs]) (breaking change)
 - UPNP component: The `external_port` configuration option was removed. ([@balloob] - [#9560]) ([upnp docs]) (breaking change)
@@ -72,7 +72,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - OpenCV image processing: Typo in classifier was fixed. ([@arsaboo] - [#9697]) ([image_processing.opencv docs]) (breaking change)
 - Tradfri Lights: Async support with resource observation. ([@lwis] - [#7815]) ([tradfri docs]) ([light.tradfri docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - flux led lib 0.20 ([@danielhiversen] - [#9533]) ([light.flux_led docs])
 - Update AbodePy to 0.11.8 ([@MisterWil] - [#9537]) ([abode docs])

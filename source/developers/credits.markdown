@@ -11,7 +11,7 @@ footer: true
 
 This page contains a list of people who have contributed in one way or another to Home Assistant. Hover over a username to see their contributions.
 
-### {% linkable_title Author %}
+### Author
 
 - [Paulus Schoutsen (@balloob)](https://github.com/balloob "9373 total commits to the Home Assistant orga:
 5041 commits to home-assistant
@@ -44,7 +44,7 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to open-zwave
 ")
 
-### {% linkable_title Contributors %}
+### Contributors
 
 (in alphabetical order)
 

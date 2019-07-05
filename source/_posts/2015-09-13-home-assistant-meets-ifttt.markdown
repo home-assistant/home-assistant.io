@@ -28,7 +28,7 @@ Head over to the [setup instructions](/components/ifttt/) to get started with IF
 
 In each of the following examples, make sure to replace the XXX in the URL with your correct host address and API password.
 
-## {% linkable_title Turn off irregation system when not needed %}
+## Turn off irregation system when not needed
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-weather.png' />
@@ -43,7 +43,7 @@ Maker channel setup:
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "switch.irrigation" }
 
-## {% linkable_title Tweet when important events happen %}
+## Tweet when important events happen
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-twitter.png' />
@@ -65,7 +65,7 @@ automation:
     data: {"event":"HA_FIRE_ALARM", "value1":"The fire alarm just triggered!"}
 ```
 
-## {% linkable_title Turn on lights when I get home %}
+## Turn on lights when I get home
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-geo.png' />
@@ -80,7 +80,7 @@ Maker channel setup:
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "light.kitchen" }
 
-## {% linkable_title Flash lights when a new PR comes in for Home Assistant %}
+## Flash lights when a new PR comes in for Home Assistant
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-github.png' />
@@ -95,7 +95,7 @@ Maker channel setup:
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "group.all_lights", "flash":"yes" }
 
-## {% linkable_title Fire events when pressing the DO button %}
+## Fire events when pressing the DO button
 
 <p class='img'>
   <img src='/images/blog/2015-09-ifttt/recipe-do.png' />

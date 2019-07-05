@@ -18,7 +18,7 @@ redirect_from:
 
 The `mvglive` sensor will give you the departure time of the next bus, tram, subway, or train at the next station or stop in the Munich public transport network. Additional details such as the line number and destination are present in the attributes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -68,9 +68,9 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration with three sensors that showcase the various configuration options.
 
@@ -93,5 +93,5 @@ sensor:
 ```
 
 The first sensor will return S-Bahn departures to Munich Airport or Markt Schwaben that are at least 2 minutes away.
-The second sensor returns U2 and U8 departures from Sendlinger Tor and stores a total of 5 departures in attributes. To retrieve the time until the second departure, you would use states.sensor.ENTITY_NAME.attributes.departures[1].time.
+The second sensor returns U2 and U8 departures from Sendlinger Tor and stores a total of 5 departures in attributes. To retrieve the time until the second departure, you would use state_attr('sensor.ENTITY_NAME', 'departures')[1].time.
 The third sensor returns all south-bound U-Bahn trains from Scheidplatz.

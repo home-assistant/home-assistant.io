@@ -24,7 +24,7 @@ The following device types and data are supported:
 - [Sensor](#sensor) - Current conditions and alerts
 - [Camera](#camera) - Radar imagery
 
-## {% linkable_title Location Selection %}
+## Location Selection
 
 Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
 
@@ -34,7 +34,7 @@ For each platform, the location to use is determined according to the following 
   - Closest station to latitude/longitude specified in platform configuration (optional
   - Closest station to latitude/longitude specified in Home Assistant core configuration
 
-## {% linkable_title Weather %}
+## Weather
 
 The `environment_canada` weather platform populates a weather card with Environment Canada current conditions and forecast [data](https://weather.gc.ca/canada_e.html).
 
@@ -76,7 +76,7 @@ forecast:
   default: daily
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `environment_canada` sensor platform creates sensors based on Environment Canada [current conditions](https://weather.gc.ca/canada_e.html) and [alerts](https://weather.gc.ca/warnings/index_e.html).
 
@@ -159,7 +159,7 @@ monitored_conditions:
       description: Alerts that have recently ended.
 {% endconfiguration %}
 
-## {% linkable_title Camera %}
+## Camera
 
 The `environment_canada` camera platform displays Environment Canada meteorological [radar imagery](https://weather.gc.ca/radar/index_e.html).
 

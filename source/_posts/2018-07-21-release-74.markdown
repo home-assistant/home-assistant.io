@@ -38,7 +38,7 @@ Thanks to [@c727], [@jeradM] and [@ciotlosm] for leading this effort ❤️
 
 I'm happy to announce that this release introduces support for Tuya thanks to [@huangyupeng]. Tuya produces cheap cloud-enabled devices that are sold under a wide variety of brand names across the globe, and now they work with Home Assistant too!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add Tuya component and switch support ([@huangyupeng] - [#15399]) ([tuya docs]) ([switch.tuya docs]) (new-platform)
 - Add Tuya light platform ([@huangyupeng] - [#15444]) ([tuya docs]) ([light.tuya docs]) (new-platform)
@@ -47,23 +47,23 @@ I'm happy to announce that this release introduces support for Tuya thanks to [@
 - Add Cloudflare DNS component. ([@ludeeus] - [#15388]) ([cloudflare docs]) (new-platform)
 - Add HomematicIP alarm control panel ([@mxworm] - [#15342]) ([alarm_control_panel docs]) ([homematicip_cloud docs]) ([alarm_control_panel.homematicip_cloud docs]) (new-platform)
 
-## {% linkable_title Release 0.74.1 - July 24 %}
+## Release 0.74.1 - July 24
 
 - Bugfix HomeKit name and serial_number ([@cdce8p] - [#15600]) ([homekit docs])
 - Use case insensitive comparison for Sonos model check ([@amelchio] - [#15604]) ([media_player.sonos docs])
 - Frontend component should auto load auth coomponent ([@awarecan] - [#15606]) ([frontend docs])
 - Cast/Sonos: create config entry if manually configured ([@balloob] - [#15630]) ([cast docs]) ([sonos docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Fixer.io has changed their API and now requires an API key. (fixes #14911) ([@fabaff] - [#15279]) ([sensor.fixer docs]) (breaking change)
 - Add support to use HTTPS URLs to SynologyDSM and make it the default ([@tchellomello] - [#15270]) ([sensor.synologydsm docs]) (breaking change)
@@ -71,7 +71,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - LimitlessLED will no longer report `hs_color`/`rgb_color` and `color_temp` simultaneously. ([@amelchio] - [#15298]) ([light.limitlessled docs]) (breaking change)
 - IP Ban: Reset failed login attempts counter when login success ([@awarecan] - [#15564]) ([http docs]) ([websocket_api docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Add current user WS command ([@balloob] - [#15485]) ([auth docs]) ([frontend docs]) (beta fix)
 - Add onboarding support ([@balloob] - [#15492]) ([frontend docs]) ([onboarding docs]) (beta fix)
@@ -86,7 +86,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove relative time from state machine ([@balloob] - [#15560]) ([sensor.netatmo docs]) (beta fix)
 - Reset failed login attempts counter when login success ([@awarecan] - [#15564]) ([http docs]) ([websocket_api docs]) (breaking change) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - deconz: fix light.turn_off with transition ([@lbschenkel] - [#15222]) ([light.deconz docs])
 - Add new RTS device ([@pepeEL] - [#15116]) ([tahoma docs])

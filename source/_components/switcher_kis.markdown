@@ -55,7 +55,7 @@ device_password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Switch State Attributes %}
+## Switch State Attributes
 
 | Attribute          | Type    | Description                                            | Example           |
 | ------------------ | ------- | ------------------------------------------------------ | ----------------- |
@@ -69,9 +69,9 @@ device_password:
   Please note, the following attributes are not eligible when the device is off and therefore will not appear as state attributes: `remaining_time`, `electric_current`, `current_power_w`.
 </p>
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service: `switcher_kis.set_auto_off` %}
+### Service: `switcher_kis.set_auto_off`
 
 You can use the `switcher_kis.set_auto_off` service to set the auto-off configuration setting for the device.
 

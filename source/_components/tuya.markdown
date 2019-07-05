@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - **Scene** - The device state in frontend panel will not change immediately after you activate a scene.
 - **Switch** - The platform supports switch and socket.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Tuya devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -69,7 +69,7 @@ platform:
   default: tuya
 {% endconfiguration %}
 
-## {% linkable_title Service %}
+## Service
 
 These services are available for the `tuya` component:
 

@@ -18,7 +18,7 @@ redirect_from:
 
 The `mqtt_room` sensor platform allows you to detect the indoor location of devices using MQTT clients.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -55,7 +55,7 @@ away_timeout:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Usage %}
+## Usage
 
 Example JSON that should be published to the room topics:
 
@@ -67,7 +67,7 @@ Example JSON that should be published to the room topics:
 }
 ```
 
-### {% linkable_title Setting up clients %}
+### Setting up clients
 
 This integration works with any software that is sending data in the given format. Each client should post the discovered devices in its own subtopic of the configured topic.
 Instead of developing your own application, you can also use any of these already existing clients:

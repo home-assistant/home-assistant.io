@@ -18,7 +18,7 @@ redirect_from:
 
 The `imap` sensor platform is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -65,7 +65,7 @@ search:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Configuring IMAP Searches %}
+### Configuring IMAP Searches
 
 By default, this integration will count unread emails. By configuring the search string, you can count other results, for example:
 
@@ -73,7 +73,7 @@ By default, this integration will count unread emails. By configuring the search
 * `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
 * [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
 
-#### {% linkable_title Full configuration sample with search %}
+#### Full configuration sample with search
 
 ```yaml
 # Example configuration.yaml entry

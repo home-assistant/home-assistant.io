@@ -75,7 +75,7 @@ service_name:
       default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
 

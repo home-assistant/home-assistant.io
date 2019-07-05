@@ -18,7 +18,7 @@ redirect_from:
 The `microsoft` text-to-speech platform uses [Microsoft Text-to-Speech engine](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home) to read a text with natural sounding voices. This integration uses an API that is part of the Cognitive Services offering and is known as the Bing Speech API.
 You will need an API key, which is free. You can use your [Azure subscription](https://azure.microsoft.com) or get an API key on the [Cognitive Services site](https://azure.microsoft.com/en-us/try/cognitive-services/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable text-to-speech with Microsoft, add the following lines to your `configuration.yaml`:
 
@@ -71,7 +71,7 @@ contour:
 {% endconfiguration %}
 
   
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 A full configuration sample including optional variables:
 

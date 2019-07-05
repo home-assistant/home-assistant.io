@@ -18,7 +18,7 @@ redirect_from:
 
 The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).
 
-## {% linkable_title Setup %}
+## Setup
 
 Getting the details to configure the sensors is a bit tricky as Netdata uses different name for the `element:` value that is required. To get the value for the `data_group:` use Netdata's web interface. `1.` marks the name for the `data_group:`. `2.` are the names for the element to show in Home Assistant. The name that is shown can be different than the name under which the metrics are available.
 
@@ -70,7 +70,7 @@ Alternatively you can browse to the built in Netdata API in your browser `http:/
 
 Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your configuration.yaml like the example below. 
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the following to your `configuration.yaml`.
 
@@ -130,7 +130,7 @@ resources:
           default: false
 {% endconfiguration %}
 
-### {% linkable_title Full Example %}
+### Full Example
 
 ```yaml
 # Example configuration.yaml entry

@@ -26,7 +26,7 @@ The `triggered` state also provides a state attribute called `triggered_source` 
 
 If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Hassbian, run the command `apt install libxml2-dev libxmlsec1-dev` with sudo.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml`:
 
@@ -53,7 +53,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Automation example %}
+## Automation example
 
 ```yaml
 automation:

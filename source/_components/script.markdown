@@ -26,7 +26,7 @@ script:
       # This is Home Assistant Script Syntax
       - service: notify.notify
         data_template:
-          message: Current temperature is {% raw %}{{ states.sensor.temperature.state }}{% endraw %}
+          message: Current temperature is {% raw %}{{ states('sensor.temperature') }}{% endraw %}
 ```
 <p class='note'>
 Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters. 
@@ -59,7 +59,7 @@ script: 
           entity_id: group.living_room
 ```
 
-### {% linkable_title Passing variables to scripts %}
+### Passing variables to scripts
 
 As part of the service, variables can be passed along to a script so they become available within templates in that script.
 
@@ -115,7 +115,7 @@ script:
           message: "{% raw %}{{ message }}{% endraw %}"
 ```
 
-### {% linkable_title In the Overview %}
+### In the Overview
 
 Scripts in the Overview panel will be displayed with an **EXECUTE** button if the device has no `delay:` or `wait:` statement, and as a toggle switch if it has either of those.
 

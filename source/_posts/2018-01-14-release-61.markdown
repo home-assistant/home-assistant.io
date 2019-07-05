@@ -17,15 +17,15 @@ Almost a 100 contributors to this release 🎉  That's what you get when you ski
 
 This release contain some breaking changes. Please make sure that you check the section below if you are running into trouble.
 
-## {% linkable_title Assistant configs %}
+## Assistant configs
 
 We made a mistake in the foundation of both the Google Assistant and Alexa integrations: they were storing their config inside customize. This is not the right place and we moved them to be under the components itself. See the breaking changes section on how to migrate.
 
-## {% linkable_title Hass.io updates %}
+## Hass.io updates
 
 [@pvizeli] has made it easier to create and restore snapshots for Hass.io by calling the new services. This way it will be easy to automate the creation of a snapshot at night. The updater has also been fixed and will now report on new versions of Hass.io that are available.
 
-## {% linkable_title Improved loading speed %}
+## Improved loading speed
 
 [@amelchio] has made startup of Home Assistant _even_ faster. All service descriptions are now loaded only when needed by the frontend instead of during startup. This did mean that we had to enforce our service convention. We found a few platforms that didn't follow this and they have been updated:
 
@@ -41,7 +41,7 @@ broadlink.learn_command_192_168_0_107 -> switch.broadlink_learn_command_192_168_
 broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_107
 ```
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add Discogs Sensor platform ([@thibmaek] - [#10957]) ([sensor.discogs docs]) (new-platform)
 - Greenwave Reality (TCP Connected) Lighting Component ([@dfiel] - [#11282]) ([light.greenwave docs]) (new-platform)
@@ -55,7 +55,7 @@ broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_10
 - Add Dark Sky weather component ([@DanNixon] - [#11435]) ([weather.darksky docs]) (new-platform)
 - Coinbase.com sensor platform ([@nkgilley] - [#11036]) ([coinbase docs]) ([sensor.coinbase docs]) (new-platform)
 
-## {% linkable_title Release 0.61.1 - January 16 %}
+## Release 0.61.1 - January 16
 
 - Fix zha color probe ([@rcloran] - [#11670]) ([zha docs]) ([light.zha docs])
 - Move several local services to their right domain ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
@@ -63,17 +63,17 @@ broadlink.send_packet_192_168_0_107 -> switch.broadlink_send_packet_192_168_0_10
 - History order bugfix and opt-in option ([@rwa] - [#11686]) ([history docs])
 - Fix purge with MariaDB / MySQL ([@tinloaf] - [#11713])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Extend Threshold binary sensor to support ranges. This means that you can now set `up` and `lower`. ([@DanNixon] - [#11110]) ([binary_sensor.threshold docs]) (breaking change)
 - The Steam game platform contains changes:
@@ -160,7 +160,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
    ([@amelchio] - [#11677]) ([calendar.todoist docs]) ([media_player.snapcast docs]) ([media_player.soundtouch docs]) ([sensor.mopar docs]) ([switch.broadlink docs]) ([switch.scsgate docs]) (breaking change)
 
 
-## {% linkable_title All changes %}
+## All changes
 
 - Try multiple methods of getting data in asuswrt. ([@PeWu] - [#11140]) ([device_tracker.asuswrt docs])
 - Hydroquebec component use now asyncio ([@titilambert] - [#10795]) ([sensor.hydroquebec docs])

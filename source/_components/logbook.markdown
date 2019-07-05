@@ -106,7 +106,7 @@ logbook:
       - sensor.date
 ```
 
-### {% linkable_title Exclude Events %}
+### Exclude Events
 
 Entities customized as hidden are excluded from the logbook by default,
 but sometimes you want to show the entity in the UI and not in the logbook.
@@ -120,7 +120,7 @@ list. For instance you use the `sun` domain only to trigger automations on the
 `azimuth` attribute, then you possible are not interested in the logbook entries
 for sun rise and sun set.
 
-### {% linkable_title Custom Entries %}
+### Custom Entries
 
 It is possible to add custom entries to the logbook by using the script
 component to fire an event.

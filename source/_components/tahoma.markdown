@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Switch
 - Scene
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Tahoma devices in your installation, add the following to your `configuration.yaml` file:
 

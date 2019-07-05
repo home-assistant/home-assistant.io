@@ -112,7 +112,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title and Script Service Example:
 

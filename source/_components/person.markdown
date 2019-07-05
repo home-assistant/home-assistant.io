@@ -36,7 +36,7 @@ TL;DR: When you're at home, your position is determined first by stationary trac
 
 You can manage persons via the UI from the person page inside the configuration panel or via `YAML` in your `configuration.yaml` file.
 
-## {% linkable_title Configuring the `person` integration via the Home Assistant configuration panel %}
+## Configuring the `person` integration via the Home Assistant configuration panel
 
 If you prefer to use the configuration panel to configure the `person` integration simply add one line to your `configuration.yaml` file and restart Home Assistant.
 
@@ -44,7 +44,7 @@ If you prefer to use the configuration panel to configure the `person` integrati
 person:
 ```
 
-## {% linkable_title Configuring the `person` integration via YAML %}
+## Configuring the `person` integration via YAML
 
 If you prefer YAML, you can also configure your persons via `configuration.yaml`:
 

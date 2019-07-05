@@ -26,7 +26,7 @@ Lutron has created many systems over the years, each with their own unique inter
 
 Homeworks keypad buttons are momentary switches.  The button is pressed and released, meaning that there is no "state".  Buttons generate `homeworks_button_press` and `homeworks_button_release` events.  These events contain the "id", "name", and "button" of the button that was pressed.  "id" is derived from "name", and "button" is the number of the button on the keypad (starting at 1).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The protocol for automatically extracting device information from the controller isn't documented, so the `homeworks` integration must be configured manually. To use Lutron Homeworks devices in your installation, add the following to your `configuration.yaml` file:
 

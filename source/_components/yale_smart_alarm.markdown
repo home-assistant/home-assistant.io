@@ -20,7 +20,7 @@ The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night` (duplicate of home) and `alarm_disarm`.
 Currently only one alarm is supported.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable, add the following lines to your `configuration.yaml`:
 
@@ -52,7 +52,7 @@ area_id:
   default: 1
 {% endconfiguration %}
 
-## {% linkable_title Automation example %}
+## Automation example
 
 ```yaml
 automation:

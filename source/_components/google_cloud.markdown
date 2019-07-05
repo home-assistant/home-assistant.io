@@ -14,7 +14,7 @@ ha_release: 0.95
 
 The `google_cloud` platform allows you to use [Google Cloud Platform](https://cloud.google.com/) API and integrate them into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
 
@@ -25,7 +25,7 @@ tts:
     key_file: googlecloud.json
 ```
 
-## {% linkable_title Obtaining an API key %}
+## Obtaining an API key
 
 API key obtaining process described in corresponding documentation:
 
@@ -57,11 +57,11 @@ Basic instruction for all APIs:
     5. Click `Create`. A note appears, warning that this service account has no role.
     6. Click `Create without role`. A JSON file that contains your `API key` downloads to your computer.
 
-## {% linkable_title Google Cloud Text-to-Speech %}
+## Google Cloud Text-to-Speech
 
 [Google Cloud Text-to-Speech](https://cloud.google.com/text-to-speech/) converts text into human-like speech in more than 100 voices across 20+ languages and variants. It applies groundbreaking research in speech synthesis (WaveNet) and Google's powerful neural networks to deliver high-fidelity audio. With this easy-to-use API, you can create lifelike interactions with your users that transform customer service, device interaction, and other applications.
 
-### {% linkable_title Pricing %}
+### Pricing
 
 The Cloud Text-to-Speech API is priced monthly based on the amount of characters to synthesize into audio sent to the service.
 
@@ -70,7 +70,7 @@ The Cloud Text-to-Speech API is priced monthly based on the amount of characters
 | Standard (non-WaveNet) voices | 0 to 4 million characters | $4.00 USD / 1 million characters  |
 | WaveNet voices                | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
-### {% linkable_title Text-to-Speech configuration %}
+### Text-to-Speech configuration
 
 {% configuration %}
 key_file:
@@ -118,7 +118,7 @@ profiles:
   default: "[]"
 {% endconfiguration %}
 
-### {% linkable_title Full configuration example %}
+### Full configuration example
 
 The Google Cloud Text-to-Speech configuration can look like:
 

@@ -49,6 +49,6 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Supported operations %}
+### Supported operations
 
 - These devices support play, pause, stop and power on/off operations. They will also report the current status, title duration and current playing position.

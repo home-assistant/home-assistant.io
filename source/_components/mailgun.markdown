@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,11 +66,11 @@ automation:
     entity_id: light.office
 ```
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The Mailgun notification service allows you to send emails via Mailgun's REST API. It requires the [Mailgun component](#configuration) to be set up.
 
-### {% linkable_title Notifications configuration %}
+### Notifications configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -105,7 +105,7 @@ sender:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Example automation %}
+### Example automation
 
 The following automation reacts to an event by sending out an email with two attachments.
 

@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable tags set up with your [wirelesstag.net](http://wirelesstag.net) account, add the following to your `configuration.yaml` file:
 
@@ -60,7 +60,7 @@ password:
   Tags Manager supports local push notifications for `http` schema only. So if your hass uses `https`, local push notifications are disabled and data is received via cloud polling.
 </p>
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
 
@@ -102,7 +102,7 @@ monitored_conditions:
       description: On means tag battery is low, Off means normal.
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To enable the sensor platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
 
@@ -131,7 +131,7 @@ monitored_conditions:
       description: Brightness in lux (if supported by tag).
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 To enable the switch platform for your tags, set up with your [wirelesstag.net](http://wirelesstag.net) account. Add the following to your `configuration.yaml` file:
 

@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Vacuum](#vacuum)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Ecovacs devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -56,7 +56,7 @@ continent:
 
 Note: For some countries, you will need to set `continent` to `ww` (meaning worldwide.) There is unfortunately no way to know the correct settings other than guessing and checking. See the [sucks library protocol documentation](https://github.com/wpietri/sucks/blob/master/protocol.md) for more information about what has been figured out about the Ecovacs servers.
 
-### {% linkable_title Stability and Reporting Bugs %}
+### Stability and Reporting Bugs
 
 The library that talks to the Ecovacs servers is in a very early state and still under development. As such, it is likely that not all regions and devices will work at the current time.
 
@@ -75,11 +75,11 @@ logger:
 Warning: doing this will cause your authentication token to visible in your log files. Be sure to remove any tokens and other authentication details from your log before posting them in an issue.
 
 
-## {% linkable_title Vacuum %}
+## Vacuum
 
 The `ecovacs` vacuum platform allows you to monitor and control your Ecovacs Deebot vacuums.
 
-### {% linkable_title Component Lifespans %}
+### Component Lifespans
 
 The remaining lifespan of components on your Deebot vacuum will be reported as attributes on the vacuum entity. The value will be a whole number representing the percentage of life remaining.
 
@@ -113,7 +113,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Handling Errors %}
+### Handling Errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
 

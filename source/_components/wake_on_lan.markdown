@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -32,11 +32,11 @@ To use this integration in your installation, add the following to your `configu
 wake_on_lan:
 ```
 
-### {% linkable_title Component services %}
+### Component services
 
 Available services: `send_magic_packet`.
 
-#### {% linkable_title Service `wake_on_lan/send_magic_packet` %}
+#### Service `wake_on_lan/send_magic_packet`
 
 Send a _magic packet_ to wake up a device with 'Wake-On-LAN' capabilities.
 
@@ -53,11 +53,11 @@ Sample service data:
 }
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
-### {% linkable_title Switch configuration %}
+### Switch configuration
 
 <p class='note warning'>
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The `turn_off` variable is there to help you call a script when you have figured out how to remotely turn off your computer.
@@ -98,11 +98,11 @@ broadcast_address:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 Here are some real-life examples of how to use the **turn_off** variable.
 
-#### {% linkable_title Suspending Linux %}
+#### Suspending Linux
 
 Suggested recipe for letting the `turn_off` script suspend a Linux computer (the **target**)
 from Home Assistant running on another Linux computer (the **server**).

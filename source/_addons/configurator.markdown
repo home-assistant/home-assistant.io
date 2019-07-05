@@ -20,7 +20,7 @@ More information and a standalone version for regular Home Assistant installatio
 Screenshot of the HASS Configurator.
 </p>
 
-### {% linkable_title Feature list %}
+### Feature list
 
 - Web-based editor to modify your files with syntax highlighting and YAML linting.
 - Upload and download files.
@@ -32,7 +32,7 @@ Screenshot of the HASS Configurator.
 - Editor settings are saved in your browser.
 - And much more...
 
-### {% linkable_title Add-on Configuration %}
+### Add-on Configuration
 
 ```json
 {
@@ -54,6 +54,6 @@ enforce_basepath:
   default: false
 {% endconfiguration %}
 
-### {% linkable_title Old port based Access %}
+### Old port based Access
 
 You can set a network Port and the Add-on listens on that Port with Home Assistant user credential. That is as a backup if you are not able to connect to Home Assistant anymore. Today, you can restart Home Assistant with broken config, but maybe some times usefully.

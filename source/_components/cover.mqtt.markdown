@@ -16,7 +16,7 @@ ha_release: 0.18
 
 The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter or a garage door).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The device state (`open` or `closed`) will be updated only after a new message is published on `state_topic` matching `state_open` or `state_closed`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 `state_topic` can only manage `state_open` and `state_closed`. No percentage positons etc.
@@ -225,11 +225,11 @@ device:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real-life examples of how to use this platform.
 
-### {% linkable_title Full configuration state topic without tilt %}
+### Full configuration state topic without tilt
 
 The example below shows a full configuration for a cover without tilt with state topic only.
 
@@ -256,7 +256,7 @@ cover:
 ```
 {% endraw %}
 
-### {% linkable_title Full configuration position topic without tilt %}
+### Full configuration position topic without tilt
 
 The example below shows a full configuration for a cover without tilt with position topic.
 
@@ -284,7 +284,7 @@ cover:
 ```
 {% endraw %}
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a cover.
 

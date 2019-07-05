@@ -15,7 +15,7 @@ Geolocation aware entities are typically related to events in the real world in 
 
 Entities can have associated geolocation coordinates (latitude and longitude) so that they are displayed on the map. The distance from the entity's coordinates to Home Assistant's location can be used for filtering.
 
-## {% linkable_title Geolocation trigger %}
+## Geolocation trigger
 
 The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be used in automations triggered by Geolocation entities appearing in or disappearing from zones. The following value must be used as `source` of the trigger depending on which platform is managing the entities:
 
@@ -29,7 +29,7 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 
 Conditions can be used to further filter entities, for example by inspecting their state attributes.
 
-## {% linkable_title Geolocation notification example %}
+## Geolocation notification example
 
 The following example automation creates a notification on the screen when a fire classified as 'Bush Fire' is reported within a predefined bush fire alert zone:
 

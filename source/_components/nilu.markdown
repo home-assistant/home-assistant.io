@@ -18,7 +18,7 @@ redirect_from:
 
 The `nilu` air quality platform shows measurements of current air quality from NILU (Norsk Institutt for luftforskning/Norwegian Institute for Air Research) sensor stations within Norway. Makes data from the open API at [luftkvalitet.info](http://luftkvalitet.info/) and [nilu.no](https://nilu.no/) available in Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
@@ -59,29 +59,29 @@ air_quality:
     type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Health risk index explainations %}
+## Health risk index explainations
 
 Under the attributes from a NILU station, there will be a `nilu pollution index`. This indicates how polluted the air is in the area around the sensor station. Following is a longer explanation of what the indexes mean.
 
-### {% linkable_title Low %}
+### Low
 
 Low or no health risk linked to measured air pollution. Outdoor activites are recommended.
 
-### {% linkable_title Moderate %}
+### Moderate
 
 Health effects may occur in some asthmatics and people with other respiratory diseases, as well as serious cardiovascular diseases. Outdoor activity can be recommended for the vast majority, but some should consider their activity in areas with high traffic or high emissions.
 
-### {% linkable_title High %}
+### High
 
 Health effects may occur in asthmatics and people with other respiratory diseases, as well as serious cardiovascular disease. Children with respiratory distress (asthma, bronchitis) and adults with severe cardiac or respiratory distress should reduce outdoor activity and not stay in the most polluted areas.
 
-### {% linkable_title Extremely high %}
+### Extremely high
 
 Sensitive groups in the population can have health effects. Respiratory irritation and discomfort may occur in healthy subjects. People with heart or respiratory distress should reduce outdoor activity and not stay in the most polluted areas.
 
 Source: [Explainations in Norwegian](http://www.luftkvalitet.info/home/Varslingsklasser.aspx)
 
-## {% linkable_title Available areas %}
+## Available areas
 
 The `area` configuration is restricted to the areas NILU has defined. Here is the list of available areas:
 
@@ -121,7 +121,7 @@ The `area` configuration is restricted to the areas NILU has defined. Here is th
 - `Zeppelinfjellet`
 - `Ålesund`
 
-## {% linkable_title Configuration examples %}
+## Configuration examples
 
 Example of adding health risk monitoring from sensor stations around the Home Assistant location.
 

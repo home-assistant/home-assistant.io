@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate pilight into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -82,7 +82,7 @@ pilight:
       - 42
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `pilight` binary sensor platform implement the [pilight hub](#configuration) binary sensor functionality. Two type of Pilight binary sensor configuration available. A normal sensor which send the on and off state cyclical and a trigger sensor which send only a trigger when an event happened (for example lots of cheap PIR motion detector).
 
@@ -131,7 +131,7 @@ reset_delay_sec:
   default: 30
 {% endconfiguration %}
 
-### {% linkable_title Full example %}
+### Full example
 
 A full configuration example could look like this:
 
@@ -148,7 +148,7 @@ binary_sensor:
     reset_delay_sec: 30
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
 
@@ -183,7 +183,7 @@ unit_of_measurement:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Example: Weather station %}
+### Example: Weather station
 
 This section shows a real life example how to use values of a weather station.
 
@@ -210,7 +210,7 @@ sensor:
     unit_of_measurement: '%'
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 The `pilight` switch platform is issuing 433 MHz commands using [pilight](https://www.pilight.org/) to turn a 433 MHz device on or off. The Pilight Home Assistant hub has to be set up.
 
@@ -282,7 +282,7 @@ Variables for the different receive codes (`on_code_receive` and `off_code_recei
 
 This is useful if you have paired your sender directly with the receiver to prevent sending the signal twice.
 
-### {% linkable_title Examples %}
+### Examples
 
 ```yaml
 switch:
@@ -313,7 +313,7 @@ switch:
           state: 'off'
 ```
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
 - A list of tested RF transceiver hardware is available [here](https://manual.pilight.org/electronics/index.html). This might be useful before buying.
 - Sending commands is simple when the protocol is known by pilight, but receiving commands can be rather difficult. It can happen that the code is not correctly recognized due to different timings in the sending hardware or the RF receiver. If this happens follow these steps:

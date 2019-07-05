@@ -19,7 +19,7 @@ redirect_from:
 
 The `worldclock` sensor platform simply displays the current time in a different time zone.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 

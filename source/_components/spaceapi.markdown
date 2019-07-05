@@ -15,7 +15,7 @@ ha_release: "0.70"
 
 The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To setup the `spaceapi` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -116,7 +116,7 @@ sensors:
 
 The list of sensors can be any sensor, not just temperature or humidity.
 
-## {% linkable_title Sensor specific location %}
+## Sensor specific location
 
 The [SpaceAPI specification](https://spaceapi.io/pages/docs.html) requires every sensor to provide a location. 
 In order to set a sensor specific location do the following steps: 
@@ -128,11 +128,11 @@ In order to set a sensor specific location do the following steps:
 
 If no location is set, the location defined in the HA config is used.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this component.
 
-### {% linkable_title Eastermundigen %}
+### Eastermundigen
 
 A possible configuration entry for [Eastermundigen](http://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
 

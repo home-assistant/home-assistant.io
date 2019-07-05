@@ -22,7 +22,7 @@ redirect_from:
 
 The `volvooncall` integration offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Volvo On Call in your installation, add the following to your `configuration.yaml` file:
 
@@ -90,7 +90,7 @@ scandinavian_miles:
   default: false
 {% endconfiguration %}
 
-### {% linkable_title Available Resources %}
+### Available Resources
 
 The list of currently available resources:
 
@@ -131,7 +131,7 @@ The list of currently available resources:
 - `any_door_open`
 - `any_window_open`
 
-## {% linkable_title Advanced Examples %}
+## Advanced Examples
 
 A more advanced example for setting the vehicle name and selecting what resources to display:
 

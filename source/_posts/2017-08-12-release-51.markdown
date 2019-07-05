@@ -17,13 +17,13 @@ og_image: /images/blog/2017-08-0.51/components.png
 
 Release 0.51 is around the corner and it contains some really great updates.
 
-## {% linkable_title Database speed up %}
+## Database speed up
 
 The first one is more amazing database updates [#8748] by [@OverloadUT]. Every query that has been tested executes in well under 1 second, even on a RPi using MySQL with 6 million rows and around 300 entities. This is true even when you're getting an unrealistically huge date range!
 
 Updating the database will take some time when you start Home Assistant. During that time, the Home Assistant frontend is not accessible. Please let it complete and do not turn Home Assistant off.
 
-## {% linkable_title Frontend update %}
+## Frontend update
 
 We have finished the migration of our frontend to be powered by Polymer 2. This has given us a big speed boost on Safari/iOS devices and has fixed a wide range of bugs.
 
@@ -35,11 +35,11 @@ Another change to the frontend is that we have reorganized the panels. The Z-Wav
 <iframe src="https://www.youtube.com/embed/f3isVVpmiq4" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title Vacuum cleaners %}
+## Vacuum cleaners
 
 As we have seen more vacuum cleaners land in Home Assistant, it was time to create an official component for them. That's why [@azogue] introduced the new vacuum cleaner component in  [#8623]. This allows first class integration of vacuum cleaners in Home Assistant. Out of the box we will have Dyson, Xiamo and Roomba as supported platforms.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Added Lutron Caseta Scene Support ([@809694+kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
 - New media_player platform for Russound devices using the RIO protocol ([@wickerwaka] - [#8448]) ([media_player.russound_rio docs]) (new-platform)
@@ -55,11 +55,11 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 - Add new device tracker for Huawei Routers. ([@abmantis] - [#8488]) ([device_tracker.huawei_router docs]) (new-platform)
 - Add Shodan sensor ([@fabaff] - [#8902]) ([sensor.shodan docs]) (new-platform)
 
-## {% linkable_title Release 0.51.1 - August 12 %}
+## Release 0.51.1 - August 12
 
  - Fixed a bug in the automation editor that would break if no conditions available in the config file. ([@balloob])
 
-## {% linkable_title Release 0.51.2 - August 14 %}
+## Release 0.51.2 - August 14
 
 - Fix zwave power_consumption attribute ([@andrey-git] - [#8968]) ([zwave docs])
 - Turn foscam verbose mode off ([@andrey-git] - [#8967]) ([camera.foscam docs])
@@ -71,14 +71,14 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 - Add workaround for broken toggles in Safari  ([@balloob])
 - Fix weblink opening twice ([@azogue])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Efergy sensors: change units from KW to W ([@emlt] - [#8761]) ([sensor.efergy docs]) (breaking change)
 - Xiaomi vacuum is now a platform of new `vacuum` component derived from ToggleEntity, and services ([@azogue] - [#8623]) (breaking change) (new-platform)
@@ -91,7 +91,7 @@ vacuum:
   token: !secret xiaomi_vacuum_robot_token
 ```
 
-## {% linkable_title All changes %}
+## All changes
 
 - Upgrade pushbullet.py to 0.11.0 ([@fabaff] - [#8691]) ([notify.pushbullet docs])
 - Upgrade mypy to 0.521 ([@fabaff] - [#8692])

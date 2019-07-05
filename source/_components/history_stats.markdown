@@ -27,7 +27,7 @@ Examples of what you can track:
 - How long the lights were ON yesterday
 - How long you watched TV today
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
 
@@ -84,7 +84,7 @@ duration:
   You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 </p>
 
-## {% linkable_title Sensor type %}
+## Sensor type
 
 Depending on the sensor type you choose, the `history_stats` integration can show different values:
 
@@ -92,7 +92,7 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 - **ratio**: The tracked time divided by the length of your period, as a percentage
 - **count**: How many times the integration you track was changed to the state you track
 
-## {% linkable_title Time periods %}
+## Time periods
 
 The `history_stats` integration will execute a measure within a precise time period. You should always provide 2 of the following :
 - When the period starts (`start` variable)
@@ -101,7 +101,7 @@ The `history_stats` integration will execute a measure within a precise time per
 
 As `start` and `end` variables can be either datetimes or timestamps, you can configure almost any period you want.
 
-### {% linkable_title Duration %}
+### Duration
 
 The duration variable is used when the time period is fixed. Different syntaxes for the duration are supported, as shown below.
 
@@ -123,7 +123,7 @@ duration:
   minutes: 30
 ```
 
-### {% linkable_title Examples %}
+### Examples
 
 Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
 

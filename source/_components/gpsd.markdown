@@ -18,7 +18,7 @@ redirect_from:
 
 The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
 
-## {% linkable_title Setup %}
+## Setup
 
 A requirement is that `gpsd` is installed (`$ sudo apt-get install gpsd` or `$ sudo dnf -y install gpsd`). `gpsd` uses the socket activation feature of systemd on recent Linux distributions for USB receivers. This means that if you plug your GPS receiver in, `gpsd` is started. Other GPS device may work too, but this was not tested.
 
@@ -45,7 +45,7 @@ Escape character is '^]'.
 {"class":"VERSION","release":"3.15","rev":"3.15-2.fc23","proto_major":3,"proto_minor":11}
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To setup a GPSD sensor in your installation, add the following to your `configuration.yaml` file:
 

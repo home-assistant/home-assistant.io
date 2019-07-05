@@ -65,7 +65,7 @@ iota:
       seed: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The sensors are automatically created if the IOTA integration is present.
 

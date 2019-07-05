@@ -18,7 +18,7 @@ redirect_from:
 
 The `myq` cover platform lets you control MyQ-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your MyQ Device mobile app.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your MyQ cover in your installation, add the following to your `configuration.yaml` file:
 
