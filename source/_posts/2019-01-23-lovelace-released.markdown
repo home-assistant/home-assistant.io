@@ -13,7 +13,7 @@ og_image: /images/blog/2019-01-lovelace/demo.png
 
 Today we're happy to announce that our new Lovelace UI, which has been in beta for the last 8 months, is becoming the new default interface of [Home Assistant 0.86](/blog/2019/01/23/release-86/). With Lovelace we're taking a new approach to building user interfaces for Home Assistant. We're no longer storing the look and feel of your UI in your configuration.yaml, requiring restarts for changes. With Lovelace we're keeping the UI concerns in the UI<sup>1</sup>, unlocking a whole new set of features:
 
- - [24 cards](https://www.home-assistant.io/lovelace/alarm-panel/) to place and configure as you like.
+ - [24 cards](/lovelace/alarm-panel/) to place and configure as you like.
  - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
  - Fast. Using a static config allows us to build up the UI once.
  - Customizable.

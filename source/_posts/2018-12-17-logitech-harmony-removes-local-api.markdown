@@ -52,7 +52,7 @@ We hope that this was an oversight on their end and that it will be reverted sho
   Thread by member of the Harmony Team.
 </p>
 
-**Update 3 (18 dec):** Twitter user [@ChadBeattie](https://twitter.com/ChadBeattie/status/1074770135121125376) has discovered that there seems to be a second undocumented local API that is being used by the Logitech Harmony iOS app. Home Assistant developer [@ehendrix23] is looking into updating the PyHarmony library to use this. Join #devs_backend on [our chat](https://www.home-assistant.io/join-chat/) if you want to help with development. We can't guarantee that it will work, but if we can get it to work, we will do a hot fix release.
+**Update 3 (18 dec):** Twitter user [@ChadBeattie](https://twitter.com/ChadBeattie/status/1074770135121125376) has discovered that there seems to be a second undocumented local API that is being used by the Logitech Harmony iOS app. Home Assistant developer [@ehendrix23] is looking into updating the PyHarmony library to use this. Join #devs_backend on [our chat](/join-chat/) if you want to help with development. We can't guarantee that it will work, but if we can get it to work, we will do a hot fix release.
 
 [@ehendrix23]: https://github.com/ehendrix23
 

@@ -866,4 +866,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [zha docs]: /components/zha/
 [zoneminder docs]: /components/zoneminder/
 [zwave docs]: /components/zwave/
-[platform_options]: https://www.home-assistant.io/docs/configuration/platform_options/#scan-interval
+[platform_options]: /docs/configuration/platform_options/#scan-interval

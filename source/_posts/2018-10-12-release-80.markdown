@@ -98,10 +98,10 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@StevenLooman]: https://github.com/StevenLooman
 [@balloob]: https://github.com/balloob
 [@hobbypunk90]: https://github.com/hobbypunk90
-[hangouts docs]: https://www.home-assistant.io/components/hangouts/
-[media_player.dlna_dmr docs]: https://www.home-assistant.io/components/media_player.dlna_dmr/
-[media_player.snapcast docs]: https://www.home-assistant.io/components/media_player.snapcast/
-[upnp docs]: https://www.home-assistant.io/components/upnp/
+[hangouts docs]: /components/hangouts/
+[media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
+[media_player.snapcast docs]: /components/media_player.snapcast/
+[upnp docs]: /components/upnp/
 
 ## New Features
 
