@@ -58,7 +58,7 @@ devices:
           default: RFLink ID
           type: string
         sensor_type:
-          description: Override automatically detected type of sensor. For list of [values](https://www.home-assistant.io/components/sensor.rflink/#sensors-types) see below.
+          description: Override automatically detected type of sensor. For list of [values](/components/sensor.rflink/#sensors-types) see below.
           required: true
           type: string
         unit_of_measurement:
