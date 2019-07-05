@@ -114,6 +114,16 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 | `night_sound` | yes | Boolean to control Night Sound mode.
 | `speech_enhance` | yes | Boolean to control Speech Enhancement mode.
 
+### Service `sonos.play_queue`
+
+Starts playing the Sonos queue.
+
+Force start playing the queue, allows switching from another stream to playing the queue.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
+
 ## Advanced use
 
 For advanced uses, there are some manual configuration options available.
