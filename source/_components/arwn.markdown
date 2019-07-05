@@ -17,7 +17,7 @@ redirect_from:
 
 The `arwn` sensor platform is a client for the [Ambient Radio Weather Network](http://github.com/sdague/arwn) project. This collects weather station data and makes it available in an MQTT subtree.
 
-To use your ARWN setup, you must already have configured the [MQTT](mqtt) platform. Then add the following to your `configuration.yaml` file:
+To use your ARWN setup, you must already have configured the [MQTT](https://www.home-assistant.io/components/mqtt/) platform. Then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
