@@ -60,7 +60,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the weather entity.
+  description: Name to be used for the entity ID, e.g. `weather.<name>`.
   required: false
   type: string
 forecast:
@@ -107,7 +107,7 @@ language:
   type: string
   default: english
 name:
-  description: Name to be used for the sensor entities.
+  description: Name to be prepended to entity IDs, e.g. `sensor.<name>_temperature`.
   required: false
   type: string
 monitored_conditions:
@@ -140,6 +140,8 @@ monitored_conditions:
       description: The current wind gust, in km/h.
     wind_dir:
       description: The current cardinal wind direction, e.g. "SSW".
+    wind_bearing:
+      description: The current wind direction in degrees.
     high_temp:
       description: The next forecast high temperature, in ºC.
     low_temp:
@@ -193,7 +195,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the camera entity.
+  description: Name to be used for the entity ID, e.g. `camera.<name>`.
   required: false
   type: string
 loop:
