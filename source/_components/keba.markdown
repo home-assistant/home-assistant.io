@@ -30,7 +30,7 @@ This component provides the following platforms:
 
 ## {% linkable_title Configuration %}
 
-To enable this component in your installation, add the following to your
+To enable this component in your installation, add at least the following to your
 `configuration.yaml` file:
 
 ```yaml
@@ -60,20 +60,25 @@ keba:
       type: boolean
       default: false
     failsafe_timeout:
-      description: Timeout of the failsafe mode in seconds. Allowed values are between 10 seconds and 600 seconds (only if failsafe mode is enabled). Make sure to call the `keba.set_curr` service regularly within this timeout period!
+      description: Timeout of the failsafe mode in seconds. Allowed values are between 10 seconds and 600 seconds (this parameter is only used if failsafe mode is enabled). Make sure to call the `keba.set_curr` service regularly within this timeout period!
       required: false
       type: integer
       default: 30
     failsafe_fallback:
-      description: Fallback current of the failsafe mode in A. Allowed values are between 6 Ampere and 63 Ampere. 0 Ampere disables the running charging process completely (only if failsafe mode is enabled).
+      description: Fallback current of the failsafe mode in A. Allowed values are between 6 Ampere and 63 Ampere. 0 Ampere disables the running charging process completely (this parameter is only used if failsafe mode is enabled).
       required: false
       type: integer
       default: 6
     failsafe_save:
-      description: Saving the failsafe configuration to internal EEPROM of the Keba charging station. 1 means save it, 0 means do only keep this configuration until the next restart of the charging station (only if failsafe mode is enabled).
+      description: Saving the failsafe configuration to internal EEPROM of the Keba charging station. 1 means save it, 0 means do only keep this configuration until the next restart of the charging station (this parameter is only used if failsafe mode is enabled).
       required: false
       type: integer
       default: 0
+    refresh_interval:
+      description: Refresh interval to fetch new data from the charging station. 5 seconds (same as in the official app) is recommended.
+      required: false
+      type: integer
+      default: 5
 {% endconfiguration %}
 
 ## {% linkable_title Services %}
@@ -82,15 +87,25 @@ The `keba` component offers several services. Using these services will change t
 
 ### {% linkable_title Authorizing and Deauthorizing %}
 
-The charging station can be authorize and deauthorize via the lock component that is created automatically for the charging station.
+The charging station can be authorize and deauthorize vai service calls (`keba.authorize` and `keba.deauthorize`) or via the lock component that is created automatically for the charging station. In both cases the RFID tag from the configuration is used.
 
 ### {% linkable_title Set Target Energy %}
 
-The service `keba.set_energy` sets the target energy for the current session to the given energy attribute in kWh.
+The service `keba.set_energy` sets the target energy for the current session to the given energy attribute in kWh. Payload example:
+```json
+{
+  "energy": 10.0
+}
+```
 
 ### {% linkable_title Set Maximum Current %}
 
-The service `keba.set_curr` sets the maximum current to the given current attribute in Ampere.
+The service `keba.set_curr` sets the maximum current to the given current attribute in Ampere. Payload example:
+```json
+{
+  "current": 16.0
+}
+```
 
 ## {% linkable_title Disclaimer %}
 
