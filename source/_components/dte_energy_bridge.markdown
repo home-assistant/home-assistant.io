@@ -16,7 +16,7 @@ redirect_from:
  - /components/sensor.dte_energy_bridge/
 ---
 
-A sensor platform for the [DTE](https://www.dteenergy.com/) Energy Bridge. To find out which version of the DTE Energy Bridge sensor you have, find the status LED on your box.
+A sensor platform for the [DTE](https://www.newlook.dteenergy.com/) Energy Bridge. To find out which version of the DTE Energy Bridge sensor you have, find the status LED on your box.
 
  - If the status LED is on the top, you have a v1.
  - If the status LED is on the front, you have a v2.
