@@ -143,19 +143,19 @@ Finally, if you are still receiving a message that your configuration contains e
 [@pvizeli]: https://github.com/pvizeli
 [@robbiet480]: https://github.com/robbiet480
 [@zxdavb]: https://github.com/zxdavb
-[alexa docs]: https://www.home-assistant.io/components/alexa/
-[auth docs]: https://www.home-assistant.io/components/auth/
-[cast docs]: https://www.home-assistant.io/components/cast/
-[cloud docs]: https://www.home-assistant.io/components/cloud/
-[geniushub docs]: https://www.home-assistant.io/components/geniushub/
-[google_assistant docs]: https://www.home-assistant.io/components/google_assistant/
-[heos docs]: https://www.home-assistant.io/components/heos/
-[hue docs]: https://www.home-assistant.io/components/hue/
-[mobile_app docs]: https://www.home-assistant.io/components/mobile_app/
-[myq docs]: https://www.home-assistant.io/components/myq/
-[netatmo_public docs]: https://www.home-assistant.io/components/netatmo_public/
-[traccar docs]: https://www.home-assistant.io/components/traccar/
-[upnp docs]: https://www.home-assistant.io/components/upnp/
+[alexa docs]: /components/alexa/
+[auth docs]: /components/auth/
+[cast docs]: /components/cast/
+[cloud docs]: /components/cloud/
+[geniushub docs]: /components/geniushub/
+[google_assistant docs]: /components/google_assistant/
+[heos docs]: /components/heos/
+[hue docs]: /components/hue/
+[mobile_app docs]: /components/mobile_app/
+[myq docs]: /components/myq/
+[netatmo_public docs]: /components/netatmo_public/
+[traccar docs]: /components/traccar/
+[upnp docs]: /components/upnp/
 
 ## If you need help...
 

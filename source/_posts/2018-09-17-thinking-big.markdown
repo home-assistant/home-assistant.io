@@ -80,7 +80,7 @@ Relying on donations makes budgeting for employees impossible without exposing t
 
 ### Is Home Assistant Cloud open source?
 
-The majority of Home Assistant Cloud is open source. The Alexa skill source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py) (with manual setup instructions [here](https://github.com/mike-grant/haaska/)) and the Google Assistant source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/google_assistant/smart_home.py) (with manual setup instructions [here](https://www.home-assistant.io/components/google_assistant/)). Our account page and relayer are not open source.
+The majority of Home Assistant Cloud is open source. The Alexa skill source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py) (with manual setup instructions [here](https://github.com/mike-grant/haaska/)) and the Google Assistant source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/google_assistant/smart_home.py) (with manual setup instructions [here](/components/google_assistant/)). Our account page and relayer are not open source.
 
 ### Will you offer a lifetime plan for a one time fee?
 

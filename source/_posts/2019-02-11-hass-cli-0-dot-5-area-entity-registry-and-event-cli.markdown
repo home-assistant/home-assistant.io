@@ -154,4 +154,4 @@ Have fun!
 
 
 [@maxandersen]: https://xam.dk/about
-[hass-087]: https://www.home-assistant.io/blog/2019/02/06/release-87/
+[hass-087]: /blog/2019/02/06/release-87/

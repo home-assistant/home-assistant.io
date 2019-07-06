@@ -81,5 +81,5 @@ If you think that you are not enough qualified to do it, don’t worry, there ar
 
 ## Not a coder? Not a problem!
 
-Also, feel free to [report bugs](https://github.com/home-assistant/home-assistant/issues/new/choose), give us feedback about your user experience, tell the community about your [super cool setup](https://community.home-assistant.io/c/projects), create a [super awesome frontend](https://community.home-assistant.io/c/projects/frontend) with [Lovelace](https://www.home-assistant.io/lovelace) or help other users in the [forum](https://community.home-assistant.io/).
+Also, feel free to [report bugs](https://github.com/home-assistant/home-assistant/issues/new/choose), give us feedback about your user experience, tell the community about your [super cool setup](https://community.home-assistant.io/c/projects), create a [super awesome frontend](https://community.home-assistant.io/c/projects/frontend) with [Lovelace](/lovelace) or help other users in the [forum](https://community.home-assistant.io/).
 
