@@ -118,7 +118,7 @@ Night Sound and Speech Enhancement modes are only supported when playing from th
 
 Starts playing the Sonos queue.
 
-Force start playing the queue, allows switching from another stream to playing the queue.
+Force start playing the queue, allows switching from another stream (such as radio) to playing the queue.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
