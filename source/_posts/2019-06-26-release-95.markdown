@@ -715,7 +715,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [discovery docs]: /components/discovery/
 [dlib_face_identify docs]: /components/dlib_face_identify/
 [ebusd docs]: /components/ebusd/
-[elv docs]: /components/elv/
+[elv docs]: /components/switch.pca/
 [environment_canada docs]: /components/environment_canada/
 [esphome docs]: /components/esphome/
 [frontend docs]: /components/frontend/
@@ -788,7 +788,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [velbus docs]: /components/velbus/
 [velux docs]: /components/velux/
 [vera docs]: /components/vera/
-[vlc_telnet docs]: /components/vlc_telnet/
+[vlc_telnet docs]: /components/vlc-telnet/
 [waze_travel_time docs]: /components/waze_travel_time/
 [webostv docs]: /components/webostv/
 [websocket_api docs]: /components/websocket_api/
