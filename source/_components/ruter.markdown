@@ -58,5 +58,5 @@ name:
   default: Ruter
 {% endconfiguration %}
 
-[ruter]: https://ruter.no/reiseplanlegger/Stoppested
+[ruter]: https://ruter.no/reiseplanlegger/
 [ruter-api]: http://reisapi.ruter.no/Help
