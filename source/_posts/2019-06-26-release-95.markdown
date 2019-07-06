@@ -176,7 +176,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove binary sensors for ZHA remotes and controllers ([@dmulcahey] - [#24370]) ([zha docs]) (breaking change)
 - Restore automation last_triggered with initial_state override ([@frenck] - [#24400]) ([automation docs]) (breaking change)
 - Fix recorder defaults ([@balloob] - [#24399]) ([recorder docs]) (breaking change)
-- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) ([uber docs]) (breaking change)
+- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Add Linky sensors : yesterday + months + years ([@Quentame] - [#23726]) ([linky docs]) (breaking change)
 - Position is reversed for horizontal awnings ([@kbickar] - [#23257]) ([tahoma docs]) (breaking change)
 - Remove conversation from default config ([@balloob] - [#24515]) ([default_config docs]) (breaking change)
@@ -301,7 +301,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Life360: Fix config entry handling for accounts imported from configuration ([@pnbruckner] - [#24455]) ([life360 docs])
 - Add default config to constaint file ([@balloob] - [#24423])
 - Add websock command to query device for triggers ([@emontnemery] - [#24044]) ([automation docs]) ([light docs])
-- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) ([uber docs]) (breaking change)
+- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Use met.no instead of yr.no in default config ([@thomasloven] - [#24470])
 - Bump pyubee to 0.7 to support more models ([@mzdrale] - [#24477]) ([ubee docs])
 - Somfy open api ([@tetienne] - [#19548]) ([somfy docs]) (new-platform)
@@ -783,7 +783,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [traccar docs]: /components/traccar/
 [tradfri docs]: /components/tradfri/
 [ubee docs]: /components/ubee/
-[uber docs]: /components/uber/
 [unifi docs]: /components/unifi/
 [velbus docs]: /components/velbus/
 [velux docs]: /components/velux/
