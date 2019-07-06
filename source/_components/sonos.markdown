@@ -123,6 +123,7 @@ Force start playing the queue, allows switching from another stream to playing t
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
+| `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
 
 ## Advanced use
 
