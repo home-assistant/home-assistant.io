@@ -29,8 +29,8 @@ Currently supported functionality:
 - Changing the operation mode of the thermostat (heat/cool/off/auto)
 - Turning the fan on/off
 - Reading and setting the humidity level and limits
-- Turning away mode on/off
-- Turning hold mode on/off
+- Turning on away preset
+- Turning on hold mode preset
 
 The following values are supported for the hold_mode state attribute:
 - `off`: *Enables* the scheduling functionality.
