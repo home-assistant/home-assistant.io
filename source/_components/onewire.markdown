@@ -21,7 +21,7 @@ The `onewire` platform supports sensors which are using the One wire (1-wire) bu
 Supported devices:
 
 - [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
-- [DS18S20](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18S20.html)
+- [DS18S20](https://www.maximintegrated.com/en/products/sensors/DS18S20.html)
 - [DS1822](https://datasheets.maximintegrated.com/en/ds/DS1822.pdf)
 - [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)
 - [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf) temperature sensors
