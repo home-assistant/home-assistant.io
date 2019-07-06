@@ -68,10 +68,6 @@ cover:
         description: Defines a template to specify which icon to use.
         required: false
         type: template
-      device_class:
-        description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
-        required: false
-        type: string
       open_cover:
         description: Defines an action to run when the cover is opened. If [`open_cover`](#open_cover) is specified, [`close_cover`](#close_cover) must also be specified. At least one of [`open_cover`](#open_cover) and [`set_cover_position`](#set_cover_position) must be specified.
         required: inclusive
