@@ -16,7 +16,7 @@ ha_release: 0.95
 ha_iot_class: Cloud Polling
 ---
 
-The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](hhttps://weather.gc.ca/index_e.html).
+The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).
 
 The following device types and data are supported:
 

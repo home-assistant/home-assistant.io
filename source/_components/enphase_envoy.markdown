@@ -16,7 +16,7 @@ redirect_from:
  - /components/sensor.enphase_envoy/
 ---
 
-A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
+A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
 ### Configuration
 
