@@ -94,7 +94,7 @@ prometheus:
 
 {% endconfiguration %}
 
-## Full example
+## Full Example
 
 Advanced configuration example:
 
