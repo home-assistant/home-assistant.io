@@ -83,7 +83,7 @@ Best practice for updating a Hass.io installation:
 SSH to your Hass.io system, or connect to the console, and run:
 
 ```bash
-$ hassio ha update --version=0.XX.X
+hassio ha update --version=0.XX.X
 ```
 
 ## Run the beta version on Hass.io
@@ -140,18 +140,18 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 To perform the Hass.io installation on Ubuntu, run the following commands:
 
 ```bash
-$ sudo -i
-$ apt-get install software-properties-common
-$ add-apt-repository universe
-$ apt-get update
-$ apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
-$ curl -fsSL get.docker.com | sh
+sudo -i
+apt-get install software-properties-common
+add-apt-repository universe
+apt-get update
+apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+curl -fsSL get.docker.com | sh
 ```
 
 And to install Hass.io the one below. That one is used also for other distributions.
 
 ```bash
-$ curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
 ```
 
 <p class='note'>
