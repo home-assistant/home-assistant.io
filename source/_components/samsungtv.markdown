@@ -78,6 +78,7 @@ Currently known supported models:
 - F6400
 - F6400AF
 - F6500
+- F7000
 - F8000BF
 - K5579 (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - K5600AK (partially supported, turn on works but state is not updated)
