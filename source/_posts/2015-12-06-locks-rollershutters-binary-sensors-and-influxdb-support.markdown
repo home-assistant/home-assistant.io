@@ -17,7 +17,7 @@ It's been a few weeks but we managed to polish a nice new release of Home Assist
 
  - New [lock component] including [Wink][lock.wink] support ([@miniconfig])
  - New [binary sensor component] including [aRest][binary_sensor.arest] and [MQTT][binary_sensor.mqtt] support ([@fabaff])
- - New [rollershutter component] including [MQTT][rollershutter.mqtt] support ([@sfam])
+ - New rollershutter component including MQTT support ([@sfam])
  - New [InfluxDB component] to store data in InfluxDB ([@fabaff])
  - Thermostat: [Ecobee] now supported ([@nkgilley])
  - Thermostat: [Homematic] now supported ([@goir])
@@ -31,10 +31,8 @@ To update, run `pip3 install --upgrade homeassistant`.
 [binary sensor component]: /components/binary_sensor/
 [binary_sensor.arest]: /components/binary_sensor.arest/
 [binary_sensor.mqtt]: /components/binary_sensor.mqtt/
-[rollershutter component]: /components/rollershutter/
-[rollershutter.mqtt]: /components/rollershutter.mqtt/
 [InfluxDB component]: /components/influxdb/
-[Ecobee]: /components/thermostat.ecobee/
+[Ecobee]: /components/ecobee/#thermostat
 [Homematic]: /components/thermostat.homematic/
 [parsing JSON values]: /components/mqtt/#processing-json
 

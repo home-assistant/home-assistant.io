@@ -63,7 +63,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - HTTP: Allow [passwordless] logins from whitelisted IP addresses ([@Danielhiversen])
 - Sensor: Yahoo! Finance [stocks] now supported ([@tchellomello])
 - Sensor: Set value based on incoming [email] ([@sam-io])
-- Light: White value now supported ([@mxtra], [@MartinHjelmare])
+- Light: White value now supported (@mxtra, [@MartinHjelmare])
 - [InfluxDB] now allows attaching extra data ([@lwis])
 - [OpenALPR] support ([@pvizeli])
 - Minor features and bug fixes by [@fabaff], [@w1ll1am23], [@turbokongen], [@clach04], [@mKeRix], [@pvizeli], [@DavidLP], [@nvella], [@Teagan42], [@ericwclymer], [@wokar], [@kellerza], [@nkgilley], [@jawilson], [@Danielhiversen], [@ej81], [@danieljkemp], [@balloob], [@philhawthorne], [@LinuxChristian], [@milas], [@simonszu], [@Cinntax], [@irvingwa], [@sytone], [@kk7ds], [@robbiet480].
@@ -142,7 +142,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [@milaq]: https://github.com/milaq
 [@milas]: https://github.com/milas
 [@mKerix]: https://github.com/mKerix
-[@mxtra]: https://github.com/mxtra
 [@nkgilley]: https://github.com/nkgilley
 [@nvella]: https://github.com/nvella
 [@open-homeautomation]: https://github.com/open-homeautomation
