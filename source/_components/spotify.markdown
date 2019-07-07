@@ -126,13 +126,14 @@ control panel in the Home Assistant frontend.
 ## Services
 Extra services besides the default ones in component [Media Player component](/components/media_player/).
 
-### Service `play_playlist_random_music`
+### Service `play_playlist`
 
-Starts playing a Spotify playlist starting on random music from playlist.
+Play a Spotify playlist, with some extra features from generic service `"media_player.media_play"`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `media_content_id`     | no       | Spotify URI of playlist. Must be playlist kind of URI.
+| `random_song`          | yes      | True to select random song at start, False to start from beginning.
 
 
 The above playlist example is a URI link to the "Reggae Infusions" playlist.
