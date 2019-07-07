@@ -36,11 +36,11 @@ Add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 sensor:
   - platform: aurora_abb_powerone
-    rs485: 'SERIAL_PORT'
+    device: 'SERIAL_PORT'
 ```
 
 {% configuration %}
-rs485:
+device:
   description: The serial port your RS485 adaptor is connected to.
   required: true
   type: string
@@ -56,5 +56,5 @@ address:
 sensor:
   - platform: aurora_abb_powerone
     address: 2
-    rs485: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0'
+    device: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0'
 ```
