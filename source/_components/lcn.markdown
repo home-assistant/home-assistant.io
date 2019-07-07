@@ -97,7 +97,7 @@ lcn:
       address: myhome.s0.m7
       source: var3
       unit_of_measurement: °C
-  
+
   switches:
     - name: Sprinkler switch
       address: myhome.s0.m7
@@ -218,6 +218,10 @@ covers:
     motor:
       description: "Motor port ([MOTOR_PORT](#ports))."
       required: true
+      type: string
+    reverse_time:
+      description: "Reverse time ([REVERSE_TIME](#variables-and-units), see also [Cover](#cover))."
+      required: false
       type: string
 
 lights:
@@ -363,12 +367,12 @@ The platforms and service calls use several predefined constants as parameters.
 | -------- | ------ |
 | OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
 | RELAY_PORT | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8` |
-| MOTOR_PORT | `motor1`, `motor2`, `motor3`, `motor4` |
+| MOTOR_PORT | `motor1`, `motor2`, `motor3`, `motor4`, `outputs` |
 | LED_PORT | `led1`, `led2`, `led3`, `led4`, `led5`, `led6`, `led7`, `led8`, `led9`, `led10`, `led11`, `led12` |
 | LOGICOP_PORT | `logicop1`, `logicop2`, `logicop3`, `logicop4` |
 | BINSENSOR_PORT | `binsensor1`, `binsensor2`, `binsensor3`, `binsensor4`, `binsensor5`, `binsensor6`, `binsensor7`, `binsensor8` |
 
-The [MOTOR_PORT](#ports) values specify which hardware relay configuration will be used:
+The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configuration will be used:
 
 | Motor    | Relay on/off | Relay up/down |
 | :------: | :----------: | :-----------: |
@@ -376,6 +380,11 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | `motor2` | `relay3`     | `relay4`      |
 | `motor3` | `relay5`     | `relay6`      |
 | `motor4` | `relay7`     | `relay8`      |
+
+| Motor     | Output up | Output down |
+| :-------: | :-------: | :---------: |
+| `outputs` | `output1` | `output2`   |
+
 
 ### Variables and Units
 
@@ -388,6 +397,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | VAR_UNIT | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree` |
 | TIME_UNIT | `seconds`, `minutes`, `hours`, `days` |
 | RELVARREF | `current`, `prog` |
+| REVERSE_TIME | `rt70`, `rt600`, `rt1200` |
 
 ### States:
 
@@ -418,8 +428,8 @@ The binary sensor can be used in automation scripts or in conjunction with `temp
 
 The `lcn` climate platform allows the control of the [LCN](http://www.lcn.eu) climate regulators.
 This platform depends on the correct configuration of the module's regulators which has to be done in the LCN-PRO programming software.
-You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature. 
-If the control is set lockable, the regulator can be turned on/off. 
+You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature.
+If the control is set lockable, the regulator can be turned on/off.
 
 <div class='note'>
 
@@ -429,7 +439,18 @@ If you intend to leave the regulation to home assistant, you should consider usi
 
 ### Cover
 
-The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays which have been configured as motor controllers.
+The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays and output ports which have been configured as motor controllers.
+
+Only for module with firmwares earlier than 190C:<br>
+The configuration allows the optional definition of a reverse time. This is the time which is waited during the switching of the motor currents.
+The reverse time should only be defined when using the [MOTOR_PORT](#ports) value `OUTPUTS`. For all other configuration the reverse time has to be defined in the LCN Pro software.
+For the reverse time you may choose one of the following constants: `RT70` (70ms), `RT600` (600ms), `RT1200` (1,2s).
+
+<p class='note'>
+If you are using the module's output ports for motor control, ensure that you have configured the output ports as motor controllers in the LCN Pro software!
+Otherwise the output ports are not mutually interlocked and you run the risk of destroying the motor.
+</p>
+
 
 ### Light
 
@@ -470,7 +491,7 @@ The `lcn` switch platform allows the control of the following [LCN](http://www.l
 ## Services
 
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
-Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them. 
+Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them.
 
 ### Service `output_abs`
 
@@ -479,9 +500,9 @@ Set absolute brightness of output port in percent.
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
-| `brightness` | Yes | Absolute brightness in percent | 0..100 | 
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
+| `brightness` | Yes | Absolute brightness in percent | 0..100 |
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
 
 Example:
 
@@ -501,9 +522,9 @@ Set relative brightness of output port in percent.
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
-| `brightness` | Yes | Relative brightness in percent | -100..100 | 
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
+| `brightness` | Yes | Relative brightness in percent | -100..100 |
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
 
 Example:
 
@@ -522,8 +543,8 @@ Toggle output port.
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
 
 Example:
 
