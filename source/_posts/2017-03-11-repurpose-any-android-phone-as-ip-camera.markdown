@@ -123,7 +123,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Config fix ([@balloob])
 - Bugfix mqtt paho client to speend time ([@pvizeli])
 - Properly report features for each hue bulb type ([@jawilson])
-- Local file camera now supports yet inexisting files. (@jjmontestl)
+- Local file camera now supports yet inexisting files. ([@jjmontesl])
 - light.transition now supports float instead of int in order to be able to perform faster transitions ([@BillyNate])
 - Fix for OSRAM lights connected to hue bridge ([@groth-its])
 - Add support for MAX!Cube thermostats and window shutter sensors ([@BastianPoe])
@@ -175,7 +175,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Bugfix new async_add_devices function ([@pvizeli])
 - Restore for input_slider ([@pvizeli])
 - Added IPv4 data collector ([@open-homeautomation])
-- Return None instead of raising ValueException from as_timestamp template function. (@jjmontestl)
+- Return None instead of raising ValueException from as_timestamp template function. ([@jjmontesl])
 - [recorder] Catch more startup errors #6179 ([@kellerza])
 - twilio component ([@happyleavesaoc])
 - Add Z-Wave battery level as a sensor. ([@andrey-git])
@@ -272,6 +272,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@ishults]: https://github.com/ishults
 [@janLo]: https://github.com/janLo
 [@jawilson]: https://github.com/jawilson
+[@jjmontesl]: https://github.com/jjmontesl
 [@jmvermeulen]: https://github.com/jmvermeulen
 [@joe248]: https://github.com/joe248
 [@jumpkick]: https://github.com/jumpkick
