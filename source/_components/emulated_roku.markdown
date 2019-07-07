@@ -29,7 +29,7 @@ your Home Assistant instance through the automations you create with emulated Ro
 Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's ip or DNS name)
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The integration is configurable through the frontend. (**Configuration** -> **Integrations** -> **Emulated Roku**)
 
@@ -73,9 +73,9 @@ upnp_bind_multicast:
 
 After starting up, you can check if the emulated Roku is reachable at the specified ports on your Home Assistant instance (eg.: `http://192.168.1.101:8060/`).
 
-## {% linkable_title Events %}
+## Events
 
-### {% linkable_title Event `roku_command` %}
+### Event `roku_command`
 
 All Roku commands are sent as `roku_command` events.
 
@@ -89,7 +89,7 @@ Field | Description
 The available keys are listed here:
 [Roku key codes](https://sdkdocs.roku.com/display/sdkdoc/External+Control+API#ExternalControlAPI-KeypressKeyValues)
 
-## {% linkable_title Automations %}
+## Automations
 
 The following is an example implementation of an automation:
 ```yaml
@@ -108,7 +108,7 @@ The following is an example implementation of an automation:
     entity_id: media_player.amplifier
 ```
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
 If you change your advertised IP or ports, you will have to re-add the emulated Roku in your app.
 When using Harmony, the app should auto-discover any changes via UPnP discovery (if `name` is unchanged) once it detects that the device is unreachable.

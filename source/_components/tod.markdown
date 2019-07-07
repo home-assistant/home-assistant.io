@@ -23,7 +23,7 @@ The time ranges can be provided as absolute local time or using the `sunrise` or
 
 In addition for sun position based ranges, the negative or positive offset can be configured.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Here is an example of adding a sensor to the `configuration.yaml` file:
 
@@ -65,7 +65,7 @@ after_offset:
   required: false
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
 The primary purpose of this sensor is to use a simple time range definition instead of creating a complex template with references to `sun.sun` integration attributes.
 

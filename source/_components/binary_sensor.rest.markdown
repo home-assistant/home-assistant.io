@@ -34,7 +34,7 @@ The JSON messages can contain different values like `1`, `"1"`,
 }
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor,
 add the following lines to your `configuration.yaml` file for a GET request:
@@ -118,11 +118,11 @@ headers:
 Make sure that the URL exactly matches your endpoint or resource.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title aREST sensor %}
+### aREST sensor
 
 Instead of using an [aREST](/components/binary_sensor.arest/) binary sensor,
 you could retrieve the value of a device supporting
@@ -138,7 +138,7 @@ binary_sensor:
     value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
 ```
 
-### {% linkable_title Accessing an HTTP authentication protected endpoint %}
+### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and customized headers.
 

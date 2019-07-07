@@ -19,7 +19,7 @@ This release includes two new features for the auth system. The first one is lon
 
 Also on your profile page is a new list of existing refresh tokens. These are all the tokens that are currently active for your account. If you ran into issues that the remember login dialog didn't show, you might have a lot. Don't worry, you can delete them all.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add temperature sensors to the velbus component ([@Cereal2nd] - [#16203]) ([velbus docs]) ([sensor.velbus docs]) (new-platform)
 - Add Volkszaehler sensor ([@fabaff] - [#16188]) ([sensor.volkszaehler docs]) (new-platform)
@@ -31,7 +31,7 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 - Add Yale Smart Alarm component ([@domwillcode] - [#16377]) ([alarm_control_panel.yale_smart_alarm docs]) (new-platform)
 - Add OpenTherm Gateway climate platform ([@mvn23] - [#16299]) ([climate.opentherm_gw docs]) (new-platform)
 
-## {% linkable_title Release 0.78.1 - September 20 %}
+## Release 0.78.1 - September 20
 
 - Updates documentation repo URL in PR template ([@frenck] - [#16537])
 - SnmpSensor: Fix async_update (#16679) ([@mtdcr] - [#16716]) ([sensor.snmp docs])
@@ -48,11 +48,11 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 [media_player.cast docs]: /components/media_player.cast/
 [sensor.snmp docs]: /components/sensor.snmp/
 
-## {% linkable_title Release 0.78.2 - September 21 %}
+## Release 0.78.2 - September 21
 
 - Fix discovery
 
-## {% linkable_title Release 0.78.3 - September 22 %}
+## Release 0.78.3 - September 22
 
 - Bump gtts-token to 1.1.2 ([@edif30] - [#16775]) ([tts docs])
 
@@ -62,17 +62,17 @@ Also on your profile page is a new list of existing refresh tokens. These are al
 [@frenck]: https://github.com/frenck
 [tts docs]: /components/tts/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Trafikverket weather: Instead of having multiple sensor configurations per station, add only one configuration per station and select the type of measurement data to subscribe to using monitored_conditions.
 The configuration value type should no longer be used. ([@endor-force] - [#15935]) ([sensor.trafikverket_weatherstation docs]) (breaking change)
@@ -83,7 +83,7 @@ The configuration value type should no longer be used. ([@endor-force] - [#15935
 - The radiotherm `fan` and `mode` state attributes were updated to reflect the real-time fan and mode states of the thermostat, rather than the overall selected state (automatic, mostly). The mode attributes still contain the selected modes (fan on/auto, heat/cool/auto). ([@cpw] - [#15031]) ([climate.radiotherm docs]) (breaking change)
 - The `dnsip` sensor now uses `myip` as default name. ([@grea09] - [#16205]) ([sensor.dnsip docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Replace api_password in Camera.Push ([@dgomes] - [#16339]) ([camera.push docs]) (beta fix)
 - Fail fetch auth providers if onboarding required ([@balloob] - [#16454]) ([auth docs]) (beta fix)
@@ -101,7 +101,7 @@ The configuration value type should no longer be used. ([@endor-force] - [#15935
 - Fix broken bluetooth tracker ([@awarecan] - [#16589]) ([device_tracker docs]) (beta fix)
 - Rewrite bluetooth le ([@pvizeli] - [#16592]) ([device_tracker docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add 'moon_phase' to Dark Sky sensor ([@fabaff] - [#16179]) ([sensor.darksky docs])
 - Zoneminder SSL fix ([@djm300] - [#16157]) ([zoneminder docs])

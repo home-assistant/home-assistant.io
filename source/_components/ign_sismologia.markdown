@@ -32,7 +32,7 @@ of each entity.
 
 The data is updated every 5 minutes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate the IGN Sismología feed, add the following lines to your `configuration.yaml`.
 
@@ -66,7 +66,7 @@ longitude:
 {% endconfiguration %}
 
 
-## {% linkable_title State Attributes %}
+## State Attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -84,7 +84,7 @@ the standard ones:
 | image_url          | URL to a map supplied in the feed marking the location of the event. This could for example be used in notifications. |
 
 
-## {% linkable_title Full Configuration %}
+## Full Configuration
 
 ```yaml
 # Example configuration.yaml entry

@@ -19,7 +19,7 @@ redirect_from:
 
 The `uptime` sensor platform displays the time since the last Home Assistant restart.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -42,7 +42,7 @@ unit_of_measurement:
   default: days
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 # Example with configuration variables

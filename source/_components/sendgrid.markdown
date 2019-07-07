@@ -17,11 +17,11 @@ redirect_from:
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
 
-## {% linkable_title Setup %}
+## Setup
 
 You need an [API key](https://app.sendgrid.com/settings/api_keys) from SendGrid.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable notification emails via SendGrid in your installation, add the following to your `configuration.yaml` file:
 

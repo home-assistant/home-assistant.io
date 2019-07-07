@@ -34,7 +34,7 @@ Also note that you have till the end of the weekend to [submit an application][a
 [krenn]: /blog/2017/04/01/thomas-krenn-award/
 [application]: https://community.home-assistant.io/c/contest-2017
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - MaryTTS platform ([@johanpalmqvist] - [#6988]) ([tts.marytts docs]) (new-platform)
 - Telegram bot component (incl. webhook and polling platform) ([@sander76] - [#6913]) ([telegram_bot docs]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs]) (breaking change) (new-platform)
@@ -49,7 +49,7 @@ Also note that you have till the end of the weekend to [submit an application][a
 - myStrom Wifi Bulbs ([@fabaff] - [#7161]) ([light.mystrom docs]) (new-platform)
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - Remove deprecated classes from `homeassistant.remote` ([@balloob] - [#7011])
 - min_max sensor has a different default name and will ignore states that are unknown ([@micw] - [#6786])
@@ -89,7 +89,7 @@ sensor:
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Release 0.43.1 - April 25 %}
+## Release 0.43.1 - April 25
 
 - Zwave cover workaround for graber shades. ([@turbokongen] - [#7204]) ([cover.zwave docs]) ([zwave.workaround docs])
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
@@ -98,7 +98,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Work around bad content-type in Hook api response ([@KlaasH] - [#7267]) ([switch.hook docs])
 - Recorder: Check for ENTITY_ID key that contains None value ([@balloob] - [#7287]) ([recorder docs])
 
-## {% linkable_title Release 0.43.2 - April 27 %}
+## Release 0.43.2 - April 27
 
 - Frontend: Fix default date on history/logbook (@amelchio)
 - Frontend: Fix logbook ui (@balloob)
@@ -109,7 +109,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix breaking SSL in test HTML5 ([@balloob] - [#7310]) ([notify.html5 docs])
 - Fix for building Python Open Z-Wave in Docker ([@balloob] - [#7337])
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update kodi for aiohttp2 ([@armills] - [#6967]) ([media_player.kodi docs]) ([notify.kodi docs])
 - Fix current_temperature is rounded ([@aufano] - [#6960]) ([climate docs])

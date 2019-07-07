@@ -34,11 +34,11 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-## {% linkable_title Setup %}
+## Setup
 
 Download [the IP Webcam app](https://play.google.com/store/apps/details?id=com.pas.webcam) and launch the app. When you press 'Start Server', it will start streaming video from your phone and the IP address of the device will be shown on screen.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set up the component, add the following information to your `configuration.yaml` file:
 
@@ -134,7 +134,7 @@ motion_sensor:
   You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
 </p>
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 # Example configuration.yaml entry
@@ -170,11 +170,11 @@ android_ip_webcam:
       - torch
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `android_ip_webcam` binary sensor platform lets you observe the motion state of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
 
-## {% linkable_title Examples %}
+## Examples
 
 You can also setup the binary motion sensor with the following script:
 
@@ -191,11 +191,11 @@ binary_sensor:
 
 {% endraw %}
 
-## {% linkable_title Camera %}
+## Camera
 
 The `android_ip_webcam` integration adds a camera by default if you choose not to use the integration but still want to see the video feed then the [`mjpeg` camera](/components/camera.mjpeg/) platform can be used.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable only the camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -206,7 +206,7 @@ camera:
     mjpeg_url: http://IP_ADDRESS:8080/video
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `android_ip_webcam` sensor platform lets you observe states of [Android IP webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) sensors through Home Assistant. Devices will be configured automatically.
 

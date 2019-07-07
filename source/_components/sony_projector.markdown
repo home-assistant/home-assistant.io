@@ -18,7 +18,7 @@ redirect_from:
 
 The `sony_projector` switch platform allows you to control the state of SDCP compatible network-connected projectors from [Sony](http://www.sony.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Sony Projector in your installation, add the following to your `configuration.yaml` file:
 

@@ -22,7 +22,7 @@ configuration file `google_calendars.yaml` that will contain information about
 all of the calendars you can see.
 It also exposes a service to add an event to one of your Google Calendars.
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
 Generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
@@ -39,7 +39,7 @@ Generate a Client ID and Client Secret on
 
 If you are adding more Google API scopes later to the OAuth than just "Google Calendar API" then you need to delete your token file. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate Google Calendar in Home Assistant,
 add the following section to your `configuration.yaml` file:
@@ -77,7 +77,7 @@ It will give you a URL and a code to enter. This will grant your Home Assistant
 service access to all the Google Calendars that the account you
 authenticate with can read. This is a Read-Only view of these calendars.
 
-## {% linkable_title Calendar Configuration %}
+## Calendar Configuration
 
 Editing the `google_calendars.yaml` file.
 
@@ -165,7 +165,7 @@ If you use a `#` sign for `search` then wrap the whole search term in quotes.
 Otherwise everything following the hash sign would be considered a YAML comment.
 </p>
 
-### {% linkable_title Sensor attributes %}
+### Sensor attributes
 
  - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
  - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
@@ -175,7 +175,7 @@ Otherwise everything following the hash sign would be considered a YAML comment.
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
 
-### {% linkable_title Service `google.add_event` %}
+### Service `google.add_event`
 
 You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
 
@@ -194,7 +194,7 @@ You can use the service `google.add_event` to create a new calendar event in a c
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
 </p>
 
-## {% linkable_title Using calendar in automations %}
+## Using calendar in automations
 
 A calendar can be used as an external scheduler for special events or reoccurring events instead of hardcoding them in automations.
 
@@ -215,6 +215,6 @@ For example, the actions following this condition will only be executed for even
 ```yaml
     condition:
         condition: template
-        value_template: "{{states.calendar.calendar_name.attributes.message == 'vacation' }}"
+        value_template: "{{is_state_attr('calendar.calendar_name', 'message', 'vacation') }}"
 ```
 {% endraw %}

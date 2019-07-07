@@ -29,7 +29,7 @@ As part of the ongoing support for Home Assistant, Nabu Casa provides the infras
 
 This month marked a year since Ubiquiti got involved, and also their last month, as they have decided to end their involvement as their plans have changed. We left on friendly terms and I want to thank Ubiquiti for this tremendous opportunity, it has given the Home Assistant project a significant boost. Moving forward, I will be paid by Nabu Casa, so that I can continue my work on Home Assistant.
 
-## {% linkable_title The Focus %}
+## The Focus
 
 For the last year, the Home Assistant community has been working on building a user-friendly version of Home Assistant, also known as Home Assistant 1.0.
 
@@ -39,7 +39,7 @@ While we’re working hard on Home Assistant 1.0, we have also started working o
 
 We have started certifying our integrations with partners and are working on making it easier for manufacturers to improve or maintain their own integrations. If you are a manufacturer and want to join early, reach out to us at [partner@nabucasa.com](mailto:partner@nabucasa.com). We’re planning on launching more information about this soon.
 
-## {% linkable_title Finally %}
+## Finally
 
 These are exciting times and I am stoked for what is ahead of us. Home Assistant is growing, our community is growing, and our reach is growing. Just this week there was [a testimony about how Home Assistant saves lives](https://news.ycombinator.com/item?id=19806159) and we discovered that the [Living Computers Museum](https://livingcomputers.org/) in Seattle is using Home Assistant to teach people about the internet of things:
 

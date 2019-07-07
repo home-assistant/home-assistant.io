@@ -19,7 +19,7 @@ This release we've started the work to make our Xiaomi integrations more robust.
 
 Another cool thing in this release is the new [`mqtt_statestream`][mqtt_statestream docs] component to export state changes to MQTT. Each entity will be exported on their own topic which makes it very easy to subscribe to individual entity updates.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Added mqtt_statestream component ([@mw-white] - [#9286]) ([mqtt_statestream docs]) (new-platform)
 - Add support for Todoist platform ([@Jay2645] - [#9236]) ([calendar.todoist docs]) (new-platform)
@@ -31,15 +31,15 @@ Another cool thing in this release is the new [`mqtt_statestream`][mqtt_statestr
 - Added satel_integra alarm panel and binary sensor platform ([@c-soft] - [#9336]) ([satel_integra docs]) ([alarm_control_panel.satel_integra docs]) ([binary_sensor.satel_integra docs]) (new-platform)
 - Worx Landroid sensor ([@nilzen] - [#9416]) ([sensor.worxlandroid docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Sensor - OneWire: This update changes the names of the sensors from `<sensor_name>` to `<sensor_name> <Sensor_type>` ([@tcastberg] - [#9404]) ([sensor.onewire docs]) (breaking change)
 - Renamed Xiaomi platforms to include their protocol names. xiaomi -> xiaomi_aqara, xiaomi_aqara.switch, xiaomi_aqara.light, xiaomi_aqara.binary_sensor, ... and vacuum.xiaomi, xiaomi_philipslight -> xiaomi_miio, vacuum.xiaomi_miio, light.xiaomi_miio ([@danielhiversen] - [#9426]) (breaking change)
@@ -48,7 +48,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fitbit: Put endpoints behind `/api` like the other oauth-using components ([@happyleavesaoc] - [#9460]) ([sensor.fitbit docs]) (breaking change)
 - Version 0.53 introduced a bug in the HomeMatic component which breaks the usage of system variables on the CCU / Homegear. This has not been fixed yet. If you are using these variables in your automations you should skip updates until the bug has been resolved. Upgrading is safe however if you only interact with devices.
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add HTTP Basic auth to RESTful Switch ([@amelchio] - [#9162]) ([switch.rest docs])
 - Bump pywebpush and pyJWT versions ([@fanaticDavid] - [#9355]) ([notify.html5 docs])

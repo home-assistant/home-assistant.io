@@ -18,7 +18,7 @@ redirect_from:
 
 The `uptimerobot` binary sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot.]( https://uptimerobot.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml`:
 

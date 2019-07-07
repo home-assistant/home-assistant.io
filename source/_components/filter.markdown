@@ -25,7 +25,7 @@ The `filter` platform enables sensors that process the states of other entities.
   <img src='{{site_root}}/images/screenshots/filter-sensor.png' />
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -113,9 +113,9 @@ filters:
       default: positive infinity
 {% endconfiguration %}
 
-## {% linkable_title Filters %}
+## Filters
 
-### {% linkable_title Low-pass %}
+### Low-pass
 
 The Low-pass filter (`lowpass`) is one of signal processing most common filters, as it smooths data by shortcutting peaks and valleys.
 
@@ -129,7 +129,7 @@ LowPass(state) = A * previous_state + B * state
 
 The returned value is rounded to the number of decimals defined in (`precision`).
 
-### {% linkable_title Outlier %}
+### Outlier
 
 The Outlier filter (`outlier`) is a basic Band-pass filter, as it cuts out any value outside a specific range.
 
@@ -144,7 +144,7 @@ else:
     state
 ```
 
-### {% linkable_title Throttle %}
+### Throttle
 
 The Throttle filter (`throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
 
@@ -152,7 +152,7 @@ To adjust the rate you need to set the window_size. To throttle a sensor down to
 
 This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes.
 
-### {% linkable_title Time Throttle %}
+### Time Throttle
 
 The Time Throttle filter (`time_throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
 
@@ -160,7 +160,7 @@ To adjust the rate you need to set the window_size. To throttle a sensor down to
 
 This filter is relevant when you have a sensor which produces states at a very high inconstant rate, which you might want to throttle down to some constant rate for storing or visualization purposes.
 
-### {% linkable_title Time Simple Moving Average %}
+### Time Simple Moving Average
 
 The Time SMA filter (`time_simple_moving_average`) is based on the paper [Algorithms for Unevenly Spaced Time Series: Moving Averages and Other Rolling Operators](http://www.eckner.com/papers/Algorithms%20for%20Unevenly%20Spaced%20Time%20Series.pdf) by Andreas Eckner.
 
@@ -168,7 +168,7 @@ The paper defines three types/versions of the Simple Moving Average (SMA): *last
 
 Theta, as described in the paper, is the `window_size` parameter, and can be expressed using time notation (e.g., 00:05 for a five minutes time window).
 
-### {% linkable_title Range %}
+### Range
 
 
 The Range filter (`range`) restricts incoming data to a range specified by a lower and upper bound.

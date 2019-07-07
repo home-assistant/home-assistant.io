@@ -19,7 +19,7 @@ redirect_from:
 
 The `linky` sensor platform is retrieving the consumption of your home from the [Linky electric meter](https://www.enedis.fr/linky-compteur-communicant).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 First, you need to create an Enedis account [here](https://espace-client-connexion.enedis.fr/auth/UI/Login?realm=particuliers), if you don't have already one.
 

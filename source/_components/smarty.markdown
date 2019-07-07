@@ -33,7 +33,7 @@ The integration has a fan platform to view and control the ventilation speed, an
 - Warning
 - Filter Change Timer
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 

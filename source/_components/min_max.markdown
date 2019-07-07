@@ -23,16 +23,16 @@ This sensor is an alternative to the [template sensor](/components/sensor.templa
 
 {% raw %}
 ```yaml
-{{ ((float(states.sensor.kitchen_temperature.state) +
-     float(states.sensor.living_room_temperature.state) +
-     float(states.sensor.office_temperature.state)) / 3) | round(2)
+{{ ((float(states('sensor.kitchen_temperature')) +
+     float(states('sensor.living_room_temperature')) +
+     float(states('sensor.office_temperature'))) / 3) | round(2)
 }}
 ```
 {% endraw %}
 
 Sensors with an unknown state will be ignored in the calculation. If the unit of measurement of the sensors differs, the `min_max` sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `min_max` sensor, add the following lines to your `configuration.yaml`:
 

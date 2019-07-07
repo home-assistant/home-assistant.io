@@ -41,7 +41,7 @@ title:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 ```yaml
 type: iframe

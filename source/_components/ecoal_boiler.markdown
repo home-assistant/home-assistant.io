@@ -19,7 +19,7 @@ redirect_from:
 
 The `ecoal_boiler` integration is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your eCoal pumps or sensors in your installation, add the following to your `configuration.yaml` file:
 

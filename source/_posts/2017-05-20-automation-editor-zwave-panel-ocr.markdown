@@ -55,7 +55,7 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 [hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296
 [hass.io-install]: /hassio/installation/
 
-## {% linkable_title New integrations %}
+## New integrations
 
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)
 - Add datadog component ([@nunofgs] - [#7158]) ([datadog docs]) (new-platform)
@@ -70,26 +70,26 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 - Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) (new-platform)
 - Axis component ([@Kane610] - [#7381]) ([axis docs]) (new-platform)
 
-## {% linkable_title Release 0.45.1 - May 22 %}
+## Release 0.45.1 - May 22
 
 - Fix telegram chats ([@azogue] - [#7689]) ([notify.telegram docs]) ([telegram_bot.__init__ docs])
 - Fix playback control of web streams ([@cgtobi] - [#7683]) ([media_player.volumio docs])
 - device_tracker.ubus: Handle empty results ([@tobygray] - [#7673]) ([device_tracker.ubus docs])
 - Allow fetching hass.io panel without auth ([@balloob] - [#7714]) ([hassio docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)
 
 <!--more-->
-## {% linkable_title All changes %}
+## All changes
 
 - Add hass to rfxtrx object ([@danielhiversen] - [#6844])
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)

@@ -31,7 +31,7 @@ Examples of controllers:
 - [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
 
-### {% linkable_title Configuration Details %}
+### Configuration Details
 
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
@@ -93,7 +93,7 @@ The integration defaults to rgbw. If your device has a separate white channel, y
 </p>
 
 
-### {% linkable_title Example configuration %}
+### Example configuration
 
 Will automatically search and add all lights on start up:
 
@@ -163,7 +163,7 @@ light:
         protocol: 'ledenet'
 ```
 
-### {% linkable_title Effects %}
+### Effects
 
 The Flux Led light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
 

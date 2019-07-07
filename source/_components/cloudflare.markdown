@@ -17,11 +17,11 @@ With the `cloudflare` integration can you keep your Cloudflare records up to dat
 
 The integration will run every hour, but can also be started manually by using the service `cloudflare.update_records` under services.
 
-## {% linkable_title Setup %}
+## Setup
 
 You will find your global API key in your Cloudflare account settings.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the integration in your installation, add the following to your `configuration.yaml` file:
 

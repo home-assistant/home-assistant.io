@@ -77,7 +77,7 @@ rights:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use the database above:
 

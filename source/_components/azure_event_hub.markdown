@@ -15,7 +15,7 @@ ha_release: 0.94
 
 The `Azure Event Hub` integration allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/) or to a [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin). 
 
-## {% linkable_title First time setup %}
+## First time setup
 
 This assumes you already have a Azure account. Otherwise create a Free account [here](https://azure.microsoft.com/en-us/free/).
 
@@ -25,7 +25,7 @@ You must then create a Shared Access Policy for the Event Hub with 'Send' claims
 
 Once you have the name of your namespace, instance, Shared Access Policy and the key for that policy, you can setup the integration itself.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the following lines to your `configuration.yaml` file:
 
@@ -92,7 +92,7 @@ filter:
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
 </p>
 
-### {% linkable_title Using the data in Azure %}
+### Using the data in Azure
 
 There are a number of ways to stream the data that comes into the Event Hub into storages in Azure, the easiest way is to use the built-in Capture function and this allows you to capture the data in Azure Blob Storage or Azure Data Lake store, [details here](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).
 

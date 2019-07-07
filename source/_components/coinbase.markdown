@@ -21,7 +21,7 @@ The `coinbase` integration lets you access account balances and exchange rates f
 
 You will need to obtain an API key from coinbase's [developer site](https://www.coinbase.com/settings/api) to use this component. You need to give read access to `wallet:accounts` in order for the integration to access relevant data.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -54,7 +54,7 @@ exchange_rate_currencies:
 
 Possible currencies are codes that conform to the ISO 4217 standard where possible. Currencies which have or had no representation in ISO 4217 may use a custom code (e.g. BTC). A list of values can be obtained via https://api.coinbase.com/v2/currencies, for more information visit [the Coinbase API documentation](https://developers.coinbase.com/api/v2#get-currencies).
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 A full configuration sample including optional variables:
 

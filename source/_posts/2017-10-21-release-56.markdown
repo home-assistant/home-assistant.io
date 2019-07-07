@@ -18,23 +18,23 @@ We reached another milestone aka number: 10000. GitHub is assigning numbers to p
 
 If you haven't noticed, there is now a [glossary](/docs/glossary/) that collects some Home Assistant relevant terms. Talking about the documentation: [@DubhAd](https://github.com/DubhAd) rewrote large parts of the [Z-Wave section](/docs/z-wave/). More structure to get started and to find details during the setup and the configuration.
 
-## {% linkable_title Google Assistant / Google Home integration %}
+## Google Assistant / Google Home integration
 This release includes a new component to integrate Home Assistant with Google Assistant by [Phil Kates][@philk]. We integrate via the Smart Home API, this means that you will be able to control your devices in Home Assistant via any device that has Google Assistant. Learn more in [the documentation][google_assistant docs].
 
-## {% linkable_title Hacktoberfest %}
+## Hacktoberfest
 [Hacktoberfest](/blog/2017/09/29/hacktoberfest/) is still on and so far we have received a lot improvements. We can't make any promises to review everything by the end of October, but we are trying to make sure that you will get your t-shirt.
 
-## {% linkable_title Map %}
+## Map
 The [map][map docs] is now its own component. Similar to [configuration (`config:`)](/components/config/), it will not show up without adding it to your `configuration.yaml` file.
 
 ```yaml
 map:
 ```
 
-## {% linkable_title Travis CI %}
+## Travis CI
 Why not observe your [Travis CI](https://travis-ci.org) jobs with Home Assistant? [@tchellomello] created a [Travis CI][sensor.travisci docs] sensor which allows one to check on the current state of Travis jobs. Now you can make sure that the [coffee](/blog/2017/01/28/face-coffee-wink/#first-coffee-maker-supported) is ready when the build passed.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add Arlo alarm control panel component ([@vickyg3] - [#9711]) ([alarm_control_panel.arlo docs]) (new-platform)
 - Abode Temp, Humidity, and Light Sensor ([@MisterWil] - [#9709]) ([abode docs]) ([sensor.abode docs]) (new-platform)
@@ -53,29 +53,29 @@ Why not observe your [Travis CI](https://travis-ci.org) jobs with Home Assistant
 - Add serial sensor ([@fabaff] - [#9861]) ([sensor.serial docs]) (new-platform)
 - Add Toon support ([@Boltgolt] - [#9483]) ([toon docs]) ([climate.toon docs]) ([sensor.toon docs]) ([switch.toon docs]) (new-platform)
 
-## {% linkable_title 0.56.1 - October 22 %}
+## 0.56.1 - October 22
 
 - Fix device update / entity_id with names ([@pvizeli] - [#10029])
 - fix temperature/humidity sensors valid values ([@bieniu] - [#10024]) ([sensor.xiaomi_aqara docs])
 
-## {% linkable_title 0.56.2 - October 23 %}
+## 0.56.2 - October 23
 
 - Fix gateway illumination sensor value ([@bieniu] - [#10045]) ([sensor.xiaomi_aqara docs])
 - Fix device update/`entity_id` with names ([@rytilahti] - [#10053]) ([switch.tplink docs])
 - Remove warning component / Update event trigger for UI created ([@pvizeli] - [#10060])
 
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Simplify track_same_state ([@balloob] - [#9795]) ([automation.numeric_state docs]) ([automation.state docs]) ([binary_sensor.template docs]) (breaking change)
 - Split map panel out into its own component ([@cgarwood] - [#9814]) ([map docs]) (breaking change) (new-platform)
@@ -86,7 +86,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Align away state tag with device_trackers ([@PeteBa] - [#9884]) ([sensor.mqtt_room docs]) (breaking change)
 - Moved siren to Wink from switch ([@w1ll1am23] - [#9879]) ([wink docs]) ([switch.wink docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - fixed duplicate words ([@flowolf] - [#9705]) ([light.hue docs]) ([light.mqtt_json docs]) ([media_player.denon docs]) ([media_player.dunehd docs])
 - move icon battery function from util to helpers ([@happyleavesaoc] - [#9708]) ([vacuum docs]) ([sensor.android_ip_webcam docs]) ([sensor.fitbit docs]) ([sensor.ios docs]) ([sensor.raincloud docs]) ([vacuum.dyson docs]) ([vacuum.mqtt docs])

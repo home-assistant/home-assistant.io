@@ -44,7 +44,7 @@ device:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title How to find the scs_id for your devices %}
+### How to find the scs_id for your devices
 
 The SCSGate integration relies on the [scsgate](https://github.com/flavio/scsgate) Python module.
 
@@ -52,7 +52,7 @@ This module provides also a command line tool called `scs-monitor`. This program
 
 For more information checkout [this](http://scsgate.readthedocs.org/en/latest/?badge=latest#creation-of-a-home-assistant-configuration-file) section of `scsgate`'s documentation.
 
-### {% linkable_title Cover %}
+### Cover
 
 The SCSGate devices can control motorized covers connected to the BTicino MyHome system.
 
@@ -93,7 +93,7 @@ devices:
 **Known limitation:** It is not possible to know the current state of the cover.
 </p>
 
-### {% linkable_title Light %}
+### Light
 
 The SCSGate device can control lights of the BTicino MyHome system.
 
@@ -116,7 +116,7 @@ devices:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Switch %}
+### Switch
 
 The SCSGate device can control switches of the BTicino MyHome system.
 

@@ -48,7 +48,7 @@ To send an alert if the CV pressure is too low or too high, consider the followi
 
 Other properties are available via each device's attributes.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To add your Lan2RF gateway into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
 

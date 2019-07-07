@@ -55,7 +55,7 @@ columns:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -124,7 +124,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic example:
 

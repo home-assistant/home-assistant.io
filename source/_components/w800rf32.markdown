@@ -38,11 +38,11 @@ device:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `w800rf32` platform supports X10 RF binary sensors such as Palm Pad remotes, key chain remotes, Hawkeye motion detectors, and many, many other X10 RF devices. Some that have specifically been used with this are the KR19A keychain, MS16A motion detector and the RSS18 four button wall mount keypad.
 
-## {% linkable_title Setting up your devices %}
+## Setting up your devices
 
 Once you have set up your [w800rf32 hub](/components/w800rf32/), add the binary sensors to your `configuration.yaml`:
 

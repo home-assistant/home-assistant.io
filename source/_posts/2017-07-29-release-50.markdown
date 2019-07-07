@@ -19,7 +19,7 @@ The launch has been crazy successful. The [20 minute introduction video][hassio-
 
 Hass.io will be a great foundation for bigger and better integrated features. Stay tuned.
 
-### {% linkable_title Adding the power of voice to integrations %}
+### Adding the power of voice to integrations
 
 But enough about Hass.io, let's not forget about Home Assistant. This release has completely revamped the way how we deal with voice integrations. We turned Home Assistant into a platform to write voice apps, no matter where the processing of the voice happens. This can be done by Alexa, Google Assistant or in the Home Assistant user interface.
 
@@ -36,7 +36,7 @@ To make testing these applications easier, we've updated the conversation compon
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ij0zDF3qwmE" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title History improvements %}
+### History improvements
 
 [@OverloadUT] has been recently spending a lot of time on optimizing the history database queries. This release includes PR [#8632], the first in a list of improvements that he is working on. This PR greatly improves requests for single entities by using an optimized query for this use case.
 
@@ -44,19 +44,19 @@ The performance change in some of his tests shows this change to be about 300x f
 
 [hassio-intro]: https://www.youtube.com/watch?v=XWPluWcYRMI&feature=youtu.be
 
-### {% linkable_title Xiaomi integration %}
+### Xiaomi integration
 
 Yes, it has happened! After being in beta for a while, the Xiaomi support is now available to all. [@danielhiversen] did an amazing job and we now support sensors, switches, lights and covers.
 
-### {% linkable_title Velbus integration %}
+### Velbus integration
 
 Another awesome integration is that of the Velbus home automation system which has been contributed by [@thomasdelaet]. It integrates their sensors, covers, fans, lights and switches.
 
-### {% linkable_title Manual alarm with MQTT control %}
+### Manual alarm with MQTT control
 
 A new version of the manual alarm component is now available with full MQTT control thanks to [@colinodell]. Using this you can build your own control panel to remotely arm/disarm the alarm. For example, using a [Raspberry Pi to create an alarm](https://www.hackster.io/colinodell/diy-alarm-control-panel-for-home-assistant-ac1813).
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Initial support for Google Wifi/OnHub ([@fronzbot] - [#8485]) ([sensor.google_wifi docs]) (new-platform)
 - Xiaomi gw support ([@danielhiversen] - [#8555]) ([xiaomi docs]) ([binary_sensor.xiaomi docs]) ([cover.xiaomi docs]) ([light.xiaomi docs]) ([sensor.xiaomi docs]) ([switch.xiaomi docs]) (new-platform)
@@ -66,7 +66,7 @@ A new version of the manual alarm component is now available with full MQTT cont
 - Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
 - Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
 
-## {% linkable_title Release 0.50.2 - July 31 %}
+## Release 0.50.2 - July 31
 
 Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 
@@ -82,14 +82,14 @@ Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 - Correctly discover GE Fan Controllers ([@armills] - [#8682]) ([zwave docs])
 - Fix Z-Wave barrier discovery for new API ([@armills] - [#8706]) ([zwave docs]) ([cover.zwave docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Automations: The state trigger keyword `state` and the time trigger keyword `after` were deprecated in 0.46. They have now been removed. Use `to` and `at` instead. ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
 - Wink: the component is no longer supporting the `access_token` in the config. Use the new OAuth authentication or add your username and password to the config. ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)
@@ -125,7 +125,7 @@ conversation:
 - Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
 - The Home Assistant Z-Wave Cover implementation has been updated to support the latest development version of OpenZWave. If you are currently applying a workaround to your OpenZWave installation to support the barrier command class, you'll need to make sure you update your workaround to the latest development version of OpenZWave. ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Make deps directory persistent over upgrades ([@MartinHjelmare] - [#7801])
 - Fix check for running inside venv ([@MartinHjelmare] - [#8481])

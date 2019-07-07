@@ -17,7 +17,7 @@ redirect_from:
 
 The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) Text-to-Speech engine to read a text with natural sounding voices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable text-to-speech with MaryTTS, add the following lines to your `configuration.yaml`:
 
@@ -57,7 +57,7 @@ language:
 
 See [documentation](http://mary.dfki.de/documentation/index.html) for details.
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 A full configuration sample including optional variables:
 

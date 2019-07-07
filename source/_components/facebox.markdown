@@ -17,7 +17,7 @@ redirect_from:
 
 The `facebox` image processing platform allows you to detect and recognize faces in a camera image using [Facebox](https://machinebox.io/docs/facebox). The state of the entity is the number of faces detected, and recognized faces are listed in the `matched_faces` attribute. An `image_processing.detect_face` event is fired for each recognized face, and the event `data` provides the `confidence` of recognition, the `name` of the person, the `image_id` of the image associated with the match, the `bounding_box` that contains the face in the image, and the `entity_id` that processing was performed on.
 
-## {% linkable_title Setup %}
+## Setup
 
 Facebox runs in a Docker container and it is recommended that you run this container on a machine with a minimum of 2 GB RAM. On your machine with Docker, run the Facebox container with:
 
@@ -30,7 +30,7 @@ You can run Facebox with a username and password by adding `-e "MB_BASICAUTH_USE
 
 If you only require face detection (number of faces) you can disable face recognition by adding `-e "MB_FACEBOX_DISABLE_RECOGNITION=true"` to the `docker run` command.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -77,7 +77,7 @@ source:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Automations %}
+## Automations
 
 Use the `image_processing.detect_face` events to trigger automations, and breakout the `trigger.event.data` using a [data_template](/docs/automation/templating/). The following example automation sends a notification when Ringo Star is recognized:
 
@@ -98,7 +98,7 @@ Use the `image_processing.detect_face` events to trigger automations, and breako
 ```
 {% endraw %}
 
-## {% linkable_title Service `facebox_teach_face` %}
+## Service `facebox_teach_face`
 
 The service `facebox_teach_face` can be used to teach Facebox faces.
 

@@ -30,7 +30,7 @@ You will be prompted to configure the gateway through the Home Assistant interfa
 If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP address to your IKEA Trådfri Gateway in your router / DHCP-server.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You can add the following to your `configuration.yaml` file if you are not using the [`discovery:`](/components/discovery/) component:
 
@@ -52,9 +52,9 @@ allow_tradfri_groups:
   default: false
 {% endconfiguration %}
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title Firmware updates %}
+### Firmware updates
 
 After updating the firmware of your IKEA Trådfri Gateway it might be necessary to repeat the configuration process. Possible errors: `Fatal DTLS error: code 115`. If you encounter problems:
 - when configured using the integration: remove the integration through Settings > Integrations > Tradfri > delete using trash can icon;
@@ -62,7 +62,7 @@ After updating the firmware of your IKEA Trådfri Gateway it might be necessary 
 
 Then restart Home Assistant, when prompted enter the security key and click configure, just like during initial setup.
 
-### {% linkable_title Compilation issues %}
+### Compilation issues
 
 <p class='note'>
   This does not apply to Hass.io or Docker.
@@ -70,6 +70,6 @@ Then restart Home Assistant, when prompted enter the security key and click conf
 
 Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (>1 h) on slow devices.
 
-### {% linkable_title Setting the `api_key` %}
+### Setting the `api_key`
 
 Do not use the `api_key` variable in `configuration.yaml`. The API key is only needed once at initial setup and will be stored.

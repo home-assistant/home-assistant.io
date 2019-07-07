@@ -21,7 +21,7 @@ The `roomba` integration allows you to control your [iRobot Roomba](http://www.i
 This platform has only been tested with an iRobot Roomba 980 but should work fine with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
 
@@ -68,6 +68,6 @@ continuous:
 The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
 </p>
 
-### {% linkable_title Retrieving your credentials %}
+### Retrieving your credentials
 
 Please refer to [here](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [here](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to retrieve both the BLID (username) and the password.

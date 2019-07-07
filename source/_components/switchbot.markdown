@@ -18,7 +18,7 @@ redirect_from:
 
 The `switchbot` switch platform allows you to control Switchbot [devices](https://www.switch-bot.com/).
 
-## {% linkable_title Manual Configuration %}
+## Manual Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
 

@@ -16,7 +16,7 @@ ha_iot_class: Configurable
 
 The `mqtt_statestream` integration publishes state changes in Home Assistant to individual MQTT topics.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable MQTT Statestream in Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -71,7 +71,7 @@ include:
       type: list
 {% endconfiguration %}
 
-## {% linkable_title Operation %}
+## Operation
 
 When any Home Assistant entity changes, this integration will publish that change to MQTT.
 
@@ -86,7 +86,7 @@ All states and attributes are passed through JSON serialization before publishin
 
 The last_updated and last_changed values for the entity will be published to `homeassistant/light/master_bedroom_dimmer/last_updated` and `homeassistant/light/master_bedroom_dimmer/last_changed`, respectively. The timestamps are in ISO 8601 format - for example, `2017-10-01T23:20:30.920969+00:00`.
 
-## {% linkable_title Include/exclude %}
+## Include/exclude
 
 The **exclude** and **include** configuration variables can be used to filter the items that are published to MQTT.
 

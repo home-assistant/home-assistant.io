@@ -82,7 +82,7 @@ There are some rules for packages that will be merged:
 Components inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the integration name.
 </p>
 
-### {% linkable_title Create a packages folder %}
+### Create a packages folder
 
 One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all packages:
 
@@ -94,7 +94,7 @@ homeassistant:
 This uses the concept splitting the configuration and will include all files in a directory with the keys representing the filenames.
 See the documentation about [splitting the configuration](/docs/configuration/splitting_configuration/) for more information about `!include_dir_named` and other include statements that might be helpful. The benefit of this approach is to pull all configurations required to integrate a system, into one file, rather than accross several.
 
-### {% linkable_title Customizing entities with packages %}
+### Customizing entities with packages
 
 It is possible to [customize entities](/docs/configuration/customizing-devices/) within packages. Just create your customization entries under:
 

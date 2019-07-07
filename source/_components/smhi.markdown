@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 - Weather
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The SMHI weather service is free under the Creative Commons Attribution 4.0, international license. Weather data will be pulled once every 30 minutes.
 

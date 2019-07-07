@@ -22,7 +22,7 @@ redirect_from:
 
 The `openuv` integration displays UV and Ozone data from [openuv.io](http://openuv.io).
 
-## {% linkable_title Generating an API Key %}
+## Generating an API Key
 
 To generate an API key,
 [simply log in to the OpenUV website](https://www.openuv.io/auth/google).
@@ -52,7 +52,7 @@ Ensure that you understand these specifications when calling the `update_data`
 service.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To retrieve data from OpenUV, add the following to your `configuration.yaml`
 file:
@@ -117,7 +117,7 @@ The approximate number of minutes of a particular skin type can be exposed to
 the sun before burning/tanning starts is based on the
 [Fitzpatrick scale](https://en.wikipedia.org/wiki/Fitzpatrick_scale).
 
-## {% linkable_title Full Configuration Example %}
+## Full Configuration Example
 
 To configure additional functionality, add configuration options beneath a
 `binary_sensor` and/or `sensor` key within the `openuv` section of the
@@ -149,13 +149,13 @@ decision making. They should not replace analysis, advice or diagnosis from a
 trained medical professional.
 </p>
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title `openuv.update_data` %}
+### `openuv.update_data`
 
 Perform an on-demand update of OpenUV data.
 
-## {% linkable_title Examples of Updating Data %}
+## Examples of Updating Data
 
 One method to retrieve data every 30 minutes and still leave plenty of API key
 usage is to only retrieve data during the daytime:

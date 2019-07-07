@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 In preparation for using this integration you will need to request an API key following the instructions in the [Streamlabs API Getting Started Section](https://developer.streamlabswater.com/docs/getting-started.html). Be sure to request an API key and not an OAuth token.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the following to your `configuration.yaml` file:
 
@@ -45,7 +45,7 @@ location_id:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Service `set_away_mode` %}
+## Service `set_away_mode`
 
 You can use the service `streamlabswater.set_away_mode` to set the mode to `home` or `away`. The away mode will only be changed for the configured location.
 

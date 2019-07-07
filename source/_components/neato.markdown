@@ -45,7 +45,7 @@ password:
 After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-).
 </p>
 
-## {% linkable_title Vacuum %}
+## Vacuum
 
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
 The status will contain attributes on the robots last clean session.
@@ -54,7 +54,7 @@ The status will contain attributes on the robots last clean session.
 If you notice the robot stops responding to commands check the state to see if the robot is "unavailable". If you see "unavailable" first try to restart the vacuum and wait about 5 minutes to see if it is no longer "unavailable". If you are still having issues check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
 </p>
 
-### {% linkable_title Services %}
+### Services
 
 Currently supported services are:
 
@@ -69,9 +69,9 @@ And a specific Platform Service:
 
 - `vacuum.neato_custom_cleaning`
 
-### {% linkable_title Platform Services %}
+### Platform Services
 
-#### {% linkable_title Service `vacuum.neato_custom_cleaning` %}
+#### Service `vacuum.neato_custom_cleaning`
 
 Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
@@ -89,11 +89,11 @@ Some information about the capabilities might be found on the [Neato Developer P
 | `zone`                 | yes      | Only supported on the Botvac D7. Name of the zone to clean from the Neato app. Use unique names for the zones to avoid the wrong zone from running. Defaults to no zone i.e. complete house cleanup.                                                                  |
 
 
-## {% linkable_title Camera %}
+## Camera
 
 The `neato` camera platform allows you to view the latest cleaning map of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
 
-## {% linkable_title Switch %}
+## Switch
 
 The `neato` switch platform allows you to enable or disable the schedule of your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/botvac-connected/).
 

@@ -36,7 +36,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
 
@@ -67,9 +67,9 @@ format:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Special Row Elements %}
+## Special Row Elements
 
-### {% linkable_title Call Service %}
+### Call Service
 
 {% configuration %}
 type:
@@ -100,7 +100,7 @@ service_data:
   type: object
 {% endconfiguration %}
 
-### {% linkable_title Divider %}
+### Divider
 
 {% configuration %}
 type:
@@ -114,7 +114,7 @@ style:
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 
-### {% linkable_title Section %}
+### Section
 
 {% configuration %}
 type:
@@ -127,7 +127,7 @@ label:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Weblink %}
+### Weblink
 
 {% configuration %}
 type:
@@ -150,7 +150,7 @@ icon:
   default: "`mdi:link`"
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Entity rows:
 

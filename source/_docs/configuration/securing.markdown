@@ -12,7 +12,7 @@ redirect_from: /getting-started/securing/
 
 One major advantage of Home Assistant is that it's not dependent on cloud services. Even if you're only using Home Assistant on a local network, you should take steps to secure your instance.
 
-## {% linkable_title Checklist %}
+## Checklist
 
 Here's the summary of what you *must* do to secure your Home Assistant system:
 
@@ -24,7 +24,7 @@ If you only want to use integrations supported by [Home Assistant cloud](/cloud/
 - For remote access to the UI, use a [VPN](http://www.pivpn.io/), [Tor](/docs/ecosystem/tor/) or an [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/)
 - For remote access for components, use a [TLS/SSL](/docs/ecosystem/certificates/lets_encrypt/) certificate
 
-### {% linkable_title You should %}
+### You should
 
 As well as the above we advise that you consider the following to improve security:
 
@@ -37,7 +37,7 @@ As well as the above we advise that you consider the following to improve securi
   If you've forwarded *any* ports to your Home Assistant system from the Internet, then it *will* be found by others. Whether through services like Shodan, or direct port scanning, all systems on the Internet are routinely probed for accessible services. If you fail to set a password then it is simply a matter of time before somebody finds your system and starts abusing it - potentially as little as a few hours.
 </p>
 
-### {% linkable_title Remote access for just the UI %}
+### Remote access for just the UI
 
 If you only want remote access for access to the web UI then we advise that you follow the [Installation](/docs/installation/) section, then set up one of:
 
@@ -45,7 +45,7 @@ If you only want remote access for access to the web UI then we advise that you 
 - [Tor](/docs/ecosystem/tor/), which also avoids the need for port forwarding
 - An [SSH tunnel](/blog/2017/11/02/secure-shell-tunnel/) to connect to your frontend
 
-### {% linkable_title Remote access for integrations %}
+### Remote access for integrations
 
 For remote access for a component, for example, a device tracker, you have to enable access to the API by:
 

@@ -19,7 +19,7 @@ The `quantum_gateway` device tracker platform offers presence detection by looki
 
 It was tested with a Verizon Fios-G1100 Quantum Gateway.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a Verizon Fios Quantum Gateway in your installation, add the following to your `configuration.yaml` file:
 

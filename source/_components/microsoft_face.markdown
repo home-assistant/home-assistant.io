@@ -18,7 +18,7 @@ Azure Cognitive service
 [Face](https://azure.microsoft.com/en-us/services/cognitive-services/face/).
 All data are stored in your own private instance in the Azure cloud.
 
-## {% linkable_title Setup %}
+## Setup
 
 You need an API key, which is free, but requires an
 [Azure registration](https://azure.microsoft.com/en-us/free/) using your
@@ -28,7 +28,7 @@ get an API key by registering with
 [cognitive-services](https://azure.microsoft.com/en-us/try/cognitive-services/).
 Please note that all keys on cognitive services must be recreated every 90 days.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Microsoft Face component,
 add the following to your `configuration.yaml` file:
@@ -56,7 +56,7 @@ timeout:
   default: 10s
 {% endconfiguration %}
 
-### {% linkable_title Person and Groups %}
+### Person and Groups
 
 For most services, you need to set up a group or a person.
 This limits the processing and detection to elements provided by the group.

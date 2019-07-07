@@ -58,11 +58,11 @@ views:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Paths %}
+## Paths
 
 You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths.
 
-### {% linkable_title Example %}
+### Example
 
 View config:
 
@@ -82,22 +82,22 @@ Picture card config:
     navigation_path: /lovelace/living_room
 ```
 
-## {% linkable_title Icons %}
+## Icons
 
 If you define an icon the title will be used as a tool-tip.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Garden
   icon: mdi:flower
 ```
 
-## {% linkable_title Panel mode %}
+## Panel mode
 
 This renders the first card on full width, other cards in this view will not be rendered. Good for cards like `map`, `stack` or `picture-elements`.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Map
@@ -109,22 +109,22 @@ This renders the first card on full width, other cards in this view will not be 
         - zone.home
 ```
 
-## {% linkable_title Background %}
+## Background
 
 Style the background of views using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Living room
   background: center / cover no-repeat url("/local/background.png") fixed
 ```
 
-## {% linkable_title Themes %}
+## Themes
 
 Set a separate [theme](/components/frontend/#themes) for the view and its cards.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Home

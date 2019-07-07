@@ -19,7 +19,7 @@ redirect_from:
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable
 to stream their video with MJPEG into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation,
 add the following to your `configuration.yaml` file:
@@ -64,7 +64,7 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Example of using a DCS-930L Wireless N Network Camera from D-Link:
 

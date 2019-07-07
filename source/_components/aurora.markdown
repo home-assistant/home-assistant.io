@@ -21,7 +21,7 @@ This service gives a number 0-100 representing the current likelihood of visible
 
 You can check the attributes of the sensor to see your exact forecast.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the aurora binary sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -44,7 +44,7 @@ name:
   default: Aurora Visibility
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 binary_sensor:

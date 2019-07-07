@@ -18,7 +18,7 @@ redirect_from:
 
 The `volkszaehler` sensor platform is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Volkszaehler sensor, add the following lines to your `configuration.yaml`:
 
@@ -65,7 +65,7 @@ monitored_conditions:
       description: The minimum power.
 {% endconfiguration %}
 
-## {% linkable_title Full examples %}
+## Full examples
 
 ```yaml
 # Example configuration.yaml entry

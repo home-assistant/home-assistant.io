@@ -14,7 +14,7 @@ Conditions can be used within a script or automation to prevent further executio
 
 Unlike a trigger, which is always `or`, conditions are `and` by default - all conditions have to be true.
 
-### {% linkable_title AND condition %}
+### AND condition
 
 Test multiple conditions in 1 condition statement. Passes if all embedded conditions are valid.
 
@@ -46,7 +46,7 @@ condition:
 
 Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
 
-### {% linkable_title OR condition %}
+### OR condition
 
 Test multiple conditions in 1 condition statement. Passes if any embedded condition is valid.
 
@@ -62,7 +62,7 @@ condition:
       below: 20
 ```
 
-### {% linkable_title MIXED AND and OR conditions %}
+### MIXED AND and OR conditions
 
 Test multiple AND and OR conditions in 1 condition statement. Passes if any embedded conditions is valid.
 This allows you to mix several AND and OR conditions together.
@@ -84,7 +84,7 @@ condition:
           below: 20
 ```
 
-### {% linkable_title Numeric state condition %}
+### Numeric state condition
 
 This type of condition attempts to parse the state of specified entity as a number and triggers if the value matches the thresholds.
 
@@ -102,7 +102,7 @@ condition:
   value_template: {% raw %}{{ float(state.state) + 2 }}{% endraw %}
 ```
 
-### {% linkable_title State condition %}
+### State condition
 
 Tests if an entity is a specified state.
 
@@ -118,9 +118,9 @@ condition:
     seconds: 5
 ```
 
-### {% linkable_title Sun condition %}
+### Sun condition
 
-#### {% linkable_title Sun state condition %}
+#### Sun state condition
 
 The sun state can be used to test if the sun has set or risen.
 
@@ -138,7 +138,7 @@ condition:
     state: 'below_horizon'
 ```
 
-#### {% linkable_title Sun elevation condition %}
+#### Sun elevation condition
 
 The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night etc. when a trigger occurs.
 For an in depth explanation of sun elevation see [sun elevation trigger][sun_elevation_trigger].
@@ -150,18 +150,18 @@ condition:
     condition: and  # 'twilight' condition: dusk and dawn, in typical locations
     conditions:
       - condition: template
-        value_template: {% raw %}'{{ states.sun.sun.attributes.elevation < 0 }}'{% endraw %}
+        value_template: {% raw %}'{{ state_attr('sun.sun', 'elevation') < 0 }}'{% endraw %}
       - condition: template
-        value_template: {% raw %}'{{ states.sun.sun.attributes.elevation > -6 }}'{% endraw %}
+        value_template: {% raw %}'{{ state_attr('sun.sun', 'elevation') > -6 }}'{% endraw %}
 ```
 
 ```yaml
 condition:
     condition: template  # 'night' condition: from dusk to dawn, in typical locations
-    value_template: {% raw %}'{{ states.sun.sun.attributes.elevation < -6 }}'{% endraw %}
+    value_template: {% raw %}'{{ state_attr('sun.sun', 'elevation') < -6 }}'{% endraw %}
 ```
 
-#### {% linkable_title Sunset/sunrise condition %}
+#### Sunset/sunrise condition
 
 The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
 
@@ -205,7 +205,7 @@ A visual timeline is provided below showing an example of when these conditions 
 
 <img src='/images/docs/scripts/sun-conditions.svg' alt='Graphic showing an example of sun conditions' />
 
-### {% linkable_title Template condition %}
+### Template condition
 
 The template condition will test if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render 'true'.
 
@@ -220,7 +220,7 @@ Within an automation, template conditions also have access to the `trigger` vari
 [template]: /topics/templating/
 [automation-templating]: /getting-started/automation-templating/
 
-### {% linkable_title Time condition %}
+### Time condition
 
 The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week
 
@@ -243,7 +243,7 @@ Time condition windows can span across the midnight threshold. In the example ab
 A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
 </p>
 
-### {% linkable_title Zone condition %}
+### Zone condition
 
 Zone conditions test if an entity is in a certain zone. For zone automation to work, you need to have setup a device tracker platform that supports reporting GPS coordinates. Currently this is limited to the [OwnTracks platform](/components/device_tracker.owntracks/) and the [iCloud platform](/components/device_tracker.icloud/).
 
@@ -254,7 +254,7 @@ condition:
   zone: zone.home
 ```
 
-### {% linkable_title Examples %}
+### Examples
 
 ```yaml
     condition:

@@ -15,14 +15,14 @@ og_image: /images/blog/2017-06-0.46/components.png
 
 It's time for 0.46! This release does not have too many new integrations, instead it focussed on bug fixes.
 
-## {% linkable_title New platforms %}
+## New platforms
 
 - Template light ([@cribbstechnologies] - [#7657]) ([light.template docs]) (new-platform)
 - Support for GE Zwave fan controller ([@armills] - [#7767]) ([zwave docs]) ([fan.zwave docs]) (new-platform)
 - Rachio (Sprinklers) ([@Klikini] - [#7600]) ([switch.rachio docs]) (new-platform)
 - Introduced support to Netgear Arlo Cameras ([@tchellomello] - [#7826]) ([arlo docs]) ([camera.arlo docs]) ([sensor.arlo docs]) (new-platform)
 
-## {% linkable_title Release 0.46.1 - June 9 %}
+## Release 0.46.1 - June 9
 
 - Support for renaming ZWave values ([@armills] - [#7780]) ([zwave docs])
 - Dsmr5 revert ([@aequitas] - [#7900]) ([sensor.dsmr docs])
@@ -32,7 +32,7 @@ It's time for 0.46! This release does not have too many new integrations, instea
 - Sensor - MetOffice: Fix last updated date ([@cyberjacob] - [#7965]) ([sensor.metoffice docs])
 - Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
 
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - The USPS sensor entity names have changed as there are now two. One for packages and one for mail. Config will now also use `scan_interval` instead of `update_interval`  ([@happyleavesaoc] - [#7655]) ([sensor.usps docs]) (breaking change)
 - Automation state trigger: From/to checks will now ignore state changes that are just attribute changess ([@amelchio] - [#7651]) ([automation.state docs]) (breaking change)
@@ -54,14 +54,14 @@ sensor:
 - Broadlink switches: Entity ids will change for switches that don't have a default name set. In this case the object_id is now used. ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
 - Disallow ambiguous color descriptors in the light.turn_on schema. This means that you can no longer specify both `xy_color` and `rgb_color`. ([@amelchio] - [#7765]) (breaking change)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title All changes %}
+## All changes
 
 - Align with OpenALPR platform for naming conf variables ([@fabaff] - [#7650]) ([image_processing.seven_segments docs])
 - Added support to Amcrest camera to feed using RTSP via ffmpeg ([@tchellomello] - [#7646]) ([camera.amcrest docs]) ([sensor.amcrest docs])

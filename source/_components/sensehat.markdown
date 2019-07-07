@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Sensor](#sensor)
 
-## {% linkable_title Light %}
+## Light
 
 The `sensehat` light platform lets you control the [Sense HAT](https://www.raspberrypi.org/products/sense-hat/) board's 8x8 RGB LED matrix on your Raspberry Pi from within Home Assistant.
 
@@ -36,7 +36,7 @@ light:
   - platform: sensehat
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `sensehat` sensor platform allows you to display information collected by a [Sense HAT](https://www.raspberrypi.org/products/sense-hat/) add-on board for Raspberry Pi.
 
@@ -76,9 +76,9 @@ is_hat_attached:
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Customizing the Sense HAT data %}
+### Customizing the Sense HAT data
 
-#### {% linkable_title Format the sensor values %}
+#### Format the sensor values
 
 Add the following to your `sensor`:
 
@@ -96,19 +96,19 @@ sensor:
   - platform: template
     sensors:
       sensehat_temperature:
-        value_template: '{{ states.sensor.temperature.state | round(1) }}'
+        value_template: '{{ states('sensor.temperature') | round(1) }}'
         unit_of_measurement: '°C'
       sensehat_pressure:
-        value_template: '{{ states.sensor.pressure.state | round(1) }}'
+        value_template: '{{ states('sensor.pressure') | round(1) }}'
         unit_of_measurement: 'mb'
       sensehat_humidity:
-        value_template: '{{ states.sensor.humidity.state | round(1) }}'
+        value_template: '{{ states('sensor.humidity') | round(1) }}'
         unit_of_measurement: '%'
 ```
 
 {% endraw %}
 
-#### {% linkable_title Give the values friendly names & icons %}
+#### Give the values friendly names & icons
 
 Add the following to your `customize`:
 
@@ -126,7 +126,7 @@ customize:
     friendly_name: "Pressure"
 ```
 
-#### {% linkable_title Create a group %}
+#### Create a group
 
 Add the following to your `groups`:
 
@@ -150,11 +150,11 @@ group:
     - group.sense_hat
 ```
 
-### {% linkable_title Directions for installing on Raspberry Pi All-In-One installer and HASSbian: %}
+### Directions for installing on Raspberry Pi All-In-One installer and HASSbian:
 
 Here are the steps to make the _SenseHAT_ sensor work _successfully_ with the virtual environment versions.
 
-#### {% linkable_title Install SenseHAT package to _homeassistant_venv_ %}
+#### Install SenseHAT package to _homeassistant_venv_
 
 ```bash
 # switch to the homeassistant_venv environment
@@ -166,13 +166,13 @@ pip3 install sense-hat
 # be patient, this will take a long while
 ```
 
-#### {% linkable_title Return to `pi` %}
+#### Return to `pi`
 
 Type `exit` to quit out of the _homeassistant_venv_ back to your `pi` environment.
 
 As all of the following steps should be under the `pi` user environment.
 
-#### {% linkable_title Install _RTIMU_ %}
+#### Install _RTIMU_
 
 ```bash
 # pi user environment: Install RTIMU

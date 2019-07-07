@@ -46,7 +46,7 @@ media_player:
 
 Notice that all parameters are optional, and discovery should configure everything for you.
 
-#### {% linkable_title Using the Mediaroom integration %}
+#### Using the Mediaroom integration
 
 The integration has been developed for Portuguese TV operators currently using the Mediaroom platform, but should also work in other deployments in which the STB can be controlled remotely through a socket on port 8082.
 
@@ -54,9 +54,9 @@ In most cases (single STB) you just need to setup the *platform* and discovery w
 
 If the STB is on the same network segment as Home Assistant, it can determine whether the device is turned on or off. Without this, the integration will fail to determine the Set-top box status, and you are required to add the *optimistic* configuration variable.
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Example `press_button` script %}
+### Example `press_button` script
 
 The `play_media` function can be used in scripts to change channels and emulate button pressing from a remote control.
 
@@ -74,7 +74,7 @@ press_button:
 ```
 {% endraw %}
 
-### {% linkable_title Example configuration with 2 STB %}
+### Example configuration with 2 STB
 
 ```yaml
 # Example configuration.yaml entry for 2 STB

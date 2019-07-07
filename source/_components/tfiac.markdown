@@ -18,7 +18,7 @@ redirect_from:
 
 The `tfiac` integration integrates several vendors air conditioning systems, that uses the Tfiac mobile app, into Home Assistant. App currently available at [Play Store](https://play.google.com/store/apps/details?id=com.tcl.export) and [App Store](https://itunes.apple.com/app/tfiac/id1059938398).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Tfiac device into your Home Assistant installation, add the following to your `configuration.yaml` file:
 

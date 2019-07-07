@@ -31,7 +31,7 @@ Will be automatically added when you connect to the Smappee controller.
 
 The smappee integration gets information from [Smappee API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview). Note: their cloud API now requires a subscription fee of €2.50 per month for Smappee Energy/Solar or €3 per month for Smappee Plus.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Info on how to get API access is described in the [smappy wiki](https://github.com/EnergieID/smappy/wiki).
 

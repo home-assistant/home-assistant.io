@@ -19,7 +19,7 @@ redirect_from:
 
 The `otp` sensor generates One-Time Passwords according to [RFC6238](https://tools.ietf.org/html/rfc6238) that is compatible with most OTP generators available, including Google Authenticator. You can use this when building custom security solutions and want to use "rolling codes", that change every 30 seconds.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the OTP sensor, add the following lines to your `configuration.yaml`:
 

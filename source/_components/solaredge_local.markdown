@@ -25,7 +25,7 @@ You can check by finding the IP address of your inverter and visiting it in a br
 If your inveter does not support the local API, you can use the [cloud based version](/components/solaredge/) instead.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the SolarEdge sensors in your installation, add the following to your configuration.yaml file:
 
@@ -48,7 +48,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration sample %}
+### Full configuration sample
 
 A full configuration entry would look like the sample below.
 
@@ -69,6 +69,6 @@ sensors:
   platform: template
   sensors:
     solaredge_energy_this_year_template:
-      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | round(2)}}'
+      value_template: '{{(states('sensor.solaredge_energy_this_year') | float / 1000) | round(2)}}'
 ```
 {% endraw %}

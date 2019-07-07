@@ -27,7 +27,7 @@ The `Recollect Waste` platform allows you to track the next scheduled waste pick
 
 5. Use the place_id and service_id when configuring the sensor.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

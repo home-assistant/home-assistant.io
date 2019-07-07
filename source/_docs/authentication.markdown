@@ -3,7 +3,8 @@ layout: page
 title: "Authentication"
 description: "Guide on authentication in Home Assistant."
 date: 2018-08-23 09:40
-redirect_from: /components/auth/
+redirect_from:
+  - /components/auth/
 sidebar: true
 comments: false
 sharing: true
@@ -16,7 +17,7 @@ If you are starting Home Assistant for the first time, or you have logged out, y
 
 <img src='/images/docs/authentication/login.png' alt='Screenshot of the login screen' style='border: 0;box-shadow: none;'>
 
-## {% linkable_title User accounts %}
+## User accounts
 
 When you start Home Assistant for the first time the _owner_ user account is created. This account has some special privileges and can:
 
@@ -28,7 +29,7 @@ When you start Home Assistant for the first time the _owner_ user account is cre
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
 </p>
 
-### {% linkable_title Your Account Profile %}
+### Your Account Profile
 
 Once you're logged in, you can see the details of your account at the _Profile_ page by clicking on the circular badge next to the Home Assistant title in the sidebar. 
 
@@ -44,24 +45,24 @@ You can:
 * Create [Long Lived Access Tokens](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) so scripts can securely interact with Home Assistant. 
 * Log out of Home Assistant. 
 
-### {% linkable_title Securing your login %}
+### Securing your login
 
 _Make sure to choose a secure password!_ At some time in the future, you will probably want to access Home Assistant from outside your local network. This means you are also exposed to random black-hats trying to do the same. Treat the password like the key to your house. 
 
 
 As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/). 
 
-## {% linkable_title Other authentication techniques %}
+## Other authentication techniques
 
 Home Assistant provides several ways to authenticate. See the [Auth Providers](/docs/authentication/providers/) section.
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title Authentication failures from `127.0.0.1` %}
+### Authentication failures from `127.0.0.1`
 
 If you're seeing authentication failures from `127.0.0.1` and you're using the `nmap` device tracker, you should [exclude the Home Assistant IP](/components/device_tracker.nmap_tracker/#exclude) from being scanned.
 
-### {% linkable_title Bearer token warnings %}
+### Bearer token warnings
 
 Under the new authentication system you'll see the following warning logged when the [legacy API password](/docs/authentication/providers/#legacy-api-password) is supplied, but not configured in Home Assistant:
 
@@ -71,7 +72,7 @@ WARNING (MainThread) [homeassistant.components.http.auth] You need to use a bear
 
 If you see this, you need to add an [`api_password`](/components/http/#api_password) to your `http:` configuration.
 
-### {% linkable_title Bearer token informational messages %}
+### Bearer token informational messages
 
 If you see the following, then this is a message for integration developers, to tell them they need to update how they authenticate to Home Assistant. As an end user you don't need to do anything:
 
@@ -79,7 +80,7 @@ If you see the following, then this is a message for integration developers, to 
 INFO (MainThread) [homeassistant.components.http.auth] You need to use a bearer token to access /blah/blah from 192.0.2.4
 ```
 
-### {% linkable_title Lost owner password %}
+### Lost owner password
 
 While you should hopefully be storing your passwords in a password manager, if you lose the password associated with the owner account the only way to resolve this is to delete *all* the authentication data. You do this by shutting down Home Assistant and deleting the following files from the `.storage/` folder in your [configuration folder](/docs/configuration/):
 
@@ -91,7 +92,7 @@ While you should hopefully be storing your passwords in a password manager, if y
 
 When you start Home Assistant next, you'll be required to set up authentication again.
 
-### {% linkable_title Error: invalid client id or redirect url%}
+### Error: invalid client id or redirect url
 
 <img src='/images/docs/authentication/error-invalid-client-id.png' alt='Screenshot of Error: invalid client id or redirect url'>
 
@@ -109,10 +110,10 @@ Replace `12.34.56.78` with your Home Assistant's public IP address.
 
 This will allow you to open Home Assistant at `http://hassbian.home:8123/`
 
-### {% linkable_title Stuck on Loading data %}
+### Stuck on Loading data
 
 Some ad blocking software, such as Wipr, also blocks web sockets. If you're stuck on the Loading data screen, try disabling your ad blocker.
 
-### {% linkable_title Migrating from pre 0.77 %}
+### Migrating from pre 0.77
 
 If you were using the authentication system before 0.77, you'd likely have `auth:` and `auth_providers:` defined. You'll need to remove these and let Home Assistant [handle it automatically](/docs/authentication/providers/#configuring-auth-providers).

@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable device linked in your [Arlo](https://arlo.netgear.com/) account, add the following to your `configuration.yaml` file:
 
@@ -73,9 +73,9 @@ The Arlo integration also provides a camera service to enable/disable the motion
     entity_id: camera.arlo_frontdoor
 ```
 
-## {% linkable_title Alarm %}
+## Alarm
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
@@ -102,7 +102,7 @@ night_mode_name:
   default: "`Armed` mode in Arlo"
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 These examples are based on an Arlo base station named `my_arlo_base_station`. Replace this with the name of your base station's `entity_id`.
 
@@ -140,11 +140,11 @@ You can also completely disarm the Arlo base station by calling the `alarm_contr
 
 More examples and configuration options can be found on the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples).
 
-## {% linkable_title Camera %}
+## Camera
 
 This integration is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
@@ -164,13 +164,13 @@ ffmpeg_arguments:
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).
 
 This platform does not support Arlo Q.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
