@@ -20,19 +20,6 @@ To use the `prometheus` integration in your installation, add the following to y
 ```yaml
 # Example configuration.yaml entry
 prometheus:
-  namespace: hass
-  component_config_glob:
-    sensor.*_hum:
-      override_metric: humidity_percent
-    sensor.*_temp:
-      override_metric: temperature_c
-    sensor.temperature*:
-      override_metric: temperature_c
-    sensor.*_bat:
-      override_metric: battery_percent
-  filter:
-    include_domains:
-      - sensor
 ```
 
 {% configuration %}
@@ -104,6 +91,25 @@ prometheus:
           required: false
 
 {% endconfiguration %}
+
+Advanced configuration example:
+```yaml
+# Advanced configuration.yaml entry
+prometheus:
+  namespace: hass
+  component_config_glob:
+    sensor.*_hum:
+      override_metric: humidity_percent
+    sensor.*_temp:
+      override_metric: temperature_c
+    sensor.temperature*:
+      override_metric: temperature_c
+    sensor.*_bat:
+      override_metric: battery_percent
+  filter:
+    include_domains:
+      - sensor
+```
 
 You can then configure Prometheus to fetch metrics from Home Assistant by adding to its `scrape_configs` configuration.
 
