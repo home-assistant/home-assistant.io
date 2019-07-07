@@ -97,7 +97,7 @@ data:
 
 ## {% linkable_title Media Player %}
 
-When the Home Assistant Roku integration is enabled and has found a Roku device, in the Home Assistant GUI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will aatempt to launch the channel on your Roku device. This action can also be automated, but it requires you to acquire an extra piece of information; the ```appID``` for the channel specific to your Roku. Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
+When the Home Assistant Roku integration is enabled and has found a Roku device, in the Home Assistant GUI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device. This action can also be automated, but it requires you to acquire an extra piece of information; the ```appID``` for the channel specific to your Roku. Although this information is gathered by the Roku integration, at the moment it is not exposed to the end user. This item might be added in a future release. For now though, you can easily get the information yourself. All you need to do is a simple GET API call on the same network as your device.
 The api calls are like this:
 ```
 GET http:// ROKU_IP:8060/query/apps
