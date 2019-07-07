@@ -15,6 +15,8 @@ ha_release: 0.49
 
 The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
+## Configuration
+
 To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -92,7 +94,10 @@ prometheus:
 
 {% endconfiguration %}
 
+## Full example
+
 Advanced configuration example:
+
 ```yaml
 # Advanced configuration.yaml entry
 prometheus:
