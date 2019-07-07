@@ -261,6 +261,7 @@ light:
 ### {% linkable_title INSTEON Scenes %}
 
 Trigger an INSTEON scene on or off is done via automations. Two services are provied to support this feature:
+
 - **insteon.scene_on**
   - **group**: (required) The INSTEON scene number to trigger.
 - **insteon.scene_off**
