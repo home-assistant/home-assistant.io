@@ -18,11 +18,11 @@ ha_iot_class: Local Push
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).
 It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The configuration for adding modbus to your installation depends on the connection type, either a network or serial connection.
 
-### {% linkable_title Network connection %}
+### Network connection
 
 For a network connection, add the following to your `configuration.yaml` file:
 
@@ -60,7 +60,7 @@ timeout:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Serial connection %}
+### Serial connection
 
 For a serial connection, add the following to your `configuration.yaml` file:
 
@@ -118,7 +118,7 @@ timeout:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Multiple connections %}
+### Multiple connections
 
 Multiple connections are possible, add something like the following to your `configuration.yaml` file:
 
@@ -128,31 +128,31 @@ modbus:
   - type: tcp
     host: IP_ADDRESS_1
     port: 2020
-    hub: hub1
+    name: hub1
 
   - type: tcp
     host: IP_ADDRESS_2
     port: 501
-    hub: hub2
+    name: hub2
 ```
 
-### {% linkable_title Services %}
+### Services
 
 
 | Service | Description |
 | ------- | ----------- |
 | write_register | Write register. Requires `hub`, `unit`, `address` and `value` fields. `value` can be either single value or an array |
 
-#### {% linkable_title Service Data Attributes %}
+#### Service Data Attributes
 
 | Attribute | Description |
 | --------- | ----------- |
-| hub       | Hub name (defaults to 'default' when omitted) |
+| name      | Hub name (defaults to 'default' when omitted) |
 | unit      | Slave address (set to 255 you talk to Modbus via TCP) |
 | address   | Address of the Register (e.g., 138) |
 | value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
 
-## {% linkable_title Building on top of Modbus %}
+## Building on top of Modbus
 
  - [Modbus Binary Sensor](/components/binary_sensor.modbus/)
  - [Modbus Sensor](/components/sensor.modbus/)

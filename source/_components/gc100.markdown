@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 Currently, only relays and ports configured to be digital inputs are supported in Home Assistant. For IR support, please use the [iTach remote platform](/components/remote.itach/), but note that it will likely not function concurrently on the same GC100 due to limitations in the TCP socket server implementation used by Global Caché.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this device, add the following lines to your `configuration.yaml`:
 
@@ -50,7 +50,7 @@ port:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 To enable this sensor, you first have to set up [gc100](#configuration), and add the following lines to your `configuration.yaml` file:
 
@@ -72,7 +72,7 @@ ports:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 This allows you to control and monitor the relay state on your GC100.
 

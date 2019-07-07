@@ -24,7 +24,7 @@ redirect_from:
 ha_release: 0.7
 ---
 
-The Nest component is the main component to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
+The Nest integration is the main integration to integrate all [Nest](https://nest.com/) related platforms. To connect Nest, you will have to [sign up for a developer account](https://developers.nest.com/products) and get a `client_id` and `client_secret`.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 
-### {% linkable_title Setting up developer account %}
+### Setting up developer account
 
 1. Visit [Nest Developers](https://developers.nest.com/), and sign in. Create an account if you don't have one already.
 2. Fill in account details:
@@ -50,11 +50,11 @@ There is currently support for the following device types within Home Assistant:
     * Use "[Home Assistant] [Edit] [For Home Automation]" as the description as it is not super important.
 8. Click "Create Product"
 9. Once the new product page opens the "Product ID" and "Product Secret" are located on the right side. These will be used as `client_id` and `client_secret` below.
-10. Add the Nest component to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
+10. Add the Nest integration to your `configuration.yaml` and restart Home Assistant. Then, go to `Configuration > Integrations` and select `CONFIGURE` next to `Nest`. Click the link in the configurator pop up to log into your Nest account and complete the OAuth. Copy the resulting PIN code into the pop up.
 
 Connecting to the Nest Developer API requires outbound port 9553 on your firewall. The configuration will fail if this is not accessible.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,7 +88,7 @@ structure:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Service `set_away_mode` %}
+### Service `set_away_mode`
 
 You can use the service `nest/set_away_mode` to set the structure(s) to "Home" or "Away".
 
@@ -121,7 +121,7 @@ script:
             - Apartment
 ```
 
-### {% linkable_title Service `set_eta` %}
+### Service `set_eta`
 
 You can use the service `nest/set_eta` to set or update the estimated time of arrival window. Calling this service will automatically set the structure(s) to "Away". Structures must have an associated Nest thermostat in order to use ETA function.
 
@@ -159,7 +159,7 @@ script:
             - Apartment
 ```
 
-### {% linkable_title Service `cancel_eta` %}
+### Service `cancel_eta`
 
 You can use the service `nest/cancel_eta` to cancel an existing estimated time of arrival window. Structures must have an associated Nest thermostat in order to use ETA function.
 
@@ -192,25 +192,25 @@ script:
             - Apartment
 ```
 
-### {% linkable_title Troubleshooting %}
+### Troubleshooting
 
 - If you're getting [rickrolled](https://www.youtube.com/watch?v=dQw4w9WgXcQ) instead of being able to see your Nest cameras, you may not have set up your developer account's permissions correctly. Go back through and make sure you've selected read/write under every category that it's an option.
 
-## {% linkable_title Platforms %}
+## Platforms
 
 <p class='note'>
 You must have the [Nest component](/components/nest/) configured to use the platforms below.
 <p>
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
 <p class='note'>
-You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` component is configured and the required configuration for the `nest binary sensor` is set.
+You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable binary sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -250,7 +250,7 @@ The following conditions are available by device:
   - person\_detected
   - sound\_detected
 
-## {% linkable_title Camera %}
+## Camera
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
@@ -260,7 +260,7 @@ The `nest` camera will automatically be setup when you do.
 
 Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
 
-## {% linkable_title Climate %}
+## Climate
 
 The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).
 
@@ -272,15 +272,15 @@ Please note due to limitations with the European Nest Thermostat E, integration 
   <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
 </p>
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
 <p class='note'>
-The sensors will be setup if the `nest` component is configured and the required configuration for the `nest sensor` is set.
+The sensors will be setup if the `nest` integration is configured and the required configuration for the `nest sensor` is set.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable sensors and customize which sensors are setup, you can extend the [Nest component](/components/nest/) configuration in your `configuration.yaml` file with the following settings:
 
@@ -320,7 +320,7 @@ The following conditions are available by device:
   - color\_status: `gray`, `green`, `yellow` or `red`. Indicates device status by color in the Nest app UI. It is an aggregate condition for battery+smoke+CO states, and reflects the actual color indicators displayed in the Nest app.
 - Nest Camera: none
 
-## {% linkable_title Security State %}
+## Security State
 
 <p class='note warning'>
 This feature is not designed to transfer your Home Assistant to a security system, neither Home Assistant nor Nest be liable to You for damages,

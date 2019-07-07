@@ -18,7 +18,7 @@ redirect_from:
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
-## {% linkable_title Setup %}
+## Setup
 
 If you are planning to use Slack as yourself then you'll need to create a [new app](https://api.slack.com/apps) under your Slack.com account. After creating the app, access the OAuth & Permissions link under the Features heading in the sidebar. Your OAuth Access Token should be located there. This is the key that you'll use in your `configuration.yaml` file.
 
@@ -32,7 +32,7 @@ It is also possible to use Slack bots as users. Just create a new bot at https:/
 
 Don't forget to invite the bot to the room where you want to get the notifications.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Slack notification in your installation, add the following to your `configuration.yaml` file:
 
@@ -68,7 +68,7 @@ icon:
   required: false
 {% endconfiguration %}
 
-### {% linkable_title Slack service data %}
+### Slack service data
 
 The following attributes can be placed inside `data` for extended functionality.
 

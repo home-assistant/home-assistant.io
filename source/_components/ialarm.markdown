@@ -19,7 +19,7 @@ The `ialarm` platform provides connectivity with the [Antifurto365](https://www.
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home` and `alarm_disarm`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml` file:
 

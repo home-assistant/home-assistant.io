@@ -38,7 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 - Binary Sensor (Door & Window)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate Verisure with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -108,7 +108,7 @@ giid:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Alarm Control Panel %}
+## Alarm Control Panel
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
 

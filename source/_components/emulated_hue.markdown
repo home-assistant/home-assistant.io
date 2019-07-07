@@ -16,10 +16,10 @@ ha_qa_scale: internal
 ---
 
 <p class='note warning'>
-Be aware that `emulated_hue` doesn't work for new **Google Home** users. If you're a new user of Google Home, use the [Google Assistant component](/components/google_assistant/).
+Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or [Nabu Casa cloud](https://www.home-assistant.io/components/cloud) component.
 </p>
 
-The `emulated_hue` component provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
+The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
@@ -32,10 +32,10 @@ It is recommended to assign a static IP address to the computer running Home Ass
 </p>
 
 <p class='note'>
-Both Google Home and Alexa use the device they were initially set up with for communication with emulated_hue. In other words: if you remove/replace this device you will also break emulated_hue.
+Both Google Home and Alexa use the device they were initially set up with for communication with `emulated_hue`. In other words: if you remove/replace this device you will also break `emulated_hue`. To recover your `emulated_hue` functionality, backup your `config/emulated_hue_ids.json` file, delete the original one and reboot your Home Assistant instance.
 </p>
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
 
@@ -61,7 +61,7 @@ type:
   type: string
   default: google_home
 host_ip:
-  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the component will attempt to determine the IP address on its own.
+  description: The IP address that your Home Assistant installation is running on. If you do not specify this option, the integration will attempt to determine the IP address on its own.
   required: false
   type: string
 listen_port:
@@ -134,9 +134,9 @@ The following are attributes that can be applied in the `entities` section:
 These attributes used to be found under the `customize` section of `homeassistant`, however, they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
 </p>
 
-### {% linkable_title Troubleshooting %}
+### Troubleshooting
 
-You can verify that the `emulated_hue` component has been loaded and is responding by pointing a local browser to the following URL:
+You can verify that the `emulated_hue` integration has been loaded and is responding by pointing a local browser to the following URL:
 
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
@@ -150,6 +150,6 @@ sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin
 ```
 Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
 
-### {% linkable_title License %}
+### License
 
 Much of this code is based on work done by Bruce Locke on his [ha-local-echo](https://github.com/blocke/ha-local-echo) project, originally released under the MIT License. The license is located [here](https://github.com/blocke/ha-local-echo/blob/b9bf5dcaae6d8e305e2283179ffba64bde9ed29e/LICENSE).

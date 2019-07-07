@@ -19,7 +19,7 @@ Presence detection detects if people are home, which is the most valuable input 
 Screenshot of Home Assistant showing a school, work and home zone and two people.
 </p>
 
-### {% linkable_title Adding presence detection %}
+### Adding presence detection
 
 There are different ways of setting up presence detection. Usually the easiest way to detect presence is by checking which devices are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can easily detect if people are at home.
 
@@ -29,7 +29,7 @@ It's also possible to run an app on your phone to provide detailed location info
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UieAQ8sC6GY" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title Zones %}
+### Zones
 
 <img src='/images/screenshots/badges-zone.png' style='float: right; margin-left: 8px; height: 100px;'>
 

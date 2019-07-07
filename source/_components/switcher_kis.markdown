@@ -16,7 +16,7 @@ ha_release: 0.93
 ha_iot_class: Local Push
 ---
 
-This `Switcher` component allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
+This `Switcher` integration allows you to control the [Switcher V2 Water Heater](https://www.switcher.co.il/).
 
 To enable it, add an entry to your `configuration.yaml` according to the following configuration instructions.
 
@@ -31,7 +31,7 @@ To retrieve your device's details, please follow the instructions [here](https:/
 </p>
 
 <p class='note warning'>
-  Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.As this component is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
+  Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.As this integration is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
 </p>
 ```yaml
 switcher_kis:
@@ -55,16 +55,29 @@ device_password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Switch State Attributes %}
+## Switch State Attributes
 
-| Attribute | Type | Description | Example |
-| --------- | ---- | ----------- | ------- |
-| `friendly_name` | string | Defaults to the device's configured name. | "Switcher Boiler" |
-| `auto_off_set` | string | The auto shutdown time limit configured on the device. | "01:30:00" |
-| `remaining_time` | string | Time remaining to shutdown (auto or timer). | "01:29:41" |
-| `electric_current` | float | The electric current in amps. | 12.5 |
-| `current_power_w` | integer | The current power used in watts. | 2756 |
+| Attribute          | Type    | Description                                            | Example           |
+| ------------------ | ------- | ------------------------------------------------------ | ----------------- |
+| `friendly_name`    | string  | Defaults to the device's configured name.              | "Switcher Boiler" |
+| `auto_off_set`     | string  | The auto shutdown time limit configured on the device. | "01:30:00"        |
+| `remaining_time`   | string  | Time remaining to shutdown (auto or timer).            | "01:29:41"        |
+| `electric_current` | float   | The electric current in amps.                          | 12.5              |
+| `current_power_w`  | integer | The current power used in watts.                       | 2756              |
 
 <p class='note warning'>
   Please note, the following attributes are not eligible when the device is off and therefore will not appear as state attributes: `remaining_time`, `electric_current`, `current_power_w`.
 </p>
+
+## Services
+
+### Service: `switcher_kis.set_auto_off`
+
+You can use the `switcher_kis.set_auto_off` service to set the auto-off configuration setting for the device.
+
+Meaning the device will turn itself off when reaching the auto-off configuration limit.
+
+| Service Field | Mandatory | Description                                                                            | Example                    |
+| ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
+| `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation. | switch.switcher_kis_boiler |
+| `auto_off`    | Yes       | Time period string containing hours and minutes.                                       | "02:30"                    |

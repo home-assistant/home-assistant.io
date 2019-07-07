@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Creating components"
-description: "Guidelines to get you create your first component for Home Assistant."
+description: "Guidelines to get you create your first integration for Home Assistant."
 date: 2014-12-21 13:32
 sidebar: true
 comments: false

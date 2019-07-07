@@ -18,15 +18,15 @@ redirect_from:
   - /components/device_tracker.googlehome/
 ---
 
-The `googlehome` component allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
+The `googlehome` integration allows you to connect to your Google Home device using an [unofficial Google Home API][googlehomeapi].
 
-This component will provide:
+This integration will provide:
 - [device_tracker](/components/device_tracker/) platform to track nearby bluetooth devices;
 - [sensor](/components/sensor/) platform to track the alarms and the timers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To integrate the `googlehome` component in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate the `googlehome` integration in Home Assistant, add the following section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,18 +55,18 @@ devices:
       required: false
       type: list
     track_alarms:
-      description: Setting to tell the component to track the alarms of the device.
+      description: Setting to tell the integration to track the alarms of the device.
       required: false
       type: boolean
       default: false
     track_devices:
-      description: Setting to tell the component to track nearby devices.
+      description: Setting to tell the integration to track nearby devices.
       required: false
       type: boolean
       default: true
 {% endconfiguration %}
 
-## {% linkable_title Device types %}
+## Device types
 
 Device type | Description
 -- | --
@@ -74,7 +74,7 @@ Device type | Description
 2 | Low Energy - LE-only
 3 | Dual Mode - BR/EDR/LE
 
-## {% linkable_title Notes %}
+## Notes
 
 Devices will appear in the format `device_tracker.<home hub ip>_<device mac address>`. Note that dots are removed from the IP and BT MAC addresses.
 

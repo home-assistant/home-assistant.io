@@ -16,13 +16,13 @@ redirect_from:
   - /components/notify.hangouts/
 ---
 
-This component allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
+This integration allows you to send messages to [Google Hangouts](https://hangouts.google.com) conversations, as well as to react to messages in conversations. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered. Home Assistant will impersonate a Smartisan YQ603 phone which will then show up in your Google devices.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
-## {% linkable_title Setup the component via the frontend %}
+## Setup the integration via the frontend
 
 Menu: *Configuration* -> *Integrations*
   
@@ -31,15 +31,15 @@ Configure the integration:
 * In the authentication form there is an Optional Field: **Authorization Code** which should only be used if you get an invalid login error with email and password (see note below for details).
 * If you secured your account with 2-factor authentication you will be asked for a 2-factor authentication token.
 
-## {% linkable_title Manual Authentication %}
+## Manual Authentication
 
-If you are sure your email and password are correct, but the component says the login is invalid then you would need to use the manual authentication method.
+If you are sure your email and password are correct, but the integration says the login is invalid then you would need to use the manual authentication method.
 
 To use the manual method, first you would need to obtain an authorization code (see <a href="#steps-to-obtain-authorization-code">instructions below</a> for details).
 
 Once the code is obtained fill in the form with your email, password and the authorization code to complete authentication.
 
-### {% linkable_title Steps to obtain Authorization Code %}:
+### Steps to obtain Authorization Code:
 
 1. To obtain your authorization code, open [this URL](https://accounts.google.com/o/oauth2/programmatic_auth?scope=https%3A%2F%2Fwww.google.com%2Faccounts%2FOAuthLogin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&client_id=936475272427.apps.googleusercontent.com&device_name=hangups) in your browser.
 2. Log into your Google account normally.
@@ -83,7 +83,7 @@ hangouts:
 
 {% configuration %}
 intents:
-  description: "Intents that the hangouts component should understand."
+  description: "Intents that the hangouts integration should understand."
   required: false
   type: map
   default: empty
@@ -131,9 +131,9 @@ error_suppressed_conversations:
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity. Make sure to use quotes around the conversation id or alias to escape special characters (`!`, and `#`) in YAML.
 
-The intent `HangoutsHelp` is part of the component and return a list of all sentences the component unterstand in this conversation.
+The intent `HangoutsHelp` is part of the integration and return a list of all sentences the integration unterstand in this conversation.
 
-## {% linkable_title Adding sentences %}
+## Adding sentences
 
 {% raw %}
 
@@ -155,7 +155,7 @@ hangouts:
 intent_script:
   Ping:
     speech:
-      text: I know {{ states.hangouts.conversations.state }} conversations
+      text: I know {{ states('hangouts.conversations') }} conversations
 ```
 
 {% endraw %}
@@ -165,7 +165,7 @@ This configuration will:
 - Toggle the light in the given location in a specific conversation.
 - Return the conversations the bot know.
 
-## {% linkable_title Adding advanced custom sentences %}
+## Adding advanced custom sentences
 
 Sentences can contain slots (marked with curly braces: `{name}`) and optional words (marked with square brackets: `[the]`). The values of slots will be passed on to the intent and are available inside the templates.
 
@@ -203,9 +203,9 @@ intent_script:
 
 {% endraw %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `hangouts.update` %}
+### Service `hangouts.update`
 
 Updates the list of conversations.
 
@@ -213,7 +213,7 @@ Updates the list of conversations.
 |------------------------|----------|--------------------------------------------------|
 |                        |          |                                                  |
 
-### {% linkable_title Service `hangouts.send_message` %}
+### Service `hangouts.send_message`
 
 Sends a message to the given conversations.
 
@@ -223,7 +223,7 @@ Sends a message to the given conversations.
 | message                | List of message segments, only the "text" field is required in every segment. [Required] | [{"text":"test", "is_bold": false, "is_italic": false, "is_strikethrough": false, "is_underline": false, "parse_str": false, "link_target": "http://google.com"}, ...] |
 | data                   | Extra options | {"image_file": "path"} / {"image_url": "url"} |
 
-### {% linkable_title Service `hangouts.reconnect` %}
+### Service `hangouts.reconnect`
 
 Reconnects the hangouts bot.
 
@@ -231,11 +231,11 @@ Reconnects the hangouts bot.
 |------------------------|----------|--------------------------------------------------|
 |                        |          |                                                  |
 
-## {% linkable_title Advanced %}
+## Advanced
 
-### {% linkable_title Automatic reconnect after ip change %}
+### Automatic reconnect after ip change
 
-The hangouts component can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
+The hangouts integration can't detect if your ip address changes, so it can't automatic reconnect to the Google servers. This is a workaround for this problem.
 
 {% raw %}
 
@@ -263,7 +263,7 @@ automation:
 
 {% endraw %}
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `hangouts` platform allows you to deliver notifications from Home Assistant to [Google Hangouts](http://hangouts.google.com) conversations. Conversations can be both direct as well as group chats.
 
@@ -295,7 +295,7 @@ default_conversations:
       type: string
 {% endconfiguration %}
 
-### {% linkable_title Finding the conversation ID %}
+### Finding the conversation ID
 
 The conversations has to be precreated, the conversation id can be obtained from the `hangouts.conversations` entity, this can be found in with the states developer tool that is shown as this icon <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> in the side bar. Using your web browsers search tool to find the `hangouts.conversations` entity. You will find something like below.
 

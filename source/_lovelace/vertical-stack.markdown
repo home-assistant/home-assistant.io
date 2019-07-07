@@ -23,7 +23,7 @@ cards:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 Basic example:
 

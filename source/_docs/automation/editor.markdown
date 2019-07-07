@@ -41,7 +41,7 @@ As "Service Data" we want a simple text that is shown as part of the notificatio
 
 Don't forget to save your new automation rule. For your saved automation rule to come into effect, you will need to go to the **Configuration** page and click on **Reload Automation**.
 
-## {% linkable_title Updating your configuration to use the editor %}
+## Updating your configuration to use the editor
 
 First, check that you have activated the configuration editor.
 
@@ -52,7 +52,7 @@ config:
 
 The automation editor reads and writes to the file `automations.yaml` in the root of your [configuration](/docs/configuration/) folder. 
 Currently, both the name of this file and its location are fixed.
-Make sure that you have set up the automation component to read from it:
+Make sure that you have set up the automation integration to read from it:
 
 ```yaml
 # Configuration.yaml example
@@ -77,7 +77,7 @@ automation old: !include_dir_merge_list automations
 ```
 
 
-## {% linkable_title Migrating your automations to `automations.yaml` %}
+## Migrating your automations to `automations.yaml`
 
 If you want to migrate your old automations to use the editor, you'll have to copy them to `automations.yaml`. Make sure that `automations.yaml` remains a list! For each automation that you copy over, you'll have to add an `id`. This can be any string as long as it's unique.
 
@@ -103,6 +103,6 @@ For example, the below automation will be triggered when the sun goes from below
 ```
 
 <p class='note'>
-Any comments in the YAML file will be lost when you update an automation via the editor.
+Any comments in the YAML file will be lost and templates will be reformatted when you update an automation via the editor.
 </p>
 

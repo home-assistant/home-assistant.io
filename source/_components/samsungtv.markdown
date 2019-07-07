@@ -16,11 +16,13 @@ redirect_from:
  - /components/media_player.samsungtv/
 ---
 
-The `samsungtv` platform allows you to control a
-[Samsung Smart TV](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/).
+The `samsungtv` platform allows you to control a [Samsung Smart TV](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/).
 
-When the TV is first connected,
-you will need to accept Home Assistant on the TV to allow communication.
+### Setup
+
+When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
+
+### Configuration
 
 To add a TV to your installation without relying on the [discovery component](/components/discovery/), add the following to your `configuration.yaml` file:
 
@@ -28,7 +30,7 @@ To add a TV to your installation without relying on the [discovery component](/c
 # Example configuration.yaml entry
 media_player:
   - platform: samsungtv
-    host: 192.168.0.10
+    host: IP_ADDRESS
 ```
 
 {% configuration %}
@@ -68,6 +70,7 @@ Currently known supported models:
 - EH5300
 - EH5600
 - ES5500
+- ES5700
 - ES6300
 - ES6800
 - F4580
@@ -100,6 +103,7 @@ Currently known supported models:
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - UE65KS8005 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
 - UE49KU6470 (port must be set to 8001, On/Off, Forward/Backward, Volume are OK, but no Play button)
+- UE46ES5500 (partially supported, turn on doesn't works)
 
 Currently tested but not working models:
 
@@ -116,16 +120,11 @@ Currently tested but not working models:
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, `pip3 install websocket-client` must be executed, turning on works, status not working reliably, turning off is not permanent (it comes back on)
 
-None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work,
-since Samsung have used a different (encrypted) type of interface for these.
+None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work, since Samsung have used a different (encrypted) type of interface for these.
 
-If your model is not on the list then give it a test,
-if everything works correctly then add it to the list on
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on
 [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/samsungtv.markdown).
-The first letter (U, P, L, H & K) represent the screen type, e.g., LED or
-Plasma. The second letter represents the region, E is Europe, N is North America
-and A is Asia & Australia.
-The two numbers following that represent the screen size.
+The first letter (U, P, L, H & K) represent the screen type, e.g., LED or Plasma. The second letter represents the region, E is Europe, N is North America and A is Asia & Australia. The two numbers following that represent the screen size.
 If you add your model remember to remove these first 4 characters before adding to the list.
 
 Changing channels can be done by calling the `media_player.play_media` service

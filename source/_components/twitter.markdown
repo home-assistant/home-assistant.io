@@ -18,11 +18,11 @@ redirect_from:
 
 The `twitter` notification platform uses [Twitter](https://twitter.com) to deliver notifications from Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 Go to [Twitter Apps](https://apps.twitter.com/app/new) and create an application. Visit "Keys and Access Tokens" of the application to get the details (Consumer Key, Consumer Secret, Access Token and Access Token Secret which needs to be generated).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Twitter to your installation, add the following to your `configuration.yaml` file:
 

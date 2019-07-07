@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Cover](#cover)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable ADS, add the following lines to your `configuration.yaml` file:
 
@@ -60,9 +60,9 @@ ip_address:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Service %}
+## Service
 
-The ADS component will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
+The ADS integration will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
 
 ```json
 {
@@ -78,7 +78,7 @@ Service parameters:
 - **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`
 - **value**: The value that will be written in the variable.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 
@@ -102,12 +102,12 @@ name:
   required: false
   type: string
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Light %}
+## Light
 
 The `ads` light platform allows you to control your connecte ADS lights.
 
@@ -137,7 +137,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
@@ -176,7 +176,7 @@ factor:
 
 The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 if you want to display a fixed decimal value with two decimals. A variable value of `123` will be displayed as `1.23`.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `ads` switch platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
 
@@ -201,7 +201,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Cover %}
+## Cover
 
 The `ads` cover platform allows you to control your connected ADS covers.
 
@@ -250,6 +250,6 @@ name:
   type: string
 device_class:
   required: false
-  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (awning, blind, curtain, damper, door, garage, shade, shutter, window)
+  description: Sets the [class of the device](/components/cover/), changing the device state and icon that is displayed on the frontend.
   type: device_class
 {% endconfiguration %}

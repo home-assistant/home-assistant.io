@@ -38,7 +38,7 @@ notify:
     room_id: CISCO_WEBEX_TEAMS_ROOMID
 ```
 
-## {% linkable_title Rich Text Formatting %}
+## Rich Text Formatting
 
 Webex Teams clients can render rich text via a whitelisted set of html tags. 
 

@@ -41,7 +41,7 @@ api_key:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Prowl service data %}
+### Prowl service data
 
 The following attributes can be placed `data` for extended functionality.
 

@@ -17,7 +17,7 @@ redirect_from:
 
 The Jewish Calendar (`jewish_calendar`) sensor platform displays a variety of information related to the Jewish Calendar as a variety of sensors.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -94,7 +94,7 @@ sensors:
 
 {% endconfiguration %}
 
-### {% linkable_title Holyness levels %}
+### Holyness levels
 
 1. Mido'rayta - by Torah ordination (Rosh Hashana, Yom Kippur, Pesach, Shavuot, Sukkot)
 2. Erev Yom Tov
@@ -106,7 +106,7 @@ sensors:
 8. Memorial days: yom hazikaron and yom hashoah
 9. Days mentioned by the Israeli parliament: Rabin memorial day, Ze'ev Zhabotinsky day, etc.
 
-## {% linkable_title Full configuration sample %}
+## Full configuration sample
 
 ```yaml
 # Example configuration.yaml entry

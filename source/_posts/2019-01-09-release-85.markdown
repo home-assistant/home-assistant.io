@@ -27,7 +27,7 @@ During the break we've launched the [Home Assistant Data Science Portal](https:/
 
 This release also features native support for [ESPHome](https://esphomelib.com/esphomeyaml/index.html), a system for managing ESP8266 and ESP32 microchips with a YAML config inspired by Home Assistant. The native API replaces MQTT for ESPHome firmwares and is designed specifically for Home Assistant and absolute efficiency. 🏎 It also comes with a Hass.io add-on to make configuration even easier.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add NMBS (Belgian railway) sensor platform ([@thibmaek] - [#18610]) ([sensor.nmbs docs]) (new-platform)
 - Add air pollutants component ([@fabaff] - [#18707]) ([air_pollutants docs]) ([demo docs]) (new-platform)
@@ -51,7 +51,7 @@ This release also features native support for [ESPHome](https://esphomelib.com/e
 - Add IDTECK proximity card component ([@dubnom] - [#18309]) ([idteck_prox docs]) (new-platform)
 - Add ness alarm control panel using nessclient ([@nickw444] - [#18463]) ([ness_alarm docs]) ([alarm_control_panel.ness_alarm docs]) ([binary_sensor.ness_alarm docs]) (new-platform)
 
-## {% linkable_title Release 0.85.1 - January 11 %}
+## Release 0.85.1 - January 11
 
 - check config instead of config_entry for quirks flag ([@dmulcahey] - [#19730]) ([zha docs])
 - Don't map LevelControl to light for single cluster devices. ([@Adminiuga] - [#19929]) ([zha docs])
@@ -66,17 +66,17 @@ This release also features native support for [ESPHome](https://esphomelib.com/e
 [@dmulcahey]: https://github.com/dmulcahey
 [zha docs]: /components/zha/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Targetting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
 - The default interval of the weather component was aligned with the sensor component and is now 30 seconds instead of 15 seconds. ([@fabaff] - [#19186]) ([weather docs]) (breaking change)
@@ -94,7 +94,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Refactored KNX climate component to be able to support operation types. See the documentation for the new operation modes. ([@marvin-w] - [#19546]) ([knx docs]) ([climate.knx docs]) (breaking change)
 - Move WeMo device discovery to run after home assistant start so it won't block initial component setup from completing quickly. ([@sqldiablo] - [#19563]) ([wemo docs]) ([binary_sensor.wemo docs]) ([switch.wemo docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Add ESPHome native API discovery ([@OttoWinter] - [#19399]) ([esphome docs]) (beta fix)
 - Rename air pollutants to air quality ([@eliseomartelli] - [#19448]) ([air_quality docs]) (beta fix)
@@ -111,7 +111,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update OZW to 0.1.2 ([@pvizeli] - [#19878]) ([zwave docs]) (beta fix)
 - assign user to websocket connection when using legacy_api_password ([@FlorianLudwig] - [#19797]) ([websocket_api docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Upgrade pylint to 2.2.2 ([@scop] - [#18750])
 - Add CM17A support ([@swilson] - [#19041]) ([light.x10 docs])

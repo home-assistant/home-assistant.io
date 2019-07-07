@@ -18,7 +18,7 @@ redirect_from:
 
 The `imap_email_content` sensor platform will read emails from an IMAP email server and report them as a state change within Home Assistant. This is useful if you have a device that only reports its state via email.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -81,7 +81,7 @@ value_template:
       description: The date and time the email was sent.
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 The following example shows the usage of the IMAP email content sensor to scan the subject of an email for text, in this case, an email from the APC SmartConnect service which tells whether the UPS is running on battery or not.
 

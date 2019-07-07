@@ -27,7 +27,7 @@ Currently, the supported features are:
 
 Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
 

@@ -41,7 +41,7 @@ And finally, we'll be extending the open beta for Home Assistant Cloud until the
 
 Enjoy this release and have a good weekend all!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Weather Platform - IPMA ([@dgomes] - [#14716]) ([weather.ipma docs]) (new-platform)
 - Add Freebox device tracker ([@stilllman] - [#12727]) ([device_tracker.freebox docs]) (new-platform)
@@ -56,7 +56,7 @@ Enjoy this release and have a good weekend all!
 - Add support for ZhongHong HVAC Controllers ([@crhan] - [#14552]) ([climate.zhong_hong docs]) (new-platform)
 - Xiaomi Cameras - multiple models ([@vaidyasr] - [#14244]) ([camera.xiaomi docs]) (new-platform)
 
-## {% linkable_title Release 0.72.1 - June 25 %}
+## Release 0.72.1 - June 25
 
 - Prevent Nest component setup crash due insufficient permission. ([@awarecan] - [#14966]) ([nest docs])
 - Fix socket bug with Yi in 0.72 ([@bachya] - [#15109]) ([camera.yi docs])
@@ -64,16 +64,16 @@ Enjoy this release and have a good weekend all!
 - Fix cast config ([@balloob] - [#15143]) ([media_player.cast docs])
 - Bump python-nest to 4.0.3 ([@awarecan] - [#15098]) ([nest docs]) ([sensor.nest docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - For developers of custom panel: Remove ability to register panels directly with the frontend component. Register with custom panel component instead. ([@balloob] - [#14805]) ([frontend docs]) (breaking change)
 - Rename Hive hub friendly name to include "Hive" name ([@SteveEdson] - [#14747]) ([sensor.hive docs]) (breaking change)
@@ -84,7 +84,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Eight Sleep add REM type, Update async syntax, Catch API quirks ([@mezz64] - [#14937]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs]) (breaking change)
 - Fix energy meter for HS110 v2 users. Not a breaking change unless you are using a custom component  ([@rytilahti] - [#15001]) ([light.tplink docs]) ([switch.tplink docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Remove load power attribute for channel USB ([@syssi] - [#14996]) ([switch.xiaomi_miio docs]) (beta fix)
 - Switch to own packaged version of spotipy ([@andrey-git] - [#14997]) ([media_player.spotify docs]) (beta fix)
@@ -100,7 +100,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix MQTT Light with RGB and Brightness ([@thinkl33t] - [#15053]) ([light.mqtt docs]) (beta fix)
 - Update Neato Library And Reduce Cloud Calls ([@dshokouhi] - [#15072]) ([neato docs]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Weather Platform - IPMA ([@dgomes] - [#14716]) ([weather.ipma docs]) (new-platform)
 - Add additional 86sw model identifier of the LAN protocol V2 ([@syssi] - [#14799]) ([xiaomi_aqara docs]) ([binary_sensor.xiaomi_aqara docs])

@@ -44,7 +44,7 @@ then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
 </p>
 
-### {% linkable_title Full config example %}
+### Full config example
 ```yaml
 climate:
   - platform: sensibo
@@ -54,7 +54,7 @@ climate:
       - id2
 ```
 
-### {% linkable_title Adding a quick switch example %}
+### Adding a quick switch example
 
 If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
 

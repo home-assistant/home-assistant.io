@@ -22,7 +22,7 @@ The simplest way to show Home Assistant to others is the online demo at [/demo/]
 
 <!--more-->
 
-## {% linkable_title `--demo-mode` and Demo platform %}
+## `--demo-mode` and Demo platform
 To be safe for your talk, you don't want to depend on an internet connection. The demo mode [`--demo-mode`](/docs/tools/hass/) allows you to run a demo locally including the latest features. Make sure that you have a backup of your configuration.
 
 ```bash
@@ -45,7 +45,7 @@ switch:
   Home Assistant's demo platforms
 </p>
 
-## {% linkable_title `random` platforms %}
+## `random` platforms
 Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/binary_sensor.random.markdown) platform in addition to the already available [`random` sensor](/components/sensor.random/).
 
 By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
@@ -85,7 +85,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-## {% linkable_title MQTT Discovery %}
+## MQTT Discovery
 This is a section for advanced users as it will require to run a separate script. Instead of adding `demo` platforms to the configuration this setup make use of [MQTT discovery](/docs/mqtt/discovery/) and the [embedded MQTT broker](/docs/mqtt/broker/#embedded-broker). Simply add MQTT to your `configuration.yaml` file with `discovery:`
 
 ```yaml

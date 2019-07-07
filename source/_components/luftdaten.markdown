@@ -18,14 +18,14 @@ redirect_from:
   - /components/sensor.luftdaten/
 ---
 
-The `luftdaten` component will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
+The `luftdaten` integration will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
 
-## {% linkable_title Setup %}
+## Setup
 
 - To get the ID of a particle sensor you need to select it on the [Feinstaub map](http://deutschland.maps.luftdaten.info/) and find it in the sidebar (Column "Sensor ID").
 - To get the ID of a temperature/humidity sensor you need to find it on the map hosted on [Madavi](https://www.madavi.de/sensor/feinstaub-map-dht/).
 
-## {% linkable_title Configuration via the frontend %}
+## Configuration via the frontend
 
 Menu: **Configuration** -> **Integrations**
 
@@ -34,7 +34,7 @@ Configure the integration:
 - Enter the **Sensor ID**
 - Choose if you want to show the sensor's location on the map.
 
-## {% linkable_title Manual Configuration %}
+## Manual Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -90,7 +90,7 @@ Not all sensors provide all conditions. Also, it's possible that the sensor valu
 $ curl https://api.luftdaten.info/v1/sensor/[sensorid]/
 ```
 
-## {% linkable_title Full example %}
+## Full example
 
 This example would use the sensor with the ID 155, show it on the `map` and would monitor `temperature` and `humidity`.
 
@@ -105,8 +105,8 @@ luftdaten:
       - humidity
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `luftdaten` sensor platform will query the open data API of [luftdaten.info](http://luftdaten.info) to monitor air quality and other weather data from a specific (self build) sensor station.
 
-You must have the `luftdaten` component (from above) configured to use this platform. After configuring that component, sensors will automatically appear.
+You must have the `luftdaten` integration (from above) configured to use this platform. After configuring that component, sensors will automatically appear.

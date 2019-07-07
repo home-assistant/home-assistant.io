@@ -25,11 +25,11 @@ It's an alternative to the template binary sensor's `value_template:` to get the
 
 {% raw %}
 ```yaml
-{{ states.sensor.furnace.state > 2.5 }}
+{{ states('sensor.furnace') > 2.5 }}
 ```
 {% endraw %}
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the threshold sensor, add the following lines to your `configuration.yaml`:
 

@@ -13,9 +13,9 @@ ha_category:
 ha_release: 0.49
 ---
 
-The `prometheus` component exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
-To use the `prometheus` component in your installation, add the following to your `configuration.yaml` file:
+To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -14,9 +14,9 @@ ha_release: 0.13
 ha_qa_scale: internal
 ---
 
-The `proximity` component allows you to monitor the proximity of devices to a particular [zone](/components/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
+The `proximity` integration allows you to monitor the proximity of devices to a particular [zone](/components/zone/) and the direction of travel. The result is an entity created in Home Assistant which maintains the proximity data.
 
-This component is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/getting-started/automation-trigger/#zone-trigger) and [state](/getting-started/automation-trigger/#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
+This integration is useful to reduce the number of automation rules required when wanting to perform automations based on locations outside a particular zone. The [zone](/getting-started/automation-trigger/#zone-trigger) and [state](/getting-started/automation-trigger/#state-trigger) based triggers allow similar control but the number of rules grows exponentially when factors such as direction of travel need to be taken into account.
 
 Some examples of its use include:
 
@@ -40,7 +40,7 @@ The Proximity entity which is created has the following values:
   - 'mi'
   - 'ft'
 
-To enable this component in your installation, add the following to your `configuration.yaml` file:
+To enable this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -56,7 +56,7 @@ proximity:
 
 {% configuration %}
 zone:
-  description: The zone to which this component is measuring the distance to. Default is the home zone.
+  description: The zone to which this integration is measuring the distance to. Default is the home zone.
   required: false
   type: map
   keys:

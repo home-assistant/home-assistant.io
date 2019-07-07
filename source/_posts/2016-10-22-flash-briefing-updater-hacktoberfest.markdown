@@ -19,16 +19,16 @@ Every other weekend around here gets a little hectic leading to a big sigh of re
 
 One last thing before we get going though, I should warn you... [@balloob] got a bit lazy this week and let me ([@robbiet480]) step up to the plate again to write the blog post and do the release. I guess I didn't do such a bad job in [0.27][zero-two-seven-release]. You'll never know what surprises I have in store. Now that i've got all that stuff out of the way, let's get started...
 
-## {% linkable_title Stats Update %}
+## Stats Update
 Sadly, no big amazing stats to update you with this time, but we did recently pass 7,000 commits! This release featured submissions from 45 contributors. Hopefully with the new updater component we will be able to give you some really good stats in the 0.32 blog post.
 
-## {% linkable_title Hacktoberfest %}
+## Hacktoberfest
 
 ![Hacktoberfest logo][logo]
 
 October means Hacktoberfest time and our community has really come through with some excellent improvements and additions. As of this writing, we have 194 merged and 41 open pull requests to the [home-assistant repository][hacktoberfest-ha-prs] and 209 merged/28 open pull requests submitted to the [home-assistant.github.io repository][hacktoberfest-site-prs]. If you want to get in on the fun check out our [Hacktoberfest][hacktoberfest-blog] blog post or the [Hacktoberfest website][hacktoberfest-website]. You get an awesome t-shirt for free if you have 4 pull requests merged in the month of October! We even have tasks that a non-developer can easily accomplish with a tiny bit of work. Better hurry up though, only 9 days left and most of the easy tasks are gone!
 
-## {% linkable_title ⚠️ A greatly improved updater component (Please read this!) ⚠️ %}
+## ⚠️ A greatly improved updater component (Please read this!) ⚠️
 
 This release includes an update to our [updater] component. The responsibility of the updater component is to check if a new version is available and notify the user if this is the case.
 
@@ -40,7 +40,7 @@ It used to be that this component would check with [PyPi] (the Python package ma
 
 So to work around these problems, we decided to start hosting the version check service ourselves. Since we had to get some infrastructure spun up anyway, we figured we would take it a step further. Which leads me to this bit of the update (the most important part):
 
-### {% linkable_title What you need to know (the important bit!) %}
+### What you need to know (the important bit!)
 
 Remember how I mentioned that up there in the title that there is some serious business in this release? Well, we also added some basic analytics to the updater component which get sent to the server and stored so that we get a better idea of our user base.
 
@@ -111,7 +111,7 @@ _This section was updated on October 24 to be more clear about geo-lookups being
 
 Now, back to the fun stuff...
 
-## {% linkable_title Good evening. I'm Ron Burgundy and here's what happening in your world tonight. %}
+## Good evening. I'm Ron Burgundy and here's what happening in your world tonight.
 
 Home Assistant got a crazy idea recently that it couldn't do enough already and wanted to challenge itself even more. I really don't understand how it came up with this kooky idea, but it now thinks that its newest hobby should be a minor career in journalism.
 
@@ -126,7 +126,7 @@ Now I know how to best get to [my real job][runway] (no, Home Assistant is _not_
   You stay classy, San Diego. (It's funny, because balloob lives in San Diego))
 </p>
 
-## {% linkable_title Major breaking Z-Wave changes ahead %}
+## Major breaking Z-Wave changes ahead
 
 A rather nasty Z-Wave [issue][z-wave-issue] was discovered recently by [@lukas-hetzenecker]. There was a somewhat large chance that if you had multiple of the same model Z-Wave device they may both try to use the same entity IDs. To fix the issue the internal Z-Wave index is now appended to the end of all Z-Wave entity IDs.
 
@@ -142,7 +142,7 @@ Your todo list may be a little different from mine, I just wanted to outline the
 
 This is super annoying, I know, especially since we had said in [0.12][zero-one-two-release] that Z-Wave IDs should hopefully never change again, but we are now forced to eat those words. I will state again that Z-Wave IDs shouldn't change in the future but obviously we see how that went. To sum up on this section... sorry but it had to happen.
 
-## {% linkable_title All changes %}
+## All changes
 
 - [Updater] component ([@infamy], [@robbiet480], [@kellerza])
 - Continue to setup other platforms when 1 platform config is invalid ([@kellerza])
@@ -193,24 +193,24 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - iOS support ([@robbiet480])
 - Minor features and bug fixes by [@mtl010957], [@molobrakos], [@flyte], [@fabaff], [@phardy], [@sander76], [@T3m3z], [@c-w], [@balloob], [@robbiet480], [@StaticCube], [@vittoriom], [@hartmms], [@kirichkov], [@mezz64], [@ishults], [@Danielhiversen] and [@tchellomello].
 
-### {% linkable_title Release 0.31.1 - October 24 %}
+### Release 0.31.1 - October 24
 
  - Identify special character encoding error in YAML files ([@kellerza], [@lwis])
  - iOS app component bug fixes ([@robbiet480])
  - Fix a spelling problem on user-facing error ([@robbiet480])
  - YAML includes will ignore dirs/files prefixed with . ([@lwis])
 
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
  - The [HTTP] component now takes a different format for authenticating IPs
  - Configuration format has changed for [Proximity]
  - The [Arduino] platform are now covered by the configuration check. Please check the documentation to see how.
  - The Z-Wave entity ID change mentioned above
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
-## {% linkable_title Until next time %}
+## Until next time
 
 Thanks for reading all of the above, especially since this week was a pretty long post. We should be back with a new post around November 5th announcing the arrival of 0.32.
 

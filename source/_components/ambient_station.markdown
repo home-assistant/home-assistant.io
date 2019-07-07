@@ -14,16 +14,16 @@ redirect_from:
  - /components/sensor.ambient_station/
 ---
 
-The `Ambient Weather Station` component retrieves local weather information
+The `Ambient Weather Station` integration retrieves local weather information
 via personal weather stations from [Ambient Weather](https://ambientweather.net).
 
-## {% linkable_title Setup %}
+## Setup
 
-Using this component requires both an Application Key and an API Key. To
+Using this integration requires both an Application Key and an API Key. To
 generate both, simply utilize the profile section of
 [your Ambient Weather dashboard](https://dashboard.ambientweather.net).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Ambient Weather PWS to your Home Assistant installation, add the
 following to your `configuration.yaml` file:

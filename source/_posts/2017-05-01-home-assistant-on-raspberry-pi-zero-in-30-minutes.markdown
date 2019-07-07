@@ -15,6 +15,10 @@ og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.
   <img src="/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
 </p>
 
+<p class='note warning'>
+  ***This article is very outdated*** guide. If you follow it you will be installing a very outdated version of Hassbian, on a hardware platform only suitable for testing.  ***We strongly recommend you do not follow this article***.
+</p>
+
 Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited?
 
 Today we'll flash the latest HASSbian to a [Raspberry Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).

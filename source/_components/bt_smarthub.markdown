@@ -19,7 +19,7 @@ redirect_from:
 This platform offers presence detection by looking at connected devices to a [BT Smart Hub](https://en.wikipedia.org/wiki/BT_Smart_Hub) based router.
 This router is sometimes referred to as the BT Home Hub 6.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a BT Smart Hub router in your installation, add the following to your `configuration.yaml` file:
 
@@ -37,4 +37,4 @@ host:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

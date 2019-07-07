@@ -18,7 +18,7 @@ redirect_from:
 
 A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

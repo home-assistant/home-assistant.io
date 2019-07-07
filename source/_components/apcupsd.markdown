@@ -26,7 +26,13 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Hass.io Installation
+
+Install this [unofficial add-on](https://github.com/korylprince/hassio-apcupsd/) to use this integration with Hass.io. Keep in mind that we can't give you support for this add-on. 
+
+After installation, follow the instructions on the Github page to configure the plugin. Then continue to follow the integration configurations below.
+
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -52,13 +58,13 @@ port:
 If you get `ConnectionRefusedError: Connection refused` errors in the Home assistant logs, ensure the [APCUPSd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addesses will not connect. This includes Hass.io running in Docker, even when hosted on the same machine or a virtual machine.
  </p>
 
-## {% linkable_title Binary sensor %}
+## Binary sensor
 
 In addition to the [APCUPSd Sensor](#sensor) devices, you may also create a device which is simply "on" when the UPS status is online and "off" at all other times.
 
-### {% linkable_title Configuration %}
+### Configuration
 
-To enable this sensor, you first have to set up apcupsd component (above), and add the following lines to your `configuration.yaml` file:
+To enable this sensor, you first have to set up apcupsd integration (above), and add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -74,13 +80,13 @@ name:
   default: UPS Online Status
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
  The `apcupsd` sensor platform allows you to monitor a UPS (battery backup) by using data from the [apcaccess](http://linux.die.net/man/8/apcaccess) command.
 
-### {% linkable_title Configuration %}
+### Configuration
 
-To use this sensor platform, you first have to set up apcupsd component (above), and add the following to your `configuration.yaml` file:
+To use this sensor platform, you first have to set up apcupsd integration (above), and add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,7 +104,7 @@ resources:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Example  %}
+### Example 
 
 Given the following output from `apcaccess`:
 
@@ -127,13 +133,33 @@ OUTPUTV  : 218.4 Volts
 [...]
 ```
 
-Use the (case insensitive) values from the left hand column:
+Use the values from the left hand column (lower case required).
+
+Full Example Configuration:
 
 ```yaml
 sensor:
   - platform: apcupsd
     resources:
+      - apc
+      - date
+      - hostname
+      - version
+      - upsname
+      - cable
+      - driver
+      - upsmode
+      - starttime
+      - model
+      - status
       - linev
       - loadpct
+      - bcharge
       - timeleft
+      - mbattchg
+      - mintimel
+      - maxtime
+      - maxlinev
+      - minlinev
+      - outputv
 ```

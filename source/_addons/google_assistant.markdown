@@ -79,7 +79,7 @@ speaker:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into Home Assistant.
 

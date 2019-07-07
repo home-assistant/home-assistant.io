@@ -28,15 +28,15 @@ There is currently support for the following device types within Home Assistant:
 
 Currently this implementation only exposes POE control for networked devices. Device tracker implementation is not using the same code base.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**.
 
 Enter `host address`, `user name` and `password` and then continue to select which `site` you want to connect to Home Assistant. The user must have administrator privileges.
 
-## {% linkable_title Debugging component %}
+## Debugging integration
 
-If you have problems with UniFi or the component you can add debug prints to the log.
+If you have problems with UniFi or the integration you can add debug prints to the log.
 
 ```yaml
 logger:
@@ -47,7 +47,7 @@ logger:
     homeassistant.components.switch.unifi: debug
 ```
 
-## {% linkable_title Presence detection %}
+## Presence detection
 
 This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](http://ubnt.com/) [Unifi](https://www.ubnt.com/enterprise/#unifi) controller.
 
@@ -112,19 +112,19 @@ monitored_conditions:
 
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-### {% linkable_title Configuring Users %}
+### Configuring Users
 
 The Unifi controller allows you to create multiple users on it besides the main administrator. It is recommended that you create a limited user that has `read-only` permissions for the Unifi device tracker.
 
-### {% linkable_title Conflicts with MQTT %}
+### Conflicts with MQTT
 
-The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT component as well.
+The Unifi controller can either be a dedicated hardware device (Unifi's cloud key), or as software any Linux system. If you run the Unifi controller on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT integration as well.
 
 It is recommended that you run the Unifi controller in a dedicated virtual machine to avoid that situation.
 
-### {% linkable_title Correctly specifying the Site ID %}
+### Correctly specifying the Site ID
 
 For environments where there are multiple sites setup on the controller, or the default site is not being used you can use the `site_id` parameter to specify which site you would like to target.
 
@@ -138,7 +138,7 @@ For example, this is what would be seen in the URL bar when inside the dashboard
 
 And your `site_id` value would be `ceb1m27d`.
 
-### {% linkable_title Troubleshooting and Time Synchronization %}
+### Troubleshooting and Time Synchronization
 
 Presence detection depends on accurate time configuration between Home Assistant and the Unifi controller.
 
@@ -146,7 +146,7 @@ If Home Assistant and the Unifi controller are running on separate machines or V
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-### {% linkable_title Monitored Conditions %}
+### Monitored Conditions
 
 The Unifi controller returns a number of additional attributes that can be used for tracking devices, including signal strength, rx/tx rates, and which AP it is connected to. The list of possible options may vary depending on your Unifi controller version and if a device is wired or wireless.
 
@@ -199,7 +199,7 @@ Unifi Controller version 5.6.29 has the following options:
 - usergroup_id
 - vlan
 
-## {% linkable_title Switch %}
+## Switch
 
 Switches are network devices that are powered by POE switches from Ubuiqitis UniFi line of networking gear.
 

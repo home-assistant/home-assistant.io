@@ -25,7 +25,7 @@ The location of the folder differs between operating systems:
 
 If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
 
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains components to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
+Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
 
 If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
 
@@ -33,7 +33,7 @@ If you run into trouble while configuring Home Assistant, have a look at the [co
   Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
 </p>
 
-## {% linkable_title Reloading changes %}
+## Reloading changes
 
 You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
 You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting.
@@ -42,6 +42,6 @@ You can load changes to [automations](/docs/automation/), [core (customize)](/do
 If you've made any changes, remember to [check your configuration](/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
 </p>
 
-## {% linkable_title Migrating to a new system %}
+## Migrating to a new system
 
 If you want to migrate your configuration to a new system then you can copy the contents of your configuration folder from the current system to the new system. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.

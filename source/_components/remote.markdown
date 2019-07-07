@@ -15,7 +15,7 @@ Keeps track which remotes are in your environment, their state and allows you to
  * Maintains a state per remote and a combined state `all_remotes`.
  * Registers services `remote/turn_on`, `remote/turn_off`, `remote/toggle`, and `remote/send_command` to control remotes.
 
-### {% linkable_title Use the services %}
+### Use the services
 
 Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `remote/turn_on`, `remote/turn_off`, or `remote/toggle` from the list of available services (**Available services:** on the left). Enter something like the sample below into the **Service Data** field and hit **Call Service**.
 

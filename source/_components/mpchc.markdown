@@ -19,7 +19,7 @@ redirect_from:
 
 The `mpchc` platform allows you to connect a [Media Player Classic Home Cinema](https://mpc-hc.org/) to Home Assistant. It will allow you to see the current playing item, and respond to changes in the player's state.
 
-For this component to function, you will need to enable the Web Interface in the MPC-HC options dialog.
+For this integration to function, you will need to enable the Web Interface in the MPC-HC options dialog.
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/mpc-hc.png' />

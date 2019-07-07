@@ -10,4 +10,4 @@ footer: true
 ha_release: 0.33
 ---
 
-The calendar component allows you to integrate your calendars into Home Assistant.
+The calendar integration allows you to integrate your calendars into Home Assistant.

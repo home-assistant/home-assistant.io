@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "N26"
-description: "Instructions on how to integrate N26 component within Home Assistant."
+description: "Instructions on how to integrate N26 integration within Home Assistant."
 date: 2019-03-11 20:00
 sidebar: true
 comments: false
@@ -21,7 +21,7 @@ The [N26](https://n26.com) integration for Home Assistant allows you to track yo
 
 N26 is a bank from germany that launched as a start up. It is an "online only" bank in that it has no local "stores" to retrieve or deposit money and account management is done only through their web interface and mobile apps. The sensor allows to show account info including balance, spaces (sub-accounts within an account) and bank card status. The switch allows to change the "Blocked/Unblocked" status of an N26 bank card.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the following entry to the `configuration.yaml` file:
 

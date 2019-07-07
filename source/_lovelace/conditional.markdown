@@ -44,7 +44,7 @@ card:
 
 Note: Conditions with more than one entity are treated as an 'and' condition. This means that for the card to show, *all* entities must meet the state requirements set.
 
-### {% linkable_title Examples %}
+### Examples
 
 ```yaml
 type: conditional

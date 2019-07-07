@@ -10,7 +10,7 @@ footer: true
 ha_release: 0.81
 ---
 
-The `water_heater` component is built for the controlling and monitoring of hot water heaters.
+The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
 
 To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
 
@@ -20,9 +20,9 @@ water_heater:
   platform: demo
 ```
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Water heater control services %}
+### Water heater control services
 
 Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
@@ -30,7 +30,7 @@ Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode
 Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
 </p>
 
-### {% linkable_title Service `water_heater.set_temperature` %}
+### Service `water_heater.set_temperature`
 
 Sets target temperature of water heater device.
 
@@ -40,7 +40,7 @@ Sets target temperature of water heater device.
 | `temperature` | no | New target temperature for water heater
 | `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly.
 
-#### {% linkable_title Automation example  %}
+#### Automation example 
 
 ```yaml
 automation:
@@ -55,7 +55,7 @@ automation:
         operation_mode: eco
 ```
 
-### {% linkable_title Service `water_heater.set_operation_mode` %}
+### Service `water_heater.set_operation_mode`
 
 Set operation mode for water heater device
 
@@ -64,7 +64,7 @@ Set operation mode for water heater device
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
 | `operation_mode` | no | New value of operation mode
 
-#### {% linkable_title Automation example %}
+#### Automation example
 
 ```yaml
 automation:
@@ -78,7 +78,7 @@ automation:
         operation_mode: eco
 ```
 
-### {% linkable_title Service `water_heater.set_away_mode` %}
+### Service `water_heater.set_away_mode`
 
 Turn away mode on or off for water heater device
 
@@ -87,7 +87,7 @@ Turn away mode on or off for water heater device
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of water heater devices to control. Else targets all.
 | `away_mode` | no | New value of away mode. 'on'/'off' or True/False
 
-#### {% linkable_title Automation example %}
+#### Automation example
 
 ```yaml
 automation:

@@ -26,7 +26,7 @@ Data measured includes:
 * Current outlook
 * more!
 
-## {% linkable_title Configuring the Platform %}
+## Configuring the Platform
 
 To integrate `iqvia` into Home Assistant, add the following section to your
 `configuration.yaml` file (adjusting the `monitored_conditions` list to your
@@ -79,7 +79,7 @@ It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
 ZIP codes that start with 0 will cause errors.
 </p>
 
-## {% linkable_title Understanding the Indices %}
+## Understanding the Indices
 
 Any index-related sensor will have a value between 0.0 and 12.0. The values
 map to the following human-friendly ratings:
@@ -92,7 +92,7 @@ Range      | Rating
 7.3 - 9.6  | Medium/High
 9.7 - 12.0 | High
 
-## {% linkable_title Understanding Asthma Allergens %}
+## Understanding Asthma Allergens
 
 Several asthma-related sensors carry information regarding the top three
 "asthma allergens" (i.e., irritants that may exacerbate asthma symptoms).

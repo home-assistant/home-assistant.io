@@ -19,14 +19,14 @@ redirect_from:
   - /components/sensor.dovado/
 ---
 
-The `dovado` component manages communication with the [Dovado](http://www.dovado.com/) router.
+The `dovado` integration manages communication with the [Dovado](http://www.dovado.com/) router.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](/components/dovado/#notifications)
 - [Sensor](/components/dovado/#sensor)
 
-To add a Dovado component to your installation, add the following to your `configuration.yaml` file:
+To add a Dovado integration to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -56,7 +56,7 @@ port:
   default: 6435
 {% endconfiguration %}
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `dovado` notify platform allows you to send SMS from your [Dovado](http://www.dovado.com/) router, if it supports it.
 
@@ -68,7 +68,7 @@ notify:
   - platform: dovado
 ```
 
-### {% linkable_title Usage %}
+### Usage
 
 This is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send an SMS notification to a single phone number in the notification **target**.
 
@@ -86,7 +86,7 @@ automation:
         target: '+14151234567'
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `dovado` sensor platform let you monitor your [Dovado](http://www.dovado.com/) router.
 

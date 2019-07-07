@@ -16,7 +16,7 @@ ha_iot_class: Local Polling
 
 The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
@@ -84,9 +84,9 @@ verify_ssl:
 Make sure that the URL matches exactly your endpoint or resource.
 </p>
 
-## {% linkable_title Example %}
+## Example
 
-### {% linkable_title Switch with templated value %}
+### Switch with templated value
 
 This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
 
@@ -108,4 +108,4 @@ switch:
 ```
 {% endraw %}
 
-`body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states.sensor.bedroom_temp.state}}}'{% endraw %}`.
+`body_on` and `body_off` can also depend on the state of the system. For example, to enable a remote temperature sensor tracking on a radio thermostat, one has to send the current value of the remote temperature sensor. This can be achieved by using the template `{% raw %}'{"rem_temp":{{states('sensor.bedroom_temp')}}}'{% endraw %}`.
