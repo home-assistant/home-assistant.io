@@ -24,7 +24,7 @@ This component provides the following platforms:
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
 - Services: authorize, deauthorize, set energy target, set maximum allowed current and manually update the states. More details can be found [here](/components/keba/#services).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this component in your installation, add at least the following to your
 `configuration.yaml` file:
@@ -77,15 +77,19 @@ keba:
       default: 5
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
 The `keba` component offers several services. Using these services will change the state of your charging station. So use these services with care!
 
-### {% linkable_title Authorizing and Deauthorizing %}
+### Authorizing and Deauthorizing `keba.authorize` and `keba.deauthorize`
 
 The charging station can be authorize and deauthorize vai service calls (`keba.authorize` and `keba.deauthorize`) or via the lock component that is created automatically for the charging station. In both cases the RFID tag from the configuration is used.
 
-### {% linkable_title Set Target Energy %}
+### Start and Stop `keba.start` and `keba.stop`
+
+The service `keba.start` and `keba.stop` controls the charging process if the car is already authorized. Technically it sends `ena 1` or `ena 0` commands to the charging station.
+
+### Set Target Energy `keba.set_energy`
 
 The service `keba.set_energy` sets the target energy for the current session to the given energy attribute in kWh. Payload example:
 ```json
@@ -94,7 +98,7 @@ The service `keba.set_energy` sets the target energy for the current session to 
 }
 ```
 
-### {% linkable_title Set Maximum Current %}
+### Maximum Current `keba.set_curr`
 
 The service `keba.set_curr` sets the maximum current to the given current attribute in Ampere. Payload example:
 ```json
@@ -103,6 +107,6 @@ The service `keba.set_curr` sets the maximum current to the given current attrib
 }
 ```
 
-## {% linkable_title Disclaimer %}
+## Disclaimer
 
 This software is not affiliated with or endorsed by Keba.
