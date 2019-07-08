@@ -32,11 +32,11 @@ To use your KNX sensor in your installation, add the following lines to your `co
 sensor:
   - platform: knx
     name: Heating.Valve1
-    sync_address: '2/0/0'
+    state_address: '2/0/0'
 ```
 
 {% configuration %}
-sync_address:
+state_address:
   description: KNX group address of the sensor.
   required: true
   type: string
