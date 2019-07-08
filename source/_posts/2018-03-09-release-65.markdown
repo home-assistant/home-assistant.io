@@ -250,7 +250,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Python 3.5 Async Await Syntax ([@OttoWinter] - [#12815]) ([mqtt docs])
 - Improved Homekit tests ([@cdce8p] - [#12800]) ([homekit docs])
 - Add light.group platform ([@OttoWinter] - [#12229]) ([light.group docs]) (new-platform)
-- Add icons to Xiaomi Aqara sensors ([@bakedraccoon] - [#12814]) ([sensor.xiaomi_aqara docs])
+- Add icons to Xiaomi Aqara sensors ([@thijsdejong] - [#12814]) ([sensor.xiaomi_aqara docs])
 - Egardia redesign - generic component and sensor support ([@jeroenterheerdt] - [#11994]) ([egardia docs]) ([alarm_control_panel.egardia docs]) ([binary_sensor.egardia docs]) (breaking change) (new-platform)
 - Skip flaky light.group test [skipci] ([@balloob] - [#12847])
 - Update volvooncall.py ([@danielhiversen] - [#12834]) ([switch.volvooncall docs])
@@ -495,7 +495,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@aronsky]: https://github.com/aronsky
 [@awkwardDuck]: https://github.com/awkwardDuck
 [@bachya]: https://github.com/bachya
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@bertbert72]: https://github.com/bertbert72
 [@bokub]: https://github.com/bokub

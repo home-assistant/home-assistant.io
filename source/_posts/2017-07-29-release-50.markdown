@@ -194,7 +194,7 @@ conversation:
 - History performance improvements for single-entity requests ([@OverloadUT] - [#8632]) ([history docs])
 - Add transition support to light.zha ([@jawilson] - [#8548]) ([light.zha docs])
 - Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
-- Added support for SerenaHoneycombShades to Lutron Caseta ([@809694+kfcook] - [#8662]) ([cover.lutron_caseta docs])
+- Added support for SerenaHoneycombShades to Lutron Caseta ([@kfcook] - [#8662]) ([cover.lutron_caseta docs])
 - MQTT Switch: add availability_topic for online/offline status ([@abmantis] - [#8593]) ([mqtt docs]) ([switch.mqtt docs])
 - Adding support for mapping keys to value in statsd ([@Khabi] - [#8665]) ([statsd docs])
 - Upgrade fuzzywuzzy to 0.15.1 ([@fabaff] - [#8671]) ([conversation docs])
@@ -288,7 +288,7 @@ conversation:
 [#8673]: https://github.com/home-assistant/home-assistant/pull/8673
 [#8675]: https://github.com/home-assistant/home-assistant/pull/8675
 [#8697]: https://github.com/home-assistant/home-assistant/pull/8697
-[@809694+kfcook]: https://github.com/809694+kfcook
+[@kfcook]: https://github.com/kfcook
 [@Khabi]: https://github.com/Khabi
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@MikeChristianson]: https://github.com/MikeChristianson
@@ -342,13 +342,13 @@ conversation:
 [binary_sensor.ping docs]: /components/binary_sensor.ping/
 [binary_sensor.rest docs]: /components/binary_sensor.rest/
 [binary_sensor.velbus docs]: /components/binary_sensor.velbus/
-[binary_sensor.xiaomi docs]: /components/binary_sensor.xiaomi/
+[binary_sensor.xiaomi docs]: /components/binary_sensor.xiaomi_aqara/
 [camera.onvif docs]: /components/camera.onvif/
 [climate.maxcube docs]: /components/climate.maxcube/
 [conversation docs]: /components/conversation/
 [cover docs]: /components/cover/
 [cover.lutron_caseta docs]: /components/cover.lutron_caseta/
-[cover.xiaomi docs]: /components/cover.xiaomi/
+[cover.xiaomi docs]: /components/cover.xiaomi_aqara/
 [cover.zwave docs]: /components/cover.zwave/
 [device_tracker.owntracks docs]: /components/device_tracker.owntracks/
 [device_tracker.snmp docs]: /components/device_tracker.snmp/

@@ -82,7 +82,7 @@ rainmachine:
 - Bump locationsharinglib to 1.2.2 ([@thelittlefireman] - [#14070]) ([device_tracker docs])
 - Remove excessive debugging in webostv module ([@stephanerosi] - [#14056]) ([media_player.webostv docs])
 - Support new Xiaomi Aqara device model names and LAN protocol 2.0 ([@ileler] - [#13540]) ([xiaomi_aqara docs]) ([binary_sensor.xiaomi_aqara docs]) ([light.xiaomi_aqara docs]) ([sensor.xiaomi_aqara docs]) ([switch.xiaomi_aqara docs])
-- Add devices to Tahoma ([@bakedraccoon] - [#14075]) ([tahoma docs]) ([cover.tahoma docs]) ([sensor.tahoma docs])
+- Add devices to Tahoma ([@thijsdejong] - [#14075]) ([tahoma docs]) ([cover.tahoma docs]) ([sensor.tahoma docs])
 - Modify weather components for "new" frontend card ([@c727] - [#14076]) ([weather.buienradar docs]) ([weather.darksky docs]) ([weather.openweathermap docs])
 - Add Sonos device attribute with grouping information ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
 - Re-implement HomematicIP cloud to async ([@mxworm] - [#13468]) ([homematicip_cloud docs]) ([sensor.homematicip_cloud docs]) (breaking change)
@@ -318,7 +318,7 @@ rainmachine:
 [@amelchio]: https://github.com/amelchio
 [@andrey-git]: https://github.com/andrey-git
 [@bachya]: https://github.com/bachya
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@bieniu]: https://github.com/bieniu
 [@blackwind]: https://github.com/blackwind

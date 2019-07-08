@@ -156,7 +156,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support for security systems controlled by IFTTT ([@maxclaey] - [#12975]) ([alarm_control_panel.ifttt docs]) (new-platform)
 - Add ecobee fan mode ([@uchagani] - [#12732]) ([ecobee docs]) ([climate.ecobee docs])
 - Zigbee fan ([@igorbernstein2] - [#12289]) ([zha docs]) ([fan.zha docs]) (new-platform)
-- Update plex.py ([@chronm] - [#12157]) ([sensor.plex docs])
+- Update plex.py ([@kraddatz] - [#12157]) ([sensor.plex docs])
 - Support MQTT Lock discovery ([@molobrakos] - [#13303]) ([mqtt docs]) ([lock.mqtt docs])
 - Adding a discoverable Samsung Syncthru Printer sensor platform ([@nielstron] - [#13134]) ([sensor.syncthru docs]) (new-platform)
 - Use hue/sat as internal light color interface ([@armills] - [#11288]) ([light docs])
@@ -406,7 +406,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cburgess]: https://github.com/cburgess
 [@cdce8p]: https://github.com/cdce8p
 [@cgtobi]: https://github.com/cgtobi
-[@chronm]: https://github.com/chronm
+[@kraddatz]: https://github.com/kraddatz
 [@clementhk]: https://github.com/clementhk
 [@danielhiversen]: https://github.com/danielhiversen
 [@danielperna84]: https://github.com/danielperna84

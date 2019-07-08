@@ -101,7 +101,7 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Light - Hue: Improvements ([@robbiet480])
 - TTS - YandexTTS: Added speed and emotion to Yandex TTS ([@lupin-de-mid])
 - Light - tellstick.py: Tellstick light fix ([@stefan-jonasson])
-- Switch - insteon_local.py: only check for devices when not defined in config ([@wardcraigj])
+- Switch - insteon_local.py: only check for devices when not defined in config ([@craigjmidwinter])
 - Notify - Twitter: Allow direct messaging to user ([@fabaff])
 - Fan - MQTT: Don't set a speed when fan turns on ([@robbiet480])
 - Config: Allow easier customization of whole domain, entity lists, globs ([@andrey-git])
@@ -123,11 +123,11 @@ Thanks to [@konikvranik] the [HDMI CEC][cec] integration got a huge update with 
 - Media player - Sonos: Add `is_coordinator`, set coordinator after join/unjoin, and no empty image ([@pvizeli], [@andrey-git], [@robbiet480])
 - Climate: Hold mode ([@Duoxilian])
 - Switch - TPlink: No longer doing I/O in event bus ([@balloob])
-- Light - Insteon local: Improve Insteon configuration ([@wardcraigj])
+- Light - Insteon local: Improve Insteon configuration ([@craigjmidwinter])
 - Emulated Hue: Emulated Hue "host-ip" fails to bind when running in docker without `--net=host` ([@jeremydk])
 - Climate - EQ3 BT smart: Add reporting for availability ([@rytilahti])
 
-Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@tdickman], [@armills], [@rytilahti], [@R1chardTM], [@asbach], [@happyleavesaoc], [@robbiet480], [@colinodell], [@joopert], [@dale3h], [@pavoni], [@jaharkes], [@MartinHjelmare], [@mezz64], [@jabesq], and you if you are missing in this list.
+Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@tdickman], [@armills], [@rytilahti], [@EarthlingRich], [@asbach], [@happyleavesaoc], [@robbiet480], [@colinodell], [@joopert], [@dale3h], [@pavoni], [@jaharkes], [@MartinHjelmare], [@mezz64], [@jabesq], and you if you are missing in this list.
 
 ### Release 0.37.1 - February 2
 
@@ -192,7 +192,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mezz64]: https://github.com/mezz64
 [@pavoni]: https://github.com/pavoni
 [@MartinHjelmare]: https://github.com/MartinHjelmare
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@andrey-git]: https://github.com/andrey-git
 [@kellerza]: https://github.com/kellerza
 [@dale3h]: https://github.com/dale3h
@@ -209,7 +209,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@pvizeli]: https://github.com/pvizeli
 [@anpetrov]: https://github.com/anpetrov
 [@partofthething]: https://github.com/partofthething
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@colinodell]: https://github.com/colinodell
 [@hoopty]: https://github.com/hoopty

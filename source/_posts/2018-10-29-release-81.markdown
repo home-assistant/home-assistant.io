@@ -261,7 +261,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - The ping command will not detect device in standby as off ([@kennedyshead] - [#17358]) ([media_player.samsungtv docs])
 - Adding source attribute to geo location platforms ([@exxamalte] - [#17339]) ([geo_location docs])
 - Add config entry for SimpliSafe ([@bachya] - [#17148]) ([simplisafe docs]) ([alarm_control_panel.simplisafe docs]) (breaking change)
-- Added option to use a location other than home ([@Solije] - [#17340]) ([sensor.geo_rss_events docs])
+- Added option to use a location other than home ([@TomAFrench] - [#17340]) ([sensor.geo_rss_events docs])
 - Add unique_id for Lightify ([@dshokouhi] - [#17377]) ([light.osramlightify docs])
 - Add unique_id for Neato ([@dshokouhi] - [#17369]) ([camera.neato docs]) ([switch.neato docs]) ([vacuum.neato docs])
 - Add unique_id for Bloomsky ([@dshokouhi] - [#17383]) ([binary_sensor.bloomsky docs]) ([sensor.bloomsky docs])
@@ -613,7 +613,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OttoWinter]: https://github.com/OttoWinter
 [@PhilRW]: https://github.com/PhilRW
 [@SilvrrGIT]: https://github.com/SilvrrGIT
-[@Solije]: https://github.com/Solije
+[@TomAFrench]: https://github.com/TomAFrench
 [@StevenLooman]: https://github.com/StevenLooman
 [@amelchio]: https://github.com/amelchio
 [@arlyon]: https://github.com/arlyon

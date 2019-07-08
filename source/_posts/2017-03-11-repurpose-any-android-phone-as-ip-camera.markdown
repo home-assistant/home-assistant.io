@@ -140,7 +140,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Frontier silicon ([@zhelev])
 - Bootstrap / Component setup async ([@pvizeli])
 - Convert kpH and mpH to kph and mph ([@ericgingras])
-- Rollback netdisco to 0.8.2 to resolve #6165 ([@jumpkick])
+- Rollback netdisco to 0.8.2 to resolve #6165 ([@deftdawg])
 - Log errors when loading yaml ([@kellerza])
 - Bootstrap tweaks tests ([@balloob])
 - Telegram webhooks new text event ([@scipioni])
@@ -236,7 +236,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Increase upper limit on light transitions ([@amelchio])
 - Bugfix android camera autodiscovery settings ([@pvizeli])
 - Update to Pyunifi2.0 ([@finish06])
-- Insteon lib ([@wardcraigj])
+- Insteon lib ([@craigjmidwinter])
 - Bugfix rpi_rf cleanup ([@pvizeli])
 - Android webcam better error handling / pump library 0.4 ([@pvizeli])
 
@@ -276,7 +276,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@jjmontestl]: https://github.com/jjmontestl
 [@jmvermeulen]: https://github.com/jmvermeulen
 [@joe248]: https://github.com/joe248
-[@jumpkick]: https://github.com/jumpkick
+[@deftdawg]: https://github.com/deftdawg
 [@kellerza]: https://github.com/kellerza
 [@lindsaymarkwawrd]: https://github.com/lindsaymarkwawrd
 [@martinfrancois]: https://github.com/martinfrancois
@@ -299,7 +299,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@titilambert]: https://github.com/titilambert
 [@valentinalexeev]: https://github.com/valentinalexeev
 [@vroomfonde1]: https://github.com/vroomfonde1
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zhelev]: https://github.com/zhelev
 [main chat channel]: https://discord.gg/c5DvZ4e
 [@dale3h]: https://github.com/dale3h

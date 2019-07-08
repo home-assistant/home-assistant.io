@@ -32,7 +32,7 @@ Rock on.
  - Services for thermostats, notify and media player will now validate passed in parameters ([@MartinHjelmare])
  - Switch - [Arduino]: support for default state and negate port functionality ([@tilutza])
  - Switch: [PulseAudio loopback] now supported ([@Cinntax])
- - Sensor: [Uber] now supported ([@robbiet480])
+ - Sensor: Uber now supported ([@robbiet480])
  - Notify: [Growl (GNTP)] now supported ([@robbiet480])
  - Media Player: [Yamaha receivers] now supported ([@aoakeson])
 
@@ -62,7 +62,6 @@ Rock on.
 [OwnTracks]: /components/device_tracker.owntracks/
 [PulseAudio loopback]: /components/switch.pulseaudio_loopback/
 [Tellstick]: /components/tellstick/
-[Uber]: /components/sensor.uber/
 [Vera]: /components/vera/
 [Wake on LAN]: /components/switch.wake_on_lan/
 [Z-Wave]: /components/zwave/#services
