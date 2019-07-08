@@ -48,17 +48,17 @@ Home Assistant integrates with the Wink API and automatically sets up any switch
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm
-- Binary Sensor
-- Climate
-- Cover
-- Fan
-- Light
-- Lock
+- [Alarm](#alarm-control-panel)
+- [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
+- [Cover](#cover)
+- [Fan](#fan)
+- [Light](#light)
+- [Lock](#lock)
 - Scene
-- Sensor
-- Switch
-- Water heater
+- [Sensor](#sensor)
+- [Switch](#switch)
+- [Water heater](#water-heater)
 
 ## Authenticate using [developer.wink.com](https://developer.wink.com)
 
