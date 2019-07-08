@@ -17,17 +17,17 @@ redirect_from:
   - /components/sensor.fastdotcom/
 ---
 
-The `fastdotcom` component uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
+The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
 <p class='note'>
 Currently fast.com only supports measuring download bandwidth. If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [speedtest](/components/sensor.speedtest) component.
 </p>
 
-Enabling this component will automatically create the Fast.com Sensor.
+Enabling this integration will automatically create the Fast.com Sensor.
 
 By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Fast.com to your installation, add the following to your `configuration.yaml` file:
 
@@ -58,7 +58,7 @@ manual:
   type: boolean
 {% endconfiguration %}
 
-#### {% linkable_title Time period dictionary example %}
+#### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -70,16 +70,16 @@ scan_interval:
   milliseconds: 0
 ```
 
-### {% linkable_title Service %}
+### Service
 
-Once loaded, the `fastdotcom` component will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
+Once loaded, the `fastdotcom` integration will expose a service (`fastdotcom.speedtest`) that can be called to run a Fast.com speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 
 ```yaml
 action:
   service: fastdotcom.speedtest
 ```
 
-## {% linkable_title Notes %}
+## Notes
 
 - When running on Raspberry Pi, the maximum speed is limited by its 100 Mbit/s LAN adapter.
 - The sensor will return the maximum measured speed during a 15-second test.

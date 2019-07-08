@@ -21,7 +21,7 @@ Templating is a powerful feature that allows you to control information going in
 - Process incoming data from sources that provide raw data, like [MQTT](/components/mqtt/), [`rest` sensor](/components/sensor.rest/) or the [`command_line` sensor](/components/sensor.command_line/).
 - [Automation Templating](/docs/automation/templating/).
 
-## {% linkable_title Building templates %}
+## Building templates
 
 Templating in Home Assistant is powered by the [Jinja2](http://jinja.pocoo.org/) templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. Jinja2 supports a wide variety of operations:
 
@@ -51,29 +51,34 @@ script:
 ```
 {% endraw %}
 
-## {% linkable_title Home Assistant template extensions %}
+## Home Assistant template extensions
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
-### {% linkable_title States %}
+### States
 
 - Iterating `states` will yield each state sorted alphabetically by entity ID.
 - Iterating `states.domain` will yield each state of that domain sorted alphabetically by entity ID.
-- `states.sensor.temperature` returns the state object for `sensor.temperature`.
+- `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states('device_tracker.paulus')` will return the state string (not the object) of the given entity or `unknown` if it doesn't exist.
 - `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value).
 
+<p class='note warning'>
+  Avoid using `states.sensor.temperature`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
+</p>
+
 Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
 
-#### {% linkable_title States examples %}
+#### States examples
+
 The next two statements result in the same value if the state exists. The second one will result in an error if the state does not exist.
 
 {% raw %}
 ```text
 {{ states('device_tracker.paulus') }}
-{{ states.device_tracker.paulus.state }}
+{{ states('device_tracker.paulus') }}
 ```
 {% endraw %}
 
@@ -111,11 +116,11 @@ Other state examples:
 ```
 {% endraw %}
 
-### {% linkable_title Attributes %}
+### Attributes
 
-You can print an attribute with `state_attr` if state is defined. 
+You can print an attribute with `state_attr` if state is defined.
 
-#### {% linkable_title Attributes examples %}
+#### Attributes examples
 
 {% raw %}
 ```text
@@ -166,7 +171,7 @@ The same thing can also be expressed as a filter:
 ```
 {% endraw %}
 
-### {% linkable_title Time %}
+### Time
 
 - `now()` will be rendered as the current time in your time zone.
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
@@ -178,12 +183,12 @@ The same thing can also be expressed as a filter:
 - Filter `timestamp_utc` will convert a UNIX timestamp to UTC time/data.
 - Filter `timestamp_custom(format_string, local_boolean)` will convert a UNIX timestamp to a custom format, the use of a local timestamp is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
-### {% linkable_title Distance %}
+### Distance
 
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
 
-#### {% linkable_title Distance examples %}
+#### Distance examples
 
 If only one location is passed in, Home Assistant will measure the distance from home.
 
@@ -255,11 +260,11 @@ Closest to some entity:
 
 {% endraw %}
 
-### {% linkable_title Formatting %}
+### Formatting
 
 - `float` will format the output as float.
 
-### {% linkable_title Numeric functions and filters %}
+### Numeric functions and filters
 
 Some of these functions can also be used in a [filter](http://jinja.pocoo.org/docs/dev/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
@@ -277,14 +282,14 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 
-### {% linkable_title Regular expressions %}
+### Regular expressions
 
 - Filter `string|regex_match(find, ignorecase=FALSE)` will match the find expression at the beginning of the string using regex.
 - Filter `string|regex_search(find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `string|regex_findall_index(find='', index=0, ignorecase=False)` will find all regex matches of find in string and return the match at index (findall returns an array of matches).
 
-## {% linkable_title Processing incoming data %}
+## Processing incoming data
 
 The other part of templating is processing incoming data. It allows you to modify incoming data and extract only the data you care about. This will only work for platforms and integrations that mention support for this in their documentation.
 
@@ -379,17 +384,17 @@ To evaluate a response, go to the <img src='/images/screenshots/developer-tool-t
 ```
 {% endraw %}
 
-## {% linkable_title Some more things to keep in mind %}
+## Some more things to keep in mind
 
-### {% linkable_title `entity_id` that begins with a number %}
+### `entity_id` that begins with a number
 
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
 
-### {% linkable_title Templates without entities using `now()` %}
+### Templates without entities using `now()`
 
 Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/components/sensor.template/#working-without-entities)
 
-### {% linkable_title Priority of operators %}
+### Priority of operators
 
 The default priority of operators is that the filter (`|`) has priority over everything except brackets. This means that:
 

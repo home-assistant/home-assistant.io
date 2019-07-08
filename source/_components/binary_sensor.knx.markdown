@@ -16,9 +16,9 @@ ha_iot_class: Local Polling
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
 ```yaml
 # Example configuration.yaml entry
@@ -51,7 +51,7 @@ reset_after:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Automation actions %}
+### Automation actions
 
 You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
 

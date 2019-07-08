@@ -17,7 +17,7 @@ redirect_from:
 
 The `niko_home_control` platform allows you to integrate your [Niko Home Control](https://www.niko.eu/enus/products/niko-home-control) into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this lights, add the following lines to your `configuration.yaml`:
 

@@ -31,25 +31,25 @@ Screenshot of the new user interface to manage which entities are exposed to Goo
 
 <!--more-->
 
-## {% linkable_title Discovery %}
+## Discovery
 
 Discovery has been modernized thanks to [@Kane610] and with the input from [@Jc2k]. Each integration is now able to specify how they can be discovered in their manifest, and the new `zeroconf` and `ssdp` integrations will do the rest. The new discovery is non-obtrusive: no devices are set up without approval by the user. Instead, you will need to approve each discovered integration. You can find them in the discovered section of the integrations page in the config. Only a handful of integrations have been migrated to the new approach in this release: Hue, LIFX, Deconz, Trådfri, Axis, ESPHome, HomeKit Controller.
 
 The new discovery is now part of the default config. If you are not using the default config, add `ssdp:` and `zeroconf:` to your configuration.yaml.
 
-## {% linkable_title Deprecating Python 3.5 support %}
+## Deprecating Python 3.5 support
 
 This release has deprecated support for the almost 4 year old version 3.5 of Python. The first Home Assistant release after August 1 will drop support. This is part of our newly adopted [Python support approach](https://github.com/home-assistant/architecture/blob/master/adr/0002-minimum-supported-python-version.md).
 
 This will only impact you if you are running a custom installation of Home Assistant. This will not impact anyone using Hass.io or Docker. If you are using hassbian, you can upgrade Python by following [these instructions](https://github.com/home-assistant/hassbian-scripts/blob/dev/docs/suites/python.md).
 
-## {% linkable_title Modernizing the device tracker %}
+## Modernizing the device tracker
 
 This release also introduces a long overdue overhaul of how the device tracker works. We are introducing this overhaul piece by piece, focusing first on device tracker platforms that push their updates to Home Assistant: mobile app, OwnTracks, GeoFency, GPSLogger and Locative.
 
 These integrations will no longer use `known_devices.yaml` but instead use entities, like all other integrations in Home Assistant. You can change the name and entity ID via the UI. It is no longer posible to merge the devices with other device tracker entities, this includes using the `see` service. This was flaky at best. You should now use the new person integration for this.
 
-## {% linkable_title Improved hass.io builds %}
+## Improved hass.io builds
 
 We have been working hard on improving Hass.io builds. It's our goal to make the update process faster and more predictable. A build can now be online in as little as 30 minutes after a new release has been tagged. This is thanks to a new wheel-based infrastructure build by [@pvizeli] with input from [@frenck]. With Python wheels, we will build all the requirements of integrations ahead of time, and so a new version of Home Assistant is now just putting pieces together.
 
@@ -61,7 +61,7 @@ Because of this, we changed how packages are installed when running Home Assista
 
 [@frenck]: https://github.com/frenck
 
-## {% linkable_title New Integrations %}
+## New Integrations
 
 - Adding Watson TTS (IBM Cloud) ([@rutkai] - [#23299]) ([watson_tts docs]) (new-integration)
 - MCP23017 ([@jardiamj] - [#23127]) ([mcp23017 docs]) (new-integration)
@@ -71,7 +71,7 @@ Because of this, we changed how packages are installed when running Home Assista
 - Add SSDP integration ([@balloob] - [#24090]) ([default_config docs]) ([discovery docs]) ([hue docs]) ([ssdp docs]) ([zeroconf docs]) (new-integration)
 - Add Repetier-Server Component ([@MTrab] - [#21658]) ([repetier docs]) (new-integration)
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add LCN climate platform ([@alengwenus] - [#22542]) ([lcn docs]) (new-platform)
 - Add incomfort climate and bump client ([@zxdavb] - [#23830]) ([incomfort docs]) (new-platform)
@@ -79,7 +79,7 @@ Because of this, we changed how packages are installed when running Home Assista
 - Add geniushub sensor and binary_sensor ([@zxdavb] - [#23811]) ([geniushub docs]) (new-platform)
 - Mobile app to use device tracker config entry ([@balloob] - [#24238]) ([mobile_app docs]) (beta fix) (new-platform)
 
-## {% linkable_title Release 0.94.1 - June 7 %}
+## Release 0.94.1 - June 7
 
 - Add a discovery config flow to Wemo ([@balloob] - [#24208]) ([discovery docs]) ([wemo docs])
 - Initiate websession inside event loop ([@balloob] - [#24331]) ([tado docs])
@@ -118,7 +118,7 @@ Because of this, we changed how packages are installed when running Home Assista
 [wemo docs]: /components/wemo/
 [wink docs]: /components/wink/
 
-## {% linkable_title Release 0.94.2 - June 11 %}
+## Release 0.94.2 - June 11
 
 - Load the SSDP component only when it's needed ([@aerialls] - [#24420]) ([deconz docs]) ([hue docs])
 - Axis discovery MAC filter ([@Kane610] - [#24442]) ([axis docs])
@@ -145,7 +145,7 @@ Because of this, we changed how packages are installed when running Home Assista
 [hue docs]: /components/hue/
 [zone docs]: /components/zone/
 
-## {% linkable_title Release 0.94.3 - June 12 %}
+## Release 0.94.3 - June 12
 
 - Fix errors when renewing remote UI certs ([@balloob] - [#24481]) ([cloud docs])
 - Watson TTS: Fix missing comma preventing other voices ([@aidbish] - [#24487]) ([watson_tts docs])
@@ -161,15 +161,31 @@ Because of this, we changed how packages are installed when running Home Assista
 [owntracks docs]: /components/owntracks/
 [watson_tts docs]: /components/watson_tts/
 
-## {% linkable_title If you need help... %}
+## Release 0.94.4 - June 19
+
+- Fixing tplink issues with offline devices during setup ([@vangorra] - [#23668]) ([tplink docs])
+- Fix zeroconf migration messing up ESPHome discovery ([@OttoWinter] - [#24578]) ([esphome docs])
+- Fixed issue #24335 ([@Swamp-Ig] - [#24612]) ([sun docs])
+
+[#23668]: https://github.com/home-assistant/home-assistant/pull/23668
+[#24578]: https://github.com/home-assistant/home-assistant/pull/24578
+[#24612]: https://github.com/home-assistant/home-assistant/pull/24612
+[@OttoWinter]: https://github.com/OttoWinter
+[@Swamp-Ig]: https://github.com/Swamp-Ig
+[@vangorra]: https://github.com/vangorra
+[esphome docs]: /components/esphome/
+[sun docs]: /components/sun/
+[tplink docs]: /components/tplink/
+
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - __Sun__ - Inspired by a [reddit](https://www.reddit.com/r/homeassistant/comments/bm62hl/sunsun_chatty_sensor_psa/) report, the sun.sun sensor has been tuned so that it doesn't update nearly as frequently. Previously the sun.sun sensor was updating every 30 seconds, day and night. Now it updates dependent on the solar elevation. This could possibly be a breaking change for some users as it updates less frequently. ([@Swamp-Ig] - [#23832]) ([sun docs])
 - __Doorbird__ -_Refactored_- This change cleans up the code for the component quite a bit. Schedule manipulation has been removed and HTTP views have been consolidated. The configuration changes should result in an overall easier experience for setting up a Doorbird in HA and allow for new Doorbird events to be utilized without having to update the component as often. No changes for switches or camera integrations of this component. ([@oblogic7] - [#23892]) ([doorbird docs])
@@ -203,7 +219,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Async__ - _Developers only_ - `hass.components.frontend.async_register_built_in_panel` is no longer an async function. This allows removing panels form the frontend on the fly, and fires and event when panels are added/removed so the frontend knows when to reload. ([@balloob] - [#24184])
 - __TP-Link__ - _Distress Signal_ - Add a deprecation warning for tplink device_tracker ([@rytilahti] - [#24236]) ([tplink docs])
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Dynamic panels ([@balloob] - [#24184]) (breaking change) (beta fix)
 - Fix ESPHome discovered when already exists ([@OttoWinter] - [#24187]) ([esphome docs]) (beta fix)
@@ -239,7 +255,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - address is deprecated in favor of addresses ([@Kane610] - [#24302]) ([zeroconf docs]) (beta fix)
 - Fix OwnTracks race condition ([@balloob] - [#24303]) ([owntracks docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add Presence Detector Indoor to Homematic IP ([@SukramJ] - [#23755]) ([homematicip_cloud docs])
 - Split up yaml loaders into multiple files ([@ties] - [#23774])

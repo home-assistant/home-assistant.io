@@ -16,13 +16,13 @@ redirect_from:
  - /components/switch.raspyrfm/
 ---
 
-The `raspyrfm` component adds support for cheap RC 433 MHz outlets via one of the supported gateways.
+The `raspyrfm` integration adds support for cheap RC 433 MHz outlets via one of the supported gateways.
 
-Initially, this component was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir though like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM/blob/master/connair.py) which can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) RC module for a Raspberry Pi.
+Initially, this integration was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir though like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM/blob/master/connair.py) which can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) RC module for a Raspberry Pi.
 
-Other vendors of 433 MHz RC outlets have also created gateways that use a very similar protocol and can also be used with this component like the Intertechno [ITGW-433 LAN Gateway](https://www.intertechno24.de/LAN-Gateway/Gateway-ITGW-433.html).
+Other vendors of 433 MHz RC outlets have also created gateways that use a very similar protocol and can also be used with this integration like the Intertechno [ITGW-433 LAN Gateway](https://www.intertechno24.de/LAN-Gateway/Gateway-ITGW-433.html).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -81,15 +81,15 @@ switches:
       type: dict
 {% endconfiguration %}
 
-## {% linkable_title Device support %}
+## Device support
 
 Have a look at the underlying library [raspyrfm-client](https://github.com/markusressel/raspyrfm-client) to check what gateways and control units (outlets) are supported.
 
-## {% linkable_title Channel configuration %}
+## Channel configuration
 
 Depending on the control unit the channel config can have varying formats. Have a look at the underlying library [raspyrfm-client](https://github.com/markusressel/raspyrfm-client) to find out about a specific model.
 
-## {% linkable_title Switch state %}
+## Switch state
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend) the state is known and will be shown in the frontend.
 
@@ -97,7 +97,7 @@ Initially, the state of a switch is unknown. When the switch is turned on or off
 Note that due to the way those cheap RC units work it is **not possible to query their current state**. Therefore the only way to preserve a consistent state within Home Assistant is to only use Home Assistant as the controller.
 </p>
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 switch:

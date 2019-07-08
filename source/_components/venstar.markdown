@@ -77,7 +77,7 @@ humidifier:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Full configuration sample %}
+## Full configuration sample
 
 ```yaml
 # Example configuration.yaml entry

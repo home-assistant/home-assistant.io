@@ -16,9 +16,9 @@ ha_iot_class: Local Push
 
 The `xiaomi aqara` binary sensor platform allows you to get data from your [Xiaomi](http://www.mi.com/en/) binary sensors.
 
-The requirement is that you have setup the [`xiaomi aqara` component](/components/xiaomi_aqara/).
+The requirement is that you have setup the [`xiaomi aqara` integration](/components/xiaomi_aqara/).
 
-### {% linkable_title Type of sensors supported %}
+### Type of sensors supported
 
 | Name | Zigbee entity | Model no. | States | Event | Event key | Event values |
 | ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
@@ -39,9 +39,9 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
 | Cube | cube | MFKZQ01LM | off (always) | `xiaomi_aqara.cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
 | Vibration Sensor | vibration | DJT11LM | off (always) | `xiaomi_aqara.movement` | `movement_type` | `vibrate`, `tilt`, `free_fall` |
 
-### {% linkable_title Automation examples %}
+### Automation examples
 
-#### {% linkable_title Motion %}
+#### Motion
 
 ```yaml
 - alias: If there is motion and its dark turn on the gateway light
@@ -78,7 +78,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
         entity_id: automation.Motion_off
 ```
 
-#### {% linkable_title Door and/or Window %}
+#### Door and/or Window
 
 ```yaml
 - alias: If the window is open turn off the radiator
@@ -107,7 +107,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
       operation_mode: 'Smart schedule'
 ```
 
-#### {% linkable_title Smoke %}
+#### Smoke
 
 ```yaml
 - alias: Send notification on fire alarm
@@ -128,7 +128,7 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
         ringtone_vol: 100
 ```
 
-#### {% linkable_title Gas %}
+#### Gas
 
 ```yaml
 - alias: Send notification on gas alarm
@@ -141,10 +141,10 @@ The requirement is that you have setup the [`xiaomi aqara` component](/component
     - service: notify.html5
       data_template:
         title: Gas alarm!
-        message: 'Gas with a density of {% raw %}{{ states.binary_sensor.natgas_sensor_158dxxxxxxxxxx.attributes.density }}{% endraw %} detected.'
+        message: 'Gas with a density of {% raw %}{{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }}{% endraw %} detected.'
 ```
 
-#### {% linkable_title Xiaomi Wireless Button %}
+#### Xiaomi Wireless Button
 
 As indicated in the table on top of this page there are 3 versions of the button. For the round shaped button the available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`. Aqara branded buttons are square shaped. Model WXKG11LM only supports `single` and `double` events. WXKG12LM supports `single`, `double`, `long_click_press` and `shake` events. For the Aqara versions the delay between two clicks to generate a double click must be larger than with the round button. Clicking too quickly generates a single click event.
 
@@ -184,9 +184,9 @@ As indicated in the table on top of this page there are 3 versions of the button
       ringtone_vol: 8
 ```
 
-#### {% linkable_title Xiaomi Cube %}
+#### Xiaomi Cube
 
-Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`. The component stores the last action as the attribute `last_action`.
+Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`. The integration stores the last action as the attribute `last_action`.
 
 ```yaml
 - alias: Cube event flip90
@@ -251,7 +251,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
         color_name: "blue"
 ```
 
-#### {% linkable_title Aqara Wireless Switch %}
+#### Aqara Wireless Switch
 
 The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
 
@@ -268,11 +268,11 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     entity_id: light.gateway_light_34xxxxxxxx13
     data_template:
       brightness: {% raw %}>-
-        {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
-          {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60 >= 10 %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness - 60}}
+        {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
+          {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60 >= 10 %}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60}}
           {% else %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness')}}
           {% endif %}
         {% else %}
           10
@@ -290,11 +290,11 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     entity_id: light.gateway_light_34xxxxxxxx13
     data_template:
       brightness: {% raw %}>-
-        {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness %}
-          {% if states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60 <= 255 %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness + 60}}
+        {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
+          {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60 <= 255 %}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60}}
           {% else %}
-            {{states.light.gateway_light_34xxxxxxxx13.attributes.brightness}}
+            {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness')}}
           {% endif %}
         {% else %}
           10
@@ -312,7 +312,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
     entity_id: light.gateway_light_34xxxxxxxx13
 ```
 
-#### {% linkable_title Vibration Sensor %}
+#### Vibration Sensor
 
 This automation toggles the living room lamp on vibration/tilt.
 

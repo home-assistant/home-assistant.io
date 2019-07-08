@@ -16,13 +16,13 @@ redirect_from:
  - /components/device_tracker.gpslogger/
 ---
 
-This component sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
+This integration sets up integration with [GPSLogger](https://gpslogger.app/). GPSLogger is an open source app for Android that allows users to update your location in Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To configure GPSLogger, you must set it up via the integrations panel in the configuration screen. This will give you the webhook URL to use during mobile device configuration (below).
 
-## {% linkable_title Setup on your smartphone %}
+## Setup on your smartphone
 
 Install [GPSLogger for Android](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) on your device.
 

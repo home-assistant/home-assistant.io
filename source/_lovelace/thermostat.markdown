@@ -33,7 +33,7 @@ name:
   default: Name of Entity.
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: thermostat

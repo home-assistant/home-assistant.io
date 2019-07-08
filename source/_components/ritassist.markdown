@@ -18,11 +18,11 @@ redirect_from:
 
 The `ritassist` device tracker platform allows you to integrate your vehicles equipped with [RitAssist](https://ritassist.nl/) or [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use this component, you need an **API key** and **API secret**, which can be requested by contacting [info@fleetgo.com](mailto:info@fleetgo.com?subject=API%20Key).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -61,9 +61,9 @@ include:
   type: strings
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
 
-## {% linkable_title Available attributes %}
+## Available attributes
 
 | Attribute | Description |
 |---|---|

@@ -18,7 +18,7 @@ A large amount of resources of the development are still focusing on the effort 
 
 To reduce the run-time of your tests, [@balloob] did a lot of tweaking. For now the RFXtrx tests are excluded which cut the needed time for running on your Pull Request in half. 
 
-### {% linkable_title Documentation %}
+### Documentation
 
 All configuration sample entries are now minimized. This should help to avoid problem for starters and newbies as they only get what's needed and not a full sample with all optional entries. If there is an issue with an entry in your `configuration.yaml` file the error message will provide you an URL that point to the documentation.
 
@@ -28,7 +28,7 @@ All configuration sample entries are now minimized. This should help to avoid pr
 
 As soon as the [Hacktoberfest] started there were a lot of incoming Pull Requests for the documentation. A huge "Thank you" to all participants. Especially, we would like to give a cookie to [@hillaryfraley]. She created around a dozen Pull Requests so far and didn't only fix typos but complete sections. The [Hacktoberfest] is still on-going and we are looking forward to get more Pull Requests.
 
-### {% linkable_title Statistics %}
+### Statistics
 
 With the [statistics sensor][stats-sensor] we would like to introduce a new sensor that is similar to the [template sensor][template-sensor] or the [trend sensor][trend-sensor]. This sensor is consuming values from another sensor and is doing some statistical analysis of the data. Over a group of samples is the average/mean, the min/max, the total, the standard deviation, and the variance calculated which can be used in your automation rules. If the source is a binary sensor then the state changes are counted.
 
@@ -38,7 +38,7 @@ With the [statistics sensor][stats-sensor] we would like to introduce a new sens
 
 As the results are processed on-the-fly you still need to use the data from your database for an in-depth analysis of your stored information. Check the latest [notebook] for doing statistics with your Home Assistant database.
 
-### {% linkable_title REST! We don't... %}
+### REST! We don't...
 
 There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Breaking changes section for more details.
 
@@ -58,13 +58,13 @@ sensor
       User-Agent: Home Assistant REST sensor
 ```
 
-### {% linkable_title Misc %}
+### Misc
 
 - GitHub released with a recent update a review feature. This will give you more control over your comments while you review an open Pull Request.
 - Thanks to [@robbiet480] we are now running [mention-bot]. It will help you when you create a new Pull Request to identify potential reviewers.
 - The [Home Assistant Community Forum][forum] has now an additional section called "Installation".
 
-### {% linkable_title All changes %}
+### All changes
 
 <img src='/images/supported_brands/digital_ocean.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/volvo.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/dark_sky.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/vasttrafik.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
@@ -97,13 +97,13 @@ sensor
 - Device Tracker: The `known_device.yaml` file is now validated ([@kellerza]) 
 - Minor features and bug fixes by [@tchellomello], [@pavoni], [@fabaff], [@pvizeli], [@lwis], [@turbokongen], [@Danielhiversen], [@persandstrom], [@balloob], [@robbiet480], [@sam-io], [@bbangert], and you if you are missing here.
 
-### {% linkable_title Release 0.30.1 - October 8 %}
+### Release 0.30.1 - October 8
 
  - Device Tracker `known_devices.yaml` validation is now more accepting ([@kellerza])
  - Handle X10 light numbers greater than 9 ([@mtl010957])
  - Fix command line covers without a template ([@roidayan])
 
-### {% linkable_title Release 0.30.2 - October 12 %}
+### Release 0.30.2 - October 12
 
 - Handle Volvo's with dashes in their name ([@molobrakos])
 - Fix some html5 push notification configuration options were discarded after first use ([@T3m3z])
@@ -113,7 +113,7 @@ sensor
 - Fix for Slack targets ([@fabaff])
 - Fix for Pushover targets ([@Nixon506E])
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
   - `use_trigger_values` is gone. You have to copy your triggers to conditions and adjust for the correct config.
@@ -122,7 +122,7 @@ sensor
 - The [Forecast.io][forecast] was renamed to [Dark Sky][darksky]. Replace your `- platform: forecast` with `- platform: darksky`.
 - The [aREST][arest] configuration between the [sensor][arest-sensor] and the [switch][arest-switch] platform was aligned. 
 
-### {% linkable_title If you need help... %}
+### If you need help...
 ...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
 [@balloob]: https://github.com/balloob

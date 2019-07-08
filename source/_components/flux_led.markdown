@@ -21,17 +21,17 @@ The `flux_led` support is integrated into Home Assistant as a light platform. Se
 Example of bulbs:
 
 - [Flux Smart Lighting](http://www.fluxsmartlighting.com/)
-- [MagicLight® Plus - WiFi Smart LED Light Bulb4](https://www.amazon.com/gp/product/B00NOC93NG)
-- [Flux WiFi Smart LED Light Bulb4](http://smile.amazon.com/Flux-WiFi-Smart-Light-Bulb/dp/B01A6GHHTE)
-- [WIFI smart LED light Bulb1](http://smile.amazon.com/gp/product/B01CS1EZYK)
+- [MagicLight® Plus - WiFi Smart LED Light Bulb4](https://amzn.to/2X0Zath)
+- [Flux WiFi Smart LED Light Bulb4](https://amzn.to/2X0dVwu)
+- [WIFI smart LED light Bulb1](https://amzn.to/2J2fksr)
 
 Examples of controllers:
 
-- [Ledenet WiFi RGBW Controller](https://www.amazon.com/gp/product/B01DY56N8U)
-- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://www.amazon.com/dp/B01JZ2SI6Q)
+- [Ledenet WiFi RGBW Controller](https://amzn.to/2WZKXNa)
+- [SUPERNIGHT WiFi Wireless LED Smart Controller](https://amzn.to/2WURx7w)
 
 
-### {% linkable_title Configuration Details %}
+### Configuration Details
 
 
 To enable those lights, add the following lines to your `configuration.yaml` file:
@@ -89,11 +89,11 @@ devices:
 
 <p class='note'>
 Depending on your controller or bulb type, there are two ways to configure brightness.
-The component defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
+The integration defaults to rgbw. If your device has a separate white channel, you do not need to specify anything else; changing the white value will adjust the brightness of white channel keeping rgb color constant. However, if your device does not have a separate white channel, you will need to set the mode to rgb. In this mode, the device will keep the same color, and adjust the rgb values to dim or brighten the color.
 </p>
 
 
-### {% linkable_title Example configuration %}
+### Example configuration
 
 Will automatically search and add all lights on start up:
 
@@ -163,7 +163,7 @@ light:
         protocol: 'ledenet'
 ```
 
-### {% linkable_title Effects %}
+### Effects
 
 The Flux Led light offers a number of effects which are not included in other lighting packages. These can be selected from the front-end, or sent in the effect field of the `light.turn_on` command.
 

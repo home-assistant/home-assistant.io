@@ -15,14 +15,14 @@ ha_category:
 ha_release: 0.95
 ---
 
-The `smarty` component lets you control Salda [Smarty](http://www.salda.lt/en/products/category/compact-counter-flow-units) ventilation units from Home Assistant. You need a [MB-GATEWAY](http://www.salda.lt/en/products/item/5637227077) or something similar to connect to your local network.
+The `smarty` integration lets you control Salda [Smarty](http://www.salda.lt/en/products/category/compact-counter-flow-units) ventilation units from Home Assistant. You need a [MB-GATEWAY](http://www.salda.lt/en/products/item/5637227077) or something similar to connect to your local network.
 
 There is currently support for the following device types within Home Assistant:
 
 - Fan
 - Sensor
 
-The component has a fan platform to view and control the ventilation speed, and a sensors platform to read:
+The integration has a fan platform to view and control the ventilation speed, and a sensors platform to read:
 
 - Outdoor air temperature
 - Extract air temperature
@@ -33,7 +33,7 @@ The component has a fan platform to view and control the ventilation speed, and 
 - Warning
 - Filter Change Timer
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 

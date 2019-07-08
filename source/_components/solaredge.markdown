@@ -22,7 +22,7 @@ The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solared
 The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and alow for some additional requests, the `solaredge` platform will update the site overview every 10 minutes.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the SolarEdge sensors in your installation, add the following to your configuration.yaml file:
 
@@ -91,7 +91,7 @@ monitored_conditions:
 
 If no **monitored_conditions** are specified, only **current_power** will be enabled.
 
-### {% linkable_title Full configuration sample %}
+### Full configuration sample
 
 A full configuration entry would look like the sample below.
 
@@ -131,6 +131,6 @@ sensors:
   platform: template
   sensors:
     solaredge_energy_this_year_template:
-      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | round(2)}}'
+      value_template: '{{(states('sensor.solaredge_energy_this_year') | float / 1000) | round(2)}}'
 ```
 {% endraw %}

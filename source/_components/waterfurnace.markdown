@@ -16,7 +16,7 @@ redirect_from:
   - /components/sensor.waterfurnace/
 ---
 
-The `waterfurnace` component communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
+The `waterfurnace` integration communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
 
 The sensors provided include:
 
@@ -35,7 +35,7 @@ The sensors provided include:
 - Compressor Speed
 - Fan Speed
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Waterfurnace in your installation, add the following to your `configuration.yaml` file:
 
@@ -57,7 +57,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Limitations %}
+## Limitations
 
 The WebSocket interface used by this module requires active polling to prevent the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
 

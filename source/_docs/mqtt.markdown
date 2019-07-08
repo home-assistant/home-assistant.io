@@ -21,7 +21,7 @@ mqtt:
 
 For detailed setup instructions, please refer to the [MQTT broker](/docs/mqtt/broker) documentation.
 
-## {% linkable_title Additional features %}
+## Additional features
 
 - [Certificate](/docs/mqtt/certificate/)
 - [Discovery](/docs/mqtt/discovery/)

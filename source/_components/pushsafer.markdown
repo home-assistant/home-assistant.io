@@ -41,7 +41,7 @@ private_key:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 Message to two devices with formatted text.
 

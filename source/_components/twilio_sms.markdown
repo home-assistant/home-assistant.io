@@ -41,7 +41,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Usage %}
+### Usage
 
 Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
 

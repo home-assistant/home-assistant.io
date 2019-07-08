@@ -18,7 +18,7 @@ redirect_from:
   - /components/climate.maxcube/
 ---
 
-[eQ-3 MAX!](http://www.eq-3.com/products/max.html) integration for Home Assistant allows you to connect eQ-3 MAX! components via the eQ-3 MAX! Cube. The components connects to the eQ-3 MAX! Cube via TCP and automatically makes all supported components available in Home Assistant. The name for each device is created by concatenating the MAX! room and device names.
+[eQ-3 MAX!](http://www.eq-3.com/products/max.html) integration for Home Assistant allows you to connect eQ-3 MAX! components via the eQ-3 MAX! Cube. The components connects to the eQ-3 MAX! Cube via TCP and automatically makes all supported integrations available in Home Assistant. The name for each device is created by concatenating the MAX! room and device names.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -37,7 +37,7 @@ Supported Devices:
 - MAX! Window Sensor (tested)
 - MAX! Wall Thermostat (tested)
 
-### {% linkable_title One Gateway %}
+### One Gateway
 
 A `maxcube` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -48,7 +48,7 @@ maxcube:
     - host: 192.168.0.20
 ```
 
-### {% linkable_title Multiple Gateways %}
+### Multiple Gateways
 
 ```yaml
 # Example configuration.yaml entry

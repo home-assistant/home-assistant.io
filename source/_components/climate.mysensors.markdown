@@ -25,7 +25,7 @@ S_TYPE | V_TYPE
 -------|-----------------------------------------------------------------------------
 S_HVAC | V_HVAC_FLOW_STATE*, V_HVAC_SETPOINT_HEAT, V_HVAC_SETPOINT_COOL, V_HVAC_SPEED, V_TEMP
 
-V_HVAC_FLOW_STATE is mapped to the state of the Climate component in Home Assistant as follows:
+V_HVAC_FLOW_STATE is mapped to the state of the Climate integration in Home Assistant as follows:
 
 Home Assistant State | MySensors State
 ---------------------|----------------
@@ -44,7 +44,7 @@ You can use V_TEMP to send the current temperature from the node to Home Assista
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch for MySensors 2.x %}
+### Example sketch for MySensors 2.x
 
 
 ```cpp
@@ -190,7 +190,7 @@ void sendHeatpumpCommand() {
 }
 ```
 
-### {% linkable_title Example sketch for MySensors 1.x %}
+### Example sketch for MySensors 1.x
 
 ```cpp
 /*

@@ -46,7 +46,7 @@ hub:
 {% endconfiguration %}
 
 <p class='note'>
-This component requires the [Modbus](/components/modbus/) component to be set up to work
+This integration requires the [Modbus](/components/modbus/) integration to be set up to work
 </p>
 
 Full configuration example including modbus setup shown below:

@@ -20,7 +20,7 @@ Home Assistant provides multiple ways to be installed. The first start may take 
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
 </p>
 
-## {% linkable_title Hardware %}
+## Hardware
 
 Below is a list of **minimum** requirements
 
@@ -31,19 +31,19 @@ Memory | 1 GB
 Network | 100 Mb/s wired
 Power (if Pi) | At least 2.5A
 
-### {% linkable_title Performance expectations %}
+### Performance expectations
 
 This is a list of popular platforms and what to expect from them.
 
 Platform | Notes
 -- | --
 Raspberry Pi Zero/Pi 2 | **Only** use these for testing
-Raspberry Pi 3/3+ | This is a good starting point, and depending on the amount of devices you integrate this can be enough
+Raspberry Pi 3/3+/4 | This is a good starting point, and depending on the amount of devices you integrate this can be enough - use an [A2 class SD](https://amzn.to/2X0Z2di) card if possible.
 NUC i3 | This is if you need a little more power over a Pi
 NUC i5 | This will allow you to run multiple services without any issues, perfect for a homelab
 NUC i7/i9 | Pure power, you should not have *any* performance issues
 
-## {% linkable_title Recommended %}
+## Recommended
 
 These install options are fully supported by Home Assistant's documentation. For example, if a integration requires that you install something to make it work on one of these methods then the integration page will document the steps required.
 
@@ -53,7 +53,7 @@ These install options are fully supported by Home Assistant's documentation. For
 [Docker](/docs/installation/docker/)|Docker|Anybody already running Docker
 [Hassbian](/docs/hassbian/installation/)|Raspberry Pi|Those who want a more traditional Linux experience and either have experience with Linux, or intend to learn
 
-## {% linkable_title Alternative installs %}
+## Alternative installs
 
 If you use these install methods, we assume that you know how to manage and administer the operating system you're using. Due to the range of platforms on which these install methods can be used, integration documentation may only tell you what you have to install, not how to install it.
 
@@ -62,7 +62,7 @@ If you use these install methods, we assume that you know how to manage and admi
 [venv<BR>(as another user)](/docs/installation/raspberry-pi/)|Any Linux, Python 3.6 or later|Those familiar with their operating system
 [venv<BR>(as your user)](/docs/installation/virtualenv/)|Any Python 3.6 or later|Developers
 
-## {% linkable_title Community provided guides %}
+## Community provided guides
 
 These guides are provided as-is. Some of these install methods are more limited than the methods above. Some integrations may not work due to limitations of the platform or because required Python packages aren't available for that platform.
 

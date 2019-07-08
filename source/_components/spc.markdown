@@ -50,7 +50,7 @@ ws_url:
 
 Supported sensors will be automatically discovered and added, however they will be hidden by default.
 
-## {% linkable_title Alarm %}
+## Alarm
 
 The `spc` alarm control panel platform allows you to control your [Vanderbilt SPC](https://www.spcsupportinfo.com/) alarms.
 
@@ -71,7 +71,7 @@ automation:
             by {{ trigger.to_state.attributes.changed_by }}{% endraw %}
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `spc` platform allows you to get data from your [Vanderbilt SPC](http://www.spc-intruder-detection.com/ssp-spc/) binary sensors from within Home Assistant.
 

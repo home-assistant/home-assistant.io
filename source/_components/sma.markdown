@@ -20,7 +20,7 @@ The `sma` sensor will poll a [SMA](http://www.sma-solar.com/) [(US)](http://www.
 
 This sensor uses the web interface and in order to use it you have to be able to connect to the solar inverter from your favorite web browser.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

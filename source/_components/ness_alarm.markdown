@@ -18,7 +18,7 @@ redirect_from:
   - /components/binary_sensor.ness_alarm/
 ---
 
-The `ness_alarm` component will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
+The `ness_alarm` integration will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 The module communicates via the [Ness D8x/D16x ASCII protocol](http://www.nesscorporation.com/Software/Ness_D8-D16_ASCII_protocol.pdf).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 A `ness_alarm` section must be present in the `configuration.yaml` file and contain the following options as required:
 
@@ -89,7 +89,7 @@ zones:
       type: string
 {% endconfiguration %}
 
-#### {% linkable_title Time period dictionary example %}
+#### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -101,9 +101,9 @@ scan_interval:
   milliseconds: 0
 ```
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `aux` %}
+### Service `aux`
 
 Trigger an aux output.  This requires PCB version 7.8 or higher.
 
@@ -112,7 +112,7 @@ Trigger an aux output.  This requires PCB version 7.8 or higher.
 | `output_id` | No | The aux output you wish to change.  A number from 1-4.
 | `state` | Yes | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E.
 
-### {% linkable_title Service `panic` %}
+### Service `panic`
 
 Trigger a panic
 

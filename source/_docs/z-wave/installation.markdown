@@ -12,7 +12,7 @@ redirect_from: /getting-started/z-wave-installation/
 
 Z-Wave can be configured using the Z-Wave *Integration* in the *Configuration* menu, or manually using an entry in `configuration.yaml`
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,7 +89,7 @@ device_config / device_config_domain / device_config_glob:
       default: false  
 {% endconfiguration %}
 
-### {% linkable_title Network Key %}
+### Network Key
 
 Security Z-Wave devices require a network key before being added to the network using the Add Secure Node button in the Z-Wave Network Management card. You must set the *network_key* configuration variable to use a network key before adding these devices.
 
@@ -108,15 +108,15 @@ zwave:
 
 Ensure you keep a backup of this key. If you have to rebuild your system and don't have a backup of this key, you won't be able to reconnect to any security devices. This may mean you have to do a factory reset on those devices, and your controller, before rebuilding your Z-Wave network.
 
-## {% linkable_title First Run %}
+## First Run
 
 On platforms other than Hass.io and Docker, the compilation and installation of python-openzwave happens when you first enable the Z-Wave component, and can take half an hour or more on a Raspberry Pi. When you upgrade Home Assistant and python-openzwave is also upgraded, this will also result in a delay while the new version is compiled and installed.
 
 The first run after adding a device is when the `zwave` integration will take time to initialize the entities, some entities may appear with incomplete names. Running a network heal may speed up this process.
 
-## {% linkable_title Platform specific instructions %}
+## Platform specific instructions
 
-### {% linkable_title Hass.io %}
+### Hass.io
 
 You do not need to install any software to use Z-Wave.
 
@@ -130,7 +130,7 @@ $ hassio hardware info
 
 The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
-### {% linkable_title Docker %}
+### Docker
 
 You do not need to install any software to use Z-Wave.
 
@@ -148,7 +148,7 @@ $ ls -1tr /dev/tty*|tail -n 1
 
 The `modemmanager` package will interfere with any Z-Wave (or Zigbee) stick and should be removed or disabled. Failure to do so will result in random failures of those components. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
 
-### {% linkable_title Hassbian %}
+### Hassbian
 
 You do not need to install any software to use Z-Wave.
 
@@ -158,13 +158,13 @@ To find the path of your Z-Wave USB stick, disconnect it and then reconnect it t
 $ ls -1tr /dev/tty*|tail -n 1
 ```
 
-### {% linkable_title Community install methods %}
+### Community install methods
 
-#### {% linkable_title Raspberry Pi specific %}
+#### Raspberry Pi specific
 
 On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
 
-#### {% linkable_title Linux (except Hassbian) %}
+#### Linux (except Hassbian)
 
 On Debian Linux platforms there two dependencies you will need to have installed ahead of time (included in `systemd-devel` on Fedora/RHEL systems):
 
@@ -175,7 +175,7 @@ $ sudo apt-get install libopenzwave1.5-dev
 
 You may also have to install the Python development libraries for your version of Python. For example `libpython3.6-dev`, and possibly `python3.6-dev` if you're using Python 3.6.
 
-##### {% linkable_title Finding the controller path %}
+##### Finding the controller path
 
 To find the path of your Z-Wave USB stick, disconnect it and then reconnect it to your system and run:
 
@@ -212,7 +212,7 @@ The output from `ls -ltr` above contains the following information:
 * The device was connected at `10:25` on `21 September`
 * The device is `/dev/ttyUSB0`.
 
-#### {% linkable_title macOS %}
+#### macOS
 
 When installing on macOS you may have to also run the command below ahead of time, replace "x.x" with the version of Python (`$ python3 --version`) you have installed.
 
@@ -226,13 +226,25 @@ On macOS you can find the USB stick with:
 $ ls /dev/cu.usbmodem*
 ```
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title Device path changes %}
+### Device path changes
 
 If your device path changes when you restart, see [this guide](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/) on fixing it.
 
-### {% linkable_title Component could not be set up %}
+## Ubuntu and Debian based host system
+
+If your instance is running on a Debian based system, e.g., Ubuntu, the ModemManager may cause unexpected issues.
+
+The ModemManager might be claiming or interfering with a USB Z-Wave stick, like the much used Aeotec ones. If you experience issues where the stick stops responding, needs to be re-plugged or Home Assistant needs a restart to get Z-Wave back, chances are high that the ModemManager is causing the issue.
+
+ Execute the following command on your host system to disable the ModemManager:
+
+ ```bash
+systemctl disable ModemManager.service
+```
+
+### Component could not be set up
 
 Sometimes the device may not be accessible and you'll get an error message upon startup about not being able to set up Z-Wave. Run the following command for your device path (here we're using `/dev/ttyAMA0` for our Razberry board):
 
@@ -265,7 +277,7 @@ That should include `dialout`, if it doesn't then:
 $ sudo usermod -aG dialout homeassistant
 ```
 
-### {% linkable_title Unable to install Python Openzwave %}
+### Unable to install Python Openzwave
 
 If you're getting errors like:
 
@@ -273,7 +285,7 @@ If you're getting errors like:
 
 Then the problem is that you're missing `libudev-dev` (or the equivalent for your distribution), please [install it](/docs/z-wave/installation/#linux-except-hassbian).
 
-### {% linkable_title Random failures %}
+### Random failures
 
 If you're having random failures of the mesh, devices going missing, things randomly not working, check your `OZW_Log.txt` for the following messages:
 

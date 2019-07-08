@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.vultr/
 ---
 
-The `vultr` component allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#settingsapi).
 
@@ -52,11 +52,11 @@ api_key:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary sensor %}
+## Binary sensor
 
 The `vultr` binary sensor platform allows you to monitor your [Vultr](https://www.vultr.com/) subscription to see if it is powered on or not.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use this binary sensor, you first have to set up your Vultr hub.
 
@@ -85,7 +85,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full example %}
+### Full example
 
 Full `configuration.yaml` (produces `binary_sensor.totally_awesome_server`):
 
@@ -96,7 +96,7 @@ binary_sensor:
     subscription: 12345
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `vultr` sensor platform will allow you to view current bandwidth usage and pending charges against your [Vultr](https://www.vultr.com/) subscription.
 
@@ -159,13 +159,13 @@ sensor:
       - current_bandwidth_used
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 The `vultr` switch platform allows you to control (start/stop) your [Vultr](https://www.vultr.com/) subscription.
 
 To control your Vultr subscription, you first have to set up your Vultr hub.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Minimal `configuration.yaml` (produces `switch.vultr_web_server`):
 
@@ -188,7 +188,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Additional Examples %}
+### Additional Examples
 
 Full example that produces `switch.amazing_server`, assuming a subscription that has an ID of `123456` and a label of `Web Server`:
 

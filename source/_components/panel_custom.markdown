@@ -36,7 +36,7 @@ Store your custom panels in `<config>/www` to make them available in the fronten
 
 {% configuration %}
 name:
-  description: Name of the web component that renders your panel.
+  description: Name of the web integration that renders your panel.
   required: true
   type: string
 sidebar_title:

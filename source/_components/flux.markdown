@@ -18,7 +18,7 @@ redirect_from:
 
 The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night.
 
-The component will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
+The integration will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 
 During the day (in between `start time` and `sunset time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`.  After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights periodically.
 

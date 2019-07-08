@@ -18,11 +18,11 @@ redirect_from:
 
 The `samsungtv` platform allows you to control a [Samsung Smart TV](http://www.samsung.com/uk/consumer/tv-audio-video/televisions/).
 
-### {% linkable_title Setup %}
+### Setup
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To add a TV to your installation without relying on the [discovery component](/components/discovery/), add the following to your `configuration.yaml` file:
 
@@ -70,6 +70,7 @@ Currently known supported models:
 - EH5300
 - EH5600
 - ES5500
+- ES5700
 - ES6300
 - ES6800
 - F4580

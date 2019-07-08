@@ -29,7 +29,7 @@ With this new integration by [@sdague] you are able to keep an eye on your Chevy
 - Ihc component and platforms ([@dingusdk] - [#10916]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([sensor.ihc docs]) ([switch.ihc docs]) (new-platform)
 - Iota wallet ([@jinnerbichler] - [#11398]) ([iota docs]) ([sensor.iota docs]) (new-platform)
 
-## {% linkable_title Release 0.62.1 - January 30 %}
+## Release 0.62.1 - January 30
 
 - Snips - (fix/change) remove response when intent not handled ([@tschmidty69] - [#11929]) ([snips docs])
 - Fix asuswrt AttributeError on neigh for unknown device ([@scop] - [#11960]) ([device_tracker.asuswrt docs])
@@ -39,11 +39,11 @@ With this new integration by [@sdague] you are able to keep an eye on your Chevy
 - Fix 404 for Hass.io panel using frontend dev ([@c727] - [#12039]) ([frontend docs])
 - Upgrade pyharmony to 1.0.20 ([@amelchio] - [#12043]) ([remote.harmony docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 

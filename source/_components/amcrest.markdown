@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch (deprecated)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable your camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -175,9 +175,9 @@ Newer Amcrest firmware may not work, then **rtsp** is recommended instead.
 make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/)
 documentation to install the `ffmpeg`.
 
-## {% linkable_title Services %}
+## Services
 
-Once loaded, the `amcrest` component will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
+Once loaded, the `amcrest` integration will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
 
 Available services:
 `enable_audio`, `disable_audio`,
@@ -186,7 +186,7 @@ Available services:
 `goto_preset`, `set_color_bw`,
 `start_tour` and `stop_tour`
 
-#### {% linkable_title Service `enable_audio`/`disable_audio` %}
+#### Service `enable_audio`/`disable_audio`
 
 These services enable or disable the camera's audio stream.
 
@@ -194,7 +194,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-#### {% linkable_title Service `enable_motion_recording`/`disable_motion_recording` %}
+#### Service `enable_motion_recording`/`disable_motion_recording`
 
 These services enable or disable the camera to record a clip to its configured storage location when motion is detected.
 
@@ -202,7 +202,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-#### {% linkable_title Service `enable_recording`/`disable_recording` %}
+#### Service `enable_recording`/`disable_recording`
 
 These services enable or disable the camera to continuously record to its configured storage location.
 
@@ -210,7 +210,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-#### {% linkable_title Service `goto_preset` %}
+#### Service `goto_preset`
 
 This service will cause the camera to move to one of the PTZ locations configured within the camera.
 
@@ -219,7 +219,7 @@ Service data attribute | Optional | Description
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 `preset` | no | Preset number, starting from 1.
 
-#### {% linkable_title Service `set_color_bw` %}
+#### Service `set_color_bw`
 
 This service will set the color mode of the camera.
 
@@ -228,7 +228,7 @@ Service data attribute | Optional | Description
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 `color_bw` | no | One of `auto`, `bw` or `color`.
 
-#### {% linkable_title Service `start_tour`/`stop_tour` %}
+#### Service `start_tour`/`stop_tour`
 
 These services start or stop the camera's PTZ tour function.
 
@@ -236,7 +236,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-## {% linkable_title Advanced Configuration %}
+## Advanced Configuration
 
 You can also use this more advanced configuration example:
 

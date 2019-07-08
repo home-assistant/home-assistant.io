@@ -19,7 +19,7 @@ The `mqtt` platform extends the [manual alarm](/components/alarm_control_panel.m
 
 It's essentially the opposite of the [MQTT Alarm Panel](/components/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
-The component will accept the following commands from your Alarm Panel via the `command_topic`:
+The integration will accept the following commands from your Alarm Panel via the `command_topic`:
 
 - `DISARM`
 - `ARM_HOME`
@@ -35,7 +35,7 @@ When the state of the manual alarm changes, Home Assistant will publish one of t
 - 'pending'
 - 'triggered'
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your panel in your installation, add the following to your `configuration.yaml` file:
 
@@ -153,7 +153,7 @@ payload_arm_night:
   default: ARM_NIGHT
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In the configuration example below:
 
@@ -182,7 +182,7 @@ alarm_control_panel:
 
 Refer to the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples) for more real-life examples on how to use this panel.
 
-## {% linkable_title MQTT Control %}
+## MQTT Control
 
 The state of this alarm can be controlled using [MQTT](/components/mqtt/). Ensure you've configured that before adding this component.
 

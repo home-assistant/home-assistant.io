@@ -17,7 +17,7 @@ redirect_from:
 
 This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/en-us/srm) router.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -67,4 +67,4 @@ List of models known to be supported:
 - RT1900ac
 - RT2600ac
 
-See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

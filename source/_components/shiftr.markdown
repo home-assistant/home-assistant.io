@@ -13,13 +13,13 @@ ha_category:
 ha_release: 0.48
 ---
 
-The `shiftr` component makes it possible to transfer details collected with Home Assistant to [Shiftr.io](https://shiftr.io) and visualize the flow of the information. Keep in mind that your details will be public!
+The `shiftr` integration makes it possible to transfer details collected with Home Assistant to [Shiftr.io](https://shiftr.io) and visualize the flow of the information. Keep in mind that your details will be public!
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Create a new [namespace](https://shiftr.io/new) and generate a new token. You will need to use `Key (Username)` and `Secret (Password)` to setup the component.
 
-To use the `shiftr` component in your installation, add the following to your `configuration.yaml` file:
+To use the `shiftr` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

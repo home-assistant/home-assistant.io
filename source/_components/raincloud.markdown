@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.raincloud/
 ---
 
-The `raincloud` component allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
+The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -29,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following to your `configuration.yaml` file:
 
@@ -51,7 +51,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
 
@@ -74,7 +74,7 @@ monitored_conditions:
       description: Return status from the Melnor RainCloud Controller and Melnor RainCloud Faucet.
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
 
@@ -101,7 +101,7 @@ monitored_conditions:
       description: Return the watering remaining minutes per zone.
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
 

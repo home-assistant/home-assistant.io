@@ -45,11 +45,11 @@ interval_seconds:
   default: 480
 {% endconfiguration %}
 
-### {% linkable_title Supported operations %}
+### Supported operations
 
-Currently, this component supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
+Currently, this integration supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
 
-### {% linkable_title Example configuration %}
+### Example configuration
 
 A full configuration example will look like the sample below:
 ```yaml

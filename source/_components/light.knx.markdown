@@ -14,16 +14,16 @@ ha_release: 0.44
 ha_iot_class: Local Polling
 ---
 
-The `knx light` component is used as an interface to control knx actuators for lighting applications such as:
+The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
 
 - switching actuators
 - dimming actuators
 - LED controllers
 - DALI gateways
 
-The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly to use this component, see [KNX Component](/components/knx).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX light in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -99,7 +99,7 @@ For switching/light actuators that are only controlled by a single group address
 
 *Note on tunable white:* Home-Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home-Assistant may not align with ones of KNX visualizations. This is the expected behavior.
 
-## {% linkable_title Extended configuration example %}
+## Extended configuration example
 
 ```yaml
 light:

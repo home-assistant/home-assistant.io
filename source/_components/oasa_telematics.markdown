@@ -17,7 +17,7 @@ ha_release: 0.92
 
 The `oasa_telematics` sensor will provide you with bus and trolley arrival times for Greek public transport for Athens, using real-time data from [OASA Telematics](http://telematics.oasa.gr/en/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add a sensor to your `configuration.yaml` file as shown in the example:
 
@@ -59,7 +59,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 A more extensive example on how to use this sensor:
 

@@ -29,7 +29,7 @@ The changes to the code are mostly backwards compatible. The old `hass.track_tim
 
 This refactor adds a new migration for the database adding a `utc_offset` column to events and states. This information is currently not used but can prove useful in the future when we start analyzing the historical data.
 
-### {% linkable_title Backwards incompatible stuff %}
+### Backwards incompatible stuff
 
 All built-in components have been upgraded. The following list is only for people that run custom components:
 

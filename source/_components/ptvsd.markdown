@@ -13,11 +13,11 @@ ha_category:
 ha_release: 0.93
 ---
 
-The `ptvsd` component allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.
+The `ptvsd` integration allows you to use the Visual Studio Code PTVSD debugger with Home Assistant.
 
 This is useful in testing changes on a local development install, or connecting to a production server to debug issues.
 
-To enable the `ptvsd` component add the following to your `configuration.yaml` file:
+To enable the `ptvsd` integration add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,7 +44,7 @@ wait:
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Security %}
+### Security
 
 Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can *execute arbitary code* on the home assistant server, which is very unsafe.
 
@@ -52,13 +52,13 @@ If the home assistant server is behind your firewall with only the http(s) port 
 
 Another way of securing the port is to set `host` to localhost and have a secured SSH TCP tunnel with a client certificate for access from the outside internet.
 
-### {% linkable_title Memory Use %}
+### Memory Use
 
 There have been reports of continually increasing memory use while the debugger is running, although this doesn't seem to appear on all systems. Only configure the debugger on a persistent server when it's actually required.
 
-### {% linkable_title Waiting at startup %}
+### Waiting at startup
 
-If you want to debug something in the boot-up sequence, configure the component to wait for a connection first:
+If you want to debug something in the boot-up sequence, configure the integration to wait for a connection first:
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +68,7 @@ ptvsd:
 
 The ptvsd debugger is loaded quite early on in the boot-up sequence, before any other components. This will allow you to set breakpoints in `async_setup` or similar and debug the loading of the component.
 
-### {% linkable_title Alternate host and port %}
+### Alternate host and port
 
 You can also listen on a different server address or port:
 
@@ -81,7 +81,7 @@ ptvsd:
 
 This is useful for multi-homed servers, or for localhost only access
 
-### {% linkable_title Example Visual Studio Code configuration %}
+### Example Visual Studio Code configuration
 
 This can be copied into your `launch.json` in the `.vscode` subdirectory in your Visual Studio Code project to connect to the debugger.
 

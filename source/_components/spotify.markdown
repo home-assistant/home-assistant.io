@@ -19,13 +19,13 @@ redirect_from:
 The `spotify` media player platform allows you to control
 [Spotify](https://www.spotify.com/) playback from Home Assistant.
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
 - Spotify account
 - Spotify application, properly configured (see below)
 
 <p class='note'>
-Controlling the Spotify component (pause, play, next, etc.) requires a Premium account. If you do not have a Premium account, the component in the frontend will not show the controls.
+Controlling the Spotify integration (pause, play, next, etc.) requires a Premium account. If you do not have a Premium account, the integration in the frontend will not show the controls.
 </p>
 
 To create the required Spotify application:
@@ -48,7 +48,7 @@ To create the required Spotify application:
 
 You will likely also need to set the `base_url` attribute of the [HTTP Component](/components/http/). This should be set using the same base URL as the redirect URI, e.g., if you used a domain name (not local IP) in the redirect, then use the same domain name in your `base_url`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Spotify to your installation,
 add the following to your `configuration.yaml` file:
@@ -89,7 +89,7 @@ name:
   default: Spotify
 {% endconfiguration %}
 
-## {% linkable_title Setup %}
+## Setup
 
 After the prerequisites and configuration are complete, restart Home Assistant.
 A **Spotify** configurator element will be available. Follow the instructions to
@@ -97,7 +97,7 @@ authorize Home Assistant to access your Spotify account. A Spotify media player
 will then appear. If you are prompted to download a file after completing
 authorization, discard the download. It is not needed.
 
-## {% linkable_title Sources %}
+## Sources
 The sources are based on if you have streamed to these devices before in
 Spotify. If you don't have any sources, then simply stream from your phone to
 another device in your house: Bluetooth, echo, etc. Once you do, the sources will
@@ -115,7 +115,7 @@ These names can then be used in for example an input selector:
 
 The devices won't show up in the dev-console as sources unless they are powered on as well.
 
-## {% linkable_title URI Links For Playlists/Etc. %}
+## URI Links For Playlists/Etc.
 You can send playlists to spotify via the `"media_content_type": "playlist"` and something like (depending on your content ID)
 `"media_content_id": "spotify:user:spotify:playlist:37i9dQZF1DWSkkUxEhrBdF"`
 which are part of the
@@ -127,6 +127,6 @@ The above playlist example is a URI link to the "Reggae Infusions" playlist.
 [This support document from Spotify](https://support.spotify.com/us/article/sharing-music/)
 explains how to get this URI value to use for playlists in the Spotify component.
 
-## {% linkable_title Unsupported Devices %}
+## Unsupported Devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.

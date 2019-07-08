@@ -23,7 +23,7 @@ redirect_from:
   - /components/switch.velbus/
 ---
 
-The `velbus` component supports the Velbus USB, Velbus serial and a TCP/IP gateway.
+The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,8 +31,9 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Sensor
 - Switch
+- Cover
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The gateway needs to be configured by adding the following lines to your `configuration.yaml` file:
 

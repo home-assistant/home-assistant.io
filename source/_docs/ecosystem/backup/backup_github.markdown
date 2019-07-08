@@ -24,7 +24,7 @@ This is not a comprehensive tutorial on using GitHub, more information can be fo
 This will not create a full backup of your Home Assistant files or your OS. In addition to backing up to Github, you should consider having regular backups of all your Home Assistant configuration files and images of your SD card if applicable.
 </p>
 
-### {% linkable_title Important Best Practices %}
+### Important Best Practices
 
 Some best practices to consider before putting your configuration on GitHub:
 
@@ -33,7 +33,7 @@ Some best practices to consider before putting your configuration on GitHub:
 - Regularly committing your configuration to GitHub to make sure that your backup is up to date.
 - Use a README.md to document your configuration and include screenshots of your Home Assistant frontend.
 
-### {% linkable_title Step 1: Installing and Initializing Git %}
+### Step 1: Installing and Initializing Git
 
 In order to put your configuration on GitHub, you must install the Git package on your Home Assistant server (instructions below will work on Raspberry Pi, Ubuntu or any Debian-based system) *Note: this isn't required in Hass.io, it's included as default so proceed to step 2*:
 
@@ -42,7 +42,7 @@ $ sudo apt-get update
 $ sudo apt-get install git
 ```
 
-### {% linkable_title Step 2: Creating `.gitignore` %}
+### Step 2: Creating `.gitignore`
 
 <p class='note warning'>
 Before creating and pushing your Home Assistant configuration to GitHub, please make sure to follow the [`secrets.yaml`](/docs/configuration/secrets/) best practice mentioned above and scrub your configuration for any passwords or sensitive information.
@@ -83,7 +83,7 @@ known_devices.yaml
 
 More information on the layout of the file can be found in the [.gitignore manual](https://git-scm.com/docs/gitignore).
 
-### {% linkable_title Step 3: Preparing your Home Assistant directory for GitHub %}
+### Step 3: Preparing your Home Assistant directory for GitHub
 
 In your Home Assistant directory, type the following commands as the Home Assistant user, replacing the email address and name with your information:
 
@@ -97,13 +97,13 @@ $ git commit
 
 After the `git commit` command, you will be asked to enter a message for the commit.  This will add a comment beside each file on GitHub describing the purpose for the commit. In this case, you can enter something like "Initial commit of my Home Assistant configuration". To exit the editor, press `CTRL + C` and then `:wq` which will exit and save the changes. 
 
-### {% linkable_title Step 4: Creating Repository on GitHub %}
+### Step 4: Creating Repository on GitHub
 
 - Connect to [GitHub](https://github.com) and login to your account (or create an account if you don't already have one).
 - Click "[New Repository](https://github.com/new)" and give your repository a name/description (`Home-AssistantConfig` is used in the example below). You do NOT need to change any other options.
 - Click "Create Repository"
 
-### {% linkable_title Step 5: Your initial commit to GitHub %}
+### Step 5: Your initial commit to GitHub
 
 Once you are sure you are using `secrets.yaml` and `.gitignore` correctly, it is time to push your configuration to the GitHub Repository that you just created.
 
@@ -118,7 +118,7 @@ You will be asked to enter your GitHub username and password (or ssh key passphr
 
 Congratulations, you now have a copy of your current Home Assistant Configuration on GitHub!
 
-### {% linkable_title Step 6: Keeping your repository up to date %}
+### Step 6: Keeping your repository up to date
 
 You should update your repository on a regular basis. Ideally after you make a major configuration change (new device, new component, etc.). The below script will update your repository with any changed configuration files and allow you to add a comment with the commit for tracking purposes:
 
@@ -147,7 +147,7 @@ exit
 
 Every time you run this script, you will be prompted for a comment to describe the change(s) that you are committing. This comment will be displayed beside each changed file on GitHub and will be stored after each commit. You will also be asked to enter your GitHub username and password (or SSH key passphrase if you use [GitHub with SSH](https://help.github.com/categories/ssh/)).
 
-### {% linkable_title Step 7: Configuration file testing %}
+### Step 7: Configuration file testing
 
 [Travis CI](https://travis-ci.org) is a continuous integration testing system that runs every time the code in your repository is updated and allows you to validate that your code works on a fresh install.
 
@@ -179,7 +179,7 @@ home_longitude: 00.0000
 home_elevation: 0
 ```
 
-### {% linkable_title Extra commands %}
+### Extra commands
 
 You can enter these commands to get a list of the files in your local Git repository and a status of files that have changed but not committed yet:
 

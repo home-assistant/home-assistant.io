@@ -45,7 +45,7 @@ keyfile:
   default: privkey.pem
 {% endconfiguration %}
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use the generated certificate:
 
@@ -58,7 +58,7 @@ http:
 
 If you use another port such as `8123` or an SSL proxy, change the port number.
 
-## {% linkable_title Enabling auto-renewals %}
+## Enabling auto-renewals
 
 Out of the box, the add-on will not automatically renew your certificate. In fact, it only starts, tries to get/renew your certificate, and then stops. It's up to you to manually start it again whenever your certificate comes close to expiry.
 

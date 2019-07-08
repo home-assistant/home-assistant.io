@@ -22,7 +22,7 @@ The `google_translate` text-to-speech platform uses unofficial [Google Translate
 This platform renamed to `google_translate` from `google` since release 0.92.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable text-to-speech with Google, add the following lines to your `configuration.yaml`:
 
@@ -43,7 +43,7 @@ language:
 Check the [complete list of supported languages](https://translate.google.com/intl/en_ALL/about/languages/) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
 Use the 2 digit language code which you can find at the end of URL when you click on Language name.
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 A full configuration sample including optional variables:
 
@@ -54,7 +54,7 @@ tts:
     language: 'de'
 ```
 
-If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `http` component as follows:
+If you are using SSL certificate or Docker, you may need to add the `base_url` configuration variable to your `http` integration as follows:
 
 ```yaml
 #Example configuration.yaml entry

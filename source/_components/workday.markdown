@@ -20,11 +20,11 @@ redirect_from:
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also
 uses the python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
 
-## {% linkable_title Setup %}
+## Setup
 
 Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -81,7 +81,7 @@ If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then 
 Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
 </p>
 
-## {% linkable_title Full example %}
+## Full example
 
 This examples excludes Saturdays, Sundays and holiday. Two custom holidays are added.
 
@@ -97,7 +97,7 @@ binary_sensor:
       - '2018-12-31'
 ```
 
-## {% linkable_title Automation example %}
+## Automation example
 
 Example usage for automation:
 

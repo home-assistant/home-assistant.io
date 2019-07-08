@@ -86,7 +86,7 @@ automation:
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
-For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
+For more advanced use cases, a custom integration registering to the `feedreader` event type could be used instead:
 
 ```python
 EVENT_FEEDREADER = "feedreader"
