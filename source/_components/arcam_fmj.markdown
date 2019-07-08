@@ -21,7 +21,7 @@ Supported devices:
 - AVR 750
 - Likely other AVRs
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a Arcam FMJ to your installation, add the following to your `configuration.yaml` file:
 
@@ -81,21 +81,21 @@ media_player:
             packet: JgAYADodHTo6Oh0dHR0dHR0dHR06Oh0dHQALZw0FAAAAAAAAAAAAAAAAAAA=
 ```
 
-## {% linkable_title Power state %}
+## Power state
 
 Arcam FMJ receivers turn off their network port when in standby, the component will try to
 reconnect to the receiver every 5 seconds. This mean powering on the first zone is not
 possible over the builtin network connection. Two options for complete power control
 exists: IR or Serial gateway.
 
-### {% linkable_title IR command %}
+### IR command
 
 Use an IR blaster to send a command to turn the device on using these discrete codes:
 
  - Zone 1: Protocol: NEC1 Device: 16 Function: 123
  - Zone 2: Protocol: NEC1 Device: 23 Function: 123
 
-### {% linkable_title Serial Port to network gateway %}
+### Serial Port to network gateway
 
 Use a network to a serial port gateway to connect to the serial port of the
 receiver. The serial port is always available and can power on the device.
