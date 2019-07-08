@@ -49,7 +49,6 @@ sync_state:
   required: false
   type: boolean
   default: True
-device_class:
 type:
   description: A type from the following table must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
