@@ -88,8 +88,8 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [default view]: /components/group/
 [apcupsd]: /components/apcupsd/
 [Splunk]: /components/splunk/
-[garage door]: /components/garage_door/
-[Wink]: /components/garage_door.wink/
+[garage door]: /components/cover/
+[Wink]: /components/wink/#cover
 [input_select]: /components/input_select/
 [proximity]: /components/proximity/
 [Bloomsky Weather Station]: /components/bloomsky/
@@ -111,6 +111,6 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [mqtt-publish]: /components/mqtt/#publish-service
 [REST]: /components/notify.rest/
 [template]: /components/switch.template/
-[Honeywell]: /components/thermostat.honeywell/
+[Honeywell]: /components/honeywell/
 [zwave-polling]: /components/zwave/#configuration
 [zwave-scene]: /components/zwave/#events

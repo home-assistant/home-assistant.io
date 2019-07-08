@@ -76,7 +76,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Smart Home Home Assistant Raspberry Pi Installation Hassbian](http://onesmarthome.de/smart-home-home-assistant-raspberry-pi-installation-hassbian/) - July 2017
 - [Jupiter Broadcasting - No Privacy Compromise Home Automation](http://www.jupiterbroadcasting.com/115566/no-privacy-compromise-home-automation/) - June 2017
 - [Monitor IoT devices with Home Assistant and Datadog](https://www.datadoghq.com/blog/monitor-home-assistant/) - June 2017
-- [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs﻿) - May 2017
+- [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](http://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017
 - [Zammad, Home Assistant and Freifunk - are the winner of the Thomas-Krenn-Awards 2017](https://www.thomas-krenn.com/de/tkmag/allgemein/zammad-home-assistant-und-freifunk-das-sind-die-gewinner-des-thomas-krenn-awards-2017/) - March 2017
 - [10 open source software tools for developing IoT applications](http://www.cbronline.com/news/internet-of-things/10-open-source-software-tools-developing-iot-applications/) - March 2017

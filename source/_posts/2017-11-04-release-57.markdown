@@ -544,7 +544,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.honeywell docs]: /components/climate.honeywell/
 [climate.toon docs]: /components/climate.toon/
 [cloud docs]: /components/cloud/
-[cloud.iot docs]: /components/cloud.iot/
 [cover.template docs]: /components/cover.template/
 [device_tracker docs]: /components/device_tracker/
 [device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/

@@ -48,7 +48,7 @@ We have also updated our build scripts and replaced it with a [builder docker en
 
 [hassio-hardware-image-release]: https://github.com/home-assistant/hassio-build/releases/tag/1.1
 [install]: /hassio/installation/
-[builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
+[builder]: https://github.com/home-assistant/hassio-builder
 [frenck]: https://github.com/frenck
 [build-file]: /developers/hassio/addon_config/#add-on-extended-build
 [addon-repos]: https://community.home-assistant.io/tags/hassio-repository

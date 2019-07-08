@@ -73,7 +73,7 @@ device_tracker:
 [Google Play Music Desktop Player]: /components/media_player.gpmdp/
 [LG Netcast TVs]: /components/media_player.lg_netcast/
 [Logentries]: /components/logentries/
-[mold indicator]: /components/sensor.moldindicator/
+[mold indicator]: /components/mold_indicator/
 [Nest Protect]: /components/sensor.nest/
 [purge days option]: /components/recorder/
 [Roku]: /components/media_player.roku/

@@ -46,7 +46,7 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 
 [the demo]: /demo/
 [command sensor]: /components/binary_sensor.command/
-[Insteon hub]: /components/insteon_hub/
+[Insteon hub]: /components/insteon/
 [LIFX]: /components/light.lifx/
 [Nest]: /components/nest/
 [onewire]: /components/sensor.onewire/
@@ -54,7 +54,7 @@ Example of the new views in the frontend. <a href='/components/group/'>Learn mor
 [Rfxtrx]: /components/light.rfxtrx/
 [Statsd]: /components/statsd/
 [Template]: /components/sensor.template/
-[Thermostat]: /components/thermostat/
+[Thermostat]: /components/climate/
 [time automation]: /getting-started/automation-trigger/#time-trigger
 [Twitter]: /components/notify.twitter/
 [Wink]: /components/wink/

@@ -33,7 +33,7 @@ platform=pushbullet
 api_key=ABCDEFGHJKLMNOPQRSTUVXYZ
 ```
 
-You can get your api key from [your account page on PushBullet.com](https://www.pushbullet.com/account).
+You can get your api key from [your account page on PushBullet.com](https://www.pushbullet.com/#settings/account).
 
 ### Sending messages from your component
 

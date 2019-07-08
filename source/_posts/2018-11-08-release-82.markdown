@@ -671,7 +671,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.version docs]: /components/sensor.version/
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[sensor.yahoo_finance docs]: /components/sensor.yahoo_finance/
 [simplisafe docs]: /components/simplisafe/
 [sun docs]: /components/sun/
 [switch.deconz docs]: /components/switch.deconz/

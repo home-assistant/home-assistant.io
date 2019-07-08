@@ -313,7 +313,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.lifx docs]: /components/light.lifx/
 [light.template docs]: /components/light.template/
 [light.tradfri docs]: /components/light.tradfri/
-[light.xiaomi_philipslight docs]: /components/light.xiaomi_philipslight/
+[light.xiaomi_philipslight docs]: /components/light.xiaomi_miio/
 [lock.abode docs]: /components/lock.abode/
 [media_player.apple_tv docs]: /components/media_player.apple_tv/
 [media_player.mpd docs]: /components/media_player.mpd/
@@ -344,7 +344,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.telnet docs]: /components/switch.telnet/
 [vacuum docs]: /components/vacuum/
 [vacuum.mqtt docs]: /components/vacuum.mqtt/
-[vacuum.xiaomi docs]: /components/vacuum.xiaomi/
+[vacuum.xiaomi docs]: /components/vacuum.xiaomi_miio/
 [xiaomi docs]: /components/xiaomi/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 [zwave docs]: /components/zwave/

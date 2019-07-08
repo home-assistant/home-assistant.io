@@ -464,7 +464,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.fido docs]: /components/sensor.fido/
 [sensor.modbus docs]: /components/sensor.modbus/
 [sensor.mvglive docs]: /components/sensor.mvglive/
-[sensor.neato docs]: /components/sensor.neato/
+[sensor.neato docs]: /components/neato/
 [sensor.opensky docs]: /components/sensor.opensky/
 [sensor.qnap docs]: /components/sensor.qnap/
 [sensor.speedtest docs]: /components/sensor.speedtest/

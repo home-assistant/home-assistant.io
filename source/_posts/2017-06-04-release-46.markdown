@@ -312,7 +312,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [arlo docs]: /components/arlo/
 [automation.state docs]: /docs/automation/trigger/#state-trigger
 [automation.time docs]: /docs/automation/trigger/#time-trigger
-[calendar.demo docs]: /components/calendar.demo/
+[calendar.demo docs]: /components/calendar/
 [calendar.google docs]: /components/calendar.google/
 [camera.amcrest docs]: /components/camera.amcrest/
 [camera.arlo docs]: /components/camera.arlo/
@@ -342,14 +342,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lutron docs]: /components/lutron/
 [media_player.denonavr docs]: /components/media_player.denonavr/
 [media_player.openhome docs]: /components/media_player.openhome/
-[media_player.services.yaml docs]: /components/media_player.services.yaml/
+[media_player.services.yaml docs]: /components/media_player/#services
 [media_player.snapcast docs]: /components/media_player.snapcast/
 [media_player.sonos docs]: /components/media_player.sonos/
 [media_player.spotify docs]: /components/media_player.spotify/
 [media_player.volumio docs]: /components/media_player.volumio/
 [modbus docs]: /components/modbus/
 [mqtt.discovery docs]: /components/mqtt.discovery/
-[notify.ios docs]: /components/notify.ios/
+[notify.ios docs]: /docs/ecosystem/ios/notifications/basic/
 [notify.rest docs]: /components/notify.rest/
 [notify.slack docs]: /components/notify.slack/
 [notify.smtp docs]: /components/notify.smtp/

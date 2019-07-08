@@ -454,7 +454,7 @@ light:
 [group docs]: /components/group/
 [image_processing.opencv docs]: /components/image_processing.opencv/
 [influxdb docs]: /components/influxdb/
-[insteon_hub docs]: /components/insteon_hub/
+[insteon_hub docs]: /components/insteon/
 [insteon_local docs]: /components/insteon_local/
 [knx docs]: /components/knx/
 [light.decora docs]: /components/light.decora/

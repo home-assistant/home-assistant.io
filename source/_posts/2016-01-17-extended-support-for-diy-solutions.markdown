@@ -56,7 +56,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [Universal media player]: /components/media_player.universal/
 [Netatmo]: /components/sensor.netatmo/
 [Alarm.com]: /components/alarm_control_panel.alarmdotcom/
-[Proliphix]: /components/thermostat.proliphix/
+[Proliphix]: /components/proliphix/
 [rpi-bs]: /components/binary_sensor.rpi_gpio/
 [rpi-s]: /components/switch.rpi_gpio/
 [input_boolean]: /components/input_boolean/

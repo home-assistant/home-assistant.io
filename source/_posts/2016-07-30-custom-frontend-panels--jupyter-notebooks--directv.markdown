@@ -123,7 +123,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [MPC-HC]: /components/media_player.mpchc/
 [Telegram]: /components/notify.telegram/
 [react-panel]: /cookbook/custom_panel_using_react/
-[KNX]: /components/thermostat.knx/
+[KNX]: /components/climate.knx/
 [Nest]: /components/nest/#climate
 [filters]: /topics/templating/#home-assistant-template-extensions
 [Hyperion]: /components/light.hyperion/

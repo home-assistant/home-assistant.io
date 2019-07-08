@@ -368,7 +368,6 @@ frontend:
 [cloud docs]: /components/cloud/
 [cloud.cloud_api docs]: /components/cloud.cloud_api/
 [cloud.const docs]: /components/cloud.const/
-[cloud.http_api docs]: /components/cloud.http_api/
 [cloud.util docs]: /components/cloud.util/
 [config docs]: /components/config/
 [config.customize docs]: /components/config.customize/
@@ -393,7 +392,7 @@ frontend:
 [light.hue docs]: /components/light.hue/
 [light.lutron_caseta docs]: /components/light.lutron_caseta/
 [light.mqtt docs]: /components/light.mqtt/
-[light.xiaomi_philipslight docs]: /components/light.xiaomi_philipslight/
+[light.xiaomi_philipslight docs]: /components/light.xiaomi_miio/
 [light.rfxtrx docs]: /components/light.rfxtrx/
 [light.tradfri docs]: /components/light.tradfri/
 [light.knx docs]: /components/light.knx/

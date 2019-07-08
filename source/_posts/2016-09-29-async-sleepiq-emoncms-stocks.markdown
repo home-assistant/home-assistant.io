@@ -61,7 +61,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - Climate: [Nest] can now control the fan ([@jawilson])
 - Modbus: Major cleanup for [Modbus] switches and sensors ([@persandstrom])
 - HTTP: Allow [passwordless] logins from whitelisted IP addresses ([@Danielhiversen])
-- Sensor: Yahoo! Finance [stocks] now supported ([@tchellomello])
+- Sensor: Yahoo! Finance stocks now supported ([@tchellomello])
 - Sensor: Set value based on incoming [email] ([@sam-io])
 - Light: White value now supported (@mxtra, [@MartinHjelmare])
 - [InfluxDB] now allows attaching extra data ([@lwis])
@@ -179,7 +179,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [Simplepush]: /components/notify.simplepush/
 [Slack]: /components/notify.slack/
 [SleepIQ]: /components/sleepiq/
-[stocks]: /components/sensor.yahoo_finance/
 [timeout]: /components/sensor.mqtt_room/
 [Vera]: /components/cover.vera/
 [Wink]: /components/wink/

@@ -18,7 +18,7 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
 
  - Device tracker: Newer [TP-Link routers](/components/device_tracker.tplink/) now supported ([@mKeRix](https://github.com/mKeRix))
  - Alarm Control Panel: [Manual alarm](/components/alarm_control_panel.manual/) added ([@sfam](https://github.com/sfam))
- - Thermostat: [Radiotherm](/components/thermostat.radiotherm/) now supported ([@toddeye](https://github.com/toddeye))
+ - Thermostat: [Radiotherm](/components/radiotherm/) now supported ([@toddeye](https://github.com/toddeye))
  - Media Player: [Amazon FireTV](/components/media_player.firetv/) now supported ([@happyleavesaoc](https://github.com/happyleavesaoc))
  - Device Tracker: [Geofancy](/components/device_tracker.locative/) now supported (@wind-rider)
  - New component [Shell Command](/components/shell_command/) can expose shell commands as services ([@balloob](https://github.com/balloob))

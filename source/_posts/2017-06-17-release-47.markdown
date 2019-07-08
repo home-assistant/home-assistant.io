@@ -197,7 +197,7 @@ automation:
 - Add juicenet platform ([@jesserockz] - [#7668]) ([juicenet docs]) ([sensor.juicenet docs]) (new-platform)
 - Bump pyEight version to fix 0hr session errors ([@mezz64] - [#7916]) ([eight_sleep docs])
 - update to pywebpush 1.0.4 which allows install on system with openssl-1.1.0 (cryptography dep) ([@perosb] - [#7915]) ([notify.html5 docs])
-- Do not call update() in constructor ([@fabaff] - [#7917]) ([sensor.dte_energy_bridge docs]) ([sensor.dublin_bus_transport docs]) ([sensor.dweet docs]) ([sensor.ebox docs]) ([sensor.ecobee docs]) ([sensor.hddtemp docs]) ([sensor.mold_indicator docs]) ([sensor.pi_hole docs]) ([sensor.yahoo_finance docs])
+- Do not call update() in constructor ([@fabaff] - [#7917]) ([sensor.dte_energy_bridge docs]) ([sensor.dublin_bus_transport docs]) ([sensor.dweet docs]) ([sensor.ebox docs]) ([sensor.ecobee docs]) ([sensor.hddtemp docs]) ([sensor.mold_indicator docs]) ([sensor.pi_hole docs]) (sensor.yahoo_finance docs)
 - Fix changes introduced with #7917 ([@fabaff] - [#7930]) ([sensor.waqi docs])
 - Do not call update() in constructor ([@fabaff] - [#7931]) ([sensor.yweather docs])
 - Add service_url config option to volvooncall ([@palp] - [#7919]) ([volvooncall docs])
@@ -490,7 +490,7 @@ automation:
 [media_player.denonavr docs]: /components/media_player.denonavr/
 [media_player.firetv docs]: /components/media_player.firetv/
 [media_player.nad docs]: /components/media_player.nad/
-[media_player.nadtcp docs]: /components/media_player.nadtcp/
+[media_player.nadtcp docs]: /components/nad/
 [media_player.openhome docs]: /components/media_player.openhome/
 [media_player.plex docs]: /components/media_player.plex/
 [media_player.roku docs]: /components/media_player.roku/
@@ -544,7 +544,6 @@ automation:
 [sensor.usps docs]: /components/sensor.usps/
 [sensor.waqi docs]: /components/sensor.waqi/
 [sensor.wunderground docs]: /components/sensor.wunderground/
-[sensor.yahoo_finance docs]: /components/sensor.yahoo_finance/
 [sensor.yweather docs]: /components/sensor.yweather/
 [spc docs]: /components/spc/
 [splunk docs]: /components/splunk/

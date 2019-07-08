@@ -594,7 +594,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.deconz docs]: /components/sensor.deconz/
 [sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
 [sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
-[sensor.melissa docs]: /components/sensor.melissa/
+[sensor.melissa docs]: /components/melissa/
 [sensor.mercedesme docs]: /components/sensor.mercedesme/
 [sensor.miflora docs]: /components/sensor.miflora/
 [sensor.onewire docs]: /components/sensor.onewire/

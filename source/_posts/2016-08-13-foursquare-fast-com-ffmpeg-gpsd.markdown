@@ -111,8 +111,8 @@ homeassistant:
 [heat control]: /components/thermostat.heat_control/
 [Proximity]: /components/proximity/
 [Flux]: /components/switch.flux/
-[Proliphix]: /components/thermostat.proliphix/
+[Proliphix]: /components/proliphix/
 [Fitbit]: /components/sensor.fitbit/
 [Plex]: /components/media_player.plex/
-[Honeywell]: /components/thermostat.honeywell/
+[Honeywell]: /components/honeywell/
 [Secrets]: /topics/secrets/

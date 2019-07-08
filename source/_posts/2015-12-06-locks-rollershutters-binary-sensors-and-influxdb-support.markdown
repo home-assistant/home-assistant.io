@@ -33,7 +33,7 @@ To update, run `pip3 install --upgrade homeassistant`.
 [binary_sensor.mqtt]: /components/binary_sensor.mqtt/
 [InfluxDB component]: /components/influxdb/
 [Ecobee]: /components/ecobee/#thermostat
-[Homematic]: /components/thermostat.homematic/
+[Homematic]: /components/homematic/
 [parsing JSON values]: /components/mqtt/#processing-json
 
 [@miniconfig]: https://github.com/miniconfig

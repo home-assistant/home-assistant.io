@@ -84,7 +84,7 @@ netatmo:
 [Pandora]: /components/media_player.pandora/
 [shell command]: /components/shell_command/
 [Sonos]: /components/media_player.sonos/
-[Wink]: /components/rollershutter.wink/
+[Wink]: /components/wink/#cover
 [alexa]: /components/alexa/#working-with-scenes
 [Plex sensor]: /components/sensor.plex/
 [Swagger.yaml format]: https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml
