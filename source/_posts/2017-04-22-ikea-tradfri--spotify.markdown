@@ -173,7 +173,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support fo map data from Neato ([@turbokongen] - [#6939]) ([neato docs]) ([camera.neato docs]) ([sensor.neato docs]) (new-platform)
 - Added initial support for IKEA Trådfri Gateway ([@ggravlingen] - [#7074]) ([light.tradfri docs]) (new-platform)
 - Better thread safety in zwave node_entity ([@andrey-git] - [#7087])
-- Uber version bump ([@armills] - [#7100]) ([sensor.uber docs])
+- Uber version bump ([@armills] - [#7100]) (sensor.uber docs)
 - No product ids configured should fetch all ids ([@armills] - [#7091])
 - Upgrade aiohttp to 2.0.7 ([@fabaff] - [#7106])
 - Update file header, add const for defaults, and update log messages ([@fabaff] - [#7110])
@@ -469,7 +469,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.qnap docs]: /components/sensor.qnap/
 [sensor.speedtest docs]: /components/sensor.speedtest/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.uber docs]: /components/sensor.uber/
 [sensor.ups docs]: /components/sensor.ups/
 [sensor.usps docs]: /components/sensor.usps/
 [sensor.vera docs]: /components/sensor.vera/

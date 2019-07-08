@@ -151,7 +151,7 @@ usps:
 - Bump abodepy to 0.7.1 ([@arsaboo] - [#9077]) ([abode docs])
 - async_query returns False if connection to server failed, handle this properly ([@molobrakos] - [#9070]) ([media_player.squeezebox docs])
 - Added insteonplm device_override multiple capabilities ([@teharris1] - [#9078]) ([insteon_plm docs])
-- Upgrade uber_rides to 0.5.1 ([@fabaff] - [#9080]) ([sensor.uber docs])
+- Upgrade uber_rides to 0.5.1 ([@fabaff] - [#9080]) (sensor.uber docs)
 - Upgrade discord.py to 0.16.10 ([@fabaff] - [#9082]) ([notify.discord docs])
 - Fix `device` attribute in fritz_callmonitor.py (fixes #9055) ([@max-te] - [#9081]) ([sensor.fritzbox_callmonitor docs])
 - Upgrade youtube_dl to 2017.8.18 ([@fabaff] - [#9079]) ([media_extractor docs])
@@ -369,7 +369,6 @@ usps:
 [sensor.octoprint docs]: /components/sensor.octoprint/
 [sensor.snmp docs]: /components/sensor.snmp/
 [sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
-[sensor.uber docs]: /components/sensor.uber/
 [sensor.uk_transport docs]: /components/sensor.uk_transport/
 [sensor.usps docs]: /components/sensor.usps/
 [sensor.version docs]: /components/sensor.version/

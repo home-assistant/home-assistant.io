@@ -359,7 +359,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hydrawise docs]: /components/hydrawise/
 [keyboard_remote docs]: /components/keyboard_remote/
 [light.lw12wifi docs]: /components/light.lw12wifi/
-[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
+[light.nanoleaf_aurora docs]: /components/nanoleaf/
 [light.osramlightify docs]: /components/light.osramlightify/
 [light.zha docs]: /components/light.zha/
 [linode docs]: /components/linode/

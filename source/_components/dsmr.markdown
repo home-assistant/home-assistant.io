@@ -129,7 +129,7 @@ or
 2001:raw:600:/dev/ttyUSB0:9600 EVEN 1STOPBIT 7DATABITS XONXOFF LOCAL -RTSCTS
 ```
 
-[HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
+[HASSbian](/docs/installation/hassbian/installation/) users have to give dialout permission to the user `homeassistant`:
 
 ```bash
 $ sudo usermod -a -G dialout homeassistant

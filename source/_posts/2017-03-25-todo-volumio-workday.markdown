@@ -49,9 +49,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 ## All changes
 
 - Bugfix android camera autodiscovery settings ([@pvizeli] - [#6510])
-- Insteon lib ([@wardcraigj] - [#6505])
+- Insteon lib ([@craigjmidwinter] - [#6505])
 - Update to Pyunifi2.0 ([@finish06] - [#6490])
-- Insteon lib ([@wardcraigj] - [#6505])
+- Insteon lib ([@craigjmidwinter] - [#6505])
 - Don't allow sending to invalid iOS targets ([@robbiet480] - [#6115])
 - Bugfix rpi_rf cleanup ([@pvizeli] - [#6513])
 - Include LICENSE.md in tarball ([@bachp] - [#6514])
@@ -330,7 +330,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tylercrumpton]: https://github.com/tylercrumpton
 [@vrnagy]: https://github.com/vrnagy
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@wmalgadey]: https://github.com/wmalgadey
 [@yeralin]: https://github.com/yeralin
 

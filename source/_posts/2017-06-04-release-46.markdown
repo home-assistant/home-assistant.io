@@ -150,7 +150,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - don't use default for switch name, so that the object id is used ([@abmantis] - [#7845]) ([switch.broadlink docs]) (breaking change)
 - Disallow ambiguous color descriptors in the light.turn_on schema ([@amelchio] - [#7765]) (breaking change)
 - Make monkey patch work in Python 3.6 ([@balloob] - [#7848])
-- fix permissions issue for Insteon Local #6558 ([@wardcraigj] - [#7860]) ([insteon_local docs])
+- fix permissions issue for Insteon Local #6558 ([@craigjmidwinter] - [#7860]) ([insteon_local docs])
 - Start of migration framework, to allow moving of files in the config … ([@infamy] - [#7740]) ([ios docs]) ([notify.ios docs]) (breaking change)
 - Spotify aliases ([@Teagan42] - [#7702]) ([media_player.spotify docs])
 - Query in InfluxDB sensor is now templatable ([@titilambert] - [#7634]) ([sensor.influxdb docs])
@@ -306,7 +306,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@tobygray]: https://github.com/tobygray
 [@turbokongen]: https://github.com/turbokongen
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [alarm_control_panel.concord232 docs]: /components/alarm_control_panel.concord232/
 [apcupsd docs]: /components/apcupsd/
 [arlo docs]: /components/arlo/

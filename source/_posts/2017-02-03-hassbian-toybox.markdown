@@ -58,5 +58,5 @@ To get started with the new image, check out the installation instructions in th
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: hassbian.local
 [landrash-github]: https://github.com/Landrash
-[gs-image]: /getting-started/installation-raspberry-pi-image/
+[gs-image]: /docs/installation/hassbian/installation/
 [discord]: https://discord.gg/8X8DTH4

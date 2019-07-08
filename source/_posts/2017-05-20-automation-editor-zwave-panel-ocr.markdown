@@ -137,7 +137,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add myStrom binary sensor ([@fabaff] - [#7530])
 - Add not-context-manager ([@fabaff] - [#7523])
 - Threadsafe configurator ([@Kane610] - [#7536]) ([configurator docs])
-- Fix for #7459 ([@jumpkick] - [#7544]) ([alexa docs])
+- Fix for #7459 ([@deftdawg] - [#7544]) ([alexa docs])
 - Upgrade sendgrid to 4.1.0 ([@fabaff] - [#7538]) ([notify.sendgrid docs])
 - Automatic version bump ([@armills] - [#7555]) ([device_tracker.automatic docs])
 - Upgrade dweepy to 0.3.0 ([@fabaff] - [#7550]) ([dweet docs]) ([sensor.dweet docs])
@@ -319,7 +319,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@imrehg]: https://github.com/imrehg
 [@jhemzal]: https://github.com/jhemzal
 [@jminardi]: https://github.com/jminardi
-[@jumpkick]: https://github.com/jumpkick
+[@deftdawg]: https://github.com/deftdawg
 [@mezz64]: https://github.com/mezz64
 [@mnoorenberghe]: https://github.com/mnoorenberghe
 [@nunofgs]: https://github.com/nunofgs
@@ -373,7 +373,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.blinksticklight docs]: /components/light.blinksticklight/
 [light.enocean docs]: /components/light.enocean/
 [light.flux_led docs]: /components/light.flux_led/
-[light.insteon_local docs]: /components/light.insteon_local/
+[light.insteon_local docs]: /components/insteon/
 [light.insteon_plm docs]: /components/light.insteon_plm/
 [light.isy994 docs]: /components/light.isy994/
 [light.lifx docs]: /components/light.lifx/

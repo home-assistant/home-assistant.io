@@ -46,5 +46,5 @@ To get started with the new image, check out the installation instructions in th
 [cec]: /components/hdmi_cec/
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[gs-image]: /getting-started/installation-raspberry-pi-image/
+[gs-image]: /docs/installation/hassbian/installation/
 [discord-devs]: https://discord.gg/8X8DTH4

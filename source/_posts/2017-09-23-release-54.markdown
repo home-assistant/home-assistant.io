@@ -23,7 +23,7 @@ Another cool thing in this release is the new [`mqtt_statestream`][mqtt_statestr
 
 - Added mqtt_statestream component ([@mw-white] - [#9286]) ([mqtt_statestream docs]) (new-platform)
 - Add support for Todoist platform ([@Jay2645] - [#9236]) ([calendar.todoist docs]) (new-platform)
-- DoorBird Component ([@Klikini] - [#9281]) ([doorbird docs]) ([binary_sensor.doorbird docs]) ([camera.doorbird docs]) ([switch.doorbird docs]) (new-platform)
+- DoorBird Component ([@Klikini] - [#9281]) ([doorbird docs]) (binary_sensor.doorbird docs) ([camera.doorbird docs]) ([switch.doorbird docs]) (new-platform)
 - Basic MQTT vacuum support ([@johnboiles] - [#9386]) ([vacuum docs]) ([vacuum.mqtt docs]) (new-platform)
 - Added Zyxel Keenetic NDMS2 based routers support for device tracking ([@foxel] - [#9315]) ([device_tracker.keenetic_ndms2 docs]) (new-platform)
 - Telnet switch ([@multiholle] - [#8913]) ([switch.telnet docs]) (new-platform)
@@ -100,9 +100,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Ios notify camera fix ([@rbflurry] - [#9427]) (breaking change)
 - Adds MQTT Fan Discovery ([@hufman] - [#9463])
 - Upgrade sqlalchemy to 1.1.14 ([@fabaff] - [#9458])
-- Upgrade uber_rides to 0.6.0 ([@fabaff] - [#9457]) ([sensor.uber docs])
+- Upgrade uber_rides to 0.6.0 ([@fabaff] - [#9457]) (sensor.uber docs)
 - Upgrade youtube_dl to 2017.9.15 ([@fabaff] - [#9456])
-- DoorBird Component ([@Klikini] - [#9281]) ([doorbird docs]) ([binary_sensor.doorbird docs]) ([camera.doorbird docs]) ([switch.doorbird docs]) (new-platform)
+- DoorBird Component ([@Klikini] - [#9281]) ([doorbird docs]) (binary_sensor.doorbird docs) ([camera.doorbird docs]) ([switch.doorbird docs]) (new-platform)
 - Fix recorder does not vacuum SQLite DB on purge ([@milanvo] - [#9469])
 - fitbit fixes ([@happyleavesaoc] - [#9460]) ([sensor.fitbit docs]) (breaking change)
 - Fix typo in services.yaml ([@mika] - [#9475])
@@ -287,7 +287,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [axis docs]: /components/axis/
 [binary_sensor.abode docs]: /components/binary_sensor.abode/
 [binary_sensor.bayesian docs]: /components/binary_sensor.bayesian/
-[binary_sensor.doorbird docs]: /components/binary_sensor.doorbird/
 [binary_sensor.knx docs]: /components/binary_sensor.knx/
 [binary_sensor.mqtt docs]: /components/binary_sensor.mqtt/
 [binary_sensor.satel_integra docs]: /components/binary_sensor.satel_integra/
@@ -336,7 +335,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.onewire docs]: /components/sensor.onewire/
 [sensor.swiss_public_transport docs]: /components/sensor.swiss_public_transport/
 [sensor.systemmonitor docs]: /components/sensor.systemmonitor/
-[sensor.uber docs]: /components/sensor.uber/
 [sensor.worxlandroid docs]: /components/sensor.worxlandroid/
 [switch.abode docs]: /components/switch.abode/
 [switch.broadlink docs]: /components/switch.broadlink/

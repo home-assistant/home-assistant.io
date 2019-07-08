@@ -28,7 +28,7 @@ Also want to take a moment to thank Austin Andrews aka [Templarian] for his [Mat
 
 - Lockitron locks ([@aarya123] - [#6805])
 - Met Office weather and sensor components ([@jacobtomlinson] - [#6742])
-- Total Connect alarm systems ([@wardcraigj] - [#6887])
+- Total Connect alarm systems ([@craigjmidwinter] - [#6887])
 - Eddystone Beacon Temperature Sensor ([@citruz] - [#6789])
 - CrimeReports.com integration shows crimes around a location in the US ([@happyleavesaoc] - [#6966])
 - The Ring doorbell has been integrated further with the inclusion of binary sensors ([@tchellomello] - [#6520])
@@ -170,7 +170,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix configuration setup ([@bdurrer] - [#6853])
 - Add option to disable automatic add for lights and sensors. ([@aequitas] - [#6852])
 - Update aioHTTP to 2.0.5 ([@pvizeli] - [#6856])
-- use change light level to avoid variable ramp speeds ([@wardcraigj] - [#6860])
+- use change light level to avoid variable ramp speeds ([@craigjmidwinter] - [#6860])
 - Handle aiohttp task cancellation better ([@balloob] - [#6862])
 - Introduced Ring binary sensors and refactored Ring component ([@tchellomello] - [#6520]) (breaking change) (new-platform)
 - Upgrade sendgrid to 3.6.5 ([@fabaff] - [#6866])
@@ -204,7 +204,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade Sphinx to 1.5.4 ([@fabaff] - [#6927])
 - Allow token authentication for 'hook' switch component ([@KlaasH] - [#6922])
 - WIP - Fix bug in state handling in Vera Switch and Light ([@pavoni] - [#6931])
-- total connect alarm support ([@wardcraigj] - [#6887]) (new-platform)
+- total connect alarm support ([@craigjmidwinter] - [#6887]) (new-platform)
 - Initial state over restore state ([@balloob] - [#6924]) (breaking change)
 - Eddystone Beacon Temperature Sensor ([@citruz] - [#6789]) (new-platform)
 - Add android ip webcam support for aiohttp2 ([@pvizeli] - [#6940])
@@ -395,7 +395,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@turbokongen]: https://github.com/turbokongen
 [@viswa-swami]: https://github.com/viswa-swami
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@wmalgadey]: https://github.com/wmalgadey
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues

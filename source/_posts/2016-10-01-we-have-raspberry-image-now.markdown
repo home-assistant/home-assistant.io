@@ -30,5 +30,5 @@ As it is today there is no pre-compiled Z-Wave support but it can be installed b
 
 Happy Automating!
 
-[gs-image]: /getting-started/installation-raspberry-pi-image/
+[gs-image]: /docs/installation/hassbian/installation/
 [BRUHAutomation]: https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w

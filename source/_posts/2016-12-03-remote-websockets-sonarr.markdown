@@ -123,7 +123,7 @@ We are working on a better solution for 0.35.
 ### Release 0.34.5 - December 12
 
  - Fix Nest sensors doing I/O inside event loop ([@balloob])
- - Fix Nest version bump not triggering re-install ([@R1chardTM])
+ - Fix Nest version bump not triggering re-install ([@EarthlingRich])
  - Fix Nest cameras without activity zones ([@technicalpickles])
  - Fix Plex doing I/O inside event loop ([@balloob])
 
@@ -142,7 +142,7 @@ We are working on a better solution for 0.35.
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@armills]: https://github.com/armills
 [@jawilson]: https://github.com/jawilson
 [@rubund]: https://github.com/rubund
