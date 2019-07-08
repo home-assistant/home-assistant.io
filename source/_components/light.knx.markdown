@@ -25,8 +25,7 @@ The `knx light` component is used as an interface to control knx actuators for l
 - LED controllers
 - DALI gateways
 
-
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX light in your installation, add the following lines to your `configuration.yaml` file:
 
