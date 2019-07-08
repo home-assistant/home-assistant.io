@@ -47,7 +47,7 @@ Device support is provided by the underlying [insteonplm] package. It is known t
 [2245]: https://www.insteon.com/insteon-hub/
 [2242]: https://www.insteon.com/support-knowledgebase/2014/9/26/insteon-hub-owners-manual
 
-### {% linkable_title INSTEON Modem configuration %}
+### INSTEON Modem configuration
 
 To set up an INSTEON Powerline Modem (PLM) device such as the [2413U], use the following configuration:
 
@@ -186,13 +186,13 @@ x10_all_lights_off:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Autodiscovery %}
+### Autodiscovery
 
 The first time autodiscovery runs, the duration may require up to 20 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, you can add the device to the **device_override** configuration.
 
 In order for a device to be discovered, it must be linked to the INSTEON Modem as either a responder or a controller.
 
-### {% linkable_title Linking Devices to the INSTEON Modem %}
+### Linking Devices to the INSTEON Modem
 
 In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. The Insteon Modem module supports All-Linking through [Development Tools] service calls. The following services are available:
 
@@ -210,7 +210,7 @@ If you are looking for more advanced options, you can use the [insteonplm_intera
 [Insteon Terminal]: https://github.com/pfrommerd/insteon-terminal
 [insteonplm_interactive]: https://github.com/nugget/python-insteonplm#command-line-interface
 
-### {% linkable_title Customization %}
+### Customization
 
 The only configuration item that is necessary is the PLM port or Hub IP address, username and password so that Home Assistant can connect to the INSTEON Modem. This will expose all the supported INSTEON devices which exist in the modem’s ALL-Link database. However, devices will only be shown by their INSTEON hex address (e.g., “1A.2B.3C”) which can be a bit unwieldy. As you link and unlink devices using the ‘Set’ buttons, they’ll be added and removed from Home Assistant automatically.
 
@@ -218,7 +218,7 @@ You can use the normal Home Assistant [device customization] section of your con
 
 [device customization]: /getting-started/customizing-devices/
 
-### {% linkable_title Device Overrides %}
+### Device Overrides
 
 INSTEON devices are added to Home Assistant using the platform(s) that make the most sense given the model and features of the hardware. The features of the INSTEON devices are built into the Home Assistant platform. Changing the platform is not recommended.
 
@@ -227,7 +227,7 @@ There are two primary uses for the **device_override** feature:
 - Devices that do not respond during autodiscovery. This is common for battery operated devices.
 - Devices that have not been fully developed. This allows an unknown device to be mapped to a device that operates similarly to another device.
 
-### {% linkable_title Example Configuration with Options %}
+### Example Configuration with Options
 
 ```yaml
 # Full example of Insteon configuration with customizations and overrides
@@ -248,7 +248,7 @@ insteon:
       subcat: 0x11
 ```
 
-### {% linkable_title What NOT to do %}
+### What NOT to do
 
 Insteon Modem is a top-level integration and device discovery will identify the Home Assistant platform the device belongs in. As such, do not declare Insteon devices in other platforms. For example, this configuration will NOT work:
 
@@ -258,7 +258,7 @@ light:
     address: 1a2b3c
 ```
 
-### {% linkable_title INSTEON Scenes %}
+### INSTEON Scenes
 
 Trigger an INSTEON scene on or off is done via automations. Two services are provided to support this feature:
 
@@ -277,7 +277,7 @@ automation:
       group: 25
 ```
 
-### {% linkable_title Events and Mini-Remotes %}
+### Events and Mini-Remotes
 
 Mini-Remote devices do not appear as Home Assistant entities, they generate events. The following events are available:
 
@@ -326,7 +326,7 @@ automation:
         entity_id: light.some_light
 ```
 
-### {% linkable_title Known Issues with the INSTEON Hub %}
+### Known Issues with the INSTEON Hub
 
 The INSTEON Hub has three known issues that are inherent to the design of the Hub:
 
