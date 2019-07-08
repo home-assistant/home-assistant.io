@@ -7,7 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-# logo: raspberry-pi.png
+logo: esterownik.png
 ha_category:
   - Water heater
 ha_release: 0.87
