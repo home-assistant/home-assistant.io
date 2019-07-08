@@ -188,7 +188,7 @@ Remove media data from source list.
 
 ### Service `lock_media`
 
-Lock media data attributes to prevent automatic updates to media data. Media data will no longer be updated automatically.
+Lock media data attributes to prevent automatic updates to media data. Media data will be locked and not be updated automatically.
 
 | Service data attribute | Optional | Example                                 | Description                                                                  |
 | ---------------------- | -------- | --------------------------------------- | ---------------------------------------------------------------------------- |
@@ -196,7 +196,7 @@ Lock media data attributes to prevent automatic updates to media data. Media dat
 
 ### Service `lock_current_media`
 
-Lock the attributes of the media which is currently playing. Media data will no longer be updated automatically.
+Lock the attributes of the media which is currently playing. Media data will be locked and not be updated automatically.
 
 | Service data attribute | Optional | Example                                 | Description                       |
 | ---------------------- | -------- | --------------------------------------- | --------------------------------- |
@@ -220,7 +220,7 @@ Unlock the attributes of the media which is currently playing. Media data will b
 
 ### Service `edit_media`
 
-Edit or correct media data attributes. Media data will be locked.
+Edit or correct media data attributes. Media data will be locked and not be updated automatically.
 
 | Service data attribute | Optional | Example                                 | Description                                                                                                                 |
 | ---------------------- | -------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -230,6 +230,8 @@ Edit or correct media data attributes. Media data will be locked.
 | `media_content_type`   | Yes      | `Game`                                  | The type of media. Must be 'game' or 'app'. Defaults to 'game'.     
 
 ### Service `edit_current_media`
+
+Edit or correct the attributes of the media which is currently playing. Media data will be locked and not be updated automatically.
 
 | Service data attribute | Optional | Example                                 | Description                                                                                                                 |
 | ---------------------- | -------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
