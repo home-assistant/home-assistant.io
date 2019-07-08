@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: centralite.svg
 ha_category:
   - Light
   - Scene

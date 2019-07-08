@@ -7,7 +7,6 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-# logo: raspberry-pi.png
 ha_category:
   - Water heater
 ha_release: 0.87

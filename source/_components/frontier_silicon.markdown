@@ -7,6 +7,7 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: frontier.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push
