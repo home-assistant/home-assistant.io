@@ -22,8 +22,7 @@ The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary
 
 Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Component - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
-
-## {% linkable_title Configuration %}
+## Configuration
 
 The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
