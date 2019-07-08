@@ -32,11 +32,11 @@ To use your KNX sensor in your installation, add the following lines to your `co
 sensor:
   - platform: knx
     name: Heating.Valve1
-    address: '2/0/0'
+    sync_address: '2/0/0'
 ```
 
 {% configuration %}
-address:
+sync_address:
   description: KNX group address of the sensor.
   required: true
   type: string
@@ -44,6 +44,12 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+sync_state:
+  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus.
+  required: false
+  type: boolean
+  default: True
+device_class:
 type:
   description: A type from the following table must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
@@ -109,10 +115,11 @@ type:
 sensor:
   - platform: knx
     name: Heating.Valve1
-    address: '2/0/0'
+    state_address: '2/0/0'
     type: 'percent'
   - platform: knx
     name: Kitchen.Temperature
-    address: '6/2/1'
+    state_address: '6/2/1'
+    sync_state: False
     type: 'temperature'
 ```

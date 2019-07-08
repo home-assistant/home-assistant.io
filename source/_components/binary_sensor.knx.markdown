@@ -31,11 +31,11 @@ The `knx` component must be configured correctly, see [KNX Component](/component
 # Example configuration.yaml entry
 binary_sensor:
   - platform: knx
-    address: '6/0/2'
+    state_address: '6/0/2'
 ```
 
 {% configuration %}
-address:
+state_address:
   description: KNX group address of the binary sensor.
   required: true
   type: string
@@ -43,6 +43,11 @@ name:
   description: A name for this device used within Home Assistant.
   required: false
   type: string
+sync_state:
+  description: Actively read the value from the bus. If `False` no GroupValueRead telegrams will be sent to the bus.
+  required: false
+  type: boolean
+  default: True
 device_class:
   description: HASS device class e.g., "motion".
   required: false
@@ -67,7 +72,7 @@ You can also attach actions to binary sensors (e.g., to switch on a light when a
 binary_sensor:
   - platform: knx
     name: Livingroom.3Switch3
-    address: '5/0/26'
+    state_address: '5/0/26'
     automation:
       - counter: 1
         hook: 'on'
