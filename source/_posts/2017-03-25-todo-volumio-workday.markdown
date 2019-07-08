@@ -341,7 +341,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mqtt]: /docs/mqtt/
 [plex]: /components/media_player.plex/
 [tado]: /components/climate.tado/
-[volumio]: //components/media_player.volumio/
+[volumio]: /components/volumio/
 [workday]: /components/binary_sensor.workday/
 [android]: /components/android_ip_webcam/
 [shadow]: https://www.w3.org/TR/shadow-dom/

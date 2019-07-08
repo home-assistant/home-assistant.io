@@ -35,7 +35,7 @@ Tons of new supported things in 0.20.
 - Notify: [Ecobee thermostats] now supported ([@nkgilley])
 - Sensor: [Mold indicator] added ([@xifle])
 - Export to [Logentries] support added ([@omgapuppy])
-- Group more info dialog allows control of group domain if available ([@fignuts])
+- Group more info dialog allows control of group domain if available (@fignuts)
 
 ### Breaking changes
 
@@ -49,7 +49,6 @@ device_tracker:
 
 [@bah2830]: https://github.com/bah2830
 [@darookee]: https://github.com/darookee
-[@fignuts]: https://github.com/fignuts
 [@froz]: https://github.com/froz
 [@GreenTurtwig]: https://github.com/GreenTurtwig
 [@happyleavesaoc]: https://github.com/happyleavesaoc

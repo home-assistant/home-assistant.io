@@ -101,7 +101,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Remove automatically reloading group config ([@balloob])
 - Default config to setup group editor ([@balloob])
 - minor broadlink fix ([@danielhiversen])
-- Update Yeelight Sunflower light platform to 0.0.6 ([@lindsaymarkwawrd])
+- Update Yeelight Sunflower light platform to 0.0.6 (@lindsaymarkwawrd)
 - Some zwave cleanup ([@andrey-git])
 - sensor.speedtest: provide a default icon ([@molobrakos])
 - Test the temperature returned by RM2 ([@aronsky])
@@ -123,13 +123,13 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Config fix ([@balloob])
 - Bugfix mqtt paho client to speend time ([@pvizeli])
 - Properly report features for each hue bulb type ([@jawilson])
-- Local file camera now supports yet inexisting files. ([@jjmontestl])
+- Local file camera now supports yet inexisting files. ([@jjmontesl])
 - light.transition now supports float instead of int in order to be able to perform faster transitions ([@BillyNate])
 - Fix for OSRAM lights connected to hue bridge ([@groth-its])
 - Add support for MAX!Cube thermostats and window shutter sensors ([@BastianPoe])
 - Analog modem callerid support ([@vroomfonde1])
 - [sensor.dnsip] New Sensor: DNS IP ([@danielperna84])
-- Update library version for Yeelight Sunflower lights platform (fix for packaging problem with 0.0.7) ([@lindsaymarkwawrd])
+- Update library version for Yeelight Sunflower lights platform (fix for packaging problem with 0.0.7) (@lindsaymarkwawrd)
 - Prevent duplicate names on Vera devices by appending the device id ([@arjenfvellinga])
 - Add temperature support for MH-Z19 CO2 sensor. ([@andrey-git])
 - improve history_stats accuracy ([@bokub])
@@ -175,7 +175,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 - Bugfix new async_add_devices function ([@pvizeli])
 - Restore for input_slider ([@pvizeli])
 - Added IPv4 data collector ([@open-homeautomation])
-- Return None instead of raising ValueException from as_timestamp template function. ([@jjmontestl])
+- Return None instead of raising ValueException from as_timestamp template function. ([@jjmontesl])
 - [recorder] Catch more startup errors #6179 ([@kellerza])
 - twilio component ([@happyleavesaoc])
 - Add Z-Wave battery level as a sensor. ([@andrey-git])
@@ -264,7 +264,6 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@danielperna84]: https://github.com/danielperna84
 [@dennisdegreef]: https://github.com/dennisdegreef
 [@dramamoose]: https://github.com/dramamoose
-[@ericgingras]: https://github.com/ericgingras
 [@fabaff]: https://github.com/fabaff
 [@finish06]: https://github.com/finish06
 [@fronzbot]: https://github.com/fronzbot
@@ -273,12 +272,11 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@ishults]: https://github.com/ishults
 [@janLo]: https://github.com/janLo
 [@jawilson]: https://github.com/jawilson
-[@jjmontestl]: https://github.com/jjmontestl
+[@jjmontesl]: https://github.com/jjmontesl
 [@jmvermeulen]: https://github.com/jmvermeulen
 [@joe248]: https://github.com/joe248
 [@deftdawg]: https://github.com/deftdawg
 [@kellerza]: https://github.com/kellerza
-[@lindsaymarkwawrd]: https://github.com/lindsaymarkwawrd
 [@martinfrancois]: https://github.com/martinfrancois
 [@masarliev]: https://github.com/masarliev
 [@mezz64]: https://github.com/mezz64

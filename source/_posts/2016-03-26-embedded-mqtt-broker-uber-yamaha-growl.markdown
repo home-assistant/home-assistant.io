@@ -30,7 +30,7 @@ Rock on.
  - Discovery: fix uPNP discovery crashing some routers ([@jaharkes])
  - Switch: [Wake on LAN] platform added ([@joopert])
  - Services for thermostats, notify and media player will now validate passed in parameters ([@MartinHjelmare])
- - Switch - [Arduino]: support for default state and negate port functionality ([@tilutza])
+ - Switch - [Arduino]: support for default state and negate port functionality (@tilutza)
  - Switch: [PulseAudio loopback] now supported ([@Cinntax])
  - Sensor: Uber now supported ([@robbiet480])
  - Notify: [Growl (GNTP)] now supported ([@robbiet480])
@@ -51,7 +51,6 @@ Rock on.
 [@robbiet480]: https://github.com/robbiet480
 [@srcLurker]: https://github.com/srcLurker
 [@stefan-jonasson]: https://github.com/stefan-jonasson
-[@tilutza]: https://github.com/tilutza
 [embedded server]: /components/mqtt/#use-the-embedded-broker
 [Arduino]: /components/switch.arduino/
 [Discovery]: /components/discovery/

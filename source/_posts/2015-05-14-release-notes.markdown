@@ -69,13 +69,13 @@ sensor:
 ```
 
 __InstaPush__
-<img src='/images/supported_brands/instapush.png' style='border:none; box-shadow: none; float: right;' height='50' /> [Fabaff](https://github.com/fabaff) has contributed support for [InstaPush](https://instapush.im). This will allow you send messages from Home Assistant to your iOS and Android devices.
+[Fabaff](https://github.com/fabaff) has contributed support for InstaPush. This will allow you send messages from Home Assistant to your iOS and Android devices.
 
 ```yaml
 # Example configuration.yaml entry
 notify:
     platform: instapush
-    # Get those by creating a new application, event, and tracker on https://instapush.im
+    # Get those by creating a new application, event and tracker
     api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
     app_secret: ABCDEFGHJKLMNOPQRSTUVXYZ
     event: ABCDEFGHJKLMNOPQRSTUVXYZ

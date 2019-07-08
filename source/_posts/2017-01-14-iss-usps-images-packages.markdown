@@ -166,7 +166,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [beaglebone]: /components/bbb_gpio/
 [bl-switch]: /components/switch.broadlink/
 [bom]: /components/weather.bom/
-[dublin]: /components/sensor.dublin_public_transport/
+[dublin]: /components/dublin_bus_transport/
 [facebook]: /components/notify.facebook/
 [image]: /components/image_processing/
 [influx]: /components/influxdb/

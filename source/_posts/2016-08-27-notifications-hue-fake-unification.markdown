@@ -224,7 +224,6 @@ Talk to you soon on Discord and in your pull request comments!
 [@pvizeli]: https://github.com/pvizeli
 [@robbiet480]: https://github.com/robbiet480
 [@roidayan]: https://github.com/roidayan
-[@roidayan]: ttps://github.com/roidayan
 [@shmuelzon]: https://github.com/shmuelzon
 [@tchellomello]: https://github.com/tchellomello
 [@Teagan42]: https://github.com/Teagan42

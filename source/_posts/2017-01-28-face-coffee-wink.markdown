@@ -142,7 +142,7 @@ Bugfix: [@balloob], [@fabaff], [@freol35241], [@pvizeli], [@Danielhiversen], [@t
 - Sonos: Prevent duplicate entries in favorite list ([@pvizeli])
 - Fix Schlage Connect deadbolt integration via Z-Wave ([@turbokongen])
 - Prevent infinite loop in crossconfigured mqtt event streams ([@aequitas])
-- Fix Hue lightgroups failing on startup ([@tboyce1])
+- Fix Hue lightgroups failing on startup (@tboyce1)
 
 ### Breaking changes
 - A **major** breaking change in the [`emulated_hue`][emul-hue] component means that unless you set `type: alexa` before starting up the newer Home Assistant version you will lose all devices that Alexa has discovered and will need to re-add them as well as create new groups.
@@ -162,7 +162,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 [@DavidLP]: https://github.com/DavidLP
 [@molobrakos]: https://github.com/molobrakos
-[@tboyce1]: https://github.com/tboyce1
 [@MrMep]: https://github.com/MrMep
 [@joopert]: https://github.com/joopert
 [@armills]: https://github.com/armills
@@ -229,7 +228,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@mKeRix]: https://github.com/mKeRix
 [@fakezeta]: https://github.com/fakezeta
 
-[amcrest]: /components/binary_sensor.amcrest/
+[amcrest]: /components/amcrest/#binary_sensors
 [discord]: /components/notify.discord/
 [tado]: /components/device_tracker.tado/
 [sky]: /components/device_tracker.sky_hub/
