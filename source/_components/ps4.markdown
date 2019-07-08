@@ -173,7 +173,7 @@ Manually add media data to source list. Media data will be locked and not be upd
 
 | Service data attribute | Optional | Example                                 | Description                                                                                                                 |
 | ---------------------- | -------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. Must be specified if 'entity_id' is not specified.                     |
+| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title.                                                                        |
 | `media_title`          | No       | `A Title: The Name`                     | The name for the media title.                                                                                               |
 | `media_image_url`      | Yes      | `http://localhost:8123/local/image.jpg` | A remote or local URL directing to an image that will be  displayed. You may use images in the local (/config/www/) folder. |
 | `media_content_type`   | Yes      | `Game`                                  | The type of media. Must be 'game' or 'app'. Defaults to 'game'.                                                             |
@@ -182,17 +182,17 @@ Manually add media data to source list. Media data will be locked and not be upd
 
 Remove media data from source list.
 
-| Service data attribute | Optional | Example                                 | Description                                          |
-| ---------------------- | -------- | --------------------------------------- | ---------------------------------------------------- |
-| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. |
+| Service data attribute | Optional | Example                                 | Description                                                                  |
+| ---------------------- | -------- | --------------------------------------- | ---------------------------------------------------------------------------- |
+| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. Must be in source list. |
 
 ### Service `lock_media`
 
 Lock media data attributes to prevent automatic updates to media data. Media data will no longer be updated automatically.
 
-| Service data attribute | Optional | Example                                 | Description                                          |
-| ---------------------- | -------- | --------------------------------------- | ---------------------------------------------------- |
-| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. |                               |
+| Service data attribute | Optional | Example                                 | Description                                                                  |
+| ---------------------- | -------- | --------------------------------------- | ---------------------------------------------------------------------------- |
+| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. Must be in source list. |
 
 ### Service `lock_current_media`
 
@@ -206,9 +206,9 @@ Lock the attributes of the media which is currently playing. Media data will no 
 
 Unlock the attributes of the media which is currently playing. Media data will be updated automatically.
 
-| Service data attribute | Optional | Example                                 | Description                                          |
-| ---------------------- | -------- | --------------------------------------- | ---------------------------------------------------- |
-| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. | 
+| Service data attribute | Optional | Example                                 | Description                                                                  |
+| ---------------------- | -------- | --------------------------------------- | ---------------------------------------------------------------------------- |
+| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. Must be in source list. | 
 
 ### Service `unlock_current_media`
 
@@ -224,7 +224,7 @@ Edit or correct media data attributes. Media data will be locked.
 
 | Service data attribute | Optional | Example                                 | Description                                                                                                                 |
 | ---------------------- | -------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. Must be specified if 'entity_id' is not specified.                     |
+| `media_content_id`     | No       | `CUSA00123`                             | The ID or the PlayStation Store SKU ID of the title. Must be in source list.                                                |
 | `media_title`          | Yes      | `A Title: The Name`                     | The name for the media title.                                                                                               |
 | `media_image_url`      | Yes      | `http://localhost:8123/local/image.jpg` | A remote or local URL directing to an image that will be  displayed. You may use images in the local (/config/www/) folder. |
 | `media_content_type`   | Yes      | `Game`                                  | The type of media. Must be 'game' or 'app'. Defaults to 'game'.     
@@ -236,7 +236,7 @@ Edit or correct media data attributes. Media data will be locked.
 | `entity_id`            | No       | `media_player.playstation_4`            | The entity that is playing media.                                                                                           |
 | `media_title`          | Yes      | `A Title: The Name`                     | The name for the media title.                                                                                               |
 | `media_image_url`      | Yes      | `http://localhost:8123/local/image.jpg` | A remote or local URL directing to an image that will be  displayed. You may use images in the local (/config/www/) folder. |
-| `media_content_type`   | Yes      | `Game`                                  | The type of media. Must be 'game' or 'app'. Defaults to 'game'.     
+| `media_content_type`   | Yes      | `Game`                                  | The type of media. Must be 'game' or 'app'. Defaults to 'game'.                                                             |
 
 ## Troubleshooting
 
