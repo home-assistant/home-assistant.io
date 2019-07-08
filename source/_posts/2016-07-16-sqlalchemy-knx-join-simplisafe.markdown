@@ -96,4 +96,4 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [Verisure]: /components/lock.verisure/
 [yahoo-weather]: /components/sensor.yweather/
 [Z-Wave]: /components/zwave/
-[RFXtrx]: //components/rfxtrx/
+[RFXtrx]: /components/rfxtrx/

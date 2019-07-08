@@ -285,7 +285,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /componet/telegram_webhooks/
+[telegram]: /components/webhooks/
 [pushsafer]: /components/notify.pushsafer/
 [openhome]: /components/media_player.openhome/
 [ups]: /components/sensor.ups/

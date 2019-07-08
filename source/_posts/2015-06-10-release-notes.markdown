@@ -12,7 +12,7 @@ categories: Release-Notes
 
 Wow, almost a month has gone by since the last release and this release is *packed*. The biggest part of this release is probably one that you won't notice: the frontend has been upgraded from Polymer 0.5 to the brand new released Polymer 1.0. Polymer has been declared stable by the Google overlords which will allow us to expand functionality that was waiting for this moment to arrive.
 
-This release sets a record for the amount of people involved: 8! [Andythigpen](https://github.com/Andythigpen), [Jamespcole](https://github.com/Jamespcole), [Azelphur](https://github.com/Azelphur), [Fabaff](https://github.com/Fabaff), [Dutchy-](https://github.com/Dutchy-), [Fbradyirl](https://github.com/Fbradyirl), [wind-rider](https://github.com/wind-rider) and [ettisan](https://github.com/ettisan), thanks a lot for your contributions!
+This release sets a record for the amount of people involved: 8! [Andythigpen](https://github.com/Andythigpen), [Jamespcole](https://github.com/Jamespcole), [Azelphur](https://github.com/Azelphur), [Fabaff](https://github.com/Fabaff), [Dutchy-](https://github.com/Dutchy-), [Fbradyirl](https://github.com/Fbradyirl), wind-rider and [ettisan](https://github.com/ettisan), thanks a lot for your contributions!
 
 A big improvement has been brought this release by wind-rider. He took the time to revive the Chromecast support and started improving the media player integration. This triggered other people to join in resulting in a revamped media player experience and support for the Music Player Daemon.
 

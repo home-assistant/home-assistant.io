@@ -91,7 +91,7 @@ device_tracker:
 ```
 
 __DHT temperature and humidity sensors__
-[@MakeMeASandwich](https://github.com/makemeasandwich) has contributed support for DHT temperature and humidity sensors. It allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
+@MakeMeASandwich has contributed support for DHT temperature and humidity sensors. It allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
 
 ```yaml
 # Example configuration.yaml entry

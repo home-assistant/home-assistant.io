@@ -86,8 +86,8 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Notify - SMTP: Add error checking to the MIMEImage encoding ([@stratosmacker])
 - Light - MQTT: Check for command topics when determining the capabilities of an MQTT light ([@herm])
 - Core: Check config before restarting ([@andrey-git])
-- Light - [Hue][hue]: Fix groups with same names ([@tboyce1])
-- Template: Add icon_template to template sensor ([@tboyce1])
+- Light - [Hue][hue]: Fix groups with same names (@tboyce1)
+- Template: Add icon_template to template sensor (@tboyce1)
 - Recorder: Refactoring, scoping, and better handling of SQLAlchemy Sessions ([@kellerza])
 - Light - Flux: Add support for fluxled discovery. ([@aequitas])
 - Media player - AppleTV: Add discovery support to Apple TV ([@postlund])
@@ -188,7 +188,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@sbidoul]: https://github.com/sbidoul
 [@sdague]: https://github.com/sdague
 [@stratosmacker]: https://github.com/stratosmacker
-[@tboyce1]: https://github.com/tboyce1
 [@tchellomello]: https://github.com/tchellomello
 [@Teagan42]: https://github.com/Teagan42
 [@turbokongen]: https://github.com/turbokongen

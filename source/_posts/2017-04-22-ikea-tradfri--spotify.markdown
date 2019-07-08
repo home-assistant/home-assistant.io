@@ -91,7 +91,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Release 0.43.1 - April 25
 
-- Zwave cover workaround for graber shades. ([@turbokongen] - [#7204]) ([cover.zwave docs]) ([zwave.workaround docs])
+- Zwave cover workaround for graber shades. ([@turbokongen] - [#7204]) ([cover.zwave docs]) (zwave.workaround docs)
 - Upgrade paho-mqtt to 1.2.3 ([@fabaff] - [#7214])
 - Workround for wemo subscription bug. ([@pavoni] - [#7245]) ([wemo docs]) ([switch.wemo docs])
 - Fix telegram webhooks ([@MartinHjelmare] - [#7236]) ([telegram_bot docs]) ([telegram_bot.webhooks docs])
@@ -502,7 +502,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [telegram_bot docs]: /components/telegram_bot/
 [telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
 [wemo docs]: /components/wemo/
-[zwave.workaround docs]: /components/zwave.workaround/
 [#7271]: https://github.com/home-assistant/home-assistant/pull/7271
 [#7282]: https://github.com/home-assistant/home-assistant/pull/7282
 [#7290]: https://github.com/home-assistant/home-assistant/pull/7290
