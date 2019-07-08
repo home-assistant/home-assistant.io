@@ -40,10 +40,11 @@ E.g. In Ubuntu 19.04
   sudo ufw allow 9761/udp
 ```
 
+
 {% configuration %}
   scan_interval:
     description: The update interval in seconds
     required: false
     type: integer
-    default: 60
+    default: 30
 {% endconfiguration %}
