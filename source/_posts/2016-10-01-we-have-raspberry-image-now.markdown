@@ -20,7 +20,7 @@ To get started, check out the installation instructions in [the getting started 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iIz6XqDwHEk" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title Under the hood %}
+### Under the hood
 
 It's based on Raspbian Lite and generated with a fork of the same [script](https://github.com/home-assistant/pi-gen) that builds the [official Raspbian images](https://raspberrypi.org/downloads/raspbian/). For installation of HASS it follows the same install instructions as the [Manual installation](/getting-started/installation-raspberry-pi/). Please note that this project has no association with the Raspberry Pi foundation or their projects.
 

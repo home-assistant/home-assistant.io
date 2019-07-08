@@ -19,8 +19,7 @@ ha_release: 0.63
 
 The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
 
-
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX scence in your installation, add the following to your `configuration.yaml` file:
 

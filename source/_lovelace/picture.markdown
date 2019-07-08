@@ -78,7 +78,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Navigate to another view:
 

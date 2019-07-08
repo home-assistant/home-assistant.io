@@ -18,7 +18,7 @@ redirect_from:
 
 The `command_line` binary sensor platform issues specific commands to get data.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -31,6 +31,7 @@ binary_sensor:
 <p class='note'>
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
 </p>
+
 {% configuration %}
 command:
   description: The action to take to get the value.
@@ -42,7 +43,7 @@ name:
   type: string
   default: "*name* from the device"
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 payload_on:
@@ -71,11 +72,11 @@ command_timeout:
   default: 15
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title SickRage %}
+### SickRage
 
 Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instance.
 
@@ -90,7 +91,7 @@ binary_sensor:
     payload_off: "Not running"
 ```
 
-### {% linkable_title Check RasPlex %}
+### Check RasPlex
 
 Check if [RasPlex](http://www.rasplex.com/) is `online`.
 
@@ -118,7 +119,7 @@ binary_sensor:
 
 Consider to use the [`ping` sensor ](/components/binary_sensor.ping/) as an alternative to the samples above.
 
-### {% linkable_title Check if a system service is running %}
+### Check if a system service is running
 
 The services running is listed in `/etc/systemd/system` and can be checked with the `systemctl` command:
 

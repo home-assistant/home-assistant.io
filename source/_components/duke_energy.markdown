@@ -18,13 +18,13 @@ redirect_from:
 
 The `duke_energy` sensor platform allows you get the previous days usage for all of your Duke Energy smart meters.
 
-## {% linkable_title Setup %}
+## Setup
 
 You will only have access to meters listed in your account at [Duke Energy Usage](https://www.duke-energy.com/my-account/usage-analysis).
 
 This supports both electric and gas meters. Along with previous days usage, each sensor will have attributes for the previous bills total usage and average usage.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml`:
 

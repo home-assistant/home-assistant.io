@@ -25,14 +25,14 @@ The equipment depends on the [type](https://www.arduino.cc/en/Main/Products) of 
 
 There are a lot of extensions (so-called [shields](https://www.arduino.cc/en/Main/ArduinoShields)) available. Those shields can be plugged-in into the existing connectors and stacked on top of each other. This makes it possible to expand the capabilities of the Arduino boards.
 
-The `arduino` component is designed to let you use a directly attached board to your Home Assistant host over USB.
+The `arduino` integration is designed to let you use a directly attached board to your Home Assistant host over USB.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You need to have the [Firmata firmware](https://github.com/firmata/) on your board. Please upload the `StandardFirmata` sketch to your board; please refer to the [Arduino documentation](https://www.arduino.cc/en/Main/Howto) for further information.
 
@@ -69,7 +69,7 @@ Add the user who is used to run Home Assistant to the groups to allow access to 
 $ sudo usermod -a -G dialout,lock $USER
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `arduino` sensor platform allows you to get numerical values from an analog input pin of an [Arduino](https://www.arduino.cc/) board. Usually the value is between 0 and 1024.
 
@@ -104,7 +104,7 @@ pins:
 
 The 6 analog pins of an Arduino UNO are numbered from A0 to A5.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `arduino` switch platform allows you to control the digital pins of your [Arduino](https://www.arduino.cc/) board. Support for switching pins is limited to high/on and low/off of the digital pins. PWM (pin 3, 5, 6, 9, 10, and 11 on an Arduino Uno) is not supported yet.
 

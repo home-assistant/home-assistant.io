@@ -20,7 +20,7 @@ ha_iot_class: "Local Push"
 
 The `knx` notify platform allows you to send notifications to [KNX](http://www.knx.org) devices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX switch in your installation, add the following lines to your `configuration.yaml` file:
 

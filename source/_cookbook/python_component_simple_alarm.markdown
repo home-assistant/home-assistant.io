@@ -10,9 +10,9 @@ footer: true
 ha_category: Automation in Python Examples
 ---
 
-This example component will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify component](/components/notify/). It will also flash a specific light when a known person comes home.
+This example integration will detect intruders. It does so by checking if lights are being turned on while there is no one at home. When this happens it will turn the lights red, flash them for 30 seconds and send a message via [the notify integration](/components/notify/). It will also flash a specific light when a known person comes home.
 
-This component depends on the components [device_tracker](/components/device_tracker/) and [light](/components/light/) being setup.
+This integration depends on the integrations [device_tracker](/components/device_tracker/) and [light](/components/light/) being setup.
 
 To set it up, add the following lines to your `configuration.yaml` file:
 

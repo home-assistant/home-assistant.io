@@ -20,8 +20,11 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
         {% endif %}
 
-          {{ content | nofollow }}
-
+          {% if page.is_homepage %}
+            {{ content }}
+          {% else %}
+            {{ content | output_modder }}
+          {% endif %}
         </div>
 
         {% unless page.sidebar == false %}

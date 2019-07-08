@@ -13,7 +13,7 @@ ha_category:
 ha_release: 0.29
 ---
 
-The `ffmpeg` component allows other Home Assistant components to process video and audio streams. This component supports all FFmpeg versions since 3.0.0; if you have an older version, please update.
+The `ffmpeg` integration allows other Home Assistant integrations to process video and audio streams. This integration supports all FFmpeg versions since 3.0.0; if you have an older version, please update.
 
 <p class='note'>
 You need the `ffmpeg` binary in your system path. On Hassbian you will need to login as the `pi` user and `sudo apt install ffmpeg`. On Debian 8 or Raspbian (Jessie) you can install it from [debian-backports](https://backports.debian.org/Instructions/). If you want [hardware acceleration](https://trac.ffmpeg.org/wiki/HWAccelIntro) support on a Raspberry Pi, you will need to build from source by yourself. Windows binaries are available on the [FFmpeg](http://www.ffmpeg.org/) website.
@@ -23,7 +23,7 @@ You need the `ffmpeg` binary in your system path. On Hassbian you will need to l
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -39,7 +39,7 @@ ffmpeg_bin:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Raspbian Debian Jessie Lite Installations %}
+### Raspbian Debian Jessie Lite Installations
 To get the binary on Raspbian Debian Jessie Lite on a RPi you need to perform the following:
 
 ```bash
@@ -55,7 +55,7 @@ ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
 ```
 
-### {% linkable_title Troubleshooting %}
+### Troubleshooting
 
 In most cases, `ffmpeg` automatically detects all needed options to read a video or audio stream or file. But it is possible in rare cases that you will need to set options to help `ffmpeg` out.
 
@@ -70,7 +70,7 @@ Now you should be able to see what is going wrong. The following list contains s
 - `[rtsp @ ...] UDP timeout, retrying with TCP`: You need to set an RTSP transport in the configuration with: `input: -rtsp_transport tcp -i INPUT`
 - `[rtsp @ ...] Could not find codec parameters for stream 0 (Video: ..., none): unspecified size`: FFmpeg needs more data or time for autodetection (the default is 5 seconds). You can set the `analyzeduration` and/or `probesize` options to experiment with giving FFmpeg more leeway. If you find the needed value, you can set it with: `input: -analyzeduration xy -probesize xy -i INPUT`. More information about this can be found [here](https://www.ffmpeg.org/ffmpeg-formats.html#Description).
 
-#### {% linkable_title USB cameras %}
+#### USB cameras
 
 For `INPUT` a valid source is needed. A USB camera is an easy way to test your video setup. To get all available USB cameras connected to the system, e.g., use the v4l2 tools on a Linux machine.
 

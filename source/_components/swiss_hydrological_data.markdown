@@ -18,11 +18,11 @@ redirect_from:
 
 The `swiss_hydrological_data` sensor will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.
 
-## {% linkable_title Setup %}
+## Setup
 
 The [station overview](https://www.hydrodaten.admin.ch/en/stations-and-data.html) contains a list of all available measuring points and will help to determine the ID of station which is needed for the configuration.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

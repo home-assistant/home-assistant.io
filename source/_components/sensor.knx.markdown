@@ -23,7 +23,7 @@ The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensor
 Sensors are read-only. To write to the knx-bus configure an exposure [KNX Component - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX sensor in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -107,7 +107,7 @@ type:
 | 16.000  | string             | 14           |                |
 | 17.001  | scene_number       | 1            |                |
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 # Example configuration.yaml entry

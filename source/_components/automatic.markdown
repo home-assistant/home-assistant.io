@@ -19,13 +19,13 @@ redirect_from:
 
 The `automatic` device tracker platform offers presence detection by retrieving your car's information from the [Automatic](http://automatic.com/) cloud service.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use Automatic with Home Assistant, first you must [create a free development account](https://developer.automatic.com/). Automatic will generate a Client ID and Secret for you to use in your Home Assistant configuration. You will need to update your Event Delivery preferences to ensure Home Assistant can receive updates. On the developer page, under App Settings / Event Delivery, select "Websocket" for Event Delivery Preference. Next, specify the OAuth Redirect URL in the developer page. This should be configured to `<home-assistant-url>/api/automatic/callback`. (Example: `http://hassio.local:8123/api/automatic/callback`) Note that this URL only needs to be accessible from the browser you use to perform the authentication.
 
 Home Assistant can also take advantage of `scope:current_location` if available. This will allow Home Assistant to receive periodic location updates during a trip. In order to use this functionality, you must request the scope for your application from Automatic. Once `scope:current_location` is available, change `current_location` to `true` in your configuration.yaml.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Once your developer account is created, add the following to your `configuration.yaml` file:
 
@@ -80,4 +80,4 @@ automation:
   You can obtain the correct ID for your vehicle from your known_devices.yaml file. Be sure to lower-case any letters contained in your vehicle's ID when using it in an automation trigger.
 </p>
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the cars to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the cars to be tracked.

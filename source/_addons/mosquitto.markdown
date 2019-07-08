@@ -47,15 +47,15 @@ customize:
   type: [boolean, string]
 {% endconfiguration %}
 
-### {% linkable_title Home Assistant user management %}
+### Home Assistant user management
 
 This add-on is attached to the Home Assistant user system, so mqtt clients can make use of these credentials. Local users may also still be set independently within the configuration options for the add-on.  For the internal Hass.io ecosystem we register `homeassistant` and `addons`, so these may not be used as user names.
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the integration page and install the configuration with one click. If you have old MQTT settings available, remove this old integration and restart Home Assistant to see the new one.
 
-#### {% linkable_title Using Mosquitto with Hass.io %}
+#### Using Mosquitto with Hass.io
 
 1. Install the [Mosquitto add-on](/addons/mosquitto/) with the default configuration via 'Hass.io > ADD-ON STORE'. (Don't forget to start the add-on & verify that 'Start on boot' is enabled.)
 
@@ -73,11 +73,11 @@ To use the Mosquitto as [broker](/docs/mqtt/broker/#run-your-own), go to the int
 Note: .yaml modifications are not required. 
 See [testing your setup](/docs/mqtt/testing/) to verify the steps above.
 
-### {% linkable_title Disable listening on insecure (1883) ports %}
+### Disable listening on insecure (1883) ports
 
 Remove the ports from the add-on page network card (set them as blank) to disable them.
 
-### {% linkable_title Access Control Lists (ACLs) %}
+### Access Control Lists (ACLs)
 
 It is possible to restrict access to topics based upon the user logged in to Mosquitto. In this scenario it is recommended to create individual users for each of your clients and create an appropriate ACL.
 

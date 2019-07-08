@@ -18,13 +18,13 @@ redirect_from:
   - /components/sensor.speedtestdotnet/
 ---
 
-The `speedtestdotnet` component uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
+The `speedtestdotnet` integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
-Enabling this component will automatically create the Speedtest.net Sensors for the monitored conditions (below).
+Enabling this integration will automatically create the Speedtest.net Sensors for the monitored conditions (below).
 
 By default, a speed test will be run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a speed test to run.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 For the `server_id` check the list of [available servers](https://www.speedtest.net/speedtest-servers.php).
 
@@ -66,7 +66,7 @@ manual:
   default: false
 {% endconfiguration %}
 
-### {% linkable_title Time period dictionary example %}
+### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -78,25 +78,25 @@ scan_interval:
   milliseconds: 0
 ```
 
-### {% linkable_title Service %}
+### Service
 
-Once loaded, the `speedtestdotnet` component will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
+Once loaded, the `speedtestdotnet` integration will expose a service (`speedtestdotnet.speedtest`) that can be called to run a Speedtest.net speed test on demand. This service takes no parameters. This can be useful if you have enabled manual mode.
 
 ```yaml
 action:
   service: speedtestdotnet.speedtest
 ```
 
-This component uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
-Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this component may display.
+This integration uses [speedtest-cli](https://github.com/sivel/speedtest-cli) to gather network performance data from Speedtest.net.
+Please be aware of the potential [inconsistencies](https://github.com/sivel/speedtest-cli#inconsistency) that this integration may display.
 
 When Home Assistant first starts up, the values of the speed test will show as `Unknown`. You can use the service `speedtestdotnet.speedtest` to run a manual speed test and populate the data or just wait for the next regularly scheduled test. You can turn on manual mode to disable the scheduled speed tests.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this component.
 
-### {% linkable_title Run periodically %}
+### Run periodically
 
 Every half hour of every day:
 
@@ -111,7 +111,7 @@ speedtestdotnet:
     - upload
 ```
 
-### {% linkable_title Using as a trigger in an automation %}
+### Using as a trigger in an automation
 
 {% raw %}
 ```yaml
@@ -133,10 +133,10 @@ automation:
 ```
 {% endraw %}
 
-## {% linkable_title Notes %}
+## Notes
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter. The Raspberry Pi 3+ models comes with a Gigabit LAN adapter which supports a [maximum throughput](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) of 300 Mbit/s.
-- Running this component can have negative effects on the system's performance as it requires a fair amount of memory.
+- Running this integration can have negative effects on the system's performance as it requires a fair amount of memory.
 - Entries under `monitored_conditions` only control what entities are available in Home Assistant, it does not disable the condition from running.
-- If ran frequently, this component has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
+- If ran frequently, this integration has the ability to use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
 - While running, your network capacity is fully utilized. This may have a negative effect on other devices in use the network such as gaming consoles or streaming boxes.

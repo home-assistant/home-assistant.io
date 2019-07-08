@@ -74,7 +74,7 @@ severity:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title and Unit of Measurement Example:
 

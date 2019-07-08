@@ -18,7 +18,7 @@ redirect_from:
 
 This platform offers presence detection by looking at connected devices to a [EE Bright Box 2](https://ee.co.uk/help/phones-and-device/home-broadband/bright-box-2-wireless-router/bright-box-2-wireless-router) router.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a EE Bright Box router in your installation, add the following to your `configuration.yaml` file:
 
@@ -51,4 +51,4 @@ version:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

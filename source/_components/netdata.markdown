@@ -18,7 +18,7 @@ redirect_from:
 
 The `netdata` sensor platform allows you to display information collected by [Netdata](http://my-netdata.io/).
 
-## {% linkable_title Setup %}
+## Setup
 
 Getting the details to configure the sensors is a bit tricky as Netdata uses different name for the `element:` value that is required. To get the value for the `data_group:` use Netdata's web interface. `1.` marks the name for the `data_group:`. `2.` are the names for the element to show in Home Assistant. The name that is shown can be different than the name under which the metrics are available.
 
@@ -43,21 +43,45 @@ $ curl -X GET "http://[Netdata_Instance]:19999/api/v1/data?chart=[data_group]&po
 - `dimension_names`: Names shown in the frontend.
 - `dimension_ids`: Names to use for `element`.
 
-## {% linkable_title Configuration %}
+Alternatively you can browse to the built in Netdata API in your browser `http://[Netdata_Instance]:19999/api/v1/allmetrics?format=json` and search for the `data_group` identified in the Netdata frontend. In the example JSON below the data group is "system.load".
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+```json
+	"system.load": {
+		"name":"system.load",
+		"context":"system.load",
+		"units":"load",
+		"last_updated": 1558446920,
+		"dimensions": {
+			"load1": {
+				"name": "load1",
+				"value": 0.1250000
+			},
+			"load5": {
+				"name": "load5",
+				"value": 0.1290000
+			},
+			"load15": {
+				"name": "load15",
+				"value": 0.1430000
+			}
+		}
+	},
+```
+
+Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your configuration.yaml like the example below. 
+
+## Configuration
+
+Add the following to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: netdata
-    resources:
+    resources:    
       load:
         data_group: system.load
         element: load15
-      cpu:
-        data_group: system.cpu
-        element: system
 ```
 
 {% configuration %}
@@ -105,3 +129,22 @@ resources:
           type: boolean
           default: false
 {% endconfiguration %}
+
+### Full Example
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: netdata
+    host: '192.168.1.2'
+    port: '19999'
+    name: SomeHostName
+    resources: 
+      system_load:
+        data_group: system.load 
+        element: load15
+      core0_freq:
+        data_group: 'cpu.cpufreq'
+        element: 'cpu0'
+        icon: mdi:chip
+```

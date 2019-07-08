@@ -19,7 +19,7 @@ The `qrcode` image processing platform enables QR code recognition from cameras.
 
 To get this running, please install `zbar-tools` (Ubuntu 18.04)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml` file:
 

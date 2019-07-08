@@ -21,7 +21,7 @@ redirect_from:
   - /components/device_tracker.tplink/
 ---
 
-The `tplink` component allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.
+The `tplink` integration allows you to control your [TP-Link Smart Home Devices](https://www.tp-link.com/kasa-smart/) such as smart plugs and smart bulbs.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -32,25 +32,25 @@ There is currently support for the following device types within Home Assistant:
 In order to activate the support, you will have to enable the integration inside the config panel.
 The supported devices in your network are automatically discovered, but if you want to control devices residing in other networks you will need to configure them manually as shown below.
 
-## {% linkable_title Supported Devices %}
+## Supported Devices
 
-This component supports devices that are controllable with the [KASA app](https://www.tp-link.com/us/kasa-smart/kasa.html).
+This integration supports devices that are controllable with the [KASA app](https://www.tp-link.com/us/kasa-smart/kasa.html).
 The following devices are known to work with this component.
 
-### {% linkable_title Plugs %}
+### Plugs
 
 - HS100
 - HS103
 - HS105
 - HS110
 
-### {% linkable_title Wall Switches %}
+### Wall Switches
 
 - HS200
 - HS210
 - HS220 (acts as a light)
 
-### {% linkable_title Bulbs %}
+### Bulbs
 
 - LB100
 - LB110
@@ -61,7 +61,7 @@ The following devices are known to work with this component.
 - KL120
 - KL130
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml
@@ -84,7 +84,16 @@ light:
       required: true
       type: string
 switch:
-  description: List of switch devices.
+  description: List of on/off switch devices.
+  required: false
+  type: list
+  keys:
+    host:
+      description: Hostname or IP address of the device.
+      required: true
+      type: string
+dimmer:
+  description: List of dimmable switch devices.
   required: false
   type: list
   keys:
@@ -94,7 +103,7 @@ switch:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Manual configuration example %}
+## Manual configuration example
 
 ```yaml
 # Example configuration.yaml entry with manually specified addresses
@@ -106,9 +115,12 @@ tplink:
   switch:
     - host: 192.168.200.3
     - host: 192.168.200.4
+  dimmer:
+    - host: 192.168.200.5
+    - host: 192.168.200.6
 ```
 
-## {% linkable_title Extracting Energy Sensor data %}
+## Extracting Energy Sensor data
 
 In order to get the power consumption readings from supported devices, you'll have to create a [template sensor](/components/switch.template/).
 In the example below, change all of the `my_tp_switch`'s to match your device's entity ID.
@@ -141,7 +153,7 @@ sensor:
 ```
 {% endraw %}
 
-## {% linkable_title Presence detection %}
+## Presence detection
 
 The `tplink` platform allows you to detect presence by looking at connected devices to a [TP-Link](https://www.tp-link.com) router.
 
@@ -153,10 +165,10 @@ Currently supported devices includes the following:
 - Archer D9 firmware version 0.9.1 0.1 v0041.0 Build 160224 Rel.59129n
 
 <p class='note'>
-TP-Link devices typically only allow one login at a time to the admin console.  This component will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant. Home Assistant takes a few seconds to login, collect data, and log out. If you log into the admin console manually, remember to log out so that Home Assistant can log in again.
+TP-Link devices typically only allow one login at a time to the admin console.  This integration will count towards your one allowed login. Depending on how aggressively you configure device_tracker you may not be able to access the admin console of your TP-Link device without first stopping Home Assistant. Home Assistant takes a few seconds to login, collect data, and log out. If you log into the admin console manually, remember to log out so that Home Assistant can log in again.
 </p>
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable this device tracker, add the following lines to your `configuration.yaml`:
 
@@ -193,6 +205,6 @@ For Archer C9 models running firmware version 150811 or later please use the enc
 5. Type `document.getElementById("login-password").value;` or `document.getElementById("pcPassword").value;`, depending on your firmware version.
 6. Copy the returned value to your Home Assistant configuration as password.
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 For Archer D9 model the default ip is 192.168.1.1, the username is not necessary and you can leave that field blank.

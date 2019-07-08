@@ -37,6 +37,11 @@ to:
   description: The name of the end/destination station.
   required: true
   type: string
+offset:
+  description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
+  required: false
+  type: time
+  default: 00:00
 only_direct:
   description: Only show direct connections.
   required: false
@@ -52,7 +57,7 @@ sensor:
   platform: template
   sensors:
     next_departure:
-      value_template: '{% raw %}{{ states.sensor.munich_to_ulm.attributes.next }}{% endraw %}'
+      value_template: '{% raw %}{{ state_attr('sensor.munich_to_ulm', 'next') }}{% endraw %}'
       friendly_name: 'Next departure'
 ```
 

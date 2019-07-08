@@ -17,7 +17,7 @@ redirect_from:
  - /components/pollen/
 ---
 
-The `iqvia` sensor platform collects and displays allergy, asthma, and disease
+The `iqvia` sensor platform collects and displays allergy, asthma and disease
 information (based on a U.S. ZIP code) from [IQVIA](https://www.iqvia.com/).
 Data measured includes:
 
@@ -26,7 +26,7 @@ Data measured includes:
 * Current outlook
 * more!
 
-## {% linkable_title Configuring the Platform %}
+## Configuring the Platform
 
 To integrate `iqvia` into Home Assistant, add the following section to your
 `configuration.yaml` file (adjusting the `monitored_conditions` list to your
@@ -39,25 +39,39 @@ iqvia:
     - allergy_average_forecasted
     - allergy_index_today
     - allergy_index_tomorrow
-    - allergy_index_yesterday
     - asthma_average_forecasted
     - asthma_index_today
     - asthma_index_tomorrow
-    - asthma_index_yesterday
     - disease_average_forecasted
     - disease_index_today
-    - disease_index_yesterday
 ```
 
 {% configuration %}
-  zip_code:
-    description: the U.S. ZIP code to gather data for (as a quoted string)
-    required: true
-    type: string
-  monitored_conditions:
-    description: the metric types to monitor; valid values are specified below
-    required: true
-    type: list
+zip_code:
+  description: The U.S. ZIP code to gather data for (as a quoted string).
+  required: true
+  type: string
+monitored_conditions:
+  description: The metric types to monitor.
+  required: true
+  type: list
+  keys:
+    allergy_average_forecasted:
+      description: "The average forecasted allergy index over the next 5 days."
+    allergy_index_today:
+      description: "The allergy index for today."
+    allergy_index_tomorrow:
+      description: "The allergy index for tomorrow."
+    asthma_average_forecasted:
+      description: "The average forecasted asthma index over the next 5 days."
+    asthma_index_today:
+      description: "The asthma index for today."
+    asthma_index_tomorrow:
+      description: "The asthma index for tomorrow."
+    disease_average_forecasted:
+      description: "The average forecasted cold/flu index over the next 5 days."
+    disease_index_today:
+      description: "The cold/flu index for today."
 {% endconfiguration %}
 
 <p class='note warning'>
@@ -65,23 +79,7 @@ It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
 ZIP codes that start with 0 will cause errors.
 </p>
 
-## {% linkable_title Available Metrics %}
-
-The following metrics can be monitored:
-
-* Allergy Index: Forecasted Average (`allergy_average_forecasted`): the average forecasted allergy index over the next 5 days
-* Allergy Index: Today (`allergy_index_today`): the allergy index for today
-* Allergy Index: Tomorrow (`allergy_index_tomorrow`): the allergy index for tomorrow
-* Allergy Index: Yesterday (`allergy_index_yesterday`): the allergy index for yesterday
-* Asthma Index: Forecasted Average (`asthma_average_forecasted`): the average forecasted asthma index over the next 5 days
-* Asthma Index: Today (`asthma_index_today`): the asthma index for today
-* Asthma Index: Tomorrow (`asthma_index_tomorrow`): the asthma index for tomorrow
-* Asthma Index: Yesterday (`asthma_index_yesterday`): the asthma index for yesterday
-* Cold & Flu: Forecasted Average (`disease_average_forecasted`): the average forecasted cold/flu index over the next 5 days
-* Cold & Flu Index: Today (`disease_index_today`): the cold/flu index for today
-* Cold & Flu Index: Yesterday (`disease_index_yesterday`): the cold/flu index for yesterday
-
-## {% linkable_title Understanding the Indices %}
+## Understanding the Indices
 
 Any index-related sensor will have a value between 0.0 and 12.0. The values
 map to the following human-friendly ratings:
@@ -94,7 +92,7 @@ Range      | Rating
 7.3 - 9.6  | Medium/High
 9.7 - 12.0 | High
 
-## {% linkable_title Understanding Asthma Allergens %}
+## Understanding Asthma Allergens
 
 Several asthma-related sensors carry information regarding the top three
 "asthma allergens" (i.e., irritants that may exacerbate asthma symptoms).

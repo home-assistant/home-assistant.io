@@ -20,7 +20,7 @@ ha_iot_class: "Local Push"
 
 The `knx` switch component is used as an interface to switching actuators.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX switch in your installation, add the following to your `configuration.yaml` file:
 

@@ -20,7 +20,7 @@ redirect_from:
   - /components/sensor.daikin/
 ---
 
-The `daikin` component integrates Daikin air conditioning systems into Home Assistant.
+The `daikin` integration integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,17 +28,17 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Supported hardware %}
+## Supported hardware
 
 - The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application.
 - The Australian version of the Daikin Wifi Controller Unit BRP072A42. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical) which is powered by the [DAIKIN Mobile Controller](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android version](https://play.google.com/store/apps/details?id=eu.daikin.remoapp)) application.
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is powered by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-The Daikin component can be configured in three ways. 
+The Daikin integration can be configured in three ways. 
 
-- Automatically via the [discovery]({{site_root}}/components/discovery/) component.
+- Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.
 - Or via the `configuration.yaml` file by adding the following:
 
@@ -57,7 +57,7 @@ hosts:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Climate %}
+## Climate
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
@@ -74,7 +74,7 @@ Current inside temperature is displayed.
 Some models do not support setting of **fan speed** or **swing mode**.
 </p>
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `daikin` sensor platform integrates Daikin air conditioning systems into Home Assistant, enabling displaying the following parameters:
 
@@ -85,7 +85,7 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 Some models only report outside temperature when they are turned on.
 </p>
 
-## {% linkable_title Switch %}
+## Switch
 
 Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.
 

@@ -7,7 +7,8 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-redirect_from: /components/air_pollutants/
+redirect_from:
+  - /components/air_pollutants/
 ha_release: 0.85
 ---
 

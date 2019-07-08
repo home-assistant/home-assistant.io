@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#setup---media-player)
 - [Sensor](#sensor)
 
-## {% linkable_title Setup - Media Player %}
+## Setup - Media Player
 
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
 
@@ -85,46 +85,23 @@ verify:
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Customization %}
+### Customization
 
-You can customize the Plex component by adding any of the variables below to your configuration:
+You can customize the Plex integration by adding any of the variables below to your configuration:
 
 ```yaml
 # Example configuration.yaml entry
 media_player:
   - platform: plex
-    entity_namespace: 'plex'
-    include_non_clients: true
-    scan_interval: 5
     show_all_controls: false
-    use_custom_entity_ids: true
     use_episode_art: true
     remove_unavailable_clients: true
     client_remove_interval: 600
 ```
 
 {% configuration %}
-entity_namespace:
-  description: "Prefix for entity ID's. Useful when using overlapping components (ex. Apple TV and Plex components when you have Apple TV's you use as Plex clients). Go from _media_player.playroom2_ to _media_player.plex_playroom_"
-  required: false
-  type: string
-include_non_clients:
-  description: "Display non-recontrollable clients (ex. remote clients, PlexConnect Apple TV's)."
-  required: false
-  default: false
-  type: boolean
-scan_interval:
-  description: "Amount in seconds in between polling for device’s current activity."
-  required: false
-  default: 10
-  type: int
 show_all_controls:
   description: "Forces all controls to display. Ignores dynamic controls (ex. show volume controls for client A but not for client B) based on detected client capabilities. This option allows you to override this detection if you suspect it to be incorrect."
-  required: false
-  default: false
-  type: boolean
-use_custom_entity_ids:
-  description: "Name Entity ID's by client ID's instead of friendly names. HA assigns entity ID's on a first come first serve basis.  When you have identically named devices connecting (ex. media_player.plex_web_safari, media_player.plex_web_safari2), you can't reliably distinguish and or predict which device is which.  This option avoids this issue by using unique client ID's (ex. media_player.dy4hdna2drhn)."
   required: false
   default: false
   type: boolean
@@ -145,7 +122,7 @@ client_remove_interval:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Service `play_media` %}
+### Service `play_media`
 
 Plays a song, playlist, TV episode, or video on a connected client.
 
@@ -194,7 +171,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Plex Web                         | None                                                                                                                                                            |
 | Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
-### {% linkable_title Notes %}
+### Notes
 
 * At this moment, the Plex platform only supports one Plex Media Server.
 * It is possible to get errors that look like the following.
@@ -207,7 +184,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
   If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
 

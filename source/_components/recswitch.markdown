@@ -24,7 +24,7 @@ Supported devices (tested):
 - Lumitek CSW201 NEO WiFi
 - MALMBERGS CSW201
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this switch, add the following lines to your `configuration.yaml`:
 

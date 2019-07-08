@@ -24,7 +24,7 @@ This platform calculates prayer times using the following calculation methods:
 - Muslim World League
 - Umm Al-Qura University in Makkah
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 

@@ -18,7 +18,7 @@ redirect_from:
 
 The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Jabber notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -79,7 +79,7 @@ All Jabber IDs (JID) must include the domain. Make sure that the password matche
 
 You can send text messages and images as well as other files through Jabber.
 
-### {% linkable_title Jabber Text Message %}
+### Jabber Text Message
 
 Here are some examples on how to set up a script, that can be run from an automation.
 
@@ -97,7 +97,7 @@ Number 1 shows a classical, text-only message. The Title is optional, although i
         message: "My funny or witty message"
 ```
 
-### {% linkable_title Jabber Image Message %}
+### Jabber Image Message
 
 You can send images or files from locally stored files or remote web locations via Jabber's HTTP Upload feature.
 To send files and images, your jabber server must support [XEP_0363](https://xmpp.org/extensions/xep-0363.html).
@@ -139,7 +139,7 @@ Number 3 sends an image from a local path.
           path: "/home/homeassistant/super_view.jpg"
 ```
 
-### {% linkable_title Jabber File Message %}
+### Jabber File Message
 
 
 Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files. Optionally you can add a timeout for the HTTP upload in seconds.
@@ -159,7 +159,7 @@ Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.t
           timeout: 10
 ```
 
-### {% linkable_title Templating %}
+### Templating
 
 Number 5 sends an image retrieved from a URL, and an additional text message with `title` and `message`.
 

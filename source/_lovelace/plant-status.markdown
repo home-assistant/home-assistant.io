@@ -33,7 +33,7 @@ name:
   default: Entity Name
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: plant-status

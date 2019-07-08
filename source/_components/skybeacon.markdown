@@ -17,7 +17,7 @@ redirect_from:
 
 The `skybeacon` sensor platform supports [CR2477](http://cnsky9.en.alibaba.com)-powered [iBeacon](https://en.wikipedia.org/wiki/IBeacon)/eddystone sensors that come with temperature/sensor module.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Skybeacon sensor in your installation, add the following to your `configuration.yaml` file:
 

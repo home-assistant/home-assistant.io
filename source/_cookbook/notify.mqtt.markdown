@@ -33,9 +33,9 @@ The same will work for automations.
 </p>
 
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title REST API %}
+### REST API
 
 Using the [REST API](https://developers.home-assistant.io/docs/en/external_api_rest.html) to send a message to a given topic.
 
@@ -47,7 +47,7 @@ $ curl -X POST \
     http://IP_ADDRESS:8123/api/services/mqtt/publish
 ```
 
-### {% linkable_title Automations %}
+### Automations
 
 Use as [`script`](/components/script/) in automations.
 

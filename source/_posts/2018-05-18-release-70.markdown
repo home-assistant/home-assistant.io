@@ -20,7 +20,7 @@ One cool new component in this release is [Konnected][konnected docs] ([product 
 
 Another cool one this release is [Facebox][image_processing.facebox docs]. It will allow you to do local face detection on your camera feeds. Can't wait to hear the cool things people will do with this.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Converted SABnzbd to a component ([@jeradM] - [#12915]) ([sabnzbd docs]) ([sensor.sabnzbd docs]) (breaking change) (new-platform)
 - Add more homematicip cloud components ([@mxworm] - [#14084]) ([homematicip_cloud docs]) ([binary_sensor.homematicip_cloud docs]) ([light.homematicip_cloud docs]) ([switch.homematicip_cloud docs]) (new-platform)
@@ -30,12 +30,12 @@ Another cool one this release is [Facebox][image_processing.facebox docs]. It wi
 - Add Konnected component with support for discovery, binary sensor and switch ([@heythisisnate] - [#13670]) ([konnected docs]) ([binary_sensor.konnected docs]) ([switch.konnected docs]) (new-platform)
 - New Sensor FinTS ([@ChristianKuehnel] - [#14334]) ([sensor.fints docs]) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Allow HomeKit name to be customized ([@schmittx] - [#14159]) ([homekit docs]) (new-feature)
 - Add HomeKit support for fans ([@schmittx] - [#14351]) ([homekit docs]) (new-feature)
 
-## {% linkable_title Release 0.70.1 - May 31 %}
+## Release 0.70.1 - May 31
 
 - Update Hue platform to aiohue 1.5.0, and re-implement logic for duplicate scene names. ([@MizterB] - [#14653]) ([hue docs])
 - Ignore unsupported Sonos favorite lists ([@amelchio] - [#14665]) ([media_player.sonos docs])
@@ -44,16 +44,16 @@ Another cool one this release is [Facebox][image_processing.facebox docs]. It wi
 - Frontend: bug fixes for date time more info, cover icons, slider overflow issue (@c727, @cdce8p, @balloob)
 - Add Simplepush back (#14728)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Converted SABnzbd to a component. Set it up using the new config:
   ```yaml
@@ -65,7 +65,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Removed simplepush.io becayse website is offline and apps are no longer available. ([@c727] - [#14358]) ([notify docs]) (breaking change)
 - DarkSky sensor: Added temperature (apparent) high/low, deprecated max/min ([@nordlead2005] - [#12233]) ([sensor.darksky docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Wait for future mysensors gateway ready ([@MartinHjelmare] - [#14398]) ([mysensors docs]) (beta fix)
 - Homekit style cleanup ([@cdce8p] - [#14556]) ([homekit docs]) (beta fix)
@@ -77,7 +77,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - No longer use backports for ffmpeg ([@balloob] - [#14626]) (beta fix)
 - Allow Hass.io panel dir ([@balloob] - [#14655]) ([hassio docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add unique_id to MQTT switch ([@thepotoo] - [#13719]) ([switch.mqtt docs])
 - zha: Bump to zigpy 0.1.0 ([@rcloran] - [#14305]) ([zha docs])

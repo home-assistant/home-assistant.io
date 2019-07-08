@@ -49,7 +49,7 @@ locale:
   type: string
 {% endconfiguration %}
 
-#### {% linkable_title Extended example %}
+#### Extended example
 
 ```yaml
 # Example configuration.yaml entry

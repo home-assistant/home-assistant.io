@@ -38,9 +38,9 @@ title:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Elements %}
+## Elements
 
-### {% linkable_title State Badge %}
+### State Badge
 
 {% configuration %}
 type:
@@ -62,7 +62,7 @@ title:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Icon representing an entity state %}
+### Icon representing an entity state
 
 {% configuration %}
 type:
@@ -138,7 +138,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Label with state text %}
+### Label with state text
 
 {% configuration %}
 type:
@@ -218,7 +218,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Service Call Button %}
+### Service Call Button
 
 {% configuration %}
 type:
@@ -244,7 +244,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Icon Element %}
+### Icon Element
 
 {% configuration %}
 type:
@@ -320,7 +320,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Image Element %}
+### Image Element
 
 {% configuration %}
 type:
@@ -422,7 +422,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Conditional Element %}
+### Conditional Element
 
 Much like the Conditional card, this element will let you show its sub-elements based on entity states.
 
@@ -454,7 +454,7 @@ elements:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Custom Elements %}
+### Custom Elements
 
 {% configuration %}
 type:
@@ -472,7 +472,7 @@ The process for creating and referencing custom elements is the same as for cust
 Please see the [developer docs on creating custom cards](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
 for more information.
 
-## {% linkable_title How to use the style object %}
+## How to use the style object
 
 Position and style your elements using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). More/other keys are also possible.
 
@@ -485,7 +485,7 @@ style:
   "--paper-item-icon-color": pink
 ```
 
-## {% linkable_title How to use state_image %}
+## How to use state_image
 
 Specify a different image to display based on the state of the entity.
 
@@ -495,7 +495,7 @@ state_image:
   "off": /local/living_room_off.jpg
 ```
 
-## {% linkable_title How to use state_filter %}
+## How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
@@ -505,7 +505,7 @@ state_filter:
   "off": brightness(50%) hue-rotate(45deg)
 ```
 
-## {% linkable_title How to use click-and-hold %}
+## How to use click-and-hold
 
 If the option `hold_action` is specified, that action will be performed when the entity is clicked and held for half a second or more.
 
@@ -520,7 +520,7 @@ hold_action:
     brightness_pct: 100
 ```
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: picture-elements
@@ -563,7 +563,7 @@ elements:
       left: 10%
 ```
 
-## {% linkable_title Images Example %}
+## Images Example
 
 ```yaml
 type: picture-elements
@@ -612,7 +612,7 @@ elements:
       width: 5%
 ```
 
-## {% linkable_title Conditional Example %}
+## Conditional Example
 
 ```yaml
 type: picture-elements

@@ -18,7 +18,7 @@ This is useful if you want to have:
  * several subdomain for several instance
  * HTTPS redirection
 
-#### {% linkable_title Subdomain %}
+#### Subdomain
 
 So you already have a working Apache server available at example.org. Your Home Assistant is correctly working on this web server and available at http://localhost:8123
 
@@ -28,7 +28,7 @@ Enable [`mod_proxy_wstunnel`](https://httpd.apache.org/docs/2.4/mod/mod_proxy_ws
 $ sudo a2enmod proxy_wstunnel
 ```
 
-To be able to access to your Home Assistant instance by using https://home.example.org, add to following file to `/etc/httpd/conf/extra/` as `hass.conf`
+To be able to access to your Home Assistant instance by using https://home.example.org, add the following file to `/etc/httpd/conf/extra/` as `hass.conf`
 
 ```text
 <VirtualHost *:443>
@@ -72,7 +72,7 @@ In case you are getting occasional HTTP 504 error messages ("Gateway Timeout") o
 </VirtualHost>
 ```
 
-#### {% linkable_title Multiple Instance %}
+#### Multiple Instance
 
 You already have Home Assistant running on http://localhost:8123 and available at home.example.org as describe before. The configuration file for this Home Assistant is available in `/home/alice/.homeassistant/configuration.yaml`
 
@@ -106,7 +106,7 @@ To access this instance by using https://countryside.example.org add to `/etc/ht
 </VirtualHost>
 ```
 
-#### {% linkable_title HTTP to HTTPS redirection %}
+#### HTTP to HTTPS redirection
 
 Add to your `/etc/httpd/conf/extra/hass.conf`
 

@@ -25,9 +25,9 @@ redirect_from:
   - /components/weather.ecobee/
 ---
 
-The `ecobee` component lets you control a thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats.
+The `ecobee` integration lets you control a thermostats and view sensor data from [ecobee](https://ecobee.com) thermostats.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this component. To get the key, first you need to register your thermostat which should be done as part of the ecobee installation. Once you have done that perform the following steps.
 
@@ -48,7 +48,7 @@ Now login to the regular consumer portal, and in the hamburger menu there will b
 
 Now under the Name and Summary Section you will have an API key. Copy this key and use it in you configuration section below. Click the **X** to close the Developer section.
 
-To add the Ecobee component to Home Assistant, add the following information to your [`configuration.yaml`](/docs/configuration/) file:
+To add the Ecobee integration to Home Assistant, add the following information to your [`configuration.yaml`](/docs/configuration/) file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,11 +58,11 @@ ecobee:
 
 [Restart Home Assistant](https://www.home-assistant.io/docs/configuration/#reloading-changes) for the changes to take effect.
 
-The first time you (re)run Home Assistant with this component it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
+The first time you (re)run Home Assistant with this integration it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
 
 The PIN can be found from the Home Assistant portal on the Ecobee card or from the **configurator.ecobee** entity in states in the portal.
 
-- If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this you can temporarily comment out the `default_view` section or add the `configurator.ecobee` component to your `default_view` and restart Home Assistant.
+- If you do not have an ecobee card, you may be using groups with `default_view` that don't show the card. To get around this you can temporarily comment out the `default_view` section or add the `configurator.ecobee` integration to your `default_view` and restart Home Assistant.
 
 Once you enter the PIN on the ecobee site, wait approximately 5 minutes and then click on the **I have authorized the app** link at the bottom of the ecobee pop-up window. If everything worked correctly, you should now be able to restart Home Assistant again to see the full ecobee card with all of the sensors populated or see the list of sensors in the developer tools. Now you can re-enable your `default_view` (if you had to disable it) and add the ecobee sensors to a group and/or view.
 
@@ -85,9 +85,9 @@ hold_temp:
 
 If for whatever reason you delete and re-create your ecobee app at ecobee.com such that your developer API key changes, you will need to delete your `/conf/ecobee.conf file`. You will also need to update the `api_key:` in the `configuration.yaml` or `secrets.yaml` file.
 
-## {% linkable_title Notifications %}
+## Notifications
 
-To get your Ecobee notifications working with Home Assistant, you must first have the main Ecobee component loaded and running. Once you have that configured, you can setup this component to send messages to your Ecobee device.
+To get your Ecobee notifications working with Home Assistant, you must first have the main Ecobee integration loaded and running. Once you have that configured, you can setup this integration to send messages to your Ecobee device.
 
 To use this notification platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -108,9 +108,9 @@ name:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## {% linkable_title Thermostat %}
+## Thermostat
 
-### {% linkable_title Concepts %}
+### Concepts
 
 The Ecobee Thermostat supports the following key concepts.
 
@@ -146,7 +146,7 @@ The _operation mode_ of the device is the currently active operational
 modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool,
 auto, and off.
 
-## {% linkable_title Attributes %}
+## Attributes
 
 The following attributes are provided by the Ecobee Thermostat:
 `name`, `temperature_unit`, `current_temperature`, `target_temperature`,
@@ -156,7 +156,7 @@ The following attributes are provided by the Ecobee Thermostat:
 `is_away_mode_on`, `vacation`, `climate_list`, `aux_heat`.
 The attributes `min_temp` and `max_temp` are meaningless constant values.
 
-### {% linkable_title Attribute `name` %}
+### Attribute `name`
 
 Returns the name of the Ecobee Thermostat.
 
@@ -164,7 +164,7 @@ Returns the name of the Ecobee Thermostat.
 | ---------------| ----------- |
 | String | Name of the Ecobee Thermostat
 
-### {% linkable_title Attribute `temperature_unit` %}
+### Attribute `temperature_unit`
 
 Returns the unit of measurement used for temperature by the thermostat.
 
@@ -172,7 +172,7 @@ Returns the unit of measurement used for temperature by the thermostat.
 | ---------------| ----------- |
 | String | Name of the temperature unit
 
-### {% linkable_title Attribute `current_temperature` %}
+### Attribute `current_temperature`
 
 Returns the current temperature measured by the thermostat.
 
@@ -180,7 +180,7 @@ Returns the current temperature measured by the thermostat.
 | ---------------| ----------- |
 | Integer | Currently measured temperature
 
-### {% linkable_title Attribute `target_temperature` %}
+### Attribute `target_temperature`
 
 Returns the target temperature of the thermostat, when the thermostat is
 not in auto operation mode.
@@ -189,7 +189,7 @@ not in auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### {% linkable_title Attribute `target_temperature_low` %}
+### Attribute `target_temperature_low`
 
 Returns the desired heating temperature set in the thermostat when in
 auto operation mode.
@@ -198,7 +198,7 @@ auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### {% linkable_title Attribute `target_temperature_high` %}
+### Attribute `target_temperature_high`
 
 Returns the desired cooling temperature set in the thermostat when in
 auto operation mode.
@@ -207,7 +207,7 @@ auto operation mode.
 | ---------------| ----------- |
 | Integer | Target temperature
 
-### {% linkable_title Attribute `desired_fan_mode` %}
+### Attribute `desired_fan_mode`
 
 Returns the desired fan mode of the current operation.
 
@@ -215,7 +215,7 @@ Returns the desired fan mode of the current operation.
 | ---------------| ----------- |
 | String | 'on', 'off'
 
-### {% linkable_title Attribute `fan` %}
+### Attribute `fan`
 
 Returns the current fan state.
 
@@ -223,7 +223,7 @@ Returns the current fan state.
 | ---------------| ----------- |
 | String | 'on', 'off'
 
-### {% linkable_title Attribute `current_hold_mode` %}
+### Attribute `current_hold_mode`
 
 Returns the current temperature hold, if any.
 
@@ -231,7 +231,7 @@ Returns the current temperature hold, if any.
 | ---------------| ----------- |
 | String | 'temp', 'vacation', 'home', 'away', etc., None
 
-### {% linkable_title Attribute `operation` %}
+### Attribute `operation`
 
 Returns the current operation of the thermostat.
 
@@ -239,7 +239,7 @@ Returns the current operation of the thermostat.
 | ---------------| ----------- |
 | String | 'auto', 'cool', 'heat', 'off'
 
-### {% linkable_title Attribute `operation_list` %}
+### Attribute `operation_list`
 
 Returns the list of available operation modes.
 
@@ -247,7 +247,7 @@ Returns the list of available operation modes.
 | ---------------| ----------- |
 | List of String | Available operation modes
 
-### {% linkable_title Attribute `operation_mode` %}
+### Attribute `operation_mode`
 
 Returns the current operation mode of the thermostat.
 
@@ -255,7 +255,7 @@ Returns the current operation mode of the thermostat.
 | ---------------| ----------- |
 | String | Currently active operation mode
 
-### {% linkable_title Attribute `equipment_running` %}
+### Attribute `equipment_running`
 
 Returns the list of equipment that is currently operating from the thermostat.
 
@@ -263,12 +263,12 @@ Returns the list of equipment that is currently operating from the thermostat.
 | ---------------| ----------- |
 | String | If no equipment is currently running empty string is returned. Possible values are a comma separated list of any of the following: heatPump, heatPump2, heatPump3, compCool1, compCool2, auxHeat1, auxHeat2, auxHeat3, fan, humidifier, dehumidifier, ventilator, economizer, compHotWater, auxHotWater.
 
-### {% linkable_title Attribute `mode` %}
+### Attribute `mode`
 
 Returns the climate currently active on the thermostat. The mode
 is returned as the user-visible name (rather than the internally used name).
 
-### {% linkable_title Attribute `fan_min_on_time` %}
+### Attribute `fan_min_on_time`
 
 Returns the current fan minimum on time.
 
@@ -276,12 +276,12 @@ Returns the current fan minimum on time.
 | ---------------| ----------- |
 | Integer | Current fan minimum on time in minutes
 
-### {% linkable_title Attribute `is_away_mode_on` %}
+### Attribute `is_away_mode_on`
 
 Returns whether the thermostat is in away mode (see the corresponding
 service for more detail).
 
-### {% linkable_title Attribute `actual humidity` %}
+### Attribute `actual humidity`
 
 Returns the humidity as measured by the thermostat.
 
@@ -289,7 +289,7 @@ Returns the humidity as measured by the thermostat.
 | ---------------| ----------- |
 | Integer | Current humidity
 
-### {% linkable_title Attribute `vacation` %}
+### Attribute `vacation`
 
 Returns the currently active vacation or `None`.
 
@@ -297,11 +297,11 @@ Returns the currently active vacation or `None`.
 | ---------------| ----------- |
 | String | Name of currently active vacation |
 
-### {% linkable_title Attribute `climate_list` %}
+### Attribute `climate_list`
 
 Returns the list of climates defined in the thermostat.
 
-### {% linkable_title Attribute `aux_heat` %}
+### Attribute `aux_heat`
 
 Returns the current auxiliary heat state.
 
@@ -309,7 +309,7 @@ Returns the current auxiliary heat state.
 | ---------------| ----------- |
 | String | 'on', 'off'
 
-## {% linkable_title Services %}
+## Services
 
 The following services are provided by the Ecobee Thermostat:
 `set_away_mode`, `set_hold_mode`, `set_temperature`, `set_operation_mode`,
@@ -318,24 +318,24 @@ The services `set_aux_heat`, `set_humidity`, `set_fan_mode`, and
 `set_swing_mode` offered by the [Climate component](/components/climate/)
 are not implemented for this thermostat.
 
-### {% linkable_title Service `set_away_mode` %}
+### Service `set_away_mode`
 
-Turns the away mode on or off for the thermostat.
+Turns Away Mode on or off, ignoring the next scheduled activity. This setting will override the thermostat Hold Duration setting, even if you set the hold duration to "Until the next scheduled activity" within thermostat preferences.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `away_mode` | no | 'on' or 'off'
 
-### {% linkable_title Service `set_hold_mode` %}
+### Service `set_hold_mode`
 
 Puts the thermostat into the given hold mode. For 'home', 'away', 'sleep',
-and any other hold based on a reference climate, the
-target temperature is taken from the reference climate.
+and any other hold based on a comfort setting, the
+target temperature is set to whatever is programmed in the comfort setting.
 For 'temp', the current temperature is taken as the target temperature.
 When None is provided as parameter, the hold_mode is turned off.
-It is not possible to set a vacation hold; such hold has to be
-defined on the thermostat directly. However, a vacation hold can be
+If the thermostat Hold Duration is set to "Until the next scheduled activity" within thermostat preferences, then the next scheduled activity will change this hold mode.
+Note that it is not possible to set a vacation hold; this must be defined on the thermostat directly. However, a vacation hold can be
 canceled.
 
 | Service data attribute | Optional | Description |
@@ -345,7 +345,7 @@ canceled.
 
 NOTE: If you create custom hold modes (also known as "Comfort Settings") on your ecobee.com dashboard, their hold_modes are `smart1`, `smart2`, `smart3`, etc. The number for each custom mode should match the mode's icon on your ecobee.com dashboard. Also note that the mode numbers/icons in the ecobee mobile app *may not match* the numbers/icons from the ecobee.com web dashboard. The ones on the website are the ones you shoud use to determine the correct `smartX` hold_mode IDs.
 
-### {% linkable_title Service `set_temperature` %}
+### Service `set_temperature`
 
 Puts the thermostat into a temporary hold at the given temperature.
 
@@ -359,7 +359,7 @@ Puts the thermostat into a temporary hold at the given temperature.
 Only the target temperatures relevant for the current operation mode need to
 be provided.
 
-### {% linkable_title Service `set_operation_mode` %}
+### Service `set_operation_mode`
 
 Sets the current operation mode of the thermostat.
 
@@ -368,7 +368,7 @@ Sets the current operation mode of the thermostat.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `operation_mode` | no | 'auto', 'auxHeatOnly', 'cool', 'heat', 'off'
 
-### {% linkable_title Service `fan_min_on_time` %}
+### Service `fan_min_on_time`
 
 Sets the fan minimum on time.
 
@@ -377,7 +377,7 @@ Sets the fan minimum on time.
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `fan_min_on_time` | no | Desired fan minimum on time
 
-### {% linkable_title Service `resume_program` %}
+### Service `resume_program`
 
 Resumes the currently active schedule.
 

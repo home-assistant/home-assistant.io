@@ -14,7 +14,7 @@ ha_iot_class: Cloud Polling
 ha_release: 0.88
 ---
 
-The `norway_air` component [queries](https://luftkvalitet.miljostatus.no/) the Norway air quality [data feed](https://api.met.no/weatherapi/airqualityforecast/0.1/documentation) provided by the Norwegian Meteorological Institute.
+The `norway_air` integration [queries](https://luftkvalitet.miljostatus.no/) the Norway air quality [data feed](https://api.met.no/weatherapi/airqualityforecast/0.1/documentation) provided by the Norwegian Meteorological Institute.
 
 To add air quality sensor to your installation, add the following to your `configuration.yaml` file:
 

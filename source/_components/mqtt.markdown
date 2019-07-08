@@ -31,6 +31,10 @@ mqtt:
 
 You can also use the [embedded MQTT broker](/docs/mqtt/broker#embedded-broker). A separate broker is advised for more stability.
 
+<p class='note warning'>
+As of release 0.92, the embedded broker has been marked as deprecated. This means bugs may not be fixed, and the broker functionality will be removed in a future release.
+</p>
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -39,7 +43,7 @@ mqtt:
 
 This allows you to connect to the MQTT broker with user `homeassistant` and password `hello`.
 
-## {% linkable_title Additional features %}
+## Additional features
 
 - [Certificate](/docs/mqtt/certificate/)
 - [Discovery](/docs/mqtt/discovery/)

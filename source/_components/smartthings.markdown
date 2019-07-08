@@ -43,7 +43,7 @@ redirect_from:
   - /components/switch.smartthings/
 ---
 
-Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings component is the main component to integrate all SmartThings related platforms. The basic features of this integration include:
+Samsung SmartThings is integrated into Home Assistant through the SmartThings Cloud API. The SmartThings integration is the main integration to integrate all SmartThings related platforms. The basic features of this integration include:
 
 1. Controlling SmartThings devices with pushed state updates from SmartThings.
 2. Entities automatically added, removed, or updated when changed in SmartThings (upon Home Assistant restart).
@@ -56,26 +56,26 @@ See it in action, with a step-by-step setup guide, thanks to a fan! (v0.87 featu
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QZHlhQ7fqrA" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title Basic requirements %}
+## Basic requirements
 
 The SmartThings integration utilizes a webhook to receive push updates from the SmartThings cloud through either a cloudhook or an internet accessible webhook based on whether Home Assistant Cloud is configured and logged in with a non-expired subscription (this is not configurable at this time).
 
-### {% linkable_title Cloudhook via Nabu Casa %}
+### Cloudhook via Nabu Casa
 
-If you are using Home Assistant Cloud (Nabu Casa) the integration will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the component prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
+If you are using Home Assistant Cloud (Nabu Casa) the integration will create a cloudhook automatically. This greatly simplifies the basic requirements and does not require Home Assistant to be exposed to the internet. **If you have previously setup the integration prior to meeting the requirements for a cloudhook or prior to v0.90.0, you must remove all prior integrations and run through the configuration again.**
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant Cloud is configured and logged-in with a non-expired subscription.
 
-### {% linkable_title Webhook %}
+### Webhook
 
 1. A [personal access token](https://account.smartthings.com/tokens) tied to a Samsung or SmartThings account (see below for instructions).
 2. Home Assistant setup for [remote access](/docs/configuration/remote/) via a domain name secured with SSL. *Self-signed SSL certificates are not supported by the SmartThings Cloud API.*
 3. [`base_url` of the http component](/components/http#base_url) set the URL that Home Assistant is available on the internet.
 
-## {% linkable_title Setup instructions %}
+## Setup instructions
 
-### {% linkable_title Create personal access token %}
+### Create personal access token
 
 1. Log into the [personal access tokens page](https://account.smartthings.com/tokens) and click '[Generate new token](https://account.smartthings.com/tokens/new)'
 2. Enter a token name (can be whatever you want), for example, 'Home Assistant' and select the following authorized scopes:
@@ -87,10 +87,10 @@ If you are using Home Assistant Cloud (Nabu Casa) the integration will create a 
     - Scenes (all)
 3. Click 'Generate token'. When the token is displayed, copy and save it somewhere safe (such as your keystore) as you will not be able to retrieve it again.
 
-### {% linkable_title Configure Home Assistant %}
+### Configure Home Assistant
 
 <p class='note info'>
-The SmartThings component is configured exclusively through the front-end. Manual setup through `configuration.yaml` is not available at this time.
+The SmartThings integration is configured exclusively through the front-end. Manual setup through `configuration.yaml` is not available at this time.
 </p>
 
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'SmartThings' and click 'Configure'.
@@ -108,13 +108,13 @@ Advanced: If you have multiple locations in SmartThings, each can be integrated 
 
 See the [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
 
-## {% linkable_title Events %}
+## Events
 
-The SmartThings component triggers events for select device capabilities.
+The SmartThings integration triggers events for select device capabilities.
 
-### {% linkable_title smartthings.button %}
+### smartthings.button
 
-The component will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is actuated and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
+The integration will trigger an event when a device with the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability is actuated and can be used to trigger automations within Home Assistant. Below is an example of the data payload:
 
 ```json
 {
@@ -128,7 +128,7 @@ The component will trigger an event when a device with the [button](https://smar
 
 | Attribute                 | Description
 |---------------------------|------------------------------------------------------------------|
-`component_id`              | Describes which component of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.
+`component_id`              | Describes which integration of the device triggered the event. `main` represents the parent device. For devices with child-devices, this attribute identifies the child that raised the event.
 `device_id`                 | The unique id of the device in SmartThings. This can be located in the HASS device registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `location_id`               | The unique id of the location the device is part of. This can be found in the config entry registry or in the [SmartThings Groovy IDE](https://developers.smartthings.com/).
 `value`                     | Describes the action taken on the button. See the [button](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Button) capability reference for a list of possible values (not all are supported by every device).
@@ -136,9 +136,9 @@ The component will trigger an event when a device with the [button](https://smar
 
 Event data payloads are logged at the debug level, see [debugging](#debugging) for more information.
 
-## {% linkable_title Platforms %}
+## Platforms
 
-SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings component maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
+SmartThings represents devices as a set of [capabilities](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html) and the SmartThings integration maps those to entity platforms in Home Assistant. A single device may be represented by one or more platforms.
 
 - [Binary Sensor](#binary-sensor)
 - [Climate](#climate)
@@ -152,7 +152,7 @@ SmartThings represents devices as a set of [capabilities](https://smartthings.de
 
 Support for additional platforms will be added in the future.
 
-### {% linkable_title Binary Sensor %}
+### Binary Sensor
 
 The SmartThings Binary Sensor platform lets you view devices that have binary sensor-related capabilities. A Binary Sensor entity will be created for each attribute (below) supported by the device.
 
@@ -167,11 +167,11 @@ The SmartThings Binary Sensor platform lets you view devices that have binary se
 | [`valve`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Valve)                            | `valve`        | `open`
 | [`waterSensor`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Water-Sensor)               | `water`        | `wet`
 
-### {% linkable_title Climate %}
+### Climate
 
 The SmartThings Climate platform lets you control devices that have air conditioner or thermostat related capabilities.
 
-#### {% linkable_title Air Conditioners %}
+#### Air Conditioners
 
 For a SmartThings Air Conditioner to be represented by the climate platform, it must have all of the following required capabilities:
 
@@ -185,7 +185,7 @@ For a SmartThings Air Conditioner to be represented by the climate platform, it 
 | [`demandResponseLoadControl`](https://docs.smartthings.com/en/latest/capabilities-reference.html#demand-response-load-control) | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)
 | [`powerConsumptionReport`](https://docs.smartthings.com/en/latest/capabilities-reference.html#power-consumption-report) | `power_consumption_end` (state attribute), `power_consumption_energy` (state attribute), `power_consumption_power` (state attribute), `power_consumption_start` (state attribute)
 
-#### {% linkable_title Thermostats %}
+#### Thermostats
 
 For a SmartThings thermostat to be represented by the climate platform, it must have all the capabilities from either "set a" _or_ "set b":
 
@@ -200,7 +200,7 @@ For a SmartThings thermostat to be represented by the climate platform, it must 
 | [`thermostatFanMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Fan-Mode)                 | `fan mode`
 | [`relativeHumidityMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Relative-Humidity-Measurement)       | `humidity` (state attribute)
 
-### {% linkable_title Cover %}
+### Cover
 
 The SmartThings Cover platform lets you control devices that have open/close related capabilities. For a device to be represented by the cover platform, it must have one of the capabilities from "set a" below.
 
@@ -212,7 +212,7 @@ The SmartThings Cover platform lets you control devices that have open/close rel
 | [`switchLevel`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch-Level)    |  `position`
 | [`battery`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Battery)          | `battery_level` (state attribute)
 
-### {% linkable_title Fan %}
+### Fan
 
 The SmartThings Fan platform lets you control devices that have fan-related capabilities. For a SmartThings device to be represented by the fan platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
@@ -220,7 +220,7 @@ The SmartThings Fan platform lets you control devices that have fan-related capa
 |-------------------|------------------------------------------------------------|
 | [`fanSpeed`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Fan-Speed)            | `speed` (`off`, `low`, `medium`, and `high`)
 
-### {% linkable_title Light %}
+### Light
 
 The SmartThings Light platform lets you control devices that have light-related capabilities. For a SmartThings device to be represented by the light platform, it must have one or more of the capabilities below in addition to the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability.
 
@@ -230,11 +230,11 @@ The SmartThings Light platform lets you control devices that have light-related 
 | [`colorControl`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Control)            | `color`
 | [`colorTemperature`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Color-Temperature)            | `color_temp`
 
-### {% linkable_title Lock %}
+### Lock
 
 The SmartThings Lock platform lets you control devices that have the [`lock`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Lock) capability, showing current lock status and supporting lock and unlock commands.
 
-### {% linkable_title Sensor %}
+### Sensor
 
 The SmartThings Sensor platform lets your view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
 
@@ -293,11 +293,11 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`washerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Mode)                                 | `washerMode`
 | [`washerOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Washer-Operating-State)            | `machineState`, `washerJobState` and `completionTime`
 
-### {% linkable_title Scene %}
+### Scene
 
 The SmartThings Scene platform lets you activate scenes defined in SmartThings with a scene entity representing each SmartThings scenes within the location.
 
-### {% linkable_title Switch %}
+### Switch
 
 The SmartThings Switch platform lets you control devices that have the [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) capability that are not already represented by a more specific platform. The following optional capabilities will provide energy and power utilization information:
 
@@ -306,16 +306,16 @@ The SmartThings Switch platform lets you control devices that have the [`switch`
 | [`energyMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Energy-Meter) | energy consumption (`today_energy_kwh` state attribute)
 | [`powerMeter`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Power-Meter) | power consumption (`current_power_w` state attribute)
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title Setup %}
+### Setup
 
 Perform the following steps if you receive one of the following error messages while attempting to setup the integration (this does not apply when integrated through Home Assistant Cloud):
 
-- "SmartThings could not validate the endpoint configured in base_url. Please review the component requirements."
+- "SmartThings could not validate the endpoint configured in base_url. Please review the integration requirements."
 - "Unable to setup the SmartApp. Please try again."
 
-#### {% linkable_title Checklist %}
+#### Checklist
 
 1. Ensure `base_url` is properly set to the _external address_ that Home Assistant is available to the internet. SmartThings must be able to reach this address.
 1. Validate there are no problems with your certificate or SSL configuration by using an online checker, such as [https://www.digicert.com/help/](https://www.digicert.com/help/).
@@ -344,11 +344,11 @@ Perform the following steps if you receive one of the following error messages w
     {"pingData": {"challenge": "00000000-0000-0000-0000-000000000000"}}
     ```
 
-If you have completed the checklist above and are still unable to setup the platform, [activate debug logging](#debugging) for the SmartThings component and include the log messages up until the point of failure in [a new issue](https://github.com/home-assistant/home-assistant/issues).
+If you have completed the checklist above and are still unable to setup the platform, [activate debug logging](#debugging) for the SmartThings integration and include the log messages up until the point of failure in [a new issue](https://github.com/home-assistant/home-assistant/issues).
 
-### {% linkable_title Debugging %}
+### Debugging
 
-The SmartThings component will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml`:
+The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the the relevent line below to the `configuration.yaml`:
 
 ```yaml
 logger:

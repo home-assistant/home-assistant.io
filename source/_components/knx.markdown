@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Notify](/components/notify.knx)
 - [Scene](/components/scene.knx)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -116,13 +116,13 @@ fire_event_filter:
   required: inclusive
   type: [list, string]
 state_updater:
-  description: The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
+  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
   required: false
   default: true
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
 In order to directly interact with the KNX bus, you can use the following service:
 
@@ -141,9 +141,9 @@ payload:
   type: [integer, list]
 {% endconfiguration %}
 
-### {% linkable_title Exposing sensor values or time to knx bus %}
+### Exposing sensor values or time to knx bus
 
-KNX component is able to expose time or sensor values to KNX bus. The component will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
+KNX integration is able to expose time or sensor values to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 
 ```yaml
 # Example configuration.yaml entry

@@ -33,9 +33,9 @@ There is currently support for the following device types within Home Assistant:
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </p>
 
-## {% linkable_title Presence Detection %}
+## Presence Detection
 
-The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker component page](/components/device_tracker/) than desirable. It is recommended to use [Ping](/components/device_tracker.ping/) or [Nmap](/components/device_tracker.nmap_tracker/) instead.
+The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/components/device_tracker/) than desirable. It is recommended to use [Ping](/components/device_tracker.ping/) or [Nmap](/components/device_tracker.nmap_tracker/) instead.
 
 | Brand | Device/Firmware | OID |
 |---|---|---|---|
@@ -101,9 +101,9 @@ priv_key:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems and printers.
 
@@ -209,7 +209,7 @@ Valid values for `priv_protocol`:
 - **aes-cfb-192**
 - **aes-cfb-256**
 
-### {% linkable_title Finding OIDs %}
+### Finding OIDs
 
 OIDs may vary on different systems because they are vendor-specific. Besides the device's manual, the [OID Repository](http://www.oid-info.com/) is a good place to start if you are looking for OIDs. As an example, the following OIDs are for the load of a Linux system.
 
@@ -224,9 +224,9 @@ $ snmpwalk -Os -c public -v 2c 192.168.1.32 1.3.6.1.4.1.2021.10.1.3.1
 laLoad.1 = STRING: 0.19
 ```
 
-### {% linkable_title Examples %}
+### Examples
 
-#### {% linkable_title Printer uptime minutes %}
+#### Printer uptime minutes
 
 According to the most common SNMP standard, the uptime of a device is accessible under OID `1.3.6.1.2.1.1.3.0`. The value represented using a format called `TimeTicks`, in units of hundredths of a second.
 
@@ -250,7 +250,7 @@ The `accept_errors` option will allow the sensor to work even if the printer is 
 
 The `value_template` option converts the original value to minutes.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `snmp` switch platform allows you to control SNMP-enabled equipment.
 

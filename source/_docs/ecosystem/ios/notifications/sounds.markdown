@@ -30,7 +30,7 @@ Here is an example notification that uses one of the pre-installed sounds.
 Notes:
 * You must use the full filename in the payload (including extension).
 
-## {% linkable_title Custom push notification sounds %}
+## Custom push notification sounds
 
 The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. You set the filename of the sound in the notification payload. To add sounds:
 
@@ -53,7 +53,7 @@ Notes:
 * Uploading a file with the same name as an existing one will overwrite the original.
 * You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
 
-### {% linkable_title Preinstalled notification sounds %}
+### Preinstalled notification sounds
 
 ```
 US-EN-Alexa-Back-Door-Opened.wav

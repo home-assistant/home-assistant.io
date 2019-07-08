@@ -25,7 +25,7 @@ Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX
 
 ## {% linkable_title Configuration %}
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
 ```yaml
 # Example configuration.yaml entry
@@ -49,7 +49,7 @@ sync_state:
   type: boolean
   default: True
 device_class:
-  description: HASS device class e.g., "motion".
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 significant_bit:
@@ -63,7 +63,7 @@ reset_after:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Automation actions %}
+### Automation actions
 
 You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
 

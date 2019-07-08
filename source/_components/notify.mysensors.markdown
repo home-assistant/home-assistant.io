@@ -19,7 +19,7 @@ Integrates MySensors notifications into Home Assistant. See the [main component]
 
 Setting the `target` key in the service call will target the name of the MySensors device in Home Assistant. MySensors device names follow the notation: "[Sketch name] [Node id] [Child id]".
 
-### {% linkable_title Automation example %}
+### Automation example
 
 ```yaml
 ...
@@ -40,7 +40,7 @@ S_INFO          | V_TEXT
 
 For more information, visit the [api] page of MySensors.
 
-### {% linkable_title Example sketch %}
+### Example sketch
 
 ```cpp
 /*
