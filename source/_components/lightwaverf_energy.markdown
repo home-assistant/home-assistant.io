@@ -20,7 +20,6 @@ redirect_from:
 
 This solution generates two sensors within Home Assistant, one which displays the current usage (in W) and the other is the total amount of electricity used today (in kWh)
 
-- Sensor
 
 ```yaml
 # Example configuration.yaml entry
