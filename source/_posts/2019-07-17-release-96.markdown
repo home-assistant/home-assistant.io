@@ -1,0 +1,29 @@
+---
+layout: post
+title: "0.96: TBD - UPDATE DATE"
+description: "TBD."
+date: 2019-07-08 04:11:03
+date_formatted: "July 17, 2019"
+author: Paulus Schoutsen
+author_twitter: balloob
+comments: true
+categories: Release-Notes
+og_image: /images/blog/2019-07-release-96/social.png
+---
+
+<a href='/components/#version/0.96'><img src='/images/blog/2019-07-release-96/components.png' style='border: 0;box-shadow: none;'></a>
+
+Climate has been completely revamped. Huge thanks to the following people:
+
+- [@pvizeli]
+- [@Danielhiversen]
+- [@zxdavb]
+- [@Swamp-lg]
+- [@SukramJ]
+- [@marvin-w]
+- [@Jc2k]
+- [@OnFreund]
+- [@cgtobi]
+- [@andrewsayre]
+
+We have a new sidebar! Started with a mockup by [@JuanMTech] and grew into a full blown implementation. Check [the demo](https://demo.home-assistant.io) for a preview.
