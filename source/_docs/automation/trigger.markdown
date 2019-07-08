@@ -124,6 +124,27 @@ automation:
     for: '01:10:05'
 ```
 
+You can also use templates in the `for` option.
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    to: 'home'
+    for:
+      minutes: "{{ states('input_number.lock_min')|int }}"
+      seconds: "{{ states('input_number.lock_sec')|int }}"
+  action:
+    service: lock.lock
+    entity_id: lock.my_place
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when an entity changes as specified.
+
+
 <p class='note warning'>
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
 </p>
