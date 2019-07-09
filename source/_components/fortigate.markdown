@@ -12,8 +12,6 @@ ha_category:
   - Presence Detection
 ha_release: 0.96
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/device_tracker.fortigate/
 ---
 
 This is a Fortigate presence sensor based on device detection of the Fortigate API
@@ -26,11 +24,8 @@ Add the following to your `configuration.yaml` file:
 # Example configuration.yaml entry
 fortigate:
   host: HOST_IP
-  username: homeassistant
+  username: USERNAME
   password: API_KEY
-  devices:
-    - dev1
-    - dev2
 ```
 
 {% configuration %}
@@ -65,8 +60,8 @@ config system accprofile
 end
 
 config system api-user
-    edit "homeassistant"
-        set api-key <api key>
+    edit "USERNAME"
+        set api-key API_KEY
         set accprofile "homeassistant_profile"
         set vdom "root"
         config trusthost
