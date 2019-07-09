@@ -48,7 +48,7 @@ password:
   type: string
 devices:
   description: The MAC addresses of the devices to monitor
-  required: true
+  required: false
   type: string
 {% endconfiguration %}
 
