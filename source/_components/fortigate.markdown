@@ -85,4 +85,4 @@ If the rights of the profile are not sufficient, you will get the following erro
 ```txt
 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
 ```
-And as well a python exception 'pyFGT.fortigate.FGTValueError'
+And the following Python exception as well: `pyFGT.fortigate.FGTValueError`
