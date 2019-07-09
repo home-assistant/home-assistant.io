@@ -310,20 +310,20 @@ automation:
         entity_id: light.some_light
 
   # single button remote
-    - id: light_off
-      alias: Turn a light off
-      trigger:
-        - platform: event
-          event_type: insteon.button_on
-      event_data:
-        address: 1a2b3c
-      condition:
-        - condition: state
-          entity_id: light.some_light
-          state: 'off'
-      action:
-        - service: light.turn_on
-          entity_id: light.some_light
+  - id: light_off
+    alias: Turn a light off
+    trigger:
+      - platform: event
+        event_type: insteon.button_on
+    event_data:
+      address: 1a2b3c
+    condition:
+      - condition: state
+        entity_id: light.some_light
+        state: 'off'
+    action:
+      - service: light.turn_on
+        entity_id: light.some_light
 ```
 
 ### Known Issues with the INSTEON Hub
