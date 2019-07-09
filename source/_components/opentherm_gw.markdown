@@ -23,7 +23,7 @@ redirect_from:
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](http://otgw.tclcode.com/) from Home Assistant.
 
-There is currently support for the following device types within Home Assistant:
+The following device types are currently supported within Home Assistant:
 
 - Binary Sensor
 - Climate
@@ -72,10 +72,6 @@ climate:
       type: boolean
       default: false
 {% endconfiguration %}
-
-## Supported Variables
-
-The list above contains all supported variables. Note that not all boilers and thermostats properly support all variables, so the fact that a variable is listed here and published by your system does not necessarily mean that you will get useful data out of it. To see which variables are published in your situation, enable debug logging for the `opentherm_gw` integration and look for the status updates.
 
 ## Services
 
@@ -377,7 +373,7 @@ Not all boilers and thermostats properly support all OpenTherm features, so not 
   Solar storage unit temperature.
 
 
-## {% linkable_title Binary Sensors %}
+## Binary Sensors
 
 The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the `gateway_id` of the gateway to which it belongs.
 <p class='note'>
