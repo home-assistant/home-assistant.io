@@ -8,15 +8,16 @@ comments: false
 logo: notion.png
 ha_category:
   - Hub
+  - Binary Sensor
   - Sensor
-ha_release: 0.95
+ha_release: 0.96
 ha_iot_class: Cloud Polling
 ---
 
 The `Notion` component retrieves data from [Notion](https://getnotion.com) wireless
 home monitoring sensor kits.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Notion kits to your Home Assistant installation, add the following to your
 `configuration.yaml` file:
