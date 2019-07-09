@@ -49,7 +49,7 @@ emulated_hue:
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
-# Required for Echo Dot 3
+# Required if there is no older Echo device (Like an Echo Dot 1 or 2) in the same network
   host_ip: YOUR.HASSIO.IP.ADDRESS
   listen_port: 80
 ```
