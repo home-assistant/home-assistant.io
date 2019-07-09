@@ -49,6 +49,11 @@ address:
   required: false
   type: integer
   default: 2
+name:
+  description: Name of the sensor to use in the frontend.
+  required: false
+  default: Solar PV
+  type: string
 {% endconfiguration %}
 
 ```yaml
