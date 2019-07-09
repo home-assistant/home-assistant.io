@@ -80,7 +80,7 @@ end
 
 ### Errors
 
-If the rights of the profile are not sufficient, you will get the error :
+If the rights of the profile are not sufficient, you will get the following error:
 
 ```txt
 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
