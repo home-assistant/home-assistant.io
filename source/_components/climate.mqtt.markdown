@@ -203,6 +203,9 @@ hold_state_template:
   description: A template to render the value received on the `hold_state_topic` with.
   required: false
   type: template
+hold_modes:
+  description: A list of available hold modes.
+  required: false
 aux_command_topic:
   description: The MQTT topic to publish commands to switch auxiliary heat.
   required: false
