@@ -25,7 +25,7 @@ Add the following to your `configuration.yaml` file:
 ```yaml
 # Example configuration.yaml entry
 fortigate:
-  host: <host_IP>
+  host: HOST_IP
   username: homeassistant
   password: <api_key>
   devices:
