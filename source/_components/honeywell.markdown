@@ -1,82 +1,102 @@
 ---
 layout: page
-title: "Honeywell Thermostat"
-description: "Instructions on how to integrate Honeywell thermostats within Home Assistant."
-date: 2016-02-07 22:01
+title: "Honeywell evohome/TCC systems"
+description: "Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant."
+date: 2018-09-25 12:00
 sidebar: true
 comments: false
 sharing: true
 footer: true
 logo: honeywell.png
 ha_category:
+  - Hub
   - Climate
-ha_release: pre 0.7
+ha_release: 0.80
 ha_iot_class: Cloud Polling
 redirect_from:
- - /components/climate.honeywell/
+  - /components/climate.evohome/
 ---
 
-The `honeywell` climate platform lets you control Honeywell TCC (Total Connect Comfort) climate systems from Home Assistant. It does not integrate with Honeywell TCC alarm systems.
+The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
+ * the Honeywell evohome CH/DHW system, and
+ * the Honeywell Round Thermostat
 
-<p class='note'>
-There is some potential confusion over this integration because it is currently implemented as a combination of two _distinct_ climate systems, one being US-based, the other is EU-based.
+It does not support the home security functionality of TCC.
 
-These two regions are _not_ interchangeable, so you must be clear which applies to your climate system.
-</p>
+It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library.
 
-## US-based Systems
+Honeywell removed support for higher-precision temperatures from the v2 API, so temperatures are reported to the nearest 0.5C.
 
-These systems are based in North America, and temperatures are usually in Fahrenheit. They would likely be HVAC systems. They always use the [somecomfort](https://github.com/kk7ds/somecomfort) client library. In this integration, this is called the `us` region.
+### evohome
 
-If your system is US-based, then you can access your system via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
+evohome is a multi-zone system. Each Zone is represented as a **Climate** device: it will expose the Zone's setpoint mode and temperature & setpoint.
 
-## EU-based Systems
+The Controller/Location is also represented as a **Climate** device: it will expose the location's system mode. Note that the Controller's temperatures are calculated as an average of all the Zones.
 
-These systems are based in Europe (including the UK & Ireland), and temperatures are usually in Celsius. They would likely be heating-only systems. They always use the [evohome-client](https://github.com/watchforstock/evohome-client) client library. In this integration, this is called the `eu` region.
+### Round Thermostat
 
-If your system is US-based, then you can access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
-
-The `eu` region is soon to be deprecated, and ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
+evohome is a single zone system. It is currently implemented as two **Climate** devices, as if a single zone evohome system.
 
 ## Configuration
 
-To set up this integration, first confirm your region, then add the following information to your **configuration.yaml** file (the below example is for US-based systems):
+To set up this integration, add the following to your **configuration.yaml** file:
 
 ```yaml
-climate:
-  - platform: honeywell
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-    region: us
+# Example configuration.yaml entry
+evohome:
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
 ```
 
 {% configuration %}
 username:
-  description: Email address of an account with access the TCC website for your region.
+  description: The username (email address) that has access to [Honeywell TCC](https://international.mytotalconnectcomfort.com/Account/Login) web site.
   required: true
   type: string
 password:
-  description: Password for the account.
+  description: The password corresponding to the above username.
   required: true
   type: string
-region:
-  description: Region identifier, either 'eu' or 'us'.
+location_idx:
+  description: Used to select which location to use, if your login has access to more than one location. Multiple locations at one time are not supported.
   required: false
-  default: eu
-  type: string
-away_temperature:
-  description: "(*only for the EU region*) Heating setpoint when away mode is on, in degrees Celsius."
+  type: int
+  default: 0
+scan_interval:
+  description: How often updates are retrieved from Honeywell's web servers. The minimum value is 60 seconds.
   required: false
-  default: 16.0
-  type: float
-away_cool_temperature:
-  description: "(*only for the US region*) Cooling setpoint when away mode is on, in degrees Fahrenheit."
-  required: false
-  default: 88
-  type: integer
-away_heat_temperature:
-  description: "(*only for the US region*) Heating setpoint when away mode is on, in degrees Fahrenheit."
-  required: false
-  default: 61
-  type: integer
+  type: int
+  default: 300
 {% endconfiguration %}
+
+This is an IoT cloud-polling device, and the recommended `scan_interval` is 180 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
+
+## Operating modes, and Inheritance
+
+Zones support only three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride**.
+
+Mostly, the Zone 'inherits' its functional operating mode from the controller (the actual algorithm for this is a little complicated).
+
+The evohome Controller supports seven distinct system modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**; **AutoWithReset** is a hidden mode that will revert all Zones to **FollowSchedule** mode.
+
+If the zone is in **FollowSchedule** mode, its `temperature` (target temperature) is a function of its scheduled temperature and its functional mode - for example, **AutoWithEco** is scheduled temperature less 3C.
+
+If the Controller is set to **HeatingOff** (target temperature to minimum) or **Away** (target temperature to 12C), then the Zones will inherit that mode regardless of their own setpoint mode.
+
+If the Zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint.  Once this is done, the ZOne can be switched to **PermanentOverride** mode.
+
+In HA, all this is done via `HVAC_MODE` and `PRESET_MODE`s.  However, the actual operating mode of these devices can be tracked via its state attributes, which includes a JSON data structure for current state called `status`.
+
+For the Controller:
+{% raw %}
+```
+value_template: "{{ state_attr('climate.main_room', 'status').systemModeStatus.mode }}"
+```
+{% endraw %}
+
+For the Zones:
+{% raw %}
+```
+value_template: "{{ state_attr('climate.my_house', 'status').setpointStatus.setpointMode }}"
+```
+{% endraw %}
