@@ -17,9 +17,11 @@ ha_release: 0.92
 ha_iot_class: Local Polling
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub for controlling its Zones and Devices, and visibility of any Issues. Currently, there is no support for Zone schedules.
+The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its Zones, Devices, and Issues.
 
-It uses the [geniushub-client](https://pypi.org/project/geniushub-client/) library.
+Currently, there is no support for Zone schedules.
+
+It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library.
 
 ### Zones
 
@@ -102,7 +104,7 @@ value_template: "{{ state_attr('climate.main_room', 'status').occupied }}"
 
 ## Configuration
 
-To add your Genius Hub into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
+To set up this integration, add one of the following to your **configuration.yaml** file.
 
 ### Option 1: hub token only
 
@@ -122,6 +124,8 @@ geniushub:
  - uses the v3 API - unofficial, but there are additional features (e.g., battery levels)
  - polls the hub directly (so is faster, say ~1s response time)
 
+The hub does not have to be in the same network as HA.
+
 ```yaml
 # Example configuration.yaml entry, directly polling the Hub
 geniushub:
@@ -129,8 +133,6 @@ geniushub:
   username: GENIUS_HUB_USERNAME
   password: GENIUS_HUB_PASSWORD
 ```
-
-Note that if a `host` is used instead of `token`, then the `username` and `password` are also required.
 
 {% configuration %}
 token:
@@ -150,3 +152,5 @@ password:
   required: false
   type: string
 {% endconfiguration %}
+
+Note that if a `host` is used instead of `token`, then the `username` and `password` are also required.
