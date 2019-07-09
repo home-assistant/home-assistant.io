@@ -20,7 +20,7 @@ Photo of the Google Nest Hub running the Home Assistant Cast interface.
 
 It will work with any Cast enabled device, and if available, will allow the user to use the touch screen to interact with the interface. The interface is built with Lovelace, so it's the same powerful features and real-time interaction that you are used to today.
 
-Chromecast apps are usually launched from a browser or a mobile app on Android or iOS. But we wouldn't be Home Assistant if we had a solution. Home Assistant has been integrated with Chromecasts for over 5 years. This means that you will be able to launch Home Assistant Cast as part of your automations. For example, you will be able to show information on your TV if a visitor has been detected at the frontdoor. Nice!
+Chromecast apps are usually launched from a browser or a mobile app on Android or iOS. But we wouldn't be Home Assistant if we had just one solution. Home Assistant has been integrated with Chromecasts for over 5 years. This means that you will be able to launch Home Assistant Cast as part of your automations. For example, you will be able to show information on your TV if a visitor has been detected at the frontdoor. Nice!
 
 For a full demo walkthrough of how it works, check the video below:
 
