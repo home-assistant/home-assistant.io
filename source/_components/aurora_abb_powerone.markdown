@@ -28,7 +28,7 @@ in watts.
 Note the PV inverter will be unresponsive to communications when in darkness, 
 so the value 'unknown' will be displayed during the night.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the following to your `configuration.yaml` file:
 
