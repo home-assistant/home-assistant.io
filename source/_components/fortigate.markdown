@@ -49,7 +49,7 @@ devices:
 
 ## Fortigate Configuration
 
-Configure the Fortigate with the homeassistant api user and assign its minimum rights profile :
+Configure the Fortigate with a USERNAME API user and assign its minimum rights profile :
 
 ```fgt
 
