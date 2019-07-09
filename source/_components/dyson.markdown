@@ -130,7 +130,7 @@ This integration supports the following services (see [Climate](/components/clim
 - [`turn_off`](/components/climate/#service-climateturn_off)
 - [`set_temperature`](/components/climate/#service-climateset_temperature)
 - [`set_fan_mode`](/components/climate/#service-climateset_fan_mode)
-- [`set_hvac_mode`](/components/climate/#service-climateset_hvac_mode)
+- [`set_operation_mode`](/components/climate/#service-climateset_operation_mode)
 
 ## Fan
 

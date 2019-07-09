@@ -69,9 +69,15 @@ client_secret:
 
 ## Climate
 
-The `toon` climate platform allows you to interact with your Toon thermostat.
+The `toon` climate platform allows you to interact with your Toon thermostat. For compatibility reasons, the states in Home Assistant are different from the states displayed on your Toon device and are mapped as follows:
 
-Home Assistant support the four Toon presets: `Comfort`, `Home`, `Away` and `Sleep`.
+| Home Assistant | Toon    |
+|:---------------|:--------|
+| Auto           | Comfort |
+| Heat           | Thuis   |
+| Eco            | Weg     |
+| Cool           | Slapen  |
+
 It also supports setting the temperature manually.
 
 The Toon API is polled at a 300-second interval, so the status is relatively fresh without overloading the API.
