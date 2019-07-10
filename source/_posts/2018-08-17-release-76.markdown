@@ -358,7 +358,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.facebox docs]: /components/image_processing.facebox/
 [light.deconz docs]: /components/light.deconz/
 [light.group docs]: /components/light.group/
-[light.velbus docs]: /components/light.velbus/
+[light.velbus docs]: /components/velbus/
 [media_extractor docs]: /components/media_extractor/
 [media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
 [media_player.kodi docs]: /components/media_player.kodi/

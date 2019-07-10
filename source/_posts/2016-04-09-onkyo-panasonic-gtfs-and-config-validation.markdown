@@ -49,7 +49,7 @@ Another big thing is the addition of GTFS support. You probably don't know it, b
 [Onkyo receiver]: /components/media_player.onkyo/
 [Panasonic Viera TV]: /components/media_player.panasonic_viera/
 [Raspberry PI]: /components/camera.rpi_camera/
-[Z-Wave]: /components/thermostat.zwave/
+[Z-Wave]: /components/zwave/#climate
 
 ### Breaking changes
 

@@ -85,7 +85,7 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [HDMI-CEC]: /components/hdmi_cec/
 [hm-binary-sensor]: /components/binary_sensor.homematic/
 [hm-light]: /components/light.homematic/
-[hm-rollershutter]: /components/rollershutter.homematic/
+[hm-rollershutter]: /components/homematic/
 [hm-sensor]: /components/sensor.homematic/
 [hm-switch]: /components/switch.homematic/
 [Homematic]: /components/homematic/
@@ -96,12 +96,12 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [secrets]: /topics/secrets/
 [Vera]: /components/lock.vera/
 [Wink]: /components/wink/
-[zwave-garage-door]: /components/garage_door.zwave/
+[zwave-garage-door]: /components/zwave/#cover
 [zwave-light]: /components/light.zwave/
-[zwave-rollershutter]: /components/rollershutter.zwave/
+[zwave-rollershutter]: /components/zwave/#cover
 [Fixer.io]: /components/sensor.fixer/
 [persistent notifications]: /components/persistent_notification/
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
 [Sony Bravia TV]: /components/media_player.braviatv/
-[Raspberry Pi GPIO pins]: /components/garage_door.rpi_gpio/
+[Raspberry Pi GPIO pins]: /components/rpi_gpio/#remote-raspberry-pi-cover
 [elevation]: /getting-started/basic/

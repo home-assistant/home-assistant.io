@@ -392,7 +392,7 @@ rainmachine:
 [device_tracker docs]: /components/device_tracker/
 [eight_sleep docs]: /components/eight_sleep/
 [emulated_hue docs]: /components/emulated_hue/
-[fan.insteon_plm docs]: /components/fan.insteon_plm/
+[fan.insteon_plm docs]: /components/insteon/
 [fan.template docs]: /components/fan.template/
 [frontend docs]: /components/frontend/
 [homekit docs]: /components/homekit/
@@ -411,7 +411,7 @@ rainmachine:
 [light.deconz docs]: /components/light.deconz/
 [light.flux_led docs]: /components/light.flux_led/
 [light.hue docs]: /components/light.hue/
-[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.insteon_plm docs]: /components/insteon/
 [light.mqtt_json docs]: /components/light.mqtt_json/
 [light.wink docs]: /components/light.wink/
 [light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
@@ -450,7 +450,7 @@ rainmachine:
 [sensor.eliqonline docs]: /components/sensor.eliqonline/
 [sensor.filter docs]: /components/sensor.filter/
 [sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
-[sensor.insteon_plm docs]: /components/sensor.insteon_plm/
+[sensor.insteon_plm docs]: /components/insteon/
 [sensor.lastfm docs]: /components/sensor.lastfm/
 [sensor.mitemp_bt docs]: /components/sensor.mitemp_bt/
 [sensor.mqtt docs]: /components/sensor.mqtt/

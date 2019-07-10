@@ -91,7 +91,7 @@ light:
 [allow client key authentication]: /components/mqtt/
 [Pioneer AVR]: /components/media_player.pioneer/
 [Acer Projectors]: /components/switch.acer_projector/
-[HVAC component]: /components/hvac/
+[HVAC component]: /components/climate/
 [OctoPrint]: /components/octoprint/
 [Z-Wave]: /components/zwave/
 [lock]: /components/lock/

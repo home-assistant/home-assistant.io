@@ -443,7 +443,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.mqtt docs]: /components/climate.mqtt/
 [climate.tesla docs]: /components/climate.tesla/
 [climate.toon docs]: /components/climate.toon/
-[cloud.iot docs]: /components/cloud.iot/
+[cloud.iot docs]: /components/cloud/
 [cover.rflink docs]: /components/cover.rflink/
 [device_tracker docs]: /components/device_tracker/
 [device_tracker.fritz docs]: /components/device_tracker.fritz/

@@ -374,7 +374,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.enocean docs]: /components/light.enocean/
 [light.flux_led docs]: /components/light.flux_led/
 [light.insteon_local docs]: /components/insteon/
-[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.insteon_plm docs]: /components/insteon/
 [light.isy994 docs]: /components/light.isy994/
 [light.lifx docs]: /components/light.lifx/
 [light.limitlessled docs]: /components/light.limitlessled/
@@ -415,7 +415,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.rpi_pfio docs]: /components/switch.rpi_pfio/
 [telegram_bot docs]: /components/telegram_bot/
 [telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.services.yaml docs]: /components/telegram_bot.services.yaml/
+[telegram_bot.services.yaml docs]: /components/telegram_bot/#notification-services
 [telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
 [tradfri docs]: /components/tradfri/
 [vera docs]: /components/vera/

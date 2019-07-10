@@ -814,7 +814,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mysensors docs]: /components/mysensors/
 [namecheapdns docs]: /components/namecheapdns/
 [netatmo docs]: /components/netatmo/
-[netatmo_public docs]: /components/netatmo_public/
 [netgear_lte docs]: /components/netgear_lte/
 [nextbus docs]: /components/nextbus/
 [nmap_tracker docs]: /components/nmap_tracker/

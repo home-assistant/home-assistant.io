@@ -399,10 +399,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.knx docs]: /components/climate.knx/
 [climate.wink docs]: /components/climate.wink/
 [cloud docs]: /components/cloud/
-[cloud.auth_api docs]: /components/cloud.auth_api/
 [cloud.const docs]: /components/cloud.const/
-[cloud.http_api docs]: /components/cloud.http_api/
-[cloud.iot docs]: /components/cloud.iot/
 [config.zwave docs]: /components/config.zwave/
 [configurator docs]: /components/configurator/
 [counter docs]: /components/counter/
@@ -416,7 +413,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.upc_connect docs]: /components/device_tracker.upc_connect/
 [downloader docs]: /components/downloader/
 [gc100 docs]: /components/gc100/
-[google_assistant.smart_home docs]: /components/google_assistant.smart_home/
+[google_assistant.smart_home docs]: /components/google_assistant
 [hassio docs]: /components/hassio/
 [influxdb docs]: /components/influxdb/
 [input_datetime docs]: /components/input_datetime/
@@ -455,7 +452,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.lacrosse docs]: /components/sensor.lacrosse/
 [sensor.london_air docs]: /components/sensor.london_air/
 [sensor.modbus docs]: /components/sensor.modbus/
-[sensor.neato docs]: /components/sensor.neato/
+[sensor.neato docs]: /components/neato/
 [sensor.nederlandse_spoorwegen docs]: /components/sensor.nederlandse_spoorwegen/
 [sensor.pyload docs]: /components/sensor.pyload/
 [sensor.serial docs]: /components/sensor.serial/

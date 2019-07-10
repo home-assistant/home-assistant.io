@@ -384,8 +384,8 @@ vacuum:
 [light.osramlightify docs]: /components/light.osramlightify/
 [lock.nuki docs]: /components/lock.nuki/
 [lutron_caseta docs]: /components/lutron_caseta/
-[mailbox.demo docs]: /components/mailbox.demo/
-[mailbox.demo.txt docs]: /components/mailbox.demo.txt/
+[mailbox.demo docs]: /components/demo/
+[mailbox.demo.txt docs]: /components/demo/
 [media_extractor docs]: /components/media_extractor/
 [media_player docs]: /components/media_player/
 [media_player.bluesound docs]: /components/media_player.bluesound/
@@ -420,7 +420,7 @@ vacuum:
 [sensor.geizhals docs]: /components/sensor.geizhals/
 [sensor.google_wifi docs]: /components/sensor.google_wifi/
 [sensor.lastfm docs]: /components/sensor.lastfm/
-[sensor.neato docs]: /components/sensor.neato/
+[sensor.neato docs]: /components/neato/
 [sensor.pi_hole docs]: /components/sensor.pi_hole/
 [sensor.pocketcasts docs]: /components/sensor.pocketcasts/
 [sensor.radarr docs]: /components/sensor.radarr/
@@ -441,14 +441,14 @@ vacuum:
 [switch.rachio docs]: /components/switch.rachio/
 [switch.rainmachine docs]: /components/switch.rainmachine/
 [switch.wink docs]: /components/switch.wink/
-[switch.xiaomi_vacuum docs]: /components/switch.xiaomi_vacuum/
+[switch.xiaomi_vacuum docs]: /components/vacuum.xiaomi_miio/
 [telegram_bot docs]: /components/telegram_bot/
 [updater docs]: /components/updater/
 [vacuum docs]: /components/vacuum/
 [vacuum.demo docs]: /components/vacuum.demo/
 [vacuum.dyson docs]: /components/vacuum.dyson/
 [vacuum.roomba docs]: /components/vacuum.roomba/
-[vacuum.xiaomi docs]: /components/vacuum.xiaomi/
+[vacuum.xiaomi docs]: /components/vacuum.xiaomi_miio/
 [weather.buienradar docs]: /components/weather.buienradar/
 [weather.yweather docs]: /components/weather.yweather/
 [weather.zamg docs]: /components/weather.zamg/

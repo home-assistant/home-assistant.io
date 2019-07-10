@@ -647,9 +647,9 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [climate.tado docs]: /components/climate.tado/
 [climate.touchline docs]: /components/climate.touchline/
 [cloud docs]: /components/cloud/
-[cloud.auth_api docs]: /components/cloud.auth_api/
-[cloud.http_api docs]: /components/cloud.http_api/
-[cloud.iot docs]: /components/cloud.iot/
+[cloud.auth_api docs]: /components/cloud/
+[cloud.http_api docs]: /components/cloud/
+[cloud.iot docs]: /components/cloud/
 [coinbase docs]: /components/coinbase/
 [conversation docs]: /components/conversation/
 [cover.isy994 docs]: /components/cover.isy994/
@@ -672,8 +672,8 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [fan.isy994 docs]: /components/fan.isy994/
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
 [google_assistant docs]: /components/google_assistant/
-[google_assistant.http docs]: /components/google_assistant.http/
-[google_assistant.smart_home docs]: /components/google_assistant.smart_home/
+[google_assistant.http docs]: /components/google_assistant/
+[google_assistant.smart_home docs]: /components/google_assistant
 [group docs]: /components/group/
 [hassio docs]: /components/hassio/
 [history docs]: /components/history/

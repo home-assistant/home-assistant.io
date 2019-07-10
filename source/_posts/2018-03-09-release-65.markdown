@@ -575,7 +575,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.tesla docs]: /components/device_tracker.tesla/
 [device_tracker.ubus docs]: /components/device_tracker.ubus/
 [egardia docs]: /components/egardia/
-[fan.insteon_plm docs]: /components/fan.insteon_plm/
+[fan.insteon_plm docs]: /components/insteon/
 [frontend docs]: /components/frontend/
 [google_assistant docs]: /components/google_assistant/
 [group docs]: /components/group/
@@ -592,7 +592,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.group docs]: /components/light.group/
 [light.hue docs]: /components/light.hue/
 [light.hyperion docs]: /components/light.hyperion/
-[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.insteon_plm docs]: /components/insteon/
 [light.knx docs]: /components/light.knx/
 [light.lifx docs]: /components/light.lifx/
 [light.limitlessled docs]: /components/light.limitlessled/
@@ -619,7 +619,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.folder docs]: /components/sensor.folder/
 [sensor.history_stats docs]: /components/sensor.history_stats/
 [sensor.imap docs]: /components/sensor.imap/
-[sensor.insteon_plm docs]: /components/sensor.insteon_plm/
+[sensor.insteon_plm docs]: /components/insteon/
 [sensor.luftdaten docs]: /components/sensor.luftdaten/
 [sensor.netatmo docs]: /components/sensor.netatmo/
 [sensor.plex docs]: /components/sensor.plex/

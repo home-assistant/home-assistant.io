@@ -459,7 +459,7 @@ amcrest:
 [switch.modbus docs]: /components/switch.modbus/
 [switch.rachio docs]: /components/switch.rachio/
 [switch.rflink docs]: /components/switch.rflink/
-[switch.xiaomi_vacuum docs]: /components/switch.xiaomi_vacuum/
+[switch.xiaomi_vacuum docs]: /components/vacuum.xiaomi_miio/
 [tado docs]: /components/tado/
 [tts docs]: /components/tts/
 [tts.amazon_polly docs]: /components/tts.amazon_polly/

@@ -377,7 +377,7 @@ usps:
 [switch.mysensors docs]: /components/switch.mysensors/
 [switch.pilight docs]: /components/switch.pilight/
 [switch.rainmachine docs]: /components/switch.rainmachine/
-[switch.xiaomi docs]: /components/switch.xiaomi/
+[switch.xiaomi docs]: /components/switch.xiaomi_aqara/
 [usps docs]: /components/usps/
 [weather.buienradar docs]: /components/weather.buienradar/
 [xiaomi docs]: /components/xiaomi/

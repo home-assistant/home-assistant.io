@@ -89,7 +89,7 @@ We released two hotfixes to address some issues that couldn't wait till the next
 [en-switches]: /components/switch.enocean/
 [Feedreader]: /components/feedreader/
 [Flux like switch platform]: /components/switch.flux/
-[Insteon Hub]: /components/insteon_hub/
+[Insteon Hub]: /components/insteon/
 [Kodi]: /components/media_player.kodi/
 [LIRC component]: /components/lirc/
 [Osram Lightify]: /components/light.osramlightify/

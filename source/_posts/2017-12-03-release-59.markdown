@@ -137,7 +137,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix WUnderground error handling, rework entity methods ([@milanvo] - [#10295]) ([sensor.wunderground docs])
 - Add away_mode_name to arlo alarm control panel ([@bcl1713] - [#10796]) ([alarm_control_panel.arlo docs])
 - Add missing docstring ([@fabaff] - [#10812]) ([notify.pushbullet docs])
-- Cloud cognito switch ([@balloob] - [#10823]) ([cloud docs]) ([cloud.auth_api docs]) ([cloud.iot docs])
+- Cloud cognito switch ([@balloob] - [#10823]) ([cloud docs])
 - Added sensor types from telldus server src ([@rasmusbe] - [#10787]) ([sensor.tellduslive docs])
 - Add tts.baidu platform ([@zhujisheng] - [#10724]) ([tts.baidu docs]) (new-platform)
 - make RGB values consistent as int. fixes #10766 ([@perosb] - [#10782])
@@ -343,9 +343,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.radiotherm docs]: /components/climate.radiotherm/
 [climate.sensibo docs]: /components/climate.sensibo/
 [cloud docs]: /components/cloud/
-[cloud.auth_api docs]: /components/cloud.auth_api/
-[cloud.iot docs]: /components/cloud.iot/
-[config.group docs]: /components/config.group/
+[config.group docs]: /components/config/
 [configurator docs]: /components/configurator/
 [conversation docs]: /components/conversation/
 [cover.tahoma docs]: /components/cover.tahoma/
@@ -355,8 +353,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ecobee docs]: /components/ecobee/
 [emulated_hue docs]: /components/emulated_hue/
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
-[google_assistant.http docs]: /components/google_assistant.http/
-[google_assistant.smart_home docs]: /components/google_assistant.smart_home/
+[google_assistant.http docs]: /components/google_assistant/
+[google_assistant.smart_home docs]: /components/google_assistant
 [hive docs]: /components/hive/
 [homematic docs]: /components/homematic/
 [influxdb docs]: /components/influxdb/

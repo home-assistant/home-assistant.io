@@ -28,7 +28,7 @@ homeassistant:
 
 <img src='/images/supported_brands/honeywell.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/orvibo.png' style='clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/pushetta.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' />
 
- * Thermostat: [Honeywell](/components/thermostat.honeywell/) now supported ([@sander76])
+ * Thermostat: [Honeywell](/components/honeywell/) now supported ([@sander76])
  * Switch: [Orvibo](/components/switch.orvibo/) now supported ([@happyleavesaoc])
  * Camera: [mjpeg camera's](/components/camera.mjpeg/) now supported ([@ryanturner])
  * Notify: [Pushetta](/components/notify.pushetta/) now supported ([@fabaff])

@@ -85,7 +85,7 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [KNX]: /components/knx/
 [MapQuest]: https://www.mapquest.com/
 [Plex]: /components/media_player.plex/
-[Radiotherm]: /components/thermostat.radiotherm/
+[Radiotherm]: /components/radiotherm/
 [recorder]: /components/recorder/
 [secrets]: /topics/secrets/
 [simplisafe]: /components/alarm_control_panel.simplisafe/
