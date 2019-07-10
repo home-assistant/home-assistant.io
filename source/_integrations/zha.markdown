@@ -122,7 +122,6 @@ Click on **ADD DEVICES** to start a scan for new devices.
 
 Reset your ZigBee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
-Devices will now become visible and can be added to `Areas`
 
 ## Troubleshooting
 
