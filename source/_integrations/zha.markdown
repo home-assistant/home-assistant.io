@@ -120,7 +120,7 @@ Go to the `Configuration` page and select the `ZHA` element that was added by th
 
 Click `ADD DEVICES` to start a scan for devices.
 
-Reset your zigbee devices according to your manufacturer instructions (lights turn on and off upto 10 times, switches using the reset pin)
+Reset your ZigBee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
 Devices will now become visible and can be added to `Areas`
 
