@@ -17,6 +17,16 @@ ha_config_flow: true
 The `wwlln` integration displays lightning strike information from the
 [World Wide Lightning Location Network (WWLLN)](http://wwlln.net).
 
+Entities are generated, updated and removed automatically with each update 
+from the feed. Each entity defines latitude and longitude and will be shown 
+on the default map automatically, or on a map card by defining the source 
+`wwlln`. The distance (in kilometers or miles, depending on your unit system)
+is available as the state of each entity.
+
+<p class='img'>
+  <img src='{{site_root}}/images/screenshots/wwlln-feed-map.png' />
+</p>
+
 New data is returned every 5 minutes.
 
 ## Configuration
