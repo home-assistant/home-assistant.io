@@ -32,9 +32,16 @@ Each Zone controlled by your Genius hub will be exposed as either a:
 
 Other Zone types, such as **On / Off** Zones, are not currently supported.
 
-Each such entity will report back its mode, state, setpoint and current temperature; other properties are available via its attributes (see below).
+Each such entity will report back its mode, state, setpoint and current temperature; other properties are available via its attributes (see below). The Zone's mode can changed as below.
 
-In addition, the entity's mode and setpoint can be changed. The entity's `operating_mode` can be set to one of `off`, `timer`, `on` (i.e. **Override** mode) or `eco`. The `eco` mode is a proxy for the **Footprint** mode and so is only available to **Radiator** Zones that have room sensors.
+GH mode | HA Operation | HA Preset
+:---: | :---: | :---:
+**Off** | Off | N/A
+**Timer** | Heat | None
+**Override** | Heat | Boost
+**Footprint** | Heat | Activity
+
+Note that **Footprint** mode is only available to **Radiator** Zones that have room sensors.
 
 ### Devices
 
