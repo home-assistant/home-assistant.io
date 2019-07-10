@@ -62,7 +62,7 @@ From the Home Assistant front page go to **Configuration** and then select **Int
 Use the plus button in the bottom right to add a new integration called **ZHA**.
 
 In the popup:
-  - USB Device Path - on a rpi will be something like `/dev/ttyUSB0`
+  - USB Device Path - on a linux system will be something like `/dev/ttyUSB0`
   - Radio type - select device type **ezsp**, **deconz** or **xbee**
   - Submit
 
