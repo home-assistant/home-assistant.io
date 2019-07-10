@@ -48,7 +48,7 @@ longitude:
   required: false
   type: float
 radius:
-  description: The radius around your lcoation to monitor; defaults to 25 km or mi (depending you the unit system defined in `configuration.yaml`).
+  description: The radius around your location to monitor; defaults to 25 km or mi (depending on the unit system defined in your `configuration.yaml`).
   required: false
   type: int
 window:
