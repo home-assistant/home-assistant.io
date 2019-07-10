@@ -116,7 +116,7 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 ## Adding devices
 
-Go to the `Configuration` page and select the `ZHA` element that was added by the configuration steps above
+Go to the **Configuration** page and select the **ZHA** integration that was added by the configuration steps above.
 
 Click `ADD DEVICES` to start a scan for devices.
 
