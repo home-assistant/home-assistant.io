@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 All platform requires you to have set up the [Huawei LTE component](#configuration).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the component, add the following lines to your
 `configuration.yaml` file:
@@ -59,18 +59,18 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Tested routers %}
+### Tested routers
 
-Routers we know to be working with this component based on the documentation of used libraries and reports by users:
+Routers we know to be working with this integration based on the documentation of used libraries and reports by users:
 
 - Huawei B310s-22
 - Huawei B525s-23a
 - Huawei E5186s-22a
 - Huawei B618
 
-This is not a complete list. The component can probably connect to other Huawei LTE routers running similar firmware.
+This is not a complete list. The integration can probably connect to other Huawei LTE routers running similar firmware.
 
-## {% linkable_title Presence Detection %}
+## Presence Detection
 
 This platform offers presence detection by looking at connected devices to a [Huawei LTE router](https://consumer.huawei.com/en/smart-home/).
 
@@ -82,9 +82,9 @@ device_tracker:
   - platform: huawei_lte
 ```
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `huawei_lte` platform allows you to use a Huawei LTE router for notifications from Home Assistant. The messages will be sent as SMS text messages.
 
@@ -113,7 +113,7 @@ url:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `huawei_lte` sensor platform allows you to monitor Huawei LTE routers.
 

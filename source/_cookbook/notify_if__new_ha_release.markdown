@@ -48,7 +48,7 @@ automation:
     service: notify.pushbullet
     data_template: 
       title: 'New Home Assistant Release'
-      target: 'YOUR_TARGET_HERE' #See Pushbullet component for usage
-      message: "Home Assistant {% raw %} {{ states.updater.updater.state }} {% endraw %} is now available."
+      target: 'YOUR_TARGET_HERE' #See Pushbullet integration for usage
+      message: "Home Assistant {% raw %} {{ states('updater.updater') }} {% endraw %} is now available."
 ```
 

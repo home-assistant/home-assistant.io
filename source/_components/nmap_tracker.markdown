@@ -59,7 +59,7 @@ scan_options:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 A full example for the `nmap` tracker could look like the following sample:
 
@@ -90,9 +90,9 @@ In the above example, Nmap will be call with the process:
 
 An example of how the Nmap scanner can be customized:
 
-### {% linkable_title Linux capabilities %}
+### Linux capabilities
 
-On Linux systems you can extend the functionality of Nmap, without having to run it as root, by using *Linux capabilities*. Be sure to specify the full path to wherever you installed Nmap:
+On Linux systems (such as Hass.io) you can extend the functionality of Nmap, without having to run it as root, by using *Linux capabilities*. Be sure to specify the full path to wherever you installed Nmap:
 
 ```bash
 $ sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
@@ -105,4 +105,4 @@ And you can set up the device tracker as
   scan_options: " --privileged -sP "
 ```
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

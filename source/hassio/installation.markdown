@@ -64,11 +64,11 @@ If you are using a Raspberry Pi please remember to ensure you're using an [appro
 
 Now you can [configure][configure] your install.
 
-### {% linkable_title Migrating from a non-Hass.io install %}
+### Migrating from a non-Hass.io install
 
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either `discovery:` or `hassio:` to your configuration.
 
-## {% linkable_title Updating a Hass.io installation %}
+## Updating a Hass.io installation
 
 Best practice for updating a Hass.io installation:
 
@@ -78,7 +78,7 @@ Best practice for updating a Hass.io installation:
 4. If the check passes, you can safely update. If not, update your configuration accordingly.
 5. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
 
-## {% linkable_title Run a specific version on Hass.io %}
+## Run a specific version on Hass.io
 
 SSH to your Hass.io system, or connect to the console, and run:
 
@@ -86,7 +86,7 @@ SSH to your Hass.io system, or connect to the console, and run:
 hassio ha update --version=0.XX.X
 ```
 
-## {% linkable_title Run the beta version on Hass.io %}
+## Run the beta version on Hass.io
 
 If you would like to test next release before anyone else, you can install the beta version released every two weeks:
 
@@ -95,12 +95,14 @@ If you would like to test next release before anyone else, you can install the b
 3. Select _System_ from the _Hass.io_ menu, then select _Join Beta Channel_ under _Hass.io supervisor_, then select _Reload_.
 4. Select _Dashboard_ from the _Hass.io_ menu, and then select _Update_.
 
-## {% linkable_title Alternative: install on generic Linux server %}
+## Alternative: install on a generic Linux host
 
 For advanced users, it is also possible to try Hass.io on your [Linux server or inside a virtual machine][linux].
-Examples given here are tested on Ubuntu, but the instructions should work as a guideline for installing on other Linux distrubutions.
+Examples given here are tested on Ubuntu and Arch Linux, but the instructions should work as a guideline for installing on other Linux distrubutions.
 
-This is the list of packages you need to have available on your system that will run Hass.io if you are using Debian/Ubuntu:
+The packages you need to have available on your system that will run Hass.io may vary.
+
+### Debian/Ubuntu
 
  - apparmor-utils
  - apt-transport-https
@@ -113,6 +115,21 @@ This is the list of packages you need to have available on your system that will
  - socat
  - software-properties-common
 
+<p class='note warning'>
+   The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
+</p>
+
+### Arch Linux
+
+ - apparmor
+ - avahi
+ - ca-certificates
+ - curl
+ - dbus
+ - docker
+ - jq
+ - socat
+
 You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
 
 <p class='note warning'>
@@ -120,22 +137,21 @@ You also need to have Docker-CE installed. There are well-documented procedures 
   Be sure to install the official Docker-CE from the above listed URL.
 </p>
 
-To perform the Hass.io installation, run the following commands:
+To perform the Hass.io installation on Ubuntu, run the following commands:
 
 ```bash
-sudo -i
+$ sudo -i
+# apt-get install software-properties-common
+# add-apt-repository universe
+# apt-get update
+# apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+# curl -fsSL get.docker.com | sh
+```
 
-apt-get install software-properties-common
+And to install Hass.io the one below. That one is used also for other distributions.
 
-add-apt-repository universe
-
-apt-get update
-
-apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
-
-curl -fsSL get.docker.com | sh
-
-curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+```bash
+# curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
 ```
 
 <p class='note'>

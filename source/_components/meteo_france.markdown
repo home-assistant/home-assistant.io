@@ -19,16 +19,16 @@ redirect_from:
   - /components/weather.meteo_france/
 ---
 
-The `meteo_france` component uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
+The `meteo_france` integration uses the [Météo-France](http://www.meteofrance.com/) web service as a source for meteorological data for your location. The location is based on the `city` configured in your `configuration.yaml` file.
 
 There is currently support for the following device types within Home Assistant:
 
 - Sensor
 - Weather
 
-It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file.
+It displays the current weather along with a 4 days forecast and can create sensors based on the `monitored_conditions` set in your `configuration.yaml` file, including weather alerts from [Vigilance Météo-France](http://vigilance.meteofrance.com)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Météo-France to your installation, add the following to your `configuration.yaml` file:
 
@@ -66,11 +66,13 @@ meteo_france:
         description: Probability of snow for the day.
       thunder_chance:
         description: Probability of thunderstorm for the day.
+      weather_alert:
+        description: Weather alert status.
 {% endconfiguration %}
 
-### {% linkable_title About `city` configuration %}
+### About `city` configuration
 
-This component use the Météo-France search API to get the first city from the results returned.
+This integration use the Météo-France search API to get the first city from the results returned.
 
 It works well with french postal code, city name, etc. In case your expected result doesn't come first, you can set a more specified query like `<city name>, <postal_code>`.
 
@@ -85,7 +87,7 @@ meteo_france:
   - city: 'montreal,amerique'
 ```
 
-### {% linkable_title About `next_rain` condition sensor %}
+### About `next_rain` condition sensor
 
 <p class='note warning'>
   The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
@@ -103,7 +105,17 @@ Possible value for each intervals attributes are:
 - 3 Moderate rain
 - 4 Heavy rain
 
-### {% linkable_title Complete example %}
+### About `weather_alert` sensor
+
+<p class='note warning'>
+  The weather alert is available for the metropolitan France.
+</p>
+
+The `weather_alert` sensor value give the current weather alert status for the department linked to the city. Data is retrieve from [Météo-France vigilance website](http://vigilance.meteofrance.com/).
+
+The sensor attributes give access to each type of alerts and date of the bulletin emitted by Météo-France.
+
+### Complete example
 
 This is an example for 3 cities forecast with different monitored conditions:
 
@@ -121,6 +133,7 @@ meteo_france:
         - wind_speed
         - temperature
         - uv
+        - weather_alert
   - city: 'Oslo, norvege'
     monitored_conditions:
       - temperature

@@ -18,14 +18,14 @@ redirect_from:
   - /components/sensor.tcp/
 ---
 
-The TCP component allows the integration of some services for which a specific Home Assistant component does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this component will allow integration with it.
+The TCP integration allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To enable the TCP sensor, add the following lines to your `configuration.yaml`:
 
@@ -75,11 +75,11 @@ buffer_size:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-#### {% linkable_title EBUSd %}
+#### EBUSd
 
 The [EBUSd](https://github.com/john30/ebusd/wiki) service enables connection to an EBUS serial bus on some home heating/cooling systems. Using this service it is possible to extract various metrics which may be useful to have within Home Assistant. In order to use EBUSd, you connect to it using a TCP socket and send it a command. The service will respond with the value it has received from EBUS. On the command line, this would look something like:
 
@@ -103,7 +103,7 @@ sensor:
     unit_of_measurement: Bar
 ```
 
-#### {% linkable_title hddtemp %}
+#### hddtemp
 
 The tool `hddtemp` collects the temperature of your hard disks.
 
@@ -137,7 +137,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The TCP Binary Sensor is a type of [TCP Sensor](#sensor) which is either "off" or "on". In order to use this sensor type, in addition to the configuration for the TCP Sensor, you must supply a `value_on` value to represent what is returned when the device is turned on.
 

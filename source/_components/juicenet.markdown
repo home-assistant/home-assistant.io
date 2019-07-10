@@ -18,7 +18,7 @@ redirect_from:
 
 The `juicenet` sensor platform pulls data from a [JuiceNet](https://emotorwerks.com/products/juicenet/) charging station equipped with a wifi connection. It will access and make available all of the devices attached to your account.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -35,11 +35,11 @@ access_token:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `juicenet` sensor platform allows you to get data from your [JuiceNet](https://emotorwerks.com/products/juicenet/) sensors.
 
-### {% linkable_title Added sensors %}
+### Added sensors
 
 These sensors will be added for each juicenet device in your account:
 

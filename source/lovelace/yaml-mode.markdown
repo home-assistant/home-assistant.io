@@ -9,7 +9,7 @@ sharing: true
 footer: true
 ---
 
-It is possible to write your Lovelace config in YAML instead of via the UI. To do so, you will need to configure the Lovelace component to be in yaml mode by adding the following to your `configuration.yaml`:
+It is possible to write your Lovelace config in YAML instead of via the UI. To do so, you will need to configure the Lovelace integration to be in yaml mode by adding the following to your `configuration.yaml`:
 
 ```yaml
 lovelace:
@@ -46,9 +46,7 @@ resources:
 
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
-# Exclude entities from "Unused entities" view
-excluded_entities:
-  - weblink.router
+
 views:
     # View tab title.
   - title: Example

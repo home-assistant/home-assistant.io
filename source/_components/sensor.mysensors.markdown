@@ -17,11 +17,11 @@ ha_release: 0.7
 
 Integrates MySensors sensors into Home Assistant. See the [main component] for configuration instructions.
 
-## {% linkable_title Supported sensor types %}
+## Supported sensor types
 
 The following sensor types are supported:
 
-### {% linkable_title MySensors version 1.4 and higher %}
+### MySensors version 1.4 and higher
 
 S_TYPE             | V_TYPE
 -------------------|---------------------------------------
@@ -42,7 +42,7 @@ S_CUSTOM           | V_VAR1, V_VAR2, V_VAR3, V_VAR4, V_VAR5
 S_DUST             | V_DUST_LEVEL
 S_SCENE_CONTROLLER | V_SCENE_ON, V_SCENE_OFF
 
-### {% linkable_title MySensors version 1.5 and higher %}
+### MySensors version 1.5 and higher
 
 S_TYPE         | V_TYPE
 ---------------|----------------------------------
@@ -55,7 +55,7 @@ S_LIGHT_LEVEL  | V_LEVEL
 S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)
 S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)
 
-### {% linkable_title MySensors version 2.0 and higher %}
+### MySensors version 2.0 and higher
 
 S_TYPE          | V_TYPE
 ----------------|--------------------------
@@ -64,7 +64,7 @@ S_GAS           | V_FLOW, V_VOLUME
 S_GPS           | V_POSITION
 S_WATER_QUALITY | V_TEMP, V_PH, V_ORP, V_EC
 
-## {% linkable_title Custom unit of measurement %}
+## Custom unit of measurement
 
 Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.
 
@@ -72,9 +72,9 @@ By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The s
 
 For more information, visit the [serial api] of MySensors.
 
-## {% linkable_title Example sketches %}
+## Example sketches
 
-### {% linkable_title MySensors 1.5 example sketch %}
+### MySensors 1.5 example sketch
 
 ```cpp
 /**
@@ -122,7 +122,7 @@ void loop()
 }
 ```
 
-### {% linkable_title MySensors 2.x example sketch %}
+### MySensors 2.x example sketch
 
 ```cpp
 /**

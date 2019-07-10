@@ -18,6 +18,10 @@ redirect_from:
 
 This platform allows you to detect presence by looking at connected devices to a [Netgear](http://www.netgear.com/) device.
 
+<p class='note'>
+A recent updates of Orbi APs introduced a bug which takes several hours to detects presence on your local network. The current workaround is to force this integration to use the Orbi's API v2 by adding the `accesspoints:` node to your configuration.
+</p>
+
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -72,4 +76,4 @@ List of models that are known to use port 80:
 - Nighthawk X4S - AC2600 (R7800)
 - Orbi
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

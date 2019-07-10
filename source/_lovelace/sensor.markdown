@@ -58,7 +58,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: sensor

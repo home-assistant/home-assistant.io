@@ -23,13 +23,13 @@ And finally, for users of the config panel in the UI, we have fixed the issue wi
 
 Enjoy!
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title New integrations %}
+## New integrations
 
 - Pushbullet notification sensor ([@jotunacorn] - [#7182]) ([sensor.pushbullet docs])
 - Add https certificate expiry sensor ([@fabfurnari] - [#7272]) ([sensor.cert_expiry docs])
@@ -45,11 +45,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Enviro pHAT ([@imrehg] - [#7427]) ([sensor.envirophat docs])
 - Add support for face recognition with dlib ([@pvizeli] - [#7421]) ([image_processing.dlib_face_detect docs]) ([image_processing.dlib_face_identify docs])
 
-## {% linkable_title Release 0.44.2 - May 8 %}
+## Release 0.44.2 - May 8
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 
-## {% linkable_title Release 0.44.1 - May 7 %}
+## Release 0.44.1 - May 7
 
 - Fix opening add-ons in Hass.io store that are not installed ([@balloob])
 - sensor.envirophat: add missing requirement ([@imrehg] - [#7451]) ([sensor.envirophat docs])
@@ -60,7 +60,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
 
 <!--more-->
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - Python Open Z-Wave made a release that fixed string processing. This was backwards incompatible. We have updated our code so you'll have to update to the latest Python Open Z-Wave with this release. You can also wait one release, as next release we'll introduce automatic installing of Python Open Z-Wave. ([@keatontaylor] - [#7266]) ([climate.zwave docs]) (breaking change)
 - InfluxDB configuration to blacklist domains has been updated to allow more features. ([@janLo] - [#7264]) (breaking change)
@@ -84,7 +84,7 @@ influxdb:
 - The LimitlessLED color temperatures have been turned around to work like other lights. To maintain previous colors you must adjust the color_temp value in your light.turn_on calls to 654 minus your old value (for example, 280 becomes 374). ([@amelchio] - [#7359]) (breaking change)
 - Joao apps will now require an API key to be set for all commands. ([@nkgilley] - [#7443]) ([joaoapps_join docs]) ([notify.joaoapps_join docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - LIFX light effects ([@amelchio] - [#7145]) ([light.lifx docs])
 - HassIO API v2 ([@pvizeli] - [#7201])

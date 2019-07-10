@@ -90,16 +90,16 @@ sensor:
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Release 0.42.1 - April 9 %}
+## Release 0.42.1 - April 9
 
 - Upgrade aiohttp to 2.0.6
 - Make discovery not cause startup warning
 
-## {% linkable_title Release 0.42.1 - April 9 %}
+## Release 0.42.1 - April 9
 
  - Revert upgrade to aiothttp 2.0.6
 
-## {% linkable_title Release 0.42.3 - April 11 %}
+## Release 0.42.3 - April 11
 
 - Fix Synology camera content type ([@balloob] - [#7010])
 - Fix two more instances of JSON parsing synology ([@balloob] - [#7014])
@@ -108,7 +108,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Plug file leak on LIFX unregister ([@amelchio] - [#7031])
 - Bugfix wait on start event ([@pvizeli] - [#7013])
 
-## {% linkable_title Release 0.42.4 - April 17 %}
+## Release 0.42.4 - April 17
 
 - Version bump to 0.42.4 ([@balloob])
 - Fix mysensors callback ([@MartinHjelmare] - [#7057])

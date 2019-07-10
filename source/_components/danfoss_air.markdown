@@ -21,9 +21,9 @@ redirect_from:
   - /components/switch.danfoss_air/
 ---
 
-The `danfoss_air` component allows you to access information from your Danfoss Air HRV unit.
+The `danfoss_air` integration allows you to access information from your Danfoss Air HRV unit.
 
-*Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the component will not work while you have the HRV PC-Tool open.
+*Note*: Danfoss Air CCM only accepts one TCP connection at a time. Due to this the integration will not work while you have the HRV PC-Tool open.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -44,13 +44,13 @@ host:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary sensor %}
+## Binary sensor
 
 The following binary sensor is supported.
 
 - **Bypass active:** Indicator if heat recovery is currrently bypassed.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The following sensors are supported.
 
@@ -60,7 +60,7 @@ The following sensors are supported.
 - **Exhaust temperature:** Exhausted air temperature.
 - **Remaining filter lifetime:** Reamining filter lifetime measured in percent.
 
-## {% linkable_title Switch %}
+## Switch
 
 The following switches are supported.
 

@@ -21,7 +21,7 @@ The TP-Link LTE integration for Home Assistant allows you to observe and control
 
 The integration provides a notification service that will send an SMS.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the component, add the following lines to your `configuration.yaml` file:
 

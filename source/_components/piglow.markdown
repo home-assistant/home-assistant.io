@@ -19,7 +19,7 @@ redirect_from:
 
 The `piglow` platform lets you control the [Piglow](https://shop.pimoroni.com/products/piglow) lights on your Raspberry Pi from within Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add piglow to your installation, add the following to your `configuration.yaml` file:
 

@@ -25,7 +25,7 @@ redirect_from:
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
 
-The `enocean` component adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300-oem/) in order for it to work.
+The `enocean` integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300-oem/) in order for it to work.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -51,7 +51,7 @@ The available profiles are usually listed somewhere in the device manual.
 
 Support for tech-in messages is not implemented.
 
-## {% linkable_title Hub %}
+## Hub
 
 To integrate an EnOcean controller with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -68,7 +68,7 @@ device:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 This can typically be one of those batteryless wall switches.
 Tested with:
@@ -102,7 +102,7 @@ name:
   type: string
   default: EnOcean binary sensor
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: device_class
 {% endconfiguration %}
@@ -114,7 +114,7 @@ EnOcean binary sensors have no state, they only generate 'button_pressed' events
 - **which**: Always `0` when using the single rocket.  `0` or `1` when using the dual rocket switch.
 - **onoff**: `0` or `1` for either side of the rocket.
 
-## {% linkable_title Automation example %}
+## Automation example
 
 Sample automation to switch lights on and off:
 
@@ -134,7 +134,7 @@ automation:
         entity_id: "{% raw %}{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}{% endraw %}"
 ```
 
-## {% linkable_title Light %}
+## Light
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
 
@@ -164,7 +164,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The EnOcean sensor platform currently supports the following device types:
 
@@ -193,14 +193,14 @@ name:
   type: string
   default: EnOcean sensor
 device_class:
-  description: The [type/class](/components/binary_sensor/) of the sensor to set the icon in the frontend.
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: device_class
   default: powersensor
 {% endconfiguration %}
 
 
-### {% linkable_title Power sensor %}
+### Power sensor
 
 This has been tested with a Permundo PSC234 switch, but any device sending EEP **A5-12-01** messages will work.
 
@@ -216,7 +216,7 @@ sensor:
 ```
 
 
-### {% linkable_title Humidity sensor %}
+### Humidity sensor
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
 
@@ -236,7 +236,7 @@ sensor:
     device_class: humidity
 ```
 
-### {% linkable_title Temperature sensor %}
+### Temperature sensor
 
 This sensor has been tested with a generic STM-330 sensor, which is used in most indoor temperature sensor devices. 
 
@@ -309,7 +309,7 @@ sensor:
     range_max: 250
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
 

@@ -33,22 +33,22 @@ If you are using a proxy server (NGINX etc) in front of Home Assistant to provid
 
 I want to say a biiiig thank you to all the people that have been involved in the development and testing of the new authentication system. It's been a big project and it's been great to see how we, as a community, have rallied together to tackle it. Especially a big shout out to [@awarecan] who has done an amazing job on this.
 
-#### {% linkable_title Hangouts %}
+#### Hangouts
 
 And that's not it ! [@hobbypunk90] has contributed a new integration for [Google Hangouts][hangouts docs]. You can send messages but can also configure intents to handle incoming messages from specific people. Very cool!
 
-#### {% linkable_title Lovelace %}
+#### Lovelace
 
 You didn't think we would forget about Lovelace, did you? This release include a new notification drawer thanks to [@jeradM]. It will collect all persistent notifications and configurator entities and shows it in a new sidebar toggleable from the toolbar.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Netatmo public ([@colinfrei] - [#15684]) ([sensor.netatmo_public docs]) (new-platform)
 - Add ecovacs component ([@OverloadUT] - [#15520]) ([ecovacs docs]) ([vacuum.ecovacs docs]) (new-platform)
 - Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
 - Hangouts ([@hobbypunk90] - [#16049]) ([hangouts docs]) ([notify docs]) (new-platform)
 
-## {% linkable_title Release 0.77.1 - August 29 %}
+## Release 0.77.1 - August 29
 
 - Fix trusted networks login error ([@awarecan])
 - Fix data_key override by parent class ([@syssi] - [#16278]) ([binary_sensor.xiaomi_aqara docs])
@@ -61,7 +61,7 @@ You didn't think we would forget about Lovelace, did you? This release include a
 [binary_sensor.xiaomi_aqara docs]: /components/binary_sensor.xiaomi_aqara/
 [vacuum.xiaomi_miio docs]: /components/vacuum.xiaomi_miio/
 
-## {% linkable_title Release 0.77.2 - August 31 %}
+## Release 0.77.2 - August 31
 
 - Correct wemo static device discovery issue. ([@lamiskin] - [#16292]) ([wemo docs])
 - Fix LIFX effects ([@amelchio] - [#16309]) ([light.lifx docs])
@@ -81,7 +81,7 @@ You didn't think we would forget about Lovelace, did you? This release include a
 [light.lifx docs]: /components/light.lifx/
 [wemo docs]: /components/wemo/
 
-## {% linkable_title Release 0.77.3 - September 3 %}
+## Release 0.77.3 - September 3
 
 Frontend changes only:
 
@@ -93,17 +93,17 @@ Frontend changes only:
 
 [@timmo001]: https://github.com/timmo001
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Enable auth by default 🙈. It is no longer possible to access Home Assistant without authentication ([@balloob] - [#16107]) (breaking change)
 - It's no longer possible to use a trusted network to connect to the websocket API. You need to get a token and use that to connect.  ([@awarecan] - [#15812]) ([auth docs]) ([http docs]) ([websocket_api docs]) (breaking change)
@@ -116,7 +116,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upnp component no longer enables port mapping by default ([@dgomes] - [#16108]) ([upnp docs]) (breaking change)
 - The entity registry yaml file has been removed. It is now stored inside `.storage` and should only be managed via the UI ([@balloob] - [#16018])
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - deCONZ - Support device registry ([@Kane610] - [#16115]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs]) ([switch.deconz docs]) (beta fix)
 - Add multi-factor auth module setup flow ([@awarecan] - [#16141]) ([auth docs]) (beta fix)
@@ -146,7 +146,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Tweak MFA login flow ([@awarecan] - [#16254]) (beta fix)
 - def device shouldnt call it self but self._device ([@Kane610] - [#16255]) ([media_player.plex docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Eph ember support operation modes ([@ttroy50] - [#15820]) ([climate.ephember docs])
 - Fixed race condition in Generic Thermostat ([@aronsky] - [#15784]) ([climate.generic_thermostat docs])

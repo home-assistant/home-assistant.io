@@ -15,9 +15,9 @@ ha_iot_class: Local Push
 ha_qa_scale: internal
 ---
 
-The `stream` component provides a way to proxy live streams through Home Assistant. The component currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 3.2.
+The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 3.2.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this component, add the following lines to your `configuration.yaml` file:
 
@@ -26,11 +26,11 @@ To enable this component, add the following lines to your `configuration.yaml` f
 stream:
 ```
 
-### {% linkable_title Services %}
+### Services
 
 Once loaded, the `stream` platform will expose services that can be called to perform various actions.
 
-#### {% linkable_title Service `record` %}
+#### Service `record`
 
 Make a `.mp4` recording from a provided stream.  While this service can be called directly, it is used internally by the [`camera.record`](/components/camera#service-record) service.
 
@@ -56,12 +56,12 @@ action:
     duration: 30
 ```
 
-## {% linkable_title Streaming in Lovelace %}
+## Streaming in Lovelace
 
 As of Homeassistant version 0.92 you can now live-stream a camera feed directly in lovelace.
 To do this add either [picture-entity](/lovelace/picture-entity/), [picture-glance](/lovelace/picture-glance/) or [picture-elements](/lovelace/picture-elements/), set `camera_image` to a stream-ready camera entity and set `camera_view` to `live` in one of your lovelace views.
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
 Some users on manual installs may see the following error in their logs after restarting:
 

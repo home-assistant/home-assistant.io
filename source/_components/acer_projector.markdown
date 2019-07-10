@@ -18,7 +18,7 @@ redirect_from:
 
 The `acer_projector` switch platform allows you to control the state of RS232 connected projectors from [Acer](http://www.acer.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Acer Projector in your installation, add the following to your `configuration.yaml` file:
 

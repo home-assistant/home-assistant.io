@@ -7,26 +7,26 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
+ha_category:
+  - Light
+ha_qa_scale: internal
 ha_release: pre 0.7
 ---
 
-This component allows you to track and control various light bulbs. Read the platform documentation for your particular light hardware to learn how to enable it.
+This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
 
-<p class='note'>
-The light component supports multiple entries in <code>configuration.yaml</code> by appending a sequential number to the section: <code>light 2:</code>, <code>light 3:</code> etc.
-</p>
-
-### {% linkable_title Default turn-on values %}
+### Default turn-on values
 
 To set the default color and brightness values when the light is turned on, create a custom `light_profiles.csv` (as described below in the `profile` attribute of `light.turn_on`).
 
 The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `id` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supercede the `all_lights` default setting.
 
-### {% linkable_title Service `light.turn_on` %}
+### Service `light.turn_on`
 
 Turns one light on or multiple lights on using [groups]({{site_root}}/components/group/).
 
-Most lights do not support all attributes. You can check the platform documentation of your particular light for hints, but in general, you will have to try things out and see what works.
+Most lights do not support all attributes. You can check the integration documentation of your particular light for hints, but in general, you will have to try things out and see what works.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -80,7 +80,7 @@ automation:
         rgb_color: [255,0,0]
 ```
 
-### {% linkable_title Service `light.turn_off` %}
+### Service `light.turn_off`
 
 Turns one or multiple lights off.
 
@@ -89,7 +89,7 @@ Turns one or multiple lights off.
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of lights. Else targets all.
 | `transition` | yes | Integer that represents the time the light should take to transition to the new state in seconds.
 
-### {% linkable_title Service `light.toggle` %}
+### Service `light.toggle`
 
 Toggles the state of one or multiple lights using [groups]({{site_root}}/components/group/). 
 Takes the same arguments as [`turn_on`](#service-lightturn_on) service.

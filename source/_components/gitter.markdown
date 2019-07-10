@@ -18,7 +18,7 @@ redirect_from:
 
 This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Visit [Gitter Developer Apps](https://developer.gitter.im/apps) to retrieve your "Personal Access Token".
 

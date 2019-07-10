@@ -20,7 +20,7 @@ The `postnl` platform allows one to track deliveries by [PostNL](https://www.pos
 
 The sensor value shows the number of packages to be delivered. The packages are available in the shipments attribute.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -48,5 +48,5 @@ password:
 {% endconfiguration %}
 
 <p class='note warning'>
-This component is not affiliated with PostNL and retrieves data from the endpoints of the mobile application. Use at your own risk.
+This integration is not affiliated with PostNL and retrieves data from the endpoints of the mobile application. Use at your own risk.
 </p>

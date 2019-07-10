@@ -19,14 +19,14 @@ redirect_from:
   - /components/media_player.roku/
 ---
 
-The [Roku](http://www.roku.com/) component allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).
+The [Roku](http://www.roku.com/) integration allows integration of Roku, which will be automatically discovered if you enable the [discovery component](/components/discovery/).
 
 There is currently support for the following device types within Home Assistant:
 
 - Media Player
 - Remote
 
-The `roku` component can also be forced to load by adding the following lines to your `configuration.yaml`:
+The `roku` integration can also be forced to load by adding the following lines to your `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,13 +41,13 @@ host:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `roku_scan` %}
+### Service `roku_scan`
 
 Scans the local network for Rokus. All found devices are presented as a persistent notification.
 
-## {% linkable_title Remote %}
+## Remote
 
 The `roku` remote platform allows you to send remote control buttons to a Roku device. It is automatically set up when a Roku is configured.
 

@@ -23,7 +23,7 @@ at least two updates of the underlying sensor to establish a trend.
 Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Trend binary sensors in your installation,
 add the following to your `configuration.yaml` file:
@@ -54,9 +54,7 @@ sensors:
       required: false
       type: string
     device_class:
-      description: >
-        The [type/class](/components/binary_sensor/#device-class) of
-        the sensor to set the icon in the frontend.
+      description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
       required: false
       type: string
     friendly_name:
@@ -92,7 +90,7 @@ sensors:
       default: 0
 {% endconfiguration %}
 
-## {% linkable_title Using Multiple Samples %}
+## Using Multiple Samples
 
 If the optional `sample_duration` and `max_samples` parameters are specified
 then multiple samples can be stored and used to detect long-term trends.
@@ -108,7 +106,7 @@ use a gradient of (-2) / (60 x 60) = -0.00055
 
 The current number of stored samples is displayed on the States page.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 

@@ -19,9 +19,9 @@ redirect_from:
   - /components/sensor.transmission/
 ---
 
-The `transmission` component allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` integration allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to **Edit** -> **Preferences** and choose the tab **Remote**. Check **Allow remote access**, enter your username and your password, and uncheck the network restriction as needed.
 
@@ -35,7 +35,7 @@ If everything is set up correctly, the details will show up in the frontend.
   <img src='{{site_root}}/images/components/transmission/transmission.png' />
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -98,9 +98,9 @@ monitored_conditions:
       description: The current number of completed torrents (seeding)
 {% endconfiguration %}
 
-## {% linkable_title Event Automation %}
+## Event Automation
 
-The Transmission component is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
+The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
 
 Possible events are:
 

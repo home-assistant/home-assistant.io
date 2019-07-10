@@ -39,7 +39,7 @@ S_MOISTURE     | V_TRIPPED
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch %}
+### Example sketch
 
 ```cpp
 /**

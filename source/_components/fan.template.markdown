@@ -15,7 +15,7 @@ logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform creates fans that combine components and provides the
+The `template` platform creates fans that combine integrations and provides the
 ability to run scripts or invoke services for each of the turn_on, turn_off, set_speed,
 set_oscillating, and set_direction commands of a fan.
 

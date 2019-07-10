@@ -47,11 +47,11 @@ You can omit the `--config` option if you use the default configuration director
 - Frontend: Fix stream not reconnecting after standby ([@balloob])
 - Frontend: Wait up to two seconds for new state before resetting toggle after toggling state ([@balloob])
 
-### {% linkable_title Hotfix 0.24.1 - July 21 %}
+### Hotfix 0.24.1 - July 21
 
 Quick hot fix after we found a bug in the migrator where it wouldn't work with a database in a non-standard location. Thanks to [@n8henrie] and [@AlucardZero].
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
 - Migrating existing databases (see above).
 - The [APCUPSd Sensor][apcupsd-sensor] was updated. This will need that you modify your `configuration.yaml` file.

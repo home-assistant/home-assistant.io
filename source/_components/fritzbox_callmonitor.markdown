@@ -19,7 +19,7 @@ redirect_from:
 The `fritzbox_callmonitor` sensor monitors the call monitor exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers on TCP port 1012. It will assume the values `idle`, `ringing`, `dialing` or `talking` with the phone numbers involved contained in the state attributes.
 It can also access the internal phone book of the router to look up the names corresponding to the phone numbers and store them in the state attributes.
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
 To build the package you have to install some dependencies first.
 
@@ -35,11 +35,11 @@ Be patient this will take a while.
 pip3 install lxml
 ```
 
-## {% linkable_title Setup%}
+## Setup
 
 To activate the call monitor on your Fritz!Box, dial #96\*5\* from any phone connected to it.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the Fritz!Box call monitor in your installation, add the following to your `configuration.yaml` file:
 
@@ -84,9 +84,9 @@ prefixes:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a call monitor with phone book support.
 
@@ -104,7 +104,7 @@ sensor:
       - '089'
 ```
 
-### {% linkable_title Send notifications on state change %}
+### Send notifications on state change
 
 This example shows how to send notifications whenever the sensor's state changes. You will get notified both when you receive a call and also when a call is placed.
 
@@ -124,11 +124,11 @@ automation:
             {% if is_state("sensor.phone", "idle") %}
               Phone is idle
             {% elif is_state("sensor.phone", "dialing") %}
-              Calling {{ states.sensor.phone.attributes.to_name }} ({{ states.sensor.phone.attributes.to }})
+              Calling {{ state_attr('sensor.phone', 'to_name') }} ({{ state_attr('sensor.phone', 'to') }})
             {% elif is_state("sensor.phone", "ringing") %}
-              Incoming call from {{ states.sensor.phone.attributes.from_name }} ({{ states.sensor.phone.attributes.from }})
+              Incoming call from {{ state_attr('sensor.phone', 'from_name') }} ({{ state_attr('sensor.phone', 'from') }})
             {% else %}
-              Talking to {{ states.sensor.phone.attributes.with_name }} ({{ states.sensor.phone.attributes.with }})
+              Talking to {{ state_attr('sensor.phone', 'with_name') }} ({{ state_attr('sensor.phone', 'with') }})
             {% endif %}
 ```
 {% endraw %}

@@ -19,23 +19,23 @@ redirect_from:
   - /components/switch.konnected/
 ---
 
-The `konnected` component lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
+The `konnected` integration lets you connect wired sensors and switches to a NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
 
-The component currently supports the following device types in Home Assistant:
+The integration currently supports the following device types in Home Assistant:
 
 - Binary Sensor: Wired door and window sensors, motion detectors, glass-break detectors, leak sensors, smoke & CO detectors or any open/close switch.
 - Switch: Actuate a siren, strobe, buzzer or relay module.
 - Sensor: Periodic measurements from DHT temperature/humidity sensors and DS18B20 temperature sensors.
 
-This component uses the [`discovery`](/components/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
+This integration uses the [`discovery`](/components/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
 
 <p class='note info'>
-Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` component to serve SSL/TLS certificates. Instead, use a proxy like Nginx or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)  
+Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` integration to serve SSL/TLS certificates. Instead, use a proxy like Nginx or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)  
 </p>
 
-### {% linkable_title Configuration %}
+### Configuration
 
 A `konnected` section must be present in the `configuration.yaml` file that specifies the Konnected devices on the network and the sensors or actuators attached to them:
 
@@ -172,12 +172,12 @@ devices:
 
 {% endconfiguration%}
 
-#### {% linkable_title Configuration Notes %}
+#### Configuration Notes
 
 - Either **pin** or **zone** is required for each actuator or sensor. Do not use both in the same definition.
 - Pin `D8` or the `out` zone will only work when activation is set to high (the default).
 
-### {% linkable_title Extended Configuration  %}
+### Extended Configuration 
 
 ```yaml
 # Example configuration.yaml entry
@@ -231,7 +231,7 @@ konnected:
           
 ```
 
-### {% linkable_title Unique IDs and the Entity Registry %}
+### Unique IDs and the Entity Registry
 
 Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI on the _Entity Registry_ page (under _Configuration_).
 
@@ -247,7 +247,7 @@ Unique IDs are internally generated as follows:
 
 \* Switches are identified by a unique hash including the pin number, `momentary`, `pause`, and `repeat` values. If these values are modified, a new entity will be created and the old entity must be removed manually from the _Entity Registry_.  
 
-### {% linkable_title Pin Mapping %}
+### Pin Mapping
 
 Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly used with the NodeMCU dev kit WiFi module and optionally Konnected's Alarm Panel hardware. The following table shows the pin mapping between the Konnected hardware labeled zones, the NodeMCU labeled pins and the ESP8266 GPIO pins.
 
@@ -261,7 +261,7 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 | 6 | RX  | 9  | GPIO3  |
 | ALARM or OUT | D8 | 8 | GPIO15 |
 
-### {% linkable_title Revision History %}
+### Revision History
 
 #### 0.91
 
@@ -295,12 +295,12 @@ Konnected runs on an ESP8266 board with the NodeMCU firmware. It is commonly use
 
 - Initial release
 
-### {% linkable_title Binary Sensor %}
+### Binary Sensor
 
 The `konnected` binary sensor allows you to monitor wired door sensors, window sensors, motion sensors, smoke detectors, CO detectors, glass-break sensors, water leak sensors or any other simple wired open/close circuit attached to a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).
 
-This component supports all of the built-in device classes of the generic [Binary Sensor](/components/binary_sensor/) component.
+This integration supports all of the built-in device classes of the generic [Binary Sensor](/components/binary_sensor/) component.
 
-### {% linkable_title Switch %}
+### Switch
 
 The `konnected` switch platform allows you to actuate an alarm system siren, strobe light, buzzer or any other wired device using a [Konnected Alarm Panel board](https://konnected.io) or relay module and a NodeMCU ESP8266 WiFi module running the [open source Konnected software](https://github.com/konnected-io/konnected-security).

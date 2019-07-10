@@ -25,7 +25,7 @@ And in case you missed it, [@OttoWinter] has created [esphomeyaml], which allows
 
 Have a good weekend everyone!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Lagute LW-12 Wifi LED control ([@jaypikay] - [#13307]) ([light.lw12wifi docs]) (new-platform)
 - Add Xiaomi Aqara Lock support ([@SchumyHao] - [#14419]) ([xiaomi_aqara docs]) ([lock.xiaomi_aqara docs]) (new-platform)
@@ -36,7 +36,7 @@ Have a good weekend everyone!
 - Add sensors and services to RainMachine ([@bachya] - [#14326]) ([rainmachine docs]) ([binary_sensor.rainmachine docs]) ([sensor.rainmachine docs]) ([switch.rainmachine docs]) (new-platform)
 - Add Flock notification platform ([@fabaff] - [#14533]) ([notify docs]) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Add HomeKit support for media players ([@schmittx] - [#14446]) ([homekit docs]) (new-feature)
 - Add HomeKit support for automations ([@schmittx] - [#14595]) ([homekit docs]) (new-feature)
@@ -44,16 +44,16 @@ Have a good weekend everyone!
 - Change nest to cloud push ([@awarecan] - [#14656]) ([nest docs]) ([binary_sensor.nest docs]) ([climate.nest docs]) ([sensor.nest docs]) (new-feature)
 - Add support for outlets in HomeKit ([@schmittx] - [#14628]) ([homekit docs]) (new-feature)
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) ([sensor.bom docs]) (breaking change)
 - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component ([@tchellomello] - [#14584]) ([raincloud docs]) ([switch.raincloud docs]) (breaking change)
@@ -64,12 +64,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
  ([@fabaff] - [#14613]) ([sensor.netdata docs]) (breaking change)
 - Disallow automation.trigger without entity_id. Triggering all automations at once is most likely a user mistake but if it is really needed, one can use `entity_id: group.all_automations`. ([@amelchio] - [#14724]) ([automation docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Use hass iconset ([@balloob] - [#14185]) ([config docs]) ([frontend docs]) ([hassio docs]) ([history docs]) ([logbook docs]) (beta fix)
 - Zone - Hass configuration name is optional ([@Kane610] - [#14449]) ([zone docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Upgrade aiohttp to 3.2.1 ([@fabaff] - [#14517])
 - Upgrade youtube_dl to 2018.05.18 ([@fabaff] - [#14519]) ([media_extractor docs])

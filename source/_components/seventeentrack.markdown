@@ -22,7 +22,7 @@ The `seventeentrack` sensor platform allows users to get package data tied to th
 Although the 17track.net website states that account passwords cannot be longer than 16 characters, users can technically set long-than-16-character passwords. These passwords **will not** work with the used API. Therefore, please ensure that your 17track.net password does not exceed 16 characters.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the platform, add the following lines to your `configuration.yaml`
 file:

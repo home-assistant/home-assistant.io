@@ -19,14 +19,14 @@ redirect_from:
   - /components/sensor.eight_sleep/
 ---
 
-The `eight_sleep` component allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.
+The `eight_sleep` integration allows Home Assistant to fetch data from your [Eight Sleep](https://eightsleep.com/) smart cover or mattress.
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary Sensor - lets observe the presence state of a [Eight Sleep](https://eightsleep.com/) cover/mattress through Home Assistant.
 - Sensor - This includes bed state and results of the current and previous sleep sessions.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 It's setup utilizing 'Sensor' platform to convey the current state of your bed and results of your sleep sessions and a 'Binary Sensor' platform to indicate your presence in the bed. A service is also provided to set the heating level and duration of the bed.
 
@@ -57,7 +57,7 @@ partner:
   default: false
 {% endconfiguration %}
 
-### {% linkable_title Supported features %}
+### Supported features
 
 Sensors:
 
@@ -72,7 +72,7 @@ Binary Sensors:
 
 - eight_left/right_bed_presence
 
-### {% linkable_title Service `heat_set` %}
+### Service `heat_set`
 
 You can use the service eight_sleep/heat_set to adjust the target heating level and heating duration of your bed.
 

@@ -75,7 +75,7 @@ hold_secs:
   default: 0
 {% endconfiguration %}
 
-### {% linkable_title Configuration file %}
+### Configuration file
 
 Upon startup one file will be written to your Home Assistant configuration directory per device in the following format: `harmony_REMOTENAME.conf`. The file will contain:
 
@@ -85,7 +85,7 @@ Upon startup one file will be written to your Home Assistant configuration direc
 
 This file will be overwritten whenever the Harmony HUB has a new configuration, there is no need to restart Home Assistant.
 
-### {% linkable_title Service `remote.turn_off` %}
+### Service `remote.turn_off`
 
 Turn off all devices that were switched on from the start of the current activity.
 
@@ -93,7 +93,7 @@ Turn off all devices that were switched on from the start of the current activit
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Entity ID to target.
 
-### {% linkable_title Service `remote.turn_on` %}
+### Service `remote.turn_on`
 
 Start an activity. Will start the default `activity` from configuration.yaml if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
@@ -102,7 +102,7 @@ Start an activity. Will start the default `activity` from configuration.yaml if 
 | `entity_id`            |       no | Entity ID to target.
 | `activity`             |      yes | Activity ID or Activity Name to start.
 
-##### {% linkable_title Example %}
+##### Example
 
 In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
 
@@ -127,7 +127,7 @@ action:
        activity: "Watch TV"
 ```
 
-### {% linkable_title Service `remote.send_command` %}
+### Service `remote.send_command`
 
 Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
 
@@ -189,7 +189,7 @@ data:
   delay_secs: 0.6
 ```
 
-### {% linkable_title Service `remote.harmony_change_channel` %}
+### Service `remote.harmony_change_channel`
 
 Sends the change channel command to the Harmony HUB
 
@@ -207,7 +207,7 @@ data:
   channel: 200
 ```
 
-### {% linkable_title Service `remote.harmony_sync` %}
+### Service `remote.harmony_sync`
 
 Force synchronization between the Harmony device and the Harmony cloud.
 
@@ -215,7 +215,7 @@ Force synchronization between the Harmony device and the Harmony cloud.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Entity ID to target.
 
-### {% linkable_title Examples %}
+### Examples
 
 Template sensors can be utilized to display current activity in the frontend.
 
@@ -225,10 +225,10 @@ sensor:
   - platform: template
     sensors:
       family_room:
-        value_template: '{{ states.remote.family_room.attributes.current_activity }}'
+        value_template: '{{ state_attr('remote.family_room', 'current_activity') }}'
         friendly_name: 'Family Room'
       bedroom:
-        value_template: '{{ states.remote.bedroom.attributes.current_activity }}'
+        value_template: '{{ state_attr('remote.bedroom', 'current_activity') }}'
         friendly_name: 'bedroom'
 ```
 {% endraw %}

@@ -18,12 +18,12 @@ redirect_from:
 
 The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
 
-## {% linkable_title Tested Devices %}
+## Tested Devices
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
 
-## {% linkable_title Setup %}
+## Setup
 
 Since the sensor change their ID after each powercycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
 
@@ -31,7 +31,7 @@ Since the sensor change their ID after each powercycle/battery change you can ch
 sudo pylacrosse -d /dev/ttyUSB0 scan
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your `lacrosse` compatible sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -95,7 +95,7 @@ sensor:
         type: integer
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 To setup a lacrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
 

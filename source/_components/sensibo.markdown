@@ -44,7 +44,7 @@ then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
 </p>
 
-### {% linkable_title Full config example %}
+### Full config example
 ```yaml
 climate:
   - platform: sensibo
@@ -54,7 +54,7 @@ climate:
       - id2
 ```
 
-### {% linkable_title Adding a quick switch example %}
+### Adding a quick switch example
 
 If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
 
@@ -67,12 +67,14 @@ switch:
         friendly_name: "AC"
         value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'heat')}}"
         turn_on:
-          service: climate.turn_on
+          service: climate.set_havc_mode
           data:
             entity_id: climate.ac
+            hvac_mode: off
         turn_off:
-          service: climate.turn_off
+          service: climate.set_havc_mode
           data:
             entity_id: climate.ac
+            hvac_mode: 
 ```
 {% endraw %}

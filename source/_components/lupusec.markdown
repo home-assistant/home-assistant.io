@@ -21,7 +21,7 @@ redirect_from:
   - /components/switch.lupusec/
 ---
 
-The `lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
+The `lupusec` integration allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
 
 Supported units:
 
@@ -33,7 +33,7 @@ The following devices are supported by the underlying `lupupy` Python library an
 - **Binary Sensor**: Displays the status of binary sensors. Currently only Door and window sensors are supported.
 - **Switch**: Turn off and on your Lupus power switches.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
 

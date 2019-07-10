@@ -19,7 +19,7 @@ redirect_from:
 
 The `version` sensor platform that can display the current Home Assistant versions.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -52,11 +52,11 @@ source:
   default: local
 {% endconfiguration %}
 
-### {% linkable_title Supported images for Hassio and Docker %}
+### Supported images for Hassio and Docker
 
 `default`, `qemux86`, `qemux86-64`, `qemuarm`, `qemuarm-64`, `intel-nuc`, `raspberrypi`, `raspberrypi2`, `raspberrypi3`, `raspberrypi3-64`, `tinker`, `odroid-c2`, `odroid-xu`
 
-## {% linkable_title Alternatives for showing local version %}
+## Alternatives for showing local version
 
 This sensor is an alternative to the existing solutions to achieve the same
 result through various platforms.

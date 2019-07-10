@@ -12,7 +12,7 @@ redirect_from: /getting-started/yaml/
 
 Home Assistant uses the [YAML](http://yaml.org/) syntax for configuration. YAML might take a while to get used to but is really powerful in allowing you to express complex configurations.
 
-For each component that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings.
+For each integration that you want to use in Home Assistant, you add code in your `configuration.yaml` file to specify its settings.
 The following example entry specifies that you want to use the [notify component](/components/notify) with the [pushbullet platform](/components/notify.pushbullet).
 
 
@@ -40,7 +40,7 @@ Please pay attention on not storing private data (passwords, API keys, etc.) dir
 
 Text following a `#` are comments and are ignored by the system.
 
-The next example shows an [input_select](/components/input_select) component that uses a block collection for the options values.
+The next example shows an [input_select](/components/input_select) integration that uses a block collection for the options values.
 The other properties (like name) are specified using mappings. Note that the second line just has `threat:` with no value on the same line. Here threat is the name of the input_select and the values for it are everything nested below it.
 
 ```yaml
@@ -66,7 +66,7 @@ sensor:
     state_topic: sensor2/topic
 ```
 
-### {% linkable_title Using Environment Variables %}
+### Using Environment Variables
 
 You can include values from your system's environment variables with `!env_var`.
 
@@ -84,7 +84,7 @@ http:
   api_password: !env_var PASSWORD default_password
 ```
 
-### {% linkable_title Including Separate Files %}
+### Including Separate Files
 
 To improve readability, you can source out certain domains from your main configuration file with the `!include`-syntax.
 
@@ -94,9 +94,9 @@ lights: !include lights.yaml
 
 More information about this feature can also be found at [splitting configuration](/docs/configuration/splitting_configuration/).
 
-## {% linkable_title Common Issues %}
+## Common Issues
 
-### {% linkable_title found character '\t' %}
+### found character '\t'
 
 If you see the following message:
 
@@ -106,7 +106,7 @@ found character '\t' that cannot start any token
 
 This means that you've mistakenly entered a tab character, instead of spaces. 
 
-### {% linkable_title Upper and lower case %}
+### Upper and lower case
 
 Home Assistant is case sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
 

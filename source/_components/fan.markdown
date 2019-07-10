@@ -7,17 +7,11 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
+logo: home-assistant.png
+ha_category:
+  - Fan
+ha_qa_scale: internal
 ha_release: 0.27
 ---
 
-
-The `fan` component is built for the controlling of fan devices. It can be called the little brother of the [climate](/components/climate/) component.
- 
-To enable this component, pick one of the platforms, and add it to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-climate:
-  platform: fan
-```
-
+The `fan` integration is built for the controlling of fan devices.

@@ -16,9 +16,9 @@ redirect_from:
  - /components/sensor.uscis/
 ---
 
-The `uscis` sensor component allows you get updates on your USCIS case using your case/receipt number. The sensor gets the case information from [USCIS Website]( https://egov.uscis.gov/casestatus/landing.do)
+The `uscis` sensor integration allows you get updates on your USCIS case using your case/receipt number. The sensor gets the case information from [USCIS Website]( https://egov.uscis.gov/casestatus/landing.do)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Sonarr sensor in your installation, add the following to your `configuration.yaml` file:
 

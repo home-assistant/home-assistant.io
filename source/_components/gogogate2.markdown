@@ -18,7 +18,7 @@ redirect_from:
 
 The `gogogate2` cover platform lets you control Gogogate2-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Gogogate2 mobile app.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Gogogate2 cover in your installation, add the following to your `configuration.yaml` file:
 

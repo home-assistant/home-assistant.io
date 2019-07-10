@@ -18,7 +18,7 @@ redirect_from:
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

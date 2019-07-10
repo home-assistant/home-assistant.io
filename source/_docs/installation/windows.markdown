@@ -32,7 +32,7 @@ Check this [video](https://www.youtube.com/watch?v=X27eVvuqwnY) for the installa
 The Microsoft Windows platform is not a primary target to install Home Assistant. Also, not all tools and third-party modules will work.
 </p>
 
-## {% linkable_title Updating %}
+## Updating
 
 To update Home Assistant, stop it and then run:
 
@@ -42,7 +42,7 @@ C:\...\> pip3 install --upgrade homeassistant
 
 Then start Home Assistant.
 
-## {% linkable_title Installing in a Python virtual environment %}
+## Installing in a Python virtual environment
 
 Open `cmd.exe` and paste the following commands (one at the time):
 
@@ -55,7 +55,7 @@ C:\...\> py -m pip install homeassistant
 C:\...\> hass
 ```
 
-## {% linkable_title Upgrading in a Python virtual environment %}
+## Upgrading in a Python virtual environment
 
 To update Home Assistant, stop it and then open `cmd.exe` and paste the following commands (one at the time):
 

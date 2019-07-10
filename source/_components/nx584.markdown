@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml`:
 
@@ -52,7 +52,7 @@ port:
   default: 5007
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 Enabling this binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 
@@ -98,7 +98,7 @@ zone_types:
       description: Safety
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 An extended configuration entry could look like this:
 

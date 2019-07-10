@@ -16,13 +16,13 @@ A `Vagrantfile` is available into `virtualization/vagrant` folder for quickly sp
 Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
 </p>
 
-## {% linkable_title Install Vagrant %}
+## Install Vagrant
 
 You must have [Vagrant](https://www.vagrantup.com/downloads.html) and [Virtualbox](https://www.virtualbox.org/wiki/Downloads) installed on your workstation. Vagrant and Virtualbox support all the main platforms, including Windows, MacOS and Linux.
 
 Limited support is available for Hyper-V on Windows, see below.
 
-## {% linkable_title Get Home Assistant source code %}
+## Get Home Assistant source code
 
 Download the Home Assistant source code by either downloading the .zip file from [GitHub releases page](https://github.com/home-assistant/home-assistant/releases) or by using [Git](https://git-scm.com/)
 
@@ -43,7 +43,7 @@ When using Vagrant on Windows, change git's `auto.crlf` to input before cloning 
 $ git config --global core.autocrlf input
 ```
 
-## {% linkable_title Create the Vagrant VM and start Home Assistant %}
+## Create the Vagrant VM and start Home Assistant
 
 ```bash
 $ ./provision.sh setup
@@ -51,7 +51,7 @@ $ ./provision.sh setup
 
 This will download and start a virtual machine using Virtualbox, which will internally setup the development environment necessary to start Home Assistant. The whole process might take up to 30 minutes to complete, depending on Internet connection speed and workstation resources. After the VM has started successfully, the Home Assistant frontend will be accessible locally from your browser at [http://localhost:8123](http://localhost:8123)
 
-## {% linkable_title Stopping Vagrant %}
+## Stopping Vagrant
 
 To shutdown the Vagrant host:
 
@@ -65,7 +65,7 @@ To start it again:
 $ ./provision.sh start
 ```
 
-## {% linkable_title Restarting Home Assistant process to test changes %}
+## Restarting Home Assistant process to test changes
 
 The root `home-assistant` directory on your workstation will be mirrored with `/home-assistant` inside the VM. In `virtualization/vagrant` there's also a `config` folder that you can use to drop configuration files (Check the [Configuration section](/docs/configuration/) in the docmentation for more information about how to configure Home Assistant).
 
@@ -79,7 +79,7 @@ $ ./provision.sh restart
 This command will only restart the Home Assistant process inside the Vagrant VM, it will not reboot the virtual machine. If that's what you want, the right command is <code>vagrant reload</code>
 </p>
 
-## {% linkable_title Run test suite (Tox) %}
+## Run test suite (Tox)
 
 To run tests against the local version of Home Assistant code:
 
@@ -87,7 +87,7 @@ To run tests against the local version of Home Assistant code:
 $ ./provision.sh tests
 ```
 
-## {% linkable_title Cleanup %}
+## Cleanup
 
 To completely remove the VM
 
@@ -101,11 +101,11 @@ To completely remove the VM **and** setup a fresh new environment:
 $ ./provision.sh recreate
 ```
 
-## {% linkable_title Windows %}
+## Windows
 
 On Windows, Vagrant is launched through an elevated `PowerShell`. Use the batch script `provision.bat` instead of the shell script `provision.sh`.
 
-## {% linkable_title Hyper-V %}
+## Hyper-V
 
 It is possible to use Hyper-V instead of Virtualbox on Windows, with some limitations.
 

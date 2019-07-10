@@ -26,7 +26,7 @@ Configurable/Dimmable WiFi Lightswitch
 - Wifi & Bluetooth connectivity
 - Phone Apps for iOS & Android
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Plum Lightpad support, add the following lines to your `configuration.yaml` file:
 

@@ -15,20 +15,20 @@ og_image: /images/blog/2019-04-release-92/components.png
 
 It's time for the 0.92 release. We took a week extra for this release, because we have been very busy in changing how we load everything under the hood. Our new standard for integrations will help us in the future to streamline development, release notes, documentation and updates. If you want to know what we're up to, or if you maintain custom components, check out our developer blog: [Introducing integrations](https://developers.home-assistant.io/blog/2019/04/12/new-integration-structure.html).
 
-## {% linkable_title Lovelace streams cameras! %}
+## Lovelace streams cameras!
 
 This release continues to improve on our new camera streaming feature released with Home Assistant 0.90. This release adds support to Lovelace to show camera streams as part of your cards. Support has been aded to picture glance, picture entity and picture element cards. Just add `camera_view: live` to the configuration. Be careful showing live streams on mobile, camera streams can use a lot of data. We are exploring being able to add a mode to only show the streams on desktop.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Home Assistant continues to grow their streaming component. Live camera feeds right in the cards! Say Good Morning to Chewy and Avie! <a href="https://twitter.com/hashtag/homeassistant?src=hash&amp;ref_src=twsrc%5Etfw">#homeassistant</a> <a href="https://twitter.com/hashtag/guineapigs?src=hash&amp;ref_src=twsrc%5Etfw">#guineapigs</a> <a href="https://twitter.com/hashtag/peoplelikethegridviewbetter?src=hash&amp;ref_src=twsrc%5Etfw">#peoplelikethegridviewbetter</a> <a href="https://t.co/Qu4pmOzt4M">pic.twitter.com/Qu4pmOzt4M</a></p>&mdash; kevank (@kevank) <a href="https://twitter.com/kevank/status/1121413437148618752?ref_src=twsrc%5Etfw">April 25, 2019</a>
 </blockquote>
 
-## {% linkable_title HEOS integration %}
+## HEOS integration
 
 The HEOS integration adds support for HEOS capable products, such as speakers, amps, and receivers (Denon and Marantz) into Home Assistant. The features include controlling players, viewing playing media info, selecting the source from physical inputs and HEOS favorites, and more. We have established a relationship with the lead architect for the HEOS API and look forward to adding more features through this collaboration. Thanks to [@easink] for the initial contribution.
 
 Finally, if you are still receiving a message that your configuration contains extra keys, this is the last release that this will be a warning. In the next release this will treated as invalid config for that integration.
 
-## {% linkable_title New Integrations %}
+## New Integrations
 
 - Add HEOS media player component ([@easink], [@andrewsayre] - [#21721], [#23222], [#22517], [#22554], [#22592], [#22652], [#22903], [#22913], [#23063], [#23222])
 - Add N26 component ([@markusressel] - [#22684]) ([n26 docs]) (new-integration) (new-platform)
@@ -37,7 +37,7 @@ Finally, if you are still receiving a message that your configuration contains e
 - Genius hub ([@GeoffAtHome] - [#21598]) ([geniushub docs]) (new-platform)
 - Add support for Stiebel Eltron heat pumps ([@fucm] - [#21199]) ([stiebel_eltron docs]) (new-platform)
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add LCN binary_sensor component ([@alengwenus] - [#22341]) ([lcn docs]) (new-platform)
 - Ampio Smog Air Quality Sensor ([@kstaniek] - [#21152]) ([air_quality docs]) (new-platform)
@@ -54,7 +54,7 @@ Finally, if you are still receiving a message that your configuration contains e
 - Added epson workforce component ([@ThaStealth] - [#23144]) ([epsonworkforce docs]) (new-platform)
 - Add basic support for native Hue sensors ([@mitchellrj] - [#22598]) ([hue docs]) (beta fix) (new-platform)
 
-## {% linkable_title Release 0.92.1 - April 26 %}
+## Release 0.92.1 - April 26
 
 - fix for issue #21381 ([@dreed47] - [#23306]) ([zestimate docs])
 - Bump ecovacs lib 2 ([@OverloadUT] - [#23354]) ([ecovacs docs])
@@ -104,7 +104,7 @@ Finally, if you are still receiving a message that your configuration contains e
 [soundtouch docs]: /components/soundtouch/
 [zestimate docs]: /components/zestimate/
 
-## {% linkable_title Release 0.92.2 - May 2 %}
+## Release 0.92.2 - May 2
 
 - Further improve IndieAuth redirect_uri lookup failure logs ([@robbiet480] - [#23183]) ([auth docs])
 - Don't create connections between sensors. Fixes #22787 ([@StevenLooman] - [#23202]) ([upnp docs])
@@ -157,17 +157,17 @@ Finally, if you are still receiving a message that your configuration contains e
 [traccar docs]: https://www.home-assistant.io/components/traccar/
 [upnp docs]: https://www.home-assistant.io/components/upnp/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - __Google Assistant__ - You will now have to say a pin code before being able to control locks, doors and garage doors. You can set this pin in configuration -> cloud or, for manual installs, add `secure_devices_pin` to your config. ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
 - __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs])
@@ -189,7 +189,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Google TTS__ -  The `google tts` platform has changed to `google_translate`. Default configs will be migrated to the new platform during 0.92 startup. A manual update will be required if the user has changed default tts or is loading the tts configuration from another location. ([@awarecan] - [#23090]) ([google docs]) ([google_translate docs]) ([tts docs])  (new-integration)
 - __Fibaro__ - There was a potential unique ID collision which caused problems for some users, as scenes and devices were enumerated separately, so the same ID could be assigned if they were unnamed. The unique ID generation has been changed to avoid this, which is a breaking change with regard to scenes. ([@pbalogh77] - [#22987]) ([fibaro docs])
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Kill bluetooth LE scanning gracefully when asked to shut down. ([@mitchellrj] - [#22586]) ([bluetooth_le_tracker docs]) (beta fix)
 - Add basic support for native Hue sensors ([@mitchellrj] - [#22598]) ([hue docs]) (beta fix) (new-platform)
@@ -233,7 +233,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support unicode in configuration migration ([@awarecan] - [#23335]) (beta fix)
 - Remove ghost folder ([@awarecan] - [#23350]) ([aws_lambda docs]) ([aws_sns docs]) ([aws_sqs docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add LCN binary_sensor component ([@alengwenus] - [#22341]) ([lcn docs]) (new-platform)
 - Add HEOS media player component ([@easink] - [#21721])
