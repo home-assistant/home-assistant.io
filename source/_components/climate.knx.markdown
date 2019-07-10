@@ -69,14 +69,19 @@ climate:
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
 
-The following values are valid for the `operation_modes` attribute:
+The following values are valid for the `hvac_mode` attribute:
 
-- Comfort (maps internally to STATE_HEAT within Home Assistant)
-- Standby (maps internally to STATE_ECO within Home Assistant)
-- Night (maps internally to STATE_IDLE within Home Assistant)
-- Frost Protection (maps internally to STATE_MANUAL within Home Assistant)
-- Fan only (maps internally to STATE_FAN_ONLY within Home Assistant)
-- Dehumidification (maps internally to STATE_DRY within Home Assistant)
+- Off (maps internally to HVAC_MODE_OFF within Home Assistant)
+- Heat (maps internally to HVAC_MDOE_HEAT within Home Assistant)
+- Fan only (maps internally to HVAC_MODE_FAN_ONLY within Home Assistant)
+- Dehumidification (maps internally to HVAC_MODE_DRY within Home Assistant)
+
+The following presets are valid for the `preset_mode` attribute:
+
+- Comfort (maps internally to PRESET_COMFORT within Home Assistant)
+- Standby (maps internally to PRESET_AWAY within Home Assistant)
+- Night (maps internally to PRESET_SLEEP within Home Assistant)
+- Frost Protection (maps internally to PRESET_ECO within Home Assistant)
 
 {% configuration %}
 name:
