@@ -118,7 +118,7 @@ To add new devices to the network, call the `permit` service on the `zha` domain
 
 Go to the **Configuration** page and select the **ZHA** integration that was added by the configuration steps above.
 
-Click `ADD DEVICES` to start a scan for devices.
+Click on **ADD DEVICES** to start a scan for new devices.
 
 Reset your ZigBee devices according to the device instructions provided by the manufacturer (e.g.,  turn on/off lights up to 10 times, switches usually have a reset button/pin).
 
