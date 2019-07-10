@@ -10,6 +10,7 @@ footer: true
 logo: arcam.svg
 ha_category: Media Player
 ha_release: 0.96
+ha_iot_class: Local Polling
 ---
 
 The `arcam_fmj` integration allows you to control [Arcam FMJ Receveivers](https://www.arcam.co.uk/range/fmj.htm) from Home Assistant.
@@ -23,7 +24,7 @@ Supported devices:
 
 ## Configuration
 
-To add a Arcam FMJ to your installation, add the following to your `configuration.yaml` file:
+To add an Arcam FMJ to your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Minimal example configuration.yaml entry
