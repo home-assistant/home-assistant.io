@@ -191,7 +191,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set brightness)/source (via set input source))
-- climate (temperature setting, operation_mode)
+- climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting, only for temperature sensor)
 
