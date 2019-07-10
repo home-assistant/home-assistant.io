@@ -66,7 +66,7 @@ In the popup:
   - Radio type - select device type
   - Submit
 
-The success dialog will appear or an error will be displayed in the popup. An error is likely if homeassistant can't access the usb device (see troubleshooting) or your device is not upto date.
+The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
 
 ## Configuration - Manual
 
