@@ -57,13 +57,13 @@ The custom quirks implementations for zigpy implemented as ZHA Device Handlers f
   - [Wifi ZiGate](https://zigate.fr/produit/zigate-pack-wifi-v1-3/) (work in progress)
 
 ## Configuration - GUI
-Visit `http://homeassistant-ip:8123/config/integrations/dashboard` which will put you on the `configuration` -> `integrations` page.
+From the Home Assistant front page go to **Configuration** and then select **Integrations** from the list.
 
-Use the plus button in the bottom right to add a new integration called `ZHA`.
+Use the plus button in the bottom right to add a new integration called **ZHA**.
 
 In the popup:
   - USB Device Path - on a rpi will be something like `/dev/ttyUSB0`
-  - Radio type - select device type
+  - Radio type - select device type **ezsp**, **deconz** or **xbee**
   - Submit
 
 The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date (see troubleshooting).
@@ -156,7 +156,7 @@ sudo apt-get purge modemmanager
 
 If you are using Docker and can't connect, you most likely need to forward your device from the host machine to the Docker instance. This can be achieved by adding the device mapping to the end of the startup string or ideally using docker compose.
 #### Docker Compose
-Install docker-compose for your platform (rpi - `sudo apt-get install docker-compose`).
+Install docker-compose for your platform (linux - `sudo apt-get install docker-compose`).
 
 Create a docker-compose.yml with the following data:
 ```yaml
