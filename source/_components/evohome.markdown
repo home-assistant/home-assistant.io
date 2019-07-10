@@ -29,13 +29,15 @@ Honeywell removed support for higher-precision temperatures from the v2 API, so 
 
 ### evohome
 
-evohome is a multi-zone system. Each Zone is represented as a **Climate** device: it will expose the Zone's setpoint mode and temperature & setpoint.
+evohome is a multi-zone system. Each Zone is represented as a **Climate** device: it will expose the Zone's operating mode, temperature and setpoint.
 
-The Controller/Location is also represented as a **Climate** device: it will expose the location's system mode. Note that the Controller's temperatures are calculated as an average of all the Zones.
+The Controller/Location is also represented as a **Climate** device: it will expose the location's operating mode (see below for details). Note that the Controller's temperatures are calculated as an average of all the Zones.
+
+The DHW controller is represented as a **WaterHeater** device: It will report its current temperature (but not target temperature), and it can be turned on or off.
 
 ### Round Thermostat
 
-evohome is a single zone system. It is currently implemented as two **Climate** devices, as if a single zone evohome system.
+Round Thermostat is a single zone system. It is currently implemented as two **Climate** devices, as if a single zone evohome system.
 
 ## Configuration
 
@@ -83,9 +85,9 @@ If the zone is in **FollowSchedule** mode, its `temperature` (target temperature
 
 If the Controller is set to **HeatingOff** (target temperature to minimum) or **Away** (target temperature to 12C), then the Zones will inherit that mode regardless of their own setpoint mode.
 
-If the Zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint.  Once this is done, the ZOne can be switched to **PermanentOverride** mode.
+If the Zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint. Once this is done, the ZOne can be switched to **PermanentOverride** mode.
 
-In HA, all this is done via `HVAC_MODE` and `PRESET_MODE`s.  However, the actual operating mode of these devices can be tracked via its state attributes, which includes a JSON data structure for current state called `status`.
+In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE`. However, the actual operating mode of these devices can be tracked via its state attributes, which includes a JSON data structure for current state called `status`.
 
 For the Controller:
 {% raw %}
