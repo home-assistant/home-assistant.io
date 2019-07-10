@@ -51,6 +51,10 @@ radius:
   description: The radius around your lcoation to monitor; defaults to 25 km or mi (depending you the unit system defined in `configuration.yaml`).
   required: false
   type: int
+window:
+  description: The amount of time before now for which strikes should be considered "active" and shown in the UI.
+  required: false
+  type: time
 {% endconfiguration %}
 
 ## State Attributes
