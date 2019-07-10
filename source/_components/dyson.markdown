@@ -178,6 +178,3 @@ Note: currently only the 2018 dyson fans are supported(TP04 and DP04).
 - Pure Cool link (desk and tower)
 - Pure Hot+cool link (see climate part) for thermal control
 - Pure Cool 2018 Models (TP04 and DP04)
-
-### Almost supported fan devices
-- Pure Hot+cool HP04 purifying heater + fan (see this [pull request](https://github.com/etheralm/libpurecool/pull/5))
