@@ -8,15 +8,10 @@ comments: false
 sharing: true
 footer: true
 logo: wwlln.jpg
-ha_category:
-  - Weather
-  - Sensor
+ha_category: Geolocation
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-redirect_from:
-  - /components/binary_sensor.wwlln/
-  - /components/sensor.wwlln/
 ---
 
 The `wwlln` integration displays lightning strike information from the
@@ -47,3 +42,27 @@ radius:
   required: false
   type: int
 {% endconfiguration %}
+
+## State Attributes
+
+The following state attributes are available for each entity in addition to 
+the standard ones:
+
+| Attribute          | Description |
+|--------------------|-------------|
+| latitude           | Latitude of the lightning strike. |
+| longitude          | Longitude of the lightning strike. |
+| source             | `wwlln` to be used in conjunction with the `geo_location` automation trigger. |
+| external_id        | The external ID used in the feed to identify the earthquake in the feed. |
+| publication_date   | Date and time when this event occurred. |
+
+
+## Full Configuration
+
+```yaml
+# Example configuration.yaml entry
+wwlln:
+    radius: 100
+    latitude: 37.39
+    longitude: -5.99
+```
