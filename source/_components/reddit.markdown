@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Reddit"
 description: "How to integrate the Reddit sensor into Home Assistant."
-date: 2018-02-21 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: reddit.png
 ha_category:
   - Sensor

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.22: Pandora, BT Home Hub 5 and local file camera."
 description: "This new release of Home Assistant has been mainly about stabilizing our last release which included a lot of core improvements. We're all stable now and set for a bright future."
 date: 2016-06-18 18:06:00 +0000
 date_formatted: "June 18, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Recorder"
 description: "Instructions on how to configure the data recorder for Home Assistant."
-date: 2018-06-03 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - "History"

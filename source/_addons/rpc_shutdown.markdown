@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RPC Shutdown"
 description: "Simple way for remote windows shutdowns."
-date: 2017-09-25 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Allows you to shut down a Windows computer with a service call from Home Assistant.

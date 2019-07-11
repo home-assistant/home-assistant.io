@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telegram broadcast"
 description: "Telegram support to send messages only"
-date: 2017-06-24 11:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: telegram.png
 ha_category:
   - Notifications

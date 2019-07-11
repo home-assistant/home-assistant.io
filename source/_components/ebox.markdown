@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EBox Sensor"
 description: "Instructions on how to integrate EBox data usage within Home Assistant."
-date: 2017-02-15 17:17
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ebox.png
 ha_category:
   - Network

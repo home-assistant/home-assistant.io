@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NAD"
 description: "Instructions on how to integrate NAD receivers into Home Assistant."
-date: 2016-01-05 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nad.png
 ha_category:
   - Media Player

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "QNAP Sensor"
 description: "Instructions on how to integrate the QNAP sensor within Home Assistant."
-date: 2017-02-02 06:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: qnap.png
 ha_category:
   - System Monitor

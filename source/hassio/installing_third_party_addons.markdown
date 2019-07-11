@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installing third-party add-ons"
 description: "Instructions on how to get started using third-party add-ons."
-date: 2017-05-14 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Hass.io allows anyone to create add-on repositories to share their add-ons for Hass.io easily. To try this locally, you can use our example add-on repository at

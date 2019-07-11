@@ -1,9 +1,7 @@
 ---
-layout: post
 title: "Multi-room audio with Snapcast, Mopidy, and Home Assistant"
 date: 2016-02-18 00:10:56 -0500
 author: happyleavesaoc
-comments: true
 categories: How-To
 date_formatted: "February 18, 2016"
 og_image: /images/blog/2016-02-snapcast/diagram.png

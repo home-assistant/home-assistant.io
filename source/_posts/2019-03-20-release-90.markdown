@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.90: Remote UI, Streams, User Groups"
 description: "Bring your next level home to the next next level."
 date: 2019-03-20 00:11:03
 date_formatted: "March 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-03-release-90/remote.png
 ---

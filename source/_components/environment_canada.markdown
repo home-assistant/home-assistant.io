@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Environment Canada Weather"
 description: "Weather data from Environment Canada."
-date: 2019-06-01 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: environment_canada.png
 ha_category:
   - Weather

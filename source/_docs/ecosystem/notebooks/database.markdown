@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Database"
 description: "Accessing the Home-Assistant database from a Jupyter notebook."
-date: 2016-07-23 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/notebooks/database/
 ---
 

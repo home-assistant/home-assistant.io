@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Classifying the Internet of Things"
 description: ""
 date: 2016-02-12 22:31:00 UTC
 date_formatted: "February 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Internet-of-Things
 og_image: /images/blog/2016-02-classifying-internet-of-things/social.png
 ---

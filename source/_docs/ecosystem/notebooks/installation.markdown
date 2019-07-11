@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation"
 description: "Setup and first steps for Jupyter Notebooks and Home Assistant."
-date: 2016-07-23 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/notebooks/installation/
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Philips Hue"
 description: "Instructions on setting up Philips Hue within Home Assistant."
-date: 2017-11-29 23:51
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: philips_hue.png
 ha_category:
   - Hub

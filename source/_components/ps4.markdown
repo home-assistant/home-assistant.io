@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sony PlayStation 4"
 description: "Instructions on how to integrate a Sony PlayStation 4 into Home Assistant."
-date: 2019-02-12 01:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ps4.png
 ha_category:
   - Media Player

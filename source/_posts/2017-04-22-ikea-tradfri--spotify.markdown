@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.43: IKEA Trådfri, Spotify and our iOS app is live"
 description: "Another packed release. Three major cool new features and a ton of small ones."
 date: 2017-04-22 01:04:05 +0000
 date_formatted: "April 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-04-0.43/components.png
 ---

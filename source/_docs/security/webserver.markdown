@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Web server fingerprint"
 description: "Use nmap to scan your Home Assistant instance."
-date: 2016-10-06 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /docs/frontend/webserver/
 ---
 

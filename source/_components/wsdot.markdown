@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Washington State DOT"
 description: "Instructions on how to integrate WSDOT data into your home."
-date: 2017-01-21 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: wsdot.png
 ha_category:
   - Transport

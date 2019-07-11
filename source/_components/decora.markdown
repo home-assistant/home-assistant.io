@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Leviton Decora"
 description: "Instructions on how to setup Leviton Decora Bluetooth dimmers within Home Assistant."
-date: 2017-01-18 22:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Light
 ha_iot_class: Local Polling

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.73.2 - Security Incident"
 description: "We have discovered a security issue and have issued a hot fix."
 date: 2018-07-16 00:01:00
 date_formatted: "July 16, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

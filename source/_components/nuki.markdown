@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nuki Smart Lock"
 description: "Instructions on how to integrate a Nuki Smart Lock devices."
-date: 2017-02-02 09:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nuki.png
 ha_category:
   - Lock

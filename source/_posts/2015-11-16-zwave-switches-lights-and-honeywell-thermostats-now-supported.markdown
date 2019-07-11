@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.8: Honeywell Thermostats, Orvibo switches and Z-Wave switches and lights "
 description: "Home Assistant 0.8 can now interact with Honeywell thermostats, Orvibo switches and has improved Z-Wave support."
 date: 2015-11-16 21:27:00 0000
 date_formatted: "November 16, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

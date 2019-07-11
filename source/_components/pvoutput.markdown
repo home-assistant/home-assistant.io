@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PVOutput Sensor"
 description: "Instructions on how to use PVOutput within Home Assistant."
-date: 2016-11-06 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pvoutput.png
 ha_category:
   - Energy

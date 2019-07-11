@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Vultr"
 description: "Instructions on how to integrate Vultr within Home Assistant."
-date: 2017-10-17 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
   - Binary Sensor

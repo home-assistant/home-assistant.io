@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Steam"
 description: "Instructions on how to set up Steam sensors in Home Assistant."
-date: 2016-04-30 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: steam.png
 ha_category:
   - Social

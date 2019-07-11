@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SpaceAPI"
 description: "Instructions on how to configure the SpaceAPI for Home Assistant."
-date: 2018-05-08 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: spaceapi.png
 ha_category:
   - Social

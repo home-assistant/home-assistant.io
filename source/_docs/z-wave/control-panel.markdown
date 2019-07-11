@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Control Panel"
 description: "How to use the Z-Wave control panel."
-date: 2017-09-21 12:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-panel/
 ---
 

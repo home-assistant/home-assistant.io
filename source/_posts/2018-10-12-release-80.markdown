@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.80: Lovelace updates, webhooks, TRÅDFRI switches"
 description: "Hacktoberfest is in full swing and we got a whole boat of new features."
 date: 2018-10-12 00:01:00
 date_formatted: "October 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 ---

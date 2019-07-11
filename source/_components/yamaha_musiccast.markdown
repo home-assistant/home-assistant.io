@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yamaha MusicCast Receivers"
 description: "Instructions on how to integrate Yamaha MusicCast Receivers into Home Assistant."
-date: 2017-09-02 22:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yamaha.png
 ha_category:
   - Media Player

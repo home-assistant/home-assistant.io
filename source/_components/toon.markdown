@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Toon"
 description: "Instructions on how to integrate Toon within Home Assistant."
-date: 2017-10-22 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Climate
   - Binary Sensor

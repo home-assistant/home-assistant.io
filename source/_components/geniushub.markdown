@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Genius Hub"
 description: "Instructions on how to integrate Genius Hub with Home Assistant."
-date: 2019-03-03 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: geniushub.png
 ha_category:
   - Climate

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.39: Configuration panel, state restoration and improved docs"
 description: "0.39 is by far our best release yet."
 date: 2017-02-25 08:04:05 +0000
 date_formatted: "February 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.39/social.png
 ---

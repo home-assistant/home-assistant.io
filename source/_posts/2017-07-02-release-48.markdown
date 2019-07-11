@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.48: Snips.ai, Shiftr.io and a massive History query speed up"
 description: "Build your own local voice assistant with the new Snips.ai component, visualize your data with Shiftr.io and enjoy faster history browsing."
 date: 2017-07-02 00:02:05 +0000
 date_formatted: "July 2, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.48/components.png
 ---

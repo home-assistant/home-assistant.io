@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Scrape Sensor"
 description: "Instructions on how to integrate Web scrape sensors into Home Assistant."
-date: 2016-10-12 09:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Sensor

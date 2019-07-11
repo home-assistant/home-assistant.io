@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pushover"
 description: "Instructions on how to add Pushover notifications to Home Assistant."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pushover.png
 ha_category:
   - Notifications

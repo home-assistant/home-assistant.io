@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NamecheapDNS"
 description: "Keep your namecheap dynamic DNS up to date"
-date: 2017-10-11 20:16
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: namecheap.png
 ha_category:
   - Network

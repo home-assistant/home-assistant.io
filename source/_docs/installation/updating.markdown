@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Updating Home Assistant"
 description: "Step to update Home Assistant."
-date: 2016-05-04 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/updating/
 ---
 

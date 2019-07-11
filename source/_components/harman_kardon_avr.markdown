@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Harman Kardon AVR Network Receivers"
 description: "Instructions on how to integrate Harman Kardon AVR Network Receivers into Home Assistant."
-date: 2018-11-20 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: harman_kardon.png
 ha_category:
   - Media Player

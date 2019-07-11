@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Blink"
 description: "Instructions for how to integrate Blink camera/security system within Home Assistant."
-date: 2017-03-05 22:13
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: blink.png
 ha_category:
   - Hub

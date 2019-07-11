@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Fedex Sensor
 description: "Instructions on how to set up FedEx sensors within Home Assistant."
-date: 2017-02-14 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fedex.png
 ha_category:
   - Postal Service

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Locative"
 description: "Instructions on how to use Locative to track devices in Home Assistant."
-date: 2015-10-13 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: locative.png
 ha_category:
   - Presence Detection

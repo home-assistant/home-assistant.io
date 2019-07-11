@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Install Home Assistant"
 description: "Getting started: How to install Home Assistant."
-date: 2016-09-26 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 {% comment %}

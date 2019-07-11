@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Smart WiFi Socket and Smart Power Strip"
 description: "Instructions on how to integrate your Xiaomi Smart WiFi Socket aka Plug or Xiaomi Smart Power Strip within Home Assistant."
-date: 2017-08-26 10:18
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Switch

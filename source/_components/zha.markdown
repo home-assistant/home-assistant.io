@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zigbee Home Automation"
 description: "Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant."
-date: 2017-02-22 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zigbee.png
 ha_category:
   - Hub

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HLK-SW16 Relay Module"
 description: "Instructions on how to integrate HLK-SW16 relay into Home Assistant."
-date: 2018-10-29 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hlktech.jpg
 ha_category:
   - DIY

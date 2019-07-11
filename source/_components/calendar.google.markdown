@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Calendar Event"
 description: "Instructions on how to use Google Calendars in Home Assistant."
-date: 2015-05-08 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_calendar.png
 ha_category:
   - Calendar

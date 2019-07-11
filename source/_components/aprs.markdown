@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "APRS"
 description: "Instructions on how to use APRS to track devices in Home Assistant."
-date: 2018-11-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aprs.png
 ha_release: 0.95
 ha_category: Presence Detection

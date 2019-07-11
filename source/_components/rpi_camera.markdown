@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspberry Pi Camera"
 description: "Instructions on how to integrate Raspberry Pi within Home Assistant."
-date: 2016-04-08 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY

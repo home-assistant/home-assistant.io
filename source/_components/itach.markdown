@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iTach Remote"
 description: "Instructions on how to integrate a Global Caché iTach IP2IR gateway into Home Assistant."
-date: 2017-2-12 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: globalcache.png
 ha_category:
   - Remote

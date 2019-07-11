@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Setting up InfluxDB and Grafana using Docker"
 description: "Use this tutorial to setup InfluxDB and Grafana in a Docker container and use it with Home Assistant."
 date: 2017-04-25 08:04:05 +0000
 date_formatted: "April 25, 2017"
 author: Alok Saboo
 author_twitter: alokrsaboo
-comments: true
 categories: How-To
 og_image: /images/blog/2017-04-influxdb-grafana/influxdb-grafana-ha.png
 ---

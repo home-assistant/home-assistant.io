@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation in Python virtual environment"
 description: "How to install Home Assistant in a Python virtual environment."
-date: 2016-4-16 16:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-virtualenv/
 ---
 

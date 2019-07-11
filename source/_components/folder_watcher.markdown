@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Folder Watcher"
 description: "Component for monitoring changes within the filesystem."
-date: 2018-03-11 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - System Monitor

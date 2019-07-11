@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Visualize your IoT data"
 description: "Export, process, and visualize your Home Assistant data."
 date: 2016-07-19 16:00:00 +0000
 date_formatted: "July 19, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To IoT-Data
 og_image: /images/blog/2016-07-reporting/libreoffice-graph.png
 ---

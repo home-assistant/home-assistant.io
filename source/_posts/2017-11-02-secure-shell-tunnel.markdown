@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant and SSH"
 description: "Accessing Home Assistant through a secure shell tunnel."
 date: 2017-11-02 10:00:00 +0200
 date_formatted: "November 02, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-11-ssh/social.png
 ---

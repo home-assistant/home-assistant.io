@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Text"
 description: "Instructions on how to integrate the Input Text integration into Home Assistant."
-date: 2016-03-15 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation

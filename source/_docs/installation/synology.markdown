@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on a Synology NAS"
 description: "Instructions to install Home Assistant on a Synology NAS."
-date: 2016-04-16 11:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-synology/
 ---
 

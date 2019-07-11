@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "GitHub Sensor"
 description: "How to integrate the GitHub sensor into Home Assistant."
-date: 2018-12-24 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: github.png
 ha_category:
   - Sensor

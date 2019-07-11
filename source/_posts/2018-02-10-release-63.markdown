@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.63: Entity Registry, SQL Sensor, Mercedes cars"
 description: "Reserve entity IDs for your devices with the new entity registry, show query results as a sensor and yet another car integrated."
 date: 2018-02-10 01:00:00
 date_formatted: "February 10, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-02-0.63/components.png
 ---

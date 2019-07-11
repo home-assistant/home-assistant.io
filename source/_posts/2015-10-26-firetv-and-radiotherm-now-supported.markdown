@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.7.6: Amazon FireTV, Radiotherm thermostats"
 description: "Home Assistant 0.7.6 has been released with lots of squashed bugs and support for Amazon FireTV and Radiotherm thermostats."
 date: 2015-10-26 18:10:00 0000
 date_formatted: "October 26, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

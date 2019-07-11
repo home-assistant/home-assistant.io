@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Binary Sensor"
 description: "Instructions on how to integrate Template Binary Sensors into Home Assistant."
-date: 2016-02-25 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Binary Sensor
 ha_release: 0.12

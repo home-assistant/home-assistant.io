@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Greenwave Reality (TCP Connected) Lights
 description: "Instructions on how to set up Greenwave Reality lights within Home Assistant."
-date: 2017-11-17 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: greenwavereality.png
 ha_category:
   - Light

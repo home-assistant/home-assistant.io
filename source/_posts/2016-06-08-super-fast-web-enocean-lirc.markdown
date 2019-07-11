@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.21: Improved Web and support for EnOcean, LIRC and Osram Lightify"
 description: "This new release of Home Assistant is lightning fast with the new web stack and progressive web application. On top of that a handful of new components and platforms for EnOcean, LIRC and Osram Lightify support."
 date: 2016-06-08 01:06:00 +0000
 date_formatted: "June 8, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

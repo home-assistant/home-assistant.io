@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PWM LED Light"
 description: "Instructions on how to setup PWM LEDs within Home Assistant."
-date: 2017-04-04 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - DIY
 ha_iot_class: Local Push

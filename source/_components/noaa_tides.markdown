@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NOAA Tides"
 description: "Instructions to add NOAA Tide information to Home Assistant."
-date: 2018-07-24 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Environment
 ha_release: 0.75

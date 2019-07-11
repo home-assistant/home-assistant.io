@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Coinbase"
 description: "Instructions for how to add Coinbase sensors to Home Assistant."
-date: 2017-12-08 17:54
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: coinbase.png
 ha_category:
   - Finance

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC devices with Home Assistant."
-date: 2017-12-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: daikin.png
 ha_category:
   - Climate

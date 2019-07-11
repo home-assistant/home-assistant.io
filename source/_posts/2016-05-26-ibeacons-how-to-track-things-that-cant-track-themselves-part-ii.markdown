@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "iBeacons: How to track things that can’t track themselves (part II)"
 description: A step by step guide how to tracking dumb devices by using iBeacons.
 date: 2016-05-26 12:06:12 +0100
 date_formatted: "May 26, 2016"
 author: Greg Dowling
 author_twitter: pavoni240
-comments: true
 categories: iBeacons Device-Tracking OwnTracks
 og_image: /images/blog/2016-05-ibeacons/keys_device.png
 ---

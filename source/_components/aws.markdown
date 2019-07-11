@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Amazon Web Services"
 description: "Instructions on how to integrate Amazon Web Services with Home Assistant."
-date: 2019-03-21 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aws.png
 ha_category:
   - Notifications

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.36: ISS, USPS, Image processing, Insteon"
 description: "Track packages, space stations, TrackR devices, Xiaomi, and UPC connect boxes"
 date: 2017-01-14 08:04:05 +0000
 date_formatted: "January 15, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-01-0.36/social.png
 ---

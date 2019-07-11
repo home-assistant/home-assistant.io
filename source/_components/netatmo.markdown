@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Netatmo"
 description: "Instructions on how to integrate Netatmo integration into Home Assistant."
-date: 2016-06-02 08:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: netatmo.png
 ha_category:
   - Hub

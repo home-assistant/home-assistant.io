@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Send a reminder"
 description: "Send a reminder"
-date: 2015-12-16 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zestimate"
 description: "Instructions on how to integrate the Zestimate sensor into Home Assistant."
-date: 2018-03-02 3:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Sensor
 logo: zillow.png

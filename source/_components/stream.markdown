@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Stream"
 description: "Instructions on how to integrate live streams within Home Assistant."
-date: 2019-02-06 13:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other

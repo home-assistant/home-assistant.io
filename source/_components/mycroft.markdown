@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mycroft"
 description: "Instructions on how to setup Mycroft AI within Home Assistant."
-date: 2017-08-26 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mycroft.png
 ha_category:
   - Voice

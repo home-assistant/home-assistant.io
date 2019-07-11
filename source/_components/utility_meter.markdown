@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Utility Meter"
 description: "Instructions on how to integrate the Utility Meter into Home Assistant."
-date: 2019-01-02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Sensor
 ha_release: 0.87

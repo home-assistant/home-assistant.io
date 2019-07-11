@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Flux Light Adjustment"
 description: "Instructions on how to have switches call command line commands."
-date: 2016-06-01 17:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Automation
 ha_release: 0.21

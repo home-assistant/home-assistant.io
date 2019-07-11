@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Joaoapps Join"
 description: "Instructions for how to integrate the Join by Joaoapps service within Home Assistant."
-date: 2016-07-12 10:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: joaoapps_join.png
 ha_category:
   - Hub

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.16: Embedded MQTT broker, Uber, Yamaha receivers and Growl"
 description: "Home Assistant 0.16 has arrived."
 date: 2016-03-26 0:10:00 -0700
 date_formatted: "March 26, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

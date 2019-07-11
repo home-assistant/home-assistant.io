@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yale Smart Alarm Control"
 description: "Instructions on how to integrate Yale Smart Alarms into Home Assistant."
-date: 2018-09-01 11:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yale.png
 ha_category:
   - Alarm

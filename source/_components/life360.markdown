@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Life360"
 description: "Instructions how to use Life360 to track devices in Home Assistant."
-date: 2019-04-24 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: life360.png
 ha_release: 0.95
 ha_category:

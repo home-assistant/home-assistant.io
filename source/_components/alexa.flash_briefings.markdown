@@ -1,16 +1,9 @@
 ---
-layout: page
 title: "Amazon Alexa Flash Briefing"
 description: "Instructions on how to create your Flash Briefing skills with Home Assistant."
-date: 2019-03-14 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: amazon-alexa.png
 ha_category:
   - Voice
-featured: false
 ha_release: "0.31"
 ---
 

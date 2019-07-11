@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.38: Alert, AppleTV, MQTT discovery, and Yeelight"
 description: "Faster and more configurable frontend, configuration check, and complete move to async for core"
 date: 2017-02-11 08:04:05 +0000
 date_formatted: "February 11, 2017"
 author: Robbie Trencheny, Fabian Affolter
 author_twitter: robbie
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-02-0.38/social.png
 ---

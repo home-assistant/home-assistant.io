@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenTherm Gateway Hub"
 description: "Control your OpenTherm Gateway from Home Assistant."
-date: 2018-10-07 16:23
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: opentherm.png
 ha_category:
   - Hub

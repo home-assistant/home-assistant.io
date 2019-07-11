@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Upgrading Hassbian"
 description: "Instructions on how to upgrade Hassbian to the latest version."
-date: 2018-06-03 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /docs/hassbian/upgrading/
 ---
 

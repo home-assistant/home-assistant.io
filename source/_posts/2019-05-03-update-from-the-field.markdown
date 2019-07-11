@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Update from the Field"
 description: "A status update from Home Assistant HQ."
 date: 2019-05-03 00:11:03
 date_formatted: "May 3, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 ---
 

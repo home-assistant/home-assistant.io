@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "WirelessTag"
 description: "Instructions on how to integrate your Wireless Tags sensors within Home Assistant."
-date: 2018-03-26 21:32
-comments: false
-sidebar: true
-sharing: true
-footer: true
 logo: wirelesstag.png
 ha_category:
   - Hub

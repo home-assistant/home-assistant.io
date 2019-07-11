@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ANEL PwrCtrl Switch"
 description: "Instructions on how to integrate ANEL PwrCtrl switches within Home Assistant."
-date: 2016-10-02 19:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: anel.png
 ha_category:
   - Switch

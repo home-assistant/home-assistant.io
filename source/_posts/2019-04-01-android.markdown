@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "When will there be an official Home Assistant for Android app???"
 description: "Announcing Home Assistant Companion for Android"
 date: 2019-04-01 00:01:00
 date_formatted: "April 1, 2019"
 author: Robbie Trencheny
 author_twitter: robbie
-comments: true
 categories: Announcements
 ---
 

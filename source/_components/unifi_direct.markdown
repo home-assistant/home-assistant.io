@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ubiquiti Unifi direct AP"
 description: "Instructions on how to use a Unifi WAP as a device tracker."
-date: 2017-11-17 14:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ubiquiti.png
 ha_category:
   - Presence Detection

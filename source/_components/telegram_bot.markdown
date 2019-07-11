@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telegram chatbot"
 description: "Telegram chatbot support"
-date: 2017-04-05 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: telegram.png
 ha_category:
   - Hub

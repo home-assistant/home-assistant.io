@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FinTS Sensor"
 description: "Instructions on how to use the FinTS sensor."
-date: 2018-03-25 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Finance
 ha_release: "0.70"

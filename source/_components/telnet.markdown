@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telnet Switch"
 description: "Instructions on how to integrate telnet switches into Home Assistant."
-date: 2017-08-10 19:19
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Switch
 ha_release: 0.54

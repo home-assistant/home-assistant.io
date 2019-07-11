@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.81: new Lovelace cards, LG soundbars, Dyson fans, Elk-M1"
 description: "Epic new release full of goodies build by over a hundred contributors."
 date: 2018-10-26 00:01:00
 date_formatted: "October 26, 2018"
 author: Tinkerer
 author_twitter: Dubh_Ad
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-10-release-81/social.png
 ---

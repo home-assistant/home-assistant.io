@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Python Scripts"
 description: "Instructions on how to setup Python scripts within Home Assistant."
-date: 2017-06-15 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation

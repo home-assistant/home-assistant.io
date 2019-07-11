@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT HVAC"
 description: "Instructions on how to integrate MQTT HVAC into Home Assistant."
-date: 2017-07-31 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Climate

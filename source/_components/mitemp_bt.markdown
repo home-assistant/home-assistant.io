@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi BLE Temperature and Humidity sensor"
 description: "Instructions on how to integrate MiTemp BLE temperature and humidity sensor with Home Assistant."
-date: 2018-04-22 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - DIY
@@ -127,8 +121,7 @@ sensor:
   - platform: mitemp_bt
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Kids Room Temp
-    force_update: false
-    median: 3
+    force_up    median: 3
     monitored_conditions:
       - temperature
       - humidity

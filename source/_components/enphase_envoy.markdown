@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Enphase Envoy"
 description: "Instructions on how to setup Enphase Envoy with Home Assistant."
-date: 2018-06-30 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: enphase-logo.svg
 ha_category:
   - Energy

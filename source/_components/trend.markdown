@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Trend Binary Sensor"
 description: "Instructions on how to integrate Trend binary sensors into Home Assistant."
-date: 2016-09-05 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Utility
 logo: home-assistant.png

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe."
 description: "This new release of Home Assistant contains support for KNX, Join by Joaoapps, and SimpliSafe. As of now our new database backend is SQLAlchemy which gives you more flexibility for storing your data."
 date: 2016-07-16 12:00:00 +0000
 date_formatted: "July 16, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 

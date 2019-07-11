@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hitron CODA Routers"
 description: "Instructions on how to integrate Hitron CODA Routers into Home Assistant."
-date: 2017-10-03 15:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hitron.png
 ha_category:
   - Presence Detection

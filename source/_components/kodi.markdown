@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Kodi"
 description: "Instructions on how to integrate Kodi into Home Assistant."
-date: 2015-06-22 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: kodi.png
 ha_category:
   - Notifications

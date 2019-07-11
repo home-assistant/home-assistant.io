@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Water Heater"
 description: "Instructions on how to setup water heater devices within Home Assistant."
-date: 2018-10-10 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.81
 ---
 

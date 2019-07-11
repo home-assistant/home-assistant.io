@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "BME680 Sensor"
 description: "Instructions on how to integrate a BME680 sensor into Home Assistant."
-date: 2018-01-16 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY

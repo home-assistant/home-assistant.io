@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TP-Link Smart Home Devices"
 description: "Instructions on integrating TP-Link Smart Home Devices to Home Assistant."
-date: 2018-09-12 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tp-link.png
 ha_category:
   - Hub

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.67: Mastodon, Tahoma switches, Nanoleaf Aurora Light Panels"
 description: "Security fixes and performance improvements 😅"
 date: 2018-04-13 00:01:00
 date_formatted: "April 13, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-04-0.67/components.png
 ---

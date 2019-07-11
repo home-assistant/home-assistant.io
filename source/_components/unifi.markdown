@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "UniFi"
 description: "Instructions on how to configure UniFi integration with UniFi Controller by Ubiquiti."
-date: 2018-10-15 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ubiquiti.png
 ha_category:
   - Hub

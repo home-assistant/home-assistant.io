@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Todoist"
 description: "Instructions on how to integrate Todoist into Home Assistant."
-date: 2017-08-31 2:22
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: todoist.png
 ha_category:
   - Calendar

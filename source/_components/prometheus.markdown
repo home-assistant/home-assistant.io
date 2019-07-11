@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Prometheus"
 description: "Record events in Prometheus."
-date: 2017-06-25 08:00
-sidebar: true
-comments: false
-sharing: true
 logo: prometheus.png
-footer: true
 ha_category:
   - "History"
 ha_release: 0.49

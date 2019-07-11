@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Luftdaten"
 description: "Instructions on how to setup Luftdaten sensors in Home Assistant."
-date: 2018-11-05 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: luftdaten.png
 ha_category:
   - Health

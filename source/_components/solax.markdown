@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Solax Sensor"
 description: "Instructions on how to integrate Solax sensor within Home Assistant."
-date: 2019-03-31 04:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: solax-logo.png
 ha_category:
   - Energy

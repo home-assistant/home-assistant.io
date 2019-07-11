@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Picture Elements Card"
 sidebar_label: Picture Elements
 description: "Picture elements card is one of the most versatile types of cards"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Picture elements card is one of the most versatile types of cards.

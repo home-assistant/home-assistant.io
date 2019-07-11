@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Lovelace UI released!"
 description: "After 8 months of development, we're proud to release our brand new Lovelace UI."
 date: 2019-01-23 00:01:02
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-01-lovelace/demo.png
 ---

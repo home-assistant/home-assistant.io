@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PulseAudio Loopback Switch"
 description: "Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system."
-date: 2016-03-22 21:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pulseaudio.png
 ha_category:
   - Switch

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.34: New Remote component, Websockets, Sonarr, GPSLogger"
 description: "Major improvements of HomeMatic, Tellstick, the HTTP component, and more."
 date: 2016-12-03 08:04:05 +0000
 date_formatted: "December 3, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-12-0.34/social.png
 ---

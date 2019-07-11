@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.85: ESPHome, Plum Lightpad, OpenSenseMap"
 description: "First release of 2019. 20 new integrations, including ESPHome, the best way to integrate ESP chips into Home Assistant."
 date: 2019-01-09 00:01:00
 date_formatted: "January 9, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-01-release-85/components.png
 ---

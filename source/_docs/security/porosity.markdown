@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Home Assistant/Hass.io porosity"
 description: "Use nmap to scan your Home Assistant instance."
-date: 2016-10-06 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 As a large amount of users are running [Hass.io](/hassio/), here we are using a Raspberry Pi 3 B and Hass.io 0.70.0 to show how Home Assistant looks from the network side. This is not a full blown investigation, just a quick overview.

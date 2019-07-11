@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Domains"
 description: "Keep your computer registered with the Google Domains dynamic DNS."
-date: 2017-10-23 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_domains.png
 ha_category:
   - Network

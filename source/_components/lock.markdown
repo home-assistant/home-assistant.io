@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Locks"
 description: "Instructions on how to setup your locks with Home Assistant."
-date: 2015-11-21 08:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Lock

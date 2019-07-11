@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.57: Translations, Hacktoberfest, Timers"
 description: "Due to Hacktoberfest we had to ship more fixes, improvements and components than usual."
 date: 2017-11-04 04:00:00
 date_formatted: "November 4, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-11-0.57/languages.png
 ---

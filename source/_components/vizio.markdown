@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Vizio SmartCast Device"
 description: "Instructions on how to integrate Vizio SmartCast TVs and Sound Bars into Home Assistant."
-date: 2017-07-10 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: vizio-smartcast.png
 ha_category:
   - Media Player

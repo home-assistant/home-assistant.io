@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Thank You"
 description: "Thanks to all our contributors, dependencies and companies that help make Home Assistant awesome."
 date: 2017-12-28 22:00:00 UTC
 date_formatted: "December 28, 2017"
 author: Fabian affolter
 author_twitter: fabaff
-comments: true
 categories: Community
 og_image:
 ---

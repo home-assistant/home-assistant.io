@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mi Flora plant sensor"
 description: "Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant."
-date: 2016-09-19 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: miflora.png
 ha_category:
   - Environment
@@ -122,8 +116,7 @@ sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Flower 1
-    force_update: false
-    median: 3
+    force_up    median: 3
     monitored_conditions:
       - moisture
       - light

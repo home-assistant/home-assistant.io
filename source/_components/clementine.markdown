@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Clementine Music Player"
 description: "Instructions on how to integrate Clementine Music Player within Home Assistant."
-date: 2017-02-11 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: clementine.png
 ha_category:
   - Media Player

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Devices"
 description: "What you need to know about Z-Wave devices."
-date: 2017-09-21 11:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-devices/
 ---
 

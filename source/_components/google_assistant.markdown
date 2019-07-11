@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Assistant"
 description: "Setup for Google Assistant integration"
-date: 2017-10-17 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google-assistant.png
 ha_category:
   - Voice

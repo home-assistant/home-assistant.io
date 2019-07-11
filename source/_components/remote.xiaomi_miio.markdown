@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi IR Remote"
 description: "Instructions for how to integrate the Xiaomi IR Remote within Home Assistant."
-date: 2017-01-25 17:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Remote

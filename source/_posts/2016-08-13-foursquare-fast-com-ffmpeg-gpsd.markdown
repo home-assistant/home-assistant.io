@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.26: Foursquare, Fast.com, FFMPEG and GPSD"
 description: "Automate based on check ins, slow internet speed or just stream a camera using FFMPEG."
 date: 2016-08-13 12:00:00 -0700
 date_formatted: "August 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

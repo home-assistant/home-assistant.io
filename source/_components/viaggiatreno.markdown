@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ViaggiaTreno Italian Railroads"
 description: "Instructions on how to integrate Italian Railroads data (from ViaggiaTreno API) into Home Assistant."
-date: 2017-11-07 14:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: train.png
 ha_category:
   - Transport

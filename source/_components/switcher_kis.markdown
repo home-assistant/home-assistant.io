@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Switcher"
 description: "Controlling your Switcher V2 Water Heater."
-date: 2018-04-10 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: switcher_boiler.png
 ha_category:
   - Switch

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Introducing Home Assistant Cloud
 description: "Use Alexa to control any device that is connected to Home Assistant."
 date: 2017-12-17 03:00:00
 date_formatted: "December 17, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 ---
 

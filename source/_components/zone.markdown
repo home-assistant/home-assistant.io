@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zone"
 description: "Instructions on how to set up zones within Home Assistant."
-date: 2015-10-04 09:23
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Organization

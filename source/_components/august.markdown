@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "August"
 description: "Instructions on how to integrate your August devices into Home Assistant."
-date: 2018-02-17 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: august.png
 ha_category:
   - Doorbell

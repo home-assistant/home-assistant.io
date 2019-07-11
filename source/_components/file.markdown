@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "File"
 description: "Instructions on how to integrate sensors which read from files into Home Assistant."
-date: 2015-06-22 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: file.png
 ha_category:
   - Utility

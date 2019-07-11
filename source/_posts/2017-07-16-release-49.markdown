@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.49: Themes 🎨, kiosk mode and Prometheus.io"
 description: "Style the frontend the way you want it and present it in Kiosk mode without tabs."
 date: 2017-07-15 00:02:05 +0000
 date_formatted: "July 15, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.49/components.png
 ---

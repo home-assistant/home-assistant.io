@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Minut Point"
 description: "Instructions on how to integrate Minut Point into Home Assistant."
-date: 2018-11-19
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: minut.svg
 ha_category:
   - Hub

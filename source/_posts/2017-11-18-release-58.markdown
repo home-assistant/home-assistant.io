@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.58: More translations, faster frontend, system log"
 description: "We now have 445 translators helping out and the frontend is receiving some polishing."
 date: 2017-11-18 04:00:00
 date_formatted: "November 18, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-11-0.58/components.png
 ---

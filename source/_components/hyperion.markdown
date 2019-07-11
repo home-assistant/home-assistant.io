@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hyperion"
 description: "Instructions on how to integrate Hyperion into Home Assistant."
-date: 2015-10-25 22:43
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hyperion.png
 ha_category:
   - Light

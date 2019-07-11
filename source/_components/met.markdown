@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Met.no"
 description: "Instructions on how to integrate Met.no within Home Assistant."
-date: 2018-09-17 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: metno.png
 ha_category:
   - Weather

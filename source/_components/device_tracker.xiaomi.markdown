@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Router"
 description: "Instructions on how to integrate Xiaomi routers into Home Assistant."
-date: 2017-01-12 12:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Presence Detection

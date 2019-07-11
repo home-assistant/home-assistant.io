@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Credits"
 description: "Credits for the developers who contributed to Home Assistant."
-date: 2019-04-07, 04:19:58 +0000
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 This page contains a list of people who have contributed in one way or another to Home Assistant. Hover over a username to see their contributions.

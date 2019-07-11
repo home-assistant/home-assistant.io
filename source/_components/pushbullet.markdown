@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pushbullet Mirrors"
 description: "Instructions on how to read user pushes in Home Assistant"
-date: 2017-04-20 16:44
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pushbullet.png
 ha_category:
   - Sensor

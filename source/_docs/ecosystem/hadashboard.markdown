@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HADashboard"
 description: "HADashboard is a dashboard for Home Assistant that is intended to be wall mounted, and is optimized for distance viewing."
-release_date: 2016-11-13 15:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/hadashboard/
 ---
 

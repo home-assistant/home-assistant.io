@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "UK transport"
 description: "Display the current status of UK train and bus departures."
-date: 2017-07-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: train.png
 ha_category:
   - Transport

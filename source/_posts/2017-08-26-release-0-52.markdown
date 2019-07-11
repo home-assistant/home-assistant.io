@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.52: Scripts editor, Nello.io locks, HipChat and Abode Home Security"
 description: "The summer is not holding development back at all. A brand new release including bug fixes and goodies."
 date: 2017-08-26 00:11:05
 date_formatted: "August 26, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-08-0.52/components.png
 ---

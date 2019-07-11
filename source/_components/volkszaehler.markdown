@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Volkszaehler"
 description: "Instructions on how to integrate Volkszaehler sensors into Home Assistant."
-date: 2018-08-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: volkszaehler.png
 ha_category:
   - System Monitor

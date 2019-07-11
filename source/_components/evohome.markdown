@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell evohome/TCC systems"
 description: "Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant."
-date: 2018-09-25 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell.png
 ha_category:
   - Hub

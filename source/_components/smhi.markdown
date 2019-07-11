@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SMHI"
 description: "Instructions on how to integrate SMHI forecasts within Home Assistant."
-date: 2018-09-23 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smhi.png
 ha_category:
  - Hub

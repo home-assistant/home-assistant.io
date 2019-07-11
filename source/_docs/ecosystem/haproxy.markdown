@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HAProxy"
 description: "Documentation about setting up Home Assistant with HAProxy"
-date: 2018-01-02 11:23:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Using HAProxy to proxy for Home Assistant allows you to serve Home Assistant securely over standard ports with HTTP to HTTPS redirection.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IPMA"
 description: "Instructions on how to integrate Instituto Português do Mar e Atmosfera weather conditions into Home Assistant."
-date: 2018-05-31 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ipma.png
 ha_category:
   - Weather

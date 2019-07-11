@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Huawei LTE Routers"
 description: "Instructions on how to integrate Huawei LTE routers with Home Assistant."
-date: 2018-09-08 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: huawei.svg
 ha_category:
   - Network

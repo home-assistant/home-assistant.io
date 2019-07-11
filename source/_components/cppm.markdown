@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Aruba ClearPass"
 description: "Instructions on how to integrate Aruba ClearPass into Home Assistant."
-date: 2019-03-05 10:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aruba.png
 ha_category:
   - Presence Detection

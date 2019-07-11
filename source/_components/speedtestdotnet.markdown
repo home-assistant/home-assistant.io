@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Speedtest.net"
 description: "How to integrate Speedtest.net within Home Assistant."
-date: 2016-02-12 9:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: speedtest.png
 ha_category:
   - System Monitor

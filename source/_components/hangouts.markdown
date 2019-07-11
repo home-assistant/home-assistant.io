@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Hangouts"
 description: "Hangouts chatbot support"
-date: 2018-08-18 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hangouts.png
 ha_category:
   - Hub

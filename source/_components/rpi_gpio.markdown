@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspberry Pi GPIO"
 description: "Instructions on how to integrate the GPIO capability of a Raspberry Pi into Home Assistant."
-date: 2016-08-30 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY

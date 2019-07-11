@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "HASSbian 1.1 - The Toy-box"
 description: "New release of the HASSbian Raspberry Pi Image for Home Assistant"
 date: 2017-02-04 05:00:00 -0400
 date_formatted: "February 4, 2017"
 author: Fredrik Lindqvist
-comments: true
 categories: Technology
 ---
 

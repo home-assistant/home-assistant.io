@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lutron"
 description: "Instructions on how to use Lutron devices with Home Assistant."
-date: 2017-01-28 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lutron.png
 ha_category:
   - Hub
