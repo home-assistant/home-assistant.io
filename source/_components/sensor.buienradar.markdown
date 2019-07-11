@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Buienradar Sensor"
 description: "Instructions on how to integrate buienradar.nl sensor within Home Assistant."
-date: 2017-05-15 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: buienradar.png
 ha_category:
   - Weather

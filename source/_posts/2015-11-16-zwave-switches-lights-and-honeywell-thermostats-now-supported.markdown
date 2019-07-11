@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.8: Honeywell Thermostats, Orvibo switches and Z-Wave switches and lights "
 description: "Home Assistant 0.8 can now interact with Honeywell thermostats, Orvibo switches and has improved Z-Wave support."
 date: 2015-11-16 21:27:00 0000
 date_formatted: "November 16, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -28,7 +26,7 @@ homeassistant:
 
 <img src='/images/supported_brands/honeywell.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/orvibo.png' style='clear: right;  border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' /><img src='/images/supported_brands/pushetta.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' height='50' />
 
- * Thermostat: [Honeywell](/components/thermostat.honeywell/) now supported ([@sander76])
+ * Thermostat: [Honeywell](/components/honeywell/) now supported ([@sander76])
  * Switch: [Orvibo](/components/switch.orvibo/) now supported ([@happyleavesaoc])
  * Camera: [mjpeg camera's](/components/camera.mjpeg/) now supported ([@ryanturner])
  * Notify: [Pushetta](/components/notify.pushetta/) now supported ([@fabaff])

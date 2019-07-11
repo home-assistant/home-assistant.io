@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zehnder ComfoAir Q Ventilation"
 description: "Instructions on how to integrate Zehnder ComfoAir Q350/450/600 ventilation systems into Home Assistant."
-date: 2017-06-28 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zehnder.png
 ha_category:
   - Fan

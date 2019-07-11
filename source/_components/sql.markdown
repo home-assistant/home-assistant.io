@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SQL Sensor"
 description: "Instructions how to integrate SQL sensors into Home Assistant."
-date: 2018-02-03 00:22
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sql.png
 ha_category:
   - Utility

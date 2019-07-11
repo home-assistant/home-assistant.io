@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.23: Envisalink, Homematic, HDMI-CEC and Sony Bravia TV"
 description: "This new release of Home Assistant contains support for Envisalink, Homematic, Sony Bravia TV and HDMI-CEC. Additionally was the Wink support improved and CherryPy is the new WSGI server."
 date: 2016-07-01 00:31:00 +0000
 date_formatted: "July 1, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -85,7 +83,7 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [HDMI-CEC]: /components/hdmi_cec/
 [hm-binary-sensor]: /components/binary_sensor.homematic/
 [hm-light]: /components/light.homematic/
-[hm-rollershutter]: /components/rollershutter.homematic/
+[hm-rollershutter]: /components/homematic/
 [hm-sensor]: /components/sensor.homematic/
 [hm-switch]: /components/switch.homematic/
 [Homematic]: /components/homematic/
@@ -96,12 +94,12 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [secrets]: /topics/secrets/
 [Vera]: /components/lock.vera/
 [Wink]: /components/wink/
-[zwave-garage-door]: /components/garage_door.zwave/
+[zwave-garage-door]: /components/zwave/#cover
 [zwave-light]: /components/light.zwave/
-[zwave-rollershutter]: /components/rollershutter.zwave/
+[zwave-rollershutter]: /components/zwave/#cover
 [Fixer.io]: /components/sensor.fixer/
 [persistent notifications]: /components/persistent_notification/
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
 [Sony Bravia TV]: /components/media_player.braviatv/
-[Raspberry Pi GPIO pins]: /components/garage_door.rpi_gpio/
+[Raspberry Pi GPIO pins]: /components/rpi_gpio/#remote-raspberry-pi-cover
 [elevation]: /getting-started/basic/

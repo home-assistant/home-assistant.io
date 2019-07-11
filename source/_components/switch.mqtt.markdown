@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Switch"
 description: "Instructions on how to integrate MQTT switches into Home Assistant."
-date: 2015-08-30 23:38
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Switch

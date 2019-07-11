@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Habitica"
 description: "Instructions on enabling Habitica support for your Home Assistant"
-date: 2018-08-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: habitica.png
 ha_category:
   - Hub

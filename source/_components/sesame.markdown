@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sesame Smart Lock"
 description: "Instructions on how to integrate Sesame by CANDY HOUSE into Home Assistant."
-date: 2017-05-02 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sesame.png
 ha_category:
   - Lock

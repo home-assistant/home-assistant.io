@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Velux"
 description: "Instructions on how to integrate Velux KLF 200 integration with Home Assistant."
-date: 2017-07-09 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: velux.png
 ha_category:
   - Scene

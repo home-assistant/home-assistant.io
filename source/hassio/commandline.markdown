@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hass.io via the Command line"
 description: "Command line utility to control Hass.io."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 <p class='img'>

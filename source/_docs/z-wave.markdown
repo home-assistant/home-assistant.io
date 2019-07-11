@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave"
 description: "Using Z-Wave with Home Assistant."
-date: 2017-09-21 10:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave/
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Egardia"
 description: "Instructions on how to setup Egardia / Woonveilig within Home Assistant."
-date: 2018-03-13 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: egardia.png
 ha_category:
   - Hub

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hydro-Québec"
 description: "Instructions on how to integrate Hydro-Québec consumption profile within Home Assistant."
-date: 2016-12-10 0:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hydroquebec.svg
 ha_category:
   - Energy

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Particulate matter Sensor"
 description: "Instructions on how to integrate particulate matter (dust) sensors with Home Assistant."
-date: 2016-08-11 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: serial_pm.png
 ha_category:
   - DIY

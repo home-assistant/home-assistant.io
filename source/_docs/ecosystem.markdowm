@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ecosystem"
 description: "External tools for Home Assistant"
-date: 2016-10-26 00:46
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/
 ---
 

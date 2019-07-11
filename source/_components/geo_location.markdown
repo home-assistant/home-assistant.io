@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Geolocation"
 description: "Instructions on how to integrate geolocation aware platforms into Home Assistant."
-date: 2018-08-27 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: geo_location.png
 ha_release: 0.78
 ---

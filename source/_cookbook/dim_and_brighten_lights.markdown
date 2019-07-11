@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dim (and brighten) lights via a remote"
 description: "The scripts and automations to allow you to use a remote to dim and brighten a light"
-date: 2017-09-06 18:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

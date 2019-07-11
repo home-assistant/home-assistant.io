@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nederlandse Spoorwegen"
 description: "Instructions on how to integrate timetable data for traveling by train in the Netherlands within Home Assistant."
-date: 2017-10-25 13:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nederlandse_spoorwegen.png
 ha_category:
   - Transport

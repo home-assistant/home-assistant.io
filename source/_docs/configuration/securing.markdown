@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Securing"
 description: "Instructions on how to secure your Home Assistant installation."
-date: 2016-10-06 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/securing/
 ---
 

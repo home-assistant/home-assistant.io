@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AdGuard Home"
 description: "Instructions on how to integrate AdGuard Home with Home Assistant."
-date: 2019-05-31 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: adguard.png
 ha_category:
   - Network

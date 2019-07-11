@@ -1,10 +1,6 @@
 ---
-layout: page
 title: "Ambient Weather Station Sensor"
 description: "How to integrate Ambient Weather station within Home Assistant."
-date: 2018-11-15 08:00
-sidebar: true
-comments: false
 logo: ambient_weather.png
 ha_category:
   - Weather

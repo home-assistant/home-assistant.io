@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IGN Sismología"
 description: "Instructions on how to integrate the Instituto Geográfico Nacional Sismología (Earthquakes) Feed feed into Home Assistant."
-date: 2019-04-04 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ign-sismologia.png
 ha_category:
   - Geolocation

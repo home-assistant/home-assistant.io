@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SmartThings"
 description: "Instructions on setting up Samsung SmartThings within Home Assistant."
-date: 2018-01-14 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 logo: samsung_smartthings.png
 ha_category:

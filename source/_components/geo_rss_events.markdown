@@ -1,12 +1,6 @@
 ---
-layout: page
 title: GeoRSS Events Sensor
 description: "Instructions on how to set up GeoRSS sensors within Home Assistant."
-date: 2017-07-31
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rss.png
 ha_category:
   - Sensor

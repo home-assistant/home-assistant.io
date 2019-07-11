@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.55: Tibber, DuckDNS, The Things Network, Owntrack"
 description: "Support for Tibber and the Things Network a long with new Owntracks and DuckDNS features"
 date: 2017-10-07 10:00:00
 date_formatted: "October 7, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-10-0.55/components.png
 ---

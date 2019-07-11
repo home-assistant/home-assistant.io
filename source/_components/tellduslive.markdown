@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telldus Live"
 description: "Instructions on how to integrate Telldus Live into Home Assistant."
-date: 2016-01-17 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tellduslive.svg
 ha_category:
   - Hub

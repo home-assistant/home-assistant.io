@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AVM FRITZ!DECT Switch"
 description: "Instructions on how to integrate your AVM FRITZ!DECT switches into Home Assistant."
-date: 2017-01-24 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: avm.png
 ha_category:
   - Switch

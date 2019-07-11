@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Met Office Sensor"
 description: "Instructions on how to integrate Met Office weather conditions into Home Assistant."
-date: 2017-03-23 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: metoffice.jpg
 ha_category:
   - Weather

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Utility Meter"
 description: "Instructions on how to integrate the Utility Meter into Home Assistant."
-date: 2019-01-02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Sensor
 ha_release: 0.87
@@ -153,7 +147,7 @@ automation:
 
 ## Advanced Configuration for DSMR users
 
-When using the [DSMR component](https://www.home-assistant.io/components/sensor.dsmr/) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
+When using the [DSMR component](/components/sensor.dsmr/) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
 
 If you want to create a daily and monthly sensor for each tariff, you have to track separate sensors:
 

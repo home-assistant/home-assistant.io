@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "BOM Australia"
 description: "Instructions on how to integrate Bureau of Meteorology Australia weather conditions into Home Assistant."
-date: 2016-09-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bom.png
 ha_category:
   - Weather

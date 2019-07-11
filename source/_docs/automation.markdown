@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automating Home Assistant"
 description: "Steps to help you get automation setup in Home Assistant."
-date: 2015-09-19 09:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Home Assistant offers a wide range of automation configurations. In this section, we'll try to guide you through all the different possibilities and options. Besides this documentation, there are also a couple of people who have made their automations [publicly available](/cookbook/#example-configurationyaml).

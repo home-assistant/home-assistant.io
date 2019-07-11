@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on a Windows system"
 description: "Instructions to install Home Assistant on a Microsoft Windows system."
-date: 2017-02-23 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 To run Home Assistant on Microsoft Windows installation you need to install Python first. Download Python (the latest version of Python 3.6 is recommended) for [https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/) and follow the instructions of the installer.

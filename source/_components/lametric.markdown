@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LaMetric"
 description: "Instructions on how to integrate LaMetric with Home Assistant."
-date: 2017-04-02 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lametric.png
 ha_category:
   - Hub

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Philips Light"
 description: "Instructions on how to integrate your Xiaomi Philips Lights within Home Assistant."
-date: 2017-08-26 08:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: philips.png
 ha_category:
   - Light

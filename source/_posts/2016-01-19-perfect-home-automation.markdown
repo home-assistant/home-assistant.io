@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Perfect Home Automation"
 description: "A breakdown of what the perfect home automation should consist of."
 date: 2016-01-19 00:20:00 -0800
 date_formatted: "January 19, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Internet-of-Things
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pilight"
 description: "Instructions on how to setup Pilight within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pilight.png
 ha_category:
   - DIY

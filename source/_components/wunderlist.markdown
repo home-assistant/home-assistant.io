@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Wunderlist"
 description: "Instructions on how to use Wunderlist with Home Assistant."
-date: 2018-10-09 10:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: wunderlist.png
 ha_category:
   - Calendar

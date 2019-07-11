@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on FreeNAS 11.2"
 description: "Installation of Home Assistant on your FreeNAS."
-date: 2017-06-20 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 [FreeNAS](https://www.freenas.org) is a free and open-source network-attached storage (NAS) software based on FreeBSD and the OpenZFS file system. It is licensed under the terms of the BSD License and runs on commodity x86-64 hardware.

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.77: Authentication system 👮‍♂️ + Hangouts bot 🤖"
 description: "The new authentication system is live! Chat on hangouts! "
 date: 2018-08-29 00:01:00
 date_formatted: "August 29, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-08-0.77/social.png
 ---
@@ -222,7 +220,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade brunt package ([@eavanvalkenburg] - [#16130]) ([cover.brunt docs])
 - Add support for NOAA tide information (new PR) ([@jcconnell] - [#15947]) ([sensor.noaa_tides docs]) (new-platform)
 - Adds support for routers implementing IGDv2 ([@dgomes] - [#16108]) ([upnp docs]) (breaking change)
-- Add support for JS modules in custom panels ([@squidwardy] - [#16096]) ([panel_custom docs])
+- Add support for JS modules in custom panels ([@villanyibalint] - [#16096]) ([panel_custom docs])
 - Prevent legacy api password with empty password ([@balloob] - [#16127])
 - Enable auth by default 🙈 ([@balloob] - [#16107]) (breaking change)
 - Remove commented out API password from default config ([@balloob] - [#16147])
@@ -411,7 +409,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@scop]: https://github.com/scop
 [@sdague]: https://github.com/sdague
 [@shoejosh]: https://github.com/shoejosh
-[@squidwardy]: https://github.com/squidwardy
+[@villanyibalint]: https://github.com/villanyibalint
 [@syssi]: https://github.com/syssi
 [@teharris1]: https://github.com/teharris1
 [@ttroy50]: https://github.com/ttroy50

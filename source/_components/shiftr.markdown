@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Shiftr.io"
 description: "Transfer events to Shiftr.io."
-date: 2017-06-16 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: shiftr.png
 ha_category:
   - "History"

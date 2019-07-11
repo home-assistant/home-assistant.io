@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "GPSD"
 description: "Instructions on how to integrate GPSD into Home Assistant."
-date: 2016-07-18 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: gpsd.png
 ha_category:
   - Utility

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DLNA DMR"
 description: "Instructions on how to integrate a DLNA DMR device into Home Assistant."
-date: 2018-06-01 14:27
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dlna.png
 ha_category:
   - Media Player

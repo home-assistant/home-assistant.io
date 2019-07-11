@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Samsung SyncThru Printer"
 description: "Instructions on how to integrate a Samsung printer providing SyncThru within Home Assistant."
-date: 2018-02-19 23:33
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: samsung.png
 ha_category:
   - System Monitor

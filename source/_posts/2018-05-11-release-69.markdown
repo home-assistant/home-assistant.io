@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.69: Matrix Chatbot, PostNL, Social Blade, Xiaomi Mijia sensors"
 description: "Great release mainly focused on bug fixes."
 date: 2018-05-11 00:01:00
 date_formatted: "May 11, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-05-0.69/components.png
 ---
@@ -82,7 +80,7 @@ rainmachine:
 - Bump locationsharinglib to 1.2.2 ([@thelittlefireman] - [#14070]) ([device_tracker docs])
 - Remove excessive debugging in webostv module ([@stephanerosi] - [#14056]) ([media_player.webostv docs])
 - Support new Xiaomi Aqara device model names and LAN protocol 2.0 ([@ileler] - [#13540]) ([xiaomi_aqara docs]) ([binary_sensor.xiaomi_aqara docs]) ([light.xiaomi_aqara docs]) ([sensor.xiaomi_aqara docs]) ([switch.xiaomi_aqara docs])
-- Add devices to Tahoma ([@bakedraccoon] - [#14075]) ([tahoma docs]) ([cover.tahoma docs]) ([sensor.tahoma docs])
+- Add devices to Tahoma ([@thijsdejong] - [#14075]) ([tahoma docs]) ([cover.tahoma docs]) ([sensor.tahoma docs])
 - Modify weather components for "new" frontend card ([@c727] - [#14076]) ([weather.buienradar docs]) ([weather.darksky docs]) ([weather.openweathermap docs])
 - Add Sonos device attribute with grouping information ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)
 - Re-implement HomematicIP cloud to async ([@mxworm] - [#13468]) ([homematicip_cloud docs]) ([sensor.homematicip_cloud docs]) (breaking change)
@@ -318,7 +316,7 @@ rainmachine:
 [@amelchio]: https://github.com/amelchio
 [@andrey-git]: https://github.com/andrey-git
 [@bachya]: https://github.com/bachya
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@bieniu]: https://github.com/bieniu
 [@blackwind]: https://github.com/blackwind
@@ -392,7 +390,7 @@ rainmachine:
 [device_tracker docs]: /components/device_tracker/
 [eight_sleep docs]: /components/eight_sleep/
 [emulated_hue docs]: /components/emulated_hue/
-[fan.insteon_plm docs]: /components/fan.insteon_plm/
+[fan.insteon_plm docs]: /components/insteon/
 [fan.template docs]: /components/fan.template/
 [frontend docs]: /components/frontend/
 [homekit docs]: /components/homekit/
@@ -411,7 +409,7 @@ rainmachine:
 [light.deconz docs]: /components/light.deconz/
 [light.flux_led docs]: /components/light.flux_led/
 [light.hue docs]: /components/light.hue/
-[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.insteon_plm docs]: /components/insteon/
 [light.mqtt_json docs]: /components/light.mqtt_json/
 [light.wink docs]: /components/light.wink/
 [light.xiaomi_aqara docs]: /components/light.xiaomi_aqara/
@@ -450,7 +448,7 @@ rainmachine:
 [sensor.eliqonline docs]: /components/sensor.eliqonline/
 [sensor.filter docs]: /components/sensor.filter/
 [sensor.homematicip_cloud docs]: /components/sensor.homematicip_cloud/
-[sensor.insteon_plm docs]: /components/sensor.insteon_plm/
+[sensor.insteon_plm docs]: /components/insteon/
 [sensor.lastfm docs]: /components/sensor.lastfm/
 [sensor.mitemp_bt docs]: /components/sensor.mitemp_bt/
 [sensor.mqtt docs]: /components/sensor.mqtt/

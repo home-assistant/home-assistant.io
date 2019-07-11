@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Danfoss Air"
 description: "How to integrate Danfoss Air HRV in Home Assistant."
-date: 2019-01-14 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Climate
   - Binary Sensor

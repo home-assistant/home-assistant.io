@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ZAMG"
 description: "Instructions on how to integrate ZAMG within Home Assistant."
-date: 2016-12-06 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zamg.png
 ha_category:
   - Weather

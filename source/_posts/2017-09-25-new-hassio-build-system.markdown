@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Improved Hass.io build system"
 description: "We're introducing a new and improved Hass.io build system for Hass.io and add-ons."
 date: 2017-09-26 04:00:00 +0100
 date_formatted: "September 26, 2017"
 author: Pascal Vizeli
-comments: true
 categories: Technology
 ---
 
@@ -48,7 +46,7 @@ We have also updated our build scripts and replaced it with a [builder docker en
 
 [hassio-hardware-image-release]: https://github.com/home-assistant/hassio-build/releases/tag/1.1
 [install]: /hassio/installation/
-[builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
+[builder]: https://github.com/home-assistant/hassio-builder
 [frenck]: https://github.com/frenck
 [build-file]: /developers/hassio/addon_config/#add-on-extended-build
 [addon-repos]: https://community.home-assistant.io/tags/hassio-repository

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Autostart using init.d"
 description: "Documentation about setting up Home Assistant as a daemon running under init.d."
-release_date: 2016-12-02 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/autostart-init.d/
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWeatherMap"
 description: "Instructions on how to integrate OpenWeatherMap within Home Assistant."
-date: 2016-09-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openweathermap.png
 ha_category:
   - Weather

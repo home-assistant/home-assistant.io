@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Spider"
 description: "Instructions on how to setup the Spider hub within Home Assistant."
-date: 2018-07-17 22:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: spider.png
 ha_category:
   - Hub

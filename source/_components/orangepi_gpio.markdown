@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Orange Pi GPIO"
 description: "Instructions on how to integrate the GPIO capability of a Orange Pi into Home Assistant."
-date: 2019-03-29 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - DIY
   - Binary Sensor

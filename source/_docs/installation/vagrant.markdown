@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on Vagrant"
 description: "Instructions to run Home Assistant on a Vagrant VM."
-date: 2016-05-28 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-vagrant/
 ---
 

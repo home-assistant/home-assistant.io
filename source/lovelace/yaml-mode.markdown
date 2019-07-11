@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lovelace YAML mode"
 description: "Advanced users can switch on the advanced YAML mode."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 It is possible to write your Lovelace config in YAML instead of via the UI. To do so, you will need to configure the Lovelace integration to be in yaml mode by adding the following to your `configuration.yaml`:

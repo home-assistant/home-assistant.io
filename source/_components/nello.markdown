@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nello Lock"
 description: "Instructions on how to integrate Nello intercom devices."
-date: 2017-08-13 17:25
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nello.png
 ha_category:
   - Lock

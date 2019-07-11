@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Universal"
 description: "Instructions on how to create a universal media player in Home Assistant."
-date: 2016-01-12 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Media Player

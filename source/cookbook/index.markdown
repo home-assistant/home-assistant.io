@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Cookbook"
 description: "Community maintained list of different ways to use Home Assistant."
-date: 2015-10-08 19:05
 sidebar: false
-comments: false
-sharing: true
-footer: true
 regenerate: true
 hide_github_edit: true
 ---

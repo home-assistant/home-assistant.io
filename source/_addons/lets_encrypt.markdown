@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Let's Encrypt"
 description: "Automatically manage your SSL certificate using Let's Encrypt."
-date: 2018-04-18 10:55
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 <p class='note'>

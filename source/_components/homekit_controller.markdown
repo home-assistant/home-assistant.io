@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HomeKit controller support"
 description: "Instructions how to integrate your HomeKit devices within Home Assistant."
-date: 2018-03-19 21:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: apple-homekit.png
 ha_category:
   - Hub

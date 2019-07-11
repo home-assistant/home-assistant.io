@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Bbox"
 description: "Instructions on how to integrate Bouygues Bbox routers into Home Assistant."
-date: 2016-10-22 01:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bbox.png
 ha_category:
   - Network

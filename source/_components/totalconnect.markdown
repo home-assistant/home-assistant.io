@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell TotalConnect Alarm Control Panel"
 description: "Instructions on how to integrate TotalConnect alarms into Home Assistant."
-date: 2017-04-02 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell-tc.png
 ha_category:
   - Alarm

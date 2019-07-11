@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Multi-factor authentication"
 description: "Guide on configuring different multi-factor authentication modules."
-date: 2018-08-23 09:40
 redirect_from: /components/auth/
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The Multi-factor Authentication (MFA) modules require you to solve a second challenge after you provide your password.

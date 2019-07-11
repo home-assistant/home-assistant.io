@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.7.6: Amazon FireTV, Radiotherm thermostats"
 description: "Home Assistant 0.7.6 has been released with lots of squashed bugs and support for Amazon FireTV and Radiotherm thermostats."
 date: 2015-10-26 18:10:00 0000
 date_formatted: "October 26, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -18,12 +16,12 @@ After two weeks of hard work I'm proud to announce the release of Home Assistant
 
  - Device tracker: Newer [TP-Link routers](/components/device_tracker.tplink/) now supported ([@mKeRix](https://github.com/mKeRix))
  - Alarm Control Panel: [Manual alarm](/components/alarm_control_panel.manual/) added ([@sfam](https://github.com/sfam))
- - Thermostat: [Radiotherm](/components/thermostat.radiotherm/) now supported ([@toddeye](https://github.com/toddeye))
+ - Thermostat: [Radiotherm](/components/radiotherm/) now supported ([@toddeye](https://github.com/toddeye))
  - Media Player: [Amazon FireTV](/components/media_player.firetv/) now supported ([@happyleavesaoc](https://github.com/happyleavesaoc))
- - Device Tracker: [Geofancy](/components/device_tracker.locative/) now supported ([@wind-rider](https://github.com/wind-rider))
+ - Device Tracker: [Geofancy](/components/device_tracker.locative/) now supported (@wind-rider)
  - New component [Shell Command](/components/shell_command/) can expose shell commands as services ([@balloob](https://github.com/balloob))
  - [Scripts](/components/script/) can now be customized using `customize` key in `configuration.yaml` ([@balloob](https://github.com/balloob))
- - Light: [Hyperion](/components/light.hyperion/) now supported ([@MakeMeASandwich](https://github.com/MakeMeASandwich))
+ - Light: [Hyperion](/components/light.hyperion/) now supported (@MakeMeASandwich)
  - Sensor: [aRest](/components/sensor.arest/) can now also read out pins ([@balloob](https://github.com/balloob))
  - Sensor: [Forecast.io](/components/sensor.forecast/) now supports specifying units in `configuration.yaml` ([@balloob](https://github.com/balloob))
  - Thermostat: [Heat Control](/components/thermostat.heat_control/) has been completely rewritten ([@balloob](https://github.com/balloob))

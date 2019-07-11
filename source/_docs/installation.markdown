@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation of Home Assistant"
 description: "Instructions on how to install Home Assistant to launch on start."
-date: 2017-02-15 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation/
 ---
 

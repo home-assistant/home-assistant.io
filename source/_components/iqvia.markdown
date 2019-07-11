@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IQVIA"
 description: "Instructions on how to use IQVIA data within Home Assistant"
-date: 2018-01-10 19:20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: iqvia.png
 ha_category:
   - Health

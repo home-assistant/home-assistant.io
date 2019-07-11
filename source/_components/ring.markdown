@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ring"
 description: "Instructions on how to integrate your Ring.com devices within Home Assistant."
-date: 2017-04-01 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ring.png
 ha_category:
   - Doorbell

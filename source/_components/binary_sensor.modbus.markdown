@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Modbus Binary Sensor"
 description: "Instructions on how to set up Modbus binary sensors within Home Assistant."
-date: 2016-09-13 12:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: modbus.png
 ha_category:
   - Binary Sensor

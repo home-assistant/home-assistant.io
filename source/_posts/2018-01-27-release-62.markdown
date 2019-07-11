@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.62: MyChevy, Iota and Venstar Thermostat"
 description: "Keep track of your Chevy Bolt, monitor your IOTA wallets and control your Venstar Thermostats."
 date: 2018-01-27 01:00:00
 date_formatted: "January 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-01-0.62/components.png
 ---
@@ -94,7 +92,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix effects not appearing in UI due to missing attribute ([@shortbloke] - [#11738]) ([light.flux_led docs])
 - Fix for None object access attempt ([@karlkar] - [#11748])
 - Fixed universal media player templated source_select bug (issue #10981) and corrected typo in test_universal ([@iliketoprogram14] - [#11746])
-- Fix Tahoma device class ([@bakedraccoon] - [#11745]) ([cover.tahoma docs])
+- Fix Tahoma device class ([@thijsdejong] - [#11745]) ([cover.tahoma docs])
 - Add deCONZ entities in a predicitive order ([@Kane610] - [#11712]) ([binary_sensor.deconz docs]) ([sensor.deconz docs])
 - Xbox sensor - Extend error handling ([@ReneNulschDE] - [#11637]) ([sensor.xbox_live docs])
 - Upgrade netdisco ([@balloob] - [#11752])
@@ -330,7 +328,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@angel12]: https://github.com/angel12
 [@arcsur]: https://github.com/arcsur
 [@arsaboo]: https://github.com/arsaboo
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@basschipper]: https://github.com/basschipper
 [@benleb]: https://github.com/benleb

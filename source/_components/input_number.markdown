@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Number"
 description: "Instructions on how to integrate the Input Number integration into Home Assistant."
-date: 2017-09-19 03:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation

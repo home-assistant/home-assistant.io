@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MPC-HC"
 description: "Instructions on how to integrate MPC-HC into Home Assistant."
-date: 2016-07-27 21:21
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mpchc.png
 ha_category:
   - Media Player

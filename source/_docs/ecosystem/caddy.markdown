@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Caddy Server reverse proxy"
 description: "Configure Caddy Server as a reverse proxy to Home Assistant."
-date: 2017-08-22 22:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 [Caddy Server](https://caddyserver.com/) is a powerful HTTP/2 server, that enables HTTPS by default with automatically generated Let's Encrypt certificates, which allows a simple configuration procces.
 

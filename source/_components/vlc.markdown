@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "VLC"
 description: "Instructions on how to integrate VLC media player into Home Assistant."
-date: 2016-11-02 12:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: videolan.png
 ha_category:
   - Media Player

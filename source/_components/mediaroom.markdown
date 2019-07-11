@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mediaroom"
 description: "Instructions on how to integrate Mediaroom Set-Top Boxes into Home Assistant."
-date: 2018-01-22 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mediaroom.png
 ha_category:
   - Media Player

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Samsung Smart TV"
 description: "Instructions on how to integrate a Samsung Smart TV into Home Assistant."
-date: 2016-02-13 12:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: samsung.png
 ha_category:
   - Media Player
@@ -78,6 +72,7 @@ Currently known supported models:
 - F6400
 - F6400AF
 - F6500
+- F7000
 - F8000BF
 - K5579 (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
 - K5600AK (partially supported, turn on works but state is not updated)

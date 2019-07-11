@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Amazon Polly"
 description: "Instructions on how to setup Amazon Polly with Home Assistant."
-date: 2017-01-28 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: polly.png
 ha_category:
   - Text-to-speech

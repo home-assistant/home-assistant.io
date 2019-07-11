@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nest"
 description: "Instructions on how to integrate Nest into Home Assistant."
-date: 2016-01-29 21:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nest.png
 ha_category:
   - Hub
@@ -14,7 +8,6 @@ ha_category:
   - Camera
   - Climate
   - Sensor
-featured: false
 ha_iot_class: Cloud Push
 redirect_from:
   - /components/binary_sensor.nest/

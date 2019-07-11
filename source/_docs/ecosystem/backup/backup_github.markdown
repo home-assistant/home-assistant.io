@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Configuration Backup to GitHub"
 description: "Instructions on how backup your Home Assistant configuration to GitHub"
-date: 2017-01-05 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /cookbook/githubbackup/
 ---
 

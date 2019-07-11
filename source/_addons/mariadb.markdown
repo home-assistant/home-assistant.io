@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MariaDB"
 description: "MariaDB Server is one of the most popular database servers in the world."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside Home Assistant use `core-mariadb` as the host address.

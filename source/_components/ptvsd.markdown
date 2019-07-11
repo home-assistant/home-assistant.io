@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PTVSD Debugger (Visual Studio Code)"
 description: "Debugging from Visual Studio Code."
-date: 2019-04-24 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: visual-studio.png
 ha_category: 
   - Utility

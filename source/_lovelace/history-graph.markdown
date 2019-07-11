@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "History Graph Card"
 sidebar_label: History Graph
 description: "History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 History graph is a basic card, allowing you to display a graph for each of the entities in the list specified as config.

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.34: New Remote component, Websockets, Sonarr, GPSLogger"
 description: "Major improvements of HomeMatic, Tellstick, the HTTP component, and more."
 date: 2016-12-03 08:04:05 +0000
 date_formatted: "December 3, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-12-0.34/social.png
 ---
@@ -123,7 +121,7 @@ We are working on a better solution for 0.35.
 ### Release 0.34.5 - December 12
 
  - Fix Nest sensors doing I/O inside event loop ([@balloob])
- - Fix Nest version bump not triggering re-install ([@R1chardTM])
+ - Fix Nest version bump not triggering re-install ([@EarthlingRich])
  - Fix Nest cameras without activity zones ([@technicalpickles])
  - Fix Plex doing I/O inside event loop ([@balloob])
 
@@ -142,7 +140,7 @@ We are working on a better solution for 0.35.
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@armills]: https://github.com/armills
 [@jawilson]: https://github.com/jawilson
 [@rubund]: https://github.com/rubund

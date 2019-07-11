@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ping (ICMP)"
 description: "Instructions on how to integrate Ping (ICMP)-based into Home Assistant."
-date: 2017-04-11 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Network

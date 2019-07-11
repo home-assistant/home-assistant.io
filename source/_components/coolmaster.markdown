@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CoolMasterNet Climate"
 description: "Instructions on how to integrate CoolMasterNet within Home Assistant."
-date: 2019-02-05 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: coolautomation.png
 ha_category:
   - Climate

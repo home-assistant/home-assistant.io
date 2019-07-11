@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Introducing Hass.io Ingress"
 description: "Ingress allows Hass.io add-ons to seamlessly integrate their user interface with Home Assistant"
 date: 2019-04-15 00:00:00
 date_formatted: "April 15, 2019"
 author: Pascal Vizeli
 author_twitter: pvizeli
-comments: true
 categories: Announcements
 og_image: /images/blog/2019-04-hassio-ingress/blogpost.png
 ---
@@ -23,7 +21,7 @@ Demo with an add-on on Ingress.
 Some add-ons already have been upgraded to support the new Ingress feature. Here are a couple of add-ons that support Ingress and are available on the add-on store right now:
 
 Core add-ons:
-* [Configurator](https://www.home-assistant.io/addons/configurator/)
+* [Configurator](/addons/configurator/)
 * [deCONZ](https://github.com/home-assistant/hassio-addons/tree/master/deconz#readme)
 
 Community add-ons:
@@ -78,7 +76,7 @@ Please update your Home Assistant installation to 0.91.3 or higher.
 We found a last minute issue impacting Firefox based browsers (including the Tor Browser). There are some issues accessing add-ons that use WebSockets. We have identified the issue and expect it to be solved with the release of Home Assistant 0.91.4.
 
 
-[Configurator]: https://www.home-assistant.io/addons/configurator/
+[Configurator]: /addons/configurator/
 [deCONZ]: https://github.com/home-assistant/hassio-addons/tree/master/deconz#readme
 [Node-RED]: https://github.com/hassio-addons/addon-node-red#readme
 [Visual Studio Code]: https://github.com/hassio-addons/addon-vscode#readme

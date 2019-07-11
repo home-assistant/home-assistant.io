@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Aruba"
 description: "Instructions on how to integrate Aruba routers into Home Assistant."
-date: 2015-08-31 08:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aruba.png
 ha_category:
   - Presence Detection

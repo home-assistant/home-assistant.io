@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Vera"
 description: "Instructions on how to setup Vera Z-Wave hubs and configure devices within Home Assistant."
-date: 2015-03-23 20:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: vera.png
 ha_category:
   - Hub

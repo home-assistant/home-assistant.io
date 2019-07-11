@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWRT (luci)"
 description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openwrt.png
 ha_category:
   - Presence Detection

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC devices with Home Assistant."
-date: 2017-12-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: daikin.png
 ha_category:
   - Climate
@@ -36,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-The Daikin integration can be configured in three ways. 
+The Daikin integration can be configured in three ways.
 
 - Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.

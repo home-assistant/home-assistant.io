@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspihats"
 description: "Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant."
-date: 2017-05-01 04:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspihats.png
 ha_category:
   - DIY

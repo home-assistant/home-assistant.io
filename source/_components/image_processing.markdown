@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Image Processing"
 description: "Instructions on how to setup image processing with Home Assistant."
-date: 2017-01-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.36
 ---
 

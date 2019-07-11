@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Fan"
 description: "Instructions on how to integrate MQTT fans into Home Assistant."
-date: 2016-08-27 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Fan

@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Map Card"
 sidebar_label: Map
 description: "A card that allows you to display entities on a map"
-date: 2018-07-08 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 A card that allows you to display entities on a map.

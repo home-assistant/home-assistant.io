@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LIFX"
 description: "Instructions on how to integrate LIFX into Home Assistant."
-date: 2018-10-08 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lifx.png
 ha_category:
   - Light

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant and The Things Network (TTN)"
 description: "How to use transfer MQTT messages from The Things Network (TTN) to a local broker."
 date: 2017-11-10 14:00:00 +0200
 date_formatted: "November 10, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-11-mqtt-ttn/social-ha-ttn.png
 ---

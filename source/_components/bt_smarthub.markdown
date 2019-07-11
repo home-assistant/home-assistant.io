@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "BT Smart Hub"
 description: "Instructions on how to integrate BT Smart Hub router into Home Assistant."
-date: 2018-10-05 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bt.png
 ha_category:
   - Presence Detection

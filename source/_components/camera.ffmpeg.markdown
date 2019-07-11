@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FFmpeg Camera"
 description: "Instructions on how to integrate a video feed via FFmpeg as a camera within Home Assistant."
-date: 2016-08-13 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ffmpeg.png
 ha_category:
   - Camera

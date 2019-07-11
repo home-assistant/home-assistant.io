@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sytadin Sensor"
 description: "Instructions on how to integrate Sytadin sensors into Home Assistant."
-date: 2017-10-05 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sytadin.png
 ha_release: 0.57
 ha_category:

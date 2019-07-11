@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EverLights Light"
 description: "Instructions on how to set up EverLights within Home Assistant."
-date: 2018-12-29
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: everlights.png
 ha_category:
   - Light

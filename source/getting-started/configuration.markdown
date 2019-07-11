@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Advanced Configuration"
 description: "Instructions to get Home Assistant configured."
-date: 2016-09-26 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Until now we have been able to configure Home Assistant purely via the user interface. However, not all options are accessible via the user interface. The other options are accessible via the Home Assistant configuration file called `configuration.yaml`. A default one is created when Home Assistant started for the first time.

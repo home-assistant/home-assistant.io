@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AirVisual"
 description: "Instructions on how to use AirVisual data within Home Assistant"
-date: 2017-09-06 12:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: airvisual.jpg
 ha_category:
   - Health

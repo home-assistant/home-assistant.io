@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Working with Async"
 description: "A breakdown of all the different ways to work with the asynchronous core of Home Assistant."
-date: 2016-10-17 21:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 <script>

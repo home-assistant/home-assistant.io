@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Matrix"
 description: "Matrix chatbot support"
-date: 2018-03-25 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: matrix.png
 ha_category:
   - Hub

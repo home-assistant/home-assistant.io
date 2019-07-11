@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Splunk"
 description: "Record events in Splunk."
-date: 2016-02-05 15:31
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: splunk.png
 ha_category:
   - "History"

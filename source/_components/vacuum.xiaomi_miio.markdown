@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Mi Robot Vacuum"
 description: "Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant."
-date: 2018-06-03 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Vacuum

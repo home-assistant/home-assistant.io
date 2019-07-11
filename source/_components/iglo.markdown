@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iGlo"
 description: "Instructions on how to integrate iGlo lights into Home Assistant."
-date: 2017-12-17 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: iglo.png
 ha_category:
   - Light

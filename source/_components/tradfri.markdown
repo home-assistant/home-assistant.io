@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "IKEA Trådfri (Tradfri)"
 description: "Access and control your IKEA Trådfri Gateway (a.k.a. IKEA Tradfri hub/bridge) and via it its connected Zigbee-based devices."
-date: 2017-04-12 22.04
-sidebar: true
 featured: true
-comments: false
-sharing: true
-footer: true
 logo: ikea.svg
 ha_iot_class: Local Polling
 ha_config_flow: true

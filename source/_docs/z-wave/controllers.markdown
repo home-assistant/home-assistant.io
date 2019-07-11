@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Controllers"
 description: "Extended instructions how to setup Z-Wave."
-date: 2016-03-24 08:49 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 ## Supported Z-Wave USB Sticks & Hardware Modules

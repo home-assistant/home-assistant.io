@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on Docker"
 description: "Instructions to install Home Assistant on a Docker."
-date: 2016-04-16 11:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-docker/
 ---
 

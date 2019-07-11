@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.82: TensorFlow, Lovelace UI edit, Z-Wave Barrier Class"
 description: "We are glad to inform you that yet another epic release has landed."
 date: 2018-11-09 00:01:00
 date_formatted: "November 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 ---
@@ -671,7 +669,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.version docs]: /components/sensor.version/
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[sensor.yahoo_finance docs]: /components/sensor.yahoo_finance/
 [simplisafe docs]: /components/simplisafe/
 [sun docs]: /components/sun/
 [switch.deconz docs]: /components/switch.deconz/

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dark Sky Sensor"
 description: "How to integrate Dark Sky within Home Assistant."
-date: 2016-09-26 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dark_sky.png
 ha_category:
   - Weather

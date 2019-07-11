@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Fan"
 description: "Instructions how to setup the Template fans within Home Assistant."
-date: 2018-05-03 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Fan
 ha_release: 0.69

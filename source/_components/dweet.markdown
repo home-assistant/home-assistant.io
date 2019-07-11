@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dweet.io"
 description: "Transfer events to Dweet.io."
-date: 2016-05-07 07:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dweet.png
 ha_category:
   - History

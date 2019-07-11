@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HomematicIP Cloud"
 description: "Instructions for integrating HomematicIP into Home Assistant."
-date: 2018-04-02 13:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: homematicip_cloud.png
 ha_category:
   - Hub
@@ -114,10 +108,10 @@ authtoken:
     * Radiator thermostat (*HmIP-eTRV,-2,-C*) - should also work with (*HmIP-eTRV-2-UK, -B, -B1*)
     * Temperature and humidity sensor (*HmIP-STH*)
     * Temperature and humidity Sensor with display (*HmIP-STHD*)
-    
+
 * homematicip_cloud.cover
   * Shutter actuator brand-mount (*HmIP-BROLL*)
-  * Shutter actuator flush-mount (*HmIP-FROLL*)    
+  * Shutter actuator flush-mount (*HmIP-FROLL*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)

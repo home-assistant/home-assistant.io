@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yi Home Camera"
 description: "Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant."
-date: 2017-10-10 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yi.png
 ha_category:
   - Camera

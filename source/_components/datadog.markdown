@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Datadog"
 description: "Send data and events to Datadog."
-date: 2017-04-18 00:00
-sidebar: true
-comments: false
-sharing: true
 logo: datadog.png
-footer: true
 ha_category:
   - History
 ha_release: 0.45

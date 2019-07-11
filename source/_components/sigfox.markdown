@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sigfox Sensor"
 description: "Display messages from Sigfox devices in Home Assistant."
-date: 2018-04-07 12:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sigfox.png
 ha_category:
   - Sensor

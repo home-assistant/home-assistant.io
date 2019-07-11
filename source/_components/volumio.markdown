@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Volumio Media Player"
 description: "How to set up the Volumio media player platform"
-date: 2017-03-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: volumio.png
 ha_category:
   - Media Player

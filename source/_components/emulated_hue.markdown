@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Emulated Hue Bridge"
 description: "Instructions on how to emulated Hue Bridge within Home Assistant."
-date: 2016-08-26 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Hub
@@ -16,7 +10,7 @@ ha_qa_scale: internal
 ---
 
 <p class='note warning'>
-Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or [Nabu Casa cloud](https://www.home-assistant.io/components/cloud) component.
+Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or [Nabu Casa cloud](/components/cloud) component.
 </p>
 
 The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
@@ -49,7 +43,7 @@ emulated_hue:
 ```yaml
 # Amazon Echo example configuration.yaml entry
 emulated_hue:
-# Required for Echo Dot 3
+# Required if there is no older Echo device (Like an Echo Dot 1 or 2) in the same network
   host_ip: YOUR.HASSIO.IP.ADDRESS
   listen_port: 80
 ```

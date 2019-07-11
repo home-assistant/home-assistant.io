@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Snips.ai"
 description: "Enhance your Hass.io installation with a local voice assistant."
-date: 2018-05-02 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 [Snips.ai](https://snips.ai/) is an AI-powered voice assistant that runs on the Raspberry Pi 3 and x86 platforms. It runs on-device and is Private by Design.

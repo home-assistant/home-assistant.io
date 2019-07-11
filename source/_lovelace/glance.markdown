@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Glance Card"
 sidebar_label: Glance
 description: "The Glance card allows you to see a list of entities at a glance."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.

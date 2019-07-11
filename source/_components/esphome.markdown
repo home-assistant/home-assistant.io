@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "ESPHome"
 description: "Support for ESPHome devices using the native ESPHome API."
-date: 2018-12-16 14:20
-sidebar: true
-comments: false
-sharing: true
 featured: true
-footer: true
 logo: esphome.png
 ha_category:
   - DIY

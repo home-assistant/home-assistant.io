@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pi-hole Sensor"
 description: "Instructions on how to integrate Pi-hole sensors into Home Assistant."
-date: 2016-09-03 16:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling

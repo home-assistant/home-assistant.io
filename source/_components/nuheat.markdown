@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NuHeat"
 description: "Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant."
-date: 2017-11-11 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nuheat.png
 ha_category:
   - Climate
@@ -16,7 +10,7 @@ redirect_from:
   - /components/climate.nuheat/
 ---
 
-The `nuheat` integration lets control your connected [NuHeat Signature]([NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat)) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
+The `nuheat` integration lets control your connected [NuHeat Signature](http://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](http://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Database"
 description: "Details about the database used by Home Assistant."
-date: 2016-10-10 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /details/database/
 ---
 

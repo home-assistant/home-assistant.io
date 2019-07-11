@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX"
 description: "Instructions on how to integrate KNX components with Home Assistant."
-date: 2016-06-08 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Hub

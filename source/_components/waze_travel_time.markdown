@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Waze Travel Time"
 description: "Instructions on how to add Waze travel time to Home Assistant."
-date: 2018-01-23 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: waze.png
 ha_category:
   - Transport

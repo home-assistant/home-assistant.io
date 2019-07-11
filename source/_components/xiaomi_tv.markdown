@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi TV"
 description: "Instructions on how to integrate a Xiaomi TV into Home Assistant."
-date: 2018-02-12 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Media Player

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors HVAC"
 description: "Instructions on how to integrate MySensors climate into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY

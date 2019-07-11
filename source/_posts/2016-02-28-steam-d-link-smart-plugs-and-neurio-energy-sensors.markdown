@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.14: Steam, D-Link smart plugs and Neurio Energy Sensors"
 description: "Home Assistant 0.14 has arrived."
 date: 2016-02-27 14:15:00 -0800
 date_formatted: "February 28, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-02-release-14/social.png
 ---

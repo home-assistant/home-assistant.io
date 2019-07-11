@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Concord232"
 description: "Instructions on how to integrate Interlogix/GE Concord4 into Home Assistant."
-date: 2016-10-11 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: interlogix.png
 ha_category:
   - Alarm

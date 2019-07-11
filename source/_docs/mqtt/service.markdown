@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Publish service"
 description: "Instructions on how to setup the MQTT Publish service within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 

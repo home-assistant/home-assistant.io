@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
-date: 2018-08-31 13:06 +02:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 ## Changes in 0.88.0
 - 📣 Disable toast notifications for successful operations ([#2700](https://github.com/home-assistant/home-assistant-polymer/pull/2822))

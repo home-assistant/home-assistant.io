@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mercedes me"
 description: "Instructions on how to integrate Mercedes car with Mercedes me into Home Assistant."
-date: 2018-01-27 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mercedesme.png
 ha_category:
   - Car

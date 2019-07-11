@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Android TV"
 description: "Instructions on how to integrate Android TV and Fire TV devices into Home Assistant."
-date: 2015-10-23 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: androidtv.png
 ha_category:
   - Media Player

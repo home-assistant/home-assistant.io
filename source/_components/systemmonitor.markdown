@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "System Monitor"
 description: "Instructions on how to monitor the Home Assistant host."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: system_monitor.png
 ha_category:
   - System Monitor

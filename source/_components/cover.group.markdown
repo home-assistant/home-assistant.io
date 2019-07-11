@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Cover Group"
 description: "Instructions how to setup grouped covers in Home Assistant."
-date: 2018-02-11 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Cover
 ha_release: 0.66

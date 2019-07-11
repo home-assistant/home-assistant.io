@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Datetime"
 description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
-date: 2017-09-14 16:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -27,16 +21,13 @@ add the following lines to your `configuration.yaml`:
 input_datetime:
   both_date_and_time:
     name: Input with both date and time
-    has_date: true
-    has_time: true
+    has_    has_time: true
   only_date:
     name: Input with only date
-    has_date: true
-    has_time: false
+    has_    has_time: false
   only_time:
     name: Input with only time
-    has_date: false
-    has_time: true
+    has_    has_time: true
 ```
 
 {% configuration %}
@@ -75,10 +66,8 @@ automations and templates.
 | ----- | ----- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
-| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
-| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
-
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>If `has_
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home

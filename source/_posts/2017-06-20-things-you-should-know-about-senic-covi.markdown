@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: fixed] A frank and serious warning about X"
 description: "The picture painted is not as great as it seems."
 date: 2017-06-20 01:04:05 +0000
 date_formatted: "June 20, 2017"
 author: Paulus Schoutsen & Robbie Trencheny
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 

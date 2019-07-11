@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "YAML"
 description: "Details about YAML to configure Home Assistant."
-date: 2015-03-23 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/yaml/
 ---
 

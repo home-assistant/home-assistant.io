@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Niko Home Control Light"
 description: "Instructions on how to integrate Niko Home Control lights into Home Assistant."
-date: 2018-04-08 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+logo: niko.png
 ha_category:
   - Light
 ha_iot_class: Local Polling

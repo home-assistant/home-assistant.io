@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWRT"
 description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
-date: 2018-03-09 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openwrt.png
 ha_category:
   - Presence Detection

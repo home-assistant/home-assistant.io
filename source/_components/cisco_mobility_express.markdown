@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Cisco Mobility Express"
 description: "Instructions on how to integrate Cisco Mobility Express wireless controllers into Home Assistant."
-date: 2019-02-27 11:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cisco.png
 ha_category:
   - Presence Detection

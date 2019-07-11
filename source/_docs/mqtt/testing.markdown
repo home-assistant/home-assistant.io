@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Testing"
 description: "Instructions on how to test your MQTT setup."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 

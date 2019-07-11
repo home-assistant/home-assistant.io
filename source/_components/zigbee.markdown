@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zigbee"
 description: "Instructions on how to integrate a Zigbee network with Home Assistant."
-date: 2016-01-27 17:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zigbee.png
 ha_category:
   - Binary Sensor

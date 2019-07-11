@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Configuring Home Assistant"
 description: "Configuring Home Assistant."
-date: 2018-09-08 16:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 When launched for the first time, Home Assistant will create a default configuration file enabling the web interface and device discovery. It can take up to a minute after startup for your devices to be discovered and appear in the user interface.

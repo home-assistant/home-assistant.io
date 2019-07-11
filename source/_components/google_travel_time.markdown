@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Maps Travel Time"
 description: "Instructions on how to add Google Maps travel time to Home Assistant."
-date: 2016-03-28 10:19
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_maps.png
 ha_category:
   - Transport

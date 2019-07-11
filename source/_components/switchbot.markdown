@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Switchbot"
 description: "Instructions on how to set up Switchbot switches."
-date: 2018-09-03 22:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: switchbot.png
 ha_category:
   - Switch

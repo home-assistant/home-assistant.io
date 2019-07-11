@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "GreenEye Monitor"
 description: "Instructions on how to integrate your GreenEye Monitor within Home Assistant."
-date: 2018-09-02 11:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: brultech.png
 ha_category:
   - Hub

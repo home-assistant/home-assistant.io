@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Templating"
 description: "Instructions on how to use the templating feature of Home Assistant."
-date: 2015-12-12 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/templating/
 ---
 

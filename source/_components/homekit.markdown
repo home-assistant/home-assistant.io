@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HomeKit"
 description: "Instructions on how to set up the HomeKit integration in Home Assistant."
-date: 2018-02-20 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Voice
 ha_release: 0.64

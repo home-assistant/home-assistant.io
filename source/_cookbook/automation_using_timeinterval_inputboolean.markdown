@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Using time interval and input boolean"
 description: "Automation to get a random color every 2 minutes that can be turned on/off."
-date: 2016-02-07 22:35 +0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Logger"
 description: "Instructions on how to enable the logger integration for Home Assistant."
-date: 2015-11-12 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility

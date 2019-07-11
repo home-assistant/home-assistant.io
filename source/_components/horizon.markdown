@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Horizon HD Recorder"
 description: "Instructions how to integrate the Unitymedia Horizon HD Recorder into Home Assistant."
-date: 2018-05-02 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: unitymedia.png
 ha_category:
   - Media Player

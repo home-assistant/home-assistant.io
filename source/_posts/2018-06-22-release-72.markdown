@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.72: Lovelace UI, KIWI Doorlocks, Wireless Tags, Insteon X10."
 description: "This release will blow you away. Click with caution."
 date: 2018-06-22 00:01:00
 date_formatted: "June 22, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-06-release-0.72/lovelace.png
 ---

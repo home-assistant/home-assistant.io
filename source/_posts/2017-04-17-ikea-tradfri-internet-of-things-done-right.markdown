@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "IKEA Trådfri: Internet of Things done right"
 description: "We analyzed the recently released IKEA Trådfri hardware. It is the perfect companion hardware to Home Assistant."
 date: 2017-04-17 08:04:05 +0000
 date_formatted: "April 17, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Internet-of-Things
 og_image: /images/blog/2017-04-tradfri/gateway.jpg
 ---

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Rachio"
 description: "Instructions on how to use Rachio with Home Assistant."
-date: 2018-06-23 16:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rachio.png
 ha_category:
   - Irrigation
