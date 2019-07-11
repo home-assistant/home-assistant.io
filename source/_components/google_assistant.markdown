@@ -202,8 +202,7 @@ By default these cannot be opened by Google Assistant unless a `secure_devices_p
 ### Media Player Sources
 
 Media Player sources are sent via the Modes trait in Google Assistant.
-There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:
-https://developers.google.com/actions/reference/smarthome/traits/modes
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature [are listed here](https://developers.google.com/actions/reference/smarthome/traits/modes).
 
 #### Example Command:
 
