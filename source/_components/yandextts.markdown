@@ -17,7 +17,7 @@ redirect_from:
 
 The `yandextts` text-to-speech platform uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) Text-to-Speech engine to read a text with natural sounding voices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable text-to-speech with Yandex SpeechKit, add the following lines to your `configuration.yaml`:
 
@@ -62,7 +62,7 @@ speed:
 
 Please check the [API documentation](https://tech.yandex.com/speechkit/cloud/doc/guide/concepts/tts-http-request-docpage/) for details. It seems that the English version of documentation is outdated. You could request an API key [by email](https://tech.yandex.com/speechkit/cloud/) or [online](https://developer.tech.yandex.ru/).
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 The configuration sample below shows how an entry can look like:
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Number"
-description: "Instructions on how to integrate the Input Number component into Home Assistant."
+description: "Instructions on how to integrate the Input Number integration into Home Assistant."
 date: 2017-09-19 03:30
 sidebar: true
 comments: false
@@ -16,10 +16,10 @@ ha_qa_scale: internal
 ---
 
 <p class='note'>
-Before version 0.55 this component was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
+Before version 0.55 this integration was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
 </p>
 
-The `input_number` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
+The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
 To enable this input number in your installation, add the following lines to your `configuration.yaml`:
 
@@ -84,11 +84,11 @@ input_number:
         type: icon
 {% endconfiguration %}
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 Here's an example of `input_number` being used as a trigger in an automation.
 
@@ -225,7 +225,7 @@ automation:
      entity_id: switch.something
      to: 'on'
    action:
-     - delay: '00:{{ states.input_number.minutes.state | int }}:{{ states.input_number.seconds.state | int }}'
+     - delay: '00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}'
      - service: switch.turn_off
        entity_id: switch.something
 ```

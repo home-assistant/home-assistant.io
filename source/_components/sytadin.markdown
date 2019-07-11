@@ -18,7 +18,7 @@ redirect_from:
 
 The `sytadin` sensor platform allows you to monitor traffic details from [Sytadin](http://www.sytadin.fr).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Sytadin to your installation, add the following to your `configuration.yaml` file:
 

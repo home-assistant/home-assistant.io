@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 Due to third party limitation, the sensors will only be available if Home Assistant and the Bbox are on the same local area network. You can check this by going to 192.168.1.254 with your web browser.
 </p>
 
-## {% linkable_title Presence Detection %}
+## Presence Detection
 
 The `bbox` platform offers presence detection by looking at connected devices to a [Bbox](https://fr.wikipedia.org/wiki/Bbox) based router from [Bouygues](https://www.bouyguestelecom.fr/), which is one of the main Internet provider in France.
 
@@ -38,7 +38,7 @@ Bbox is a generic name for different hardware routers. The platform has been tes
 
 - Sagem F@st 5330b
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use an Bbox router in your installation, add the following to your `configuration.yaml` file:
 
@@ -61,9 +61,9 @@ host:
 For now and due to third party limitation, the Bbox must be on the same local network as the Home Assistant installation.
 </p>
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To add Bbox sensors to your installation, add the following to your `configuration.yaml` file:
 

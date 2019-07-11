@@ -20,13 +20,13 @@ Talking about Hass.io support, we've received ours and work to add support will 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">LOOK WHAT WE HAVE HERE 😍 <a href="https://t.co/HrEu1a272Y">pic.twitter.com/HrEu1a272Y</a></p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1143808786983006208?ref_src=twsrc%5Etfw">June 26, 2019</a>
 </blockquote>
 
-## {% linkable_title RV Assistant %}
+## RV Assistant
 
 Home Assistant is not just limited to homes. Recently we had a boat owner on [Home Assistant podcast episode 48](https://hasspodcast.io/ha048/), and Home Assistant also powers recreational vehicles (RV) ([like this schoolbus](https://thisisthebus.com/our-tech-stack.html)).
 
 With this release, we're making integrating Home Assistant into moving vehicles so much easier. In the last release, we introduced support for the core config to be updated without restarting Home Assistant. This release brings it a step further and introduces a new service `homeassistant.set_location`. With this service, you can automatically change the location that Home Assistant is located. Once updated, it automatically updates all the things that rely on the location, like your sunset triggers and your current weather (only [Met][met docs] supported now).
 
-## {% linkable_title AdGuard Home - local ad-and-tracker blocking %}
+## AdGuard Home - local ad-and-tracker blocking
 
 Here at Home Assistant, we're big fans of privacy and we're always working on improving it. So this brings us to [AdGuard](https://adguard.com/). AdGuard Home is a local DNS server that automatically blocks any device looking up a domain that is used to serve ads, spreads malware, or isn't appropriate for your kids. Thanks to [@frenck], starting release 0.95, it has a top-notch integration with Home Assistant:
 
@@ -40,18 +40,18 @@ One cool new feature: because parental control is now available as a switch, you
 <a href="https://youtu.be/IyoHpU8JxSs?t=6324">
 <img src='/images/blog/2019-06-release-95/frenck.png' alt='Screenshot of Frenck during his stream demoing AdGuard.'>
 </a>
-Frenck shows a demo of the AdGuard integration during his stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the full stream.</a>
+Frenck shows a demo of the AdGuard integration during his stream. <a href="https://youtu.be/IyoHpU8JxSs?t=6324">See the demo.</a>
 </p>
 
-## {% linkable_title Life360 %}
+## Life360
 
 More goodies. Keep paying attention as we're not done yet. Also new in 0.95 is the [Life360 integration][life360 docs] thanks to the hard work by [@pnbruckner]. This integration started its life a little over 360 days ago [on the forums as a custom integration](https://community.home-assistant.io/t/life360-device-tracker-platform/52406) and has now become part of Home Assistant. Life360 is an app to allow friends or family members to share location with each other.
 
 If you are migrating from the custom integration, [please read the instructions](https://community.home-assistant.io/t/life360-device-tracker-platform/52406/1077).
 
-## {% linkable_title Improved Alexa integration %}
+## Improved Alexa integration
 
-One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is reflected instantly inside Alexa. Add an entity? Control it instantly via Alexa.
+One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is instantly reflected inside Alexa. Add an entity? Control it instantly via Alexa.
 
 However, we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
 
@@ -59,20 +59,20 @@ However, we didn't stop there. The [manual installations of Alexa](https://www.h
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title More icons available %}
+## More icons available
 
 [Austin Andrews](https://twitter.com/templarian), the lead designer of Material Design Icons, informed us that Material Design Icons 3.7.95 has been released. It includes a handful of the top requested Home Assistant icons (and a total of 100 new icons!).
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Released `v3.7.95` to NPM/CDN. 100 new icons! 🧙‍♂️ Preview: <a href="https://t.co/N02X3rnQ8N">https://t.co/N02X3rnQ8N</a> Read more: <a href="https://t.co/CHQ3TEdVM2">https://t.co/CHQ3TEdVM2</a> <a href="https://twitter.com/hashtag/MaterialDesign?src=hash&amp;ref_src=twsrc%5Etfw">#MaterialDesign</a> <a href="https://twitter.com/hashtag/OpenSource?src=hash&amp;ref_src=twsrc%5Etfw">#OpenSource</a> <a href="https://t.co/LlWy8RfFVu">pic.twitter.com/LlWy8RfFVu</a></p>&mdash; Material Icons (@MaterialIcons) <a href="https://twitter.com/MaterialIcons/status/1142474126004760576?ref_src=twsrc%5Etfw">June 22, 2019</a>
 </blockquote>
 
-## {% linkable_title Noteworthy breaking changes %}
+## Noteworthy breaking changes
 
 For the last couple of releases, we've been printing warnings if your configuration contained invalid slugs or extra keys. Starting with this release, these warnings are now errors. No procrastination anymore, you'll need to fix it now.
 
 We have also realized that the default database clean up task never automatically ran as intended. Instead of running every night, cleaning up your history so that it only contains the last 10 days, it never ran. Oopsie. We've fixed it in this release, so now the defaults kick in. Want to adjust how much history you want to retain? Check [the docs][recorder docs].
 
-## {% linkable_title New Integrations %}
+## New Integrations
 
 - Adds AdGuard Home integration ([@frenck] - [#24219]) ([adguard docs]) (new-integration)
 - SolarEdge Local Component ([@drobtravels] - [#23996]) ([solaredge_local docs]) (new-integration)
@@ -82,7 +82,7 @@ We have also realized that the default database clean up task never automaticall
 - Queensland bushfire alert feed platform ([@exxamalte] - [#24473]) ([qld_bushfire docs]) (new-integration)
 - Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration)
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add LCN scene platform ([@alengwenus] - [#24242]) ([lcn docs]) (new-platform)
 - Add Environment Canada weather, sensor, and camera platforms ([@michaeldavie] - [#21110]) ([environment_canada docs]) (new-platform)
@@ -94,17 +94,80 @@ We have also realized that the default database clean up task never automaticall
 - Add incomfort sensor and binary_sensor ([@zxdavb] - [#23812]) ([incomfort docs]) (new-platform)
 - Added ELV PCA 301 smart emeter switch ([@majuss] - [#23300]) ([elv docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## Release 0.95.1 - June 26
+
+- Fix life360 exception when no location provided ([@pnbruckner] - [#24777]) ([life360 docs])
+- Pubnub to 1.0.8 ([@w1ll1am23] - [#24781]) ([wink docs])
+- Catch uncaught Alexa error ([@balloob] - [#24785]) ([cloud docs])
+
+[#24777]: https://github.com/home-assistant/home-assistant/pull/24777
+[#24781]: https://github.com/home-assistant/home-assistant/pull/24781
+[#24785]: https://github.com/home-assistant/home-assistant/pull/24785
+[@balloob]: https://github.com/balloob
+[@pnbruckner]: https://github.com/pnbruckner
+[@w1ll1am23]: https://github.com/w1ll1am23
+[cloud docs]: /components/cloud/
+[life360 docs]: /components/life360/
+[wink docs]: /components/wink/
+
+## Release 0.95.2 - June 28
+
+- Fix netatmo weatherstation setup error ([@cgtobi] - [#24788]) ([netatmo docs])
+- Update azure-pipelines-release.yml for Azure Pipelines ([@pvizeli] - [#24800])
+- Make sure entity config is never none ([@balloob] - [#24801]) ([google_assistant docs])
+- Bump ZHA quirks module ([@dmulcahey] - [#24802]) ([zha docs])
+- Fix another Life360 bug ([@pnbruckner] - [#24805]) ([life360 docs])
+- Fix calling empty script turn off ([@balloob] - [#24827]) ([script docs])
+
+[#24788]: https://github.com/home-assistant/home-assistant/pull/24788
+[#24800]: https://github.com/home-assistant/home-assistant/pull/24800
+[#24801]: https://github.com/home-assistant/home-assistant/pull/24801
+[#24802]: https://github.com/home-assistant/home-assistant/pull/24802
+[#24805]: https://github.com/home-assistant/home-assistant/pull/24805
+[#24827]: https://github.com/home-assistant/home-assistant/pull/24827
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@dmulcahey]: https://github.com/dmulcahey
+[@pnbruckner]: https://github.com/pnbruckner
+[@pvizeli]: https://github.com/pvizeli
+[google_assistant docs]: /components/google_assistant/
+[life360 docs]: /components/life360/
+[netatmo docs]: /components/netatmo/
+[script docs]: /components/script/
+[zha docs]: /components/zha/
+
+## Release 0.95.3 - June 28
+
+- Alexa sync state report ([@balloob] - [#24835]) ([cloud docs])
+
+[#24835]: https://github.com/home-assistant/home-assistant/pull/24835
+[@balloob]: https://github.com/balloob
+[cloud docs]: /components/cloud/
+
+## Release 0.95.4 - June 28
+
+- Improve autodiscovered yeelights model detection ([@zewelor] - [#24671]) ([yeelight docs])
+- Guard for None entity config ([@balloob] - [#24838]) ([alexa docs]) ([cloud docs])
+
+[#24671]: https://github.com/home-assistant/home-assistant/pull/24671
+[#24838]: https://github.com/home-assistant/home-assistant/pull/24838
+[@balloob]: https://github.com/balloob
+[@zewelor]: https://github.com/zewelor
+[alexa docs]: /components/alexa/
+[cloud docs]: /components/cloud/
+[yeelight docs]: /components/yeelight/
+
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - No longer allow invalid slugs or extra keys ([@balloob] - [#24176]) (breaking change)
 - Add service for adding event to google component ([@isabellaalstrom] - [#22473]) ([google docs]) (breaking change)
@@ -122,7 +185,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Added percent to the disk,memory and swap percent labels ([@cliffordwhansen] - [#24575]) ([glances docs]) (breaking change)
 - Save cached logi_circle tokens in config folder ([@evanjd] - [#24726]) ([logi_circle docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Vlc telnet ([@rodripf] - [#24290]) ([vlc_telnet docs]) (beta fix) (new-integration)
 - Fix device tracker see for entity registry entities ([@MartinHjelmare] - [#24633]) ([device_tracker docs]) (beta fix)
@@ -152,7 +215,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Ignore duplicate tradfri discovery ([@balloob] - [#24759]) ([tradfri docs]) (beta fix)
 - Return correct name for met.no ([@Danielhiversen] - [#24763]) ([met docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update pysonos to 0.0.14 ([@amelchio] - [#24185]) ([sonos docs])
 - upgrade broadlink library, Use cryptography instead of pycryptodome ([@Danielhiversen] - [#24186]) ([broadlink docs])

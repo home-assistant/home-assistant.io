@@ -17,7 +17,7 @@ redirect_from:
   - /components/sensor.habitica/
 ---
 
-This component allows you to monitor and manage your Habitica profile. This component exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
+This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -25,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 
 The sensors will automatically appear, after setup the Habitica component.
 
-To use the component you should use this example configuration:
+To use the integration you should use this example configuration:
 
 ```yaml
 # Minimum viable configuration.yaml entry
@@ -65,7 +65,7 @@ sensors:
   default: all (`name`, `hp`, `maxHealth`, `mp`, `maxMP`, `exp`, `toNextLevel`, `lvl`, `gp`, `class`)
 {% endconfiguration %}
 
-### {% linkable_title API Service Parameters %}
+### API Service Parameters
 
 The API is exposed to Home Assistant as a service called `habitica.api_call`. To call it you should specify this keys in service data:
 

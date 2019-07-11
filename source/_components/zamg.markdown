@@ -27,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - **[Weather](#weather)** - Easier to configure but less customizable and doesn't have support for conditions which is a key feature of the `weather` platforms.
 - **[Sensor](#sensor)**
 
-## {% linkable_title Weather %}
+## Weather
 
 To add ZAMG weather platform to your installation, add the following to your `configuration.yaml` file:
 
@@ -58,7 +58,7 @@ longitude:
   default: "Defaults to coordinates defined in your `configuration.yaml` file."
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To add ZAMG sensor platform to your installation, add the following to your `configuration.yaml` file:
 

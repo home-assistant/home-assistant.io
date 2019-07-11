@@ -16,7 +16,7 @@ ha_iot_class: Configurable
 
 The `mqtt` lock platform lets you control your MQTT enabled locks.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be `false` / unlocked.
 
@@ -137,11 +137,11 @@ device:
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real-life examples of how to use this lock.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a MQTT lock.
 

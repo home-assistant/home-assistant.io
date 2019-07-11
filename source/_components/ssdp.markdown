@@ -16,7 +16,7 @@ The `ssdp` "Simple Service Discovery Protocol" integration will scan the network
 
 Integrations can opt-in to be found by adding [an SSDP section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#ssdp) to their manifest.json.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -25,7 +25,7 @@ To integrate this into Home Assistant, add the following section to your `config
 ssdp:
 ```
 
-## {% linkable_title Discovered Integrations %}
+## Discovered Integrations
 
 The following integrations are automatically discovered by the SSDP integration:
 

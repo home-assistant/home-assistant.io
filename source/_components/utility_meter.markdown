@@ -15,17 +15,17 @@ logo: energy_meter.png
 ha_qa_scale: internal
 ---
 
-The `utility meter` component provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
+The `utility meter` integration provides functionality to track consumptions of various utilities (e.g., energy, gas, water, heating).
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new entity will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
 <p class='note'>
-Sensors created with this component are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the component was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant.
+Sensors created with this integration are persistent, so values are retained across restarts of home assistant. The first cycle for each sensor, will be incomplete; a sensor tracking daily usage, will start to be accurate the next day after the integration was activated. A sensor tracking monthly usage, will present accurate data starting the first of the next month after being added to home assistant.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Utility Meter Sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -64,7 +64,7 @@ tariffs:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Time period dictionary example %}
+### Time period dictionary example
 
 ```yaml
 offset:
@@ -74,9 +74,9 @@ offset:
   minutes: 0 
 ```
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `utility_meter.reset` %}
+### Service `utility_meter.reset`
 
 Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 
@@ -84,7 +84,7 @@ Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 
-### {% linkable_title Service `utility_meter.next_tariff` %}
+### Service `utility_meter.next_tariff`
 
 Change the current tariff to the next in the list.
 This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
@@ -93,7 +93,7 @@ This service must be called by the user for the tariff switching logic to occur 
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 
-### {% linkable_title Service `utility_meter.select_tariff` %}
+### Service `utility_meter.select_tariff`
 
 Change the current tariff to the given tariff.
 This service must be called by the user for the tariff switching logic to occur (e.g. using an automation)
@@ -103,7 +103,7 @@ This service must be called by the user for the tariff switching logic to occur 
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `tariff` | no | String that is equal to one of the defined tariffs.
 
-# {% linkable_title Advanced Configuration %}
+# Advanced Configuration
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
 
@@ -151,7 +151,7 @@ automation:
       entity_id: utility_meter.monthly_energy
 ```
 
-## {% linkable_title Advanced Configuration for DSMR users %}
+## Advanced Configuration for DSMR users
 
 When using the [DSMR component](https://www.home-assistant.io/components/sensor.dsmr/) to get data from the utility meter, each tariff (peak and off-peak) has a separate sensor. Additionally, there is a separate sensor for gas consumption. The meter switches automatically between tariffs, so an automation is not necessary in this case. But, you do have to setup a few more instances of the `utility_meter` component.
 

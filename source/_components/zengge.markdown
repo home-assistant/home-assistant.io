@@ -18,7 +18,7 @@ redirect_from:
 
 The `zengge` platform allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the lights, add the following lines to your `configuration.yaml` file:
 

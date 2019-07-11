@@ -42,7 +42,7 @@ Now let's make a small change using the configurator: we are going to change the
 Screenshot of the "General" page in the configuration panel.
 </p>
 
-### {% linkable_title Editing config via Samba/Windows Networking %}
+### Editing config via Samba/Windows Networking
 
 Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Hass.io add-on store. This will make your configuration accessible via the network tab on your computer.
 

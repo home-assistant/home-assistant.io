@@ -20,7 +20,7 @@ redirect_from:
 
 The `logi_circle` implementation allows you to integrate your [Logi Circle](https://circle.logi.com/) cameras in Home Assistant. To connect Logi Circle, you will have to [sign up for API access](#requesting-api-access) and get a `client_id`, `client_secret` and `api_key`.
 
-## {% linkable_title Requesting API access %}
+## Requesting API access
 
 1. Navigate to the [Circle OAuth2 Client Request Form](https://docs.google.com/forms/d/184FUILJ10rVxotyOQR5DAiu6GcCbK31AZszUdzT1ybs).
 2. Fill out your contact name and e-mail address.
@@ -40,7 +40,7 @@ The `logi_circle` implementation allows you to integrate your [Logi Circle](http
 
 Please note that the turn-around time for API access takes a few business days after which you will be contacted by Logitech using the email address you provided in the form.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate cameras linked with your [Logi Circle](https://circle.logi.com/) account, add the following to your `configuration.yaml` file:
 
@@ -75,17 +75,17 @@ redirect_uri:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Camera %}
+### Camera
 
 The `logi_circle` camera platform allows you to view still frames from your [Logi Circle](https://circle.logi.com/) camera's live stream in Home Assistant.
 
 Logi Circle cameras support the `camera.turn_on` and `camera.turn_off` services. This will set the streaming mode property of your camera accordingly, controlling whether the live stream is available and activity recordings are captured.
 
-### {% linkable_title Sensor %}
+### Sensor
 
 The `logi_circle` sensor platform lets you monitor sensors connected to your [Logi Circle](https://circle.logi.com) cameras in Home Assistant.
 
-To customize which sensors are setup, you can extend the Logi Circle component configuration in your `configuration.yaml` file with the following settings:
+To customize which sensors are setup, you can extend the Logi Circle integration configuration in your `configuration.yaml` file with the following settings:
 
 ```yaml
 # Example configuration.yaml entry
@@ -128,11 +128,11 @@ sensor:
           description: The soft on/off status of the camera.
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
 The `logi_circle` platform exposes 3 services for interacting with your Logi Circle device. When calling a service with one or more entity IDs, please ensure you target the camera entity (eg. `camera.living_room_camera`).
 
-### {% linkable_title Service `logi_circle.livestream_record` %}
+### Service `logi_circle.livestream_record`
 
 Initiates a recording of the camera's live stream.
 
@@ -144,7 +144,7 @@ Initiates a recording of the camera's live stream.
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
-### {% linkable_title Service `logi_circle.livestream_snapshot` %}
+### Service `logi_circle.livestream_snapshot`
 
 Take a snapshot from a camera's live stream. This differs from the generic [snapshot](/components/camera/#service-snapshot) service in that explicitly requests a fresh image from Logi Circle's API. This will force cameras in a deep sleep state to wake.
 
@@ -157,7 +157,7 @@ Please note that new snapshots will only be generated if the cached snapshot is 
 
 The path part of `filename` must be an entry in the `whitelist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
-### {% linkable_title Service `logi_circle.set_config` %}
+### Service `logi_circle.set_config`
 
 Sets a configuration property for your camera.
 

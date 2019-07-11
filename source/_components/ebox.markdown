@@ -18,7 +18,7 @@ redirect_from:
 
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your EBox sensor in your installation, add the following to your `configuration.yaml` file:
 

@@ -16,13 +16,13 @@ ha_release: 0.94
 The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
 Watson is a paid service via IBM Cloud but there is a decent [free tier](https://www.ibm.com/cloud/watson-text-to-speech/pricing) which offers 10000 free characters every month.
 
-## {% linkable_title Setup %}
+## Setup
 
 For supported formats and voices please go to [IBM Cloud About section](https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-about#about).
 
 To get started please read the [Getting started tutorial](https://cloud.ibm.com/docs/services/text-to-speech?topic=text-to-speech-gettingStarted#gettingStarted).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To configure Watson TTS, add the following lines to your `configuration.yaml`:
 
@@ -61,7 +61,7 @@ output_format:
   default: audio/mp3
 {% endconfiguration %}
 
-## {% linkable_title Usage %}
+## Usage
 
 Say to all `media_player` device entities:
 

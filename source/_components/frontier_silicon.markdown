@@ -15,15 +15,15 @@ redirect_from:
  - /components/media_player.frontier_silicon/
 ---
 
-This component provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.
+This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the [UNDOK] app.
 
-## {% linkable_title Supported Models %}
+## Supported Models
 * Hama: [IR110], [DIR3110]
 * Medion: [Medion Radios]
 * Silvercrest: [SIRD 14 C2]
 * Some models from: Auna, Technisat, Revo, Pinell
 
-This component was developed and tested with a Hama [DIR3110] and a Medion [MD 87466].
+This integration was developed and tested with a Hama [DIR3110] and a Medion [MD 87466].
 
 ## Configuration
 
@@ -90,12 +90,12 @@ Overview of the info dialog:
 ## Development
 
 Support is provided through the Python [fsapi] module. The Python module was developed by using the documentation provided by [flammy] and
-is based on [tiwillam]'s fsapi project. Special thanks to both developers, this component would have not been possible without their work.
+is based on [tiwillam]'s fsapi project. Special thanks to both developers, this integration would have not been possible without their work.
 
 ## Notes and Limitations
 
 <p class='note warning'>
-The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant component polls the device state every 30 seconds or issues a command by creating a new session.
+The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
 *If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
 </p>
 

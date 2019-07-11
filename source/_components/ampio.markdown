@@ -17,11 +17,11 @@ ha_iot_class: "Cloud Polling"
 
 The `ampio` air quality platform will query the open data API of [ampio.pl](http://smog1.ampio.pl:3050/) to monitor air quality sensor station.
 
-## {% linkable_title Setup %}
+## Setup
 
 To get the ID of a station you need to contact Ampio directly.
 
-## {% linkable_title Manual Configuration %}
+## Manual Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 

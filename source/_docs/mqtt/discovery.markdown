@@ -220,7 +220,7 @@ Supported abbreviations for device registry configuration:
     'sw':                  'sw_version',
 ```
 
-### {% linkable_title Support by third-party tools %}
+### Support by third-party tools
 
 The following software has built-in support for MQTT discovery:
 
@@ -231,7 +231,7 @@ The following software has built-in support for MQTT discovery:
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [Zigbee2mqtt](https://github.com/koenkk/zigbee2mqtt)
 
-### {% linkable_title Examples %}
+### Examples
 
 A motion detection device which can be represented by a [binary sensor](/components/binary_sensor.mqtt/) for your garden would send its configuration as JSON payload to the Configuration topic. After the first message to `config`, then the MQTT messages sent to the state topic will update the state in Home Assistant.
 

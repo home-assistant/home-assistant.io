@@ -49,10 +49,10 @@ $ sudo apt-get install python3 python3-venv python3-pip libffi-dev libssl-dev
 ```
 
 Add an account for Home Assistant called `homeassistant`.
-Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio` adds the user to the `dialout` and the `gpio` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
+Since this account is only for running Home Assistant the extra arguments of `-rm` is added to create a system account and create a home directory. The arguments `-G dialout,gpio,i2c` adds the user to the `dialout`, `gpio` and the `i2c` group. The first is required for using Z-Wave and Zigbee controllers, while the second is required to communicate with Raspberry's GPIO.
 
 ```bash
-$ sudo useradd -rm homeassistant -G dialout,gpio
+$ sudo useradd -rm homeassistant -G dialout,gpio,i2c
 ```
 
 Next we will create a directory for the installation of Home Assistant and change the owner to the `homeassistant` account.
@@ -96,7 +96,7 @@ When you run the `hass` command for the first time, it will download, install an
 
 If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant](/docs/autostart/).
 
-### {% linkable_title Updating %}
+### Updating
 
 To update to the latest version of Home Assistant follow these simple steps:
 
@@ -108,7 +108,7 @@ $ pip3 install --upgrade homeassistant
 
 Once the last command executes, restart the Home Assistant service to apply the latest updates. Please keep in mind that some updates may take longer to start up than others. If Home Assistant fails to start, make sure you check the **Breaking Changes** from the [Release Notes](https://github.com/home-assistant/home-assistant/releases).
 
-### {% linkable_title Run a specific version %}
+### Run a specific version
 
 In the event that a Home Assistant version doesn't play well with your hardware setup, you can downgrade to a previous release. For example:
 
@@ -118,7 +118,7 @@ $ source /srv/homeassistant/bin/activate
 $ pip3 install homeassistant==0.XX.X
 ```
 
-### {% linkable_title Run the beta version %}
+### Run the beta version
 
 If you would like to test next release before anyone else, you can install the beta version released every two weeks, for example:
 
@@ -128,7 +128,7 @@ $ source /srv/homeassistant/bin/activate
 $ pip3 install --pre --upgrade homeassistant
 ```
 
-### {% linkable_title Run the development version %}
+### Run the development version
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 
@@ -144,7 +144,7 @@ $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev
 ```
 
-### {% linkable_title Activating the virtual environment %}
+### Activating the virtual environment
 
 When instructions tell you to activate the virtual environment, the following commands will do this:
 

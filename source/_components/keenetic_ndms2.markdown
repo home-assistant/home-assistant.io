@@ -15,7 +15,7 @@ redirect_from:
  - /components/device_tracker.keenetic_ndms2/
 ---
 
-This component offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)
+This integration offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)
 Router running NDMS2 firmware.
 
 To use a Keenetic router in your installation, add the following to your `configuration.yaml` file:
@@ -54,4 +54,4 @@ interface:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

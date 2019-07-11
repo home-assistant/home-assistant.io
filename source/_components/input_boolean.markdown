@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Input Boolean"
-description: "Instructions on how to integrate the Input Boolean component into Home Assistant."
+description: "Instructions on how to integrate the Input Boolean integration into Home Assistant."
 date: 2016-01-17 16:58
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_qa_scale: internal
 ha_release: 0.11
 ---
 
-The `input_boolean` component allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
+The `input_boolean` integration allows the user to define boolean values that can be controlled via the frontend and can be used within conditions of automation. This can for example be used to disable or enable certain automations.
 
 To enable input booleans in your installation, add the following lines to your `configuration.yaml`:
 
@@ -48,11 +48,11 @@ input_boolean:
         type: icon
 {% endconfiguration %}
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 Here's an example of an automation using the above `input_boolean`. This action will only occur if the switch is on.
 

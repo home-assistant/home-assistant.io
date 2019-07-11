@@ -20,7 +20,7 @@ _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt]
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
 
 <p class='note'>
-This component requires a [workaround](https://github.com/home-assistant/home-assistant/issues/1258#issuecomment-252469880) when using luci with HTTPS and a self-signed certificate.
+This integration requires a [workaround](https://github.com/home-assistant/home-assistant/issues/1258#issuecomment-252469880) when using luci with HTTPS and a self-signed certificate.
 </p>
 
 Before this scanner can be used you have to install the luci RPC package on OpenWRT:
@@ -60,7 +60,7 @@ ssl:
   type: boolean
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
 This device tracker provides a number of additional attributes for each tracked device (if it is at home): `flags`, `ip`, `device`, and `host`. The first three attributes are taken from the ARP table returned by the luci RPC. The `host` attribute is taken from the platform configuration and can be used to distinguish in which router a device is logged in, if you are using multiple OpenWRT routers.
 

@@ -18,7 +18,7 @@ redirect_from:
 
 The `pjlink` platform allows you to control from Home Assistant, projectors with support for the [PJLink protocol](http://pjlink.jbmia.or.jp/english/index.html).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a PJLink projector  to your installation, add the following to your `configuration.yaml` file:
 

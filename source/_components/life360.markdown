@@ -16,7 +16,7 @@ ha_iot_class: Cloud Polling
 
 The `life360` integration allows you to detect presence using the [unofficial API](#disclaimer) of [Life360](https://www.life360.com/).
 
-## {% linkable_title Life360 Account %}
+## Life360 Account
 
 You must first [create a Life360 account](https://www.life360.com/websignup).
 
@@ -104,7 +104,7 @@ warning_threshold:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Additional attributes %}
+## Additional attributes
 
 Attribute | Description
 -|-
@@ -119,7 +119,7 @@ raw_speed | "Raw" speed value provided by Life360 server. (Units unknown.)
 speed | Estimated speed of device (in MPH or KPH depending on Home Assistant's unit system configuration.)
 wifi_on | Device WiFi is turned on (`true`/`false`.)
 
-## {% linkable_title Filtering %}
+## Filtering
 
 For most users, filtering is not needed, and in such cases, the corresponding configuration variables should not be used.
 
@@ -133,11 +133,11 @@ For a particular Member to be tracked, they must be included (or at least not ex
 
 Note that Life360's app and website typically only show Members' first names. However, you must use their _full_ names here. If you're not sure what a Member's full name (i.e., first and last) is in Life360, ask them. Alternatively, you can set the  [`logger`](https://www.home-assistant.io/components/logger/) to `debug` and look in `home-assistant.log`. The full names of all Life360 Circles & Members will be logged.
 
-## {% linkable_title Home - Home Assistant vs. Life360 %}
+## Home - Home Assistant vs. Life360
 
 Normally Home Assistant device trackers are "Home" when they enter `zone.home`. Also, Life360 normally considers your device "Home" when it enters the Place that coincides with your home. Since the definitions of these areas can be different, this can lead to a disagreement between Home Assistant and Life360 as to whether or not you're "Home." To avoid this, make sure these two areas are defined the same -- i.e., same location and radius. (See next section.)
 
-## {% linkable_title Home Assistant Zones & Life360 Places %}
+## Home Assistant Zones & Life360 Places
 
 See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zone) for details about how HA zones are defined. If you'd like to create HA zones from Life360 Places (e.g., to make HA's `zone.home` be identical to Life360's "Home Place"), make sure `logger` is set to `debug`. Then when HA starts the details of all the Places defined in the included Circles will be written to `home-assistant.log` in a format that can be copied into your configuration under `zone:`. E.g., you would see something like this:
 
@@ -150,15 +150,15 @@ See [Zone documentation](https://www.home-assistant.io/components/zone/#home-zon
   radius: ZZZ
 ```
 
-## {% linkable_title Communication Errors %}
+## Communication Errors
 
 It is not uncommon for communication errors to occur between Home Assistant and the Life360 server. This can happen for many reasons, including Internet connection issues, Life360 server load, etc. However, in most cases, they are temporary and do not significantly affect the ability to keep device_tracker entities up to date.
 
 Therefore, an optional filtering mechanism has been implemented to prevent inconsequential communication errors from filling the log, while still logging unusual error activity. Two thresholds are defined: [**warning_threshold**](#warning_threshold) and [**error_threshold**](#error_threshold). When a particular type of communication error happens on consecutive update cycles, it will not be logged until the number of occurrences reaches these thresholds. When the number reaches **warning_threshold** (but does not exceed **error_threshold**, and only if **warning_threshold** is defined), it will be logged as a WARNING. Once the number reaches **error_threshold**, it will be logged as an ERROR. Only two consecutive communication errors of a particular type will be logged as an ERROR, after which it will no longer be logged until it stops occurring and then happens again.
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Typical configuration %}
+### Typical configuration
 
 {% raw %}
 ```yaml
@@ -181,7 +181,7 @@ life360:
 ```
 {% endraw %}
 
-### {% linkable_title Circle and Member Filtering Example %}
+### Circle and Member Filtering Example
 
 {% raw %}
 ```yaml
@@ -195,7 +195,7 @@ life360:
 ```
 {% endraw %}
 
-### {% linkable_title Entering accounts in configuration %}
+### Entering accounts in configuration
 
 {% raw %}
 ```yaml
@@ -206,7 +206,7 @@ life360:
 ```
 {% endraw %}
 
-### {% linkable_title Example overdue update automations %}
+### Example overdue update automations
 
 {% raw %}
 ```yaml
@@ -241,6 +241,6 @@ automation:
 ```
 {% endraw %}
 
-## {% linkable_title Disclaimer %}
+## Disclaimer
 
-It does not appear that Life360 officially supports its REST API for use with other than its own apps. This integration is based on reverse engineering that has been done by the open source community, and an API token that was somehow discovered by the same community. At any time Life360 could disable that token or otherwise change its REST API such that this component would no longer work.
+It does not appear that Life360 officially supports its REST API for use with other than its own apps. This integration is based on reverse engineering that has been done by the open source community, and an API token that was somehow discovered by the same community. At any time Life360 could disable that token or otherwise change its REST API such that this integration would no longer work.

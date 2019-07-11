@@ -13,7 +13,7 @@ og_image: /images/blog/2017-07-0.49/components.png
 
 <a href='/components/#version/0.49'><img src='/images/blog/2017-07-0.49/components.png' style='border: 0;box-shadow: none;'></a>
 
-# {% linkable_title WE HAVE THEMES 🎨👩‍🎨 %}
+# WE HAVE THEMES 🎨👩‍🎨
 
 Our already amazing frontend just got even more amazing thanks to [@andrey-git]. With the new theme support you can be in control of the primary color, accent color and a whole bunch more.
 
@@ -35,7 +35,7 @@ Screenshot of a green dashboard
 
 Not all parts of the user interface are themable yet. Expect improvements in future releases.
 
-## {% linkable_title Kiosk mode %}
+## Kiosk mode
 
 Another great new improvement for the frontend is the addition of a kiosk mode. When the frontend is viewed in kiosk mode, the tab bar will be hidden.
 
@@ -43,7 +43,7 @@ To activate kiosk mode, navigate to `https://hass.example.com:8123/kiosk/group.l
 
 This feature has also been brought to you by [@Andrey-git]! Big shout out to him for his continuous efforts to bring Home Assistant to the next level.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add london_underground ([@robmarkcole] - [#8272]) ([sensor.london_underground docs]) (new-platform)
 - Add citybikes platform ([@aronsky] - [#8202]) ([sensor.citybikes docs]) (new-platform)
@@ -57,7 +57,7 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 - Added media_extractor service ([@minchik] - [#8369]) ([media_extractor docs]) (new-platform)
 - Vizio SmartCast support ([@vkorn] - [#8260]) ([media_player.vizio docs]) (new-platform)
 
-## {% linkable_title Release 0.49.1 - July 24 %}
+## Release 0.49.1 - July 24
 
 - Fix TP-Link device tracker regression since 0.49 ([@maikelwever] - [#8497]) ([device_tracker.tplink docs])
 - prometheus: Convert fahrenheit to celsius ([@rcloran] - [#8511]) ([prometheus docs])
@@ -76,14 +76,14 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 - ubus: Make multiple instances work again ([@glance-] - [#8571]) ([device_tracker.ubus docs])
 - Properly slugify switch.flux update service name ([@jawilson] - [#8545]) ([switch.flux docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - UPC Connect component no longer needs a password passed into the configuration. ([@Flavien] - [#8335]) ([device_tracker.upc_connect docs]) (breaking change)
 - The Apple TV platform has been upgraded to a component and a remote platform has been added. This requires your Apple TV configuration to be moved to the new `apple_tv` component. ([@postlund] - [#8122]) ([media_player.apple_tv docs]) (breaking change)
@@ -112,7 +112,7 @@ amcrest:
       - ptz_preset
 ```
 
-## {% linkable_title All changes %}
+## All changes
 
 - Version bump to 0.49.0.dev0 ([@fabaff] - [#8266])
 - Upgrade pyowm to 2.7.1 ([@fabaff] - [#8274]) ([sensor.openweathermap docs]) ([weather.openweathermap docs])

@@ -37,7 +37,7 @@ It has only been modified for the purpose of presenting the material in Home Ass
 Please refer to the [creator's copyright notice](https://www.qfes.qld.gov.au/Pages/copyright.aspx) for more information.
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate the Queensland Bushfire Alert feed, add the following lines to 
 your `configuration.yaml`.
@@ -71,7 +71,7 @@ longitude:
 {% endconfiguration %}
 
 
-## {% linkable_title State Attributes %}
+## State Attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -87,7 +87,7 @@ the standard ones:
 | updated_date     | Date and time when this alert was last updated. |
 | status           | Status of the alert, for example, "Patrolled", "Going", "Contained" |
 
-## {% linkable_title Full Configuration %}
+## Full Configuration
 
 ```yaml
 # Example configuration.yaml entry

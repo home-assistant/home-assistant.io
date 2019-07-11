@@ -24,7 +24,7 @@ redirect_from:
 
 Home Assistant will automatically discover their presence on your network.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 For configuration go to the `Integrations pane` on your Home Assistant instance.
 
@@ -32,11 +32,11 @@ For configuration go to the `Integrations pane` on your Home Assistant instance.
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
 </p>
 
-## {% linkable_title Troubleshooting discovery %}
+## Troubleshooting discovery
 
 If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Config**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The following sensor types are supported:
 
@@ -46,7 +46,7 @@ The following sensor types are supported:
 - Day/night mode
 - Inputs and Supervised Inputs
 
-## {% linkable_title Switch %}
+## Switch
 
 The following controllable port types are supported:
 

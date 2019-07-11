@@ -38,7 +38,7 @@ There are _multiple_ ways of integrating an OpenWRT router for presence detectio
     * [openwrt_hass_devicetracker](https://github.com/mueslo/openwrt_hass_devicetracker)
     * your own custom script
 
-### {% linkable_title Event-based device tracker %}
+### Event-based device tracker
 
 This can be achieved by running a simple shell script on the OpenWRT router which calls the appropriate Home Assistant service. An OpenWRT package which does this is listed above. As this method directly calls the [service API](/developers/rest_api.markdown#post-apiservicesltdomainltservice), no special configuration is necessary on the Home Assistant side, except for ensuring the device_tracker API is running, which is achieved by adding the following to your `configuration.yaml` file:
 
@@ -48,4 +48,4 @@ device_tracker:
 
 To get the best of both worlds, you can combine the two approaches, running both a periodic device scanner and an event-based device tracker.
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

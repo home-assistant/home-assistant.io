@@ -20,7 +20,7 @@ redirect_from:
   - /components/binary_sensor.satel_integra/
 ---
 
-The `satel_integra` component will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
+The `satel_integra` integration will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
-## {% linkable_title Setup %}
+## Setup
 
 Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promisses are given.
 
@@ -40,7 +40,7 @@ A list of all partition, zone and output IDs can be acquired by running DloadX p
 
 For the Binary Sensor check the [type/class](/components/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor components."
 
-## {% linkable_title Configuration %}
+## Configuration
 
 A `satel_integra` section must be present in the `configuration.yaml` file:
 
@@ -114,7 +114,7 @@ switchable_outputs:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Full examples %}
+## Full examples
 
 ```yaml
 # Example configuration.yaml entry

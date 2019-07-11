@@ -28,7 +28,7 @@ script:
           message: 'Turned on the ceiling light!'
 ```
 
-### {% linkable_title Call a Service %}
+### Call a Service
 
 The most important one is the action to call a service. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
 
@@ -40,7 +40,7 @@ The most important one is the action to call a service. This can be done in vari
     brightness: 100
 ```
 
-### {% linkable_title Test a Condition %}
+### Test a Condition
 
 While executing a script you can add a condition to stop further execution. When a condition does not return `true`, the script will stop executing. There are many different conditions which are documented at the [conditions page].
 
@@ -51,7 +51,7 @@ While executing a script you can add a condition to stop further execution. When
   state: 'home'
 ```
 
-### {% linkable_title Delay %}
+### Delay
 
 Delays are useful for temporarily suspending your script and start it at a later moment. We support different syntaxes for a delay as shown below.
 
@@ -89,7 +89,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```
 {% endraw %}
 
-### {% linkable_title Wait %}
+### Wait
 
 Wait until some things are complete. We support at the moment `wait_template` for waiting until a condition is `true`, see also on [Template-Trigger](/docs/automation/trigger/#template-trigger). It is possible to set a timeout after which the script will continue its execution if the condition is not satisfied. Timeout has the same syntax as `delay`.
 
@@ -136,13 +136,13 @@ You can also get the script to abort after the timeout by using `continue_on_tim
 {% raw %}
 ```yaml
 # Wait until a valve is < 10 or abort after 1 minute.
-- wait_template: "{{ states.climate.kitchen.attributes.valve|int < 10 }}"
+- wait_template: "{{ state_attr('climate.kitchen', 'valve')|int < 10 }}"
   timeout: '00:01:00'
   continue_on_timeout: 'false'
 ```
 {% endraw %}
 
-### {% linkable_title Fire an Event %}
+### Fire an Event
 
 This action allows you to fire an event. Events can be used for many things. It could trigger an automation or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
 
@@ -167,7 +167,7 @@ an event trigger.
 ```
 {% endraw %}
 
-### {% linkable_title Raise and Consume Custom Events %}
+### Raise and Consume Custom Events
 
 The following automation shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The action part could be inside a script or an automation.
 

@@ -20,7 +20,7 @@ The `rpi_gpio_pwm` platform allows to control multiple lights using pulse-width 
 
 For controlling the GPIOs, the platform connects to the [pigpio-daemon](http://abyz.co.uk/rpi/pigpio/pigpiod.html), which must be running. On Raspbian Jessie 2016-05-10 or newer the `pigpio` library is already included. On other operating systems it needs to be installed first (see [installation instructions](https://github.com/soldag/python-pwmled#installation)).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 
@@ -69,11 +69,11 @@ leds:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title RGB LED connected to PCA9685 controller %}
+### RGB LED connected to PCA9685 controller
 
 This example uses a [PCA9685 controller](http://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to control a RGB LED.
 
@@ -88,7 +88,7 @@ light:
         type: rgb
 ```
 
-### {% linkable_title RGBW LED connected to PCA9685 controller %}
+### RGBW LED connected to PCA9685 controller
 
 This example uses a [PCA9685 controller](http://www.nxp.com/products/interfaces/ic-bus-portfolio/ic-led-display-control/16-channel-12-bit-pwm-fm-plus-ic-bus-led-controller:PCA9685) to interact with a RGBW LED.
 

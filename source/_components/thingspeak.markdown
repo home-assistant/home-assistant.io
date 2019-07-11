@@ -13,14 +13,14 @@ ha_category:
 ha_release: 0.32
 ---
 
-The `thingspeak` components makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).
+The `thingspeak` integrations makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.com/).
 For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely on the [InfluxDB component](/components/influxdb/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You will have to create a [new channel](https://thingspeak.com/channels/new) on ThingSpeak and grab your Write API Key from the "API Keys" tab of the channel you want to use.
 
-To setup the ThingSpeak component in your installation, add the following to your `configuration.yaml` file:
+To setup the ThingSpeak integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

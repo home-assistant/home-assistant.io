@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "RSS feed template"
-description: "Use this component to generate RSS feeds showing your latest data."
+description: "Use this integration to generate RSS feeds showing your latest data."
 date: 2017-04-11 20:42
 sidebar: true
 comments: false
@@ -14,7 +14,7 @@ ha_release: 0.44
 ha_qa_scale: internal
 ---
 
-The `rss_feed_template` component can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.
+The `rss_feed_template` integration can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.
 
 For example, on Android, the app "Simple RSS Widget" can be used to display temperatures on the home screen.
 
@@ -28,7 +28,7 @@ rss_feed_template:
     title: "Garden {% raw %}{{ as_timestamp(now())|timestamp_custom('%H:%M', True) }}{% endraw %}"
     items:
     - title: "Outside temperature"
-      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states.sensor.temp_outside.state}} °C{% endif %}{% endraw %}"
+      description: "{% raw %}{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}{% endraw %}"
 ```
 
 {% configuration %}

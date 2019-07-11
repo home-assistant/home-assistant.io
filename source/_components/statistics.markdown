@@ -19,15 +19,15 @@ redirect_from:
 
 The `statistics` sensor platform consumes the state from other sensors. It exports the `mean` value as state and the following values as attributes: `count`, `mean`, `median`, `stdev`, `variance`, `total`, `min`, `max`, `min_age`, `max_age`, `change`, `average_change` and `change_rate`. If it's a binary sensor then only state changes are counted.
 
-If you are running the [recorder](/components/recorder/) component, on startup the data is read from the database. So after a restart of the platform, you will immediately have data available. If you're using the [history](/components/history/) component, this will automatically also start the `recorder` component on startup.
+If you are running the [recorder](/components/recorder/) component, on startup the data is read from the database. So after a restart of the platform, you will immediately have data available. If you're using the [history](/components/history/) component, this will automatically also start the `recorder` integration on startup.
 If you are *not* running the `recorder` component, it can take time till the sensor starts to work because a couple of attributes need more than one value to do the calculation.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the statistics sensor, add the following lines to your `configuration.yaml`:
 
 ```yaml
-# enable the recorder component (optional)
+# enable the recorder integration (optional)
 recorder:
 
 # Example configuration.yaml entry

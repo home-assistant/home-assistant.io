@@ -19,7 +19,7 @@ redirect_from:
 The `KIWI` platform allows you to open your KIWI Smart Locks and Smart Entry Devices.
 All you need to get started is a KIWI account. Register at [the KIWI website](https://kiwi.ki/login/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry

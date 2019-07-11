@@ -17,15 +17,15 @@ redirect_from:
   - /components/sensor.zabbix/
 ---
 
-The `zabbix` component is the main component to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.
+The `zabbix` integration is the main integration to connect to a [Zabbix](http://www.zabbix.com/) monitoring instance via the Zabbix API.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To set the Zabbix component up, add the following information to your `configuration.yaml` file:
+To set the Zabbix integration up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +58,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -70,7 +70,7 @@ zabbix:
   password: PASSWORD
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](http://www.zabbix.com/) monitoring instance.
 

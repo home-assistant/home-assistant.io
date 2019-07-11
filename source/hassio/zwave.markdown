@@ -16,7 +16,7 @@ zwave:
   usb_path: /dev/ttyACM0
 ```
 
-## {% linkable_title RAZBERRY BOARD %}
+## RAZBERRY BOARD
 
 If you need GPIO on Raspberry Pi 3 for your Z-Wave module, add the following line into `config.txt` (you have to access that on the SD card directly. Simply plug it into your PC and edit it there. The `config.txt` is not accessible from your Hass.io system, you may need to open the SD card on a Windows or Linux system.):
 
@@ -31,7 +31,7 @@ zwave:
   usb_path: /dev/ttyAMA0
 ```
 
-## {% linkable_title HUSBZB-1 %}
+## HUSBZB-1
 
 ```yaml
 zwave:
@@ -42,7 +42,7 @@ zha:
   database_path: /config/zigbee.db
 ```
 
-## {% linkable_title Ubuntu and Debian based host system %}
+## Ubuntu and Debian based host system
 
 If your instance is running on a Debian based system, e.g., Ubuntu, the ModemManager may cause unexpected issues.
 
@@ -54,7 +54,7 @@ Execute the following command on your host system to disable the ModemManager:
 systemctl disable ModemManager.service
 ```
 
-### {% linkable_title Finding the path %}
+### Finding the path
 
 If the above defaults don't work, you can check what hardware has been found using the [`hassio` command](/hassio/commandline/#hardware):
 
@@ -64,6 +64,6 @@ $ hassio hardware info
 
 Or you can use the UI and look in the *System* section of the *Hass.io* menu. There you'll find a *Hardware* button which will list all the hardware found.
 
-## {% linkable_title Further reading %}
+## Further reading
 
 For more information on using Z-Wave, see the [main documentation](/docs/z-wave/).

@@ -17,7 +17,7 @@ It's time for our 0.93 release and it is a whopping cool one. It's a day later t
 
 <div class='videoWrapper'>
   <iframe
-      src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye"
+      src="https://clips.twitch.tv/embed?clip=DifferentEnjoyableCormorantEagleEye&autoplay=false"
       width="560" height="315"
       frameborder="0" allowfullscreen></iframe>
 </div>
@@ -33,7 +33,7 @@ Pascal has updated the way we are building Hass.io. It is now keeping the build 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What is that?<br>🤪 <a href="https://t.co/hRb60sSDeK">pic.twitter.com/hRb60sSDeK</a></p>&mdash; Pascal Vizeli (@pvizeli) <a href="https://twitter.com/pvizeli/status/1128918413051670528?ref_src=twsrc%5Etfw">May 16, 2019</a>
 </blockquote>
 
-## {% linkable_title Home Assistant 1.0 %}
+## Home Assistant 1.0
 
 As we mentioned in [our updated plans post](/blog/2019/05/03/update-from-the-field/), we're working hard on Home Assistant 1.0. Over the next releases we will work on polishing the UI, the backend architecture, and everything in between.
 
@@ -50,7 +50,7 @@ We've also been working on polishing parts of our config UI. The automation edit
 Screenshot of the updated automation editor.
 </p>
 
-## {% linkable_title Sonos %}
+## Sonos
 
 The Sonos integration has a number of changes in this release, some of them breaking existing configuration.
 
@@ -79,7 +79,7 @@ sonos:
 
 For those of you that like to power down your Sonos, Home Assistant should now handle that without logging errors. Also, speakers that are powered on will be added to Home Assistant without needing a restart.
 
-## {% linkable_title New Integrations %}
+## New Integrations
 
 - Adds Orange Pi GPIO platform ([@pascallj] - [#22541]) ([orangepi_gpio docs]) (new-integration) (new-platform)
 - Essent sensor ([@TheLastProject] - [#23513]) ([essent docs]) (new-integration) (new-platform)
@@ -87,7 +87,7 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 - Ambiclimate ([@Danielhiversen] - [#22827]) ([ambiclimate docs]) (new-integration) (new-platform)
 - Add Intergas InComfort Lan2RF gateway ([@zxdavb] - [#23736]) ([incomfort docs]) (new-integration) (new-platform)
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Adds Orange Pi GPIO platform ([@pascallj] - [#22541]) ([orangepi_gpio docs]) (new-integration) (new-platform)
 - Added component named switcher_kis switcher water heater integration. ([@TomerFi] - [#22325]) ([switcher_kis docs]) (new-platform)
@@ -99,7 +99,7 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 - Add water_heater to geniushub, bump client library ([@zxdavb] - [#23384]) ([geniushub docs]) (new-platform)
 - New cover platform for ADS integration ([@carstenschroeder] - [#23377]) ([ads docs]) (new-platform)
 
-## {% linkable_title Release 0.93.1 - May 17 %}
+## Release 0.93.1 - May 17
 
 - Fix Hassio-version for Azure Pipelines ([@pvizeli] - [#23895])
 - Update Honeywell warning ([@balloob] - [#23913]) ([honeywell docs])
@@ -118,7 +118,7 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 [honeywell docs]: /components/honeywell/
 [onvif docs]: /components/onvif/
 
-## {% linkable_title Release 0.93.2 - May 22 %}
+## Release 0.93.2 - May 22
 
 - Fix auto version update Hass.io ([@pvizeli] - [#23935])
 - Bump pytraccar ([@ludeeus] - [#23939]) ([traccar docs])
@@ -143,17 +143,17 @@ For those of you that like to power down your Sonos, Home Assistant should now h
 [discord docs]: /components/discord/
 [traccar docs]: /components/traccar/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - __Homematic IP Cloud__ - Adds homematicip cloud temperature sensor from thermostats. Entity IDs of HmIP-SLO (Light Sensor Outdoor) will change and stale entities will need to be removed from the entity registry.  ([@SukramJ] - [#23263]) ([homematicip_cloud docs])
 - __Pollen.com__
@@ -205,7 +205,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
   ```
 - __Z-Wave__ - Not a breaking change perse, just a note: Open Z-Wave has released version 1.6. The configuration files are not compatible with Open Z-Wave 1.4, the version that we are currently using. Don't copy config files over! We're waiting for Open Z-Wave Python bindings to update before we can update our code.
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Sort discovered entries by 'st' to ensure getting the same device each discovery ([@StevenLooman] - [#23763]) ([upnp docs]) (beta fix)
 - Bump pyatmo to v1.11 ([@cgtobi] - [#23766]) ([netatmo docs]) (beta fix)
@@ -219,7 +219,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - bump zha-quirks ([@dmulcahey] - [#23855]) ([zha docs]) (beta fix)
 - Fix improper usage of body attribute on web.Response. Should be text since we arent sending bytes ([@robbiet480] - [#23857]) ([geofency docs]) ([locative docs]) ([mobile_app docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Pass configured host string instead of always forcing an ip-address ([@itn3rd77] - [#23164]) ([homematic docs])
 - Make less imports from yeelight ([@zewelor] - [#23124]) ([yeelight docs])

@@ -34,7 +34,7 @@ title:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title Example:
 

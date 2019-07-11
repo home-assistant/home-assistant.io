@@ -58,7 +58,7 @@ from homeassistant.helpers.event import (async_track_state_change,
 DOMAIN = "example"
 
 # List of integration names (string) your integration depends upon.
-# We depend on group because group will be loaded after all the components that
+# We depend on group because group will be loaded after all the integrations that
 # initialize devices have been setup.
 DEPENDENCIES = ['group', 'device_tracker', 'light']
 

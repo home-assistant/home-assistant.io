@@ -30,7 +30,7 @@ redirect_from:
   - /components/sensor.homekit_controller/
 ---
 
-[HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This component should not be confused with the [HomeKit](/components/homekit/) component, which allows you to control Home Assistant devices via HomeKit.
+[HomeKit](https://developer.apple.com/homekit/) controller integration for Home Assistant allows you to connect HomeKit accessories to Home Assistant. This integration should not be confused with the [HomeKit](/components/homekit/) component, which allows you to control Home Assistant devices via HomeKit.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -43,7 +43,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor (HomeKit motion sensors)
 - Sensor (HomeKit humidity, temperature, and light level sensors)
 
-The component will be automatically configured if the [`discovery:`](/components/discovery/) component is enabled and an enable entry added for HomeKit:
+The integration will be automatically configured if the [`discovery:`](/components/discovery/) integration is enabled and an enable entry added for HomeKit:
 
 ```yaml
 discovery:

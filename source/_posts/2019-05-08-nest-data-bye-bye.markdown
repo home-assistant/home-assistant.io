@@ -33,7 +33,7 @@ The reason for shutting down the API is that the Nest team is focusing on making
 FAQ Nest developer website.
 </p>
 
-## {% linkable_title Cherry on the Cake %}
+## Cherry on the Cake
 
 Google also [announced](https://nest.com/blog/2019/05/07/introducing-google-nest/) that they are transitioning the Nest ecosystem into the Google world, making you link all your Nest devices to your Google account. How that will work? We're just going to leave this snippet from [this article from the Financial Times](https://www.ft.com/content/d8cbd5e6-70de-11e9-bf5c-6eeb837566c5) here:
 

@@ -17,7 +17,7 @@ It's time for release 0.89. It's another great new release with some cool new fe
 
 This release introduces a new mobile app component. [@robbiet480], who also works on the iOS app, has taken the best parts of the Home Assistant iOS app component and turned it into a standardized API that any mobile app can build upon. This will allow any mobile apps to integrate with Home Assistant with a great user experience. If you are a mobile app developer, please check the updated [app integration docs](https://developers.home-assistant.io/docs/en/app_integration_index.html). We will be fine tuning the API in upcoming releases. Feedback is welcome.
 
-## {% linkable_title Noteworthy Breaking Changes %}
+## Noteworthy Breaking Changes
 
 __Custom Components file structure change:__ A significant change in how the "under the hood" of Home Assistant works has led to forcing platforms to be resolved based off the component path, if it exists.
 
@@ -33,7 +33,7 @@ Paulus has written some detailed information about this change on the developers
 
 __Existing SmartThings configuration entries will be removed,__ including the SmartApp/Automation from the SmartThings app. Home Assistant will prompt you to configure the integration again or it can be invoked from the integrations page. The configuration process is the same as before. To prepare, have your _personal access token and a mobile device with the SmartThings Classic App handy._ This will not affect the naming of devices or entities and is a __one-time inconvenience.__ The implementation switches over to the SmartApp access token to synchronize subscriptions during setup of the config entry, which cannot be done using the personal access token.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Météo-France platform for the weather component ([@victorcerutti] - [#18404]) ([sensor.meteo_france docs]) ([weather.meteo_france docs]) (new-platform)
 - Point alarm control ([@fredrike] - [#20972]) ([point docs]) (new-platform)
@@ -52,7 +52,7 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 - mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
 - Add component media player.ps4 ([@ktnrg45] - [#21074]) ([ps4 docs])
 
-## {% linkable_title Release 0.89.1 - March 8 %}
+## Release 0.89.1 - March 8
 
 - Upgrade blinkpy==0.13.1 (Fixes #21559) ([@fronzbot] - [#21578]) ([blink docs])
 - Fix Name of Homematic IP accesspoint in devices, if name is configured ([@SukramJ] - [#21617]) ([homematicip_cloud docs])
@@ -91,7 +91,7 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 [webostv docs]: /components/webostv/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 
-## {% linkable_title Release 0.89.2 - March 12 %}
+## Release 0.89.2 - March 12
 
 - Update dependencies to receive data on webhook callbacks ([@andrewsayre] - [#21838]) ([smartthings docs])
 - Override http.trusted_networks by auth_provider.trusted_networks ([@awarecan] - [#21844]) ([http docs])
@@ -111,17 +111,17 @@ __Existing SmartThings configuration entries will be removed,__ including the Sm
 [neato docs]: /components/neato/
 [smartthings docs]: /components/smartthings/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - __HomeMatic component's wireless actors__ are having two RSSI values. The way the component was programmed one of them was being overwritten. With this new change, the __`rssi` attribute of HomeMatic entities has been removed.__ As a replacement the attributes rssi_device and rssi_peer have been added. The attribute of `rssi` will no longer be available, you'll need to __update to `rssi_device`,__ and you can add `rssi_peer` now as well! (fixes #20900) ([@dagobert] - [#20902]) ([homematic docs]) (breaking change)
 - You can now specifiy an action when calling the __yeelight_start_flow service__ on your yeelights. The __default action will be 'recover'__ if you do not specify something else. This action will be taken after the flow stops.  ([@zewelor] - [#21195]) ([light.yeelight docs]) (breaking change)
@@ -136,7 +136,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Addition of config for __trusted networks auth provider.__ It is a breaking changes for users who __manually configured__ trusted network auth provider. An invalid config error will be thrown and HA won't be able to fully started. (It is NOT a breaking changes for user who didn't manual configured trusted network auth provider.) ([@awarecan] - [#21111]) (breaking change)
 - For some __HomeMatic devices the `sabotage` attribute is replaced by `error`.__ The value (if not 0) is a device specific error code. ([@dagobert] - [#21009]) ([homematic docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Add PLATFORM_SCHEMA_BASE to telegram_bot component ([@veleek] - [#21155]) ([telegram_bot docs]) (beta fix)
 - Add watchdog to Ambient PWS ([@bachya] - [#21507]) ([ambient_station docs]) (beta fix)
@@ -170,7 +170,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - resync hass that changes have occured ([@fredrike] - [#21705]) ([tellduslive docs]) (beta fix)
 - Upgrade toonapilib to 3.2.1 ([@frenck] - [#21706]) ([toon docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Météo-France platform for the weather component ([@victorcerutti] - [#18404]) ([sensor.meteo_france docs]) ([weather.meteo_france docs]) (new-platform)
 - Update file header ([@fabaff] - [#21061])

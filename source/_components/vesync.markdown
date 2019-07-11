@@ -21,7 +21,7 @@ VeSync outlets are low-cost wifi smart plugs that offer energy monitoring and wo
 
 Supports both the 7A round outlets and 15A rectangular outlets, as well as the in wall switches.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your VeSync switches, you must first register your switches with the VeSync app. Once registration is complete you must add the following to your `configuration.yaml` file:
 
@@ -44,7 +44,7 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Exposed Attributes %}
+## Exposed Attributes
 
 VeSync switches will expose the following details for only the smart outlets. Energy monitoring not available for in-wall switches.
 

@@ -18,7 +18,7 @@ redirect_from:
 
 The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](http://felenasoft.com/xeoma) video surveillance server.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Xeoma camera feeds, add the following lines to your `configuration.yaml`:
 
@@ -68,7 +68,7 @@ cameras:
       default: false
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 # Example configuration.yaml entry

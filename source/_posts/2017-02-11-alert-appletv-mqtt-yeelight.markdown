@@ -13,31 +13,31 @@ og_image: /images/blog/2017-02-0.38/social.png
 
 Another Saturday, another release!
 
-### {% linkable_title Core updates %}
+### Core updates
 - Thanks to [@pvizeli], all the core components are now written asynchronously. All entity components are now migrated from synchronously to asynchronously code!
 
 - Now when you restart Home Assistant using the `homeassistant.restart` service, your configuration is checked. If it appears to be invalid the restart will fail.
 
-### {% linkable_title Rewritten frontend %}
+### Rewritten frontend
 The frontend has been completely been rewritten, optimizing for speed and lost connection recovery. Even on the slowest phones it should fly now. The frontend also now uses the new [WebSockets API][websocket-api] instead of the [EventStream API][event-stream-api].
 
-### {% linkable_title Custom state card UI %}
+### Custom state card UI
 A nice new feature is the possibility to create [custom state cards][custom-ui] in the frontend. Go ahead and write your own state card for [lights][light], sensors, locks, etc.
 
-### {% linkable_title MQTT discovery %}
+### MQTT discovery
 MQTT now has [discovery][mqtt-discovery] support which is different than our [`discovery`][discovery] component. Similar to the HTTP sensor and HTTP binary sensor, MQTT discovery removes the need for configuration by allowing devices to make their presence known to Home Assistant.
 
-### {% linkable_title Alert component %}
+### Alert component
 If you left your front door open, then the new [`alert`][alert] component can be used to remind you of this by sending you repeating notifications at a given interval.
 
-### {% linkable_title Yeelight %}
+### Yeelight
 The [`yeelight`][yeelight] component has been ported to use a more stable and feature-complete [python-yeelight][python-yeelight] backend, and supports now both white and RGB bulbs. The component also supports transitions and can be configured to save the settings to the bulb on changes. The users currently using custom components for Yeelight are encouraged to move back to use the included version and report any problems with it to our [issue tracker][issue].
 
-### {% linkable_title Apple TV %}
+### Apple TV
 [Apple TV][apple-tv] is now a supported [`media_player`][media-player]! It has support for just about every media player function, including a realtime display of playback status and artwork.
 
-### {% linkable_title All changes %}
-#### {% linkable_title New platforms/components %}
+### All changes
+#### New platforms/components
 
 - Sensor: Support for monitoring [OpenEVSE][openevse] chargers ([@miniconfig])
 - Voice command [API.AI][apiai] ([@adrianlzt])
@@ -53,7 +53,7 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 - Notify: [Mailgun][mailgun] notify service ([@pschmitt])
 - Image Processing: Support [Microsoft Face detection][face-detect] ([@pvizeli])
 
-#### {% linkable_title Improvements %}
+#### Improvements
 
 - Switch - Pilight: Validation no longer rejects alphanumeric IDs ([@DavidLP])
 - Device tracker - ASUSWrt: Fixes `ip neigh` regex to handle the possible IPv6 "router" flag ([@kylehendricks])
@@ -102,12 +102,12 @@ The [`yeelight`][yeelight] component has been ported to use a more stable and fe
 
 Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen], [@armills], [@tchellomello], [@aequitas], [@mathewpeterson], [@molobrakos], [@michaelarnauts], [@jabesq], [@turbokongen], [@JshWright], [@andriej], [@jawilson], [@andrey-git], [@nodinosaur], [@konikvranik], and you if you are missing here.
 
-### {% linkable_title Release 0.38.1 - February 12 %}
+### Release 0.38.1 - February 12
 
 - Fix logbook ordering ([@balloob])
 - Fix AppleTV conflicting dependency breaking websockets ([@balloob])
 
-### {% linkable_title Release 0.38.2 - February 12 %}
+### Release 0.38.2 - February 12
 
 - Validate config will now respect custom config location ([@balloob])
 - Fix Nuki lock on Python 3.4 ([@pschmitt])
@@ -116,7 +116,7 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Fix MQTT discovery ([@fabaff])
 - Fix Z-Wave thermostat units ([@turbokongen])
 
-### {% linkable_title Release 0.38.3 - February 15 %}
+### Release 0.38.3 - February 15
 
 - Sonos: fix losing favorite sources on disconnect ([@pvizeli])
 - Google Calendar: fix timeMin losing events ([@happyleavesaoc])
@@ -125,22 +125,22 @@ Bugfixes: [@balloob], [@fabaff], [@pvizeli], [@mnoorenberghe] [@Danielhiversen],
 - Moon: remove unit of measurement ([@fabaff])
 - MySensors: add version requirement to notify and device tracker ([@MartinHjelmare])
 
-### {% linkable_title Release 0.38.4 - February 21 %}
+### Release 0.38.4 - February 21
 
  - Discovery: flux_led discovery led to problems on systems and has been removed ([@bazwilliams])
  - Hidden devices are no longer visible on views ([@balloob])
 
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 - The support for [LG webOS Smart TVs][webostv] was improved. This requires you to move `$HOME/.pylgtv` to `$HASS_CONFIG_DIR/webostv.conf` or Home Assistant will need to be paired with the TV again.
 - Image processing events have been renamed: `identify_face` has become `image_processing.detect_face`, `found_plate` has become `image_processing.found_plate`
 - The [FFmpeg binary sensor][ffmpeg-bin] change the platform name from `ffmpeg` to `ffmpeg_noise` and `ffmpeg_motion`. Also all FFmpeg-related services are moved from a platform implementation to a the [FFmpeg components][ffmpeg] and were rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
 - The frontend core changes have caused all custom panels to break. Docs have not been updated yet. The gist is that you have to use `this.hass.entities`, `this.hass.callService` and `this.hass.callApi`.
 
-### {% linkable_title If you need help... %}
+### If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-### {% linkable_title Reporting Issues %}
+### Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 [@bazwilliams]: https://github.com/bazwilliams

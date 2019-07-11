@@ -16,9 +16,9 @@ redirect_from:
 ---
 
 The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
-This can be used to present statistics about Home Assistant sensors if used with the `recorder` component database. It can also be used with an external data source.
+This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
 
@@ -69,11 +69,11 @@ queries:
       type: template
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Current state of an entity %}
+### Current state of an entity
 
 This example shows the previously *recorded* state of the sensor `sensor.temperature_in`.
 
@@ -104,7 +104,7 @@ sensor:
 
 Note that the SQL sensor state corresponds to the last row of the SQL result set.
 
-### {% linkable_title Previous state of an entity %}
+### Previous state of an entity
 
 This example only works with *binary_sensors*:
 
@@ -112,9 +112,9 @@ This example only works with *binary_sensors*:
 SELECT * FROM states WHERE entity_id = 'binary_sensor.xyz789' GROUP BY state ORDER BY last_changed DESC LIMIT 1;
 ```
 
-### {% linkable_title Database size %}
+### Database size
 
-#### {% linkable_title Database size in Postgres %}
+#### Database size in Postgres
 
 {% raw %}
 ```yaml
@@ -129,7 +129,7 @@ sensor:
 ```
 {% endraw %}
 
-#### {% linkable_title MariaDB/MySQL %}
+#### MariaDB/MySQL
 
 Change `table_schema="hass"` to the name that you use as the database name, to ensure that your sensor will work properly.
 

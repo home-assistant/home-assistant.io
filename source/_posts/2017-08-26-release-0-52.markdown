@@ -48,7 +48,7 @@ script: !include scripts.yaml
 - Add support for Prowl notifications. ([@mbrrg] - [#9028]) ([notify.prowl docs]) (new-platform)
 - Add worldtidesinfo sensor component ([@aetolus] - [#8860]) ([sensor.worldtidesinfo docs]) (new-platform)
 
-## {% linkable_title Release 0.52.1 - August 28 %}
+## Release 0.52.1 - August 28
 
 - Close stream request once we end up with proxy ([@foxel] - [#9110])
 - Fix issue #9116 in pushbullet ([@danielhiversen] - [#9128]) ([notify.pushbullet docs])
@@ -59,10 +59,10 @@ script: !include scripts.yaml
 - Prevent iCloud exceptions in logfile ([@mjj4791] - [#9179]) ([device_tracker.icloud docs])
 - bump ecobee version to fix issue 9190 ([@nkgilley] - [#9191]) ([ecobee docs]) ([climate.ecobee docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->

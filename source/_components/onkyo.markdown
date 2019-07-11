@@ -17,9 +17,9 @@ redirect_from:
 ---
 
 
-The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/) and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this component to work in your Hardware.
+The `onkyo` platform allows you to control a [Onkyo](http://www.onkyo.com/) and some recent [Pioneer](http://www.pioneerelectronics.com) receivers from Home Assistant. Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add an Onkyo or Pioneer receiver to your installation, add the following to your `configuration.yaml` file:
 
@@ -83,7 +83,7 @@ List of source names:
 - xm
 - sirius
 
-### {% linkable_title Service `onkyo_select_hdmi_output` %}
+### Service `onkyo_select_hdmi_output`
 
 Changes HDMI output of your receiver
 
@@ -97,7 +97,7 @@ Accepted values are:
 which one to use seems to vary depending on model so you will have to try them out.
 ( For model TX-NR676E it seems to be 'out' for main, 'out-sub' for sub, and 'sub' for both )
 
-### {% linkable_title Example `play_media` script %}
+### Example `play_media` script
 
 The `play_media` function can be used in script to play radio station by preset number.
 Not working for NET radio.
@@ -120,7 +120,7 @@ script:
 
 ```
 
-### {% linkable_title Example `onkyo_select_hdmi_output` script %}
+### Example `onkyo_select_hdmi_output` script
 
 ```yaml
 # Example onkyo_select_hdmi_output script

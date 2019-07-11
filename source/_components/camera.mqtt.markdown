@@ -18,7 +18,7 @@ The `mqtt` camera platform allows you to integrate the content of an image file 
 
 This can be used with an application or a service capable of sending images through MQTT, for example [Zanzito](https://play.google.com/store/apps/details?id=it.barbaro.zanzito).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 

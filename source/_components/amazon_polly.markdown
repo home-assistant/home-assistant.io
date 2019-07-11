@@ -18,13 +18,13 @@ redirect_from:
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
 Polly is a paid service via Amazon Web Services.  There is a [free tier](https://aws.amazon.com/polly/pricing/) for the first 12 months and then a charge per million characters afterwards.
 
-## {% linkable_title Setup %}
+## Setup
 
 For more information, please read the [AWS General Reference regarding Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) to get the needed details. Also, check the [boto3 Documentation](http://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file) about the profiles and the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region) for available regions.
 
 Available voices are listed in the [Amazon Documentation](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To get started, add the following lines to your `configuration.yaml` (example for Amazon Polly):
 
@@ -79,7 +79,7 @@ sample_rate:
   default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
 {% endconfiguration %}
 
-## {% linkable_title Usage %}
+## Usage
 
 Say to all `media_player` device entities:
 

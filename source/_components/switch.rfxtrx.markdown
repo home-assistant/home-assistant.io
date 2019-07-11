@@ -15,7 +15,7 @@ ha_release: 0.7.5
 
 The `rfxtrx` platform support switches that communicate in the frequency range of 433.92 MHz.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 First you have to set up your [rfxtrx hub](/components/rfxtrx/).
 The easiest way to find your switches is to add this to your `configuration.yaml`:
@@ -73,7 +73,7 @@ signal_repetitions:
 {% endconfiguration %}
 
 <p class='note warning'>
-This component and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
+This integration and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
 </p>
 
 <p class='note warning'>
@@ -97,7 +97,7 @@ If you need to generate codes for switches you can use a template (useful for ex
 - Enable learning mode on your switch (i.e. push learn button or plug it in a wall socket)
 - Toggle your new switch in the Home Assistant interface
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic configuration with 3 devices:
 

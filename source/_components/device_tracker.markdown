@@ -16,7 +16,7 @@ ha_release: 0.7
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
-## {% linkable_title Configuring a `device_tracker` platform %}
+## Configuring a `device_tracker` platform
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
@@ -64,10 +64,10 @@ device_tracker:
 
 Multiple device trackers can be used in parallel, such as [Owntracks](/components/owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/nmap_tracker/). The state of the device will be determined by the source that reported last.
 
-## {% linkable_title `known_devices.yaml` %}
+## `known_devices.yaml`
 
 <p class='note warning'>
-As of 0.94 `known_devices.yaml` is being phased out, and no longer used by all trackers. Depending on the component you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, and Locative.
+As of 0.94 `known_devices.yaml` is being phased out, and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, and Locative.
 </p>
 
 Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
@@ -98,11 +98,11 @@ devicename:
 | `hide_if_away` | false                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home.                                |
 | `consider_home` | [uses platform setting]      | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                 |
 
-## {% linkable_title Device states %}
+## Device states
 
 The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
 
-## {% linkable_title `device_tracker.see` service %}
+## `device_tracker.see` service
 
 The `device_tracker.see` service can be used to manually update the state of a device tracker:
 

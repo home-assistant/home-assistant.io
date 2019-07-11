@@ -38,7 +38,7 @@ name:
   default: Name of Entity
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Overwriting names example:
 

@@ -13,7 +13,7 @@ Hass.io is a managed environment, which means you can't use existing methods to 
 
 If you're attempting to add an external sensor, you will have to [enable the I2C interface in the Hass.io configuration](https://github.com/home-assistant/hassos/blob/dev/Documentation/boards/raspberrypi.md#i2c) using a USB stick.
 
-## {% linkable_title Step by step instructions %}
+## Step by step instructions
 
 You will need:
 
@@ -21,13 +21,13 @@ You will need:
 - A way to add files to the USB drive
 - A way to connect the drive to your Raspberry Pi
 
-### {% linkable_title Step 1 - Prepare the USB drive %}
+### Step 1 - Prepare the USB drive
 
 Connect the USB drive to a device capable of adding and editing files to the USB drive.
 
 Format a USB stick with FAT32/EXT4/NTFS and name the drive `CONFIG` (uppercase).
 
-### {% linkable_title Step 2 - Add files to enable I2C %}
+### Step 2 - Add files to enable I2C
 
 - In the root of the USB drive add a folder called `/modules`.
 - Inside that folder add a text file called `rpi-i2c.conf` with the following contents:
@@ -41,7 +41,7 @@ Format a USB stick with FAT32/EXT4/NTFS and name the drive `CONFIG` (uppercase).
   dtparam=i2c_arm=on
   ```
 
-### {% linkable_title Step 3 - Load the new USB config %}
+### Step 3 - Load the new USB config
 
 - Insert the USB drive into your Raspberry PI.
 - Now go to your Home Assistant web interface, in the sidebar click **Hass.io** > **System**.

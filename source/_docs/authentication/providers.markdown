@@ -20,7 +20,7 @@ To make the transition from API passwords easier, we've added a _Legacy API Pass
 However, this feature is deprecated and will be removed in a future release so you should set up one of the newer authentication techniques.
 </p>
 
-## {% linkable_title Configuring auth providers %}
+## Configuring auth providers
 
 <p class='note warning'>
 Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
@@ -36,9 +36,9 @@ homeassistant:
     - type: legacy_api_password
 ```
 
-## {% linkable_title Available auth providers %}
+## Available auth providers
 
-### {% linkable_title Home Assistant auth provider %}
+### Home Assistant auth provider
 
 This is the default auth provider. The first user created is designated as the _owner_ and can create other users.
 
@@ -56,7 +56,7 @@ homeassistant:
 
 If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically.
 
-### {% linkable_title Trusted Networks %}
+### Trusted Networks
 
 The Trusted Networks auth provider defines a range of IP addresses for which no authentication will be required (also known as "whitelisting"). For example, you can whitelist your local network so you won't be prompted for a password if you access Home Assistant from inside your home.
 
@@ -93,7 +93,7 @@ allow_bypass_login:
   type: boolean
 {% endconfiguration %}
 
-#### {% linkable_title Trusted Users Examples %}
+#### Trusted Users Examples
 
 ```yaml
 homeassistant:
@@ -121,7 +121,7 @@ In above example, if user try to access Home Assistant from 192.168.0.1, they wi
 
 Specially, you can use `group: GROUP_ID` to assign all users in certain `user group` to be available to choose. Group and users can be mix and match.
 
-#### {% linkable_title Skip Login Page Examples %}
+#### Skip Login Page Examples
 
 This is a feature to allow you bring back some of the experience before the user system be implemented. You can directly jump to main page if you are accessing from trusted networks, the `allow_bypass_login` is on, and you have ONLY ONE available user to choose in the login form.
 
@@ -140,7 +140,7 @@ homeassistant:
 
 Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). You will get a login abort error, then you can change to use HomeAsssitant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
-### {% linkable_title Command Line %}
+### Command Line
 
 The Command Line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).
 
@@ -179,7 +179,7 @@ Any leading and trailing whitespace is stripped from usernames before they're pa
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
 </p>
 
-### {% linkable_title Legacy API password %}
+### Legacy API password
 
 <p class='note warning'>
 This is a legacy feature for backwards compatibility and will be dropped in a future release. You should move to one of the other auth providers.

@@ -19,14 +19,14 @@ redirect_from:
   - /components/switch.linode/
 ---
 
-The `linode` component allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
+The `linode` integration allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Switch](#switch)
 
-## {% linkable_title Setup %}
+## Setup
 
 Obtain your oAuth2 Access Token from Linode account.
 
@@ -36,7 +36,7 @@ Obtain your oAuth2 Access Token from Linode account.
 - Create a Personal Access Token,
 - Assigned scope (Please choose the least possible access required.)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate Linode with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -53,7 +53,7 @@ linode:
     type: string
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `linode` binary sensor platform allows you to monitor your Linode nodes.
 
@@ -74,7 +74,7 @@ nodes:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `linode` switch platform allows you to turn your Linode nodes on and off.
 

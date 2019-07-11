@@ -106,7 +106,7 @@ source:
       type: string
 {% endconfiguration %}
 
-### {% linkable_title Setup process %}
+### Setup process
 
 It's suggested that the first attempt to determine the needed parameters is using `ssocr` directly. This may require a couple of iterations to get the result
 
@@ -146,7 +146,7 @@ sensor:
   - platform: template
     sensors:
       power_meter:
-        value_template: '{{ states.image_processing.sevensegment_ocr_seven_segments.state }}'
+        value_template: '{{ states('image_processing.sevensegment_ocr_seven_segments') }}'
         friendly_name: 'Ampere'
         unit_of_measurement: 'A'
 ```

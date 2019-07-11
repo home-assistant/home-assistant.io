@@ -19,18 +19,18 @@ redirect_from:
   - /components/switch.upcloud/
 ---
 
-The `upcloud` component allows you to access the information about your [UpCloud](https://www.upcloud.com/) servers from Home Assistant.
+The `upcloud` integration allows you to access the information about your [UpCloud](https://www.upcloud.com/) servers from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Switch](#switch)
 
-## {% linkable_title Setup %}
+## Setup
 
 Set up your API user credentials in your [UpCloud control panel](https://my.upcloud.com/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate your UpCloud servers with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -57,7 +57,7 @@ scan_interval:
   default: 60
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `upcloud` binary sensor platform allows you to monitor your UpCloud servers.
 
@@ -79,7 +79,7 @@ servers:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `upcloud` switch platform allows you to control (start/stop) your UpCloud servers.
 

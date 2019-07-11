@@ -13,11 +13,11 @@ redirect_from:
  - /components/sensor.srp_energy/
 ---
 
-The `srp_energy` component shows information from Srp hourly energy usage report for their customers. The srpenergy module fetches the data found on the website.
+The `srp_energy` integration shows information from Srp hourly energy usage report for their customers. The srpenergy module fetches the data found on the website.
 
 You need a Username, Password, and AccountId which you can create at [Srp](https://www.srpnet.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Srp Energy to your installation, add the following to your `configuration.yaml` file:
 

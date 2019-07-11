@@ -17,7 +17,7 @@ The `zeroconf` integration will scan the network for supported devices and servi
 
 Integrations can opt-in to be found by adding either [a Zeroconf section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#zeroconf) or [a HomeKit section](https://developers.home-assistant.io/docs/en/next/creating_integration_manifest.html#homekit) to their manifest.json.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To have Home Assistant scan for integrations using zeroconf and HomeKit, add the following section to your `configuration.yaml` file:
 

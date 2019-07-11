@@ -43,6 +43,11 @@ default_zoom:
   description: The default zoom level of the map.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
+dark_mode:
+  required: false
+  description: Enable a dark theme for the map.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 <p class='note'>
@@ -55,7 +60,7 @@ default_zoom:
   be used to zoom the map _out_ by default.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
 type: map
