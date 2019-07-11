@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.64: Over 1000 integrations! New: HomeKit, BMW, August."
 description: "Some great new integrations, some great new fixes, oooooh yeah."
 date: 2018-02-26 00:01:00
 date_formatted: "February 26, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-02-0.64/components.png
 ---

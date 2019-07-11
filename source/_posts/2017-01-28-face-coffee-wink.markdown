@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.37: Face detection, Coffee, Wink"
 description: "Governance, Face recognition, improved camera security, and a coffee maker"
 date: 2017-01-28 08:04:05 +0000
 date_formatted: "January 28, 2017"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-01-0.37/social.png
 ---

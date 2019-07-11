@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.42: Eddystone Beacons, Lockitron locks and Total Connect alarm systems"
 description: "Tons of bug fixes, performance increasements and some cool new integrations."
 date: 2017-04-08 08:04:05 +0000
 date_formatted: "April 8, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-04-0.42/social.png
 ---

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "MQTT, Rasperry Pi, Logitech Squeezebox and ASUSWRT routers now supported"
 description: "New support for MQTT, Rasperry Pi GPIO, Logitech Squeezebox and ASUSWRT routers"
 date: 2015-08-09 18:01 0000
 date_formatted: "August 9, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

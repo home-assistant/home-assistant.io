@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.75: Spider, Tuya, Brunt, Magicseaweed API"
 description: "You're now able to change entity IDs on the fly."
 date: 2018-08-03 00:01:00
 date_formatted: "August 3, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-08-0.75/components.png
 ---

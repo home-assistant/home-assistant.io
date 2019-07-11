@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.56: Skybell, Google Assistant, Travis CI and Toon"
 description: "Support for Skybell, Toon, Travis CI and Google Assistant"
 date: 2017-10-21 10:00:00
 date_formatted: "October 21, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-10-0.56/components.png
 ---

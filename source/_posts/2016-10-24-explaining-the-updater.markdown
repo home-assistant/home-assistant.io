@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Explaining the Updater"
 description: "An update to the recent updater component changes"
 date: 2016-10-25 21:30:00 UTC
 date_formatted: "October 25, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Organization
 ---
 

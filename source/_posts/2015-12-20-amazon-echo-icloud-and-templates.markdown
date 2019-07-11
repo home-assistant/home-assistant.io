@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.10: Amazon Echo, iCloud, Dweet.io, Twitch and templating support!"
 description: "Home Assistant 0.10 has been released with a bunch of added components and brand new templating support."
 date: 2015-12-22 01:30:00 -0800
 date_formatted: "December 22, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2015-12-release-10/alexa-fb.png
 ---

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant at PyCon 2016"
 description: "A wrap up of what our developers were up to during PyCon 2016."
 date: 2016-06-13 01:06:00 +0000
 date_formatted: "June 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Video
 og_image: /images/blog/2016-06-pycon/crew.jpg
 ---

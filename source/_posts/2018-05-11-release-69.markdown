@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.69: Matrix Chatbot, PostNL, Social Blade, Xiaomi Mijia sensors"
 description: "Great release mainly focused on bug fixes."
 date: 2018-05-11 00:01:00
 date_formatted: "May 11, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-05-0.69/components.png
 ---

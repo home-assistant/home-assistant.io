@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.61: Coinbase, Discogs, iGlo, Sochain"
 description: "New crypto currency sensors and other new stuff including breaking changes."
 date: 2018-01-14 18:00:00
 date_formatted: "January 14, 2018"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-01-0.61/components.png
 ---

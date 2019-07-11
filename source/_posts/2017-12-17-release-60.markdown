@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.60: Beckhoff/TwinCAT, WebDav, Gearbest, iAlarm"
 description: "Use Home Assistant for your production line or track prices and the stock market."
 date: 2017-12-17 02:00:00
 date_formatted: "December 17, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-12-0.60/components.png
 ---

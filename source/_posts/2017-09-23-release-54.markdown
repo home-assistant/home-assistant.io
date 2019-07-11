@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.54: Todoist, DoorBird, Abode cameras"
 description: "4 years of Home Assistant is celebrated with another great release."
 date: 2017-09-23 00:11:05
 date_formatted: "September 23, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-09-0.54/components.png
 ---

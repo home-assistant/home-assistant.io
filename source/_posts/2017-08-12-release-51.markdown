@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.51: Massive history speed up, finished automation editor and official vacuum cleaner support"
 description: "Lots of frontend bugs have been squashed, the automation editor now supports all triggers and actions and vacuum cleaners are now an official component."
 date: 2017-08-12 00:11:05
 date_formatted: "August 12, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-08-0.51/components.png
 ---

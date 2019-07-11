@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant Cast (preview)"
 description: "A first sneak peak of Home Assistant Cast, the new user interface that will run on Cast-enabled devices."
 date: 2019-07-09 01:11:03
 date_formatted: "July 9, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/blog/2019-07-home-assistant-cast-preview/home-assistant-cast.jpg
 ---

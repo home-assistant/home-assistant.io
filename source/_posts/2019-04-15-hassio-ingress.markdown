@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Introducing Hass.io Ingress"
 description: "Ingress allows Hass.io add-ons to seamlessly integrate their user interface with Home Assistant"
 date: 2019-04-15 00:00:00
 date_formatted: "April 15, 2019"
 author: Pascal Vizeli
 author_twitter: pvizeli
-comments: true
 categories: Announcements
 og_image: /images/blog/2019-04-hassio-ingress/blogpost.png
 ---

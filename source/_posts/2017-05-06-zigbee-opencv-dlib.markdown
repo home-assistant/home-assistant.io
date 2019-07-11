@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.44: Zigbee, OpenCV and DLib"
 description: "Speak natively with Zigbee network, detect faces with OpenCV: 0.44 is here."
 date: 2017-05-06 01:04:05 +0000
 date_formatted: "May 6, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-05-0.44/components.png
 ---

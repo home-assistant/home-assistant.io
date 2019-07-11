@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.47: Python Scripts, Sesame Smart Lock, Gitter, Onvif cameras"
 description: "Use Python to script Hass and enjoy a ton of new integrations. We now passed the 700 integrations!"
 date: 2017-06-17 01:04:05 +0000
 date_formatted: "June 17, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-06-0.47/components.png
 ---

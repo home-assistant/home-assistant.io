@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Optimizing the Home Assistant mobile web app"
 description: "A comprehensive list of optimizations done to improve our mobile web application."
 date: 2016-08-07 12:36 -0700
 date_formatted: "August 7, 2016"
 author: Paulus Schoutsen
-comments: true
 categories: Technology
 og_image: /images/blog/2016-08-optimizing-web-app/performance-diagram.png
 ---

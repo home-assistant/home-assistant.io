@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: resolved, API reinstated and commitment to keep it around] Logitech Harmony removes local API"
 description: "Logitech has disabled the local API of the Harmony Hub with their latest software update. For privacy and speed it is important that home automation devices communicate locally, without data leaving the network."
 date: 2018-12-17 00:01:00
 date_formatted: "December 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 

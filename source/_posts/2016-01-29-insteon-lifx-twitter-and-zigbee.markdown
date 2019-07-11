@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.12: Insteon, LIFX, Twitter and Zigbee"
 description: "Home Assistant 0.12 brings improved organizational tools and makes writing automation in Python easier."
 date: 2016-01-30 00:22:00 -0800
 date_formatted: "January 30, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-01-release-12/social.png
 ---

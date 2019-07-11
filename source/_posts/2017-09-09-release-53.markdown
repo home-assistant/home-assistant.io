@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.53: Tesla, Customize editor, and super fast KNX rewrite"
 description: "Also now supports a text input UI component, Mopar and Geofency."
 date: 2017-09-09 00:11:05
 date_formatted: "September 9, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-09-0.53/components.png
 ---

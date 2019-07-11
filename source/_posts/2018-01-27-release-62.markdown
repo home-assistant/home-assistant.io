@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.62: MyChevy, Iota and Venstar Thermostat"
 description: "Keep track of your Chevy Bolt, monitor your IOTA wallets and control your Venstar Thermostats."
 date: 2018-01-27 01:00:00
 date_formatted: "January 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-01-0.62/components.png
 ---

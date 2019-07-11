@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.71: Lagute LW-12, Iperf3, Hydrawise, Ryobi Garage Doors"
 description: "Enjoy the weekend with this shiny new release."
 date: 2018-06-08 00:01:00
 date_formatted: "June 8, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-06-0.71/components.png
 ---

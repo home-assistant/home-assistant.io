@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.66: VeSync switches, HomematicIP, and a group cover."
 description: "Fabulous release 0.66 has landed! Tons of fixes, improvements and joy."
 date: 2018-03-30 00:01:00
 date_formatted: "March 30, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-03-0.66/components.png
 ---

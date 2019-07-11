@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.50: Voice control, History improvements, and Xiaomi"
 description: "Use your voice to control your Home."
 date: 2017-07-29 00:11:05
 date_formatted: "July 29, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-07-0.50/components.png
 ---

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.59: Order pizza, Entity Picker, Color Wheel"
 description: "If you don't want to create items on our shopping list with HTTP requests, just order pizza!"
 date: 2017-12-03 02:00:00
 date_formatted: "December 3, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-12-0.59/components.png
 ---
