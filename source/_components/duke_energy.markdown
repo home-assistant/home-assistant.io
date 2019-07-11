@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Duke Energy"
 description: "Instructions on how to set Duke Energy smart meter sensors within Home Assistant."
-date: 2018-07-01 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: duke_energy.png
 ha_category:
   - Energy

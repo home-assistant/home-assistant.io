@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fast.com"
 description: "How to integrate Fast.com within Home Assistant."
-date: 2019-02-01 21:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fastdotcom.png
 ha_category:
   - System Monitor

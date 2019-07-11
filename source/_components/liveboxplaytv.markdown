@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Orange Livebox Play TV"
 description: "Instructions on how to integrate a Livebox Play TV appliance into Home Assistant."
-date: 2017-01-25 07:27
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: orange.png
 ha_category:
   - Media Player

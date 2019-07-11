@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Person"
 description: "Instructions on how to set up people tracking within Home Assistant."
-date: 2019-02-05 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Presence Detection

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Free Mobile"
 description: "Instructions on how to add user notifications to Home Assistant."
-date: 2016-01-12 08:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: free_mobile.png
 ha_category:
   - Notifications

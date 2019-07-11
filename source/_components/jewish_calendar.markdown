@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Jewish Calendar"
 description: "Instructions on how to integrate the Jewish Calendar sensor within Home Assistant."
-date: 2018-09-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Calendar
 ha_iot_class: Local Polling

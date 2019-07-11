@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Logi Circle"
 description: "Instructions on how to integrate your Logi Circle cameras within Home Assistant."
-date: 2018-09-08 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: logi_circle.png
 ha_category:
   - Camera

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DoorBird"
 description: "Instructions on how to integrate your DoorBird video doorbell with Home Assistant."
-date: 2017-08-06 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: doorbird.png
 ha_category:
   - Doorbell

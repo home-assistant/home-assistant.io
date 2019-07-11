@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Updater"
 description: "Detecting when Home Assistant updates are available."
-date: 2015-11-15 20:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other

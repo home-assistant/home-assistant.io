@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yeelight Wifi Bulb"
 description: "Instructions on how to setup Yeelight Wifi devices within Home Assistant."
-date: 2016-10-29
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yeelight.png
 ha_category:
   - Light

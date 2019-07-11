@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Blackbird 8x8 HDMI Matrix Switch"
 description: "Instructions on how to integrate Monoprice Blackbird 4k 8x8 HDBaseT Matrix Switch into Home Assistant."
-date: 2018-03-29 16:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: monoprice.svg
 ha_category:
   - Media Player

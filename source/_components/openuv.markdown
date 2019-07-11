@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenUV"
 description: "Instructions on how to integrate OpenUV within Home Assistant."
-date: 2018-07-31 22:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openuv.jpg
 ha_category:
   - Health

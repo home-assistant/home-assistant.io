@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CO2Signal"
 description: "Instructions on how to use CO2Signal data within Home Assistant"
-date: 2019-01-01 21:47
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: co2signal.png
 ha_category:
   - Environment

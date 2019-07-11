@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OhmConnect"
 description: "Documentation about the OhmConnect sensor."
-date: 2016-08-08 17:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: "ohmconnect.png"
 ha_category:
   - Energy

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Times of the Day Binary Sensor"
 description: "Instructions on how to integrate Times of the Day binary sensors within Home Assistant."
-date: 2019-01-14 23:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Binary Sensor
 ha_release: 0.89

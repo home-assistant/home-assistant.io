@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xbox Live"
 description: "Instructions on how to set up Xbox Live sensors in Home Assistant."
-date: 2016-08-28 02:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xbox-live.png
 ha_category:
   - Social

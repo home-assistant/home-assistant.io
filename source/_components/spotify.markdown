@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Spotify"
 description: "Instructions on how to integrate Spotify into Home Assistant."
-date: 2017-04-10 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: spotify.png
 ha_category:
   - Media Player

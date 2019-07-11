@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Insteon"
 description: "Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant."
-date:  2018-08-20 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: insteon.png
 ha_category:
   - Hub

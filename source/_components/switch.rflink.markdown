@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFLink Switch"
 description: "Instructions on how to integrate RFLink switches into Home Assistant."
-date: 2016-01-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Switch

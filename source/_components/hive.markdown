@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hive"
 description: "Instructions on how to integrate Hive devices with Home Assistant."
-date: 2017-09-24 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hive.png
 ha_category:
   - Hub

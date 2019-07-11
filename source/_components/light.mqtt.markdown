@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Light"
 description: "Instructions on how to setup MQTT lights using default schema within Home Assistant."
-date: 2015-11-13 08:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Light

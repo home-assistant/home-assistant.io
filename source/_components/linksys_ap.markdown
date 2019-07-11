@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Linksys Access Points"
 description: "Instructions on how to integrate Linksys Access Points into Home Assistant."
-date: 2016-12-16 01:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Presence Detection
 logo: linksys.png

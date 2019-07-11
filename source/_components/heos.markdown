@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Denon HEOS"
 description: "Instructions on how to integrate Denon HEOS into Home Assistant."
-date: 2019-03-06 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: heos.png
 ha_category:
   - Media Player

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Weather Underground (WUnderground)"
 description: "Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
-date: 2016-08-18
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: wunderground.png
 ha_category:
   - Weather

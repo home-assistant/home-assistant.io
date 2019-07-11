@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Verisure"
 description: "Instructions on how to setup Verisure devices within Home Assistant."
-date: 2015-08-17 20:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: verisure.png
 ha_category:
   - Hub

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Prowl"
 description: "Instructions on how to add Prowl notifications to Home Assistant."
-date: 2017-08-17 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: prowl.png
 ha_category:
   - Notifications

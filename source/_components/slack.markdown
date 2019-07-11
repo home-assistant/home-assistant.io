@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Slack"
 description: "Instructions on how to add Slack notifications to Home Assistant."
-date: 2015-08-06 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: slack.png
 ha_category:
   - Notifications

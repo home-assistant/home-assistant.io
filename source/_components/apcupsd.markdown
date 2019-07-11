@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "APCUPSd"
 description: "Instructions on how to integrate APCUPSd status with Home Assistant."
-date: 2016-02-10 17:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: apcupsd.png
 ha_category:
   - System Monitor

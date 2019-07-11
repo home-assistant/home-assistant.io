@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Samsung Smart TV"
 description: "Instructions on how to integrate a Samsung Smart TV into Home Assistant."
-date: 2016-02-13 12:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: samsung.png
 ha_category:
   - Media Player

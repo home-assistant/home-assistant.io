@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Netio Switch"
 description: "Instructions on how to integrate Netio switches into Home Assistant."
-date: 2016-09-02 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: netio.png
 ha_category:
   - Switch

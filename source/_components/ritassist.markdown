@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RitAssist"
 description: "Instructions on how to use a RitAssist as a device tracker."
-date: 2018-06-15 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ritassist.png
 ha_category:
   - Car

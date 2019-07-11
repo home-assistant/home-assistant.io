@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Actiontec"
 description: "Instructions on how to integrate Actiontec routers into Home Assistant."
-date: 2015-08-30 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: actiontec.png
 ha_category:
   - Presence Detection
@@ -14,7 +8,6 @@ ha_release: 0.7
 redirect_from:
  - /components/device_tracker.actiontec/
 ---
-
 
 This platform allows you to detect presence by looking at connected devices to an [Actiontec](http://www.actiontec.com/) device.
 

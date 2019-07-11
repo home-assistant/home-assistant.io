@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Konnected"
 description: "Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel"
-date: 2018-04-03 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: konnected.png
 ha_category:
   - Alarm

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Cover"
 description: "Instructions on how to integrate Template Covers into Home Assistant."
-date: 2017-06-19 20:32
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Cover
 ha_release: 0.48

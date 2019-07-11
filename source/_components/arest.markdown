@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "aREST"
 description: "Instructions on how to integrate aREST within Home Assistant."
-date: 2015-11-20 18:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: arest.png
 ha_category:
   - DIY

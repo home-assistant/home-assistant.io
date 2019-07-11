@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mold Indicator"
 description: "How to use the mold growth indication integration in Home Assistant"
-date: 2016-02-11 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Environment

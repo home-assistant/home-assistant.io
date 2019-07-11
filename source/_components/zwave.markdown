@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave"
 description: "Instructions on how to integrate your existing Z-Wave within Home Assistant."
-date: 2016-02-27 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: z-wave.png
 ha_category:
   - Hub

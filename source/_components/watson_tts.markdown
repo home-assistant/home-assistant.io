@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Watson TTS"
 description: "Instructions on how to setup IBM Watson TTS with Home Assistant."
-date: 2019-04-22 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: watson_tts.png
 ha_category:
   - Text-to-speech

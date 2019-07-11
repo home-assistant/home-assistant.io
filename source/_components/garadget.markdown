@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Garadget Cover"
 description: "Instructions on how to integrate Garadget covers within Home Assistant."
-date: 2016-10-24 14:25
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: garadget.png
 ha_category:
   - Cover

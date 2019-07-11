@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IFTTT Alarm Control Panel"
 description: "Instructions on how to integrate IFTTT-controlled security systems into Home Assistant."
-date: 2018-03-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ifttt.png
 ha_category:
   - Alarm

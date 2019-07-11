@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DNS IP Sensor"
 description: "Instructions on how to integrate a DNS IP sensor into Home Assistant."
-date: 2017-02-25 11:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Network

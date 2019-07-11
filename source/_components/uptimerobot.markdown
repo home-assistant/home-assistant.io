@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Uptime Robot"
 description: "Instructions on how to set up Uptime Robot within Home Assistant."
-date: 2018-05-29 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: uptimerobot.png
 ha_category:
   - System Monitor

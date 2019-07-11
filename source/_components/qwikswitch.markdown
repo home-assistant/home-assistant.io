@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "QwikSwitch QSUSB Hub"
 description: "Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant."
-date: 2016-05-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: qwikswitch.png
 ha_category:
   - Hub

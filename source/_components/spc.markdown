@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SPC"
 description: "Instructions on how to setup Vanderbilt SPC devices within Home Assistant."
-date: 2017-05-18 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Hub
   - Alarm

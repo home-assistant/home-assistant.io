@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SNMP"
 description: "Instructions on how to integrate SNMP into Home Assistant."
-date: 2017-10-12 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: network-snmp.png
 ha_category:
   - Network

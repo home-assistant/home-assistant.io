@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sonos"
 description: "Instructions on how to integrate Sonos devices into Home Assistant."
-date: 2015-09-12 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sonos.png
 ha_category:
   - Media Player

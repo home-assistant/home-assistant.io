@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Blockchain.info"
 description: "Instructions on how to integrate Blockchain.info data within Home Assistant."
-date: 2017-06-01 16:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: blockchain.png
 ha_category:
   - Finance

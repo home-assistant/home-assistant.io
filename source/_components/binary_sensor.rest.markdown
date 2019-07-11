@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RESTful Binary Sensor"
 description: "Instructions on how to integrate REST binary sensors into Home Assistant."
-date: 2015-12-17 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
 ha_category:
   - Binary Sensor

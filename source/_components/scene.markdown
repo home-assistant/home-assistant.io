@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Scenes"
 description: "Instructions on how to setup scenes within Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Organization

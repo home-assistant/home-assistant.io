@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Cast"
 description: "Instructions on how to integrate Google Cast into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_cast.png
 ha_category:
   - Media Player

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: PocketCasts
 description: "Instructions on how to set up PocketCasts sensors within Home Assistant."
-date: 2017-02-14 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pocketcasts.png
 ha_category:
   - Multimedia

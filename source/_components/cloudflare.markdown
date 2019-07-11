@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Cloudflare"
 description: "Automatically update your Cloudflare DNS records."
-date: 2018-07-10 20:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cloudflare.png
 ha_category:
   - Network

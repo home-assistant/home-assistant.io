@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Gstreamer"
 description: "Instructions on how to integrate Gstreamer into Home Assistant."
-date: 2017-02-16 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Media Player
 logo: gstreamer.png

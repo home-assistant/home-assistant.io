@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Lock"
 description: "Instructions on how to integrate MQTT locks into Home Assistant."
-date: 2016-02-28 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Lock

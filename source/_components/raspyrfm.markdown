@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RaspyRFM Switch"
 description: "Instructions on how to integrate RaspyRFM switches into Home Assistant."
-date: 2018-12-08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: seegelsysteme.png
 ha_category:
   - Switch

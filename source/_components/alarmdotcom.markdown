@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Alarm.com Alarm Control Panel"
 description: "Instructions on how to integrate Alarm.com into Home Assistant."
-date: 2016-01-14 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: alarmdotcom.png
 ha_category:
   - Alarm

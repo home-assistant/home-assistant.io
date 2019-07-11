@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Discord"
 description: "Instructions on how to add Discord notifications to Home Assistant."
-date: 2016-01-14 15:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: discord.png
 ha_category:
   - Notifications

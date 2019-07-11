@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CUPS Sensor"
 description: "Instructions on how to integrate CUPS sensors into Home Assistant."
-date: 2016-10-30 12:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cups.png
 ha_category:
   - System Monitor

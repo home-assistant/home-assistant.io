@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HipChat"
 description: "Instructions on how to add HipChat notifications to Home Assistant."
-date: 2017-08-10 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hipchat.png
 ha_category:
   - Notifications

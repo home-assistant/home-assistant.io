@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mastodon"
 description: "Instructions on how to add Instapush notifications to Home Assistant."
-date: 2018-03-25 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mastodon.png
 ha_category:
   - Notifications

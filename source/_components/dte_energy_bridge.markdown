@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DTE Energy Bridge"
 description: "Instructions on how to setup DTE Energy Bridge with Home Assistant."
-date: 2016-06-07 08:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dte_energy.png
 ha_category:
   - Energy

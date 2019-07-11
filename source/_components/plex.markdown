@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Plex"
 description: "Instructions on how to integrate Plex into Home Assistant."
-date: 2015-10-05 21:21
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: plex.png
 ha_category:
   - Media Player

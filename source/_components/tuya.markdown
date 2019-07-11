@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tuya"
 description: "Instructions on how to setup the Tuya hub within Home Assistant."
-date: 2018-07-09 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tuya.png
 ha_category:
   - Hub

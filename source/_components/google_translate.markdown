@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Translate Text-to-Speech"
 description: "Instructions on how to setup Google Translate Text-to-Speech with Home Assistant."
-date: 2016-12-13 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google.png
 ha_category:
   - Text-to-speech

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Light"
 description: "Instructions on how to integrate Template Lights into Home Assistant."
-date: 2016-05-18 20:32
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Light
 ha_release: 0.46

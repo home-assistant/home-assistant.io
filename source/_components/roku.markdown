@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Roku"
 description: "Instructions how to integrate Roku devices into Home Assistant."
-date: 2018-10-17 20:47
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: roku.png
 ha_category:
   - Hub

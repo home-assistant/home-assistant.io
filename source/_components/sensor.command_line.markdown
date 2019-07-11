@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Command line Sensor"
 description: "Instructions on how to integrate command line sensors into Home Assistant."
-date: 2015-09-13 10:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: command_line.png
 ha_category:
   - Utility

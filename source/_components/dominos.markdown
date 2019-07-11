@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dominos Pizza"
 description: "Instructions on how to setup Dominos Pizza ordering within Home Assistant."
-date: 2017-11-05 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dominos.png
 ha_category:
   - Other

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TensorFlow"
 description: "Detect and recognize objects with TensorFlow."
-date: 2018-10-24 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tensorflow.png
 ha_category:
   - Image Processing

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FRITZ!Box"
 description: "Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant."
-date: 2015-12-13 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: avm.png
 ha_category:
   - Presence Detection

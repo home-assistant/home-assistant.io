@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pencom"
 description: "How to use Pencom Designs 8 channel relay boards."
-date: 2018-10-05 23:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pencom.png
 ha_category:
   - Switch

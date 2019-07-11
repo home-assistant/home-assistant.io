@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Feedreader
 description: "Instructions on how to integrate RSS feeds into Home Assistant."
-date: 2016-04-18 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rss.gif
 ha_category:
   - Other

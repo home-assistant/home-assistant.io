@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Flu Near You"
 description: "Instructions on how to use Flu Near You data within Home Assistant"
-date: 2018-11-02 21:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: flunearyou.png
 ha_category:
   - Health

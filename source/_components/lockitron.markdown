@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lockitron Lock"
 description: "Instructions on how to integrate Lockitron locks into Home Assistant."
-date: 2017-03-24 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lockitron.png
 ha_category:
   - Lock

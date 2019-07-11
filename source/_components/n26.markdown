@@ -1,19 +1,12 @@
 ---
-layout: page
 title: "N26"
 description: "Instructions on how to integrate N26 integration within Home Assistant."
-date: 2019-03-11 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: n26.png
 ha_category:
   - Finance
   - Sensor
   - Switch
 ha_release: 0.92
-featured: false
 ha_iot_class: Cloud Polling
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ZoneMinder"
 description: "How to integrate ZoneMinder into Home Assistant."
-date: 2016-10-13 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zoneminder.png
 ha_category:
   - Hub

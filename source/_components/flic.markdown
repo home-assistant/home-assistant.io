@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Flic Smart Button
 description: "Instructions on how to integrate flic buttons within Home Assistant."
-date: 2016-12-02 22:03
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: flic.png
 ha_category:
   - Binary Sensor

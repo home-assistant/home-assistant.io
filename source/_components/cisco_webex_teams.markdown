@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Cisco Webex Teams"
 description: "Instructions on how to add Cisco Webex Teams notifications to Home Assistant."
-date: 2017-02-20 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cisco_webex_teams.png
 ha_category:
   - Notifications

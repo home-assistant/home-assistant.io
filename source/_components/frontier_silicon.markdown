@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Frontier Silicon Internet Radios"
 description: "Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant."
-date: 2017-02-04 00:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: frontier.png
 ha_category:
   - Media Player

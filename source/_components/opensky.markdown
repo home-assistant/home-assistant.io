@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenSky Network"
 description: "Instructions on how to integrate OpenSky Network into Home Assistant."
-date: 2017-04-14 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: opensky.png
 ha_category:
   - Transport

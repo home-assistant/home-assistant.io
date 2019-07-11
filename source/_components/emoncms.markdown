@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Emoncms Sensor"
 description: "Instructions on how to integrate Emoncms feeds as sensors into Home Assistant."
-date: 2016-09-08 00:15
 logo: emoncms.png
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Sensor
 ha_release: 0.29

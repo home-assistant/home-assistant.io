@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Channels"
 description: "Instructions on how to integrate Channels into Home Assistant."
-date: 2018-03-06 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: channels.png
 ha_category:
   - Media Player

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Axis"
 description: "Integration between network devices from Axis Communications with Home Assistant."
-date: 2017-04-30 23:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: axis.png
 ha_category:
   - Camera

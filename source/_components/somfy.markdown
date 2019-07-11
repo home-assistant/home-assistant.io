@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Somfy"
 description: "Instructions on how to set up the Somfy hub within Home Assistant."
-date: 2019-06-07 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: somfy.png
 ha_category:
   - Hub

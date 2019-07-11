@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Homematic"
 description: "Instructions for integrating Homematic into Home Assistant."
-date: 2018-02-13 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: homematic.png
 ha_category:
   - Hub

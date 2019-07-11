@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Default Config"
 description: "The default config integration will initate a default configuration for Home Assistant."
-date: 2019-02-15 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other

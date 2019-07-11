@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notifications"
 description: "Instructions on how to add user notifications to Home Assistant."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Notifications

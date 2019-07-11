@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFXtrx Cover"
 description: "Instructions on how to integrate RFXtrx covers into Home Assistant."
-date: 2016-08-24 14:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
 ha_category:
   - Cover

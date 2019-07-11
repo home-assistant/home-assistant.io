@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFLink Binary Sensor"
 description: "Instructions on how to integrate RFLink binary sensors into Home Assistant."
-date: 2018-10-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Binary Sensor

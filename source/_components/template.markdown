@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Sensor"
 description: "Instructions on how to integrate Template Sensors into Home Assistant."
-date: 2016-01-27 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Sensor
 ha_release: 0.12

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DuckDNS"
 description: "Keep your computer registered with the DuckDNS dynamic DNS."
-date: 2017-09-23 07:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: duckdns.png
 ha_category:
   - Network

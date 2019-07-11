@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tado"
 description: "Instructions on how to integrate Tado devices with Home Assistant."
-date: 2017-03-20 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tado.png
 ha_category:
   - Hub

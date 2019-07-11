@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Transmission"
 description: "Instructions on how to integrate Transmission within Home Assistant."
-date: 2018-12-12 22:44
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: transmission.png
 ha_category:
   - Downloading

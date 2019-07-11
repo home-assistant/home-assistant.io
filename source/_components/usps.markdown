@@ -1,12 +1,6 @@
 ---
-layout: page
 title: USPS
 description: "Interface USPS mail and package information to Home Assistant."
-date: 2017-07-28 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: usps.png
 ha_category:
   - Postal Service

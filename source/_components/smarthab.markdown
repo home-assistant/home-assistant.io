@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SmartHab"
 description: "Instructions on how to integrate SmartHab devices into Home Assistant"
-date: 2019-02-13 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smarthab.png
 ha_release: 0.94
 ha_category:

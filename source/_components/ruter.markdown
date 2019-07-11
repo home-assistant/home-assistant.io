@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ruter Public Transport"
 description: "Instructions on how to integrate departure times from Ruter within Home Assistant."
-date: 2018-11-05 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ruter.png
 ha_category:
   - Transport

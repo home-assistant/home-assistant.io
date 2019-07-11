@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xeoma Camera"
 description: "Instructions on how to integrate camera video feeds from a Xeoma server in Home Assistant"
-date: 2018-01-12 20:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xeoma.png
 ha_category:
   - Camera

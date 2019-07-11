@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell Thermostat"
 description: "Instructions on how to integrate Honeywell thermostats within Home Assistant."
-date: 2016-02-07 22:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell.png
 ha_category:
   - Climate

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Twitch"
 description: "Instructions on how to integrate Twitch sensors into Home Assistant."
-date: 2015-12-19 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: twitch.png
 ha_category:
   - Social

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Onboarding"
 description: "This integration is responsible for providing the onboarding endpoints."
-date: 2018-03-19 21:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other

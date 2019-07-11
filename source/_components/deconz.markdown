@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "deCONZ"
 description: "Instructions on how to setup Conbee/Raspbee devices with deCONZ from Dresden Elektronik within Home Assistant."
-date: 2017-11-12 16:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: deconz.jpeg
 ha_category:
   - Hub

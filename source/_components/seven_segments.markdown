@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Seven segments display"
 description: "Instructions on how to use OCR for seven segments displays into Home Assistant."
-date: 2017-05-18 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Image Processing

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sony Bravia TV"
 description: "Instructions on how to integrate a Sony Bravia TV into Home Assistant."
-date: 2016-07-01 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bravia.png
 ha_category:
   - Media Player

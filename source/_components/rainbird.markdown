@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Rain Bird"
 description: "Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant."
-date: 2017-12-07 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rainbird.png
 ha_category:
   - Irrigation

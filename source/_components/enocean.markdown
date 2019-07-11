@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EnOcean"
 description: "Connect EnOcean devices to Home Assistant"
-date: 2016-05-25 23:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: enocean.png
 ha_category:
   - Hub

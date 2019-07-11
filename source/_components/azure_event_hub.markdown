@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Azure Event Hub"
 description: "Setup for Azure Event Hub integration"
-date: 2019-05-15 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: azure_event_hub.svg
 ha_category:
   - History

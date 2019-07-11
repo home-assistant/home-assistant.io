@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mobile App"
 description: "The Mobile App integration allows a generic platform for integrating with mobile apps."
-date: 2019-03-06 01:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - "Other"

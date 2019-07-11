@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LIRC"
 description: "Instructions on how to integrate IR remotes with LIRC into Home Assistant."
-date: 2016-05-22 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lirc.gif
 ha_category:
   - Automation

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Climate"
 description: "Instructions on how to integrate KNX thermostats with Home Assistant."
-date: 2016-06-24 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Climate
