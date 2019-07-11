@@ -1,14 +1,8 @@
 ---
-layout: page
 title: "Authentication"
 description: "Guide on authentication in Home Assistant."
-date: 2018-08-23 09:40
 redirect_from:
   - /components/auth/
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Our authentication system secures access to Home Assistant.

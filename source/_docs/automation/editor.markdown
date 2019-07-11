@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Editor"
 description: "Instructions on how to use the automation editor."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 In Home Assistant 0.45 we introduced the first version of our automation editor. If you just created a new configuration with Home Assistant, then you're all set! Go to the UI and enjoy.

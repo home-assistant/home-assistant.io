@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Devices - Adding and Removing"
 description: "How to add and remove Z-Wave devices."
-date: 2017-11-08 19:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 ## Adding Non-Secure Devices

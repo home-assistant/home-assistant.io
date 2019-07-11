@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Device Specific Settings"
 description: "Notes for specific Z-Wave devices."
-date: 2016-03-24 08:49 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-device-specific/
 ---
 

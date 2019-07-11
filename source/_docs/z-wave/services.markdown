@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Services"
 description: "Services exposed by the Z-Wave component."
-date: 2017-09-21 10:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The `zwave` integration exposes multiple services to help maintain the network. All of these are available through the Z-Wave control panel.

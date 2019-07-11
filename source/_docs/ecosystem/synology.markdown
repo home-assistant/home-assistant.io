@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Synology"
 description: "Instructions on how to get Home Assistant up and running on Synology"
-release_date: 2016-12-07 15:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/synology/
 ---
 

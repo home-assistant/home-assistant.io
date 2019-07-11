@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Development Tools"
 description: "Description of the Developer Tools."
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The frontend contains a section called "Developer Tools".

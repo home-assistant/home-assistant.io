@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Remote Access with TLS/SSL via Let's Encrypt"
 description: "A guide to remotely accessing Home Assistant and securing the connection with an SSL certificate from Let's Encrypt"
-date: 2018-06-03 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 <p class='note'>

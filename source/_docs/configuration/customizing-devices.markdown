@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Customizing entities"
 description: "Simple customization for entities in the frontend."
-date: 2016-04-20 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/customizing-devices/
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Entity Naming"
 description: "A summary of common entity names."
-date: 2017-09-21 10:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 <p class='note'>

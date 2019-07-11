@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Group Visibility"
 description: "Instructions on how to change group visibility using automations."
-date: 2016-10-29 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/group_visibility/
 ---
 

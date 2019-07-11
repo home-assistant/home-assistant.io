@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
-date: 2015-03-23 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/basic/
 ---
 

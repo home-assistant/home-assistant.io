@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Manual installation on a Raspberry Pi"
 description: "Instructions to install Home Assistant on a Raspberry Pi running Raspbian Lite."
-date: 2018-06-03 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-raspberry-pi/
 ---
 

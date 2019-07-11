@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Adding devices to Home Assistant"
 description: "Steps to help you get your devices in Home Assistant."
-date: 2015-09-19 09:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/devices/
 ---
 

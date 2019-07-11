@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Authentication Providers"
 description: "Guide on configuring different auth providers."
-date: 2018-08-23 09:40
 redirect_from: /components/auth/
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.

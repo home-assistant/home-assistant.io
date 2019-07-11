@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/troubleshooting-configuration/
 ---
 

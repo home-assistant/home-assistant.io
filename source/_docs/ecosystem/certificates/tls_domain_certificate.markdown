@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Certificate for SSL/TLS via domain ownership"
 description: "Configure a certificate to use with Home Assistant"
-date: 2017-02-17 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /cookbook/tls_domain_certificate/
 ---
 

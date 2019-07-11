@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HASS Configurator"
 description: "Instructions on how to install and use the HASS Configurator"
-release_date: 2017-03-10 00:50:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/hass-configurator/
 ---
 
