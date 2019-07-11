@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Git pull"
 description: "Load and update configuration files for Home Assistant from a GIT repository."
-date: 2017-09-25 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Load and update configuration files for Home Assistant from a [Git](https://git-scm.com/) repository.

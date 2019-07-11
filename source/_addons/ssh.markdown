@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SSH Server"
 description: "Allow logging in remotely to Hass.io using SSH."
-date: 2017-11-03 22:25
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
