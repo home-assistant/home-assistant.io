@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Enable HassOS i2c"
 description: "Instructions on how to enable I2C on a Raspberry PI for Hass.io."
-date: 2018-01-11 20:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Hass.io is a managed environment, which means you can't use existing methods to enable the I2C bus on a Raspberry Pi.

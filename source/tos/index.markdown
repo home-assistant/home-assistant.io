@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Terms of Service"
 description: "The Terms of Service that should be accepted to own a Home Assistant account."
-date: 2017-10-19 01:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 ---
 
 The following terms and conditions govern all use of the Home Assistant website and all content, services and products available at or through the website, including, but not limited to, Home Assistant Forum Software, Home Assistant Support Forums and the Home Assistant Hosting service ("Hosting"), (taken together, the Website). The Website is owned and operated by Home Assistant. The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, Home Assistant’s [Privacy Policy](/privacy/) and [Code of Conduct](/code_of_conduct/)) and procedures that may be published from time to time on this Site by Home Assistant (collectively, the "Agreement").

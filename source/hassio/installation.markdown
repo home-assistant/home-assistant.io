@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installing Hass.io"
 description: "Instructions on how to install Hass.io."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The following will take you through the steps required to install Hass.io.

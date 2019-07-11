@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Releases"
 description: "Releases"
-date: 2017-06-18 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Common
 ---
 

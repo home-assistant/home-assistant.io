@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Weather Forecast Card"
 sidebar_label: Weather Forecast
 description: "The Weather card allows you a visual card to display the weather."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The weather forecast is a card to display the weather. Very useful to include on interfaces that people display on the wall.

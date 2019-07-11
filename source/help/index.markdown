@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Help"
 description: "If you need help or have a question..."
-date: 2015-06-25 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 There are various ways to get in touch with the Home Assistant community. It doesn't matter if you have a question, need help, want to request a feature, or just say 'Hi'.

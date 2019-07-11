@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dim lights when playing media"
 description: "Dim lights up or down when playing media"
-date: 2015-10-15 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
