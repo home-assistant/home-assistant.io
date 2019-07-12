@@ -240,6 +240,58 @@ Edit or correct the attributes of the media which is currently playing. Media da
 | `media_image_url`      | Yes      | `http://localhost:8123/local/image.jpg` | A remote or local URL directing to an image that will be  displayed. You may use images in the local (/config/www/) folder. |
 | `media_content_type`   | Yes      | `Game`                                  | The type of media. Must be 'game' or 'app'. Defaults to 'game'.                                                             |
 
+## Media Data
+Media data is stored when your PlayStation 4 console is playing a game or an app. The integration will automatically add the media to the source list for your PS4 entities when a new media is playing on your console. Data that is stored includes the PlayStation Store ID of the media, the title, and a url to the cover art of the media. Occasionally, the integration will not be able to retrieve the media data from the PlayStation Store. You may edit data that is incorrect by using services, or manually with a text editor.
+
+To edit data with a text editor:
+
+1. Backup a copy of the file if you don't want to lose your sources.
+2. Open the file in your configuration directory: `config/.ps4.games.json`
+
+3. Edit an entry. Example of an unedited file:
+```json
+{
+    "CUSA00129": {
+        "locked": false,
+        "media_content_type": "game",
+        "media_image_url": "https://google.com/image.jpg",
+        "media_title": "Netflix"
+    },
+    "CUSA00123": {
+        "locked": false,
+        "media_content_type": "game",
+        "media_image_url": null,
+        "media_title": "Something"
+    }
+}
+```
+Here we want to edit the entry with the "Netflix" title. We want to correct the "media_content_type" as it is not a game but actually an app.
+Also the image is not correct, so we will edit the "media_image_url". You can specify an image file saved in your `config/www/` directory as well as any valid remote url. To use a saved image file type in `"your/HA/IP/Address:yourport/local/thefile"`. See the example below if you need help.
+
+Make sure to not deviate from the format of these entries.
+To have the PS4 integration load your edited entry you must changed the "locked" value from "false" to "true". Example:
+
+```json
+{
+    "CUSA00129": {
+        "locked": true,
+        "media_content_type": "app",
+        "media_image_url": "http://localhost:8123/local/image.jpg",
+        "media_title": "Netflix"
+    },
+    "CUSA00123": {
+        "locked": false,
+        "media_content_type": "game",
+        "media_image_url": null,
+        "media_title": "Something"
+    }
+}
+```
+
+4. Restart your Home Assistant
+
+If issues arise you may delete the file but your entities will have no sources available until they are added again by the integration.
+
 ## Troubleshooting
 
 ### Cover Art Issues
