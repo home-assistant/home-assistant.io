@@ -156,7 +156,7 @@ $ ls -1tr /dev/tty*|tail -n 1
 
 #### Raspberry Pi specific
 
-On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
+On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
 #### Linux (except Hassbian)
 
