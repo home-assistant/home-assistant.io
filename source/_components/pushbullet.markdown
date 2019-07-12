@@ -185,7 +185,7 @@ action:
       target: device/DEVICE_NAME
 ```
 
-- **target**: Pushbullet device to recive the notification.
+- **target**: Pushbullet device to receive the notification.
 
 <p class='note'>
 Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
