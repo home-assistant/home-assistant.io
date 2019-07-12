@@ -57,10 +57,6 @@ lutron_caseta:
     required: true
     description: The list of certificate authorities (usually only one) that Home Assistant will expect when connecting to the bridge.
     type: string
-  cert_required:
-    required: false
-    description: Used to set the ssl_context verify mode to required or none. Not used by Home Assistant but needed by the underlying api. The default is false and for standard bridges this should work.
-    type: boolean
 {% endconfiguration %}
 
 <div class='note'>
