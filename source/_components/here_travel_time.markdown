@@ -53,7 +53,7 @@ origin:
   required: true
   type: string
 destination:
-  description: "One or more locations to use as the finishing point for calculating travel distance and time."
+  description: "The finishing point for calculating travel distance and time."
   required: true
   type: string
 name:
@@ -61,7 +61,7 @@ name:
   required: false
   type: string
   default: "HERE Travel Time"
-travel_mode:
+mode:
   description: "You can choose between: `car`, `pedestrian`, `publicTransport` or `truck`. The default is `car`."
   required: false
   type: string
@@ -76,6 +76,11 @@ traffic_mode:
   required: false
   type: boolean
   default: false
+unit_system:
+  description: You can choose between `metric` or `imperial`.
+  required: false
+  default: Defaults to `metric` or `imperial` based on the Home Assistant configuration.
+  type: string
 {% endconfiguration %}
 
 ## {% linkable_title Dynamic Configuration %}
