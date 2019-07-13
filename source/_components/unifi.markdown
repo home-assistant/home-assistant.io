@@ -8,6 +8,7 @@ ha_category:
   - Switch
 ha_release: 0.81
 ha_iot_class: Local Polling
+ha_qa_scale: platinum
 redirect_from:
   - /components/device_tracker.unifi/
   - /components/switch.unifi/
@@ -33,7 +34,7 @@ You can augment behavior of UniFi device tracker by adding
 ```yaml
 # Example configuration.yaml entry
 unifi:
-  controllers: unifi
+  controllers:
     - host: unifi
       site: My site
       ssid_filter:
@@ -64,20 +65,6 @@ ssid_filter:
   default: None
 {% endconfiguration %}
 
-## Debugging integration
-
-If you have problems with UniFi or the integration you can add debug prints to the log.
-
-```yaml
-logger:
-  default: info
-  logs:
-    aiounifi: debug
-    homeassistant.components.unifi: debug
-    homeassistant.components.device_tracker.unifi: debug
-    homeassistant.components.switch.unifi: debug
-```
-
 ### Configuring Users
 
 The UniFi controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the Unifi device tracker. If you want POE control as well you would need to have 'admin' permissions.
@@ -105,3 +92,17 @@ If Home Assistant and the UniFi controller are running on separate machines or V
 Switches are network devices that are powered by POE switches from Ubuiqitis UniFi line of networking gear.
 
 Note that POE control actually configures the network port of the switch which the device is connected to.
+
+## Debugging integration
+
+If you have problems with UniFi or the integration you can add debug prints to the log.
+
+```yaml
+logger:
+  default: info
+  logs:
+    aiounifi: debug
+    homeassistant.components.unifi: debug
+    homeassistant.components.device_tracker.unifi: debug
+    homeassistant.components.switch.unifi: debug
+```
