@@ -22,6 +22,7 @@ sudo minicom -D /dev/ttyACM0
 
 To setup a serial sensor to your installation, add the following to your `configuration.yaml` file:
 
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -61,9 +62,9 @@ value_template:
 
 ## Examples
 
-### Arduino
+### Arduino with .json over serial
 
-For controllers of the Arduino family a possible sketch to read the temperature and the humidity could look like the sample below.
+For controllers of the Arduino family, a possible sketch to read the temperature and the humidity could look like the sample below.  The returned data is in json format and can be split into the individual sensor values using a [template](/docs/configuration/templating/#processing-incoming-data).
 
 ```c
 #include <ArduinoJson.h>
@@ -73,19 +74,43 @@ void setup() {
 }
 
 void loop() {
-  StaticJsonBuffer<100> jsonBuffer;
-  JsonObject& json = prepareResponse(jsonBuffer);
-  json.printTo(Serial);
-  Serial.println();
-  delay(2000);
-}
+  StaticJsonDocument<100> jsonBuffer;
 
-JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
-  JsonObject& root = jsonBuffer.createObject();
-  root["temperature"] = analogRead(A0);
-  root["humidity"] = analogRead(A1);
-  return root;
+  jsonBuffer["temperature"] = analogRead(A0);
+  jsonBuffer["humidity"] = analogRead(A1);
+
+  serializeJson(jsonBuffer, Serial);
+  Serial.println();
+  
+  delay(1000);
 }
+```
+
+### Devices returning multiple sensors as a text string
+
+For devices that return multiple sensors as a concatenated string of values with comma delimiting, (i.e., the returned string is not json formatted) you can make several template sensors, all using the same serial response.  First, the serial_sensor response is split using the comma delimiter, and then an item in the array is used.  This is useful for devices such as the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800).
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: serial
+    serial_port: /dev/ttyUSB0
+    baudrate: 9600
+ 
+  - platform: template
+    sensors:
+      my_temperature_sensor:
+        friendly_name: Temperature
+        unit_of_measurement: "°C"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[1] | float }}"
+      my_humidity_sensor:
+        friendly_name: Humidity
+        unit_of_measurement: "%"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[2] | float }}"
+      my_barometer:
+        friendly_name: Barometer
+        unit_of_measurement: "mbar"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
 ```
 
 ### Digispark USB Development Board
