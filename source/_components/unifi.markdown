@@ -29,7 +29,7 @@ Enter `host address`, `user name` and `password` and then continue to select whi
 
 ### Extra configuration for device tracker
 
-You can augment behavior of UniFi device tracker by adding
+You can augment the behavior of UniFi device tracker by adding
 
 ```yaml
 # Example configuration.yaml entry
@@ -44,12 +44,12 @@ unifi:
 
 {% configuration %}
 host:
-  description: The hostname or IP address of your controller
+  description: Same address as relevant config entry, needed to identify config entry
   type: string
   required: true
   default: None
 site:
-  description: For multisite installations, you can specify `site_id` to specify which is used
+  description: Same site as relevant config entry, needed to identify config entry
   type: string
   required: true
   default: None
