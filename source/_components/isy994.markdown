@@ -84,6 +84,10 @@ tls:
   description: This entry should reflect the version of TLS that the ISY controller is using for HTTPS encryption. This value can be either 1.1 or 1.2. If this value is not set, it is assumed to be version 1.1. This is the default for most users. ISY994 Pro users may likely be using 1.2. When using HTTPS in the host entry, it is best practice to set this value.
   required: false
   type: string
+isy_variables:
+  description: ISY Variables can be explicitly defined as as sensors, binary sensors, or switches.  See [Variables as Devices](#variables-as-devices) below.
+  required: false
+  type: dict
 {% endconfiguration %}
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
@@ -209,3 +213,56 @@ The *actions* program indicates what should be performed for the following devic
 </p>
 
 The example program above shows how to control a legacy X10 device from Home Assistant using an ISY controller.
+
+### Variables as Devices
+
+ISY Variables can be explicitly defined in the configuration as a `sensor`, a `binary_sensor`, or a `switch`. The ISY Variable ID and Type (1-Integer or 2-State) must be provided, and optionally a unit of measurement, device class, and name. See the example config section below:
+
+```yaml
+isy994:
+  host: !secret isy_url
+  username: !secret isy_username
+  password: !secret isy_password
+  isy_variables:
+    sensors:
+      - id: 23
+        type: 2
+        unit_of_measurement: '%'
+        device_class: 'battery'
+    binary_sensors:
+      - id: 14
+        type: 2
+    switches:
+      - id: 5
+        type: 2
+
+```
+
+{% configuration %}
+id:
+  description: The ISY Variable ID number to use.
+  required: true
+  type: int
+type:
+  description: The ISY Variable Type (1=Integer, 2=State).
+  requried: true
+  type: int
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+device_class:
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+payload_on:
+  description: The payload that represents the on state (`binary_sensor` and `switch` only).
+  required: false
+  type: int
+  default: 1
+payload_off:
+  description: The payload that represents the off state  (`binary_sensor` and `switch` only).
+  required: false
+  type: int
+  default: 0
+{% endconfiguration %}
