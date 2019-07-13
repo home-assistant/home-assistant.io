@@ -56,7 +56,7 @@ event_hub_sas_key:
   type: string
 filter:
   description: Filter domains and entities for Event Hub.
-  required: false
+  required: true
   type: map
   default: Includes all entities from all domains
   keys:
