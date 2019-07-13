@@ -59,6 +59,34 @@ value_template:
 ```
 {% endraw %}
 
+### Devices returning multiple sensors as a single string
+
+For devices that return multiple sensors as a concatenated string of values, but are not json formatted you can split the string into an array of items, then make each item in the array a separate sensor using templates.  This is useful for devices such as the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800).
+
+configuration.yaml can be set up as shown:
+{% raw %}
+```yaml
+  - platform: serial
+    serial_port: /dev/ttyUSB0
+    baudrate: 9600
+
+  - platform: template
+    sensors:
+      my_temperature_sensor:
+        friendly_name: Temperature
+        unit_of_measurement: "°C"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[1] | float }}"
+      my_humidity_sensor:
+        friendly_name: Humidity
+        unit_of_measurement: "%"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[2] | float }}"
+      my_barometer:
+        friendly_name: Barometer
+        unit_of_measurement: "mbar"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
+```
+{% endraw %}
+
 ## Examples
 
 ### Arduino
