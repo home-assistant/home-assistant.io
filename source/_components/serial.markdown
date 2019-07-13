@@ -22,12 +22,14 @@ sudo minicom -D /dev/ttyACM0
 
 To setup a serial sensor to your installation, add the following to your `configuration.yaml` file:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: serial
     serial_port: /dev/ttyACM0
 ```
+{% endraw %}
 
 {% configuration %}
 serial_port:
@@ -67,7 +69,7 @@ For controllers of the Arduino family, a possible sketch to read the temperature
 #include <ArduinoJson.h>
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop() {
