@@ -59,9 +59,33 @@ value_template:
 
 ## Examples
 
-### Devices returning multiple sensors as a single string
+### Arduino with .json over serial
 
-For devices that return multiple sensors as a concatenated string of values, (but are not json formatted) you can split the string into an array of items, then make each item in the array a separate sensor using templates.  This is useful for devices such as the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800).
+For controllers of the Arduino family, a possible sketch to read the temperature and the humidity could look like the sample below.  The returned data is in json format and can be split into the individual sensor values using a [template](/docs/configuration/templating/#processing-incoming-data).
+
+```c
+#include <ArduinoJson.h>
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  StaticJsonDocument<100> jsonBuffer;
+
+  jsonBuffer["temperature"] = analogRead(A0);
+  jsonBuffer["humidity"] = analogRead(A1);
+
+  serializeJson(jsonBuffer, Serial);
+  Serial.println();
+  
+  delay(1000);
+}
+```
+
+### Devices returning multiple sensors as a text string
+
+For devices that return multiple sensors as a concatenated string of values with comma delimiting, (i.e., the returned string is not json formatted) you can make several template sensors, all using the same serial response.  First, the serial_sensor response is split using the comma delimiter, and then an item in the array is used.  This is useful for devices such as the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800).
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,30 +108,6 @@ sensor:
         friendly_name: Barometer
         unit_of_measurement: "mbar"
         value_template: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
-```
-
-### Arduino
-
-For controllers of the Arduino family a possible sketch to read the temperature and the humidity could look like the sample below.
-
-```c
-#include <ArduinoJson.h>
-
-void setup() {
-  Serial.begin(9600);
-}
-
-void loop() {
-  StaticJsonDocument<100> jsonBuffer;
-
-  jsonBuffer["temperature"] = analogRead(A0);
-  jsonBuffer["humidity"] = analogRead(A1);
-
-  serializeJson(jsonBuffer, Serial);
-  Serial.println();
-  
-  delay(1000);
-}
 ```
 
 ### Digispark USB Development Board
