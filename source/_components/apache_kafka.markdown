@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Apache Kafka"
 description: "Send data and events to Apache Kafka."
-date: 2019-07-11 13:40
-sidebar: true
-comments: false
-sharing: true
 logo: apache_kafka.png
-footer: true
 ha_category:
   - History
 ha_release: 0.97
