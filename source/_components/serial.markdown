@@ -22,14 +22,13 @@ sudo minicom -D /dev/ttyACM0
 
 To setup a serial sensor to your installation, add the following to your `configuration.yaml` file:
 
-{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: serial
     serial_port: /dev/ttyACM0
 ```
-{% endraw %}
 
 {% configuration %}
 serial_port:
@@ -55,9 +54,11 @@ value_template:
 
 ### TMP36
 
+{% raw %}
 ```yaml
 "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
+{% endraw %}
 
 ## Examples
 
