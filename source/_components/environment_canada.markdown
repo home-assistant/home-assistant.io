@@ -88,7 +88,7 @@ sensor:
     - `wind_chill` - The current wind chill, in ºC.
     - `humidex` - The current humidex, in ºC.
     - `pressure` - The current air pressure, in kPa.
-    - `tendency` - The current air pressure tendency, e.g. "Rising" or "Falling".
+    - `tendency` - The current air pressure tendency, e.g. "Rising".
     - `humidity` - The current humidity, in %.
     - `visibility` - The current visibility, in km.
     - `condition` - A brief text statement of the current weather conditions, e.g. "Sunny".
@@ -99,7 +99,7 @@ sensor:
     - `high_temp` - The next forecast high temperature, in ºC.
     - `low_temp` - The next forecast low temperature, in ºC.
     - `pop` - The next forecast probability of precipitation, in %.
-    - `text_summary` - A textual description of the next forecast period.
+    - `text_summary` - A textual description of the next forecast period, e.g. "Tonight. Mainly cloudy. Low -12."
     - `warnings` - Current warning alerts.
     - `watches` - Current watch alerts.
     - `advisories` - Current advisory alerts.
@@ -109,6 +109,7 @@ sensor:
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
     - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
+- In the case of multiple alerts in the same category, the titles and details of each are concatenated together with a pipe (`|`) separator.
 
 {% configuration %}
 latitude:
@@ -128,11 +129,19 @@ language:
   required: false
   type: string
   default: english
-name:
-  description: Name to be prepended to entity IDs, e.g. `sensor.<name>_temperature`.
-  required: false
-  type: string
 {% endconfiguration %}
+
+###Alert TTS Script
+
+If you would like to have alerts announced via a text-to-speech service, you can use a script similar to the following:
+
+```yaml
+weather_alert_tts:
+  sequence:
+   - service: tts.amazon_polly_say
+      data_template:
+        message: '{{ states("sensor.warnings") }} in effect. {{ state_attr("sensor.warnings", "alert detail") }}'
+```
 
 ## Camera
 
