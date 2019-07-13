@@ -151,13 +151,15 @@ authtoken:
   * Weather Sensor – pro (*HmIP-SWO-PR*)
   
 ## Services
-- *homematicip_cloud.activate_eco_mode_with_duration*: Activate eco mode with duration.
-- *homematicip_cloud.activate_eco_mode_with_period*: Activate eco mode with period.
-- *homematicip_cloud.activate_vacation*: Activates the vacation mode until the given time.
-- *homematicip_cloud.deactivate_eco_mode*: Deactivates the eco mode immediately.
-- *homematicip_cloud.deactivate_vacation*: Deactivates the vacation mode immediately.
+
+- `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode with duration.
+- `homematicip_cloud.activate_eco_mode_with_period`: Activate eco mode with period.
+- `homematicip_cloud.activate_vacation`: Activates the vacation mode until the given time.
+- `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
+- `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 
 ### Service Examples
+
 `accesspoint_id` (SGTIN) is optional for all services and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, service will be called for all configured Homematic IP Access Points.
 The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.
 
