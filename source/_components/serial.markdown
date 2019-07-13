@@ -94,22 +94,19 @@ For controllers of the Arduino family a possible sketch to read the temperature 
 #include <ArduinoJson.h>
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
 }
 
 void loop() {
-  StaticJsonBuffer<100> jsonBuffer;
-  JsonObject& json = prepareResponse(jsonBuffer);
-  json.printTo(Serial);
-  Serial.println();
-  delay(2000);
-}
+  StaticJsonDocument<100> jsonBuffer;
 
-JsonObject& prepareResponse(JsonBuffer& jsonBuffer) {
-  JsonObject& root = jsonBuffer.createObject();
-  root["temperature"] = analogRead(A0);
-  root["humidity"] = analogRead(A1);
-  return root;
+  jsonBuffer["temperature"] = analogRead(A0);
+  jsonBuffer["humidity"] = analogRead(A1);
+
+  serializeJson(jsonBuffer, Serial);
+  Serial.println();
+  
+  delay(1000);
 }
 ```
 
