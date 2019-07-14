@@ -1,11 +1,52 @@
-{% comment %}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script defer src="{{ root_url }}/javascripts/octopress.js"></script>
-{% endcomment %}
+<script>
+var _gaq=[['_setAccount','{{ site.google_analytics_tracking_id }}'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 
-{% include javascripts/google_analytics.html %}
-{% include javascripts/algolia.html %}
+<script type="text/javascript" src="/javascripts/prism.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+
 
 {% if page.sidebar != false %}
-{% include javascripts/github.html %}
+<script>
+    $(document).ready(function(){
+      if (!window.jXHR){
+        var jxhr = document.createElement('script');
+        jxhr.type = 'text/javascript';
+        jxhr.src = '/javascripts/libs/jXHR.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(jxhr, s);
+      }
+  
+      github.showRepos({
+        user: '{{site.github_user}}',
+        count: {{site.github_repo_count}},
+        skip_forks: {{site.github_skip_forks}},
+        target: '#gh_repos'
+      });
+    });
+  </script>
+  <script src="/javascripts/github.js"></script>
 {% endif %}
