@@ -33,20 +33,15 @@ plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
 
-markdown: kramdown
+markdown: CommonMark
 highlighter: rouge
 timezone: UTC
 liquid:
   error_mode: strict
 
-kramdown:
-  input: GFM
-  auto_ids:       false
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  parse_block_html: true
+commonmark:
+  options: ["SMART", "FOOTNOTES"]
+  extensions: ["strikethrough", "autolink", "table"]
 
 plugins:
   - jekyll-redirect-from
