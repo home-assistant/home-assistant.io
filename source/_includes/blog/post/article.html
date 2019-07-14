@@ -13,7 +13,7 @@
     {% include post/author.html %}
     {% include post/time_to_read.html %}
     {% include blog/post/tags.html %}
-    {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
+    {% if page.comments != false and post.comments != false %}
       <a class='comments'
          href="{% if index %}{{ post.url }}{% endif %}#post-comments"
          >Comments</a>
