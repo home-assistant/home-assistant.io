@@ -53,9 +53,11 @@ value_template:
 
 ### TMP36
 
+{% raw %}
 ```yaml
-"{% raw %}{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}{% endraw %}"
+"{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
+{% endraw %}
 
 ## Examples
 
@@ -87,6 +89,7 @@ void loop() {
 
 For devices that return multiple sensors as a concatenated string of values with comma delimiting, (i.e., the returned string is not json formatted) you can make several template sensors, all using the same serial response.  First, the serial_sensor response is split using the comma delimiter, and then an item in the array is used.  This is useful for devices such as the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800).
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -99,16 +102,17 @@ sensor:
       my_temperature_sensor:
         friendly_name: Temperature
         unit_of_measurement: "°C"
-        value_template: "{% raw %}{{ states('sensor.serial_sensor').split(',')[1] | float }}{% endraw %}"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[1] | float }}"
       my_humidity_sensor:
         friendly_name: Humidity
         unit_of_measurement: "%"
-        value_template: "{% raw %}{{ states('sensor.serial_sensor').split(',')[2] | float }}{% endraw %}"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[2] | float }}"
       my_barometer:
         friendly_name: Barometer
         unit_of_measurement: "mbar"
-        value_template: "{% raw %}{{ states('sensor.serial_sensor').split(',')[4] | float }}{% endraw %}"
+        value_template: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
 ```
+{% endraw %}
 
 ### Digispark USB Development Board
 
