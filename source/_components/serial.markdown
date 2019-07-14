@@ -22,7 +22,6 @@ sudo minicom -D /dev/ttyACM0
 
 To setup a serial sensor to your installation, add the following to your `configuration.yaml` file:
 
-
 ```yaml
 # Example configuration.yaml entry
 sensor:
@@ -54,11 +53,9 @@ value_template:
 
 ### TMP36
 
-{% raw %}
 ```yaml
-"{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
+"{% raw %}{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}{% endraw %}"
 ```
-{% endraw %}
 
 ## Examples
 
@@ -96,21 +93,21 @@ sensor:
   - platform: serial
     serial_port: /dev/ttyUSB0
     baudrate: 9600
- 
+
   - platform: template
     sensors:
       my_temperature_sensor:
         friendly_name: Temperature
         unit_of_measurement: "°C"
-        value_template: "{{ states('sensor.serial_sensor').split(',')[1] | float }}"
+        value_template: "{% raw %}{{ states('sensor.serial_sensor').split(',')[1] | float }}{% endraw %}"
       my_humidity_sensor:
         friendly_name: Humidity
         unit_of_measurement: "%"
-        value_template: "{{ states('sensor.serial_sensor').split(',')[2] | float }}"
+        value_template: "{% raw %}{{ states('sensor.serial_sensor').split(',')[2] | float }}{% endraw %}"
       my_barometer:
         friendly_name: Barometer
         unit_of_measurement: "mbar"
-        value_template: "{{ states('sensor.serial_sensor').split(',')[4] | float }}"
+        value_template: "{% raw %}{{ states('sensor.serial_sensor').split(',')[4] | float }}{% endraw %}"
 ```
 
 ### Digispark USB Development Board
