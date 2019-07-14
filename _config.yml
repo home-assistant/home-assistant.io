@@ -101,17 +101,6 @@ google_analytics_tracking_id: UA-57927901-1
 # Facebook Like
 facebook_like: true
 
-# Liquid template compressor
-compress_html:
-  clippings: []
-  comments: []
-  endings: []
-  ignore:
-    envs: []
-  blanklines: true
-  profile: false
-  startings: []
-
 social:
   visible: false
   facebook:
