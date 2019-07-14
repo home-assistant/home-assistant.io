@@ -116,3 +116,13 @@ Example of configuration of an automation with completed torrents:
       title: "Torrent completed!"
       message: "{{trigger.event.data.name}}"
 ```
+
+## Services
+
+### Service `add_torrent`
+
+Adds a new torrent to download. It can either be a URL, magnet link or a Base64 encoded .bittorrent file.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `torrent` | no | Torrent to download
