@@ -11,7 +11,7 @@
   <div class="meta clearfix">
     {% include blog/post/date.html %}{{ time }}
     {% include post/author.html %}
-    {% include post/time_to_read.html %}
+    <span><i class='icon-time'></i> {{ post.content | reading_time_as_s }} reading time</span>
     {% include blog/post/tags.html %}
     {% if page.comments != false and post.comments != false %}
       <a class='comments'
