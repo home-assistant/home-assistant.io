@@ -72,25 +72,6 @@ GEM
     mustermann (1.0.3)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
-    octopress (3.0.11)
-      jekyll (>= 2.0)
-      mercenary (~> 0.3.2)
-      octopress-deploy
-      octopress-escape-code (~> 2.0)
-      octopress-hooks (~> 2.0)
-      redcarpet (~> 3.0)
-      titlecase
-    octopress-deploy (1.3.0)
-      colorator
-    octopress-escape-code (2.1.1)
-      jekyll (~> 3.0)
-    octopress-hooks (2.6.2)
-      jekyll (>= 2.0)
-    octopress-include-tag (1.1.3)
-      jekyll (>= 2.0)
-      octopress-tag-helpers (~> 1.0)
-    octopress-tag-helpers (1.0.9)
-      jekyll (>= 2.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.1.1)
@@ -101,7 +82,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redcarpet (3.4.0)
     rouge (3.6.0)
     ruby-enum (0.7.2)
       i18n
@@ -117,7 +97,6 @@ GEM
       tilt (~> 2.0)
     stringex (2.8.5)
     tilt (2.0.9)
-    titlecase (0.1.1)
 
 PLATFORMS
   ruby
@@ -131,8 +110,6 @@ DEPENDENCIES
   jekyll-sitemap (= 1.3.1)
   jekyll-time-to-read (= 0.1.2)
   nokogiri (= 1.10.3)
-  octopress (= 3.0.11)
-  octopress-include-tag (= 1.1.3)
   rake (= 12.3.2)
   sass-globbing (= 1.1.5)
   sinatra (= 2.0.5)

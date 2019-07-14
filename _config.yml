@@ -45,7 +45,6 @@ commonmark:
 plugins:
   - jekyll-redirect-from
   - jekyll-time-to-read
-  - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index
 paginate_path: "blog/posts/:num"  # Directory base for pagination URLs eg. /posts/2/
