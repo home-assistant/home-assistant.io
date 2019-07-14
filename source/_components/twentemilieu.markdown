@@ -33,7 +33,7 @@ This integration provides sensors for the following waste pickup dates from Twen
 ## Services
 
 The Twente Milieu integration exposes a service that allows you to manually update
-the pick update from Twente Milieu.
+the pickup date from Twente Milieu.
 
 ### Service `update`
 
