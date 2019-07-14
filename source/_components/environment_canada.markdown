@@ -140,7 +140,7 @@ weather_alert_tts:
   sequence:
    - service: tts.amazon_polly_say
       data_template:
-        message: '{{ states("sensor.warnings") }} in effect. {{ state_attr("sensor.warnings", "alert detail") }}'
+        message: "{{ states('sensor.warnings') }}" in effect. "{{ state_attr('sensor.warnings', 'alert detail') }}"
 ```
 
 ## Camera
