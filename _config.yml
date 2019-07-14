@@ -121,9 +121,6 @@ patch_version_notes: ""
 # Disqus is adding gross ads, move all comments to discourse.
 disqus_end_date: 2010-01-26 0:00:00
 
-# Support .well-known directory
-include: [".well-known"]
-
 # Set Front matter defaults
 defaults:
   # Defaults for all pages
@@ -145,3 +142,8 @@ defaults:
       footer: true
       sharing: true
       sidebar: true
+
+# Support for files Jekyll will normally exclude
+include:
+  - ".well-known"
+  - "_redirects"
