@@ -102,7 +102,7 @@ automation:
 
 ### State trigger
 
-Triggers when the state of a given entity changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
+Triggers when the state of any of given entities changes (mapping can be used as explained [here](/docs/configuration/yaml/)). If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
 
 ```yaml
 automation:
