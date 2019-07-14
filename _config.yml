@@ -34,7 +34,6 @@ code_dir: downloads/code
 category_dir: blog/categories
 
 markdown: CommonMark
-highlighter: rouge
 timezone: UTC
 liquid:
   error_mode: strict
