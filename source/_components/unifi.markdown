@@ -23,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**.
+Home Assistant offers UniFi integration through **Configuration** -> **Integrations** -> **UniFi Controller**. For legacy support old device_tracker configurations are imported and set up as new integrations.
 
 Enter `host address`, `user name` and `password` and then continue to select which `site` you want to connect to Home Assistant. The user needs administrator privileges in order to control POE switches.
 
