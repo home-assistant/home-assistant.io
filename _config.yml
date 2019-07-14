@@ -116,11 +116,6 @@ date_released: 2019-06-29
 patch_version_notes: ""
 # Minor release (Example #release-0431---april-25):
 
-# Date we moved to Discourse for comments
-# disqus_end_date: 2018-01-26 0:00:00
-# Disqus is adding gross ads, move all comments to discourse.
-disqus_end_date: 2010-01-26 0:00:00
-
 # Set Front matter defaults
 defaults:
   # Defaults for all pages
