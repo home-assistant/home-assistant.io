@@ -103,10 +103,6 @@ google_plus_one_size: standard
 pinboard_user:
 pinboard_count: 3
 
-# Delicious
-delicious_user:
-delicious_count: 3
-
 # Disqus Comments
 disqus_short_name: home-assistant
 disqus_show_comment_count: true
