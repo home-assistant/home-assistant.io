@@ -95,9 +95,21 @@ notifiers:
   required: true
   type: list
 data:
-  description: "Dictionary of extra parameters to send to the notifier."
+  description: "Dictionary of extra parameters to send to all notifiers."
   required: false
   type: list  
+notifier_data:
+  description: >
+    Map of extra parameters to send to individual notifiers. If both `data`
+    and `notifier_data` are specified, the values will be merged before being
+    sent to the notifier.
+  required: false
+  type: map
+  keys:
+    '`<NOTIFIER>`':
+      description: Data to send to `<NOTIFIER>`
+      type: dict
+      required: false
 {% endconfiguration %}
 
 In this example, the garage door status (`input_boolean.garage_door`) is watched
@@ -254,8 +266,39 @@ alert:
         - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
     notifiers:
       - frank_telegram
+      - ryans_phone
 ```
 This particular example relies on the `inline_keyboard` functionality of
 Telegram, where the user is presented with buttons to execute certain actions.
+Data provided here will be sent to every specified notifier.
+
+If the data should differ for each notifier, you may specify data for each notifier
+with a map `notifier_data`.
+This data will be combined with any specified in `data`:
+
+```yaml
+# Example configuration.yaml entry
+alert:
+  garage_door:
+    name: Garage is open
+    entity_id: input_boolean.garage_door
+    state: 'on'   # Optional, 'on' is the default value
+    repeat:
+      - 15
+      - 30
+      - 60
+    can_acknowledge: True  # Optional, default is True
+    skip_first: True # Optional, false is the default
+    notifier_data:
+      frank_telegram:
+        inline_keyboard:
+          - 'Close garage:/close_garage, Acknowledge:/garage_acknowledge'
+      ryans_phone:
+        data:
+          thread-id: garage-door
+    notifiers:
+      - frank_telegram
+      - ryans_phone
+```
 
 [template]: /docs/configuration/templating/
