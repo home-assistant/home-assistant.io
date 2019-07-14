@@ -4,7 +4,7 @@ description: "Instructions on how to add user notifications to Home Assistant."
 logo: smsapi.png
 ha_category:
   - Notifications
-ha_release: 0.96
+ha_release: 0.97
 ---
 
 The `smsapi` platform is using polish SMS API operator [SMSAPI](https://www.smsapi.pl) to send SMS via its APIs.
