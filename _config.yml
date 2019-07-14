@@ -95,10 +95,6 @@ github_skip_forks: true
 twitter_user: balloob
 twitter_tweet_button: true
 
-# Google +1
-google_plus_one: true
-google_plus_one_size: standard
-
 # Google Analytics
 google_analytics_tracking_id: UA-57927901-1
 
