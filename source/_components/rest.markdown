@@ -59,7 +59,7 @@ value_template:
 payload:
   description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
   required: false
-  type: string
+  type: template
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
