@@ -87,7 +87,14 @@ void loop() {
 
 ### Devices returning multiple sensors as a text string
 
-For devices that return multiple sensors as a concatenated string of values with comma delimiting, (i.e., the returned string is not json formatted) you can make several template sensors, all using the same serial response.  First, the serial_sensor response is split using the comma delimiter, and then an item in the array is used.  This is useful for devices such as the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800).
+For devices that return multiple sensors as a concatenated string of values with a delimiter, (i.e., the returned string is not json formatted) you can make several template sensors, all using the same serial response.  For example, a stream from the [Sparkfun USB Weather Board](https://www.sparkfun.com/products/retired/9800) includes temperature, humidity and barometric pressure within it returned text string.  Sample returned data:
+
+```c
+$,24.1,50,12.9,1029.83,0.0,0.00,*
+$,24.3,51,12.8,1029.76,0.0,0.00,*
+```
+
+To parse this into individual sensors, split using the comma delimiter, and then create a template sensor for each item of interest.
 
 {% raw %}
 ```yaml
