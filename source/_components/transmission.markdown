@@ -121,7 +121,7 @@ Example of configuration of an automation with completed torrents:
 
 ### Service `add_torrent`
 
-Adds a new torrent to download. It can either be a URL, magnet link or a Base64 encoded .bittorrent file.
+Adds a new torrent to download. It can either be a URL (http, https or ftp), magnet link or a local file (make sure that the path is white listed).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
