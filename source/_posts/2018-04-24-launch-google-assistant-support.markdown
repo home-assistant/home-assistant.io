@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Our Google Assistant skill is live!"
 description: "The Google Assistant integration for Home Assistant Cloud is now available to all."
 date: 2018-04-24 00:01:00
 date_formatted: "April 24, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/blog/2018-04-google-assistant/google-assistant-home-assistant.png
 ---

@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "REST"
 description: "Instructions on how to add RESTful notifications to Home Assistant."
-date: 2016-02-12 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
-ha_category: Notifications
+ha_category:
+  - Notifications
 ha_release: 0.13
 ---
 
@@ -38,6 +33,24 @@ method:
   description: The method of the request. Valid options are `GET`, `POST` or `POST_JSON`.
   required: false
   default: GET
+  type: string
+verify_ssl:
+  description: Verify the SSL certificate of the endpoint.
+  required: false
+  type: boolean
+  default: True
+authentication:
+  description:  Type of the HTTP authentication. `basic` or `digest`.
+  required: false
+  default: basic
+  type: string
+username:
+  description: The username for accessing the REST endpoint.
+  required: false
+  type: string
+password:
+  description: The password for accessing the REST endpoint.
+  required: false
   type: string
 headers:
   description: The headers for the request.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MariaDB"
 description: "MariaDB Server is one of the most popular database servers in the world."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Set up a [MariaDB](https://mariadb.org/) SQL server. It supports multiple databases, users and permission settings. If you want to only connect from inside Home Assistant use `core-mariadb` as the host address.
@@ -77,11 +71,11 @@ rights:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use the database above:
 
 ```yaml
 recorder:
-  db_url: mysql://hass:securePassword@core-mariadb/homeassistant
+  db_url: mysql://hass:securePassword@core-mariadb/homeassistant?charset=utf8
 ```

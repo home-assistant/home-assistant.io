@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lutron Caseta"
 description: "Instructions on how to use Lutron Caseta devices with Home Assistant."
-date: 2017-01-28 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lutron.png
 ha_category:
   - Hub
@@ -14,9 +8,8 @@ ha_category:
   - Light
   - Scene
   - Switch
-featured: false
 ha_release: 0.41
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 redirect_from:
   - /components/cover.lutron_caseta/
   - /components/light.lutron_caseta/
@@ -24,9 +17,9 @@ redirect_from:
   - /components/switch.lutron_caseta/
 ---
 
-[Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` component in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](http://www.casetawireless.com) product line of dimmers, switches and shades.
+[Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](http://www.casetawireless.com) product line of dimmers, switches and shades.
 
-This component only supports the [Caseta](http://www.casetawireless.com) line of products. Both Smart Bridge (L-BDG2-WH) and Smart Bridge PRO (L-BDGPRO2-WH) models are supported. For the RadioRA 2 product line, see the [Lutron component](/components/lutron/).
+This integration only supports the [Caseta](http://www.casetawireless.com) line of products. Both Smart Bridge (L-BDG2-WH) and Smart Bridge PRO (L-BDGPRO2-WH) models are supported. For the RadioRA 2 product line, see the [Lutron component](/components/lutron/).
 
 The currently supported Caseta devices are:
 
@@ -35,7 +28,7 @@ The currently supported Caseta devices are:
 - Scenes as Home Assistant
 - Lutron shades as Home Assistant
 
-When configured, the `lutron_caseta` component will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
+When configured, the `lutron_caseta` integration will automatically discover the currently supported devices as setup in the Lutron Smart Bridge. The name assigned in the Lutron mobile app will be used to form the `entity_id` used in Home Assistant. e.g., a dimmer called 'Lamp' in a room called 'Bedroom' becomes `light.bedroom_lamp` in Home Assistant.
 
 To use Lutron Caseta devices in your installation, you must first log in to your Lutron account and generate a certificate that allows Home Assistant to connect to your bridge. This can be accomplished by downloading and executing [get_lutron_cert.py](https://github.com/gurumitts/pylutron-caseta/blob/master/get_lutron_cert.py), which will generate three files: caseta.key, caseta.crt, caseta-bridge.crt when you run it. See the instructions at the top of the script for more information.
 
@@ -75,9 +68,9 @@ It is recommended to assign a static IP address to your Lutron Smart Bridge. Thi
 Use a DHCP reservation on your router to reserve the address or in the PRO model of the Smart Bridge, set the IP address under Network Settings in the Advanced / Integration menu in the mobile app.
 </p>
 
-To get Lutron Caseta roller, honeycomb shades, lights, scene and switch working with Home Assistant. First follow the instructions for the general Lutron Caseta component above.
+To get Lutron Caseta roller, honeycomb shades, lights, scene and switch working with Home Assistant. First follow the instructions for the general Lutron Caseta integration above.
 
-## {% linkable_title Cover %}
+## Cover
 
 After setup, shades will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a shade called 'Living Room Window' will appear in Home Assistant as `cover.living_room_window`.
 
@@ -85,7 +78,7 @@ For more information on working with shades in Home Assistant, see the [Covers c
 
 Available services: `cover.open_cover`, `cover.close_cover` and `cover.set_cover_position`. Cover `position` ranges from `0` for fully closed to `100` for fully open.
 
-## {% linkable_title Light %}
+## Light
 
 After setup, dimmable lights including wall and plug-in dimmers will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light called 'Bedroom Lamp' will appear in Home Assistant as `light.bedroom_lamp`.
 
@@ -95,7 +88,7 @@ For more information on working with lights in Home Assistant, see the [Lights c
 
 Available services: `light.turn_on`, `light.turn_off` and `light.toggle`. The `light.turn_on` service supports attributes `brightness` and `brightness_pct`.
 
-## {% linkable_title Scene %}
+## Scene
 
 The Lutron Caseta scene platform allows you to control your Smart Bridge Scenes that are created in the Lutron mobile app.
 
@@ -105,7 +98,7 @@ For more information on working with scenes in Home Assistant, see the [Scenes c
 
 Available services: `scene.turn_on`.
 
-## {% linkable_title Switch %}
+## Switch
 
 After setup, switches will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bathroom Vanity' will appear in Home Assistant as `switch.master_bathroom_vanity`.
 

@@ -1,24 +1,20 @@
 ---
-layout: page
 title: "Logbook"
-description: "Instructions on how to enable the logbook component for Home Assistant."
-date: 2015-04-25 9:23
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to enable the logbook integration for Home Assistant."
 logo: logbook.png
-ha_category: "History"
+ha_category:
+  - History
+ha_release: 0.7
 ---
 
 <img src='/images/screenshots/logbook.png' style='margin-left:10px; float: right;' height="100" />
 
-The logbook component provides a different perspective on the history of your
+The logbook integration provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. [See the demo for a live example](/demo/). It depends on
-the `recorder` component for storing the data. This means that if the
-[`recorder`](/components/recorder/) component is set up to use e.g., MySQL or
-PostgreSQL as data store, the `logbook` component does not use the default
+the `recorder` integration for storing the data. This means that if the
+[`recorder`](/components/recorder/) integration is set up to use e.g., MySQL or
+PostgreSQL as data store, the `logbook` integration does not use the default
 SQLite database to store data.
 
 To enable the logbook in your installation,
@@ -31,7 +27,7 @@ logbook:
 
 {% configuration %}
 exclude:
-  description: "Configure which components should **not** create logbook entries."
+  description: "Configure which integrations should **not** create logbook entries."
   required: false
   type: map
   keys:
@@ -44,7 +40,7 @@ exclude:
       required: false
       type: list
 include:
-  description: Configure which components should create logbook entries.
+  description: Configure which integrations should create logbook entries.
   required: false
   type: map
   keys:
@@ -104,7 +100,7 @@ logbook:
       - sensor.date
 ```
 
-### {% linkable_title Exclude Events %}
+### Exclude Events
 
 Entities customized as hidden are excluded from the logbook by default,
 but sometimes you want to show the entity in the UI and not in the logbook.
@@ -118,7 +114,7 @@ list. For instance you use the `sun` domain only to trigger automations on the
 `azimuth` attribute, then you possible are not interested in the logbook entries
 for sun rise and sun set.
 
-### {% linkable_title Custom Entries %}
+### Custom Entries
 
 It is possible to add custom entries to the logbook by using the script
 component to fire an event.

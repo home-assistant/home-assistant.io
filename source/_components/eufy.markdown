@@ -1,26 +1,32 @@
 ---
-layout: page
 title: "Eufy"
 description: "Instructions on how to integrate Eufy devices into Home Assistant."
-date: 2018-04-09 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: eufy.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Light
+  - Switch
 ha_release: 0.68
+ha_iot_class: Local Polling
+redirect_from:
+  - /components/light.eufy/
+  - /components/switch.eufy/
 ---
 
-The `eufy` component is the main component to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
+The `eufy` integration is the main integration to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
 
-Supported devices will be discovered after the `eufy` component is configured:
+There is currently support for the following device types within Home Assistant:
+
+- Light
+- Switch
+
+Supported devices will be discovered after the `eufy` integration is configured:
 
 ```yaml
 # Example configuration.yaml entry
 eufy:
-  username: testuser@domain
-  password: p4ssw0rd
+  username: EMAIL_ADDRESS
+  password: PASSWORD
 ```
 
 where username and password are the ones configured in the EufyHome app. Alternately, Eufy devices that are not discoverable can be statically configured.
@@ -54,4 +60,3 @@ $ curl -H token:TOKEN -H category:Home \
 ```
 
 replacing TOKEN with the `access_token` from the previous command. This will provide the local_code for each device.
-

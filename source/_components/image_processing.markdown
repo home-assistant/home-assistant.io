@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Image Processing"
 description: "Instructions on how to setup image processing with Home Assistant."
-date: 2017-01-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.36
 ---
 
@@ -16,7 +10,7 @@ Image processing enables Home Assistant to process images from [cameras](/compon
 If you are running Home Assistant over SSL or from within a container, you will have to setup a base URL (`base_url`) inside the [http component](/components/http/).
 </p>
 
-## {% linkable_title ALPR %}
+## ALPR
 
 ALPR entities have a vehicle counter attribute `vehicles` and all found plates are stored in the `plates` attribute.
 
@@ -37,7 +31,7 @@ automation:
 
 The following event attributes will be present (platform-dependent): `entity_id`, `plate`, `confidence`
 
-## {% linkable_title Face %}
+## Face
 
 Face entities have a face counter attribute `total_faces` and all face data is stored in the `faces` attribute.
 
@@ -58,9 +52,9 @@ automation:
 
 The following event attributes will be present (platform-dependent): `entity_id`, `name`, `confidence`, `age`, `gender`, `motion`, `glasses`
 
-## {% linkable_title scan_interval and Optimising Resources %}
+## scan_interval and Optimising Resources
 
-Image processing components process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
+Image processing integrations process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
 
 ```yaml
 # Example configuration.yaml

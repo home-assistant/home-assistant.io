@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: we are wrong] Nest locks users out of their own data"
 description: "Nest is no longer accepting new developer accounts or certifications, blocking you from accessing your data."
 date: 2019-01-24 00:01:00
 date_formatted: "January 24, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 

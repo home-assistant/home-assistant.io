@@ -1,21 +1,16 @@
 ---
-layout: page
 title: "Device Tracker"
 description: "Instructions on how to setup device tracking within Home Assistant."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
+logo: home-assistant.png
+ha_category:
+  - Presence Detection
+ha_qa_scale: internal
+ha_release: 0.7
 ---
 
-Home Assistant can get information from your wireless router or third party services like iCloud or OwnTracks to track which devices are connected and considered "in home". Please check the sidebar for a list of  brands of supported wireless routers and services.
+The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
-There are also trackers available which use different technologies like [MQTT](/components/mqtt/) or [Nmap](/components/device_tracker.nmap_tracker/) to scan the network for devices.
-
-An [event](/getting-started/automation-trigger/#event-trigger) (`device_tracker_new_device`) will be fired when a device is discovered for the first time.
-
-## {% linkable_title Configuring a `device_tracker` platform %}
+## Configuring a `device_tracker` platform
 
 To get started add the following lines to your `configuration.yaml` (example for Netgear):
 
@@ -23,8 +18,8 @@ To get started add the following lines to your `configuration.yaml` (example for
 # Example configuration.yaml entry for Netgear device
 device_tracker:
   - platform: netgear
-    host: 192.168.1.1
-    username: admin
+    host: IP_ADDRESS
+    username: YOUR_USERNAME
     password: YOUR_PASSWORD
     new_device_defaults:
       track_new_devices: true
@@ -53,17 +48,21 @@ The extended example from above would look like the following sample:
 # Example configuration.yaml entry for Netgear device
 device_tracker:
   - platform: netgear
-    host: 192.168.1.1
-    username: admin
+    host: IP_ADDRESS
+    username: YOUR_USERNAME
     interval_seconds: 10
     consider_home: 180
     new_device_defaults:
       track_new_devices: true
 ```
 
-Multiple device trackers can be used in parallel, such as [Owntracks](/components/device_tracker.owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/device_tracker.nmap_tracker/). The state of the device will be determined by the source that reported last.
+Multiple device trackers can be used in parallel, such as [Owntracks](/components/owntracks/#using-owntracks-with-other-device-trackers) and [Nmap](/components/nmap_tracker/). The state of the device will be determined by the source that reported last.
 
-## {% linkable_title `known_devices.yaml` %}
+## `known_devices.yaml`
+
+<p class='note warning'>
+As of 0.94 `known_devices.yaml` is being phased out, and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, and Locative.
+</p>
 
 Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
 
@@ -86,31 +85,27 @@ devicename:
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
 | `name`         | Host name or "Unnamed Device" | The friendly name of the device.                                                                         |
 | `mac`          | None                          | The MAC address of the device. Add this if you are using a network device tracker like Nmap or SNMP.     |
-| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`.                                      |
+| `picture`      | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your configuration.yaml file and just use `picture: /local/favicon-192x192.png`. The path 'local' is mapped to the 'www' folder you create.                                     |
 | `icon`         | mdi:account                   | An icon for this device (use as an alternative to `picture`).                           |
 | `gravatar`     | None                          | An email address for the device's owner. If provided, it will override `picture`.                        |
 | `track`        | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. |
 | `hide_if_away` | false                         | If `yes`/`on`/`true` then the device will be hidden if it is not at home.                                |
 | `consider_home` | [uses platform setting]      | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                 |
 
-## {% linkable_title Using GPS device trackers with local network device trackers %}
+## Device states
 
-GPS based device trackers (like [OwnTracks](/components/device_tracker.owntracks/), [GPSLogger](/components/device_tracker.gpslogger) and others) can also be used with local network device trackers, such as [Nmap](/components/device_tracker.nmap_tracker/) or [Netgear](/components/device_tracker.netgear/). To do this, fill in the `mac` field to the entry in `known_devices.yaml` with the MAC address of the device you want to track. This way the state of the device will be determined by *the source that reported last*. The naming convention for known device list is `<username>_<device-id>` and could be set in the app configuration.
+The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
 
-An example showing the inclusion of the `mac` field for multiple platform tracking. The `mac` field was added to the GPS based device tracker entry and will enable tracking by all platforms that track via the `mac` address.
+## `device_tracker.see` service
 
-```yaml
-USERNAME_DEVICE_ID:
-  name: Friendly Name
-  mac: EA:AA:55:E7:C6:94
-  picture: https://www.home-assistant.io/images/favicon-192x192.png
-  gravatar: test@example.com
-  track: true
-  hide_if_away: false
-```
+The `device_tracker.see` service can be used to manually update the state of a device tracker:
 
-If you want to track whether either your GPS based tracker or your local network tracker, identify you as being at home, use [a group](/components/group/) instead.
-
-## {% linkable_title Device states %}
-
-The state of your tracked device will be `'home'` if it is in the [home zone](/components/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (in lower case). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `dev_id`               |       no | The second half of the `entity_id`, for example `tardis` for `device_tracker.tardis` |
+| `location_name`        |       no | The location, `home`, `not_home`, or the name of the zone |
+| `host_name`            |      yes | The hostname of the device tracker |
+| `mac`                  |      yes | The MAC address of the entity (only specify if you're updating a network based tracker) |
+| `gps`                  |      yes | If you're providing a location, for example `[51.513845, -0.100539]` |
+| `gps_accuracy`         |      yes | The accuracy of the GPS fix |
+| `battery`              |      yes | The battery level of the device |

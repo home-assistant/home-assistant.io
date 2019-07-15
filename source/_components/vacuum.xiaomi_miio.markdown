@@ -1,16 +1,11 @@
 ---
-layout: page
 title: "Xiaomi Mi Robot Vacuum"
 description: "Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant."
-date: 2018-06-03 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
-ha_category: Vacuum
+ha_category:
+  - Vacuum
 ha_release: 0.51
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
@@ -25,8 +20,9 @@ Currently supported services are:
 - `clean_spot`
 - `set_fan_speed`
 - remote control of your robot.
+- `xiaomi_clean_zone`
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Please follow [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to retrieve the API token used in
 `configuration.yaml`.
@@ -56,16 +52,17 @@ name:
   default: Xiaomi Vacuum cleaner
 {% endconfiguration %}
 
-## {% linkable_title Platform Services %}
+## Platform Services
 
-In addition to all of the services provided by the `vacuum` component (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` integration (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_remote_control_start`
 - `xiaomi_remote_control_stop`
 - `xiaomi_remote_control_move`
 - `xiaomi_remote_control_move_step`
+- `xiaomi_clean_zone`
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_start` %}
+### Service `vacuum.xiaomi_remote_control_start`
 
 Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
@@ -73,7 +70,7 @@ Start the remote control mode of the robot. You can then move it with `remote_co
 |---------------------------|----------|---------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific robot; default targets all |
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_stop` %}
+### Service `vacuum.xiaomi_remote_control_stop`
 
 Exit the remote control mode of the robot.
 
@@ -81,7 +78,7 @@ Exit the remote control mode of the robot.
 |---------------------------|----------|---------------------------------------------------|
 | `entity_id`               |      yes | Only act on a specific robot; default targets all |
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_move` %}
+### Service `vacuum.xiaomi_remote_control_move`
 
 Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
@@ -92,7 +89,7 @@ Remote control the robot. Please ensure you first set it in remote control mode 
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
 
-### {% linkable_title Service `vacuum.xiaomi_remote_control_move_step` %}
+### Service `vacuum.xiaomi_remote_control_move_step`
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
@@ -103,7 +100,81 @@ Enter remote control mode, make one move, stop, and exit remote control mode.
 | `rotation`                |       no | Rotation: between -179 degrees and 179 degrees            |
 | `duration`                |       no | The number of milliseconds that the robot should move for |
 
-## {% linkable_title Attributes %}
+### Service `vacuum.xiaomi_clean_zone`
+
+Start the cleaning operation in the areas selected for the number of repeats indicated.
+
+| Service data attribute    | Optional | Description                                           |
+|---------------------------|----------|-------------------------------------------------------|
+| `entity_id`               |      yes | Only act on specific robot; default targets all       |
+| `zone`                    |       no | List of zones. Each zone is an array of 4 integer value. Example: [[23510,25311,25110,26361]] |
+| `repeats`                    |       no | Number of cleaning repeats for each zone between 1 and 3. |
+
+Example of `vacuum.xiaomi_clean_zone` use:
+
+Inline array:
+{% raw %}
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum
+        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        zone: [[30914,26007,35514,28807], [20232,22496,26032,26496]]
+```
+{% endraw %}
+
+Array with inline zone:
+{% raw %}
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone
+      data_template:
+        entity_id: vacuum.xiaomi_vacuum
+        repeats: '{{states('input_number.vacuum_passes')|int}}'
+        zone:
+        - [30914,26007,35514,28807]
+        - [20232,22496,26032,26496]
+```
+{% endraw %}
+
+Array mode:
+```yaml
+automation:
+  - alias: Test vacuum zone3
+    trigger:
+    - event: start
+      platform: homeassistant
+    condition: []
+    action:
+    - service: vacuum.xiaomi_clean_zone
+      data:
+        entity_id: vacuum.xiaomi_vacuum
+        repeats: 1
+        zone:
+        - - 30914
+          - 26007
+          - 35514
+          - 28807
+        - - 20232
+          - 22496
+          - 26032
+          - 26496
+```
+
+## Attributes
 
 In addition to [all of the attributes provided by the `vacuum` component](/components/vacuum/#attributes),
 (`battery_icon`, `cleaned_area`, `fan_speed`, `fan_speed_list`, and `params`), the `xiaomi` platform introduces specific attributes. These are:
@@ -131,7 +202,7 @@ The following table shows the units of measurement for each attribute:
 | `total_cleaned_area`      | square meter        | Total cleaned area in square meters                   |
 | `total_cleaning_time`     | minutes             | Total cleaning time in minutes                        |
 
-## {% linkable_title Retrieving the Access Token %}
+## Retrieving the Access Token
 
 <p class='note'>
 As per Version 5.4.49 the Android Mi Home app stores the token readable in the log files. It can easily be retrieved in the folder Smarthome on in the Android device. Just open the text file inside the Smarthome/logs folder and search for the token.
@@ -142,7 +213,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
 </p>
 
-### {% linkable_title Miio command line tool %}
+### Miio command line tool
 
 You can install the command line tool using the following command:
 
@@ -175,11 +246,11 @@ The information output is:
 - `Address` - The IP that the device has on the network.
 - `Token` - The token of the device or `???` if it could not be automatically determined.
 
-### {% linkable_title Windows and Android %}
+### Windows and Android
 
 To fetch the token follow these instructions depending on your mobile phone platform.
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/).
 2. Download and extract the [MiToolKit.zip](https://github.com/ultrara1n/MiToolkit/releases).
 3. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
 4. Change the MiToolKit language to English if you need to.
@@ -188,7 +259,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
 7. Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.
 8. If you don't get a token, close MiToolKit completely, delete the folder MiToolkit\apps\com.xiaomi.smarthome and relaunch MiToolKit to force recreate a new backup (sometimes the files would not be overwritten before deleting the old ones).
 
-### {% linkable_title Linux and Android (not rooted) %}
+### Linux and Android (not rooted)
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from an SQLite file inside your phone.
 
@@ -207,7 +278,7 @@ source /srv/homeassistant/bin/activate
 
 To fetch the token follow these instructions depending on your mobile phone platform.
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/).
 2. Enable developer mode, USB debugging and plug the Android phone into the computer.
 3. Get ADB by running `apt-get install android-tools-adb` or `apt-get install adb`.
 4. `adb devices` should list your device. Consult the ADB manual if necessary.
@@ -223,7 +294,7 @@ To fetch the token follow these instructions depending on your mobile phone plat
     sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name like "%Vacuum%";'
     ```
 
-### {% linkable_title Linux and Android (rooted!) %}
+### Linux and Android (rooted!)
 
 Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from an SQLite file inside your phone.
 
@@ -242,7 +313,7 @@ source /srv/homeassistant/bin/activate
 
 To fetch the token follow these instructions depending on your mobile phone platform.
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/).
 2. Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.
 3. Get ADB (e.g, using `apt-get install android-tools-adb`).
 4. The command `adb devices` should list your device.
@@ -253,9 +324,9 @@ To fetch the token follow these instructions depending on your mobile phone plat
     echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db
     ```
 
-### {% linkable_title iOS %}
+### iOS
 
-1. Configure the robot with the Mi-Home app.
+1. Configure the robot with the Mi Home app.
 2. Using iTunes, create an unencrypted backup of your iPhone.
 3. Install [iBackup Viewer](https://www.imactools.com/iphonebackupviewer/), open it, and open your backup.
 4. Open the "Raw Data" module.
@@ -276,39 +347,46 @@ To fetch the token follow these instructions depending on your mobile phone plat
     ```
 14. Use the resulting string as your token.
 
-### {% linkable_title Bluestacks %}
+### Bluestacks
 
 1. Configure the robot with the Mi-Home app.
 2. Install [BlueStacks](https://www.bluestacks.com).
-3. Set up the Mi-Home app in BlueStacks and login to synchronize devices.
+3. Set up [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/) in BlueStacks and login to synchronize devices.
 4. Use [BlueStacks Tweaker](https://forum.xda-developers.com/general/general/bluestacks-tweaker-2-tool-modifing-t3622681) to access the filesystem and retrieve the token.
 
-### {% linkable_title Selecting token manually (Windows and Android) %}
+### Selecting token manually (Windows and Android)
 
 The following instruction explained an alternative method, in case the MiToolKit didn't work.
 
 Software Required:
 
 - Android ADB is contained in [Android SDK](https://developer.android.com/studio/releases/platform-tools)
-- [Mi-Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
+- [Mi Home version 5.0.30](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-30-release/)
 - [Android Backup Extractor](https://sourceforge.net/projects/adbextractor/)
 - [SQLite Browser](https://sqlitebrowser.org/)
+1. Install an old Version of MiHome (e.g. Mi Home version 5.0.30) on your Android-Device
+2. Open MiHome, log-in and add your devices
+3. Enable USB-Debugging on your Android
+4. Create a backup from your MiHome App, by using adb
+  ```bash
+  adb backup com.xiaomi.smarthome
+  ```
+  Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
+5. Extract the backup-file with android-backup-extractor
+  ```bash
+  java -jar abe.jar unpack backup.ab backup.tar
+  ```
+  After that, you will be able to open the file with WinRaR or what ever you like.
+6. Go to \apps\com.xiaomi.smarthome\db
+7. Open miio2.db with SQLite Browser
+8. You can find your device tokens in "devicerecord" table
 
-Steps to take:
+## Retrieving the Zone Coordinates
 
-1. Install an old Version of MiHome (e.g. Mi-Home version 5.0.30) on your Android-Device.
-2. Open MiHome, log-in and add your devices.
-3. Enable USB-Debugging on your Android.
-4. Create a backup from your MiHome App, by using adb:
-    ```bash
-    adb backup com.xiaomi.smarthome
-    ```
-    Now the backup App opens on you Android-Device. You don't need to set a password, just click save.
-5. Extract the backup-file with android-backup-extractor:
-    ```bash
-    java -jar abe.jar unpack backup.ab backup.tar
-    ```
-    After that, extract the file with WinRAR, 7-Zip (or similar).
-6. Go to `\apps\com.xiaomi.smarthome\db`.
-7. Open `miio2.db` with the SQLite Browser.
-8. You can find your device tokens in `devicerecord` table.
+### Using FloleVac (Android)
+
+1. Download [FloleVac](https://play.google.com/store/apps/details?id=de.flole.xiaomi)
+2. Login with your Xiaomi credentials
+3. Open Map (make sure you're on the same network as your vacuum cleaner)
+4. Select "Zone cleanup" and draw a box around the zone you'd like to clean
+5. Long press "Cleanup" and the zone coordinates will be copied to your clipboard

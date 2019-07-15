@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Numbers"
 description: "Numbers, lists, etc."
 date: 2017-01-18 08:04:05 +0000
 date_formatted: "January 18, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Community
 ---
 

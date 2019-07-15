@@ -1,18 +1,14 @@
 ---
-layout: page
 title: "Shell command"
 description: "Instructions on how to integrate Shell commands into Home Assistant."
-date: 2015-10-13 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Automation
+ha_category:
+  - Automation
 logo: home-assistant.png
 ha_qa_scale: internal
+ha_release: 0.7.6
 ---
 
-This component can expose regular shell commands as services. Services can be called from a [script] or in [automation].
+This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].
 Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
 [script]: /components/script/
@@ -59,6 +55,6 @@ input_number:
 
 {% raw %}
 shell_command:
-  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states.input_number.ac_temperature.state }}_AUTO'
+  set_ac_to_slider: 'irsend SEND_ONCE DELONGHI AC_{{ states('input_number.ac_temperature') }}_AUTO'
 {% endraw %}
 ```

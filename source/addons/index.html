@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hass.io Add-ons"
 description: "List of the built-in add-ons of Hass.io."
-date: 2017-04-30 13:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 regenerate: false
 ---
 
@@ -22,7 +16,7 @@ Add-ons are only available if you've used the Hass.io installer. If you installe
 
 {% assign addons = site.addons | sort: 'title' %}
 
-<h3>{% linkable_title Featured add-ons %}</h3>
+<h3>Featured add-ons</h3>
 
 <ul>
 {% for addon in addons %}{% if addon.featured %}
@@ -33,7 +27,7 @@ Add-ons are only available if you've used the Hass.io installer. If you installe
 {% endif %}{% endfor %}
 </ul>
 
-<h3>{% linkable_title Other add-ons %}</h3>
+<h3>Other add-ons</h3>
 
 <ul>
 {% for addon in addons %}{% if addon.featured != true %}

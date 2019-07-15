@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "Input Text"
-description: "Instructions on how to integrate the Input Text component into Home Assistant."
-date: 2016-03-15 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Text integration into Home Assistant."
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.53
 ha_qa_scale: internal
 ---
 
-The `input_text` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
 ```yaml
 # Example configuration.yaml entries
@@ -49,7 +44,7 @@ input_text:
         type: integer
         default: 0
       max:
-        description: Maximum length for the text value.
+        description: Maximum length for the text value. 255 is the maximum number of characters allowed in an entity state.
         required: false
         type: integer
         default: 100
@@ -70,19 +65,19 @@ input_text:
         default: text
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
-This components provide three services to modify the state of the `input_text`.
+This integrations provide three services to modify the state of the `input_text`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
 | `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 Here's an example using `input_text` in an action in an automation.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dynamic content"
 description: "Extend your notifications with dynamic content"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/content_extensions/
 ---
 
@@ -60,6 +54,8 @@ The notification content is a real time MJPEG stream of a camera (assuming the c
 You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
 
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
+
+Note: This functionality is only available from iOS 11 onwards.
 
 ```yaml
 service: notify.ios_<your_device_id_here>

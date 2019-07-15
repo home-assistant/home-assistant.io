@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Query Stage"
 description: "What are the Query Stages."
-date: 2017-09-21 11:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 When the Z-Wave mesh is first started, the controller will go through all the following stages for every device on the mesh. This is a slow process, and to complete requires that the devices be awake. While devices that are mains or USB powered are always awake, battery-powered devices spend most of their time asleep. Because of this, you can expect that after startup your battery powered devices will spend time in `Initializing (CacheLoad)` - how long depends on the device.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Git pull"
 description: "Load and update configuration files for Home Assistant from a GIT repository."
-date: 2017-09-25 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Load and update configuration files for Home Assistant from a [Git](https://git-scm.com/) repository.
@@ -61,7 +55,7 @@ Load and update configuration files for Home Assistant from a [Git](https://git-
 * **interval** (*Required*): The interval in seconds to poll the repo for if automatic polling is enabled.
 - **deployment_user** (*Optional*): Username to use when authenticating to a repository with a username and password.
 - **deployment_password** (*Optional*): Password to use when authenticating to a repository.  Ignored if `deployment_user` is not set.
-- **deployment_key** (*Optional*): A private SSH key that will be used for communication during Git operations. This key is mandatory for ssh-accessed repositories, which are the ones with the following pattern: `<user>@<host>:<repository path>`.
+- **deployment_key** (*Optional*): A private SSH key that will be used for communication during Git operations. This key is mandatory for ssh-accessed repositories, which are the ones with the following pattern: `<user>@<host>:<repository path>`. This key has to be created without a passphrase.
 - **deployment_key_protocol** (*Optional*): The key protocol. Default is `rsa`. Valid protocols are:
 
   * **dsa**

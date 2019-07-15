@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Gauge Card"
 sidebar_label: Gauge
 description: "The Gauge card allows you to display sensor information visually"
-date: 2018-10-11 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Gauge card is a basic card that allows visually seeing sensor data.
@@ -18,8 +12,8 @@ Screenshot of the gauge card.
 </p>
 
 ```yaml
-- type: gauge
-  entity: sensor.cpu_usage
+type: gauge
+entity: sensor.cpu_usage
 ```
 
 {% configuration %}
@@ -74,15 +68,15 @@ severity:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title and Unit of Measurement Example:
 
 ```yaml
-- type: gauge
-  name: CPU Usuage
-  unit: '%'
-  entity: sensor.cpu_usage
+type: gauge
+name: CPU Usuage
+unit: '%'
+entity: sensor.cpu_usage
 ```
 
 <p class='img'>
@@ -93,12 +87,12 @@ Screenshot of the gauge card with custom title and unit of measurement.
 Define the severity map:
 
 ```yaml
-- type: gauge
-  name: With Severity
-  unit: '%'
-  entity: sensor.cpu_usage
-  severity:
-    green: 0
-    yellow: 45
-    red: 85
+type: gauge
+name: With Severity
+unit: '%'
+entity: sensor.cpu_usage
+severity:
+  green: 0
+  yellow: 45
+  red: 85
 ```

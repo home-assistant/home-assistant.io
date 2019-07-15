@@ -1,16 +1,11 @@
 ---
-layout: page
 title: "MQTT HVAC"
 description: "Instructions on how to integrate MQTT HVAC into Home Assistant."
-date: 2017-07-31 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.55
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
@@ -19,7 +14,7 @@ The platform currently works in optimistic mode, which means it does not obtain 
 
 It uses a sensor under the hood to obtain the current temperature.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
 
@@ -128,6 +123,22 @@ temperature_state_template:
   description: A template to render the value received on the `temperature_state_topic` with.
   required: false
   type: template
+temperature_low_command_topic:
+  description: The MQTT topic to publish commands to change the target low temperature.
+  required: false
+  type: string
+temperature_low_state_topic:
+  description: The MQTT topic to subscribe for changes in the target low temperature. If this is not set, the target low temperature works in optimistic mode (see below).
+  required: false
+  type: string
+temperature_high_command_topic:
+  description: The MQTT topic to publish commands to change the high target temperature.
+  required: false
+  type: string
+temperature_high_state_topic:
+  description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
+  required: false
+  type: string
 fan_mode_command_topic:
   description: The MQTT topic to publish commands to change the fan mode.
   required: false
@@ -186,6 +197,9 @@ hold_state_template:
   description: A template to render the value received on the `hold_state_topic` with.
   required: false
   type: template
+hold_modes:
+  description: A list of available hold modes.
+  required: false
 aux_command_topic:
   description: The MQTT topic to publish commands to switch auxiliary heat.
   required: false
@@ -215,6 +229,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 device:
   description: 'Information about the device this HVAC device is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false
@@ -246,11 +264,11 @@ device:
       type: string
 {% endconfiguration %}
 
-#### {% linkable_title Optimistic mode %}
+#### Optimistic mode
 
 If a property works in *optimistic mode* (when the corresponding state topic is not set), Home Assistant will assume that any state changes published to the command topics did work and change the internal state of the entity immediately after publishing to the command topic. If it does not work in optimistic mode, the internal state of the entity is only updated when the requested update is confirmed by the device through the state topic.
 
-#### {% linkable_title Using Templates %}
+#### Using Templates
 
 For all `*_state_topic`s, a template can be specified that will be used to render the incoming payloads on these topics. Also, a default template that applies to all state topis can be specified as `value_template`. This can be useful if you received payloads are e.g., in JSON format. Since in JSON, a quoted string (e.g., `"foo"`) is just a string, this can also be used for unquoting.
 
@@ -274,7 +292,7 @@ climate:
 This will parse the incoming `"auto"` as JSON, resulting in `auto`. Obviously, in this case you could also just set `value_template: {% raw %}"{{ value_json }}"{% endraw %}`.
 
 
-### {% linkable_title Example %}
+### Example
 
 A full configuration example looks like the one below.
 

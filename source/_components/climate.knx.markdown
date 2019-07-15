@@ -1,21 +1,16 @@
 ---
-layout: page
 title: "KNX Climate"
 description: "Instructions on how to integrate KNX thermostats with Home Assistant."
-date: 2016-06-24 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.25
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 The `knx` climate platform is used as in interface with KNX thermostats.
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
 To use your KNX thermostats in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -27,7 +22,7 @@ climate:
      temperature_address: '5/1/1'
      setpoint_shift_address: '5/1/2'
      setpoint_shift_state_address: '5/1/3'
-     target_temperature_address: '5/1/4'
+     target_temperature_state_address: '5/1/4'
      operation_mode_address: '5/1/5'
 ```
 
@@ -41,25 +36,46 @@ climate:
     temperature_address: '5/1/1'
     setpoint_shift_address: '5/1/2'
     setpoint_shift_state_address: '5/1/3'
-    target_temperature_address: '5/1/4'
+    target_temperature_state_address: '5/1/4'
     operation_mode_frost_protection_address: '5/1/5'
     operation_mode_night_address: '5/1/6'
     operation_mode_comfort_address: '5/1/7'
 ```
 
+If your device doesn't support setpoint_shift calculations (i.e. if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
+attributes of the climate device to avoid issues with increasing the temperature in the frontend. Please do also make sure to add the `target_temperature_address`
+to the config in this case.:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: knx
+    name: HASS-Kitchen.Temperature
+    temperature_address: '5/1/2'
+    target_temperature_address: '5/1/4'
+    target_temperature_state_address: '5/1/1'
+    operation_mode_frost_protection_address: '5/1/5'
+    operation_mode_night_address: '5/1/6'
+    operation_mode_comfort_address: '5/1/7'
+    min_temp: 7.0
+    max_temp: 32.0
+```
+
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
 
-If your device doesn't support setpoint_shift calculations (i.e. if you don't provide a `setpoint_shift_address` value) please set the `min_temp` and `max_temp`
-attributes of the climate device to avoid issues with increasing the temperature in the frontend.
+The following values are valid for the `hvac_mode` attribute:
 
-The following values are valid for the `operation_modes` attribute:
+- Off (maps internally to HVAC_MODE_OFF within Home Assistant)
+- Heat (maps internally to HVAC_MDOE_HEAT within Home Assistant)
+- Fan only (maps internally to HVAC_MODE_FAN_ONLY within Home Assistant)
+- Dehumidification (maps internally to HVAC_MODE_DRY within Home Assistant)
 
-- Comfort (maps internally to STATE_HEAT within Home Assistant)
-- Standby (maps internally to STATE_ECO within Home Assistant)
-- Night (maps internally to STATE_IDLE within Home Assistant)
-- Frost Protection (maps internally to STATE_MANUAL within Home Assistant)
-- Fan only (maps internally to STATE_FAN_ONLY within Home Assistant)
-- Dehumidification (maps internally to STATE_DRY within Home Assistant)
+The following presets are valid for the `preset_mode` attribute:
+
+- Comfort (maps internally to PRESET_COMFORT within Home Assistant)
+- Standby (maps internally to PRESET_AWAY within Home Assistant)
+- Night (maps internally to PRESET_SLEEP within Home Assistant)
+- Frost Protection (maps internally to PRESET_ECO within Home Assistant)
 
 {% configuration %}
 name:
@@ -72,6 +88,10 @@ temperature_address:
   required: true
   type: string
 target_temperature_address:
+  description: KNX group address for setting target temperature.
+  required: false
+  type: string
+target_temperature_state_address:
   description: KNX group address for reading current target temperature from KNX bus.
   required: true
   type: string
@@ -116,7 +136,7 @@ controller_status_state_address:
   type: string
 controller_mode_address:
   description: KNX address for handling controller modes.
-  required: false 
+  required: false
   type: string
 controller_mode_state_address:
   description: Explicit KNX address for reading HVAC Control Mode.

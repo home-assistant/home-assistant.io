@@ -1,18 +1,13 @@
 ---
-layout: page
 title: "RFLink"
 description: "Instructions on how to integrate RFLink gateway into Home Assistant."
-date: 2016-01-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.38
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
@@ -24,11 +19,11 @@ Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Color
 
 A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
 
-This component is tested with the following hardware/software:
+This integration is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable RFLink in your installation, add the following to your `configuration.yaml` file:
 
@@ -63,7 +58,7 @@ reconnect_interval:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Full example %}
+### Full example
 ```yaml
 # Example configuration.yaml entry
 rflink:
@@ -74,7 +69,7 @@ rflink:
     - digitech_*
 ```
 
-### {% linkable_title TCP mode %}
+### TCP mode
 
 TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
@@ -103,7 +98,7 @@ rflink:
   port: 1234
 ```
 
-### {% linkable_title Adding devices Automatically %}
+### Adding devices Automatically
 
 In order to have your devices discovered automatically, you need to add the following to the configuration.
 When pressing the button on the physical remote, RFLink detects the signal and the device should be added automatically to Home Assistant.
@@ -119,9 +114,9 @@ sensor:
 
 [RFLink Switches](/components/switch.rflink/) and [RFLink Binary Sensors](/components/binary_sensor.rflink/) cannot be added automatically. 
 
-The RFLink component does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
+The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group, hide it or configure a nice name.
 
-### {% linkable_title Ignoring devices %}
+### Ignoring devices
 
 The RFLink platform can be configured to completely ignore a device on a platform level. This is useful when you have neighbors which also use 433 MHz technology.
 
@@ -144,22 +139,22 @@ This configuration will ignore the button `1` of the `newkaku` device with ID `0
 Wildcards only work at the end of the ID, not in the middle or front!
 </p>
 
-### {% linkable_title Device support %}
+### Device support
 
-Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this component please consider testing and adding support yourself.
+Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
 
-### {% linkable_title Device Incorrectly Identified %}
+### Device Incorrectly Identified
 
 If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.rflink.nl/blog2/faq#RFFind)
 
-### {% linkable_title Technical Overview %}
+### Technical Overview
 
 - The`rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
-- This component uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
+- This integration uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
 - The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet ID's.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
 
-### {% linkable_title Debug Logging %}
+### Debug Logging
 
 For debugging purposes or context when investigating issues you can enable debug logging for RFLink with the following config snippet:
 

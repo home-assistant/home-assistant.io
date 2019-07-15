@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Entities Card"
 sidebar_label: Entities
 description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
@@ -36,9 +30,9 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
-If you define entities as objects instead of strings, you can add more customization and configuration:
+If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
 
 {% configuration %}
 entity:
@@ -67,9 +61,9 @@ format:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Special Row Elements %}
+## Special Row Elements
 
-### {% linkable_title Call Service %}
+### Call Service
 
 {% configuration %}
 type:
@@ -100,7 +94,7 @@ service_data:
   type: object
 {% endconfiguration %}
 
-### {% linkable_title Divider %}
+### Divider
 
 {% configuration %}
 type:
@@ -114,7 +108,7 @@ style:
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 
-### {% linkable_title Section %}
+### Section
 
 {% configuration %}
 type:
@@ -127,7 +121,7 @@ label:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Weblink %}
+### Weblink
 
 {% configuration %}
 type:
@@ -150,40 +144,40 @@ icon:
   default: "`mdi:link`"
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Entity rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - entity: alarm_control_panel.alarm
-      name: Alarm Panel
-    - device_tracker.demo_paulus
-    - switch.decorative_lights
-    - group.all_lights
-    - group.all_locks
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - entity: alarm_control_panel.alarm
+    name: Alarm Panel
+  - device_tracker.demo_paulus
+  - switch.decorative_lights
+  - group.all_lights
+  - group.all_locks
 ```
 
 Special rows:
 
 ```yaml
-- type: entities
-  title: Entities card sample
-  show_header_toggle: true
-  entities:
-    - type: call-service
-      icon: mdi:power
-      name: Bed light
-      action_name: Toggle light
-      service: light.toggle
-      service_data:
-        entity_id: light.bed_light
-    - type: divider
-    - type: weblink
-      name: Home Assistant
-      url: https://www.home-assistant.io/
-      icon: mdi:home-assistant
+type: entities
+title: Entities card sample
+show_header_toggle: true
+entities:
+  - type: call-service
+    icon: mdi:power
+    name: Bed light
+    action_name: Toggle light
+    service: light.toggle
+    service_data:
+      entity_id: light.bed_light
+  - type: divider
+  - type: weblink
+    name: Home Assistant
+    url: https://www.home-assistant.io/
+    icon: mdi:home-assistant
 ```

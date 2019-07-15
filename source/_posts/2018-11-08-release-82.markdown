@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.82: TensorFlow, Lovelace UI edit, Z-Wave Barrier Class"
 description: "We are glad to inform you that yet another epic release has landed."
 date: 2018-11-09 00:01:00
 date_formatted: "November 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-11-release-82/lovelace-edit.png
 ---
@@ -30,7 +28,7 @@ Also frontend related, in version 0.81 we removed all config splitting functions
 
 And we have one more thing… we have soft-forked Open Z-Wave and have added support for the barrier command class! This means that now you will be able to control your garage doors from Z-Wave without compiling Open Z-Wave yourself. We'll continue to monitor what other features we can add to our fork while remaining close to the OZW project.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add device tracking for the BT Smart Hub router ([@jxwolstenholme] - [#17158]) ([device_tracker docs]) (new-platform)
 - Météo-france sensor : current weather and 1 hour rain forecast ([@victorcerutti] - [#17773]) ([sensor.meteo_france docs]) (new-platform)
@@ -38,7 +36,7 @@ And we have one more thing… we have soft-forked Open Z-Wave and have added sup
 - Add a component for GreenEye Monitor ([@jkeljo] - [#16378]) ([greeneye_monitor docs]) (new-platform)
 - TensorFlow image_processing component ([@hunterjm] - [#17795]) ([image_processing.tensorflow docs]) (new-platform)
 
-## {% linkable_title Release 0.82.1 - November 15 %}
+## Release 0.82.1 - November 15
 
 - catch key error when saving image ([@hunterjm] - [#18365]) ([image_processing.tensorflow docs])
 - Fix hangouts notify ([@MartinHjelmare] - [#18372]) ([notify docs])
@@ -80,17 +78,17 @@ And we have one more thing… we have soft-forked Open Z-Wave and have added sup
 [sense docs]: /components/sense/
 [zwave docs]: /components/zwave/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Migrate Mailgun to use the webhook component ([@rohankapoorcom] - [#17464]) ([ifttt docs]) ([mailgun docs]) ([notify docs]) ([automation.webhook docs]) (breaking change)
 - Migrate twilio webhooks to the webhook component ([@rohankapoorcom] - [#17715]) ([twilio docs]) (breaking change)
@@ -101,7 +99,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update Pollen.com to use numpy for trend analysis ([@bachya] - [#18107]) ([sensor.pollen docs]) (breaking change)
 - Remove config (breaking change) ([@jjlawren] - [#18153]) ([ffmpeg docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - SMA: Optional import in schema & backoff fix ([@kellerza] - [#18099]) (beta fix)
 - Remove config (breaking change) ([@jjlawren] - [#18153]) ([ffmpeg docs]) (breaking change) (beta fix)
@@ -119,7 +117,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove Velbus climate platform ([@balloob] - [#18319]) ([velbus docs]) (beta fix)
 - fix last device ignored ([@abmantis] - [#18329]) ([device_tracker docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Mill, support more heater types ([@Danielhiversen] - [#17676]) ([climate.mill docs])
 - Add missing hangouts data/image to notify service ([@quazzie] - [#17576]) ([notify docs])
@@ -671,7 +669,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.version docs]: /components/sensor.version/
 [sensor.wunderground docs]: /components/sensor.wunderground/
 [sensor.xiaomi_miio docs]: /components/sensor.xiaomi_miio/
-[sensor.yahoo_finance docs]: /components/sensor.yahoo_finance/
 [simplisafe docs]: /components/simplisafe/
 [sun docs]: /components/sun/
 [switch.deconz docs]: /components/switch.deconz/

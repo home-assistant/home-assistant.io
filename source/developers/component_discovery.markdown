@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Component Discovery"
-description: "How to make component discovery work."
-date: 2017-11-23 07:27 +02:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "How to make integration discovery work."
 ---
 
 <script>

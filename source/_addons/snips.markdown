@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Snips.ai"
 description: "Enhance your Hass.io installation with a local voice assistant."
-date: 2018-05-02 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 [Snips.ai](https://snips.ai/) is an AI-powered voice assistant that runs on the Raspberry Pi 3 and x86 platforms. It runs on-device and is Private by Design.
@@ -17,7 +11,7 @@ The Snips add-on depends on the Mosquitto add on to bridge to Home Assistant, so
 
 Home Assistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
 
-The Snips add-on by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a shopping list if that component is enabled.
+The Snips add-on by default comes with an assistant that allows you to turn on lights or switches, open covers, or add and list items to a [Shopping List](/components/shopping_list/) if that integration is enabled.
 
 If using a USB microphone and speakers plugged into the Raspberry Pi output, Snips will work without any change to the configuration. Trying saying things like:
 
@@ -33,7 +27,7 @@ Now install and activate the [Samba](/addons/samba/) add-on so you can upload yo
 
 Now it's time to start Snips for the first time. You can configure the microphone and sound card using the Add-on interface. Now start the add-on.
 
-### {% linkable_title Add-On configuration %}
+### Add-On configuration
 
 ```json
 {
@@ -66,23 +60,23 @@ tts_platform:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
-A simple configuration just requires this. Consult [Snips.ai component](/components/snips/) for more options.
+A simple configuration just requires this. Consult [Snips.ai integration](/components/snips/) for more options.
 
 ```yaml
 snips:
 ```
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
-There is an active [discord](https://discordapp.com/invite/3939Kqx) channel for further support.
+There is an active [discord](https://discordapp.com/invite/3939Kqx) channel and [Snips forum](https://forum.snips.ai/) for further support.
 
-### {% linkable_title Examples %}
+### Examples
 
 So now you can turn lights on and off, let's check the weather. Log on to the [console](https://console.snips.ai/). If this is your first time, create a new assistant and add the Home Assistant skill, along with the Weather skill by snips. Download your assistant manually and copy it to the `/share` folder on your HassIO installation using the Samba add-on.
 
-Next create a weather sensor, e.g., one for (Dark Sky)[/components/sensor.darksky/] and put the `api_key` in your `secrets.yaml` file.
+Next create a weather sensor, e.g., one for [Dark Sky](/components/darksky/), and put the `api_key` in your `secrets.yaml` file. For this example to work you will need to have a valid API key from [Dark Sky](https://darksky.net/dev).
 
 ```yaml
 - platform: darksky
@@ -98,7 +92,7 @@ Next create a weather sensor, e.g., one for (Dark Sky)[/components/sensor.darksk
     - temperature_min
 ```
 
-Next add this to your `configuration.yaml` file to reference a new `intent_script` component. This is a good practice to [split your configuration files](/docs/configuration/splitting_configuration/) up.
+Next add this to your `configuration.yaml` file to reference a new `intent_script` integration. This is a good practice to [split your configuration files](/docs/configuration/splitting_configuration/) up.
 
 ```yaml
 intent_script: !include intent_script.yaml

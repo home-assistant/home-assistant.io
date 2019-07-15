@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Customizing entities"
 description: "Simple customization for entities in the frontend."
-date: 2016-04-20 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/customizing-devices/
 ---
 
-## {% linkable_title Changing the entity_id %}
+## Changing the entity_id
 
 You can use the UI to change the `entity_id` and friendly name of supported entities. To do this:
 
@@ -19,15 +13,15 @@ You can use the UI to change the `entity_id` and friendly name of supported enti
 3. Enter the new name or the new entity ID (remember not to change the domain of the entity - the part before the `.`)
 4. Select *Save*
 
-## {% linkable_title Customizing entities %}
+## Customizing entities
 
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-### {% linkable_title Customization using the UI %}
+### Customization using the UI
 
 Under the *Configuration* menu you'll find the *Customization* menu. When you select an entity to customize, you'll see all the existing attributes listed and you can customize those, or select an additional supported attribute ([see below](/docs/configuration/customizing-devices/#possible-values)).
 
-#### {% linkable_title Possible values %}
+#### Possible values
 
 {% configuration customize %}
 friendly_name:
@@ -58,7 +52,7 @@ entity_picture:
   required: false
   type: string
 icon:
-  description: Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://materialdesignicons.com/cheatsheet)). Prefix name with `mdi:`, ie `mdi:home`.
+  description: "Any icon from [MaterialDesignIcons.com](http://MaterialDesignIcons.com) ([Cheatsheet](https://cdn.materialdesignicons.com/3.5.95/)). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release. You can check when an icon was added to MaterialDesignIcons.com at [MDI History](https://materialdesignicons.com/history)."
   required: false
   type: string
 assumed_state:
@@ -82,7 +76,7 @@ initial_state:
   type: string
 {% endconfiguration %}
 
-#### {% linkable_title Device Class %}
+#### Device Class
 
 Device class is currently supported by the following components:
 
@@ -90,7 +84,7 @@ Device class is currently supported by the following components:
 * [Sensor](/components/sensor/)
 * [Cover](/components/cover/)
 
-### {% linkable_title Manual customization %}
+### Manual customization
 
 <p class='note'>
 If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
@@ -133,7 +127,7 @@ homeassistant:
       homebridge_hidden: true
 ```
 
-### {% linkable_title Reloading customize %}
+### Reloading customize
 
 Home Assistant offers a service to reload the core configuration while Home Assistant is running called `homeassistant.reload_core_config`. This allows you to change your customize section and see it being applied without having to restart Home Assistant. To call this service, go to the <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> service developer tools, select the service `homeassistant.reload_core_config` and click "CALL SERVICE".
 

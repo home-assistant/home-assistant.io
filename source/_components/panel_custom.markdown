@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Panel Custom"
 description: "Instructions on how to add customized panels to the frontend of Home Assistant."
-date: 2015-08-08 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Front end
+ha_category:
+  - Front end
 ha_release: 0.26
 ha_qa_scale: internal
 ---
@@ -35,7 +30,7 @@ Store your custom panels in `<config>/www` to make them available in the fronten
 
 {% configuration %}
 name:
-  description: Name of the web component that renders your panel.
+  description: Name of the web integration that renders your panel.
   required: true
   type: string
 sidebar_title:
@@ -63,6 +58,10 @@ config:
   description: Configuration to be passed into your web component when being instantiated.
   required: false
   type: list
+require_admin:
+  description: If admin access is required to see this panel.
+  required: false
+  type: boolean
 embed_iframe:
   description: Set to `true` to embed panel in iframe. This is necessary if the panel is using the React framework or if it contains conflicting web components.
   required: false

@@ -1,25 +1,21 @@
 ---
-layout: page
 title: "MySensors Switch"
 description: "Instructions on how to integrate MySensors switches into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
-ha_category: DIY
-featured: false
-ha_iot_class: "Local Push"
+ha_category:
+  - DIY
+  - Switch
+ha_iot_class: Local Push
+ha_release: 0.11
 ---
 
 Integrates MySensors switches into Home Assistant. See the [main component] for configuration instructions.
 
-## {% linkable_title Supported actuator types %}
+## Supported actuator types
 
 The following actuator types are supported:
 
-### {% linkable_title MySensors version 1.4 and higher %}
+### MySensors version 1.4 and higher
 
 S_TYPE   | V_TYPE
 ---------|-------------------
@@ -30,7 +26,7 @@ S_LIGHT  | V_LIGHT
 S_LOCK   | V_LOCK_STATUS
 S_IR     | V_IR_SEND, V_LIGHT
 
-### {% linkable_title MySensors version 1.5 and higher %}
+### MySensors version 1.5 and higher
 
 S_TYPE       | V_TYPE
 -------------|----------------------
@@ -42,7 +38,7 @@ S_SOUND      | V_ARMED
 S_VIBRATION  | V_ARMED
 S_MOISTURE   | V_ARMED
 
-### {% linkable_title MySensors version 2.0 and higher %}
+### MySensors version 2.0 and higher
 
 S_TYPE          | V_TYPE
 ----------------|---------
@@ -52,7 +48,7 @@ All V_TYPES for each S_TYPE above are required to activate the actuator for the 
 
 For more information, visit the [serial api] of MySensors.
 
-## {% linkable_title Services %}
+## Services
 
 The MySensors switch platform exposes a service to change an IR code attribute for an IR switch device and turn the switch on. The IR switch will automatically be turned off after being turned on, if `optimistic` is set to `true` in the [config](/components/mysensors/#configuration) for the MySensors component. This will simulate a push button on a remote. If `optimistic` is `false`, the MySensors device will have to report its updated state to reset the switch. See the [example sketch](#ir-switch-sketch) for the IR switch below.
 
@@ -86,9 +82,9 @@ automation:
         V_IR_SEND: '0xC288'  # the IR code to send
 ```
 
-## {% linkable_title Example sketches %}
+## Example sketches
 
-### {% linkable_title Switch sketch %}
+### Switch sketch
 
 ```cpp
 /*
@@ -134,7 +130,7 @@ void incomingMessage(const MyMessage &message)
 }
 ```
 
-### {% linkable_title IR switch sketch %}
+### IR switch sketch
 
 ```cpp
 /*

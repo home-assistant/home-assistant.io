@@ -99,11 +99,6 @@ twitter_tweet_button: true
 google_plus_one: true
 google_plus_one_size: standard
 
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-googleplus_user: +PaulusSchoutsen
-googleplus_hidden: true
-
 # Pinboard
 pinboard_user:
 pinboard_count: 3
@@ -143,9 +138,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 0
-current_minor_version: 86
-current_patch_version: 3
-date_released: 2019-01-26
+current_minor_version: 95
+current_patch_version: 4
+date_released: 2019-06-29
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -160,3 +155,25 @@ disqus_end_date: 2010-01-26 0:00:00
 
 # Support .well-known directory
 include: [".well-known"]
+
+# Set Front matter defaults
+defaults:
+  # Defaults for all pages
+  - scope:
+      path: ""
+    values:
+      layout: page
+      comments: false
+      footer: true
+      sharing: true
+      sidebar: true
+      featured: false
+  # Defaults for blogs posts
+  - scope:
+      type: posts
+    values:
+      layout: post
+      comments: true
+      footer: true
+      sharing: true
+      sidebar: true

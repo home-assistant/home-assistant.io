@@ -1,16 +1,14 @@
 ---
-layout: page
 title: "HLK-SW16 Relay Module"
 description: "Instructions on how to integrate HLK-SW16 relay into Home Assistant."
-date: 2018-10-29 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hlktech.jpg
-ha_category: DIY
+ha_category:
+  - DIY
+  - Switch
 ha_release: 0.84
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
+redirect_from:
+  - /components/switch.hlk_sw16/
 ---
 
 The [HLK-SW16](http://www.hlktech.net/product_detail.php?ProId=48) by [Hi-Link](http://www.hlktech.net/) is a simple networkable 16 port relay device.

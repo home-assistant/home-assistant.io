@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Asterisk Voicemail Server Installation"
 description: "Instructions on how to integrate your existing Asterisk voicemail within Home Assistant."
-date: 2017-06-30 18:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Asterisk Voicemail integration allows Home Assistant to view, listen to and delete voicemails from a Asterisk voicemail mailbox.
@@ -24,7 +18,7 @@ The server installation is documented below. The client is [integrated inside Ho
 Currently this module can only monitor a single Asterisk PBX mailbox.
 </p>
 
-### {% linkable_title Prerequisites %}
+### Prerequisites
 
 Before beginning make sure that you have the following:
 
@@ -34,7 +28,7 @@ Before beginning make sure that you have the following:
 - Administrator access on the Asterisk PBX (for python module installation).
 - Account access to the `asterisk` user that runs the Asterisk PBX software.
 
-### {% linkable_title Installation %}
+### Installation
 
 1. Apply for a Google API key to enable speech-transcription services
 

@@ -1,17 +1,12 @@
 ---
-layout: page
 title: "LiteJet"
 description: "Instructions on how to setup the LiteJet hub within Home Assistant."
-date: 2015-10-26 09:37
-sidebar: true
-comments: false
-sharing: true
-footer: true
+logo: centralite.svg
 ha_category:
   - Light
   - Scene
   - Switch
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ha_release: 0.32
 redirect_from:
   - /components/light.litejet/

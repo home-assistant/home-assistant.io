@@ -1,22 +1,17 @@
 ---
-layout: page
 title: "Dark Sky"
 description: "Instructions on how to integrate Dark Sky within Home Assistant."
-date: 2016-09-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 logo: dark_sky.png
-ha_category: Weather
+ha_category:
+  - Weather
 ha_release: 0.61
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ---
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). The free tier allows up to 1000 calls per day, this platform updates at most every 3 minutes, using up to 480 of those calls.
 

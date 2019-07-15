@@ -1,18 +1,13 @@
 ---
-layout: page
 title: "HomeKit"
-description: "Instructions on how to set up the HomeKit component in Home Assistant."
-date: 2018-02-20 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Voice
+description: "Instructions on how to set up the HomeKit integration in Home Assistant."
+ha_category:
+  - Voice
 ha_release: 0.64
 logo: apple-homekit.png
 ---
 
-The `homekit` component allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
+The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
 <p class="note">
   If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/components/homekit_controller/) component.
@@ -31,9 +26,14 @@ homekit:
       - alarm_control_panel
       - light
       - media_player
+    include_entities:
+      - binary_sensor.living_room_motion
   entity_config:
     alarm_control_panel.home:
       code: 1234
+    binary_sensor.living_room_motion:
+      linked_battery_sensor: sensor.living_room_motion_battery
+      low_battery_threshold: 31
     light.kitchen_table:
       name: Kitchen Table Light
     lock.front_door:
@@ -65,7 +65,7 @@ homekit:
         type: integer
         default: 51827
       name:
-        description: Need to be individual for each instance of Home Assistant using the component on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
+        description: Need to be individual for each instance of Home Assistant using the integration on the same local network. Between `3` and `25` characters. Alphanumeric and spaces allowed.
         required: false
         type: string
         default: '`Home Assistant Bridge`'
@@ -113,6 +113,15 @@ homekit:
                 description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
                 required: false
                 type: string
+              linked_battery_sensor:
+                description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
+                required: false
+                type: string
+              low_battery_threshold:
+                description: Minimum battery level before the accessory starts reporting a low battery.
+                required: false
+                type: integer
+                default: 20
               code:
                 description: Code to `arm / disarm` an alarm or `lock / unlock` a lock. Only applicable for `alarm_control_panel` or `lock` entities.
                 required: false
@@ -124,7 +133,7 @@ homekit:
                 type: list
                 keys:
                   feature:
-                    description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toogle_mute`. The media_player entity must support the feature to be valid.
+                    description: Name of the feature to add to the entity representation. Valid features are `on_off`, `play_pause`, `play_stop` and `toggle_mute`. The media_player entity must support the feature to be valid.
                     required: true
                     type: string
               type:
@@ -135,9 +144,9 @@ homekit:
 {% endconfiguration %}
 
 
-## {% linkable_title Setup %}
+## Setup
 
-To enable the HomeKit component in Home Assistant, add the following to your configuration file:
+To enable the HomeKit integration in Home Assistant, add the following to your configuration file:
 
 ```yaml
 # Example for HomeKit setup
@@ -146,7 +155,7 @@ homekit:
 
 After Home Assistant has started, the entities specified by the filter are exposed to HomeKit if they are [supported](#supported-components). To add them:
 
-1. Open the Home Assistant frontend. A new card will display the `pin code`.
+1. Open the Home Assistant frontend. A new card will display the `pin code`. Note: If pin code is not displayed, check "Notifications" (the bell icon) in the upper-right of the Home Assistant UI.
 1. Open the `Home` app.
 2. Click `Add Accessory`, then select `Don't Have a Code or Can't Scan?` and choose the `Home Assistant Bridge`.
 4. Confirm that you are adding an `Uncertified Accessory` by clicking on `Add Anyway`.
@@ -154,33 +163,33 @@ After Home Assistant has started, the entities specified by the filter are expos
 6. Follow the setup by clicking on `Next` and lastly `Done` in the top right-hand corner.
 7. The `Home Assistant` Bridge and the Accessories should now be listed in the `Home` app.
 
-After the setup is completed, you should be able to control your Home Assistant components through Apple's Home and Siri.
+After the setup is completed, you should be able to control your Home Assistant integrations through Apple's Home and Siri.
 
-## {% linkable_title Move Home Assistant install %}
+## Move Home Assistant install
 
 If you like to retain your HomeKit pairing through a move to a new Home Assistant device or installation, besides copying the configurations files you need to copy the `.homekit.state` file inside your configurations directory. Keep in mind though that the file is usually hidden by default, depending on your operating system.
 
 Before you copy it, make sure to stop the old and new Home Assistant instances first entirely, otherwise it won't work.
 
-## {% linkable_title Considerations %}
+## Considerations
 
-### {% linkable_title Accessory ID %}
+### Accessory ID
 
-Currently, this component uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
+Currently, this integration uses the `entity_id` to generate a unique `accessory id (aid)` for `HomeKit`. The `aid` is used to identify a device and save all configurations made for it. This, however, means that if you decide to change an `entity_id` all configurations for this accessory made in the `Home` app will be lost.
 
-### {% linkable_title Device Limit %}
+### Device Limit
 
 The HomeKit guidelines only allow a maximum of 100 unique accessories (`aid`) per bridge. Be mindful of this when configuring the filter(s).
 
-### {% linkable_title Persistence Storage %}
+### Persistence Storage
 
 Unfortunately `HomeKit` doesn't support any persistent storage - only the configuration for accessories that are added to the `Home Assistant Bridge` are kept. To avoid problems, it is recommended to use an automation to always start `HomeKit` with at least the same entities setup. If for some reason some entities are not set up, their config will be deleted. (State unknown or similar will not cause any issues.)
 
 A common situation might be if you decide to disable parts of the configuration for testing. Please make sure to disable `auto start` and `turn off` the `Start HomeKit` automation (if you have one).
 
-## {% linkable_title Disable Auto Start %}
+## Disable Auto Start
 
-Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` component is started, can be added. To start `HomeKit` when `auto_start: false`, you can call the service `homekit.start`.
+Depending on your setup, it might be necessary to disable `Auto Start` for all accessories to be available for `HomeKit`. Only those entities that are fully set up when the `HomeKit` integration is started, can be added. To start `HomeKit` when `auto_start: false`, you can call the service `homekit.start`.
 
 If you have Z-Wave entities you want to be exposed to HomeKit, then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
 
@@ -208,7 +217,7 @@ automation:
 ```
 {% endraw %}
 
-For a general delay where your component doesn't generate an event, you can also do:
+For a general delay where your integration doesn't generate an event, you can also do:
 
 {% raw %}
 ```yaml
@@ -256,7 +265,7 @@ automation:
 ```
 {% endraw %}
 
-## {% linkable_title Configure Filter %}
+## Configure Filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported components](#supported-components) can be added.
 
@@ -290,7 +299,7 @@ Filters are applied as follows:
       - if entity is included, pass (as #2 above)
       - if entity include and exclude, the entity exclude is ignored
 
-## {% linkable_title Safe Mode %}
+## Safe Mode
 
 The `safe_mode` option should only be used (and only works) if you encounter issues during the pairing. ([Paring hangs - zeroconf error](#pairing-hangs---zeroconf-error)).
 
@@ -307,9 +316,9 @@ Restart your Home Assistant instance. If you don't see a `pincode`, follow the [
 To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your config and restart Home Assistant.
 </p>
 
-## {% linkable_title Supported Components %}
+## Supported Components
 
-The following components are currently supported:
+The following integrations are currently supported:
 
 | Component | Type Name | Description |
 | --------- | --------- | ----------- |
@@ -321,11 +330,13 @@ The following components are currently supported:
 | cover | WindowCovering | All covers that support `set_cover_position`. |
 | cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
 | cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
-| device_tracker | Sensor | Support for `occupancy` device class. |
+| device_tracker / person | Sensor | Support for `occupancy` device class. |
 | fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
+| fan | Fan | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
 | light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
 | lock | DoorLock | Support for `lock / unlock`. |
 | media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
+| media_player | TelevisionMediaPlayer | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
 | sensor | TemperatureSensor | All sensors that have `Celsius` or `Fahrenheit` as their `unit_of_measurement` or `temperature` as their `device_class`. |
 | sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
 | sensor | AirQualitySensor | All sensors that have `pm25` as part of their `entity_id` or `pm25` as their `device_class` |
@@ -335,9 +346,9 @@ The following components are currently supported:
 | switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
 | water_heater | WaterHeater | All water_heater devices. |
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title Deleting the `.homekit.state` file %}
+### Deleting the `.homekit.state` file
 
 The `.homekit.state` file can be found in the configurations directory. You might need to enable `view hidden files` to see it.
 
@@ -345,7 +356,7 @@ The `.homekit.state` file can be found in the configurations directory. You migh
  2. Delete the `.homekit.state` file
  3. **Start** Home Assistant
 
-### {% linkable_title Errors during pairing %}
+### Errors during pairing
 
 If you encounter any issues during pairing, make sure to:
 
@@ -367,11 +378,11 @@ homekit:
       - demo.demo
 ```
 
-#### {% linkable_title PIN doesn't appear as persistent status %}
+#### PIN doesn't appear as persistent status
 
 You might have paired the `Home Assistant Bridge` already. If not, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)).
 
-#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) %}
+#### `Home Assistant Bridge` doesn't appear in the Home App (for pairing)
 
 This is often setup and network related. Make sure to check the other issues below as well, but things that might work include:
 - Check your router configuration
@@ -380,61 +391,73 @@ This is often setup and network related. Make sure to check the other issues bel
 
 Remember that the iOS device needs to be in the same local network as the Home Assistant device for paring.
 
-#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker %}
+#### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - Docker
 
 Set `network_mode: host`. If you have further problems this [issue](https://github.com/home-assistant/home-assistant/issues/15692) might help.
 
-#### {% linkable_title `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox %}
+#### `Home Assistant Bridge` doesn't appear in the Home App (for pairing) - VirtualBox
 
 Configure the network mode as `networkbridge`. Otherwise the Home Assistant Bridge won't be exposed to the network.
 
-#### {% linkable_title Pairing hangs - zeroconf error %}
+#### Pairing hangs - zeroconf error
 
 Pairing eventually fails, you might see and an error message `NonUniqueNameException`. Add the `safe_mode` option to your config, see [safe_mode](#safe-mode).
 
-#### {% linkable_title Pairing hangs - only works with debug config %}
+#### Pairing hangs - only works with debug config
 
 Pairing works fine when the filter is set to only include `demo.demo`, but fails with normal config. See [specific entity doesn't work](#specific-entity-doesnt-work)
 
-#### {% linkable_title Pairing hangs - no error %}
+#### Pairing hangs - no error
 
 1. Make sure that you don't try to add more than 100 accessories, see [device limit](#device-limit). In rare cases, one of your entities doesn't work with the HomeKit component. Use the [filter](#configure-filter) to find out which one. Feel free to open a new issue in the `home-assistant` repo, so we can resolve it.
-2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook ups to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable. 
+2. Check logs, and search for `Starting accessory Home Assistant Bridge on address`. Make sure Home Assistant Bridge hook ups to a correct interface. If it did not, explicitly set `homekit.ip_address` configuration variable.
 
-#### {% linkable_title Duplicate AID found when attempting to add accessory %}
+#### Duplicate AID found when attempting to add accessory
 
 Two of your entities share the same `entity_id`. Either resolve this or configure the [filter](#configure-filter) to exclude them.
 
-### {% linkable_title Issues during normal use %}
+### Issues during normal use
 
-#### {% linkable_title Some of my devices don't show up - Z-Wave / Discovery %}
+#### Some of my devices don't show up - Z-Wave / Discovery
 
 See [disable auto start](#disable-auto-start)
 
-#### {% linkable_title My entity doesn't show up %}
+#### My entity doesn't show up
 
 Check if the domain of your entity is [supported](#supported-components). If it is, check your [filter](#configure-filter) settings. Make sure the spelling is correct, especially if you use `include_entities`.
 
-#### {% linkable_title HomeKit doesn't work on second Home Assistant instance %}
+#### HomeKit doesn't work on second Home Assistant instance
 
-To use the HomeKit component with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
+To use the HomeKit integration with to different Home Assistant instances on the same local network, you need to set a custom name for at least one of them. [config/name](#name)
 
-#### {% linkable_title Specific entity doesn't work %}
+#### Specific entity doesn't work
 
-Although we try our best, some entities don't work with the HomeKit component yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
+Although we try our best, some entities don't work with the HomeKit integration yet. The result will be that either pairing fails completely or all Home Assistant accessories will stop working. Use the filter to identify which entity is causing the issue. It's best to try pairing and step by step including more entities. If it works unpair and repeat until you find the one that is causing the issues. To help others and the developers, please open a new issue here: [home-assistant/issues/new](https://github.com/home-assistant/home-assistant/issues/new?labels=component: homekit)
 
-#### {% linkable_title Accessories are all listed as not responding %}
+#### Accessories are all listed as not responding
 
 See [specific entity doesn't work](#specific-entity-doesnt-work)
 
-#### {% linkable_title Accessory not responding - after restart or update %}
+#### Accessory not responding - after restart or update
 
 See [device limit](#device-limit)
 
-#### {% linkable_title Accessory not responding - randomly %}
+#### Accessory not responding - randomly
 
 Unfortunately, that sometimes happens at the moment. It might help to close the `Home` App and delete it from the cache. Usually, the accessory should get back to responding after a few minutes at most.
 
-#### {% linkable_title Accessories not responding / behaving unusual - Upgrade from `0.65.x` %}
+#### Accessories not responding / behaving unusual - Upgrade from `0.65.x`
 
 To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homekit.state` file ([guide](#deleting-the-homekitstate-file)) and pair it again. This should only be an issue if you're upgrading from `0.65.x` or below.
+
+#### The linked battery sensor isn't recognized
+
+Try removing the entity from HomeKit and then adding it again. If you are adding this config option to an existing entity in HomeKit, any changes you make to this entity's config options won't appear until the accessory is removed from HomeKit and then re-added.
+
+#### My media player is not showing up as a television accessory
+
+Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added.
+
+#### Can't control volume of your TV media player?
+
+The volume and play/pause controls will show up on the Remote app or Control Center. If your TV supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.

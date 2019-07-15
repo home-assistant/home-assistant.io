@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Thermostat Card"
 sidebar_label: Thermostat
 description: "The thermostat card allows you to control a climate entity."
-date: 2018-10-25 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The thermostat card gives control of your climate entity.
@@ -33,9 +27,9 @@ name:
   default: Name of Entity.
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
-- type: thermostat
-  entity: climate.nest
+type: thermostat
+entity: climate.nest
 ```

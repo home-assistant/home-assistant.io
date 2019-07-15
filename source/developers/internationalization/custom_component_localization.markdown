@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Custom Component Localization"
-description: "Translating custom components in Home Assistant"
-date: 2018-03-01 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Translating custom integrations in Home Assistant"
 ha_release: 0.64
 ---
 

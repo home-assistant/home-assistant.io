@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Picture Card"
 sidebar_label: Picture
 description: "A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 A very simple card that allows you to set an image to use for navigation to various paths in your interface or to call a service.
@@ -78,16 +72,16 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Navigate to another view:
 
 ```yaml
-- type: picture
-  image: /local/home.jpg
-  tap_action:
-    action: navigate
-    navigation_path: /lovelace/home
+type: picture
+image: /local/home.jpg
+tap_action:
+  action: navigate
+  navigation_path: /lovelace/home
 ```
 
 Check the [views](/lovelace/views/) setup on how to setup custom IDs.
@@ -95,9 +89,9 @@ Check the [views](/lovelace/views/) setup on how to setup custom IDs.
 Toggle entity using a service:
 
 ```yaml
-- type: picture
-  image: /local/light.png
-  service: light.toggle
-  service_data:
-    entity_id: light.ceiling_lights
+type: picture
+image: /local/light.png
+service: light.toggle
+service_data:
+  entity_id: light.ceiling_lights
 ```

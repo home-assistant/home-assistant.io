@@ -1,21 +1,23 @@
 ---
-layout: page
 title: "SMHI"
 description: "Instructions on how to integrate SMHI forecasts within Home Assistant."
-date: 2018-09-23 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smhi.png
-ha_category: Hub
+ha_category:
+ - Hub
+ - Weather
 ha_release: 0.81
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
+redirect_from:
+  - /components/weather.smhi/
 ---
 
-The `smhi` component adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
+The `smhi` integration adds support for the [SMHI.se](https://www.smhi.se/) web service as a source for meteorological data for your location.
 
-## {% linkable_title Configuration %}
+There is currently support for the following device types within Home Assistant:
+
+- Weather
+
+## Configuration
 
 The SMHI weather service is free under the Creative Commons Attribution 4.0, international license. Weather data will be pulled once every 30 minutes.
 
@@ -31,15 +33,14 @@ You can only add locations through the integrations page, not in configuration f
 Only location close to Sweden can be added. See [SMHI.se area](http://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
 </p>
 
-
 {% configuration %}
 latitude:
-  description: Manually specify latitude. 
+  description: Manually specify latitude.
   required: false
   type: number
   default: Provided by Home Assistant configuration
 longitude:
-  description: Manually specify longitude. 
+  description: Manually specify longitude.
   required: false
   type: number
   default: Provided by Home Assistant configuration

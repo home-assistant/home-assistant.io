@@ -1,19 +1,42 @@
 ---
-layout: page
 title: "Lovelace Changelog"
 description: "Changelog of the Lovelace UI."
-date: 2018-08-31 13:06 +02:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
-## {% linkable_title Changes in 0.85.1 %}
-- 🔧 Fix removal of `resources` on save in Raw Config Editor
+## Changes in 0.88.0
+- 📣 Disable toast notifications for successful operations ([#2700](https://github.com/home-assistant/home-assistant-polymer/pull/2822))
+- 📣 Color Picker: Toggleable between segmented and continuous ([#2806](https://github.com/home-assistant/home-assistant-polymer/pull/2806))
+- 📣 Theming: New CSS card style `ha-card-box-shadow` ([#2855](https://github.com/home-assistant/home-assistant-polymer/pull/2855))
+- 🔧 Fix login issue on Firefox ([#2860](https://github.com/home-assistant/home-assistant-polymer/pull/2860))
+- 🔧 [light card]: Fix click events ([#2850](https://github.com/home-assistant/home-assistant-polymer/pull/2850))
+
+## Changes in 0.87.0
+- 📣 MDI icons updated to [3.3.92](https://cdn.materialdesignicons.com/3.3.92/)
+- 📣 Theming: New CSS card style `ha-card-border-radius`
+- 📣 Theming: New CSS card style `ha-card-background`
+- 📣 New system-health card in dev-info
+- 📣 UI Editor: YAML syntax support
+- 📣 UI Editor: Line numbers
+- 📣 UI Editor: Now supports columns on wide screens
+- 📣 Notifications: Indicator updated to show count of pending notifications
+- 📣 [thermostat card]: more-info button added
+- 📣 [light card]: more-info button added
+- 🔧 [thermostat card]: Fix slider
+- 🔧 groups are now togglable
+
+## Changes in 0.86.0
+- 📣 Lovelace is now the default UI for Home Assistant!
+- 📣 New Lovelace [demos](https://demo.home-assistant.io/#/lovelace/0) page
+- 🔧 [thermostat card]: Fix sizing
+- 🔧 [gauge card]: Fix sizing
+- 🔧 [iframe card]: Fix card size
+
+
+## Changes in 0.85.1
+- 🔧 UI Editor: Fix removal of `resources` on save
 - 🔧 Auto-gen correctly converts weblink entities to [weblink row]
 - 🔧 The [weblink row] opens links in new tabs
 
-## {% linkable_title Changes in 0.85.0 %}
+## Changes in 0.85.0
 - 📣 [map card]: New config `geo_location_sources`
 - 📣 [alarm panel card]: Hide keypad if `code_format` attribute is not "Number"
 - 📣 [alarm panel card]: Hide code input field if `code_format` attribute is not set
@@ -40,7 +63,7 @@ footer: true
 - 🔧 Fix undefined [plant status card]/[weather forecast card]
 
 
-## {% linkable_title Changes in 0.84.0 %}
+## Changes in 0.84.0
 
 ### Breaking Changes
 - ⚠️ [views]: Renamed `id` to `path`
@@ -66,10 +89,10 @@ footer: true
 - 🔧 [map card]: Fix `aspect_ratio`
 - 🔧 Fix Tap/Hold actions on Windows 10 machines with touchscreens
 
-## {% linkable_title Changes in 0.83.0 %}
+## Changes in 0.83.0
 - ❤️ New card type: `shopping-list`
 
-## {% linkable_title Changes in 0.82.0 %}
+## Changes in 0.82.0
 - 📣 New card type: `light` ❤️
 - 📣 Alpha release of UI Editor
 - 📣 [entities card]: can be themed
@@ -78,7 +101,7 @@ footer: true
 - 📣 [thermostat card]: can be themed
 - 🔧 `!secret` and `!include` usage restored for manual editing, but are not supported with the UI editor
 
-## {% linkable_title Changes in 0.81.0 %}
+## Changes in 0.81.0
 - ❤️ New card type: `alarm-panel`
 - ❤️ New card type: `thermostat`
 - ❤️ New card type: `entity-button`
@@ -88,14 +111,14 @@ footer: true
 - 📣 Long press is now supported
 - 📣 Update to allow the use of Custom UI. If you run into issues please disable Custom UI and test before reporting them. If the issue goes away without Custom UI please report this to the Custom UI developer as this is not officially supported.
 
-## {% linkable_title Changes in 0.80.0 %}
+## Changes in 0.80.0
 - ❤️ New card type: `sensor`
 - ❤️ New card type: `gauge`
 
-## {% linkable_title Changes in 0.77.0 %}
+## Changes in 0.77.0
 - ❤️ New notification drawer
 
-## {% linkable_title Changes in 0.75.0 %}
+## Changes in 0.75.0
 
 ### Breaking changes
 - ⚠️ [glance card]: `turn-on` replaced with `call-service`
@@ -119,7 +142,7 @@ footer: true
 - 🔧 [entities card]: Fix header toggle for entity objects
 - 🔧 [history graph card]: Fix cache of image between views
 
-## {% linkable_title Changes in 0.74.0 %}
+## Changes in 0.74.0
 - 📣 [Lovelace card gallery](https://home-assistant-lovelace-gallery.netlify.com/)
 - 🔧 Async communication improvements
 
@@ -144,7 +167,7 @@ footer: true
 - 🔧 [picture glance card]: Fixed to work again with [entity filter card]
 - 🔧 Removed `text-transform: capitalize;` from card heading
 
-## {% linkable_title Changes in 0.73.1 %}
+## Changes in 0.73.1
 
 - 📣 Setting Lovelace as default now updates `Overview` button to point to `/lovelace`
 - 📣 Allow setting background styles (global and per view)
@@ -154,13 +177,13 @@ footer: true
 - ❤️ New card type: `map` that allows showing `device_tracker` entities on a map card
 - 📣 [entities card] card now support `type: custom:state-card-custom` for the entities list
 
-## {% linkable_title Changes in 0.73.0 %}
+## Changes in 0.73.0
 
 ### Views
 
 - 📣 New button to show unused entities in Lovelace
 
-## {% linkable_title Changes in 0.73.0b4 %}
+## Changes in 0.73.0b4
 
 ### Cards
 
@@ -171,7 +194,7 @@ footer: true
 - ⚠️ [picture elements card] renamed `path` to `navigation_path`
 - ⚠️ `camera-preview` card removed, features added to [picture entity card] and [picture glance card]
 
-## {% linkable_title Changes in 0.73.0b3 %}
+## Changes in 0.73.0b3
 
 ### Views
 
@@ -191,7 +214,7 @@ footer: true
 - ⚠️ [entity filter card] no longer allows to show all entities or a full domain
 - 🔧 Fix wrapping and padding for `service-button` in [picture elements card]
 
-## {% linkable_title Changes in 0.73.0b1 %}
+## Changes in 0.73.0b1
 
 ### Cards
 
@@ -206,7 +229,7 @@ footer: true
 - 📣 [entity filter card] allow auto-hide if empty using `show_empty: false`
 - 🔧 Fix card size calculation `horizontal-stack`/`vertical-stack`
 
-## {% linkable_title Changes in 0.73.0b0 %}
+## Changes in 0.73.0b0
 
 - 📣 New feature to allow Lovelace to be default for `/`
 
@@ -228,14 +251,14 @@ footer: true
 - 🔧 Fix use of groups in [picture entity card]
 - 🔧 Fix the title in `glance` to avoid overlapping
 
-## {% linkable_title Changes in 0.72.1 %}
+## Changes in 0.72.1
 
 ### Cards
 
 - 🐞 Bug introduced in `glance` card - titles now overlap
 - ❤️ New card: `iframe`
 
-## {% linkable_title Changes in 0.72 %}
+## Changes in 0.72
 
 - ❤️ Initial release of the Lovelace UI
 

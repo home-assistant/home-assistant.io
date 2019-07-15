@@ -1,29 +1,23 @@
 ---
-layout: page
 title: "Cloudflare"
 description: "Automatically update your Cloudflare DNS records."
-date: 2018-07-10 20:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cloudflare.png
-ha_category: Network
-featured: false
+ha_category:
+  - Network
 ha_release: 0.74
 ---
 
-With the `cloudflare` component can you keep your Cloudflare records up to date.
+With the `cloudflare` integration can you keep your Cloudflare records up to date.
 
-The component will run every hour, but can also be started manually by using the service `cloudflare.update_records` under services.
+The integration will run every hour, but can also be started manually by using the service `cloudflare.update_records` under services.
 
-## {% linkable_title Setup %}
+## Setup
 
 You will find your global API key in your Cloudflare account settings.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

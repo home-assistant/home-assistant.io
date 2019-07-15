@@ -1,21 +1,16 @@
 ---
-layout: page
 title: "MQTT Fan"
 description: "Instructions on how to integrate MQTT fans into Home Assistant."
-date: 2016-08-27 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
-ha_category: Fan
+ha_category:
+  - Fan
 ha_release: 0.27
-ha_iot_class: depends
+ha_iot_class: Configurable
 ---
 
 The `mqtt` fan platform lets you control your MQTT enabled fans.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT fan will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the fan will be `false` / `off`.
 
@@ -146,6 +141,10 @@ json_attributes_topic:
   description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as sensor attributes. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-topic-configuration) documentation.
   required: false
   type: string
+json_attributes_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
+  required: false
+  type: template
 unique_id:
   description: An ID that uniquely identifies this fan. If two fans have the same unique ID, Home Assistant will raise an exception.
   required: false
@@ -185,11 +184,11 @@ device:
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this fan.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a MQTT fan.
 

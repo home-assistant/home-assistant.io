@@ -1,13 +1,7 @@
 ---
-layout: page
 title: Picture Entity Card
 sidebar_label: Picture Entity
 description: Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
@@ -29,6 +23,11 @@ entity:
 camera_image:
   required: false
   description: "Camera `entity_id` to use. (not required if `entity` is already a camera-entity)."
+  type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
   type: string
 image:
   required: false
@@ -108,22 +107,40 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic example:
 
 ```yaml
-- type: picture-entity
-  entity: light.bed_light
-  image: /local/bed_light.png
+type: picture-entity
+entity: light.bed_light
+image: /local/bed_light.png
 ```
 
 Different images for each state:
 
 ```yaml
-- type: picture-entity
-  entity: light.bed_light
-  state_image:
-    "on": /local/bed_light_on.png
-    "off": /local/bed_light_off.png
+type: picture-entity
+entity: light.bed_light
+state_image:
+  "on": /local/bed_light_on.png
+  "off": /local/bed_light_off.png
 ```
+
+Displaying a live feed from an FFMPEG camera:
+
+{% raw %}
+```yaml
+type: picture-entity
+entity: camera.backdoor
+camera_view: live
+tap_action:
+  action: call-service
+  service: camera.snapshot
+  service_data:
+    entity_id: camera.backdoor
+    filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'
+```
+{% endraw %}
+
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](/docs/configuration/basic/)).

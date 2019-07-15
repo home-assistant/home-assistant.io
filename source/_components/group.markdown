@@ -1,20 +1,86 @@
 ---
-layout: page
 title: "Group"
 description: "Instructions on how to setup groups within Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Organization
+ha_category:
+  - Organization
 ha_qa_scale: internal
+ha_release: pre 0.7
 ---
 
-Groups allow the user to combine multiple entities into one. A group can be promoted to a **view** by setting `view: true` under the group definition. This will make the group available as a new tab in the frontend.
+Groups allow the user to combine multiple entities into one. 
 
 Check the **Set State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page from the **Developer Tools** and browse the **Current entities:** listing for all available entities.
+
+```yaml
+# Example configuration.yaml entry
+group:
+  kitchen:
+    name: Kitchen
+    entities:
+      - switch.kitchen_pin_3
+  climate:
+    name: Climate
+    entities:
+      - sensor.bedroom_temp
+      - sensor.porch_temp
+  awesome_people:
+    name: Awesome People
+    entities:
+      - device_tracker.dad_smith
+      - device_tracker.mom_smith
+```
+
+{% configuration %}
+name:
+  description: Name of the group.
+  required: false
+  type: string
+entities:
+  description: Array or comma delimited string, list of entities to group.
+  required: true
+  type: list
+all:
+  description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
+  required: false
+  type: boolean
+icon:
+  description: The icon that shows in the front end. **The rest of this only applies to the deprecated UI `/states`**. If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text. 
+  required: false
+  type: string
+view:
+  description: "**Only applies to the deprecated UI `/states`**. If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: true` cannot be used as entities in other views. *Does not apply to Lovelace.*"
+  required: false
+  type: boolean
+control:
+  description: "**Only applies to the deprecated UI `/states`**. Set value to `hidden`. If hidden then the group switch will be hidden. *Does not apply to Lovelace.*"
+  required: false
+  type: string
+{% endconfiguration %}
+
+## Default groups
+
+Some integrations automatically create special groups containing integration entities. These groups are named like `group.all_...`, for example:
+
+- `group.all_switches`
+- `group.all_lights`
+- `group.all_devices`
+- `group.all_scripts`
+- `group.all_automations`
+
+You can see list of these groups in  **State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
+
+## Group behavior
+
+By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
+
+---
+
+## Old user interface
+
+This section only applies if you've not moved off the deprecated `/states` user interface.
+
+A group can be promoted to a **view** by setting `view: true` under the group definition. This will make the group available as a new tab in the frontend.
 
 By default, every group appears in the HOME tab. If you create a group `default_view` it will REPLACE the contents of the HOME tab so you can customize the HOME tab as you wish.
 
@@ -55,33 +121,6 @@ group:
       - device_tracker.mom_smith
 ```
 
-{% configuration %}
-name:
-  description: Name of the group.
-  required: false
-  type: string
-view:
-  description: "If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: true` cannot be used as entities in other views."
-  required: false
-  type: boolean
-icon:
-  description: If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text. If it's not a view, then the icon shows when this group is used in another group.
-  required: false
-  type: string
-control:
-  description: Set value to `hidden`. If hidden then the group switch will be hidden.
-  required: false
-  type: string
-entities:
-  description: Array or comma delimited string, list of entities to group.
-  required: true
-  type: list
-all:
-  description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
-  required: false
-  type: boolean
-{% endconfiguration %}
-
 <p class='img'>
 <img src='/images/blog/2016-01-release-12/views.png'>
 Example of groups shown as views in the frontend.
@@ -108,18 +147,6 @@ Notice in the example below that in order to refer to the group "Living Room", y
       - group.bedroom
 ```
 
-## {% linkable_title Default groups %}
-
-Some components automatically create special groups containing component entities. These groups are named like `group.all_...`, for example:
-
-- `group.all_switches`
-- `group.all_lights`
-- `group.all_devices`
-- `group.all_scripts`
-- `group.all_automations`
-
-You can see list of these groups in  **State** <img src='/images/screenshots/developer-tool-states-icon.png' class='no-shadow' height='38' /> page of the **Developer Tools**.
-
 Default groups appear in the HOME tab, if not overridden by user views and groups. Default groups are hidden by default, so you must [customize](/docs/configuration/customizing-devices/) them to be visible in your custom groups and views.
 
 ```yaml
@@ -138,11 +165,7 @@ group:
       - group.all_scripts
 ```
 
-## {% linkable_title Group behavior %}
-
-By default when any member of a group is `on` then the group will also be `on`. Similarly with a device tracker, when any member of the group is `home` then the group is `home`. If you set the `all` option to `true` though, this behavior is inverted and all members of the group have to be `on` for the group to turn on as well.
-
-## {% linkable_title Customize group order %}
+## Customize group order
 You can also order your groups using [customize](/docs/configuration/customizing-devices/) with `order: ` if they don't show up in the order you want them in.
 
 ```yaml

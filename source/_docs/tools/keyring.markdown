@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "keyring"
 description: "Script to store secrets in a keyring"
-release_date: 2017-02-23 11:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Using [Keyring](https://github.com/jaraco/keyring) is an alternative way to `secrets.yaml`. The secrets can be managed from the command line via the `keyring` script.

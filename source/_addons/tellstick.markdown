@@ -1,13 +1,6 @@
 ---
-layout: page
 title: "TellStick"
 description: "Telldus TellStick service enabler and tools."
-date: 2017-12-04 21:31
-sidebar: true
-comments: false
-sharing: true
-footer: true
-featured: false
 ---
 
 Setting up the [Tellstick](http://telldus.com) service and tools contained in the [telldus-core](http://developer.telldus.com/) package and adding configuration to enable Tellstick and Tellstick Duo to work on your Hass.io.
@@ -30,7 +23,7 @@ To add [lights](/components/light.tellstick/), [sensors](/components/sensor.tell
 
 The add-on will also enable you to interact with the `tdtool` via a Home Assistant services call, see example below for self-learning device.
 
-## {% linkable_title Examples %}
+## Examples
 
 Example for adding more devices in the add-on configuration (note the comma separator between devices):
 
@@ -94,7 +87,7 @@ code:
 
 For more information about the configuration including protocols, see the [telldus documentation](https://developer.telldus.com/wiki/TellStick_conf).
 
-## {% linkable_title Service calls %}
+## Service calls
 
 If you wish to teach a self-learning device in your TellStick configuration:
 
@@ -109,7 +102,7 @@ Replace `1` with the corresponding ID of the device in your TellStick configurat
 You can also use this to list devices or sensors and read the output in the add-on log:
 `{"addon":"core_tellstick","input":{"function":"list-sensors"}}`
 
-### {% linkable_title Supported service commands %} 
+### Supported service commands
 
 - `"function":"list"`: List currently configured devices with name and device id and all discovered sensors.
 

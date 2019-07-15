@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant 0.45: Automation editor, Z-Wave panel, OCR"
 description: "AXIS and Keene support, PiFace, Raspihats, and Datadog integration"
 date: 2017-05-20 13:00:00 +0000
 date_formatted: "May 20, 2017"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-05-0.45/components.png
 ---
@@ -55,7 +53,7 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 [hass.io]: https://community.home-assistant.io/t/introducing-hass-io/17296
 [hass.io-install]: /hassio/installation/
 
-## {% linkable_title New integrations %}
+## New integrations
 
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)
 - Add datadog component ([@nunofgs] - [#7158]) ([datadog docs]) (new-platform)
@@ -70,26 +68,26 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 - Seven segments OCR image processing ([@fabaff] - [#7632]) ([image_processing.seven_segments docs]) (new-platform)
 - Axis component ([@Kane610] - [#7381]) ([axis docs]) (new-platform)
 
-## {% linkable_title Release 0.45.1 - May 22 %}
+## Release 0.45.1 - May 22
 
 - Fix telegram chats ([@azogue] - [#7689]) ([notify.telegram docs]) ([telegram_bot.__init__ docs])
 - Fix playback control of web streams ([@cgtobi] - [#7683]) ([media_player.volumio docs])
 - device_tracker.ubus: Handle empty results ([@tobygray] - [#7673]) ([device_tracker.ubus docs])
 - Allow fetching hass.io panel without auth ([@balloob] - [#7714]) ([hassio docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## {% linkable_title Breaking changes %}
+## Breaking changes
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)
 
 <!--more-->
-## {% linkable_title All changes %}
+## All changes
 
 - Add hass to rfxtrx object ([@danielhiversen] - [#6844])
 - Add new raspihats component ([@florincosta] - [#7392]) ([raspihats docs]) (new-platform)
@@ -137,7 +135,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add myStrom binary sensor ([@fabaff] - [#7530])
 - Add not-context-manager ([@fabaff] - [#7523])
 - Threadsafe configurator ([@Kane610] - [#7536]) ([configurator docs])
-- Fix for #7459 ([@jumpkick] - [#7544]) ([alexa docs])
+- Fix for #7459 ([@deftdawg] - [#7544]) ([alexa docs])
 - Upgrade sendgrid to 4.1.0 ([@fabaff] - [#7538]) ([notify.sendgrid docs])
 - Automatic version bump ([@armills] - [#7555]) ([device_tracker.automatic docs])
 - Upgrade dweepy to 0.3.0 ([@fabaff] - [#7550]) ([dweet docs]) ([sensor.dweet docs])
@@ -319,7 +317,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@imrehg]: https://github.com/imrehg
 [@jhemzal]: https://github.com/jhemzal
 [@jminardi]: https://github.com/jminardi
-[@jumpkick]: https://github.com/jumpkick
+[@deftdawg]: https://github.com/deftdawg
 [@mezz64]: https://github.com/mezz64
 [@mnoorenberghe]: https://github.com/mnoorenberghe
 [@nunofgs]: https://github.com/nunofgs
@@ -373,8 +371,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.blinksticklight docs]: /components/light.blinksticklight/
 [light.enocean docs]: /components/light.enocean/
 [light.flux_led docs]: /components/light.flux_led/
-[light.insteon_local docs]: /components/light.insteon_local/
-[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.insteon_local docs]: /components/insteon/
+[light.insteon_plm docs]: /components/insteon/
 [light.isy994 docs]: /components/light.isy994/
 [light.lifx docs]: /components/light.lifx/
 [light.limitlessled docs]: /components/light.limitlessled/
@@ -415,7 +413,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [switch.rpi_pfio docs]: /components/switch.rpi_pfio/
 [telegram_bot docs]: /components/telegram_bot/
 [telegram_bot.polling docs]: /components/telegram_bot.polling/
-[telegram_bot.services.yaml docs]: /components/telegram_bot.services.yaml/
+[telegram_bot.services.yaml docs]: /components/telegram_bot/#notification-services
 [telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
 [tradfri docs]: /components/tradfri/
 [vera docs]: /components/vera/

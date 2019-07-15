@@ -1,20 +1,15 @@
 ---
-layout: page
 title: "StatsD"
 description: "Record events in StatsD."
-date: 2016-01-25 08:00
-sidebar: true
-comments: false
-sharing: true
 logo: statsd.png
-footer: true
-ha_category: "History"
+ha_category:
+  - "History"
 ha_release: 0.12
 ---
 
-The `statsd` component makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.
+The `statsd` integration makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.
 
-To use the `statsd` component in your installation, add the following to your `configuration.yaml` file:
+To use the `statsd` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

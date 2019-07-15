@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.79: Device Registry, Logi Circle, Huawei LTE routers, GeoJSON"
 description: "Home Assistant is now able to show the devices and entities that belong to an integration."
 date: 2018-09-28 00:01:00
 date_formatted: "September 28, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-09-release-0.79/components.png
 ---
@@ -44,7 +42,7 @@ And did you think we forgot about auth? We did not. [@awarecan] has added a new 
 
 Oh, and yes, there is also some cool new integrations. Support has been added for Logi Circle camera's, GeoJSON events and even a bank. More below 👇
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add Huawei LTE router platform, device tracker, and sensor ([@scop] - [#16498]) ([device_tracker docs]) ([huawei_lte docs]) ([sensor.huawei_lte docs]) (new-platform)
 - New EDP re:dy component ([@abmantis] - [#16426]) ([edp_redy docs]) ([sensor.edp_redy docs]) ([switch.edp_redy docs]) (new-platform)
@@ -56,7 +54,7 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 - GeoJSON platform ([@exxamalte] - [#16610]) ([geo_location docs]) (new-platform)
 - Add linky sensor ([@tiste] - [#16468]) ([sensor.linky docs]) (new-platform)
 
-## {% linkable_title Release 0.79.1 - September 30 %}
+## Release 0.79.1 - September 30
 
 - Optimize Ring Sensors platform setup ([@awarecan] - [#16886]) ([binary_sensor.ring docs]) ([sensor.ring docs])
 - Fix exception during history_stats startup ([@amelchio] - [#16932]) ([sensor.history_stats docs])
@@ -80,7 +78,7 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [sensor.ring docs]: /components/sensor.ring/
 [zoneminder docs]: /components/zoneminder/
 
-## {% linkable_title Release 0.79.2 - October 1 %}
+## Release 0.79.2 - October 1
 
 - Fix MQTT certificates ([@balloob] - [#16999]) ([mqtt docs])
 - Fix switch.zoneminder name ([@rohankapoorcom] - [#17026]) ([switch.zoneminder docs])
@@ -92,29 +90,29 @@ Oh, and yes, there is also some cool new integrations. Support has been added fo
 [mqtt docs]: /components/mqtt/
 [switch.zoneminder docs]: /components/switch.zoneminder/
 
-## {% linkable_title Release 0.79.3 - October 2 %}
+## Release 0.79.3 - October 2
 
 - Use correct event loop on Windows, fixing SSL and Subprocess requests. ([#16737], [#17066] - [@awarecan], [@balloob])
 
 [#16737]: https://github.com/home-assistant/home-assistant/pull/16737
 [#17066]: https://github.com/home-assistant/home-assistant/pull/17066
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Netdata configuration change: Allows multiple elements per group. Specify the `data_group` as part of the sensor description. See docs for details. ([@reefab] - [#16656]) ([sensor.netdata docs]) (breaking change)
 - The Dyson sensor Air Quality Index is now named AQI following Dyson's mobile app ([@glpatcern] - [#14550]) ([sensor.dyson docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Don't warn but info when on dev mode ([@balloob] - [#16831]) ([updater docs]) (beta fix)
 - Bump zm-py to 0.0.3 ([@rohankapoorcom] - [#16835]) ([zoneminder docs]) (beta fix)
@@ -129,7 +127,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Handle exception handling websocket command ([@balloob] - [#16927]) ([websocket_api docs]) (beta fix)
 - The `zoneminder` switch platform now uses new names. ([@rohankapoorcom] - [#16527]) ([zoneminder docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Upgrade wakeonlan to 1.1.6 ([@fabaff] - [#16512]) ([wake_on_lan docs]) ([media_player.panasonic_viera docs]) ([media_player.samsungtv docs]) ([switch.wake_on_lan docs])
 - Make the Qnap sensor more resilient if server is not reachable ([@mrosseel] - [#16445]) ([sensor.qnap docs])

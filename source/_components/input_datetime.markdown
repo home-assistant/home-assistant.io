@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "Input Datetime"
-description: "Instructions on how to integrate the Input Datetime component into Home Assistant."
-date: 2017-09-14 16:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.55
 ha_qa_scale: internal
 ---
 
-The `input_datetime` component allows the user to define date and time values
+The `input_datetime` integration allows the user to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
@@ -26,16 +21,13 @@ add the following lines to your `configuration.yaml`:
 input_datetime:
   both_date_and_time:
     name: Input with both date and time
-    has_date: true
-    has_time: true
+    has_    has_time: true
   only_date:
     name: Input with only date
-    has_date: true
-    has_time: false
+    has_    has_time: false
   only_time:
     name: Input with only time
-    has_date: false
-    has_time: true
+    has_    has_time: true
 ```
 
 {% configuration %}
@@ -65,7 +57,7 @@ input_datetime:
         default: 1970-01-01 00:00 | 1970-01-01 | 00:00
 {% endconfiguration %}
 
-### {% linkable_title Attributes %}
+### Attributes
 
 A datetime input entity's state exports several attributes that can be useful in
 automations and templates.
@@ -74,26 +66,27 @@ automations and templates.
 | ----- | ----- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
-| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
-| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>If `has_
+### Restore State
 
-### {% linkable_title Restore State %}
-
-This component will automatically restore the state it had prior to Home
+This integration will automatically restore the state it had prior to Home
 Assistant stopping as long as your entity does **not** have a set value for
 `initial`.  To disable this feature, set a valid value for `initial`.
 
-### {% linkable_title Services %}
+### Services
 
-This component provides a service to modify the state of the `input_datetime`.
+Available service: `input_datetime.set_datetime`.
 
-| Service | Data | Description |
-| ----- | ----- | ----- |
-| `set_datetime` | `time` | This can be used to dynamically set the time.
-| `set_datetime` | `date` | This can be used to dynamically set the date.
+Service data attribute | Format String | Description
+-|-|-
+`date` | `%Y-%m-%d` | This can be used to dynamically set the date.
+`time` | `%H:%M:%S` | This can be used to dynamically set the time.
+`datetime` | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.
 
-## {% linkable_title Automation Examples %}
+To set both the date and time in the same call, use `date` and `time` together, or use `datetime` by itself. Using `datetime` has the advantage that both can be set using one template.
+
+## Automation Examples
 
 The following example shows the usage of the `input_datetime` as a trigger in an
 automation (note that you will need a
@@ -106,7 +99,7 @@ automation (note that you will need a
 automation:
   trigger:
     platform: template
-    value_template: "{{ states('sensor.time') == (states.input_datetime.bedroom_alarm_clock_time.attributes.timestamp | int | timestamp_custom('%H:%M', False)) }}"
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.bedroom_alarm_clock_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
   action:
     service: light.turn_on
     entity_id: light.bedroom
@@ -114,9 +107,11 @@ automation:
 {% endraw %}
 
 To dynamically set the `input_datetime` you can call
-`input_datetime.set_datetime`. The following example can be used in an
-automation rule:
+`input_datetime.set_datetime`. The values for `date` and `time` must be in a certain format for the call to be successful. (See service description above.)
+If you have a `datetime` object you can use its `strftime` method. Of if you have a timestamp you can use the `timestamp_custom` filter.
+The following example can be used in an automation rule:
 
+{% raw %}
 ```yaml
 # Example configuration.yaml entry
 # Sets input_datetime to '05:30' when an input_boolean is turned on.
@@ -126,8 +121,21 @@ automation:
     entity_id: input_boolean.example
     to: 'on'
   action:
-    service: input_datetime.set_datetime
+  - service: input_datetime.set_datetime
     entity_id: input_datetime.bedroom_alarm_clock_time
     data:
       time: '05:30:00'
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.another_time
+    data_template:
+      time: "{{ now().strftime('%H:%M:%S') }}"
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.another_date
+    data_template:
+      date: "{{ as_timestamp(now())|timestamp_custom('%Y-%m-%d') }}"
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.date_and_time
+    data_template:
+      datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 ```
+{% endraw %}

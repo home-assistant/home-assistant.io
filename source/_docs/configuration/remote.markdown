@@ -1,13 +1,9 @@
 ---
-layout: page
 title: "Remote access"
 description: "Setting up remote access for Home Assistant."
-date: 2015-03-23 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
+
+<p class='note'>Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Remote UI</a> without requiring any configuration.</p>
 
 If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible.
 

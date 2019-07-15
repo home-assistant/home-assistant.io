@@ -1,21 +1,33 @@
 ---
-layout: page
 title: "Velbus"
 description: "Access and control your Velbus devices."
-date: 2017-06-17 16.58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: velbus.png
-ha_category: Hub
-ha_iot_class: "Local Push"
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Climate
+  - Sensor
+  - Switch
+ha_iot_class: Local Push
 ha_release: "0.50"
+redirect_from:
+  - /components/climate.velbus/
+  - /components/sensor.velbus/
+  - /components/binary_sensor.velbus/
+  - /components/switch.velbus/
 ---
 
-The `velbus` component supports the Velbus USB, Velbus serial and a TCP/IP gateway.
+The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
-## {% linkable_title Configuration %}
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Climate
+- Sensor
+- Switch
+- Cover
+
+## Configuration
 
 The gateway needs to be configured by adding the following lines to your `configuration.yaml` file:
 

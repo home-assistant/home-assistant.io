@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.66: VeSync switches, HomematicIP, and a group cover."
 description: "Fabulous release 0.66 has landed! Tons of fixes, improvements and joy."
 date: 2018-03-30 00:01:00
 date_formatted: "March 30, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-03-0.66/components.png
 ---
@@ -36,18 +34,18 @@ A quick note if you are using Philips Hue and a Hue custom component: it will no
 - Add trafikverket_weatherstation sensor platform ([@Qxlkdr] - [#12115]) ([sensor.trafikverket_weatherstation docs]) (new-platform)
 - Security fix & lock for HomeMatic ([@PH89] - [#11980]) ([homematic docs]) ([lock docs]) ([lock.homematic docs]) (breaking change) (new-platform)
 
-## {% linkable_title Release 0.66.1 - April 1 %}
+## Release 0.66.1 - April 1
 
 - Update frontend to fix climate and chart issues ([@NovapaX] & [@c727])
 - Fix mqtt_json color commands ([@armills] - [#13617]) ([light.mqtt_json docs])
 - Add pincode fallback ([@cdce8p] - [#13587]) ([homekit docs])
 - Fix mysensors sensor type lookup ([@MartinHjelmare] - [#13574]) ([sensor.mysensors docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
@@ -156,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Support for security systems controlled by IFTTT ([@maxclaey] - [#12975]) ([alarm_control_panel.ifttt docs]) (new-platform)
 - Add ecobee fan mode ([@uchagani] - [#12732]) ([ecobee docs]) ([climate.ecobee docs])
 - Zigbee fan ([@igorbernstein2] - [#12289]) ([zha docs]) ([fan.zha docs]) (new-platform)
-- Update plex.py ([@chronm] - [#12157]) ([sensor.plex docs])
+- Update plex.py ([@kraddatz] - [#12157]) ([sensor.plex docs])
 - Support MQTT Lock discovery ([@molobrakos] - [#13303]) ([mqtt docs]) ([lock.mqtt docs])
 - Adding a discoverable Samsung Syncthru Printer sensor platform ([@nielstron] - [#13134]) ([sensor.syncthru docs]) (new-platform)
 - Use hue/sat as internal light color interface ([@armills] - [#11288]) ([light docs])
@@ -406,7 +404,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cburgess]: https://github.com/cburgess
 [@cdce8p]: https://github.com/cdce8p
 [@cgtobi]: https://github.com/cgtobi
-[@chronm]: https://github.com/chronm
+[@kraddatz]: https://github.com/kraddatz
 [@clementhk]: https://github.com/clementhk
 [@danielhiversen]: https://github.com/danielhiversen
 [@danielperna84]: https://github.com/danielperna84

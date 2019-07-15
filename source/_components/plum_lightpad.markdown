@@ -1,15 +1,9 @@
 ---
-layout: page
 title: "Plum Lightpad"
 description: "Instructions on setting up Plum Lightpads within Home Assistant."
-date: 2018-10-15 17:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Switch
-ha_iot_class: "Local Push"
-featured: false
+ha_category:
+  - Switch
+ha_iot_class: Local Push
 logo: plum.png
 ha_release: 0.85
 redirect_from:
@@ -26,7 +20,7 @@ Configurable/Dimmable WiFi Lightswitch
 - Wifi & Bluetooth connectivity
 - Phone Apps for iOS & Android
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Plum Lightpad support, add the following lines to your `configuration.yaml` file:
 

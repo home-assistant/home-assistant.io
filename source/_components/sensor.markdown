@@ -1,19 +1,18 @@
 ---
-layout: page
 title: "Sensor"
 description: "Instructions on how to setup your sensors with Home Assistant."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
+logo: home-assistant.png
+ha_category:
+  - Sensor
+ha_qa_scale: internal
+ha_release: 0.7
 ---
 
 Sensors are gathering information about states and conditions.
 
-Home Assistant currently supports a wide range of sensors. They are able to display information which are provides by Home Assistant directly, are gathered from web services, and, of course, physical devices. Please check the sidebar for a full list of supported sensor platforms.
+Home Assistant currently supports a wide range of sensors. They are able to display information which are provides by Home Assistant directly, are gathered from web services, and, of course, physical devices.
 
-### {% linkable_title Device Class %}
+## Device Class
 
 The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for sensors:
 
@@ -21,7 +20,9 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 - **battery**: Percentage of battery that is left.
 - **humidity**: Percentage of humidity in the air.
 - **illuminance**: The current light level in lx or lm.
+- **signal_strength**: Signal strength in dB or dBm.
 - **temperature**: Temperature in °C or °F.
+- **power**: Power in W or kW.
 - **pressure**: Pressure in hPa or mbar.
 - **timestamp**: Datetime object or timestamp string.
 

@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Improved Hass.io build system"
 description: "We're introducing a new and improved Hass.io build system for Hass.io and add-ons."
 date: 2017-09-26 04:00:00 +0100
 date_formatted: "September 26, 2017"
 author: Pascal Vizeli
-comments: true
 categories: Technology
 ---
 
@@ -23,7 +21,7 @@ This change only impacts people that build add-ons or use add-ons that are built
 If you are an add-on developer, read [the documentation][publishing-addons] on how to publish your add-ons to Docker Hub. This will greatly improve the user experience.
 </p>
 
-### {% linkable_title Template changes %}
+### Template changes
 
 As an add-on developer, you will only have to change one line in your template to make it compatible with the new system. If you wish, you can also change the default build options for your image using the new [`build.json`][build-file] file.
 
@@ -40,7 +38,7 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 ```
 
-### {% linkable_title When %}
+### When
 
 The new system will become active with Hass.io 0.64 and Host OS 1.1. Host OS 1.1 is available today. Navigate to Advanced Settings in the Hass.io panel to start the OTA update.
 
@@ -48,7 +46,7 @@ We have also updated our build scripts and replaced it with a [builder docker en
 
 [hassio-hardware-image-release]: https://github.com/home-assistant/hassio-build/releases/tag/1.1
 [install]: /hassio/installation/
-[builder]: https://github.com/home-assistant/hassio-build/tree/master/builder
+[builder]: https://github.com/home-assistant/hassio-builder
 [frenck]: https://github.com/frenck
 [build-file]: /developers/hassio/addon_config/#add-on-extended-build
 [addon-repos]: https://community.home-assistant.io/tags/hassio-repository

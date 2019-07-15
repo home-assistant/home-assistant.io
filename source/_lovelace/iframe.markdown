@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Iframe Card"
 sidebar_label: Iframe
 description: "Embed data from other webservices in your dashboard."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Embed data from other webservices in your dashboard. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
@@ -41,10 +35,10 @@ title:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 ```yaml
-- type: iframe
-  url: https://grafana.localhost/d/000000027/worldping-endpoint-summary?var-probe=All&panelId=2&fullscreen&orgId=3&theme=light
-  aspect_ratio: 75%
+type: iframe
+url: https://grafana.localhost/d/000000027/worldping-endpoint-summary?var-probe=All&panelId=2&fullscreen&orgId=3&theme=light
+aspect_ratio: 75%
 ```

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notification attachments"
 description: "Adding attachments to iOS push notifications"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/attachments/
 ---
 
@@ -23,7 +17,7 @@ To expand a notification on 3D Touch devices simply force touch any notification
     action:
       service: notify.ios_robbies_iphone_7_plus
       data:
-        message: "Something happened at home!""
+        message: "Something happened at home!"
         data:
           attachment:
             url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"

@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "RESTful Command"
 description: "Instructions on how to integrate REST commands into Home Assistant."
-date: 2018-02-24 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.36
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
-This component can expose regular REST commands as services. Services can be called from a [script] or in [automation].
+This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
 
 [script]: /components/script/
 [automation]: /getting-started/automation/
@@ -74,7 +69,7 @@ service_name:
       default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
 

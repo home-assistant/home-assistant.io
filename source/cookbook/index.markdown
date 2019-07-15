@@ -1,17 +1,12 @@
 ---
-layout: page
 title: "Cookbook"
 description: "Community maintained list of different ways to use Home Assistant."
-date: 2015-10-08 19:05
 sidebar: false
-comments: false
-sharing: true
-footer: true
 regenerate: true
 hide_github_edit: true
 ---
 
-This is a community curated list of different ways to use Home Assistant. Most of these examples are using the [automation] component and other built-in [automation related][sec-automation] and [organization] components available.
+This is a community curated list of different ways to use Home Assistant. Most of these examples are using the [automation] integration and other built-in [automation related][sec-automation] and [organization] integrations available.
 
 For [`python_script:` examples](/components/python_script/) visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
 
@@ -29,7 +24,7 @@ A great place to find popular configurations is on this [GitHub search](https://
 {% assign categories = cookbook | map: 'ha_category' | uniq | sort %}
 
 {% for category in categories %}
-### {% linkable_title {{ category }} %}
+### {{ category }}
 
   {% if category == 'Automation Examples' %}
 

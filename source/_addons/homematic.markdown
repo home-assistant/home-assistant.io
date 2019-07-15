@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HomeMatic"
 description: "HomeMatic hardware support to turn you Home-Assistant into a CCU."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Set up a [HomeMatic](https://github.com/eq-3/occu) hardware layer. For learning and handling devices use [Homematic-Manager](https://github.com/hobbyquaker/homematic-manager) > 2.0.
@@ -103,7 +97,7 @@ hmip:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use it:
 
@@ -121,7 +115,7 @@ homematic:
       port: 2010
 ```
 
-## {% linkable_title Raspberry Pi3 %}
+## Raspberry Pi3
 
 With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partition:
 
@@ -129,6 +123,6 @@ With HM-MOD-RPI-PCB you need to add follow into your `config.txt` on boot partit
 dtoverlay=pi3-miniuart-bt
 ```
 
-## {% linkable_title HmIP-RFUSB %}
+## HmIP-RFUSB
 
 HassOS > 1.11 support HmIP-RFUSB default and don't need any configuration. If you run a Linux, you need to follow the installation guide from documentation to set up the UART USB interface on your computer.

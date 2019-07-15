@@ -1,15 +1,11 @@
 ---
-layout: page
 title: "RFXtrx Sensor"
 description: "Instructions on how to integrate RFXtrx sensors into Home Assistant."
-date: 2015-08-06 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
-ha_category: Sensor
-ha_iot_class: "Local Polling"
+ha_category:
+  - Sensor
+ha_iot_class: Local Polling
+ha_release: 0.7
 ---
 
 The `rfxtrx` platform support sensors that communicate in the frequency range of 433.92 MHz.
@@ -115,6 +111,6 @@ automatic_add:
 {% endconfiguration %}
 
 <p class='note warning'>
-If a device ID consists of only numbers, please make sure to surround it with quotes. 
+If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
 </p>

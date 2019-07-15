@@ -1,22 +1,16 @@
 ---
-layout: page
 title: "KNX"
 description: "Instructions on how to integrate KNX components with Home Assistant."
-date: 2016-06-08 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: 0.24
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
+The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 
-The [KNX](http://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
-
-The component requires a local KNX/IP interface like the [Weinzierl 730](http://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
+The integration requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
 
 <p class='note warning'>
   Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
@@ -33,7 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - [Notify](/components/notify.knx)
 - [Scene](/components/scene.knx)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -52,6 +46,11 @@ config_file:
   description: The path for XKNX configuration file.
   required: false
   type: string
+rate_limit:
+  description: Defines the maximum number of telegrams to be sent to the bus per second (range 1-100).
+  required: false
+  default: 20
+  type: integer
 {% endconfiguration %}
 
 If the auto detection of the KNX/IP device does not work you can specify ip/port of the tunneling device:
@@ -107,13 +106,13 @@ fire_event_filter:
   required: inclusive
   type: [list, string]
 state_updater:
-  description: The component will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
+  description: The integration will collect the current state of each configured device from the KNX bus to display it correctly within Home-Assistant. Set this option to False to prevent this behavior.
   required: false
   default: true
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
 In order to directly interact with the KNX bus, you can now use the following service:
 
@@ -132,9 +131,9 @@ payload:
   type: [integer, list]
 {% endconfiguration %}
 
-### {% linkable_title Exposing sensor values or time to knx bus %}
+### Exposing sensor values or time to knx bus
 
-KNX component is able to expose time or sensor values to KNX bus. The component will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
+KNX integration is able to expose time or sensor values to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address:
 
 ```yaml
 # Example configuration.yaml entry
@@ -154,13 +153,13 @@ type:
   description: Type of the exposed value. Either time or datetime or any supported type of [KNX Sensor](/components/sensor.knx/) (e.g., "temperature" or "humidity").
   type: string
 entity_id:
-  description: Entity id of the HASS component to be exposed. Not necessary for types time and datetime.
+  description: Entity id of the HASS integration to be exposed. Not necessary for types time and datetime.
   type: string
 address:
   description: KNX group address.
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Known issues %}
+### Known issues
 
 Due to lame multicast support the routing abstraction and the gateway scanner only work with Python >=3.5.

@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Picture Glance Card"
 sidebar_label: Picture Glance
 description: "Show an image card and corresponding entity states as icon"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Show an image card and corresponding entity states as icon. The entities on the right side allow toggle actions, others show the more-info-dialog.
@@ -37,6 +31,11 @@ image:
 camera_image:
   required: false
   description: Camera entity as Background image.
+  type: string
+camera_view:
+  required: false
+  description: '"live" will show the live view if `stream` is enabled.'
+  default: auto
   type: string
 state_image:
   required: false
@@ -107,7 +106,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -122,50 +121,50 @@ icon:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
-- type: picture-glance
-  title: Living room
-  entities:
-    - switch.decorative_lights
-    - light.ceiling_lights
-    - lock.front_door
-    - binary_sensor.movement_backyard
-    - binary_sensor.basement_floor_wet
-  image: /local/living_room.png
+type: picture-glance
+title: Living room
+entities:
+  - switch.decorative_lights
+  - light.ceiling_lights
+  - lock.front_door
+  - binary_sensor.movement_backyard
+  - binary_sensor.basement_floor_wet
+image: /local/living_room.png
 ```
 
 Display a camera image as background:
 
 ```yaml
-- type: picture-glance
-  title: Living room
-  entities:
-    - switch.decorative_lights
-    - light.ceiling_lights
-  camera_image: camera.demo_camera
+type: picture-glance
+title: Living room
+entities:
+  - switch.decorative_lights
+  - light.ceiling_lights
+camera_image: camera.demo_camera
 ```
 
 Display a camera image without additional entities:
 
 ```yaml
-- type: picture-glance
-  title: Front garden
-  entities: []
-  camera_image: camera.front_garden_camera
+type: picture-glance
+title: Front garden
+entities: []
+camera_image: camera.front_garden_camera
 ```
 
 Use different images based on entity state:
 
 ```yaml
-- type: picture-glance
-  title: Living room
-  entities:
-    - switch.decorative_lights
-    - light.ceiling_lights
-  state_image:
-    "on": /local/living_room_on.png
-    "off": /local/living_room_off.png
-  entity: group.living.room
+type: picture-glance
+title: Living room
+entities:
+  - switch.decorative_lights
+  - light.ceiling_lights
+state_image:
+  "on": /local/living_room_on.png
+  "off": /local/living_room_off.png
+entity: group.living.room
 ```

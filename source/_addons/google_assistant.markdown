@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Assistant"
 description: "Enhance your Hass.io installation with Google Assistant."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
@@ -79,7 +73,7 @@ speaker:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 Use the Home Assistant [DialogFlow component][comp] to integrate the add-on into Home Assistant.
 

@@ -1,22 +1,26 @@
 ---
-layout: page
 title: Sense
 description: "Instructions on how to integrate Sense within Home Assistant."
-date: 2018-10-22 22:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sense.png
-ha_category: Energy
-ha_iot_class: "Cloud Polling"
+ha_category:
+  - Energy
+  - Binary Sensor
+  - Sensor
+ha_iot_class: Cloud Polling
 ha_release: 0.82
-redirect_from: /components/sensor.sense/
+redirect_from:
+  - /components/sensor.sense/
+  - /components/binary_sensor.sense/
 ---
 
-Integrate your [Sense](https://sense.com) meter information into Home Assistant. 
+Integrate your [Sense](https://sense.com) meter information into Home Assistant.
 
-## {% linkable_title Configuration %}
+There is currently support for the following device types within Home Assistant:
+
+- Binary Sensor
+- Sensor
+
+## Configuration
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -39,7 +43,7 @@ password:
 timeout:
   description: Seconds for timeout of API requests.
   required: false
-  type: positive_int
+  type: integer
 {% endconfiguration %}
 
 Sensors are added for both usage and production with the following names:

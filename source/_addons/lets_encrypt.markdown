@@ -1,13 +1,6 @@
 ---
-layout: page
 title: "Let's Encrypt"
 description: "Automatically manage your SSL certificate using Let's Encrypt."
-date: 2018-04-18 10:55
-sidebar: true
-comments: false
-sharing: true
-footer: true
-featured: false
 ---
 
 <p class='note'>
@@ -46,7 +39,7 @@ keyfile:
   default: privkey.pem
 {% endconfiguration %}
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 Use the following configuration in Home Assistant to use the generated certificate:
 
@@ -59,7 +52,7 @@ http:
 
 If you use another port such as `8123` or an SSL proxy, change the port number.
 
-## {% linkable_title Enabling auto-renewals %}
+## Enabling auto-renewals
 
 Out of the box, the add-on will not automatically renew your certificate. In fact, it only starts, tries to get/renew your certificate, and then stops. It's up to you to manually start it again whenever your certificate comes close to expiry.
 
@@ -79,4 +72,26 @@ Use this in your `automations.yaml` to attempt certificate renewal each day at m
       addon: core_letsencrypt
 ```
 
+If you are using the [Nginx Proxy add-on] you will need need to stop this during the renewal process. This can be achieved by stopping the add-on whilst restarting the Let's Encrypt add-on. This can be achieved the following configuration:
+
+```yaml
+- id: letsencrypt-renewal
+  alias: 'LetsEncrypt renewal'
+  trigger:
+  - platform: time
+    at: '00:00:00'
+  action:
+  - service: hassio.addon_stop
+    data:
+      addon: core_nginx_proxy
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+  - delay: '00:01:30'
+  - service: hassio.addon_start
+    data:
+      addon: core_nginx_proxy
+```
+
 [DuckDNS add-on]: /addons/duckdns/
+[Nginx Proxy add-on]: /addons/nginx_proxy/

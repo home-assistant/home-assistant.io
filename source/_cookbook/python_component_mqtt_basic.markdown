@@ -1,20 +1,14 @@
 ---
-layout: page
 title: "Basic MQTT Example"
 description: ""
-date: 2016-02-07 12:13
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Custom Python Component Examples
 ---
 
 <p class='note'>
-This example requires you to have the [MQTT component](/components/mqtt/) up and running.
+This example requires you to have the [MQTT integration](/components/mqtt/) up and running.
 </p>
 
-This is a simple hello world example to show the basics of using MQTT in a custom component. To use this example, create the file `<config dir>/custom_components/hello_mqtt.py` and copy the below example code.
+This is a simple hello world example to show the basics of using MQTT in a custom integration. To use this example, create the file `<config dir>/custom_components/hello_mqtt.py` and copy the below example code.
 
 This example follows a topic on MQTT and updates the state of an entity to the last message received on that topic. It will also register a service 'set_state' that will publish a message to the MQTT topic that we're listening to.
 
@@ -24,7 +18,7 @@ import homeassistant.loader as loader
 # The domain of your component. Should be equal to the name of your component.
 DOMAIN = 'hello_mqtt'
 
-# List of component names (string) your component depends upon.
+# List of integration names (string) your integration depends upon.
 DEPENDENCIES = ['mqtt']
 
 
@@ -39,9 +33,11 @@ def setup(hass, config):
     entity_id = 'hello_mqtt.last_message'
 
     # Listener to be called when we receive a message.
-    def message_received(topic, payload, qos):
+    # The msg parameter is a Message object with the following members:
+    # - topic, payload, qos, retain
+    def message_received(msg):
         """Handle new MQTT messages."""
-        hass.states.set(entity_id, payload)
+        hass.states.set(entity_id, msg.payload)
 
     # Subscribe our listener to a topic.
     mqtt.subscribe(topic, message_received)
@@ -61,7 +57,7 @@ def setup(hass, config):
     return True
 ```
 
-Load the component by adding the following to your `configuration.yaml`. When your component is loaded, a new entity should popup and there should be a new service available to call.
+Load the integration by adding the following to your `configuration.yaml`. When your integration is loaded, a new entity should popup and there should be a new service available to call.
 
 ```yaml
 # configuration.yaml entry

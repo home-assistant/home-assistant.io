@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "Input Select"
-description: "Instructions on how to integrate the Input Select component into Home Assistant."
-date: 2016-02-02 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Select integration into Home Assistant."
 logo: home-assistant.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.13
 ha_qa_scale: internal
 ---
 
-The `input_select` component allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
+The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
 To enable this platform in your installation, add the following lines to your `configuration.yaml`:
 
@@ -63,13 +58,13 @@ input_select:
 Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
 </p>
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-### {% linkable_title Services %}
+### Services
 
-This components provide three services to modify the state of the `input_select`.
+This integrations provide three services to modify the state of the `input_select`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
@@ -78,7 +73,7 @@ This components provide three services to modify the state of the `input_select`
 | `select_previous` | | Select the previous option.
 | `select_next` | | Select the next option.
 
-### {% linkable_title Scenes %}
+### Scenes
 
 To specify a target option in a [Scene](/components/scene/) you have to specify the target as `option` attribute:
 
@@ -91,7 +86,7 @@ scene:
         option: Paulus
 ```
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 The following example shows the usage of the `input_select.select_option` service in an automation:
 

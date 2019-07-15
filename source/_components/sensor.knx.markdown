@@ -1,23 +1,18 @@
 ---
-layout: page
 title: "KNX Sensor"
 description: "Instructions on how to use the KNX Sensor with Home Assistant."
-date: 2016-08-20 22:24
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
-ha_category: Sensor
+ha_category:
+  - Sensor
 ha_release: 0.29
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) sensors.
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Component](/components/knx).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your KNX sensor in your installation, add the following lines to your `configuration.yaml` file:
 
@@ -28,7 +23,6 @@ sensor:
     name: Heating.Valve1
     address: '2/0/0'
 ```
-
 
 {% configuration %}
 address:
@@ -44,7 +38,6 @@ type:
   required: false
   type: string
 {% endconfiguration %}
-
 
 | type               | unit | expected KNX DPT |
 |--------------------|------|------------------|
@@ -79,9 +72,7 @@ type:
 | DPT-14             |      | 14.*             |
 | 4byte_float        |      | 14.*             |
 
-
-
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 # Example configuration.yaml entry

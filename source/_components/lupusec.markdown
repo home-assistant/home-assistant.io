@@ -1,19 +1,21 @@
 ---
-layout: page
 title: "Lupus Electronics Home Security"
 description: "Instructions on integrating Lupusec home security with Home Assistant."
-date: 2018-10-03 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lupusec.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Alarm
+  - Binary Sensor
+  - Switch
 ha_release: 0.83
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
+redirect_from:
+  - /components/alarm_control_panel.lupusec/
+  - /components/binary_sensor.lupusec/
+  - /components/switch.lupusec/
 ---
 
-The `lupusec` component allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
+The `lupusec` integration allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
 
 Supported units:
 
@@ -21,11 +23,11 @@ Supported units:
 
 The following devices are supported by the underlying `lupupy` Python library and integrated into Home Assistant.
 
-- [Alarm Control Panel](/components/alarm_control_panel.lupusec/): Displays the alarm status and controls arming, disarming and home modus.
-- [Binary Sensor](/components/binary_sensor.lupusec/): Displays the status of binary sensors. Currently only Door and window sensors are supported.
-- [Switch](/components/switch.lupusec/): Turn off and on your Lupus power switches.
+- **Alarm Control Panel**: Displays the alarm status and controls arming, disarming and home modus.
+- **Binary Sensor**: Displays the status of binary sensors. Currently only Door and window sensors are supported.
+- **Switch**: Turn off and on your Lupus power switches.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Lupusec devices in your installation, add the following `lupusec` section to your `configuration.yaml` file:
 

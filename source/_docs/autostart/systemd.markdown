@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Autostart using systemd"
 description: "Instructions on how to setup Home Assistant to launch on boot using systemd."
-date: 2015-9-1 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/autostart-systemd/
 ---
 
@@ -39,7 +33,7 @@ ExecStart=/usr/bin/hass
 WantedBy=multi-user.target
 ```
 
-### {% linkable_title Python virtual environment %}
+### Python virtual environment
 
 If you've setup Home Assistant in `virtualenv` following our [Python installation guide](/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](/getting-started/installation-raspberry-pi/), the following template should work for you. If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately. `YOUR_USER` should be replaced by the user account that Home Assistant will run as (e.g `homeassistant`).
 
@@ -51,13 +45,13 @@ After=network-online.target
 [Service]
 Type=simple
 User=%i
-ExecStart=/srv/homeassistant/bin/hass -c "/home/YOUR_USER/.homeassistant"
+ExecStart=/srv/homeassistant/bin/hass -c "/home/%i/.homeassistant"
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-### {% linkable_title Docker %}
+### Docker
 
 If you want to use Docker, the following template should work for you.
 
@@ -78,7 +72,7 @@ ExecStopPost=/usr/bin/docker rm -f home-assistant-%i
 WantedBy=multi-user.target
 ```
 
-### {% linkable_title Next Steps %}
+### Next Steps
 
 You need to reload `systemd` to make the daemon aware of the new configuration.
 
@@ -134,3 +128,11 @@ When working on Home Assistant, you can easily restart the system and then watch
 $ sudo systemctl restart home-assistant@YOUR_USER && sudo journalctl -f -u home-assistant@YOUR_USER
 ```
 
+### Automatically restarting Home Assistant on failure
+
+If you want to restart the Home Assistant service automatically after a crash, add the following lines to the `[Service]` section of your unit file:
+
+```
+Restart=on-failure
+RestartSec=5s
+```

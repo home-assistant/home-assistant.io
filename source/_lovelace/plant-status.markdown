@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Plant Status Card"
 sidebar_label: Plant Status
 description: "The Plant card gives you an easy way of viewing the status of your plants"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 A card for all the lovely botanists out there.
@@ -33,9 +27,9 @@ name:
   default: Entity Name
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
-- type: plant-status
-  entity: plant.bonsai
+type: plant-status
+entity: plant.bonsai
 ```

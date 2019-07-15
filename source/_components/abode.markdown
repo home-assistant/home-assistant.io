@@ -1,37 +1,46 @@
 ---
-layout: page
 title: "Abode Home Security"
 description: "Instructions on integrating Abode home security with Home Assistant."
-date: 2017-08-26 0:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: abode.jpg
-ha_category: Hub
+ha_category:
+  - Hub
+  - Alarm
+  - Binary Sensor
+  - Camera
+  - Cover
+  - Light
+  - Lock
+  - Sensor
+  - Switch
 ha_release: 0.52
-ha_iot_class: "Cloud Push"
+ha_iot_class: Cloud Push
+redirect_from:
+  - /components/alarm_control_panel.abode/
+  - /components/binary_sensor.abode/
+  - /components/camera.abode/
+  - /components/cover.abode/
+  - /components/lock.abode/
+  - /components/light.abode/
+  - /components/switch.abode/
+  - /components/sensor.abode/
 ---
 
-The `abode` component will allow users to integrate their Abode Home Security
-systems into Home Assistant and use its alarm system and sensors to automate
-their homes.
+The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
 
-Please visit the [Abode website](https://goabode.com/) for further information
-about Abode Security.
+Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm Control Panel](/components/alarm_control_panel.abode/): Reports on the current alarm status and can be used to arm and disarm the system.
-- [Binary Sensor](/components/binary_sensor.abode/): Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- [Camera](/components/camera.abode/): Reports on `Camera` devices and will download and show the latest captured still image.
-- [Cover](/components/cover.abode/): Reports on `Secure Barriers` and can be used to open and close the cover.
-- [Lock](/components/cover.abode/): Reports on `Door Locks` and can be used to lock and unlock the door.
-- [Light](/components/light.abode/): Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
-- [Switch](/components/switch.abode/): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
-- [Sensor](/components/sensor.abode/): Reports on `Temperature`, `Humidity`, and `Light` sensors.
+- **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
+- [**Binary Sensor**](/components/abode/#binary-sensor): Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image.
+- **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
+- **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
+- [**Light**](/components/abode/#light): Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
+- [**Switch**](/components/abode/#switch): Reports on `Power Switch` devices and can be used to turn the power switch on and off. Also reports on `Automations` set up in the Abode system and allows you to activate or deactivate them.
+- **Sensor**: Reports on `Temperature`, `Humidity`, and `Light` sensors.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Abode devices in your installation,
 add the following `abode` section to your `configuration.yaml` file:
@@ -73,18 +82,18 @@ polling:
 exclude:
   description: >
     A list of devices to exclude from Home Assistant by their Abode `device_id`
-    or `automation_id`, found within the component attributes.
+    or `automation_id`, found within the integration attributes.
   required: false
   type: list
 lights:
   description: >
     A list of switch devices that Home Assistant should treat as lights by the
-    switches Abode `device_id`, found within the component attributes.
+    switches Abode `device_id`, found within the integration attributes.
   required: false
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Events %}
+## Events
 
 There are a number of events that can be triggered from Abode.
 They are grouped into the below events:
@@ -113,9 +122,9 @@ Field | Description
 There is a unique list of known event_codes that can be found
 [here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `change_setting` %}
+### Service `change_setting`
 
 Change settings on your Abode system.
 For a full list of settings and valid values, consult the
@@ -126,7 +135,7 @@ For a full list of settings and valid values, consult the
 | `setting` | No | The setting you wish to change.
 | `value` | No | The value you wish to change the setting to.
 
-### {% linkable_title Service `capture_image` %}
+### Service `capture_image`
 
 Request a new still image from your Abode IR camera.
 
@@ -134,10 +143,26 @@ Request a new still image from your Abode IR camera.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras.
 
-### {% linkable_title Service `trigger_quick_action` %}
+### Service `trigger_quick_action`
 
 Trigger a quick action automation on your Abode system.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of binary_sensors that represent your Abode quick actions.
+
+### Binary Sensor
+
+This integration will add `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+
+This integration will also list all Abode `Quick Actions` that are set up. You can trigger these quick actions by passing the `entity_id` of your quick action binary sensor to the [trigger_quick_action service](/components/abode/#trigger_quick_action).
+
+### Light
+
+This integration will automatically add `Lights` configured in your Abode account. You can reclassify `Switches` to show up within Home Assistant as lights by listing the Abode device ID in your [configuration](/components/abode/#configuration).
+
+### Switch
+
+This integration will automatically add `Power Switches` configured in your Abode account. You can reclassify switches to show up within Home Assistant as `Lights` by listing the Abode device ID in your [configuration](/components/abode/#configuration).
+
+This integration will also list all Abode `Automations` that are set up within the Abode system, allowing you to activate and deactivate the automations.

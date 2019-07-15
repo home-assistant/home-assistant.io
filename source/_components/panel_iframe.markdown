@@ -1,14 +1,9 @@
 ---
-layout: page
 title: "Panel iFrame"
 description: "Instructions on how to add iFrames in the frontend of Home Assistant."
-date: 2015-07-17 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
-ha_category: Front end
+ha_category:
+  - Front end
 ha_release: 0.25
 ha_qa_scale: internal
 ---
@@ -58,6 +53,10 @@ panel_iframe:
             description: Icon for entry.
             required: false
             type: icon
+          require_admin:
+            description: If admin access is required to see this iframe.
+            required: false
+            type: boolean
 {% endconfiguration %}
 
 <p class='note warning'>Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.</p>

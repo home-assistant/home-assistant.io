@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Smart Baby Monitor"
 description: "How to build your own smart baby monitor"
 date: 2017-02-03 01:00:00 UTC
 date_formatted: "February 3, 2017"
 author: Pascal Vizeli
-comments: true
 categories: How-To
 og_image: /images/blog/2017-02-babyphone/social.png
 ---
@@ -16,7 +14,7 @@ Obviously, you can use the setup as a general purpose surveillance system to mon
 
 <!--more-->
 
-### {% linkable_title Setup %}
+### Setup
 
 We need an IP camera that can capture sound in the baby's room. It is also possible to use a Raspberry Pi with a microphone and send the audio to Home Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast. We can set the `input` option on the Home Assistant side to `rtp://236.0.0.1:2000` in the same network.
 
@@ -93,7 +91,7 @@ automation:
      entity_id: binary_sensor.ffmpeg_noise
 ```
 
-### {% linkable_title Trigger an alarm %}
+### Trigger an alarm
 
 Now we can make a lot stuff. Here is a simple example of an automation what should be possible with Sonos speakers.
 
@@ -141,6 +139,6 @@ automation:
        - light.bedroom
 ```
 
-### {% linkable_title Thanks %}
+### Thanks
 
 Special thanks to [arsaboo](https://github.com/arsaboo) for assistance in writing this blogpost.
