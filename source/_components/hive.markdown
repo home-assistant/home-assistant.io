@@ -106,7 +106,7 @@ The platform supports the following Hive products:
 
 ## Water Heater
 
-The `hive` water_heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
+The `hive` water heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
 
 
 The platform supports the following Hive products:
