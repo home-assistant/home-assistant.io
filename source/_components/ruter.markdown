@@ -10,10 +10,12 @@ redirect_from:
  - /components/sensor.ruter/
 ---
 
-<p class='note warning'>
+<div class='note warning'>
+
 The API used for this sensor is shutting down soon, you should consider starting to use the [`entur_public_transport`](/components/sensor.entur_public_transport/) sensor before that happen.
 To read the deprecation warning visit [ruter.no/labs](https://ruter.no/labs/),
-</p>
+
+</div>
 
 The `ruter` sensor will provide you departure information for the larger Oslo area in Norway from the [Ruter][ruter] public transportation service.
 

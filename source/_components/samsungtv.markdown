@@ -92,7 +92,6 @@ Currently known supported models:
 - NU7090 (port must be set to 8801, On/Off, MAC must be specified for Power On)
 - NU7400 (port set to 8001 and `pip3 install websocket-client` executed)
 - NU8000
-- Q7F (port must be set to 8001, MAC must be specified for Power On)
 - U6000 (port must be set to 8001)
 - U6300 (port must be set to 8001, and `pip3 install websocket-client` must be executed)
 - UE6199UXZG (port must be set to 8001, On/Off, Forward/Backward, Volume control, but no Play button)
@@ -114,6 +113,7 @@ Currently tested but not working models:
 - JU7500 - Unable to see state and unable to control
 - MU6125 - Unable to see state and unable to control (Tested on UE58MU6125 on port 8001 and 8801)
 - MU6300 - Port set to 8001, `pip3 install websocket-client` must be executed, turning on works, status not working reliably, turning off is not permanent (it comes back on)
+- Q7F - State is always "off" and unable to control via port 8001.
 
 None of the 2014 (H) and 2015 (J) model series (e.g., J5200) will work, since Samsung have used a different (encrypted) type of interface for these.
 

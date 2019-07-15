@@ -106,9 +106,11 @@ sensor:
 
 ### Microsoft Windows installation
 
-<p class='note'>
+<div class='note'>
+
 The pycrypto library needs to be available on your platform. On a typical windows sysytem `pip install pycrypto` will fail, as a compiler needs to be installed first.
-</p>
+
+</div>
 
 The quickest way around this is to use a pre-built binary, e.g., from [https://github.com/sfbahr/PyCrypto-Wheels](https://github.com/sfbahr/PyCrypto-Wheels)
 

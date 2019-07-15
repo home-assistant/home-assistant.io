@@ -53,10 +53,12 @@ The `wake_on_lan` (WOL) switch platform allows you to turn on a [WOL](https://en
 
 ### Switch configuration
 
-<p class='note warning'>
+<div class='note warning'>
+
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The `turn_off` variable is there to help you call a script when you have figured out how to remotely turn off your computer.
 See below for suggestions on how to do this.
-</p>
+
+</div>
 
 To enable this switch in your installation, add the following to your `configuration.yaml` file:
 

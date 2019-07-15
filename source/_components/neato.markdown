@@ -35,18 +35,20 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-).
-</p>
+
+</div>
 
 ## Vacuum
 
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected](https://www.neatorobotics.com/robot-vacuum/botvac-connected-series/).
 The status will contain attributes on the robots last clean session.
 
-<p class='note'>
+<div class='note'>
 If you notice the robot stops responding to commands check the state to see if the robot is "unavailable". If you see "unavailable" first try to restart the vacuum and wait about 5 minutes to see if it is no longer "unavailable". If you are still having issues check the Neato app and make sure your robot is connected and working. If it is not then follow the steps in the app to reset your robot and give it the same name as before then restart Home Assistant.
-</p>
+</div>
 
 ### Services
 
@@ -69,10 +71,12 @@ And a specific Platform Service:
 
 Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
-<p class='note'>
+<div class='note'>
+
 Not all Botvac models support all the attributes. Only the Neato Botvac D7 supports the `zone` attribute.
 Some information about the capabilities might be found on the [Neato Developer Portal](https://developers.neatorobotics.com/api/robot-remote-protocol/housecleaning).
-</p>
+
+</div>
 
 | Service data attribute | Optional | Description                                                                                                                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

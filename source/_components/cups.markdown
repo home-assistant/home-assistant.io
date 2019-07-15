@@ -69,6 +69,8 @@ sensor:
       - ipp/print
 ```
 
-<p class='note'>
+<div class='note'>
+
 You will need to install the `python3-dev` or `python3-devel` and the development files for CUPS (`libcups2-dev` or`cups-devel`) package on your system manually (eg. `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`).
-</p>
+
+</div>

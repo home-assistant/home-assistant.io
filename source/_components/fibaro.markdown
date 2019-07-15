@@ -85,9 +85,11 @@ device_config:
   default: None
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
   It is recommended to assign a static IP address to your Fibaro controller. This ensures that it won't change its IP address, so you won't have to change the `url` if the controller reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Fibaro, check the label on the bottom.
-</p>
+
+</div>
 
 ### Using Z-Wave devices in automation
 

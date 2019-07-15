@@ -9,9 +9,9 @@ ha_release: 0.56
 
 With the `namecheapdns` integration you can automatically update your dynamic DNS entry at [namecheapdns](https://www.namecheap.com/store/domains/freedns/).
 
-<p class='note warning'>
+<div class='note warning'>
 Namecheap only supports IPv4 addresses to update.
-</p>
+</div>
 
 ## Configuration
 

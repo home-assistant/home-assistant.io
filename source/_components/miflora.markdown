@@ -102,9 +102,11 @@ adapter:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 By default the sensor is only polled once every 20 minutes (`scan_interval` is 1200 seconds by default). On a Home Assistant restart sensor will report initial value. If you set `median: 3`, it will take _at least_ 40 minutes before the sensor will report an average value. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
-</p>
+
+</div>
 
 ## Full example
 

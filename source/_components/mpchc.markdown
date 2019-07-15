@@ -21,9 +21,11 @@ For this integration to function, you will need to enable the Web Interface in t
 
 If the server running Home Assistant is not the same device that is running MPC-HC, you will need to ensure that the *allow access from localhost only* option is not set.
 
-<p class='note warning'>
+<div class='note warning'>
+
 The MPC-HC web interface is highly insecure, and allows remote clients full player control file-system access without authentication. Never allow access to the Web UI from outside of your trusted network, and if possible [use a proxy script to restrict control or redact sensitive information](https://github.com/abcminiuser/mpc-hc-webui-proxy).
-</p>
+
+</div>
 
 To add MPC-HC to your installation, add the following to your `configuration.yaml` file:
 

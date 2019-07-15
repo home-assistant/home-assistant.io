@@ -187,9 +187,9 @@ invert_logic:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#General_purpose_input-output_(GPIO)_connector) about the Raspberry Pi.
 
-<p class='note warning'>
+<div class='note warning'>
 Note that a pin managed by HASS is expected to be exclusive to HASS.
-</p>
+</div>
 
 A common question is what does Port refer to, this number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

@@ -25,9 +25,9 @@ The history component will be enabled for new users by default. For current user
   </a>
 </p>
 
-<p class='note'>
+<div class='note'>
 Events are saved in a local database. Google Graphs is used to draw the graph. Drawing is happening 100% in your browser - no data is transferred to anyone at any time.
-</p>
+</div>
 
 <!--more-->
 

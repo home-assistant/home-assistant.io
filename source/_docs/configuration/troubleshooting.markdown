@@ -78,9 +78,9 @@ Contents of `sensors.yaml`:
   ...
 ```
 
-<p class='note'>
+<div class='note'>
 Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
-</p>
+</div>
 
 ### Entity names
 

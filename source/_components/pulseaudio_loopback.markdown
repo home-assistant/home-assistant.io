@@ -62,6 +62,8 @@ tcp_timeout:
   type: integer
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-cli-protocol` must be loaded on the PulseAudio server.
-</p>
+
+</div>

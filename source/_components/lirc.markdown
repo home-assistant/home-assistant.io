@@ -17,10 +17,11 @@ Sending IR commands is not supported in this integration (yet), but can be accom
 To allow Home Assistant to talk to your IR receiver, you need to first make sure you have the correct dependencies installed:
 
 ```bash
-$ sudo apt-get install lirc liblircclient-dev
+sudo apt-get install lirc liblircclient-dev
 ```
 
-<p class='note'>
+<div class='note'>
+
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations [here](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/). Take notice, the instructions in this blog are valid for Raspian Jesse where lirc 0.9.0 was included in the debian package. In Raspian Stretch lirc 0.9.4 is included in the Debian package.
 The configuration is slightly different :
 
@@ -29,7 +30,8 @@ The configuration is slightly different :
  - 0.9.4 defaults to using systemd for controlling the services. This is not just start/stop functionality, systemd is used to implement new features and to address shortcomings in 0.9.0. However, traditional systemV scripts are also installed and could be used although this is less tested and not really documented.
 
 For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where the update process is explained when you have updated from jessie to stretch.
-</p>
+
+</div>
 
 ### Configuring LIRC
 

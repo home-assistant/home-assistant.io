@@ -59,9 +59,11 @@ longitude:
   default: "The longitude in your `configuration.yaml` file."
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`openweathermap`](/components/sensor.openweathermap/) sensor.
-</p>
+
+</div>
 
 ## Sensor
 

@@ -18,12 +18,12 @@ Assistant.
 Once you have added a `smarthab` entry to your configuration, your supported 
 devices will automatically be discovered and made available on your dashboard.
 
-<p class='note warning'>
+<div class='note warning'>
   To prevent being automatically logged out of your SmartHab mobile app, you
   might want to create a secondary user in the app's settings and grant it
   access to your home. You can then configure the integration using this account's
   credentials. This is also more secure, as this user should be less priviledged.
-</p>
+</div>
 
 ```yaml
 # Example configuration.yaml entry

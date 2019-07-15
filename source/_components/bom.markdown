@@ -42,10 +42,12 @@ station:
   default: The closest station
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`bom`](#sensor) sensor.
 The weather platform is easier to configure but less customizable.
-</p>
+
+</div>
 
 ## Camera
 
@@ -277,7 +279,9 @@ monitored_conditions:
       description: Wind speed in kt.
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This sensor is an alternative to the [`bom`](#configuration) weather platform.
 The weather platform is easier to configure but less customisable.
-</p>
+
+</div>

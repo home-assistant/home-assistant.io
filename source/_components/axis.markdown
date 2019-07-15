@@ -22,9 +22,9 @@ Home Assistant will automatically discover their presence on your network.
 
 For configuration go to the `Integrations pane` on your Home Assistant instance.
 
-<p class='note'>
+<div class='note'>
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
-</p>
+</div>
 
 ## Troubleshooting discovery
 

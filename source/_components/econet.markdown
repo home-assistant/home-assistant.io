@@ -46,9 +46,11 @@ You can use the service `econet.add_vacation` to create a new vacation for your 
 | `start_date` | yes | This is a Unix timestamp for when the vacation should start.
 | `end_date` | yes | this is a Unix timestamp for when the vacation should end.
 
-<p class='note'>
+<div class='note'>
+
 The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
-</p>
+
+</div>
 
 ### Service `econet.delete_vacation`
 
@@ -58,6 +60,8 @@ You can use the service `econet.delete_vacation` to remove all vacations from an
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | The entity id of the water heater to remove the vacation from.
 
-<p class='note'>
+<div class='note'>
+
 Econet water heaters use to live under the `climate` platform prior to release 0.81.
-</p>
+
+</div>

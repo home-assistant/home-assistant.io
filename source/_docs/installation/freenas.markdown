@@ -139,6 +139,8 @@ Configure the service to start on boot and start the Home Assistant service:
 
 You can also restart the jail to ensure that Home Assistant starts on boot.
 
-<p class='note'>
+<div class='note'>
+
 USB Z-wave sticks may give `dmesg` warnings similar to "data interface 1, has no CM over data, has no break". This doesn't impact the function of the Z-Wave stick in Home Assistant. Just make sure the proper `/dev/cu*` is used in the Home Assistant `configuration.yaml` file.
-</p>
+
+</div>

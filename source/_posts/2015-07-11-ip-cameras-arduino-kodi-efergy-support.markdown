@@ -27,9 +27,9 @@ camera:
   still_image_url: http://194.218.96.92/jpg/image.jpg
 ```
 
-<p class='note'>
+<div class='note'>
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</p>
+</div>
 
 <!--more-->
 

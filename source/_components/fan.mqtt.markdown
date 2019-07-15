@@ -180,9 +180,11 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<dkv class='note warning'>
+
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-</p>
+
+</dkv>
 
 ## Examples
 

@@ -149,9 +149,9 @@ If your device requires ADB authentication, you will need to follow the instruct
 
 If you get a "Device authentication required, no keys available" error when trying to set up your Android TV or Fire TV, then you'll need to create an adbkey and add its path to your configuration. Follow the instructions on this page to connect to your device from your computer: [Connecting to Fire TV Through adb](https://developer.amazon.com/zh/docs/fire-tv/connecting-adb-to-device.html).
 
-<p class='note warning'>
+<div class='note warning'>
 In the dialog appearing on your Android TV / Fire TV, you must check the box that says "always allow connections from this device." ADB authentication in Home Assistant will only work using a trusted key.
-</p>
+</div>
 
 Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>`, the file `adbkey` will be created on your computer. The default locations for this file is (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 

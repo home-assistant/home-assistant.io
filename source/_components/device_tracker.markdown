@@ -28,9 +28,9 @@ device_tracker:
 
 The following optional parameters can be used with any platform:
 
-<p class='note'>
+<div class='note'>
   Device tracker will only look for global settings under the configuration of the first configured platform.
-</p>
+</div>
 
 | Parameter           | Default | Description                                                                                                                                                                                                                                                                                                                                                                               |
 |----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,9 +38,11 @@ The following optional parameters can be used with any platform:
 | `consider_home`      | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`)  |
 | `new_device_defaults`|         | Default values for new discovered devices. Available options `track_new_devices` (default: `true`), `hide_if_away` (default: `false`)                                                                                                                                                                                                                                                     |
 
-<p class='note'>
+<div class='note'>
+
   Note that setting `track_new_devices: false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: false`).
-</p>
+
+</div>
 
 The extended example from above would look like the following sample:
 
@@ -60,9 +62,11 @@ Multiple device trackers can be used in parallel, such as [Owntracks](/component
 
 ## `known_devices.yaml`
 
-<p class='note warning'>
+<div class='note warning'>
+
 As of 0.94 `known_devices.yaml` is being phased out, and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes the mobile app, OwnTracks, GeoFency, GPSLogger, and Locative.
-</p>
+
+</div>
 
 Once `device_tracker` is enabled, a file will be created in your config dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
 
@@ -77,9 +81,11 @@ devicename:
   hide_if_away: false
 ```
 
-<p class='note warning'>
-  In the example above, `devicename` refers to the detected name of the device.  For instance, `my_iphone`.
-</p>
+<div class='note warning'>
+
+In the example above, `devicename` refers to the detected name of the device.  For instance, `my_iphone`.
+
+</div>
 
 | Parameter      | Default                       | Description                                                                                             |
 |----------------|-------------------------------|---------------------------------------------------------------------------------------------------------|

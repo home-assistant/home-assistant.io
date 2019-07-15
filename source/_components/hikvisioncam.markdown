@@ -11,9 +11,9 @@ redirect_from:
 
 This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](http://www.hikvision.com/) camera.
 
-<p class='note warning'>
+<div class='note warning'>
 Currently works using default https port only.
-</p>
+</div>
 
 To use your Hikvision cam in your installation, add the following to your `configuration.yaml` file:
 

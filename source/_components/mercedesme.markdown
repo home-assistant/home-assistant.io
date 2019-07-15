@@ -25,6 +25,6 @@ This integration provides the following platforms:
 
 Platforms will be automatically configured if Mercedes me integration is configured.
 
-<p class='note warning'>
+<div class='note warning'>
   The integration was removed. The vendor disabled the API endpoint and a new API is not available currently.
-</p>
+</div>

@@ -23,9 +23,9 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-<p class='note warning'>
+<div class='note warning'>
 This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
-</p>
+</div>
 
 ## Presence Detection
 

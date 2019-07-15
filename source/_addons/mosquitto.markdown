@@ -21,9 +21,11 @@ Set up [Mosquitto](https://mosquitto.org/) as MQTT broker.
 }
 ```
 
-<p class='warning note'>
+<div class='warning note'>
+
 Since version 4.1 of the addon, an explicit ACL definition is now required, [see these instructions](https://www.home-assistant.io/addons/mosquitto/#access-control-lists-acls).
-</p>
+
+</div>
 
 {% configuration %}
 anonymous:

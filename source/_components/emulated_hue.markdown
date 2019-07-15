@@ -9,25 +9,29 @@ ha_iot_class: Local Push
 ha_qa_scale: internal
 ---
 
-<p class='note warning'>
+<div class='note warning'>
+
 Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/components/google_assistant/) or [Nabu Casa cloud](/components/cloud) component.
-</p>
+
+</div>
 
 The `emulated_hue` integration provides a virtual Philips Hue bridge, written entirely in software, which allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind for functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
-<p class='note'>
+<div class='note'>
 A physical Hue Bridge is required for Philips Hue lights to function - this virtual bridge will not replace a physical bridge. Instead, it allows Home Assistant to represent non-Philips Hue devices to Amazon Echo as Philips Hue devices, which Amazon Echo can control with built-in support.
-</p>
+</div>
 
-<p class='note'>
+<div class='note'>
 It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
-</p>
+</div>
 
-<p class='note'>
+<div class='note'>
+
 Both Google Home and Alexa use the device they were initially set up with for communication with `emulated_hue`. In other words: if you remove/replace this device you will also break `emulated_hue`. To recover your `emulated_hue` functionality, backup your `config/emulated_hue_ids.json` file, delete the original one and reboot your Home Assistant instance.
-</p>
+
+</div>
 
 ### Configuration
 
@@ -124,9 +128,11 @@ The following are attributes that can be applied in the `entities` section:
 - **name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
 - **hidden** (*Optional*): Whether or not the emulated Hue bridge should expose the entity. Adding `hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
 
-<p class='note'>
+<div class='note'>
+
 These attributes used to be found under the `customize` section of `homeassistant`, however, they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
-</p>
+
+</div>
 
 ### Troubleshooting
 

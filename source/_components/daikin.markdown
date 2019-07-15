@@ -63,9 +63,11 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current inside temperature is displayed.
 
-<p class='note'>
+<div class='note'>
+
 Some models do not support setting of **fan speed** or **swing mode**.
-</p>
+
+</div>
 
 ## Sensor
 
@@ -74,14 +76,16 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Inside temperature
 - Outside temperature
 
-<p class='note'>
+<div class='note'>
 Some models only report outside temperature when they are turned on.
-</p>
+</div>
 
 ## Switch
 
 Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.
 
-<p class='note'>
+<div class='note'>
+
 Zones with the name `-` will be ignored, just as the AirBase application is working.
-</p>
+
+</div>

@@ -16,9 +16,9 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 | `qos` | yes | Quality of Service to use.
 | `retain` | yes | If message should have the retain flag set. (default: false)
 
-<p class='note'>
+<div class='note'>
 You need to include either payload or payload_template, but not both.
-</p>
+</div>
 
 ```json
 {

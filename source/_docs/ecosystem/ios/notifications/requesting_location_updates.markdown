@@ -4,9 +4,9 @@ description: "Ask the device to send a location update remotely"
 redirect_from: /ecosystem/ios/notifications/requesting_location_updates/
 ---
 
-<p class="note warning">
-**Do not rely on this functionality due to the time limits mentioned below.**
-</p>
+<div class="note warning">
+Do not rely on this functionality due to the time limits mentioned below.
+</div>
 
 You can force a device to attempt to report its location by sending a special notification.
 

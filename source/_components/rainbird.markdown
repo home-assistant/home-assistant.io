@@ -42,9 +42,9 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
-</p>
+</div>
 
 ## Sensor
 

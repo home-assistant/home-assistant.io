@@ -16,9 +16,9 @@ Supported devices (tested):
 
 - ARUBA AP-105
 
-<p class='note warning'>
+<div class='note warning'>
 This device tracker needs telnet to be enabled on the router.
-</p>
+</div>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

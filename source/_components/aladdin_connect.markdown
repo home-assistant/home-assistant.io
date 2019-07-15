@@ -12,9 +12,9 @@ redirect_from:
 
 The `aladdin_connect` cover platform lets you control Genie Aladdin Connect garage doors through Home Assistant.
 
-<p class='note'>
+<div class='note'>
 Only doors that are owned by your Aladdin Connect account will be available. Doors that your account has been granted shared access to are not yet supported.
-</p>
+</div>
 
 ## Configuration
 

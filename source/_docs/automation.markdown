@@ -23,9 +23,9 @@ The second line is the **condition**. Conditions are optional tests that can lim
 
 The third part is the **action**, which will be performed when a rule is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
 
-<p class='note'>
+<div class='note'>
 The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the results: turning a light on versus a light being on.
-</p>
+</div>
 
 ### Exploring the internal state
 

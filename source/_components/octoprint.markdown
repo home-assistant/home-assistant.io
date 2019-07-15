@@ -20,9 +20,9 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<p class='note'>
+<div class='note'>
 You must have the <a href="#configuration">OctoPrint component</a> configured (below) to use the sensor and binary sensor. After configuring that component, the sensors and binary sensors automatically appear.
-</p>
+</div>
 
 ## Configuration
 
@@ -113,9 +113,11 @@ octoprint:
               description: Error while printing.
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.
-</p>
+
+</div>
 
 Example with multiple printers:
 

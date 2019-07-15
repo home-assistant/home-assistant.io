@@ -9,9 +9,9 @@ categories: Release-Notes
 og_image: /images/blog/2018-08-0.76/components.png
 ---
 
-<p class='note'>
+<div class='note'>
 This release has a migration, initial startup can take ~20 minutes (depends on size DB)
-</p>
+</div>
 
 This release includes a database migration to allow us to store context in the database. This will make it possible in the future to introduce attribution. For example, we'll be able to say which user opened the garage door or which automation triggered the party mode at 3am.
 

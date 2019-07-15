@@ -108,9 +108,9 @@ headers:
   type: list, string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
-</p>
+</div>
 
 ## Examples
 

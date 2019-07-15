@@ -243,9 +243,11 @@ media_player:
           command: standby
 ```
 
-<p class='note'>
+<div class='note'>
+
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
-</p>
+
+</div>
 
 ### Kodi services samples
 

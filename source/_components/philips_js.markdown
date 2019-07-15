@@ -43,9 +43,9 @@ api_version:
   type: integer
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 When using api_version: 5 changing sources switches tv channels. Additionally this allows setting the volume level.
-</p>
+</div>
 
 ```yaml
 # Example configuration.yaml with turn_on_action
