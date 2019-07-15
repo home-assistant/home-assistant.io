@@ -93,7 +93,7 @@ Next you need create a Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Smart Home` in the left part of the panel to add a Alexa Smart Home trigger to your Lambda function.
 - Scroll down little bit, you need input the `Skill ID` from the skill you created in previous step. (tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.
 - Click your Lambda Function icon in the middle of the diagram, scroll down you will see a `Function code` window.
-- Clear the example code, copy the Python script from: <https://gist.github.com/awarecan/630510a9742f5f8901b5ab284c25e912>
+- Clear the example code, copy the Python script from: <https://gist.github.com/awarecan/630510a9742f5f8901b5ab284c25e912> (doesn't support Alexa's proactive mode) or <https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b> (modified code to support Alexa's proactive mode, see details below)
 - Scroll down a little bit, you will find `Environment variables`, you need add 4 environment variables:
   * BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if need
   * NOT_VERIFY_SSL *(optional)*: you can set it to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
@@ -164,7 +164,7 @@ Alexa can link your Amazon account to your Home Assistant account. Therefore Hom
   * `Access Token URI`: https://[YOUR HOME ASSISTANT URL:PORT]/auth/token
   * `Client ID`:
     - https://pitangui.amazon.com/ if you are in US
-    - https://layla.amazon.com/ if you are in EU (not verified yet)
+    - https://layla.amazon.com/ if you are in EU
     - https://alexa.amazon.co.jp/ if you are in JP and AU (not verified yet)
     
     The trailing slash is important here.
@@ -212,12 +212,15 @@ alexa:
         display_categories: LIGHT
 ```
 
-The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode. Please note the following if you want to enable proactive mode:
+The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e. "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
 - There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available."
 
+<p class='note warning'>
+To successfully link your Amazon account when Alexa's proactive mode activated (i.e. "Send Alexa Events" enabled), make sure that you are using the modified code for your Lambda function as well as you restart your Home Assistant after each step of disabling or enabling the skill in Alexa. Otherwise, the Alexa skill might not be able to link to your Home Assistant due to invalid token.
+</p>
 
 ### Alexa web-based app
 
