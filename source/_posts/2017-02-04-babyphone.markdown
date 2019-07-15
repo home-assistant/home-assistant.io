@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Smart Baby Monitor"
 description: "How to build your own smart baby monitor"
 date: 2017-02-03 01:00:00 UTC
 date_formatted: "February 3, 2017"
 author: Pascal Vizeli
-comments: true
 categories: How-To
 og_image: /images/blog/2017-02-babyphone/social.png
 ---

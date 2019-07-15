@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Cloud Platform"
 description: "Google Cloud Platform integration."
-date: 2019-05-02 12:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_cloud.png
 ha_category: Text-to-speech
 ha_release: 0.95

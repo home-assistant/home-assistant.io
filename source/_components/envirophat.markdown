@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Enviro pHAT"
 description: "Instructions on how to integrate the Enviro pHAT within Home Assistant."
-date: 2017-05-03 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY

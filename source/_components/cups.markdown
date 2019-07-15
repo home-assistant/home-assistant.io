@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CUPS Sensor"
 description: "Instructions on how to integrate CUPS sensors into Home Assistant."
-date: 2016-10-30 12:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cups.png
 ha_category:
   - System Monitor
@@ -17,7 +11,7 @@ redirect_from:
 ---
 
 
-The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers. It can obtain the informations using a CUPS server or communicating directly with the printer with the Internet Printing Protocol.
+The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the informations using a CUPS server or communicating directly with the printer with the Internet Printing Protocol.
 
 If you want to use an existing CUPS server the "Queue Name" of the printer is needed. The fastest way to get it, is to visit the CUPS web interface at "http://[IP ADDRESS PRINT SERVER]:631" and go to "Printers".
 

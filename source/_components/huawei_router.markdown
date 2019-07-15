@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Huawei Router"
 description: "Instructions on how to integrate Huawei Routers into Home Assistant."
-date: 2017-07-16 01:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: huawei.svg
 ha_category:
   - Presence Detection

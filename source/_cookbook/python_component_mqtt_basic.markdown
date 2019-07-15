@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Basic MQTT Example"
 description: ""
-date: 2016-02-07 12:13
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Custom Python Component Examples
 ---
 

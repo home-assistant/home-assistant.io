@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Pub/Sub"
 description: "Setup for Google Pub/Sub integration"
-date: 2019-01-12 13:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google-pubsub.png
 ha_category:
   - History

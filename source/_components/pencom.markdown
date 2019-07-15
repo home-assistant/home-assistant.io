@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pencom"
 description: "How to use Pencom Designs 8 channel relay boards."
-date: 2018-10-05 23:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pencom.png
 ha_category:
   - Switch
@@ -16,7 +10,7 @@ redirect_from:
  - /components/switch.pencom/
 ---
 
-[Pencom Design](http://www.pencomdesign.com/) is a manufacturer of computer-controlled relay, I/O and custom boards for commercial and industrial applications.  This interface to [Pencom's Relay Control Boards](https://www.pencomdesign.com/relay-boards/) is designed to work over an ethernet to serial adapter (NPort).  Each switch (relay) can be turned on/off, and the state of the relay can be read.
+[Pencom Design](https://www.pencomdesign.com/) is a manufacturer of computer-controlled relay, I/O and custom boards for commercial and industrial applications.  This interface to [Pencom's Relay Control Boards](https://www.pencomdesign.com/relay-boards) is designed to work over an ethernet to serial adapter (NPort).  Each switch (relay) can be turned on/off, and the state of the relay can be read.
 
 ## Configuration
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Broadlink"
 description: "Instructions on how to integrate Broadlink within Home Assistant."
-date: 2016-11-22 22:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: broadlink.png
 ha_category:
   - Switch

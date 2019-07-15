@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Plum Lightpad"
 description: "Instructions on setting up Plum Lightpads within Home Assistant."
-date: 2018-10-15 17:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Switch
 ha_iot_class: Local Push

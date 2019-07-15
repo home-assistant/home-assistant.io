@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LCN"
 description: "Instructions on how to integrate LCN components with Home Assistant."
-date: 2018-11-01 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lcn.png
 ha_category:
   - Hub

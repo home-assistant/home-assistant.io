@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IFTTT"
 description: "Instructions on how to setup IFTTT within Home Assistant."
-date: 2015-09-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ifttt.png
 ha_category:
   - Automation

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Requesting location updates"
 description: "Ask the device to send a location update remotely"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/requesting_location_updates/
 ---
 

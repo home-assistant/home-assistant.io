@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Somfy MyLink"
 description: "Instructions on how to integrate Somfy MyLink devices with Home Assistant."
-date: 2019-03-29 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tahoma.png
 ha_category:
   - Hub

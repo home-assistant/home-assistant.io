@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sharp Aquos TV"
 description: "Instructions on how to integrate a Sharp Aquos TV into Home Assistant."
-date: 2016-11-02 12:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sharp_aquos.png
 ha_category:
   - Media Player
@@ -16,7 +10,7 @@ redirect_from:
  - /components/media_player.aquostv/
 ---
 
-The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp.ca/en-CA/ForHome/HomeEntertainment/LEDTV/QuattronPlus.aspx).
+The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp-world.com/aquos/en/index.html).
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 

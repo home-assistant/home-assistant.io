@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Air Purifier"
 description: "Instructions on how to integrate your Xiaomi Air Purifier and Xiaomi Air Humidifier within Home Assistant."
-date: 2017-10-13 12:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Fan

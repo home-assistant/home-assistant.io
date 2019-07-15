@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MaryTTS"
 description: "Instructions on how to setup MaryTTS with Home Assistant."
-date: 2017-04-08 16:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: marytts.png
 ha_category:
   - Text-to-speech

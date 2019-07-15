@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Brottsplatskartan"
 description: "Instructions on how to integrate brottsplatskartan.se into Home Assistant."
-date: 2018-12-02 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Social
 logo: brottsplatskartan.png

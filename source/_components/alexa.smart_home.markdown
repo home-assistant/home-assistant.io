@@ -1,16 +1,9 @@
 ---
-layout: page
 title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
-date: 2019-03-14 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: amazon-alexa.png
 ha_category:
   - Voice
-featured: false
 ha_release: "0.54"
 ---
 
@@ -90,7 +83,7 @@ Next you need create a Lambda function.
 - Click `Service` in top navigation bar, expand the menu to display all AWS services, click `Lambda` under `Compute` section to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
 - **IMPORTANT** Your current region will be displayed on the top right corner, make sure you select right region base on your Amazon account's country:
   * **US East (N.Virginia)** region for English (US) or English (CA) skills
-  * **EU (Ireland)** region for English (UK), English (IN), German or French (FR) skills
+  * **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   * **US West (Oregon)** region for Japanese and English (AU) skills. 
 - Click `Functions` in the left navigation bar, display list of your Lambda functions.
 - Click `Create function`, select `Author from scratch`, then input a `Function name`.
@@ -237,6 +230,7 @@ The following is a list of regions and the corresponding URL for the web-based A
 * Canada: <https://alexa.amazon.ca>
 * Australia: <https://alexa.amazon.com.au>
 * India: <https://alexa.amazon.in>
+* Spain: <https://alexa.amazon.es>
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
 [emulated-hue-component]: /components/emulated_hue/

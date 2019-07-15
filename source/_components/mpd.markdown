@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Music Player Daemon (MPD)"
 description: "Instructions on how to integrate Music Player Daemon into Home Assistant."
-date: 2016-09-30 23:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mpd.png
 ha_category:
   - Media Player

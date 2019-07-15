@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Certificate Expiry"
 description: "Instructions on how to set up HTTPS (SSL) certificate expiry sensors within Home Assistant."
-date: 2017-04-24 14:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Network

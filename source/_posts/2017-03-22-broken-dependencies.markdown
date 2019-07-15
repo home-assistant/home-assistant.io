@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.40.2 and broken dependencies"
 description: "Due to a bug in our dependency installation, some older versions can get into a broken state."
 date: 2017-03-22 08:04:05 +0000
 date_formatted: "March 22, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

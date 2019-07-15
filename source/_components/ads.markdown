@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ADS"
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
-date: 2017-12-05 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: beckhoff.png
 ha_category:
   - Hub

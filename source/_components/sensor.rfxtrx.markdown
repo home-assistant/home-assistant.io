@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFXtrx Sensor"
 description: "Instructions on how to integrate RFXtrx sensors into Home Assistant."
-date: 2015-08-06 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
 ha_category:
   - Sensor

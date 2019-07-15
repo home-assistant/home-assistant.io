@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Modbus Sensor
 description: "Instructions on how to integrate Modbus sensors into Home Assistant."
-date: 2015-08-30 23:38
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: modbus.png
 ha_category:
   - Sensor

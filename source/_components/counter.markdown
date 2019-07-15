@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Counter"
 description: "Instructions on how to integrate counters into Home Assistant."
-date: 2017-08-26 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation

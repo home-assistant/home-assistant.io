@@ -1,11 +1,6 @@
 ---
-layout: page
 title: "Connection error"
 description: "Connection error"
-date: 2017-06-18 09:00
-comments: false
-sharing: true
-footer: true
 ha_category: Usage
 ---
 

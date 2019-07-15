@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Command line Switch"
 description: "Instructions on how to have switches call command line commands."
-date: 2015-06-10 22:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: command_line.png
 ha_category:
   - Switch

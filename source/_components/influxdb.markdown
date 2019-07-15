@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "InfluxDB"
 description: "Record events in InfluxDB."
-date: 2017-03-13 22:09
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: influxdb.png
 ha_category:
   - History

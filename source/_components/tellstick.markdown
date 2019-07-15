@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TellStick"
 description: "Instructions on how to integrate your TellStick into Home Assistant."
-date: 2015-03-28 13:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: telldus_tellstick.png
 ha_release: pre 0.7
 ha_category:

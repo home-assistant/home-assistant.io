@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Linux Action Show special about Home Assistant"
 description: "Our founder Paulus Schoutsen is interviewed by Chris Fisher about home automation, Hass.io and the new Home Assistant podcast."
 date: 2017-06-10 01:04:05 +0000
 date_formatted: "June 10, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Media
 og_image: /images/blog/2017-06-jupiter-broadcasting/social.jpg
 ---

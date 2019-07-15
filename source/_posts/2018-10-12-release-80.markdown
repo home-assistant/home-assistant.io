@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.80: Lovelace updates, webhooks, TRÅDFRI switches"
 description: "Hacktoberfest is in full swing and we got a whole boat of new features."
 date: 2018-10-12 00:01:00
 date_formatted: "October 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-10-release-80/lovelace-glance-sensor.png
 ---
@@ -98,10 +96,10 @@ On the devices side, we got basic support for the new IKEA TRÅDFRI switches, Ho
 [@StevenLooman]: https://github.com/StevenLooman
 [@balloob]: https://github.com/balloob
 [@hobbypunk90]: https://github.com/hobbypunk90
-[hangouts docs]: https://www.home-assistant.io/components/hangouts/
-[media_player.dlna_dmr docs]: https://www.home-assistant.io/components/media_player.dlna_dmr/
-[media_player.snapcast docs]: https://www.home-assistant.io/components/media_player.snapcast/
-[upnp docs]: https://www.home-assistant.io/components/upnp/
+[hangouts docs]: /components/hangouts/
+[media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
+[media_player.snapcast docs]: /components/media_player.snapcast/
+[upnp docs]: /components/upnp/
 
 ## New Features
 
@@ -287,7 +285,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add support for Hass.io discovery feature for Add-ons ([@pvizeli] - [#17035]) ([hassio docs])
 - Keep the repeat mode when setting Sonos shuffle mode ([@amelchio] - [#17083]) ([media_player.sonos docs])
 - Smaller steps for Sonos volume up/down ([@amelchio] - [#17080]) ([media_player.sonos docs])
-- Add weather condition code to OpenWeatherMap sensor ([@dbilay] - [#17093]) ([sensor.openweathermap docs])
+- Add weather condition code to OpenWeatherMap sensor ([@dYalib] - [#17093]) ([sensor.openweathermap docs])
 - Adding myself as blink codeowner ([@fronzbot] - [#17096])
 - Change Tile icon to view-grid ([@no2chem] - [#17098]) ([device_tracker docs])
 - Fix jewish calendar sensor with language set to english ([@tsvi] - [#17104]) ([sensor.jewish_calendar docs])
@@ -554,7 +552,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cgarwood]: https://github.com/cgarwood
 [@cgtobi]: https://github.com/cgtobi
 [@danielperna84]: https://github.com/danielperna84
-[@dbilay]: https://github.com/dbilay
+[@dYalib]: https://github.com/dYalib
 [@dippysan]: https://github.com/dippysan
 [@emontnemery]: https://github.com/emontnemery
 [@exxamalte]: https://github.com/exxamalte

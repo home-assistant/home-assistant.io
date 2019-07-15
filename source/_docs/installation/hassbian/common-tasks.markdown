@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Common tasks on Hassbian"
 description: "Instructions on how to do common tasks on Hassbian."
-date: 2018-06-03 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /docs/hassbian/common-tasks/
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IHC"
 description: "Instructions on how to integrate the IHC integrations with Home Assistant"
-date: 2017-11-11 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ihc.png
 ha_category:
   - Hub

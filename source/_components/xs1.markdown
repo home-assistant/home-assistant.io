@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EZcontrol XS1"
 description: "Instructions on how to integrate an XS1 Gateway within Home Assistant."
-date: 2018-12-04 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xs1.jpg
 ha_category:
   - Hub

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mill heater"
 description: "Instructions on how to integrate Mill heater into Home Assistant."
-date: 2018-10-10 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mill.png
 ha_category:
   - Climate

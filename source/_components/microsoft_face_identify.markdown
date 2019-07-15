@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Microsoft Face Identify"
 description: "Instructions on how to integrate Microsoft Face Identify into Home Assistant."
-date: 2017-01-25 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: microsoft.png
 ha_category:
   - Image Processing

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: TCP Binary Sensor
 description: "Instructions on how to set up TCP within Home Assistant."
-date: 2016-02-22 11:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tcp_ip.png
 ha_category:
   - Binary Sensor

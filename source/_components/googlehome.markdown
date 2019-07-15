@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Home"
 description: "Instructions on how to connect to your Google Home device."
-date: 2018-11-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_home.png
 ha_release: 0.88
 ha_category:

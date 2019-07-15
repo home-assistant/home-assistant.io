@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Recollect Waste Sensor
 description: "Instructions on how to set up Recollect Waste sensor within Home Assistant."
-date: 2019-01-14 13:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: recollect-waste.png
 ha_category:
   - Sensor

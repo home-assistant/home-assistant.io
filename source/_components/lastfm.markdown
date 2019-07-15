@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Last.fm"
 description: "Instructions on how to integrate Last.fm sensors into Home Assistant."
-date: 2016-05-18 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lastfm.png
 ha_category:
   - Social

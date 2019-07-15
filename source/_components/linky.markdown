@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Linky Sensor"
 description: "Instructions on how to integrate Linky consumption data within Home Assistant."
-date: 2018-09-06 08:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: enedis.png
 ha_release: 0.79
 ha_category:

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Datetime"
 description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
-date: 2017-09-14 16:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -27,16 +21,13 @@ add the following lines to your `configuration.yaml`:
 input_datetime:
   both_date_and_time:
     name: Input with both date and time
-    has_date: true
-    has_time: true
+    has_    has_time: true
   only_date:
     name: Input with only date
-    has_date: true
-    has_time: false
+    has_    has_time: false
   only_time:
     name: Input with only time
-    has_date: false
-    has_time: true
+    has_    has_time: true
 ```
 
 {% configuration %}
@@ -75,10 +66,8 @@ automations and templates.
 | ----- | ----- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
-| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
-| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
-
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>If `has_
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home
@@ -87,12 +76,15 @@ Assistant stopping as long as your entity does **not** have a set value for
 
 ### Services
 
-This integration provides a service to modify the state of the `input_datetime`.
+Available service: `input_datetime.set_datetime`.
 
-| Service | Data | Description |
-| ----- | ----- | ----- |
-| `set_datetime` | `time` | This can be used to dynamically set the time.
-| `set_datetime` | `date` | This can be used to dynamically set the date.
+Service data attribute | Format String | Description
+-|-|-
+`date` | `%Y-%m-%d` | This can be used to dynamically set the date.
+`time` | `%H:%M:%S` | This can be used to dynamically set the time.
+`datetime` | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.
+
+To set both the date and time in the same call, use `date` and `time` together, or use `datetime` by itself. Using `datetime` has the advantage that both can be set using one template.
 
 ## Automation Examples
 
@@ -115,8 +107,8 @@ automation:
 {% endraw %}
 
 To dynamically set the `input_datetime` you can call
-`input_datetime.set_datetime`. The values for `date` and `time` must be in a certain format for the call to be successful.
-You can use either `strftime("%Y-%m-%d")`/`strftime("%H:%M:%S")` or `timestamp_custom("%Y-%m-%d", true)`/`timestamp_custom("%H:%M:%S", true)` filter respectively.
+`input_datetime.set_datetime`. The values for `date` and `time` must be in a certain format for the call to be successful. (See service description above.)
+If you have a `datetime` object you can use its `strftime` method. Of if you have a timestamp you can use the `timestamp_custom` filter.
 The following example can be used in an automation rule:
 
 {% raw %}
@@ -136,17 +128,14 @@ automation:
   - service: input_datetime.set_datetime
     entity_id: input_datetime.another_time
     data_template:
-      time: '{{ now().strftime("%H:%M:%S") }}'
+      time: "{{ now().strftime('%H:%M:%S') }}"
   - service: input_datetime.set_datetime
     entity_id: input_datetime.another_date
     data_template:
-      date: '{{ now().strftime("%Y-%m-%d") }}'
+      date: "{{ as_timestamp(now())|timestamp_custom('%Y-%m-%d') }}"
   - service: input_datetime.set_datetime
+    entity_id: input_datetime.date_and_time
     data_template:
-     entity_id: input_datetime.date_and_time
-      date: >
-        {{ now().timestamp() | timestamp_custom("%Y-%m-%d", true) }}
-      time: >
-        {{ now().timestamp() | timestamp_custom("%H:%M:%S", true) }}
+      datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
 ```
 {% endraw %}

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Binary Sensor"
 description: "Instructions on how to setup the Xiaomi binary sensors within Home Assistant."
-date: 2017-07-21 16:34
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Binary Sensor

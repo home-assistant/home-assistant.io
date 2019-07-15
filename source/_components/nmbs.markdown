@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NMBS Sensor"
 description: "Instructions on how to integrate timetable data for traveling on the NMBS Belgian Railway within Home Assistant."
-date: 2018-11-24 13:47
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sncb_nmbs.gif
 ha_category:
   - Transport

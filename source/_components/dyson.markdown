@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dyson"
 description: "Instructions on how to integrate Dyson into Home Assistant."
-date: 2017-05-27 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dyson.png
 ha_category:
   - Hub
@@ -130,7 +124,7 @@ This integration supports the following services (see [Climate](/components/clim
 - [`turn_off`](/components/climate/#service-climateturn_off)
 - [`set_temperature`](/components/climate/#service-climateset_temperature)
 - [`set_fan_mode`](/components/climate/#service-climateset_fan_mode)
-- [`set_operation_mode`](/components/climate/#service-climateset_operation_mode)
+- [`set_hvac_mode`](/components/climate/#service-climateset_hvac_mode)
 
 ## Fan
 

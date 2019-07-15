@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Asterisk Voicemail Server Installation"
 description: "Instructions on how to integrate your existing Asterisk voicemail within Home Assistant."
-date: 2017-06-30 18:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Asterisk Voicemail integration allows Home Assistant to view, listen to and delete voicemails from a Asterisk voicemail mailbox.

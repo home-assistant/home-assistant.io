@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Integration Sensor"
 description: "Instructions on how to integrate Integration Sensor into Home Assistant."
-date: 2019-01-02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Utility
   - Energy

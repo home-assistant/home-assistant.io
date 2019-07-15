@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Wifi"
 description: "Instructions on how to integrate Google Wifi/OnHub routers into Home Assistant."
-date: 2017-07-15 21:22
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
 logo: google_wifi.png

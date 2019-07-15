@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-trigger/
 ---
 
@@ -106,6 +100,30 @@ automation:
 ```
 {% endraw %}
 
+You can also use templates in the `for` option.
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id:
+      - sensor.temperature_1
+      - sensor.temperature_2
+    above: 80
+    for:
+      minutes: "{{ states('input_number.high_temp_min')|int }}"
+      seconds: "{{ states('input_number.high_temp_sec')|int }}"
+  action:
+    service: persistent_notification.create
+    data_template:
+      message: >
+        {{ trigger.to_state.name }} too high for {{ trigger.for }}!
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when an entity changes as specified.
+
 ### State trigger
 
 Triggers when the state of a given entity changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
@@ -123,6 +141,27 @@ automation:
     # If given, will trigger when state has been the to state for X time.
     for: '01:10:05'
 ```
+
+You can also use templates in the `for` option.
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    to: 'home'
+    for:
+      minutes: "{{ states('input_number.lock_min')|int }}"
+      seconds: "{{ states('input_number.lock_sec')|int }}"
+  action:
+    service: lock.lock
+    entity_id: lock.my_place
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when an entity changes as specified.
+
 
 <p class='note warning'>
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.

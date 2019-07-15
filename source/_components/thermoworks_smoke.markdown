@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ThermoWorks Smoke Sensor"
 description: "Pulls temperature data for a ThermoWorks Smoke Thermometer connected with Smoke Gateway."
-date: 2018-08-22 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: thermoworks.png
 ha_category:
   - Sensor

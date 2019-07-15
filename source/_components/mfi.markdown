@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "mFi"
 description: "Instructions on how to integrate mFi within Home Assistant."
-date: 2016-02-07 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ubiquiti.png
 ha_category:
   - Network

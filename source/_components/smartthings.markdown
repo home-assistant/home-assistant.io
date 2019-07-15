@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SmartThings"
 description: "Instructions on setting up Samsung SmartThings within Home Assistant."
-date: 2018-01-14 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 logo: samsung_smartthings.png
 ha_category:
@@ -177,9 +171,8 @@ For a SmartThings Air Conditioner to be represented by the climate platform, it 
 
 | Capability                          |Climate Features
 |-------------------------------------|--------------------------------------------|
-| [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode) (required)            | `operation mode`
+| [`airConditionerMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Air-Conditioner-Mode) (required)            | `hvac mode`, `hvac action`
 | `airConditionerFanMode` (required) | `fan mode`
-| [`switch`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Switch) (required) | `on/off`
 | [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (required)    | `temperature`
 | [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (required) | `target temp`
 | [`demandResponseLoadControl`](https://docs.smartthings.com/en/latest/capabilities-reference.html#demand-response-load-control) | `drlc_status_duration` (state attribute), `drlc_status_level` (state attribute), `drlc_status_override` (state attribute), `drlc_status_start` (state attribute)
@@ -191,12 +184,12 @@ For a SmartThings thermostat to be represented by the climate platform, it must 
 
 | Capability                          |Climate Features
 |-------------------------------------|--------------------------------------------|
-| [`thermostat`](https://docs.smartthings.com/en/latest/capabilities-reference.html#thermostat) (set a)                | `operation mode`, `operating state` (state attribute), `target temp high`, `target temp low` and `fan mode`
-| [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode) (set b)            | `operation mode`
+| [`thermostat`](https://docs.smartthings.com/en/latest/capabilities-reference.html#thermostat) (set a)                | `hvac mode`, `hvac action`, `target temp high`, `target temp low` and `fan mode`
+| [`thermostatMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Mode) (set b)            | `hvac mode`
 | [`thermostatCoolingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Cooling-Setpoint) (seb b) | `target temp low`
 | [`thermostatHeatingSetpoint`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Heating-Setpoint) (set b) | `target temp high`
 | [`temperatureMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Temperature-Measurement) (set b)    |
-| [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)          | `operating state` (state attribute)
+| [`thermostatOperatingState`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Operating-State)          | `hvac action`
 | [`thermostatFanMode`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Thermostat-Fan-Mode)                 | `fan mode`
 | [`relativeHumidityMeasurement`](https://smartthings.developer.samsung.com/develop/api-ref/capabilities.html#Relative-Humidity-Measurement)       | `humidity` (state attribute)
 

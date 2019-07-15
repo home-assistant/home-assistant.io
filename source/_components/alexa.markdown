@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Amazon Alexa"
 description: "Instructions on how to connect Alexa/Amazon Echo to Home Assistant."
-date: 2015-12-13 13:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: amazon-alexa.png
 ha_category:
   - Voice

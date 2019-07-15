@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pandora"
 description: "Instructions on how to integrate Pandora radio into Home Assistant."
-date: 2016-06-10 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pandora.png
 ha_category:
   - Media Player

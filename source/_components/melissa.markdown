@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Melissa"
 description: "Instructions on how to integrate Melissa Climate into Home Assistant."
-date: 2017-01-05 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mclimate.png
 ha_category:
   - Hub

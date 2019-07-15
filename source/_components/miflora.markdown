@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mi Flora plant sensor"
 description: "Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant."
-date: 2016-09-19 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: miflora.png
 ha_category:
   - Environment
@@ -16,7 +10,7 @@ redirect_from:
  - /components/sensor.miflora/
 ---
 
-The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
+The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](http://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
 
 There are "Chinese" and "International" versions available and there is a [report](https://community.home-assistant.io/t/miflora-showing-data-unknown/19550/8) that only the "International" works.
 
@@ -122,8 +116,7 @@ sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Flower 1
-    force_update: false
-    median: 3
+    force_up    median: 3
     monitored_conditions:
       - moisture
       - light

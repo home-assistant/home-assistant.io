@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "pyLoad Sensor"
 description: "Instructions on how to integrate pyLoad download sensor within Home Assistant."
-date: 2017-10-23 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pyload.png
 ha_category:
   - Downloading

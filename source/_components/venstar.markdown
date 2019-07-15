@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Venstar Thermostat"
 description: "Instructions for how to integrate Venstar WiFi thermostats within Home Assistant."
-date: 2018-01-14 00:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: venstar.png
 ha_category:
   - Climate
@@ -29,8 +23,8 @@ Currently supported functionality:
 - Changing the operation mode of the thermostat (heat/cool/off/auto)
 - Turning the fan on/off
 - Reading and setting the humidity level and limits
-- Turning away mode on/off
-- Turning hold mode on/off
+- Turning on away preset
+- Turning on hold mode preset
 
 The following values are supported for the hold_mode state attribute:
 - `off`: *Enables* the scheduling functionality.

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Community Highlights"
 description: Showcasing some of the cool projects and videos our community has come up with.
 date: 2016-06-01 11:34:00 -0700
 date_formatted: "June 1, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Community Video
 og_image: /images/blog/2016-06-community-highlights/video_preview.png
 ---

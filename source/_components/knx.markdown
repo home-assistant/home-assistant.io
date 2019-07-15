@@ -1,19 +1,12 @@
 ---
-layout: page
 title: "KNX"
 description: "Instructions on how to integrate KNX components with Home Assistant."
-date: 2016-06-08 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Hub
 ha_release: 0.24
 ha_iot_class: Local Polling
 ---
-
 
 The [KNX](https://www.knx.org) integration for Home Assistant allows you to connect to a KNX/IP devices.
 

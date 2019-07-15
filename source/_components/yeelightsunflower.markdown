@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yeelight Sunflower Bulb"
 description: "Instructions on how to setup Yeelight Sunflower hub and bulbs within Home Assistant."
-date: 2017-02-11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yeelight.png
 ha_category:
   - Light

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant on a Pi Zero W in 30 minutes"
 description: "Installing Home Assistant (Hassbian) on a Pi Zero W"
 date: 2017-05-01 09:00:00
 date_formatted: "May 1, 2017"
 author: Avraham David Gelbfish
 author_twitter: adgelbfish
-comments: true
 categories: How-To
 og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png
 ---
@@ -21,7 +19,7 @@ og_image: /images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.
 
 Saw the [announcement](/blog/2017/04/30/hassbian-1.21-its-about-time/) yesterday for HASSbian 1.21 and got super excited?
 
-Today we'll flash the latest HASSbian to a [Raspberry Pi Zero W](https://www.raspberrypi.org/products/pi-zero/).
+Today we'll flash the latest HASSbian to a [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero/).
 **With an added bonus** that besides for an USB cable for power, there's no need for any cables!
 
 What you'll need:

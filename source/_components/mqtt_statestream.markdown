@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Statestream"
 description: "Instructions on how to setup MQTT Statestream within Home Assistant."
-date: 2017-10-01 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Other

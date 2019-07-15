@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "gc100"
 description: "Instructions on how to integrate gc100 with Home Assistant."
-date: 2017-10-26 17:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Hub
   - Binary Sensor

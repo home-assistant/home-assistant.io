@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "World Tides"
 description: "Instructions on how to add Tides information to Home Assistant."
-date: 2017-08-23 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: worldtidesinfo.png
 ha_category:
   - Environment

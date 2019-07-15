@@ -1,12 +1,6 @@
 ---
-layout: page
-title: "VeSync Smart Devices"
-description: "Instructions on how to set up VeSync Switches, Outlets and Fans Device Integration."
-date: 2018-03-09 02:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
+title: "VeSync Switch"
+description: "Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant."
 logo: vesync.png
 ha_category:
   - Switch

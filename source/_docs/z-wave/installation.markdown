@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave"
 description: "Installation of the Z-Wave component."
-date: 2017-09-21 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-installation/
 ---
 

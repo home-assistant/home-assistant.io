@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Lock"
 description: "Instructions on how to integrate Template Locks into Home Assistant."
-date: 2018-10-09 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Lock
 ha_release: 0.81

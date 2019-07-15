@@ -1,12 +1,6 @@
 ---
-layout: page
 title: USCIS Sensor
 description: "Instructions on how to set up USCIS within Home Assistant."
-date: 2018-03-21 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: uscis.png
 ha_category:
   - Sensor

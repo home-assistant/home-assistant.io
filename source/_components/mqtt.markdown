@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT"
 description: "Instructions on how to setup MQTT within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Hub

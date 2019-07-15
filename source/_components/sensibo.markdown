@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sensibo A/C controller"
 description: "Instructions on how to integrate Sensibo A/C controller into Home Assistant."
-date: 2017-04-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sensibo.png
 ha_category:
   - Climate
@@ -67,12 +61,14 @@ switch:
         friendly_name: "AC"
         value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'heat')}}"
         turn_on:
-          service: climate.turn_on
+          service: climate.set_havc_mode
           data:
             entity_id: climate.ac
+            hvac_mode: off
         turn_off:
-          service: climate.turn_off
+          service: climate.set_havc_mode
           data:
             entity_id: climate.ac
+            hvac_mode: 
 ```
 {% endraw %}

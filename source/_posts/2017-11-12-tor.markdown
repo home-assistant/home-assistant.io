@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Secure remote access to Home Assistant using Tor"
 description: "Using Tor with Home Assistant and Hass.io."
 date: 2017-11-12 10:00:00 +0200
 date_formatted: "November 12, 2017"
 author: Franck Nijhof & Fabian Affolter
 author_twitter: frenck
-comments: true
 categories: How-To
 og_image: /images/blog/2017-11-tor/social.png
 ---

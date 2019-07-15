@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NSW Rural Fire Service Incidents"
 description: "Instructions on how to integrate the NSW Rural Fire Service Incidents feed into Home Assistant."
-date: 2018-09-23 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nsw-rural-fire-service.png
 ha_category:
   - Geolocation

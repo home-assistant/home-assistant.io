@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Setting up presence detection"
 description: "Instructions on how to setup presence detection within Home Assistant."
-date: 2015-10-04 12:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Presence detection detects if people are home, which is the most valuable input for automation. Knowing who is home or where they are, will open a whole range of other automation options:

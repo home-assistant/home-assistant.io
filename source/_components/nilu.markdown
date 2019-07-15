@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Norwegian Institute for Air Research"
 description: "Instructions on how to integrate air pollution data from NILU within Home Assistant."
-date: 2018-12-30 18:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nilu_logo.png
 ha_category:
   - Health

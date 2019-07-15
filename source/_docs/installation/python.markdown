@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on your computer"
 description: "Installation of Home Assistant on your computer."
-date: 2014-12-18 22:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-python/
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Public Transit (Nextbus)"
 description: "Instructions on how to use public transit data from Nextbus in Home Assistant."
-date: 2019-02-20 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: train.png
 ha_category:
   - Transport

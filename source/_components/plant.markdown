@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Plant monitor"
 description: "Instructions on how to setup plant monitoring with Home Assistant."
-date: 2016-05-7 23:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Environment

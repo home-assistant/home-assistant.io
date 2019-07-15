@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Remote Monitoring with Glances"
 description: "This post describes the setup for monitoring remote hosts with Home Assistant."
 date: 2015-09-18 11:00:00 +0200
 date_formatted: "September 18, 2015"
 author: Fabian Affolter
-comments: true
 categories: How-To
 og_image: /images/supported_brands/glances.png
 ---

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT"
 description: "Details about the MQTT support of Home Assistant."
-date: 2017-02-15 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.

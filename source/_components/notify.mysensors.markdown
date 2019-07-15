@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors Notify"
 description: "Instructions on how to integrate MySensors notifications into Home Assistant."
-date: 2017-01-07 15:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "STIEBEL ELTRON"
 description: "Instructions on how to integrate STIEBEL ELTRON integral ventilation and heat pump units into Home Assistant."
-date: 2019-04-14 21:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: stiebel_eltron.png
 ha_category:
   - Climate
@@ -29,18 +23,22 @@ By now, the following units are tested:
 - LWZ504e
 - LWZ304
 
-## Operation modes
+## HVAC modes
 
-Only the standard HA operation modes are supported. The STIEBEL ELTRON modes are mapped and configurable as follows:
+The following HVAC modes are supported. The STIEBEL ELTRON modes are mapped and configurable as follows:
 
-- Auto (STATE_AUTO): Automatic mode
-- Eco (STATE_ECO): Standby mode
-- Manual (STATE_MANUAL): Manual mode
-- Off (STATE_OFF): DHW mode (domestic hot water mode, heating is switched off)
+- Auto (HVAC_MODE_AUTO): Automatic mode
+- Manual (HVAC_MODE_HEAT): Manual mode
+- Off (HVAC_MODE_OFF): DHW mode (domestic hot water mode, heating is switched off)
 
-The HA operation mode 'On' is displayed, if the following STIEBEL ELTRON modes are configured directly on the unit:
+## Preset modes
 
-- On (STATE_ON): Day mode, Setback mode or Emergency operation
+The following preset modes are supported. The STIEBEL ELTRON modes are mapped and configurable as follows:
+
+- Eco mode (PRESET_ECO)
+- Day mode (PRESET_DAY)
+- Setback mode (PRESET_SETBACK)
+- Emergency mode (PRESET_EMERGENCY)
 
 ## Configuration
 

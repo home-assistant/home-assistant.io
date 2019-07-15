@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT HVAC"
 description: "Instructions on how to integrate MQTT HVAC into Home Assistant."
-date: 2017-07-31 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Climate
@@ -203,6 +197,9 @@ hold_state_template:
   description: A template to render the value received on the `hold_state_topic` with.
   required: false
   type: template
+hold_modes:
+  description: A list of available hold modes.
+  required: false
 aux_command_topic:
   description: The MQTT topic to publish commands to switch auxiliary heat.
   required: false

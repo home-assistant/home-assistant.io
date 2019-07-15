@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "System Health"
 description: "Systeam Health integration will report system info and allow to run system diagnostics."
-date: 2019-02-06 13:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - "Other"

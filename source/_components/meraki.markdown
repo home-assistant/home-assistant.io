@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Meraki"
 description: "Instructions on how to integrate Meraki-based presence detection into Home Assistant."
-date: 2017-11-22 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: meraki.png
 ha_category:
   - Presence Detection

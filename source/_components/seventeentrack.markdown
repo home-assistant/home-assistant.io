@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "17track.net"
 description: "Instructions on how to use 17track.net data within Home Assistant"
-date: 2018-10-31 10:42
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: 17track.png
 ha_category:
   - Postal Service

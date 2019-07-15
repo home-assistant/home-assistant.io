@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Entur public transport"
 description: "Instructions for how to set up monitoring of public transport departures in Norway."
-date: 2018-10-09 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: entur.svg
 ha_category:
   - Transport

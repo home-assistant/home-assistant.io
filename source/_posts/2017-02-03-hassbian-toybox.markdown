@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "HASSbian 1.1 - The Toy-box"
 description: "New release of the HASSbian Raspberry Pi Image for Home Assistant"
 date: 2017-02-04 05:00:00 -0400
 date_formatted: "February 4, 2017"
 author: Fredrik Lindqvist
-comments: true
 categories: Technology
 ---
 
@@ -58,5 +56,5 @@ To get started with the new image, check out the installation instructions in th
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts
 [hassbian-avahi]: hassbian.local
 [landrash-github]: https://github.com/Landrash
-[gs-image]: /getting-started/installation-raspberry-pi-image/
+[gs-image]: /docs/installation/hassbian/installation/
 [discord]: https://discord.gg/8X8DTH4

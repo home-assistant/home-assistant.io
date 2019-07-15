@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hikvision Camera Switch"
 description: "Instructions on how to integrate Hikvision camera switches into Home Assistant."
-date: 2015-06-10 22:54
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hikvision.png
 ha_category:
   - Switch

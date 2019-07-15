@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Camera Proxy"
 description: "Instructions on how to integrate a camera proxy within Home Assistant."
-date: 2018-03-08 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Camera
 ha_release: 0.65

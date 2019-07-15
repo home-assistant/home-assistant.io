@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SceneGen"
 description: "Scenegen is a scene generation tool for Home Assistant"
-release_date: 2016-10-30 15:00:00 -0500
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/scenegen/
 ---
 

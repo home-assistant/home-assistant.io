@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Crime Reports"
 description: "Instructions on how to integrate CrimeReports.com into Home Assistant."
-date: 2017-02-16 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Social
 logo: crimereports.png

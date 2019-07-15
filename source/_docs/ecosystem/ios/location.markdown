@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Location"
 description: "Documentation about the location tracking abilities in Home Assistant for iOS"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/location/
 ---
 

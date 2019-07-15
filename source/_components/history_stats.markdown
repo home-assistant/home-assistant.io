@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "History Statistics Sensor"
 description: "Instructions about how to integrate historical statistics into Home Assistant."
-date: 2017-02-10 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Velbus"
 description: "Access and control your Velbus devices."
-date: 2017-06-17 16.58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: velbus.png
 ha_category:
   - Hub

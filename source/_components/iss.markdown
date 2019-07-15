@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "International Space Station"
 description: "Know if or when ISS will be above your home location"
-date: 2016-12-18 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nasa.png
 ha_category:
   - Binary Sensor

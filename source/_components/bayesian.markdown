@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Bayesian Binary Sensor"
 description: "Instructions on how to integrate threshold Bayesian sensors into Home Assistant."
-date: 2017-08-27 20:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility

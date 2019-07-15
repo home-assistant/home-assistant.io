@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.85: ESPHome, Plum Lightpad, OpenSenseMap"
 description: "First release of 2019. 20 new integrations, including ESPHome, the best way to integrate ESP chips into Home Assistant."
 date: 2019-01-09 00:01:00
 date_formatted: "January 9, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-01-release-85/components.png
 ---
@@ -88,7 +86,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
  ([@ludeeus] - [#19090]) ([device_tracker docs]) (breaking change)
 - Use unicode slugify. Characters that are not between A and Z are now replaced with their latin equivalent. Dashes are replaced with an underscore. ([@pvizeli] - [#19192]) (breaking change)
 - Various enhancements for WeMo component/platforms. `entity_id` is now required for the `wemo_set_humidity` service. ([@sqldiablo] - [#19419]) ([wemo docs]) ([binary_sensor.wemo docs]) ([fan.wemo docs]) ([light.wemo docs]) ([switch.wemo docs]) (breaking change)
-- seven_segments will incorporate the entity name into the file name changing from former hardcoded `ocr.png` to `ssocr-(ss_entity_name).png` to make each ssocr input data file unique. ([@jumpkick] - [#18634]) ([image_processing.seven_segments docs]) (breaking change)
+- seven_segments will incorporate the entity name into the file name changing from former hardcoded `ocr.png` to `ssocr-(ss_entity_name).png` to make each ssocr input data file unique. ([@deftdawg] - [#18634]) ([image_processing.seven_segments docs]) (breaking change)
 - Update pylaunches dependency to 0.2.0. The launch_time sensor attribute will now be a datetime which can be used in templates, as opposed to a written word string. ([@DoloresHA] - [#19570]) ([sensor.launch_library docs]) (breaking change)
 - Add Freebox component with sensors and device tracker. Static configuration for freebox in device_tracker section must be deleted. Only the config of Freebox component is needed. ([@SNoof85] - [#18472]) ([device_tracker docs]) ([freebox docs]) ([sensor.freebox docs]) (breaking change) (new-platform)
 - Refactored KNX climate component to be able to support operation types. See the documentation for the new operation modes. ([@marvin-w] - [#19546]) ([knx docs]) ([climate.knx docs]) (breaking change)
@@ -207,7 +205,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Provide charging indicator for mychevy ([@sdague] - [#19348]) ([mychevy docs]) ([sensor.mychevy docs])
 - Add GTT Sensor ([@eliseomartelli] - [#18449]) ([sensor.gtt docs]) (new-platform)
 - Upgrade volvooncall to 0.8.7 ([@molobrakos] - [#19398]) ([volvooncall docs])
-- Cast lametric cycles parameter to int ([@jumpkick] - [#19370]) ([notify docs])
+- Cast lametric cycles parameter to int ([@deftdawg] - [#19370]) ([notify docs])
 - Satel integra monitor outputs ([@c-soft] - [#19149]) ([satel_integra docs]) ([binary_sensor.satel_integra docs])
 - Fix cpu_temp issue on Raspberry Pi ([@mretegan] - [#19404]) ([sensor.glances docs])
 - Add camera selection config to skybell camera ([@nhorvath] - [#19310]) ([skybell docs]) ([camera.skybell docs])
@@ -232,9 +230,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Bump Pybotvac To Support D7 On Latest Firmware ([@dshokouhi] - [#19463]) ([neato docs])
 - Adds battery_percent which had been introduced with pyatmo 1.4 and resolves unknown var warning. ([@jensihnow] - [#19309]) ([sensor.netatmo docs])
 - Add Mythic Beasts DNSAPI Component ([@thinkl33t] - [#18333]) ([mythicbeastsdns docs]) (new-platform)
-- Rename ocr.png to ssocr-(entity_name).png to allow multiple instances ([@jumpkick] - [#18634]) ([image_processing.seven_segments docs]) (breaking change)
+- Rename ocr.png to ssocr-(entity_name).png to allow multiple instances ([@deftdawg] - [#18634]) ([image_processing.seven_segments docs]) (breaking change)
 - Update pynetgear to 0.5.2 ([@MatMaul] - [#19490]) ([device_tracker docs])
-- Reorder FLOW entries in config_entries.py ([@Solije] - [#19475])
+- Reorder FLOW entries in config_entries.py ([@TomAFrench] - [#19475])
 - Add timeout to RainMachine login ([@bachya] - [#19476]) ([rainmachine docs])
 - Add new sensor platform to expose Islamic prayer times ([@uchagani] - [#19444]) ([sensor.islamic_prayer_times docs]) (new-platform)
 - Add native ESPHome Home Assistant state feature ([@OttoWinter] - [#19429]) ([esphome docs])
@@ -623,7 +621,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ReneNulschDE]: https://github.com/ReneNulschDE
 [@RyuzakiKK]: https://github.com/RyuzakiKK
 [@SNoof85]: https://github.com/SNoof85
-[@Solije]: https://github.com/Solije
+[@TomAFrench]: https://github.com/TomAFrench
 [@Steve9F]: https://github.com/Steve9F
 [@StevenLooman]: https://github.com/StevenLooman
 [@abmantis]: https://github.com/abmantis
@@ -669,7 +667,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@javicalle]: https://github.com/javicalle
 [@jensihnow]: https://github.com/jensihnow
 [@jkeljo]: https://github.com/jkeljo
-[@jumpkick]: https://github.com/jumpkick
+[@deftdawg]: https://github.com/deftdawg
 [@kdvlr]: https://github.com/kdvlr
 [@kennedyshead]: https://github.com/kennedyshead
 [@loe]: https://github.com/loe

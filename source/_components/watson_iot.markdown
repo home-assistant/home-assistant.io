@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IBM Watson IoT Platform"
 description: "Record events in the IBM Watson IoT Platform."
-date: 2018-04-03 22:09
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ibm.png
 ha_category:
   - History

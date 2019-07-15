@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "GeoJSON Events"
 description: "Instructions on how to integrate GeoJSON feeds into Home Assistant."
-date: 2018-09-19 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: geo_location.png
 ha_category:
   - Geolocation

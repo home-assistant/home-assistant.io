@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nmap"
 description: "Instructions on how to integrate Nmap into Home Assistant."
-date: 2018-09-21 18:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nmap.png
 ha_category:
   - Presence Detection

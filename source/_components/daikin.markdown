@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC devices with Home Assistant."
-date: 2017-12-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: daikin.png
 ha_category:
   - Climate
@@ -36,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-The Daikin integration can be configured in three ways. 
+The Daikin integration can be configured in three ways.
 
 - Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.
@@ -61,12 +55,11 @@ hosts:
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
-- [**mode**](https://www.home-assistant.io/components/climate#service-climateset_operation_mode) (cool, heat, dry, fan only or auto)
+- [**set_hvac_mode**](/components/climate/#service-climateset_hvac_mode) (off, heat, cool, auto, or fan only)
 - [**target temperature**](https://www.home-assistant.io/components/climate#service-climateset_temperature)
 - [**fan mode**](https://www.home-assistant.io/components/climate#service-climateset_fan_mode) (speed)
 - [**swing mode**](https://www.home-assistant.io/components/climate#service-climateset_swing_mode)
-- [**turn on/off**](https://www.home-assistant.io/components/climate#service-climateturn_on)
-- [**away mode**](https://www.home-assistant.io/components/climate#service-climateset_away_mode)
+- [**set_preset_mode**](https://www.home-assistant.io/components/climate#service-climateset_away_mode) (away, home)
 
 Current inside temperature is displayed.
 

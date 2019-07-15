@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Examples sending notification depending of the presence"
 description: "Examples sending notification depending of the presence"
-date: 2017-02-12 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

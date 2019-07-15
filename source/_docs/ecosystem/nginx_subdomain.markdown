@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NGINX Configuration"
 description: "Configure Nginx to work with Home Assistant as a subdomain"
-date: 2016-06-20 13:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 This example demonstrates how you can configure NGINX to act as a proxy for Home Assistant.

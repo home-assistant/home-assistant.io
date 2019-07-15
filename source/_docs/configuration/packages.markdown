@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Packages"
 description: "Describes all there is to know about configuration packages in Home Assistant."
-date: 2017-01-10 20:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/packages/
 ---
 

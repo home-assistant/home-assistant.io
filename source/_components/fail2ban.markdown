@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fail2Ban Sensor"
 description: "Instructions on how to integrate a fail2ban sensor into Home Assistant."
-date: 2017-10-19 10:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Network
 ha_iot_class: Local Polling

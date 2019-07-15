@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Epson"
 description: "Instructions on how to integrate Epson projector into Home Assistant."
-date: 2018-06-13 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: epson.png
 ha_category:
   - Media Player

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "hass-cli 0.5: Area, Device Registry and event CLI"
 description: "Bulk editing for Areas!"
 date: 2019-02-11 00:01:00
 date_formatted: "February 11, 2018"
 author: Max Rydahl Andersen
 author_twitter: maxandersen
-comments: true
 categories: Announcements
 ---
 
@@ -154,4 +152,4 @@ Have fun!
 
 
 [@maxandersen]: https://xam.dk/about
-[hass-087]: https://www.home-assistant.io/blog/2019/02/06/release-87/
+[hass-087]: /blog/2019/02/06/release-87/

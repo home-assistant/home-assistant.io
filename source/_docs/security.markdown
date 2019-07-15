@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Security of Home Assistant"
 description: "Security of Home Assistant."
-date: 2017-02-13 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 As Home Assistant is like every other service or daemon that is running on a computer system that allows access over a network connection, certain measures were taken to increase the overall security while still staying operational.

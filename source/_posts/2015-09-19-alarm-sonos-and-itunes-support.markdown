@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Alarms, Sonos and iTunes now supported"
 description: "Home Assistant 0.7.3 has been released with support for Sonos, iTunes and improved ."
 date: 2015-09-19 21:47:00 0000
 date_formatted: "September 19, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nest"
 description: "Instructions on how to integrate Nest into Home Assistant."
-date: 2016-01-29 21:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nest.png
 ha_category:
   - Hub
@@ -14,7 +8,6 @@ ha_category:
   - Camera
   - Climate
   - Sensor
-featured: false
 ha_iot_class: Cloud Push
 redirect_from:
   - /components/binary_sensor.nest/
@@ -309,10 +302,10 @@ The following conditions are available by device:
   - security\_state: `ok` or `deter`. [Security State](#security-state). Only available when Nest Camera exists.
 - Nest Thermostat:
   - humidity
-  - operation\_mode
+  - preset\_mode
   - temperature
   - target
-  - hvac\_state: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
+  - hvac\_mode: The currently active state of the HVAC system, `heat`, `cool` or `off` (previously `heating`, `cooling` or `off`).
 - Nest Protect:
   - co\_status: `Ok`, `Warning` or `Emergency`
   - smoke\_status: `Ok`, `Warning` or `Emergency`

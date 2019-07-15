@@ -1,12 +1,6 @@
 ---
-layout: page
 title: UPS Sensor
 description: "Instructions on how to set up UPS sensors within Home Assistant."
-date: 2017-02-14 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ups.png
 ha_category:
   - Postal Service

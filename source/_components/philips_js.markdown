@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Philips TV"
 description: "Instructions on how to add Philips TVs to Home Assistant."
-date: 2016-11-01 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: philips.png
 ha_category:
   - Media Player

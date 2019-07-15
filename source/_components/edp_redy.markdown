@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EDP re:dy"
 description: "Instructions on how to integrate the EDP re:dy platform into Home Assistant."
-date: 2018-09-04 16:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: edp_redy.png
 ha_category:
   - Hub

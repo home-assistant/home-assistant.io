@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Entity integration platform options"
 description: "Shows how to customize polling interval for any integration via configuration.yaml."
-date: 2016-02-12 23:17 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/platform_options/
 ---
 

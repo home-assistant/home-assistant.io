@@ -155,3 +155,25 @@ disqus_end_date: 2010-01-26 0:00:00
 
 # Support .well-known directory
 include: [".well-known"]
+
+# Set Front matter defaults
+defaults:
+  # Defaults for all pages
+  - scope:
+      path: ""
+    values:
+      layout: page
+      comments: false
+      footer: true
+      sharing: true
+      sidebar: true
+      featured: false
+  # Defaults for blogs posts
+  - scope:
+      type: posts
+    values:
+      layout: post
+      comments: true
+      footer: true
+      sharing: true
+      sidebar: true

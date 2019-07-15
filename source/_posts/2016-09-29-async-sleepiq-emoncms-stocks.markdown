@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants"
 description: "Move to asynchronous, Support for SleepIQ, OpenALPR, and EmonCMS, and other goodies."
 date: 2016-09-29 03:04:05 +0000
 date_formatted: "September 29, 2016"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -61,9 +59,9 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - Climate: [Nest] can now control the fan ([@jawilson])
 - Modbus: Major cleanup for [Modbus] switches and sensors ([@persandstrom])
 - HTTP: Allow [passwordless] logins from whitelisted IP addresses ([@Danielhiversen])
-- Sensor: Yahoo! Finance [stocks] now supported ([@tchellomello])
+- Sensor: Yahoo! Finance stocks now supported ([@tchellomello])
 - Sensor: Set value based on incoming [email] ([@sam-io])
-- Light: White value now supported ([@mxtra], [@MartinHjelmare])
+- Light: White value now supported (@mxtra, [@MartinHjelmare])
 - [InfluxDB] now allows attaching extra data ([@lwis])
 - [OpenALPR] support ([@pvizeli])
 - Minor features and bug fixes by [@fabaff], [@w1ll1am23], [@turbokongen], [@clach04], [@mKeRix], [@pvizeli], [@DavidLP], [@nvella], [@Teagan42], [@ericwclymer], [@wokar], [@kellerza], [@nkgilley], [@jawilson], [@Danielhiversen], [@ej81], [@danieljkemp], [@balloob], [@philhawthorne], [@LinuxChristian], [@milas], [@simonszu], [@Cinntax], [@irvingwa], [@sytone], [@kk7ds], [@robbiet480].
@@ -142,7 +140,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [@milaq]: https://github.com/milaq
 [@milas]: https://github.com/milas
 [@mKerix]: https://github.com/mKerix
-[@mxtra]: https://github.com/mxtra
 [@nkgilley]: https://github.com/nkgilley
 [@nvella]: https://github.com/nvella
 [@open-homeautomation]: https://github.com/open-homeautomation
@@ -180,7 +177,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [Simplepush]: /components/notify.simplepush/
 [Slack]: /components/notify.slack/
 [SleepIQ]: /components/sleepiq/
-[stocks]: /components/sensor.yahoo_finance/
 [timeout]: /components/sensor.mqtt_room/
 [Vera]: /components/cover.vera/
 [Wink]: /components/wink/

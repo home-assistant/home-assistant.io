@@ -1,10 +1,5 @@
 ---
-layout: page
 title: "Raspberry Pi All-In-One Installer"
-date: 2016-05-12 01:39
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-raspberry-pi-all-in-one/
 ---
 
