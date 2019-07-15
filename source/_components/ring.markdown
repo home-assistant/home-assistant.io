@@ -25,6 +25,10 @@ There is currently support for the following device types within Home Assistant:
 
 Currently only doorbells are supported by this sensor.
 
+<p class='note'>
+This component does NOT allow for live viewing of your Ring camera within Home Assistant.
+</p>
+
 ## Configuration
 
 To enable device linked in your [Ring.com](https://ring.com/) account, add the following to your `configuration.yaml` file:
