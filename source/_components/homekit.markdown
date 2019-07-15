@@ -110,11 +110,11 @@ homekit:
             type: map
             keys:
               name:
-                description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Name of the entity to show in HomeKit. HomeKit will cache the name on the first run so the accessory must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
                 type: string
               linked_battery_sensor:
-                description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be removed and then re-added for any change to take effect.
+                description: The `entity_id` of a `sensor` entity to use as the battery of the accessory. HomeKit will cache an accessory's feature set on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
                 type: string
               low_battery_threshold:
@@ -137,7 +137,7 @@ homekit:
                     required: true
                     type: string
               type:
-                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be removed and then re-added for any change to take effect.
+                description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. HomeKit will cache the type on the first run so a device must be [reset](#resetting-accessories) for any change to take effect.
                 required: false
                 type: string
                 default: '`switch`'
@@ -452,12 +452,20 @@ To fix this, you need to unpair the `Home Assistant Bridge`, delete the `.homeki
 
 #### The linked battery sensor isn't recognized
 
-Try removing the entity from HomeKit and then adding it again. If you are adding this config option to an existing entity in HomeKit, any changes you make to this entity's config options won't appear until the accessory is removed from HomeKit and then re-added.
+Try removing the entity from HomeKit and then adding it again. If you are adding this config option to an existing entity in HomeKit, any changes you make to this entity's config options won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
 
 #### My media player is not showing up as a television accessory
 
-Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added.
+Media Player entities with `device_class: tv` will show up as Television accessories on  devices running iOS 12.2/macOS 10.14.4 or later. If needed, try removing the entity from HomeKit and then adding it again, especially if the `media_player` was previously exposed as a series of switches. Any changes, including changed supported features, made to an existing accessory won't appear until the accessory is removed from HomeKit and then re-added. See [resetting accessories](#resetting-accessories).
 
 #### Can't control volume of your TV media player?
 
 The volume and play/pause controls will show up on the Remote app or Control Center. If your TV supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.
+
+#### {% linkable_title Resetting accessories %}
+
+On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever HomeAssistant add supports for new HomeKit features to existing entities.
+
+On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
+
+With either strategy, the accessory will behave as if it's the first time the accessory has been setup, so you will need to restore name, group, room, scene, and/or automation settings.
