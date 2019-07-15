@@ -341,13 +341,18 @@ article.post, article.page, article.listing {
   }
 }
 
-p.note {
+p.note, div.note {
   position: relative;
 
   background: #e7f2fa;
 
   padding: 40px 12px 6px 12px;
+  margin-bottom: 24px;
   box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+
+  p {
+    margin-bottom: 0px;
+  }
 
   &::before {
     font-family: "FontAwesome", sans-serif;
