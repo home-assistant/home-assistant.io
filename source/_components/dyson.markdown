@@ -74,9 +74,11 @@ devices:
 
 The `devices` list is optional, but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
 
-<p class='note warning'>
+<div class='note warning'>
+
 Discovery is not yet supported for any robot vacuum models (Dyson 360 Eye). For these devices, you will need to provide them in the `devices` list.
-</p>
+
+</div>
 
 To find a devices IP address, you can use your router or `nmap`:
 

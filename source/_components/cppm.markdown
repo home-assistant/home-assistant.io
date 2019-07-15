@@ -14,9 +14,11 @@ Supported platforms (tested):
 
 - Aruba ClearPass 6.7.5
 
-<p class='note warning'>
+<div class='note warning'>
+
 You must first create an API client [here](https://clearpass.server.com/guest/api_clients.php).
-</p>
+
+</div>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 

@@ -72,11 +72,13 @@ duration:
   type: time
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
   You have to provide **exactly 2** of `start`, `end` and `duration`.
 <br/>
   You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
-</p>
+
+</div>
 
 ## Sensor type
 
@@ -180,6 +182,8 @@ Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekd
 ```
 {% endraw %}
 
-<p class='note'>
+<div class='note'>
+
   The `/dev-template` page of your home-assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
-</p>
+
+</div>

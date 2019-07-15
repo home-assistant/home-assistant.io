@@ -80,9 +80,11 @@ $ sudo usermod -a -G dialout homeassistant
 
 Finally, reboot again to make those changes active. It's has been tested on hassbian and has been reported that this is also required on the Pi2.
 
-<p class='note'>
+<div class='note'>
+
   If you've installed the Z-Way software, you'll need to ensure you disable it before you install Home Assistant or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`.
-</p>
+
+</div>
 
 ### Aeon Minimote
 

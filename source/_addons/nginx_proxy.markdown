@@ -45,6 +45,8 @@ customize:
   default: false
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 It is possible to deactivate port 80 if you need this for things like `emulated_hue`. Remove the host port from Network option of this add-on.
-</p>
+
+</div>

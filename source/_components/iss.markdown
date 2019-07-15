@@ -42,10 +42,12 @@ show_on_map:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you set `show_on_map: true` then the location attributes are named `latitude` and `longitude`.
 The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
-</p>
+
+</div>
 
 ### Show position on map with camera platform
 

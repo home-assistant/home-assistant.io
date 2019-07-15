@@ -204,14 +204,16 @@ The following table shows the units of measurement for each attribute:
 
 ## Retrieving the Access Token
 
-<p class='note'>
+<div class='note'>
+
 As per Version 5.4.49 the Android Mi Home app stores the token readable in the log files. It can easily be retrieved in the folder Smarthome on in the Android device. Just open the text file inside the Smarthome/logs folder and search for the token.
 <br/> <br/>
 The iPhone app still stores the token in the SQLite db as of v4.10.2 (Dec 22, 2018).
 <br/> <br/>
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a `key` (16 alphanumeric chars), which can be obtained
 easily via a hidden menu item at the Mi-Home app or using the `miio` command line tool.
-</p>
+
+</div>
 
 ### Miio command line tool
 

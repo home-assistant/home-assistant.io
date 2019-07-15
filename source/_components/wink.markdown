@@ -66,9 +66,9 @@ Wink requests three pieces of information from the user when they sign up for a 
 
 No settings are required in the `configuration.yaml` other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
 
-<p class='note'>
+<div class='note'>
 When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
-</p>
+</div>
 
 ```yaml
 wink:
@@ -120,7 +120,8 @@ Local control:
 - Local control isn't used during the start-up of Home Assistant; this means initial setup requires an active internet connection.
 - Local control requests are first sent to the controlling hub. If a request fails, that request will attempt to go online.
 
-<p class='note'>
+<div class='note'>
+
 It is possible for the hub to get into a bad state where it stops accepting local control request. If this happens, you will notice requests taking significantly longer as they are redirected online. This doesn't happen often, but when it does, it appears to be resolved by rebooting the hub.
 
 The following error will be logged if the hub is rejecting local requests.
@@ -129,7 +130,7 @@ The following error will be logged if the hub is rejecting local requests.
 Error sending local control request. Sending request online
 ```
 
-</p>
+</div>
 
 ## Service `refresh_state_from_wink`
 
@@ -159,9 +160,9 @@ You can use the service wink/pair_new_device to pair a new device to your Wink h
 | `pairing_mode` | no | One of the following [zigbee, zwave, zwave_exclusion, zwave_network_rediscovery, lutron, bluetooth, kidde]
 | `kidde_radio_code` | conditional | A string of 8 1s and 0s one for each dip switch on the kidde device left --> right = 1 --> 8 (Required if pairing_mode = kidde)
 
-<p class='note'>
+<div class='note'>
 Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
-</p>
+</div>
 
 ## Service `rename_wink_device`
 
@@ -172,13 +173,13 @@ You can use the service wink/rename_wink_device to change the name of a device.
 | `entity_id` | no | String that points at the `entity_id` of device to rename.
 | `name` | no | The name to change it to.
 
-<p class='note'>
-Home Assistant entity_ids for Wink devices are based on the Wink device's name. Calling this service will not change the entity_id of the deivce until Home Assistant is restarted.
-</p>
+<div class='note'>
+Home Assistant entity_ids for Wink devices are based on the Wink device's name. Calling this service will not change the entity_id of the device until Home Assistant is restarted.
+</div>
 
-<p class='note'>
+<div class='note'>
 The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
-</p>
+</div>
 
 ## Custom Wink devices and their services
 
@@ -206,9 +207,9 @@ script:
           auto_shutoff: 60
 ```
 
-<p class='note'>
+<div class='note'>
 The following services only work with the Dome siren/chime.
-</p>
+</div>
 
 ### Service `set_chime_volume`
 
@@ -392,9 +393,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 
 - Canary all-in-one security camera
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
 ## Binary Sensor
 
@@ -416,9 +417,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - Wink hub devices connection status. This includes any paired hubs like Hue, Wink v1, Wink v2, Wink Relay...
 - Dropcam sensors
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
 ## Climate
 
@@ -436,9 +437,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - Generic Z-Wave
 - Quirky Aros window AC unit
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
 ## Cover
 
@@ -456,9 +457,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - GoControl garage door opener
 - Chamberlain MyQ (Limited functionality) (No Wink hub required)
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
 ## Fan
 
@@ -471,9 +472,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - Home Decorator Wink-enabled Gardinier ceiling fan
 - Hampton Bay ceiling fan module
 
-<p class='note'>
-The above devices are confimed to work, but others may work as well.
-</p>
+<div class='note'>
+The above devices are confirmed to work, but others may work as well.
+</div>
 
 ## Light
 
@@ -489,9 +490,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - GE link
 - Wink light groups (User created groups of lights)
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
 ## Lock
 
@@ -506,9 +507,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - August (No Wink hub required) (August Connect required)
 - Generic Z-wave
 
-<p class='note'>
+<div class='note'>
 The following services have only been confirmed on Schlage locks.
-</p>
+</div>
 
 ### Service `wink_set_lock_alarm_mode`
 
@@ -620,13 +621,13 @@ You can use the service wink/wink_add_new_lock_key_code to add a new user code t
 | `name` | no | the name of the new key code
 | `code` | no | The new code. Must match length of existing codes.
 
-<p class='note'>
+<div class='note'>
 Calling service wink/pull_newly_added_wink_devices will add the new key code to Home Assistant. The device will also show up on the next restart of Home Assistant.
-</p>
+</div>
 
-<p class='note'>
+<div class='note'>
 If supported by your lock, a binary sensor will be created for each user key code you have defined. These key codes will turn on when the code is entered and automatically turn off after a few seconds.
-</p>
+</div>
 
 ## Sensor
 
@@ -644,9 +645,9 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - Motion sensor temperature
 - Quirky refuel propane tank monitor (No Wink hub required)
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
 ## Switch
 
@@ -673,6 +674,8 @@ The requirement is that you have set up [Wink](/components/wink/) from above.
 
 - Rheem Econet water heaters (No Wink hub required)
 
-<p class='note'>
+<div class='note'>
+
 Wink water heaters use to live under the `climate` platform prior to release 0.81.
-</p>
+
+</div>

@@ -9,9 +9,9 @@ Hass.io allows anyone to create add-on repositories to share their add-ons for H
 https://github.com/home-assistant/hassio-addons-example
 ```
 
-<p class='note warning'>
+<div class='note warning'>
 Home Assistant cannot guarantee the quality or security of third-party add-ons. Use at your own risk.
-</p>
+</div>
 
 <p class='img'>
 <img src='/images/hassio/screenshots/main_panel_addon_store.png' />

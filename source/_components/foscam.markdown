@@ -54,9 +54,9 @@ name:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
-</p>
+</div>
 
 ### Control Foscam PTZ (Pan/Tilt/Zoom) - Home/Away
 

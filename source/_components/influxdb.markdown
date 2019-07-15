@@ -17,9 +17,11 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-<p class='note'>
+<div class='note'>
+
 The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
-</p>
+
+</div>
 
 ## Configuration
 

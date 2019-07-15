@@ -101,9 +101,9 @@ force_update:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
-</p>
+</div>
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
 

@@ -52,4 +52,8 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class="note">If no **host** is given the platform will try to auto-discover all devices on the network, that are listening on the given **port_recv**.</p>
+<div class="note">
+
+If no **host** is given the platform will try to auto-discover all devices on the network, that are listening on the given **port_recv**.
+
+</div>

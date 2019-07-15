@@ -15,9 +15,11 @@ The `climate` integration is built for the controlling and monitoring of HVAC (h
 ### Climate control services
 Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`, `climate.set_hold_mode`, `climate.turn_on`, `climate.turn_off`
 
-<p class='note'>
+<div class='note'>\
+
 Not all climate services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
-</p>
+
+</div>
 
 ### Service `climate.set_aux_heat`
 

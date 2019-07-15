@@ -98,6 +98,6 @@ automation:
 ```
 {% endraw %}
 
-<p class='note warning'>
+<div class='note warning'>
 This integration is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
-</p>
+</div>

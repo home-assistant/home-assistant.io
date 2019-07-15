@@ -59,10 +59,12 @@ weather:
     forecast: true
 ```
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`buienradar`](/components/sensor.buienradar/) sensor.
 The weather platform is easier to configure but less customizable.
-</p>
+
+</div>
 
 [Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
 > Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission.

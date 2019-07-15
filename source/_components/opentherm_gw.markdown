@@ -25,9 +25,9 @@ There is currently support for the following device types within Home Assistant:
 
 When enabled, this integration will automatically add its [`climate` entity](/components/climate.opentherm_gw) to Home Assistant.
 
-<p class='note'>
+<div class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
-</p>
+</div>
 
 # Configuration
 
@@ -288,9 +288,9 @@ Provide the time and day of week to the OpenTherm Gateway. The value provided he
 
 ### Service `opentherm_gw.set_control_setpoint`
 
-<p class='note warning'>
+<div class='note warning'>
 Improper use of this service may continuously keep your central heating system active, resulting in an overheated house and a significant increase in gas and/or electricity consumption.
-</p>
+</div>
 
 Set the central heating control setpoint override on the OpenTherm Gateway.
 In a normal situation, the thermostat will calculate and control the central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. While the override is active, the OpenTherm Gateway will also request your boiler to activate the central heating circuit. For your boiler's actual maximum and minimum supported setpoint value, please see the [`slave_ch_max_setp`](#slave_ch_max_setp) and [`slave_ch_min_setp`](#slave_ch_min_setp) variables. Due to the potential consequences of leaving this setting enabled for prolonged periods, the override will be disabled when Home Assistant is shut down or restarted.
@@ -300,9 +300,11 @@ In a normal situation, the thermostat will calculate and control the central hea
 | ---------------------- | -------- | ----------- |
 | `temperature` | no | The central heating setpoint. Values between `0.0` and `90.0` are accepted, but your boiler may not support the full range. Set to `0` to disable the override.
 
-<p class='note'>
+<div class='note'>
+
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-</p>
+
+</div>
 
 ### Service `opentherm_gw.set_gpio_mode`
 
@@ -326,9 +328,9 @@ For a list of possible modes with explanation, see [LED modes](#led-modes)
 
 ### Service `opentherm_gw.set_max_modulation`
 
-<p class='note warning'>
+<div class='note warning'>
 Improper use of this service may impair the performance of your central heating system.
-</p>
+</div>
 
 Set the maximum modulation level override on the OpenTherm Gateway.
 In a normal situation, the thermostat will control the maximum modulation level on the boiler. Setting this to any value other than `-1` will enable the override and allow the OpenTherm Gateway to control this setting. Due to the potential consequences of leaving this setting enabled, the override will be disabled when Home Assistant is shut down or restarted.
@@ -338,9 +340,11 @@ In a normal situation, the thermostat will control the maximum modulation level 
 | ---------------------- | -------- | ----------- |
 | `level` | no | The maximum modulation level. Accepted values are `-1` through `100`. Set to `-1` to disable the override.
 
-<p class='note'>
+<div class='note'>
+
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-</p>
+
+</div>
 
 ### Service `opentherm_gw.set_outside_temperature`
 
@@ -393,9 +397,9 @@ Possible LED modes and their meaning are listed here:
 * M. Boiler requires maintenance.
 * P. Raised power mode active on thermostat interface.
 
-<p class='note'>
+<div class='note'>
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
-</p>
+</div>
 
 # Example
 

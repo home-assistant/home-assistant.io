@@ -107,9 +107,9 @@ $ curl http://<bridge>/api/<username>/lights
 
 Home Assistant will automatically detect your new `LightGroup` and add it to the interface.
 
-<p class='note warning'>
+<div class='note warning'>
   To support Hue Light Groups, your bridge needs to have at least firmware 1.13 (released on June 3, 2016).
-</p>
+</div>
 
 More information can be found on the [Philips Hue API documentation](https://www.developers.meethue.com/documentation/groups-api#22_create_group) website.
 

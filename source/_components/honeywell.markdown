@@ -12,10 +12,12 @@ redirect_from:
 
 The `honeywell` climate platform lets you control Honeywell TCC (Total Connect Comfort) climate systems from Home Assistant. It does not integrate with Honeywell TCC alarm systems.
 
-<p class='note'>
+<div class='note'>
+
 There is some potential confusion over this integration because it is currently implemented as a combination of two _distinct_ climate systems, one being US-based, the other is EU-based.
 
 These two regions are _not_ interchangeable, so you must be clear which applies to your climate system.
+
 </p>
 
 ## US-based Systems

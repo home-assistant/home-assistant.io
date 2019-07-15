@@ -68,9 +68,9 @@ pull_mode:
   default: "`UP`"
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
   MCP23017 only has internal pull-up resistors, if you want to use pull-down you will have to wire your own pull-down resistors.
-</p>
+</div>
 
 ## Switch
 

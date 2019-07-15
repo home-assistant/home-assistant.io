@@ -32,9 +32,11 @@ To get the current state of the `homeassistant.service` replace `stop` with `sta
 
 ### Update Home Assistant
 
-<p class='note'>
+<div class='note'>
+
 You can use `hassbian-config` to automate the process by running `sudo hassbian-config upgrade homeassistant`
-</p>
+
+</div>
 
 Log in as the `pi` account and execute the following commands:
 

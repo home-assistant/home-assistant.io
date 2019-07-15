@@ -11,7 +11,9 @@ og_image: /images/blog/2017-08-0.51/components.png
 
 <a href='/components/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
 
-<p class='note warning'>This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.</p>
+<div class='note warning'>
+This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.
+</div>
 
 Release 0.51 is around the corner and it contains some really great updates.
 

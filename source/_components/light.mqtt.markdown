@@ -260,13 +260,15 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-  Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-</p>
+<div class='note warning'>
 
-<p class='note warning'>
+  Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
+
+</div>
+
+<div class='note warning'>
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
-</p>
+</div>
 
 ## Default schema - Examples
 
@@ -522,13 +524,17 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-</p>
+<div class='note warning'>
 
-<p class='note warning'>
+  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+
+</div>
+
+<div class='note warning'>
+
   RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
-</p>
+
+</div>
 
 ## JSON schema - Examples
 
@@ -796,9 +802,11 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-</p>
+
+</div>
 
 ## Template schema - Examples
 
