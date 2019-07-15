@@ -27,26 +27,3 @@ document.querySelector('.show-search').addEventListener('click', function(ev) {
   document.querySelector('.search-container input').focus();
 });
 </script>
-
-
-{% if page.sidebar != false %}
-<script>
-    $(document).ready(function(){
-      if (!window.jXHR){
-        var jxhr = document.createElement('script');
-        jxhr.type = 'text/javascript';
-        jxhr.src = '/javascripts/libs/jXHR.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(jxhr, s);
-      }
-  
-      github.showRepos({
-        user: '{{site.github_user}}',
-        count: {{site.github_repo_count}},
-        skip_forks: {{site.github_skip_forks}},
-        target: '#gh_repos'
-      });
-    });
-  </script>
-  <script src="/javascripts/github.js"></script>
-{% endif %}
