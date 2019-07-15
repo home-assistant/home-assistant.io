@@ -24,9 +24,11 @@ panel_custom:
       who: world
 ```
 
-<p class='note'>
+<div class='note'>
+
 Store your custom panels in `<config>/www` to make them available in the frontend at the path `/local`.
-</p>
+
+</div>
 
 {% configuration %}
 name:

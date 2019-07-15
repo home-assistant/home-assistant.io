@@ -21,9 +21,11 @@ There is currently support for the following device types within Home Assistant:
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<p class='note'>
+<div class='note'>
+
 Don't use option `server_host` on a Hass.io installation!
-</p>
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,9 +98,11 @@ ssl_profile:
   default: modern
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 Configuring trusted_networks via the `http` integration will be deprecated and moved to `auth_providers` instead. For instructions, see <a href="/docs/authentication/providers/#trusted-networks">trusted networks</a>. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2.
-</p>
+
+</div>
 
 The sample below shows a configuration entry with possible values:
 
@@ -147,17 +151,21 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Please note, that sources from `trusted_networks` won't be banned automatically.
-</p>
+
+</div>
 
 ## Hosting files
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config` on Hass.io, `.homeassistant` elsewhere). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
-<p class='note'>
+<div class='note'>
+
   If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
-</p>
+
+</div>
 
 ## Binary Sensor
 
@@ -171,9 +179,9 @@ The URL for a binary sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/binary_sensor.DEVICE_NAME
 ```
 
-<p class='note'>
+<div class='note'>
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</p>
+</div>
 
 The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -245,9 +253,9 @@ The URL for a sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 ```
 
-<p class='note'>
+<div class='note'>
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</p>
+</div>
 
  The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
 

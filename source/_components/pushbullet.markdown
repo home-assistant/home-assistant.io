@@ -17,9 +17,11 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Notifications](#notifications)
 
-<p class='note'>
+<div class='note'>
+
 The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
-</p>
+
+</div>
 
 ### Sensor
 
@@ -187,6 +189,8 @@ action:
 
 - **target**: Pushbullet device to receive the notification.
 
-<p class='note'>
+<div class='note'>
+
 Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
-</p>
+
+</div>

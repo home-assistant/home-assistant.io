@@ -32,11 +32,11 @@ id:
   type: string
 {% endconfiguration %}
 
-<p class="note">
+<div class="note">
 If you create the API key using a dedicated user (and not your main user),
 then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
-</p>
+</div>
 
 ### Full config example
 ```yaml

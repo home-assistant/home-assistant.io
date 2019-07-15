@@ -27,17 +27,21 @@ In order to integrate the camera with Home Assistant, it is necessary to install
 
 Once installed, please ensure that you have enabled FTP and Telnet on your device.
 
- <p class='note warning'>
+<div class='note warning'>
+
 Currently, version 0.1.4-beta2 of the custom firmware is the highest supported without having to make additional modifications. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files. To use higher firmware versions you must also follow [this workaround](https://github.com/shadow-1/yi-hack-v3/issues/129#issuecomment-361723075) to revert back to ftpd.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
 Hassbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
+
 Some alternative Yi firmwares enable an experimental RTSP server, which will allow you to connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Yi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
-</p>
+
+</div>
 
 ### Changing the FTP Password
 

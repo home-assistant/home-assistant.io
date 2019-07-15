@@ -161,11 +161,11 @@ The sun condition can also test if the sun has already set or risen when a trigg
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
-<p class='note warning'>
+<div class='note warning'>
 The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with highly skewed local time zone.
 
 It is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
-</p>
+</div>
 
 ```yaml
 condition:
@@ -233,9 +233,11 @@ condition:
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Time condition windows can span across the midnight threshold. In the example above, the condition window is from 3pm to 2am.
 
-<p class='note tip'>
+<div class='note tip'>
+
 A better weekday condition could be by using the [Workday Binary Sensor](/components/binary_sensor.workday/).
-</p>
+
+</div>
 
 ### Zone condition
 

@@ -45,10 +45,11 @@ devices:
         type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 If you get an error looking like this:
 
-```bash
+```txt
 Jun 20 19:41:18 androlapin hass[29588]: ERROR:homeassistant.components.light:Error while setting up platform decora
 [...]
 Jun 20 19:41:18 androlapin hass[29588]:   File "/usr/lib/python3.6/concurrent/futures/thread.py", line 55, in run
@@ -63,4 +64,5 @@ Jun 20 19:41:18 androlapin hass[29588]: OSError: [Errno 8] Exec format error
 2. Then go to `deps/bluepy` subfolder.
 3. Then run `make all`
 4. Restart Home Assistant
-</p>
+
+</div>

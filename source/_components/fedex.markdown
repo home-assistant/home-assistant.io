@@ -42,6 +42,6 @@ Configuration options for the FedEx Sensor:
         milliseconds: 0
     </pre>
 
-<p class='note warning'>
+<div class='note warning'>
 The FedEx sensor logs into the FedEx Delivery Manager website to scrape package data. It does not use an API. Use at your own risk.
-</p>
+</div>

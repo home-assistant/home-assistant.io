@@ -19,9 +19,9 @@ When you start Home Assistant for the first time the _owner_ user account is cre
  - Configure integrations and other settings (coming soon).
  - Configure Hass.io (coming soon).
 
-<p class='note'>
+<div class='note'>
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
-</p>
+</div>
 
 ### Your Account Profile
 

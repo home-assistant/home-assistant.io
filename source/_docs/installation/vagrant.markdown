@@ -6,9 +6,9 @@ redirect_from: /getting-started/installation-vagrant/
 
 A `Vagrantfile` is available into `virtualization/vagrant` folder for quickly spinning up a Linux virtual machine running Home Assistant. This can be beneficial for those who want to experiment with Home Assistant and/or developers willing to easily test local changes and run test suite against them. In the same `virtualization/vagrant` folder there's also a `provision.sh` shell script which provides an easy way to interact with the Home Assistant instance running within the Vagrant VM. For Windows, use the batch script `provision.bat`.
 
-<p class='note'>
+<div class='note'>
 Vagrant is intended for testing/development only. It is NOT recommended for permanent installations.
-</p>
+</div>
 
 ## Install Vagrant
 
@@ -25,13 +25,17 @@ $ git clone https://github.com/home-assistant/home-assistant.git
 $ cd home-assistant/virtualization/vagrant
 ```
 
-<p class='note'>
-The following instructions will assume you changed your working directory to be `home-assistant/virtualization/vagrant`. This is mandatory because Vagrant will look for information about the running VM inside that folder and won't work otherwise
-</p>
+<div class='note'>
 
-<p class='note'>
+The following instructions will assume you changed your working directory to be `home-assistant/virtualization/vagrant`. This is mandatory because Vagrant will look for information about the running VM inside that folder and won't work otherwise
+
+</div>
+
+<div class='note'>
+
 When using Vagrant on Windows, change git's `auto.crlf` to input before cloning the Home Assistant repository. With input setting git won't automatically change line endings from Unix LF to Windows CRLF. Shell scripts executed during provision won't work with Windows line endings.
-</p>
+
+</div>
 
 ```bash
 $ git config --global core.autocrlf input
@@ -69,9 +73,9 @@ Any changes made to the local directory on your workstation will be available fr
 $ ./provision.sh restart
 ```
 
-<p class='note'>
+<div class='note'>
 This command will only restart the Home Assistant process inside the Vagrant VM, it will not reboot the virtual machine. If that's what you want, the right command is <code>vagrant reload</code>
-</p>
+</div>
 
 ## Run test suite (Tox)
 

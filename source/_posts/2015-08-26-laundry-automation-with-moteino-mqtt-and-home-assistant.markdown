@@ -53,9 +53,9 @@ Materials used:
 
 Home Assistant Configuration:
 
-<p class='note'>
+<div class='note'>
 The automation and script syntax here is using a deprecated and no longer supported format.
-</p>
+</div>
 
 ```yaml
 mqtt:

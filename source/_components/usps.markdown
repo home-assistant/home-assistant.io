@@ -25,21 +25,21 @@ There is currently support for the following device types within Home Assistant:
 
 This integration requires that a headless-capable web browser is installed on your system - either PhantomJS or Google Chrome. Preferably use Chrome if your operating system supports it, since PhantomJS is deprecated.
 
-<p class='note warning'>
+<div class='note warning'>
 If you are using a Raspberry Pi, you must use PhantomJS.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
 Hass.io containers are based on Alpine Linux. PhantomJS is not available for Alpine Linux. Therefore it is currently not possible to use this integration on Hass.io.
-</p>
+</div>
 
 ### PhantomJS
 
 Install the latest version of [PhantomJS](http://phantomjs.org/download.html). Ensure the executable is on your `PATH`. `phantomjs --version` should work and report the correct version. This is the default option and requires no further configuration.
 
-<p class='note warning'>
+<div class='note warning'>
   Don't use apt-get to install PhantomJS. This version is not compatible.
-</p>
+</div>
 
 If you use the PhantomJS option, specify `driver: phantomjs` in your `usps` configuration.
 
@@ -88,9 +88,9 @@ name:
   default: usps
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 The USPS sensor logs into the MyUSPS website to scrape package data. It does not use an API.
-</p>
+</div>
 
 ## Camera
 

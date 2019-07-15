@@ -27,9 +27,10 @@ Screenshot of the HASS Configurator.
 - Execute shell commands
 - Runs on pretty much any machine Home Assistant can run on
 
-<p class='note warning'>
+<div class='note warning'>
 This tool allows you to browse your filesystem and modify files. So be careful which files you edit, or you might break critical parts of your system.<br />
-Consider running the configurator as a user with limited privileges to limit possible damage.</p>
+Consider running the configurator as a user with limited privileges to limit possible damage.
+</div>
 
 ### Installation (Linux, macOS)
 There are no dependencies on Python modules that are not part of the standard library. And all the fancy JavaScript libraries are loaded from CDN (which means this doesn't work when you're offline).
@@ -95,8 +96,10 @@ panel_iframe:
     icon: mdi:wrench
     url: http://123.123.132.132:3218
 ```
-<p class='note warning'>
-Be careful when setting up port forwarding to the configurator while embedding it into Home Assistant. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!</p>
+
+<div class='note warning'>
+Be careful when setting up port forwarding to the configurator while embedding it into Home Assistant. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the internet!
+</div>
 
 ### Daemonizing / Keeping the configurator running
 Since the configurator script on its own is no service, you will have to take some extra steps to keep it running. Here are five options (for Linux), but there are more, depending on your usecase.

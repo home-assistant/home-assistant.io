@@ -82,9 +82,9 @@ Some common examples include:
  98 HOV Bellevue-Seattle via I-90 (WB REV)
 ```
 
-<p class='note info'>
+<div class='note info'>
 WSDOT does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available in this platform.
-</p>
+</div>
 
 Here's an example of the sensor in use:
 

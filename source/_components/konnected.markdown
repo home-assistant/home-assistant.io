@@ -25,9 +25,11 @@ The integration currently supports the following device types in Home Assistant:
 
 This integration uses the [`discovery`](/components/discovery) component, which must be enabled for device discovery to work. If you don't want to use discovery, set the _host_ and _port_ for each device in the description.  
 
-<p class='note info'>
-Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` integration to serve SSL/TLS certificates. Instead, use a proxy like Nginx or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)  
-</p>
+<div class='note info'>
+
+Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` integration to serve SSL/TLS certificates. Instead, use a proxy like Nginx or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)
+
+</div>
 
 ### Configuration
 

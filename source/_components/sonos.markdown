@@ -22,27 +22,30 @@ Sonos makes various services available to allow configuring groups. They are cur
 
 Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards. If no `entity_id` is provided, all speakers are snapshotted.
 
-<p class='note'>
+<div class='note'>
+
 The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/components/tts/) announcements.
-</p>
+
+</div>
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | The speakers to snapshot.
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
 
-
 ### Service `sonos.restore`
 
 Restore a previously taken snapshot of one or more speakers. If no `entity_id` is provided, all speakers are restored.
 
-<p class='note'>
-The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
-</p>
+<div class='note'>
 
-<p class='note'>
+The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
+
+</div>
+
+<div class='note'>
 A cloud queue cannot be restarted. This includes queues started from within Spotify and queues controlled by Amazon Alexa.
-</p>
+</div>
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

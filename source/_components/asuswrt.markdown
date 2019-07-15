@@ -83,9 +83,11 @@ sensors:
       description: upload mbit/s sensor
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`.
-</p>
+
+</div>
 
 ### Example Sensor Configuration
 

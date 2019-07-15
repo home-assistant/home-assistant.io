@@ -33,25 +33,18 @@ plugins_dir: plugins
 code_dir: downloads/code
 category_dir: blog/categories
 
-markdown: kramdown
-highlighter: rouge
+markdown: CommonMark
 timezone: UTC
 liquid:
   error_mode: strict
 
-kramdown:
-  input: GFM
-  auto_ids:       false
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  parse_block_html: true
+commonmark:
+  options: ["SMART", "FOOTNOTES"]
+  extensions: ["strikethrough", "autolink", "table"]
 
 plugins:
   - jekyll-redirect-from
   - jekyll-time-to-read
-  - octopress-include-tag
 
 paginate: 10          # Posts per page on the blog index
 paginate_path: "blog/posts/:num"  # Directory base for pagination URLs eg. /posts/2/
@@ -95,38 +88,11 @@ github_skip_forks: true
 twitter_user: balloob
 twitter_tweet_button: true
 
-# Google +1
-google_plus_one: true
-google_plus_one_size: standard
-
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
-# Disqus Comments
-disqus_short_name: home-assistant
-disqus_show_comment_count: true
-
 # Google Analytics
 google_analytics_tracking_id: UA-57927901-1
 
 # Facebook Like
 facebook_like: true
-
-# Liquid template compressor
-compress_html:
-  clippings: []
-  comments: []
-  endings: []
-  ignore:
-    envs: []
-  blanklines: true
-  profile: false
-  startings: []
 
 social:
   visible: false
@@ -147,14 +113,6 @@ date_released: 2019-06-29
 # Major release:
 patch_version_notes: ""
 # Minor release (Example #release-0431---april-25):
-
-# Date we moved to Discourse for comments
-# disqus_end_date: 2018-01-26 0:00:00
-# Disqus is adding gross ads, move all comments to discourse.
-disqus_end_date: 2010-01-26 0:00:00
-
-# Support .well-known directory
-include: [".well-known"]
 
 # Set Front matter defaults
 defaults:
@@ -177,3 +135,8 @@ defaults:
       footer: true
       sharing: true
       sidebar: true
+
+# Support for files Jekyll will normally exclude
+include:
+  - ".well-known"
+  - "_redirects"

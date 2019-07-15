@@ -29,9 +29,9 @@ It's also possible to run an app on your phone to provide detailed location info
 
 Zones allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation [trigger] or [condition]. Zones can be set up from the integration page in the configurations screen.
 
-<p class='note'>
+<div class='note'>
 The map view will hide all devices that are home.
-</p>
+</div>
 
 [routers]: /components/#presence-detection
 [nmap]: /components/device_tracker.nmap_tracker/

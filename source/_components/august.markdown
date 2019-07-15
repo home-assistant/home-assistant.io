@@ -24,9 +24,9 @@ There is currently support for the following device types within Home Assistant:
 - Camera
 - Lock
 
-<p class='note'>
+<div class='note'>
 August Lock 2nd Gen will need either August Connect or Doorbell to connect to Home Assistant.
-</p>
+</div>
 
 ## Configuration
 

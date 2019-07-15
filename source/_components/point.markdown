@@ -53,17 +53,21 @@ The integration supports the following device types within Home Assistant:
   - [Binary Sensor](#binary-sensor)
   - [Sensor](#sensor)
 
-<p class='note'>
+<div class='note'>
+
 The Point is just active occasionally so the [Sensors](#sensor) are only updated every hour or so. The [Binary Sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
-</p>
+
+</div>
 
 ## Alarm
 
 Each home configured in the Point mobile application will show up as a separate alarm control panel. The panels allow **arming** and **disarming** of the Point home alarm system.
 
-<p class="note">
+<div class="note">
+
 The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implememented.
-</p>
+
+</div>
 
 ## Binary Sensor
 
@@ -80,9 +84,11 @@ Each Point exposes the following binary sensors:
 - **sound**: `On` means sound detected, `Off` means no sound (clear)
 - **tamper**: `On` means the point was removed or attached, `Off` means normal
 
-<p class="note">
+<div class="note">
+
 The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a breif moment and are then switched back to `Off`.
-</p>
+
+</div>
 
 ### Automation example
 

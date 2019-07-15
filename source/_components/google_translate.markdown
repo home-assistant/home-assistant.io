@@ -12,9 +12,11 @@ redirect_from:
 
 The `google_translate` text-to-speech platform uses unofficial [Google Translate Text-to-Speech engine](https://translate.google.com/) to read a text with natural sounding voices.
 
-<p class='note'>
+<div class='note'>
+
 This platform renamed to `google_translate` from `google` since release 0.92.
-</p>
+
+</div>
 
 ## Configuration
 

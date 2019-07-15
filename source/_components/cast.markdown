@@ -32,9 +32,9 @@ cast:
     - host: 192.168.1.10
 ```
 
-<p class='note'>
+<div class='note'>
 You may need to enable Multicast DNS (MDNS) on your router if you are on a different subnet or VLAN.
-</p>
+</div>
 
 {% configuration %}
 media_player:

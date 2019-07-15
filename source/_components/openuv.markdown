@@ -21,15 +21,18 @@ The `openuv` integration displays UV and Ozone data from [openuv.io](http://open
 To generate an API key,
 [simply log in to the OpenUV website](https://www.openuv.io/auth/google).
 
-<p class='note warning'>
+<div class='note warning'>
+
 Beginning February 1, 2019, the "Limited" plan (which is what new users are
 given by default) is limited to 50 API requests per day. Because different
 API plans and locations will have different requirements, the `openuv`
 component does not automatically query the API for new data after it initially
 loads. To request new data, the `update_data` service may be used.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
+
 Each use of the `update_data` service will consume 1 or 2 API calls, depending
 on which monitored conditions are configured.
 
@@ -44,7 +47,8 @@ consume 1 API call.
 
 Ensure that you understand these specifications when calling the `update_data`
 service.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -137,11 +141,11 @@ openuv:
       - safe_exposure_time_type_6
 ```
 
-<p class='note warning'>
+<div class='note warning'>
 The above guidelines constitute estimates and are intended to help informed
 decision making. They should not replace analysis, advice or diagnosis from a
 trained medical professional.
-</p>
+</div>
 
 ## Services
 

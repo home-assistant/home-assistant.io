@@ -13,9 +13,11 @@ redirect_from:
 
 The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
-<p class='note'>
+<div class='note'>
+
 Currently fast.com only supports measuring download bandwidth. If you want to measure bandwidth metrics other then download such as ping and upload, utilize the [speedtest](/components/sensor.speedtest) component.
-</p>
+
+</div>
 
 Enabling this integration will automatically create the Fast.com Sensor.
 

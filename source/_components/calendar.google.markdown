@@ -154,10 +154,12 @@ not filter events out and always show the next event available.
 But what if you only wanted it to toggle based on all events?
 Just leave out the *search* parameter.
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you use a `#` sign for `search` then wrap the whole search term in quotes.
 Otherwise everything following the hash sign would be considered a YAML comment.
-</p>
+
+</div>
 
 ### Sensor attributes
 
@@ -184,9 +186,11 @@ You can use the service `google.add_event` to create a new calendar event in a c
 | `end_date` | yes | The date the whole day event should end. | 2019-03-11
 | `in` | yes | Days or weeks that you want to create the event in. | "days": 2
 
-<p class='note'>
+<div class='note'>
+
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-</p>
+
+</div>
 
 ## Using calendar in automations
 

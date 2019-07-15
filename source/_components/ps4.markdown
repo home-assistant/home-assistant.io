@@ -22,9 +22,9 @@ The `ps4` integration allows you to control a
 
 1. Download the Second Screen App and make sure that you can find and control your PlayStation 4 normally.
 
-<p class='note'>
+<div class='note'>
   Read the section "Granting Port Access" below before continuing.
-</p>
+</div>
 
 2. Navigate to `Configuration -> Integrations` and select `Configure` for `PlayStation 4`.
 
@@ -37,15 +37,15 @@ The `ps4` integration allows you to control a
 
 The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
 
-<p class='note warning'>
+<div class='note warning'>
   Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
-</p>
+</div>
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter* which runs your Home Assistant instance needs access to the mentioned ports.
 
-<p class='note'>
+<div class='note'>
   If your Home Assistant device is running <b>Hass.io</b> on <b>HassOS</b>, it does not require additional configuration.
-</p>
+</div>
 
 ### Debian-based
 Home Assistant installed on a Debian-type OS may require configuration. This section is applicable but not limited to the following operating systems:
@@ -104,9 +104,11 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 
 ## Configuration
 
-<p class='note'>
+<div class='note'>
+
   The PlayStation 4 integration does not use entries from `configuration.yaml`. You must configure this integration by using `Integrations`
-</p>
+
+</div>
 
 ## Regions
 
@@ -124,10 +126,9 @@ Some titles will have different SKUs in the PlayStation Store database depending
 | Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan,       |                            |
 | Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |                            |
 
-
-<p class='note'>
+<div class='note'>
   The regions which are unavailable have no database or have formatting in the database which can not be used by the component.
-</p>
+</div>
 
 ## Services
 

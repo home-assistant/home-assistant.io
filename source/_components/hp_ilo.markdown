@@ -121,9 +121,9 @@ sensor:
 
 ## Hardware specifics
 
-<p class='note warning'>
+<div class='note warning'>
 Not every hardware supports all values.
-</p>
+</div>
 
 ### HP Microserver Gen8
 

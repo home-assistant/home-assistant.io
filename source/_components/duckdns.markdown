@@ -31,6 +31,8 @@ duckdns:
     type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 If you are running the Hass.io [DuckDNS add-on](/addons/duckdns/) this integration is not required. The add-on will keep your IP updated with DuckDNS.
-</p>
+
+</div>

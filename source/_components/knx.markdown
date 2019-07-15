@@ -13,9 +13,11 @@ The [KNX](https://www.knx.org) integration for Home Assistant allows you to conn
 
 The integration requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
 
-<p class='note warning'>
+<div class='note warning'>
+
   Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
-</p>
+
+</div>
 
 There is currently support for the following device types within Home Assistant:
 

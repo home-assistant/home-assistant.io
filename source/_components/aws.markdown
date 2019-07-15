@@ -138,9 +138,9 @@ If one exists, the SNS Subject will be set to the title. All attributes from the
 - On the left-hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create". 
 - You can either download the credentials or click the arrow to display them one time.
 
-<p class='note warning'>
-  If you do not download them, you will lose them and will have to recreate a new user.
-</p>
+<div class='note warning'>
+If you do not download them, you will lose them and will have to recreate a new user.
+</div>
 
 - Copy/Paste the two keys that are shown here in your `configuration.yaml` file.
 - On the left-hand side of the screen go back to "Users" and select the user you just created. On the "Permissions" tab click the "Attach Policy" icon. Search for "SNS" and attach the policy "AmazonSNSFUullAccess".

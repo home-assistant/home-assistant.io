@@ -10,9 +10,9 @@ ha_qa_scale: internal
 
 The `media_extractor` integration gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
 
-<p class='note'>
+<div class='note'>
 Media extractor doesn't transcode streams, it just tries to find stream that match requested query.
-</p>
+</div>
 
 To use the media extractor service in your installation, add the following to your `configuration.yaml` file:
 

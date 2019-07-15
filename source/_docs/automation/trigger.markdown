@@ -22,9 +22,11 @@ automation:
       mood: happy
 ```
 
-<p class='note warning'>
+<div class='note warning'>
+
   Starting 0.42, it is no longer possible to listen for event `homeassistant_start`. Use the 'homeassistant' platform below instead.
-</p>
+
+</div>
 
 ### Home Assistant trigger
 
@@ -76,10 +78,10 @@ automation:
 ```
 {% endraw %}
 
-<p class='note'>
+<div class='note'>
 Listing above and below together means the numeric_state has to be between the two values.
 In the example above, a numeric_state that goes to 17.1-24.9 (from 17 or below, or 25 or above) would fire this trigger.
-</p>
+</div>
 
 The `for:` can also be specified as `HH:MM:SS` like this:
 
@@ -118,9 +120,11 @@ automation:
     for: '01:10:05'
 ```
 
-<p class='note warning'>
+<div class='note warning'>
+
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
-</p>
+
+</div>
 
 ### Sun trigger
 
@@ -130,9 +134,11 @@ Triggers when the sun is setting or rising, i.e. when the sun elevation reaches 
 
 An optional time offset can be given to have it trigger a set time before or after the sun event (e.g. 45 minutes before sunset).
 
-<p class='note'>
+<div class='note'>
+
 Since the duration of twilight is different throughout the year, it is recommended to use [sun elevation triggers][sun_elevation_trigger]  instead of `sunset` or `sunrise` with a time offset to trigger automations during dusk or dawn.
-</p>
+
+</div>
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
@@ -195,9 +201,11 @@ automation:
 ```
 {% endraw %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
-</p>
+
+</div>
 
 ### Time trigger
 
@@ -236,9 +244,11 @@ automation 3:
     minutes: '/5'
 ```
 
-<p class='note warning'>
+<div class='note warning'>
+
   Do not prefix numbers with a zero - using `'00'` instead of '0' for example will result in errors.
-</p>
+
+</div>
 
 ### Webhook trigger
 

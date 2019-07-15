@@ -83,10 +83,12 @@ meteo_france:
 
 ### About `next_rain` condition sensor
 
-<p class='note warning'>
+<div class='note warning'>
+
   The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
   You can check if your city is covered on the [Météo-France website](http://www.meteofrance.com/previsions-meteo-france/previsions-pluie).
-</p>
+
+</div>
 
 The `next_rain` sensor value is the time to next rain, from 0 to 55 minutes.
 If no rain is forecasted for the next hour, value will be "No rain".
@@ -101,9 +103,9 @@ Possible value for each intervals attributes are:
 
 ### About `weather_alert` sensor
 
-<p class='note warning'>
+<div class='note warning'>
   The weather alert is available for the metropolitan France.
-</p>
+</div>
 
 The `weather_alert` sensor value give the current weather alert status for the department linked to the city. Data is retrieve from [Météo-France vigilance website](http://vigilance.meteofrance.com/).
 

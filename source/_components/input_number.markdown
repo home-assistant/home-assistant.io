@@ -9,9 +9,11 @@ redirect_from: /components/input_slider/
 ha_qa_scale: internal
 ---
 
-<p class='note'>
+<div class='note'>
+
 Before version 0.55 this integration was known as `input_slider` and did not have the `mode` configuration option. Also, service `select_value` is now `set_value`.
-</p>
+
+</div>
 
 The `input_number` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
