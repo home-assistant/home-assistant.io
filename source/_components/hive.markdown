@@ -111,4 +111,4 @@ The `hive` water heater platform integrates your Hive hot water into Home Assist
 
 The platform supports the following Hive products:
 
-- Hot water control
+- Hot Water Control
