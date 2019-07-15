@@ -10,7 +10,6 @@ footer: true
 logo: vesync.png
 ha_category:
   - Switch
-  - Fan
 ha_release: 0.66
 redirect_from:
  - /components/switch.vesync/
@@ -23,7 +22,6 @@ The devices must be added to the VeSync App before they can be discovered by thi
 The following platforms are supported:
 
 - **switch**
-- **fan**
 
 ## Supported Devices
 
@@ -39,10 +37,6 @@ This integration supports devices controllable by the VeSync App.  The following
 ### Switches
 
 - Etekcity In Wall Smart Switch (EWSL01-USA)
-
-### Fans
-
-- Levoit Air Purifier - LV-PUR131S
 
 ## Configuration
 
@@ -84,17 +78,6 @@ VeSync outlets will expose the following details for only the smart outlets. Ene
 | `weekly_energy_total`   | Total energy usage for week starting from Monday 12:01AM in kWh         | 14.74           |
 | `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
 | `yearly_energy_total`   | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25          |
-
-## Air Purifier Exposed Attributes
-
-Levoit Air Purifier has the following attributes available:
-| Attribute               | Description                                                             | Example         |
-| ----------------------- | ----------------------------------------------------------------------- | --------------- |
-| `mode`                  | Returns the mode of the fan                                             | Auto/Manual/Off |
-| `filter_life`           | Percentage of the life remaining for the filter                         | 97              |
-| `active_time`           | The number of minutes the device has been on                            | 43              |
-| `air_quality`           | Air quality reading of purifier                                         | Excellent       |
-| `screen_status`         | Returns whether screen is on or off                                     | on              |
 
 ## Extracting Attribute data
 
