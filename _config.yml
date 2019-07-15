@@ -78,12 +78,6 @@ collections:
 #   3rd Party Settings    #
 # ----------------------- #
 
-# Github repositories
-github_user:
-github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
-
 # Twitter
 twitter_user: balloob
 twitter_tweet_button: true
