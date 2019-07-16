@@ -468,4 +468,4 @@ On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_acce
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
-With either strategy, the accessory will behave as if it's the first time the accessory has been setup, so you will need to restore name, group, room, scene, and/or automation settings.
+With either strategy, the accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
