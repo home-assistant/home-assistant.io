@@ -32,19 +32,19 @@ This device tracker needs SNMP to be enabled on the router. It could be that you
 The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/components/device_tracker/) than desirable. It is recommended to use [Ping](/components/device_tracker.ping/) or [Nmap](/components/device_tracker.nmap_tracker/) instead.
 
 | Brand | Device/Firmware | OID |
-|---|---|---|---|
+| --- | --- | --- |
 | Aerohive | AP230 | `1.3.6.1.4.1.26928.1.1.1.2.1.2.1.1` |
-| Apple | Airport Express (2nd gen.) 7.6.9 |  `1.3.6.1.2.1.3.1.1.2` or `1.3.6.1.2.1.4.22.1.2`|
+| Apple | Airport Express (2nd gen.) 7.6.9 | `1.3.6.1.2.1.3.1.1.2` or `1.3.6.1.2.1.4.22.1.2`|
 | Aruba | IAP325 on AOS 6.5.4.8 | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
 | BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
-| DD-WRT | unknown version/model |  `1.3.6.1.2.1.4.22.1.2` |
+| DD-WRT | unknown version/model | `1.3.6.1.2.1.4.22.1.2` |
 | Mikrotik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
 | Mikrotik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
 | OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
-| OPNSense | 19.1  | `1.3.6.1.2.1.4.22.1.2` |
-| pfSense | 2.2.4  | `1.3.6.1.2.1.4.22.1.2` |
+| OPNSense | 19.1 | `1.3.6.1.2.1.4.22.1.2` |
+| pfSense | 2.2.4 | `1.3.6.1.2.1.4.22.1.2` |
 | Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
-| TP-Link | Archer VR2600v |  `1.3.6.1.2.1.3.1.1.2.19.1` |
+| TP-Link | Archer VR2600v | `1.3.6.1.2.1.3.1.1.2.19.1` |
 | TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
 | Ubiquiti | Edgerouter Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
 
