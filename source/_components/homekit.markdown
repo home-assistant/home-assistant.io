@@ -462,7 +462,7 @@ Media Player entities with `device_class: tv` will show up as Television accesso
 
 The volume and play/pause controls will show up on the Remote app or Control Center. If your TV supports volume control through Home Assistant, you will be able to control the volume using the side volume buttons on the device while having the remote selected on screen.
 
-#### {% linkable_title Resetting accessories %}
+#### Resetting accessories
 
 On Home Assistant `0.97.x` or later, you may use the service `homekit.reset_accessory` with one or more entity_ids to reset accessories whose configuration may have changed. This can be useful when changing a media_player's device class to `tv`, linking a battery, or whenever HomeAssistant add supports for new HomeKit features to existing entities.
 
