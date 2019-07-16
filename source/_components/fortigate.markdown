@@ -16,43 +16,11 @@ ha_iot_class: Local Polling
 
 This is a Fortigate presence sensor based on device detection of the Fortigate API
 
-## Configuration
-
-Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-fortigate:
-  host: HOST_IP
-  username: USERNAME
-  password: API_KEY
-```
-
-{% configuration %}
-host:
-  description: The IP of the Fortigate.
-  required: true
-  type: string
-username:
-  description: The username of the user that will connect to the Fortigate
-  required: true
-  type: string
-password:
-  description: The API key associated with the user
-  required: true
-  type: string
-devices:
-  description: The MAC addresses of the devices to monitor
-  required: false
-  type: string
-{% endconfiguration %}
-
-## Fortigate Configuration
+## Fortigate setup
 
 Configure the Fortigate with a USERNAME API user and assign its minimum rights profile :
 
-```fgt
-
+```text
 config system accprofile
     edit "homeassistant_profile"
         set authgrp read
@@ -73,6 +41,37 @@ config system api-user
 end
 ```
 
+## Configuration
+
+Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+fortigate:
+  host: HOST_IP
+  username: YPUR_USERNAME
+  api_key: YOUR_API_KEY
+```
+
+{% configuration %}
+host:
+  description: The IP address of the Fortigate device.
+  required: true
+  type: string
+username:
+  description: The username of the user that will connect to the Fortigate device.
+  required: true
+  type: string
+api_key:
+  description: The API key associated with the user.
+  required: true
+  type: string
+devices:
+  description: The MAC addresses of the devices to monitor.
+  required: false
+  type: string
+{% endconfiguration %}
+
 ### Errors
 
 If the rights of the profile are not sufficient, you will get the following error:
@@ -80,4 +79,3 @@ If the rights of the profile are not sufficient, you will get the following erro
 ```txt
 ERROR (MainThread) [homeassistant.core] Error doing job: Task exception was never retrieved
 ```
-And the following Python exception as well: `pyFGT.fortigate.FGTValueError`
