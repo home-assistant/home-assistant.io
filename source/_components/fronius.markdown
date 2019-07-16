@@ -82,15 +82,15 @@ it is recommended to use template sensors as an interface:
       unit_of_measurement: 'W'
       value_template: >-
         {% if states.sensor.fronius_1921684247_inverter_1.attributes.power_ac is defined -%}
-          {{ states.sensor.fronius_1921684247_inverter_1.attributes.power_ac | float | round(2) }}
+          {{ states_attr('sensor.fronius_1921684247_inverter_1', 'power_ac') | float | round(2) }}
         {%- else -%}
           0
         {%- endif %}
-    electricity_autonomy:  
+    electricity_autonomy:
       unit_of_measurement: '%'
       value_template: >-
         {% if states.sensor.fronius_1921684247_power_flow.attributes.relative_autonomy is defined -%}
-          {{ states.sensor.fronius_1921684247_power_flow.attributes.relative_autonomy | float | round(2) }}
+          {{ states_attr('sensor.fronius_1921684247_power_flow', 'relative_autonomy') | float | round(2) }}
         {%- else -%}
           0
         {%- endif %}
