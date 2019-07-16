@@ -44,12 +44,12 @@ password:
 location_idx:
   description: Used to select which location to use, if your login has access to more than one location. Multiple locations at one time are not supported.
   required: false
-  type: int
+  type: integer
   default: 0
 scan_interval:
   description: How often updates are retreived from Honeywell's web servers. The minimum value is 180 seconds, rounded up to the nearest minute.
   required: false
-  type: int
+  type: integer
   default: 300
 {% endconfiguration %}
 

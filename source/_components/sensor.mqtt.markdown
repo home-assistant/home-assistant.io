@@ -82,7 +82,7 @@ json_attributes_template:
 json_attributes:
   description: (Deprecated, replaced by json_attributes_topic) A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
   required: false
-  type: list, string
+  type: [string, list]
 unique_id:
   description: "An ID that uniquely identifies this sensor. If two sensors have the same unique ID, Home Assistant will raise an exception."
   required: false
@@ -100,7 +100,7 @@ device:
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false

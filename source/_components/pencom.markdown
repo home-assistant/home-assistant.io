@@ -41,7 +41,7 @@ host:
 port:
   description: The port of the ethernet to serial adapter.
   required: true
-  type: port (positive integer between 1-65535)
+  type: integer (positive integer between 1-65535)
 boards:
   description: Number of boards daisy-chained together (default is 1).
   required: false
@@ -58,7 +58,7 @@ relays:
     addr:
       description: The relay on the board starting with 0.
       required: true
-      type: int
+      type: integer
     board:
       description: The board number (defaults to 1).
       required: false

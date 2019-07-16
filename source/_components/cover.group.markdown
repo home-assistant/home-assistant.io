@@ -31,7 +31,7 @@ cover:
   entities:
     description: List of all cover entities you want to control.
     required: true
-    type: [string | list]
+    type: [string, list]
 {% endconfiguration %}
 
 ## Functionality

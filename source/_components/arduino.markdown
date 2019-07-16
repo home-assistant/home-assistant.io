@@ -92,7 +92,7 @@ pins:
       type: map
       keys:
         name:
-          default: Name that will be used in the frontend for the pin.
+          description: Name that will be used in the frontend for the pin.
           type: string
 {% endconfiguration %}
 
@@ -129,16 +129,16 @@ pins:
       type: map
       keys:
         name:
-          default: Name that will be used in the frontend for the pin.
+          description: Name that will be used in the frontend for the pin.
           type: string
           required: false
         initial:
-          default: The initial value for this port.
+          description: The initial value for this port.
           type: boolean
           required: false
           default: false
         negate:
-          default: If this pin should be inverted.
+          description: If this pin should be inverted.
           type: boolean
           required: false
           default: false

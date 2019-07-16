@@ -37,7 +37,7 @@ name:
   default: ISS
 show_on_map:
   description: Option to show the position of the ISS on the map.
-  required: optional
+  required: false
   type: boolean
   default: false
 {% endconfiguration %}

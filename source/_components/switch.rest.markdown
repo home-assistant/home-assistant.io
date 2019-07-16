@@ -66,7 +66,7 @@ password:
 headers:
   description: The headers for the request.
   required: false
-  type: list, string
+  type: [string, list]
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false

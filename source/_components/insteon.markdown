@@ -95,28 +95,28 @@ insteon:
 
 {% configuration %}
 port:
-  description: The serial or USB port for your device, e.g., `/dev/ttyUSB0` or `COM3`.
-  required: Required for PLM setup
+  description: The serial or USB port for your device, e.g., `/dev/ttyUSB0` or `COM3`. Required for PLM setup.
+  required: false
   type: string
 host:
-  description: The host name or IP address of the Hub.
-  required: Required for Hub setup
+  description: The host name or IP address of the Hub. Required with Hub.
+  required: false
   type: string
 ip_port:
-  description: The IP port number of the Hub. For Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub.
-  required: Optional for Hub setup
+  description: The IP port number of the Hub. For Hub model [2245] (i.e. Hub version 2) the default port is 25105. For the Hub model [2242] (i.e. Hub version 1) the default port is 9761. Use the Insteon app to find the port number for your specific Hub. Optional with Hub.
+  required: true
   type: integer
 username:
-  description: The username to login in to the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app.
-  required: Required for Hub version 2 setup
+  description: The username to login in to the local Hub. You can find your Hub username on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  required: false
   type: string
 password:
-  description: The password to login in to the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app.
-  required: Required for Hub version 2 setup
+  description: The password to login in to the local Hub. You can find your Hub password on the bottom of the Hub or you can use the Insteon app. Required for Hub version 2 setup.
+  required: false
   type: string
 hub_version:
-  description: The Hub version number where model [2242] is Hub version 1 and model [2245] is Hub version 2.
-  required: Required for Hub version 1 setup
+  description: The Hub version number where model [2242] is Hub version 1 and model [2245] is Hub version 2. Required for Hub version 1 setup.
+  required: false
   default: 2
   type: integer
 device_override:

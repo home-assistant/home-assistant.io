@@ -67,7 +67,7 @@ person:
   device_trackers:
     description: A list of device tracker entity ids to track. These will represent the state of the person.
     required: false
-    type: list, string
+    type: [string, list]
 {% endconfiguration %}
 
 An extended example would look like the following sample:

@@ -88,7 +88,7 @@ verify_ssl:
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
-  type: positive integer
+  type: integer
   default: 10
 authentication:
   description: "Type of the HTTP authentication. `basic` or `digest`."
@@ -105,7 +105,7 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: list, string
+  type: [list, string]
 {% endconfiguration %}
 
 <div class='note warning'>

@@ -70,7 +70,7 @@ monitors:
         net_metering:
           description: Set to `true` if the channel is configured for net metering in the GEM, otherwise `false`.
           required: false
-          type: bool
+          type: boolean
           default: false
     temperature_sensors:
       description: Configuration for temperature sensors

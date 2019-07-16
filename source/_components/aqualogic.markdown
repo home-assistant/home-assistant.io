@@ -39,7 +39,7 @@ host:
 port:
   description: The port provided by the RS-485 to Ethernet adapter.
   required: true
-  type: int
+  type: integer
 {% endconfiguration %}
 
 ## Sensor

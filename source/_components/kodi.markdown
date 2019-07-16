@@ -370,6 +370,7 @@ message:
   required: true
   type: string
 data:
+  description: Configure message properties
   required: false
   type: map
   keys:

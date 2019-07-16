@@ -48,7 +48,7 @@ sensors:
         entity_id:
           description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
           required: false
-          type: string, list
+          type: [string, list]
         device_class:
           description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false

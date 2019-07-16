@@ -63,7 +63,7 @@ notify:
     recipient:
       description: The phone number of a default recipient or a list with multiple recipients.
       required: false
-      type: string, list
+      type: [string, list]
     name:
       description: The name of the notification service.
       required: false

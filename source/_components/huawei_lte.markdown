@@ -42,7 +42,7 @@ huawei_lte:
 url:
   description: URL of the router web interface.
   required: true
-  type: url
+  type: string
 username:
   description: The username used for the router web interface.
   required: true
@@ -93,7 +93,7 @@ notify:
 recipient:
   description: The phone number of a default recipient or a list with multiple recipients.
   required: true
-  type: string, list
+  type: [string, list]
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: false
@@ -102,7 +102,7 @@ name:
 url:
   description: The router to use. Not needed if you only have one.
   required: false
-  type: url
+  type: string
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

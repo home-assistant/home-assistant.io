@@ -170,6 +170,7 @@ entity_config:
           description: Force an entity to be exposed/excluded.
           required: false
           type: boolean
+          default: true
         aliases:
           description: Aliases that can also be used to refer to this entity
           required: false

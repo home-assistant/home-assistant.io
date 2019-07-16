@@ -31,7 +31,7 @@ light:
   port:
     description: The port used to communicate with the Hyperion service.
     required: false
-    type: int
+    type: integer
     default: 19444
   name:
     description: The name of the device used in the frontend.
@@ -40,12 +40,12 @@ light:
   priority:
     description: The priority of the Hyperion instance make sure this is higher then the system prio in hyperion itself.
     required: false
-    type: int
+    type: integer
     default: 128
   hdmi_priority:
     description: The priority of the HDMI grabber of this Hyperion instance, note that this priority must be higher than all other priorities used for correct behavior.
     required: false
-    type: int
+    type: integer
     default: 880
   default_color:
     description: The color of the light.

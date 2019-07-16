@@ -100,6 +100,6 @@ fan:
       speeds:
         description: List of speeds the fan is capable of running at.
         required: false
-        type: string list
+        type: [string, list]
         default: ['low', 'medium', 'high']
 {% endconfiguration %}

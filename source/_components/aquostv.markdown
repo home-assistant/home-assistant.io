@@ -32,7 +32,7 @@ port:
   description: The port of the Sharp Aquos TV.
   required: false
   default: 10002
-  type: int
+  type: integer
 username:
   description: The username of the Sharp Aquos TV.
   required: false
