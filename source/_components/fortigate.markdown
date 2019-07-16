@@ -1,24 +1,18 @@
 ---
-layout: page
 title: "Fortigate"
-description: "Instructions on how to integrate Fortigate Firewalls into Home Assistant."
-date: 2019-07-07 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate FortiGate Firewalls into Home Assistant."
 logo: fortinet.jpg
 ha_category:
   - Presence Detection
-ha_release: 0.96
+ha_release: 0.97
 ha_iot_class: Local Polling
 ---
 
-This is a Fortigate presence sensor based on device detection of the Fortigate API
+This is a FortiGate presence sensor based on device detection of the FortiGate API
 
-## Fortigate setup
+## FortiGate set up
 
-Configure the Fortigate with a USERNAME API user and assign its minimum rights profile :
+Configure the FortiGate with a USERNAME API user and assign its minimum rights profile:
 
 ```text
 config system accprofile
@@ -55,11 +49,11 @@ fortigate:
 
 {% configuration %}
 host:
-  description: The IP address of the Fortigate device.
+  description: The IP address of the FortiGate device.
   required: true
   type: string
 username:
-  description: The username of the user that will connect to the Fortigate device.
+  description: The username of the user that will connect to the FortiGate device.
   required: true
   type: string
 api_key:
@@ -72,7 +66,7 @@ devices:
   type: string
 {% endconfiguration %}
 
-### Errors
+## Errors
 
 If the rights of the profile are not sufficient, you will get the following error:
 
