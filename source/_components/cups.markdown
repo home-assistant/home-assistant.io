@@ -13,11 +13,17 @@ redirect_from:
 
 The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers.
 
+## Setup
+
+You will need to install the `python3-dev` or `python3-devel` pacakge and the development files for CUPS (`libcups2-dev` or`cups-devel`) on your system manually (e.g., `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`). This integration doesn't work out-of-the-box in a container-based setup.
+
 To set up the sensor the "Queue Name" of the printer is needed. The fastest way to get it, is to visit the CUPS web interface at "http://[IP ADDRESS PRINT SERVER]:631" and go to "Printers".
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/cups-sensor.png' />
 </p>
+
+## Configuration
 
 To enable the CUPS sensor, add the following lines to your `configuration.yaml`:
 
@@ -47,8 +53,3 @@ port:
   default: 631
 {% endconfiguration %}
 
-<div class='note'>
-
-You will need to install the `python3-dev` or `python3-devel` and the development files for CUPS (`libcups2-dev` or`cups-devel`) package on your system manually (eg. `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`).
-
-</div>
