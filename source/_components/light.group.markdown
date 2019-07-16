@@ -33,7 +33,7 @@ light:
   entities:
     description: A list of entities to be included in the light group.
     required: true
-    type: string list
+    type: [string, list]
 {% endconfiguration %}
 
 <p class='img'>

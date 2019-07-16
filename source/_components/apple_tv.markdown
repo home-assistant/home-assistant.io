@@ -66,6 +66,7 @@ start_off:
   description: Set to true if the device should start in fake standby.
   required: false
   type: boolean
+  default: false
 credentials:
   description: Credentials used for AirPlay playback.
   required: false

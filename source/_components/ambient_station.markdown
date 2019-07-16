@@ -42,7 +42,7 @@ app_key:
   type: string
 monitored_conditions:
   description: Weather conditions to track.
-  required: optional
+  required: false
   type: list
   keys:
     24hourrainin:

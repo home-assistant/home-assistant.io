@@ -99,6 +99,7 @@ ssl:
   description: "`true` if you want to connect with https. Be sure to set the port also."
   required: false
   type: boolean
+  default: false
 customize:
   description: >
     This attribute contains sensor-specific override values.
@@ -112,6 +113,7 @@ customize:
         the Web Interface and no events are generated for it.
       required: false
       type: boolean
+      default: false
     delay:
       description: >
         Specify the delay to wait after a sensor event ends before notifying

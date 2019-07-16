@@ -64,7 +64,7 @@ repeat:
     Number of minutes before the notification should be repeated.
     Can be either a number or a list of numbers.
   required: true
-  type: [int, list]
+  type: [integer, list]
 can_acknowledge:
   description: Allows the alert to be unacknowledgeable.
   required: false

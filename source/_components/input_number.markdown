@@ -68,7 +68,7 @@ input_number:
       mode:
         description: Can specify `box` or `slider`.
         required: false
-        type: box | slider
+        type: string
         default: slider
       unit_of_measurement:
         description: Unit of measurement in which the value of the slider is expressed in.

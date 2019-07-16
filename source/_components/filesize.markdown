@@ -27,5 +27,5 @@ sensor:
 file_paths:
   description: The absolute path to the file.
   required: true
-  type: list of strings
+  type: list
 {% endconfiguration %}

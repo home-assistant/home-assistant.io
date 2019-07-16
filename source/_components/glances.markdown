@@ -91,7 +91,7 @@ version:
 resources:
   description: Entries to monitor.
   required: false
-  type: map
+  type: list
   default: disk_use
   keys:
     disk_use_percent:

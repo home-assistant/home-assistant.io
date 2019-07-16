@@ -121,6 +121,7 @@ entities:
       description: "Should we create a sensor `true` or ignore it `false`?"
       required: true
       type: boolean
+      default: true
     search:
       description: If set will only trigger for matched events.
       required: false
@@ -141,7 +142,7 @@ entities:
     max_results:
       description: "Max number of entries to retrieve"
       required: false
-      type: int
+      type: integer
       default: 5
 {% endconfiguration %}
 

@@ -33,7 +33,7 @@ currency:
 display_options:
   description: Options to display in the frontend.
   required: true
-  type: map
+  type: list
   keys:
     exchangerate:
       description: Exchange rate of 1 BTC

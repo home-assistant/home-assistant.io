@@ -46,7 +46,7 @@ name:
   description: Sensor name.
   required: false
   default: Broadlink sensor
-  type: String
+  type: string
 scan_interval:
   description: Time in seconds to fetch data from sensors.
   required: false
@@ -155,12 +155,12 @@ friendly_name:
   type: string
 type:
   description: "Switch type. Choose one from: `rm`, `rm2`, `rm_mini`, `rm_pro_phicomm`, `rm2_home_plus`, `rm2_home_plus_gdt`, `rm2_pro_plus`, `rm2_pro_plus2`, `rm2_pro_plus_bl`, `rm_mini_shate`, `sp1`, `sp2`, `honeywell_sp2`, `sp3`, `spmini2`, `spminiplus` or `mp1`. `SC1` devices can be registered as `sp2`."
-  required: true/false
+  required: true
   type: string
 switches:
   description: The array that contains all switches.
   required: false
-  type: array
+  type: map
   keys:
     identifier:
       description: Name of the command switch as slug. Multiple entries are possible.
@@ -182,7 +182,7 @@ switches:
 slots:
   description: Friendly names of 4 slots of MP1 power strip. If not configured, slot name will be `switch's friendly_name + 'slot {slot_index}'`. e.g 'MP1 slot 1'
   required: false
-  type: array
+  type: map
   keys:
     slot_1:
       description: Friendly names of slot 1

@@ -54,6 +54,7 @@ sensor:
     description: Activate or deactivate the Jeelink LED.
     required: false
     type: boolean
+    default: false
   frequency:
     description: Initial frequency in 5kHz steps.
     required: false

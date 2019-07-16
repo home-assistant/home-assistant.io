@@ -123,7 +123,7 @@ command_topic:
 qos:
   description: The maximum QoS level for subscribing and publishing to MQTT messages.
   required: false
-  type: int
+  type: integer
   default: 0
 payload_disarm:
   description: The payload to disarm this Alarm Panel.

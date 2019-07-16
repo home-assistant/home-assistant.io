@@ -98,6 +98,6 @@ records:
 ttl:
   description: The TTL value for the DNS records.
   required: false
-  type: int
+  type: integer
   default: 300
 {% endconfiguration %}
