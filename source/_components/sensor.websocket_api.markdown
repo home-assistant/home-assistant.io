@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Websocket Connections Sensor"
 description: "Instructions on how to count connected clients within Home Assistant."
-date: 2019-03-20 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility

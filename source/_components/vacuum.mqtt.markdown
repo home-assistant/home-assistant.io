@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Vacuum"
 description: "Instructions on how to integrate your MQTT enabled Vacuum within Home Assistant."
-date: 2017-09-11 20:26
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Vacuum

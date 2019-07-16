@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "route53"
 description: "Automatically update your AWS Route53 DNS records."
-date: 2018-02-10 20:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: route53.png
 ha_category:
   - Network
@@ -104,6 +98,6 @@ records:
 ttl:
   description: The TTL value for the DNS records.
   required: false
-  type: int
+  type: integer
   default: 300
 {% endconfiguration %}

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Folder sensor"
 description: "Sensor for monitoring the contents of a folder."
-date: 2018-02-21 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: file.png
 ha_category:
   - Utility

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CityBikes Sensor"
 description: "Instructions on how to integrate data from the CityBikes API into Home Assistant."
-date: 2017-06-25 14:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: citybikes.png
 ha_category:
   - Transport

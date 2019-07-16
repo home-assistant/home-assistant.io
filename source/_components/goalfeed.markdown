@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Goalfeed"
 description: "Instructions on how to setup Goalfeed events within Home Assistant."
-date: 2017-12-13 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: goalfeed.png
 ha_category:
   - Other

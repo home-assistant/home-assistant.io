@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Remote Raspberry Pi GPIO"
 description: "Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant."
-date: 2019-02-20 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -104,9 +98,9 @@ invert_logic:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-<p class='note warning'>
+<div class='note warning'>
 Note that a pin managed by HASS is expected to be exclusive to HASS.
-</p>
+</div>
 
 A common question is what does port refer to, this number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

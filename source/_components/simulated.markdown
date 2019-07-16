@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Simulated sensor"
 description: "Component for simulating a numerical sensor."
-date: 2018-02-20 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Persistent notification"
 description: "Instructions on how to integrate persistent notifications into Home Assistant."
-date: 2016-06-25 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other
@@ -95,10 +89,11 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 | Link | `[Link](https://home-assistant.io/)` |
 | Image | `![image](/local/my_image.jpg)` |
 
-<p class="note">
-  `/local/` in this context refers to the `.homeassistant/www/` folder.
-</p>
+<div class="note">
 
+  `/local/` in this context refers to the `.homeassistant/www/` folder.
+
+</div>
 
 ### Create a persistent notification
 

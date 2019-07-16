@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HomeKit"
 description: "Instructions on how to set up the HomeKit integration in Home Assistant."
-date: 2018-02-20 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Voice
 ha_release: 0.64
@@ -15,14 +9,18 @@ logo: apple-homekit.png
 
 The `homekit` integration allows you to forward entities from Home Assistant to Apple HomeKit, so they can be controlled from Apple's Home app and Siri. Please make sure that you have read the [considerations](#considerations) listed below to save you some trouble later. However if you do encounter issues, check out the [troubleshooting](#troubleshooting) section.
 
-<p class="note">
-  If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/components/homekit_controller/) component.
-</p>
+<div class="note">
 
-<p class="note warning">
+  If you want to control `HomeKit` only devices with Home Assistant, check out the [HomeKit controller](/components/homekit_controller/) component.
+
+</div>
+
+<div class="note warning">
+
   It might be necessary to install an additional package:
-  `$ sudo apt-get install libavahi-compat-libdnssd-dev`
-</p>
+  `sudo apt-get install libavahi-compat-libdnssd-dev`
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry configuring HomeKit
@@ -199,9 +197,11 @@ Depending on your setup, it might be necessary to disable `Auto Start` for all a
 
 If you have Z-Wave entities you want to be exposed to HomeKit, then you'll need to disable auto start and then start it after the Z-Wave mesh is ready. This is because the Z-Wave entities won't be fully set up until then. This can be automated using an automation.
 
-<p class='note'>
+<div class='note'>
+
 Please remember that you can only have a single `automation` entry. Add the automation to your existing automations.
-</p>
+
+</div>
 
 {% raw %}
 ```yaml
@@ -318,9 +318,11 @@ homekit:
 
 Restart your Home Assistant instance. If you don't see a `pincode`, follow the [guide](#deleting-the-homekitstate-file) here. Now you should be able to pair normally.
 
-<p class="note warning">
+<div class="note warning">
+
 To avoid any errors, after you have successfully paired your Home Assistant Bridge, remove the `safe_mode` option from your config and restart Home Assistant.
-</p>
+
+</div>
 
 ## Supported Components
 

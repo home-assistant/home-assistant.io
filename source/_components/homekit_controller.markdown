@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HomeKit controller support"
 description: "Instructions how to integrate your HomeKit devices within Home Assistant."
-date: 2018-03-19 21:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: apple-homekit.png
 ha_category:
   - Hub
@@ -43,12 +37,6 @@ There is currently support for the following device types within Home Assistant:
 - Binary Sensor (HomeKit motion sensors)
 - Sensor (HomeKit humidity, temperature, and light level sensors)
 
-The integration will be automatically configured if the [`discovery:`](/components/discovery/) integration is enabled and an enable entry added for HomeKit:
-
-```yaml
-discovery:
-  enable:
-    - homekit
-```
+The integration will be automatically configured if the [`discovery`](/components/discovery/) integration is enabled.
 
 For each detected HomeKit accessory, a configuration prompt will appear in the web front end. Use this to provide the HomeKit PIN. Note that HomeKit accessories can only be paired to one device at once. If your device is currently paired with Siri, you will need to reset it in order to pair it with Home Assistant. Once Home Assistant is configured to work with the device, you can export it back to Siri with the [`HomeKit`](/components/homekit/) component.

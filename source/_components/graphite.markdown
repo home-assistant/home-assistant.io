@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Graphite"
 description: "Instructions on how to record Home Assistant history in Graphite."
-date: 2016-02-10 17:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: graphite.png
 ha_category:
   - History

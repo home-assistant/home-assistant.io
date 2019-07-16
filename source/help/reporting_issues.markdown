@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Reporting issues"
 description: "Reporting issues about Home Assistant"
-date: 2018-03-26 09:00
 sidebar: false
-comments: false
-sharing: true
-footer: true
 ---
 
 If you have an installation, a setup or a configuration issue please use our [Forum](https://community.home-assistant.io/) to get help. We have a big community which will help you if they can. 

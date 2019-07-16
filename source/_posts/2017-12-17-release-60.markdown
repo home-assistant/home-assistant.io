@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.60: Beckhoff/TwinCAT, WebDav, Gearbest, iAlarm"
 description: "Use Home Assistant for your production line or track prices and the stock market."
 date: 2017-12-17 02:00:00
 date_formatted: "December 17, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-12-0.60/components.png
 ---
@@ -108,7 +106,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Meraki AP Device tracker ([@masarliev] - [#10971]) ([device_tracker.meraki docs]) (new-platform)
 - Update tradfri.py ([@pvizeli] - [#10991]) ([light.tradfri docs])
 - webostv: Ensure source exists before use ([@OddBloke] - [#10959]) ([media_player.webostv docs])
-- Ensure Docker script files uses LF line endings to support Docker for Windows. ([@R1chardTM] - [#10067])
+- Ensure Docker script files uses LF line endings to support Docker for Windows. ([@EarthlingRich] - [#10067])
 - Added Vera scenes ([@alanfischer] - [#10424]) ([vera docs]) ([scene.vera docs]) (new-platform)
 - Fix Egardia alarm status shown as unknown after restart ([@jeroenterheerdt] - [#11010]) ([alarm_control_panel.egardia docs])
 - Handle OSError when forcibly turning off media_player.samsungtv ([@lwis] - [#10997]) ([media_player.samsungtv docs])
@@ -254,7 +252,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OverloadUT]: https://github.com/OverloadUT
 [@PaulAnnekov]: https://github.com/PaulAnnekov
 [@PhracturedBlue]: https://github.com/PhracturedBlue
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@RiRomain]: https://github.com/RiRomain
 [@RyuzakiKK]: https://github.com/RyuzakiKK
 [@addelovein]: https://github.com/addelovein

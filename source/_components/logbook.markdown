@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Logbook"
 description: "Instructions on how to enable the logbook integration for Home Assistant."
-date: 2015-04-25 9:23
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: logbook.png
 ha_category:
   - History

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Trafikverket WeatherStation"
 description: "Instructions how to integrate Trafikverket WeatherStation within Home Assistant."
-date: 2018-02-01 12:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: trafikverket.png
 ha_category:
   - Weather

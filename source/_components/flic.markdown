@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Flic Smart Button
 description: "Instructions on how to integrate flic buttons within Home Assistant."
-date: 2016-12-02 22:03
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: flic.png
 ha_category:
   - Binary Sensor
@@ -22,7 +16,7 @@ The platform does not directly interact with the buttons, *but communicates with
 
 #### Service setup
 
-If you are using Hass.io, you can run the service locally by [installing](/hassio/installing_third_party_addons/) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/hassio-addons). On a Hass.io installation that's not yet based on HassOS, you also need to install the [bluetooth add-on](/addons/bluetooth_bcm43xx/).
+If you are using Hass.io, you can run the service locally by [installing](/hassio/installing_third_party_addons/) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/hassio-addons).
 
 For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [OS X](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 

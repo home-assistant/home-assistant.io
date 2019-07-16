@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sisyphus"
 description: "Instructions on how to integrate your Sisyphus Kinetic Art Table within Home Assistant."
-date: 2018-05-06 22:26
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sisyphus.png
 ha_category:
   - Hub

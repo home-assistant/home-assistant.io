@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Threshold Binary Sensor"
 description: "Instructions on how to integrate threshold binary sensors into Home Assistant."
-date: 2016-11-26 12:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility

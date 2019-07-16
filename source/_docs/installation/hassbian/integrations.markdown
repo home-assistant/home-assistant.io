@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspberry Pi integrations"
 description: "Home Assistant integrations specific to the Raspberry Pi."
-date: 2016-09-26 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /docs/hassbian/integrations/
 ---
 

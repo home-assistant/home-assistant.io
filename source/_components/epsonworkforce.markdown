@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Epson Workforce"
 description: "Instructions on how to integrate Epson Workforce Printer into Home Assistant."
-date: 2019-04-09 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: epson.png
 ha_category:
   - Sensor
@@ -41,7 +35,7 @@ host:
 monitored_conditions:
   description: The cartridge colours to monitor. 
   required: true
-  type: map
+  type: list
   keys:
     black:
       description: The black ink cartridge

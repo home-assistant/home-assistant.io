@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notify Group"
 description: "Instructions on how to setup the notify group platform."
-date: 2016-08-18 00:12
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Notifications

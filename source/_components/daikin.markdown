@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC devices with Home Assistant."
-date: 2017-12-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: daikin.png
 ha_category:
   - Climate
@@ -36,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-The Daikin integration can be configured in three ways. 
+The Daikin integration can be configured in three ways.
 
 - Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.
@@ -69,9 +63,11 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current inside temperature is displayed.
 
-<p class='note'>
+<div class='note'>
+
 Some models do not support setting of **fan speed** or **swing mode**.
-</p>
+
+</div>
 
 ## Sensor
 
@@ -80,14 +76,16 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Inside temperature
 - Outside temperature
 
-<p class='note'>
+<div class='note'>
 Some models only report outside temperature when they are turned on.
-</p>
+</div>
 
 ## Switch
 
 Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.
 
-<p class='note'>
+<div class='note'>
+
 Zones with the name `-` will be ignored, just as the AirBase application is working.
-</p>
+
+</div>

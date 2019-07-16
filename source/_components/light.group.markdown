@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Light Group"
 description: "Instructions for how to setup light groups within Home Assistant."
-date: 2018-02-23 11:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Light
 ha_release: 0.65
@@ -39,7 +33,7 @@ light:
   entities:
     description: A list of entities to be included in the light group.
     required: true
-    type: string list
+    type: [string, list]
 {% endconfiguration %}
 
 <p class='img'>

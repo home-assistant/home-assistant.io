@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Denon HEOS"
 description: "Instructions on how to integrate Denon HEOS into Home Assistant."
-date: 2019-03-06 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: heos.png
 ha_category:
   - Media Player
@@ -39,9 +33,9 @@ host:
   type: string
 {% endconfiguration %}
 
-<p class='note info'>
+<div class='note info'>
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
-</p>
+</div>
 
 ## Services
 

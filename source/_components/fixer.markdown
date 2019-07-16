@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fixer.io"
 description: "Instructions on how to integrate exchange rates from Fixer.io within Home Assistant."
-date: 2016-06-20 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Finance
 logo: fixer-io.png

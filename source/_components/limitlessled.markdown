@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LimitlessLED"
 description: "Instructions on how to setup LimitlessLED within Home Assistant."
-date: 2015-12-03 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: limitlessled_logo.png
 ha_category:
   - Light

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mercedes me"
 description: "Instructions on how to integrate Mercedes car with Mercedes me into Home Assistant."
-date: 2018-01-27 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mercedesme.png
 ha_category:
   - Car
@@ -31,6 +25,6 @@ This integration provides the following platforms:
 
 Platforms will be automatically configured if Mercedes me integration is configured.
 
-<p class='note warning'>
+<div class='note warning'>
   The integration was removed. The vendor disabled the API endpoint and a new API is not available currently.
-</p>
+</div>

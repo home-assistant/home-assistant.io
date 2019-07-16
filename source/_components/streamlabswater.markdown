@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Streamlabs Water"
 description: "Instructions on how to integrate Streamlabs Water devices with Home Assistant."
-date: 2019-02-25 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: streamlabswater.png
 ha_category:
   - Binary Sensor

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.84: Cloud webhooks, Wunderlist and USGS Earth Quakes"
 description: "Final release of the year. Full of fixes and great little things."
 date: 2018-12-12 00:01:00
 date_formatted: "December 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-12-release-84/components.png
 ---

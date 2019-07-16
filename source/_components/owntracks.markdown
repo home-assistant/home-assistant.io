@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Owntracks"
 description: "Instructions on how to use Owntracks to track devices in Home Assistant."
-date: 2015-09-22 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: owntracks.png
 ha_category:
   - Presence Detection
@@ -125,9 +119,9 @@ When you exit a zone, Home Assistant will start using location updates to track 
 
 ## Using Owntracks regions - forcing Owntracks to update using iBeacons
 
-<p class='note'>
+<div class='note'>
 Owntracks v2.0.0 removes support for iBeacons on Android.
-</p>
+</div>
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), Owntracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 

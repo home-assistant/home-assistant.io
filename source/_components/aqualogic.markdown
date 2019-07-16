@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AquaLogic"
 description: "Instructions on how to integrate an AquaLogic controller within Home Assistant."
-date: 2018-09-17 9:16
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hayward.png
 ha_category:
   - Hub
@@ -45,7 +39,7 @@ host:
 port:
   description: The port provided by the RS-485 to Ethernet adapter.
   required: true
-  type: int
+  type: integer
 {% endconfiguration %}
 
 ## Sensor

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Space Launch sensor"
 description: "Instructions on how to integrate space launch information within Home Assistant."
-date: 2018-11-06 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rocket.png
 ha_category:
   - Sensor

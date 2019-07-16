@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWeatherMap"
 description: "Instructions on how to integrate OpenWeatherMap within Home Assistant."
-date: 2016-09-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openweathermap.png
 ha_category:
   - Weather
@@ -65,9 +59,11 @@ longitude:
   default: "The longitude in your `configuration.yaml` file."
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`openweathermap`](/components/sensor.openweathermap/) sensor.
-</p>
+
+</div>
 
 ## Sensor
 

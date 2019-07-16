@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lights"
 description: "Instructions on how to setup your lights with Home Assistant."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Light
@@ -45,9 +39,11 @@ Most lights do not support all attributes. You can check the integration documen
 | `flash` | yes | Tell light to flash, can be either value `short` or `long`.
 | `effect`| yes | Applies an effect such as `colorloop` or `random`.
 
-<p class='note'>
+<div class='note'>
+
 In order to apply attributes to an entity, you will need to add `data:` to the configuration. See example below
-</p>
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry

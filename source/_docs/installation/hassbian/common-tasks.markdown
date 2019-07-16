@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Common tasks on Hassbian"
 description: "Instructions on how to do common tasks on Hassbian."
-date: 2018-06-03 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /docs/hassbian/common-tasks/
 ---
 
@@ -38,9 +32,11 @@ To get the current state of the `homeassistant.service` replace `stop` with `sta
 
 ### Update Home Assistant
 
-<p class='note'>
+<div class='note'>
+
 You can use `hassbian-config` to automate the process by running `sudo hassbian-config upgrade homeassistant`
-</p>
+
+</div>
 
 Log in as the `pi` account and execute the following commands:
 

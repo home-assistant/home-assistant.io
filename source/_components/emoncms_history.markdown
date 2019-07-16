@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Emoncms history"
 description: "Instructions on how to integrate Emoncms history into Home Assistant."
-date: 2016-09-25 12:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: emoncms.png
 ha_category:
   - History

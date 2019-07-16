@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Datetime"
 description: "Instructions on how to integrate the Input Datetime integration into Home Assistant."
-date: 2017-09-14 16:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -27,16 +21,13 @@ add the following lines to your `configuration.yaml`:
 input_datetime:
   both_date_and_time:
     name: Input with both date and time
-    has_date: true
-    has_time: true
+    has_    has_time: true
   only_date:
     name: Input with only date
-    has_date: true
-    has_time: false
+    has_    has_time: false
   only_time:
     name: Input with only time
-    has_date: false
-    has_time: true
+    has_    has_time: true
 ```
 
 {% configuration %}
@@ -48,7 +39,7 @@ input_datetime:
       name:
         description: Friendly name of the datetime input.
         required: false
-        type: String
+        type: string
       has_time:
         description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
         required: false
@@ -62,7 +53,7 @@ input_datetime:
       initial:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
-        type: datetime | time | date
+        type: [datetime, time, date]
         default: 1970-01-01 00:00 | 1970-01-01 | 00:00
 {% endconfiguration %}
 
@@ -75,10 +66,8 @@ automations and templates.
 | ----- | ----- |
 | `has_time` | `true` if this entity has a time.
 | `has_date` | `true` if this entity has a date.
-| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
-| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>If `has_date: true`, this is the UNIX timestamp of the date / time held by the input. Otherwise if only `has_time: true`, this is the number of seconds since midnight representing the time held by the input.
-
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
+| `timestamp` | A timestamp representing the time held in the input.<br>If `has_
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home
@@ -148,5 +137,12 @@ automation:
     entity_id: input_datetime.date_and_time
     data_template:
       datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
+  - service: input_datetime.set_datetime
+    data_template:
+      entity_id: input_datetime.date_and_time
+      date: >
+        {{ now().timestamp() | timestamp_custom("%Y-%m-%d", true) }}
+      time: >
+        {{ now().timestamp() | timestamp_custom("%H:%M:%S", true) }}
 ```
 {% endraw %}

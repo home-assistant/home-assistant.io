@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Track your phone battery level"
 description: "Basic example how to track the battery level of your mobile devices."
-date: 2016-01-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

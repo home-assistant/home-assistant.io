@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NSW Fuel Station Price Sensor"
 description: "Instructions on how to integrate NSW fuel station prices into Home Assistant."
-date: 2018-06-02 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fuelcheck.png
 ha_category:
   - Car

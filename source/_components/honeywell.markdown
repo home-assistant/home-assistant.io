@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell Thermostat"
 description: "Instructions on how to integrate Honeywell thermostats within Home Assistant."
-date: 2016-02-07 22:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell.png
 ha_category:
   - Climate
@@ -22,11 +16,11 @@ It does not support the home security functionality of TCC.
 
 It uses the [somecomfort](https://github.com/kk7ds/somecomfort) client library.
 
-<p class='note'>
+<div class='note'>
 There is some potential confusion over this integration because it was previously implemented as a combination of two _distinct_ climate systems, one being US-based, the other EU-based.
 
 These two regions are _not_ interchangeable, and the `eu` region is now deprecated.  Ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
-</p>
+</div>
 
 ### US-based Systems
 

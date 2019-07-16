@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RESTful Switch"
 description: "Instructions on how to integrate REST switches into Home Assistant."
-date: 2015-09-14 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
 ha_category:
   - Switch
@@ -72,7 +66,7 @@ password:
 headers:
   description: The headers for the request.
   required: false
-  type: list, string
+  type: [string, list]
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
@@ -80,9 +74,9 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
-</p>
+</div>
 
 ## Example
 

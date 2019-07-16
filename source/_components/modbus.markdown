@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Modbus"
 description: "Instructions on how to integrate Modbus within Home Assistant."
-date: 2015-04-25 9:16
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: modbus.png
 ha_category:
   - Hub

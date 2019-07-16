@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Light"
 description: "Instructions on how to setup MQTT lights using default schema within Home Assistant."
-date: 2015-11-13 08:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Light
@@ -243,7 +237,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -266,13 +260,15 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-  Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-</p>
+<div class='note warning'>
 
-<p class='note warning'>
+  Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
+
+</div>
+
+<div class='note warning'>
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
-</p>
+</div>
 
 ## Default schema - Examples
 
@@ -505,7 +501,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -528,13 +524,17 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-</p>
+<div class='note warning'>
 
-<p class='note warning'>
+  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+
+</div>
+
+<div class='note warning'>
+
   RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
-</p>
+
+</div>
 
 ## JSON schema - Examples
 
@@ -779,7 +779,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -802,9 +802,11 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-</p>
+
+</div>
 
 ## Template schema - Examples
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dark Sky"
 description: "Instructions on how to integrate Dark Sky within Home Assistant."
-date: 2016-09-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 logo: dark_sky.png
 ha_category:
@@ -21,9 +15,11 @@ The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as 
 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). The free tier allows up to 1000 calls per day, this platform updates at most every 3 minutes, using up to 480 of those calls.
 
-<p class='note warning'>
+<div class='note warning'>
+
 [Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
-</p>
+
+</div>
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
 
@@ -66,8 +62,10 @@ mode:
   default: hourly
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`darksky`](/components/sensor.darksky/) sensor.
-</p>
+
+</div>
 
 Details about the API are available in the [Dark Sky documentation](https://darksky.net/dev/docs).

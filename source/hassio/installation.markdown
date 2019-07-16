@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installing Hass.io"
 description: "Instructions on how to install Hass.io."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The following will take you through the steps required to install Hass.io.
@@ -54,13 +48,17 @@ For the content of this file follow the [HassOS howto][hassos-network].
 
 7. Enable either the [Samba add-on][samba] or the [SSH add-on][ssh] to manage your configuration in `/config/` (From the UI choose **Hass.io** which is located in the sidebar).
 
-<p class='note'>
-If your router doesn't support mDNS, then you'll have to use the IP address of your Pi instead of `hassio.local`. For example, `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
-</p>
+<div class='note'>
 
-<p class='note warning'>
+If your router doesn't support mDNS, then you'll have to use the IP address of your Pi instead of `hassio.local`. For example, `http://192.168.0.9:8123`. You should be able to find the IP address of your Pi from the admin interface of your router.
+
+</div>
+
+<div class='note warning'>
+
 If you are using a Raspberry Pi please remember to ensure you're using an [appropriate power supply][pi-power] with your Pi. Mobile chargers may not be suitable since some were only designed to provide just enough power to the device it was designed for by the manufacturer. **Do not** try to power the Pi from the USB port on a TV, computer, or similar.
-</p>
+
+</div>
 
 Now you can [configure][configure] your install.
 
@@ -82,7 +80,7 @@ Best practice for updating a Hass.io installation:
 
 SSH to your Hass.io system, or connect to the console, and run:
 
-```
+```bash
 hassio ha update --version=0.XX.X
 ```
 
@@ -115,9 +113,11 @@ The packages you need to have available on your system that will run Hass.io may
  - socat
  - software-properties-common
 
-<p class='note warning'>
+<div class='note warning'>
+
    The `modemmanager` package will interfere with any Z-Wave or Zigbee stick and should be removed or disabled. Failure to do so will result in random failures of those integrations. For example you can disable with `sudo systemctl disable ModemManager` and remove with `sudo apt-get purge modemmanager`
-</p>
+
+</div>
 
 ### Arch Linux
 
@@ -132,31 +132,33 @@ The packages you need to have available on your system that will run Hass.io may
 
 You also need to have Docker-CE installed. There are well-documented procedures for installing Docker on Ubuntu at [Docker.com](https://docs.docker.com/install/linux/docker-ce/ubuntu/), you can find installation steps for your Linux distribution in the menu on the left.
 
-<p class='note warning'>
+<div class='note warning'>
+
   Some distributions, like Ubuntu, have a `docker.io` package available. Using that packages will cause issues!
   Be sure to install the official Docker-CE from the above listed URL.
-</p>
+
+</div>
 
 To perform the Hass.io installation on Ubuntu, run the following commands:
 
 ```bash
-$ sudo -i
-# apt-get install software-properties-common
-# add-apt-repository universe
-# apt-get update
-# apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
-# curl -fsSL get.docker.com | sh
+sudo -i
+apt-get install software-properties-common
+add-apt-repository universe
+apt-get update
+apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificates curl dbus jq network-manager socat
+curl -fsSL get.docker.com | sh
 ```
 
 And to install Hass.io the one below. That one is used also for other distributions.
 
 ```bash
-# curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
 ```
 
-<p class='note'>
+<div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
-</p>
+</div>
 
 A detailed guide about running Hass.io as a virtual machine is available in the [blog][hassio-vm].
 

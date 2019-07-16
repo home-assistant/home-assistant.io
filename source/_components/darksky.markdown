@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dark Sky Sensor"
 description: "How to integrate Dark Sky within Home Assistant."
-date: 2016-09-26 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dark_sky.png
 ha_category:
   - Weather
@@ -23,9 +17,11 @@ The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as 
 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
-<p class='note warning'>
+<div class='note warning'>
+
 [Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -159,9 +155,11 @@ scan_interval:
   type: time
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 Please note that some monitored conditions, such as `temperature_high` or `temperature_low`, may only work when setting the `forecast` attribute to at least `0` (current day).
-</p>
+
+</div>
 
 #### Time period dictionary example
 
@@ -234,9 +232,9 @@ All language options are described in this table that you can use for the dark s
 |simplified Chinese|`zh`|
 |traditional Chinese|`zh-tw`|
 
-<p class='note warning'>
+<div class='note warning'>
 While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
-</p>
+</div>
 
 More details about the API are available in the [Dark Sky API documentation][].
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Discovery"
 description: "Instructions on how to setup MQTT Discovery within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ---
 
@@ -48,9 +42,11 @@ discovery_prefix:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 The [embedded MQTT broker](/docs/mqtt/broker#embedded-broker) does not save any messages between restarts. If you use the embedded MQTT broker you have to send the MQTT discovery messages after every Home Assistant restart for the devices to show up.
-</p>
+
+</div>
 
 The discovery topic need to follow a specific format:
 

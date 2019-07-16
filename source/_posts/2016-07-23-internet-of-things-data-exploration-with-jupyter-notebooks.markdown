@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "IoT Data Exploration with Jupyter Notebooks"
 description: "Tutorial how to get started exploring your data using Jupyter Notebooks, Pandas and Matplotlib."
 date: 2016-07-23 18:00:00 +0000
 date_formatted: "July 23, 2016"
 author: Anton Kireyeu
-comments: true
 categories: How-To IoT-Data
 og_image: /images/blog/2016-07-data-exploration/graph.png
 ---

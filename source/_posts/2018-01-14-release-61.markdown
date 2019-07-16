@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.61: Coinbase, Discogs, iGlo, Sochain"
 description: "New crypto currency sensors and other new stuff including breaking changes."
 date: 2018-01-14 18:00:00
 date_formatted: "January 14, 2018"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-01-0.61/components.png
 ---
@@ -256,7 +254,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Added new climate component from Daikin ([@rofrantz] - [#10983]) ([climate.daikin docs]) (new-platform)
 - Updated generic thermostat to respect operation_mode and added away mode ([@ciotlosm] - [#11445]) ([climate.generic_thermostat docs])
 - Reconnect to alarmdecoder on disconnect ([@PhracturedBlue] - [#11383]) ([alarmdecoder docs])
-- Set tahoma cover scan interval to 60 seconds ([@bakedraccoon] - [#11447]) ([cover.tahoma docs])
+- Set tahoma cover scan interval to 60 seconds ([@thijsdejong] - [#11447]) ([cover.tahoma docs])
 - Add some tests to the cloud component ([@balloob] - [#11460]) ([cloud docs]) ([cloud.iot docs])
 - Input Select - Added service description ([@cdce8p] - [#11456]) ([input_select docs])
 - Input Boolean - Deleted 'DEFAULT_INITIAL' ([@cdce8p] - [#11453]) ([input_boolean docs])
@@ -310,7 +308,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Remove execution file perm ([@balloob] - [#11563])
 - Deprecate explicit entity_id in template platforms ([@amelchio] - [#11123]) ([binary_sensor.template docs]) ([cover.template docs]) ([light.template docs]) ([sensor.template docs]) ([switch.template docs])
 - Test tweaks ([@balloob] - [#11560])
-- Add Velux Windows to Tahoma ([@bakedraccoon] - [#11538]) ([tahoma docs]) ([cover.tahoma docs])
+- Add Velux Windows to Tahoma ([@thijsdejong] - [#11538]) ([tahoma docs]) ([cover.tahoma docs])
 - Extend hass.io services / updater ([@pvizeli] - [#11549]) ([hassio docs])
 - Add sensibo_assume_state service to Sensibo climate ([@andrey-git] - [#11567]) ([climate.sensibo docs])
 - Tracking all groups to allow changing of existing groups ([@randellhodges] - [#11444]) ([group docs])
@@ -328,11 +326,11 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Control ordering of display in history component ([@rwa] - [#11340]) ([history docs])
 - Pr/11430 ([@balloob] - [#11587])
 - Cast return values and add unit tests for the yahoo weather component. ([@cgtobi] - [#10699]) ([weather.yweather docs])
-- add velux roller shutter to tahoma ([@bakedraccoon] - [#11586]) ([tahoma docs])
+- add velux roller shutter to tahoma ([@thijsdejong] - [#11586]) ([tahoma docs])
 - Added support for enable/disable motion detection ([@abjorshammar] - [#11583]) ([camera.uvc docs])
 - Avoid returning empty media_image_url string ([@JackWindows] - [#11557]) ([media_player.cast docs])
 - Core support for hass.io calls & Bugfix check_config ([@pvizeli] - [#11571]) ([__init__ docs]) ([hassio docs]) ([updater docs])
-- Fix Tahoma stop command for 2 types of shutters ([@bakedraccoon] - [#11588]) ([cover.tahoma docs])
+- Fix Tahoma stop command for 2 types of shutters ([@thijsdejong] - [#11588]) ([cover.tahoma docs])
 - Pushbullet email support (fix) ([@tschmidty69] - [#11590]) ([notify.pushbullet docs])
 - Fix state for trigger with forced updates ([@armills] - [#11595]) ([automation.state docs])
 - Snips add say and say_actions services (new) ([@tschmidty69] - [#11596]) ([snips docs])
@@ -340,7 +338,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 - Bugfix and cleanup for Rfxtrx ([@danielhiversen] - [#11600])
 - Xiaomi lib upgrade ([@danielhiversen] - [#11603])
 - Upgrade yarl to 0.18.0 ([@fabaff] - [#11609])
-- patch stop command ([@bakedraccoon] - [#11612]) ([cover.tahoma docs])
+- patch stop command ([@thijsdejong] - [#11612]) ([cover.tahoma docs])
 - Use kelvin/mireds correctly for setting iglo white ([@jesserockz] - [#11622])
 - Update Pyarlo to 0.1.2 ([@arsaboo] - [#11626])
 
@@ -556,7 +554,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [@arsaboo]: https://github.com/arsaboo
 [@awkwardDuck]: https://github.com/awkwardDuck
 [@bachya]: https://github.com/bachya
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@camrun91]: https://github.com/camrun91
 [@cdce8p]: https://github.com/cdce8p
@@ -636,7 +634,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [camera.uvc docs]: /components/camera.uvc/
 [climate docs]: /components/climate/
 [climate.daikin docs]: /components/climate.daikin/
-[climate.demo docs]: /components/climate.demo/
+[climate.demo docs]: /components/demo/
 [climate.econet docs]: /components/climate.econet/
 [climate.generic_thermostat docs]: /components/climate.generic_thermostat/
 [climate.hive docs]: /components/climate.hive/
@@ -647,9 +645,9 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [climate.tado docs]: /components/climate.tado/
 [climate.touchline docs]: /components/climate.touchline/
 [cloud docs]: /components/cloud/
-[cloud.auth_api docs]: /components/cloud.auth_api/
-[cloud.http_api docs]: /components/cloud.http_api/
-[cloud.iot docs]: /components/cloud.iot/
+[cloud.auth_api docs]: /components/cloud/
+[cloud.http_api docs]: /components/cloud/
+[cloud.iot docs]: /components/cloud/
 [coinbase docs]: /components/coinbase/
 [conversation docs]: /components/conversation/
 [cover.isy994 docs]: /components/cover.isy994/
@@ -672,8 +670,8 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [fan.isy994 docs]: /components/fan.isy994/
 [fan.xiaomi_miio docs]: /components/fan.xiaomi_miio/
 [google_assistant docs]: /components/google_assistant/
-[google_assistant.http docs]: /components/google_assistant.http/
-[google_assistant.smart_home docs]: /components/google_assistant.smart_home/
+[google_assistant.http docs]: /components/google_assistant/
+[google_assistant.smart_home docs]: /components/google_assistant
 [group docs]: /components/group/
 [hassio docs]: /components/hassio/
 [history docs]: /components/history/
@@ -691,7 +689,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [light.hive docs]: /components/light.hive/
 [light.hue docs]: /components/light.hue/
 [light.iglo docs]: /components/light.iglo/
-[light.insteon_local docs]: /components/light.insteon_local/
+[light.insteon_local docs]: /components/insteon/
 [light.isy994 docs]: /components/light.isy994/
 [light.knx docs]: /components/light.knx/
 [light.lifx docs]: /components/light.lifx/
@@ -750,7 +748,7 @@ Note however, that this feature was replaced by a new ignore_string config optio
 [sensor.xbox_live docs]: /components/sensor.xbox_live/
 [sensor.zoneminder docs]: /components/sensor.zoneminder/
 [snips docs]: /components/snips/
-[switch.insteon_local docs]: /components/switch.insteon_local/
+[switch.insteon_local docs]: /components/insteon/
 [switch.isy994 docs]: /components/switch.isy994/
 [switch.knx docs]: /components/switch.knx/
 [switch.mochad docs]: /components/switch.mochad/

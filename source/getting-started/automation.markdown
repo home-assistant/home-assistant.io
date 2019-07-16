@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from:
  - /getting-started/automation-create-first/
  - /getting-started/automation-2/

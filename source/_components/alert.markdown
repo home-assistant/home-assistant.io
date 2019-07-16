@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Alert"
 description: "Instructions on how to setup automatic alerts within Home Assistant."
-date: 2017-01-15 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -70,7 +64,7 @@ repeat:
     Number of minutes before the notification should be repeated.
     Can be either a number or a list of numbers.
   required: true
-  type: [int, list]
+  type: [integer, list]
 can_acknowledge:
   description: Allows the alert to be unacknowledgeable.
   required: false

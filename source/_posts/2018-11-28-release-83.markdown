@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.83: Fibaro Home Center Hubs, locks via voice, Traccar"
 description: "Our first release with over 100 contributors is packed with features, fixes and goodies."
 date: 2018-11-29 00:01:00
 date_formatted: "November 29, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-11-release-83/components.png
 ---

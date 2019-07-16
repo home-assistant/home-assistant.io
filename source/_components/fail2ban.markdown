@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fail2Ban Sensor"
 description: "Instructions on how to integrate a fail2ban sensor into Home Assistant."
-date: 2017-10-19 10:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Network
 ha_iot_class: Local Polling
@@ -19,9 +13,11 @@ redirect_from:
 
 The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
-<p class='note'>
+<div class='note'>
+
 Your system must have `fail2ban` installed and correctly configured for this sensor to work. In addition, Home Assistant must be able to read the `fail2ban` log file.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -59,9 +55,11 @@ For most setups, you can follow [this tutorial](/cookbook/fail2ban/) to set up `
 
 ### Fail2Ban with Docker
 
-<p class='note'>
+<div class='note'>
+
 These steps assume you already have the Home Assistant docker running behind NGINX and that it is externally accessible. It also assumes the docker is running with the `--net='host'` flag.
-</p>
+
+</div>
 
 For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [let's encrypt docker](https://github.com/linuxserver/docker-letsencrypt) from linuxserver.io.
 

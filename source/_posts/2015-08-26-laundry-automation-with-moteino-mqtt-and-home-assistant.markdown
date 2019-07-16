@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Laundry Automation: insight and notifications"
 description: "Nolan describes how he gets notified when laundry is done."
 date: 2015-08-26 08:12 -0700
 date_formatted: "August 26, 2015"
 author: Nolan Gilley
-comments: true
 categories: User-Stories
 og_image: /images/blog/2015-08-laundry-automation/moteino-and-sensors.jpg
 ---
@@ -55,9 +53,9 @@ Materials used:
 
 Home Assistant Configuration:
 
-<p class='note'>
+<div class='note'>
 The automation and script syntax here is using a deprecated and no longer supported format.
-</p>
+</div>
 
 ```yaml
 mqtt:

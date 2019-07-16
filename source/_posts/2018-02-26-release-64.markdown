@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.64: Over 1000 integrations! New: HomeKit, BMW, August."
 description: "Some great new integrations, some great new fixes, oooooh yeah."
 date: 2018-02-26 00:01:00
 date_formatted: "February 26, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-02-0.64/components.png
 ---
@@ -52,13 +50,13 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - Support for August doorbell ([@snjoetw] - [#11124]) ([august docs]) ([binary_sensor.august docs]) ([camera.august docs]) ([lock.august docs]) (new-platform)
 - Add new component: BMW connected drive ([@ChristianKuehnel] - [#12277]) ([bmw_connected_drive docs]) ([device_tracker.bmw_connected_drive docs]) ([sensor.bmw_connected_drive docs]) (new-platform)
 - Add New Sensor for ISP Start.ca ([@mikeodr] - [#12356]) ([sensor.startca docs]) (new-platform)
-- Add the Xiaomi TV platform. ([@fattdev] - [#12359]) ([media_player.xiaomi_tv docs]) (new-platform)
+- Add the Xiaomi TV platform. ([@simse] - [#12359]) ([media_player.xiaomi_tv docs]) (new-platform)
 - added smappee component ([@hmn] - [#11491]) ([smappee docs]) ([sensor.smappee docs]) ([switch.smappee docs]) (new-platform)
 - Add support for HomeKit ([@cdce8p] - [#12488]) ([homekit docs]) (new-platform)
 - Adds filesize component ([@robmarkcole] - [#12211]) ([sensor.filesize docs]) (new-platform)
 - Adds folder sensor ([@robmarkcole] - [#12208]) ([sensor.folder docs]) (new-platform)
 - Spotcrime ([@jcconnell] - [#12460]) ([sensor.spotcrime docs]) (new-platform)
-- Add Tahoma scenes ([@bakedraccoon] - [#12498]) ([scene docs]) ([tahoma docs]) (new-platform)
+- Add Tahoma scenes ([@thijsdejong] - [#12498]) ([scene docs]) ([tahoma docs]) (new-platform)
 
 ## Release 0.64.1 - February 27
 
@@ -75,7 +73,7 @@ Major new integration by [@snjoetw]: August locks and door bells! Lock and unloc
 - Component deconz: Fix dark attribute on presence sensors ([@tumik] - [#12691]) ([binary_sensor.deconz docs])
 - Bugfix: Update of sources for non AVR-X devices always fails ([@scarface-4711] - [#12711]) ([media_player.denonavr docs])
 - Don't allow to use a old unsecure library ([@pvizeli] - [#12715])
-- Unbreak tahoma ([@bakedraccoon] - [#12719]) ([tahoma docs])
+- Unbreak tahoma ([@thijsdejong] - [#12719]) ([tahoma docs])
 - fix for https://github.com/home-assistant/home-assistant/issues/12673 ([@ChristianKuehnel] - [#12726]) ([sensor.alpha_vantage docs])
 - Fix harmony duplicate detection ([@amelchio] - [#12729]) ([remote.harmony docs])
 - Update ZHA deps ([@balloob] - [#12737]) ([zha docs])
@@ -147,7 +145,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Move HassIntent handler code into helpers/intent ([@tschmidty69] - [#12181]) ([conversation docs])
 - Migrated SABnzbd sensor to asyncio and switched to pypi library ([@jeradM] - [#12290]) ([sensor.sabnzbd docs])
 - 📝 Fix fixture encoding ([@OttoWinter] - [#12296])
-- Clarify tahoma errrors ([@bakedraccoon] - [#12307]) ([tahoma docs])
+- Clarify tahoma errrors ([@thijsdejong] - [#12307]) ([tahoma docs])
 - add friendly_name_template to template sensor ([@NovapaX] - [#12268]) ([sensor.template docs])
 - Purge recorder data by default ([@amelchio] - [#12271]) (breaking change)
 - Protect bloomsky platform setup ([@balloob] - [#12316]) ([binary_sensor.bloomsky docs]) ([camera.bloomsky docs]) ([sensor.bloomsky docs])
@@ -200,7 +198,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fake the state for a short period and skip the next update. ([@syssi] - [#12446]) ([fan.xiaomi_miio docs])
 - Initial support for Config Entries ([@balloob] - [#12079])
 - Make WUnderground async ([@OttoWinter] - [#12385]) ([sensor.wunderground docs])
-- Add the Xiaomi TV platform. ([@fattdev] - [#12359]) ([media_player.xiaomi_tv docs]) (new-platform)
+- Add the Xiaomi TV platform. ([@simse] - [#12359]) ([media_player.xiaomi_tv docs]) (new-platform)
 - Update voluputous ([@balloob] - [#12463]) (breaking change)
 - Map Alexa StepVolume responses to volume_up/down ([@lucasweb78] - [#12467]) ([alexa docs])
 - ONVIF Camera added Error handling and rtsp authentication. ([@matt2005] - [#11129]) ([camera.onvif docs])
@@ -266,7 +264,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Adding RoomHinting to GoogleAssistant to allow for room annotations. ([@jeremydk] - [#12598]) ([google_assistant docs])
 - Fix mclimate accounts with not only melissa components ([@kennedyshead] - [#12427]) ([melissa docs]) ([climate.melissa docs])
 - Cast unique_id and async discovery ([@OttoWinter] - [#12474]) ([media_player.cast docs])
-- Add Tahoma scenes ([@bakedraccoon] - [#12498]) ([scene docs]) ([tahoma docs]) (new-platform)
+- Add Tahoma scenes ([@thijsdejong] - [#12498]) ([scene docs]) ([tahoma docs]) (new-platform)
 - Optimize logbook SQL query ([@amelchio] - [#12608]) ([logbook docs])
 - Fix voluptuous breaking change things ([@balloob] - [#12611]) ([xiaomi_aqara docs]) ([binary_sensor.knx docs])
 - OpenGarage - correctly handle offline status (#12612) ([@swbradshaw] - [#12613]) ([cover.opengarage docs])
@@ -430,7 +428,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@aprasanna]: https://github.com/aprasanna
 [@armills]: https://github.com/armills
 [@bachya]: https://github.com/bachya
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@bottomquark]: https://github.com/bottomquark
 [@cdce8p]: https://github.com/cdce8p
@@ -440,7 +438,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@dgomes]: https://github.com/dgomes
 [@elupus]: https://github.com/elupus
 [@fabaff]: https://github.com/fabaff
-[@fattdev]: https://github.com/fattdev
+[@simse]: https://github.com/simse
 [@gerard33]: https://github.com/gerard33
 [@happyleavesaoc]: https://github.com/happyleavesaoc
 [@hmn]: https://github.com/hmn
@@ -491,7 +489,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [bmw_connected_drive docs]: /components/bmw_connected_drive/
 [calendar.caldav docs]: /components/calendar.caldav/
 [camera.august docs]: /components/camera.august/
-[camera.bloomsky docs]: /components/camera.bloomsky/
+[camera.bloomsky docs]: /components/bloomsky/#camera
 [camera.doorbird docs]: /components/camera.doorbird/
 [camera.onvif docs]: /components/camera.onvif/
 [camera.rpi_camera docs]: /components/camera.rpi_camera/
@@ -605,7 +603,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OttoWinter]: https://github.com/OttoWinter
 [@amelchio]: https://github.com/amelchio
 [@aronsky]: https://github.com/aronsky
-[@bakedraccoon]: https://github.com/bakedraccoon
 [@balloob]: https://github.com/balloob
 [@jesserockz]: https://github.com/jesserockz
 [@kellerza]: https://github.com/kellerza

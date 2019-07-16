@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Panel iFrame"
 description: "Instructions on how to add iFrames in the frontend of Home Assistant."
-date: 2015-07-17 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Front end
@@ -17,7 +11,9 @@ ha_qa_scale: internal
 
 The `panel_iframe` support allows you to add additional panels to your Home Assistant frontend. The panels are listed in the sidebar and can contain external resources like the web frontend of your router, your monitoring system, or your media server.
 
-<p class='note warning'>If you are accessing Home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.</p>
+<div class='note warning'>
+If you are accessing Home Assistant over HTTPS using SSL, you cannot access HTTP sites through an iframe panel.
+</div>
 
 To enable Panel iFrames in your installation, add the following to your `configuration.yaml` file:
 
@@ -65,4 +61,8 @@ panel_iframe:
             type: boolean
 {% endconfiguration %}
 
-<p class='note warning'>Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.</p>
+<div class='note warning'>
+
+Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.
+
+</div>

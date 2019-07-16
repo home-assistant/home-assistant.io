@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.24: SQLAlchemy, KNX, Join by Joaoapps, and SimpliSafe."
 description: "This new release of Home Assistant contains support for KNX, Join by Joaoapps, and SimpliSafe. As of now our new database backend is SQLAlchemy which gives you more flexibility for storing your data."
 date: 2016-07-16 12:00:00 +0000
 date_formatted: "July 16, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 
@@ -85,7 +83,7 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [KNX]: /components/knx/
 [MapQuest]: https://www.mapquest.com/
 [Plex]: /components/media_player.plex/
-[Radiotherm]: /components/thermostat.radiotherm/
+[Radiotherm]: /components/radiotherm/
 [recorder]: /components/recorder/
 [secrets]: /topics/secrets/
 [simplisafe]: /components/alarm_control_panel.simplisafe/
@@ -96,4 +94,4 @@ Quick hot fix after we found a bug in the migrator where it wouldn't work with a
 [Verisure]: /components/lock.verisure/
 [yahoo-weather]: /components/sensor.yweather/
 [Z-Wave]: /components/zwave/
-[RFXtrx]: //components/rfxtrx/
+[RFXtrx]: /components/rfxtrx/

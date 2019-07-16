@@ -1,12 +1,6 @@
 ---
-layout: page
 title: AfterShip Sensor
 description: "Instructions on how to set up AfterShip sensors within Home Assistant."
-date: 2018-11-24 01:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aftership.png
 ha_category:
   - Postal Service
@@ -24,9 +18,9 @@ The sensor value shows the number of packages that are not in `Delivered` state.
 
 To use this sensor, you need an [AfterShip Account](https://accounts.aftership.com/register) and set up an API Key. To set up an API Key go to [AfterShip API](https://secure.aftership.com/#/settings/api) page, and copy existing key or generate a new one.
 
-<p class='note info'>
+<div class='note info'>
 AfterShip recently started requiring having a credit card on file even if you are only using the free plan. That does not change the functionality of the platform, just something to be aware of.
-</p>
+</div>
 
 ## Configuration
 
@@ -69,6 +63,6 @@ api_key:
 | `tracking_number` | `True` | string | Tracking number
 | `slug` | `True` | string | Carrier e.g. `fedex`
 
-<p class='note info'>
+<div class='note info'>
 This integration retrieves data from AfterShip public REST API, but the integration is not affiliated with AfterShip.
-</p>
+</div>

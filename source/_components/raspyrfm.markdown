@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RaspyRFM Switch"
 description: "Instructions on how to integrate RaspyRFM switches into Home Assistant."
-date: 2018-12-08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: seegelsysteme.png
 ha_category:
   - Switch
@@ -93,9 +87,11 @@ Depending on the control unit the channel config can have varying formats. Have 
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend) the state is known and will be shown in the frontend.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Note that due to the way those cheap RC units work it is **not possible to query their current state**. Therefore the only way to preserve a consistent state within Home Assistant is to only use Home Assistant as the controller.
-</p>
+
+</div>
 
 ## Full example
 

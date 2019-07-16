@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.28: Reload automation and groups, API documentation, car tracking, Pi-Hole stats"
 description: "No Home Assistant restart for reloading automations and groups, Automatic car tracking, Pi-Hole and battery details, and bugfixes for climate and cover"
 date: 2016-09-10 08:00:00 +0200
 date_formatted: "September 10, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: MeteoAlarm Sensor
 description: "Instructions on how to set up MeteoAlarm binary sensors within Home Assistant."
-date: 2019-05-03 16:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: meteoalarm.png
 ha_category: Binary Sensor
 ha_release: 0.93
@@ -104,6 +98,6 @@ automation:
 ```
 {% endraw %}
 
-<p class='note warning'>
+<div class='note warning'>
 This integration is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
-</p>
+</div>

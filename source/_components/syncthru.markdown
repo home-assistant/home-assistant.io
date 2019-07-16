@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Samsung SyncThru Printer"
 description: "Instructions on how to integrate a Samsung printer providing SyncThru within Home Assistant."
-date: 2018-02-19 23:33
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: samsung.png
 ha_category:
   - System Monitor
@@ -39,7 +33,7 @@ sensor:
     description: The address for connecting to the printer. Equal to the SyncThru Webservice address.
     required: true
     default: false
-    type: url
+    type: string
   name:
     description: A user specified name for the printer. Defaults to "Samsung Printer" and the friendly name will be the name of the printer model.
     required: false

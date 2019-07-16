@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Elk-M1 Controller"
 description: "Instructions to setup the Elk-M1 controller."
-date: 2018-10-07 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: elkproducts.png
 ha_release: 0.81
 ha_category:

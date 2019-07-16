@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Recorder"
 description: "Instructions on how to configure the data recorder for Home Assistant."
-date: 2018-06-03 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - "History"
@@ -36,7 +30,7 @@ recorder:
     db_url:
       description: The URL that points to your database.
       required: false
-      type: URL
+      type: string
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
@@ -146,19 +140,29 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
 | MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
-<p class='note'>
+<div class='note'>
+
 Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
-</p>
 
-<p class='note'>
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).</p>
+</div>
 
-<p class='note warning'>
-If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
+<div class='note'>
 
-<p class='note warning'>
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+
+</div>
+
+<div class='note warning'>
+
+If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)
+
+</div>
+
+<div class='note warning'>
+
 If you are using the default `FULL` recovery model for MS SQL Server you will need to manually backup your log file to prevent your transaction log from growing too large. It is recommended you change the recovery model to `SIMPLE` unless you are worried about data loss between backups.
-</p>
+
+</div>
 
 ### Database startup
 

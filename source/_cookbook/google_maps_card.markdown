@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Show Google Maps as a card"
 description: "Example how to show a Google Map as a Google card."
-date: 2016-08-20 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: User Interface
 ---
 

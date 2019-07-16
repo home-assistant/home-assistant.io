@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Boolean"
 description: "Instructions on how to integrate the Input Boolean integration into Home Assistant."
-date: 2016-01-17 16:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -36,7 +30,7 @@ input_boolean:
       name:
         description: Friendly name of the input.
         required: false
-        type: String
+        type: string
       initial:
         description: Initial value when Home Assistant starts.
         required: false

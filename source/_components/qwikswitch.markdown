@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "QwikSwitch QSUSB Hub"
 description: "Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant."
-date: 2016-05-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: qwikswitch.png
 ha_category:
   - Hub
@@ -84,7 +78,7 @@ sensors:
       description: The channel of interest. Refer to type above.
       required: false
       default: 1
-      type: int
+      type: integer
     invert:
       description: Invert the open/close state. Only applicable to binary_sensors
       required: false

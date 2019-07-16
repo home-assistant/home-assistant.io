@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "fail2ban"
 description: "Setting up fail2ban to read Home Assistant's log files to improve security."
-date: 2018-08-29 15:30 AEST
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Infrastructure
 ---
 

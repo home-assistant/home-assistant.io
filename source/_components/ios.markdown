@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iOS"
 description: "Instructions on how to use the iOS companion app with Home Assistant."
-date: 2018-04-06 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: apple.png
 ha_category:
   - Hub

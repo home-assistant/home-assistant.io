@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Snapcast"
 description: "Instructions on how to integrate Snapcast into Home Assistant."
-date: 2016-02-01 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: snapcast.png
 ha_category:
   - Media Player

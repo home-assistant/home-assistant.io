@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Hardware Contest 2017"
 description: "Voting period for Hardware Contest 2017 started"
 date: 2017-04-24 06:00:00 +0000
 date_formatted: "April 24, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Community
 og_image: /images/default-social.png
 ---

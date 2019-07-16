@@ -1,17 +1,13 @@
 ---
-layout: page
 title: "Z-Wave Entity Naming"
 description: "A summary of common entity names."
-date: 2017-09-21 10:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
-<p class='note'>
-This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS). 
-</p>
+<div class='note'>
+
+This is a work in progress, based upon reports in the forum, the author's own devices and reading of various documentation. It will be incomplete, so if you have a device that isn't reported here or have a device that reports a different value, please provide a report in the [Z-Wave section](https://community.home-assistant.io/c/configuration/zwave) of the forum or the #zwave channel on [Discord](https://discord.gg/RkajcgS).
+
+</div>
 
 ## Binary Sensor
 

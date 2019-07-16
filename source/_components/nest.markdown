@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nest"
 description: "Instructions on how to integrate Nest into Home Assistant."
-date: 2016-01-29 21:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nest.png
 ha_category:
   - Hub
@@ -14,7 +8,6 @@ ha_category:
   - Camera
   - Climate
   - Sensor
-featured: false
 ha_iot_class: Cloud Push
 redirect_from:
   - /components/binary_sensor.nest/
@@ -198,17 +191,21 @@ script:
 
 ## Platforms
 
-<p class='note'>
+<div class='note'>
+
 You must have the [Nest component](/components/nest/) configured to use the platforms below.
-<p>
+
+<div>
 
 ## Binary Sensor
 
 The `nest` binary sensor platform lets you monitor various states of your [Nest](https://nest.com) devices.
 
-<p class='note'>
+<div class='note'>
+
 You must have the [Nest component](/components/nest/) configured to use these sensors. The binary sensors will be setup if the `nest` integration is configured and the required configuration for the `nest binary sensor` is set.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -254,9 +251,11 @@ The following conditions are available by device:
 
 The `nest` platform allows you to watch still frames from a video stream (not live stream) of your [Nest](https://nest.com/camera/meet-nest-cam/) camera in Home Assistant.
 
-<p class='note'>
+<div class='note'>
+
 The `nest` camera will automatically be setup when you do.
-</p>
+
+</div>
 
 Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since the 0.75 release.
 
@@ -264,9 +263,9 @@ Nest Camera supports the `camera.turn_on` and `camera.turn_off` services since t
 
 The `nest` climate platform lets you control a thermostat from [Nest](https://nest.com).
 
-<p class='note'>
+<div class='note'>
 Please note due to limitations with the European Nest Thermostat E, integration with Home Assistant for that thermostat is not possible.
-</p>
+</div>
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/nest-thermostat-card.png' />
@@ -276,9 +275,11 @@ Please note due to limitations with the European Nest Thermostat E, integration 
 
 The `nest` sensor platform lets you monitor sensors connected to your [Nest](https://nest.com) devices.
 
-<p class='note'>
+<div class='note'>
+
 The sensors will be setup if the `nest` integration is configured and the required configuration for the `nest sensor` is set.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -322,19 +323,23 @@ The following conditions are available by device:
 
 ## Security State
 
-<p class='note warning'>
+<div class='note warning'>
+
 This feature is not designed to transfer your Home Assistant to a security system, neither Home Assistant nor Nest be liable to You for damages,
 or consequential damages of any character arising as a result of use this feature.
 
 This feature does not depend on the [Nest Secure alarm system](https://nest.com/alarm-system/overview/) and is not a reflection of the status of that system,
 nor does it react to state changes in that system.
-</p>
 
-<p class='note'>
+</div>
+
+<div class='note'>
+
 This feature uses a new [Nest Security API](https://developers.nest.com/documentation/cloud/security-guide).
 You may need to change your ["Product"](https://developers.nest.com/products) permission setting to include `Security State Read`.
 After this permission change, you may need to re-authorize your client.
-</p>
+
+</div>
 
 If a Nest Cam detects the presence of a person (see `person_detected` in [binary_sensor.nest](#binary-sensor) while the structure is in `away` mode (see `away` in [binary_sensor.nest](#binary-sensor), the structure enters `deter` mode.
 

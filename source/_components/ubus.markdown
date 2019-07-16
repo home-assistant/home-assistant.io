@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWRT (ubus)"
 description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openwrt.png
 ha_category:
   - Presence Detection
@@ -158,7 +152,6 @@ Content-Length: 161
 {"jsonrpc": "2.0", "params": ["00000000000000000000000000000000", "session", "login", {"password": "<password>", "username": "root"}], "method": "call", "id": 1}
 
 HTTP/1.1 200 OK
-Date: Fri, 28 Apr 2017 12:04:46 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -179,7 +172,6 @@ Content-Length: 114
 {"jsonrpc": "2.0", "params": ["8b4e1632389fcfd09e96a792e01c332c", "hostapd.*", "", {}], "method": "list", "id": 1}
 
 HTTP/1.1 200 OK
-Date: Fri, 28 Apr 2017 12:04:46 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive

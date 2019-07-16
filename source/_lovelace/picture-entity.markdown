@@ -1,13 +1,7 @@
 ---
-layout: page
 title: Picture Entity Card
 sidebar_label: Picture Entity
 description: Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Displays the entity in form of an image. Instead of images from URL it can also show the picture of `camera` entities.
@@ -149,4 +143,4 @@ tap_action:
 ```
 {% endraw %}
 
-The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](https://www.home-assistant.io/docs/configuration/basic/)).
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `whitelist_external_dirs` ([documentation](/docs/configuration/basic/)).

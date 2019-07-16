@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Getting started on Mobile"
 description: "Android/iOS instructions to add Home Assistant to your homescreen."
-date: 2015-03-08 21:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/mobile/
 ---
 

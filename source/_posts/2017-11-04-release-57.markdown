@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.57: Translations, Hacktoberfest, Timers"
 description: "Due to Hacktoberfest we had to ship more fixes, improvements and components than usual."
 date: 2017-11-04 04:00:00
 date_formatted: "November 4, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-11-0.57/languages.png
 ---
@@ -115,7 +113,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Use feed name assigned in EmonCMS if there is one. This changes the default behavior but still uses configured 'name' if it's set, so it won't break the configuration of people who have customized their feed names in HA config. ([@KlaasH] - [#10021]) ([sensor.emoncms docs]) (breaking change)
 - The `namecheapdns` now uses `password:` instead of `access_token` in the configuration. Also, `host` is now optional which allow people who are not using subdomains to keep their configuration shorter. ([@fabaff] - [#10063]) ([namecheapdns docs]) (breaking change)
 - Fix recorder crash for long state string - enforce a maximum state of 255 characters at core level ([@milanvo] - [#9696]) (breaking change)
-- Add display currency setting to CoinMarketCap sensor. The name of the sensor attribute '24h_volume_usd' is changed to '24h_volume'. ([@R1chardTM] - [#10093]) ([sensor.coinmarketcap docs]) (breaking change)
+- Add display currency setting to CoinMarketCap sensor. The name of the sensor attribute '24h_volume_usd' is changed to '24h_volume'. ([@EarthlingRich] - [#10093]) ([sensor.coinmarketcap docs]) (breaking change)
 - MQTT Statestream now serializes all data to JSON before publishing. This means that string attributes and values will be quoted from now on (e.g.: '"on"' instead of 'on'). You can still read these strings without the quotes by using 'value_json' instead of 'value' where applicable (e.g., templates). This causes automatic JSON deserialization. Other simple types are not affected.
 
   This fixes errors when an entity has an attribute that is not "a string, bytearray, int, float or None" and mqtt_statestream is used. As of now, the attribute is just handed over to paho, and paho can only send the aforementioned types. This patch fixes the issue by just casting everything to string before handing it over to paho.
@@ -158,7 +156,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove STATE_UNKNOWN ([@fabaff] - [#10064]) ([sensor.glances docs])
 - update library for xiaomi_aqara, change from pyCrypto to cryptography ([@danielhiversen] - [#10066]) ([xiaomi_aqara docs])
 - Make host optional ([@fabaff] - [#10063]) ([namecheapdns docs]) (breaking change)
-- Change deprecated use of maintainer tag in Dockerfile. ([@R1chardTM] - [#10068])
+- Change deprecated use of maintainer tag in Dockerfile. ([@EarthlingRich] - [#10068])
 - add eph ember controls ([@ttroy50] - [#9721]) ([climate.ephember docs]) (new-platform)
 - EntityComponent: revert warning ([@pvizeli] - [#10078])
 - Upgrade Sphinx to 1.6.5 ([@fabaff] - [#10090])
@@ -189,7 +187,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Upgrade pysnmp to 4.4.1 ([@fabaff] - [#10138]) ([device_tracker.snmp docs]) ([sensor.snmp docs]) ([switch.snmp docs])
 - Telldus Live: Device without methods is a binary sensor ([@rasmusbe] - [#10106]) ([tellduslive docs]) ([binary_sensor.tellduslive docs]) (new-platform)
 - Add last action to xiaomi aqara button ([@danielhiversen] - [#10131]) ([binary_sensor.xiaomi_aqara docs])
-- Add display currency setting to CoinMarketCap sensor ([@R1chardTM] - [#10093]) ([sensor.coinmarketcap docs]) (breaking change)
+- Add display currency setting to CoinMarketCap sensor ([@EarthlingRich] - [#10093]) ([sensor.coinmarketcap docs]) (breaking change)
 - Xiaomi MiIO Switch: Support for different device types ([@syssi] - [#9836]) ([switch.xiaomi_miio docs])
 - Core POC support for polymer i18n ([@armills] - [#6344]) ([history docs]) ([logbook docs])
 - Don't use pypi package in dev mode. Allow non-fingerprinted mdi. ([@andrey-git] - [#10144])
@@ -215,7 +213,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Sytadin Traffic component ([@gautric] - [#9524]) ([sensor.sytadin docs]) (new-platform)
 - media_title property now returns current source ([@etsinko] - [#10120]) ([media_player.monoprice docs])
 - Added new Clickatell SMS messaging Notify Platform ([@davlloyd] - [#9775]) ([notify.clickatell docs]) (new-platform)
-- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) ([notify.aws_lambda docs]) ([notify.aws_sns docs]) ([notify.aws_sqs docs]) ([tts.amazon_polly docs])
+- update boto3 to 1.4.7 and botocore to 1.7.34 ([@TopdRob] - [#10121]) (notify.aws_lambda docs) ([notify.aws_sns docs]) ([notify.aws_sqs docs]) ([tts.amazon_polly docs])
 - Add Random binary sensor ([@fabaff] - [#10164]) ([binary_sensor.random docs]) (new-platform)
 - Add clickatell ([@fabaff] - [#10199])
 - Update CODEOWNERS ([@ggravlingen] - [#10198])
@@ -282,7 +280,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Strip white space from configurator input ([@w1ll1am23] - [#10317]) ([wink docs])
 - Fix recorder purge ([@pvizeli] - [#10318])
 - Fix formatting invalid config text ([@balloob] - [#10319])
-- Tc update ([@wardcraigj] - [#10322]) ([alarm_control_panel.totalconnect docs])
+- Tc update ([@craigjmidwinter] - [#10322]) ([alarm_control_panel.totalconnect docs])
 - Move timer into correct folder ([@pvizeli] - [#10324]) ([timer docs])
 
 [#10000]: https://github.com/home-assistant/home-assistant/pull/10000
@@ -454,7 +452,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@KlaasH]: https://github.com/KlaasH
 [@NovapaX]: https://github.com/NovapaX
 [@PeteBa]: https://github.com/PeteBa
-[@R1chardTM]: https://github.com/R1chardTM
+[@EarthlingRich]: https://github.com/EarthlingRich
 [@SilvrrGIT]: https://github.com/SilvrrGIT
 [@TD22057]: https://github.com/TD22057
 [@TopdRob]: https://github.com/TopdRob
@@ -519,7 +517,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ttroy50]: https://github.com/ttroy50
 [@vatir]: https://github.com/vatir
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@ypollart]: https://github.com/ypollart
 [@zabuldon]: https://github.com/zabuldon
 [alarm_control_panel.totalconnect docs]: /components/alarm_control_panel.totalconnect/
@@ -544,7 +542,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [climate.honeywell docs]: /components/climate.honeywell/
 [climate.toon docs]: /components/climate.toon/
 [cloud docs]: /components/cloud/
-[cloud.iot docs]: /components/cloud.iot/
 [cover.template docs]: /components/cover.template/
 [device_tracker docs]: /components/device_tracker/
 [device_tracker.asuswrt docs]: /components/device_tracker.asuswrt/
@@ -589,7 +586,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mqtt_statestream docs]: /components/mqtt_statestream/
 [namecheapdns docs]: /components/namecheapdns/
 [no_ip docs]: /components/no_ip/
-[notify.aws_lambda docs]: /components/notify.aws_lambda/
 [notify.aws_sns docs]: /components/notify.aws_sns/
 [notify.aws_sqs docs]: /components/notify.aws_sqs/
 [notify.clickatell docs]: /components/notify.clickatell/

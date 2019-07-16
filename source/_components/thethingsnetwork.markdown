@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "The Things Network"
 description: "Instructions for how to integrate The Things Network within Home Assistant."
-date: 2017-09-30 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: thethingsnetwork.png
 ha_category:
   - Hub

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Introducing Hass.io"
 description: "The ultimate home automation hub has arrived."
 date: 2017-07-25 00:02:05 +0000
 date_formatted: "July 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Announcements
 og_image: /images/hassio/screenshots/dashboard.png
 ---

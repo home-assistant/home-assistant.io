@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Service Calls"
 description: "Instructions on how to call services in Home Assistant."
-date: 2016-03-12 12:00 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/scripts-service-calls/
 ---
 
@@ -16,9 +10,9 @@ The configuration options to call a config are the same between all integrations
 
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
-<p class='note'>
+<div class='note'>
 Use the <img src='/images/screenshots/developer-tool-services-icon.png' class='no-shadow' height='38' /> service developer tool in the frontend to discover available services.
-</p>
+</div>
 
 ### The basics
 

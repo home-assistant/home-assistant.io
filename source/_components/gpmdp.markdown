@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Play Music Desktop Player"
 description: "Instructions on how to integrate GPMDP into Home Assistant."
-date: 2016-05-09 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: gpmdp.png
 ha_category:
   - Media Player

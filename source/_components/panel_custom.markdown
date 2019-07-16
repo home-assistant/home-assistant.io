@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Panel Custom"
 description: "Instructions on how to add customized panels to the frontend of Home Assistant."
-date: 2015-08-08 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Front end
@@ -30,9 +24,11 @@ panel_custom:
       who: world
 ```
 
-<p class='note'>
+<div class='note'>
+
 Store your custom panels in `<config>/www` to make them available in the frontend at the path `/local`.
-</p>
+
+</div>
 
 {% configuration %}
 name:

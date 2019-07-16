@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Open Hardware Monitor Sensor"
 description: "Instructions on how to integrate Open Hardware Monitor within Home Assistant."
-date: 2017-06-16 00:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openhardwaremonitor.png
 ha_category:
   - System Monitor

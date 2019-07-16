@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Public Transit (GTFS)"
 description: "Instructions on how to use public transit open data in Home Assistant."
-date: 2016-03-28 10:19
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: train.png
 ha_category:
   - Transport

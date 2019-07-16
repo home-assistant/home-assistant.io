@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Cast"
 description: "Instructions on how to integrate Google Cast into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_cast.png
 ha_category:
   - Media Player
@@ -38,9 +32,9 @@ cast:
     - host: 192.168.1.10
 ```
 
-<p class='note'>
+<div class='note'>
 You may need to enable Multicast DNS (MDNS) on your router if you are on a different subnet or VLAN.
-</p>
+</div>
 
 {% configuration %}
 media_player:

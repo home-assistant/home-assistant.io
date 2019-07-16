@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.67: Mastodon, Tahoma switches, Nanoleaf Aurora Light Panels"
 description: "Security fixes and performance improvements 😅"
 date: 2018-04-13 00:01:00
 date_formatted: "April 13, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-04-0.67/components.png
 ---
@@ -131,7 +129,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add Switzerland ([@fabaff] - [#13630]) ([binary_sensor.workday docs])
 - Xiaomi Mi WiFi Repeater 2 integration as device tracker ([@syssi] - [#13521])
 - Upgrade youtube_dl to 2018.04.03 ([@fabaff] - [#13647]) ([media_extractor docs])
-- Update plex.py ([@chronm] - [#13659]) ([sensor.plex docs])
+- Update plex.py ([@kraddatz] - [#13659]) ([sensor.plex docs])
 - Always enable config entries & remove config_entry_example ([@balloob] - [#13663]) ([config docs])
 - Add missing service docs for hs_color ([@armills] - [#13667])
 - Add regex functions as templating helpers ([@mountainsandcode] - [#13631])
@@ -292,7 +290,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@bdurrer]: https://github.com/bdurrer
 [@c727]: https://github.com/c727
 [@cdce8p]: https://github.com/cdce8p
-[@chronm]: https://github.com/chronm
+[@kraddatz]: https://github.com/kraddatz
 [@colinodell]: https://github.com/colinodell
 [@danielperna84]: https://github.com/danielperna84
 [@dlbroadfoot]: https://github.com/dlbroadfoot
@@ -359,11 +357,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [hue docs]: /components/hue/
 [insteon_plm docs]: /components/insteon_plm/
 [light docs]: /components/light/
-[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
+[light.nanoleaf_aurora docs]: /components/nanoleaf/
 [light.hue docs]: /components/light.hue/
 [light.iglo docs]: /components/light.iglo/
 [light.mystrom docs]: /components/light.mystrom/
-[light.nanoleaf_aurora docs]: /components/light.nanoleaf_aurora/
+[light.nanoleaf_aurora docs]: /components/nanoleaf/
 [light.qwikswitch docs]: /components/light.qwikswitch/
 [light.tradfri docs]: /components/light.tradfri/
 [light.xiaomi_miio docs]: /components/light.xiaomi_miio/

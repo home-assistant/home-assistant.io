@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MCP23017 I2C GPIO expander"
 description: "Instructions on how to integrate the MCP23017 GPIO pin expander with I2C interface into Home Assistant."
-date: 2019-04-14 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -74,9 +68,9 @@ pull_mode:
   default: "`UP`"
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
   MCP23017 only has internal pull-up resistors, if you want to use pull-down you will have to wire your own pull-down resistors.
-</p>
+</div>
 
 ## Switch
 

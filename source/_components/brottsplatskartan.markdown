@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Brottsplatskartan"
 description: "Instructions on how to integrate brottsplatskartan.se into Home Assistant."
-date: 2018-12-02 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Social
 logo: brottsplatskartan.png
@@ -40,10 +34,12 @@ area:
 latitude:
   description: Latitude for sensor.
   required: false
+  type: float
   default: Your home zone latitude defined in your configuration.
 longitude:
   description: Longitude for sensor.
   required: false
+  type: float
   default: Your home zone longitude defined in your configuration.
 {% endconfiguration %}
 

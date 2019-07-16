@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Self-signed certificate for SSL/TLS"
 description: "Configure a self-signed certificate to use with Home Assistant"
-date: 2016-10-06 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /cookbook/tls_self_signed_certificate/
 ---
 

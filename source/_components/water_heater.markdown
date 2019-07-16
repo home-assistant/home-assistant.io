@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Water Heater"
 description: "Instructions on how to setup water heater devices within Home Assistant."
-date: 2018-10-10 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.81
 ---
 
@@ -26,9 +20,11 @@ water_heater:
 
 Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
-<p class='note'>
+<div class='note'>
+
 Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services**.
-</p>
+
+</div>
 
 ### Service `water_heater.set_temperature`
 

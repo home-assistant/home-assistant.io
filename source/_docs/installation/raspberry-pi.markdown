@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Manual installation on a Raspberry Pi"
 description: "Instructions to install Home Assistant on a Raspberry Pi running Raspbian Lite."
-date: 2018-06-03 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-raspberry-pi/
 ---
 
@@ -14,13 +8,15 @@ This installation of Home Assistant requires the Raspberry Pi to run [Raspbian L
 
 You must have Python 3.6 or later installed (including the package `python3-dev`) which is *not* the case for Raspbian Stretch.
 
-<p class='note'>
-Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well.  This guide is also referred to as the "Advanced Guide" for a virtual environment install.
-</p>
+<div class='note'>
+Although these installation steps specifically mention a Raspberry Pi, you can go ahead and proceed on any Linux install as well. This guide is also referred to as the "Advanced Guide" for a virtual environment install.
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
+
 Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.org/help/faqs/#powerReqs) with your Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
-</p>
+
+</div>
 
 Connect to the Raspberry Pi over SSH. Default password is `raspberry`.
 You will need to enable SSH access. The Raspberry Pi website has instructions [here](https://www.raspberrypi.org/documentation/remote-access/ssh/).
@@ -90,9 +86,11 @@ Start Home Assistant for the first time. This will complete the installation for
 ```
 You can now reach your installation on your Raspberry Pi over the web interface on [http://ipaddress:8123](http://ipaddress:8123).
 
-<p class='note'>
+<div class='note'>
+
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get "site cannot be reached" error when accessing the web interface. This will only happen for the first time, and subsequent restarts will be much faster.
-</p>
+
+</div>
 
 If you want to setup `hass` as a daemon and autostart it on boot please refer to [Autostart Home Assistant](/docs/autostart/).
 
@@ -132,9 +130,9 @@ $ pip3 install --pre --upgrade homeassistant
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 
-<p class='note warning'>
+<div class='note warning'>
   The "dev" branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
-</p>
+</div>
 
 For example:
 

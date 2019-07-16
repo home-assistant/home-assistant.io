@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RESTful Sensor"
 description: "Instructions on how to integrate REST sensors into Home Assistant."
-date: 2015-09-14 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
 ha_category:
   - Sensor
@@ -95,11 +89,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: list, string
+  type: [string, list]
 json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   reqired: false
-  type: list, string
+  type: [string, list]
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
@@ -107,9 +101,9 @@ force_update:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
-</p>
+</div>
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
 

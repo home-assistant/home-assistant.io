@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Installation on Docker"
 description: "Instructions to install Home Assistant on a Docker."
-date: 2016-04-16 11:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation-docker/
 ---
 
@@ -114,9 +108,9 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 * Go to the Docker-app and move to "Container"-section
 * Right-click on it and select "Action"->"Restart".
 
-<p class='note'>
-If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided <a href="https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/">here</a> by Phil Hawthorne. 
-</p>
+<div class='note'>
+If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided <a href="https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/">here</a> by Phil Hawthorne.
+</div>
 
 ### QNAP NAS
 

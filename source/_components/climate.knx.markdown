@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Climate"
 description: "Instructions on how to integrate KNX thermostats with Home Assistant."
-date: 2016-06-24 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Climate
@@ -165,7 +159,7 @@ operation_mode_comfort_address:
 operation_modes:
   description: Overrides the supported operation modes.
   required: false
-  type: array
+  type: list
 on_off_address:
   description: KNX address for switching the climate device on/off.
   required: false

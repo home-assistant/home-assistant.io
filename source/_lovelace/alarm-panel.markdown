@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Alarm Panel Card"
 sidebar_label: Alarm Panel
 description: "The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Integrations"
-date: 2018-10-15 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The Alarm Panel allows you to Arm and Disarm your Alarm Control Panel Integrations.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SMHI"
 description: "Instructions on how to integrate SMHI forecasts within Home Assistant."
-date: 2018-09-23 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smhi.png
 ha_category:
  - Hub
@@ -31,13 +25,15 @@ To add SMHI weather forecast to your installation, go to the Integrations page i
 
 If the location is configured in Home Assistant, it will be selected as the default location. After that, you can add additional locations.
 
-<p class='note warning'>
+<div class='note warning'>
 You can only add locations through the integrations page, not in configuration files.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
+
 Only location close to Sweden can be added. See [SMHI.se area](http://opendata.smhi.se/apidocs/metfcst/geographic_area.html) for more details what locations are supported.
-</p>
+
+</div>
 
 {% configuration %}
 latitude:

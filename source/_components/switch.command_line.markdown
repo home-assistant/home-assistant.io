@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Command line Switch"
 description: "Instructions on how to have switches call command line commands."
-date: 2015-06-10 22:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: command_line.png
 ha_category:
   - Switch
@@ -111,9 +105,9 @@ Given this example, in the UI one would see the `friendly_name` of
 
 This switch will shutdown your system that is hosting Home Assistant.
 
-<p class='note warning'>
+<div class='note warning'>
 This switch will shutdown your host immediately, there will be no confirmation.
-</p>
+</div>
 
 ```yaml
 # Example configuration.yaml entry

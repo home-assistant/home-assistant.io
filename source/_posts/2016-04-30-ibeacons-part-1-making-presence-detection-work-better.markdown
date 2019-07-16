@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "iBeacons: Making presence detection work better (part I)"
 description: A step by step guide how to vastly improve your presence detection by integrating iBeacons.
 date: 2016-04-30 07:50:09 +0100
 date_formatted: "April 30, 2016"
 author: Greg Dowling
 author_twitter: pavoni240
-comments: true
 categories: iBeacons Presence-Detection OwnTracks
 ---
 

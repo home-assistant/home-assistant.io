@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IOTA"
 description: "Instructions on how to integrate IOTA wallets with Home Assistant."
-date: 2017-12-31 13:29
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: iota.png
 ha_category:
   - Finance

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mythic Beasts DNS"
 description: "Keep your mythic beasts DNS updated"
-date: 2018-11-09 14:57
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Network
 ha_release: 0.85

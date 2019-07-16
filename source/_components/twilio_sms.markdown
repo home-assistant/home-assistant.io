@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Twilio SMS"
 description: "Instructions on how to add user notifications to Home Assistant."
-date: 2016-05-14 14:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: twilio.png
 ha_category:
   - Notifications

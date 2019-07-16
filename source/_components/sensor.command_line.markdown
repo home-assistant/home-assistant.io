@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Command line Sensor"
 description: "Instructions on how to integrate command line sensors into Home Assistant."
-date: 2015-09-13 10:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: command_line.png
 ha_category:
   - Utility
@@ -58,7 +52,7 @@ command_timeout:
 json_attributes:
   description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   required: false
-  type: string, list
+  type: [string, list]
 {% endconfiguration %}
 
 ## Examples

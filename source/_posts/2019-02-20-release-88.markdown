@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.88: Persons, Command line auth and event subscriptions"
 description: "Happy new release day to all of you! Great features, solid bug fixes and performance gains."
 date: 2019-02-20 00:11:03
 date_formatted: "February 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-02-release-88/components.png
 ---
@@ -283,7 +281,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update denonavr to 0.7.8 (add various sound modes) ([@scarface-4711] - [#20951]) ([media_player.denonavr docs])
 - Add missing data fields to Ambient PWS ([@bachya] - [#20808]) ([ambient_station docs]) ([sensor.ambient_station docs])
 - HomematicIP fix cover direction ([@mxworm] - [#20901]) ([homematicip_cloud docs])
-- Update pyHS100 to 0.3.4 ([@StefanBCN] - [#20979]) ([light.tplink docs]) ([switch.tplink docs])
+- Update pyHS100 to 0.3.4 ([@stefnb] - [#20979]) ([light.tplink docs]) ([switch.tplink docs])
 - Upgrade slixmpp to 1.4.2 ([@fabaff] - [#20971]) ([notify docs])
 - Upgrade ruamel.yaml to 0.15.87 ([@fabaff] - [#20955])
 - Set cover level using emulated_hue ([@ptc] - [#19594]) ([emulated_hue docs])
@@ -556,7 +554,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OnFreund]: https://github.com/OnFreund
 [@OttoWinter]: https://github.com/OttoWinter
 [@Sholofly]: https://github.com/Sholofly
-[@StefanBCN]: https://github.com/StefanBCN
+[@stefnb]: https://github.com/stefnb
 [@SukramJ]: https://github.com/SukramJ
 [@SupremeSports]: https://github.com/SupremeSports
 [@VirtualL]: https://github.com/VirtualL

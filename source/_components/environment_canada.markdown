@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Environment Canada Weather"
 description: "Weather data from Environment Canada."
-date: 2019-06-01 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: environment_canada.png
 ha_category:
   - Weather
@@ -16,7 +10,7 @@ ha_release: 0.95
 ha_iot_class: Cloud Polling
 ---
 
-The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](hhttps://weather.gc.ca/index_e.html).
+The `environment_canada` weather platforms provide meteorological data for Canadian locations from [Environment Canada](https://weather.gc.ca/index_e.html).
 
 The following device types and data are supported:
 

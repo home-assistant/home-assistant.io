@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Amazon Polly"
 description: "Instructions on how to setup Amazon Polly with Home Assistant."
-date: 2017-01-28 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: polly.png
 ha_category:
   - Text-to-speech
@@ -52,7 +46,7 @@ profile_name:
 region_name:
   description: The region identifier to connect to.
   required: false
-  type: string or list
+  type: [string, list]
   default: us-east-1
 name:
   description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."

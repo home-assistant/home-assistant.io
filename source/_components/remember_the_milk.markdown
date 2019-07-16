@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Remember The Milk"
 description: "Instructions on how to use Remember The Milk with Home Assistant."
-date: 2017-10-10 10:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rememberthemilk.png
 ha_category:
   - Calendar

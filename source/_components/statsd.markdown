@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "StatsD"
 description: "Record events in StatsD."
-date: 2016-01-25 08:00
-sidebar: true
-comments: false
-sharing: true
 logo: statsd.png
-footer: true
 ha_category:
   - "History"
 ha_release: 0.12

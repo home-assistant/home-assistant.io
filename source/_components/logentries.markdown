@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Logentries"
 description: "Send events to Logentries."
-date: 2016-04-29 16:50
-sidebar: true
-comments: false
-sharing: true
 logo: logentries.png
-footer: true
 ha_category:
   - History
 ha_release: 0.13

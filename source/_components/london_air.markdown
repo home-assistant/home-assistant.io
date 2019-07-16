@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "London Air Quality"
 description: "Display the current status of London air quality by area and pollution type."
-date: 2017-08-02 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: waqi.png
 ha_category:
   - Health

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Calendar Event"
 description: "Instructions on how to use Google Calendars in Home Assistant."
-date: 2015-05-08 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_calendar.png
 ha_category:
   - Calendar
@@ -30,14 +24,14 @@ Generate a Client ID and Client Secret on
 1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
 1. Under APIs & Services > Credentials, click on the tab 'OAuth consent screen'.
-1. Set 'Product name shown to users' to anything you want. We suggest "Home-Assistant".
+1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest "Home-Assistant".
 1. Save this page. You don't have to fill out anything else there.
 1. Click 'Create credentials' -> OAuth client ID.
 1. Set the Application type to 'Other' and give this credential set a name then click Create.
-1. Save the client ID and secret as you will need to put these in your `configuration.yaml` file.
-1. Click on "Library", search for "Google Calendar API" and enable it.
+1. Copy the client ID and secret to a text editor temporarily as you will need to put these in your `configuration.yaml` file.
+1. Under "API's and Services" (left sidebar), click on "Library."  Search for "Google Calendar API" and enable it if it isn't already enabled automatically through this process.
 
-If you are adding more Google API scopes later to the OAuth than just "Google Calendar API" then you need to delete your token file. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
+If you will be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 
 ## Configuration
 
@@ -127,6 +121,7 @@ entities:
       description: "Should we create a sensor `true` or ignore it `false`?"
       required: true
       type: boolean
+      default: true
     search:
       description: If set will only trigger for matched events.
       required: false
@@ -147,7 +142,7 @@ entities:
     max_results:
       description: "Max number of entries to retrieve"
       required: false
-      type: int
+      type: integer
       default: 5
 {% endconfiguration %}
 
@@ -160,10 +155,12 @@ not filter events out and always show the next event available.
 But what if you only wanted it to toggle based on all events?
 Just leave out the *search* parameter.
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you use a `#` sign for `search` then wrap the whole search term in quotes.
 Otherwise everything following the hash sign would be considered a YAML comment.
-</p>
+
+</div>
 
 ### Sensor attributes
 
@@ -190,9 +187,11 @@ You can use the service `google.add_event` to create a new calendar event in a c
 | `end_date` | yes | The date the whole day event should end. | 2019-03-11
 | `in` | yes | Days or weeks that you want to create the event in. | "days": 2
 
-<p class='note'>
+<div class='note'>
+
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-</p>
+
+</div>
 
 ## Using calendar in automations
 

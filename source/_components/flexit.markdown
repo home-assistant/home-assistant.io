@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Flexit A/C controller"
 description: "Instructions on how to integrate Flexit A/C unit into Home Assistant."
-date: 2017-06-02 16:30 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: flexit.png
 ha_category:
   - Climate
@@ -45,9 +39,11 @@ hub:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This integration requires the [Modbus](/components/modbus/) integration to be set up to work
-</p>
+
+</div>
 
 Full configuration example including modbus setup shown below:
 

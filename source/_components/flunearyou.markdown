@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Flu Near You"
 description: "Instructions on how to use Flu Near You data within Home Assistant"
-date: 2018-11-02 21:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: flunearyou.png
 ha_category:
   - Health
@@ -39,13 +33,13 @@ monitored_conditions:
   default: ['cdc_report', 'user_report']
 latitude:
   description: The latitude of the location to monitor.
-  required: optional
-  type: string
+  required: false
+  type: float
   default: The latitude defined under the `homeassistant` key in `configuration.yaml`.
 longitude:
   description: The longitude of the location to monitor.
-  required: optional
-  type: string
+  required: false
+  type: float
   default: The longitude defined under the `homeassistant` key in `configuration.yaml`.
 {% endconfiguration %}
 

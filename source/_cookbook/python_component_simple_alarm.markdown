@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Flash lights when intruder detected"
 description: "Detect intruders by checking if the light is turning on while no one is home."
-date: 2016-02-14 0:40 -0800
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation in Python Examples
 ---
 

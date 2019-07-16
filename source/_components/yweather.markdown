@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yahoo Weather"
 description: "Instructions on how to integrate Yahoo Weather within Home Assistant."
-date: 2016-07-06 9:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yahooweather.png
 ha_category:
   - Weather
@@ -18,15 +12,17 @@ redirect_from:
  - /components/weather.yweather/
 ---
 
-<p class='note warning'>
+<div class='note warning'>
+
 The Yahoo Weather API is being [retired](https://developer.yahoo.com/weather/?guccounter=1). A replacement is the [`darksky` sensor](/components/sensor.darksky/).
-</p>
+
+</div>
 
 The `yweather` platform uses [Yahoo Weather](https://www.yahoo.com/news/weather/) as a source for current meteorological data. The `forecast` will show you the condition for 5 days, 0 is the current day. You can use only `weather`, `temp_min`, and `temp_max` with forecast. It's important to note that a yweather sensor will only show ONE days forecast at a time so to show multiple days forecasts, you will need to use the 'name:' option and give each sensor a unique name.
 
-<p class='note warning'>
+<div class='note warning'>
 Use of the Yahoo Weather API should not exceed reasonable request volume. Access is limited to 2000 signed calls per day.
-</p>
+</div>
 
 The `woeid` (Where On Earth ID) for your location, as shown in the example below. You can find your WOEID by copying the numeric digits at the end of the URL for your location at [Yahoo Weather](https://www.yahoo.com/news/weather/). If you don't add a WOEID it is generated from Home Assistant's latitude and longitude.
 

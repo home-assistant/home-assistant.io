@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tfiac AC"
 description: "Instructions on how to integrate Tfiac AC devices with Home Assistant."
-date: 2019-03-10 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tfiac.png
 ha_category:
   - Climate

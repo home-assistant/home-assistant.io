@@ -1,12 +1,6 @@
 ---
-layout: page
 title: UpCloud
 description: Instructions on how to integrate UpCloud within Home Assistant.
-date: 2018-01-28 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
   - Binary Sensor

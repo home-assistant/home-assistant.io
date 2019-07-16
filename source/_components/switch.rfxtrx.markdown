@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFXtrx Switch"
 description: "Instructions on how to integrate RFXtrx switches into Home Assistant."
-date: 2015-10-08 10:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
 ha_category:
   - Switch
@@ -72,14 +66,16 @@ signal_repetitions:
   type: integer
 {% endconfiguration %}
 
-<p class='note warning'>
-This integration and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
-</p>
+<div class='note warning'>
 
-<p class='note warning'>
+This integration and the [rfxtrx binary sensor](/components/binary_sensor.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`. Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
+
+</div>
+
+<div class='note warning'>
 If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</p>
+</div>
 
 Generate codes:
 

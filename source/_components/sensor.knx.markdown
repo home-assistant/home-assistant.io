@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Sensor"
 description: "Instructions on how to use the KNX Sensor with Home Assistant."
-date: 2016-08-20 22:24
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Sensor

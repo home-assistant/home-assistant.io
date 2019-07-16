@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Logitech Squeezebox"
 description: "Instructions on how to integrate a Logitech Squeezebox player into Home Assistant."
-date: 2015-08-09 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: squeezebox.png
 ha_category:
   - Media Player
@@ -48,8 +42,9 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>This platform now uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.</p>
-
+<div class='note'>
+This platform now uses the web interface of the Logitech Media Server to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser. Originally, this platform used the telnet interface, which defaults to 9090. If you previously specified the port in your configuration file, you will likely need to update it.
+</div>
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
 

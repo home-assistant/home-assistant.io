@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ecobee"
 description: "Instructions for how to integrate Ecobee thermostats and sensors within Home Assistant."
-date: 2015-11-30 17:54
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ecobee.png
 ha_category:
   - Sensor
@@ -56,7 +50,7 @@ ecobee:
   api_key: YOUR_API_KEY
 ```
 
-[Restart Home Assistant](https://www.home-assistant.io/docs/configuration/#reloading-changes) for the changes to take effect.
+[Restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect.
 
 The first time you (re)run Home Assistant with this integration it will give you a PIN code that you need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by clicking **Add Application** in the **My Apps** section in the sidebar.
 

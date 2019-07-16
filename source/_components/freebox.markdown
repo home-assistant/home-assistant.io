@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Freebox"
 description: "Instructions on how to integrate Freebox routers into Home Assistant."
-date: 2018-11-15 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: freebox.svg
 ha_category:
   - Network
@@ -57,9 +51,9 @@ returned json should contain an api_domain (`host`) and a https_port (`port`).
 
 ### Initial setup
 
-<p class='note warning'>
+<div class='note warning'>
 You must have set a password for your Freebox router web administration page. Enable the option "Permettre les nouvelles demandes d'associations" and check that the option "Accès à distance sécurisé à Freebox OS" is active in "Gestion des ports" > "Connexions entrantes".
-</p>
+</div>
 
 The first time Home Assistant will connect to your Freebox, you will need to
 authorize it by pressing the right arrow on the facade of the Freebox when

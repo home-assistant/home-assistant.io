@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ManyThing"
 description: "Instructions on how to setup ManyThing support with IFTTT."
-date: 2015-09-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: manything.png
 ha_category: Camera
 redirect_from:

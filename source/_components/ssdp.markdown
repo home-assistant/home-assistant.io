@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SSDP - Simple Service Discovery Protocol"
 description: "Discover integrations on the network using the SSDP protocol."
-date: 2019-06-02 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Network
 ha_release: 0.94

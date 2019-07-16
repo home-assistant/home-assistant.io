@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "File size Sensor"
 description: "Component for monitoring the size of a file."
-date: 2018-02-06 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: file.png
 ha_category:
   - Utility
@@ -33,5 +27,5 @@ sensor:
 file_paths:
   description: The absolute path to the file.
   required: true
-  type: list of strings
+  type: list
 {% endconfiguration %}

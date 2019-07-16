@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Open Exchange Rates"
 description: "Instructions on how to integrate exchange rates from https://openexchangerates.org within Home Assistant."
-date: 2016-06-23 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Finance
 logo: openexchangerates.png

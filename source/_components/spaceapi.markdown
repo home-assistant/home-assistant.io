@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SpaceAPI"
 description: "Instructions on how to configure the SpaceAPI for Home Assistant."
-date: 2018-05-08 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: spaceapi.png
 ha_category:
   - Social
@@ -43,11 +37,11 @@ space:
 logo:
   description: URL which is publicly accessible of the logo.
   required: true
-  type: URL
+  type: string
 logo:
   description: URL of the hackerspace's web site.
   required: true
-  type: URL
+  type: string
 location:
   description: Location of the Hackerspace.
   required: true
@@ -56,7 +50,7 @@ location:
     address:
       description: The physical address of the Hackerspace.
       required: true
-      type: String
+      type: string
 contact:
   description: Contact information of the Hackerspace.
   required: true
@@ -65,19 +59,19 @@ contact:
     email:
       description: The email address of the Hackerspace.
       required: true
-      type: String
+      type: string
     irc:
       description: The IRC channel of the Hackerspace
       required: false
-      type: String
+      type: string
     mailing_list:
       description: The mailing list of the Hackerspace.
       required: false
-      type: String
+      type: string
     twitter:
       description: The Twitter account of the Hackerspace.
       required: false
-      type: String
+      type: string
 issue_report_channels:
   description: "The reporting channel for issues. Pick an entity from `contact:`."
   required: true
@@ -94,11 +88,11 @@ state:
     icon_open:
       description: The URL which is publicly accessible of the icon for the open Hackerspace.
       required: false
-      type: URL
+      type: string
     icon_closed:
       description: The URL which is publicly accessible of the icon for the closed Hackerspace.
       required: false
-      type: URL
+      type: string
 sensors:
   description: List of sensors to expose.
   required: false

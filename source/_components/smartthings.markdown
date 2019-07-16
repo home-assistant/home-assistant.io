@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SmartThings"
 description: "Instructions on setting up Samsung SmartThings within Home Assistant."
-date: 2018-01-14 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 logo: samsung_smartthings.png
 ha_category:
@@ -89,9 +83,11 @@ If you are using Home Assistant Cloud (Nabu Casa) the integration will create a 
 
 ### Configure Home Assistant
 
-<p class='note info'>
+<div class='note info'>
+
 The SmartThings integration is configured exclusively through the front-end. Manual setup through `configuration.yaml` is not available at this time.
-</p>
+
+</div>
 
 1. From the Home Assistant front-end, navigate to 'Configuration' then 'Integrations'. Under 'Set up a new integration' locate 'SmartThings' and click 'Configure'.
 2. Enter the personal access token created above and click 'Submit'
@@ -102,9 +98,11 @@ The SmartThings integration is configured exclusively through the front-end. Man
     4. Authorize the app by pressing 'Allow'
 4. Return to Home Assistant and click 'Submit'.
 
-<p class='note info'>
+<div class='note info'>
+
 Advanced: If you have multiple locations in SmartThings, each can be integrated into Home Assistant. Follow the steps above, then for each subsequent location, install the SmartApp and it will automatically add to Home Assistant. This can be completed during step 3 (install SmartApp) above or at any time after that.
-</p>
+
+</div>
 
 See the [troubleshooting](#troubleshooting) if you are having issues setting up the integration.
 

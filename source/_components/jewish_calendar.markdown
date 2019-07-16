@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Jewish Calendar"
 description: "Instructions on how to integrate the Jewish Calendar sensor within Home Assistant."
-date: 2018-09-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Calendar
 ha_iot_class: Local Polling
@@ -59,9 +53,10 @@ havdalah_minutes_after_sunset:
   default: 0
   type: integer
 sensors:
+  description: List of available sensors.
   required: false
   default: date
-  description: List of available sensors.
+  type: list
   keys:
     date:
       description: Show the hebrew date for today.

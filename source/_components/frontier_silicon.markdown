@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Frontier Silicon Internet Radios"
 description: "Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant."
-date: 2017-02-04 00:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
+logo: frontier.png
 ha_category:
   - Media Player
 ha_iot_class: Local Push
@@ -94,10 +89,12 @@ is based on [tiwillam]'s fsapi project. Special thanks to both developers, this 
 
 ## Notes and Limitations
 
-<p class='note warning'>
+<div class='note warning'>
+
 The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
 *If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
-</p>
+
+</div>
 
 [Frontier Silicon chipset]: http://www.frontier-silicon.com/digital-radio-solutions
 [Medion Radios]: http://internetradio.medion.com/

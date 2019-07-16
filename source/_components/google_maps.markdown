@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Maps Location Sharing"
 description: "Instructions how to use Google Maps Location Sharing to track devices in Home Assistant."
-date: 2017-02-12 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_maps.png
 ha_release: 0.67
 ha_category:
@@ -24,10 +18,12 @@ You first need to create an additional Google account and share your location wi
 
 This platform will create a file named `.google_maps_location_sharing.cookies` extended with the slugified username where it caches your login session.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Since this platform is using an unofficial API with the help of [locationsharinglib](https://github.com/costastf/locationsharinglib), Google seems to block access to your data the first time you've logged in with this platform.
 This issue can be fixed by logging in with your new account and approving your login on the [Device Activity](https://myaccount.google.com/device-activity) page.
-</p>
+
+</div>
 
 To integrate Google Maps Location Sharing in Home Assistant, add the following section to your `configuration.yaml` file:
 

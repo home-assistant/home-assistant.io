@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zeroconf/Avahi/Bonjour"
 description: "Exposes Home Assistant using the Zeroconf protocol."
-date: 2016-04-10 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Network
 ha_qa_scale: internal

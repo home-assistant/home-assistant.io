@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LIFX"
 description: "Instructions on how to integrate LIFX into Home Assistant."
-date: 2018-10-08 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lifx.png
 ha_category:
   - Light
@@ -131,7 +125,7 @@ server:
 port:
   description: The UDP port for discovery. Will listen on a random port if omitted.
   required: false
-  type: port
+  type: integer
 broadcast:
   description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
   required: false

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.95: AdGuard, Life360, Plaato Airlock"
 description: "Manage Alexa UI, improved RV support, even more icons available."
 date: 2019-06-26 04:11:03
 date_formatted: "June 26, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-06-release-95/social.png
 ---
@@ -53,7 +51,7 @@ If you are migrating from the custom integration, [please read the instructions]
 
 One more thing… This release improves the Home Assistant Cloud Alexa integration. Just like Google Assistant, it is now possible to manage which entities are exposed to Amazon via the user interface. Alexa actually offers some cool features around this. Any change you make is instantly reflected inside Alexa. Add an entity? Control it instantly via Alexa.
 
-However, we didn't stop there. The [manual installations of Alexa](https://www.home-assistant.io/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
+However, we didn't stop there. The [manual installations of Alexa](/components/alexa.smart_home/#alexa-component-configuration) has had optional proactive state reporting since earlier this year, and this is now available for Home Assistant Cloud users too. If you choose to opt-in to this, every state change of your exposed entities is sent to Amazon as soon as they happen. It allows Amazon Echos with displays, to instantly reflect the state and allows you to create routines inside Amazon powered by your Home Assistant entities.
 
 <div class="videoWrapper">
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/8NfDr5lBcmQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -176,7 +174,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove binary sensors for ZHA remotes and controllers ([@dmulcahey] - [#24370]) ([zha docs]) (breaking change)
 - Restore automation last_triggered with initial_state override ([@frenck] - [#24400]) ([automation docs]) (breaking change)
 - Fix recorder defaults ([@balloob] - [#24399]) ([recorder docs]) (breaking change)
-- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) ([uber docs]) (breaking change)
+- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Add Linky sensors : yesterday + months + years ([@Quentame] - [#23726]) ([linky docs]) (breaking change)
 - Position is reversed for horizontal awnings ([@kbickar] - [#23257]) ([tahoma docs]) (breaking change)
 - Remove conversation from default config ([@balloob] - [#24515]) ([default_config docs]) (breaking change)
@@ -301,7 +299,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Life360: Fix config entry handling for accounts imported from configuration ([@pnbruckner] - [#24455]) ([life360 docs])
 - Add default config to constaint file ([@balloob] - [#24423])
 - Add websock command to query device for triggers ([@emontnemery] - [#24044]) ([automation docs]) ([light docs])
-- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) ([uber docs]) (breaking change)
+- Uber API is going away on June 13, 2019, remove component ([@robbiet480] - [#24468]) (breaking change)
 - Use met.no instead of yr.no in default config ([@thomasloven] - [#24470])
 - Bump pyubee to 0.7 to support more models ([@mzdrale] - [#24477]) ([ubee docs])
 - Somfy open api ([@tetienne] - [#19548]) ([somfy docs]) (new-platform)
@@ -715,7 +713,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [discovery docs]: /components/discovery/
 [dlib_face_identify docs]: /components/dlib_face_identify/
 [ebusd docs]: /components/ebusd/
-[elv docs]: /components/elv/
+[elv docs]: /components/switch.pca/
 [environment_canada docs]: /components/environment_canada/
 [esphome docs]: /components/esphome/
 [frontend docs]: /components/frontend/
@@ -783,12 +781,11 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [traccar docs]: /components/traccar/
 [tradfri docs]: /components/tradfri/
 [ubee docs]: /components/ubee/
-[uber docs]: /components/uber/
 [unifi docs]: /components/unifi/
 [velbus docs]: /components/velbus/
 [velux docs]: /components/velux/
 [vera docs]: /components/vera/
-[vlc_telnet docs]: /components/vlc_telnet/
+[vlc_telnet docs]: /components/vlc-telnet/
 [waze_travel_time docs]: /components/waze_travel_time/
 [webostv docs]: /components/webostv/
 [websocket_api docs]: /components/websocket_api/

@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "ESP8266 and MicroPython - Part 2"
 description: "Using MicroPython and MQTT on ESP8266 based devices and Home Assistant."
 date: 2016-08-31 06:17:25 +0200
 date_formatted: "August 31, 2016"
 author: Fabian Affolter
-comments: true
 categories: How-To MQTT ESP8266 Micropython
 og_image: /images/blog/2016-07-micropython/social.png
 ---

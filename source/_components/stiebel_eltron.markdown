@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "STIEBEL ELTRON"
 description: "Instructions on how to integrate STIEBEL ELTRON integral ventilation and heat pump units into Home Assistant."
-date: 2019-04-14 21:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: stiebel_eltron.png
 ha_category:
   - Climate
@@ -69,9 +63,11 @@ hub:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This integration requires the [Modbus](/components/modbus/) integration to be set up to work
-</p>
+
+</div>
 
 Full configuration example including modbus setup shown below:
 

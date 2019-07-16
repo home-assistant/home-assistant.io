@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PTVSD Debugger (Visual Studio Code)"
 description: "Debugging from Visual Studio Code."
-date: 2019-04-24 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: visual-studio.png
 ha_category: 
   - Utility
@@ -36,7 +30,7 @@ port:
   description: Port to listen on.
   required: false
   default: 5678
-  type: port
+  type: integer
 wait:
   description: If true, wait for the debugger to connect before starting up home assistant.
   required: false

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Anthem A/V Receivers"
 description: "Instructions on how to integrate Anthem A/V Receivers into Home Assistant."
-date: 2016-12-31 23:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: anthemav.png
 ha_category:
   - Media Player
@@ -60,9 +54,11 @@ name:
 - Enabling this platform will set and enforce "Standby IP Control On" in your Anthem device.  You almost certainly want this.  If you disable it on the device, it will just get re-enabled by Home Assistant.
 - Only Zone 1 is currently supported.
 
-<p class='note warning'>
-  This platform will maintain a persistent connection to the network control port which will prevent any other application from communicating with the receiver. This includes the Anthem iOS and Android remote control apps as well as the ARC-2 Anthem Room Calibration software. You will need to disable this platform and restart Home Assistant if you want to use another
-  application that makes use of the network control port.
-  <br /><br />
-  *The underlying Python module has hooks for halting and resuming the network connection but those functions are currently unsupported by the Home Assistant platform.*
-</p>
+<div class='note warning'>
+
+This platform will maintain a persistent connection to the network control port which will prevent any other application from communicating with the receiver. This includes the Anthem iOS and Android remote control apps as well as the ARC-2 Anthem Room Calibration software. You will need to disable this platform and restart Home Assistant if you want to use another
+application that makes use of the network control port.
+<br /><br />
+*The underlying Python module has hooks for halting and resuming the network connection but those functions are currently unsupported by the Home Assistant platform.*
+
+</div>

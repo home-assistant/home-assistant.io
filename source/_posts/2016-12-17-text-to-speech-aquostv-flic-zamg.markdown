@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.35: Text-to-speech, VLC, Flic, netdata"
 description: "Home Assistant learned to speak, VLC and AquosTV mediaplayer, Netdata, ZMAG, Flic, and Broadlink"
 date: 2016-12-17 08:04:05 +0000
 date_formatted: "December 17, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-12-0.35/social.png
 ---

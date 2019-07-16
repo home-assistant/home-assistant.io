@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Vacuum cleaner robots"
 description: "Instructions on how to setup and use vacuum's in Home Assistant."
-date: 2017-07-28 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.51
 ---
 

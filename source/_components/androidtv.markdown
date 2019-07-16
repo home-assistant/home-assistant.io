@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Android TV"
 description: "Instructions on how to integrate Android TV and Fire TV devices into Home Assistant."
-date: 2015-10-23 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: androidtv.png
 ha_category:
   - Media Player
@@ -82,7 +76,7 @@ adb_server_port:
   description: The port for the ADB server.
   required: false
   default: 5037
-  type: port
+  type: integer
 get_sources:
   description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
   required: false
@@ -92,7 +86,7 @@ apps:
   description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below.
   required: false
   default: {}
-  type: dict
+  type: map
 device_class:
   description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
   required: false
@@ -155,9 +149,9 @@ If your device requires ADB authentication, you will need to follow the instruct
 
 If you get a "Device authentication required, no keys available" error when trying to set up your Android TV or Fire TV, then you'll need to create an adbkey and add its path to your configuration. Follow the instructions on this page to connect to your device from your computer: [Connecting to Fire TV Through adb](https://developer.amazon.com/zh/docs/fire-tv/connecting-adb-to-device.html).
 
-<p class='note warning'>
+<div class='note warning'>
 In the dialog appearing on your Android TV / Fire TV, you must check the box that says "always allow connections from this device." ADB authentication in Home Assistant will only work using a trusted key.
-</p>
+</div>
 
 Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>`, the file `adbkey` will be created on your computer. The default locations for this file is (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 

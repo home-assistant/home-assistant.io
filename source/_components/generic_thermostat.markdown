@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Generic Thermostat"
 description: "Turn Home Assistant into a thermostat"
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Climate
@@ -59,6 +53,7 @@ ac_mode:
   description: Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
   required: false
   type: boolean
+  default: false
 min_cycle_duration:
   description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on.
   required: false

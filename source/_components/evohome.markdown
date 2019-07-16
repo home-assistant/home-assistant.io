@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell evohome/TCC systems"
 description: "Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant."
-date: 2018-09-25 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell.png
 ha_category:
   - Hub
@@ -62,12 +56,12 @@ password:
 location_idx:
   description: Used to select which location to use, if your login has access to more than one location. Multiple locations at one time are not supported.
   required: false
-  type: int
+  type: integer
   default: 0
 scan_interval:
   description: How often updates are retrieved from Honeywell's web servers. The minimum value is 60 seconds.
   required: false
-  type: int
+  type: integer
   default: 300
 {% endconfiguration %}
 

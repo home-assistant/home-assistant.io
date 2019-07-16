@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Rachio"
 description: "Instructions on how to use Rachio with Home Assistant."
-date: 2018-06-23 16:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rachio.png
 ha_category:
   - Irrigation
@@ -61,10 +55,12 @@ manual_run_mins:
   type: integer
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 **Water-saving suggestion:**<br>
 Set `manual_run_mins` to a high maximum failsafe value when using scripts to control zones. If something goes wrong with your script, Home Assistant, or you hit the Rachio API rate limit of 1700 calls per day, the controller will still turn off the zone after this amount of time.
-</p>
+
+</div>
 
 ### iFrame
 

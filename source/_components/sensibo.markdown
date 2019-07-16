@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sensibo A/C controller"
 description: "Instructions on how to integrate Sensibo A/C controller into Home Assistant."
-date: 2017-04-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sensibo.png
 ha_category:
   - Climate
@@ -38,11 +32,11 @@ id:
   type: string
 {% endconfiguration %}
 
-<p class="note">
+<div class="note">
 If you create the API key using a dedicated user (and not your main user),
 then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
-</p>
+</div>
 
 ### Full config example
 ```yaml

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Aurora sensor"
 description: "Know when auroras might be visible at your location"
-date: 2017-02-14 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Environment
 ha_release: 0.39

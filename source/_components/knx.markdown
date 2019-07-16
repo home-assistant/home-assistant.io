@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX"
 description: "Instructions on how to integrate KNX components with Home Assistant."
-date: 2016-06-08 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Hub
@@ -18,9 +12,11 @@ The [KNX](https://www.knx.org) integration for Home Assistant allows you to conn
 
 The integration requires a local KNX/IP interface like the [Weinzierl 730](https://www.weinzierl.de/index.php/en/all-knx/knx-devices-en/produktarchiv-en/knx-ip-interface-730-en). Through this, it will send and receive commands to and from other devices to the KNX bus.
 
-<p class='note warning'>
+<div class='note warning'>
+
   Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
-</p>
+
+</div>
 
 There is currently support for the following device types within Home Assistant:
 
@@ -107,6 +103,7 @@ fire_event:
   description: If set to True, platform will write all received KNX messages to event bus
   required: inclusive
   type: boolean
+  default: false
 fire_event_filter:
   description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus.
   required: inclusive

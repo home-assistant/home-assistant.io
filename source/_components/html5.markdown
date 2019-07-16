@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Push Notifications"
 description: "Instructions on how to use the HTML5 push notifications platform from Home Assistant."
-date: 2016-08-17 21:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: html5.png
 ha_category:
   - Notifications
@@ -17,13 +11,17 @@ redirect_from:
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
 
-<p class='note'>
-HTML5 push notifications **do not** work on iOS.
-</p>
+<div class='note'>
 
-<p class='note warning'>
+HTML5 push notifications **do not** work on iOS.
+
+</div>
+
+<div class='note warning'>
+
 The GCM configuration option is deprecated and will stop working in April 2019, see [https://developers.google.com/cloud-messaging/faq](https://developers.google.com/cloud-messaging/faq). If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project. You will also need to delete `html5_push_registrations.conf` and [re-enable the notifications in your browser](#setting-up-your-browser).
-</p>
+
+</div>
 
 ## Configuration
 

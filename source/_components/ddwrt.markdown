@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DD-WRT"
 description: "Instructions on how to integrate DD-WRT based routers into Home Assistant."
-date: 2015-05-11 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ddwrt.png
 ha_category:
   - Presence Detection
