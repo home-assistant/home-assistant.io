@@ -30,7 +30,7 @@ input_boolean:
       name:
         description: Friendly name of the input.
         required: false
-        type: String
+        type: string
       initial:
         description: Initial value when Home Assistant starts.
         required: false

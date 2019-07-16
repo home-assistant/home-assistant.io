@@ -37,7 +37,7 @@ name:
 monitored_conditions:
   description: Defines the data to monitor as sensors. Defaults to all of the listed options below.
   required: false
-  type: map
+  type: list
   keys:
     current_version:
       description: Current firmware version of the router.

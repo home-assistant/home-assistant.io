@@ -61,6 +61,7 @@ info:
   description: Shows the IHC "name", "note" and "position" attributes of each component. This will make it easier to identify the IHC products within Home Assistant.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Auto setup of IHC products

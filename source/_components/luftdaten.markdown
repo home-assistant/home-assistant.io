@@ -44,7 +44,7 @@ sensor_id:
   type: string
 show_on_map:
   description: Option to show the position of the sensor on the map.
-  required: optional
+  required: false
   default: false
   type: boolean
 scan_interval:

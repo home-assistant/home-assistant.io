@@ -52,7 +52,7 @@ rainmachine:
 {% configuration %}
 ip_address:
   description: The IP address or hostname of your RainMachine unit.
-  required: optional
+  required: false
   type: string
 password:
   description: Your RainMachine password.

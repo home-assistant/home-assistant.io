@@ -51,7 +51,7 @@ symbols:
       default: USD
     symbol:
       description: The stock market symbol for the given company.
-      required: required
+      required: true
       type: string
 foreign_exchange:
   description: List of currencies.
@@ -64,11 +64,11 @@ foreign_exchange:
       type: string
     from:
       description: The source currency.
-      required: required
+      required: true
       type: string
     to:
       description: The target currency.
-      required: required
+      required: true
       type: string
 {% endconfiguration %}
 

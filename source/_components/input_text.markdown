@@ -37,7 +37,7 @@ input_text:
       name:
         description: Friendly name of the text input.
         required: false
-        type: String
+        type: string
       min:
         description: Minimum length for the text value.
         required: false
@@ -51,17 +51,17 @@ input_text:
       initial:
         description: Initial value when Home Assistant starts.
         required: false
-        type: String
+        type: string
         default: empty
       pattern:
         description: Regex pattern for client side validation.
         required: false
-        type: String
+        type: string
         default: empty
       mode:
         description: Can specify `text` or `password`. Elements of type "password" provide a way for the user to securely enter a value.
         required: false
-        type: String
+        type: string
         default: text
 {% endconfiguration %}
 

@@ -89,11 +89,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: list, string
+  type: [string, list]
 json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   reqired: false
-  type: list, string
+  type: [string, list]
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false

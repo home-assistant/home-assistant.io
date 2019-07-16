@@ -29,7 +29,7 @@ feedreader:
     description: Defines the update interval of the feeds.
     required: false
     default: 1 hour
-    type: interval
+    type: time
   max_entries:
     description: The maximum number of entries to extract from each feed.
     required: false

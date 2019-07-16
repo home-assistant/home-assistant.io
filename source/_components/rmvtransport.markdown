@@ -59,7 +59,7 @@ next_departure:
     lines:
       description: "One or more line numbers, e.g., `'S8'` or `['S8', 'RB33', '41']`"
       required: false
-      type: [string, int]
+      type: [string, integer]
     products:
       description: "One or more modes of transport `['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'RB', 'RE', 'EC', 'IC', 'ICE']`."
       required: false

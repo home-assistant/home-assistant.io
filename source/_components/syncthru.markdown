@@ -30,7 +30,7 @@ sensor:
     description: The address for connecting to the printer. Equal to the SyncThru Webservice address.
     required: true
     default: false
-    type: url
+    type: string
   name:
     description: A user specified name for the printer. Defaults to "Samsung Printer" and the friendly name will be the name of the printer model.
     required: false

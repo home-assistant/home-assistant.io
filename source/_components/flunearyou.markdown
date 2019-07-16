@@ -33,13 +33,13 @@ monitored_conditions:
   default: ['cdc_report', 'user_report']
 latitude:
   description: The latitude of the location to monitor.
-  required: optional
-  type: string
+  required: false
+  type: float
   default: The latitude defined under the `homeassistant` key in `configuration.yaml`.
 longitude:
   description: The longitude of the location to monitor.
-  required: optional
-  type: string
+  required: false
+  type: float
   default: The longitude defined under the `homeassistant` key in `configuration.yaml`.
 {% endconfiguration %}
 

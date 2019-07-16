@@ -42,6 +42,6 @@ freedns:
   scan_interval:
     description: How often to call the update service.
     required: false
-    type: time period
+    type: time
     default: 10 minutes
 {% endconfiguration %}

@@ -33,11 +33,11 @@ weather:
 {% configuration %}
 name:
   description:  The name you would like to give to the weather station.
-  required: optional
+  required: false
   type: string
 station:
   description: "The station ID string. See the [`sensor.bom` docs](#sensor) for details on how to find the ID of a station."
-  required: optional
+  required: false
   type: string
   default: The closest station
 {% endconfiguration %}

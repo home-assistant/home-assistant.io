@@ -32,7 +32,7 @@ port:
   description: The port to connect to the Synology SRM router.
   required: false
   default: 8001
-  type: int
+  type: integer
 username:
   description: The username of a user with administrative privileges.
   required: false

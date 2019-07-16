@@ -64,7 +64,7 @@ gateways:
 url:
   description: The URL for your Fibaro HomeCenter device.
   required: true
-  type: url
+  type: string
 username:
   description: The username for your Fibaro account.
   required: true
@@ -76,7 +76,7 @@ password:
 plugins:
   description: Whether to import plugin-generated devices from Fibaro HomeCenter, such as Netatmo and Sonos devices, etc.
   required: false
-  type: bool
+  type: boolean
   default: false
 device_config:
   description: Lists device specific parameter or behaviour overrides.

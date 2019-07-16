@@ -157,7 +157,7 @@ operation_mode_comfort_address:
 operation_modes:
   description: Overrides the supported operation modes.
   required: false
-  type: array
+  type: list
 on_off_address:
   description: KNX address for switching the climate device on/off.
   required: false

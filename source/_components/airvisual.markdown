@@ -35,44 +35,44 @@ sensor:
 {% configuration %}
 api_key:
   description: Your AirVisual API key.
-  required: required
+  required: true
   type: string
 monitored_conditions:
   description: "The air quality standard(s) to use (`us` for U.S., `cn` for Chinese)."
-  required: required
+  required: true
   type: list
   default: ['us', 'cn']
 show_on_map:
   description: "Whether to show a marker on the map at the specified location."
-  required: optional
+  required: false
   type: boolean
   default: true
 scan_interval:
   description: "The rate in seconds at which AirVisual should be polled for new data."
-  required: optional
+  required: false
   type: integer
   default: 600
 latitude:
   description: The latitude of the location to monitor.
-  required: optional
+  required: false
   type: string
   default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
 longitude:
   description: The longitude of the location to monitor.
-  required: optional
+  required: false
   type: string
   default: "The longitude defined under the `homeassistant` key in `configuration.yaml`."
 city:
   description: The city to monitor.
-  required: optional
+  required: false
   type: string
 state:
   description: The state the city belongs to.
-  required: optional
+  required: false
   type: string
 country:
   description: The country the state belongs to.
-  required: optional
+  required: false
   type: string
 {% endconfiguration %}
 

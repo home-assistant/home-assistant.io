@@ -53,9 +53,10 @@ havdalah_minutes_after_sunset:
   default: 0
   type: integer
 sensors:
+  description: List of available sensors.
   required: false
   default: date
-  description: List of available sensors.
+  type: list
   keys:
     date:
       description: Show the hebrew date for today.
