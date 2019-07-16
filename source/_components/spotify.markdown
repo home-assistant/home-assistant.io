@@ -128,7 +128,7 @@ Extra services besides the default ones in component [Media Player component](/c
 
 ### Service `play_playlist`
 
-Play a Spotify playlist, with some extra features from generic service `"media_player.media_play"`.
+Play a Spotify playlist with an option to start on a random position of the playlist.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
