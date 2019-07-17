@@ -34,9 +34,10 @@ password:
   required: true
   type: string
 vendor:
-  description: Support for additional vendors. Set to `vorwerk` for Vorwerk robots. Defaults to `neato`.
+  description: Support for additional vendors. Set to `vorwerk` for Vorwerk robots.
   required: false
   type: string
+  default: neato
 {% endconfiguration %}
 
 <div class='note'>
