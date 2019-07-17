@@ -58,11 +58,10 @@ In case you would like to convert the values for example to kWh instead of the d
 
 {% raw %}
 ```yaml
-# Example configuration.yaml entry for template platform
-sensors:
-  platform: template
-  sensors:
-    solaredge_energy_this_year_template:
-      value_template: '{{(states('sensor.solaredge_energy_this_year') | float / 1000) | round(2)}}'
+# Example configuration.yaml entry for sensor template platform
+  - platform: template
+    sensors:
+      solaredge_energy_this_year_template:
+        value_template: '{{(states('sensor.solaredge_energy_this_year') | float / 1000) | round(2)}}'
 ```
 {% endraw %}
