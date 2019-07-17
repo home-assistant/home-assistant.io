@@ -86,7 +86,7 @@ Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blo
 
 ## New Integrations
 
-- Add Trafikverket train component ([@endor-force] - [#23470]) ([trafikverket_train docs]) (new-integration) (new-platform)
+- Add Trafikverket train component ([@endor-force] - [#23470]) ([trafikverket_train docs]) (new-integration)
 - Add integration for Vallox Ventilation Units ([@andre-richter] - [#24660]) ([vallox docs]) (new-integration)
 - Add support for aurora ABB Powerone solar photovoltaic inverter ([@davet2001] - [#24809]) ([aurora_abb_powerone docs]) (new-integration)
 - Add support for arcam fmj receivers ([@elupus] - [#24621]) ([arcam_fmj docs]) (new-integration)
@@ -95,11 +95,12 @@ Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blo
 
 ## New Platforms
 
-- Add Trafikverket train component ([@endor-force] - [#23470]) ([trafikverket_train docs]) (new-integration) (new-platform)
 - Add template vacuum support ([@luukd] - [#22904]) ([template docs]) (new-platform)
 - Fronius (solar energy and inverter) component ([@nielstron] - [#22316]) ([sensor docs]) (new-platform)
 - New scanner device tracker and ZHA device tracker support ([@dmulcahey] - [#24584]) ([device_tracker docs]) ([zha docs]) (new-platform)
 - [climate] Bugfix honeywell misleading error message ([@zxdavb] - [#25048]) ([evohome docs]) ([honeywell docs]) (new-platform)
+- [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
+- [Climate] Hive Add water heater Component post the refresh of the climate component. ([@KJonline] - [#25148]) ([hive docs]) (beta fix) (new-platform)
 
 ## If you need help...
 
@@ -124,7 +125,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Ambient Weather Station__ - By default, the Ambient solar radiation (i.e., brightness) sensor is measured in W/m². Since this unit of measurement is not used anywhere else, this change updates the sensor to use the more prevalent lx unit. Any automations that use this sensor should be updated accordingly. ([@bachya] - [#24690]) ([ambient_station docs])
 
 
- - __Google Cloud__ - Changed the default encoding to mp3 from opus ogg, allowing it to support many more media players. ([@GrandNewbien] - [#24808]) ([google_cloud docs])
+- __Google Cloud__ - Changed the default encoding to mp3 from opus ogg, allowing it to support many more media players. ([@GrandNewbien] - [#24808]) ([google_cloud docs])
 
    Example configuration:
    ```
@@ -142,6 +143,43 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __ZHA__ - ZHA entities are being removed and battery sensors are being added. We have been asked several times to remove the ZHA domain entities because they do not follow the HA standards. They were originally used to show device online / offline status, rssi, lqi and last seen. They were eventually expanded to hold battery information as well because many Zigbee devices have several power configuration clusters. Online and offline handling, rssi, lqi last seen and the handling of device availability have all been moved to the device object and battery information has been split back out into its own sensor. Any users that created template sensors that leveraged the data in the ZHA entities will be affected by this change. ([@dmulcahey] - [#24909]) ([zha docs])
 - __Netatmo__ - If the module type can not be determined the climate device will default to the type "valve" as it implements a subset of "thermostat". Consequently those devices wont be able to be turned off. This should not be a major issue and should only happen when there are issues with the data retrieved form the Netatmo API. ([@cgtobi] - [#25029]) ([netatmo docs])
 - __GeoJSON Events__ - Update geojson_client library to version 0.4.This changes the access to the external feed from HTTP to HTTPS for the nsw_rural_fire_service_feed platform. This should normally not make any difference to anyone consuming this feed. Only if for example you have set up a template sensor or automation that reads the external_id attribute of a geo_location entity and compare it against a pattern, would you need to change this. ([@exxamalte] - [#25039]) ([geo_json_events docs]) ([nsw_rural_fire_service_feed docs]) ([usgs_earthquakes_feed docs])
+
+## Beta Fixes
+
+- Add websocket API command for Z-Wave network status ([@cgarwood] - [#25066]) ([zwave docs]) (beta fix)
+- Do not reverse open/close calls ([@balloob] - [#24879]) ([tahoma docs]) (breaking change) (beta fix)
+- Add support for on/off climate ([@pvizeli] - [#25026]) ([climate docs]) (beta fix)
+- Change unique_id formula for Notion entities ([@bachya] - [#25076]) ([notion docs]) (beta fix)
+- Fix powercontrol media player alexa ([@pvizeli] - [#25080]) ([alexa docs]) (beta fix)
+- Support podcast episodes as Sonos favorites ([@amelchio] - [#25087]) ([sonos docs]) (beta fix)
+- Guard module being None ([@balloob] - [#25077]) (beta fix)
+- [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
+- Fix Netatmo climate issue when device out of reach ([@cgtobi] - [#25096]) ([netatmo docs]) (beta fix)
+- Add turn on/off to coolmaster ([@OnFreund] - [#25097]) ([coolmaster docs]) (beta fix)
+- Fix window exception in WWLLN ([@bachya] - [#25100]) ([wwlln docs]) (beta fix)
+- Fix missing sensor unit in RainMachine ([@bachya] - [#25101]) ([rainmachine docs]) (beta fix)
+- Add climate related services to Homematic IP Cloud ([@SukramJ] - [#25079]) ([homematicip_cloud docs]) (beta fix)
+- Simplify Alexa/Google for new climate turn_on/off ([@balloob] - [#25115]) ([alexa docs]) ([google_assistant docs]) (beta fix)
+- Verify cloud user exists during boot ([@balloob] - [#25119]) ([cloud docs]) (beta fix)
+- Allow area ID in service call schemas ([@balloob] - [#25121]) ([light docs]) ([switch docs]) (beta fix)
+- Load requirements for platforms ([@elupus] - [#25133]) (beta fix)
+- Handle Sonos connection errors during setup ([@amelchio] - [#25135]) ([sonos docs]) (beta fix)
+- [climate-1.0] Bugfix evohome showstopper ([@zxdavb] - [#25139]) ([evohome docs]) (beta fix)
+- remove comfort mode ([@SukramJ] - [#25140]) ([homematicip_cloud docs]) (beta fix)
+- [climate-1.0] Add RoundThermostat to evohome ([@zxdavb] - [#25141]) ([evohome docs]) (beta fix)
+- [Climate] Hive Add water heater Component post the refresh of the climate component. ([@KJonline] - [#25148]) ([hive docs]) (beta fix) (new-platform)
+- Remove check and restore temp/mode changes ([@andersonshatch] - [#25149]) ([tado docs]) (beta fix)
+- Update pyhomematic to 0.1.60 ([@danielperna84] - [#25152]) ([homematic docs]) (beta fix)
+- Version sensor update ([@ludeeus] - [#25162]) ([version docs]) (beta fix)
+- Make dev tools titlte translatable ([@balloob] - [#25166]) ([frontend docs]) (beta fix)
+- Fix device types for some HomeMatic IP sensors ([@danielperna84] - [#25167]) ([homematic docs]) (beta fix)
+- Update pysonos to 0.0.21 ([@amelchio] - [#25168]) (beta fix)
+- Fix climate is_aux_heat type hint. ([@Adminiuga] - [#25170]) ([climate docs]) (beta fix)
+- Upgrade luftdaten to 0.6.2 ([@fabaff] - [#25177]) ([luftdaten docs]) (beta fix)
+- Correctly set property decorator on preset modes ([@balloob] - [#25151]) ([fritzbox docs]) (beta fix)
+- Fix device name customization on ZHA add devices page ([@dmulcahey] - [#25180]) ([zha docs]) (beta fix)
+- [climate] Tweak evohome migration ([@zxdavb] - [#25187]) ([evohome docs]) (beta fix)
+- Only include target temp if has right support flag ([@balloob] - [#25193]) ([climate docs]) (beta fix)
 
 ## All changes
 
@@ -164,7 +202,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix PS4 entities with shared host not updating and latency with multiple connections ([@ktnrg45] - [#24642]) ([ps4 docs])
 - Add initial support for remote dev container ([@pvizeli] - [#24681])
 - Expose ports 8123, 8300 and 51827 in Dockerfile ([@johnluetke] - [#24389])
-- Add Trafikverket train component ([@endor-force] - [#23470]) ([trafikverket_train docs]) (new-integration) (new-platform)
+- Add Trafikverket train component ([@endor-force] - [#23470]) ([trafikverket_train docs]) (new-integration)
 - Add 'unique_id' Property to Inverter Sensors ([@squishykid] - [#24707]) ([solax docs])
 - Remove device and entity registry entries when removing a ZHA device ([@dmulcahey] - [#24369]) ([zha docs])
 - Add support for sensor state STATE_UNAVAILABLE ([@cnrd] - [#24641]) ([plant docs])
@@ -188,6 +226,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Remove temperature attribute from SimpliSafe alarm control panel ([@bachya] - [#24833]) ([simplisafe docs]) (breaking change)
 - Fronius (solar energy and inverter) component ([@nielstron] - [#22316]) ([sensor docs]) (new-platform)
 - Add template support to template trigger's for option ([@pnbruckner] - [#24810]) ([automation docs])
+- Upgrade sisyphus-control to 2.2 ([@jkeljo] - [#24837]) ([sisyphus docs])
+- Fix yeelight color temp getter ([@zewelor] - [#24830]) ([yeelight docs])
 - Upgrade luftdaten to 0.6.1 ([@fabaff] - [#24842]) ([luftdaten docs]) (breaking change)
 - Upgrade sqlalchemy to 1.3.5 ([@fabaff] - [#24844]) ([recorder docs]) ([sql docs])
 - Upgrade numpy to 1.16.4 ([@fabaff] - [#24845]) ([iqvia docs]) ([opencv docs]) ([tensorflow docs]) ([trend docs])
@@ -218,15 +258,18 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix 'same state' monitoring in state trigger ([@pnbruckner] - [#24904]) ([automation docs])
 - Add missing trigger.for variable to template trigger ([@pnbruckner] - [#24893]) ([automation docs])
 - Add ability to send attachments in pushover notifications ([@kreegahbundolo] - [#24806]) ([pushover docs])
+- Fix home coach discovery ([@cgtobi] - [#24902]) ([netatmo docs])
 - New languages that looks like supported by Google but not documented: ([@lufton] - [#24881]) ([google_cloud docs])
 - Remove ZHA device entity ([@dmulcahey] - [#24909]) ([zha docs]) (breaking change)
 - Bump androidtv to 0.0.18 ([@JeffLIrion] - [#24927]) ([androidtv docs])
 - Update pysonos to 0.0.19 ([@amelchio] - [#24930]) ([sonos docs])
 - Add support for Yale YRL256 lock ([@ctso] - [#24932]) ([zwave docs])
+- Fix exclusion of routes with excl_filter ([@gadgetchnnel] - [#24928]) ([waze_travel_time docs])
 - New scanner device tracker and ZHA device tracker support ([@dmulcahey] - [#24584]) ([device_tracker docs]) ([zha docs]) (new-platform)
 - Allow updating of via_device in device registry ([@bachya] - [#24921])
 - Update pyHik library to 0.2.3 ([@mezz64] - [#24957]) ([hikvision docs])
 - Implement ADR0003 for Netatmo sensor ([@cgtobi] - [#24944]) ([netatmo docs]) (breaking change)
+- Fix monitoring of trays in syncthru component ([@nielstron] - [#24961]) ([syncthru docs])
 - Batch of Component(s) -> Integration(s) ([@frenck] - [#24972])
 - Add sonos.play_queue service ([@apeeters] - [#24974]) ([sonos docs])
 - Fix errors if rest source becomes unavailable ([@slackr31337] - [#24986]) ([scrape docs])
@@ -288,9 +331,43 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Change phrases in the logbook component for persons and binary_sensors ([@Martijn02] - [#25053]) ([logbook docs])
 - Make sure volume level is valid when incrementing/decrementing ([@JeffLIrion] - [#25061]) ([vizio docs])
 - Complete OPERATION_MODES ([@monte-monte] - [#25069]) ([knx docs])
-- Add websocket API command for Z-Wave network status ([@cgarwood] - [#25066]) ([zwave docs])
+- Add websocket API command for Z-Wave network status ([@cgarwood] - [#25066]) ([zwave docs]) (beta fix)
 - Correctly store removed entities for restore state ([@balloob] - [#25073])
 - Restore automation last_triggered as datetime & fix test ([@pnbruckner] - [#24951]) ([automation docs])
+- Support hass-release inside devcontainer ([@pvizeli] - [#25090])
+- Do not reverse open/close calls ([@balloob] - [#24879]) ([tahoma docs]) (breaking change) (beta fix)
+- Add support for on/off climate ([@pvizeli] - [#25026]) ([climate docs]) (beta fix)
+- Change unique_id formula for Notion entities ([@bachya] - [#25076]) ([notion docs]) (beta fix)
+- Fix powercontrol media player alexa ([@pvizeli] - [#25080]) ([alexa docs]) (beta fix)
+- Support podcast episodes as Sonos favorites ([@amelchio] - [#25087]) ([sonos docs]) (beta fix)
+- Guard module being None ([@balloob] - [#25077]) (beta fix)
+- [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
+- Fix Netatmo climate issue when device out of reach ([@cgtobi] - [#25096]) ([netatmo docs]) (beta fix)
+- Add turn on/off to coolmaster ([@OnFreund] - [#25097]) ([coolmaster docs]) (beta fix)
+- Fix window exception in WWLLN ([@bachya] - [#25100]) ([wwlln docs]) (beta fix)
+- Fix missing sensor unit in RainMachine ([@bachya] - [#25101]) ([rainmachine docs]) (beta fix)
+- Add climate related services to Homematic IP Cloud ([@SukramJ] - [#25079]) ([homematicip_cloud docs]) (beta fix)
+- Simplify Alexa/Google for new climate turn_on/off ([@balloob] - [#25115]) ([alexa docs]) ([google_assistant docs]) (beta fix)
+- Verify cloud user exists during boot ([@balloob] - [#25119]) ([cloud docs]) (beta fix)
+- Allow area ID in service call schemas ([@balloob] - [#25121]) ([light docs]) ([switch docs]) (beta fix)
+- Load requirements for platforms ([@elupus] - [#25133]) (beta fix)
+- Handle Sonos connection errors during setup ([@amelchio] - [#25135]) ([sonos docs]) (beta fix)
+- [climate-1.0] Bugfix evohome showstopper ([@zxdavb] - [#25139]) ([evohome docs]) (beta fix)
+- remove comfort mode ([@SukramJ] - [#25140]) ([homematicip_cloud docs]) (beta fix)
+- [climate-1.0] Add RoundThermostat to evohome ([@zxdavb] - [#25141]) ([evohome docs]) (beta fix)
+- [Climate] Hive Add water heater Component post the refresh of the climate component. ([@KJonline] - [#25148]) ([hive docs]) (beta fix) (new-platform)
+- Remove check and restore temp/mode changes ([@andersonshatch] - [#25149]) ([tado docs]) (beta fix)
+- Update pyhomematic to 0.1.60 ([@danielperna84] - [#25152]) ([homematic docs]) (beta fix)
+- Version sensor update ([@ludeeus] - [#25162]) ([version docs]) (beta fix)
+- Make dev tools titlte translatable ([@balloob] - [#25166]) ([frontend docs]) (beta fix)
+- Fix device types for some HomeMatic IP sensors ([@danielperna84] - [#25167]) ([homematic docs]) (beta fix)
+- Update pysonos to 0.0.21 ([@amelchio] - [#25168]) (beta fix)
+- Fix climate is_aux_heat type hint. ([@Adminiuga] - [#25170]) ([climate docs]) (beta fix)
+- Upgrade luftdaten to 0.6.2 ([@fabaff] - [#25177]) ([luftdaten docs]) (beta fix)
+- Correctly set property decorator on preset modes ([@balloob] - [#25151]) ([fritzbox docs]) (beta fix)
+- Fix device name customization on ZHA add devices page ([@dmulcahey] - [#25180]) ([zha docs]) (beta fix)
+- [climate] Tweak evohome migration ([@zxdavb] - [#25187]) ([evohome docs]) (beta fix)
+- Only include target temp if has right support flag ([@balloob] - [#25193]) ([climate docs]) (beta fix)
 
 [#22316]: https://github.com/home-assistant/home-assistant/pull/22316
 [#22904]: https://github.com/home-assistant/home-assistant/pull/22904
@@ -349,7 +426,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24812]: https://github.com/home-assistant/home-assistant/pull/24812
 [#24821]: https://github.com/home-assistant/home-assistant/pull/24821
 [#24829]: https://github.com/home-assistant/home-assistant/pull/24829
+[#24830]: https://github.com/home-assistant/home-assistant/pull/24830
 [#24833]: https://github.com/home-assistant/home-assistant/pull/24833
+[#24837]: https://github.com/home-assistant/home-assistant/pull/24837
 [#24840]: https://github.com/home-assistant/home-assistant/pull/24840
 [#24842]: https://github.com/home-assistant/home-assistant/pull/24842
 [#24844]: https://github.com/home-assistant/home-assistant/pull/24844
@@ -366,6 +445,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24875]: https://github.com/home-assistant/home-assistant/pull/24875
 [#24877]: https://github.com/home-assistant/home-assistant/pull/24877
 [#24878]: https://github.com/home-assistant/home-assistant/pull/24878
+[#24879]: https://github.com/home-assistant/home-assistant/pull/24879
 [#24880]: https://github.com/home-assistant/home-assistant/pull/24880
 [#24881]: https://github.com/home-assistant/home-assistant/pull/24881
 [#24882]: https://github.com/home-assistant/home-assistant/pull/24882
@@ -374,6 +454,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24892]: https://github.com/home-assistant/home-assistant/pull/24892
 [#24893]: https://github.com/home-assistant/home-assistant/pull/24893
 [#24894]: https://github.com/home-assistant/home-assistant/pull/24894
+[#24902]: https://github.com/home-assistant/home-assistant/pull/24902
 [#24904]: https://github.com/home-assistant/home-assistant/pull/24904
 [#24905]: https://github.com/home-assistant/home-assistant/pull/24905
 [#24909]: https://github.com/home-assistant/home-assistant/pull/24909
@@ -382,6 +463,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24917]: https://github.com/home-assistant/home-assistant/pull/24917
 [#24921]: https://github.com/home-assistant/home-assistant/pull/24921
 [#24927]: https://github.com/home-assistant/home-assistant/pull/24927
+[#24928]: https://github.com/home-assistant/home-assistant/pull/24928
 [#24930]: https://github.com/home-assistant/home-assistant/pull/24930
 [#24932]: https://github.com/home-assistant/home-assistant/pull/24932
 [#24941]: https://github.com/home-assistant/home-assistant/pull/24941
@@ -391,6 +473,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#24955]: https://github.com/home-assistant/home-assistant/pull/24955
 [#24957]: https://github.com/home-assistant/home-assistant/pull/24957
 [#24958]: https://github.com/home-assistant/home-assistant/pull/24958
+[#24961]: https://github.com/home-assistant/home-assistant/pull/24961
 [#24963]: https://github.com/home-assistant/home-assistant/pull/24963
 [#24971]: https://github.com/home-assistant/home-assistant/pull/24971
 [#24972]: https://github.com/home-assistant/home-assistant/pull/24972
@@ -414,10 +497,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#25019]: https://github.com/home-assistant/home-assistant/pull/25019
 [#25023]: https://github.com/home-assistant/home-assistant/pull/25023
 [#25024]: https://github.com/home-assistant/home-assistant/pull/25024
+[#25026]: https://github.com/home-assistant/home-assistant/pull/25026
 [#25027]: https://github.com/home-assistant/home-assistant/pull/25027
 [#25028]: https://github.com/home-assistant/home-assistant/pull/25028
 [#25029]: https://github.com/home-assistant/home-assistant/pull/25029
 [#25030]: https://github.com/home-assistant/home-assistant/pull/25030
+[#25035]: https://github.com/home-assistant/home-assistant/pull/25035
 [#25036]: https://github.com/home-assistant/home-assistant/pull/25036
 [#25037]: https://github.com/home-assistant/home-assistant/pull/25037
 [#25039]: https://github.com/home-assistant/home-assistant/pull/25039
@@ -438,6 +523,37 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [#25067]: https://github.com/home-assistant/home-assistant/pull/25067
 [#25069]: https://github.com/home-assistant/home-assistant/pull/25069
 [#25073]: https://github.com/home-assistant/home-assistant/pull/25073
+[#25076]: https://github.com/home-assistant/home-assistant/pull/25076
+[#25077]: https://github.com/home-assistant/home-assistant/pull/25077
+[#25079]: https://github.com/home-assistant/home-assistant/pull/25079
+[#25080]: https://github.com/home-assistant/home-assistant/pull/25080
+[#25087]: https://github.com/home-assistant/home-assistant/pull/25087
+[#25090]: https://github.com/home-assistant/home-assistant/pull/25090
+[#25096]: https://github.com/home-assistant/home-assistant/pull/25096
+[#25097]: https://github.com/home-assistant/home-assistant/pull/25097
+[#25100]: https://github.com/home-assistant/home-assistant/pull/25100
+[#25101]: https://github.com/home-assistant/home-assistant/pull/25101
+[#25115]: https://github.com/home-assistant/home-assistant/pull/25115
+[#25119]: https://github.com/home-assistant/home-assistant/pull/25119
+[#25121]: https://github.com/home-assistant/home-assistant/pull/25121
+[#25133]: https://github.com/home-assistant/home-assistant/pull/25133
+[#25135]: https://github.com/home-assistant/home-assistant/pull/25135
+[#25139]: https://github.com/home-assistant/home-assistant/pull/25139
+[#25140]: https://github.com/home-assistant/home-assistant/pull/25140
+[#25141]: https://github.com/home-assistant/home-assistant/pull/25141
+[#25148]: https://github.com/home-assistant/home-assistant/pull/25148
+[#25149]: https://github.com/home-assistant/home-assistant/pull/25149
+[#25151]: https://github.com/home-assistant/home-assistant/pull/25151
+[#25152]: https://github.com/home-assistant/home-assistant/pull/25152
+[#25162]: https://github.com/home-assistant/home-assistant/pull/25162
+[#25166]: https://github.com/home-assistant/home-assistant/pull/25166
+[#25167]: https://github.com/home-assistant/home-assistant/pull/25167
+[#25168]: https://github.com/home-assistant/home-assistant/pull/25168
+[#25170]: https://github.com/home-assistant/home-assistant/pull/25170
+[#25177]: https://github.com/home-assistant/home-assistant/pull/25177
+[#25180]: https://github.com/home-assistant/home-assistant/pull/25180
+[#25187]: https://github.com/home-assistant/home-assistant/pull/25187
+[#25193]: https://github.com/home-assistant/home-assistant/pull/25193
 [@Adminiuga]: https://github.com/Adminiuga
 [@Cereal2nd]: https://github.com/Cereal2nd
 [@Chris-Johnston]: https://github.com/Chris-Johnston
@@ -445,10 +561,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@Emilv2]: https://github.com/Emilv2
 [@GrandNewbien]: https://github.com/GrandNewbien
 [@JeffLIrion]: https://github.com/JeffLIrion
+[@KJonline]: https://github.com/KJonline
 [@Martijn02]: https://github.com/Martijn02
 [@Matte23]: https://github.com/Matte23
+[@OnFreund]: https://github.com/OnFreund
 [@PaulAnnekov]: https://github.com/PaulAnnekov
 [@StevenLooman]: https://github.com/StevenLooman
+[@SukramJ]: https://github.com/SukramJ
 [@Swamp-Ig]: https://github.com/Swamp-Ig
 [@alain57]: https://github.com/alain57
 [@alengwenus]: https://github.com/alengwenus
@@ -467,6 +586,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cnrd]: https://github.com/cnrd
 [@ctso]: https://github.com/ctso
 [@cybe]: https://github.com/cybe
+[@danielperna84]: https://github.com/danielperna84
 [@davet2001]: https://github.com/davet2001
 [@dmulcahey]: https://github.com/dmulcahey
 [@dreed47]: https://github.com/dreed47
@@ -476,8 +596,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@fabaff]: https://github.com/fabaff
 [@foreign-sub]: https://github.com/foreign-sub
 [@frenck]: https://github.com/frenck
+[@gadgetchnnel]: https://github.com/gadgetchnnel
 [@h3ndrik]: https://github.com/h3ndrik
 [@jesserizzo]: https://github.com/jesserizzo
+[@jkeljo]: https://github.com/jkeljo
 [@jlrgraham]: https://github.com/jlrgraham
 [@jmw6773]: https://github.com/jmw6773
 [@johnluetke]: https://github.com/johnluetke
@@ -506,6 +628,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@zombielinux]: https://github.com/zombielinux
 [@zxdavb]: https://github.com/zxdavb
 [alert docs]: /components/alert/
+[alexa docs]: /components/alexa/
 [ambiclimate docs]: /components/ambiclimate/
 [ambient_station docs]: /components/ambient_station/
 [androidtv docs]: /components/androidtv/
@@ -515,7 +638,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [braviatv docs]: /components/braviatv/
 [cert_expiry docs]: /components/cert_expiry/
 [climate docs]: /components/climate/
+[cloud docs]: /components/cloud/
 [config docs]: /components/config/
+[coolmaster docs]: /components/coolmaster/
 [cups docs]: /components/cups/
 [deutsche_bahn docs]: /components/deutsche_bahn/
 [device_tracker docs]: /components/device_tracker/
@@ -525,15 +650,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [ecobee docs]: /components/ecobee/
 [enphase_envoy docs]: /components/enphase_envoy/
 [evohome docs]: /components/evohome/
+[fritzbox docs]: /components/fritzbox/
 [frontend docs]: /components/frontend/
 [geniushub docs]: /components/geniushub/
 [geo_json_events docs]: /components/geo_json_events/
 [geo_location docs]: /components/geo_location/
 [glances docs]: /components/glances/
+[google_assistant docs]: /components/google_assistant/
 [google_cloud docs]: /components/google_cloud/
 [hikvision docs]: /components/hikvision/
+[hive docs]: /components/hive/
 [homekit docs]: /components/homekit/
 [homematic docs]: /components/homematic/
+[homematicip_cloud docs]: /components/homematicip_cloud/
 [honeywell docs]: /components/honeywell/
 [input_datetime docs]: /components/input_datetime/
 [insteon docs]: /components/insteon/
@@ -542,6 +671,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [knx docs]: /components/knx/
 [lcn docs]: /components/lcn/
 [life360 docs]: /components/life360/
+[light docs]: /components/light/
 [logbook docs]: /components/logbook/
 [luftdaten docs]: /components/luftdaten/
 [media_extractor docs]: /components/media_extractor/
@@ -565,6 +695,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensibo docs]: /components/sensibo/
 [sensor docs]: /components/sensor/
 [simplisafe docs]: /components/simplisafe/
+[sisyphus docs]: /components/sisyphus/
 [sleepiq docs]: /components/sleepiq/
 [sma docs]: /components/sma/
 [smartthings docs]: /components/smartthings/
@@ -572,10 +703,13 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sonos docs]: /components/sonos/
 [sql docs]: /components/sql/
 [steam_online docs]: /components/steam_online/
+[switch docs]: /components/switch/
 [switchmate docs]: /components/switchmate/
+[syncthru docs]: /components/syncthru/
 [systemmonitor docs]: /components/systemmonitor/
 [sytadin docs]: /components/sytadin/
 [tado docs]: /components/tado/
+[tahoma docs]: /components/tahoma/
 [template docs]: /components/template/
 [tensorflow docs]: /components/tensorflow/
 [toon docs]: /components/toon/
@@ -588,8 +722,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vallox docs]: /components/vallox/
 [velbus docs]: /components/velbus/
 [vera docs]: /components/vera/
+[version docs]: /components/version/
 [vizio docs]: /components/vizio/
 [watson_tts docs]: /components/watson_tts/
+[waze_travel_time docs]: /components/waze_travel_time/
 [wwlln docs]: /components/wwlln/
 [yeelight docs]: /components/yeelight/
 [zestimate docs]: /components/zestimate/
