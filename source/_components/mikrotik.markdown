@@ -53,6 +53,12 @@ password:
   description: The password of the given user account on the MikroTik device.
   required: true
   type: string
+login_method:
+  description: The login method to use on the MikroTik device. The `plain` method is used by default, if you have an older RouterOS Version than 6.43, use `token` as login method.
+  required: false
+  type: string
+  options: plain, token
+  default: plain
 port:
   description: RouterOS API port.
   required: false
