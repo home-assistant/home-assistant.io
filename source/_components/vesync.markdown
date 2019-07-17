@@ -9,7 +9,7 @@ redirect_from:
  - /components/switch.vesync/
 ---
 
-The `vesync` integration enables you to control the Levoit air purifier and Etekcity smart switches and outlets connected to the VeSync App.
+The `vesync` integration enables you to control Etekcity smart switches and outlets connected to the VeSync App.
 
 The devices must be added to the VeSync App before they can be discovered by this component.
 
@@ -27,6 +27,7 @@ This integration supports devices controllable by the VeSync App.  The following
 - Etekcity 10 Amp US outlet - ESW10-USA (Round)
 - Etekcity 10 Amp EU outlet - ESW10-EU (Round)
 - Etekcity 15 Amp US outlet - ESW15-USA (Rectangular)
+- Etekcity 2 Plug Outdoor Outlet - ESO15-TB
 
 ### Switches
 
@@ -58,6 +59,12 @@ time_zone:
   required: false
   type: time_zone
 {% endconfiguration %}
+
+## Services
+
+| Service | Description |
+|---------|-------------|
+| `update_devices` | Poll Vesync server to find and add any new devices |
 
 ## Outlet Exposed Attributes
 
