@@ -69,13 +69,13 @@ As part of Home Assistant 1.0 effort, we're simplifying the default user interfa
 
 Advanced mode is only available to admin users and is a per-user setting. Enabling it for yourself won't enable it for other admins.
 
-## Website maintenance
-
-Big shout out to [@frenck] who has been doing a lot of clean up on the website. Like, a lot lot. He has removed over 20.000 unused lines of code, and has simplified how we render code blocks, pages and headers. Our Jekyll build is now down to a mere 14 seconds! It used to be 6 minutes! 😲
-
 ## In other news…
 
-If you missed the announcement, we showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), a new interface for Home Assistant that runs on Chromecast devices.
+Raspberry Pi 4 support has arrived in beta. [@pvizeli] has been hard at work and the first beta release [is available](https://github.com/home-assistant/hassos/releases/tag/3.3). If you flash this image, you will be able to update to a stable release later from within the UI.
+
+Big shout out to [@frenck] who has been doing a lot of clean up on the website. Like, a lot lot. He has removed over 20.000 unused lines of code, and has simplified how we render code blocks, pages and headers. It takes Jekyll now a mere 14 seconds to generate the whole website! It used to be 6 minutes! 😲
+
+Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), a new interface for Home Assistant that runs on Chromecasts and Google Assistant devices with screens.
 
 ## New Integrations
 
@@ -116,9 +116,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __Ambient Weather Station__ - By default, the Ambient solar radiation (i.e., brightness) sensor is measured in W/m². Since this unit of measurement is not used anywhere else, this change updates the sensor to use the more prevalent lx unit. Any automations that use this sensor should be updated accordingly. ([@bachya] - [#24690]) ([ambient_station docs])
 
- 
+
  - __Google Cloud__ - Changed the default encoding to mp3 from opus ogg, allowing it to support many more media players. ([@GrandNewbien] - [#24808]) ([google_cloud docs])
- 
+
    Example configuration:
    ```
    tts:
