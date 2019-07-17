@@ -30,10 +30,17 @@ media_player:
     description: The port of the device to connect to.
     required: false
     type: integer
+    default: 5900
   name:
     description: The name of the device used in the frontend.
     required: false
     type: string
+    default: Horizon
+  icon:
+    description: The icon of the device used in the frontend.
+    required: false
+    type: string
+    default: mdi:television-box
 {% endconfiguration %}
 
 
