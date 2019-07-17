@@ -44,9 +44,11 @@ resource:
 password:
   description: The password for your given Jabber account.
   required: true
+  type: string
 recipient:
   description: The Jabber ID (JID) that will receive the messages.
   required: true
+  type: string
 tls:
   description: Force TLS.
   required: false

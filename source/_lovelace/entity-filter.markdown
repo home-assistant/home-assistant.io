@@ -29,7 +29,7 @@ state_filter:
 card:
   required: false
   description: Extra options to pass down to the card rendering the result.
-  type: object
+  type: map
   default: entities card
 show_empty:
   required: false

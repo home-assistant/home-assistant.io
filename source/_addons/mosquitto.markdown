@@ -41,6 +41,7 @@ customize:
   description: If you enable it, it reads additional configuration files (`*.conf`) from `/share/mosquitto`.
   required: false
   type: [boolean, string]
+  default: false
 {% endconfiguration %}
 
 ### Home Assistant user management

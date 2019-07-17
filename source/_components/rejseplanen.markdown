@@ -56,15 +56,15 @@ stop_id:
 route:
   description: List of route names.
   required: false
-  type: string|list
+  type: [string, list]
 direction:
   description: List of directions to filter by.
   required: false
-  type: string|list
+  type: [string, list]
 departure_type:
   description: List of departure types to filter by.
   required: false
-  type: string|list
+  type: [string, list]
 {% endconfiguration %}
 
 ## Direction

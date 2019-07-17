@@ -75,7 +75,7 @@ contact:
 issue_report_channels:
   description: "The reporting channel for issues. Pick an entity from `contact:`."
   required: true
-  type: List
+  type: list
 state:
   description: The current state of the Hackerspace.
   required: true
@@ -84,7 +84,7 @@ state:
     entity_id:
       description: "The `entity_id` of a binary sensor that represents the current state."
       required: true
-      type: entity_id
+      type: string
     icon_open:
       description: The URL which is publicly accessible of the icon for the open Hackerspace.
       required: false
@@ -101,11 +101,11 @@ sensors:
     temperature:
       description: List of temperature sensors.
       required: true
-      type: entity_id
+      type: string
     humidity:
       description: List of humidity sensors.
       required: true
-      type: entity_id
+      type: string
 {% endconfiguration %}
 
 The list of sensors can be any sensor, not just temperature or humidity.

@@ -80,7 +80,7 @@ devices:
 custom_effects:
   description: List of custom effects to add. Check examples below.
   required: false
-  type: array
+  type: map
   keys:
     name:
       description: Name of effect.
@@ -99,8 +99,7 @@ custom_effects:
          transitions:
            description: List of transitions, for that effect, check [example](#custom-effects).
            required: true
-           type: array
-
+           type: list
 {% endconfiguration %}
 
 #### Music mode 

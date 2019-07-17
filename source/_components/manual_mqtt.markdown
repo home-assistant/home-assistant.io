@@ -88,6 +88,7 @@ disarm_after_trigger:
   description: If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
   required: false
   type: boolean
+  default: false
 armed_home/armed_away/armed_night/disarmed/triggered:
   description: State specific settings
   required: false

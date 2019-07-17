@@ -91,6 +91,7 @@ force_update:
   description: Sends update events even if the value hasn't changed.
   required: false
   type: boolean
+  default: false
 median:
   description: "Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine."
   required: false

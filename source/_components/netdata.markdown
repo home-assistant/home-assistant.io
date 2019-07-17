@@ -92,7 +92,7 @@ port:
 name:
   description: Name of the monitored Netdata instance.
   required: false
-  type: number
+  type: string
   default: Netdata
 resources:
   description: List of details to monitor.
