@@ -63,6 +63,7 @@ Huge thanks to [@pvizeli] who drove the core implementation and to the following
 [@marvin-w]: https://github.com/marvin-w
 [@OnFreund]: https://github.com/OnFreund
 [@SukramJ]: https://github.com/SukramJ
+[@teachingbirds]: https://github.com/teachingbirds
 
 ## Advanced mode
 
@@ -77,6 +78,11 @@ Raspberry Pi 4 support has arrived in beta. [@pvizeli] has been hard at work and
 Big shout out to [@frenck] who has been doing a lot of clean up on the website. Like, a lot lot. He has removed over 20.000 unused lines of code, and has simplified how we render code blocks, pages and headers. It takes Jekyll now a mere 14 seconds to generate the whole website! It used to be 6 minutes! 😲
 
 Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), a new interface for Home Assistant that runs on Chromecasts and Google Assistant devices with screens.
+
+[@teachingbirds] has redone her Lovelace UI and it is looking fabulous!
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Redid my whole layout for the <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> dashboard yesterday on a whim. &quot;Nest hub inspired&quot;, I call it. 😄 I like it a lot! Feels put together and less messy. <a href="https://t.co/8pmA5CWKev">pic.twitter.com/8pmA5CWKev</a></p>&mdash; Isa (@teachingbirds) <a href="https://twitter.com/teachingbirds/status/1151113630391427072?ref_src=twsrc%5Etfw">July 16, 2019</a>
+</blockquote>
 
 ## New Integrations
 
