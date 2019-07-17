@@ -2,18 +2,47 @@
 layout: post
 title: "0.96: TBD - UPDATE DATE"
 description: "TBD."
-date: 2019-07-08 04:11:03
+date: 2019-07-17 00:11:03
 date_formatted: "July 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-07-release-96/social.png
+og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
 
 <a href='/components/#version/0.96'><img src='/images/blog/2019-07-release-96/components.png' style='border: 0;box-shadow: none;'></a>
 
-Climate has been completely revamped. Please test out any climate integration that you use and report if it is broken.
+It's time for Home Assistant 0.96. It's a great release, but we also made some changes, so please pay attention.
+
+## Sidebar
+
+We have a new sidebar! Idea started with [a mockup by @JuanMTech on Twitter](https://twitter.com/JuanMTech/status/1143757213971943424) and grew into a full blown implementation. The sidebar will now always be visible in a minimized mode. Hovering it will expand it. The developer tool buttons have been collapsed into a single menu item. The dev tools will now store it's exact state when you navigate away, included the dev tool that is open. We've also taken the opportunity to make notifications accessible from the sidebar, instead of only via the Lovelace UI.
+
+On mobile devices the sidebar will behave like it previously did. Check [the demo](https://demo.home-assistant.io) for a preview.
+
+<p class='img'>
+<a href='https://demo.home-assistant.io'>
+<img src='/images/blog/2019-07-release-96/demo-sidebar.png' alt='Screenshot of the demo with the new sidebar.'>
+Screenshot of the demo with the new sidebar. Click to open.
+</a>
+</p>
+
+## Climate
+
+This release includes a major clean up of our climate integration, correcting some architectural flaws from the past. We've done a lot of testing during the beta, but there might still be things that don't work as expected. Please report if you notice anything.
+
+For a breakdown of what was driving the change, [check our blog post on the dev blog](https://developers.home-assistant.io/blog/2019/07/03/climate-cleanup.html).
+
+The following things have been changed:
+
+ - `operation_mode` has been renamed to `hvac_mode` to emphasize what the mode is for.
+ - The state of a climate entity is now always equal to the hvac mode.
+ - `hvac_action` is introduced for integrations that know the current action: heating, cooling, idle.
+ - `set_away_mode` and `set_hold_mode` have been merged into `set_preset_mode`. So instead of `turn_away_mode_on()`, we will now call `set_preset_mode("away")`.
+ - The `is_on` property has been removed. If a device is able to turn off, it should include the hvac mode `HVAC_MODE_OFF`.
+ - Property names have been aligned, anything ending with "_list" is now named "_modes".
+ - Integrations are only allowed to represent functionality that is present in the API. It is not allowed to add your own fake away mode.
 
 Huge thanks to the following people:
 
@@ -27,14 +56,27 @@ Huge thanks to the following people:
 - [@OnFreund]
 - [@pvizeli]
 - [@SukramJ]
-- [@Swamp-lg]
 - [@zxdavb]
 
-We have a new sidebar! Started with a mockup by [@JuanMTech] and grew into a full blown implementation. Check [the demo](https://demo.home-assistant.io) for a preview.
+[@JuanMTech]: https://github.com/JuanMTech
+[@Jc2k]: https://github.com/Jc2k
+[@marvin-w]: https://github.com/marvin-w
+[@OnFreund]: https://github.com/OnFreund
+[@SukramJ]: https://github.com/SukramJ
 
-Big shout out to [@frenck] who has been doing a lot of clean up on the website.
+## Advanced mode
 
-If you missed the announcement, we showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), the new interface that runs on Chromecast devices.
+As part of Home Assistant 1.0 effort, we're simplifying the default user interface. We're doing this by hiding certain configuration options like the customize panel behind a new "advanced mode" toggle. You can find this toggle on your profile page.
+
+Advanced mode is only available to admin users and is a per-user setting. Enabling it for yourself won't enable it for other admins.
+
+## Website maintenance
+
+Big shout out to [@frenck] who has been doing a lot of clean up on the website. Like, a lot lot. He has removed over 20.000 unused lines of code, and has simplified how we render code blocks, pages and headers. Our Jekyll build is now down to a mere 14 seconds! It used to be 6 minutes! 😲
+
+## In other news…
+
+If you missed the announcement, we showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), a new interface for Home Assistant that runs on Chromecast devices.
 
 ## New Integrations
 
