@@ -11,7 +11,7 @@ redirect_from:
 ---
 
 
-The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers.
+The `cups` sensor platform is using the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the informations using a CUPS server or communicating directly with the printer with the Internet Printing Protocol.
 
 ## Setup
 
@@ -38,18 +38,22 @@ sensor:
 
 {% configuration %}
 printers:
-  description: List of printers to add.
+  description: List of printers to add. If you're not using a CUPS server, add here your "Printer Name".
   required: true
   type: list
 host:
-  description: IP address of the CUPS print server.
+  description: The IP address of the CUPS print server or of the printer.
   required: false
   type: string
   default: 127.0.0.1
 port:
-  description: Port of the CUPS print server.
+  description: The port number of the CUPS print server or of the printer.
   required: false
   type: integer
   default: 631
+is_cups_server:
+  description: Set true if you want to use a CUPS print server, set false otherwise.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
-

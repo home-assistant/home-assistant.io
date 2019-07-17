@@ -13,7 +13,8 @@ The `climate` integration is built for the controlling and monitoring of HVAC (h
 ## Services
 
 ### Climate control services
-Available services: `climate.set_aux_heat`, `climate.set_away_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_operation_mode`, `climate.set_swing_mode`, `climate.set_hold_mode`, `climate.turn_on`, `climate.turn_off`
+
+Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`
 
 <div class='note'>\
 
@@ -30,7 +31,7 @@ Turn auxiliary heater on/off for climate device
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `aux_heat` | no | New value of auxiliary heater.
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -44,45 +45,18 @@ automation:
         aux_heat: true
 ```
 
-### Service `climate.set_away_mode`
+### Service `climate.set_preset_mode`
 
-Set away mode for climate device. The away mode changes the target temperature permanently to a temperature 
+Set preset mode for climate device. The away mode changes the target temperature permanently to a temperature
 reflecting a situation where the climate device is set to save energy. This may be used to emulate a
 "vacation mode", for example.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `away_mode` | no | New value of away mode.
+| `preset_mode` | no | New value of preset mode.
 
-#### Automation example 
-
-```yaml
-automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_away_mode
-      data:
-        entity_id: climate.kitchen
-        away_mode: 'on'
-```
-
-
-### Service `climate.set_hold_mode`
-
-Set hold mode for climate device. The hold mode changes the target temperature of the client device temporarily to
-a different temperature. Typical hold modes provided by a climate device are "away" or "home", where the hold temperature
-is chosen depending on a predefined climate, or "temperature" hold, where a particular temperature is selected as the
-temporary target temperature. The particular modes available depend on the climate device.
-
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `hold_mode` | no | New value of hold mode.
-
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -90,10 +64,10 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_hold_mode
+    - service: climate.set_preset_mode
       data:
         entity_id: climate.kitchen
-        hold_mode: 'away'
+        preset_mode: 'eco'
 ```
 
 ### Service `climate.set_temperature`
@@ -108,7 +82,7 @@ Set target temperature of climate device
 | `target_temp_low` | yes | New target low temperature for hvac
 | `operation_mode` | yes | Operation mode to set temperature to. This defaults to current_operation mode if not set, or set incorrectly.
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -132,7 +106,7 @@ Set target humidity of climate device
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `humidity` | no | New target humidity for climate device
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -155,7 +129,7 @@ Set fan operation for climate device
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `fan_mode` | no | New value of fan mode
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -169,16 +143,16 @@ automation:
         fan_mode: 'On Low'
 ```
 
-### Service `climate.set_operation_mode`
+### Service `climate.set_hvac_mode`
 
-Set operation mode for climate device
+Set HVAC mode for climate device
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
-| `operation_mode` | no | New value of operation mode
+| `hvac_mode` | no | New value of HVAC mode
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -186,10 +160,10 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_operation_mode
+    - service: climate.set_hvac_mode
       data:
         entity_id: climate.kitchen
-        operation_mode: Heat
+        operation_mode: heat
 ```
 
 ### Service `climate.set_swing_mode`
@@ -201,7 +175,7 @@ Set operation mode for climate device
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `swing_mode` | no | New value of swing mode
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -214,9 +188,10 @@ automation:
         entity_id: climate.kitchen
         swing_mode: 1
 ```
+
 ### Service `climate.turn_on`
 
-Turn climate device on
+Turn climate device on. This is only supported if the climate device supports being turned off.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -224,7 +199,7 @@ Turn climate device on
 
 ### Service `climate.turn_off`
 
-Turn climate device off
+Turn climate device off. This is only supported if the climate device has the hvac mode "off".
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -102,6 +102,30 @@ automation:
 ```
 {% endraw %}
 
+You can also use templates in the `for` option.
+
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: numeric_state
+    entity_id:
+      - sensor.temperature_1
+      - sensor.temperature_2
+    above: 80
+    for:
+      minutes: "{{ states('input_number.high_temp_min')|int }}"
+      seconds: "{{ states('input_number.high_temp_sec')|int }}"
+  action:
+    service: persistent_notification.create
+    data_template:
+      message: >
+        {{ trigger.to_state.name }} too high for {{ trigger.for }}!
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when an entity changes as specified.
+
 ### State trigger
 
 Triggers when the state of any of given entities changes. If only `entity_id` is given trigger will activate for all state changes, even if only state attributes change.
@@ -120,8 +144,28 @@ automation:
     for: '01:10:05'
 ```
 
-<div class='note warning'>
+You can also use templates in the `for` option.
 
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: state
+    entity_id: device_tracker.paulus, device_tracker.anne_therese
+    to: 'home'
+    for:
+      minutes: "{{ states('input_number.lock_min')|int }}"
+      seconds: "{{ states('input_number.lock_sec')|int }}"
+  action:
+    service: lock.lock
+    entity_id: lock.my_place
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when an entity changes as specified.
+
+
+<div class='note warning'>
   Use quotes around your values for `from` and `to` to avoid the YAML parser interpreting values as booleans.
 
 </div>
@@ -181,7 +225,7 @@ Although the actual amount of light depends on weather, topography and land cove
   This is what is meant by twilight for the average person: Under clear weather conditions, civil twilight approximates the limit at which solar illumination suffices for the human eye to clearly distinguish terrestrial objects. Enough illumination renders artificial sources unnecessary for most outdoor activities.
 - Nautical twilight: 6° > Solar angle > -12°
 - Astronomical twilight: 12° > Solar angle > -18°
-    
+
 A very thorough explanation of this is available in the Wikipedia article about the [Twilight](https://en.wikipedia.org/wiki/Twilight).
 
 ### Template trigger
@@ -201,8 +245,22 @@ automation:
 ```
 {% endraw %}
 
-<div class='note warning'>
+You can also use templates in the `for` option.
 
+{% raw %}
+```yaml
+automation:
+  trigger:
+    platform: template
+    value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
+    for:
+      minutes: "{{ states('input_number.minutes')|int(0) }}"
+```
+{% endraw %}
+
+The `for` template(s) will be evaluated when the `value_template` becomes `true`.
+
+<div class='note warning'>
 Rendering templates with time (`now()`) is dangerous as trigger templates only update based on entity state changes.
 
 </div>

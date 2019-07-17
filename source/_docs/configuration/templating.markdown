@@ -27,7 +27,6 @@ We will not go over the basics of the syntax, as Jinja2 does a great job of this
 
 The frontend has a template editor tool to help develop and debug templates. Click on the <img src='/images/screenshots/developer-tool-templates-icon.png' alt='template developer tool icon' class="no-shadow" height="38" /> icon, create your template in the _Template editor_ and check the results on the right.
 
-
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
 {% raw %}
@@ -48,7 +47,7 @@ script:
 
 ## Home Assistant template extensions
 
- Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
+Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
 ### States
 
@@ -67,7 +66,6 @@ script:
 </div>
 
 Besides the normal [state object methods and properties](/topics/state_object/), `states.sensor.temperature.state_with_unit` will print the state of the entity and, if available, the unit.
-
 
 #### States examples
 
@@ -114,10 +112,9 @@ Other state examples:
 ```
 {% endraw %}
 
-
 ### Attributes
 
-You can print an attribute with `state_attr` if state is defined. 
+You can print an attribute with `state_attr` if state is defined.
 
 #### Attributes examples
 
@@ -145,8 +142,33 @@ With strings:
 ```
 {% endraw %}
 
+### {% linkable_title Working with Groups %}
+
+The `expand` function and filter can be used to sort entities and expand groups. It outputs a sorted array of entities with no duplicates.
+
+#### {% linkable_title Expand examples %}
+
+{% raw %}
+```text
+{% for tracker in expand('device_tracker.paulus', 'group.child_trackers') %}
+  {{ state_attr(tracker, 'battery') }}
+  {%- if not loop.last %}, {% endif -%}
+{% endfor %}
+```
+{% endraw %}
+
+The same thing can also be expressed as a filter:
+
+{% raw %}
+```text
+{{ ['device_tracker.paulus', 'group.child_trackers'] | expand 
+  | selectattr("attributes.battery", 'defined')
+  | join(', ', attribute="attributes.battery") }}
+```
+{% endraw %}
 
 ### Time
+
 - `now()` will be rendered as the current time in your time zone.
   - For specific values: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()`
 - `utcnow()` will be rendered as UTC time.
@@ -158,10 +180,12 @@ With strings:
 - Filter `timestamp_custom(format_string, local_boolean)` will convert a UNIX timestamp to a custom format, the use of a local timestamp is default. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 ### Distance
+
 - `distance()` will measure the distance in kilometers between home, entity, coordinates.
 - `closest()` will find the closest entity.
 
 #### Distance examples
+
 If only one location is passed in, Home Assistant will measure the distance from home.
 
 {% raw %}
@@ -176,12 +200,14 @@ These can also be combined in any combination:
 ```
 {% endraw %}
 
-Find entities closest to the Home Assistant location:
+#### {% linkable_title Closest examples %}
+
+The closest function and filter will find the closest entity to the Home Assisant location:
 
 {% raw %}
 ```text
 Query all entities: {{ closest(states) }}
-Query all entities of a specific domain: {{ closest('states.device_tracker') }}
+Query all entities of a specific domain: {{ closest(states.device_tracker) }}
 Query all entities in group.children: {{ closest('group.children') }}
 Query all entities in group.children: {{ closest(states.group.children) }}
 ```
@@ -205,11 +231,37 @@ Since closest returns a state, we can combine it with distance too.
 ```
 {% endraw %}
 
+The last argument of the closest function has an implicit `expand`, and can take any iterable sequence of states or entity IDs, and will expand groups:
+
+{% raw %}
+```text
+Closest out of given entities: 
+    {{ closest(['group.children', states.device_tracker]) }}
+Closest to a coordinate:  
+    {{ closest(23.456, 23.456, ['group.children', states.device_tracker]) }}
+Closest to some entity: 
+    {{ closest(states.zone.school, ['group.children', states.device_tracker]) }}
+```
+
+It will also work as a filter over a iterable group of entities or groups:
+
+```text
+Closest out of given entities: 
+    {{ ['group.children', states.device_tracker] | closest }}
+Closest to a coordinate:  
+    {{ ['group.children', states.device_tracker] | closest(23.456, 23.456) }}
+Closest to some entity: 
+    {{ ['group.children', states.device_tracker] | closest(states.zone.school) }}
+```
+
+{% endraw %}
 
 ### Formatting
+
 - `float` will format the output as float.
 
 ### Numeric functions and filters
+
 Some of these functions can also be used in a [filter](http://jinja.pocoo.org/docs/dev/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
 - `log(value, base)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. Can also be used as a filter.
@@ -227,6 +279,7 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 
 ### Regular expressions
+
 - Filter `string|regex_match(find, ignorecase=FALSE)` will match the find expression at the beginning of the string using regex.
 - Filter `string|regex_search(find, ignorecase=FALSE)` will match the find expression anywhere in the string using regex.
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
@@ -330,12 +383,12 @@ To evaluate a response, go to the <img src='/images/screenshots/developer-tool-t
 ## Some more things to keep in mind
 
 ### `entity_id` that begins with a number
+
 If your template uses an `entity_id` that begins with a number (example: `states.device_tracker.2008_gmc`) you must use a bracket syntax to avoid errors caused by rendering the `entity_id` improperly. In the example given, the correct syntax for the device tracker would be: `states.device_tracker['2008_gmc']`
 
 ### Templates without entities using `now()`
 
 Note that templates that depend on time (`now()`) and do not use any entities will not be updated as it only happens on entity state changes. For more information and examples refer to [`template` sensor documentation](/components/sensor.template/#working-without-entities)
-
 
 ### Priority of operators
 
@@ -348,4 +401,3 @@ The default priority of operators is that the filter (`|`) has priority over eve
 {% endraw %}
 
 Would round `10` to 2 decimal places, then divide `states('sensor.temperature')` by that.
-

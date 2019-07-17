@@ -11,17 +11,25 @@ ha_release: 0.93
 ha_iot_class: Local Polling
 ---
 
-The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway for integrating the boiler and any room thermostats attached to it.
+The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
 
-The boiler is represented as a **Water Heater** device. It will report the boiler's `state` and `temperature` (current temperature). The gateway does not expose any means to directly control the boiler or change its configuration.
+It uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
 
-Note that the `temperature` will switch between the CV and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
+### Boiler
 
-Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `target_temperature` (setpoint) and `current_temperature` and the setpoint can be changed.
+The boiler is represented as a **Water Heater** device. It will report the boiler's `state` and `current_temperature`. The gateway does not expose any means to directly control the boiler or change its configuration.
+
+Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
 
 In addition, there is a **Sensor** for CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
 
-To send an alert if the CV pressure is too low or too high, consider the following automation:
+### Rooms
+
+Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint) and `current_temperature` and the setpoint can be changed.
+
+## Automation
+
+To send an alert if the CV pressure is too low or too high, consider the following example:
 
 {% raw %}
 ```yaml
@@ -42,9 +50,13 @@ To send an alert if the CV pressure is too low or too high, consider the followi
 
 Other properties are available via each device's attributes.
 
-### Configuration
+## Configuration
 
-To add your Lan2RF gateway into your Home Assistant installation, add one of the following to your `configuration.yaml` file.
+To set up this integration, add the following to your **configuration.yaml** file:
+
+The hub does not have to be in the same network as HA.
+
+### Older gateways
 
 Older gateways do not require user authentication:
 
@@ -53,6 +65,8 @@ Older gateways do not require user authentication:
 incomfort:
   host: IP_ADDRESS
 ```
+
+### Newer gateways
 
 Alternatively, if a **username** & **password** is printed on the back of the gateway:
 
@@ -63,8 +77,6 @@ incomfort:
   username: USERNAME
   password: PASSWORD
 ```
-
-The hub does not have to be in the same network as HA.
 
 {% configuration %}
 host:

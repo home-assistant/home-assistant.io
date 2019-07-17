@@ -59,19 +59,26 @@ client_secret:
   description: Toon API Consumer Secret.
   required: true
   type: string
+scan_interval:
+  description: The rate in seconds at which Toon should be polled for new data.
+  required: false
+  type: integer
+  default: 300
 {% endconfiguration %}
 
 ## Climate
 
-The `toon` climate platform allows you to interact with your Toon thermostat. For compatibility reasons, the states in Home Assistant are different from the states displayed on your Toon device and are mapped as follows:
+The `toon` climate platform allows you to interact with your Toon thermostat.
 
-| Home Assistant | Toon    |
-|:---------------|:--------|
-| Auto           | Comfort |
-| Heat           | Thuis   |
-| Eco            | Weg     |
-| Cool           | Slapen  |
-
+Home Assistant support the four Toon presets: `Comfort`, `Home`, `Away` and `Sleep`.
 It also supports setting the temperature manually.
 
-The Toon API is polled at a 300-second interval, so the status is relatively fresh without overloading the API.
+## Services
+
+### Service `update`
+
+Updates ententies from Toon with fresh queried data.
+
+| Service data attribute | Optional | Description                                 |
+| ---------------------- | -------- | ------------------------------------------- |
+| `display`              | Yes      | The display you wish to fetch updates from. |

@@ -10,7 +10,7 @@ The `google_cloud` platform allows you to use [Google Cloud Platform](https://cl
 
 ## Configuration
 
-To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
+To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-an-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,11 +68,11 @@ The Cloud Text-to-Speech API is priced monthly based on the amount of characters
 
 {% configuration %}
 key_file:
-  description: "The [`API key`](#obtaining-api-key) file to use with Google Cloud Platform. If not specified `os.environ['GOOGLE_APPLICATION_CREDENTIALS']` path will be used."
+  description: "The [`API key`](#obtaining-an-api-key) file to use with Google Cloud Platform. If not specified `os.environ['GOOGLE_APPLICATION_CREDENTIALS']` path will be used."
   required: false
   type: string
 language:
-  description: "Default language of the voice, e.g. `en-US`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices)."
+  description: "Default language of the voice, e.g. `en-US`. Supported languages, genders and voices listed [here](https://cloud.google.com/text-to-speech/docs/voices). Also there are extra not documented but supported languages (see dropdown [here](https://cloud.google.com/text-to-speech/#streaming_demo_section))."
   required: false
   type: string
   default: en-US
@@ -89,7 +89,7 @@ encoding:
   description: "Default audio encoder. Supported encodings are `ogg_opus`, `mp3` and `linear16`."
   required: false
   type: string
-  default: ogg_opus
+  default: mp3
 speed:
   description: "Default rate/speed of the voice, in the range [0.25, 4.0]. 1.0 is the normal native speed supported by the specific voice. 2.0 is twice as fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed."
   required: false

@@ -86,6 +86,8 @@ sensors:
       description: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the upcoming_shabbat_havdalah sensor.
     issur_melacha_in_effect:
       description: A boolean sensor indicating if melacha is currently not permitted. The value is true when it is currently Shabbat or Yom Tov and false otherwise.
+    omer_count:
+      description: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
 
 {% endconfiguration %}
 

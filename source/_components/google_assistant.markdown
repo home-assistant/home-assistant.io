@@ -196,7 +196,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position)
 - media_player (on/off/set volume (via set volume)/source (via set input source))
-- climate (temperature setting, operation_mode)
+- climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting, only for temperature sensor)
 
@@ -247,7 +247,7 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
   3. Enable Homegraph API to the new project.
   4. Generate a new API key.
   5. Again, create a new project in the [Actions on Google console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
-  
+
 Syncing may also fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is techincally in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant", this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again.
 
 ### Troubleshooting with NGINX

@@ -252,6 +252,25 @@ light:
     address: 1a2b3c
 ```
 
+### INSTEON Scenes
+
+Trigger an INSTEON scene on or off is done via automations. Two services are provided to support this feature:
+
+- **insteon.scene_on**
+  - **group**: (required) The INSTEON scene number to trigger.
+- **insteon.scene_off**
+  - **group**: (required) The INSTEON scene to turn off
+
+```yaml
+automation:
+  # Trigger an INSTEON scene 25
+  - id: trigger_scene_25_on
+    alias: Turn on scene 25
+    action:
+      - service: insteon.scene_on
+        group: 25
+```
+
 ### Events and Mini-Remotes
 
 Mini-Remote devices do not appear as Home Assistant entities, they generate events. The following events are available:
@@ -259,7 +278,7 @@ Mini-Remote devices do not appear as Home Assistant entities, they generate even
 - **insteon.button_on**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote the values are `a` to `d`. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
-- **insteon.button_of**
+- **insteon.button_off**
   - **address**: (required) The Insteon device address in lower case without dots (e.g., 1a2b3c)
   - **button**: (Optional) The button id in lower case. For a 4-button remote the values are a to d. For an 8 button remote the values are `a` to `g`. For a one-button remote this field is not used.
 
@@ -268,33 +287,37 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 ```yaml
 automation:
   # 4 or 8 button remote with button c pressed
-  trigger:
-    platform: event
-    event_type: insteon.button_on
+  - id: light_on
+    alias: Turn a light on
+    trigger:
+      - platform: event
+        event_type: insteon.button_on
     event_data:
       address: 1a2b3c
       button: c
-  condition:
-    - condition: state
-      entity_id: light.some_light
-      state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.some_light
+    condition:
+      - condition: state
+        entity_id: light.some_light
+        state: 'off'
+    action:
+      - service: light.turn_on
+        entity_id: light.some_light
 
   # single button remote
-  trigger:
-    platform: event
-    event_type: insteon.button_on
+  - id: light_off
+    alias: Turn a light off
+    trigger:
+      - platform: event
+        event_type: insteon.button_on
     event_data:
       address: 1a2b3c
-  condition:
-    - condition: state
-      entity_id: light.some_light
-      state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.some_light
+    condition:
+      - condition: state
+        entity_id: light.some_light
+        state: 'off'
+    action:
+      - service: light.turn_on
+        entity_id: light.some_light
 ```
 
 ### Known Issues with the INSTEON Hub

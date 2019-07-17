@@ -31,6 +31,11 @@ to:
   description: The name of the end/destination station.
   required: true
   type: string
+offset:
+  description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
+  required: false
+  type: time
+  default: 00:00
 only_direct:
   description: Only show direct connections.
   required: false
