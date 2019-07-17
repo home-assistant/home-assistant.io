@@ -117,10 +117,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __OpenTherm__ - Adds support for more than one OpenTherm Gateway device which changes the configuration structure. ([@mvn23] - [#22932]) ([opentherm_gw docs])
 
    Example configuration:
-   ```
+
+   ```yaml
    opentherm_gw:
      living_room:
        device: /dev/ttyUSB0
+   ```
 
 - __Ambient Weather Station__ - By default, the Ambient solar radiation (i.e., brightness) sensor is measured in W/m². Since this unit of measurement is not used anywhere else, this change updates the sensor to use the more prevalent lx unit. Any automations that use this sensor should be updated accordingly. ([@bachya] - [#24690]) ([ambient_station docs])
 
@@ -128,7 +130,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Google Cloud__ - Changed the default encoding to mp3 from opus ogg, allowing it to support many more media players. ([@GrandNewbien] - [#24808]) ([google_cloud docs])
 
    Example configuration:
-   ```
+
+   ```yaml
    tts:
     - platform: google_cloud
       key_file: googlecloud.json
