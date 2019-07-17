@@ -55,7 +55,7 @@ devices:
         off_delay:
           description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
           required: false
-          type: int
+          type: integer
         force_update:
           description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
           required: false

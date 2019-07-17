@@ -103,6 +103,7 @@ fire_event:
   description: If set to True, platform will write all received KNX messages to event bus
   required: inclusive
   type: boolean
+  default: false
 fire_event_filter:
   description: If `fire_event` is set `fire_event_filter` has to be specified. `fire_event_filter` defines a list of patterns for filtering KNX addresses. Only telegrams which match this pattern are sent to the HOme Assistant event bus.
   required: inclusive

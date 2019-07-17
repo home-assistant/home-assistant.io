@@ -72,6 +72,7 @@ disable_brightness_adjust:
   description: If true, brightness will not be adjusted besides color temperature.
   required: false
   type: boolean
+  default: false
 mode:
   description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
   required: false

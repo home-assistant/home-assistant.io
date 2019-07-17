@@ -48,7 +48,7 @@ password:
 devices:
   description: The serial number/ID of each thermostat you would like to integrate.
   required: true
-  type: [string, int]
+  type: [string, integer]
 {% endconfiguration %}
 
 ## Concepts

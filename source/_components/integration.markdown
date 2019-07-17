@@ -44,12 +44,12 @@ unit_prefix:
   description: Metric unit to prefix the integration result. Available units are k, M, G, T.
   required: false
   default: None
-  type: unit
+  type: string
 unit_time:
   description: SI unit of time to integrate over. Available units are s, min, h, d.
   required: false
   default: h
-  type: unit
+  type: string
 unit:
   description: Unit of Measurement to be used for the integration.
   required: false
@@ -57,6 +57,7 @@ unit:
 method:
   description: Riemann sum method to be used. Available methods are trapezoidal, left, right.
   required: false
+  type: string
   default: trapezoidal
 {% endconfiguration %}
 

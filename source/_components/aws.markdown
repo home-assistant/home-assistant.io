@@ -42,12 +42,12 @@ name:
   required: true
   type: string
 aws_access_key_id:
-  description: Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`.
-  required: Required if aws_secret_access_key is provided
+  description: Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`. Required if `aws_secret_access_key` is provided.
+  required: false
   type: string
 aws_secret_access_key:
-  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`.
-  required: Required if aws_access_key_id is provided
+  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`. Required if `aws_access_key_id` is provided.
+  required: false
   type: string
 profile_name:
   description: A credentials profile name.
@@ -80,8 +80,8 @@ aws_access_key_id:
   required: false
   type: string
 aws_secret_access_key:
-  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id`.
-  required: Required if aws_access_key_id is provided
+  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id`. Required if aws_access_key_id is provided.
+  required: false
   type: string
 profile_name:
   description: A credentials profile name.

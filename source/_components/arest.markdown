@@ -214,7 +214,7 @@ resource:
   type: string
 name:
   description: Let you overwrite the name of the device. By default *name* from the device is used.
-  required: optional
+  required: false
   type: string
 pins:
   description: An array with all used pins.

@@ -53,6 +53,7 @@ ac_mode:
   description: Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
   required: false
   type: boolean
+  default: false
 min_cycle_duration:
   description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on.
   required: false

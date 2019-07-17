@@ -48,7 +48,7 @@ notify:
     target:
       description: The phone number of a default recipient or a list with multiple recipients.
       required: true
-      type: string, list
+      type: [string, list]
     name:
       description: The name of the notification service.
       required: false

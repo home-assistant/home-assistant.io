@@ -44,6 +44,7 @@ allow_unreachable:
   description: This will allow unreachable bulbs to report their state correctly.
   required: false
   type: boolean
+  default: false
 filename:
   description: Make this unique if specifying multiple Hue hubs.
   required: false
@@ -52,6 +53,7 @@ allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Examples

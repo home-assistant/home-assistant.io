@@ -38,7 +38,7 @@ api_key:
 users:
   description: List of users.
   required: true
-  type: map
+  type: list
   keys:
     username:
       description: Username of the user to monitor.

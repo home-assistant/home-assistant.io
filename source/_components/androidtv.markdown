@@ -76,7 +76,7 @@ adb_server_port:
   description: The port for the ADB server.
   required: false
   default: 5037
-  type: port
+  type: integer
 get_sources:
   description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
   required: false
@@ -86,7 +86,7 @@ apps:
   description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below.
   required: false
   default: {}
-  type: dict
+  type: map
 device_class:
   description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
   required: false

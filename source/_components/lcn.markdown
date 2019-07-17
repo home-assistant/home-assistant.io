@@ -199,7 +199,7 @@ climates:
     lockable:
       description: "Climate control can be locked."
       required: false
-      type: bool
+      type: boolean
       default: false
 
 covers:
@@ -240,12 +240,12 @@ lights:
     dimmable:
       description: Enable the dimming feature for this light.
       required: false
-      type: bool
+      type: boolean
       default: false
     transition:
       description: Transition (ramp) time in seconds.
       required: false
-      type: int
+      type: integer
       default: 0
 
 scenes:
@@ -264,11 +264,11 @@ scenes:
     register:
       description: Number of scene register (0..9).
       required: true
-      type: int
+      type: integer
     scene:
       description: Number of scene (0..9).
       required: true
-      type: int
+      type: integer
     outputs:
       description: "List of ports ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
       required: false
@@ -276,7 +276,7 @@ scenes:
     transition:
       description: Transition (ramp) time in seconds.
       required: false
-      type: int
+      type: integer
       default: None
 
 sensors:

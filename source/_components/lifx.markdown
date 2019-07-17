@@ -125,7 +125,7 @@ server:
 port:
   description: The UDP port for discovery. Will listen on a random port if omitted.
   required: false
-  type: port
+  type: integer
 broadcast:
   description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
   required: false

@@ -122,6 +122,7 @@ motion_sensor:
   description: Activate motion sensor if `auto_discovery` is disabled.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 <div class='note'>

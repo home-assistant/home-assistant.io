@@ -30,7 +30,7 @@ recorder:
     db_url:
       description: The URL that points to your database.
       required: false
-      type: URL
+      type: string
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
