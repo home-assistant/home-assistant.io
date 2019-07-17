@@ -138,6 +138,9 @@ authtoken:
   * Switch Actuator and Meter – flush-mount (*HmIP-FSM, -FSM16*)
   * Open Collector Module Receiver - 8x (*HmIP-MOD-OC8*)
   * Multi IO Box - 2x (*HmIP-MIOB*)
+  * Switch Circuit Board - 1x channels (*HmIP-PCBS*)
+  * Switch Circuit Board - 2x channels (*HmIP-PCBS2*)
+  * Printed Circuit Board Switch Battery (*HmIP-PCBS-BAT*)
 
 * homematicip_cloud.weather
   * Weather Sensor – basic (*HmIP-SWO-B*)
