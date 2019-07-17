@@ -15,6 +15,12 @@ og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 
 It's time for Home Assistant 0.96. It's a great release, but we also made some changes, so please pay attention.
 
+## Last release that supports Python 3.5
+
+This will be the last release that supports Python 3.5. Home Assistant 0.97 will require at least Python 3.6. If you are using Hass.io or Docker, you will not have to do anything. If you are running Hassbian, [upgrade instructions are here](https://github.com/home-assistant/hassbian-scripts/blob/dev/docs/suites/python.md). If you run Home Assistant inside a virtual environment, please follow the instructions for your OS to update.
+
+Home Assistant has adopted a new [Python support strategy](https://github.com/home-assistant/architecture/blob/master/adr/0002-minimum-supported-python-version.md). Starting August 1, we will now support the last two minor stable releases of Python. This is currently Python 3.6 and Python 3.7. Python 3.8 is expected to be released near the end of the year. Once that is released, Python 3.6 support is deprecated and removed 2 months later.
+
 ## Pimp my Sidebar
 
 The sidebar has gotten an improved look! Idea started with [a mockup by @JuanMTech on Twitter](https://twitter.com/JuanMTech/status/1143757213971943424) and grew into a full blown implementation. The sidebar will now always be visible in a minimized mode. Hovering it will expand it. The developer tool buttons have been collapsed into a single menu item. The dev tools will now store it's exact state when you navigate away, included the dev tool that is open. We've also taken the opportunity to make notifications accessible from the sidebar, instead of only via the Lovelace UI.
