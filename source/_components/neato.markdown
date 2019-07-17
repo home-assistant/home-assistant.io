@@ -33,6 +33,10 @@ password:
   description: Password for the Neato account.
   required: true
   type: string
+vendor:
+  description: Support for additional vendors. Set to `vorwerk` for Vorwerk robots. Defaults to `neato`.
+  required: false
+  type: string
 {% endconfiguration %}
 
 <div class='note'>
