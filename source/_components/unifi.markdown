@@ -85,7 +85,7 @@ site_id:
   default: default
 verify_ssl:
   description: Whether to do strict validation on SSL certificates of the Unifi controller. This can be true/false or the path to a locally trusted certificate to use for verification (i.e. "/path/to/custom_cert.pm")
-  type: boolean or filename
+  type: [boolean, string]
   required: false
   default: true
 detection_time:
@@ -95,7 +95,7 @@ detection_time:
   default: 300
 ssid_filter:
   description: Filter the SSIDs that tracking will occur on.
-  type: list of strings
+  type: list
   required: false
   default: None
 monitored_conditions:
@@ -103,7 +103,6 @@ monitored_conditions:
   type: list
   required: false
   default: None
-
 {% endconfiguration %}
 
 See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

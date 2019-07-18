@@ -37,6 +37,6 @@ no_ip:
   timeout:
     description: Timeout (in seconds) for the API calls.
     required: false
-    type: number
+    type: integer
     default: 10
 {% endconfiguration %}

@@ -36,10 +36,7 @@ client_id:
   required: true
   type: string
 channels:
-  description: List of channels.
+  description: List of channels names
   required: true
-  type: map
-  keys:
-    channel_id:
-      description: Name of the channel.
+  type: list
 {% endconfiguration %}

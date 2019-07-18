@@ -49,11 +49,11 @@ recorder:
         domains:
           description: The list of domains to be excluded from recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be excluded from recordings.
           required: false
-          type: List
+          type: list
     include:
       description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
@@ -62,11 +62,11 @@ recorder:
         domains:
           description: The list of domains to be included in the recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be included in the recordings.
           required: false
-          type: List
+          type: list
 {% endconfiguration %}
 
 Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).

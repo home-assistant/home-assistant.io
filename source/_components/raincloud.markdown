@@ -118,10 +118,6 @@ monitored_conditions:
   keys:
     auto_watering:
       description: Toggle the watering scheduled per zone.
-      required: false
-      type: boolean
     manual_watering:
       description: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub component.
-      required: false
-      type: boolean
 {% endconfiguration %}

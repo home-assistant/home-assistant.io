@@ -31,7 +31,7 @@ conditions:
 card:
   required: true
   description: Card to display if all conditions match.
-  type: object
+  type: map
 {% endconfiguration %}
 
 *one is required (`state` or `state_not`)
