@@ -127,6 +127,6 @@ sensors:
   platform: template
   sensors:
     solaredge_energy_this_year_template:
-      value_template: '{{(states('sensor.solaredge_energy_this_year') | float / 1000) | round(2)}}'
+      value_template: '{{(states(sensor.solaredge_energy_this_year') | float / 1000) | round(2)}}'
 ```
 {% endraw %}
