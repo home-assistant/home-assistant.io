@@ -46,7 +46,7 @@ name:
 monitored_conditions:
   description: Entries to monitor.
   required: false
-  type: map
+  type: list
   default: average
   keys:
     average:

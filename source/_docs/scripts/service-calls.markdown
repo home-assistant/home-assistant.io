@@ -77,6 +77,16 @@ data_template:
   temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
 ```
 
+It is even possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
+
+```yaml
+service: thermostat.set_temperature
+data:
+  entity_id: thermostat.upstairs
+data_template:
+  temperature: {% raw %}{{ 22 - distance(states.device_tracker.paulus) }}{% endraw %}
+```
+
 ### `homeassistant` services
 
 There are four `homeassistant` services that aren't tied to any single domain, these are:

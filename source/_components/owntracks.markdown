@@ -86,6 +86,7 @@ events_only:
   description: Home Assistant will ignore all location updates and rely solely on geofence enter/leave events.
   required: false
   type: boolean
+  default: false
 region_mapping:
   description: "Dictionary to remap names of regions as configured in the Owntracks app to Home Assistant zones. Use this if you have multiple homes or Home Assistant instances and want to map a different label to 'home'. `key: value` maps Owntracks region `key` to Home Assistant zone `value`."
   required: false

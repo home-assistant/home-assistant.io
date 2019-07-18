@@ -39,12 +39,12 @@ Only location close to Sweden can be added. See [SMHI.se area](http://opendata.s
 latitude:
   description: Manually specify latitude.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 longitude:
   description: Manually specify longitude.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 name:
   description: Name to use in the frontend.

@@ -80,15 +80,20 @@ homeassistant:
 trusted_networks:
   description: A list of IP address or IP network you want to whitelisted. It accepts both IPv4 and IPv6 IP address or network
   required: true
-  type: list of string
+  type: list
 trusted_users:
   description: You can also assign which users are available to select when user access login page from certain IP address or network.
   required: false
-  type: dictionary, string as key, list of string as value
+  type: map
+  keys:
+    IP_ADDRESS:
+      description: List of users available to select on this IP address or network.
+      required: false
+      type: [list, string]
 allow_bypass_login:
   description: You can bypass login page if you have only one user available for selection.
   required: false
-  default: False
+  default: false
   type: boolean
 {% endconfiguration %}
 

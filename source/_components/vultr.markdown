@@ -130,8 +130,8 @@ monitored_conditions:
   keys:
     current_bandwidth_used:
       description: The current (invoice period) bandwidth usage in Gigabytes (GB).
-    temperature:
-      pending_charges: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
+    pending_charges:
+      description: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
 {% endconfiguration %}
 
 Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_used` and `sensor.server_pending_charges`):

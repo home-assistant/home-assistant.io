@@ -52,7 +52,7 @@ password:
 include:
   description: A list of license plates to include, if this is not specified, all vehicles will be added.
   required: false
-  type: strings
+  type: list
 {% endconfiguration %}
 
 See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

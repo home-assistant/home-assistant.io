@@ -41,6 +41,7 @@ device_tracker:
     description: whether to show expired/disabled Tiles
     required: false
     type: boolean
+    default: false
 {% endconfiguration %}
 
 Multiple Tile accounts can be used by repeating the `tile` platform. Tracked devices in `known_devices.yaml` will be named `tile_<tile_identifier>`. You can find `<tile_identifier>` in the Tile app by clicking on a tile.

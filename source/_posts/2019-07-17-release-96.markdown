@@ -85,6 +85,10 @@ Big shout out to [@frenck] who has been doing a lot of clean up on the website. 
 
 Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), a new interface for Home Assistant that runs on Chromecasts and Google Assistant devices with screens.
 
+The [Home Assistant code repository on GitHub](https://github.com/home-assistant/home-assistant) has hit 25.000 stars! 🤩
+
+The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha053/) to discuss all the ins and outs of this new release.
+
 [@teachingbirds] has redone her Lovelace UI and it is looking fabulous!
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Redid my whole layout for the <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> dashboard yesterday on a whim. &quot;Nest hub inspired&quot;, I call it. 😄 I like it a lot! Feels put together and less messy. <a href="https://t.co/8pmA5CWKev">pic.twitter.com/8pmA5CWKev</a></p>&mdash; Isa (@teachingbirds) <a href="https://twitter.com/teachingbirds/status/1151113630391427072?ref_src=twsrc%5Etfw">July 16, 2019</a>

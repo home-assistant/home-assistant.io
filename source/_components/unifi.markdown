@@ -60,7 +60,7 @@ detection_time:
   default: 300
 ssid_filter:
   description: Filter the SSIDs that tracking will occur on.
-  type: list of strings
+  type: list
   required: false
   default: None
 {% endconfiguration %}
