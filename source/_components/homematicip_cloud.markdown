@@ -86,6 +86,7 @@ authtoken:
 
 * homematicip_cloud.binary_sensor
   * Window and door contact (*HmIP-SWDO, -I*)
+  * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
   * Window Rotary Handle Sensor (*HmIP-SRH*)
   * Smoke sensor and alarm (*HmIP-SWSD*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
@@ -110,8 +111,10 @@ authtoken:
     * Temperature and humidity Sensor with display (*HmIP-STHD*)
 
 * homematicip_cloud.cover
-  * Shutter actuator brand-mount (*HmIP-BROLL*)
-  * Shutter actuator flush-mount (*HmIP-FROLL*)
+  * Shutter actuator for brand-mount (*HmIP-BROLL*)
+  * Shutter actuator for flush-mount (*HmIP-FROLL*)
+  * Blind Actuator for brand switches (*HmIP-BBL*)
+  * Blind Actuator for flush-mount (*HmIP-FBL*)
 
 * homematicip_cloud.light
   * Switch actuator and meter for brand switches (*HmIP-BSM*)
