@@ -281,7 +281,7 @@ climate:
     name: Study
     modes:
       - "off"
-      - "on"
+      - "heat"
       - "auto"
     mode_command_topic: "study/ac/mode/set"
     mode_state_topic: "study/ac/mode/state"
