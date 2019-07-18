@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell Lyric"
 description: "How to integrate Honeywell Lyric thermostat systems into Home Assistant."
-date: 2019-06-22 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell.png
 ha_category:
   - Hub
@@ -18,7 +12,7 @@ ha_iot_class: Cloud Polling
 
 The Honeywell Lyric component integrates the Lyric thermostat systems into Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 To set up this component, you will need to set up a developer account with Honeywell:
 
@@ -28,7 +22,7 @@ To set up this component, you will need to set up a developer account with Honey
     1. Callback URL: This needs to be the same url as your `base_url` + `/auth/lyric/callback`. If you have not set this, it will be the ip address of your ha instance. For example: `http://192.168.1.120:8123/auth/lyric/callback`.
 1. Once your app is created, copy the `Consumer Key` and `Consumer Secret`. These will be your `client_id` and `client_secret`.
 
-## {% linkable_title Configuration via the frontend %}
+## Configuration via the frontend
 
 Menu: **Configuration** -> **Integrations**.
 
@@ -38,7 +32,7 @@ Menu: **Configuration** -> **Integrations**.
 
 The integration will then be available.
 
-## {% linkable_title Sensors %}
+## Sensors
 
 Alongside the climate platform, there will be a number of sensors available to you.
 
@@ -49,11 +43,11 @@ Alongside the climate platform, there will be a number of sensors available to y
 - Next Period Time - The next change on your thermostat's schedule
 - Status - The thermostat's reported status. (Following schedule, held until etc.)
 
-## {% linkable_title Available Services %}
+## Available Services
 
 There are a couple of services specific to the lyric component to manage your thermostat.
 
-### {% linkable_title lyric.resume_program %}
+### `lyric.resume_program`
 
 Resumes the programmed schedule.
 
@@ -63,7 +57,7 @@ Resumes the programmed schedule.
 }
 ```
 
-### {% linkable_title lyric.set_hold_time %}
+### `linkable_title lyric.set_hold_time`
 
 Sets the time to hold until. This is what you would do in the app to set `hold until` to a `specific time`.
 
