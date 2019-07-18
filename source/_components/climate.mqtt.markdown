@@ -139,6 +139,11 @@ temperature_high_state_topic:
   description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
   required: false
   type: string
+precision:
+  description: The desired precision for this device. Can be used to match your actual thermostat's precision. Supported values are `0.1`, `0.5` and `1.0`.
+  required: false
+  type: float
+  default: 0.1 for Celsius and 1.0 for Fahrenheit.
 fan_mode_command_topic:
   description: The MQTT topic to publish commands to change the fan mode.
   required: false
@@ -318,4 +323,5 @@ climate:
     temperature_command_topic: "study/ac/temperature/set"
     fan_mode_command_topic: "study/ac/fan/set"
     swing_mode_command_topic: "study/ac/swing/set"
+    precision: 1.0
 ```
