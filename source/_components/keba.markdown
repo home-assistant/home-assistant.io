@@ -65,7 +65,7 @@ keba:
       required: false
       type: integer
       default: 6
-    failsafe_save:
+    failsafe_persist:
       description: Saving the failsafe configuration to internal EEPROM of the Keba charging station. 1 means save it, 0 means do only keep this configuration until the next restart of the charging station (this parameter is only used if failsafe mode is enabled).
       required: false
       type: integer
@@ -104,6 +104,22 @@ The service `keba.set_curr` sets the maximum current to the given current attrib
 ```json
 {
   "current": 16.0
+}
+```
+
+### Request New Data `keba.request_data`
+
+The service `keba.request_data` send data update requests to the charging station.
+
+
+### Request New Data `keba.set_failsafe`
+
+The service `keba.set_failsafe` set the failsafe mode of the charging station. Payload example:
+```json
+{
+  "failsafe_timeout": 30,
+  "failsafe_fallback": 6,
+  "failsafe_persist": 0
 }
 ```
 
