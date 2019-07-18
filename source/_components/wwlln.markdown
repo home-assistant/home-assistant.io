@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "World Wide Lightning Location Network (WWLLN)"
 description: "Instructions on how to integrate WWLLN within Home Assistant."
-date: 2019-07-06 23:17
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: wwlln.jpg
 ha_category: Geolocation
 ha_release: 0.96
@@ -69,7 +63,6 @@ the standard ones:
 | source             | `wwlln` to be used in conjunction with the `geo_location` automation trigger. |
 | external_id        | The external ID used in the feed to identify the earthquake in the feed. |
 | publication_date   | Date and time when this event occurred. |
-
 
 ## Full Configuration
 

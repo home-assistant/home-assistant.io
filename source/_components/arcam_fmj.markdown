@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Arcam FMJ Receivers"
 description: "Instructions on how to integrate Arcam FMJ Receivers into Home Assistant."
-date: 2019-04-28 13:59 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: arcam.svg
 ha_category: Media Player
 ha_release: 0.96
