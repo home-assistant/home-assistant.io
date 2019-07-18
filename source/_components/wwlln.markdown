@@ -50,7 +50,7 @@ longitude:
 radius:
   description: The radius around your location to monitor; defaults to 25 km or mi (depending on the unit system defined in your `configuration.yaml`).
   required: false
-  type: int
+  type: integer
 window:
   description: The amount of time before now for which strikes should be considered "active" and shown in the UI.
   required: false

@@ -200,6 +200,7 @@ hold_state_template:
 hold_modes:
   description: A list of available hold modes.
   required: false
+  type: list
 aux_command_topic:
   description: The MQTT topic to publish commands to switch auxiliary heat.
   required: false
