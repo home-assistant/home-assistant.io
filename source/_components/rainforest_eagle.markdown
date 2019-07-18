@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Rainforest Eagle-200"
 description: "Instructions on how to setup the Rainforest Eagle-200 with Home Assistant."
-date: 2019-07-02 18:00
 logo: rainforest_automation_logo.png
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Energy
   - Sensor
@@ -17,7 +11,7 @@ ha_iot_class: Local Polling
 
 A `sensor` platform for the [Rainforest Eagle-200](https://rainforestautomation.com/rfa-z114-eagle-200/) energy gateway.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
