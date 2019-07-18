@@ -59,16 +59,16 @@ switch:
     switches:
       ac:
         friendly_name: "AC"
-        value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'heat')}}"
+        value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'fan_only') }}"
         turn_on:
           service: climate.set_havc_mode
           data:
             entity_id: climate.ac
-            hvac_mode: off
+            hvac_mode: cool
         turn_off:
           service: climate.set_havc_mode
           data:
             entity_id: climate.ac
-            hvac_mode: 
+            hvac_mode: off
 ```
 {% endraw %}

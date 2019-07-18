@@ -107,7 +107,7 @@ mode_state_template:
   required: false
   type: template
 modes:
-  description: A list of supported modes.
+  description: A list of supported modes. Needs to be a subset of the default values.
   required: false
   default: ['auto', 'off', 'cool', 'heat', 'dry', 'fan_only']
   type: list
