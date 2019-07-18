@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Device Tracker FortiOS"
 description: "Instructions on how to use Fortinet FortiOS to track devices in Home Assistant."
-date: 2019-06-25 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fortinet.png
 ha_category:
   - Presence Detection
@@ -43,4 +37,5 @@ token:
     description: If the SSL certificate should be verified. In most home cases users do not have a verified certificate.
     required: false
     type: boolean
+    default: false
 {% endconfiguration %}
