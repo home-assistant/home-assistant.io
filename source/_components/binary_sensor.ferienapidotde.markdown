@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ferien-api.de Binary Sensor"
 description: "Steps to configure the ferien-api.de sensor."
-date: 2019-03-24 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Utility
   - Binary Sensor
@@ -17,11 +11,11 @@ ha_release: 0.91
 The `ferien-api.de` binary sensor indicates, whether the current day is a german vacation day or not.
 The sensor utilizes the publicly available api `ferien-api.de` to fetch german holiday information based on your specified federal state.
 
-## {% linkable_title Setup %}
+## Setup
 
 Check the [state code list](https://de.wikipedia.org/wiki/ISO_3166-2:DE) for available german federal states.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor in your installation, add the following to your `configuration.yaml` file:
 
