@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zengge"
 description: "Instructions on how to integrate Zengge Bluetooth bulbs into Home Assistant."
-date: 2017-01-14 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zengge.png
 ha_category:
   - Light
@@ -18,7 +12,7 @@ redirect_from:
 
 The `zengge` platform allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the lights, add the following lines to your `configuration.yaml` file:
 

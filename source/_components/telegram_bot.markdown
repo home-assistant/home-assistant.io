@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telegram chatbot"
 description: "Telegram chatbot support"
-date: 2017-04-05 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: telegram.png
 ha_category:
   - Hub
@@ -16,15 +10,15 @@ ha_iot_class: Cloud Push
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
 
-This component creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/components/telegram_bot.polling/) method or with the [webhooks](/components/telegram_bot.webhooks/) one, and trigger events when receiving messages.
+This integration creates notification services to send, or edit previously sent, messages from a [Telegram Bot account](https://core.telegram.org/bots) configured either with the [polling](/components/telegram_bot.polling/) method or with the [webhooks](/components/telegram_bot.webhooks/) one, and trigger events when receiving messages.
 
 If you don't need to receive messages, you can use the [broadcast](/components/telegram_bot.broadcast/) platform instead.
 
-## {% linkable_title Notification services %}
+## Notification services
 
 Available services: `send_message`, `send_photo`, `send_document`, `send_location`, `send_sticker`, `edit_message`, `edit_replymarkup`, `edit_caption`, `answer_callback_query`, `delete_message` and `leave_chat`.
 
-### {% linkable_title Service `telegram_bot.send_message` %}
+### Service `telegram_bot.send_message`
 
 Send a notification.
 
@@ -39,7 +33,7 @@ Send a notification.
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.send_photo` and `telegram_bot.send_sticker` %}
+### Service `telegram_bot.send_photo` and `telegram_bot.send_sticker`
 
 Send a photo.
 
@@ -57,7 +51,7 @@ Send a photo.
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.send_video` %}
+### Service `telegram_bot.send_video`
 
 Send a video.
 
@@ -75,7 +69,7 @@ Send a video.
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.send_document` %}
+### Service `telegram_bot.send_document`
 
 Send a document.
 
@@ -93,7 +87,7 @@ Send a document.
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.send_location` %}
+### Service `telegram_bot.send_location`
 
 Send a location.
 
@@ -106,7 +100,7 @@ Send a location.
 | `keyboard`                |      yes | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]` |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.edit_message` %}
+### Service `telegram_bot.edit_message`
 
 Edit a previously sent message in a conversation.
 
@@ -120,7 +114,7 @@ Edit a previously sent message in a conversation.
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.edit_caption` %}
+### Service `telegram_bot.edit_caption`
 
 Edit the caption of a previously sent message.
 
@@ -132,7 +126,7 @@ Edit the caption of a previously sent message.
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.edit_replymarkup` %}
+### Service `telegram_bot.edit_replymarkup`
 
 Edit the inline keyboard of a previously sent message.
 
@@ -143,7 +137,7 @@ Edit the inline keyboard of a previously sent message.
 | `disable_web_page_preview`|      yes | True/false for disable link previews for links in the message. |
 | `inline_keyboard`         |      yes | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]` |
 
-### {% linkable_title Service `telegram_bot.answer_callback_query` %}
+### Service `telegram_bot.answer_callback_query`
 
 Respond to a callback query originated by clicking on an online keyboard button. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert.
 
@@ -153,7 +147,7 @@ Respond to a callback query originated by clicking on an online keyboard button.
 | `callback_query_id`       |       no | Unique id of the callback response. In the `telegram_callback` event data: {% raw %}`{{ trigger.event.data.id }}`{% endraw %} |
 | `show_alert`              |      yes | True/false for show a permanent notification. Defaults to False. |
 
-### {% linkable_title Service `telegram_bot.delete_message` %}
+### Service `telegram_bot.delete_message`
 
 Delete a previously sent message in a conversation.
 
@@ -162,7 +156,7 @@ Delete a previously sent message in a conversation.
 | `message_id`              |       no | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 | `chat_id`                 |       no | The chat_id where to delete the message.  |
 
-### {% linkable_title Service `telegram_bot.leave_chat` %}
+### Service `telegram_bot.leave_chat`
 
 Remove the bot from the chat group where it was added.
 
@@ -170,9 +164,9 @@ Remove the bot from the chat group where it was added.
 |---------------------------|----------|--------------------------------------------------|
 | `chat_id`                 |       no | The chat_id from where to remove the bot.  |
 
-## {% linkable_title `telegram` notification platform %}
+## `telegram` notification platform
 
-The [`telegram` notification platform](/components/notify.telegram/) requires the `telegram_bot` component to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
+The [`telegram` notification platform](/components/notify.telegram/) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility.
 
 The required YAML configuration now reduces to:
 
@@ -183,7 +177,7 @@ notify:
     chat_id: USER_CHAT_ID
 ```
 
-## {% linkable_title Event triggering %}
+## Event triggering
 
 A command looks like `/thecommand` or `/othercommand with some args`.
 
@@ -223,7 +217,7 @@ chat_instance: "<chat instance>"
 chat_id: "<origin chat id>"
 ```
 
-### {% linkable_title Configuration samples %}
+### Configuration samples
 
 Simple ping pong example.
 
@@ -294,7 +288,7 @@ An example to show the use of event_data in action:
 ```
 {% endraw %}
 
-### {% linkable_title Sample automations with callback queries and inline keyboards %}
+### Sample automations with callback queries and inline keyboards
 
 A quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: 'EDIT', 'NO' and 'REMOVE BUTTON':
 

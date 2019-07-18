@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Radarr Sensor"
 description: "Instructions on how to integrate Radarr sensors with Home Assistant"
-date: 2017-05-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: radarr.png
 ha_category:
   - Downloading
@@ -17,7 +11,7 @@ redirect_from:
 
 This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Radarr sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -84,11 +78,11 @@ ssl:
   default: false
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Get Episodes airing in next 2 days %}
+### Get Episodes airing in next 2 days
 
 ```yaml
 # Example configuration.yaml entry
@@ -101,7 +95,7 @@ sensor:
     days: 2
 ```
 
-### {% linkable_title Enable SSL %}
+### Enable SSL
 
 SSL may run on a different port than the default (7878). The SSL port can be bound to any port in Radarr, so it should be set in the config here (unless it is changed to 7878).
 
@@ -118,7 +112,7 @@ sensor:
     ssl: true
 ```
 
-### {% linkable_title Get disk space for all storage locations %}
+### Get disk space for all storage locations
 
 ```yaml
 # Example configuration.yaml entry
@@ -130,7 +124,7 @@ sensor:
       - diskspace
 ```
 
-### {% linkable_title Get disk space for listed storage locations %}
+### Get disk space for listed storage locations
 
 The storage locations Radarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
 
@@ -146,7 +140,7 @@ sensor:
       - /tank/plex
 ```
 
-### {% linkable_title Get disk space in different unit %}
+### Get disk space in different unit
 
 The Radarr API returns available space in bytes, but this sensor will default to reporting it in GB to make the number more manageable. This can be overridden if your storage needs require a different unit. All units from bytes (B) to yottabytes (YB) are supported.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FRITZ!Box Net Monitor"
 description: "Instructions on how to integrate an AVM FRITZ!Box monitor into Home Assistant."
-date: 2017-01-17 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: avm.png
 ha_category:
   - System Monitor
@@ -18,10 +12,10 @@ redirect_from:
 
 The `fritzbox_netmonitor` sensor monitors the network statistics exposed by [AVM Fritz!Box](http://avm.de/produkte/fritzbox/) routers.
 
-<p class='note warning'>
-It might be necessary to install additional packages: <code>$ sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
-If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code> pip3 install lxml</code>; be patient this will take a while.
-</p>
+<div class='note warning'>
+It might be necessary to install additional packages: <code>sudo apt-get install libxslt-dev libxml2-dev python3-lxml</code>
+If you are working with the All-in-One installation, you may also need to execute also within your virtual environment the command <code>pip3 install lxml</code>; be patient this will take a while.
+</div>
 
 To use the Fritz!Box network monitor in your installation, add the following to your `configuration.yaml` file:
 
@@ -62,6 +56,6 @@ The following statistics will be exposed as attributes.
 
 The sensor's state corresponds to the `is_linked` attribute and is either `online`, `offline`, or `unavailable` (in case connection to the router is lost).
 
-<p class='note info'>
-This component does not support "Fritz!Box 6490 Cable" with FritzOS 6.87 installed.
-</p>
+<div class='note info'>
+This integration does not support "Fritz!Box 6490 Cable" with FritzOS 6.87 installed.
+</div>

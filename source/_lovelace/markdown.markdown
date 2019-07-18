@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Markdown Card"
 sidebar_label: Markdown
 description: "Markdown card is used to render markdown"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Markdown card is used to render [markdown](http://commonmark.org/help/).
@@ -33,7 +27,7 @@ title:
   default: none
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: markdown

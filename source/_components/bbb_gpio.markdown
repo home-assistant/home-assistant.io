@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "BeagleBone Black GPIO"
 description: "Instructions on how to integrate the GPIO capability of a BeagleBone Black into Home Assistant."
-date: 2017-01-14 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: beaglebone-black.png
 ha_category:
   - DIY
@@ -19,14 +13,14 @@ redirect_from:
   - /components/switch.bbb_gpio/
 ---
 
-The `bbb_gpio` component is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.
-There is no setup needed for the component itself.
+The `bbb_gpio` integration is the base for all [BeagleBone Black](https://beagleboard.org/black) related GPIO platforms in Home Assistant.
+There is no setup needed for the integration itself.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `bbb_gpio` binary sensor platform allows you to read sensor values of the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 
@@ -75,11 +69,11 @@ pins:
 
 For more details about the GPIO layout, visit the [article](http://elinux.org/Beagleboard:BeagleBoneBlack) about the BeagleBone Black.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `bbb_gpio` switch platform allows you to control the GPIOs of your [BeagleBone Black](https://beagleboard.org/black).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your BeagleBone Black's GPIO in your installation, add the following to your `configuration.yaml` file:
 

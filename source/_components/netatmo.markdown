@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Netatmo"
-description: "Instructions on how to integrate Netatmo component into Home Assistant."
-date: 2016-06-02 08:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate Netatmo integration into Home Assistant."
 logo: netatmo.png
 ha_category:
   - Hub
@@ -26,7 +20,7 @@ redirect_from:
   - /components/public_sensor.netatmo/
 ---
 
-The `netatmo` component platform is the main component to integrate all Netatmo related platforms.
+The `netatmo` integration platform is the main integration to integrate all Netatmo related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -35,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Netatmo component, add the following lines to your `configuration.yaml`:
 
@@ -77,7 +71,7 @@ webhooks:
   default: false
 {% endconfiguration %}
 
-### {% linkable_title Get API and Secret Key %}
+### Get API and Secret Key
 
 To get your API credentials, you have to declare a new application in the [Netatmo Developer Page](https://dev.netatmo.com/). Sign in using your username and password from your regular Netatmo account.
 Click on 'Create an App' at the top of the page.
@@ -97,15 +91,15 @@ That's it. You can copy and paste your new `client id` and `client secret` in yo
 <img src='/images/screenshots/netatmo_api.png' />
 </p>
 
-### {% linkable_title Webhooks %}
+### Webhooks
 
-The Welcome and Presence cameras can send instant events to Home Assistant by using webhooks. There are different types of events, each with slightly different data attached. To enable the webhooks add `webhooks: true` to your configuration. It is also required to have your camera enabled in Home Assistant. You can do this either by manually setting up the [platform](https://www.home-assistant.io/components/camera.netatmo/) or by enabeling [discovery](https://www.home-assistant.io/components/netatmo/#discovery).
+The Welcome and Presence cameras can send instant events to Home Assistant by using webhooks. There are different types of events, each with slightly different data attached. To enable the webhooks add `webhooks: true` to your configuration. It is also required to have your camera enabled in Home Assistant. You can do this either by manually setting up the [platform](/components/camera.netatmo/) or by enabeling [discovery](/components/netatmo/#discovery).
 
-To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](https://www.home-assistant.io/addons/duckdns/)) and you need to have the base_url configured for the HTTP component ([docs](https://www.home-assistant.io/components/http/#base_url)).
+To be able to receive events from Netatmo, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the base_url configured for the HTTP integration ([docs](/components/http/#base_url)).
 
 Events coming in from Netatmo will be available as events in Home Assistant and are fired as netatmo_*, along with their data. You can use this event to trigger automations.
 
-#### {% linkable_title Events %}
+#### Events
 
 The following events are available:
 
@@ -141,22 +135,22 @@ The Welcome camera additionally has these attributes for `netatmo_person` events
 | is_known | Boolean value if the person is known.
 | face_url | URL to a picture of the person.
 
-The `netatmo_other` event passes all the webhook data through for all webhook events that don't match any of the above. Set the [level of logging](https://www.home-assistant.io/components/logger/) for the `netatmo` component to `debug` to view the data in the Home Assistant logs.
+The `netatmo_other` event passes all the webhook data through for all webhook events that don't match any of the above. Set the [level of logging](/components/logger/) for the `netatmo` integration to `debug` to view the data in the Home Assistant logs.
 
-### {% linkable_title Services (only for webhooks) %}
+### Services (only for webhooks)
 
 There are two services to manually add and drop the webhooks. This might be useful if your webhook has been banned and you want to readd the webhook without restarting Home Assistant.
 
 | Service | Description |
 | ------- | ----------- |
-| addwebhook | Subscribe to webhooks. By default the automatically generated URL will be used. But you can pass `{"url": "https://yourdomain.com/yourwebhook/"}` as service data to the service call if you want to use a manually created [webhook trigger](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger). In this case you have to manually process the data that is sent by Netatmo.
+| addwebhook | Subscribe to webhooks. By default the automatically generated URL will be used. But you can pass `{"url": "https://yourdomain.com/yourwebhook/"}` as service data to the service call if you want to use a manually created [webhook trigger](/docs/automation/trigger/#webhook-trigger). In this case you have to manually process the data that is sent by Netatmo.
 | dropwebhook | Unsubscribe existing webhooks.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
-This component allows you to get the latest event seen by the camera.
+This integration allows you to get the latest event seen by the camera.
 
-### {% linkable_title Binary Sensor Advanced configuration %}
+### Binary Sensor Advanced configuration
 
 If you want to select a specific sensor,
 set discovery to `false` for [netatmo](/components/netatmo/)
@@ -215,11 +209,11 @@ If **home** and **cameras** is not provided, all cameras will be used.
 If multiple cameras are available then each monitored conditions
 will create a specific sensor for each camera
 
-## {% linkable_title Camera %}
+## Camera
 
-The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This component allows you to view the current photo created by the Camera.
+The `netatmo` camera platform is consuming the information provided by a [Netatmo](https://www.netatmo.com) camera. This integration allows you to view the current photo created by the Camera.
 
-### {% linkable_title Camera Advanced configuration %}
+### Camera Advanced configuration
 
 If you want to select a specific camera,
 set discovery to `false` for [netatmo](/components/netatmo/)
@@ -263,11 +257,11 @@ camera:
     - camera_name2
 ```
 
-## {% linkable_title Climate %}
+## Climate
 
-The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This component allows you to view the current temperature and setpoint.
+The `netatmo` thermostat platform is consuming the information provided by a [Netatmo Smart Thermostat](https://www.netatmo.com/product/energy/thermostat) thermostat. This integration allows you to view the current temperature and setpoint.
 
-### {% linkable_title Camera Advanced configuration %}
+### Camera Advanced configuration
 
 If you want to select specific homes or specific rooms,
 set discovery to `false` for [netatmo](/components/netatmo/)
@@ -313,21 +307,14 @@ climate:
         - room5_name
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `netatmo` sensor platform is consuming the information provided by a [Netatmo Weather Station](https://www.netatmo.com/en-us/weather/weatherstation), a
 [Netatmo Home Coach](https://www.netatmo.com/en-us/aircare/homecoach) [Netatmo](https://www.netatmo.com) device or the public sensors of others available via the [Netatmo API](https://weathermap.netatmo.com/) even if you don't own a Netatmo device.
 
-Public sensors have to be set up manually. Currently the following conditions are supported for the public sensors:
+Public sensors have to be set up manually.
 
-* temperature
-* pressure
-* humidity
-* rain
-* windstrength
-* guststrength
-
-## {% linkable_title Advanced sensor configuration %}
+## Advanced sensor configuration
 
 If you want to select a specific sensor, set discovery to False for [netatmo](/components/netatmo/) and add the following lines to your `configuration.yaml`:
 
@@ -338,11 +325,8 @@ sensor:
   - platform: netatmo
     station: STATION_NAME
     modules:
-      module_name1:
-        - temperature
-      module_name2:
-        - temperature
-        - battery_vp
+      - module_name1
+      - module_name2
 
   # Public sensor
   - platform: netatmo
@@ -351,13 +335,6 @@ sensor:
         lon_ne: -73.735
         lat_sw: 40.552
         lon_sw: -74.105
-        monitored_conditions:
-          - temperature
-          - pressure
-          - humidity
-          - rain
-          - windstrength
-          - guststrength
 ```
 
 {% configuration %}
@@ -374,45 +351,6 @@ modules:
       type: list
       required: true
       description: Name of the module.
-      keys:
-        temperature:
-          description: Current temperature.
-        co2:
-          description: CO2 concentration in ppm.
-        pressure:
-          description: Pressure in mbar.
-        noise:
-          description: Noise level in dB.
-        humidity:
-          description: "Humidity in %."
-        health_idx:
-          description: "Air health as one of the values Healthy, Fine, Fair, Poor, Unhealthy."
-        rain:
-          description: Estimated rainfall for today in mm.
-        sum_rain_1:
-          description: Rainfall in the last hour in mm.
-        sum_rain_24:
-          description: "Rainfall in mm from 00:00am - 23:59pm."
-        windangle:
-          description: Wind angle
-        windstrength:
-          description: Wind strength
-        gustangle:
-          description: Wind gust angle
-        guststrength:
-          description: Wind gust strength
-        min_temp:
-          description: Min temperature for today
-        max_temp:
-          description: Max temperature for today
-        rf_status:
-          description: "Current radio status per module. (90=low, 60=highest)"
-        wifi_status:
-          description: Wifi status per Base station
-        battery_vp:
-          description: Current battery status per module.
-        battery_percent:
-          description: Percentage of battery remaining per module.
 areas:
   description: The list contains one or more areas to add as sensors.
   required: false
@@ -434,10 +372,6 @@ areas:
       description: Longitude of south-western corner of area.
       required: true
       type: string
-    monitored_conditions:
-      description: List of environment conditions to monitor.
-      required: true
-      type: list
     name:
       description: Name of the sensor.
       required: false
@@ -450,7 +384,7 @@ areas:
       default: avg
 {% endconfiguration %}
 
-## {% linkable_title Find your modules name %}
+## Find your modules name
 
 You can find your modules name in your [online NetAtmo account](https://my.netatmo.com/app/station). These names can be found and changed in parameters. You have to provide these name in your Home Assistant `configuration.yaml` file.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RESTful Binary Sensor"
 description: "Instructions on how to integrate REST binary sensors into Home Assistant."
-date: 2015-12-17 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
 ha_category:
   - Binary Sensor
@@ -34,7 +28,7 @@ The JSON messages can contain different values like `1`, `"1"`,
 }
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor,
 add the following lines to your `configuration.yaml` file for a GET request:
@@ -94,7 +88,7 @@ verify_ssl:
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
-  type: positive integer
+  type: integer
   default: 10
 authentication:
   description: "Type of the HTTP authentication. `basic` or `digest`."
@@ -111,18 +105,18 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: list, string
+  type: [list, string]
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
-</p>
+</div>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title aREST sensor %}
+### aREST sensor
 
 Instead of using an [aREST](/components/binary_sensor.arest/) binary sensor,
 you could retrieve the value of a device supporting
@@ -138,7 +132,7 @@ binary_sensor:
     value_template: {% raw %}'{{ value_json.return_value }}'{% endraw %}
 ```
 
-### {% linkable_title Accessing an HTTP authentication protected endpoint %}
+### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and customized headers.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "File size Sensor"
 description: "Component for monitoring the size of a file."
-date: 2018-02-06 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: file.png
 ha_category:
   - Utility
@@ -18,7 +12,7 @@ redirect_from:
 
 The `filesize` sensor for displaying the size in MB of a file. Note that paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `filesize` sensor, add the following lines to your `configuration.yaml`:
 
@@ -33,5 +27,5 @@ sensor:
 file_paths:
   description: The absolute path to the file.
   required: true
-  type: list of strings
+  type: list
 {% endconfiguration %}

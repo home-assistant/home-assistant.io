@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PiFace Digital I/O"
 description: "Instructions on how to integrate the PiFace Digital I/O module into Home Assistant."
-date: 2016-05-08 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -19,7 +13,7 @@ redirect_from:
   - /components/switch.rpi_pfio/
 ---
 
-The `rpi_pfio` component is the base for all related [PiFace Digital I/O (PFIO)](http://www.piface.org.uk/) platforms in Home Assistant. There is no setup needed for the component itself; for the platforms, please check their corresponding pages.
+The `rpi_pfio` integration is the base for all related [PiFace Digital I/O (PFIO)](http://www.piface.org.uk/) platforms in Home Assistant. There is no setup needed for the integration itself; for the platforms, please check their corresponding pages.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,11 +22,11 @@ There is currently support for the following device types within Home Assistant:
 
 Set the jumpers on the PiFace board for address 0 (JP1: 1-2, JP2: 1-2).
 
-## {% linkable_title Use with HassOS %}
+## Use with HassOS
 
 Note that the PiFace Digital 2 uses the Raspberry Pi SPI port, which is disabled by default when using [HassOS](https://github.com/home-assistant/hassos). When using HassOS, you must mount the SD card on another computer and access the boot partition on the card. Edit the `config.txt` file and add the line `dtparam=spi=on` to the end. This should enable SPI when HassOS is booted and allow Home Assistant to access the PiFace Digital 2 board.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `rpi_pfio` binary sensor platform allows you to read sensor values of the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) .
 
@@ -78,7 +72,7 @@ ports:
           default: "`false` (ACTIVE HIGH)"
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `rpi_pfio` switch platform allows you to control the [PiFace Digital I/O](http://www.piface.org.uk/products/piface_digital/) module.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Remote Raspberry Pi GPIO"
 description: "Instructions on how to integrate the GPIO capability of a Remote Raspberry Pi into Home Assistant."
-date: 2019-02-20 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -16,9 +10,9 @@ ha_release: 0.94
 ha_iot_class: Local Push
 ---
 
-The `rpi_gpio` component is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the component itself, for the platforms please check their corresponding sections.
+The `rpi_gpio` integration is the base for all related GPIO platforms in Home Assistant. There is no setup needed for the integration itself, for the platforms please check their corresponding sections.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `remote_rpi_gpio` binary sensor platform allows you to read sensor values of the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
 
@@ -65,7 +59,7 @@ pull_mode:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `remote_rpi_gpio` switch platform allows you to control the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
 
@@ -104,9 +98,9 @@ invert_logic:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#GPIO_connector) about the Raspberry Pi.
 
-<p class='note warning'>
+<div class='note warning'>
 Note that a pin managed by HASS is expected to be exclusive to HASS.
-</p>
+</div>
 
 A common question is what does port refer to, this number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

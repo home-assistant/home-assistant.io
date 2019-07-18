@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors Cover"
 description: "Instructions on how to integrate MySensors covers into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY
@@ -35,7 +29,7 @@ All V_TYPES above are required. Use V_PERCENTAGE (or V_DIMMER) if you know the e
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title Example sketch %}
+### Example sketch
 
 ```cpp
 /*

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ambiclimate A/C controller"
 description: "Instructions on how to integrate Ambiclimate A/C controller into Home Assistant."
-date: 2019-02-21 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ambiclimate.png
 ha_category: Climate
 ha_release: 0.93
@@ -42,7 +36,7 @@ client_secret:
 
 Note that you have to select manual mode from the Ambiclimate app to be able to control the A/C from Home Assistant.
 
-## {% linkable_title Component services %}
+## Component services
 
 Enable comfort mode on your AC:
 

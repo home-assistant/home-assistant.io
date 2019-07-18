@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fritzbox"
 description: "Instructions on how to integrate the AVM Fritzbox Smart Home components."
-date: 2018-02-18 17:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: avm.png
 ha_category:
   - Binary Sensor
@@ -22,7 +16,7 @@ redirect_from:
   - /components/sensor.fritzbox/
 ---
 
-The [AVM](https://en.avm.de) Fritzbox component for Home Assistant allows you to integrate the switch and climate devices.
+The [AVM](https://en.avm.de) Fritzbox integration for Home Assistant allows you to integrate the switch and climate devices.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - Switch
 
-#### {% linkable_title Tested Devices %}
+#### Tested Devices
 
 - [FRITZ!Box 6490 Cable](https://en.avm.de/products/fritzbox/fritzbox-6490-cable/)
 - [FRITZ!Box 7590](https://en.avm.de/products/fritzbox/fritzbox-7590/)
@@ -40,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [FRITZ!DECT 301](https://en.avm.de/products/fritzdect/fritzdect-301/)
 - [Eurotronic Comet DECT](https://eurotronic.org/produkte/elektronische-heizkoerperthermostate/sparmatic-comet/)
 
-## {% linkable_title Setup %}
+## Setup
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,11 +65,11 @@ devices:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Switch & Thermostat %}
+## Switch & Thermostat
 
 To get AVM Fritzbox switch and thermostat follow the instructions above.
 
-### {% linkable_title Attributes %}
+### Attributes
 
 The are several attributes that can be useful for automations and templates.
 
@@ -93,11 +87,11 @@ The are several attributes that can be useful for automations and templates.
 | `total_consumption` | The total power consumption since the beginning of operation (only available if the device supports power meter function).
 | `total_consumption_unit` | The unit of the total_consumption (only available if the device supports power meter function).
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To get AVM Fritzbox temperature sensor (e.g. FRITZ!DECT Repeater 100) follow the instructions for the [Fritzbox component](#setup).
 
-### {% linkable_title Attributes %}
+### Attributes
 
 The are several attributes that can be useful for automations and templates.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Calendar Event"
 description: "Instructions on how to use Google Calendars in Home Assistant."
-date: 2015-05-08 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_calendar.png
 ha_category:
   - Calendar
@@ -17,11 +11,12 @@ ha_release: 0.33
 The `google` calendar platform allows you to connect to your
 [Google Calendars](https://calendar.google.com) and generate binary sensors.
 The sensors created can trigger based on any event on the calendar or only for
-matching events. When you first setup this component it will generate a new
+matching events. When you first setup this integration it will generate a new
 configuration file `google_calendars.yaml` that will contain information about
 all of the calendars you can see.
+It also exposes a service to add an event to one of your Google Calendars.
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
 Generate a Client ID and Client Secret on
 [Google Developers Console](https://console.developers.google.com/start/api?id=calendar).
@@ -29,16 +24,16 @@ Generate a Client ID and Client Secret on
 1. Follow the wizard using the following information.
 1. When it gets to the point of asking _Which API are you using?_ just click cancel.
 1. Under APIs & Services > Credentials, click on the tab 'OAuth consent screen'.
-1. Set 'Product name shown to users' to anything you want. We suggest "Home-Assistant".
+1. Set the 'Application Name' (the name of the application asking for consent) to anything you want. We suggest "Home-Assistant".
 1. Save this page. You don't have to fill out anything else there.
 1. Click 'Create credentials' -> OAuth client ID.
 1. Set the Application type to 'Other' and give this credential set a name then click Create.
-1. Save the client ID and secret as you will need to put these in your `configuration.yaml` file.
-1. Click on "Library", search for "Google Calendar API" and enable it.
+1. Copy the client ID and secret to a text editor temporarily as you will need to put these in your `configuration.yaml` file.
+1. Under "API's and Services" (left sidebar), click on "Library."  Search for "Google Calendar API" and enable it if it isn't already enabled automatically through this process.
 
-If you are adding more Google API scopes later to the OAuth than just "Google Calendar API" then you need to delete your token file. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
+If you will be adding more scopes than just the "Google Calendar API" to the OAuth for this application, you will need to delete your token file. You will lose your refresh token due to the re-authenticating to add more API access. It's recommended to use different authorizations for different pieces of Google.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate Google Calendar in Home Assistant,
 add the following section to your `configuration.yaml` file:
@@ -76,7 +71,7 @@ It will give you a URL and a code to enter. This will grant your Home Assistant
 service access to all the Google Calendars that the account you
 authenticate with can read. This is a Read-Only view of these calendars.
 
-## {% linkable_title Calendar Configuration %}
+## Calendar Configuration
 
 Editing the `google_calendars.yaml` file.
 
@@ -126,6 +121,7 @@ entities:
       description: "Should we create a sensor `true` or ignore it `false`?"
       required: true
       type: boolean
+      default: true
     search:
       description: If set will only trigger for matched events.
       required: false
@@ -146,7 +142,7 @@ entities:
     max_results:
       description: "Max number of entries to retrieve"
       required: false
-      type: int
+      type: integer
       default: 5
 {% endconfiguration %}
 
@@ -159,12 +155,14 @@ not filter events out and always show the next event available.
 But what if you only wanted it to toggle based on all events?
 Just leave out the *search* parameter.
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you use a `#` sign for `search` then wrap the whole search term in quotes.
 Otherwise everything following the hash sign would be considered a YAML comment.
-</p>
 
-### {% linkable_title Sensor attributes %}
+</div>
+
+### Sensor attributes
 
  - **offset_reached**: If set in the event title and parsed out will be `on`/`off` once the offset in the title in minutes is reached. So the title `Very important meeting #Important !!-10` would trigger this attribute to be `on` 10 minutes before the event starts.
  - **all_day**: `true`/`false` if this is an all day event. Will be `false` if there is no event found.
@@ -174,7 +172,28 @@ Otherwise everything following the hash sign would be considered a YAML comment.
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
 
-## {% linkable_title Using calendar in automations %}
+### Service `google.add_event`
+
+You can use the service `google.add_event` to create a new calendar event in a calendar. Calendar id's can be found in the file `google_calendars.yaml`. All dates and times are in your local time, the integration gets your time zone from your `configuration.yaml` file.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `calendar_id` | no | The id of the calendar you want. |	Your email
+| `summary` | no | Acts as the title of the event. | Bowling
+| `description` | yes | The description of the event. | Birthday bowling
+| `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
+| `end_date_time` | yes | The date and time the event should end. | 2019-03-10 23:00:00
+| `start_date` | yes | The date the whole day event should start. | 2019-03-10
+| `end_date` | yes | The date the whole day event should end. | 2019-03-11
+| `in` | yes | Days or weeks that you want to create the event in. | "days": 2
+
+<div class='note'>
+
+You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
+
+</div>
+
+## Using calendar in automations
 
 A calendar can be used as an external scheduler for special events or reoccurring events instead of hardcoding them in automations.
 
@@ -195,6 +214,6 @@ For example, the actions following this condition will only be executed for even
 ```yaml
     condition:
         condition: template
-        value_template: "{{states.calendar.calendar_name.attributes.message == 'vacation' }}"
+        value_template: "{{is_state_attr('calendar.calendar_name', 'message', 'vacation') }}"
 ```
 {% endraw %}

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Trend Binary Sensor"
 description: "Instructions on how to integrate Trend binary sensors into Home Assistant."
-date: 2016-09-05 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Utility
 logo: home-assistant.png
@@ -23,7 +17,7 @@ at least two updates of the underlying sensor to establish a trend.
 Thus it can take some time to show an accurate state. It can be useful
 as part of automations, where you want to base an action on a trend.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Trend binary sensors in your installation,
 add the following to your `configuration.yaml` file:
@@ -90,7 +84,7 @@ sensors:
       default: 0
 {% endconfiguration %}
 
-## {% linkable_title Using Multiple Samples %}
+## Using Multiple Samples
 
 If the optional `sample_duration` and `max_samples` parameters are specified
 then multiple samples can be stored and used to detect long-term trends.
@@ -106,7 +100,7 @@ use a gradient of (-2) / (60 x 60) = -0.00055
 
 The current number of stored samples is displayed on the States page.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 

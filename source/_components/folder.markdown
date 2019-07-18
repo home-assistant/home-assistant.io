@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Folder sensor"
 description: "Sensor for monitoring the contents of a folder."
-date: 2018-02-21 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: file.png
 ha_category:
   - Utility
@@ -18,7 +12,7 @@ redirect_from:
 
 Sensor for monitoring the contents of a folder. Note that folder paths must be added to [whitelist_external_dirs](/docs/configuration/basic/). Optionally a [wildcard filter](https://docs.python.org/3.6/library/fnmatch.html) can be applied to the files considered within the folder. The state of the sensor is the size in MB of files within the folder that meet the filter criteria. The number of filtered files in the folder and total size in bytes of those files are exposed as attributes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `folder` sensor in your installation, add the following to your `configuration.yaml` file:
 

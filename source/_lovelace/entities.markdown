@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Entities Card"
 sidebar_label: Entities
 description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
@@ -36,7 +30,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration:
 
@@ -67,9 +61,9 @@ format:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Special Row Elements %}
+## Special Row Elements
 
-### {% linkable_title Call Service %}
+### Call Service
 
 {% configuration %}
 type:
@@ -97,10 +91,10 @@ action_name:
 service_data:
   required: false
   description: The service data to use.
-  type: object
+  type: map
 {% endconfiguration %}
 
-### {% linkable_title Divider %}
+### Divider
 
 {% configuration %}
 type:
@@ -110,11 +104,11 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: object
+  type: string
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 
-### {% linkable_title Section %}
+### Section
 
 {% configuration %}
 type:
@@ -127,7 +121,7 @@ label:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Weblink %}
+### Weblink
 
 {% configuration %}
 type:
@@ -150,7 +144,7 @@ icon:
   default: "`mdi:link`"
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Entity rows:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenALPR Local"
 description: "Instructions on how to integrate licences plates with OpenALPR local into Home Assistant."
-date: 2017-01-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openalpr.png
 ha_category:
   - Image Processing
@@ -23,7 +17,7 @@ or trigger any other [automation](/components/automation/).
 For using the result inside an automation rule, take a look at the
 [component](/components/image_processing) page.
 
-### {% linkable_title Local installation %}
+### Local installation
 
 If you want process all data locally, you need version 2.3.1 or higher of the
 `alpr` commandline tool.
@@ -49,7 +43,7 @@ Verify your `alpr` installation with:
 $ wget -O- -q http://plates.openalpr.com/h786poj.jpg | alpr -
 ```
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry

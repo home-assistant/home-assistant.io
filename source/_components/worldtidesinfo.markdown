@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "World Tides"
 description: "Instructions on how to add Tides information to Home Assistant."
-date: 2017-08-23 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: worldtidesinfo.png
 ha_category:
   - Environment
@@ -17,11 +11,11 @@ redirect_from:
 
 The `worldtidesinfo` sensor platform uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.
 
-## {% linkable_title Setup %}
+## Setup
 
 Get your API key from your account at [https://www.worldtides.info/](https://www.worldtides.info/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this sensor, add the following to your `configuration.yaml` file:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Awair Air Quality Monitor"
 description: "Instructions on how to setup Awair devices in Home Assistant."
-date: 2018-11-18 20:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: awair.jpg
 ha_category:
   - Health
@@ -20,7 +14,7 @@ The `awair` sensor platform will fetch data from your [Awair device(s)](https://
 
 You will need to request access to the Awair API and obtain an access token from the Awair [Developer Console](https://developer.getawair.com/).
 
-## {% linkable_title Configuring the Platform %}
+## Configuring the Platform
 
 To enable these sensors, add the following lines to your `configuration.yaml` file:
 
@@ -58,7 +52,7 @@ devices:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Available Sensors %}
+## Available Sensors
 
 The platform will fetch all available sensors from each Awair device linked to your account. Supported sensors:
 

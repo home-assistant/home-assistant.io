@@ -1,21 +1,15 @@
 ---
-layout: page
 title: "Google Pub/Sub"
 description: "Setup for Google Pub/Sub integration"
-date: 2019-01-12 13:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google-pubsub.png
 ha_category:
   - History
 ha_release: 0.88
 ---
 
-The `google_pubsub` component allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).
+The `google_pubsub` integration allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).
 
-## {% linkable_title First time setup %}
+## First time setup
 
 This assumes you already have a Google Cloud project. If you don't, please create one in the [Google Cloud Console](https://console.cloud.google.com/projectcreate)
 
@@ -28,7 +22,7 @@ This will download the Service Account JSON key to your machine. Do NOT share th
 Next, create a Google Pub/Sub topic in the [Google Cloud API Console](https://console.cloud.google.com/cloudpubsub/topicList). The topic name will become something like `projects/project-198373/topics/topic-name`. Note the last part only (the name you chose): `topic-name`.
 
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the following lines to your `configuration.yaml` file:
 
@@ -76,11 +70,11 @@ filter:
       type: list
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
   Not filtering domains or entities will send every event to Google PubSub, thus hitting the free tier limit very fast. Be sure to fill in this configuration parameter or have a paid subscription for Google Cloud.
-</p>
+</div>
 
-### {% linkable_title Saving the data using a Google Cloud Function %}
+### Saving the data using a Google Cloud Function
 
 To save your data automatically to BigQuery, follow the [instructions here](https://github.com/timvancann/home-assistant-pubsub-cloud-function). The current [free tier](https://cloud.google.com/free/) of GCP should allow to store up to 10GB of data.
 

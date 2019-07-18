@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Weblink"
 description: "Instructions on how to setup Links within Home Assistant."
-date: 2016-02-02 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Front end
@@ -14,11 +8,11 @@ ha_release: 0.13
 ha_qa_scale: internal
 ---
 
-The `weblink` component allows you to display links in the Home Assistant frontend.
+The `weblink` integration allows you to display links in the Home Assistant frontend.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To use this component in your installation, add something like the following to your `configuration.yaml` file:
+To use this integration in your installation, add something like the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

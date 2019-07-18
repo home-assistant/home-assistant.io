@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Avi-on"
 description: "Instructions on how to setup GE Avi-on Bluetooth dimmers within Home Assistant."
-date: 2017-01-17 23:17
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Light
 ha_iot_class: Assumed State
@@ -18,7 +12,7 @@ redirect_from:
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-On](http://avi-on.com/).
 
-## {% linkable_title Setup %}
+## Setup
 
 If you want to add your devices manually (like in the example below) then you need to get the API key. The API key can be obtained by executing the following command:
 
@@ -30,7 +24,7 @@ $ curl -X POST -H "Content-Type: application/json" \
 
 with the email and password fields replaced with those used when registering the device via the mobile app. The pass phrase field of the output should be used as the API key in the configuration.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable these lights, add the following lines to your `configuration.yaml` file:
 
@@ -70,7 +64,7 @@ devices:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 If username and password are not supplied, devices must be configured manually like so:
 

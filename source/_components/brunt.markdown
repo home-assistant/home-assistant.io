@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Brunt Cover
 description: "Instructions on how to set up Brunt Blind Engine within Home Assistant."
-date: 2018-06-24 14:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: brunt.png
 ha_category:
   - Cover
@@ -18,7 +12,7 @@ redirect_from:
 
 The `brunt` platform allows one to control Blind Engines by [Brunt](https://www.brunt.co). To use this sensor, you need a Brunt App Account. All Brunt Blind devices registered to your account are automatically added to your Home Assistant with the names given them through the Brunt app.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this integration, add the following lines to your `configuration.yaml`:
 
@@ -45,6 +39,6 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-This component is not affiliated with Brunt and retrieves data from the endpoints of the mobile application. Use at your own risk.
-</p>
+<div class='note warning'>
+This integration is not affiliated with Brunt and retrieves data from the endpoints of the mobile application. Use at your own risk.
+</div>

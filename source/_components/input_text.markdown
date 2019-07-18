@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Text"
-description: "Instructions on how to integrate the Input Text component into Home Assistant."
-date: 2016-03-15 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "Instructions on how to integrate the Input Text integration into Home Assistant."
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -14,7 +8,7 @@ ha_release: 0.53
 ha_qa_scale: internal
 ---
 
-The `input_text` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
 ```yaml
 # Example configuration.yaml entries
@@ -43,7 +37,7 @@ input_text:
       name:
         description: Friendly name of the text input.
         required: false
-        type: String
+        type: string
       min:
         description: Minimum length for the text value.
         required: false
@@ -57,33 +51,33 @@ input_text:
       initial:
         description: Initial value when Home Assistant starts.
         required: false
-        type: String
+        type: string
         default: empty
       pattern:
         description: Regex pattern for client side validation.
         required: false
-        type: String
+        type: string
         default: empty
       mode:
         description: Can specify `text` or `password`. Elements of type "password" provide a way for the user to securely enter a value.
         required: false
-        type: String
+        type: string
         default: text
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
-This components provide three services to modify the state of the `input_text`.
+This integrations provide three services to modify the state of the `input_text`.
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |
 | `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity does **not** have a set value for `initial`. To disable this feature, set a valid value for `initial`.
 
-## {% linkable_title Automation Examples %}
+## Automation Examples
 
 Here's an example using `input_text` in an action in an automation.
 

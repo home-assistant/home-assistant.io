@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Aruba"
 description: "Instructions on how to integrate Aruba routers into Home Assistant."
-date: 2015-08-31 08:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aruba.png
 ha_category:
   - Presence Detection
@@ -22,9 +16,9 @@ Supported devices (tested):
 
 - ARUBA AP-105
 
-<p class='note warning'>
+<div class='note warning'>
 This device tracker needs telnet to be enabled on the router.
-</p>
+</div>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -52,4 +46,4 @@ password:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

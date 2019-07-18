@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Baidu Text-to-Speech"
 description: "Instructions on how to setup Baidu TTS with Home Assistant."
-date: 2017-11-21 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: baiducloud.png
 ha_category:
   - Text-to-speech
@@ -17,7 +11,7 @@ redirect_from:
 
 The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To get started, add the following lines to your `configuration.yaml`:
 

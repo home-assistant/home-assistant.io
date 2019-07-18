@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Switch"
 description: "Instructions on how to integrate MQTT switches into Home Assistant."
-date: 2015-08-30 23:38
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Switch
@@ -16,7 +10,7 @@ ha_iot_class: Configurable
 
 The `mqtt` switch platform lets you control your MQTT enabled switches.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT switch will receive an instant state update after subscription, and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
@@ -120,7 +114,7 @@ device:
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -143,15 +137,17 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-</p>
+<div class='note warning'>
 
-## {% linkable_title Examples %}
+Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
+
+</div>
+
+## Examples
 
 In this section, you will find some real-life examples of how to use this sensor.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a switch.
 
@@ -178,7 +174,7 @@ For a check, you can use the command line tools `mosquitto_pub` shipped with `mo
 mosquitto_pub -h 127.0.0.1 -t home/bedroom/switch1 -m "ON"
 ```
 
-### {% linkable_title Set the state of a device with ESPEasy %}
+### Set the state of a device with ESPEasy
 
 Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" is a name ("Unit Name:") set for your device (here it's "bathroom"). A configuration for a "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example, the topics are prefixed with "home". There is no further configuration needed as the [GPIOs](https://www.letscontrolit.com/wiki/index.php/GPIO) can be controlled with MQTT directly.
 

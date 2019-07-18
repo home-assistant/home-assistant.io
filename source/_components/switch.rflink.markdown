@@ -1,23 +1,17 @@
 ---
-layout: page
 title: "RFLink Switch"
 description: "Instructions on how to integrate RFLink switches into Home Assistant."
-date: 2016-01-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Switch
 ha_release: 0.38
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
-The RFLink component does not know the difference between a `switch`, a `binary_sensor` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+The RFLink integration does not know the difference between a `switch`, a `binary_sensor` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
 
 RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
@@ -106,7 +100,7 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-## {% linkable_title Switch state %}
+## Switch state
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
 
@@ -126,11 +120,11 @@ switch:
 
 Any on/off command from any alias ID updates the current state of the switch. However, when sending a command through the frontend only the primary ID is used.
 
-## {% linkable_title Device support %}
+## Device support
 
 See [device support](/components/rflink/#device-support)
 
-### {% linkable_title Additional configuration examples %}
+### Additional configuration examples
 
 Multiple switches with signal repetitions and custom names
 

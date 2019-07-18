@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Sonos say script to speak with text-to-speech"
 description: "Sonos say script to use text-to-speech with Sonos"
-date: 2017-01-18 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Sonos say script to speak with text-to-speech %}
+#### Sonos say script to speak with text-to-speech
 
 This script allows you to use [TTS](/components/#text-to-speech) on Sonos.
 

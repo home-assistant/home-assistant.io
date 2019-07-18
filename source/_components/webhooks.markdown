@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telegram webhooks"
 description: "Telegram webhooks support"
-date: 2017-04-05 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: telegram.png
 ha_category:
   - Notifications
@@ -21,7 +15,7 @@ Using Telegrams `setWebhook` method your bot's webhook URL should be set to `htt
 
 This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -62,7 +56,7 @@ proxy_params:
   required: false
   type: string
 url:
-  description: Allow to overwrite the `base_url` from the [`http`](/components/http/) component for different configurations (`https://<public_url>:<port>`).
+  description: Allow to overwrite the `base_url` from the [`http`](/components/http/) integration for different configurations (`https://<public_url>:<port>`).
   required: false
   type: string
 trusted_networks:
@@ -74,7 +68,7 @@ trusted_networks:
 
 To get your `chat_id` and `api_key` follow the instructions [here](/components/notify.telegram). As well as authorizing the chat, if you have added your bot to a group you will also need to authorize any user that will be interacting with the webhook. When an unauthorized user tries to interact with the webhook Home Assistant will raise an error ("Incoming message is not allowed"), you can easily obtain the users id by looking in the "from" section of this error message.
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 The configuration sample below shows how an entry can look like:
 

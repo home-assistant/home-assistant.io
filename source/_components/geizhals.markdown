@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Geizhals"
 description: "Instructions on how to integrate a Geizhals sensor into Home Assistant."
-date: 2017-07-15 14:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: geizhals.png
 ha_category:
   - Sensor
@@ -49,7 +43,7 @@ locale:
   type: string
 {% endconfiguration %}
 
-#### {% linkable_title Extended example %}
+#### Extended example
 
 ```yaml
 # Example configuration.yaml entry

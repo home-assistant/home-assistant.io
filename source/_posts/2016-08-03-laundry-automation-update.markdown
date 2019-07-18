@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Laundry Sensors with NodeMCU and Home Assistant"
 description: "Nolan describes how he gets notified when laundry is done."
 date: 2016-08-03 10:22 -0700
 date_formatted: "August 2, 2016"
 author: Nolan Gilley
-comments: true
 categories: User-Stories
 og_image: /images/blog/2016-07-laundry-automation/protoboard.jpg
 ---
@@ -48,9 +46,9 @@ Next I wrote [scripts](/components/script/) that are run whenever the washer or 
 
 Materials used:
 
- - [NodeMCU](https://www.amazon.com/gp/product/B010O1G1ES)
- - [2 x Accelerometers](http://www.amazon.com/gp/product/B008BOPN40)
- - [2 x Reed switch](http://www.amazon.com/gp/product/B004PARDRO)
+ - [NodeMCU](https://amzn.to/2Y9Mmxk)
+ - [2 x Accelerometers](https://amzn.to/2WXa2s5)
+ - [2 x Reed switch](https://amzn.to/2X0ZuZ2)
 
 [Sketch for the NodeMCU is available here.](https://github.com/nkgilley/nodemcu-laundry/blob/master/nodemcu-laundry.ino)
 
@@ -112,4 +110,3 @@ script:
 Resources used:
 
  - [Inspiration and Help with Arduino code](http://www.instructables.com/id/Uber-Home-Automation-w-Arduino-Pi/step13/Washer-Dryer-Smartifier-Water-Leak-Sensor/)
-

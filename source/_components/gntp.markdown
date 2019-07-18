@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "GNTP (Growl)"
 description: "Instructions for adding GNTP/Growl notifications to Home Assistant."
-date: 2016-03-25 18:18
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: gntp.png
 ha_category:
   - Notifications
@@ -15,7 +9,7 @@ redirect_from:
  - /components/notify.gntp/
 ---
 
-[GNTP](http://www.growlforwindows.com/gfw/help/gntp.aspx) is a specification for sending and receiving notifications between computers. The most well known server implementations are [Growl](http://growl.info) for Mac and [Growl for Windows](http://www.growlforwindows.com/gfw/).
+[GNTP](http://growl.info/documentation/developer/gntp.php) is a specification for sending and receiving notifications between computers. The most well known server implementations are [Growl](http://growl.info) for Mac and [Growl for Windows](http://www.growlforwindows.com/).
 
 To use GNTP notifications, add the following to your `configuration.yaml` file:
 

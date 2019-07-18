@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Asuswrt"
 description: "Instructions on how to integrate Asuswrt into Home Assistant."
-date: 2017-01-05 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: asus.png
 ha_category:
   - Hub
@@ -19,14 +13,14 @@ redirect_from:
   - /components/sensor.asuswrt/
 ---
 
-The `asuswrt` component is the main component to connect to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
+The `asuswrt` integration is the main integration to connect to a [ASUSWRT](http://event.asus.com/2013/nw/ASUSWRT/) based router.
 
 There is currently support for the following device types within Home Assistant:
 
 - **Presence Detection** - The asuswrt platform offers presence detection by looking at connected devices to a ASUSWRT based router.
 - **Sensor** - The asuswrt sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use an ASUSWRT router in your installation, add the following to your `configuration.yaml` file:
 
@@ -89,11 +83,13 @@ sensors:
       description: upload mbit/s sensor
 {% endconfiguration %}
 
-<p class='note warning'>
-You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`.
-</p>
+<div class='note warning'>
 
-### {% linkable_title Example Sensor Configuration %}
+You need to [enable telnet](https://www.asus.com/support/faq/1005449/) on your router if you choose to use `protocol: telnet`.
+
+</div>
+
+### Example Sensor Configuration
 
 To enable ASUSWRT sensors as part of your installation, reference the following example configuration:
 
@@ -118,9 +114,9 @@ The example above, creates the following sensors:
 - sensor.asuswrt_upload_speed (unit_of_measurement: Mbit/s)
 
 
-## {% linkable_title Padavan custom firmware (The rt-n56u project) %}
+## Padavan custom firmware (The rt-n56u project)
 
-The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this component can still be used for the rt-n56u project by linking `dnsmasq.leases` during the boot process of the router.
+The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this integration can still be used for the rt-n56u project by linking `dnsmasq.leases` during the boot process of the router.
 
 Follow these steps to setup the link.
 

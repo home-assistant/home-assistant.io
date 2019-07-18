@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MessageBird"
 description: "Instructions on how to add user notifications to Home Assistant."
-date: 2016-03-15 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: message_bird.png
 ha_category:
   - Notifications
@@ -17,11 +11,11 @@ redirect_from:
 
 The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
 
-## {% linkable_title Setup %}
+## Setup
 
 Go to https://www.messagebird.com/ to retrieve your API key.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable MessageBird notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -50,11 +44,11 @@ sender:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Usage %}
+### Usage
 
 MessageBird is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to the specified mobile phone number(s).
 
-#### {% linkable_title Example service payload %}
+#### Example service payload
 
 ```json
 {

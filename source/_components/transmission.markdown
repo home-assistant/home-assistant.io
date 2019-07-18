@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Transmission"
 description: "Instructions on how to integrate Transmission within Home Assistant."
-date: 2018-12-12 22:44
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: transmission.png
 ha_category:
   - Downloading
@@ -19,9 +13,9 @@ redirect_from:
   - /components/sensor.transmission/
 ---
 
-The `transmission` component allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
+The `transmission` integration allows you to monitor your downloads with [Transmission](http://www.transmissionbt.com/) from within Home Assistant and setup automation based on the information.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use the monitoring, your transmission client needs to allow remote access. If you are running the graphical transmission client (transmission-gtk) go to **Edit** -> **Preferences** and choose the tab **Remote**. Check **Allow remote access**, enter your username and your password, and uncheck the network restriction as needed.
 
@@ -35,7 +29,7 @@ If everything is set up correctly, the details will show up in the frontend.
   <img src='{{site_root}}/images/components/transmission/transmission.png' />
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -70,6 +64,7 @@ turtle_mode:
   description: If enabled, it creates a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
   required: false
   type: boolean
+  default: false
 scan_interval:
   description: How frequently to query for new data. Defaults to 120 seconds.
   required: false
@@ -78,7 +73,7 @@ monitored_conditions:
   type: integer
   description: "List of monitored conditions. Possible values are:"
   required: false
-  type: map
+  type: list
   keys:
     current_status:
       description: The status of your Transmission daemon.
@@ -98,9 +93,9 @@ monitored_conditions:
       description: The current number of completed torrents (seeding)
 {% endconfiguration %}
 
-## {% linkable_title Event Automation %}
+## Event Automation
 
-The Transmission component is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
+The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus, which allows to implement any kind of automation.
 
 Possible events are:
 

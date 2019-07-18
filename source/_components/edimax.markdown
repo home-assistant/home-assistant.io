@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Edimax Switch"
 description: "Instructions on how to integrate Edimax switches into Home Assistant."
-date: 2015-06-10 22:54
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: edimax.png
 ha_category:
   - Switch
@@ -48,7 +42,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Power consumption sensor %}
+## Power consumption sensor
 
 Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download/download/data/edimax/global/download/), the Edimax switches can also report the current and accumulated daily power consumption in their state objects. Use a [template sensor](/components/sensor.template/) to extract their values:
 

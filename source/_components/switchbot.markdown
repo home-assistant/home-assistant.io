@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Switchbot"
 description: "Instructions on how to set up Switchbot switches."
-date: 2018-09-03 22:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: switchbot.png
 ha_category:
   - Switch
@@ -18,7 +12,7 @@ redirect_from:
 
 The `switchbot` switch platform allows you to control Switchbot [devices](https://www.switch-bot.com/).
 
-## {% linkable_title Manual Configuration %}
+## Manual Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
 

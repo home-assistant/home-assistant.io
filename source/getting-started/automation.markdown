@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from:
  - /getting-started/automation-create-first/
  - /getting-started/automation-2/
@@ -34,7 +28,7 @@ In the trigger section, click on the dropdown and change trigger type to "Sun". 
 A new automation with a sun trigger filled in.
 </p>
 
-Once we have defined our trigger, scroll down to the action section. Make sure trigger type is set to "Call Service" and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to `{ "entity_id": "all" }`.
+Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to "Call Service" and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to `{ "entity_id": "all" }`.
 
 <p class='img'>
 <img src='/images/getting-started/automation-new-action.png'>

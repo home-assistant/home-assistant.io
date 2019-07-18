@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Discovery"
 description: "Instructions on how to setup Home Assistant to discover new devices."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other
@@ -14,10 +8,9 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` component can detect:
+Home Assistant can discover and automatically configure [zeroconf](https://en.wikipedia.org/wiki/Zero-configuration_networking)/[mDNS](https://en.wikipedia.org/wiki/Multicast_DNS) and [uPnP](https://en.wikipedia.org/wiki/Universal_Plug_and_Play) devices on your network. Currently the `discovery` integration can detect:
 
  * [Apple TV](/components/apple_tv/)
- * [Axis Communications security devices](/components/axis/)
  * [Belkin WeMo switches](/components/wemo/)
  * [Bluesound speakers](/components/media_player.bluesound/)
  * [Bose Soundtouch speakers](/components/media_player.soundtouch/)
@@ -27,8 +20,6 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
  * [Enigma2 media player](/components/media_player.enigma2/)
  * [Frontier Silicon internet radios](/components/media_player.frontier_silicon/)
  * [Google Cast](/components/media_player.cast/)
- * [HomeKit](/components/homekit_controller/)
- * [IKEA Trådfri (Tradfri)](/components/tradfri/)
  * [Linn / Openhome](/components/media_player.openhome/)
  * [Logitech Harmony Hub](/components/remote.harmony/)
  * [Logitech media server (Squeezebox)](/components/media_player.squeezebox/)
@@ -49,6 +40,12 @@ Home Assistant can discover and automatically configure [zeroconf](https://en.wi
 
 It will be able to add Google Chromecasts and Belkin WeMo switches automatically,
 for Philips Hue it will require some configuration from the user.
+
+<div class='note'>
+
+Zeroconf discoverable integrations [Axis](/components/axis/)/[ESPHome](/components/esphome/)/[HomeKit](/components/homekit_controller/)/[Tradfri](/components/tradfri/) have been migrated to use [zeroconf](/components/zeroconf) integration to initiate discovery.
+
+</div>
 
 To load this component, add the following lines to your `configuration.yaml`:
 
@@ -76,7 +73,6 @@ enable:
 Valid values for ignore are:
 
  * `apple_tv`: Apple TV
- * `axis`: Axis Communications security devices
  * `belkin_wemo`: Belkin WeMo switches
  * `bluesound`: Bluesound speakers
  * `bose_soundtouch`: Bose Soundtouch speakers
@@ -87,7 +83,6 @@ Valid values for ignore are:
  * `google_cast`: Google Cast
  * `harmony`: Logitech Harmony Hub
  * `igd`: Internet Gateway Device
- * `ikea_tradfri`: IKEA Trådfri (Tradfri)
  * `logitech_mediaserver`: Logitech media server (Squeezebox)
  * `netgear_router`: Netgear routers
  * `octoprint`: Octoprint
@@ -110,32 +105,27 @@ Valid values for ignore are:
 Valid values for enable are:
 
  * `dlna_dmr`: DLNA DMR enabled devices
- * `homekit`: HomeKit accessories
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
-### {% linkable_title UPnP %}
+### UPnP
 
 Home Assistant must be on the same network as the devices for uPnP discovery to work.
 If running Home Assistant in a [Docker container](/docs/installation/docker/) use switch `--net=host` to put it on the host's network.
 
-### {% linkable_title Windows %}
+### Windows
 
-#### {% linkable_title 64-bit Python %}
-There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this component on a 64-bit version of Python and Windows.
+#### 64-bit Python
+There is currently a <a href='https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit'>known issue</a> with running this integration on a 64-bit version of Python and Windows.
 
-#### {% linkable_title Python 3.5 %}
+#### Python 3.5
 
 If you are on Windows and you're using Python 3.5, download the [Netifaces](http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces) dependency.
 
-### {% linkable_title could not install dependency netdisco %}
+### could not install dependency netdisco
 
 If you see `Not initializing discovery because could not install dependency netdisco==0.6.1` in the logs, you will need to install the `python3-dev` or `python3-devel` package on your system manually (eg. `sudo apt-get install python3-dev` or `sudo dnf -y install python3-devel`). On the next restart of Home Assistant, the discovery should work. If you still get an error, check if you have a compiler (`gcc`) available on your system.
 
-### {% linkable_title DSM and Synology %}
+### DSM and Synology
 
 For DSM/Synology, install via debian-chroot [see this forum post](https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15).
-
-## {% linkable_title New platforms %}
-
-If you are developing a new platform, please read [how to make your platform discoverable](/developers/component_discovery/) for further details.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Camera"
 description: "Instructions on how to use an MQTT image message as a Camera within Home Assistant."
-date: 2017-04-14 00:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Camera
@@ -18,7 +12,7 @@ The `mqtt` camera platform allows you to integrate the content of an image file 
 
 This can be used with an application or a service capable of sending images through MQTT, for example [Zanzito](https://play.google.com/store/apps/details?id=it.barbaro.zanzito).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -50,7 +44,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [list, string]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false

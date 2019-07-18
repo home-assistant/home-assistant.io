@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TekSavvy"
 description: "Instructions on how to integrate TekSavvy data usage within Home Assistant."
-date: 2017-12-17 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: teksavvy.png
 ha_category:
   - Network
@@ -20,7 +14,7 @@ Integrate your [TekSavvy](https://myaccount.teksavvy.com/) account information i
 
 You can get your API key from [TekSavvy My Account](https://myaccount.teksavvy.com/ApiKey/ApiKeyManagement).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your TekSavvy sensor in your installation, add the following to your `configuration.yaml` file:
 

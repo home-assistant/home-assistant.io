@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Free Mobile"
 description: "Instructions on how to add user notifications to Home Assistant."
-date: 2016-01-12 08:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: free_mobile.png
 ha_category:
   - Notifications
@@ -25,9 +19,9 @@ Before doing anything, you have to activate the SMS API option in your Free Mobi
 
 This API only send classic SMS and only on the cell phone of the account owner. So you only have to provide a text message in your payload.
 
-<p class='note warning'>
+<div class='note warning'>
 If you disable and re-enable the SMS API option, please be sure to update your token in your configuration.
-</p>
+</div>
 
 To enable SMS notifications in your installation, add the following to your `configuration.yaml` file:
 

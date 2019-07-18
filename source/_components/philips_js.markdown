@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Philips TV"
 description: "Instructions on how to add Philips TVs to Home Assistant."
-date: 2016-11-01 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: philips.png
 ha_category:
   - Media Player
@@ -49,9 +43,9 @@ api_version:
   type: integer
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 When using api_version: 5 changing sources switches tv channels. Additionally this allows setting the volume level.
-</p>
+</div>
 
 ```yaml
 # Example configuration.yaml with turn_on_action

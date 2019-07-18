@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Supla"
 description: "Instructions for integration with Supla Cloud's Web API"
-date: 2019-03-14 20:05
-sidebar: true
-comments: true
-sharing: true
-footer: true
 logo: supla.png
 ha_release: 0.92
 ha_category:
@@ -24,7 +18,7 @@ Currently only covers (shutters in Supla's lingo) are supported, but, thanks to 
 Right now it's impossible to add single devices -- all of them are discovered from
 Supla Cloud's servers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Supla devices in your installation, add the following to your `configuration.yaml`:
 

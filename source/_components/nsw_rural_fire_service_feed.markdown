@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NSW Rural Fire Service Incidents"
 description: "Instructions on how to integrate the NSW Rural Fire Service Incidents feed into Home Assistant."
-date: 2018-09-23 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nsw-rural-fire-service.png
 ha_category:
   - Geolocation
@@ -32,7 +26,7 @@ The entity's information can be used for example if a bush fire that produces sm
 
 The data is updated every 5 minutes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate the NSW Rural Fire Service Incidents feed, add the following lines to your `configuration.yaml`.
 
@@ -65,7 +59,7 @@ longitude:
   default: Longitude defined in your `configuration.yaml`
 {% endconfiguration %}
 
-## {% linkable_title State Attributes %}
+## State Attributes
 
 The following state attributes are available for each entity in addition to the standard ones:
 
@@ -85,7 +79,7 @@ The following state attributes are available for each entity in addition to the 
 | size               | Size in hectare |
 | responsible_agency | Agency responsible for this incident. |
 
-## {% linkable_title Advanced Configuration Example %}
+## Advanced Configuration Example
 
 Depending on your personal circumstances with regards to bush fire risk you may want to adjust the radius and define the categories of fire warnings you are actually interested in.
 

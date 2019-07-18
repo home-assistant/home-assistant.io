@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Kodi"
 description: "Instructions on how to integrate Kodi into Home Assistant."
-date: 2015-06-22 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: kodi.png
 ha_category:
   - Notifications
@@ -27,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#configuration)
 - [Notifications](#notifications)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In case the discovery does not work, or you need specific configuration variables, you can add the following to your `configuration.yaml` file:
 
@@ -90,9 +84,9 @@ timeout:
   default: 5
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Services
 
-#### {% linkable_title Service `kodi_add_to_playlist` %}
+#### Service `kodi_add_to_playlist`
 
 Add music to the default playlist (i.e. playlistid=0).
 
@@ -104,14 +98,14 @@ Add music to the default playlist (i.e. playlistid=0).
 | `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist. |
 | `artist_name` | no | Optional artist name for filtering media. |
 
-#### {% linkable_title Service `media_player/kodi_set_shuffle` %}
+#### Service `media_player/kodi_set_shuffle`
 
 | Service data attribute | Optional | Description |
 |------------------------|----------|-------------|
 | `entity_id`            | yes      | Target a specific media player. It must be of type kodi. |
 | `shuffle_on`           | no       | True/false for shuffle on/off. |
 
-#### {% linkable_title Service `kodi_call_method` %}
+#### Service `kodi_call_method`
 
 Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
@@ -121,7 +115,7 @@ Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with opti
 | `method` | yes | Name of the Kodi JSONRPC API method to be called. |
 | any other parameter | no | Optional parameters for the Kodi API call. |
 
-### {% linkable_title Event triggering %}
+### Event triggering
 
 When calling the `kodi_call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
 
@@ -132,13 +126,13 @@ input: <input parameters of the service call>
 result: <data received from the Kodi API>
 ```
 
-### {% linkable_title Kodi turn on/off samples %}
+### Kodi turn on/off samples
 
 With the `turn_on_action` and `turn_off_action` parameters you can run any combination of Home Assistant actions to turn on/off your Kodi instance. Here are a few examples of this usage, including the **migration instructions for the old `turn_off_action` list of options**.
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/components/wake_on_lan) component in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to config the [`wake_on_lan`](/components/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
 
 ```yaml
 media_player:
@@ -249,11 +243,13 @@ media_player:
           command: standby
 ```
 
-<p class='note'>
-This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
-</p>
+<div class='note'>
 
-### {% linkable_title Kodi services samples %}
+This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
+
+</div>
+
+### Kodi services samples
 
 #### Simple script to turn on the PVR in some channel as a time function
 
@@ -305,7 +301,7 @@ script:
 
 For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/automation_kodi_dynamic_input_select/)
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `kodi` notifications platform allows you to send messages to your [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
@@ -348,7 +344,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Script example %}
+### Script example
 
 ```yaml
 kodi_notification:
@@ -362,7 +358,7 @@ kodi_notification:
         icon: "warning"
 ```
 
-#### {% linkable_title Message variables %}
+#### Message variables
 
 {% configuration %}
 title:
@@ -374,6 +370,7 @@ message:
   required: true
   type: string
 data:
+  description: Configure message properties
   required: false
   type: map
   keys:

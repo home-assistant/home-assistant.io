@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SMTP"
 description: "Instructions on how to add e-mail notifications to Home Assistant."
-date: 2015-06-03 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smtp.png
 ha_category:
   - Notifications

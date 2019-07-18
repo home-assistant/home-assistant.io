@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Cover"
 description: "Instructions on how to integrate MQTT covers into Home Assistant."
-date: 2016-09-28 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Cover
@@ -16,7 +10,7 @@ ha_release: 0.18
 
 The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a rollershutter or a garage door).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The device state (`open` or `closed`) will be updated only after a new message is published on `state_topic` matching `state_open` or `state_closed`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
 `state_topic` can only manage `state_open` and `state_closed`. No percentage positons etc.
@@ -144,6 +138,10 @@ tilt_status_topic:
   description: The MQTT topic subscribed to receive tilt status update values.
   required: false
   type: string
+tilt_status_template:
+  description: "Defines a [template](/topics/templating/) that can be used to extract the payload for the `tilt_status_topic` topic. "
+  required: false
+  type: string
 tilt_min:
   description: The minimum tilt value.
   required: false
@@ -198,7 +196,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [list, string]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
       required: false
@@ -221,11 +219,11 @@ device:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you will find some real-life examples of how to use this platform.
 
-### {% linkable_title Full configuration state topic without tilt %}
+### Full configuration state topic without tilt
 
 The example below shows a full configuration for a cover without tilt with state topic only.
 
@@ -252,7 +250,7 @@ cover:
 ```
 {% endraw %}
 
-### {% linkable_title Full configuration position topic without tilt %}
+### Full configuration position topic without tilt
 
 The example below shows a full configuration for a cover without tilt with position topic.
 
@@ -280,7 +278,7 @@ cover:
 ```
 {% endraw %}
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a cover.
 
@@ -306,6 +304,7 @@ cover:
     value_template: '{{ value.x }}'
     tilt_command_topic: 'home-assistant/cover/tilt'
     tilt_status_topic: 'home-assistant/cover/tilt-state'
+    tilt_status_template: '{{ value_json["PWM"]["PWM1"] }}'
     tilt_min: 0
     tilt_max: 180
     tilt_closed_value: 70

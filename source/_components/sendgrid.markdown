@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SendGrid"
 description: "Instructions on how to add email notifications via SendGrid to Home Assistant."
-date: 2016-02-27 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sendgrid.png
 ha_category:
   - Notifications
@@ -17,11 +11,11 @@ redirect_from:
 
 The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
 
-## {% linkable_title Setup %}
+## Setup
 
 You need an [API key](https://app.sendgrid.com/settings/api_keys) from SendGrid.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable notification emails via SendGrid in your installation, add the following to your `configuration.yaml` file:
 

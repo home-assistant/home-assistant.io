@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Panasonic Viera TV"
 description: "Instructions on how to integrate a Panasonic Viera TV into Home Assistant."
-date: 2016-03-17 13:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: panasonic.png
 ha_category:
   - Media Player
@@ -74,7 +68,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Example `play_media` script %}
+### Example `play_media` script
 
 The `play_media` function can be used to open web pages and other media types (images, movies) in the TV web browser.
 

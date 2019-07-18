@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ankuoo Rec Switch"
 description: "Instructions on how to integrate Ankuoo Rec Switch into Home Assistant."
-date: 2018-10-05 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: "ankuoo_recswitch.png"
 ha_release: 0.81
 ha_category:
@@ -24,7 +18,7 @@ Supported devices (tested):
 - Lumitek CSW201 NEO WiFi
 - MALMBERGS CSW201
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this switch, add the following lines to your `configuration.yaml`:
 

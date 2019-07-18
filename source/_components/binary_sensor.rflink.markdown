@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFLink Binary Sensor"
 description: "Instructions on how to integrate RFLink binary sensors into Home Assistant."
-date: 2018-10-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Binary Sensor
@@ -14,11 +8,11 @@ ha_iot_class: Local Push
 ha_release: 0.81
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
-The RFLink component does not know the difference between a `binary_sensor`, a `switch` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+The RFLink integration does not know the difference between a `binary_sensor`, a `switch` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
 
 RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
@@ -61,7 +55,7 @@ devices:
         off_delay:
           description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
           required: false
-          type: int
+          type: integer
         force_update:
           description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
           required: false
@@ -69,15 +63,15 @@ devices:
           default: false
 {% endconfiguration %}
 
-### {% linkable_title Sensor state %}
+### Sensor state
 
 Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support)
 
-### {% linkable_title Additional configuration examples %}
+### Additional configuration examples
 
 Multiple sensors with custom name and device class and set off_delay
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CO2Signal"
 description: "Instructions on how to use CO2Signal data within Home Assistant"
-date: 2019-01-01 21:47
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: co2signal.png
 ha_category:
   - Environment
@@ -22,11 +16,11 @@ This platform requires a CO2Signal API key, which can be obtained [here](https:/
 
 At the moment, the free CO2Signal API only supports the average carbon intensity of a country and not the marginal carbon intensity.
 
-<p class='note warning'>
+<div class='note warning'>
 The "free" API key is limited to a limited number of calls. Too many requests can result in data loss.
-</p>
+</div>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set up this platform, get your [API key](https://www.co2signal.com/) and add the following lines to your `configuration.yaml` file:
 
@@ -78,7 +72,7 @@ sensor:
     country_code: YOUR_COUNTRY_CODE
 ```
 
-## {% linkable_title Example Configurations %}
+## Example Configurations
 
 Configuration using custom latitude and longitude:
 
@@ -99,7 +93,7 @@ sensor:
     country_code: BE
 ```
 
-## {% linkable_title Sensor Types %}
+## Sensor Types
 
 When configured, the platform will create one sensor for each configured location.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Weather Underground (WUnderground)"
 description: "Instructions on how to integrate Weather Underground (WUnderground) Weather within Home Assistant."
-date: 2016-08-18
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: wunderground.png
 ha_category:
   - Weather
@@ -18,13 +12,15 @@ redirect_from:
 
 The `wunderground` platform uses [Weather Underground](http://www.wunderground.com) as a source for current weather information.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Obtain a WUnderground API key [here](https://www.wunderground.com/weather/api). They no longer offer free API keys, and all keys must be paid for. At this time existing free keys will continue to work, but will be disabled Dec 31, 2018, except you own a personal weather station and provide your data to WU (PWS Uploader). As of Sept 6, 2018 Weather Underground states they are declaring the [End of Service for the Weather Underground API](https://apicommunity.wunderground.com/weatherapi/topics/end-of-service-for-the-weather-underground-api). They say they will develop new plans for non-commercial users. No timeline for this has been announced.
 
 Please consider this when using the following information.
-</p>
 
-{% linkable_title Configuration %}
+</div>
+
+Configuration
 
 To add Wunderground to your installation, add the following to your `configuration.yaml` file:
 
@@ -188,25 +184,25 @@ monitored_conditions:
 
 All the conditions listed above will be updated every 5 minutes.
 
-## {% linkable_title Forecasts %}
+## Forecasts
 
-### {% linkable_title 12 hour forecasts %}
+### 12 hour forecasts
 
 Monitored conditions marked above with <a name="12h">[12h]</a> are 12 hour forecasts. To get a forecast for different period/daytime replace the `_1d_` part of the sensor name.  e.g., `weather_2n` will give you forecast for tomorrow night. Valid values for day are `1` to `4` and valid values for daytime are `d` or `n`.
 
-### {% linkable_title Daily forecasts %}
+### Daily forecasts
 
 Conditions above marked with <a name="1d">[1d]</a> are daily forecasts. To get forecast for different day, replace the number
 in `_1d_` part of the sensor name. Valid values are from `1` to `4`.
 
-### {% linkable_title Hourly forecasts %}
+### Hourly forecasts
 
 Conditions marked with <a name="1h">[1h]</a> are hourly forecasts. To get forecast for different hour, replace the number
 in the `_1h_` part of the sensor name with `1` to `36`. e.g., `weather_24h` will give you weather in 24 hours.
 
-## {% linkable_title Additional examples %}
+## Additional examples
 
-### {% linkable_title Daily forecast %}
+### Daily forecast
 
 ```yaml
 sensor:
@@ -238,7 +234,7 @@ group:
 
 ![Daily Forecast](/images/screenshots/wunderground_daily_forecast.png)
 
-### {% linkable_title Weather overview %}
+### Weather overview
 
 ```yaml
 sensor:
@@ -275,9 +271,9 @@ group:
 
 ![Weather overview](/images/screenshots/wunderground_weather_overview.png)
 
-<p class='note warning'>
+<div class='note warning'>
 Note: While the platform is called “wunderground” the sensors will show up in Home Assistant as “PWS” (eg: sensor.pws_weather).
-</p>
+</div>
 
 Note that the Weather Underground sensor is added to the entity_registry, so second and subsequent Personal Weather Station ID (pws_id) will have their monitored conditions suffixed with an index number e.g.
 

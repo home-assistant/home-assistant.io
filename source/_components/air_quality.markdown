@@ -1,13 +1,8 @@
 ---
-layout: page
 title: "Air Quality"
 description: "Instructions on how to add air quality sensors with Home Assistant"
-date: 2018-11-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-redirect_from: /components/air_pollutants/
+redirect_from:
+  - /components/air_pollutants/
 ha_release: 0.85
 ---
 

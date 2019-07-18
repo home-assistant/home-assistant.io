@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Manual Alarm Control Panel"
 description: "Instructions on how to integrate manual alarms into Home Assistant."
-date: 2015-10-13 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Alarm
@@ -18,7 +12,7 @@ redirect_from:
 
 The `manual` alarm control panel platform enables you to set manual alarms in Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml` file:
 
@@ -47,6 +41,11 @@ code_template:
     Only one of **code** and **code_template** can be specified.
   required: exclusive
   type: string
+code_arm_required:
+  description: If true, the code is required to arm the alarm.
+  required: false
+  type: boolean
+  default: true
 delay_time:
   description: The time in seconds of the pending time before triggering the alarm.
   required: false
@@ -66,6 +65,7 @@ disarm_after_trigger:
   description: If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
   required: false
   type: boolean
+  default: false
 armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
   description: State specific settings
   required: false
@@ -85,9 +85,9 @@ armed_custom_bypass/armed_home/armed_away/armed_night/disarmed/triggered:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title State machine %}
+## State machine
 
-The state machine of the manual alarm component is complex but powerful.  The
+The state machine of the manual alarm integration is complex but powerful.  The
 transitions are timed according to three values, **delay_time**, **pending_time**
 and **trigger_time**.  The values in turn can come from the default configuration
 variable or from a state-specific override.
@@ -124,7 +124,7 @@ garage door opens, but not for the "armed home" state.
 **trigger_time** is useful to disable the alarm when disarmed, but it can also
 be used for example to sound the siren for a shorter time during the night.
 
-## {% linkable_title Examples %}
+## Examples
 
 In the config example below:
 
@@ -150,7 +150,7 @@ alarm_control_panel:
 
 In the rest of this section, you find some real-life examples on how to use this panel.
 
-### {% linkable_title Sensors %}
+### Sensors
 
 Using sensors to trigger the alarm.
 

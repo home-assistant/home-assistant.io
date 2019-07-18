@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Jabber (XMPP)"
 description: "Instructions on how to add Jabber (XMPP) notifications to Home Assistant."
-date: 2015-05-08 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xmpp.png
 ha_category:
   - Notifications
@@ -18,7 +12,7 @@ redirect_from:
 
 The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](http://xmpp.org) account.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Jabber notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -50,9 +44,11 @@ resource:
 password:
   description: The password for your given Jabber account.
   required: true
+  type: string
 recipient:
   description: The Jabber ID (JID) that will receive the messages.
   required: true
+  type: string
 tls:
   description: Force TLS.
   required: false
@@ -69,17 +65,19 @@ room:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
   Pre Home Assistant 0.81 `sleekxmpp` was used to connect to XMPP servers. `sleekxmpp` as of version 1.3.2, does not support > TLS v1. If you are running your own XMPP server (e.g., Prosody, ejabberd) make sure to allow using TLS v1.
 
   Home Assistant after 0.81 uses `slixmpp`, which also supports TLS v1.1 and TLS v1.2.
-</p>
+
+</div>
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 
 You can send text messages and images as well as other files through Jabber.
 
-### {% linkable_title Jabber Text Message %}
+### Jabber Text Message
 
 Here are some examples on how to set up a script, that can be run from an automation.
 
@@ -97,16 +95,18 @@ Number 1 shows a classical, text-only message. The Title is optional, although i
         message: "My funny or witty message"
 ```
 
-### {% linkable_title Jabber Image Message %}
+### Jabber Image Message
 
 You can send images or files from locally stored files or remote web locations via Jabber's HTTP Upload feature.
 To send files and images, your jabber server must support [XEP_0363](https://xmpp.org/extensions/xep-0363.html).
 
-<p class='note'>
-Be aware that images are uploaded onto the Jabber server of your provider. They reside there un-encrypted and could be accessed by the server admins. Usually images are deleted after a few days.
-<br/>
+<div class='note'>
+
+Be aware that images are uploaded onto the Jabber server of your provider. They reside there un-encrypted and could be accessed by the server admins. Usually images are deleted after a few days.<br>
+<br>
 Home-Assistant supports TLS encryption to ensure transport encryption. TLS is enforced by default. You can disable it  with the [`tls`](#tls) flag -- which is not recommended.
-</p>
+
+</div>
 
 Number 2 sends only an image, retrieved from the URL. The TLS connection to get the image is also not verified (use with caution).
 
@@ -139,7 +139,7 @@ Number 3 sends an image from a local path.
           path: "/home/homeassistant/super_view.jpg"
 ```
 
-### {% linkable_title Jabber File Message %}
+### Jabber File Message
 
 
 Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files. Optionally you can add a timeout for the HTTP upload in seconds.
@@ -159,7 +159,7 @@ Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.t
           timeout: 10
 ```
 
-### {% linkable_title Templating %}
+### Templating
 
 Number 5 sends an image retrieved from a URL, and an additional text message with `title` and `message`.
 

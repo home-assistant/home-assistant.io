@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IMAP Unread E-mail"
 description: "Instructions on how to integrate IMAP unread email into Home Assistant."
-date: 2016-07-11 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smtp.png
 ha_category:
   - Mailbox
@@ -18,7 +12,7 @@ redirect_from:
 
 The `imap` sensor platform is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) and reporting the amount of unread emails.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -65,15 +59,15 @@ search:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Configuring IMAP Searches %}
+### Configuring IMAP Searches
 
-By default, this component will count unread emails. By configuring the search string, you can count other results, for example:
+By default, this integration will count unread emails. By configuring the search string, you can count other results, for example:
 
 * `ALL` to count all emails in a folder
 * `FROM`, `TO`, `SUBJECT` to find emails in a folder (see [IMAP RFC for all standard options](https://tools.ietf.org/html/rfc3501#section-6.4.4))
 * [Gmail's IMAP extensions](https://developers.google.com/gmail/imap/imap-extensions) allow raw Gmail searches, like `X-GM-RAW "in: inbox older_than:7d"` to show emails older than one week in your inbox. Note that raw Gmail searches will ignore your folder configuration and search all emails in your account!
 
-#### {% linkable_title Full configuration sample with search %}
+#### Full configuration sample with search
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Python 2"
 description: "Support for Python 2"
-date: 2017-06-18 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Common
 ---
 

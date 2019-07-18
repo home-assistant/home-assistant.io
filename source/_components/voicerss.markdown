@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "VoiceRSS"
 description: "Instructions on how to setup VoiceRSS TTS with Home Assistant."
-date: 2016-12-13 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: voicerss.png
 ha_category:
   - Text-to-speech
@@ -17,7 +11,7 @@ redirect_from:
 
 The `voicerss` text-to-speech platform uses [VoiceRSS](http://www.voicerss.org/) Text-to-Speech engine to read a text with natural sounding voices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable text-to-speech with VoiceRSS, add the following lines to your `configuration.yaml`:
 
@@ -52,7 +46,7 @@ format:
 
 Check the [VoiceRSS API documentation](http://www.voicerss.org/api/documentation.aspx) for allowed values.
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 The configuration sample below shows how an entry can look like:
 

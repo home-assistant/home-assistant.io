@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Generic IP Camera"
 description: "Instructions on how to integrate IP cameras within Home Assistant."
-date: 2015-07-11 0:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Camera
 logo: home-assistant.png
@@ -20,7 +14,7 @@ The `generic` camera platform allows you to integrate any IP camera or other URL
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -85,11 +79,11 @@ verify_ssl:
   </a>
 </p>
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this camera platform.
 
-### {% linkable_title Weather graph from yr.no %}
+### Weather graph from yr.no
 
 ```yaml
 camera:
@@ -99,7 +93,7 @@ camera:
     content_type: 'image/svg+xml'
 ```
 
-### {% linkable_title Local image with Hass.io %}
+### Local image with Hass.io
 
 You can show a static image with this platform. Just place the image here: `/config/www/your_image.png`
 
@@ -111,7 +105,7 @@ camera:
     verify_ssl: false
 ```
 
-### {% linkable_title Sharing a camera feed from one Home Assistant instance to another %}
+### Sharing a camera feed from one Home Assistant instance to another
 
 If you are running more than one Home Assistant instance (let's call them the 'host' and 'receiver' instances) you may wish to display the camera feed from the host instance on the receiver instance. You can use the [REST API](/developers/rest_api/#get-apicamera_proxycameraltentity_id) to access the camera feed on the host (IP address 127.0.0.5) and display it on the receiver instance by configuring the receiver with the following:
 
@@ -121,7 +115,7 @@ camera:
     name: Host instance camera feed
     still_image_url: https://127.0.0.5:8123/api/camera_proxy/camera.live_view
 ```
-### {% linkable_title Image from HTTP only camera %}
+### Image from HTTP only camera
 
 To access a camera which is only available via HTTP, you must turn off SSL verification.
 
@@ -133,7 +127,7 @@ camera:
     verify_ssl: false
 ```
 
-### {% linkable_title Live stream %}
+### Live stream
 
 To access a camera that has both a snapshot and live stream URL, utilizing the [stream](/components/stream/) component.
 

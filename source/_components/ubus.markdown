@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWRT (ubus)"
 description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openwrt.png
 ha_category:
   - Presence Detection
@@ -92,13 +86,13 @@ dhcp_software:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-## {% linkable_title Troubleshooting %}
+## Troubleshooting
 
 If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWRT, follow these steps to grab the packet stream and gain insight into what's happening.
 
-### {% linkable_title Increase Log Level %}
+### Increase Log Level
 
 1. On your Home Assistant device, stop Home Assistant
 2. Adjust `configuration.yaml` to log more detail for the `device_tracker` component
@@ -158,7 +152,6 @@ Content-Length: 161
 {"jsonrpc": "2.0", "params": ["00000000000000000000000000000000", "session", "login", {"password": "<password>", "username": "root"}], "method": "call", "id": 1}
 
 HTTP/1.1 200 OK
-Date: Fri, 28 Apr 2017 12:04:46 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
@@ -179,15 +172,14 @@ Content-Length: 114
 {"jsonrpc": "2.0", "params": ["8b4e1632389fcfd09e96a792e01c332c", "hostapd.*", "", {}], "method": "list", "id": 1}
 
 HTTP/1.1 200 OK
-Date: Fri, 28 Apr 2017 12:04:46 GMT
 Content-Type: application/json
 Transfer-Encoding: chunked
 Connection: keep-alive
 
 {"jsonrpc":"2.0","id":1,"result":{}}
 ```
-11. In this case we are actually receiving a valid response with no data. The request says that we are looking for ARP information from `hostapd.*`, which is the access point on the router. In my environment I don't use the AP on the router, and so it was correctly returning no data. Armed with this information, I know that I cannot use this component for device tracking or presence.
+11. In this case we are actually receiving a valid response with no data. The request says that we are looking for ARP information from `hostapd.*`, which is the access point on the router. In my environment I don't use the AP on the router, and so it was correctly returning no data. Armed with this information, I know that I cannot use this integration for device tracking or presence.
 
-### {% linkable_title Cleanup %}
+### Cleanup
 
 When you're done troubleshooting, remember to reset your logging configuration and delete any capture files that contain sensitive information.

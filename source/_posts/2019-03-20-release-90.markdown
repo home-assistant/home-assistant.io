@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.90: Remote UI, Streams, User Groups"
 description: "Bring your next level home to the next next level."
 date: 2019-03-20 00:11:03
 date_formatted: "March 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-03-release-90/remote.png
 ---
@@ -22,7 +20,7 @@ For more information on how it works, check out [the documentation](https://www.
 Screenshot of the Remote UI preference.
 </p>
 
-## {% linkable_title Camera streams for everyone %}
+## Camera streams for everyone
 
 With this release we're getting serious about cameras. [@hunterjm] has worked months on this and it's finally ready for the first reveal. With the stream component, we will be able to forward streams from cameras in your house and repackage it into formats that your display devices understand. Previously, streaming cameras was limited to 2 frames per second and only in the frontend. For the first version we focused on the HLS format, which is supported by modern browsers and Chromecast. Each camera integration will need to be individually updated, for the first version we have only added support for the generic camera integration.
 
@@ -37,15 +35,15 @@ To get started, add `stream:` to your configuration.yaml, configure the [generic
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Stream any camera on any device.<br><br>New feature by <a href="https://twitter.com/hunterjm?ref_src=twsrc%5Etfw">@hunterjm</a> coming soon to a <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> near you. <a href="https://t.co/At9wUkcZZJ">pic.twitter.com/At9wUkcZZJ</a></p>&mdash; Paulus Schoutsen (@balloob) <a href="https://twitter.com/balloob/status/1101216098442067968?ref_src=twsrc%5Etfw">February 28, 2019</a>
 </blockquote>
 
-## {% linkable_title User Groups %}
+## User Groups
 
 This has been a long time in the making, and has been worked on for a long time: you can now put users in groups to prevent them from being able to configure things from the UI. Users in the new "users" group will not see links to the configuration panel or to the developer tools. This is currently a UI feature, not a security feature. [We're working](https://developers.home-assistant.io/blog/2019/03/11/user-permissions.html) on making this a security feature by limiting access at API level too.
 
-## {% linkable_title Smarter SmartThings %}
+## Smarter SmartThings
 
 If you use Home Assistant Cloud, setting up SmartThings will now automatically leverage Cloudhooks. This means that you will not need to expose your instance to the internet to start using SmartThings. Yay for easy set up and thanks [@andrewsayre]! SmartThings support has also been added for 3 axis sensors and air conditioners.
 
-## {% linkable_title Area love %}
+## Area love
 
 This release also adds some more love to areas. Thanks to [@Swamp-Ig], areas will now be included as room hints when you sync Home Assistant with Google Assistant. This should make setting up a breeze.
 
@@ -57,14 +55,14 @@ We've also made areas a part of the set up flow for integrations. When you add a
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DVQtsFFg4mc" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title VSCode extension %}
+## VSCode extension
 
 In case you missed it, earlier this week Kees Schollaart released the first version of his Home Assistant extension for the free text editor [VSCode](https://code.visualstudio.com/). It will connect to your instance and will provide you with entity ID autocompletion while editing your config!
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This weekend I built a <a href="https://twitter.com/code?ref_src=twsrc%5Etfw">@code</a> extension for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! It connects with your Home Assistant host and will provide auto-completion for your entity_id&#39;s! Check it out in the Marketplace: <a href="https://t.co/21PxCqWrlQ">https://t.co/21PxCqWrlQ</a> Ideas/feedback more than welcome! Thanks for helping <a href="https://twitter.com/balloob?ref_src=twsrc%5Etfw">@balloob</a>! <a href="https://t.co/la9SPr5Rjw">pic.twitter.com/la9SPr5Rjw</a></p>&mdash; Kees Schollaart (@keesschollaart) <a href="https://twitter.com/keesschollaart/status/1107362271095898113?ref_src=twsrc%5Etfw">March 17, 2019</a>
 </blockquote>
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Live Streams Component ([@hunterjm] - [#21473]) ([camera docs]) ([stream docs]) (new-platform)
 - Add support for homekit controller sensors ([@cpopp] - [#21535]) ([homekit_controller docs]) (new-platform)
@@ -76,7 +74,7 @@ In case you missed it, earlier this week Kees Schollaart released the first vers
 - Add ClearPass Policy Manger device tracker ([@zemerick1] - [#21673]) ([device_tracker docs]) (new-platform)
 - Add Weather Sensors to Homematic IP ([@SukramJ] - [#21887]) ([homematicip_cloud docs]) (new-platform)
 
-## {% linkable_title Release 0.90.1 - March 21 %}
+## Release 0.90.1 - March 21
 
 - Fix ZHA force polled entities. ([@Adminiuga] - [#22222])
 - Bump total-connect-client to 0.25, fixing issue with Total Connect ([@kkr16] - [#22230])
@@ -102,7 +100,7 @@ In case you missed it, earlier this week Kees Schollaart released the first vers
 [stream docs]: /components/stream/
 [tado docs]: /components/tado/
 
-## {% linkable_title Release 0.90.2 - March 26 %}
+## Release 0.90.2 - March 26
 
 - Fix ps4 no creds with additional device ([@ktnrg45] - [#22300])
 - Prefer TCP for RTSP streams ([@hunterjm] - [#22338])
@@ -128,25 +126,25 @@ In case you missed it, earlier this week Kees Schollaart released the first vers
 [@mvn23]: https://github.com/mvn23
 [@pvizeli]: https://github.com/pvizeli
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
--  __http.api_password__ - __Deprecated__ - Users who are still using api_password for authentication will need to move its configuration under auth_providers. Please see the [updated documentation](https://www.home-assistant.io/docs/authentication/providers/#legacy-api-password) for further details. Those who don't make this change will see an INFO level reminder in the Home Assistant logs until the fix is made for a time, but please note, __api_password authentication will eventually be removed completely__ and we advise users to change to use one of the [other authentication methods](https://www.home-assistant.io/docs/authentication/providers/#available-auth-providers). If you manually specify auth providers in your `configuration.yaml`, you will need to migrate your API Password from the http section to the auth provider section to continue using it. ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs])
+-  __http.api_password__ - __Deprecated__ - Users who are still using api_password for authentication will need to move its configuration under auth_providers. Please see the [updated documentation](/docs/authentication/providers/#legacy-api-password) for further details. Those who don't make this change will see an INFO level reminder in the Home Assistant logs until the fix is made for a time, but please note, __api_password authentication will eventually be removed completely__ and we advise users to change to use one of the [other authentication methods](/docs/authentication/providers/#available-auth-providers). If you manually specify auth providers in your `configuration.yaml`, you will need to migrate your API Password from the http section to the auth provider section to continue using it. ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs])
 - __Default Config__ - Default config no longer contains the discovery component. That is now part of the initial written configuration.yaml. If you rely on default config and want to use discovery, add `discovery:` back to your configuration.yaml.
 - __Netatmo__
-   * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](https://www.home-assistant.io/components/climate.netatmo/) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
-   * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](https://www.home-assistant.io/components/climate.netatmo/) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
+   * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](/components/climate.netatmo/) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
+   * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](/components/climate.netatmo/) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
 - __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
-This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the [updated documentation](https://www.home-assistant.io/components/utility_meter/) for the new configuration options. ([@dgomes] - [#20926]) ([utility_meter docs])
+This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the [updated documentation](/components/utility_meter/) for the new configuration options. ([@dgomes] - [#20926]) ([utility_meter docs])
 - __KNX__ - An update for xknx to version 0.10.0 requires users to update their configuration by changing `target_temperature_address` to `target_temperature_state_address`. Other fixes and features:
    * Connection config can now be configured in xknx.yml.
    * Introduce a configurable rate limit which limits the number of KNX telegrams sent to the bus per second.
@@ -157,7 +155,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - __Tellstick__ - Some configuration cleanup. The way Tellsick sensor configuration was set up using dynamic values for named sensors will not be supported in future versions of Home Assistant. Users that have configured the optional named sensors initiated with only_named will have to update their configuration. Make sure to check the updated documentation for further details. ([@endor-force] - [#21402]) ([tellstick docs])
 -  __MQTT__ - Pass `Message` object to MQTT message callbacks instead of `topic`, `message` and `qos`. Users of custom components please take note, these values are now available on the passed in message object: `msg.topic`, `msg.message`, `msg.qos`. The old method will continue to work for now but will print warnings. ([@emontnemery] - [#21959]) ([mqtt docs])
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - mobile_app component ([@robbiet480] - [#21475]) ([mobile_app docs]) (beta fix) (new-platform)
 - Remove UTF8 decoding for Waze ([@philhawthorne] - [#22020]) ([sensor.waze_travel_time docs]) (beta fix)
@@ -192,7 +190,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 - Always load Hass.io component on Hass.io ([@balloob] - [#22185]) (beta fix)
 - Fixed typing errors ([@Swamp-Ig] - [#22207]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Upgrade pyopenuv to 1.0.9 ([@bachya] - [#21513]) ([openuv docs])
 - Upgrade pypollencom to 2.2.3 ([@bachya] - [#21517]) ([sensor.pollen docs])

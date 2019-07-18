@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RESTful Sensor"
 description: "Instructions on how to integrate REST sensors into Home Assistant."
-date: 2015-09-14 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
 ha_category:
   - Sensor
@@ -74,7 +68,7 @@ verify_ssl:
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
-  type: positive integer
+  type: integer
   default: 10
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
@@ -95,11 +89,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: list, string
+  type: [string, list]
 json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   reqired: false
-  type: list, string
+  type: [string, list]
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
@@ -107,9 +101,9 @@ force_update:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
-</p>
+</div>
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
 
@@ -118,11 +112,11 @@ $ curl -X GET http://192.168.1.31/temperature/
 {"temperature": 77, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title External IP address %}
+### External IP address
 
 You can find your external IP address using the service [JSON Test](http://www.jsontest.com) at their [http://ip.jsontest.com/](http://ip.jsontest.com/) URL.
 
@@ -134,7 +128,7 @@ sensor:
     value_template: '{% raw %}{{ value_json.ip }}{% endraw %}'
 ```
 
-### {% linkable_title Single value from a local Glances instance %}
+### Single value from a local Glances instance
 
 The [glances](/components/sensor.glances/) sensor is doing the exact same thing for all exposed values.
 
@@ -147,7 +141,7 @@ sensor:
     unit_of_measurement: MB
 ```
 
-### {% linkable_title Value from another Home Assistant instance %}
+### Value from another Home Assistant instance
 
 The Home Assistant [API](/developers/rest_api/) exposes the data from your attached sensors. If you are running multiple Home Assistant instances which are not [connected](/developers/architecture/#multiple-connected-instances) you can still get information from them.
 
@@ -162,7 +156,7 @@ sensor:
     unit_of_measurement: "°C"
 ```
 
-### {% linkable_title Accessing an HTTP authentication protected endpoint %}
+### Accessing an HTTP authentication protected endpoint
 
 The REST sensor supports HTTP authentication and customized headers.
 
@@ -205,9 +199,9 @@ Example entry for the `secrets.yaml` file:
 my_sensor_secret_token: Bearer gh_DHQIXKVf6Pr4H8Yqz8uhApk_mnV6Zje6Pr4H8Yqz8A8nCxz6SBghQdS51
 ```
 
-### {% linkable_title Use GitHub to get the latest release of Home Assistant %}
+### Use GitHub to get the latest release of Home Assistant
 
-This sample is very similar to the [`updater`](/components/updater/) component but the information is received from GitHub.
+This sample is very similar to the [`updater`](/components/updater/) integration but the information is received from GitHub.
 
 ```yaml
 sensor:
@@ -223,7 +217,7 @@ sensor:
       User-Agent: Home Assistant REST sensor
 ```
 
-### {% linkable_title Fetch multiple JSON values and present them as attributes %}
+### Fetch multiple JSON values and present them as attributes
 
 [JSON Test](http://www.jsontest.com) returns the current time, date and milliseconds since epoch from [http://date.jsontest.com/](http://date.jsontest.com/).
 
@@ -263,22 +257,22 @@ sensor:
   - platform: template
     sensors:
       owm_weather:
-        value_template: '{{ states.sensor.owm_report.attributes.weather[0]["description"].title() }}'
-        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+states.sensor.owm_report.attributes.weather[0]["icon"].lower()+".png" }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'weather')[0]["description"].title() }}'
+        entity_picture_template: '{{ "http://openweathermap.org/img/w/"+state_attr('sensor.owm_report', 'weather')[0]["icon"].lower()+".png" }}'
         entity_id: sensor.owm_report
       owm_temp:
         friendly_name: 'Outside temp'
-        value_template: '{{ states.sensor.owm_report.attributes.main["temp"]-273.15 }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'main')["temp"]-273.15 }}'
         unit_of_measurement: "°C"
         entity_id: sensor.owm_report
       owm_pressure:
         friendly_name: 'Outside pressure'
-        value_template: '{{ states.sensor.owm_report.attributes.main["pressure"] }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'main')["pressure"] }}'
         unit_of_measurement: "hP"
         entity_id: sensor.owm_report
       owm_humidity:
         friendly_name: 'Outside humidity'
-        value_template: '{{ states.sensor.owm_report.attributes.main["humidity"] }}'
+        value_template: '{{ state_attr('sensor.owm_report', 'main')["humidity"] }}'
         unit_of_measurement: "%"
         entity_id: sensor.owm_report
 ```

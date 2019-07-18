@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mi Flora plant sensor"
 description: "Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant."
-date: 2016-09-19 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: miflora.png
 ha_category:
   - Environment
@@ -16,11 +10,11 @@ redirect_from:
  - /components/sensor.miflora/
 ---
 
-The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
+The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](http://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
 
 There are "Chinese" and "International" versions available and there is a [report](https://community.home-assistant.io/t/miflora-showing-data-unknown/19550/8) that only the "International" works.
 
-## {% linkable_title Install a Bluetooth Backend %}
+## Install a Bluetooth Backend
 
 Before configuring Home Assistant you need a Bluetooth backend and the MAC address of your sensor. Depending on your operating system, you may have to configure the proper Bluetooth backend for your system:
 
@@ -31,7 +25,7 @@ Before configuring Home Assistant you need a Bluetooth backend and the MAC addre
   - Fallback solution: Install `gatttool` via your package manager. Depending on the distribution, the package name might be: `bluez`, `bluetooth`, `bluez-deprecated`
 - On Windows and MacOS there is currently no support for the [miflora library](https://github.com/open-homeautomation/miflora/).
 
-## {% linkable_title Scan for devices %}
+## Scan for devices
 
 Start a scan to determine the MAC addresses of the sensor (you can identify your sensor by looking for `Flower care` or `Flower mate` entries) using this command:
 
@@ -55,7 +49,7 @@ $ bluetoothctl
 
 If you can't use `hcitool` or `bluetoothctl` but have access to an Android phone you can try `BLE Scanner` or similar scanner applications from the Play Store to easily find your sensor MAC address. If you are using Windows 10, try the `Microsoft Bluetooth LE Explorer` app from the Windows Store.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Mi Flora plant sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -97,6 +91,7 @@ force_update:
   description: Sends update events even if the value hasn't changed.
   required: false
   type: boolean
+  default: false
 median:
   description: "Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine."
   required: false
@@ -108,11 +103,13 @@ adapter:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-By default the sensor is only polled once every 20 minutes (`scan_interval` is 1200 seconds by default). On a Home Assistant restart sensor will report initial value. If you set `median: 3`, it will take _at least_ 40 minutes before the sensor will report an average value. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
-</p>
+<div class='note warning'>
 
-## {% linkable_title Full example %}
+By default the sensor is only polled once every 20 minutes (`scan_interval` is 1200 seconds by default). On a Home Assistant restart sensor will report initial value. If you set `median: 3`, it will take _at least_ 40 minutes before the sensor will report an average value. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
+
+</div>
+
+## Full example
 
 A full configuration example could look like the one below:
 
@@ -122,8 +119,7 @@ sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Flower 1
-    force_update: false
-    median: 3
+    force_up    median: 3
     monitored_conditions:
       - moisture
       - light

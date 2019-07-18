@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Meraki"
 description: "Instructions on how to integrate Meraki-based presence detection into Home Assistant."
-date: 2017-11-22 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: meraki.png
 ha_category:
   - Presence Detection
@@ -17,7 +11,7 @@ redirect_from:
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.
 
-### {% linkable_title Prerequisites %}
+### Prerequisites
 
 1. Go to Network-wide/General page, and find the Location and scanning section.
 1. Make sure analytics and Scanning API are both enabled.
@@ -28,7 +22,7 @@ Use your Meraki AP as device tracker. Note that Meraki will see all devices, not
   1. Make sure the API Version is set to `2.0`.
   1. Hit **Save** in the bottom right of the page.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 After you configure access to the Meraki CMX API, add the following to your `configuration.yaml` file:
 

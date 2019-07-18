@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "USGS Earthquakes"
 description: "Instructions on how to integrate the U.S. Geological Survey Earthquake Hazards Program Feed feed into Home Assistant."
-date: 2018-11-05 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: us-geological-survey.png
 ha_category:
   - Geolocation
@@ -30,7 +24,7 @@ Entities are generated, updated and removed automatically with each update from 
 
 The data is updated every 5 minutes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the following lines to your `configuration.yaml`.
 
@@ -94,7 +88,7 @@ longitude:
 | Past 30 Days - All Earthquakes         | `past_month_all_earthquakes`         |
 
 
-## {% linkable_title State Attributes %}
+## State Attributes
 
 The following state attributes are available for each entity in addition to the standard ones:
 
@@ -112,7 +106,7 @@ The following state attributes are available for each entity in addition to the 
 | type               | Type of seismic event: "earthquake" or "quarry". |
 
 
-## {% linkable_title Full Configuration %}
+## Full Configuration
 
 ```yaml
 # Example configuration.yaml entry

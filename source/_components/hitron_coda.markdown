@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hitron CODA Routers"
 description: "Instructions on how to integrate Hitron CODA Routers into Home Assistant."
-date: 2017-10-03 15:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hitron.png
 ha_category:
   - Presence Detection
@@ -15,7 +9,7 @@ redirect_from:
  - /components/device_tracker.hitron_coda/
 ---
 
-This component offers presence detection by examining devices connected to a [Rogers Hitron CODA](https://www.rogers.com/customer/support/article/wi-fi-password-hitron-coda4582-cgn3amr-cgnm3552-cgn3acr-cgn3)
+This integration offers presence detection by examining devices connected to a [Rogers Hitron CODA](https://www.rogers.com/customer/support/article/wi-fi-password-hitron-coda4582-cgn3amr-cgnm3552-cgn3acr-cgn3)
 or [Shaw Hitron CGNM](https://community.shaw.ca/docs/DOC-4066) Router.
 
 To use a Hitron router in your installation, add the following to your `configuration.yaml` file:
@@ -49,4 +43,4 @@ type:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

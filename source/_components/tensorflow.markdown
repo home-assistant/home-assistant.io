@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TensorFlow"
 description: "Detect and recognize objects with TensorFlow."
-date: 2018-10-24 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tensorflow.png
 ha_category:
   - Image Processing
@@ -18,16 +12,18 @@ redirect_from:
 
 The `tensorflow` image processing platform allows you to detect and recognize objects in a camera image using [TensorFlow](https://www.tensorflow.org/). The state of the entity is the number of objects detected, and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
-<p class='note warning'>
-  The following packages must be installed on Hassbian/Raspbian before following the setup for the component to work:
-  `$ sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
-</p>
+<div class='note warning'>
 
-## {% linkable_title Setup %}
+  The following packages must be installed on Hassbian/Raspbian before following the setup for the integration to work:
+  `sudo apt-get install libatlas-base-dev libopenjp2-7 libtiff5`
+
+</div>
+
+## Setup
 
 You need to install the `tensorflow` Python packages with: `$ pip3 install tensorflow==1.11.0`. The wheel is not available for all platforms. See [the official install guide](https://www.tensorflow.org/install/) for other options. Hass.io is not yet supported but an addon is under development.
 
-This component requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
+This integration requires files to be downloaded, compiled on your computer, and added to the Home Assistant configuration directory. These steps can be performed using the sample script at [this gist](https://gist.github.com/hunterjm/6f9332f92b60c3d5e448ad936d7353c3). Alternatively, if you wish to perform the process manually, the process is as follows:
 
 - Clone [tensorflow/models](https://github.com/tensorflow/models/tree/master/research/object_detection)
 - Compile protobuf models located in `research/object_detection/protos` with `protoc`
@@ -46,7 +42,7 @@ This component requires files to be downloaded, compiled on your computer, and a
   - `research/object_detection/utils`
   - `research/object_detection/protos`
 
-## {% linkable_title Model Selection %}
+## Model Selection
 
 Lastly, it is time to pick a model. It is recommended to start with one of the COCO models available in the [Model Detection Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
 
@@ -54,7 +50,7 @@ The trade-off between the different models is accuracy vs speed.  Users with a d
 
 Whichever model you choose, download it and place the `frozen_inference_graph.pb` file in the `tensorflow` folder in your configuration directory.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform in your installation, add the following to your `configuration.yaml` file:
 
@@ -83,7 +79,7 @@ source:
       required: false
       type: string
 file_out:
-    description: A [template](/docs/configuration/templating/#processing-incoming-data) for the component to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
+    description: A [template](/docs/configuration/templating/#processing-incoming-data) for the integration to save processed images including bounding boxes. `camera_entity` is available as the `entity_id` string of the triggered source camera.
     required: false
     type: list
 model:
@@ -161,6 +157,6 @@ image_processing:
         - truck
 ```
 
-## {% linkable_title Optimising resources %}
+## Optimising resources
 
 [Image processing components](/components/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your config `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.

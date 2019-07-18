@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Open Hardware Monitor Sensor"
 description: "Instructions on how to integrate Open Hardware Monitor within Home Assistant."
-date: 2017-06-16 00:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openhardwaremonitor.png
 ha_category:
   - System Monitor
@@ -18,7 +12,7 @@ redirect_from:
 
 The `openhardwaremonitor` platform uses your [Open Hardware Monitor](http://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
 
-## {% linkable_title Setup %}
+## Setup
 
 OpenHardwareMonitor must be running on the host, with "Remote web server" active. You also need to open inbound port (TCP 8085) on the host..
 
@@ -40,7 +34,7 @@ sudo firewall-cmd --permanent --add-port=8085/tcp
 sudo firewall-cmd --reload
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Open Hardware Monitor to your installation, add the following to your `configuration.yaml` file:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Uptime Robot"
 description: "Instructions on how to set up Uptime Robot within Home Assistant."
-date: 2018-05-29 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: uptimerobot.png
 ha_category:
   - System Monitor
@@ -18,7 +12,7 @@ redirect_from:
 
 The `uptimerobot` binary sensor platform allows you get the status for all of your monitors from your account on [Uptime Robot.]( https://uptimerobot.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml`:
 

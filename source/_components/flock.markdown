@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Flock"
 description: "Instructions on how to add Flock notifications to Home Assistant."
-date: 2017-08-17 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: flock.png
 ha_category:
   - Notifications
@@ -18,7 +12,7 @@ redirect_from:
 
 The `flock` platform uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 Go to the [Flock.com Admin website](https://admin.flock.com/#!/webhooks) and create a new "Incoming Webhooks". Choose a channel to send the notifications from Home Assistant to, specify a name and press *Save and Generate URL*.
 
@@ -32,7 +26,7 @@ You will need the last part of the URL which is the `access_token` for your room
   <img src='{{site_root}}/images/components/flock/new-webhook.png' />
 </p> 
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Flock notifications to your installation, add the following to your `configuration.yaml` file:
 

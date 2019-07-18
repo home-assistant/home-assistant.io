@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tomato"
 description: "Instructions on how to integrate Tomato routers into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tomato.png
 ha_category:
   - Presence Detection
@@ -70,7 +64,7 @@ http_id:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for
+See the [device tracker integration page](/components/device_tracker/) for
 instructions how to configure the people to be tracked.
 
 A description of the API s available in this

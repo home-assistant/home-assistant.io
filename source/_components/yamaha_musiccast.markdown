@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yamaha MusicCast Receivers"
 description: "Instructions on how to integrate Yamaha MusicCast Receivers into Home Assistant."
-date: 2017-09-02 22:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yamaha.png
 ha_category:
   - Media Player
@@ -45,11 +39,11 @@ interval_seconds:
   default: 480
 {% endconfiguration %}
 
-### {% linkable_title Supported operations %}
+### Supported operations
 
-Currently, this component supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
+Currently, this integration supports powering on/off, mute, volume control, and source selection. Playback controls, for instance, play and stop are available for sources that support it.
 
-### {% linkable_title Example configuration %}
+### Example configuration
 
 A full configuration example will look like the sample below:
 ```yaml

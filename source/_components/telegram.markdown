@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telegram"
 description: "Instructions on how to add Telegram notifications to Home Assistant."
-date: 2015-10-09 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: telegram.png
 ha_category:
   - Notifications
@@ -18,7 +12,7 @@ redirect_from:
 
 The `telegram` platform uses [Telegram](https://web.telegram.org) to deliver notifications from Home Assistant to your Android device, your Windows phone, or your iOS device.
 
-## {% linkable_title Setup %}
+## Setup
 
 The requirements are:
 
@@ -70,11 +64,11 @@ $ python3
 123456789
 ```
 
-<p class='note'>
+<div class='note'>
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
-</p>
+</div>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
 
@@ -109,7 +103,7 @@ chat_id:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-### {% linkable_title Text message %}
+### Text message
 
 ```yaml
 ...
@@ -143,7 +137,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Photo support %}
+### Photo support
 
 ```yaml
 ...
@@ -204,7 +198,8 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
 
 ```yaml
@@ -215,9 +210,10 @@ homeassistant:
     - /tmp
     - /home/kenji/data
 ```
-</p>
 
-### {% linkable_title Video support %}
+</div>
+
+### Video support
 
 ```yaml
 ...
@@ -278,7 +274,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Document support %}
+### Document support
 
 ```yaml
 ...
@@ -337,7 +333,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Location support %}
+### Location support
 
 ```yaml
 ...

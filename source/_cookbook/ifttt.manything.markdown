@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ManyThing"
 description: "Instructions on how to setup ManyThing support with IFTTT."
-date: 2015-09-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: manything.png
 ha_category: Camera
 redirect_from:
@@ -53,7 +47,7 @@ automation:
       data: {"event":"manything_off"}
 ```
 
-### {% linkable_title Setting up a recipe %}
+### Setting up a recipe
 
 <p class='img'>
 <img src='/images/components/ifttt/IFTTT_manything_trigger.png' />
@@ -61,7 +55,7 @@ You need to setup a unique trigger for each event you sent to IFTTT.
 For ManyThing support, you need to set up an `on` and `off` event.
 </p>
 
-### {% linkable_title Testing your trigger %}
+### Testing your trigger
 
 You can use the developer tools to test your [Maker Channel](https://ifttt.com/maker) trigger. To do this, open the Home Assistant UI, open the sidebar, click on the first icon in the developer tools. This should get you to the 'Call Service' screen. Fill in the following values:
 

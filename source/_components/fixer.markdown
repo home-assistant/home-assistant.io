@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fixer.io"
 description: "Instructions on how to integrate exchange rates from Fixer.io within Home Assistant."
-date: 2016-06-20 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Finance
 logo: fixer-io.png
@@ -21,11 +15,11 @@ The `fixer` sensor will show you the current exchange rate from [Fixer.io](http:
 
 To get an overview about the available [currencies](https://fixer.io/symbols).
 
-## {% linkable_title Setup %}
+## Setup
 
 You need to create an [API key](https://fixer.io/product). There is a rate limit of 1000 calls per month.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

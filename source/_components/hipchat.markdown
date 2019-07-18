@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HipChat"
 description: "Instructions on how to add HipChat notifications to Home Assistant."
-date: 2017-08-10 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hipchat.png
 ha_category:
   - Notifications
@@ -15,12 +9,12 @@ redirect_from:
  - /components/notify.hipchat/
 ---
 
-<p class='note'>
-This component will be removed from Home Assistant in the future. Slack has taken over Hipchat and Stride and will therefore stop these platforms. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
+<div class='note'>
+This integration will be removed from Home Assistant in the future. Slack has taken over Hipchat and Stride and will therefore stop these platforms. For more information: <a href="https://www.atlassian.com/blog/announcements/new-atlassian-slack-partnership">announcement</a>.
 <br>
 <br>
 Hipchat will be discontinued after February 15th, 2019. This to give customers the opportunity to make a switch.
-</p>
+</div>
 
 The `hipchat` platform allows you to send notifications from Home Assistant to [HipChat](https://hipchat.com/).
 
@@ -73,7 +67,7 @@ host:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title HipChat service data %}
+### HipChat service data
 
 The following attributes can be placed `data` for extended functionality.
 

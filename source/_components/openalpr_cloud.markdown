@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenALPR Cloud"
 description: "Instructions on how to integrate licences plates with OpenALPR cloud into Home Assistant."
-date: 2017-01-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openalpr.png
 ha_category:
   - Image Processing
@@ -22,7 +16,7 @@ or trigger any other [automation](/components/automation/).
 For using the result inside an automation rule,
 take a look at the [component](/components/image_processing/) page.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry

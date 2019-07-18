@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors Device Tracker"
 description: "Instructions on how to use MySensors to track devices in Home Assistant."
-date: 2017-02-06 15:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY
@@ -27,7 +21,7 @@ S_GPS             | V_POSITION
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title MySensors 2.x example sketch %}
+### MySensors 2.x example sketch
 
 ```cpp
 /**

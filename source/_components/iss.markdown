@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "International Space Station"
 description: "Know if or when ISS will be above your home location"
-date: 2016-12-18 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nasa.png
 ha_category:
   - Binary Sensor
@@ -24,7 +18,7 @@ This means that ISS is 10° above the horizon of your home.
 You can check in the attributes of the sensor to see the timestamp for the next
 rise of the station, its current coordinates, and the number of people in space.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add ISS binary sensor to your installation,
 add the following to your `configuration.yaml` file:
@@ -43,17 +37,19 @@ name:
   default: ISS
 show_on_map:
   description: Option to show the position of the ISS on the map.
-  required: optional
+  required: false
   type: boolean
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you set `show_on_map: true` then the location attributes are named `latitude` and `longitude`.
 The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
-</p>
 
-### {% linkable_title Show position on map with camera platform %}
+</div>
+
+### Show position on map with camera platform
 
 The [generic camera platform](/components/camera.mjpeg/) offers
 the possibility to show the location of the ISS on OpenStreetMap.
@@ -64,7 +60,7 @@ the possibility to show the location of the ISS on OpenStreetMap.
 camera:
   - platform: generic
     name: ISS
-    still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=4&size=865x512&maptype=mapnik&markers={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }},lightblue
+    still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }}&zoom=4&size=865x512&maptype=mapnik&markers={{ state_attr('binary_sensor.iss', 'lat') }},{{ state_attr('binary_sensor.iss', 'long') }},lightblue
      limit_refetch_to_url_change: true
 ```
 {% endraw %}

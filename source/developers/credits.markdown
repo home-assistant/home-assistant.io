@@ -1,17 +1,11 @@
 ---
-layout: page
 title: "Credits"
 description: "Credits for the developers who contributed to Home Assistant."
-date: 2019-04-07, 04:19:58 +0000
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 This page contains a list of people who have contributed in one way or another to Home Assistant. Hover over a username to see their contributions.
 
-### {% linkable_title Author %}
+### Author
 
 - [Paulus Schoutsen (@balloob)](https://github.com/balloob "9373 total commits to the Home Assistant orga:
 5041 commits to home-assistant
@@ -44,7 +38,7 @@ This page contains a list of people who have contributed in one way or another t
 1 commit to open-zwave
 ")
 
-### {% linkable_title Contributors %}
+### Contributors
 
 (in alphabetical order)
 
@@ -5732,7 +5726,7 @@ This page contains a list of people who have contributed in one way or another t
 8 commits to home-assistant.io
 1 commit to home-assistant
 ")
-- [Kevin Raddatz (@chronm)](https://github.com/chronm "2 total commits to the Home Assistant orga:
+- [Kevin Raddatz (@kraddatz)](https://github.com/kraddatz "2 total commits to the Home Assistant orga:
 2 commits to home-assistant
 ")
 - [Kevin Schlosser (@kdschlosser)](https://github.com/kdschlosser "8 total commits to the Home Assistant orga:
@@ -9861,7 +9855,7 @@ This page contains a list of people who have contributed in one way or another t
 - [stedy6 (@stedy6)](https://github.com/stedy6 "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
-- [Stefan Burke (@StefanBCN)](https://github.com/StefanBCN "1 total commits to the Home Assistant orga:
+- [Stefan Burke (@stefnb)](https://github.com/stefnb "1 total commits to the Home Assistant orga:
 1 commit to home-assistant
 ")
 - [Stefan Feješ (@fejes713)](https://github.com/fejes713 "1 total commits to the Home Assistant orga:

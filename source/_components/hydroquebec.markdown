@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hydro-Québec"
 description: "Instructions on how to integrate Hydro-Québec consumption profile within Home Assistant."
-date: 2016-12-10 0:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hydroquebec.svg
 ha_category:
   - Energy
@@ -18,10 +12,11 @@ redirect_from:
 
 Integrate your [Hydro-Québec](https://www.hydroquebec.com/portail/) consumption profile information into Home Assistant.
 
-<p class='note warning'>
-Breaking change: Since Home Assistant v0.40,
-**contract** attribute is required.
-</p>
+<div class='note warning'>
+
+Breaking change: Since Home Assistant v0.40, **contract** attribute is required.
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -95,6 +90,6 @@ On the main page your can see your contract IDs.
 It should be something like: "Contract 1234 56789".
 You just have to keep numbers and remove the space.
 
-<p class='note warning'>
+<div class='note warning'>
 Multi contracts accounts are supported only from Home Assistant v0.40.
-</p>
+</div>

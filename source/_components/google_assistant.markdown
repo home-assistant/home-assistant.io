@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Assistant"
 description: "Setup for Google Assistant integration"
-date: 2017-10-17 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google-assistant.png
 ha_category:
   - Voice
@@ -14,26 +8,30 @@ featured: true
 ha_release: 0.56
 ---
 
-The `google_assistant` component allows you to control things via Google Assistant (on your mobile or tablet) or a Google Home device.
+The `google_assistant` integration allows you to control things via Google Assistant (on your mobile or tablet) or a Google Home device.
 
-## {% linkable_title Automatic setup via Home Assistant Cloud %}
+## Automatic setup via Home Assistant Cloud
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 
 For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
 
-## {% linkable_title Manual setup %}
+## Manual setup
 
-The Google Assistant component requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
+The Google Assistant integration requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
-<p class='note warning'>
+<div class='note warning'>
+
 To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing.
-</p>
 
-## {% linkable_title Migrate to release 0.80 and above %}
-<p class='note'>
-If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the [manual setup instructions](#first-time-setup) below.
-</p>
+</div>
+
+## Migrate to release 0.80 and above
+<div class='note'>
+
+If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the [maual setup instructions](#first-time-setup) below.
+
+</div>
 
 Since release 0.80, the `Authorization Code` type of `OAuth` account linking is supported. To migrate your existing configuration from release 0.79 or below, you need:
 
@@ -52,13 +50,15 @@ Since release 0.80, the `Authorization Code` type of `OAuth` account linking is 
 3. Restart Home Assistant, open the `Google Home` app on your mobile phone then go to `Account > Settings > Assistant > Home Control`, press the `3 dot icon in the top right > Manage accounts > [test] your app name > Unlink account` Then relink your account by selecting `[test] your app name` again.
 4. A browser will open and ask you to login to your Home Assistant instance and will redirect back to the `Google Assistant` app right afterward.
 
-<p class='note'>
+<div class='note'>
+
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
 
 If you're still having trouble, make sure that you're not connected to the same network Home Assistant is running on, e.g., use 4G/LTE instead.
-</p>
 
-## {% linkable_title First time setup %}
+</div>
+
+## First time setup
 
 You need to create an API Key with the [Google Cloud API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) which allows you to update devices without unlinking and relinking an account (see [below](#troubleshooting-the-request_sync-service)). If you don't provide one, the `google_assistant.request_sync` service is not exposed. It is recommended to set up this configuration key as it also allows the usage of the following command, "Ok Google, sync my devices". Once you have set up this component, you will need to call this service (or command) each time you add a new device that you wish to control via the Google Assistant integration.
 
@@ -81,26 +81,30 @@ You need to create an API Key with the [Google Cloud API Console](https://consol
     <img src='/images/components/google_assistant/accountlinking.png' alt='Screenshot: Account linking'>
 
 3. Back on the overview page. Click `Simulator` under `TEST`. It will create a new draft version Test App. You don't have to actually test, but you need to generate this draft version Test App.
-4. Add the `google_assistant` component configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
+4. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#configuration) below.
 5. Open the Google Home app and go into `Account > Settings > Assistant > Home Control`.
 6. Click the `+` sign, and near the bottom, you should have `[test] your app name` listed under 'Add new.' Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms for your devices or nicknames for your devices.
-<p class='note'>
+
+<div class='note'>
+
 If you've added Home Assistant to the home screen, you have to first remove it from home screen, otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant to redirect back to the `Google Assistant` app.
-</p>
-7. If you want to allow other household users to control the devices:
+
+</div>
+
+1. If you want to allow other household users to control the devices:
     1. Go to the settings for the project you created in the [Actions on Google console](https://console.actions.google.com/).
     2. Click `Test -> Simulator`, then click `Share` icon in the right top corner. Follow the on-screen instruction:
         1. Add team members: Got to `Settings -> Permission`, click `Add`, type the new user's e-mail address and choose `Project -> Viewer` role.
         2. Copy and share the link with the new user.
         3. When the new user opens the link with their own Google account, it will enable your draft test app under their account.
     3. Have the new user go to their `Google Assistant` app to add `[test] your app name` to their account.
-8. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
+2. If you want to use the `google_assistant.request_sync` service, to update devices without unlinking and relinking, in Home Assistant, then enable Homegraph API for your project:
     1. Go to the [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview).
     2. Select your project and click Enable Homegraph API.
     3. Go to Credentials, which you can find on the left navigation bar under the key icon, and select API Key from Create Credentials.
     4. Note down the generated API Key and use this in the configuration.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Now add the following lines to your `configuration.yaml` file:
 
@@ -166,6 +170,7 @@ entity_config:
           description: Force an entity to be exposed/excluded.
           required: false
           type: boolean
+          default: true
         aliases:
           description: Aliases that can also be used to refer to this entity
           required: false
@@ -176,7 +181,7 @@ entity_config:
           type: string
 {% endconfiguration %}
 
-### {% linkable_title Available domains %}
+### Available domains
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
@@ -190,36 +195,35 @@ Currently, the following domains are available to be used with Google Assistant,
 - light (on/off/brightness/rgb color/color temp)
 - lock (lock/unlock (to allow assistant to unlock, set the `allow_unlock` key in configuration))
 - cover (on/off/set position)
-- media_player (on/off/set volume (via set brightness)/source (via set input source))
-- climate (temperature setting, operation_mode)
+- media_player (on/off/set volume (via set volume)/source (via set input source))
+- climate (temperature setting, hvac_mode)
 - vacuum (dock/start/stop/pause)
 - sensor (temperature setting, only for temperature sensor)
 
-<p class='note warning'>
+<div class='note warning'>
   The domain groups contains groups containing all items, by example group.all_automations. When telling Google Assistant to shut down everything, this will lead in this example to disabling all automations
-</p>
+</div>
 
-### {% linkable_title Secure Devices %}
+### Secure Devices
 
 Certain devices are considered secure, including anything in the `lock` domain, and `covers` with device types `garage` and `door`.
 
 By default these cannot be opened by Google Assistant unless a `secure_devices_pin` is set up. To allow opening, set the `secure_devices_pin` to something and you will be prompted to speak the pin when opening the device. Closing and locking these devices does not require a pin.
 
-### {% linkable_title Media Player Sources %}
+### Media Player Sources
 
 Media Player sources are sent via the Modes trait in Google Assistant.
-There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature are listed here:
-https://developers.google.com/actions/reference/smarthome/traits/modes
+There is currently a limitation with this feature that requires a hard-coded set of settings. Because of this, the only sources that will be usable by this feature [are listed here](https://developers.google.com/actions/reference/smarthome/traits/modes).
 
 #### Example Command:
 
 "Hey Google, change input source to TV on Living Room Receiver"
 
-### {% linkable_title Room/Area support %}
+### Room/Area support
 
 Entities that have not got rooms explicitly set and that have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
 
-### {% linkable_title Climate Operation Modes %}
+### Climate Operation Modes
 
 There is not an exact 1-1 match between Home Assistant and Google Assistant for the available operation modes.
 Here are the modes that are currently available:
@@ -232,7 +236,7 @@ Here are the modes that are currently available:
 - dry
 - eco
 
-### {% linkable_title Troubleshooting the request_sync service %}
+### Troubleshooting the request_sync service
 
 The request_sync service requires that the initial sync from Google includes the agent_user_id. If not, the service will log an error that reads something like "Request contains an invalid argument". If this happens, then [unlink the account](https://support.google.com/googlehome/answer/7506443) from Home Control and relink.
 
@@ -243,15 +247,15 @@ The request_sync service may fail with a 404 if the project_id of the Homegraph 
   3. Enable Homegraph API to the new project.
   4. Generate a new API key.
   5. Again, create a new project in the [Actions on Google console](https://console.actions.google.com/). Described above. But at the step 'Build under the Actions SDK box' choose your newly created project. By this, they share the same `project_id`.
-  
+
 Syncing may also fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is techincally in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant", this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again.
 
-### {% linkable_title Troubleshooting with NGINX %}
+### Troubleshooting with NGINX
 
 When using NGINX, ensure that your `proxy_pass` line *does not* have a trailing `/`, as this will result in errors. Your line should look like:
 
     proxy_pass http://localhost:8123;
 
-### {% linkable_title Unlink and relink %}
+### Unlink and relink
 
 If you're having trouble with *Account linking failed* after you unlinked your service, try clearing the browser history and cache.

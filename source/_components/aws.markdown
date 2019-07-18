@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Amazon Web Services"
 description: "Instructions on how to integrate Amazon Web Services with Home Assistant."
-date: 2019-03-21 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: aws.png
 ha_category:
   - Notifications
@@ -15,17 +9,17 @@ ha_release: "0.91"
 
 The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
 
-## {% linkable_title Setup %}
+## Setup
 
 You have to have an AWS account to use Amazon Web Services, create one [here](https://aws.amazon.com/free/) with a 12 months free tier benefit. Please note, even in the first 12-months, you may still be billed if you use more resources than offered in the free tier. We advise you to monitor your costs in the [AWS Billing Console](https://console.aws.amazon.com/billing/) closely. You can read the [Control your AWS costs](https://aws.amazon.com/getting-started/tutorials/control-your-costs-free-tier-budgets/) guide for more information.
 
 The `lambda`, `sns` and `sqs` services, used in the `aws` component, all provide an **Always Free** tier for all users even after the 12-month period. The general usage in Home Automation will most likely not reach the free tier limit. Please read [Lambda Pricing](https://aws.amazon.com/lambda/pricing/), [SNS Pricing](https://aws.amazon.com/sns/pricing/) and [SQS Pricing](https://aws.amazon.com/sqs/pricing/) for more details.
 
-The `aws` component is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) to communicate with Amazon Web Services, which is also used by the [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shares the same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and how to manage them on your local system securely.
+The `aws` integration is using [botocore](https://botocore.amazonaws.com/v1/documentation/api/latest/index.html) to communicate with Amazon Web Services, which is also used by the [AWS Command Client Interface](https://aws.amazon.com/cli/) tool. Therefore, `aws` shares the same credential and profiles with `awscli` tool. Please read [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) to learn how to get access keys and how to manage them on your local system securely.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To use the `aws` component and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
+To use the `aws` integration and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,12 +29,12 @@ aws:
       aws_access_key_id: AWS_ID
       aws_secret_access_key: AWS_SECRET
   notify:
-    # use the first credential defined in aws component by default
+    # use the first credential defined in aws integration by default
     - service: lambda
       region_name: us-east-1
 ```
 
-### {% linkable_title Configuration for credentials %}
+### Configuration for credentials
 
 {% configuration %}
 name:
@@ -48,12 +42,12 @@ name:
   required: true
   type: string
 aws_access_key_id:
-  description: Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`.
-  required: Required if aws_secret_access_key is provided
+  description: Your AWS Access Key ID. If provided, you must also provide an `aws_secret_access_key` and must **not** provide a `profile_name`. Required if `aws_secret_access_key` is provided.
+  required: false
   type: string
 aws_secret_access_key:
-  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`.
-  required: Required if aws_access_key_id is provided
+  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id` and must **not** provide a `profile_name`. Required if `aws_access_key_id` is provided.
+  required: false
   type: string
 profile_name:
   description: A credentials profile name.
@@ -66,7 +60,7 @@ validate:
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Configuration for notify %}
+### Configuration for notify
 
 {% configuration %}
 service:
@@ -86,8 +80,8 @@ aws_access_key_id:
   required: false
   type: string
 aws_secret_access_key:
-  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id`.
-  required: Required if aws_access_key_id is provided
+  description: Your AWS Secret Access Key. If provided, you must also provide an `aws_access_key_id`. Required if aws_access_key_id is provided.
+  required: false
   type: string
 profile_name:
   description: A credentials profile name.
@@ -104,7 +98,7 @@ context:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Lambda Notify Usage %}
+## Lambda Notify Usage
 
 AWS Lambda is a notification platform and thus can be controlled by calling the `notify` service [as described here](/components/notify/). It will invoke a Lambda for all targets given in the notification payload. A target can be formatted as a function name, an entire ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)) or a partial ARN. For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Client.invoke).
 
@@ -132,21 +126,21 @@ The context will look like this:
 }
 ```
 
-## {% linkable_title SNS Notify Usage %}
+## SNS Notify Usage
 
 AWS SNS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/components/notify/). It will publish a message to all targets given in the notification payload. A target must be a SNS topic or endpoint ARN ([Amazon Resource Name](http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). For more information, please see the [botocore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Client.publish).
 
 If one exists, the SNS Subject will be set to the title. All attributes from the payload, except the message, will be sent as stringified message attributes.
 
-### {% linkable_title Setting up SNS within AWS %}
+### Setting up SNS within AWS
 
 - Log into your AWS console and under "Security and Identity", select "Identity & Access Management".
 - On the left-hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create". 
 - You can either download the credentials or click the arrow to display them one time.
 
-<p class='note warning'>
-  If you do not download them, you will lose them and will have to recreate a new user.
-</p>
+<div class='note warning'>
+If you do not download them, you will lose them and will have to recreate a new user.
+</div>
 
 - Copy/Paste the two keys that are shown here in your `configuration.yaml` file.
 - On the left-hand side of the screen go back to "Users" and select the user you just created. On the "Permissions" tab click the "Attach Policy" icon. Search for "SNS" and attach the policy "AmazonSNSFUullAccess".
@@ -158,7 +152,7 @@ If one exists, the SNS Subject will be set to the title. All attributes from the
 - Repeat for additional numbers.
 - Back in the "Users" section you will see a long alphanumeric line that starts with "arn:" and ends with the Topic Name you choose previously. This is what your "target" in Home Assistant will be.
 
-## {% linkable_title SQS Notify Usage %}
+## SQS Notify Usage
 
 AWS SQS is a notification platform and thus can be controlled by calling the `notify` service [as described here](/components/notify/). It will publish a message to the queue for all targets given in the notification payload. A target must be a SQS topic URL. For more information, please see the [SQS docs](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html) and [bototcore docs](https://botocore.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Client.send_message)
 

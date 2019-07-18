@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Introducing Home Assistant CLI aka. hass-cli"
 description: "Interact with Home Assistant on a new level"
 date: 2019-02-04 00:01:00
 date_formatted: "February 4, 2018"
 author: Max Rydahl Andersen
 author_twitter: maxandersen
-comments: true
 categories: Announcements
 ---
 

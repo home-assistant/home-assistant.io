@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DLNA DMR"
 description: "Instructions on how to integrate a DLNA DMR device into Home Assistant."
-date: 2018-06-01 14:27
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dlna.png
 ha_category:
   - Media Player
@@ -20,7 +14,7 @@ The `dlna_dmr` platform allows you to control a [DLNA Digital Media Renderer](ht
 
 Please note that some devices, such as Samsung TVs, are rather picky about the source used to play from. The TTS service might not work in combination with these devices. If the play_media service does not work, please try playing from a DLNA/DMS (such as [MiniDLNA](https://sourceforge.net/projects/minidlna/)).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a DLNA DMR device to your installation, add the following to your `configuration.yaml` file:
 

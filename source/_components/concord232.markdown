@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Concord232"
 description: "Instructions on how to integrate Interlogix/GE Concord4 into Home Assistant."
-date: 2016-10-11 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: interlogix.png
 ha_category:
   - Alarm
@@ -26,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - [Alarm](#alarm-control-panel)
 - [Binary Sensor](#binary-sensor)
 
-## {% linkable_title Alarm Control Panel %}
+## Alarm Control Panel
 
 To enable the alarm control panel platform, add the following lines to your `configuration.yaml`:
 
@@ -58,7 +52,7 @@ mode:
   default: audible
 {% endconfiguration %}
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 To enable the binary sensor platform, add the following lines to your `configuration.yaml`:
 

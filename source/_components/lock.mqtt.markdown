@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Lock"
 description: "Instructions on how to integrate MQTT locks into Home Assistant."
-date: 2016-02-28 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Lock
@@ -16,7 +10,7 @@ ha_iot_class: Configurable
 
 The `mqtt` lock platform lets you control your MQTT enabled locks.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 In an ideal scenario, the MQTT device will have a `state_topic` to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT lock will receive an instant state update after subscription and will start with correct state. Otherwise, the initial state of the lock will be `false` / unlocked.
 
@@ -110,7 +104,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -133,15 +127,17 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-</p>
+<div class='note warning'>
 
-## {% linkable_title Examples %}
+Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
+
+</div>
+
+## Examples
 
 In this section you will find some real-life examples of how to use this lock.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration for a MQTT lock.
 

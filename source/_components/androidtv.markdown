@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Android TV"
 description: "Instructions on how to integrate Android TV and Fire TV devices into Home Assistant."
-date: 2015-10-23 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: androidtv.png
 ha_category:
   - Media Player
@@ -18,7 +12,7 @@ redirect_from:
 
 The `androidtv` platform allows you to control an Android TV device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
-## {% linkable_title Device preparation %}
+## Device preparation
 
 To set up your device, you will need to find its IP address and enable ADB debugging. For Android TV devices, please consult the documentation for your device.
 
@@ -32,7 +26,7 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select System > About > Network.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,7 +76,7 @@ adb_server_port:
   description: The port for the ADB server.
   required: false
   default: 5037
-  type: port
+  type: integer
 get_sources:
   description: Whether or not to retrieve the running apps as the list of sources for Fire TV devices; not used for Android TV devices.
   required: false
@@ -92,7 +86,7 @@ apps:
   description: A dictionary where the keys are app IDs and the values are app names that will be displayed in the UI; see example below.
   required: false
   default: {}
-  type: dict
+  type: map
 device_class:
   description: "The type of device: `auto` (detect whether it is an Android TV or Fire TV device), `androidtv`, or `firetv`."
   required: false
@@ -108,7 +102,7 @@ turn_off_command:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full Configuration %}
+### Full Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -135,29 +129,29 @@ media_player:
     get_sources: false
 ```
 
-## {% linkable_title ADB Setup %}
+## ADB Setup
 
-This component works by sending ADB commands to your Android TV / Fire TV device. There are two ways to accomplish this:
+This integration works by sending ADB commands to your Android TV / Fire TV device. There are two ways to accomplish this:
 
-### {% linkable_title 1. ADB Server %}
+### 1. ADB Server
 
 You can use an ADB server to connect to your Android TV and Fire TV devices.
 
 For Hass.io users, you can install the [Android Debug Bridge](https://github.com/hassio-addons/addon-adb/blob/master/README.md) addon. Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android TV / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
-### {% linkable_title 2. Python ADB Implementation %}
+### 2. Python ADB Implementation
 
 The second option is to connect to your device using the `adb` Python package.
 
 If your device requires ADB authentication, you will need to follow the instructions in the [ADB Authentication](#adb-authentication) section below. Once you have an authenticated key, this approach does not require any additional setup or addons. However, users with newer devices may find that the ADB connection is unstable. For a Fire TV device, you can try setting the `get_sources` configuration option to `false`.  If the problem cannot be resolved, you should use the ADB server option.
 
-#### {% linkable_title ADB Authentication %}
+#### ADB Authentication
 
 If you get a "Device authentication required, no keys available" error when trying to set up your Android TV or Fire TV, then you'll need to create an adbkey and add its path to your configuration. Follow the instructions on this page to connect to your device from your computer: [Connecting to Fire TV Through adb](https://developer.amazon.com/zh/docs/fire-tv/connecting-adb-to-device.html).
 
-<p class='note warning'>
+<div class='note warning'>
 In the dialog appearing on your Android TV / Fire TV, you must check the box that says "always allow connections from this device." ADB authentication in Home Assistant will only work using a trusted key.
-</p>
+</div>
 
 Once you've successfully connected to your Android TV / Fire TV via the command `adb connect <ipaddress>`, the file `adbkey` will be created on your computer. The default locations for this file is (from [https://developer.android.com/studio/command-line/adb](https://developer.android.com/studio/command-line/adb)):
 
@@ -166,7 +160,7 @@ Once you've successfully connected to your Android TV / Fire TV via the command 
 
 Copy the `adbkey` file to your Home Assistant folder and add the path to the `adbkey` file to your configuration.
 
-## {% linkable_title ADB Troubleshooting %}
+## ADB Troubleshooting
 
 If you receive the error message `Error while setting up platform androidtv` in your log when trying to set up an Android TV or Fire TV device, then there is probably an issue with your ADB connection. Here are some possible causes.
 
@@ -180,13 +174,13 @@ If you receive the error message `Error while setting up platform androidtv` in 
 
    * Your key is not pre-authenticated. Before using the `adbkey` in Home Assistant, you _**must**_ connect to your device using the ADB binary and tell it to always allow connections from this computer. For more information, see the section [ADB Authentication](#adb-authentication) above.
 
-   * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the component should work.
+   * Home Assistant does not have the appropriate permissions for the `adbkey` file and so it is not able to use it. Once you fix the permissions, the integration should work.
 
 4. Some Android TV devices (e.g., Philips TVs running Android TV) only accept the initial ADB connection request over their Wi-Fi interface. If you have the TV wired, you need to connect it to WiFi and try the initial connection again. Once the authentication has been granted via Wi-Fi, you can connect to the TV over the wired interface as well.
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title `media_player.select_source` %}
+### `media_player.select_source`
 
 For Fire TV devices, you can launch an app using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
 
@@ -206,7 +200,7 @@ stop_netflix:
       source: '!com.netflix.ninja'
 ```
 
-### {% linkable_title `androidtv.adb_command` %}
+### `androidtv.adb_command`
 
 The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android TV / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 

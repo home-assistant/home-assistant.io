@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Enphase Envoy"
 description: "Instructions on how to setup Enphase Envoy with Home Assistant."
-date: 2018-06-30 12:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: enphase-logo.svg
 ha_category:
   - Energy
@@ -16,9 +10,9 @@ redirect_from:
  - /components/sensor.enphase_envoy/
 ---
 
-A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
+A sensor platform for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. Works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -66,4 +60,6 @@ monitored_conditions:
       description: The energy in Wh consumed the last 7 days.
     lifetime_consumption:
       description: The energy in Wh consumed in the lifetime of the Envoy.
+    inverters:
+      description: The power in W being produced by each micro-inverter. This will create a separate sensor for each micro-inverter you have installed. These sensors will only update about every 15 minutes, this is a limitation of the Enphase Envoy API.
 {% endconfiguration %}

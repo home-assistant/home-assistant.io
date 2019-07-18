@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Glances"
 description: "Instructions on how to integrate Glances sensors into Home Assistant."
-date: 2015-09-14 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: glances.png
 ha_category:
   - System Monitor
@@ -19,7 +13,7 @@ redirect_from:
 
 The `glances` sensor platform is consuming the system information provided by the [Glances](https://github.com/nicolargo/glances) API. This enables one to track remote host and display their stats in Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 This sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
 To start a Glances RESTful API server on its default port 61208, the a test the following command can be used:
@@ -38,11 +32,11 @@ $ curl -X GET http://IP_ADDRESS:61208/api/2/mem/free
 {"free": 203943936}
 ```
 
-If this doesn't work, try changing the `2` for `3`, if you have installed the latest verison of Glances.
+If this doesn't work, try changing the `2` for `3`, if you have installed the latest version of Glances.
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Glances sensor, add the following lines to your `configuration.yaml`:
 
@@ -97,7 +91,7 @@ version:
 resources:
   description: Entries to monitor.
   required: false
-  type: map
+  type: list
   default: disk_use
   keys:
     disk_use_percent:

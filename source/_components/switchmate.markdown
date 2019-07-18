@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Switchmate"
 description: "Instructions on how to set up Switchmate switches."
-date: 2018-08-17 22:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: switchmate-logo-rgb.png
 ha_category:
   - Switch
@@ -18,7 +12,7 @@ redirect_from:
 
 This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -44,4 +38,4 @@ flip_on_off:
   default: false
 {% endconfiguration %}
 
-The component is tested with SwitchMate Lighting Control Rocker and SwitchMate Lighting Control Toggle.
+The integration is tested with SwitchMate Lighting Control Rocker and SwitchMate Lighting Control Toggle.

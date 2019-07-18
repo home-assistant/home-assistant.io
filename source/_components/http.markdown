@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HTTP"
 description: "Offers a web framework to serve files."
-date: 2015-12-06 21:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: http.png
 ha_category:
   - Other
@@ -20,16 +14,18 @@ redirect_from:
   - /components/sensor.http/
 ---
 
-The `http` component serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<p class='note'>
+<div class='note'>
+
 Don't use option `server_host` on a Hass.io installation!
-</p>
+
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,7 +67,7 @@ ssl_key:
 cors_allowed_origins:
   description: "A list of origin domain names to allow [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests from. Enabling this will set the `Access-Control-Allow-Origin` header to the Origin header if it is found in the list, and the `Access-Control-Allow-Headers` header to `Origin, Accept, X-Requested-With, Content-type, Authorization`. You must provide the exact Origin, i.e. `https://www.home-assistant.io` will allow requests from `https://www.home-assistant.io` but __not__ `http://www.home-assistant.io`."
   required: false
-  type: string, list
+  type: [string, list]
 use_x_forwarded_for:
   description: "Enable parsing of the `X-Forwarded-For` header, passing on the client's correct IP address in proxied setups. You **must** also whitelist trusted proxies using the `trusted_proxies` setting for this to work. Non-whitelisted requests with this header will be considered IP spoofing attacks, and the header will, therefore, be ignored."
   required: false
@@ -80,11 +76,11 @@ use_x_forwarded_for:
 trusted_proxies:
   description: "List of trusted proxies, consisting of IP addresses or networks, that are allowed to set the `X-Forwarded-For` header.  This is required when using `use_x_forwarded_for` because all requests to Home Assistant, regardless of source, will arrive from the reverse proxy IP address. Therefore in a reverse proxy scenario, this option should be set with extreme care."
   required: false
-  type: string, list
+  type: [string, list]
 trusted_networks:
   description: "**Deprecated since 0.89 release. Configuration moved to [Trusted Networks auth provider](/docs/authentication/providers/#trusted-networks).** List of trusted networks, consisting of IP addresses or networks, that are allowed to bypass password protection when accessing Home Assistant.  If using a reverse proxy with the `use_x_forwarded_for` and `trusted_proxies` options enabled, requests proxied to Home Assistant with a trusted `X-Forwarded-For` header will appear to come from the IP given in that header instead of the proxy IP."
   required: false
-  type: string, list
+  type: [string, list]
 ip_ban_enabled:
   description: Flag indicating whether additional IP filtering is enabled.
   required: false
@@ -102,9 +98,11 @@ ssl_profile:
   default: modern
 {% endconfiguration %}
 
-<p class='note'>
-Configuring trusted_networks via the `http` component will be deprecated and moved to `auth_providers` instead. For instructions, see <a href="https://www.home-assistant.io/docs/authentication/providers/#trusted-networks">trusted networks</a>. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2.
-</p>
+<div class='note'>
+
+Configuring trusted_networks via the `http` integration will be deprecated and moved to `auth_providers` instead. For instructions, see <a href="/docs/authentication/providers/#trusted-networks">trusted networks</a>. In Home Assistant 0.89.0 and 0.89.1, you need place the trusted network under both `http` and `auth_providers` if you still want to use trusted networks features. You can remove it from `http` section starting from 0.89.2.
+
+</div>
 
 The sample below shows a configuration entry with possible values:
 
@@ -119,8 +117,7 @@ http:
     - https://www.home-assistant.io
   use_x_forwarded_for: true
   trusted_proxies:
-    - 127.0.0.1
-    - ::1
+    - 10.0.0.200
   ip_ban_enabled: true
   login_attempts_threshold: 5
 ```
@@ -129,13 +126,13 @@ The [Set up encryption using Let's Encrypt](/blog/2015/12/13/setup-encryption-us
 
 Or use a self signed certificate following the instructions here [Self-signed certificate for SSL/TLS](/docs/ecosystem/certificates/tls_self_signed_certificate/).
 
-## {% linkable_title APIs %}
+## APIs
 
-On top of the `http` component is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
+On top of the `http` integration is a [REST API](/developers/rest_api/), [Python API](/developers/python_api/) and [WebSocket API](/developers/websocket_api/) available. There is also support for [Server-sent events](/developers/server_sent_events/).
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
-## {% linkable_title HTTP sensors %}
+## HTTP sensors
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
@@ -143,7 +140,7 @@ Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/en
 
 All [requests](/developers/rest_api/#post-apistatesltentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
-## {% linkable_title IP filtering and banning %}
+## IP filtering and banning
 
 If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and the maximum number of attempts. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
 
@@ -154,19 +151,23 @@ If you want to apply additional IP filtering, and automatically ban brute force 
 
 After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
 
-<p class='note warning'>
-Please note, that sources from `trusted_networks` won't be banned automatically.
-</p>
+<div class='note warning'>
 
-## {% linkable_title Hosting files %}
+Please note, that sources from `trusted_networks` won't be banned automatically.
+
+</div>
+
+## Hosting files
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config` on Hass.io, `.homeassistant` elsewhere). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
-<p class='note'>
-  If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
-</p>
+<div class='note'>
 
-## {% linkable_title Binary Sensor %}
+  If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+
+</div>
+
+## Binary Sensor
 
 The HTTP binary sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -178,9 +179,9 @@ The URL for a binary sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/binary_sensor.DEVICE_NAME
 ```
 
-<p class='note'>
+<div class='note'>
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</p>
+</div>
 
 The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -214,11 +215,11 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 }
 ```
 
-### {% linkable_title Examples %}
+### Examples
 
 In this section you'll find some real-life examples of how to use this sensor, besides `curl`, which was shown earlier.
 
-#### {% linkable_title Using Python request module %}
+#### Using Python request module
 
 As already shown on the [API](/developers/rest_api/) page, it's very simple to use Python and the [Requests](http://docs.python-requests.org/en/latest/) module for the interaction with Home Assistant.
 
@@ -230,7 +231,7 @@ response = requests.post(
 print(response.text)
 ```
 
-#### {% linkable_title Using `httpie` %}
+#### Using `httpie`
 
 [`httpie`](https://github.com/jkbrzt/httpie) is a user-friendly CLI HTTP client.
 
@@ -240,7 +241,7 @@ $ http -v POST http://localhost:8123/api/states/binary_sensor.radio \
       attributes:='{"friendly_name": "Radio"}'
 ```
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The HTTP sensor is dynamically created with the first request that is made to its URL. You don't have to define it in the configuration first.
 
@@ -252,9 +253,9 @@ The URL for a sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 ```
 
-<p class='note'>
+<div class='note'>
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</p>
+</div>
 
  The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
 

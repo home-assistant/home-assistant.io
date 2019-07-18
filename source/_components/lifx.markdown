@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LIFX"
 description: "Instructions on how to integrate LIFX into Home Assistant."
-date: 2018-10-08 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lifx.png
 ha_category:
   - Light
@@ -15,19 +9,19 @@ ha_release: 0.81
 redirect_from: /components/light.lifx/
 ---
 
-The `lifx` component allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
+The `lifx` integration allows you to integrate your [LIFX](https://www.lifx.com) into Home Assistant.
 
-_Please note, the `lifx` component does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
+_Please note, the `lifx` integration does not support Windows. The `lifx_legacy` light platform (supporting basic functionality) can be used instead._
 
-You can configure the LIFX component by going to the integrations page inside the config panel.
+You can configure the LIFX integration by going to the integrations page inside the config panel.
 
-## {% linkable_title Set state %}
+## Set state
 
 The LIFX bulbs allow a change of color and brightness even when they are turned off. This way you can control the light during the day so its settings are correct when events for turning on are received, for example from motion detectors or external buttons.
 
 The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.
 
-### {% linkable_title Service `light.lifx_set_state` %}
+### Service `light.lifx_set_state`
 
 Change the light to a new state.
 
@@ -40,7 +34,7 @@ Change the light to a new state.
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
 | `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) to specify the new state.
 
-## {% linkable_title Light effects %}
+## Light effects
 
 The LIFX platform supports several light effects. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`]({{site_root}}/components/light/#service-lightturn_on) service, for example like this:
 ```yaml
@@ -72,7 +66,7 @@ script:
 
 The available light effects and their options are listed below.
 
-### {% linkable_title Service `light.lifx_effect_pulse` %}
+### Service `light.lifx_effect_pulse`
 
 Run a flash effect by changing to a color and then back.
 
@@ -87,7 +81,7 @@ Run a flash effect by changing to a color and then back.
 | `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### {% linkable_title Service `light.lifx_effect_colorloop` %}
+### Service `light.lifx_effect_colorloop`
 
 Run an effect with colors looping around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
 
@@ -101,7 +95,7 @@ Run an effect with colors looping around the color wheel. All participating ligh
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### {% linkable_title Service `light.lifx_effect_stop` %}
+### Service `light.lifx_effect_stop`
 
 Run an effect that does nothing, thereby stopping any other effect that might be running.
 
@@ -110,7 +104,7 @@ Run an effect that does nothing, thereby stopping any other effect that might be
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Else targets all.
 
 
-## {% linkable_title Advanced configuration %}
+## Advanced configuration
 
 There are some manual configuration options available. These are only needed with unusual network setups where automatic configuration does not find your LIFX devices.
 
@@ -131,7 +125,7 @@ server:
 port:
   description: The UDP port for discovery. Will listen on a random port if omitted.
   required: false
-  type: port
+  type: integer
 broadcast:
   description: The broadcast address for discovering lights. Can also set this to the IP address of a bulb to skip discovery.
   required: false

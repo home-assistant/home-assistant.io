@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Integration Sensor"
 description: "Instructions on how to integrate Integration Sensor into Home Assistant."
-date: 2019-01-02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Utility
   - Energy
@@ -18,9 +12,9 @@ redirect_from:
  - /components/sensor.integration/
 ---
 
-The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
+The `integration` platform provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum) of the values provided by a source sensor. The Riemann sum is an approximation of an **integral** by a finite sum. The integration sensors is updated upon changes of the the **source**. Fast sampling source sensors provide better results. In this implementation, the default is the Trapezoidal method, but Left and Right methods can optionally be used.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Integration Sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -50,12 +44,12 @@ unit_prefix:
   description: Metric unit to prefix the integration result. Available units are k, M, G, T.
   required: false
   default: None
-  type: unit
+  type: string
 unit_time:
   description: SI unit of time to integrate over. Available units are s, min, h, d.
   required: false
   default: h
-  type: unit
+  type: string
 unit:
   description: Unit of Measurement to be used for the integration.
   required: false
@@ -63,12 +57,13 @@ unit:
 method:
   description: Riemann sum method to be used. Available methods are trapezoidal, left, right.
   required: false
+  type: string
   default: trapezoidal
 {% endconfiguration %}
 
 If 'unit' is set then 'unit_prefix' and 'unit_time' are ignored.
 
-## {% linkable_title Energy %}
+## Energy
 
 An `integration` sensor is quite useful in energy billing scenarios since energy is generally billed in kWh and many sensors provide power in W (Watts).
 

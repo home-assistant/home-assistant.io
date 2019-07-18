@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "GreenEye Monitor"
 description: "Instructions on how to integrate your GreenEye Monitor within Home Assistant."
-date: 2018-09-02 11:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: brultech.png
 ha_category:
   - Hub
@@ -44,7 +38,7 @@ greeneye_monitor:
           name: back_porch_temperature
 ```
 
-By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/components/recorder) component for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/components/influxdb) component and exclude the GEM sensors from `recorder`.
+By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/components/recorder) integration for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/components/influxdb) integration and exclude the GEM sensors from `recorder`.
 
 {% configuration %}
 port:
@@ -76,7 +70,7 @@ monitors:
         net_metering:
           description: Set to `true` if the channel is configured for net metering in the GEM, otherwise `false`.
           required: false
-          type: bool
+          type: boolean
           default: false
     temperature_sensors:
       description: Configuration for temperature sensors

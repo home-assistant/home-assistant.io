@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Met Office"
 description: "Instructions on how to integrate Met Office weather conditions into Home Assistant."
-date: 2017-03-23 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: metoffice.jpg
 ha_category:
   - Weather
@@ -18,7 +12,7 @@ redirect_from:
 
 The `metoffice` weather platform uses the Met Office's [DataPoint API](http://www.metoffice.gov.uk/datapoint) for weather data.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the Met Office weather platform to your installation, you'll need to register for a free API key at the link above and then add the following to your `configuration.yaml` file:
 
@@ -35,7 +29,7 @@ api_key:
   required: true
   type: string
 name:
-  description: Additional name for the weather component in Home Assistant.
+  description: Additional name for the weather integration in Home Assistant.
   required: false
   type: string
   default: Met Office
@@ -49,7 +43,9 @@ longitude:
   type: float
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`metoffice`](/components/sensor.metoffice/) sensor.
 The weather platform is easier to configure but less customizable.
-</p>
+
+</div>

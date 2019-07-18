@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Air Quality Monitor"
 description: "Instructions how to integrate your Xiaomi Mi Air Quality Monitor within Home Assistant."
-date: 2018-02-28 08:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Health
@@ -27,7 +21,7 @@ Currently, the supported features are:
 
 Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a Xiaomi Mi Air Quality Monitor to your installation, add the following to your `configuration.yaml` file:
 

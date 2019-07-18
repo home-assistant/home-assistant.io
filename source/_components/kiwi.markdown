@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KIWI Lock"
 description: "Instructions on how to integrate KIWI Smart Lock and Smart Entry."
-date: 2018-05-16 13:37
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: kiwi.png
 ha_category:
   - Lock
@@ -19,7 +13,7 @@ redirect_from:
 The `KIWI` platform allows you to open your KIWI Smart Locks and Smart Entry Devices.
 All you need to get started is a KIWI account. Register at [the KIWI website](https://kiwi.ki/login/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry

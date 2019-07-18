@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SolarEdge Sensor"
 description: "Instructions on how to integrate SolarEdge sensor within Home Assistant."
-date: 2018-12-04 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: solaredge.png
 ha_category:
   - Sensor
@@ -18,11 +12,13 @@ redirect_from:
 
 The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 
-<p class='note'>
-The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and alow for some additional requests, the `solaredge` platform will update the site overview every 10 minutes.
-</p>
+<div class='note'>
 
-## {% linkable_title Configuration %}
+The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and alow for some additional requests, the `solaredge` platform will update the site overview every 10 minutes.
+
+</div>
+
+## Configuration
 
 To use the SolarEdge sensors in your installation, add the following to your configuration.yaml file:
 
@@ -91,7 +87,7 @@ monitored_conditions:
 
 If no **monitored_conditions** are specified, only **current_power** will be enabled.
 
-### {% linkable_title Full configuration sample %}
+### Full configuration sample
 
 A full configuration entry would look like the sample below.
 
@@ -131,6 +127,6 @@ sensors:
   platform: template
   sensors:
     solaredge_energy_this_year_template:
-      value_template: '{{(states.sensor.solaredge_energy_this_year.state | float / 1000) | round(2)}}'
+      value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 ```
 {% endraw %}

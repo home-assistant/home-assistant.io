@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EZcontrol XS1"
 description: "Instructions on how to integrate an XS1 Gateway within Home Assistant."
-date: 2018-12-04 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xs1.jpg
 ha_category:
   - Hub
@@ -23,7 +17,7 @@ redirect_from:
 
 The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) integration for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official docs for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Add the following entry to the `configuration.yaml` file:
 
@@ -33,7 +27,7 @@ xs1:
   host: "192.168.2.100"
 ```
 
-The component will automatically detect the configuration of the XS1 Gateway only **on initialization** which currently means when Home Assistant boots. When you change the configuration of the XS1 you (currently) have to restart Home Assistant to see the effects.
+The integration will automatically detect the configuration of the XS1 Gateway only **on initialization** which currently means when Home Assistant boots. When you change the configuration of the XS1 you (currently) have to restart Home Assistant to see the effects.
 
 {% configuration %}
 host:
@@ -60,21 +54,21 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Supported Device Types %}
+## Supported Device Types
 
-<p class='note warning'>
-This component currently only covers part of the device types supported by the XS1 gateway, unsupported types are simply ignored.
-</p>
+<div class='note warning'>
+This integration currently only covers part of the device types supported by the XS1 gateway, unsupported types are simply ignored.
+</div>
 
-### {% linkable_title Sensors %}
+### Sensors
 
 Any type of sensor is supported.
 
-<p class='note warning'>
+<div class='note warning'>
 If you are using climate devices the "current temp" sensor will be automatically used by the actuator (if named correctly). To make this work have a look at the actuator description below.
-</p>
+</div>
 
-### {% linkable_title Actuators %}
+### Actuators
 
 | Type          | Supported | Notes                                            |
 |---------------|-----------|--------------------------------------------------|
@@ -82,18 +76,18 @@ If you are using climate devices the "current temp" sensor will be automatically
 | `dimmer`      | Partly    | Dimmers are currently handled like switches so actual dimming is not supported :(|
 | `temperature` | Yes       |                                                  |
 
-### {% linkable_title Climate Actuator/Sensor %}
+### Climate Actuator/Sensor
 
 Home Assistant can combine temperature sensors and climate actuators into a single device. The XS1 gateway does not allow this, but a sensor and actuator can be configured separately. To make Home Assistant register them in the same climate device just prefix the **sensor** name with the actuator name on the XS1 gateway configuration, f.ex:
 
 - Actuator device name: "Bedroom_Temp"
 - Sensor device name: "Bedroom_Temp_Sensor"
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this component.
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 This example shows how you can use the optional configuration options.
 

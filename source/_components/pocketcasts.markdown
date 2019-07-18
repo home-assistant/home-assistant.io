@@ -1,12 +1,6 @@
 ---
-layout: page
 title: PocketCasts
 description: "Instructions on how to set up PocketCasts sensors within Home Assistant."
-date: 2017-02-14 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pocketcasts.png
 ha_category:
   - Multimedia
@@ -18,7 +12,7 @@ redirect_from:
 
 The `pocketcasts` sensor platform lets one monitor the podcasts at [Pocket Casts](https://play.pocketcasts.com/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

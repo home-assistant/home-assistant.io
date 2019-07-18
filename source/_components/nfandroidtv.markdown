@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notifications for Android TV / FireTV"
 description: "Notifications for Android TV / FireTV"
-date: 2016-10-21 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nfandroidtv.png
 ha_category:
   - Notifications
@@ -96,7 +90,7 @@ This is a fully customized JSON you can use to test how the final notification w
 }
 ```
 
-### {% linkable_title Service data for sending images %}
+### Service data for sending images
 
 The following attributes can be placed inside `data` to send images.
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dweet.io"
 description: "Transfer events to Dweet.io."
-date: 2016-05-07 07:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dweet.png
 ha_category:
   - History
@@ -17,23 +11,23 @@ redirect_from:
   - /components/sensor.dweet/
 ---
 
-The `dweet` component makes it possible to transfer details collected with Home Assistant to [Dweet.io](http://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
+The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](http://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
 
 <p class='img'>
   <img src='{{site_root}}/images/screenshots/dweet-freeboard.png' />
 </p>
 
-<p class='note warning'>
-  The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
-</p>
+<div class='note warning'>
+The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
+</div>
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To use the `dweet` component in your installation, add the following to your `configuration.yaml` file:
+To use the `dweet` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -57,11 +51,11 @@ whitelist:
   type: list
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `dweet` sensor platform allows you to get details from your devices which are publishing their values to [Dweet.io](https://dweet.io/).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To use Dweet.io sensors in your installation, add the following to your `configuration.yaml` file:
 
@@ -95,7 +89,7 @@ unit_of_measurement:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Full configuration sample %}
+### Full configuration sample
 
 A full configuration entry could look like the sample below.
 
@@ -111,7 +105,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Interacting with Dweet.io %}
+### Interacting with Dweet.io
 
 You can easily send dweets from the command-line to test your sensor with `curl`.
 

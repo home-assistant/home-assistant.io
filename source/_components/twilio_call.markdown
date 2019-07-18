@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Twilio Call"
 description: "Instructions on how to add user notifications to Home Assistant."
-date: 2017-01-27 00:09
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: twilio.png
 ha_category:
   - Notifications
@@ -42,7 +36,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Usage %}
+### Usage
 
 Twilio is a notify platform and thus can be controlled by calling the notify service [as described here](/components/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
 

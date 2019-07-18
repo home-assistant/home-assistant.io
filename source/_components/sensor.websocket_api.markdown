@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Websocket Connections Sensor"
 description: "Instructions on how to count connected clients within Home Assistant."
-date: 2019-03-20 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility
@@ -21,7 +15,7 @@ redirect_from:
 
 The `websocket_api` sensor platform shows how many clients are connected to the stream API.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the connected clients to your installation, add the following to your `configuration.yaml` file:
 
@@ -31,6 +25,6 @@ sensor:
   - platform: websocket_api
 ```
 
-### {% linkable_title Note %}
+### Note
 
 This replaces the previous `api_streams` sensor.

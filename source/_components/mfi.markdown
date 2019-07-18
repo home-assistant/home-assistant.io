@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "mFi"
 description: "Instructions on how to integrate mFi within Home Assistant."
-date: 2016-02-07 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ubiquiti.png
 ha_category:
   - Network
@@ -24,7 +18,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `mfi` sensor platform to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
 
@@ -69,7 +63,7 @@ verify_ssl:
   type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `mfi` switch platform to allow you to control [mFi Controllable Power Outlets](https://www.ubnt.com/mfi/mpower/).
 

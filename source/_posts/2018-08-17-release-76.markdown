@@ -1,19 +1,17 @@
 ---
-layout: post
 title: "0.76: Auth almost done, FleetGo, PJLink, RMV public transport"
 description: "The boys and girls in our virtual HQ have been working hard on creating yet another great release."
 date: 2018-08-17 00:01:00
 date_formatted: "August 17, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-08-0.76/components.png
 ---
 
-<p class='note'>
+<div class='note'>
 This release has a migration, initial startup can take ~20 minutes (depends on size DB)
-</p>
+</div>
 
 This release includes a database migration to allow us to store context in the database. This will make it possible in the future to introduce attribution. For example, we'll be able to say which user opened the garage door or which automation triggered the party mode at 3am.
 
@@ -39,7 +37,7 @@ mqtt:
   password: mypass
 ```
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - deCONZ - support for power plugs ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
 - RitAssist / FleetGO support ([@depl0y] - [#15780]) ([device_tracker docs]) (new-platform)
@@ -49,11 +47,11 @@ mqtt:
 - Add PJLink media player platform ([@benoitlouy] - [#15083]) ([media_player.pjlink docs]) (new-platform)
 - Add RMV public transport sensor ([@cgtobi] - [#15814]) ([sensor.rmvtransport docs]) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Add and restore context in recorder ([@balloob] - [#15859]) (new-feature)
 
-## {% linkable_title Release 0.76.1 - August 19 %}
+## Release 0.76.1 - August 19
 
 - No longer show "Store login" on each login when using API password ([@balloob])
 - Add forgiving add column ([@balloob] - [#16057])
@@ -70,7 +68,7 @@ mqtt:
 [notify docs]: /components/notify/
 [tuya docs]: /components/tuya/
 
-## {% linkable_title Release 0.76.2 - August 21 %}
+## Release 0.76.2 - August 21
 
 - Forgiving add index in migration ([@balloob] - [#16092])
 - Fix push notifications toggle ([@balloob])
@@ -78,17 +76,17 @@ mqtt:
 [#16092]: https://github.com/home-assistant/home-assistant/pull/16092
 [@balloob]: https://github.com/balloob
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Keenetic NDMS: user needs to have access to the TelNet interface ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
 - openweathermap: wind speed is now correctly in km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
@@ -101,7 +99,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT embedded broker will no longer rely on HTTP API password to automatically configure itself. You need to set own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)
 - Remove remote.API from core.Config. Might break custom components if they rely on hass.config.api ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Upgrade pymysensors to 0.17.0 ([@MartinHjelmare] - [#15942]) ([mysensors docs]) (beta fix)
 - Deprecate remote.api ([@balloob] - [#15955]) (beta fix)
@@ -119,7 +117,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix mysensors connection task blocking setup ([@MartinHjelmare] - [#15938]) ([mysensors docs]) (beta fix)
 - Fix Nest async from sync ([@balloob] - [#15997]) ([nest docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add kodi unique id based on discovery ([@rytilahti] - [#15093]) ([media_player.kodi docs])
 - Better handling of Yi camera being disconnected ([@bachya] - [#15754]) ([camera.yi docs])
@@ -358,7 +356,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [image_processing.facebox docs]: /components/image_processing.facebox/
 [light.deconz docs]: /components/light.deconz/
 [light.group docs]: /components/light.group/
-[light.velbus docs]: /components/light.velbus/
+[light.velbus docs]: /components/velbus/
 [media_extractor docs]: /components/media_extractor/
 [media_player.dlna_dmr docs]: /components/media_player.dlna_dmr/
 [media_player.kodi docs]: /components/media_player.kodi/

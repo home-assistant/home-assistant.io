@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Essent"
 description: "Instructions on how to integrate Essent within Home Assistant."
-date: 2019-04-29 19:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: essent.png
 ha_category:
   - Energy

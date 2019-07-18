@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.84: Cloud webhooks, Wunderlist and USGS Earth Quakes"
 description: "Final release of the year. Full of fixes and great little things."
 date: 2018-12-12 00:01:00
 date_formatted: "December 12, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-12-release-84/components.png
 ---
@@ -21,13 +19,13 @@ Paulus
 
 _We will skip our next release in our bi-weekly release cycle and plan to be back on January 9. See you then!_
 
-## {% linkable_title Cloud webhooks %}
+## Cloud webhooks
 
 This release introduces a new Home Assistant Cloud feature available: cloud webhooks. With cloud webhooks you can enable any webhook-enabled integration or automation in Home Assistant to be accessible via a unique URL in the cloud without having to open up a port on your router.
 
 This means that you can send any data back to your instance for OwnTracks, IFTTT or an automation with a webhook-trigger. Check the cloud page in the configuration panel to get started or read more about the new functionality at [the Nabu Casa website](https://www.nabucasa.com/config/webhooks/).
 
-## {% linkable_title Improved state restoring %}
+## Improved state restoring
 
 We have a new more reliable way of state restoration introduced by [@armills]. Instead of relying on the database it will now leverage the storage helper to keep track of states that need to be tracked. This should improve reliability and startup speed.
 
@@ -35,11 +33,11 @@ This comes with a downside: we will be unable to restore states the first time y
 
 This means that on upgrade to 0.84 any automation that doesn't have an `initial_state` defined **will be disabled**.
 
-## {% linkable_title Improved service calling %}
+## Improved service calling
 
 We have improved how we call services with better validation checks. This means that if you have an automation or a script that sends invalid data, we will now stop the execution and be better able to point out where your incorrect calls are coming from.
 
-## {% linkable_title For existing Lovelace testers %}
+## For existing Lovelace testers
 
 If you are currently testing Lovelace, please read the notes thoroughly as a lot has changed. First, we now have now three different Lovelace modes: auto-generated, storage, and yaml (the old way of doing Lovelace). The UI editor will be limited to the storage mode, in which we control how the config is stored.
 
@@ -51,7 +49,7 @@ We have also aligned the configuration of all the cards, causing breaking change
 
 Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit, move and delete cards, including custom cards!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Refactor ZHA ([@dmulcahey] - [#18629]) ([zha docs]) ([binary_sensor.zha docs]) ([fan.zha docs]) ([light.zha docs]) ([sensor.zha docs]) ([switch.zha docs]) (new-platform)
 - Add Awair sensor platform ([@ahayworth] - [#18570]) ([sensor.awair docs]) (new-platform)
@@ -64,7 +62,7 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 - Initial hlk-sw16 relay switch support ([@jameshilliard] - [#17855]) ([hlk_sw16 docs]) ([switch.hlk_sw16 docs]) (new-platform)
 - Initial scene support for Fibaro hubs ([@pbalogh77] - [#18779]) ([fibaro docs]) ([scene.fibaro docs]) (new-platform)
 
-## {% linkable_title Release 0.84.1 - December 12 %}
+## Release 0.84.1 - December 12
 
 - Add automation and script events to logbook event types ([@hunterjm] - [#19219]) ([logbook docs])
 - Fix owntracks topic in encrypted ios ([@balloob] - [#19220]) ([device_tracker docs]) ([owntracks docs])
@@ -77,7 +75,7 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [logbook docs]: /components/logbook/
 [owntracks docs]: /components/owntracks/
 
-## {% linkable_title Release 0.84.2 - December 14 %}
+## Release 0.84.2 - December 14
 
 - Don't avoid async_schedule_update_ha_state by returning false ([@syssi] - [#19102]) ([binary_sensor.xiaomi_aqara docs])
 - Always add friendly name attribute to ZHA entities ([@damarco] - [#19141]) ([zha docs])
@@ -114,13 +112,13 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [tts docs]: /components/tts/
 [zha docs]: /components/zha/
 
-## {% linkable_title Release 0.84.3 - December 17 %}
+## Release 0.84.3 - December 17
 
 - Set lock status correctly for Schlage BE469 Z-Wave locks ([@ahayworth] - [#18737]) ([lock.zwave docs])
 - Fix restore state for manual alarm control panel ([@liaanvdm] - [#19284]) ([alarm_control_panel.manual docs])
 - Fix not being able to update entities ([@glentakahashi] - [#19344]) ([config docs])
 
-## {% linkable_title Release 0.84.4 - December 19 %}
+## Release 0.84.4 - December 19
 
 - Fix parts of the frontend not picking up translations ([@balloob])
 - Fix IHC config schema ([@mopolus] - [#19415]) ([ihc docs])
@@ -133,11 +131,11 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [ihc docs]: /components/ihc/
 [remote.harmony docs]: /components/remote.harmony/
 
-## {% linkable_title Release 0.84.5 - December 19 %}
+## Release 0.84.5 - December 19
 
 - Fix Harmony for people not running Home Assistant in Docker ([@ehendrix23])
 
-## {% linkable_title Release 0.84.6 - December 21 %}
+## Release 0.84.6 - December 21
 
 - Fix incorrect local check when creating webhooks via a config flow (impacted all but Owntracks) ([@balloob] - [#19494])
 
@@ -167,17 +165,17 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [config docs]: /components/config/
 [lock.zwave docs]: /components/lock.zwave/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - State restoration will not work the first time you start 0.84. ([@armills] - [#17270]) ([history docs])
 - Support for multiple IHC controllers added. Manual IHC device configuration must be moved from platform sections to controller configuration section under the ihc component section. ([@mopolus] - [#18058]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([switch.ihc docs]) (breaking change)
@@ -195,7 +193,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fibaro: the `id` attribute has been renamed to `fibaro_id` ([@pbalogh77] - [#19055]) ([fibaro docs]) (breaking change)
 - Remove Instapush notify platform ([@fabaff] - [#19051]) ([notify docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Revert #17745 ([@balloob] - [#19064]) ([google_assistant docs]) (beta fix)
 - Fix missing colorTemperatureInKelvin from Alexa responses ([@mikeage] - [#19069]) ([alexa docs]) (beta fix)
@@ -213,7 +211,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix cloud defaults ([@balloob] - [#19172]) ([cloud docs]) (beta fix)
 - Revert PR #18602 ([@balloob] - [#19188]) ([camera.mjpeg docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add /sbin to launchd PATH ([@andersonshatch] - [#18601])
 - Minor change to still image on mjpeg ([@nragon] - [#18602]) ([camera.mjpeg docs])

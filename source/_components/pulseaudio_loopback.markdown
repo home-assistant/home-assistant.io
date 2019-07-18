@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PulseAudio Loopback Switch"
 description: "Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system."
-date: 2016-03-22 21:00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pulseaudio.png
 ha_category:
   - Switch
@@ -22,7 +16,7 @@ For example, for a system with a 7.1 surround sound card, and 3 instances of [MP
 
 The benefit of this approach is that this audio routing can occur without modifying the design-time configuration of MPD or PulseAudio.
 
-This component uses a TCP connection to control a local or remote PulseAudio server. So there are no local dependencies.
+This integration uses a TCP connection to control a local or remote PulseAudio server. So there are no local dependencies.
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
@@ -68,6 +62,8 @@ tcp_timeout:
   type: integer
 {% endconfiguration %}
 
-<p class='note warning'>
-This component relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-cli-protocol` must be loaded on the PulseAudio server.
-</p>
+<div class='note warning'>
+
+This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this component, `module-cli-protocol` must be loaded on the PulseAudio server.
+
+</div>

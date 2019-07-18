@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "P5 FutureNow Lights"
 description: "Instructions on how to set up P5 FutureNow relay/dimmer units as lights within Home Assistant."
-date: 2018-07-24 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: p5.png
 ha_category:
   - Light
@@ -19,7 +13,7 @@ The `futurenow` light platform allows you to use [P5](http://www.p5.hu) FutureNo
 * [FutureNow FNIP-6x2AD](http://www.p5.hu/index.php/products/ethernet-modules/265-fnip-6x2ad) dimmer unit (outputs only)
 * [FutureNow FNIP-8x10A](http://www.p5.hu/index.php/products/ethernet-modules/263-fnip-8x10a) relay unit (outputs only)
 
-### {% linkable_title Configuration Sample %}
+### Configuration Sample
 
 To use your FutureNow units, add the following to your `configuration.yaml` file:
 
@@ -70,7 +64,7 @@ devices:
           default: false
 {% endconfiguration %}
 
-### {% linkable_title Extended Configuration Sample %}
+### Extended Configuration Sample
 
 The following example `configuration.yaml` has two different FutureNow units with multiple channels:
 

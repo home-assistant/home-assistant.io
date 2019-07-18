@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenSky Network"
 description: "Instructions on how to integrate OpenSky Network into Home Assistant."
-date: 2017-04-14 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: opensky.png
 ha_category:
   - Transport
@@ -18,7 +12,7 @@ redirect_from:
 
 The `opensky` sensor allows one to track overhead flights in a given region. It uses crowd-sourced data from the [OpenSky Network](https://opensky-network.org/) public API. It will also fire Home Assistant events when flights enter and exit the defined region.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -36,7 +30,7 @@ Configuration options for the OpenSky Network sensor:
 - **altitude** (*Optional*): The maximum altitude (in meters) for planes to be detected in, 0 sets it to unlimited. Defaults to 0).
 - **name** (*Optional*): Sensor name. Defaults to opensky.
 
-## {% linkable_title Events %}
+## Events
 
 - **opensky_entry**: Fired when a flight enters the region.
 - **opensky_exit**: Fired when a flight exits the region.

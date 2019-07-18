@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Alarm Control Panel"
 description: "Instructions on how to integrate MQTT capable Alarm Panels into Home Assistant."
-date: 2015-09-14 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Alarm
@@ -16,7 +10,7 @@ ha_iot_class: Configurable
 
 The `mqtt` alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.
 
-The component will accept the following states from your Alarm Panel (in lower case):
+The integration will accept the following states from your Alarm Panel (in lower case):
 
 - `disarmed`
 - `armed_home`
@@ -25,9 +19,9 @@ The component will accept the following states from your Alarm Panel (in lower c
 - `pending`
 - `triggered`
 
-The component can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
+The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml`:
 
@@ -135,7 +129,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [list, string]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false

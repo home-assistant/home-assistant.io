@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Niko Home Control Light"
 description: "Instructions on how to integrate Niko Home Control lights into Home Assistant."
-date: 2018-04-08 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+logo: niko.png
 ha_category:
   - Light
 ha_iot_class: Local Polling
@@ -17,7 +12,7 @@ redirect_from:
 
 The `niko_home_control` platform allows you to integrate your [Niko Home Control](https://www.niko.eu/enus/products/niko-home-control) into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this lights, add the following lines to your `configuration.yaml`:
 

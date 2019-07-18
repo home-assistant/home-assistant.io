@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Scrape Sensor"
 description: "Instructions on how to integrate Web scrape sensors into Home Assistant."
-date: 2016-10-12 09:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Sensor
@@ -73,11 +67,11 @@ headers:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor. There is also a [Jupyter notebook](https://nbviewer.jupyter.org/github/home-assistant/home-assistant-notebooks/blob/master/other/web-scraping.ipynb) available for this example to give you a bit more insight.
 
-### {% linkable_title Home Assistant %}
+### Home Assistant
 
 The current release Home Assistant is published on [https://www.home-assistant.io/](/)
 
@@ -93,7 +87,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Available implementations %}
+### Available implementations
 
 Get the counter for all our implementations from the [Component overview](/components/) page.
 
@@ -109,7 +103,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Get a value out of a tag %}
+### Get a value out of a tag
 
 The German [Federal Office for Radiation protection (Bundesamt für Strahlenschutz)](http://www.bfs.de/) is publishing various details about optical radiation including an UV index. This example is getting the index for a region in Germany.
 
@@ -124,7 +118,7 @@ sensor:
     unit_of_measurement: 'UV Index'
 ```
 
-### {% linkable_title IFTTT status %}
+### IFTTT status
 
 If you make heavy use of the [IFTTT](/components/ifttt/) web service for your automations and are curious about the [status of IFTTT](http://status.ifttt.com/) then you can display the current state of IFTTT in your frontend.
 
@@ -137,7 +131,7 @@ sensor:
     select: '.component-status'
 ```
 
-### {% linkable_title Get the latest podcast episode file URL %}
+### Get the latest podcast episode file URL
 
 If you want to get the file URL for the latest episode of your [favorite podcast](https://hasspodcast.io/), so you can pass it on to a compatible media player.
 
@@ -152,7 +146,7 @@ sensor:
     attribute: url
 ```
 
-### {% linkable_title Energy price %}
+### Energy price
 
 This example tries to retrieve the price for electricity.
 
@@ -169,7 +163,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title BOM Weather %}
+### BOM Weather
 
 The Australian Bureau of Meterology website returns an error if the User Agent header is not sent.
 

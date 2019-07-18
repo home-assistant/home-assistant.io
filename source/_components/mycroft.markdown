@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mycroft"
 description: "Instructions on how to setup Mycroft AI within Home Assistant."
-date: 2017-08-26 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mycroft.png
 ha_category:
   - Voice
@@ -22,7 +16,7 @@ There is currently support for the following device types within Home Assistant:
 
 - **Notifications** - Allows to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Mycroft in your installation, add the following to your `configuration.yaml` file:
 

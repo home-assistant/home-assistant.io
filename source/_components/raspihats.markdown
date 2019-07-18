@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Raspihats"
 description: "Instructions on how to integrate Raspihats add-on boards for Raspberry Pi into Home Assistant."
-date: 2017-05-01 04:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspihats.png
 ha_category:
   - DIY
@@ -19,13 +13,13 @@ redirect_from:
   - /components/switch.raspihats/
 ---
 
-The `raspihats` component is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the component itself.
+The `raspihats` integration is the base for all related Raspihats platforms in Home Assistant. There is no setup needed for the integration itself.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `raspihats` binary sensor platform allows you to read sensor values ​​using the digital inputs of the [raspihats](http://www.raspihats.com/) boards.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your `raspihats` boards in your installation, add the following to your `configuration.yaml` file:
 
@@ -84,7 +78,7 @@ i2c_hats:
           type: string
 {% endconfiguration %}
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -105,7 +99,7 @@ $ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-de
 $ sudo usermod -a -G i2c homeassistant
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+### Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors, so you can see the sensor address:
 
@@ -129,11 +123,11 @@ It will output a table like this:
 
 For more details about the `raspihats` add-on boards for Raspberry Pi, visit [raspihats.com](http://www.raspihats.com/).
 
-## {% linkable_title Switch %}
+## Switch
 
 The `raspihats` switch platform allows you to control the digital outputs of your [Raspihats](http://www.raspihats.com/) boards.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Raspihats boards in your installation, add the following to your `configuration.yaml` file:
 
@@ -192,7 +186,7 @@ i2c_hats:
           type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -213,7 +207,7 @@ $ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-de
 $ sudo usermod -a -G i2c homeassistant
 ```
 
-## {% linkable_title Check the i2c address of the sensor %}
+## Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors, so you can see the sensor address:
 

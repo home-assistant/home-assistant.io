@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Taps Aff"
 description: "Instructions on how to use the Taps Aff binary sensor in Home Assistant."
-date: 2017-05-28 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tapsaff.png
 ha_category:
   - Weather
@@ -18,7 +12,7 @@ redirect_from:
 
 The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](http://www.taps-aff.co.uk).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

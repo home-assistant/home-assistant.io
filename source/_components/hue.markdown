@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Philips Hue"
 description: "Instructions on setting up Philips Hue within Home Assistant."
-date: 2017-11-29 23:51
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: philips_hue.png
 ha_category:
   - Hub
@@ -32,7 +26,7 @@ When you configure the Hue bridge from Home Assistant, it writes a token to a fi
 
 Once registration is complete you should see the Hue lights listed as `light` entities, Hue presence sensors listed as `binary_sensor` entites, Hue temperature and light level sensors listed as `sensor` entities. If you don't you may have to restart Home Assistant once more.
 
-If you want to enable the component without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
+If you want to enable the integration without relying on the [discovery component](/components/discovery/), add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,13 +37,14 @@ hue:
 
 {% configuration %}
 host:
-  description: The IP address of the device, e.g., 192.168.1.10. Required if not using the `discovery` component to discover Hue bridges.
+  description: The IP address of the device, e.g., 192.168.1.10. Required if not using the `discovery` integration to discover Hue bridges.
   required: true
   type: string
 allow_unreachable:
   description: This will allow unreachable bulbs to report their state correctly.
   required: false
   type: boolean
+  default: false
 filename:
   description: Make this unique if specifying multiple Hue hubs.
   required: false
@@ -58,9 +53,10 @@ allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 ```yaml
 # Example configuration.yaml entry specifying optional parameters
@@ -71,7 +67,7 @@ hue:
       allow_hue_groups: true
 ```
 
-### {% linkable_title Multiple Hue bridges %}
+### Multiple Hue bridges
 
 Multiple Hue bridges work transparently with discovery, you don't have to do anything. If you prefer to configure them manually and use multiple Hue bridges then it's needed that you provide a configuration file for every bridge. The bridges can't share a single configuration file.
 
@@ -87,7 +83,7 @@ hue:
       filename: phue2.conf
 ```
 
-### {% linkable_title Using Hue Groups in Home Assistant %}
+### Using Hue Groups in Home Assistant
 
 The Hue API allows you to group lights. Home Assistant also supports grouping of entities natively, but sometimes it can be useful to use Hue Groups to group light bulbs. By doing so, Home Assistant only needs to send one API call to change the state of all the bulbs in those groups instead of one call for every light in the group. This causes all the bulbs to change state simultaneously.
 
@@ -113,13 +109,13 @@ $ curl http://<bridge>/api/<username>/lights
 
 Home Assistant will automatically detect your new `LightGroup` and add it to the interface.
 
-<p class='note warning'>
+<div class='note warning'>
   To support Hue Light Groups, your bridge needs to have at least firmware 1.13 (released on June 3, 2016).
-</p>
+</div>
 
 More information can be found on the [Philips Hue API documentation](https://www.developers.meethue.com/documentation/groups-api#22_create_group) website.
 
-### {% linkable_title Using Hue Scenes in Home Assistant %}
+### Using Hue Scenes in Home Assistant
 
 The Hue platform has its own concept of scenes for setting the colors of a group of lights at once. Hue Scenes are very cheap, get created by all kinds of apps (as it is the only way to have 2 or more lights change at the same time), and are rarely deleted. A typical Hue hub might have hundreds of scenes stored in them, many that you've never used, almost all very poorly named.
 
@@ -145,7 +141,7 @@ script:
 
 *Note*: `group_name` is not linked to Home Assistant group name.
 
-### {% linkable_title Finding Group and Scene Names %}
+### Finding Group and Scene Names
 
 How do you find these names?
 
@@ -153,7 +149,7 @@ The easiest way to do this is only use the scenes from the 2nd generation Hue ap
 
 Alternatively, you can dump all rooms and scene names using this [gist](https://gist.github.com/sdague/5479b632e0fce931951c0636c39a9578). This does **not** tell you which groups and scenes work together but it's sufficient to get values that you can test in the `dev-service` console.
 
-### {% linkable_title Caveats %}
+### Caveats
 
 The Hue API doesn't activate scenes directly, only on a Hue Group (typically rooms, especially if using the 2nd gen app). But Hue Scenes don't actually reference their group. So heuristic matching is used.
 

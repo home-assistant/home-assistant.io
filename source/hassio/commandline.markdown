@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hass.io via the Command line"
 description: "Command line utility to control Hass.io."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 <p class='img'>
@@ -16,7 +10,7 @@ Hass.io upgrade process from the SSH command line
 
 On the SSH command line, you can use the `hassio` command to retrieve logs, check the details of connected hardware, and more.
 
-## {% linkable_title Home Assistant %}
+## Home Assistant
 
 ```bash
 $ hassio homeassistant info
@@ -28,7 +22,7 @@ $ hassio homeassistant stop
 $ hassio homeassistant update
 ```
 
-## {% linkable_title Supervisor %}
+## Supervisor
 
 ```bash
 $ hassio supervisor info
@@ -37,7 +31,7 @@ $ hassio supervisor reload
 $ hassio supervisor update
 ```
 
-## {% linkable_title Host %}
+## Host
 
 ```bash
 $ hassio host reboot
@@ -45,14 +39,14 @@ $ hassio host shutdown
 $ hassio host update
 ```
 
-## {% linkable_title Hardware %}
+## Hardware
 
 ```bash
 $ hassio hardware info
 $ hassio hardware audio
 ```
 
-## {% linkable_title Usage examples %}
+## Usage examples
 
 To update Home Assistant to a specific version, use the command:
 ```bash
@@ -92,6 +86,6 @@ GLOBAL OPTIONS:
    --version, -v  print the version
 ```
 
-## {% linkable_title Console access %}
+## Console access
 
 You can also access HassOS via a directly connected keyboard and monitor, the console. To log in to the physical console the username is `root`, with no password.

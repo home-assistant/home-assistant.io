@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Entur public transport"
 description: "Instructions for how to set up monitoring of public transport departures in Norway."
-date: 2018-10-09 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: entur.svg
 ha_category:
   - Transport
@@ -22,10 +16,11 @@ For each stop place given in the configuration, a sensor will be mounted for tha
 
 Real-time data is fetched from [Entur](https://www.entur.org). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
 
-<p class='note'>Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
-</p>
+<div class='note'>
+Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
+</div>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,7 +67,7 @@ number_of_departures:
   default: 2
 {% endconfiguration %}
 
-## {% linkable_title Example usage %}
+## Example usage
 
 Example of multiple stop places, with expanded sensors for each platform under the station, and with the platforms added to the map.
 
@@ -108,7 +103,7 @@ sensor:
       - 'NSB:Line:59'
 ```
 
-## {% linkable_title Obtaining a stop id %}
+## Obtaining a stop id
 
 [Entur's travel planer](https://en-tur.no) has a map of all stops used in Norway. Use the map to find the stops you're interested in. When you have found one of your stops, click on it.
 
@@ -118,7 +113,7 @@ Now the web browser should contain an URL with the id in it. Such as this:
 
 The stop id is the content after `id=` parameter in the url. Copy paste this into the configuration.
 
-## {% linkable_title FAQ - Troubleshooting %}
+## FAQ - Troubleshooting
 
 **Q:** I have multiple stop ids and have added whitelisting of a line. Now some of the stop places are showing `unknown`.
 

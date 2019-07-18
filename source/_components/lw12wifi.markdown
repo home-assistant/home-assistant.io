@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lagute LW-12"
 description: "Instructions on how to setup Lagute LW-12 Wifi LED controller within Home Assistant."
-date: 2018-04-28 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Light
 ha_iot_class: Local Polling
@@ -18,7 +12,7 @@ redirect_from:
 
 The `lw12wifi` light platform supports Lagute LW-12 Wifi LED controller.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable these lights, add the following lines to your `configuration.yaml` file:
 
