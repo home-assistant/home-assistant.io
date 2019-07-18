@@ -80,7 +80,7 @@ Set target temperature of climate device
 | `temperature` | no | New target temperature for hvac
 | `target_temp_high` | yes | New target high temperature for hvac
 | `target_temp_low` | yes | New target low temperature for hvac
-| `operation_mode` | yes | Operation mode to set temperature to. This defaults to current_operation mode if not set, or set incorrectly.
+| `hvac_mode` | yes | HVAC mode to set temperature to. This defaults to current HVAC mode if not set, or set incorrectly.
 
 #### Automation example
 
@@ -94,7 +94,7 @@ automation:
       data:
         entity_id: climate.kitchen
         temperature: 24
-        operation_mode: Heat
+        hvac_mode: heat
 ```
 
 ### Service `climate.set_humidity`
@@ -163,7 +163,7 @@ automation:
     - service: climate.set_hvac_mode
       data:
         entity_id: climate.kitchen
-        operation_mode: heat
+        hvac_mode: heat
 ```
 
 ### Service `climate.set_swing_mode`

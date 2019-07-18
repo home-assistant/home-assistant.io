@@ -84,7 +84,7 @@ vacuum:
       fan_speeds:
         description: List of fan speeds supported by the vacuum.
         required: false
-        type: string list
+        type: [string, list]
 {% endconfiguration %}
 
 ## {% linkable_title Examples %}
