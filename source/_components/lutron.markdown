@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Scene
   - Switch
+  - Fan
 ha_release: 0.37
 ha_iot_class: Local Polling
 redirect_from:
@@ -15,11 +16,12 @@ redirect_from:
   - /components/light.lutron/
   - /components/scene.lutron/
   - /components/switch.lutron/
+  - /components/fan.lutron/
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
 
-Presently, there's only support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater and only handle light switches, dimmers, and seeTouch keypad scenes.
+Presently, there's support for communicating with the [RadioRA 2](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RadioRA2/Overview.aspx) Main Repeater that can control light switches, dimmers, fans, and seeTouch keypad scenes.
 
 ## Configuration
 
