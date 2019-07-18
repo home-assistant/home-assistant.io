@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Broadlink Thermostat"
 description: "Instructions on how to integrate Broadlink heater into Home Assistant."
-date: 2019-03-10 0:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: broadlink.png
 ha_category:
   - Climate
@@ -16,7 +10,7 @@ ha_iot_class: Local Polling
 
 The `broadlink thermostat` climate platform is a thermostat implemented in Home Assistant. It works with numbers of Wifi thermostat (sold by Beok, Floureon, Beca Energy, Seesii...) like `Floureon Smart Wi-Fi Thermostat`, `Beok TGT70WIFI-EP Smart Wifi Thermostat`, `SeeSii Thermostat WiFi`...
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
   # Example configuration.yaml entry
@@ -54,7 +48,7 @@ away_temp:
 
 A full configuration example looks like the one below. 
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 # Full example configuration.yaml entry
@@ -67,7 +61,7 @@ climate:
     away_temp: 12.0
 ```
 
-## {% linkable_title Component services %}
+## Component services
 
 This platform supports a service to set the internal thermostat schedule scheme:
 
