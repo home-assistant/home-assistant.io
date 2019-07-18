@@ -323,4 +323,5 @@ climate:
     temperature_command_topic: "study/ac/temperature/set"
     fan_mode_command_topic: "study/ac/fan/set"
     swing_mode_command_topic: "study/ac/swing/set"
+    precision: 1.0
 ```
