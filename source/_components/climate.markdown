@@ -80,7 +80,7 @@ Set target temperature of climate device
 | `temperature` | no | New target temperature for hvac
 | `target_temp_high` | yes | New target high temperature for hvac
 | `target_temp_low` | yes | New target low temperature for hvac
-| `hvac_mode` | yes | HVAC mode to set temperature to. This defaults to current_operation mode if not set, or set incorrectly.
+| `hvac_mode` | yes | HVAC mode to set temperature to. This defaults to current HVAC mode if not set, or set incorrectly.
 
 #### Automation example
 
