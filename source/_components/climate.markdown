@@ -94,7 +94,7 @@ automation:
       data:
         entity_id: climate.kitchen
         temperature: 24
-        hvac_mode: Heat
+        hvac_mode: heat
 ```
 
 ### Service `climate.set_humidity`
