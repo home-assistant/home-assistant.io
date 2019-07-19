@@ -13,7 +13,7 @@ redirect_from:
  - /components/device_tracker.bbox/
 ---
 
-The `bbox` platform uses the [Bbox Modem Router](https://fr.wikipedia.org/wiki/Bbox/) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
+The `bbox` platform uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -26,7 +26,7 @@ Due to third party limitation, the sensors will only be available if Home Assist
 
 ## Presence Detection
 
-The `bbox` platform offers presence detection by looking at connected devices to a [Bbox](https://fr.wikipedia.org/wiki/Bbox) based router from [Bouygues](https://www.bouyguestelecom.fr/), which is one of the main Internet provider in France.
+The `bbox` platform offers presence detection by looking at connected devices to a [Bbox](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) based router from [Bouygues](https://www.bouyguestelecom.fr/), which is one of the main Internet provider in France.
 
 Bbox is a generic name for different hardware routers. The platform has been tested with the following devices:
 
