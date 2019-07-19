@@ -64,6 +64,6 @@ panel_iframe:
 
 <div class='note warning'>
 
-Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.
+Do **not** create one that is named `lovelace` it will overwrite lovelace causing it to never load.
 
 </div>
