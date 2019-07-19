@@ -51,6 +51,8 @@ confidence:
   default: 0.6
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 If the platform fails to load because it could not install its requirement, install cmake: `sudo apt-get install cmake`.
-</p>
+
+</div>

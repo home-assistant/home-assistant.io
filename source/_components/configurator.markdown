@@ -8,9 +8,9 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-<p class='note'>
+<div class='note'>
 This integration is intended for developers.
-</p>
+</div>
 
 The configurator integration allows integrations to request information from the user. It is currently implemented as the minimum viable product:
 

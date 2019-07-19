@@ -16,17 +16,19 @@ To enable it, add an entry to your `configuration.yaml` according to the followi
 
 To retrieve your device's details, please follow the instructions [here](https://github.com/NightRang3r/Switcher-V2-Python).
 
-<p class='note warning'>
+<div class='note warning'>
   Please note, the Switcher-V2-Python script is written in python 2.7 syntax, it won't run with python 3.x.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
   Please note, for the Switcher-V2-Python script to run successfully, you need to configure your device to work locally.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
+
   Please note, on the original script repository, users recently reported difficulties controling the device after upgrading the firmware to the new 3.0 version.As this integration is based on that script, please do not upgrade to version 3.0 until this issue is resolved. You can follow the issue [here](https://github.com/NightRang3r/Switcher-V2-Python/issues/3).
-</p>
+
+</div>
 ```yaml
 switcher_kis:
   phone_id: 'REPLACE_WITH_PHONE_ID'
@@ -59,9 +61,11 @@ device_password:
 | `electric_current` | float   | The electric current in amps.                          | 12.5              |
 | `current_power_w`  | integer | The current power used in watts.                       | 2756              |
 
-<p class='note warning'>
+<div class='note warning'>
+
   Please note, the following attributes are not eligible when the device is off and therefore will not appear as state attributes: `remaining_time`, `electric_current`, `current_power_w`.
-</p>
+
+</div>
 
 ## Services
 

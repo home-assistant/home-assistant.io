@@ -15,9 +15,9 @@ Only specific models support the local API. The local API is available on the SE
 
 You can check by finding the IP address of your inverter and visiting it in a browser. If it supports the local API, you'll see the SolarEdge logo and a "Commissioning" menu.
 
-<p class='note'>
+<div class='note'>
 If your inveter does not support the local API, you can use the [cloud based version](/components/solaredge/) instead.
-</p>
+</div>
 
 ## Configuration
 
@@ -58,11 +58,11 @@ In case you would like to convert the values for example to kWh instead of the d
 
 {% raw %}
 ```yaml
-# Example configuration.yaml entry for template platform
-sensors:
-  platform: template
-  sensors:
-    solaredge_energy_this_year_template:
-      value_template: '{{(states('sensor.solaredge_energy_this_year') | float / 1000) | round(2)}}'
+# Example configuration.yaml entry for sensor template platform
+sensor:
+  - platform: template
+    sensors:
+      solaredge_energy_this_year_template:
+        value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 ```
 {% endraw %}

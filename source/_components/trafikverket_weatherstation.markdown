@@ -56,7 +56,7 @@ station:
 monitored_conditions:
   description: Specify what measurement data to retrieve from the weather station.
   required: true
-  type: map
+  type: list
   keys:
     air_temp:
       description: Air temperature.

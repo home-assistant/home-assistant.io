@@ -37,11 +37,11 @@ space:
 logo:
   description: URL which is publicly accessible of the logo.
   required: true
-  type: URL
+  type: string
 logo:
   description: URL of the hackerspace's web site.
   required: true
-  type: URL
+  type: string
 location:
   description: Location of the Hackerspace.
   required: true
@@ -50,7 +50,7 @@ location:
     address:
       description: The physical address of the Hackerspace.
       required: true
-      type: String
+      type: string
 contact:
   description: Contact information of the Hackerspace.
   required: true
@@ -59,23 +59,23 @@ contact:
     email:
       description: The email address of the Hackerspace.
       required: true
-      type: String
+      type: string
     irc:
       description: The IRC channel of the Hackerspace
       required: false
-      type: String
+      type: string
     mailing_list:
       description: The mailing list of the Hackerspace.
       required: false
-      type: String
+      type: string
     twitter:
       description: The Twitter account of the Hackerspace.
       required: false
-      type: String
+      type: string
 issue_report_channels:
   description: "The reporting channel for issues. Pick an entity from `contact:`."
   required: true
-  type: List
+  type: list
 state:
   description: The current state of the Hackerspace.
   required: true
@@ -84,15 +84,15 @@ state:
     entity_id:
       description: "The `entity_id` of a binary sensor that represents the current state."
       required: true
-      type: entity_id
+      type: string
     icon_open:
       description: The URL which is publicly accessible of the icon for the open Hackerspace.
       required: false
-      type: URL
+      type: string
     icon_closed:
       description: The URL which is publicly accessible of the icon for the closed Hackerspace.
       required: false
-      type: URL
+      type: string
 sensors:
   description: List of sensors to expose.
   required: false
@@ -101,11 +101,11 @@ sensors:
     temperature:
       description: List of temperature sensors.
       required: true
-      type: entity_id
+      type: string
     humidity:
       description: List of humidity sensors.
       required: true
-      type: entity_id
+      type: string
 {% endconfiguration %}
 
 The list of sensors can be any sensor, not just temperature or humidity.

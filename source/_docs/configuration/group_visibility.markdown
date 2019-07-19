@@ -17,9 +17,9 @@ data:
   visible: false
 ```
 
-<p class='note'>
+<div class='note'>
 If a sensor belongs to only one group and that group is hidden, the sensor will "jump" to the top of the web interface. Add the sensor to an additional (visible) group if you do not want this to happen.
-</p>
+</div>
 
 ## Automations
 
@@ -97,9 +97,9 @@ sensor:
     name: Occasion
     command: "python3 occasion.py"
 ```
-<p class='note'>
+<div class='note'>
 If you are using docker to run Home Assistant then the occasion.py script will be placed under /config. Your command should instead be: command: "python3 /config/occasion.py"
-</p>
+</div>
 
 
 To simplify things, we create a Home Assistant script that changes the visibility of a group, but also verifies that an entity is in a specific state:

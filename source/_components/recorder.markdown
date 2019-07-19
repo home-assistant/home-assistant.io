@@ -30,7 +30,7 @@ recorder:
     db_url:
       description: The URL that points to your database.
       required: false
-      type: URL
+      type: string
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
@@ -49,11 +49,11 @@ recorder:
         domains:
           description: The list of domains to be excluded from recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be excluded from recordings.
           required: false
-          type: List
+          type: list
     include:
       description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
@@ -62,11 +62,11 @@ recorder:
         domains:
           description: The list of domains to be included in the recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be included in the recordings.
           required: false
-          type: List
+          type: list
 {% endconfiguration %}
 
 Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
@@ -140,19 +140,29 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
 | MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
-<p class='note'>
+<div class='note'>
+
 Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
-</p>
 
-<p class='note'>
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).</p>
+</div>
 
-<p class='note warning'>
-If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
+<div class='note'>
 
-<p class='note warning'>
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+
+</div>
+
+<div class='note warning'>
+
+If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)
+
+</div>
+
+<div class='note warning'>
+
 If you are using the default `FULL` recovery model for MS SQL Server you will need to manually backup your log file to prevent your transaction log from growing too large. It is recommended you change the recovery model to `SIMPLE` unless you are worried about data loss between backups.
-</p>
+
+</div>
 
 ### Database startup
 

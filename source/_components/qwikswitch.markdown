@@ -78,7 +78,7 @@ sensors:
       description: The channel of interest. Refer to type above.
       required: false
       default: 1
-      type: int
+      type: integer
     invert:
       description: Invert the open/close state. Only applicable to binary_sensors
       required: false

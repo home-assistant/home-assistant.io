@@ -30,7 +30,7 @@ port:
   description: Port to listen on.
   required: false
   default: 5678
-  type: port
+  type: integer
 wait:
   description: If true, wait for the debugger to connect before starting up home assistant.
   required: false

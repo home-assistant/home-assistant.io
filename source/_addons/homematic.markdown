@@ -44,6 +44,7 @@ rf_enable:
   description: Enable or disable BidCoS-RF.
   required: true
   type: boolean
+  default: false
 rf:
   description: RF devices.
   required: true
@@ -61,6 +62,7 @@ wired_enable:
   description: Enable or disable BidCoS-Wired.
   required: true
   type: boolean
+  default: false
 wired:
   description: Wired devices.
   required: true
@@ -82,6 +84,7 @@ hmip_enable:
   description: Enable or disable hmip.
   required: true
   type: boolean
+  default: false
 hmip:
   description: HMIP devices.
   required: true

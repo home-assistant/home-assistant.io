@@ -6,9 +6,9 @@ redirect_from: /ecosystem/ios/notifications/attachments/
 
 iOS 10 adds _attachments_ to notifications. An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
 
-<p class="note">
+<div class="note">
 To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
-</p>
+</div>
 
 ```yaml
 - alias: Notify iOS app

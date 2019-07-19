@@ -45,6 +45,6 @@ port:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Communication between the Asterisk PBX server and the Home Assistant server is password-protected, but the data transmission is not encrypted. It is recommended to only use this integration when communication is contained within a local area network.
-</p>
+</div>

@@ -45,14 +45,18 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
   To enable local push notifications from the Tags Manager, you need to add the IP address of the Tags Manager into whitelist in `http` component; i.e., add it to `trusted_networks`. See the [HTTP](/components/http/) for details.
   Additionally, you need add at least one [WirelessTag binary sensor](#binary-sensor) in config to start receiving local push notifications.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
+
   Tags Manager supports local push notifications for `http` schema only. So if your hass uses `https`, local push notifications are disabled and data is received via cloud polling.
-</p>
+
+</div>
 
 ## Binary Sensor
 

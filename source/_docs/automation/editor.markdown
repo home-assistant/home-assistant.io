@@ -96,7 +96,6 @@ For example, the below automation will be triggered when the sun goes from below
   - service: light.turn_on
 ```
 
-<p class='note'>
+<div class='note'>
 Any comments in the YAML file will be lost and templates will be reformatted when you update an automation via the editor.
-</p>
-
+</div>

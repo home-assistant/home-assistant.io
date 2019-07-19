@@ -10,9 +10,11 @@ ha_release: 0.34
 
 The `websocket_api` integration set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` component](/components/http/).
 
-<p class='note warning'>
+<div class='note warning'>
+
 It is HIGHLY recommended that you set the `api_password`, especially if you are planning to expose your installation to the internet.
-</p>
+
+</div>
 
 ## Configuration
 

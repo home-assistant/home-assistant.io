@@ -26,6 +26,7 @@ repetier:
 
 {% configuration %}
 repetier:
+  description: Repetier integration
   type: list
   required: true
   keys:

@@ -88,15 +88,19 @@ automatic_add:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 This integration and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
 Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
+
 If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</p>
+
+</div>
 
 Binary sensors have only two states - "on" and "off". Many door or window
 opening sensors will send a signal each time the door/window is open or closed.

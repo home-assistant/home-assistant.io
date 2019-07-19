@@ -26,14 +26,16 @@ sensor:
     region_name: Hansestadt Hamburg
 ```
 
-<p class="note">
+<div class="note">
+
 As it suggests the region name is not the city or nearest city you want to get the warnings for but the next higher level of the governmental district called "Kreis" in German.
 
 Be aware, to get the region name you need to use the following link by replacing `Hamburg` with your city:
 - Find your region here: `https://www.dwd.de/DE/wetter/warnungen_landkreise/warnWetter_node.html?ort=Hamburg`
 - On the page that is loaded in your browser you will find the correct region ("Kreis") below the map as a headding.
 - Verify if you find any warning for your region here. Your region ("Kreis") will appear only if warnings exist: `https://www.dwd.de/DWD/warnungen/warnapp_landkreise/json/warnings.json?jsonp=loadWarnings`
-</p>
+
+</div>
 
 {% configuration %}
 region_name:
@@ -66,6 +68,8 @@ name:
 | `warning_<x>_description` | Details for the issued warning. |
 | `warning_<x>_instruction` | The DWD is sometimes providing helpful information about precautions to take for the issued warning. |
 
- <p class="note">
+<div class="note">
+
 In the attribute name `x` is the counter of the warning starting from `1`.
-</p>
+
+</div>

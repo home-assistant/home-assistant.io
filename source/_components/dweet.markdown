@@ -17,9 +17,9 @@ The `dweet` integration makes it possible to transfer details collected with Hom
   <img src='{{site_root}}/images/screenshots/dweet-freeboard.png' />
 </p>
 
-<p class='note warning'>
-  The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
-</p>
+<div class='note warning'>
+The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
+</div>
 
 There is currently support for the following device types within Home Assistant:
 

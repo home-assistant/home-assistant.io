@@ -20,9 +20,9 @@ There is currently support for the following device types within Home Assistant:
 - Media Player
 - [Remote](#remote)
 
-<p class='note'>
+<div class='note'>
 Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
-</p>
+</div>
 
 ## Configuration
 
@@ -66,6 +66,7 @@ start_off:
   description: Set to true if the device should start in fake standby.
   required: false
   type: boolean
+  default: false
 credentials:
   description: Credentials used for AirPlay playback.
   required: false
@@ -148,9 +149,9 @@ The first two points are quite obvious. Fake standby is a concept implemented in
 
 To put a device into fake standby when starting Home Assistant, add `start_off: true` to your configuration.
 
-<p class='note warning'>
+<div class='note warning'>
 Turning the device on/off in the user interface will *not* turn the physical device on/off according to the description above.
-</p>
+</div>
 
 ## Services
 

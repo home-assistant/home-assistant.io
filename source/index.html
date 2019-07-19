@@ -55,7 +55,7 @@ description: Open source home automation that puts local control and privacy fir
 
         {% for post in site.posts limit: 3 %}
           <li class="post">
-            <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+            <a href="{{ post.url }}">{{ post.title }}</a>
             <small class='blog-date'>{{ post.date_formatted }}</small>
           </li>
         {% endfor %}

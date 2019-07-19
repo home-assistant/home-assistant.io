@@ -104,7 +104,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -127,9 +127,11 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-</p>
+
+</div>
 
 ## Examples
 

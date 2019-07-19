@@ -35,10 +35,12 @@ radius:
 latitude:
   description: Latitude for sensor.
   required: false
+  type: float
   default: Your home zone latitude defined in your configuration.
 longitude:
   description: Longitude for sensor.
   required: false
+  type: float
   default: Your home zone longitude defined in your configuration.
 include:
   description: List of incident types to include. See below for a list of valid incidents.

@@ -68,10 +68,10 @@ monitored_conditions:
       description: "The cold/flu index for today."
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 It is important to ensure the ZIP code is quoted if it starts with a 0. Unquoted
 ZIP codes that start with 0 will cause errors.
-</p>
+</div>
 
 ## Understanding the Indices
 

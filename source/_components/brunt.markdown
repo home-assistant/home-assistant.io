@@ -39,6 +39,6 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 This integration is not affiliated with Brunt and retrieves data from the endpoints of the mobile application. Use at your own risk.
-</p>
+</div>

@@ -162,9 +162,11 @@ monitored_conditions:
 
 The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.
 
-<p class='note'>
+<div class='note'>
+
 You must have the [ZoneMinder component](/components/zoneminder/) configured to use this and if ZoneMinder authentication is enabled the account specified in the integration configuration must have "Edit" permission for "System".
-</p>
+
+</div>
 
 To enable this switch, add the following lines to your `configuration.yaml` file:
 
@@ -187,6 +189,6 @@ command_off:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 The default functions installed by ZoneMinder are: None, Monitor, Modect, Record, Mocord, Nodect.
-</p>
+</div>

@@ -64,9 +64,9 @@ $ python3
 123456789
 ```
 
-<p class='note'>
+<div class='note'>
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
-</p>
+</div>
 
 ## Configuration
 
@@ -198,7 +198,8 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
 
 ```yaml
@@ -209,7 +210,8 @@ homeassistant:
     - /tmp
     - /home/kenji/data
 ```
-</p>
+
+</div>
 
 ### Video support
 

@@ -62,11 +62,13 @@ lutron_caseta:
     type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 It is recommended to assign a static IP address to your Lutron Smart Bridge. This ensures that it won't change IP address, so you won't have to change the `host` if it reboots and comes up with a different IP address.
 <br>
 Use a DHCP reservation on your router to reserve the address or in the PRO model of the Smart Bridge, set the IP address under Network Settings in the Advanced / Integration menu in the mobile app.
-</p>
+
+</div>
 
 To get Lutron Caseta roller, honeycomb shades, lights, scene and switch working with Home Assistant. First follow the instructions for the general Lutron Caseta integration above.
 

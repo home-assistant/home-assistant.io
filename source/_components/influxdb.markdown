@@ -17,9 +17,11 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-<p class='note'>
+<div class='note'>
+
 The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -99,19 +101,19 @@ include:
   required: false
   keys:
     entities:
-      type: string, list
+      type: [string, list]
       description:  The list of entity ids to be included in recording to InfluxDB.
       required: false    
     domains:
-      type: string, list
+      type: [string, list]
       description:  The list of domains to be included in recording to InfluxDB.
       required: false
 tags:
-  type: string, list
+  type: [string, list]
   description: Tags to mark the data.
   default: 0
 tags_attributes:
-  type: string, list
+  type: [string, list]
   description: The list of attribute names which should be reported as tags and not fields to InfluxDB. For example, if set to `friendly_name`, it will be possible to group by entities' friendly names as well, in addition to their ids.
   required: false
   default: 0

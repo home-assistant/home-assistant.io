@@ -6,20 +6,23 @@ redirect_from: /components/auth/
 
 When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
 
-<p class='note'>
+<div class='note'>
+
 The authentication system has been changed recently. Previously there was a single "_API password_" to log in, but you can now choose from several auth providers.<br/> <br/>
 
 To make the transition from API passwords easier, we've added a _Legacy API Password_ auth provider. This is enabled by default if you have an API password configured so you will still be able to log in.
 
 However, this feature is deprecated and will be removed in a future release so you should set up one of the newer authentication techniques.
-</p>
+
+</div>
 
 ## Configuring auth providers
 
-<p class='note warning'>
-Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
-</p>
+<div class='note warning'>
 
+Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
+
+</div>
 
 Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. You can supply more than one, for example:
 
@@ -56,9 +59,11 @@ The Trusted Networks auth provider defines a range of IP addresses for which no 
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
-<p class='note info'>
+<div class='note info'>
+
 The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
-</p>
+
+</div>
 
 Here is an example in `configuration.yaml` to set up Trusted Networks:
 
@@ -75,15 +80,20 @@ homeassistant:
 trusted_networks:
   description: A list of IP address or IP network you want to whitelisted. It accepts both IPv4 and IPv6 IP address or network
   required: true
-  type: list of string
+  type: list
 trusted_users:
   description: You can also assign which users are available to select when user access login page from certain IP address or network.
   required: false
-  type: dictionary, string as key, list of string as value
+  type: map
+  keys:
+    IP_ADDRESS:
+      description: List of users available to select on this IP address or network.
+      required: false
+      type: [list, string]
 allow_bypass_login:
   description: You can bypass login page if you have only one user available for selection.
   required: false
-  default: False
+  default: false
   type: boolean
 {% endconfiguration %}
 
@@ -165,19 +175,19 @@ Leading and trailing whitespace, as well as lines starting with `#` are ignored.
 
 Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
-<p class='note'>
+<div class='note'>
 Any leading and trailing whitespace is stripped from usernames before they're passed to the configured command. For instance, " hello  " will be rewritten to just "hello".
-</p>
+</div>
 
-<p class='note'>
+<div class='note'>
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
-</p>
+</div>
 
 ### Legacy API password
 
-<p class='note warning'>
+<div class='note warning'>
 This is a legacy feature for backwards compatibility and will be dropped in a future release. You should move to one of the other auth providers.
-</p>
+</div>
 
 Activating this auth provider will allow you to authenticate with the API password set in the HTTP component.
 
@@ -194,6 +204,8 @@ Activating this auth provider will also allow you to provide the API password us
 
 If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically if `api_password` was configured under `http` section.
 
-<p class='note warning'>
+<div class='note warning'>
+
 [Issue 16441](https://github.com/home-assistant/home-assistant/issues/16441): the legacy API password auth provider, won't be automatically configured if your API password is located in a package. This is because Home Assistant processes the `auth_provider` during the `core` section loading, which is earlier than the `packages` processing.
-</p>
+
+</div>

@@ -46,13 +46,13 @@ To obtain the `oauth_code` cookie value using Chrome or Firefox, follow the step
 * In the sidebar, expand "Cookies" and select `https://accounts.google.com`
 * In the cookie list, double click on the value for the `oauth_code` cookie to select it, and copy the value. This is the authorization code
 
-<p class='note'>
+<div class='note'>
 You can't write messages to yourself or get notifications in a group, if "you" write the message. The best way is to create a new Google Hangouts account for this integration.<br>
 <br>
 If you secured your account with 2-factor authentication: Only verification by app or SMS are supported. There is no support for verification by prompt on your phone.<br>
 <br>
 The manual authentication work-around is a result of unofficial support for using bots in hangouts from Google.
-</p>
+</div>
 
 The authentication token will be generated and stored internally.
 

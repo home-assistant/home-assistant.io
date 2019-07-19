@@ -27,9 +27,9 @@ There is currently support for the following device types within Home Assistant:
 
 Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#settingsapi).
 
-<p class='note'>
+<div class='note'>
 Ensure you allow the public IP of Home Assistant under the Access Control heading.
-</p>
+</div>
 
 To integrate your Vultr subscriptions with Home Assistant, add the following section to your `configuration.yaml` file:
 
@@ -54,9 +54,11 @@ The `vultr` binary sensor platform allows you to monitor your [Vultr](https://ww
 
 To use this binary sensor, you first have to set up your Vultr hub.
 
-<p class='note'>
+<div class='note'>
+
 The following examples assume a subscription that has an ID of `123456` and a label of `Web Server`
-</p>
+
+</div>
 
 Minimal `configuration.yaml` (produces `binary_sensor.vultr_web_server`):
 
@@ -96,9 +98,11 @@ The `vultr` sensor platform will allow you to view current bandwidth usage and p
 
 To use this sensor, you must set up your Vultr hub.
 
-<p class='note'>
+<div class='note'>
+
 The following examples assume a subscription that has an ID of `123456` and a label of `Web Server`
-</p>
+
+</div>
 
 Minimal `configuration.yaml` (produces `sensor.vultr_web_server_current_bandwidth_used` and `sensor.vultr_web_server_pending_charges`):
 
@@ -126,8 +130,8 @@ monitored_conditions:
   keys:
     current_bandwidth_used:
       description: The current (invoice period) bandwidth usage in Gigabytes (GB).
-    temperature:
-      pending_charges: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
+    pending_charges:
+      description: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
 {% endconfiguration %}
 
 Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_used` and `sensor.server_pending_charges`):

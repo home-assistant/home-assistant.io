@@ -75,8 +75,9 @@ registers:
       type: integer
     count:
       description: Number of registers to read.
-      required: integer
+      required: false
       type: integer
+      default: 1
     reverse_order:
       description: Reverse the order of registers when count >1.
       required: false

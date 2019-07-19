@@ -66,7 +66,7 @@ password:
 headers:
   description: The headers for the request.
   required: false
-  type: list, string
+  type: [string, list]
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
@@ -74,9 +74,9 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL matches exactly your endpoint or resource.
-</p>
+</div>
 
 ## Example
 

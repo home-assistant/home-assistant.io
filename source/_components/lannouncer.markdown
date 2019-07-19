@@ -80,8 +80,8 @@ You can also request to play a configured additional soundfiles (`FILE1`, `FILE2
 }
 ```
 
-<p class='note info'>
-  The free version only supports one additional soundfile. 
-</p>
+<div class='note info'>
+The free version only supports one additional soundfile.
+</div>
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

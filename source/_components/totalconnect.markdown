@@ -25,9 +25,7 @@ If you have issues running this component, you may require `libxml2-dev` and `li
 To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
-# Example configuration.yaml entry
-alarm_control_panel:
-  - platform: totalconnect
+totalconnect:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
@@ -46,6 +44,8 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
 
 ## Automation example
 

@@ -50,6 +50,6 @@ host:
 
 It is recommended to create a dedicated user for Home Assistant and only allow access to "Smart Home".
 
-<p class='note warning'>
+<div class='note warning'>
 If this integration throws an error when starting home-assistant you should check if all actors are plugged in and connected to the FritzBox. Inactive actors that are not deleted from FritzBox configuration might lead to errors.
-</p>
+</div>

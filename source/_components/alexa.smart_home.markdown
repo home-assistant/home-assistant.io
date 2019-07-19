@@ -24,12 +24,14 @@ However, config Amazon Alexa Smart Home Skill is not a easy job, you have to all
 your Home Assistant accessible from Internet, and you need to create Amazon Developer
 account and an Amazon Web Service account. 
 
-<p class='note'>
+<div class='note'>
+
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 <br/>
 <br/>
 For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
-</p>
+
+</div>
 
 ### Requirements
 
@@ -53,13 +55,15 @@ For Home Assistant Cloud Users, documentation can be found [here](https://www.na
 
 Alexa Smart Home skill will trigger a AWS Lambda function to process the request, we will write a small piece of code hosted as an Lambda function basically redirect the request to your Home Assistant instance, then Alexa integration integration in Home Assistant will process the request and send back the response. Your Lambda function will delivery the response back to Alexa.
 
-<p class='info'>
+<div class='info'>
+
 There already are some great tutorials and solutions in our community to achieve same goal "Create your Alexa Smart Home Skill to connect Home Assistant", for example: [Haaska](https://github.com/mike-grant/haaska/wiki).
 
 You can follow this document or others, but you cannot mixed-match different solutions since they may have different design.
 
 Amazon also provided a [step-by-step guide](https://developer.amazon.com/docs/smarthome/steps-to-build-a-smart-home-skill.html) to create a Smart Home Skill, however you have to adapt its sample code to match Home Assistant API.
-</p>
+
+</div>
 
 OK, let's go. You first need sign in your [AWS console](https://console.aws.amazon.com/), if you don't have an AWS account yet, you can create a new user [here](https://aws.amazon.com/free/) with 12-month free tire benefit. You don't need worry the cost if your account already pass the first 12 months, AWS provides up to 1 million Lambda request, 1GB outbound data and all inbound data for free, every month, all users. See [Lambda pricing](https://aws.amazon.com/lambda/pricing/) for details.
 

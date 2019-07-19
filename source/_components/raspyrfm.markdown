@@ -72,7 +72,7 @@ switches:
     channel_config:
       description: Channel configuration of the control unit. The exact keys needed depend on the control unit manufacturer and model.
       required: true
-      type: dict
+      type: map
 {% endconfiguration %}
 
 ## Device support
@@ -87,9 +87,11 @@ Depending on the control unit the channel config can have varying formats. Have 
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend) the state is known and will be shown in the frontend.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Note that due to the way those cheap RC units work it is **not possible to query their current state**. Therefore the only way to preserve a consistent state within Home Assistant is to only use Home Assistant as the controller.
-</p>
+
+</div>
 
 ## Full example
 

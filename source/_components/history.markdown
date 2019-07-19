@@ -28,10 +28,10 @@ history:
   </a>
 </p>
 
-<p class='note'>
+<div class='note'>
 Events are saved in a local database. Google Graphs is used to draw the graph.
 Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
-</p>
+</div>
 
 {% configuration %}
 exclude:

@@ -44,7 +44,7 @@ sensor_id:
   type: string
 show_on_map:
   description: Option to show the position of the sensor on the map.
-  required: optional
+  required: false
   default: false
   type: boolean
 scan_interval:
@@ -74,9 +74,11 @@ sensors:
           description: Display the pressure from the sensor.
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you set `show_on_map` to `true` then the location attributes are named `latitude` and `longitude`. The default name of the location attributes is `lat` and `long` to avoid showing them on the map.
-</p>
+
+</div>
 
 Not all sensors provide all conditions. Also, it's possible that the sensor values are not available all the time. To check what a sensor is publishing use `curl`:
 

@@ -45,12 +45,12 @@ scan_interval:
   type: integer
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 This integration is not affiliated with Itho Daalderop Spider and retrieves data from the endpoints of the mobile application. Use at your own risk.
-</p>
+</div>
 
 ### Climate
 
-<p class='note'>
+<div class='note'>
 Although this integration lets you change the operation mode to heating or cooling, it doesn't necessarily mean your boiler can. Spider is not aware of your current situation.
-</p>
+</div>

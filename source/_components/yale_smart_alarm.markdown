@@ -42,7 +42,7 @@ password:
 area_id:
   description: Area ID of the device when talking to Yale's API if required.
   required: false
-  type: int
+  type: integer
   default: 1
 {% endconfiguration %}
 
