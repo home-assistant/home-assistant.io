@@ -242,7 +242,7 @@ isy994:
 id:
   description: The ISY Variable ID number to use.
   required: true
-  type: int
+  type: integer
 type:
   description: The ISY Variable Type (1=Integer, 2=State).
   requried: true
