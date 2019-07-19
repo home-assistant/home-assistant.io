@@ -142,7 +142,7 @@ auto, and off.
 
 ## Services
 
-The following extra services are provided by the Ecobee Thermostat: `resume_program`.
+Besides the standard services provided by the Home Assistant [Climate](https://www.home-assistant.io/components/climate/) integration, the following extra service is provided by the Ecobee Thermostat: `resume_program`.
 
 ### Service `resume_program`
 
