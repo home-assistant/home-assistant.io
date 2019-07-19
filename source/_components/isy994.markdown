@@ -246,7 +246,7 @@ id:
 type:
   description: The ISY Variable Type (1=Integer, 2=State).
   requried: true
-  type: int
+  type: integer
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
   required: false
