@@ -87,7 +87,7 @@ tls:
 isy_variables:
   description: ISY Variables can be explicitly defined as as sensors, binary sensors, or switches.  See [Variables as Devices](#variables-as-devices) below.
   required: false
-  type: dict
+  type: map
 {% endconfiguration %}
 
 Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
@@ -258,7 +258,7 @@ device_class:
 payload_on:
   description: The payload that represents the on state (`binary_sensor` and `switch` only).
   required: false
-  type: int
+  type: integer
   default: 1
 payload_off:
   description: The payload that represents the off state  (`binary_sensor` and `switch` only).
