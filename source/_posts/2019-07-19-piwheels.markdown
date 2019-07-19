@@ -7,9 +7,9 @@ author: Joakim Sørensen
 categories: Announcements
 ---
 
-_If you are using [hass.io](https://www.home-assistant.io/hassio/installation/), [docker](https://www.home-assistant.io/docs/installation/docker/) or a distro based on Debian Buster this does not apply to you._
+_If you are using [Hass.io](https://www.home-assistant.io/hassio/installation/), [Docker](https://www.home-assistant.io/docs/installation/docker/) or a distro based on Debian Buster this does not apply to you._
 
-After upgrading to Home Assistant version 0.96.0 some users started seeing errors like this:
+After upgrading to Home Assistant version 0.96.0, some users started seeing errors like this:
 
 ```text
 ImportError: /usr/lib/arm-linux-gnueabihf/libssl.so.1.1: version `OPENSSL_1_1_1' not found (required by /srv/homeassistant/lib/python3.7/site-packages/cryptography/hazmat/bindings/_openssl.abi3.so
@@ -22,7 +22,7 @@ This applies if you have one of these installations with a manual installation o
 - Raspbian Jessie
 - Raspbian Stretch
 
-The reason for this is the way piwheels determine the OS version you have by looking at the Python version that is in use.
+The reason for this, is the way piwheels determines the OS version you have by looking at the Python version that is in use.
 
 [@frenck](https://github.com/frenck) added a writeup of the issue and potential solutions to [this issue](https://github.com/home-assistant/hassbian-scripts/issues/307#issuecomment-512963048).
 
@@ -32,9 +32,9 @@ There are two potential solutions for this issue, where option 1 are considered 
 
 Upgrade your distribution to Debian Buster.
 
-**NB!: This will upgrade your entire system and _might_ negatively affect other things you might have running.**
+**NB!: This option will upgrade your entire system and _might_ negatively affect other things you might have running.**
 
-Before you continue with this you should make sure that you have a recent backup of your system.
+Before you continue with this, you should make sure that you have a recent backup of your system.
 
 ### Steps
 
@@ -48,19 +48,19 @@ Before you continue with this you should make sure that you have a recent backup
 
 ## Option 2
 
-Disable Piwheels prebuilt packages.
+Disable piwheels prebuilt packages.
 
-This is a faster way initially but it have the huge drawback of having to locally compile the packages.
-You should only use this option if you run other things on your system that will not work if you use option 1.
+This option is a faster method initially, but it has the huge drawback of having to compile the packages locally.
+You should only use this option if you run other things on your system that will not work if you use the first option.
 
 ### Steps
 
 1. edit `/etc/pip.conf` and comment out the line containing piwheels, like this:
 
-```text
-[global]
-# extra-index-url=https://www.piwheels.org/simple
-```
+      ```text
+      [global]
+      # extra-index-url=https://www.piwheels.org/simple
+      ```
 
 2. Run `source /srv/homeassistant/bin/activate`
 3. Run `pip uninstall cryptography`
