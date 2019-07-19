@@ -7,7 +7,7 @@ author: Joakim Sørensen
 categories: Announcements
 ---
 
-_If you are using [hass.io](https://www.home-assistant.io/hassio/installation/), [docker](https://www.home-assistant.io/docs/installation/docker/) or a disro based on Debian Buster this does not apply to you._
+_If you are using [hass.io](https://www.home-assistant.io/hassio/installation/), [docker](https://www.home-assistant.io/docs/installation/docker/) or a distro based on Debian Buster this does not apply to you._
 
 After upgrading to Home Assistant version 0.96.0 some users started seeing errors like this:
 
@@ -20,7 +20,7 @@ And all integrations that communicated with SSL (https) stopped working.
 This applies if you have one of these installations with a manual installation or with Hassbian:
 
 - Raspbian Jessie
-- Raspbian Strecth
+- Raspbian Stretch
 
 The reason for this is the way piwheels determine the OS version you have by looking at the Python version that is in use.
 
@@ -38,7 +38,7 @@ Before you continue with this you should make sure that you have a recent backup
 
 ### Steps
 
-1. Change `strech` or `jessie` to `buster` in these files:
+1. Change `stretch` or `jessie` to `buster` in these files:
    - `/etc/apt/sources.list`
    - `/etc/apt/sources.list.d/raspi.list`
    - `/etc/apt/sources.list.d/hassbian.list`
