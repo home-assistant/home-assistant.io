@@ -73,7 +73,7 @@ keep_alive:
   required: false
   type: [time, integer]
 initial_hvac_mode:
-  description: Set the initial HVAC mode. Valid values are `heat`, `cool` or `auto`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
+  description: Set the initial HVAC mode. Valid values are `off`, `heat`, `cool` or `auto`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
   type: string
 away_temp:
