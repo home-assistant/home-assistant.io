@@ -1,5 +1,5 @@
 ---
-title: "Piwheel issues with older versions of Raspbian"
+title: "Piwheel issues with older versions of Raspbian/Hassbian"
 description: "How to fix issues with piwheels on older versions of Hassbian/Raspbian"
 date: 2019-07-19 12:00:00
 date_formatted: "July 19, 2019"
