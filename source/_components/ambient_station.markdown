@@ -176,7 +176,7 @@ monitored_conditions:
     soiltemp10f:
       description: Sensor 10 soil temperature
     solarradiation:
-      description: Solar radiation (two sensors created: `W/m^2` and `lx`)
+      description: Solar radiation (two sensors created: W/m^2 and lx)
     temp1f:
       description: Sensor 1 temperature
     temp2f:
