@@ -423,7 +423,7 @@ If the control is set lockable, the regulator can be turned on/off.
 
 <div class='note'>
 
-If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](climate.generic_thermostat) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
+If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](/components/generic_thermostat/) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
 
 </div>
 
