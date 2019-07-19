@@ -141,9 +141,8 @@ modes that the Ecobee thermostat provides: heat, auxHeatOnly, cool,
 auto, and off.
 
 ## Services
-Ecobee integration as of version 0.96.0 uses standard Home Assistant [Climate](https://www.home-assistant.io/components/climate/) Services.
 
-The following extra services are provided by the Ecobee Thermostat: `resume_program`.
+Besides the standard services provided by the Home Assistant [Climate](https://www.home-assistant.io/components/climate/) integration, the following extra service is provided by the Ecobee Thermostat: `resume_program`.
 
 ### Service `resume_program`
 
