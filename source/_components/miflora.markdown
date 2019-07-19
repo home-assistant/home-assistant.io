@@ -119,7 +119,8 @@ sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Flower 1
-    force_up    median: 3
+    force_update: true    
+    median: 3
     monitored_conditions:
       - moisture
       - light
