@@ -21,7 +21,9 @@ is available as the state of each entity.
   <img src='{{site_root}}/images/screenshots/wwlln-feed-map.png' />
 </p>
 
-New data is returned every 5 minutes.
+New data is fetched every every 10 minutes. Because data from the WWLLN may vary in terms
+of how real-time it is, the default `window` parameter is set to 1 hour to ensure that as
+many strikes are caught as possible.
 
 ## Configuration
 
@@ -46,7 +48,7 @@ radius:
   required: false
   type: integer
 window:
-  description: The amount of time before now for which strikes should be considered "active" and shown in the UI.
+  description: The amount of time before now for which strikes should be considered "active" and shown in the UI. Note that a window of less than 1 hour may cause Home Assistant to miss events.
   required: false
   type: time
 {% endconfiguration %}
