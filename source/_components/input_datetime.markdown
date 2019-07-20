@@ -21,13 +21,16 @@ add the following lines to your `configuration.yaml`:
 input_datetime:
   both_date_and_time:
     name: Input with both date and time
-    has_    has_time: true
+    has_date: true
+    has_time: true
   only_date:
     name: Input with only date
-    has_    has_time: false
+    has_date: true
+    has_time: false
   only_time:
     name: Input with only time
-    has_    has_time: true
+    has_date: false
+    has_time: true
 ```
 
 {% configuration %}
