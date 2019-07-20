@@ -25,7 +25,7 @@ device_tracker:
 
 {% configuration %}
 username:
-  description: Your callsign (or callsign-SSID combination). This is used to connect to the host. Note: Do not use the same callsign or callsign-SSID combination as a device you intend to track: the APRS-IS network will not route the packets to Home Assistant. This is a known limitation of APRS packet routing.
+  description: "Your callsign (or callsign-SSID combination). This is used to connect to the host. Note: Do not use the same callsign or callsign-SSID combination as a device you intend to track: the APRS-IS network will not route the packets to Home Assistant. This is a known limitation of APRS packet routing."
   required: true
   type: string
 password:
