@@ -44,7 +44,7 @@ lines:
 products:
   description: One or more modes of transport.
   required: false
-  default: all 4 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn']
+  default: all 5 modes ['U-Bahn', 'Tram', 'Bus', 'S-Bahn', 'Nachteule']
   type: list
 timeoffset:
   description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
