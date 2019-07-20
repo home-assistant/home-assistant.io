@@ -29,7 +29,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 ## Migrate to release 0.80 and above
 <div class='note'>
 
-If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the [maual setup instructions](#first-time-setup) below.
+If this is the first time setting up your Google Assistant integration, you can skip this section and continue with the [manual setup instructions](#first-time-setup) below.
 
 </div>
 
