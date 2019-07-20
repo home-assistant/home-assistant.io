@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
 - Switch (HomeKit switches)
-- Binary Sensor (HomeKit motion sensors)
+- Binary Sensor (HomeKit motion sensors and contact sensors)
 - Sensor (HomeKit humidity, temperature, and light level sensors)
 
 The integration will be automatically configured if the [`discovery`](/components/discovery/) integration is enabled.
