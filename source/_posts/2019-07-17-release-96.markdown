@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.96: Notion, updated sidebar, advanced mode"
 description: "We have cleaned up the climate integration and the UI."
 date: 2019-07-17 00:11:03
 date_formatted: "July 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
@@ -112,6 +110,42 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
 - [Climate] Hive Add water heater Component post the refresh of the climate component. ([@KJonline] - [#25148]) ([hive docs]) (beta fix) (new-platform)
 
+## Release 0.96.1 - July 18
+
+- Show off value ([@pvizeli] - [#25236])
+- Fix eq3btsmart ([@pvizeli] - [#25238]) ([eq3btsmart docs])
+- Make presets prettier ([@cgtobi] - [#25245]) ([netatmo docs])
+- Fix the unit of measurement for ecobee climate ([@cgtobi] - [#25246]) ([ecobee docs])
+- ecobee Preset Fix ([@geekofweek] - [#25256]) ([ecobee docs])
+- Update CT80 Humidity call ([@zombielinux] - [#25258]) ([radiotherm docs])
+- Restore SmartThings A/C on/off services ([@andrewsayre] - [#25259]) ([smartthings docs])
+- Add hvac modes back to opentherm ([@balloob] - [#25268]) ([opentherm_gw docs])
+- Added states and modes for zwave climate ([@stboch] - [#25274]) ([zwave docs])
+
+[#25236]: https://github.com/home-assistant/home-assistant/pull/25236
+[#25238]: https://github.com/home-assistant/home-assistant/pull/25238
+[#25245]: https://github.com/home-assistant/home-assistant/pull/25245
+[#25246]: https://github.com/home-assistant/home-assistant/pull/25246
+[#25256]: https://github.com/home-assistant/home-assistant/pull/25256
+[#25258]: https://github.com/home-assistant/home-assistant/pull/25258
+[#25259]: https://github.com/home-assistant/home-assistant/pull/25259
+[#25268]: https://github.com/home-assistant/home-assistant/pull/25268
+[#25274]: https://github.com/home-assistant/home-assistant/pull/25274
+[@andrewsayre]: https://github.com/andrewsayre
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@geekofweek]: https://github.com/geekofweek
+[@pvizeli]: https://github.com/pvizeli
+[@stboch]: https://github.com/stboch
+[@zombielinux]: https://github.com/zombielinux
+[ecobee docs]: /components/ecobee/
+[eq3btsmart docs]: /components/eq3btsmart/
+[netatmo docs]: /components/netatmo/
+[opentherm_gw docs]: /components/opentherm_gw/
+[radiotherm docs]: /components/radiotherm/
+[smartthings docs]: /components/smartthings/
+[zwave docs]: /components/zwave/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
@@ -155,6 +189,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Velbus__ - Added autodicovery for covers in velbus and bumped the python velbus version ([@Cereal2nd] - [#24877]) ([velbus docs])
 - __ZHA__ - ZHA entities are being removed and battery sensors are being added. We have been asked several times to remove the ZHA domain entities because they do not follow the HA standards. They were originally used to show device online / offline status, rssi, lqi and last seen. They were eventually expanded to hold battery information as well because many Zigbee devices have several power configuration clusters. Online and offline handling, rssi, lqi last seen and the handling of device availability have all been moved to the device object and battery information has been split back out into its own sensor. Any users that created template sensors that leveraged the data in the ZHA entities will be affected by this change. ([@dmulcahey] - [#24909]) ([zha docs])
 - __Netatmo__ - If the module type can not be determined the climate device will default to the type "valve" as it implements a subset of "thermostat". Consequently those devices wont be able to be turned off. This should not be a major issue and should only happen when there are issues with the data retrieved form the Netatmo API. ([@cgtobi] - [#25029]) ([netatmo docs])
+- __Netatmo__ - The configuration of individual monitored conditions has been removed so that now all conditions are available per module by default. ([@cgtobi] - [#24944]) (netatmo docs)
 - __GeoJSON Events__ - Update geojson_client library to version 0.4.This changes the access to the external feed from HTTP to HTTPS for the nsw_rural_fire_service_feed platform. This should normally not make any difference to anyone consuming this feed. Only if for example you have set up a template sensor or automation that reads the external_id attribute of a geo_location entity and compare it against a pattern, would you need to change this. ([@exxamalte] - [#25039]) ([geo_json_events docs]) ([nsw_rural_fire_service_feed docs]) ([usgs_earthquakes_feed docs])
 
 ## Beta Fixes
