@@ -21,7 +21,7 @@ is available as the state of each entity.
   <img src='{{site_root}}/images/screenshots/wwlln-feed-map.png' />
 </p>
 
-New data is returned every 5 minutes.
+New data is returned every 10 minutes.
 
 ## Configuration
 
