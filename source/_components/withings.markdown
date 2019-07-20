@@ -19,8 +19,7 @@ The `withings` sensor platform consumes data from various health products produc
 
 ## {% linkable_title Setup %}
 
-### {% linkable_title Account %}
-
+### {% linkable_title Step 1 - Create Withings Account %}
 You must have a developer account to distribute the data. [Create a free development account](https://account.withings.com/partner/add_oauth2). 
 
 Values for your account:
@@ -33,7 +32,7 @@ Values for your account:
 
 Once saved, the "Client Id" and "Consumer Secret" fields will be populated. You will need these in the next step.
 
-### {% linkable_title Configuration %}
+### {% linkable_title Step 2 - Configure Home Assistant%}
 
 ```yaml
 # Example configuration.yaml entry
@@ -46,7 +45,7 @@ withings:
 
 Withings supports multiple profiles per account. Each profile has a person's name to help distinguish who's data you're looking at. While the profile provided here can be arbitrary, it is recommended you use the same name from the Withings profile. This will make it easier to distinguish who's data you're looking at.
 
-### {% linkable_title Authorization %}
+### {% linkable_title Step 3 - Authorize Home Assistant %}
 - Confirm your yaml configuration is valid by using the `Check Config` tool.
 - Restart home assistant.
 - Goto the integrations page.
@@ -61,8 +60,16 @@ Withings supports multiple profiles per account. Each profile has a person's nam
   Changing the domain will not affect how data is synchronized.
 - Data will synchronize immediately and update every 5 minutes.
 
-## {% linkable_title Advanced Configuration %}
+## {% linkable_title Configuration %}
 
+```yaml
+# Example configuration.yaml entry
+withings:
+    client_id: <client id provided by withings>
+    client_secret: <consumer secret provided by withings>
+    profiles:
+        - <name of user profile>
+```
 {% configuration %}
 client_id:
   description: The OAuth client id (get from https://account.withings.com/partner/add_oauth2)
@@ -88,63 +95,63 @@ measurements:
   default: All of the measurements.
   keys:
     body_temperature_c:
-      description:
+      description: "Body temperature (unit of measure: celsius)."
     bone_mass_kg:
-      description:
+      description: "Body mass (unit of measure: kilograms)."
     diastolic_blood_pressure_mmhg:
-      description:
+      description: "Diastolic blood pressure (unit of measure: millimeters of mercury)."
     fat_free_mass_kg:
-      description:
+      description: "Body mass not consisting of fat (unit of measure: kilograms)."
     fat_mass_kg:
-      description:
+      description: "Body mass that is made up of fat (unit of measure: kilograms)."
     fat_ratio_pct:
-      description:
+      description: "Percent of body mass that is made up of fat (unit of measure: percent)."
     heart_pulse_bpm:
-      description:
+      description: "Heart rate (unit of measure: beats per minute)."
     height_m:
-      description:
+      description: "Vertical height (unit of measure: meters)."
     hydration:
-      description:
+      description: "Overall body hydration (unit of measure: unknown)."
     muscle_mass_kg:
-      description:
+      description: "Body mass that is made up of muscle (unit of measure: kilograms)."
     pulse_wave_velocity:
-      description:
+      description: "The velocity of blood pressure pulse as it propagates through the circulatory system (unit of measure: meters per second)."
     skin_temperature_c:
-      description:
+      description: "Skin temperature (unit of measure: celsius)."
     sleep_deep_duration_seconds:
-      description:
+      description: "Total deep sleep since noon the previous day (unit of measure: seconds)."
     sleep_heart_rate_average_bpm:
-      description:
+      description: "Average heart rate while sleeping (unit of measure: beats per minute)."
     sleep_heart_rate_max_bpm:
-      description:
+      description: "Maximum heart rate while sleeping (unit of measure: beats per minute)."
     sleep_heart_rate_min_bpm:
-      description:
+      description: "Minimum heart rate while sleeping (unit of measure: beats per minute)."
     sleep_light_duration_seconds:
-      description:
+      description: "Total light sleep since noon the previous day (unit of measure: seconds)."
     sleep_rem_duration_seconds:
-      description:
+      description: "Total REM sleep since noon the previous day (unit of measure: seconds)."
     sleep_respiratory_average_bpm:
-      description:
+      description: "Average breath rate while sleeping (unit of measure: breaths per minute)."
     sleep_respiratory_max_bpm:
-      description:
+      description: "Maximum breath rate while sleeping (unit of measure: breaths per minute)."
     sleep_respiratory_min_bpm:
-      description:
+      description: "Minimum breath rate while sleeping (unit of measure: breaths per minute)."
     sleep_state:
-      description: Possible states are 'unknown', 'awake', 'light', 'deep', 'rem'
+      description: "The current sleep state. Possible states are 'unknown', 'awake', 'light', 'deep', 'rem'."
     sleep_tosleep_duration_seconds:
-      description:
+      description: "Amount of time it took to fall asleep (unit of measure: seconds)."
     sleep_towakeup_duration_seconds:
-      description:
+      description: "Amount of time it took to wake up (unit of measure: seconds)."
     sleep_wakeup_count:
-      description:
+      description: "Number of times woken up since noon the previous day (unit of measure: count)."
     sleep_wakeup_duration_seconds:
-      description:
+      description: "Total spent awake during sleep session since noon the previous day (unit of measure: seconds)."
     spo2_pct:
-      description:
+      description: "Amount of oxygen in the blood (unit of measure: percent)."
     systolic_blood_pressure_mmhg:
-      description:
+      description: "Systolic blood pressure (unit of measure: millimeters of mercury)."
     temperature_c:
-      description:
+      description: "Temperature of person (unit of measure: celsius)."
     weight_kg:
-      description:
+      description: "Mass of person (unit of measure: kilograms)."
 {% endconfiguration %}
