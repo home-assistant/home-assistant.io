@@ -66,21 +66,15 @@ Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.
 
-#### Example service payload
+#### Example service call
 
-```json
-{
-  "message": "A message from Home Assistant",
-  "target": [
-    "1234567890",
-    "0987654321"
-  ],
-  "data": {
-    "images": [
-      "/tmp/garage_cam.jpg"
-    ]
-  }
-}
+```yaml
+- service: notify.discord
+  data:
+    message from Home Assistant",
+    target: "1234567890", "0987654321"
+    data: 
+      images: "/tmp/garage_cam"
 ```
 
 ### Notes
