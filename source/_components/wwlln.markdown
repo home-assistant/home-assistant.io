@@ -46,9 +46,10 @@ radius:
   required: false
   type: integer
 window:
-  description: The amount of time before now for which strikes should be considered "active" and shown in the UI. Defaults to 10 minutes.
+  description: The amount of time before now for which strikes should be considered "active" and shown in the UI.
   required: false
   type: time
+  default: 10 minutes
 {% endconfiguration %}
 
 ## State Attributes
