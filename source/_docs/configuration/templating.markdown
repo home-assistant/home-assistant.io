@@ -142,11 +142,11 @@ With strings:
 ```
 {% endraw %}
 
-### Working with Groups
+### {% linkable_title Working with Groups %}
 
 The `expand` function and filter can be used to sort entities and expand groups. It outputs a sorted array of entities with no duplicates.
 
-#### Expand examples
+#### {% linkable_title Expand examples %}
 
 {% raw %}
 ```text
@@ -200,7 +200,7 @@ These can also be combined in any combination:
 ```
 {% endraw %}
 
-#### Closest examples
+#### {% linkable_title Closest examples %}
 
 The closest function and filter will find the closest entity to the Home Assisant location:
 

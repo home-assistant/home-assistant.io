@@ -1,6 +1,12 @@
 ---
+layout: page
 title: "Trafikverket Train"
 description: "Instructions how to integrate Trafikverket Train within Home Assistant."
+date: 2019-04-27 16:32
+sidebar: true
+comments: false
+sharing: true
+footer: true
 logo: trafikverket.png
 ha_category:
   - Transport
@@ -28,7 +34,7 @@ Data that is retrieved:
 - Other information / additional texts.
 - Deviations.
 
-## Configuration
+## {% linkable_title Configuration %}
 
 To enable this sensor, use the following format in your `configuration.yaml`.
 
@@ -80,15 +86,15 @@ trains:
       default: "[mon, tue, wed, thu, fri, sat, sun]"
 {% endconfiguration %}
 
-## Obtaining API key
+## {% linkable_title Obtaining API key %}
 
 Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
 
-## Train station names
+## {% linkable_title Train station names %}
 
 Click [here](https://www.trafikverket.se/trafikinformation/tag/?ArrDep=departure&) to see an example of train station names.
 
-## Examples
+## {% linkable_title Examples %}
 
 ```yaml
 sensor:

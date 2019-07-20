@@ -1,6 +1,10 @@
 ---
+layout: page
 title: "Notion"
 description: "How to integrate Notion kits within Home Assistant."
+date: 2019-06-19 20:52
+sidebar: true
+comments: false
 logo: notion.png
 ha_category:
   - Hub

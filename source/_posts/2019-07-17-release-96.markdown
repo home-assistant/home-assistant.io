@@ -1,10 +1,12 @@
 ---
+layout: post
 title: "0.96: Notion, updated sidebar, advanced mode"
 description: "We have cleaned up the climate integration and the UI."
 date: 2019-07-17 00:11:03
 date_formatted: "July 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
+comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
@@ -109,42 +111,6 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - [climate] Bugfix honeywell misleading error message ([@zxdavb] - [#25048]) ([evohome docs]) ([honeywell docs]) (new-platform)
 - [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
 - [Climate] Hive Add water heater Component post the refresh of the climate component. ([@KJonline] - [#25148]) ([hive docs]) (beta fix) (new-platform)
-
-## Release 0.96.1 - July 18
-
-- Show off value ([@pvizeli] - [#25236])
-- Fix eq3btsmart ([@pvizeli] - [#25238]) ([eq3btsmart docs])
-- Make presets prettier ([@cgtobi] - [#25245]) ([netatmo docs])
-- Fix the unit of measurement for ecobee climate ([@cgtobi] - [#25246]) ([ecobee docs])
-- ecobee Preset Fix ([@geekofweek] - [#25256]) ([ecobee docs])
-- Update CT80 Humidity call ([@zombielinux] - [#25258]) ([radiotherm docs])
-- Restore SmartThings A/C on/off services ([@andrewsayre] - [#25259]) ([smartthings docs])
-- Add hvac modes back to opentherm ([@balloob] - [#25268]) ([opentherm_gw docs])
-- Added states and modes for zwave climate ([@stboch] - [#25274]) ([zwave docs])
-
-[#25236]: https://github.com/home-assistant/home-assistant/pull/25236
-[#25238]: https://github.com/home-assistant/home-assistant/pull/25238
-[#25245]: https://github.com/home-assistant/home-assistant/pull/25245
-[#25246]: https://github.com/home-assistant/home-assistant/pull/25246
-[#25256]: https://github.com/home-assistant/home-assistant/pull/25256
-[#25258]: https://github.com/home-assistant/home-assistant/pull/25258
-[#25259]: https://github.com/home-assistant/home-assistant/pull/25259
-[#25268]: https://github.com/home-assistant/home-assistant/pull/25268
-[#25274]: https://github.com/home-assistant/home-assistant/pull/25274
-[@andrewsayre]: https://github.com/andrewsayre
-[@balloob]: https://github.com/balloob
-[@cgtobi]: https://github.com/cgtobi
-[@geekofweek]: https://github.com/geekofweek
-[@pvizeli]: https://github.com/pvizeli
-[@stboch]: https://github.com/stboch
-[@zombielinux]: https://github.com/zombielinux
-[ecobee docs]: /components/ecobee/
-[eq3btsmart docs]: /components/eq3btsmart/
-[netatmo docs]: /components/netatmo/
-[opentherm_gw docs]: /components/opentherm_gw/
-[radiotherm docs]: /components/radiotherm/
-[smartthings docs]: /components/smartthings/
-[zwave docs]: /components/zwave/
 
 ## If you need help...
 

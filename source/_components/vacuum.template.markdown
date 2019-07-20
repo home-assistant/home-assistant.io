@@ -1,6 +1,12 @@
 ---
+layout: page
 title: "Template Vacuum"
 description: "Instructions how to setup Template vacuums within Home Assistant."
+date: 2019-05-20 16:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
 ha_category: Vacuum
 ha_release: 0.96
 ha_iot_class: Local Push
@@ -81,9 +87,9 @@ vacuum:
         type: [string, list]
 {% endconfiguration %}
 
-## Examples
+## {% linkable_title Examples %}
 
-### Control vacuum with Harmony Hub
+### {% linkable_title Control vacuum with Harmony Hub %}
 
 This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote component](/components/remote.harmony/).
 
@@ -112,7 +118,7 @@ vacuum:
               device: 52840686
 ```
 
-### Vacuum with state
+### {% linkable_title Vacuum with state %}
 
 This example shows how to use templates to specify the state of the vacuum.
 
