@@ -178,7 +178,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [vmdk]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vmdk.gz
 [vhdx]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vhdx.gz
 [vdi]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vdi.gz
-[linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
+[linux]: https://github.com/home-assistant/hassio-installer
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/
