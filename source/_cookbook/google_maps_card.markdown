@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Show Google Maps as a card"
 description: "Example how to show a Google Map as a Google card."
-date: 2016-08-20 19:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: User Interface
 ---
 
@@ -22,7 +16,7 @@ It also leverages the `limit_refetch_to_url_change` option to ensure that we do 
 camera:
   name: Paulus
   platform: generic
-  still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ states.device_tracker.demo_paulus.attributes.latitude }},{{ states.device_tracker.demo_paulus.attributes.longitude }}{% endraw %}&key=YOUR_API_KEY
+  still_image_url: {% raw %}https://maps.googleapis.com/maps/api/staticmap?center={{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ state_attr('device_tracker.demo_paulus', 'latitude') }},{{ state_attr('device_tracker.demo_paulus', 'longitude') }}{% endraw %}&key=YOUR_API_KEY
   limit_refetch_to_url_change: true
 ```
 

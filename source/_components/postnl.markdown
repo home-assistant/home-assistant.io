@@ -1,12 +1,6 @@
 ---
-layout: page
 title: PostNL Sensor
 description: "Instructions on how to set up PostNL sensors within Home Assistant."
-date: 2017-04-22 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: postnl.png
 ha_category:
   - Postal Service
@@ -20,7 +14,7 @@ The `postnl` platform allows one to track deliveries by [PostNL](https://www.pos
 
 The sensor value shows the number of packages to be delivered. The packages are available in the shipments attribute.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 
@@ -47,6 +41,6 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-This component is not affiliated with PostNL and retrieves data from the endpoints of the mobile application. Use at your own risk.
-</p>
+<div class='note warning'>
+This integration is not affiliated with PostNL and retrieves data from the endpoints of the mobile application. Use at your own risk.
+</div>

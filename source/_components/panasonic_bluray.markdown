@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Panasonic Blu-Ray Player"
 description: "Instructions on how to integrate a Panasonic Blu-Ray player into Home Assistant."
-date: 2018-11-13 20:48
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: panasonic.png
 ha_category:
   - Media Player
@@ -49,6 +43,6 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Supported operations %}
+### Supported operations
 
 - These devices support play, pause, stop and power on/off operations. They will also report the current status, title duration and current playing position.

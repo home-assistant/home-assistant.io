@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Travis-CI Sensor"
 description: "Instructions on how to integrate the test build results reported by Travis-CI within Home Assistant."
-date: 2017-09-04 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: travisci.svg
 ha_category:
   - Sensor
@@ -18,7 +12,7 @@ redirect_from:
 
 With this sensor platform, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 Create a GitHub [access token](https://github.com/settings/tokens) with the following scopes:
 
@@ -28,7 +22,7 @@ Create a GitHub [access token](https://github.com/settings/tokens) with the foll
 - **repo:status**
 - **write:repo_hook**
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this platform, please add the following to your `configuration.yaml` file:
 

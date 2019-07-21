@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iRobot Roomba"
 description: "Instructions on how to integrate your Wi-Fi enabled Roomba within Home Assistant."
-date: 2017-08-04 20:43
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: irobot_roomba.png
 ha_category:
   - Vacuum
@@ -15,13 +9,13 @@ redirect_from:
  - /components/vacuum.roomba/
 ---
 
-The `roomba` component allows you to control your [iRobot Roomba](http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
+The `roomba` integration allows you to control your [iRobot Roomba](http://www.irobot.com/For-the-Home/Vacuuming/Roomba.aspx) vacuum.
 
-<p class='note'>
+<div class='note'>
 This platform has only been tested with an iRobot Roomba 980 but should work fine with any Wi-Fi enabled Roomba like the 690, 890 or the 960.
-</p>
+</div>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Roomba vacuum to your installation, add the following to your `configuration.yaml` file:
 
@@ -64,10 +58,12 @@ continuous:
   default: true
 {% endconfiguration %}
 
-<p class='note'>
-The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
-</p>
+<div class='note'>
 
-### {% linkable_title Retrieving your credentials %}
+The Roomba's MQTT server only allows a single connection. Enabling continuous mode will force the App to connect via the cloud to your Roomba. [More info here](https://github.com/NickWaterton/Roomba980-Python#firmware-2xx-notes)
+
+</div>
+
+### Retrieving your credentials
 
 Please refer to [here](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [here](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to retrieve both the BLID (username) and the password.

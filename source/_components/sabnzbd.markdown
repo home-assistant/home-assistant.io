@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SABnzbd"
 description: "Instructions on how to integrate SABnzbd with Home Assistant."
-date: 2018-03-03 19:09
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sabnzbd.png
 ha_category:
   - Downloading
@@ -17,7 +11,7 @@ redirect_from:
   - /components/sensor.sabnzbd/
 ---
 
-The `sabnzbd` component will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
+The `sabnzbd` integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
 
 If SABnzbd is discovered on your network, you can enter your API Key in the Configurator. Press "CONFIGURE" to do it.
 
@@ -80,7 +74,7 @@ Available sensors are:
 - `month_size`: GB downloaded this month
 - `total_size`: Total GB downloaded
 
-## {% linkable_title Full examples %}
+## Full examples
 
 ```yaml
 # Example configuration.yaml entry
@@ -107,13 +101,13 @@ sabnzbd:
 This will attempt to access your SABnzbd instance at https://192.168.1.32:9090 and will create sensors named
 `sensor.sab_status`, `sensor.sab_speed`, etc.
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Media control services %}
+### Media control services
 
 Available services: `pause`, `resume`, `set_speed`.
 
-#### {% linkable_title Service `sabnzbd/set_speed` %}
+#### Service `sabnzbd/set_speed`
 
 | Service data attribute | Optional | Description                                                                                                                                                                             |
 |------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

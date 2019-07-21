@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.10: Amazon Echo, iCloud, Dweet.io, Twitch and templating support!"
 description: "Home Assistant 0.10 has been released with a bunch of added components and brand new templating support."
 date: 2015-12-22 01:30:00 -0800
 date_formatted: "December 22, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2015-12-release-10/alexa-fb.png
 ---
@@ -35,7 +33,7 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
 [iCloud]: /components/device_tracker.icloud/
 [Twitch]: /components/sensor.twitch/
 [Template]: /topics/templating/
-[Heatmiser]: /components/thermostat.heatmiser/
+[Heatmiser]: /components/heatmiser/
 [Dweet.io]: /components/sensor.dweet/
 [Alexa/Amazon echo]: /components/alexa/
 [FritzBox]: /components/device_tracker.fritz/
@@ -78,7 +76,7 @@ Affected components and platforms:
  - sensor: [rest][sensor.rest]
  - sensor: [MQTT][sensor.mqtt]
  - switch: [MQTT][switch.mqtt]
- - rollershutter: [MQTT][rollershutter.mqtt]
+ - rollershutter: MQTT
  - light: [MQTT][light.mqtt]
  - binary_sensor: [MQTT][binary_sensor.mqtt]
  - automation: [numeric_state][automation-numeric-state]
@@ -88,7 +86,6 @@ Affected components and platforms:
 [sensor.rest]: /components/sensor.rest/
 [sensor.mqtt]: /components/sensor.mqtt/
 [switch.mqtt]: /components/switch.mqtt/
-[rollershutter.mqtt]: /components/rollershutter.mqtt/
 [light.mqtt]: /components/light.mqtt/
 [binary_sensor.mqtt]: /components/binary_sensor.mqtt/
 [automation-numeric-state]: /getting-started/automation-trigger/#numeric-state-trigger

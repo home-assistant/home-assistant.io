@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Entity Button Card"
 sidebar_label: Entity Button
 description: "The Entity Button card allows you to add buttons to perform tasks"
-date: 2018-10-11 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The Entity Button card allows you to add buttons to perform tasks.
@@ -59,7 +53,7 @@ icon_height:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -84,7 +78,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -112,7 +106,7 @@ theme:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Title and Script Service Example:
 

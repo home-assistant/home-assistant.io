@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Templates, dates and times"
 description: "Using templates for seconds and years in Home Assistant."
 date: 2017-10-15 08:00:00 +0200
 date_formatted: "October 15, 2017"
 author: Fabian Affolter
-comments: true
 categories: Community
 og_image: /images/blog/2017-10-template/social.png
 ---

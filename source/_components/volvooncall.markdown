@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Volvo On Call"
 description: "Instructions for how to integrate Volvo On Call into Home Assistant."
-date: 2016-10-02 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: volvo.png
 ha_category:
   - Car
@@ -20,9 +14,9 @@ redirect_from:
  - /components/device_tracker.volvooncall/
 ---
 
-The `volvooncall` component offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
+The `volvooncall` integration offers integration with the [Volvo On Call](http://www.volvocars.com/intl/own/connectivity/volvo-on-call) cloud service and offers presence detection as well as sensors such as odometer and fuel level.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Volvo On Call in your installation, add the following to your `configuration.yaml` file:
 
@@ -90,7 +84,7 @@ scandinavian_miles:
   default: false
 {% endconfiguration %}
 
-### {% linkable_title Available Resources %}
+### Available Resources
 
 The list of currently available resources:
 
@@ -131,7 +125,7 @@ The list of currently available resources:
 - `any_door_open`
 - `any_window_open`
 
-## {% linkable_title Advanced Examples %}
+## Advanced Examples
 
 A more advanced example for setting the vehicle name and selecting what resources to display:
 

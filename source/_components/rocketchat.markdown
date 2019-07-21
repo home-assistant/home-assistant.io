@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Rocket.Chat"
 description: "Instructions on how to add Rocket.Chat notifications to Home Assistant."
-date: 2017-09-23 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rocketchat.png
 ha_category:
   - Notifications
@@ -18,7 +12,7 @@ redirect_from:
 
 The `rocketchat` notify platform allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Rocket.Chat to your installation, add the following to your `configuration.yaml` file:
 
@@ -39,7 +33,7 @@ notify:
 - **password** (*Required*): The Rocker.Chat password.
 - **room** (*Required*): The chat room name to send messages to.
 
-### {% linkable_title script.yaml example %}
+### script.yaml example
 
 ```yaml
 rocketchat_notification:
@@ -51,7 +45,7 @@ rocketchat_notification:
         emoji: ":smirk:"
 ```
 
-#### {% linkable_title Message variables %}
+#### Message variables
 
 - **message** (*Required*): Message to be displayed.
 - **data** (*Optional*): Dictionary containing any of the variables defined in the [Rocket.Chat docs](https://rocket.chat/docs/developer-guides/rest-api/chat/postmessage#message-object-example)

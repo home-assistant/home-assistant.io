@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NSW Fuel Station Price Sensor"
 description: "Instructions on how to integrate NSW fuel station prices into Home Assistant."
-date: 2018-06-02 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fuelcheck.png
 ha_category:
   - Car
@@ -18,7 +12,7 @@ redirect_from:
 
 The `nsw_fuel_station` sensor platform uses the [NSW Fuel Check App](https://www.fuelcheck.nsw.gov.au/app) data as a source for current fuel price data.
 
-## {% linkable_title Setup %}
+## Setup
 
 To get the station ID for any NSW fuel station you will need to:
 
@@ -27,7 +21,7 @@ To get the station ID for any NSW fuel station you will need to:
 - In the Fuel Check App, search for your postcode or click "Fuel Near Me".
 - In the developer console, you should see a request to `/FuelCheckApp/v1/fuel/prices/bylocation`. Open this request and preview the response. Find the station you wish to add, and copy down the `ServiceStationID` field.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the NSW fuel station price sensor to your installation, add the following to your `configuration.yaml` file:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xeoma Camera"
 description: "Instructions on how to integrate camera video feeds from a Xeoma server in Home Assistant"
-date: 2018-01-12 20:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xeoma.png
 ha_category:
   - Camera
@@ -18,7 +12,7 @@ redirect_from:
 
 The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](http://felenasoft.com/xeoma) video surveillance server.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Xeoma camera feeds, add the following lines to your `configuration.yaml`:
 
@@ -68,7 +62,7 @@ cameras:
       default: false
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 # Example configuration.yaml entry

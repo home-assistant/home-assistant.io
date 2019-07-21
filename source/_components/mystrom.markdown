@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "myStrom WiFi Bulb"
 description: "Instructions on how to integrate myStrom WiFi Bulbs into Home Assistant."
-date: 2017-04-18 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mystrom.png
 ha_category:
   - Light
@@ -28,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Switch](#switch)
 
-## {% linkable_title Light %}
+## Light
 
 To use your myStrom WiFi Bulb in your installation, add the following to your `configuration.yaml` file:
 
@@ -77,7 +71,7 @@ $ curl http://[IP_ADDRESS]/api/v1/device/[MAC_ADDRESS]
 }
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `mystrom` binary sensor platform allows you to use [myStrom Wifi Buttons](https://mystrom.ch/wifi-button/) with Home Assistant. The myStrom Wifi Buttons support three and the myStrom WiFi Button + four different push pattern:
 
@@ -101,11 +95,11 @@ binary_sensor:
   - platform: mystrom
 ```
 
-<p class='note'>
+<div class='note'>
 The firmware version 2.56 doesn't support TLS/SSL. This means that you are only able to use the WiFi Buttons if you are using plain-text communication between Home Assistant and the clients/entities.
-</p>
+</div>
 
-### {% linkable_title Setup of myStrom Buttons %}
+### Setup of myStrom Buttons
 
 You need to configure every button to make it work with Home Assistant. First connect the Wifi Buttons to your wireless network. Once a button is connected you have three minutes to set the actions for the push patterns if the button is not charging. The fastest way is to use `curl`. Check the [documentation](https://mystrom.ch/wp-content/uploads/REST_API_WBP.txt) of the WiFi Button for further details about the implementation (`http://` is replaced by `get://` or `post://`). `action` is the name of the corresponding push pattern (see above).
 
@@ -156,11 +150,11 @@ The command-line tool [`mystrom`](https://github.com/fabaff/python-mystrom) is a
 
 If you have set [`login_attempts_threshold`](/components/http/) and forget to include the `api_password` for an action and that action is triggered then after the threshold is reached will the button no longer work because it is banned. See [IP filtering and banning](/components/http/#ip-filtering-and-banning) about how to revert the banning.
 
-## {% linkable_title Switch %}
+## Switch
 
 The `mystrom` switch platform allows you to control the state of your [myStrom](https://mystrom.ch/en/) switches. The built-in sensor is measuring the power consumption while the switch is on.
 
-### {% linkable_title Setup %}
+### Setup
 
 Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
@@ -205,7 +199,7 @@ or change its state:
 curl -G -X GET http://IP_ADDRESS/relay -d 'state=1'
 ```
 
-### {% linkable_title Get the current power consumption %}
+### Get the current power consumption
 
 The switch is measuring the current power consumption. To expose this as a sensor use a [`template` sensor](/components/sensor.template/).
 
@@ -218,6 +212,6 @@ sensor:
       power:
         friendly_name: "Current Power"
         unit_of_measurement: "W"
-        value_template: "{{ states.switch.office.attributes.current_power_w }}"
+        value_template: "{{ state_attr('switch.office', 'current_power_w') }}"
 ```
 {% endraw %}

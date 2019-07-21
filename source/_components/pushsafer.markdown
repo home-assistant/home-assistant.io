@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pushsafer"
 description: "Instructions on how to add Pushsafer notifications to Home Assistant."
-date: 2018-01-05 11:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pushsafer.png
 ha_category:
   - Notifications
@@ -41,7 +35,7 @@ private_key:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 Message to two devices with formatted text.
 

@@ -1,26 +1,20 @@
 ---
-layout: page
 title: "Twilio"
 description: "Instructions on how to add Twilio notifications to Home Assistant."
-date: 2016-05-14 14:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: twilio.png
 ha_category:
   - Hub
 ha_release: "0.40"
 ---
 
-The `twilio` component enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
+The `twilio` integration enables the sending of notifications via SMS and the creation of calls with [Twilio](https://twilio.com).
 
 A free trial account is available at [Twilio](https://twilio.com) website providing free calls to verified phone numbers.
 Calls are limited to 10 minutes and will play a short trial message before your message runs. Upgraded accounts have no limitation.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To use this notification component in your installation, add the following to your `configuration.yaml` file:
+To use this notification integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,11 +34,11 @@ auth_token:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Usage %}
+### Usage
 
-After configuring the base Twilio component, add and configure either or both of the [twilio SMS](/components/notify.twilio_sms/) and [twilio Phone](/components/notify.twilio_call) components to utilize the notification functionality.
+After configuring the base Twilio component, add and configure either or both of the [twilio SMS](/components/notify.twilio_sms/) and [twilio Phone](/components/notify.twilio_call) integrations to utilize the notification functionality.
 
-To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP component ([docs](/components/http/#base_url)).
+To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/components/http/#base_url)).
 
 To set it up, go to the integrations page in the configuration screen and find Twilio. Click on configure. Follow the instructions on the screen to configure Twilio.
 

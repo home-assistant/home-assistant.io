@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OhmConnect"
 description: "Documentation about the OhmConnect sensor."
-date: 2016-08-08 17:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: "ohmconnect.png"
 ha_category:
   - Energy
@@ -20,7 +14,7 @@ The `ohmconnect` sensor will show you the current [OhmConnect](https://www.ohmco
 
 OhmConnect monitors real-time conditions on the electricity grid. When dirty and unsustainable power plants turn on, our users receive a notification to save energy. By saving energy at that time, California does not have to turn on additional power plants and California's energy authorities pay you for that.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You can find your OhmConnect ID under "Open Source Projects" on the [settings page](https://login.ohmconnect.com/settings). It's the string after the last `/` in the URL, e.g., for the URL `https://login.ohmconnect.com/verify-ohm-hour/AbCd1e` your ID is `AbCd1e`.
 

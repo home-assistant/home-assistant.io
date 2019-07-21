@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.26: Foursquare, Fast.com, FFMPEG and GPSD"
 description: "Automate based on check ins, slow internet speed or just stream a camera using FFMPEG."
 date: 2016-08-13 12:00:00 -0700
 date_formatted: "August 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -31,7 +29,7 @@ This release includes code contributed by 31 different people. The biggest chang
 - Sensor - [Fitbit]: Fix unit system ([@tchellomello])
 - Light - [Flux LED]: Add support for [color and brightness][color] ([@Danielhiversen])
 - Media Player - [Plex]: Now able to report on music ([@abcminiuser])
-- Alarm Control Panel - [Verisure]: Now able to see who changed the alarm ([@persandtrom])
+- Alarm Control Panel - [Verisure]: Now able to see who changed the alarm (@persandtrom)
 - Thermostat - [Honeywell]: Add option to read and control HVAC mode ([@Teagan42])
 - [Foursquare] component to receive instant notifications of checkins ([@robbiet480])
 - Camera: New [FFMPEG] platform allows to stream anything through front end ([@pvizeli])
@@ -44,21 +42,21 @@ This release includes code contributed by 31 different people. The biggest chang
 - New [pilight] component to control 433 Mz devices ([@DavidLP])
 - Sensor: [GPSD] now supported ([@fabaff])
 
-### {% linkable_title Hotfix 0.26.1 - August 14 %}
+### Hotfix 0.26.1 - August 14
 
 - Fix serial_pm config validation ([@open-homeautomation])
 - Check for existence of system mode on Honeywell thermostats ([@mKeRix])
 - Fix unknown unit of measurement for hvac and thermostat component ([@turbokongen])
 
-### {% linkable_title Hotfix 0.26.2 - August 15 %}
+### Hotfix 0.26.2 - August 15
 
 - Fix Wemo: have PyWemo play nicely with the latest Requests ([@pavoni])
 
-### {% linkable_title Hotfix 0.26.3 - August 19 %}
+### Hotfix 0.26.3 - August 19
 
 - Media Player cover art would not work when an API password was set. Thanks to [@maddox] for reporting it and [@balloob] for the fix.
 
-### {% linkable_title Breaking changes %}
+### Breaking changes
 
  - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
 
@@ -85,7 +83,6 @@ homeassistant:
 [@nkgilley]: https://github.com/nkgilley
 [@open-homeautomation]: https://github.com/open-homeautomation
 [@partofthething]: https://github.com/partofthething
-[@persandtrom]: https://github.com/persandtrom
 [@pvizeli]: https://github.com/pvizeli
 [@robbiet480]: https://github.com/robbiet480
 [@sdague]: https://github.com/sdague
@@ -112,8 +109,8 @@ homeassistant:
 [heat control]: /components/thermostat.heat_control/
 [Proximity]: /components/proximity/
 [Flux]: /components/switch.flux/
-[Proliphix]: /components/thermostat.proliphix/
+[Proliphix]: /components/proliphix/
 [Fitbit]: /components/sensor.fitbit/
 [Plex]: /components/media_player.plex/
-[Honeywell]: /components/thermostat.honeywell/
+[Honeywell]: /components/honeywell/
 [Secrets]: /topics/secrets/

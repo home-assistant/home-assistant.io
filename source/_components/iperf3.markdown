@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Iperf3 Sensor"
 description: "How to use Iperf3 within Home Assistant to measure your network bandwidth."
-date: 2018-05-01 02:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: iperf3.png
 ha_category:
   - System Monitor
@@ -17,15 +11,15 @@ redirect_from:
   - /components/sensor.iperf3/
 ---
 
-The `iperf3` sensor component allows you to measure network bandwidth performance against a private or public [Iperf3](http://software.es.net/iperf/index.html) server.
+The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](http://software.es.net/iperf/index.html) server.
 
-Enabling this component will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a Iperf3 test to run.
+Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the config by defining the `scan_interval` for a Iperf3 test to run.
 
-## {% linkable_title Setup %}
+## Setup
 
-This component requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
+This integration requires the `iperf3` command to be installed on your OS. Please, refer to the [official Iperf3 documentation](http://software.es.net/iperf/obtaining.html) for installation instructions.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the `iperf3` sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -92,7 +86,7 @@ Configuration variables (host):
     type: string
 {% endconfiguration %}
 
-#### {% linkable_title Time period dictionary example %}
+#### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -112,9 +106,9 @@ Parallel streams can help in some situations. As TCP attempts to be fair and con
 
 You can use the service `sensor.iperf3_update` to trigger a manual speed test for all sensors. Iperf3 has its own service call that allow to perform a speed test on a particular entity.
 
-### {% linkable_title Service %}
+### Service
 
-Once loaded, the `iperf3` component will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
+Once loaded, the `iperf3` integration will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 
 | Service data attribute | Description |
 | `host` | String that point at a configured `host` from configuration.yaml. Otherwise, tests will be run against all configured hosts.
@@ -125,6 +119,6 @@ Example Service data:
 {"host": "192.168.0.121"}
 ```
 
-## {% linkable_title Notes %}
+## Notes
 
 - When running on Raspberry Pi, just note that the maximum speed is limited by its 100 Mbit/s LAN adapter.

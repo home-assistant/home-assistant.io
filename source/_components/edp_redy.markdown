@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EDP re:dy"
 description: "Instructions on how to integrate the EDP re:dy platform into Home Assistant."
-date: 2018-09-04 16:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: edp_redy.png
 ha_category:
   - Hub
@@ -19,9 +13,9 @@ redirect_from:
   - /components/switch.edp_redy/
 ---
 
-[EDP re:dy](https://www.edp.pt/particulares/servicos/redy/) is a Home Automation platform from Portuguese energy provider EDP, that allows control of appliances and other devices, as well as monitoring power consumption. This component allows integrating EDP re:dy into Home Assistant.
+[EDP re:dy](https://www.edp.pt/particulares/servicos/redy/) is a Home Automation platform from Portuguese energy provider EDP, that allows control of appliances and other devices, as well as monitoring power consumption. This integration allows integrating EDP re:dy into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You will need your re:dy login information (username and password) to use this component.
 

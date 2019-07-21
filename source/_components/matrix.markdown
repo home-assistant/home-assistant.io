@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Matrix"
 description: "Matrix chatbot support"
-date: 2018-03-25 18:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: matrix.png
 ha_category:
   - Hub
@@ -16,13 +10,13 @@ redirect_from:
   - /components/notify.matrix/
 ---
 
-This component allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,13 +79,13 @@ commands:
       default: empty
 {% endconfiguration %}
 
-### {% linkable_title Event Data %}
+### Event Data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
 If the command is a word command, the `data` field contains a list of the command's arguments, i.e., everything that stood behind the word, split at spaces. If the command is an expression command, the `data` field contains the [group dictionary](https://docs.python.org/3.6/library/re.html?highlight=re#re.match.groupdict) of the regular expression that matched the message.
 
-### {% linkable_title Comprehensive Configuration Example %}
+### Comprehensive Configuration Example
 
 This example also uses the [matrix `notify` platform](#notifications).
 
@@ -147,7 +141,7 @@ This configuration will:
 - Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](http://matrix.org) room. Rooms can be both direct as well as group chats.
 

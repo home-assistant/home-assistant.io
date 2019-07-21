@@ -1,12 +1,6 @@
 ---
-layout: page
 title: NUT Sensor
 description: "Instructions on how to set up NUT sensors within Home Assistant."
-date: 2016-11-23
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nut.png
 ha_category:
   - System Monitor
@@ -18,7 +12,7 @@ redirect_from:
 
 The `nut` sensor platform allows you to monitor a UPS (battery backup) by using data from a [NUT](http://networkupstools.org/) (Network UPS Tools) server.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this sensor platform, you need to add the following to your `configuration.yaml` file:
 
@@ -70,7 +64,7 @@ sensor:
     type: list
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Given the following example output from NUT (your variables may differ):
 
@@ -90,15 +84,12 @@ ups.vendorid: 051d
 ups.timer.shutdown: -1
 ups.test.result: No test initiated
 ups.firmware: 868.L3 -P.D
-battery.mfr.date: 2015/05/08
-ups.serial: 3B1519X19994
+battery.mfr.ups.serial: 3B1519X19994
 ups.productid: 0002
 battery.runtime: 2552
-battery.date: 2001/09/25
-battery.voltage.nominal: 24.0
+battery.battery.voltage.nominal: 24.0
 battery.type: PbAc
-ups.mfr.date: 2015/05/08
-ups.status: OL
+ups.mfr.ups.status: OL
 ups.model: Back-UPS RS1000G
 ups.beeper.status: disabled
 battery.charge: 100
@@ -132,7 +123,7 @@ sensor:
       - battery.runtime
 ```
 
-## {% linkable_title UPS Status - human-readable version %}
+## UPS Status - human-readable version
 
 An additional virtual sensor type `ups.status.display` is available translating the UPS status value retrieved from `ups.status` into a human-readable version.
 

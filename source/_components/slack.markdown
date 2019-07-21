@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Slack"
 description: "Instructions on how to add Slack notifications to Home Assistant."
-date: 2015-08-06 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: slack.png
 ha_category:
   - Notifications
@@ -18,13 +12,15 @@ redirect_from:
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
-## {% linkable_title Setup %}
+## Setup
 
 If you are planning to use Slack as yourself then you'll need to create a [new app](https://api.slack.com/apps) under your Slack.com account. After creating the app, access the OAuth & Permissions link under the Features heading in the sidebar. Your OAuth Access Token should be located there. This is the key that you'll use in your `configuration.yaml` file.
 
-<p class='note'>
+<div class='note'>
+
 There is an app credential Verification Token on the Basic Settings of your app. This is **not** the API key you want.
-</p>
+
+</div>
 
 You will also need to ensure that you have added the appropriate scope when configuring your app. In this case, in the Scopes section, add the `Send messages as user` scope, e.g., (chat:write:user).
 
@@ -32,7 +28,7 @@ It is also possible to use Slack bots as users. Just create a new bot at https:/
 
 Don't forget to invite the bot to the room where you want to get the notifications.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the Slack notification in your installation, add the following to your `configuration.yaml` file:
 
@@ -49,6 +45,7 @@ notify:
 name: 
   description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: false
+  type: string
   default: "notify"
 api_key:
   description: The Slack API token to use for sending Slack messages.
@@ -66,9 +63,10 @@ username:
 icon:
   description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
   required: false
+  type: string
 {% endconfiguration %}
 
-### {% linkable_title Slack service data %}
+### Slack service data
 
 The following attributes can be placed inside `data` for extended functionality.
 

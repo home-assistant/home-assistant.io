@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Random"
 description: "Instructions on how to integrate random numbers into Home Assistant."
-date: 2016-10-30 12:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility
@@ -22,11 +16,11 @@ redirect_from:
 
 The `random` integration simply creates random values or state. This can be useful if you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `random` binary sensor platform is creating random states (`true`, 1, `on` or `false`, 0, `off`).
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable the random binary sensor, add the following lines to your `configuration.yaml` file:
 
@@ -44,11 +38,11 @@ name:
   default: Random Binary Sensor
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `random` sensor platform is creating random sensor values (integers) out of a given range. Returned values form a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution), meaning that each integer value in the range configured is equally likely to be drawn.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable the random sensor, add the following lines to your `configuration.yaml` file:
 

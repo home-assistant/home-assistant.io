@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors Notify"
 description: "Instructions on how to integrate MySensors notifications into Home Assistant."
-date: 2017-01-07 15:00 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY
@@ -19,7 +13,7 @@ Integrates MySensors notifications into Home Assistant. See the [main component]
 
 Setting the `target` key in the service call will target the name of the MySensors device in Home Assistant. MySensors device names follow the notation: "[Sketch name] [Node id] [Child id]".
 
-### {% linkable_title Automation example %}
+### Automation example
 
 ```yaml
 ...
@@ -40,7 +34,7 @@ S_INFO          | V_TEXT
 
 For more information, visit the [api] page of MySensors.
 
-### {% linkable_title Example sketch %}
+### Example sketch
 
 ```cpp
 /*

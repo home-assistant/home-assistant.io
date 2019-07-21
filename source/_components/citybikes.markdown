@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CityBikes Sensor"
 description: "Instructions on how to integrate data from the CityBikes API into Home Assistant."
-date: 2017-06-25 14:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: citybikes.png
 ha_category:
   - Transport
@@ -18,7 +12,7 @@ redirect_from:
 
 The `citybikes` sensor platform monitors bike availability at bike sharing stations in a chosen area. The data is provided by [CityBikes](https://citybik.es/#about), which supports bike sharing systems all around the world.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
 
@@ -59,7 +53,7 @@ stations:
 {% endconfiguration %}
 
 
-## {% linkable_title Example %}
+## Example
 
 Additional configuration samples:
 

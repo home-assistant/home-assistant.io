@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tile"
 description: "Instructions on how to use Tile to track devices in Home Assistant."
-date: 2017-11-08 20:40:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tile.png
 ha_release: 0.58
 ha_category:
@@ -47,6 +41,7 @@ device_tracker:
     description: whether to show expired/disabled Tiles
     required: false
     type: boolean
+    default: false
 {% endconfiguration %}
 
 Multiple Tile accounts can be used by repeating the `tile` platform. Tracked devices in `known_devices.yaml` will be named `tile_<tile_identifier>`. You can find `<tile_identifier>` in the Tile app by clicking on a tile.

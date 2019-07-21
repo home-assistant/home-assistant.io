@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Gogogate2 Cover"
 description: "Instructions on how to integrate Gogogate2-Enabled garage door covers into Home Assistant."
-date: 2018-03-26 20:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: gogogate2.png
 ha_category:
   - Cover
@@ -18,7 +12,7 @@ redirect_from:
 
 The `gogogate2` cover platform lets you control Gogogate2-Enabled garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Gogogate2 mobile app.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Gogogate2 cover in your installation, add the following to your `configuration.yaml` file:
 

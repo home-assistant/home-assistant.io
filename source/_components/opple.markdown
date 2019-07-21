@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Opple Light"
 description: "Instructions on how to integrate Opple lights into Home Assistant."
-date: 2018-09-21 10:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: opple.png
 ha_category:
   - Light

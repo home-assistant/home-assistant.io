@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Garadget Cover"
 description: "Instructions on how to integrate Garadget covers within Home Assistant."
-date: 2016-10-24 14:25
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: garadget.png
 ha_category:
   - Cover
@@ -19,7 +13,7 @@ redirect_from:
 
 The `garadget` cover platform lets you control [Garadget](http://www.garadget.com/) garage door futurizers through Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Garadget Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -73,7 +67,7 @@ covers:
 
 If provided, the **access_token** will be used, otherwise the **username** and **password** will be used to automatically generate an access token at start time.
 
-## {% linkable_title Example %}
+## Example
 
 <p class='img'>
   <img src='{{site_root}}/images/components/garadget/cover_garadget_details.png' />
@@ -95,13 +89,13 @@ sensor:
     sensors:
       garage_door_status:
         friendly_name: 'State of the door'
-        value_template: '{{ states.cover.garage_door.state }}'
+        value_template: '{{ states('cover.garage_door') }}'
       garage_door_time_in_state:
         friendly_name: 'Since'
-        value_template: '{{ states.cover.garage_door.attributes.time_in_state }}'
+        value_template: '{{ state_attr('cover.garage_door', 'time_in_state') }}'
       garage_door_wifi_signal_strength:
         friendly_name: 'WiFi strength'
-        value_template: '{{ states.cover.garage_door.attributes.wifi_signal_strength }}'
+        value_template: '{{ state_attr('cover.garage_door', 'wifi_signal_strength') }}'
         unit_of_measurement: 'dB'
 
 group:

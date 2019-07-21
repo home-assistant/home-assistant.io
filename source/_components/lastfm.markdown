@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Last.fm"
 description: "Instructions on how to integrate Last.fm sensors into Home Assistant."
-date: 2016-05-18 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lastfm.png
 ha_category:
   - Social
@@ -18,11 +12,11 @@ redirect_from:
 
 The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](http://www.last.fm).
 
-## {% linkable_title Setup %}
+## Setup
 
 To get an API key you need to create an [API account](http://www.last.fm/api/account/create).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use Last.fm sensor with your installation, add the following to your `configuration.yaml` file:
 
@@ -44,7 +38,7 @@ api_key:
 users:
   description: List of users.
   required: true
-  type: map
+  type: list
   keys:
     username:
       description: Username of the user to monitor.

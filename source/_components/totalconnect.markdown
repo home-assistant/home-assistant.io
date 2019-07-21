@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell TotalConnect Alarm Control Panel"
 description: "Instructions on how to integrate TotalConnect alarms into Home Assistant."
-date: 2017-04-02 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell-tc.png
 ha_category:
   - Alarm
@@ -19,16 +13,19 @@ The `totalconnect` platform provides connectivity with the Honeywell TotalConnec
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night` and `alarm_disarm`.
 
+The `triggered` state also provides a state attribute called `triggered_source` giving more detail on what triggered the alarm:
+- `Police/Medical` is when sensors detected a burglar and/or a person pushed the Police or Medical button
+- `Fire/Smoke` is when fire or smoke is detected, or a person pushed the Fire button
+- `Carbon Monoxide` is when carbon monoxide is detected
+
 If you have issues running this component, you may require `libxml2-dev` and `libxmlsec1-dev` packages. To install these on Hassbian, run the command `apt install libxml2-dev libxmlsec1-dev` with sudo.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml`:
 
 ```yaml
-# Example configuration.yaml entry
-alarm_control_panel:
-  - platform: totalconnect
+totalconnect:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
 ```
@@ -48,7 +45,9 @@ password:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Automation example %}
+You are highly encouraged to create a Total Connect user account specifically for Home Assistant. It should not have full administrative privileges.
+
+## Automation example
 
 ```yaml
 automation:

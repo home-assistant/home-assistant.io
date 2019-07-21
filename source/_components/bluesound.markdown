@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Bluesound"
 description: "Instructions on how to integrate Bluesound devices into Home Assistant."
-date: 2017-04-21 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bluesound.png
 ha_category:
   - Media Player
@@ -16,7 +10,7 @@ redirect_from:
  - /components/media_player.bluesound/
 ---
 
-The `bluesound` platform allows you to control your [Bluesound](http://www.bluesound.com/) HiFi wireless speakers and audio components from Home Assistant.
+The `bluesound` platform allows you to control your [Bluesound](http://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.
 
 If you want to automatically discover new devices, just make sure you have discovery: in your configuration.yaml file. To manually add a Bluesound device to your installation, add the following to your configuration.yaml file:
 
@@ -63,7 +57,7 @@ media_player:
       - host: 192.168.1.131
 ```
 
-### {% linkable_title Service `bluesound_join` %}
+### Service `bluesound_join`
 
 Group players together under a single master speaker. That will make a new group or join an existing group.
 
@@ -72,7 +66,7 @@ Group players together under a single master speaker. That will make a new group
 | `master` | no | A single `entity_id` that will become/hold the master speaker.
 | `entity_id` | no | String or list of a single `entity_id` that will group to master speaker.
 
-### {% linkable_title Service `bluesound_unjoin` %}
+### Service `bluesound_unjoin`
 
 Remove one or more speakers from a group of speakers. If no `entity_id` is provided, all speakers are unjoined.
 
@@ -80,7 +74,7 @@ Remove one or more speakers from a group of speakers. If no `entity_id` is provi
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will be separated from their master speaker.
 
-### {% linkable_title Service `bluesound_set_sleep_timer` %}
+### Service `bluesound_set_sleep_timer`
 
 Sets a timer that will turn off the speaker. For each time you call this it will increase the time by one step. The steps are (in minutes): 15, 30, 45, 60, 90, 0.
 If you increase an ongoing timer of for example 13 minutes, it will increase it to 15. If the timer is set to 90, it will remove the time (hence the 0).
@@ -89,7 +83,7 @@ If you increase an ongoing timer of for example 13 minutes, it will increase it 
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers set.
 
-### {% linkable_title Service `bluesound_clear_sleep_timer` %}
+### Service `bluesound_clear_sleep_timer`
 
 Clear the sleep timer on a speaker, if one is set.
 

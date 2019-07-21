@@ -1,12 +1,6 @@
 ---
-layout: page
 title: GeoRSS Events Sensor
 description: "Instructions on how to set up GeoRSS sensors within Home Assistant."
-date: 2017-07-31
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rss.png
 ha_category:
   - Sensor
@@ -30,7 +24,7 @@ Only entries of the feed are considered that define a location as `point` or `po
 
 The data is updated every 5 minutes.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the GeoRSS events sensor, add the following lines to your `configuration.yaml`. This is an example configuration showing bush fire incidents from the NSW Rural Fire Service.
 
@@ -84,7 +78,7 @@ unit_of_measurement:
   default: Events
 {% endconfiguration %}
 
-## {% linkable_title Example Feeds %}
+## Example Feeds
 
 **Bush Fire Alerts**
 

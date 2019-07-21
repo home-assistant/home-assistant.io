@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Antifurto365 iAlarm Control Panel"
 description: "Instructions on how to integrate iAlarms alarms into Home Assistant."
-date: 2017-11-30 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: antifurto365-ialarm.png
 ha_category:
   - Alarm
@@ -19,7 +13,7 @@ The `ialarm` platform provides connectivity with the [Antifurto365](https://www.
 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home` and `alarm_disarm`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml` file:
 

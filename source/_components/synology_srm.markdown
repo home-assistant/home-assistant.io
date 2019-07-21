@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Synology SRM"
 description: "Instructions on how to integrate Synology SRM routers into Home Assistant."
-date: 2019-01-22 13:43
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: synology.png
 ha_category:
   - Presence Detection
@@ -17,7 +11,7 @@ redirect_from:
 
 This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/en-us/srm) router.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -38,7 +32,7 @@ port:
   description: The port to connect to the Synology SRM router.
   required: false
   default: 8001
-  type: int
+  type: integer
 username:
   description: The username of a user with administrative privileges.
   required: false
@@ -67,4 +61,4 @@ List of models known to be supported:
 - RT1900ac
 - RT2600ac
 
-See the [device tracker component page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.

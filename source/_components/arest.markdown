@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "aREST"
 description: "Instructions on how to integrate aREST within Home Assistant."
-date: 2015-11-20 18:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: arest.png
 ha_category:
   - DIY
@@ -27,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
@@ -74,11 +68,11 @@ binary_sensor:
     name: Office
 ```
 
-<p class='note'>
+<div class='note'>
 This sensor is not suitable for fast state changes because there is a high possibility that the change took place between two update cycle.
-</p>
+</div>
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a Ethernet/Wifi connection, the ESP8266, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
@@ -181,7 +175,7 @@ The root will give you a JSON response that contains all variables and their cur
 {"return_value": 34, "id": "sensor02", "name": "livingroom", "connected": true}
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with an Ethernet/Wifi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](http://arest.io/) RESTful framework.
 
@@ -220,7 +214,7 @@ resource:
   type: string
 name:
   description: Let you overwrite the name of the device. By default *name* from the device is used.
-  required: optional
+  required: false
   type: string
 pins:
   description: An array with all used pins.

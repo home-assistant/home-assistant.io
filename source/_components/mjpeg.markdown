@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Generic MJPEG IP Camera"
 description: "Instructions on how to integrate IP cameras within Home Assistant."
-date: 2015-11-09 08:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Camera
@@ -19,7 +13,7 @@ redirect_from:
 The `mjpeg` camera platform allows you to integrate IP cameras which are capable
 to stream their video with MJPEG into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation,
 add the following to your `configuration.yaml` file:
@@ -64,7 +58,7 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Example of using a DCS-930L Wireless N Network Camera from D-Link:
 

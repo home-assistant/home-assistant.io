@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Duke Energy"
 description: "Instructions on how to set Duke Energy smart meter sensors within Home Assistant."
-date: 2018-07-01 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: duke_energy.png
 ha_category:
   - Energy
@@ -18,13 +12,13 @@ redirect_from:
 
 The `duke_energy` sensor platform allows you get the previous days usage for all of your Duke Energy smart meters.
 
-## {% linkable_title Setup %}
+## Setup
 
 You will only have access to meters listed in your account at [Duke Energy Usage](https://www.duke-energy.com/my-account/usage-analysis).
 
 This supports both electric and gas meters. Along with previous days usage, each sensor will have attributes for the previous bills total usage and average usage.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml`:
 
@@ -47,7 +41,6 @@ password:
   type: string
 {% endconfiguration %}
 
-
-<p class='note'>
+<div class='note'>
 Meter usage isn't updated until mid-morning. Prior to updating your meter will report 0 for usage starting at midnight. The API is only called to update every 2 hours from startup time.
-</p>
+</div>

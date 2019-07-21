@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Particulate matter Sensor"
 description: "Instructions on how to integrate particulate matter (dust) sensors with Home Assistant."
-date: 2016-08-11 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: serial_pm.png
 ha_category:
   - DIY
@@ -20,7 +14,7 @@ Particulate matter sensors measure the amount of very small particles in the air
 
 Cheap LED based sensors usually use a GPIO interface that is hard to attach to computers. However, there are a lot of laser LED based sensors on the market that use a serial interface and can be [connected to your Home Assistant system easily with an USB to serial converter](https://www.open-homeautomation.com/2016/07/20/connecting-an-particulate-matter-sensor-to-your-pc-or-mac/).
 
-## {% linkable_title Supported Sensors %}
+## Supported Sensors
 
 At this time, the following sensors are supported:
 
@@ -33,7 +27,7 @@ At this time, the following sensors are supported:
 * plantower,pms2003
 * plantower,pms3003
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your PM sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -59,7 +53,7 @@ brand:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Named Sensor Configuration Example %}
+### Named Sensor Configuration Example
 
 ```yaml
 sensor:

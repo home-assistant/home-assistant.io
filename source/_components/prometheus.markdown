@@ -1,21 +1,15 @@
 ---
-layout: page
 title: "Prometheus"
 description: "Record events in Prometheus."
-date: 2017-06-25 08:00
-sidebar: true
-comments: false
-sharing: true
 logo: prometheus.png
-footer: true
 ha_category:
   - "History"
 ha_release: 0.49
 ---
 
-The `prometheus` component exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
-To use the `prometheus` component in your installation, add the following to your `configuration.yaml` file:
+To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -28,7 +22,7 @@ namespace:
   required: false
   type: string
 filter:
-  description: Filtering directives for the components which should be included or excluded from recording.
+  description: Filtering directives for the integrations which should be included or excluded from recording.
   required: false
   type: list
   keys:

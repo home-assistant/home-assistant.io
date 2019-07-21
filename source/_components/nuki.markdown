@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nuki Smart Lock"
 description: "Instructions on how to integrate a Nuki Smart Lock devices."
-date: 2017-02-02 09:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nuki.png
 ha_category:
   - Lock
@@ -45,9 +39,9 @@ token:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `nuki_unlatch` %}
+### Service `nuki_unlatch`
 
 This will unlatch the door, ie. open it (provided this works with your type of door).
 
@@ -55,7 +49,7 @@ This will unlatch the door, ie. open it (provided this works with your type of d
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
 
-### {% linkable_title Service `nuki_lock_n_go` %}
+### Service `nuki_lock_n_go`
 
 This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
 See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more details about this feature.

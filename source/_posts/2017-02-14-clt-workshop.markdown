@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Workshop at CLT 2017"
 description: "Home Assistant Workshop at the Chemnitzer Linux-Tage 2017"
 date: 2017-02-14 08:04:05 +0000
 date_formatted: "February 14, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Community
 og_image: /images/blog/2017-02-workshop/social.png
 ---

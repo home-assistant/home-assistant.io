@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Clickatell SMS"
 description: "Instructions on how to add Clickatell notifications to Home Assistant."
-date: 2017-10-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: clickatell.png
 ha_category:
   - Notifications
@@ -17,7 +11,7 @@ redirect_from:
 
 The `clickatell` platform uses [Clickatell](https://clickatell.com) to deliver SMS notifications from Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 Go to your [Clickatell SMS Platform Portal](https://portal.clickatell.com/#/) section and create a new SMS integration. There are three screens of information required to create an integration. Please ensure the following:
 
@@ -28,7 +22,7 @@ Go to your [Clickatell SMS Platform Portal](https://portal.clickatell.com/#/) se
 5. Be aware of the international number format option as this impacts the structure of the phone numbers you provide.
 6. Once you have completed entering your details an API key is generated. Copy the API key.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Clickatell to your installation, add the following to your Home Assistant `configuration.yaml` file:
 

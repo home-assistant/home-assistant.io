@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Solax Sensor"
 description: "Instructions on how to integrate Solax sensor within Home Assistant."
-date: 2019-03-31 04:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: solax-logo.png
 ha_category:
   - Energy
@@ -15,9 +9,9 @@ ha_release: 0.94
 ha_iot_class: Local Polling
 ---
 
-The `solax` component connects home-assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This component retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
+The `solax` integration connects home-assistant to Solax solar power inverters. Solax inverters may be connected to a home Wi-Fi network and expose a REST API. This integration retrieves information such as photovoltaic power production, battery levels and power, and how much power is being fed back into the grid.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the Solax sensors in your installation, add the following to your configuration.yaml file:
 
@@ -35,7 +29,7 @@ ip_address:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Optional template sensor %}
+### Optional template sensor
 
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/components/sensor.template/).
 

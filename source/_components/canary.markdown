@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Canary"
 description: "Instructions on how to integrate your Canary devices into Home Assistant."
-date: 2017-12-07 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: canary.png
 ha_category:
   - Alarm
@@ -20,7 +14,7 @@ redirect_from:
   - /components/sensor.canary/
 ---
 
-The `canary` component allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
+The `canary` integration allows you to integrate your [Canary](https://canary.is) devices in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,7 +22,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You will need your Canary login information (username, usually your email address, and password) to use this module.
 
@@ -57,7 +51,7 @@ timeout:
   default: 10
 {% endconfiguration %}
 
-Once loaded, your front end will have the following components:
+Once loaded, your front end will have the following integrations:
 
 - A camera image triggered by motion for each camera.
 - An alarm control panel for each location.
@@ -65,13 +59,13 @@ Once loaded, your front end will have the following components:
 - A sensor per camera that reports humidity.
 - A sensor per camera that reports air quality.
 
-## {% linkable_title Camera %}
+## Camera
 
-The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.
+The `canary` camera platform allows you to watch the live stream of your [Canary](https://canary.is) camera in Home Assistant. This requires the [`ffmpeg` integration](/components/ffmpeg/) to be already configured.
 
-Once you have [Canary component](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
+Once you have [Canary integration](/components/canary/) setup, your [Canary](https://canary.is) camera(s) should show up automatically.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 You can add the following to your `configuration.yaml` file to configure `canary` camera with optional settings:
 
@@ -82,12 +76,12 @@ camera:
 
 {% configuration %}
 ffmpeg_arguments:
-  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg component](/components/ffmpeg).
+  description: Extra options to pass to `ffmpeg`, e.g., image quality or video filter options. More details in [FFmpeg integration](/components/ffmpeg).
   required: false
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `canary` sensor platform allows you to integrate the sensors of your [Canary](https://canary.is) devices in Home Assistant.
 

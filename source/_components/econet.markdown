@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EcoNet water heater"
 description: "Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant."
-date: 2017-12-28 14:51
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: econet.png
 ha_category:
   - Water heater
@@ -19,7 +13,7 @@ redirect_from:
 
 The `econet` water heater platform is consuming the information provided by a [EcoNet enabled Rheem water heater](http://www.rheem.com/EcoNet/Home). This platform allows you to set the temperature, the operation mode, and enable vacation mode.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `econet` water heater platform, add the following information to your `configuration.yaml` file:
 
@@ -42,7 +36,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Service `econet.add_vacation` %}
+### Service `econet.add_vacation`
 
 You can use the service `econet.add_vacation` to create a new vacation for your EcoNet water heaters.
 
@@ -52,11 +46,13 @@ You can use the service `econet.add_vacation` to create a new vacation for your 
 | `start_date` | yes | This is a Unix timestamp for when the vacation should start.
 | `end_date` | yes | this is a Unix timestamp for when the vacation should end.
 
-<p class='note'>
-The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
-</p>
+<div class='note'>
 
-### {% linkable_title Service `econet.delete_vacation` %}
+The Unix timestamps can be obtained from the `input_datetime` component. This will allow you to graphically set the start and end date.
+
+</div>
+
+### Service `econet.delete_vacation`
 
 You can use the service `econet.delete_vacation` to remove all vacations from an EcoNet water heater.
 
@@ -64,6 +60,8 @@ You can use the service `econet.delete_vacation` to remove all vacations from an
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | The entity id of the water heater to remove the vacation from.
 
-<p class='note'>
+<div class='note'>
+
 Econet water heaters use to live under the `climate` platform prior to release 0.81.
-</p>
+
+</div>

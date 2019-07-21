@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FFmpeg Motion Binary Sensor"
 description: "Instructions on how to integrate an FFmpeg-based motion binary sensor"
-date: 2016-08-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ffmpeg.png
 ha_category:
   - Image Processing
@@ -18,15 +12,17 @@ redirect_from:
 
 The `ffmpeg` platform allows you to use any video feed with [FFmpeg](http://www.ffmpeg.org/) for motion sensors in Home Assistant.
 
-<p class='note'>
-If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
-</p>
+<div class='note'>
 
-## {% linkable_title Motion %}
+If the `ffmpeg` process is broken, the sensor will be unavailable. To control the ffmpeg process of sensor, use the service *ffmpeg.start*, *ffmpeg.stop*, *ffmpeg.restart*.
+
+</div>
+
+## Motion
 
 FFmpeg doesn't have a motion detection filter, but can use a scene filter to detect a new scene/motion. You can set how much needs to change in order to detect motion with the option 'changes', the percent value of change between frames. If you want a really small value for 'changes', you can also add a denoise filter.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add FFmpeg with motion detection to your installation, add the following to your `configuration.yaml` file:
 
@@ -85,7 +81,7 @@ $ ffmpeg -i YOUR_INPUT -an -filter:v select=gt(scene\,0.1) -f framemd5 -
 
 If you are running into trouble with this sensor, please refer to the [troubleshooting section](/components/ffmpeg/#troubleshooting).
 
-#### {% linkable_title Tips %}
+#### Tips
 
 - Use motion only in a custom area with [crop filter](https://ffmpeg.org/ffmpeg-filters.html#crop):
 

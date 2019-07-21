@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Facebook Messenger"
 description: "Instructions on how to add Facebook user notifications to Home Assistant."
-date: 2016-12-31 14:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: facebook.png
 ha_category:
   - Notifications
@@ -39,7 +33,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Usage %}
+### Usage
 
 With Facebook notify service, you can send your notifications to your Facebook messenger with help of your Facebook page. You have to create a [Facebook Page and App](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) for this service. You can control it by calling the notify service [as described here](/components/notify/). It will send a message on messenger to user specified by **target** on behalf of your page. See the [quick start](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) guide for more information.
 The phone number used in **target** should be registered with Facebook messenger. Phone number of the recipient should be in +1(212)555-2368 format. If your app is not approved by Facebook then the recipient should by either admin, developer or tester for your Facebook app. [More information](https://developers.facebook.com/docs/messenger-platform/send-api-reference#phone_number) about the phone number.
@@ -105,7 +99,7 @@ if (preg_match('/get my id/', strtolower($message))) {
 
 ```
 
-### {% linkable_title Rich messages %}
+### Rich messages
 You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/send-api-reference) to which types of messages and how to build them.
 
 ```yaml

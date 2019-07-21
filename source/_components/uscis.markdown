@@ -1,12 +1,6 @@
 ---
-layout: page
 title: USCIS Sensor
 description: "Instructions on how to set up USCIS within Home Assistant."
-date: 2018-03-21 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: uscis.png
 ha_category:
   - Sensor
@@ -16,9 +10,9 @@ redirect_from:
  - /components/sensor.uscis/
 ---
 
-The `uscis` sensor component allows you get updates on your USCIS case using your case/receipt number. The sensor gets the case information from [USCIS Website]( https://egov.uscis.gov/casestatus/landing.do)
+The `uscis` sensor integration allows you get updates on your USCIS case using your case/receipt number. The sensor gets the case information from [USCIS Website]( https://egov.uscis.gov/casestatus/landing.do)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Sonarr sensor in your installation, add the following to your `configuration.yaml` file:
 

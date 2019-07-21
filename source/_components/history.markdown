@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "History"
 description: "Instructions on how to enable history support for Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - History
@@ -14,7 +8,7 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `history` component will track everything that is going on within Home
+The `history` integration will track everything that is going on within Home
 Assistant and allows the user to browse through it. It depends on the `recorder`
 component for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,
@@ -34,14 +28,14 @@ history:
   </a>
 </p>
 
-<p class='note'>
+<div class='note'>
 Events are saved in a local database. Google Graphs is used to draw the graph.
 Drawing is happening 100% in your browser. No data is transferred to anyone at any time.
-</p>
+</div>
 
 {% configuration %}
 exclude:
-  description: Configure which components should **not** be displayed.
+  description: Configure which integrations should **not** be displayed.
   required: false
   type: map
   keys:
@@ -54,7 +48,7 @@ exclude:
       required: false
       type: list
 include:
-  description: Configure which components should be displayed.
+  description: Configure which integrations should be displayed.
   required: false
   type: map
   keys:
@@ -142,12 +136,12 @@ history:
       - light.front_porch
 ```
 
-#### {% linkable_title Implementation details %}
+#### Implementation details
 
 The history is stored in a SQLite database `home-assistant_v2.db` within your
-configuration directory unless the `recorder` component is set up differently.
+configuration directory unless the `recorder` integration is set up differently.
 
- - events table is all events except `time_changed` that happened while recorder component was running.
+ - events table is all events except `time_changed` that happened while recorder integration was running.
  - states table contains all the `new_state` values of `state_changed` events.
  - Inside the states table you have:
    - `entity_id`: the entity_id of the entity
@@ -157,10 +151,10 @@ configuration directory unless the `recorder` component is set up differently.
    - `last_updated`: timestamp anything has changed (state, attributes)
    - `created`: timestamp this entry was inserted into the database
 
-When the `history` component queries the states table it only selects states
+When the `history` integration queries the states table it only selects states
 where the state has changed: `WHERE last_changed=last_updated`
 
-#### {% linkable_title On dates %}
+#### On dates
 
 SQLite databases do not support native dates. That's why all the dates are saved
 in seconds since the UNIX epoch. Convert them manually using
@@ -171,7 +165,7 @@ from datetime import datetime
 datetime.fromtimestamp(1422830502)
 ```
 
-#### {% linkable_title API %}
+#### API
 
 The history information is also available through the
 [RESTful API](/developers/rest_api/#get-apihistory).

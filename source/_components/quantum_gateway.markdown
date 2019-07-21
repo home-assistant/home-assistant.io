@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Quantum Gateway"
 description: "Instructions on how to integrate Quantum Gateways into Home Assistant."
-date: 2018-09-30 01:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Presence Detection
 logo: fios.svg
@@ -19,7 +13,7 @@ The `quantum_gateway` device tracker platform offers presence detection by looki
 
 It was tested with a Verizon Fios-G1100 Quantum Gateway.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a Verizon Fios Quantum Gateway in your installation, add the following to your `configuration.yaml` file:
 
@@ -48,4 +42,4 @@ ssl:
   default: True
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

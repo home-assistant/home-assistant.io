@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SynologyDSM Sensor"
 description: "Instructions on how to integrate the SynologyDSM sensor within Home Assistant."
-date: 2016-10-30 23:21
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: synology.png
 ha_category:
   - System Monitor
@@ -18,7 +12,7 @@ redirect_from:
 
 The `synologydsm` sensor platform allows getting various statistics from your [Synology NAS](https://www.synology.com).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the `synologydsm` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -138,19 +132,21 @@ monitored_conditions:
       description: Displays the maximum temperature of all disks in the volume (creates a new entry for each volume).
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
 This sensor will wake up your Synology NAS if it's in hibernation mode.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
+
   If you set `ssl:` to `False`, you *have* to also explicitly set `port:` to **5000**.
-</p>
 
-## {% linkable_title Separate User Configuration %}
+</div>
+
+## Separate User Configuration
 
 Due to the nature of the Synology DSM API it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
 

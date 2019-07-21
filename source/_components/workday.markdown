@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Workday Binary Sensor"
 description: "Steps to configure the binary workday sensor."
-date: 2017-03-13 21:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility
@@ -20,11 +14,11 @@ redirect_from:
 The `workday` binary sensor indicates, whether the current day is a workday or not. It allows specifying, which days of the week counts as workdays and also
 uses the python module [holidays](https://pypi.python.org/pypi/holidays) to incorporate information about region-specific public holidays.
 
-## {% linkable_title Setup %}
+## Setup
 
 Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available province.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the `workday` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -66,7 +60,7 @@ days_offset:
   type: integer
   default: 0
 add_holidays:
-  description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`." 
+  description: "Add custom holidays (such as company, personal holidays or vacations). Needs to formatted as `YYYY-MM-DD`."
   required: false
   type: list
 {% endconfiguration %}
@@ -74,14 +68,16 @@ add_holidays:
 Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 The keyword `holiday` is used for public holidays identified by the holidays module.
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you use the sensor for Norway (`NO`) you need to wrap `NO` in quotes or write the name in full.
 Otherwise the value is evaluated as `false`.
 If you use the sensor for Canada (`CA`) with Ontario (`ON`) as `province:` then you need to wrap `ON` in quotes.
 Otherwise the value is evaluated as `true` (check the YAML documentation for further details) and the sensor will not work.
-</p>
 
-## {% linkable_title Full example %}
+</div>
+
+## Full example
 
 This examples excludes Saturdays, Sundays and holiday. Two custom holidays are added.
 
@@ -97,7 +93,7 @@ binary_sensor:
       - '2018-12-31'
 ```
 
-## {% linkable_title Automation example %}
+## Automation example
 
 Example usage for automation:
 
@@ -116,6 +112,8 @@ automation:
     entity_id: switch.heater
 ```
 
-<p class='note'>
+<div class='note'>
+
 Please remember that [as explained here](/docs/configuration/devices/) you can only have a single `automation:` entry. Add the automation to your existing automations.
-</p>
+
+</div>

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Binary Sensor"
 description: "Instructions on how to setup the KNX binary sensors within Home Assistant."
-date: 2016-07-13 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Binary Sensor
@@ -16,9 +10,9 @@ ha_iot_class: Local Polling
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,7 +31,7 @@ name:
   required: false
   type: string
 device_class:
-  description: HASS device class e.g., "motion".
+  description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 significant_bit:
@@ -51,7 +45,7 @@ reset_after:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Automation actions %}
+### Automation actions
 
 You can also attach actions to binary sensors (e.g., to switch on a light when a switch was pressed). In this example, one light is switched on when the button was pressed once and two others when the button was pressed a second time.
 

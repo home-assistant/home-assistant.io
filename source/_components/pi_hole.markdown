@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pi-hole Sensor"
 description: "Instructions on how to integrate Pi-hole sensors into Home Assistant."
-date: 2016-09-03 16:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - System Monitor
 ha_iot_class: Local Polling
@@ -18,7 +12,7 @@ redirect_from:
 
 The `pi_hole` sensor platform displays the statistical summary of a [Pi-hole](https://pi-hole.net/) system.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
 
@@ -74,5 +68,23 @@ monitored_conditions:
     clients_ever_seen:
       description: Total number of seen clients.
 {% endconfiguration %}
+
+### Full example
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: pi_hole
+    host: IP_ADDRESS
+    monitored_conditions:
+      - ads_blocked_today
+      - ads_percentage_today
+      - dns_queries_today
+      - domains_being_blocked
+      - queries_cached
+      - queries_forwarded
+      - unique_clients
+      - unique_domains
+```
 
 This sensor platform was not made by Pi-hole LLC or the Pi-hole community. They did not provide support, feedback, testing, or any other help during its creation. This is a third party platform which may break if Pi-hole changes their API in a later release. It is not official, not developed, not supported, and not endorsed Pi-hole LLC or the Pi-hole community. The trademark `Pi-hole` and the logo is used here to describe the platform. `Pi-hole` is a registered trademark of Pi-hole LLC.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ClickSend SMS"
 description: "Instructions on how to add ClickSend notifications to Home Assistant."
-date: 2017-06-22 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: clicksend.png
 ha_category:
   - Notifications
@@ -15,14 +9,13 @@ redirect_from:
  - /components/notify.clicksend/
 ---
 
-
 The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.
 
-## {% linkable_title Prerequisites %}
+## Prerequisites
 
 Go to your [ClickSend Dashboard](https://dashboard.clicksend.com) section and create your new project. After creating your project, you should now be able to obtain your `username` and `api_key`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add ClickSend to your installation, add the following to your Home Assistant `configuration.yaml` file:
 
@@ -60,7 +53,7 @@ api_key:
 recipient:
   description: "A single or multiple phone numbers. This is where you want to send your SMS notification messages, e.g., `09171234567` or `[09171234567, 09177654321]`."
   required: true
-  type: string or list
+  type: [string, list]
 sender:
   description: The name or number of the sender.
   required: false

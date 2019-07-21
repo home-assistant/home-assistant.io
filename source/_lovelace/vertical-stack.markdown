@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Vertical Stack Card"
 sidebar_label: Vertical Stack
 description: "The Vertical Stack card allows you to stack multiple cards together"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Vertical stack allows you to group multiple cards so they always sit in the same column.
@@ -23,7 +17,7 @@ cards:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 Basic example:
 

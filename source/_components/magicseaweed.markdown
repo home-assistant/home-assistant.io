@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Magicseaweed Sensor"
 description: "How to integrate Magicseaweed within Home Assistant."
-date: 2018-06-24 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: magicseaweed.png
 ha_category:
   - Sensor
@@ -18,11 +12,11 @@ redirect_from:
 
 The `magicseaweed` platform uses the [Magicseaweed Forecast API](https://magicseaweed.com/developer/forecast-api) as a source for surf forecasting data for the surf spots of your choice.
 
-## {% linkable_title Setup %}
+## Setup
 
 You need an API key which is free but requires [registration](https://magicseaweed.com/developer/sign-up). Magicseaweed is limiting users of the API to 1 spot for the free plan.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add Magicseaweed forecasts to your installation, add the following to your `configuration.yaml` file:
 
@@ -84,17 +78,10 @@ monitored_conditions:
     max_breaking_swell:
       description: The maximum wave height as the state with a detailed list of forecast attributes.
 units:
-  description: Specify the unit system.
+  description: Specify the unit system. Either `uk`, `eu` or `us`.
   required: false
   default: Default to `uk` or `us` based on the temperature preference in Home Assistant.
   type: string
-  keys:
-    uk:
-      description: Use UK units.
-    eu:
-      description: Use EU units.
-    us:
-      description: Use US units.
 {% endconfiguration %}
 
 Details about the API are available in the [Magicseaweed documentation](https://magicseaweed.com/developer/forecast-api).

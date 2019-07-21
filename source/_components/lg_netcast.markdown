@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LG Netcast TV"
 description: "Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within Home Assistant."
-date: 2016-05-12 23:22
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lg.png
 ha_category:
   - Media Player
@@ -45,8 +39,8 @@ name:
 
 To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
 After starting Home Assistant the TV will display the access token on screen.
-Just add the token to your configuration and restart Home Assistant and the media player component for your LG TV will show up.
+Just add the token to your configuration and restart Home Assistant and the media player integration for your LG TV will show up.
 
-<p class='note'>
+<div class='note'>
 The access token will not change until you factory reset your TV.
-</p>
+</div>

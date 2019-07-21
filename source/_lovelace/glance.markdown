@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Glance Card"
 sidebar_label: Glance
 description: "The Glance card allows you to see a list of entities at a glance."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
@@ -55,7 +49,7 @@ columns:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -75,7 +69,7 @@ icon:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -100,7 +94,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -124,7 +118,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic example:
 

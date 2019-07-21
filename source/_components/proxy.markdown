@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Camera Proxy"
 description: "Instructions on how to integrate a camera proxy within Home Assistant."
-date: 2018-03-08 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Camera
 ha_release: 0.65
@@ -20,7 +14,7 @@ The current post-processing supports resizing and/or cropping the image/MJPEG as
 
 The current proxy capabilities are intended to reduce the camera bandwidth for slower internet connections.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant.  Next, add the following to your `configuration.yaml` file:
 
@@ -91,13 +85,15 @@ force_resize:
   description: Resize the image even if the resulting image would take up more bandwidth than the original.
   required: false
   type: boolean
+  default: false
 cache_images:
   description: Preserve the last image and re-send in the case the camera is not responding.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Example of using two Camera proxies along with a Foscam camera:
 

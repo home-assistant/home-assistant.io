@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "[Update: new users only] Nest to turn off their API"
 description: "Nest has announced that they will shut down their API in August, no longer allowing you to access your data."
 date: 2019-05-08 00:01:00
 date_formatted: "May 8, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 og_image: /images/blog/2019-05-nest-data-bye-bye/notice.png
 ---
@@ -33,7 +31,7 @@ The reason for shutting down the API is that the Nest team is focusing on making
 FAQ Nest developer website.
 </p>
 
-## {% linkable_title Cherry on the Cake %}
+## Cherry on the Cake
 
 Google also [announced](https://nest.com/blog/2019/05/07/introducing-google-nest/) that they are transitioning the Nest ecosystem into the Google world, making you link all your Nest devices to your Google account. How that will work? We're just going to leave this snippet from [this article from the Financial Times](https://www.ft.com/content/d8cbd5e6-70de-11e9-bf5c-6eeb837566c5) here:
 

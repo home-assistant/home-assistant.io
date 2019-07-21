@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Linksys Access Points"
 description: "Instructions on how to integrate Linksys Access Points into Home Assistant."
-date: 2016-12-16 01:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Presence Detection
 logo: linksys.png
@@ -19,7 +13,7 @@ The `linksys_ap` platform offers presence detection by looking at connected devi
 
 It was tested with a LAPAC1750 AC1750 Dual Band Access Point.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a Linksys Access Point in your installation, add the following to your `configuration.yaml` file:
 
@@ -52,7 +46,7 @@ verify_ssl:
   type: boolean
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 Example for all configuration options:
 
@@ -68,4 +62,4 @@ device_tracker:
     consider_home: 12
 ```
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

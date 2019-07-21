@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Wink"
 description: "Instructions on how to set up the Wink hub within Home Assistant."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: wink.png
 ha_category:
   - Hub
@@ -48,19 +42,19 @@ Home Assistant integrates with the Wink API and automatically sets up any switch
 
 There is currently support for the following device types within Home Assistant:
 
-- Alarm
-- Binary Sensor
-- Climate
-- Cover
-- Fan
-- Light
-- Lock
+- [Alarm](#alarm-control-panel)
+- [Binary Sensor](#binary-sensor)
+- [Climate](#climate)
+- [Cover](#cover)
+- [Fan](#fan)
+- [Light](#light)
+- [Lock](#lock)
 - Scene
-- Sensor
-- Switch
-- Water heater
+- [Sensor](#sensor)
+- [Switch](#switch)
+- [Water heater](#water-heater)
 
-## {% linkable_title Authenticate using [developer.wink.com](https://developer.wink.com) %}
+## Authenticate using [developer.wink.com](https://developer.wink.com)
 
 You need to set up a developer account with Wink. This process can take a few days to get approved.
 
@@ -72,15 +66,15 @@ Wink requests three pieces of information from the user when they sign up for a 
 
 No settings are required in the `configuration.yaml` other than `wink:` this is because you will be guided through setup via the configurator on the frontend.
 
-<p class='note'>
+<div class='note'>
 When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
-</p>
+</div>
 
 ```yaml
 wink:
 ```
 
-## {% linkable_title Full oauth authentication (legacy) %}
+## Full oauth authentication (legacy)
 
 This should be used for users that obtained their client_id and client_secret via email from Wink support prior to [developer.wink.com's](https://developer.wink.com) existence.
 
@@ -126,7 +120,8 @@ Local control:
 - Local control isn't used during the start-up of Home Assistant; this means initial setup requires an active internet connection.
 - Local control requests are first sent to the controlling hub. If a request fails, that request will attempt to go online.
 
-<p class='note'>
+<div class='note'>
+
 It is possible for the hub to get into a bad state where it stops accepting local control request. If this happens, you will notice requests taking significantly longer as they are redirected online. This doesn't happen often, but when it does, it appears to be resolved by rebooting the hub.
 
 The following error will be logged if the hub is rejecting local requests.
@@ -135,19 +130,19 @@ The following error will be logged if the hub is rejecting local requests.
 Error sending local control request. Sending request online
 ```
 
-</p>
+</div>
 
-## {% linkable_title Service `refresh_state_from_wink` %}
+## Service `refresh_state_from_wink`
 
-The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync.
+The Wink integration only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn't pushed device states can be out of sync.
 
 You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If `local_control` is set to `true` states will be pulled from the devices controlling hub, not the online API.
 
-## {% linkable_title Service `pull_newly_added_devices_from_wink` %}
+## Service `pull_newly_added_devices_from_wink`
 
 You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.
 
-## {% linkable_title Service `delete_wink_device` %}
+## Service `delete_wink_device`
 
 You can use the service wink/delete_wink_device to remove/unpair a device from Wink.
 
@@ -155,7 +150,7 @@ You can use the service wink/delete_wink_device to remove/unpair a device from W
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String that points at the `entity_id` of device to delete.
 
-## {% linkable_title Service `pair_new_device` %}
+## Service `pair_new_device`
 
 You can use the service wink/pair_new_device to pair a new device to your Wink hub/relay
 
@@ -165,11 +160,11 @@ You can use the service wink/pair_new_device to pair a new device to your Wink h
 | `pairing_mode` | no | One of the following [zigbee, zwave, zwave_exclusion, zwave_network_rediscovery, lutron, bluetooth, kidde]
 | `kidde_radio_code` | conditional | A string of 8 1s and 0s one for each dip switch on the kidde device left --> right = 1 --> 8 (Required if pairing_mode = kidde)
 
-<p class='note'>
+<div class='note'>
 Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
-</p>
+</div>
 
-## {% linkable_title Service `rename_wink_device` %}
+## Service `rename_wink_device`
 
 You can use the service wink/rename_wink_device to change the name of a device.
 
@@ -178,21 +173,21 @@ You can use the service wink/rename_wink_device to change the name of a device.
 | `entity_id` | no | String that points at the `entity_id` of device to rename.
 | `name` | no | The name to change it to.
 
-<p class='note'>
-Home Assistant entity_ids for Wink devices are based on the Wink device's name. Calling this service will not change the entity_id of the deivce until Home Assistant is restarted.
-</p>
+<div class='note'>
+Home Assistant entity_ids for Wink devices are based on the Wink device's name. Calling this service will not change the entity_id of the device until Home Assistant is restarted.
+</div>
 
-<p class='note'>
+<div class='note'>
 The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
-</p>
+</div>
 
-## {% linkable_title Custom Wink devices and their services %}
+## Custom Wink devices and their services
 
 - GoControl siren and strobe
 - Dome siren/chime/strobe
 - Quirky Nimbus (Legacy device) These can no longer be officially added to your Wink account
 
-### {% linkable_title Service `set_siren_auto_shutoff` %}
+### Service `set_siren_auto_shutoff`
 
 You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shutting off.
 
@@ -212,11 +207,11 @@ script:
           auto_shutoff: 60
 ```
 
-<p class='note'>
+<div class='note'>
 The following services only work with the Dome siren/chime.
-</p>
+</div>
 
-### {% linkable_title Service `set_chime_volume` %}
+### Service `set_chime_volume`
 
 You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
 
@@ -236,7 +231,7 @@ script:
           volume: "low"
 ```
 
-### {% linkable_title Service `set_siren_volume` %}
+### Service `set_siren_volume`
 
 You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.
 
@@ -256,7 +251,7 @@ script:
           volume: "low"
 ```
 
-### {% linkable_title Service `enable_chime` %}
+### Service `enable_chime`
 
 You can use the service wink/enable_chime to set the tone and enable the chime on your Dome siren/chime.
 
@@ -276,7 +271,7 @@ script:
           tone: "doorbell"
 ```
 
-### {% linkable_title Service `set_siren_tone` %}
+### Service `set_siren_tone`
 
 You can use the service wink/set_siren_tone to set the tone on your Dome siren. This tone will be used the next time the siren is executed.
 
@@ -296,7 +291,7 @@ script:
           tone: "alert"
 ```
 
-### {% linkable_title Service `set_siren_strobe_enabled` %}
+### Service `set_siren_strobe_enabled`
 
 You can use the service wink/set_siren_strobe_enabled to enable or disable the strobe when the siren is executed.
 
@@ -316,7 +311,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `set_chime_strobe_enabled` %}
+### Service `set_chime_strobe_enabled`
 
 You can use the service wink/set_chime_strobe_enabled to enable or disable the strobe when the chime is executed.
 
@@ -336,7 +331,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `set_nimbus_dial_state` %}
+### Service `set_nimbus_dial_state`
 
 You can use the service wink/set_nimbus_dial_state to update an individual dial's value/position and its labels
 
@@ -361,7 +356,7 @@ script:
             - "150"
 ```
 
-### {% linkable_title Service `set_nimbus_dial_configuration` %}
+### Service `set_nimbus_dial_configuration`
 
 You can use the service wink/set_nimbus_dial_configuration to update an individual dial's configuration.
 
@@ -388,27 +383,27 @@ script:
           rotation: 'ccw'
 ```
 
-## {% linkable_title Alarm Control Panel %}
+## Alarm Control Panel
 
 The Wink alarm platform allows you to control your [Wink](http://www.wink.com/) Canary all-in-one security camera.
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported devices %}
+### Supported devices
 
 - Canary all-in-one security camera
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The Wink binary sensor platform allows you to get data from your [Wink](http://www.wink.com/) binary sensors.
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported Binary sensor devices %}
+### Supported Binary sensor devices
 
 - Smoke and CO detectors (No Wink hub required for Nest)
 - Window/Door sensors
@@ -422,17 +417,17 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - Wink hub devices connection status. This includes any paired hubs like Hue, Wink v1, Wink v2, Wink Relay...
 - Dropcam sensors
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
-## {% linkable_title Climate %}
+## Climate
 
 The Wink climate platform allows you to get data from your [Wink](http://www.wink.com/) thermostats and air conditioners.
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported climate devices %}
+### Supported climate devices
 
 - Nest (No Wink hub required)
 - Ecobee (No Wink hub required)
@@ -442,11 +437,11 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - Generic Z-Wave
 - Quirky Aros window AC unit
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
-## {% linkable_title Cover %}
+## Cover
 
 Wink Cover garage door functionality varies on the product. Home Assistant can open, close, and view state of GoControl/Linear openers. For Chamberlain MyQ-enabled openers, Home Assistant is limited to show current state (open or closed) only using this Wink cover. This restriction was imposed by Chamberlain for third party control. Wink suggests that MyQ customers should contact Chamberlain directly to inquire about expanding permissions.
 
@@ -454,7 +449,7 @@ The [MyQ Cover](/components/cover.myq/) does provide full functionality for open
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported cover devices %}
+### Supported cover devices
 
 - Bali window treatments
 - Lutron shades
@@ -462,32 +457,32 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - GoControl garage door opener
 - Chamberlain MyQ (Limited functionality) (No Wink hub required)
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
-## {% linkable_title Fan %}
+## Fan
 
 The Wink fan platform allows you to control your [Wink](http://www.wink.com/) fans.
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported fan devices %}
+### Supported fan devices
 
 - Home Decorator Wink-enabled Gardinier ceiling fan
 - Hampton Bay ceiling fan module
 
-<p class='note'>
-The above devices are confimed to work, but others may work as well.
-</p>
+<div class='note'>
+The above devices are confirmed to work, but others may work as well.
+</div>
 
-## {% linkable_title Light %}
+## Light
 
 The `wink` light platform allows you to use your [Wink](http://www.wink.com/) lights.
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported light devices %}
+### Supported light devices
 
 - Z-wave switches with dimming
 - Hue
@@ -495,28 +490,28 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - GE link
 - Wink light groups (User created groups of lights)
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
-## {% linkable_title Lock %}
+## Lock
 
 The Wink lock platform allows you to control your [Wink](http://www.wink.com/) locks.
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported lock devices %}
+### Supported lock devices
 
 - Kwikset
 - Schlage
 - August (No Wink hub required) (August Connect required)
 - Generic Z-wave
 
-<p class='note'>
+<div class='note'>
 The following services have only been confirmed on Schlage locks.
-</p>
+</div>
 
-### {% linkable_title Service `wink_set_lock_alarm_mode` %}
+### Service `wink_set_lock_alarm_mode`
 
 You can use the service wink/wink_set_lock_alarm_mode to set the alarm mode of your lock.
 
@@ -536,7 +531,7 @@ script:
           mode: "tamper"
 ```
 
-### {% linkable_title Service `wink_set_lock_alarm_sensitivity` %}
+### Service `wink_set_lock_alarm_sensitivity`
 
 You can use the service wink/wink_set_lock_alarm_sensitivity to set the alarm sensitivity of your lock.
 
@@ -556,7 +551,7 @@ script:
           sensitivity: "high"
 ```
 
-### {% linkable_title Service `wink_set_lock_alarm_state` %}
+### Service `wink_set_lock_alarm_state`
 
 You can use the service wink/wink_set_lock_alarm_state to set the alarm state of your lock.
 
@@ -576,7 +571,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `wink_set_lock_beeper_state` %}
+### Service `wink_set_lock_beeper_state`
 
 You can use the service wink/wink_set_lock_beeper_state to set the beeper state of your lock.
 
@@ -596,7 +591,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `wink_set_lock_vacation_mode` %}
+### Service `wink_set_lock_vacation_mode`
 
 You can use the service wink/wink_set_lock_vacation_mode to set the vacation mode of your lock.
 
@@ -616,7 +611,7 @@ script:
           enabled: false
 ```
 
-### {% linkable_title Service `wink_add_new_lock_key_code` %}
+### Service `wink_add_new_lock_key_code`
 
 You can use the service wink/wink_add_new_lock_key_code to add a new user code to your Wink lock.
 
@@ -626,21 +621,21 @@ You can use the service wink/wink_add_new_lock_key_code to add a new user code t
 | `name` | no | the name of the new key code
 | `code` | no | The new code. Must match length of existing codes.
 
-<p class='note'>
+<div class='note'>
 Calling service wink/pull_newly_added_wink_devices will add the new key code to Home Assistant. The device will also show up on the next restart of Home Assistant.
-</p>
+</div>
 
-<p class='note'>
+<div class='note'>
 If supported by your lock, a binary sensor will be created for each user key code you have defined. These key codes will turn on when the code is entered and automatically turn off after a few seconds.
-</p>
+</div>
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The Wink sensor platform allows you to get data from your [Wink](http://www.wink.com/) sensors.
 
 The requirement is that you have setup [Wink](/components/wink/) from above.
 
-### {% linkable_title Supported sensor devices %}
+### Supported sensor devices
 
 - Wink Relay temperature, proximity, and humidity
 - Wink Spotter temperature, humidity, and brightness (No Wink hub required)
@@ -650,17 +645,17 @@ The requirement is that you have setup [Wink](/components/wink/) from above.
 - Motion sensor temperature
 - Quirky refuel propane tank monitor (No Wink hub required)
 
-<p class='note'>
+<div class='note'>
 The above devices are confirmed to work, but others may work as well.
-</p>
+</div>
 
-## {% linkable_title Switch %}
+## Switch
 
 The Wink switch platform allows you to control your [Wink](http://www.wink.com/) switches.
 
 The requirement is that you have set up [Wink](/components/wink/) from above.
 
-## {% linkable_title Supported switch devices %}
+## Supported switch devices
 
 - Wink Pivot power genius (No Wink hub required)
 - non-dimming Z-wave in-wall switches (dimming switches show up as lights)
@@ -669,16 +664,18 @@ The requirement is that you have set up [Wink](/components/wink/) from above.
 - iHome smart plug (No Wink hub required)
 - Wink switch groups (User created groups of switches)
 
-## {% linkable_title Water heater %}
+## Water heater
 
 The Wink water heater platform allows you to get data from your [Wink](http://www.wink.com/) Water Heaters.
 
 The requirement is that you have set up [Wink](/components/wink/) from above.
 
-## {% linkable_title Supported water heaters %}
+## Supported water heaters
 
 - Rheem Econet water heaters (No Wink hub required)
 
-<p class='note'>
+<div class='note'>
+
 Wink water heaters use to live under the `climate` platform prior to release 0.81.
-</p>
+
+</div>

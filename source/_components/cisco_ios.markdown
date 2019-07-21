@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Cisco IOS"
 description: "Instructions on how to integrate Cisco IOS routers into Home Assistant."
-date: 2016-11-07 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cisco.png
 ha_category:
   - Presence Detection
@@ -17,9 +11,9 @@ redirect_from:
 
 This is a presence detection scanner for [Cisco](http://www.cisco.com) IOS devices.
 
-<p class='note warning'>
+<div class='note warning'>
 This device tracker needs SSH to be enabled on the router.
-</p>
+</div>
 
 Before using this scanner it is recommended that you lower the ARP cache timeout on your router, as Cisco IOS normally comes with a 4 hour default ARP cache timeout.
 
@@ -45,9 +39,11 @@ arp timeout 120
 copy running-config startup-config
 ```
 
-<p class='note warning'>
+<div class='note warning'>
+
 If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more.
-</p>
+
+</div>
 
 To use this device tracker in your installation, add the following to your `configuration.yaml` file:
 
@@ -75,4 +71,4 @@ password:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

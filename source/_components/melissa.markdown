@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Melissa"
 description: "Instructions on how to integrate Melissa Climate into Home Assistant."
-date: 2017-01-05 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mclimate.png
 ha_category:
   - Hub
@@ -17,17 +11,17 @@ redirect_from:
   - /components/climate.melissa/
 ---
 
-The `melissa` component is the main component to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
+The `melissa` integration is the main integration to connect to a [Melissa Climate](http://seemelissa.com/) A/C control.
 
 There is currently support for the following device types within Home Assistant:
 
 - Climate
 
-The climate platform will be automatically configured if Melissa component is configured.
+The climate platform will be automatically configured if Melissa integration is configured.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To set the Melissa component up, add the following information to your `configuration.yaml` file:
+To set the Melissa integration up, add the following information to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

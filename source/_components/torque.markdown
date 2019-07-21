@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Torque (OBD2)"
 description: "Instructions on how to integrate Torque sensors into Home Assistant."
-date: 2015-12-20 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: torque.png
 ha_category:
   - Car
@@ -18,11 +12,11 @@ redirect_from:
 
 The `torque` platform will allow you to monitor [Torque](http://torque-bhp.com/) data relayed from a Bluetooth OBD2 stick via the Torque mobile application.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use Torque sensors with your installation, you must configure both the Torque mobile application and Home Assistant.
 
-### {% linkable_title Torque application %}
+### Torque application
 
 In **Settings** -> **Data Logging & Upload**:
 
@@ -38,7 +32,7 @@ Under the **Realtime Web Upload** header:
 - Enter an email address in **User Email Address**.
 - Optionally set the **Web Logging Interval**. The 2-second default may quickly fill up the Home Assistant history database.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Add the following to your `configuration.yaml` file:
 

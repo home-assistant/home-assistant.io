@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Netgear LTE"
 description: "Instructions on how to integrate your Netgear LTE modem within Home Assistant."
-date: 2018-06-06 23:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: netgear.png
 ha_release: 0.72
 ha_category:
@@ -30,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 The integration supports sending notifications with SMS, reporting incoming SMS with events and reporting the modem and connection state in a number of sensors and binary sensors.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the integration, add the following lines to your `configuration.yaml` file:
 
@@ -69,7 +63,7 @@ notify:
     recipient:
       description: The phone number of a default recipient or a list with multiple recipients.
       required: false
-      type: string, list
+      type: [string, list]
     name:
       description: The name of the notification service.
       required: false
@@ -131,9 +125,9 @@ binary_sensor:
           description: The current roaming state.
 {% endconfiguration %}
 
-## {% linkable_title Events %}
+## Events
 
-### {% linkable_title Event `netgear_lte_sms` %}
+### Event `netgear_lte_sms`
 
 Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms` with the following content.
 
@@ -144,9 +138,9 @@ Messages arriving in the modem inbox are sent as events of type `netgear_lte_sms
 | `from`               | The sender of the message.
 | `message`            | The SMS message content.
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `netgear_lte.connect_lte` %}
+### Service `netgear_lte.connect_lte`
 
 This service asks the modem to establish its LTE connection, useful if the modem does not autoconnect.
 
@@ -154,7 +148,7 @@ This service asks the modem to establish its LTE connection, useful if the modem
 | ---------------------- | -------- | ----------- |
 | `host`                 | yes      | The modem that should connect (optional when just one modem is configured).
 
-### {% linkable_title Service `netgear_lte.delete_sms` %}
+### Service `netgear_lte.delete_sms`
 
 The integration makes a service available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
 
@@ -163,7 +157,7 @@ The integration makes a service available to delete messages from the modem inbo
 | `host`                 | yes      | The modem that should have a message deleted (optional when just one modem is configured).
 | `sms_id`               | no       | Integer or list of integers with inbox IDs of messages to delete.
 
-### {% linkable_title Service `netgear_lte.set_option` %}
+### Service `netgear_lte.set_option`
 
 This service can set modem configuration options (otherwise available in the modem web UI).
 
@@ -173,7 +167,7 @@ This service can set modem configuration options (otherwise available in the mod
 | `autoconnect`          | yes      | Autoconnect value: `never`/`home`/`always`, with `home` meaning "not roaming".
 | `failover`             | yes      | Failover mode: `wire` (wired connection only), `mobile` (mobile connection only), `auto` (wired connection with failover to mobile connection).
 
-## {% linkable_title Examples %}
+## Examples
 
 The following automation example processes incoming SMS messages with the [Conversation](/components/conversation/) integration and then deletes the message from the inbox.
 

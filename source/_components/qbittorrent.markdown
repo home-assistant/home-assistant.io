@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "qBittorrent Sensor"
 description: "Instructions on how to integrate qBittorrent sensors within Home Assistant."
-date: 2018-11-21 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: qbittorrent.png
 ha_category:
   - Downloading
@@ -18,11 +12,11 @@ redirect_from:
 
 The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
 
-## {% linkable_title Setup %}
+## Setup
 
 This sensor requires the qBittorrent Web UI enabled. The [official reference](https://github.com/qbittorrent/qBittorrent/wiki#webui-related) describes how to set up the Web UI.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

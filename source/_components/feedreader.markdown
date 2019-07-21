@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Feedreader
 description: "Instructions on how to integrate RSS feeds into Home Assistant."
-date: 2016-04-18 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rss.gif
 ha_category:
   - Other
@@ -35,7 +29,7 @@ feedreader:
     description: Defines the update interval of the feeds.
     required: false
     default: 1 hour
-    type: interval
+    type: time
   max_entries:
     description: The maximum number of entries to extract from each feed.
     required: false
@@ -86,7 +80,7 @@ automation:
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
-For more advanced use cases, a custom component registering to the `feedreader` event type could be used instead:
+For more advanced use cases, a custom integration registering to the `feedreader` event type could be used instead:
 
 ```python
 EVENT_FEEDREADER = "feedreader"

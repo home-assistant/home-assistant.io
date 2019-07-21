@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IPMA"
 description: "Instructions on how to integrate Instituto Português do Mar e Atmosfera weather conditions into Home Assistant."
-date: 2018-05-31 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ipma.png
 ha_category:
   - Weather
@@ -18,7 +12,7 @@ redirect_from:
 
 The `ipma` weather platform uses the [Instituto Português do Mar e Atmosfera](http://www.ipma.pt) as a source for current and forecast meteorological data.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the IPMA weather platform to your installation, add the following to your `configuration.yaml` file:
 

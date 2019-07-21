@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dark Sky Sensor"
 description: "How to integrate Dark Sky within Home Assistant."
-date: 2016-09-26 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dark_sky.png
 ha_category:
   - Weather
@@ -19,15 +13,17 @@ redirect_from:
 
 The `darksky` platform uses the [Dark Sky](https://darksky.net/) web service as a source for meteorological data for your location. The location is based on the `longitude` and `latitude` coordinates configured in your `configuration.yaml` file. The coordinates are auto-detected but to take advantage of the hyper-local weather reported by Dark Sky, you can refine them down to your exact home address. GPS coordinates can be found by using [Google Maps](https://www.google.com/maps) and clicking on your home or [Openstreetmap](http://www.openstreetmap.org/).
 
-## {% linkable_title Setup %}
+## Setup
 
 You need an API key which is free but requires [registration](https://darksky.net/dev/register). You can make up to 1000 calls per day for free which means that you could make one approximately every 86 seconds.
 
-<p class='note warning'>
-[Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
-</p>
+<div class='note warning'>
 
-## {% linkable_title Configuration %}
+[Dark Sky](https://darksky.net/dev/) will charge you $0.0001 per API call if you enter your credit card details and create more than 1000 calls per day.
+
+</div>
+
+## Configuration
 
 To add Dark Sky to your installation, add the following to your `configuration.yaml` file:
 
@@ -147,6 +143,8 @@ monitored_conditions:
       description: The approximate distance to the nearest storm in miles.
     nearest_storm_bearing:
       description: The approximate direction of the nearest storm in degrees, with true north at 0° and progressing clockwise.
+    alerts:
+      description: Current severe weather advisories.
 units:
   description: Specify the unit system. Valid options are `auto`, `us`, `si`, `ca` and `uk2`. `auto` will let Dark Sky decide the unit system based on location.
   required: false
@@ -159,7 +157,13 @@ scan_interval:
   type: time
 {% endconfiguration %}
 
-#### {% linkable_title Time period dictionary example %}
+<div class='note'>
+
+Please note that some monitored conditions, such as `temperature_high` or `temperature_low`, may only work when setting the `forecast` attribute to at least `0` (current day).
+
+</div>
+
+#### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -171,7 +175,7 @@ scan_interval:
   milliseconds: 0
 ```
 
-#### {% linkable_title Language options %}
+#### Language options
 
 All language options are described in this table that you can use for the dark sky sensor.
 
@@ -230,9 +234,9 @@ All language options are described in this table that you can use for the dark s
 |simplified Chinese|`zh`|
 |traditional Chinese|`zh-tw`|
 
-<p class='note warning'>
+<div class='note warning'>
 While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
-</p>
+</div>
 
 More details about the API are available in the [Dark Sky API documentation][].
 

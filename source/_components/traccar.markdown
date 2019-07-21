@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Traccar GPS tracker"
 description: "Instructions how to use Traccar GPS tracker to track devices in Home Assistant."
-date: 2018-11-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: traccar.png
 ha_release: 0.83
 ha_category:
@@ -18,7 +12,7 @@ redirect_from:
 
 `Traccar` uses GPS for tracking and has support for over 1500 different types of devices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate Traccar GPS tracker in Home Assistant, add the following section to your `configuration.yaml` file:
 

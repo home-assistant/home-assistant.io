@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DoorBird"
 description: "Instructions on how to integrate your DoorBird video doorbell with Home Assistant."
-date: 2017-08-06 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: doorbird.png
 ha_category:
   - Doorbell
@@ -26,11 +20,11 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera) - View live and historical event based images.
 - [Switch](#switch) - Enable control of relays and camera night vision.
 
-## {% linkable_title Setup %}
+## Setup
 
 The user, which you are going to use with Home Assistant, needs the "API-Operator" permission enabled.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To connect your device, add the following to your `configuration.yaml` file:
 
@@ -82,7 +76,7 @@ devices:
       
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 doorbird:
@@ -106,21 +100,21 @@ doorbird:
         - rfid_card_scanned
 ```
 
-## {% linkable_title Events %}
+## Events
 
 Events can be defined for each configured DoorBird device independently. These events will be registered on the device and can be attached to a schedule via the DoorBird app. 
 
 See [Schedules](#schedules) section below for details on how to configure schedules.
 
-Event names will be prefixed by `doorbird_`. For example, the example event `somebody_pressed_the_button` will be seen in Home Assistant as `doorbird_somebody_pressed_the_button`. This is to prevent conflicts with other events.
+Event names will be prefixed by `doorbird_devicename`. For example, the example event `somebody_pressed_the_button` for the device 'Driveway Gate' will be seen in Home Assistant as `doorbird_driveway_gate_somebody_pressed_the_button`. This is to prevent conflicts with other events.
 
 See [Automation Example](#automation_example) section below for details on how to use the event names in an automation.
 
-<p class="note info">
+<div class="note info">
 Events will not be received in Home Assistant until a schedule is defined via the DoorBird app.
-</p>
+</div>
 
-#### {% linkable_title Clearing Registered Events %}
+#### Clearing Registered Events
 Events can be cleared from DoorBird devices by visiting a special URL.
 
 Simply open a new browser window and navigate to `{Home Assistant URL}/api/doorbird/clear?token={DEVICE_TOKEN}`. Replace `{Home Assistant URL}` with the full path to your running instance, such as `http://localhost:8123`. Replace `{DEVICE_TOKEN}` with the token specified in your configuration for the device you would like to clear.
@@ -128,7 +122,7 @@ Simply open a new browser window and navigate to `{Home Assistant URL}/api/doorb
 Please note that clearing device events will require configuration steps above to be taken again. It could also affect other third-party applications you may use with your DoorBird device. It will not break the official mobile app in any way, so mobile push notifications will still work.
 
 
-#### {% linkable_title Event Data %}
+#### Event Data
 
 Each event will include live image and video URLs for the Doorbird device that triggered the event. These URLs can be found on the event data and can be useful in automation actions. For example, you could use `html5_viewer_url` on a notification to be linked directly to the live view of the device that triggered the automation.
 
@@ -140,11 +134,11 @@ The following keys are available on `event_data`:
 - `rtsp_live_video_url`
 - `html5_viewer_url`
 
-<p class="note">
+<div class="note">
 The URLs on the event will be based on the configuration used to connect to your Doorbird device. Ability to connect from outside your network will depend on your configuration.
-</p>
+</div>
 
-#### {% linkable_title Schedules %}
+#### Schedules
 
 Once events have been registered on the DoorBird device, they must be attached to a schedule using the official DoorBird app on Android or iOS. Currently there are schedules available for doorbell, motion, relay, and RFID events (on supported devices).
 
@@ -161,23 +155,23 @@ On the desired event, you should be able to specify blocks of time for when you 
 
 Remember to complete the schedule assignment steps above for each event type that you registered.
 
-### {% linkable_title Automation Example %}
+### Automation Example
 
 ```yaml
 - alias: Doorbird Ring
   trigger:
     platform: event
-    event_type: doorbird_somebody_pressed_the_button
+    event_type: doorbird_driveway_gate_somebody_pressed_the_button
   action:
     service: light.turn_on
       entity_id: light.side_entry_porch
 ```
 
-## {% linkable_title Camera %}
+## Camera
 
 The `doorbird` implementation allows you to view the live video, the last doorbell ring image, and the last motion sensor image from your [DoorBird](http://www.doorbird.com/) device in Home Assistant.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable the camera, add the following to your `configuration.yaml` file:
 
@@ -187,7 +181,7 @@ camera:
   - platform: doorbird
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 The `doorbird` switch platform allows you to power connected relays and trigger the IR array in your [DoorBird](http://www.doorbird.com/) video doorbell device.
 

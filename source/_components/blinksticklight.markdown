@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Blinkstick Light"
 description: "Instructions on how to setup Blinkstick lights within Home Assistant."
-date: 2015-10-08 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: blinkstick.png
 ha_category:
   - DIY
@@ -19,7 +13,7 @@ redirect_from:
 
 The `blinkstick` platform lets you control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use your Blinkstick, you need to allow the access to the device for [non-root users](https://github.com/arvydas/blinkstick-python#permission-problems-in-linux-and-mac-os-x).
 
@@ -27,7 +21,7 @@ To use your Blinkstick, you need to allow the access to the device for [non-root
 $ sudo blinkstick --add-udev-rule
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a Blinkstick to your installation, add the following to your `configuration.yaml` file:
 

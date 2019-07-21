@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Persistent notification"
 description: "Instructions on how to integrate persistent notifications into Home Assistant."
-date: 2016-06-25 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other
@@ -20,7 +14,7 @@ The `persistent_notification` can be used to show a message on the frontend that
   <img src='/images/screenshots/persistent-notification.png' />
 </p>
 
-### {% linkable_title Service %}
+### Service
 
 The service `persistent_notification/create` takes in `message`, `title`, and `notification_id`.
 
@@ -30,7 +24,7 @@ The service `persistent_notification/create` takes in `message`, `title`, and `n
 | `title`                |      yes | Title of the notification.
 | `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
 
-The `persistent_notification` component supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
+The `persistent_notification` integration supports specifying [templates](/topics/templating/) for both the `message` and the `title`. This will allow you to use the current state of Home Assistant in your notifications.
 
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this with a customized subject.
 
@@ -81,7 +75,7 @@ This automation example shows a notification when the Z-Wave network is starting
         notification_id: zwave
 ```
 
-### {% linkable_title Markdown support %}
+### Markdown support
 
 The message attribute supports the [Markdown formatting syntax](https://daringfireball.net/projects/markdown/syntax). Some examples are:
 
@@ -95,12 +89,13 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 | Link | `[Link](https://home-assistant.io/)` |
 | Image | `![image](/local/my_image.jpg)` |
 
-<p class="note">
+<div class="note">
+
   `/local/` in this context refers to the `.homeassistant/www/` folder.
-</p>
 
+</div>
 
-### {% linkable_title Create a persistent notification %}
+### Create a persistent notification
 
 Choose <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools** to call the `persistent_notification` service. Select `persistent_notification/create` from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
 

@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Picture Elements Card"
 sidebar_label: Picture Elements
 description: "Picture elements card is one of the most versatile types of cards"
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Picture elements card is one of the most versatile types of cards.
@@ -38,9 +32,9 @@ title:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Elements %}
+## Elements
 
-### {% linkable_title State Badge %}
+### State Badge
 
 {% configuration %}
 type:
@@ -54,7 +48,7 @@ entity:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: map
   default: "position: absolute, transform: translate(-50%, -50%)"
 title:
   required: false
@@ -62,7 +56,7 @@ title:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Icon representing an entity state %}
+### Icon representing an entity state
 
 {% configuration %}
 type:
@@ -84,7 +78,7 @@ title:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -109,7 +103,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -134,11 +128,11 @@ hold_action:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Label with state text %}
+### Label with state text
 
 {% configuration %}
 type:
@@ -164,7 +158,7 @@ title:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -189,7 +183,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -214,11 +208,11 @@ hold_action:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Service Call Button %}
+### Service Call Button
 
 {% configuration %}
 type:
@@ -236,15 +230,15 @@ service:
 service_data:
   required: false
   description: The service data to use.
-  type: object
+  type: map
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Icon Element %}
+### Icon Element
 
 {% configuration %}
 type:
@@ -266,7 +260,7 @@ entity:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -291,7 +285,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -316,11 +310,11 @@ hold_action:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Image Element %}
+### Image Element
 
 {% configuration %}
 type:
@@ -338,7 +332,7 @@ title:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -363,7 +357,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -401,7 +395,7 @@ camera_view:
 state_image:
   required: false
   description: '[State-based images](#how-to-use-state_image)'
-  type: object
+  type: map
 filter:
   required: false
   description: Default CSS filter
@@ -409,7 +403,7 @@ filter:
 state_filter:
   required: false
   description: '[State-based CSS filters](#how-to-use-state_filter)'
-  type: object
+  type: map
 aspect_ratio:
   required: false
   description: Height-width-ratio.
@@ -418,11 +412,11 @@ aspect_ratio:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### {% linkable_title Conditional Element %}
+### Conditional Element
 
 Much like the Conditional card, this element will let you show its sub-elements based on entity states.
 
@@ -454,7 +448,7 @@ elements:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Custom Elements %}
+### Custom Elements
 
 {% configuration %}
 type:
@@ -464,7 +458,7 @@ type:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
@@ -472,7 +466,7 @@ The process for creating and referencing custom elements is the same as for cust
 Please see the [developer docs on creating custom cards](https://developers.home-assistant.io/docs/en/lovelace_custom_card.html)
 for more information.
 
-## {% linkable_title How to use the style object %}
+## How to use the style object
 
 Position and style your elements using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). More/other keys are also possible.
 
@@ -485,7 +479,7 @@ style:
   "--paper-item-icon-color": pink
 ```
 
-## {% linkable_title How to use state_image %}
+## How to use state_image
 
 Specify a different image to display based on the state of the entity.
 
@@ -495,7 +489,7 @@ state_image:
   "off": /local/living_room_off.jpg
 ```
 
-## {% linkable_title How to use state_filter %}
+## How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 
@@ -505,7 +499,7 @@ state_filter:
   "off": brightness(50%) hue-rotate(45deg)
 ```
 
-## {% linkable_title How to use click-and-hold %}
+## How to use click-and-hold
 
 If the option `hold_action` is specified, that action will be performed when the entity is clicked and held for half a second or more.
 
@@ -520,7 +514,7 @@ hold_action:
     brightness_pct: 100
 ```
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
 type: picture-elements
@@ -563,7 +557,7 @@ elements:
       left: 10%
 ```
 
-## {% linkable_title Images Example %}
+## Images Example
 
 ```yaml
 type: picture-elements
@@ -612,7 +606,7 @@ elements:
       width: 5%
 ```
 
-## {% linkable_title Conditional Example %}
+## Conditional Example
 
 ```yaml
 type: picture-elements

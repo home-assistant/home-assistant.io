@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EBox Sensor"
 description: "Instructions on how to integrate EBox data usage within Home Assistant."
-date: 2017-02-15 17:17
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ebox.png
 ha_category:
   - Network
@@ -18,7 +12,7 @@ redirect_from:
 
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your EBox sensor in your installation, add the following to your `configuration.yaml` file:
 

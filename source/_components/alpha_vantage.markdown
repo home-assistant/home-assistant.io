@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Alpha Vantage"
 description: "Instructions on how to setup Alpha Vantage within Home Assistant."
-date: 2017-12-02 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: alpha_vantage.png
 ha_category:
   - Finance
@@ -57,7 +51,7 @@ symbols:
       default: USD
     symbol:
       description: The stock market symbol for the given company.
-      required: required
+      required: true
       type: string
 foreign_exchange:
   description: List of currencies.
@@ -70,19 +64,19 @@ foreign_exchange:
       type: string
     from:
       description: The source currency.
-      required: required
+      required: true
       type: string
     to:
       description: The target currency.
-      required: required
+      required: true
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Google and the exchange rate for Bitcoin %}
+### Google and the exchange rate for Bitcoin
 
 ```yaml
 sensor:

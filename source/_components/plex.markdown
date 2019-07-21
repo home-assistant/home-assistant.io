@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Plex"
 description: "Instructions on how to integrate Plex into Home Assistant."
-date: 2015-10-05 21:21
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: plex.png
 ha_category:
   - Media Player
@@ -27,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 - [Media Player](#setup---media-player)
 - [Sensor](#sensor)
 
-## {% linkable_title Setup - Media Player %}
+## Setup - Media Player
 
 The preferred way to setup the Plex platform is by enabling the [discovery component](/components/discovery/) which requires GDM enabled on your Plex server. This can be found on your Plex Web App under Settings > (server Name) > settings > Network and choose "Enable local network discovery (GDM)".
 
@@ -85,9 +79,9 @@ verify:
   type: boolean
 {% endconfiguration %}
 
-### {% linkable_title Customization %}
+### Customization
 
-You can customize the Plex component by adding any of the variables below to your configuration:
+You can customize the Plex integration by adding any of the variables below to your configuration:
 
 ```yaml
 # Example configuration.yaml entry
@@ -122,7 +116,7 @@ client_remove_interval:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Service `play_media` %}
+### Service `play_media`
 
 Plays a song, playlist, TV episode, or video on a connected client.
 
@@ -171,7 +165,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
 | Plex Web                         | None                                                                                                                                                            |
 | Tivo Plex App                    | Only play, pause, stop/off controls enabled                                                                                                                     |
 
-### {% linkable_title Notes %}
+### Notes
 
 * At this moment, the Plex platform only supports one Plex Media Server.
 * It is possible to get errors that look like the following.
@@ -184,7 +178,7 @@ Plays a song, playlist, TV episode, or video on a connected client.
   If this occurs, check the setting `Server`>`Network`>`Secure connections` on your Plex Media Server: if it is set to `Preferred` or `Required`, you may need to manually set the `ssl` and `verify` booleans in the `plex.conf` file to, respectively, `true` and `false`. See the **"Setup"** section above for details.
 * Movies must be located under 'Movies' section in the Plex library to properly get 'playing' state.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `plex` sensor platform will monitor activity on a given [Plex Media Server](https://plex.tv/). It will create a sensor that shows the number of currently watching users as the state. If you click the sensor for more details it will show you who is watching what.
 

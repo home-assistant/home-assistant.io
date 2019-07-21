@@ -1,23 +1,21 @@
 ---
-layout: post
 title: "0.63: Entity Registry, SQL Sensor, Mercedes cars"
 description: "Reserve entity IDs for your devices with the new entity registry, show query results as a sensor and yet another car integrated."
 date: 2018-02-10 01:00:00
 date_formatted: "February 10, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-02-0.63/components.png
 ---
 
 <a href='/components/#version/0.63'><img src='/images/blog/2018-02-0.63/components.png' style='border: 0;box-shadow: none;'></a>
 
-## {% linkable_title Date set for dropping Python 3.4 support %}
+## Date set for dropping Python 3.4 support
 
 As [announced in October](/blog/2017/10/06/deprecating-python-3.4-support/), we're going to drop Python 3.4 support in 2018. We've now decided that in two releases, 0.65, the minimum Python version that will be supported is bumped to 3.5.3. This won't impact most users. You are already fine if you're using Hass.io, the latest Debian stable (Stretch) or a derivative of that (Raspbian, Ubuntu).
 
-## {% linkable_title Entity Registry %}
+## Entity Registry
 
 This release introduces the entity registry. The entity registry allows integrations to reserve entity IDs. This means that we'll automatically grant an entity ID to a device. It's reserved so that no other device will ever get that entity ID. It also means that as a user, you will be able to customize the entity IDs for these devices.
 
@@ -31,17 +29,17 @@ The entity registry will assign an entity ID the first time that a device is see
 
 We're planning a lot of cool stuff around the entity registry. Stay tuned!
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Adds allergy/disease sensor platform from Pollen.com ([@bachya] - [#11573]) ([sensor.pollen docs]) (new-platform)
-- Add Goalfeed platform ([@wardcraigj] - [#11098]) ([goalfeed docs]) (new-platform)
+- Add Goalfeed platform ([@craigjmidwinter] - [#11098]) ([goalfeed docs]) (new-platform)
 - Add Melissa (HVAC/climate) component ([@kennedyshead] - [#11503]) ([melissa docs]) ([sensor.melissa docs]) (new-platform)
 - Mediaroom ([@dgomes] - [#11864]) ([media_player.mediaroom docs]) (new-platform)
 - Add Xiaomi Universal IR Remote (Chuangmi IR) ([@cnrd] - [#11891]) ([remote.xiaomi_miio docs]) (new-platform)
 - SQL sensor ([@dgomes] - [#12142]) ([sensor.sql docs]) (new-platform)
 - Add Mercedes me component ([@ReneNulschDE] - [#11743]) (new-platform)
 
-## {% linkable_title Release 0.63.1 - February 12 %}
+## Release 0.63.1 - February 12
 
 - Fix Alexa Step Volume ([@lucasweb78] - [#12314]) ([alexa docs])
 - Remove unique ID from netatmo ([@balloob] - [#12317]) ([binary_sensor.netatmo docs]) ([camera.netatmo docs]) ([sensor.netatmo docs])
@@ -51,7 +49,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Always return lockState == LOCKED when handling Alexa.LockController ([@lucasweb78] - [#12328]) ([alexa docs])
 - Fix platform dependencies ([@balloob] - [#12330])
 
-## {% linkable_title Release 0.63.2 - February 14 %}
+## Release 0.63.2 - February 14
 
 - Fix MercedesMe - add check for unsupported features ([@ReneNulschDE] - [#12342]) ([mercedesme docs]) ([binary_sensor.mercedesme docs]) ([device_tracker.mercedesme docs]) ([sensor.mercedesme docs])
 - Fix WUnderground names ([@OttoWinter] - [#12346]) ([sensor.wunderground docs])
@@ -59,7 +57,7 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Introduce zone_id to identify player+zone ([@sdague] - [#12382]) ([media_player.yamaha docs])
 - Downgrade limitlessled to 1.0.8 ([@amelchio] - [#12403]) ([light.limitlessled docs])
 
-## {% linkable_title Release 0.63.3 - February 17 %}
+## Release 0.63.3 - February 17
 
 - python-miio version bumped. (Closes: #12389, Closes: #12298) ([@syssi] - [#12392]) ([fan.xiaomi_miio docs]) ([light.xiaomi_miio docs]) ([remote.xiaomi_miio docs]) ([switch.xiaomi_miio docs]) ([vacuum.xiaomi_miio docs])
 - Fixed 3 small issues in isy994 component ([@OverloadUT] - [#12421]) ([isy994 docs])
@@ -69,17 +67,17 @@ We're planning a lot of cool stuff around the entity registry. Stay tuned!
 - Optimize recorder purge ([@amelchio] - [#12448])
 - [SQL Sensor] always close session ([@dgomes] - [#12452]) ([sensor.sql docs])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - updated sensor name ([@philklei] - [#12084]) ([sensor.tahoma docs]) (breaking change)
 - Originally Canary camera is added per location and only displays an image that was captured due to motion. Now it is per device (each location can have multiple devices) with live stream support. ([@snjoetw] - [#11949]) ([canary docs]) ([camera.canary docs]) (breaking change)
@@ -124,7 +122,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Developers only: Following EntityComponent methods have been removed: `extract_from_service`, `async_update_group`, `async_reset`, `prepare_reload` ([@balloob] - [#12237]) (breaking change)
 
 
-## {% linkable_title All changes %}
+## All changes
 
 - Map media_stop to idle state ([@akloeckner] - [#11819])
 - Adds allergy/disease sensor platform from Pollen.com ([@bachya] - [#11573]) ([sensor.pollen docs]) (new-platform)
@@ -144,7 +142,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - panasonic_viera: Set device name from discovery info ([@scop] - [#11990]) ([media_player.panasonic_viera docs])
 - Update panasonic_viera to 0.3 ([@scop] - [#11989]) ([media_player.panasonic_viera docs])
 - Fix 11982 - uvc don't handle null as username ([@bratanon] - [#11984]) ([camera.uvc docs])
-- Add Goalfeed platform ([@wardcraigj] - [#11098]) ([goalfeed docs]) (new-platform)
+- Add Goalfeed platform ([@craigjmidwinter] - [#11098]) ([goalfeed docs]) (new-platform)
 - Added support for hourly percent change in coinmarketcap component ([@kevindgoff] - [#11996]) ([sensor.coinmarketcap docs])
 - Upgrade coinbase to 2.0.7 ([@fabaff] - [#11992]) ([coinbase docs]) ([sensor.coinbase docs])
 - Upgrade pyota to 2.0.4 ([@fabaff] - [#11991]) ([iota docs])
@@ -175,7 +173,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Deconz use entity registry ([@Kane610] - [#12067]) ([deconz docs]) ([binary_sensor.deconz docs]) ([light.deconz docs]) ([sensor.deconz docs])
 - Flake8 bugbear fixes ([@scop] - [#12072]) ([plant docs]) ([rfxtrx docs]) ([zwave docs]) ([climate.heatmiser docs]) ([media_player.plex docs]) ([notify.kodi docs])
 - Fix demo platform support ([@ciotlosm] - [#12070])
-- fix event channel name ([@wardcraigj] - [#12077]) ([goalfeed docs])
+- fix event channel name ([@craigjmidwinter] - [#12077]) ([goalfeed docs])
 - fixed timestamp problem in firefox ([@escoand] - [#12073]) ([weather.openweathermap docs])
 - Handle more file closing using context manager ([@scop] - [#11942]) ([light.greenwave docs]) ([notify.gntp docs]) ([sensor.onewire docs])
 - Influx import improvements ([@RePeet13] - [#11988])
@@ -188,7 +186,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix detection of mobile browsers ([@c727] - [#12075]) ([frontend docs])
 - update tahoma api to version 0.0.11 ([@philklei] - [#12099]) ([tahoma docs])
 - added media_stop ([@jodur] - [#12100]) ([media_player.vlc docs])
-- Goalfeed channel ([@wardcraigj] - [#12086]) ([goalfeed docs])
+- Goalfeed channel ([@craigjmidwinter] - [#12086]) ([goalfeed docs])
 - Update jinja2 to 2.10 ([@arsaboo] - [#12118])
 - Downgrade Sonarr and Radarr 'Host is not avaliable' errors to warnings ([@timmo001] - [#12119]) ([sensor.radarr docs]) ([sensor.sonarr docs])
 - Fixes away_mode error on startup ([@ciotlosm] - [#12121]) ([climate.generic_thermostat docs])
@@ -256,7 +254,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fixes for tesla. New sensors. ([@zabuldon] - [#12225]) ([tesla docs]) ([sensor.tesla docs])
 - Entity layer cleanup ([@balloob] - [#12237]) (breaking change)
 - [SMALL PATCH] Sql sensor ([@dgomes] - [#12242]) ([sensor.sql docs])
-- Set tahoma cover update interval to default ([@bakedraccoon] - [#12232]) ([cover.tahoma docs])
+- Set tahoma cover update interval to default ([@thijsdejong] - [#12232]) ([cover.tahoma docs])
 - Avoid influxdb filling connection pool ([@amelchio] - [#12182]) ([influxdb docs]) (breaking change)
 - Force update support for mqtt binary sensor ([@mkfink] - [#12092]) ([binary_sensor.mqtt docs])
 - Added password mode to input_text (obscure content of text box) ([@covrig] - [#11849]) ([input_text docs]) ([sensor.xiaomi_aqara docs])
@@ -446,7 +444,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@appzer]: https://github.com/appzer
 [@arsaboo]: https://github.com/arsaboo
 [@bachya]: https://github.com/bachya
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@bitglue]: https://github.com/bitglue
 [@bratanon]: https://github.com/bratanon
@@ -501,7 +499,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@ubnt-marc-khouri]: https://github.com/ubnt-marc-khouri
 [@vaceslav]: https://github.com/vaceslav
 [@w1ll1am23]: https://github.com/w1ll1am23
-[@wardcraigj]: https://github.com/wardcraigj
+[@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zabuldon]: https://github.com/zabuldon
 [alexa docs]: /components/alexa/
 [binary_sensor.deconz docs]: /components/binary_sensor.deconz/
@@ -514,7 +512,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [camera.uvc docs]: /components/camera.uvc/
 [camera.xeoma docs]: /components/camera.xeoma/
 [canary docs]: /components/canary/
-[climate.demo docs]: /components/climate.demo/
+[climate.demo docs]: /components/demo/
 [climate.ecobee docs]: /components/climate.ecobee/
 [climate.econet docs]: /components/climate.econet/
 [climate.generic_thermostat docs]: /components/climate.generic_thermostat/
@@ -594,7 +592,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.deconz docs]: /components/sensor.deconz/
 [sensor.deutsche_bahn docs]: /components/sensor.deutsche_bahn/
 [sensor.fritzbox_callmonitor docs]: /components/sensor.fritzbox_callmonitor/
-[sensor.melissa docs]: /components/sensor.melissa/
+[sensor.melissa docs]: /components/melissa/
 [sensor.mercedesme docs]: /components/sensor.mercedesme/
 [sensor.miflora docs]: /components/sensor.miflora/
 [sensor.onewire docs]: /components/sensor.onewire/

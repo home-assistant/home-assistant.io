@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFLink Sensor"
 description: "Instructions on how to integrate RFLink sensors into Home Assistant."
-date: 2016-01-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Sensor
@@ -14,9 +8,9 @@ ha_release: 0.38
 ha_iot_class: Local Polling
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
@@ -58,7 +52,7 @@ devices:
           default: RFLink ID
           type: string
         sensor_type:
-          description: Override automatically detected type of sensor. For list of [values](components/sensor.rflink/#sensors-types) see below.
+          description: Override automatically detected type of sensor. For list of [values](/components/sensor.rflink/#sensors-types) see below.
           required: true
           type: string
         unit_of_measurement:
@@ -75,7 +69,7 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-## {% linkable_title Sensors types %}
+## Sensors types
 
 Sensor type values:
 
@@ -112,7 +106,7 @@ Sensor type values:
 - windspeed
 - windtemp
 
-## {% linkable_title Hiding/ignoring sensors %}
+## Hiding/ignoring sensors
 
 Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
@@ -120,11 +114,11 @@ Sensors are added automatically when the RFLink gateway intercepts a wireless co
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
-## {% linkable_title Device support %}
+## Device support
 
 See [device support](/components/rflink/#device-support)
 
-## {% linkable_title Additional configuration examples %}
+## Additional configuration examples
 
 Multiple sensors with `automatic_add` disabled and `aliases`
 

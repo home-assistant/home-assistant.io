@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Deutsche Bahn"
 description: "Instructions on how to integrate timetable data for traveling in Germany within Home Assistant."
-date: 2015-06-02 21:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Transport
 logo: db.png
@@ -37,6 +31,11 @@ to:
   description: The name of the end/destination station.
   required: true
   type: string
+offset:
+  description: Do not display departures leaving sooner than this number of minutes. Useful if you are a couple of minutes away from the stop.
+  required: false
+  type: time
+  default: 00:00
 only_direct:
   description: Only show direct connections.
   required: false
@@ -52,7 +51,7 @@ sensor:
   platform: template
   sensors:
     next_departure:
-      value_template: '{% raw %}{{ states.sensor.munich_to_ulm.attributes.next }}{% endraw %}'
+      value_template: '{% raw %}{{ state_attr('sensor.munich_to_ulm', 'next') }}{% endraw %}'
       friendly_name: 'Next departure'
 ```
 

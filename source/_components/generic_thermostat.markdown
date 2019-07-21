@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Generic Thermostat"
 description: "Turn Home Assistant into a thermostat"
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Climate
@@ -59,6 +53,7 @@ ac_mode:
   description: Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
   required: false
   type: boolean
+  default: false
 min_cycle_duration:
   description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on.
   required: false
@@ -74,11 +69,11 @@ hot_tolerance:
   default: 0.3
   type: float
 keep_alive:
-  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate component state (either on or off).
+  description: Set a keep-alive interval. If set, the switch specified in the *heater* option will be triggered every time the interval elapses. Use with heaters and A/C units that shut off if they don't receive a signal from their remote for a while. Use also with switches that might lose state. The keep-alive call is done with the current valid climate integration state (either on or off).
   required: false
   type: [time, integer]
-initial_operation_mode:
-  description: Set the initial operation mode. Valid values are `off` or `auto`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
+initial_hvac_mode:
+  description: Set the initial HVAC mode. Valid values are `off`, `heat` or `cool`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
   type: string
 away_temp:
@@ -94,7 +89,7 @@ precision:
 
 A full configuration example looks like the one below. `min_cycle_duration` and `keep_alive` must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`.
 
-Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' operation modes. You can force your `generic_thermostat` to avoid starting by setting Operation to 'off'.
+Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 'off' hvac modes. You can force your `generic_thermostat` to avoid starting by setting HVAC mode to 'off'.
 
 Please note that changing Away Mode you will force a target temperature change as well that will get restored once the Away Mode is turned off.
 
@@ -115,7 +110,7 @@ climate:
       seconds: 5
     keep_alive:
       minutes: 3
-    initial_operation_mode: "off"
+    initial_hvac_mode: "off"
     away_temp: 16
     precision: 0.1
 ```

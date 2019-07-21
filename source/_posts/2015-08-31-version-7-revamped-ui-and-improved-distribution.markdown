@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.7: Better UI and improved distribution"
 description: "Home Assistant gains a version number and a face lift."
 date: 2015-08-31 14:12 -0700
 date_formatted: "August 31, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/screenshots/ui2015.png
 ---
@@ -34,7 +32,7 @@ And while Ryan was fixing distribution, I have been hard at work in giving Home 
 
 <!--more-->
 
-### {% linkable_title Migration to version 0.7 %}
+### Migration to version 0.7
 
 For this example, let's say we have an old Home Assistant installation in `/home/paulus/home-assistant`.
 
@@ -50,7 +48,7 @@ It If you want to have the configuration in a different location, for example `/
 $ hass --config /home/paulus/home-assistant-config
 ```
 
-### {% linkable_title New platforms %}
+### New platforms
 
 And last, but not least: new platforms!
 
@@ -91,7 +89,7 @@ device_tracker:
 ```
 
 __DHT temperature and humidity sensors__
-[@MakeMeASandwich](https://github.com/makemeasandwich) has contributed support for DHT temperature and humidity sensors. It allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
+@MakeMeASandwich has contributed support for DHT temperature and humidity sensors. It allows you to get the current temperature and humidity from a DHT11, DHT22, or AM2302 device.
 
 ```yaml
 # Example configuration.yaml entry

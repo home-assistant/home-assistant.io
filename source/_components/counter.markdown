@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Counter"
 description: "Instructions on how to integrate counters into Home Assistant."
-date: 2017-08-26 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -14,9 +8,9 @@ ha_release: 0.53
 ha_qa_scale: internal
 ---
 
-The `counter` component allows one to count occurrences fired by automations.
+The `counter` integration allows one to count occurrences fired by automations.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add a counter to your installation, add the following to your `configuration.yaml` file:
 
@@ -70,17 +64,17 @@ counter:
 
 Pick an icon that you can find on [materialdesignicons.com](https://materialdesignicons.com/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
-### {% linkable_title Restore State %}
+### Restore State
 
-This component will automatically restore the state it had prior to Home Assistant stopping as long as you your entity has `restore` set to `true` which is the default. To disable this feature, set `restore` to `false`.
+This integration will automatically restore the state it had prior to Home Assistant stopping as long as you your entity has `restore` set to `true` which is the default. To disable this feature, set `restore` to `false`.
 
 If `restore` is set to `false`, the `initial` value will only be used when no previous state is found or when the counter is reset.
 
-## {% linkable_title Services %}
+## Services
 
 Available services: `increment`, `decrement`, and `reset`.
 
-#### {% linkable_title Service `counter.increment` %}
+#### Service `counter.increment`
 
 Increments the counter with 1 or the given value for the steps.
 
@@ -88,7 +82,7 @@ Increments the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-#### {% linkable_title Service `counter.decrement` %}
+#### Service `counter.decrement`
 
 Decrements the counter with 1 or the given value for the steps.
 
@@ -96,7 +90,7 @@ Decrements the counter with 1 or the given value for the steps.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-#### {% linkable_title Service `counter.reset` %}
+#### Service `counter.reset`
 
 With this service the counter is reset to its initial value.
 
@@ -104,7 +98,7 @@ With this service the counter is reset to its initial value.
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-#### {% linkable_title Service `counter.configure` %}
+#### Service `counter.configure`
 
 With this service the properties of the counter can be changed while running.
 
@@ -117,7 +111,7 @@ With this service the properties of the counter can be changed while running.
 
 
 
-### {% linkable_title Use the service %}
+### Use the service
 
 Select <img src='/images/screenshots/developer-tool-services-icon.png' alt='service developer tool icon' class="no-shadow" height="38" /> **Services** from the **Developer Tools**. Choose **counter** from the list of **Domains**, select the **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
 

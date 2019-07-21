@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OctoPrint"
 description: "Instructions on how to setup the OctoPrint in Home Assistant."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: octoprint.png
 ha_category:
   - Hub
@@ -19,18 +13,18 @@ redirect_from:
   - /components/sensor.octoprint/
 ---
 
-[OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main component to integrate OctoPrint sensors.
+[OctoPrint](http://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary Sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<p class='note'>
+<div class='note'>
 You must have the <a href="#configuration">OctoPrint component</a> configured (below) to use the sensor and binary sensor. After configuring that component, the sensors and binary sensors automatically appear.
-</p>
+</div>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To get started with the OctoPrint API, please follow the directions on their [site](http://docs.octoprint.org/en/master/api/general.html). Once OctoPrint is configured you will need to add your API key and host to your `configuration.yaml`.
 
@@ -41,87 +35,85 @@ octoprint:
 ```
 
 {% configuration %}
-octoprint:
-  type: list
+host:
+  description: IP address or hostname of Octoprint host.
   required: true
+  type: string
+api_key:
+  description: The retrieved API key.
+  required: true
+  type: string
+name:
+  description: The name for this printer, must be unique if multiple printers are defined.
+  required: false
+  type: string
+  default: OctoPrint
+port:
+  description: The port of the Octoprint server.
+  required: false
+  type: integer
+  default: 80
+path:
+  description: The URL path of the Octoprint instance.
+  required: false
+  type: string
+  default: /
+ssl:
+  description: Enable or disable SSL/TLS.
+  required: false
+  type: boolean
+  default: false
+bed:
+  description: If the printer has a heated bed.
+  required: false
+  type: boolean
+  default: false
+number_of_tools:
+  description: Number of temperature adjustable tools, e.g., nozzle.
+  required: false
+  type: integer
+  default: 0
+sensors:
+  description: Configuration for the sensors.
+  required: false
+  type: map
   keys:
-    host:
-      description: IP address or hostname of Octoprint host.
-      required: true
-      type: string
-    api_key:
-      description: The retrieved API key.
-      required: true
-      type: string
-    name:
-      description: The name for this printer, must be unique if multiple printers are defined.
-      required: false
-      type: string
-      default: OctoPrint
-    port:
-      description: The port of the Octoprint server.
-      required: false
-      type: integer
-      default: 80
-    path:
-      description: The URL path of the Octoprint instance.
-      required: false
-      type: string
-      default: /
-    ssl:
-      description: Enable or disable SSL/TLS.
-      required: false
-      type: boolean
-      default: false
-    bed:
-      description: If the printer has a heated bed.
-      required: false
-      type: boolean
-      default: false
-    number_of_tools:
-      description: Number of temperature adjustable tools, e.g., nozzle.
-      required: false
-      type: integer
-      default: 0
-    sensors:
-      description: Configuration for the sensors.
-      required: false
-      type: map
+    monitored_conditions:
+      description: The sensors to activate.
+      type: list
+      default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`)
       keys:
-        monitored_conditions:
-          description: The sensors to activate.
-          type: list
-          default: all (`Current State`, `Temperatures`, `Job Percentage`, `Time Elapsed`, `Time Remaining`)
-          keys:
-            "Current State":
-              description: Text of current state.
-            "Temperatures":
-              description: Temperatures of all available tools, e.g., `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
-            "Job Percentage":
-              description: Percentage of the job.
-            "Time Elapsed":
-              description: Time elapsed on current print job, in seconds.
-            "Time Remaining":
-              description: Time remaining on current print job, in seconds.
-    binary_sensors:
-      description: Configuration for the binary sensors.
-      required: false
-      type: map
+        "Current State":
+          description: Text of current state.
+        "Temperatures":
+          description: Temperatures of all available tools, e.g., `print`, `head`, `print bed`, etc. These will be displayed as `tool0`, `tool1`, or `toolN` please refer to your OctoPrint frontend to associate the tool number with an actual device.
+        "Job Percentage":
+          description: Percentage of the job.
+        "Time Elapsed":
+          description: Time elapsed on current print job, in seconds.
+        "Time Remaining":
+          description: Time remaining on current print job, in seconds.
+binary_sensors:
+  description: Configuration for the binary sensors.
+  required: false
+  type: map
+  keys:
+    monitored_conditions:
+      description: The sensors to activate.
+      type: list
+      default: all (`Printing`, `Printing Error`)
       keys:
-        monitored_conditions:
-          description: The sensors to activate.
-          type: list
-          default: all (`Printing`, `Printing Error`)
-          keys:
-            "Printing":
-              description: State of the printer.
-            "Printing Error":
-              description: Error while printing.
+        "Printing":
+          description: State of the printer.
+        "Printing Error":
+          description: Error while printing.
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 If you are tracking temperature it is recommended to set `bed` and/or `number_of_tools` in your octoprint configuration. This will allow the octoprint sensors to load if the printer is offline during Home Assistant startup.
-</p>
+
+</div>
 
 Example with multiple printers:
 
@@ -151,7 +143,7 @@ camera:
     mjpeg_url: http://YOUR_OCTOPRINT_HOST_IP/webcam/?action=stream
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 The `octoprint` binary sensor platform let you monitor if your 3D printer is printing or if there was a printing error.
 
@@ -182,6 +174,6 @@ name:
   default: OctoPrint
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `octoprint` sensor platform let you monitor various states of your 3D printer and its print jobs.

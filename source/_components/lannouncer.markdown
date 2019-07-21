@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lannouncer"
 description: "Instructions on how to add Lannouncer notifications to Home Assistant."
-date: 2017-01-06 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lannouncer.png
 ha_category:
   - Notifications
@@ -44,15 +38,15 @@ port:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Installation %}
+### Installation
 
-You need to install the Lannouncer app and enable the *Network (TCP) Listener* and *Auto-Start Network Listener*. You can disable the *GCM (Google Cloud) and WAN Messaging* and *SMS Listener* since this component doesn't use them.
+You need to install the Lannouncer app and enable the *Network (TCP) Listener* and *Auto-Start Network Listener*. You can disable the *GCM (Google Cloud) and WAN Messaging* and *SMS Listener* since this integration doesn't use them.
 
 Lannouncer uses the default Android TTS voice. You can tweak that in the Android configuration, or you can install a different TTS engine from the Play Store. You might want to raise the volume in the app settings since that depends on the actual hardware device.
 
 More information can be found [here](http://www.keybounce.com/lannouncer/configuring-lannouncer/).
 
-### {% linkable_title Sending messages %}
+### Sending messages
 
 Lannouncer supports two types of messages.
 
@@ -86,8 +80,8 @@ You can also request to play a configured additional soundfiles (`FILE1`, `FILE2
 }
 ```
 
-<p class='note info'>
-  The free version only supports one additional soundfile. 
-</p>
+<div class='note info'>
+The free version only supports one additional soundfile.
+</div>
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

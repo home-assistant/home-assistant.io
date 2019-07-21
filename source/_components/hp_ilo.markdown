@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HP ILO"
 description: "How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant."
-date: 2016-08-15 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hewlett_packard_enterprise.png
 ha_category:
   - System Monitor
@@ -26,9 +20,9 @@ Some more details about what can be retrieved from these sensors is available in
   <img src='{{site_root}}/images/screenshots/hp_ilo.png' />
 </p>
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+To use this integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -97,7 +91,7 @@ Valid sensor_types:
 - **server_health**: Get server health information.
 - **network_settings**: Get the iLO network settings.
 
-## {% linkable_title Example %}
+## Example
 
 In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your `configuration.yaml` file
 
@@ -125,13 +119,13 @@ sensor:
   <img src='{{site_root}}/images/screenshots/hp_ilo_sensors.png' />
 </p>
 
-## {% linkable_title Hardware specifics %}
+## Hardware specifics
 
-<p class='note warning'>
+<div class='note warning'>
 Not every hardware supports all values.
-</p>
+</div>
 
-### {% linkable_title HP Microserver Gen8 %}
+### HP Microserver Gen8
 
 On this hardware you should avoid using the following sensor_types as `monitored_variables:` to prevent errors.
 

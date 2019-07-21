@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Denon AVR Network Receivers"
 description: "Instructions on how to integrate Denon AVR Network Receivers into Home Assistant."
-date: 2015-09-08 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: denon.png
 ha_category:
   - Media Player
@@ -41,9 +35,9 @@ Supported devices:
 - Other Denon AVR receivers (untested)
 - Marantz receivers (experimental)
 
-<pre class='note warning'>
+<div class='note warning'>
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
-</pre>
+</div>
 
 To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
 
@@ -99,6 +93,7 @@ A few notes:
 - An additional option for the control of Denon AVR receivers with a built-in web server is using the HTTP interface with `denonavr` platform.
 - The `denonavr` platform supports some additional functionalities like album covers, custom input source names and auto discovery.
 - Marantz receivers seem to a have quite a similar interface. Thus if you own one, give it a try.
+- To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
 - Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/scarface-4711/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under "Development Tools/States" in the front panel.
 
 [Denon]: /components/media_player.denon/

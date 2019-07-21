@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AdGuard Home"
 description: "Instructions on how to integrate AdGuard Home with Home Assistant."
-date: 2019-05-31 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: adguard.png
 ha_category:
   - Network
@@ -20,7 +14,7 @@ AdGuard Home is a network-wide ad-and-tracker blocking DNS server with parental
 control (adult content blocking) capabilities. The `adguard` integration allows
 you to control and monitor your AdGuard Home instance in Home Assistant.
 
-## {% linkable_title Configuration via the frontend %}
+## Configuration via the frontend
 
 Menu: **Configuration** -> **Integrations**.
 
@@ -28,7 +22,7 @@ Click on the `+` sign to add an integration and click on **AdGuard Home**.
 Follow the configuration flow, after finishing, the AdGuard Home
 integration will be available.
 
-## {% linkable_title Sensors %}
+## Sensors
 
 This integration provides sensors for the following information from AdGuard Home:
 
@@ -41,7 +35,7 @@ This integration provides sensors for the following information from AdGuard Hom
 - Total number of active filter rules loaded.
 - Average response time of AdGuard's DNS server in milliseconds.
 
-## {% linkable_title Switches %}
+## Switches
 
 The integration will create a number of switches:
 
@@ -58,12 +52,12 @@ write an automation to turn off Safe Search after the kids' bedtime.
 The "AdGuard Protection" switch, is a master switch. It will turn off and
 bypass all AdGuard feature, regardless if they are switched on or not.
 
-<p class="note">
+<div class="note">
 Turning off Query Log will result in all sensors not receiving updates anymore.
 AdGuard relies on Query Log to provide stats.
-</p>
+</div>
 
-## {% linkable_title Services %}
+## Services
 
 These services allow one to manage filter subscriptions in AdGuard Home.
 Using these services in automations could be helpful to block certain
@@ -72,7 +66,7 @@ sites/domains at certain times.
 For example, you could create a custom filter list blocking social media sites,
 during the day and release them during the evening, using a simple automation.
 
-### {% linkable_title Service `add_url` %}
+### Service `add_url`
 
 Add a new filter subscription to AdGuard Home.
 
@@ -81,7 +75,7 @@ Add a new filter subscription to AdGuard Home.
 | `name`                 | No       | The name of the filter subscription.                         |
 | `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
 
-### {% linkable_title Service `remove_url` %}
+### Service `remove_url`
 
 Removes a filter subscription from AdGuard Home.
 
@@ -89,7 +83,7 @@ Removes a filter subscription from AdGuard Home.
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to remove. |
 
-### {% linkable_title Service `enable_url` %}
+### Service `enable_url`
 
 Enables a filter subscription in AdGuard Home.
 
@@ -97,7 +91,7 @@ Enables a filter subscription in AdGuard Home.
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to enable. |
 
-### {% linkable_title Service `disable_url` %}
+### Service `disable_url`
 
 Disables a filter subscription in AdGuard Home.
 
@@ -105,7 +99,7 @@ Disables a filter subscription in AdGuard Home.
 | ---------------------- | -------- | --------------------------------------- |
 | `url`                  | No       | The filter subscription URL to disable. |
 
-### {% linkable_title Service `refresh` %}
+### Service `refresh`
 
 Refresh all filter subscriptions in AdGuard Home.
 

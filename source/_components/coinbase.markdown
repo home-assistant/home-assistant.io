@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Coinbase"
 description: "Instructions for how to add Coinbase sensors to Home Assistant."
-date: 2017-12-08 17:54
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: coinbase.png
 ha_category:
   - Finance
@@ -17,11 +11,11 @@ redirect_from:
   - /components/sensor.coinbase/
 ---
 
-The `coinbase` component lets you access account balances and exchange rates from [coinbase](https://coinbase.com).
+The `coinbase` integration lets you access account balances and exchange rates from [coinbase](https://coinbase.com).
 
-You will need to obtain an API key from coinbase's [developer site](https://www.coinbase.com/settings/api) to use this component. You need to give read access to `wallet:accounts` in order for the component to access relevant data.
+You will need to obtain an API key from coinbase's [developer site](https://www.coinbase.com/settings/api) to use this component. You need to give read access to `wallet:accounts` in order for the integration to access relevant data.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To set it up, add the following information to your `configuration.yaml` file:
 
@@ -54,7 +48,7 @@ exchange_rate_currencies:
 
 Possible currencies are codes that conform to the ISO 4217 standard where possible. Currencies which have or had no representation in ISO 4217 may use a custom code (e.g. BTC). A list of values can be obtained via https://api.coinbase.com/v2/currencies, for more information visit [the Coinbase API documentation](https://developers.coinbase.com/api/v2#get-currencies).
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 A full configuration sample including optional variables:
 

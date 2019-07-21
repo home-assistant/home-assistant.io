@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.68: HomeKit control, Eufy, FritzBox, SigFox sensors"
 description: "Enjoy your weekend with this brand new release of Home Assistant."
 date: 2018-04-27 00:01:00
 date_formatted: "April 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-04-0.68/components.png
 ---
@@ -19,7 +17,7 @@ One of the coolest features this release is by [@mjg59]: you are now able to **c
 
 Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy is the Home Automation brand of Anker and they have been producing reasonably priced devices which can now be controlled by Home Assistant too. Thanks for all your contributions [@mjg59] ❤️.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add support for Eufy bulbs and switches ([@mjg59] - [#13773]) ([eufy docs]) ([light.eufy docs]) ([switch.eufy docs]) (new-platform)
 - Add support for controlling homekit lights and switches ([@mjg59] - [#13346]) ([homekit_controller docs]) ([light.homekit_controller docs]) (new-platform)
@@ -31,7 +29,7 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 - Add support for Sensirion SHT31 temperature/humidity sensor ([@viorels] - [#12952]) ([sensor.sht31 docs]) (new-platform)
 - Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Support binary_sensor and device_tracker in HomeKit ([@Yonsm] - [#13735]) ([homekit docs]) (new-feature)
 - Add Homekit locks support ([@philk] - [#13625]) ([homekit docs]) (new-feature)
@@ -39,7 +37,7 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 - Support Garage Doors in HomeKit ([@marthoc] - [#13796]) ([homekit docs]) (new-feature)
 - Support basic covers with open/close/stop services HomeKit ([@nickw444] - [#13819]) ([homekit docs]) (new-feature)
 
-## {% linkable_title Release 0.68.1 - April 30 %}
+## Release 0.68.1 - April 30
 
 - Fix color setting of tplink lights ([@amelchio] - [#14108]) ([light.tplink docs])
 - Improve precision of Hue color state ([@amelchio] - [#14113]) ([light.hue docs])
@@ -51,22 +49,22 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 - Fix poorly formatted automations ([@balloob] - [#14196])
 - Disable eliqonline requirement ([@balloob] - [#14156])
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Icons! Material Design Icons has implemented some naming guidelines and this caused 9 icons to change names, 3 of which are home automation icons: `roomba` -> `robot-vacuum`, `nest-protect` -> `smoke-detector`, `nest-thermostat` -> `thermostat` ([see all changes](http://templarian.com/2018/04/18/material-design-icons-v2-3-54/)).
 - Support for multiple MAX!Cube LAN gateways caused a slight change to the configuration schema. Make sure to check the docs for the new one. ([@syssi] - [#13517]) ([maxcube docs]) ([binary_sensor.maxcube docs]) ([climate.maxcube docs]) (breaking change)
 - Ebox sensor platform has been disabled because the dependency was not compatible with pip 10. ([@balloob] - [#14003]) ([sensor.ebox docs]) (breaking change)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Qwikswitch binary sensors ([@kellerza] - [#14008]) ([qwikswitch docs]) ([binary_sensor.qwikswitch docs]) ([sensor.qwikswitch docs]) (beta fix) (new-platform)
 - Order the output of the automation editor ([@balloob] - [#14019]) ([config docs]) (beta fix)
@@ -79,7 +77,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Updated list of AWS regions for Amazon Polly ([@GotoCode] - [#14097]) ([tts docs]) (beta fix)
 - Change Eufy brightness handling ([@mjg59] - [#14111]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Update Homekit to 1.1.9 ([@cdce8p] - [#13716]) ([homekit docs])
 - Update docstrings ([@fabaff] - [#13720]) ([ihc docs]) ([cover.opengarage docs]) ([cover.tahoma docs]) ([sensor.trafikverket_weatherstation docs])
@@ -95,7 +93,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Brightness conversion for Abode dimmers ([@shred86] - [#13711]) ([light.abode docs])
 - Update CODEOWNERS (sensor.filter, sensor.upnp) ([@dgomes] - [#13736])
 - Reset permission ([@fabaff] - [#13743]) ([light.abode docs])
-- Throw an error when invalid device_mode is given ([@dangyuluo] - [#13739])
+- Throw an error when invalid device_mode is given ([@left4taco] - [#13739])
 - Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
 - Upgrade netdisco to 1.3.1 ([@fabaff] - [#13744])
 - Add MQTT Sensor unique_id ([@OttoWinter] - [#13318]) ([sensor.mqtt docs])
@@ -124,7 +122,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - HomeKit type_cover fix ([@cdce8p] - [#13832]) ([homekit docs])
 - Allow platform unloading ([@balloob] - [#13784]) ([hue docs]) ([light docs])
 - Support CO2/PM2.5/Light sensors in HomeKit ([@Yonsm] - [#13804]) ([homekit docs]) (new-feature)
-- Clicksend: Added support for multiple recipients ([@xTCx] - [#13812]) ([notify docs])
+- Clicksend: Added support for multiple recipients ([@asafbiton96] - [#13812]) ([notify docs])
 - Support Garage Doors in HomeKit ([@marthoc] - [#13796]) ([homekit docs]) (new-feature)
 - Abode better events ([@MisterWil] - [#13809]) ([abode docs])
 - UPnP async ([@dgomes] - [#13666]) ([upnp docs]) ([sensor.upnp docs])
@@ -367,7 +365,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cdce8p]: https://github.com/cdce8p
 [@cgtobi]: https://github.com/cgtobi
 [@citruz]: https://github.com/citruz
-[@dangyuluo]: https://github.com/dangyuluo
+[@left4taco]: https://github.com/left4taco
 [@danielperna84]: https://github.com/danielperna84
 [@dersger]: https://github.com/dersger
 [@dgomes]: https://github.com/dgomes
@@ -408,7 +406,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@veleek]: https://github.com/veleek
 [@viorels]: https://github.com/viorels
 [@wiuwiu]: https://github.com/wiuwiu
-[@xTCx]: https://github.com/xTCx
+[@asafbiton96]: https://github.com/asafbiton96
 [abode docs]: /components/abode/
 [alexa docs]: /components/alexa/
 [binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/

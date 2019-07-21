@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iTunes"
 description: "Instructions on how to integrate iTunes into Home Assistant."
-date: 2015-06-22 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: itunes.png
 ha_category:
   - Media Player
@@ -21,7 +15,7 @@ The `itunes` media player platform allows you to control [iTunes](http://apple.c
 
 In addition to controlling iTunes, your available AirPlay endpoints will be added as media players as well. You can then individually address them and turn them on, turn them off or adjust their volume.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add iTunes to your installation, add the following to your `configuration.yaml` file:
 
