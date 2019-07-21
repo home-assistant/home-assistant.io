@@ -21,7 +21,7 @@ is available as the state of each entity.
   <img src='{{site_root}}/images/screenshots/wwlln-feed-map.png' />
 </p>
 
-New data is fetched every every 10 minutes. Because data from the WWLLN may vary in terms
+New data is fetched every 10 minutes. Because data from the WWLLN may vary in terms
 of how real-time it is, the default `window` parameter is set to 1 hour to ensure that as
 many strikes are caught as possible.
 
