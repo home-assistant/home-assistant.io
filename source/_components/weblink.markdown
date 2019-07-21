@@ -3,7 +3,7 @@ title: "Weblink"
 description: "Instructions on how to setup Links within Home Assistant."
 logo: home-assistant.png
 ha_category:
-  - Front end
+  - Front End
 ha_release: 0.13
 ha_qa_scale: internal
 ---

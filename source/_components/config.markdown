@@ -3,7 +3,7 @@ title: "Config"
 description: "Instructions on how to setup the configuration panel for Home Assistant."
 logo: home-assistant.png
 ha_category:
-  - Front end
+  - Front End
 ha_release: 0.39
 ha_qa_scale: internal
 ---
