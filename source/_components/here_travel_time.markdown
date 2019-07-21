@@ -77,10 +77,15 @@ traffic_mode:
   type: boolean
   default: false
 unit_system:
-  description: You can choose between `metric` or `imperial`.
+  description: "You can choose between `metric` or `imperial`."
   required: false
   default: Defaults to `metric` or `imperial` based on the Home Assistant configuration.
   type: string
+scan_interval:
+  description: "Defines the update interval of the sensor in seconds. Defaults to 300 (5 minutes)."
+  required: false
+  type: integer
+  default: 300
 {% endconfiguration %}
 
 ## {% linkable_title Dynamic Configuration %}
