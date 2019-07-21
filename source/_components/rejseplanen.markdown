@@ -151,4 +151,3 @@ The sensor can filter the timetables by one or more routes, directions and types
 | `route` | Route code |
 | `direction` | Destination stop |
 | `stop` | Departure stop |
-
