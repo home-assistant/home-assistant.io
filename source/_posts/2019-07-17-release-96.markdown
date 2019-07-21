@@ -146,6 +146,29 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [smartthings docs]: /components/smartthings/
 [zwave docs]: /components/zwave/
 
+## Release 0.96.2 - July 19
+
+- Fix fritzbox climate HVAC mode / temperature ([@cgtobi] - [#25275]) ([fritzbox docs])
+- Fixed python-wink method names ([@w1ll1am23] - [#25285]) ([wink docs])
+- [climate] Correct honeywell supported_features ([@zxdavb] - [#25292]) ([honeywell docs])
+- Fix HM with use wrong datapoint for off ([@pvizeli] - [#25298]) ([homematic docs])
+- Fix plant error when adding new value ([@cgtobi] - [#25302]) ([plant docs])
+
+[#25275]: https://github.com/home-assistant/home-assistant/pull/25275
+[#25285]: https://github.com/home-assistant/home-assistant/pull/25285
+[#25292]: https://github.com/home-assistant/home-assistant/pull/25292
+[#25298]: https://github.com/home-assistant/home-assistant/pull/25298
+[#25302]: https://github.com/home-assistant/home-assistant/pull/25302
+[@cgtobi]: https://github.com/cgtobi
+[@pvizeli]: https://github.com/pvizeli
+[@w1ll1am23]: https://github.com/w1ll1am23
+[@zxdavb]: https://github.com/zxdavb
+[fritzbox docs]: /components/fritzbox/
+[homematic docs]: /components/homematic/
+[honeywell docs]: /components/honeywell/
+[plant docs]: /components/plant/
+[wink docs]: /components/wink/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
