@@ -137,7 +137,7 @@ You also need to have Docker-CE installed. There are well-documented procedures 
   Some distributions, like Ubuntu, have a `docker.io` package available. Using that packages will cause issues!
   Be sure to install the official Docker-CE from the above listed URL.
   
-  Currently, Docker has not yet released a version that supports Ubuntu 19.04. The latest Ubuntu version supported by Docker is Ubuntu 18.10 (Cosmic Cuttlefish).
+  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
 </div>
 
