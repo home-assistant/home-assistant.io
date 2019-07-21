@@ -122,8 +122,8 @@ sensor:
     monitored_conditions:
       - device_information.SoftwareVersion
       - device_signal.rssi
-      - traffic_statistics.CurrentDownloadRate
-      - traffic_statistics.TotalConnectTime
+      - monitoring_traffic_statistics.CurrentDownloadRate
+      - monitoring_traffic_statistics.TotalConnectTime
 ```
 
 {% configuration %}
@@ -152,14 +152,14 @@ monitored_conditions:
     device_signal.sinr:
       description: The signal SINR value.
       default: default
-    traffic_statistics.CurrentDownloadRate:
+    monitoring_traffic_statistics.CurrentDownloadRate:
       description: Current download rate, bytes/sec.
-    traffic_statistics.CurrentUploadRate:
+    monitoring_traffic_statistics.CurrentUploadRate:
       description: Current upload rate, bytes/sec.
-    traffic_statistics.TotalUpload:
+    monitoring_traffic_statistics.TotalUpload:
       description: Total bytes uploaded since last reset.
-    traffic_statistics.TotalDownload:
+    monitoring_traffic_statistics.TotalDownload:
       description: Total bytes downloaded since last reset.
-    traffic_statistics.TotalConnectTime:
+    monitoring_traffic_statistics.TotalConnectTime:
       description: Total time connected since last reset.
 {% endconfiguration %}
