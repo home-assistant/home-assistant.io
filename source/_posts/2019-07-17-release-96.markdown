@@ -184,8 +184,10 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 - Fix ESPHome climate migration ([@OttoWinter] - [#25366]) ([esphome docs])
 - fix remove and re-add scenario ([@dmulcahey] - [#25370]) ([zha docs])
 - change and condition to or condition ([@dmulcahey] - [#25374])
+- Add Netatmo climate battery level ([@cgtobi] - [#25143]) ([netatmo docs])
 
 [#25321]: https://github.com/home-assistant/home-assistant/pull/25321
+[#25143]: https://github.com/home-assistant/home-assistant/pull/25143
 [#25327]: https://github.com/home-assistant/home-assistant/pull/25327
 [#25332]: https://github.com/home-assistant/home-assistant/pull/25332
 [#25347]: https://github.com/home-assistant/home-assistant/pull/25347
