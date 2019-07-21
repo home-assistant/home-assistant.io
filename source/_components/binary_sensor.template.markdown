@@ -219,7 +219,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Device Tracker sensor with Latitude and Longitude Attributes %}
+### Device Tracker sensor with Latitude and Longitude Attributes
 
 This example shows how to combine an non-GPS (e.g. NMAP) and GPS device tracker while still including latitude and longitude attributes
 
