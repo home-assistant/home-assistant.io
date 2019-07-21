@@ -60,7 +60,7 @@ authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
 
 To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
-" permission to Home Assitant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
 

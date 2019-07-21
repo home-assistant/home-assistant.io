@@ -101,7 +101,7 @@ This service must be called by the user for the tariff switching logic to occur 
 
 The following configuration shows an example where 2 utility_meters (`daily_energy` and `monthly_energy`) track daily and monthly energy consumptions.
 
-Both track the same sensor (`sensor.energy`) which continously monitors the energy consumed.
+Both track the same sensor (`sensor.energy`) which continuously monitors the energy consumed.
 
 4 different sensors will be created, 2 per utility meter and corresponding to each tariff.
 Sensor `sensor.daily_energy_peak`, `sensor.daily_energy_offpeak`, `sensor.monthly_energy_peak` and `sensor.monthly_energy_offpeak` will automatically be created to track the consumption in each tariff for the given cycle.

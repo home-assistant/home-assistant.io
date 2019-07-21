@@ -36,7 +36,7 @@ This integration requires files to be downloaded, compiled on your computer, and
         |- __init__.py
 ```
 
-- Copy required object_detection dependancies to the `object_detection` folder inside of the `tensorflow` folder:
+- Copy required object_detection dependencies to the `object_detection` folder inside of the `tensorflow` folder:
 
   - `research/object_detection/data`
   - `research/object_detection/utils`

@@ -127,7 +127,7 @@ connections:
       required: true
       type: string
     name:
-      description: Optional connection identifier. If omited, the connections will be named consecutively as _pchk_, _pchk1_, _pchk2_, ...
+      description: Optional connection identifier. If omitted, the connections will be named consecutively as _pchk_, _pchk1_, _pchk2_, ...
       required: false
       default: pchk
       type: string
@@ -423,7 +423,7 @@ If the control is set lockable, the regulator can be turned on/off.
 
 <div class='note'>
 
-If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](/components/generic_thermostat/) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
+If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](/components/generic_thermostat/) in conjunction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
 
 </div>
 
@@ -488,7 +488,7 @@ Example:
 ```yaml
 service: output_abs
 data:
-  addres: myhome.0.7
+  address: myhome.0.7
   output: output1
   brightness: 100
   transition: 0

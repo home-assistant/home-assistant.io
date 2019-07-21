@@ -13,9 +13,9 @@ The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a
 ## Configuration
 
 The device state (`open` or `closed`) will be updated only after a new message is published on `state_topic` matching `state_open` or `state_closed`. If these messages are published with the `retain` flag set, the cover will receive an instant state update after subscription and Home Assistant will display the correct state on startup. Otherwise, the initial state displayed in Home Assistant will be `unknown`.
-`state_topic` can only manage `state_open` and `state_closed`. No percentage positons etc.
+`state_topic` can only manage `state_open` and `state_closed`. No percentage positions etc.
 
-For this purpose is `position_topic` which can set state of the cover and positon.
+For this purpose is `position_topic` which can set state of the cover and position.
 Default setting are 0 means the device is `closed` and all other intermediate positions means the device is `open`.
 `position_topic` is managed by `position_open` and `position_closed`
 You can set it up in opossite way as well.

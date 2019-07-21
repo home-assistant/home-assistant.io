@@ -116,11 +116,11 @@ Some titles will have different SKUs in the PlayStation Store database depending
 
 |  Available Regions                                                          | Unavailable Regions        |
 | --------------------------------------------------------------------------- | -------------------------- |
-| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Phillipines, |
+| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Philippines, |
 | Canada, Chile, Columbia, Costa Rica, Croatia, Cyprus, Czech Republic,       | Serbia, Ukraine, Vietnam   |
 | Denmark, Ecuador, El Salvador, Finland, France, Germany, Greece, Guatemala, |                            |
 | Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel,   |                            |
-| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Maylasia, Mexico,         |                            |
+| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Malaysia, Mexico,         |                            |
 | Middle East, Nederland, New Zealand, Nicaragua, Norway, Oman, Panama,       |                            |
 | Peru, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Singapore,    |                            |
 | Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan,       |                            |

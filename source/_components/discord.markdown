@@ -13,7 +13,7 @@ The [Discord service](https://discordapp.com/) is a platform for the notify comp
 
 In order to get a token you need to go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application. Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**).
 
-Retreive the **Client ID** from the information section and the (hidden) **Token** of your bot for later.
+Retrieve the **Client ID** from the information section and the (hidden) **Token** of your bot for later.
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
