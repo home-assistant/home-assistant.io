@@ -34,7 +34,7 @@ password:
 {% endconfiguration %}
 
 This component opens a TCP connection with the IntesisHome API to receive temperature and status updates, and to issue commands.
-By default the component will be named using the friendly device name from the IntesisHome website or application.
+By default, the component will be named using the friendly device name from the IntesisHome website or application.
 If internet connectivity is lost, the device will be marked as unavailable after 5 minutes.
 
 ### Supported services
