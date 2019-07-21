@@ -169,6 +169,53 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [plant docs]: /components/plant/
 [wink docs]: /components/wink/
 
+## Release 0.96.3 - July 21
+
+- temporary patch to fix KNX climate devices ([@farmio] - [#25356]) ([knx docs])
+- Restore sensiobo turn on/off methods ([@balloob] - [#25321]) ([sensibo docs])
+- Update zwave climate mappings ([@eyager1] - [#25327]) ([zwave docs])
+- Restore Daikin A/C on/off services ([@fredrike] - [#25332]) ([daikin docs])
+- Fix for hvac_modes list being null ([@schmic] - [#25347]) ([zwave docs])
+- add available to device info ([@dmulcahey] - [#25349]) ([zha docs])
+- Fix preset service call ([@cgtobi] - [#25358]) ([netatmo docs])
+- Improve geniushub logging and bump client ([@zxdavb] - [#25359]) ([geniushub docs])
+- Introduce PRESET_NONE for climate ([@balloob] - [#25360])
+- bump quirks version ([@dmulcahey] - [#25362]) ([zha docs])
+- Fix ESPHome climate migration ([@OttoWinter] - [#25366]) ([esphome docs])
+- fix remove and re-add scenario ([@dmulcahey] - [#25370]) ([zha docs])
+- change and condition to or condition ([@dmulcahey] - [#25374])
+
+[#25321]: https://github.com/home-assistant/home-assistant/pull/25321
+[#25327]: https://github.com/home-assistant/home-assistant/pull/25327
+[#25332]: https://github.com/home-assistant/home-assistant/pull/25332
+[#25347]: https://github.com/home-assistant/home-assistant/pull/25347
+[#25349]: https://github.com/home-assistant/home-assistant/pull/25349
+[#25356]: https://github.com/home-assistant/home-assistant/pull/25356
+[#25358]: https://github.com/home-assistant/home-assistant/pull/25358
+[#25359]: https://github.com/home-assistant/home-assistant/pull/25359
+[#25360]: https://github.com/home-assistant/home-assistant/pull/25360
+[#25362]: https://github.com/home-assistant/home-assistant/pull/25362
+[#25366]: https://github.com/home-assistant/home-assistant/pull/25366
+[#25370]: https://github.com/home-assistant/home-assistant/pull/25370
+[#25374]: https://github.com/home-assistant/home-assistant/pull/25374
+[@OttoWinter]: https://github.com/OttoWinter
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@dmulcahey]: https://github.com/dmulcahey
+[@eyager1]: https://github.com/eyager1
+[@farmio]: https://github.com/farmio
+[@fredrike]: https://github.com/fredrike
+[@schmic]: https://github.com/schmic
+[@zxdavb]: https://github.com/zxdavb
+[daikin docs]: /components/daikin/
+[esphome docs]: /components/esphome/
+[geniushub docs]: /components/geniushub/
+[knx docs]: /components/knx/
+[netatmo docs]: /components/netatmo/
+[sensibo docs]: /components/sensibo/
+[zha docs]: /components/zha/
+[zwave docs]: /components/zwave/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
