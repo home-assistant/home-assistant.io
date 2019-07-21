@@ -37,7 +37,7 @@ This component opens a TCP connection with the IntesisHome API to receive temper
 By default the component will be named using the friendly device name from the IntesisHome website or application.
 If internet connectivity is lost, the device will be marked as unavailable after 5 minutes.
 
-### {% linkable_title Supported services %}
+### Supported services
 
 Available services:
 
