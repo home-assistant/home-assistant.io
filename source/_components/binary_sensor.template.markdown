@@ -69,7 +69,12 @@ sensors:
         attribute_templates:
           description: Defines templates for attributes of the sensor.
           required: false
-          type: list, template
+          type: map
+          keys:
+            "attribute: template":
+              description: The attribute and corresponding template.
+              required: true
+              type: template
         delay_on:
           description: The amount of time the template state must be ***met*** before this sensor will switch to `on`.
           required: false
