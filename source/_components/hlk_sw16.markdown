@@ -76,7 +76,7 @@ deviceid:
       type: map
       keys:
         relayid:
-          description: The array that contains the HLK-SW16 relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labled relay switch on the HLK-SW16.
+          description: The array that contains the HLK-SW16 relays, each must be a number between 0 and 9 or letter between a and f which each corresponds to a labeled relay switch on the HLK-SW16.
           required: false
           type: map
           keys:

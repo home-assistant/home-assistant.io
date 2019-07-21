@@ -59,7 +59,7 @@ Under the attributes from a NILU station, there will be a `nilu pollution index`
 
 ### Low
 
-Low or no health risk linked to measured air pollution. Outdoor activites are recommended.
+Low or no health risk linked to measured air pollution. Outdoor activities are recommended.
 
 ### Moderate
 
