@@ -11,6 +11,8 @@ The `IntesisHome` climate platform lets you control [IntesisHome](https://www.in
 
 Note: IntesisHome products are a separate product line to IntesisBox. This platform does not support IntesisBox devices (which can be controlled locally using the WMP protocol).
 
+## Configuration
+
 To set it up, add the following information to your `configuration.yaml` file:
 
 ```yaml
