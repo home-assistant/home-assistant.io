@@ -157,6 +157,11 @@ camera:
   - platform: environment_canada
 ```
 
+<p class='note'>
+  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  `sudo apt-get install libatlas-base-dev libopenjp2-7`
+</p>
+
 - If no name is given, the camera entity will be named `camera.<station_name>_radar`.
 - The platform automatically determines which radar station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
     - A specific station ID from [this table](https://en.wikipedia.org/wiki/Canadian_weather_radar_network#List_of_radars) (remove the leading `C`, e.g. `XFT` or `ASBV`), or
