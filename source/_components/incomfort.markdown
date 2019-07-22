@@ -3,10 +3,10 @@ title: "Intergas InComfort"
 description: "Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant."
 logo: incomfort.png
 ha_category:
-  - Water heater
+  - Water Heater
   - Climate
   - Sensor
-  - Binary sensor
+  - Binary Sensor
 ha_release: 0.93
 ha_iot_class: Local Polling
 ---

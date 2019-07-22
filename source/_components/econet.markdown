@@ -3,7 +3,7 @@ title: "EcoNet water heater"
 description: "Instructions on how to integrate Rheem EcoNet water heaters into Home Assistant."
 logo: econet.png
 ha_category:
-  - Water heater
+  - Water Heater
 ha_release: 0.61
 ha_iot_class: Cloud Polling
 redirect_from:
