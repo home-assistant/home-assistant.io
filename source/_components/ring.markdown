@@ -7,21 +7,26 @@ ha_category:
   - Binary Sensor
   - Camera
   - Sensor
+  - Switch
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.ring/
   - /components/camera.ring/
   - /components/sensor.ring/
+  - /components/switch.ring/
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
+- [Configuration](#configuration)
 - [Binary Sensor](#binary-sensor)
-- [Camera](#camera) - downloading and playing Ring video will require a Ring Protect plan.
+- [Camera](#camera)
+- [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 Currently only doorbells are supported by this sensor.
 
@@ -186,3 +191,15 @@ monitored_conditions:
 {% endconfiguration %}
 
 Currently it supports doorbell, external chimes and stickup cameras.
+
+## Switch
+
+Once you have enabled the [Ring component](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: ring
+```
+
+This will add a switch for every camera that supports a siren, and for every camera that supports a floodlight. Note the siren will only turn on for 30 seconds before automatically turning off.
