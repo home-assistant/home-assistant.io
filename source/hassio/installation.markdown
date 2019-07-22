@@ -172,8 +172,8 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi2-2.12.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-2.12.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-64-2.12.img.gz
-[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi3-3.3.img.gz
-[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi3-64-3.3.img.gz
+[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi4-3.3.img.gz
+[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi4-64-3.3.img.gz
 [tinker]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_tinker-2.12.img.gz
 [odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-c2-2.12.img.gz
 [odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-xu4-2.12.img.gz
