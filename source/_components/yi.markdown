@@ -34,6 +34,12 @@ Currently, version 0.1.4-beta2 of the custom firmware is the highest supported w
 </div>
 
 <div class='note warning'>
+
+If you use version higher than 0.1.4-beta2, you can simply solve the ftp issu by making symlink of '/tmp' in the '/home/yi-hack-v4' directory (directory name can be different depending on the version which you use.) For example, access the Yi camera via SSH and type command: 'ln -s /tmp tmp'.
+
+</div>
+
+<div class='note warning'>
 Hassbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
 </div>
 
