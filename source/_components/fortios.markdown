@@ -4,7 +4,8 @@ description: "Instructions on how to use Fortinet FortiOS to track devices in Ho
 logo: fortinet.png
 ha_category:
   - Presence Detection
-ha_release: 0.96
+ha_release: 0.97
+ha_iot_class: Local Polling
 ---
 
 This integration enables Home Assistant to do device tracking of devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
