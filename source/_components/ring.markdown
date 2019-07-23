@@ -20,10 +20,8 @@ The `ring` implementation allows you to integrate your [Ring.com](https://ring.c
 
 There is currently support for the following device types within Home Assistant:
 
-- [Configuration](#configuration)
 - [Binary Sensor](#binary-sensor)
 - [Camera](#camera)
-- [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
