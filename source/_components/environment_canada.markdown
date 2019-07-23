@@ -18,6 +18,11 @@ The following device types and data are supported:
 - [Sensor](#sensor) - Current conditions and alerts
 - [Camera](#camera) - Radar imagery
 
+<p class='note'>
+  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  `sudo apt-get install libatlas-base-dev libopenjp2-7`
+</p>
+
 ## Location Selection
 
 Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
