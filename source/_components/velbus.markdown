@@ -2,10 +2,6 @@
 layout: page
 title: "Velbus"
 description: "Access and control your Velbus devices."
-date: 2017-06-17 16.58
-sidebar: true
-comments: false
-sharing: true
 footer: true
 logo: velbus.png
 ha_category:
@@ -35,20 +31,20 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-There are 2 options in configuring the velbus component:
+There are 2 options in configuring the velbus integration:
 
-- Via the Home Assistant user interface where it will let you enter the portstring to connect to the velbus bus.
+- Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
 - Via the Home Assistant `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml entry for a USB or serial interface
 velbus:
-  port: '<portstring>'
+  port: 'PORT_STRING'
 ```
 
-## Port String
+## Port Sstring
 
-The portstring used in the user interface or the configuration file can have 2 formats:
+The porti string used in the user interface or the configuration file can have 2 formats:
 
 - For a serial device: /dev/ttyUSB00
 - For a tcp/ip device: 127.0.0.1:3678
