@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yamaha Network Receivers"
 description: "Instructions on how to integrate Yamaha Network Receivers into Home Assistant."
-date: 2016-03-26 0:58 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yamaha.png
 ha_category:
   - Media Player
@@ -61,9 +55,9 @@ zone_names:
   type: list
 {% endconfiguration %}
 
-### {% linkable_title Discovery notes %}
+### Discovery notes
 
-- If the `discovery` component is enabled, all units on the network
+- If the `discovery` integration is enabled, all units on the network
   will be discovered using UPNP.
 - For receivers that support more than one zone, Home Assistant will
   add one media player per zone supported by the player, named "$name
@@ -76,7 +70,7 @@ zone_names:
   receiver's IP address or via its hostname (if it is discoverable by
   your DNS) then.
 
-### {% linkable_title Supported operations %}
+### Supported operations
 
 - Media players created by yamaha support powering on/off, mute,
   volume control and source selection. Playback controls, for instance
@@ -85,7 +79,7 @@ zone_names:
   only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
 
-### {% linkable_title Example configuration %}
+### Example configuration
 
 A full configuration example will look like the sample below:
 ```yaml
@@ -105,7 +99,7 @@ media_player:
       Main_Zone: "Family Room"
 ```
 
-### {% linkable_title Example `play_media` script %}
+### Example `play_media` script
 
 The `play_media` function can be used in scripts easily to build media
 player presets. When done in scripts, the sequence will also allow you
@@ -135,7 +129,7 @@ script:
 
 ```
 
-### {% linkable_title Service `yamaha_enable_output` %}
+### Service `yamaha_enable_output`
 
 Enable or disable an output port (HDMI) on the receiver.
 

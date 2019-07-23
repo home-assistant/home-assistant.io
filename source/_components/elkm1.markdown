@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Elk-M1 Controller"
 description: "Instructions to setup the Elk-M1 controller."
-date: 2018-10-07 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: elkproducts.png
 ha_release: 0.81
 ha_category:
@@ -40,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
 - **Switch** - Elk-M1 outputs are represented as `switch` entities.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To integrate Elk-M1 controller with Home Assistant, add the following
 section to your `configuration.yaml` file:

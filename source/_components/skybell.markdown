@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Skybell"
 description: "Instructions on how to integrate your Skybell HD devices within Home Assistant."
-date: 2017-10-03 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: skybell.png
 ha_category:
   - Doorbell
@@ -37,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 Currently only the Skybell HD is supported by this platform.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable devices set up with your [Skybell.com](http://www.skybell.com/) account, add the following to your `configuration.yaml` file:
 
@@ -59,7 +53,7 @@ password:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Binary Sensor %}
+### Binary Sensor
 
 Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
 
@@ -84,7 +78,7 @@ monitored_conditions:
       description: Returns whether movement was detected by the Skybell doorbell.
 {% endconfiguration %}
 
-### {% linkable_title Camera %}
+### Camera
 
 Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
 
@@ -109,7 +103,7 @@ activity_name:
   type: string
 {% endconfiguration %}
 
-#### {% linkable_title Camera Types %}
+#### Camera Types
 
 There are two available camera types "Avatar", which is the default, displays the Skybell avatar image.
 It is periodically updated with a fresh image. The other type is "Activity", which displays a snapshot from
@@ -135,7 +129,7 @@ camera:
     - activity
 ```
 
-### {% linkable_title Light %}
+### Light
 
 Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
 
@@ -145,7 +139,7 @@ light:
   - platform: skybell
 ```
 
-### {% linkable_title Sensor %}
+### Sensor
 
 Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
 
@@ -167,7 +161,7 @@ monitored_conditions:
       description: Return a value between 0-3, indicating no chime, low, medium, and high respectively.
 {% endconfiguration %}
 
-### {% linkable_title Switch %}
+### Switch
 
 Once you have enabled the Skybell component, add the following to your `configuration.yaml` file:
 

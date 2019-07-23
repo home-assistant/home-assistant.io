@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HTU21D Temperature and humidity sensor"
 description: "Instructions on how to integrate a HTU21D Temperature and humidity sensor into Home Assistant."
-date: 2017-06-10 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: raspberry-pi.png
 ha_category:
   - DIY
@@ -22,7 +16,7 @@ Tested devices:
 
 - [Raspberry Pi](https://www.raspberrypi.org/)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your HTU21D sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -45,7 +39,7 @@ i2c_bus:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Customizing the sensor data %}
+## Customizing the sensor data
 
 Give the values friendly names and icons, add the following to your `customize:` section.
 
@@ -72,7 +66,7 @@ group:
       - sensor.htu21d_sensor_humidity
 ```
 
-## {% linkable_title Directions for installing smbus support on Raspberry Pi %}
+## Directions for installing smbus support on Raspberry Pi
 
 Enable I2c interface with the Raspberry Pi configuration utility:
 
@@ -96,7 +90,7 @@ $ sudo addgroup homeassistant i2c
 $ sudo reboot
 ```
 
-### {% linkable_title Check the i2c address of the sensor %}
+### Check the i2c address of the sensor
 
 After installing `i2c-tools`, a new utility is available to scan the addresses of the connected sensors:
 

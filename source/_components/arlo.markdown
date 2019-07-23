@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Arlo"
 description: "Instructions on how to integrate your Netgear Arlo cameras within Home Assistant."
-date: 2017-05-30 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: arlo.png
 ha_category:
   - Hub
@@ -29,7 +23,7 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Sensor](#sensor)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable device linked in your [Arlo](https://arlo.netgear.com/) account, add the following to your `configuration.yaml` file:
 
@@ -59,7 +53,7 @@ It is recommended to create a dedicated user on Arlo website to be used within H
 
 Finish its configuration by visiting the [Arlo sensor page](/components/sensor.arlo/) or [Arlo camera page](/components/camera.arlo/) or [Arlo control panel page](/components/alarm_control_panel.arlo/). Arlo also has a service call `arlo.update` that can be manually called to force an update prior to the regular scheduled interval.
 
-The Arlo component also provides a camera service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
+The Arlo integration also provides a camera service to enable/disable the motion detection sensor. The example below enables the motion detection every time the Home Assistant service starts.
 
 ```yaml
 #automation.yaml
@@ -73,9 +67,9 @@ The Arlo component also provides a camera service to enable/disable the motion d
     entity_id: camera.arlo_frontdoor
 ```
 
-## {% linkable_title Alarm %}
+## Alarm
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
@@ -102,7 +96,7 @@ night_mode_name:
   default: "`Armed` mode in Arlo"
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 These examples are based on an Arlo base station named `my_arlo_base_station`. Replace this with the name of your base station's `entity_id`.
 
@@ -140,11 +134,11 @@ You can also completely disarm the Arlo base station by calling the `alarm_contr
 
 More examples and configuration options can be found on the [Manual Alarm Control page](/components/alarm_control_panel.manual/#examples).
 
-## {% linkable_title Camera %}
+## Camera
 
-This component is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
+This integration is not yet able to live stream from your Arlo camera, but it will be able to playback the last video capture.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 
@@ -164,13 +158,13 @@ ffmpeg_arguments:
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
 
-## {% linkable_title Sensor %}
+## Sensor
 
 To get your [Arlo](https://arlo.netgear.com/) sensors working within Home Assistant, please follow the instructions for the general [Arlo component](/components/arlo).
 
 This platform does not support Arlo Q.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 Once you have enabled the [Arlo component](/components/arlo), add the following to your `configuration.yaml` file:
 

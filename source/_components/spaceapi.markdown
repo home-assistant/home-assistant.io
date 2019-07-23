@@ -1,23 +1,17 @@
 ---
-layout: page
 title: "SpaceAPI"
 description: "Instructions on how to configure the SpaceAPI for Home Assistant."
-date: 2018-05-08 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: spaceapi.png
 ha_category:
   - Social
 ha_release: "0.70"
 ---
 
-The `spaceapi` component allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
+The `spaceapi` integration allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](http://spaceapi.net/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To setup the `spaceapi` component in your installation, add the following to your `configuration.yaml` file:
+To setup the `spaceapi` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,11 +37,11 @@ space:
 logo:
   description: URL which is publicly accessible of the logo.
   required: true
-  type: URL
+  type: string
 logo:
   description: URL of the hackerspace's web site.
   required: true
-  type: URL
+  type: string
 location:
   description: Location of the Hackerspace.
   required: true
@@ -56,7 +50,7 @@ location:
     address:
       description: The physical address of the Hackerspace.
       required: true
-      type: String
+      type: string
 contact:
   description: Contact information of the Hackerspace.
   required: true
@@ -65,23 +59,23 @@ contact:
     email:
       description: The email address of the Hackerspace.
       required: true
-      type: String
+      type: string
     irc:
       description: The IRC channel of the Hackerspace
       required: false
-      type: String
+      type: string
     mailing_list:
       description: The mailing list of the Hackerspace.
       required: false
-      type: String
+      type: string
     twitter:
       description: The Twitter account of the Hackerspace.
       required: false
-      type: String
+      type: string
 issue_report_channels:
   description: "The reporting channel for issues. Pick an entity from `contact:`."
   required: true
-  type: List
+  type: list
 state:
   description: The current state of the Hackerspace.
   required: true
@@ -90,15 +84,15 @@ state:
     entity_id:
       description: "The `entity_id` of a binary sensor that represents the current state."
       required: true
-      type: entity_id
+      type: string
     icon_open:
       description: The URL which is publicly accessible of the icon for the open Hackerspace.
       required: false
-      type: URL
+      type: string
     icon_closed:
       description: The URL which is publicly accessible of the icon for the closed Hackerspace.
       required: false
-      type: URL
+      type: string
 sensors:
   description: List of sensors to expose.
   required: false
@@ -107,16 +101,16 @@ sensors:
     temperature:
       description: List of temperature sensors.
       required: true
-      type: entity_id
+      type: string
     humidity:
       description: List of humidity sensors.
       required: true
-      type: entity_id
+      type: string
 {% endconfiguration %}
 
 The list of sensors can be any sensor, not just temperature or humidity.
 
-## {% linkable_title Sensor specific location %}
+## Sensor specific location
 
 The [SpaceAPI specification](https://spaceapi.io/pages/docs.html) requires every sensor to provide a location. 
 In order to set a sensor specific location do the following steps: 
@@ -128,11 +122,11 @@ In order to set a sensor specific location do the following steps:
 
 If no location is set, the location defined in the HA config is used.
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section you find some real-life examples of how to use this component.
 
-### {% linkable_title Eastermundigen %}
+### Eastermundigen
 
 A possible configuration entry for [Eastermundigen](http://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
 

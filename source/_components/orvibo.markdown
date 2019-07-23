@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Orvibo Switch"
 description: "Instructions on how to integrate Orvibo sockets within Home Assistant."
-date: 2015-11-15 18:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: orvibo.png
 ha_category:
   - Switch
@@ -15,10 +9,11 @@ redirect_from:
  - /components/switch.orvibo/
 ---
 
-<p class='note warning'>
-Please be aware that the product ORVIBO WIFI SMART SOCKET S20 (LGS-20) has been recalled by the European authorities due to safety concerns. For more information, please visit [RAPEX information](https://ec.europa.eu/consumers/consumers_safety/safety_products/rapex/alerts/?event=viewProduct&reference=A12/1577/15&lng=en). 
-</p>
+<div class='note warning'>
 
+Please be aware that the product ORVIBO WIFI SMART SOCKET S20 (LGS-20) has been recalled by the European authorities due to safety concerns. For more information, please visit [RAPEX information](https://ec.europa.eu/consumers/consumers_safety/safety_products/rapex/alerts/?event=viewProduct&reference=A12/1577/15&lng=en).
+
+</div>
 
 The `orvibo` switch platform allows you to toggle your Orvibo S20 Wifi Smart Sockets.
 

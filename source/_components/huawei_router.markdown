@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Huawei Router"
 description: "Instructions on how to integrate Huawei Routers into Home Assistant."
-date: 2017-07-16 01:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: huawei.svg
 ha_category:
   - Presence Detection
@@ -19,7 +13,7 @@ The `huawei` device tracker platform offers presence detection by looking at con
 
 Currently, this was only tested with the Huawei HG8247H and HG8247Q Smart Router (used by Vodafone Portugal).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use a Huawei router in your installation, add the following to your `configuration.yaml` file:
 
@@ -47,4 +41,4 @@ password:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

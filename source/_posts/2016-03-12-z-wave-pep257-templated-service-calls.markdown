@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance."
 description: "Home Assistant 0.15 has arrived."
 date: 2016-03-12 10:55:00 -0800
 date_formatted: "March 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 

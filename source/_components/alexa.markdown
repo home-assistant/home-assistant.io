@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Amazon Alexa"
 description: "Instructions on how to connect Alexa/Amazon Echo to Home Assistant."
-date: 2015-12-13 13:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: amazon-alexa.png
 ha_category:
   - Voice
@@ -14,22 +8,22 @@ featured: true
 ha_release: "0.10"
 ---
 
-## {% linkable_title Automatic setup via Home Assistant Cloud %}
+## Automatic setup via Home Assistant Cloud
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 
 For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-## {% linkable_title Manual setup %}
+## Manual setup
 
 There are a few ways that you can use Amazon Alexa and Home Assistant together.
 
 - [Build custom commands to use](/components/alexa.intent/)
 - [Create a new Flash Briefing source](/components/alexa.flash_briefings/)
 - [Use the Smart Home API to control lights, etc](/components/alexa.smart_home/)
-- Alternative: use the [Emulated Hue component][emulated-hue-component] to trick Alexa to thinking Home Assistant is a Philips Hue hub.
+- Alternative: use the [Emulated Hue integration][emulated-hue-component] to trick Alexa to thinking Home Assistant is a Philips Hue hub.
 
-### {% linkable_title Requirements %}
+### Requirements
 
 Manual setup the integration with Amazon Alexa needs several requirements
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Start.ca"
 description: "Instructions on how to integrate Start.ca data usage within Home Assistant."
-date: 2018-02-12 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: startca.png
 ha_category:
   - Network
@@ -18,11 +12,11 @@ redirect_from:
 
 Integrate your [Start.ca](https://www.start.ca/) account information into Home Assistant.
 
-## {% linkable_title Setup %}
+## Setup
 
 You can get your API key from: [Start.ca Usage API](https://www.start.ca/support/usage/api)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Start.ca sensor in your installation, add the following to your `configuration.yaml` file:
 

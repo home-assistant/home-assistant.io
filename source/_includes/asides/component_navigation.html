@@ -1,4 +1,3 @@
-{%- assign components = site.components | sort_natural: 'title' -%}
 {%- assign github_main_repo = 'https://github.com/home-assistant/home-assistant/blob/dev/homeassistant' -%}
 <section class="aside-module grid__item one-whole lap-one-half">
   {%- include edit_github.html -%}
@@ -43,7 +42,7 @@
 
   {%- if page.ha_config_flow -%}
     <div class='section'>
-      This component is configurable via UI
+      This integration is configurable via UI
     </div>
   {%- endif -%}
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yale Smart Alarm Control"
 description: "Instructions on how to integrate Yale Smart Alarms into Home Assistant."
-date: 2018-09-01 11:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yale.png
 ha_category:
   - Alarm
@@ -20,7 +14,7 @@ The `yale_smart_alarm` platform provides connectivity with the Yale Smart Alarm 
 This platform supports the following services: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night` (duplicate of home) and `alarm_disarm`.
 Currently only one alarm is supported.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable, add the following lines to your `configuration.yaml`:
 
@@ -48,11 +42,11 @@ password:
 area_id:
   description: Area ID of the device when talking to Yale's API if required.
   required: false
-  type: int
+  type: integer
   default: 1
 {% endconfiguration %}
 
-## {% linkable_title Automation example %}
+## Automation example
 
 ```yaml
 automation:

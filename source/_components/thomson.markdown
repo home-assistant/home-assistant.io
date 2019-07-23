@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Thomson"
 description: "Instructions on how to integrate Thomson routers into Home Assistant."
-date: 2015-08-30 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: technicolor.png
 ha_category:
   - Presence Detection
@@ -46,4 +40,4 @@ password:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

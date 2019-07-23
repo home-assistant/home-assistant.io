@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Light"
 description: "Instructions on how to setup MQTT lights using default schema within Home Assistant."
-date: 2015-11-13 08:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Light
@@ -19,7 +13,7 @@ ha_release: 0.8
 
 The `mqtt` light platform with lets you control your MQTT enabled lights through one of the supported message schemas.
 
-## {% linkable_title Comparison of light MQTT schemas %}
+## Comparison of light MQTT schemas
 
 | Function          | [`default`](#default-schema) | [`json`](#json-schema) | [`template`](#template-schema) |
 |-------------------|------------------------------------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|
@@ -34,11 +28,11 @@ The `mqtt` light platform with lets you control your MQTT enabled lights through
 | White Value       | ✔                                                          | ✔                                                                    | ✔                                                                            |
 
 
-## {% linkable_title Default schema %}
+## Default schema
 
 The `mqtt` light platform with default schema lets you control your MQTT enabled lights. It supports setting brightness, color temperature, effects, flashing, on/off, RGB colors, transitions, XY colors and white values.
 
-## {% linkable_title Default schema - Configuration %}
+## Default schema - Configuration
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with a `RETAIN` flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the switch will be `false` / `off`.
 
@@ -115,7 +109,7 @@ effect_value_template:
 effect_list:
   description: The list of effects the light supports.
   required: false
-  type: string list
+  type: [string, list]
 hs_command_topic:
   description: "The MQTT topic to publish commands to change the light's color state in HS format (Hue Saturation).
   Range for Hue: 0° .. 360°, Range of Saturation: 0..100.
@@ -243,7 +237,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -266,19 +260,21 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
   Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
   XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
-</p>
+</div>
 
-## {% linkable_title Default schema - Examples %}
+## Default schema - Examples
 
 In this section you will find some real-life examples of how to use this sensor.
 
-### {% linkable_title Brightness and RGB support %}
+### Brightness and RGB support
 
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
@@ -304,7 +300,7 @@ light:
 ```
 {% endraw %}
 
-### {% linkable_title Brightness and no RGB support %}
+### Brightness and no RGB support
 
 To enable a light with brightness (no RGB version) in your installation, add the following to your `configuration.yaml` file:
 
@@ -323,7 +319,7 @@ light:
     optimistic: false
 ```
 
-### {% linkable_title Brightness without on commands %}
+### Brightness without on commands
 
 To enable a light that sends only brightness topics to turn it on, add the following to your `configuration.yaml` file. The `command_topic` is only used to send an off command in this case:
 
@@ -340,13 +336,13 @@ light:
     on_command_type: 'brightness'
 ```
 
-## {% linkable_title Default schema - Implementations %}
+## Default schema - Implementations
 
 - A [basic example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_light) using a nodeMCU board (ESP8266) to control its built-in LED (on/off).
 - Another [example](https://github.com/mertenats/open-home-automation/tree/master/ha_mqtt_rgb_light) to control a RGB LED (on/off, brightness, and colors).
 - [Integration guide](https://github.com/xoseperez/espurna/wiki/HomeAssistant) for the ESPUrna firmware (ESP8285/ESP8266).
 
-## {% linkable_title JSON schema %}
+## JSON schema
 
 The `mqtt` light platform with JSON schema lets you control a MQTT-enabled light that can receive [JSON](https://en.wikipedia.org/wiki/JSON) messages.
 
@@ -372,7 +368,7 @@ This schema supports on/off, brightness, RGB colors, XY colors, color temperatur
 }
 ```
 
-## {% linkable_title JSON schema - Configuration %}
+## JSON schema - Configuration
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.
 
@@ -425,7 +421,7 @@ effect:
 effect_list:
   description: The list of effects the light supports.
   required: false
-  type: string list
+  type: [string, list]
 flash_time_long:
   description: The duration, in seconds, of a “long” flash.
   required: false
@@ -505,7 +501,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -528,19 +524,23 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
   Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
+
   RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
-</p>
 
-## {% linkable_title JSON schema - Examples %}
+</div>
+
+## JSON schema - Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Brightness and RGB support %}
+### Brightness and RGB support
 
 To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
 
@@ -556,7 +556,7 @@ light:
     rgb: true
 ```
 
-### {% linkable_title Brightness and no RGB support %}
+### Brightness and no RGB support
 
 To enable a light with brightness (but no color support) in your installation, add the following to your `configuration.yaml` file:
 
@@ -571,7 +571,7 @@ light:
     brightness: true
 ```
 
-### {% linkable_title Brightness Scaled %}
+### Brightness Scaled
 
 To enable a light using a brightness scale other than 8bit the `brightness_scale` option may be added to denote the "fully on" value:
 ```yaml
@@ -595,7 +595,7 @@ Home Assistant will then convert its 8bit value in the message to and from the d
 }
 ```
 
-### {% linkable_title HS Color %}
+### HS Color
 
 To use a light with hue+saturation as the color model, set `hs` to `true` in the platform configuration:
 
@@ -621,7 +621,7 @@ Home Assistant expects the hue values to be in the range 0 to 360 and the satura
 }
 ```
 
-### {% linkable_title Brightness and RGBW support %}
+### Brightness and RGBW support
 
 To enable a light with brightness, RGB support and a separate white channel (RGBW) in your installation, add the following to your `configuration.yaml` file:
 
@@ -639,7 +639,7 @@ light:
 ```
 
 
-## {% linkable_title Implementations %}
+## Implementations
 
 - A full example of custom lighting using this platform and an ESP8266 microcontroller can be found [here](https://github.com/corbanmailloux/esp-mqtt-rgb-led). It supports on/off, brightness, transitions, RGB colors, and flashing.
 
@@ -653,14 +653,14 @@ light:
 
 - [AiLight](https://github.com/stelgenhof/AiLight) is a custom firmware for the Ai-Thinker (and equivalent) RGBW WiFi light bulbs that has an ESP8266 onboard and controlled by the MY9291 LED driver. It implements the [MQTT JSON light](/components/light.mqtt_json/) platform and supports ON/OFF, RGBW colours, brightness, colour temperature, flashing and transitions. Also it includes [MQTT Auto Discovery](/docs/mqtt/discovery/)) and the MQTT Last Will and Testament is enabled as well.
 
-## {% linkable_title Template schema %}
+## Template schema
 
 The `mqtt` light platform with template schema lets you control a MQTT-enabled light that receive commands on a command topic and optionally sends status update on a state topic.
 It is format-agnostic so you can use any data format you want (i.e. string, JSON), just configure it with templating.
 
 This schema supports on/off, brightness, RGB colors, XY colors, color temperature, transitions, short/long flashing, effects and white values.
 
-## {% linkable_title Template schema - Configuration %}
+## Template schema - Configuration
 
 In an ideal scenario, the MQTT device will have a state topic to publish state changes. If these messages are published with the RETAIN flag, the MQTT light will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state of the light will be off.
 
@@ -691,7 +691,7 @@ unique_id:
 effect_list:
   description: List of possible effects.
   required: false
-  type: string list
+  type: [string, list]
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
@@ -771,6 +771,7 @@ json_attributes_topic:
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/components/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false
+  type: template
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works through [MQTT discovery](/docs/mqtt/discovery/) and when [`unique_id`](#unique_id) is set.'
   required: false
@@ -779,7 +780,7 @@ device:
     identifiers:
       description: 'A list of IDs that uniquely identify the device. For example a serial number.'
       required: false
-      type: list, string
+      type: [string, list]
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
@@ -802,15 +803,17 @@ device:
       type: string
 {% endconfiguration %}
 
-<p class='note warning'>
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-</p>
+<div class='note warning'>
 
-## {% linkable_title Template schema - Examples %}
+  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+
+</div>
+
+## Template schema - Examples
 
 In this section you find some real-life examples of how to use this light.
 
-### {% linkable_title Simple string payload %}
+### Simple string payload
 
 For a simple string payload with the format `state,brightness,r-g-b` (e.g., `on,255,255-255-255`), add the following to your `configuration.yaml` file:
 
@@ -830,7 +833,7 @@ light:
     blue_template: "{% raw %}{{ value.split(',')[2].split('-')[2] }}{% endraw %}"
 ```
 
-### {% linkable_title JSON payload %}
+### JSON payload
 
 For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
 
@@ -865,6 +868,6 @@ light:
     effect_template: '{% raw %}{{ value_json.effect }}{% endraw %}'
 ```
 
-### {% linkable_title Template schema - No brightness or color support %}
+### Template schema - No brightness or color support
 
 If you don't want brightness, color or effect support, just omit the corresponding configuration sections.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Bizkaibus next bus tracking sensor"
 description: "Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant."
-date: 2019-04-22 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bizkaibus.png
 ha_category: 
   - Transport

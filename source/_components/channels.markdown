@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Channels"
 description: "Instructions on how to integrate Channels into Home Assistant."
-date: 2018-03-06 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: channels.png
 ha_category:
   - Media Player
@@ -48,7 +42,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Service `channels_seek_forward` %}
+### Service `channels_seek_forward`
 
 Seek forward by the number of seconds currently set in settings on the instance of Channels.
 
@@ -57,7 +51,7 @@ Seek forward by the number of seconds currently set in settings on the instance 
 | `entity_id` | no | String that points at `entity_id` of Channels app.
 
 
-### {% linkable_title Service `channels_seek_backward` %}
+### Service `channels_seek_backward`
 
 Seek backward by the number of seconds currently set in settings on the instance of Channels.
 
@@ -65,7 +59,7 @@ Seek backward by the number of seconds currently set in settings on the instance
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String that points at `entity_id` of Channels app.
 
-### {% linkable_title Service `channels_seek_by` %}
+### Service `channels_seek_by`
 
 Seek forward or backward by a provided number of seconds.
 

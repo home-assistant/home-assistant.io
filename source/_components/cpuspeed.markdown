@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CPU speed"
 description: "Instructions on how to integrate CPU speed within Home Assistant."
-date: 2015-10-15 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: cpu.png
 ha_category:
   - System Monitor
@@ -16,15 +10,15 @@ redirect_from:
  - /components/sensor.cpuspeed/
 ---
 
-
 The `cpuspeed` sensor platform to allow you to monitor the current CPU speed.
 
+<div class='note warning'>
 
-<p class='note warning'>
   You can't use this sensor in a Container (like Hass.io) as it requires access to the physical CPU. Also, not all [ARM CPUs](https://github.com/workhorsy/py-cpuinfo/#cpu-support) are supported.
-</p>
 
-## {% linkable_title Configuration %}
+</div>
+
+## Configuration
 
 To add this platform to your installation, add the following to your `configuration.yaml` file:
 

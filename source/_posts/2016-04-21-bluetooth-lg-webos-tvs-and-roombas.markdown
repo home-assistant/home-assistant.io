@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.18: Bluetooth, LG WebOS TVs and Roombas."
 description: "Home Assistant 0.18 has arrived."
 date: 2016-04-20 23:10:00 UTC
 date_formatted: "April 20, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-04-release-18/social.png
 ---
@@ -60,14 +58,14 @@ Since the last release we have moved all Home Assistant source code etc into its
 [@Turbokongen]: https://github.com/Turbokongen/
 [@vmulpuru]: https://github.com/vmulpuru/
 [Bluetooth tracking platform]: /components/device_tracker.bluetooth_tracker/
-[EQ3 Bluetooth Smart Thermostats]: /components/thermostat.eq3btsmart/
+[EQ3 Bluetooth Smart Thermostats]: /components/eq3btsmart/
 [mysensors]: /components/mysensors/
 [Feedreader]: /components/feedreader/
-[Homematic platform]: /components/thermostat.homematic/
+[Homematic platform]: /components/homematic/
 [media_player.lg]: /components/media_player.webostv/
 [notify.lg]: /components/notify.webostv/
 [MPD]: /components/media_player.mpd/
-[MQTT]: /components/garage_door.mqtt/
+[MQTT]: /components/cover.mqtt/
 [Plex]: /components/media_player.plex/
 [Sonos]: /components/media_player.sonos/
 [sensor.Thinkingcleaner]: /components/sensor.thinkingcleaner/

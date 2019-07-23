@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenCV"
 description: "Instructions on how to integrate OpenCV image processing into Home Assistant."
-date: 2017-01-25 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: opencv.png
 ha_category:
   - Image Processing
@@ -19,7 +13,7 @@ redirect_from:
 
 Some pre-defined classifiers can be found [here](https://github.com/opencv/opencv/tree/master/data).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To setup OpenCV with Home Assistant, add the following section to your `configuration.yaml` file:
 

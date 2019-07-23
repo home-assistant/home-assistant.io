@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Times of the Day Binary Sensor"
 description: "Instructions on how to integrate Times of the Day binary sensors within Home Assistant."
-date: 2019-01-14 23:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Binary Sensor
 ha_release: 0.89
@@ -23,7 +17,7 @@ The time ranges can be provided as absolute local time or using the `sunrise` or
 
 In addition for sun position based ranges, the negative or positive offset can be configured.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Here is an example of adding a sensor to the `configuration.yaml` file:
 
@@ -50,7 +44,7 @@ name:
 before:
   description: The absolute local time value or sun event for beginning of the time range.
   required: true
-  type: string or time
+  type: [string, time]
 before_offset:
   description: The time offset of the beginning time range.
   required: false
@@ -58,16 +52,16 @@ before_offset:
 after:
   description: The absolute local time value or sun event for ending of the time range.
   required: true
-  type: string or time
+  type: [string, time]
 after_offset:
   description: The time offset of the beginning time range.
   type: time
   required: false
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
-The primary purpose of this sensor is to use a simple time range definition instead of creating a complex template with references to `sun.sun` component attributes.
+The primary purpose of this sensor is to use a simple time range definition instead of creating a complex template with references to `sun.sun` integration attributes.
 
 The sensor state is ON when this condition `after` + `after_offset` <= `current time` < `before` + `before_offset`.
 

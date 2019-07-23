@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Bluetooth Tracker"
 description: "Instructions for integrating Bluetooth tracking within Home Assistant."
-date: 2016-04-10 17:24
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bluetooth.png
 ha_category:
   - Presence Detection

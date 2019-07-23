@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lyft Sensor"
 description: "How to integrate Lyft in Home Assistant"
-date: 2017-03-19 21:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lyft.png
 ha_category:
   - Transport

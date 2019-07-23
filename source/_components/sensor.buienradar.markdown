@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Buienradar Sensor"
 description: "Instructions on how to integrate buienradar.nl sensor within Home Assistant."
-date: 2017-05-15 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: buienradar.png
 ha_category:
   - Weather
@@ -38,11 +32,11 @@ name:
   required: false
   type: string
 latitude:
-  description: Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+  description: Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this integration to select a different location for buienradar.nl.
   required: false
   type: float
 longitude:
-  description: Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.
+  description: Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this integration to select a different location for buienradar.nl.
   required: false
   type: float
 timeframe:
@@ -121,7 +115,7 @@ monitored_conditions:
       description: Symbol and full expected condition (in Dutch).
 {% endconfiguration %}
 
-## {% linkable_title The `Name` Variable %}
+## The `Name` Variable
 
 If you specify a name, the sensors will get an entity name of `sensor.[name]_[default sensor display name]`, for example:
 
@@ -133,12 +127,12 @@ If no name is specified the sensors will be called `sensor.br_[default sensor di
 - `sensor.br_wind_speed`, since no name has been set for the sensor and the default display name for monitored condition `windspeed` is `Wind speed`.
 - `sensor.br_ground_temperature`, since no name has been set for the sensor and the default display name for monitored condition `groundtemperature` is `Ground Temperature`.
 
-## {% linkable_title Daily forecasts %}
+## Daily forecasts
 
 Conditions above marked with `1d` are daily forecasts. To get forecast for different day, replace the number
 in `_1d` part of the sensor name. Valid values are from `1` to `5`.
 
-## {% linkable_title Configuration examples %}
+## Configuration examples
 
 Full configuration example (excluding forecasted conditions) where location is manually specified:
 

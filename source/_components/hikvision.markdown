@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Hikvision Binary Sensor
 description: "Instructions on how to set up Hikvision camera binary sensors within Home Assistant."
-date: 2016-12-08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hikvision.png
 ha_category:
   - Binary Sensor
@@ -27,10 +21,10 @@ as a trigger. If you would like to hide a sensor type you can do so by either
 unchecking "Notify the surveillance center" in the camera configuration or by
 using the "ignored" customize option detailed below.
 
-<p class='note'>
+<div class='note'>
 In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface.
 Also the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section.
-</p>
+</div>
 
 For example, if you configure a camera with the name "Front Porch" that has
 motion detection and line crossing events enabled to notify the surveillance
@@ -64,7 +58,7 @@ and has been confirmed to work with the following models:
 - DS-2CD2142FWD-I
 - DS-2CD2155FWD-IS
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor,
 add the following lines are required in your `configuration.yaml` file:
@@ -105,6 +99,7 @@ ssl:
   description: "`true` if you want to connect with https. Be sure to set the port also."
   required: false
   type: boolean
+  default: false
 customize:
   description: >
     This attribute contains sensor-specific override values.
@@ -118,6 +113,7 @@ customize:
         the Web Interface and no events are generated for it.
       required: false
       type: boolean
+      default: false
     delay:
       description: >
         Specify the delay to wait after a sensor event ends before notifying
@@ -128,7 +124,7 @@ customize:
       default: 5
 {% endconfiguration %}
 
-### {% linkable_title Supported types %}
+### Supported types
 
 Supported sensor/event types are:
 
@@ -149,7 +145,7 @@ Supported sensor/event types are:
 - Face Detection
 - Scene Change Detection
 
-## {% linkable_title Examples %}
+## Examples
 
 Example of a configuration in your `configuration.yaml`
 that utilizes the customize options for a camera:

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hyperion"
 description: "Instructions on how to integrate Hyperion into Home Assistant."
-date: 2015-10-25 22:43
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hyperion.png
 ha_category:
   - Light
@@ -18,7 +12,7 @@ redirect_from:
 
 The `hyperion` platform allows you to integrate your [Hyperion](https://hyperion-project.org/wiki) into Home Assistant. Hyperion is an open source Ambilight implementation which runs on many platforms.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Hyperion light in your installation, add the following to your `configuration.yaml` file:
 
@@ -37,21 +31,21 @@ light:
   port:
     description: The port used to communicate with the Hyperion service.
     required: false
-    type: int
+    type: integer
     default: 19444
   name:
     description: The name of the device used in the frontend.
     required: false
     type: string
   priority:
-    description: The priority of the Hyperion instance.
+    description: The priority of the Hyperion instance make sure this is higher then the system prio in hyperion itself.
     required: false
-    type: int
+    type: integer
     default: 128
   hdmi_priority:
     description: The priority of the HDMI grabber of this Hyperion instance, note that this priority must be higher than all other priorities used for correct behavior.
     required: false
-    type: int
+    type: integer
     default: 880
   default_color:
     description: The color of the light.
@@ -65,7 +59,7 @@ light:
     default: "['HDMI', 'Cinema brighten lights', 'Cinema dim lights', 'Knight rider', 'Blue mood blobs', 'Cold mood blobs', 'Full color mood blobs', 'Green mood blobs', 'Red mood blobs', 'Warm mood blobs', 'Police Lights Single', 'Police Lights Solid', 'Rainbow mood', 'Rainbow swirl fast', 'Rainbow swirl', 'Random', 'Running dots', 'System Shutdown', 'Snake', 'Sparks Color', 'Sparks', 'Strobe blue', 'Strobe Raspbmc', 'Strobe white', 'Color traces', 'UDP multicast listener', 'UDP listener', 'X-Mas']"
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Examples
 
 To start Hyperion with an effect, use the following automation:
 
@@ -82,4 +76,40 @@ automation:
       data:
         entity_id: light.hyperion
         effect: "Full color mood blobs"
+```
+
+To have the lights playing a effect when pausing, idle or turn off a media player like plex you can use this example:
+
+```
+- alias: Set hyperion effect after playback
+  trigger:
+    - platform: state
+      entity_id: media_player.plex
+      to: 'off'
+    - platform: state
+      entity_id: media_player.plex.plex
+      to: 'paused'
+    - platform: state
+      entity_id: media_player.plex.plex
+      to: 'idle'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hyperion
+        effect: "Full color mood blobs"
+```
+
+To capture the screen when playing something of a media_player you can use this example:
+
+```
+- alias: Set hyperion when playback starts
+  trigger:
+    - platform: state
+      entity_id: media_player.plex
+      to: 'playing'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hyperion
+        effect: HDMI
 ```

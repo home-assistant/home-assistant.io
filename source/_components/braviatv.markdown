@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sony Bravia TV"
 description: "Instructions on how to integrate a Sony Bravia TV into Home Assistant."
-date: 2016-07-01 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: bravia.png
 ha_category:
   - Media Player
@@ -49,11 +43,11 @@ You are also able to configure the TV manually by placing a `bravia.conf` file i
 {"192.168.0.10": {"pin": "7745", "mac": "ac:1e:0a:e1:0c:01"}}
 ```
 
-## {% linkable_title For TVs older than 2013 %}
+## For TVs older than 2013
 
 Users of TVs older than 2013 have another option for controlling their TV via Home Assistant.
 
-### {% linkable_title Using HDMI-CEC %}
+### Using HDMI-CEC
 
 If you have a Raspberry Pi connected to your TV:
 

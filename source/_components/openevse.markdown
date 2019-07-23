@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenEVSE Sensor"
 description: "Instructions on how to integrate a WiFi-equipped OpenEVSE Charging station with Home Assistant"
-date: 2017-02-02 22:09
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openevse.png
 ha_category:
   - Car
@@ -18,7 +12,7 @@ redirect_from:
 
 This `openevse` sensor platform pulls data from an [OpenEVSE](https://www.openevse.com/) Charging station equipped with an ESP8266-based wifi connection.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Smappee"
 description: "Instructions on how to setup Smappee within Home Assistant."
-date: 2018-02-26 08:37
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smappee.png
 ha_release: 0.64
 ha_category:
@@ -20,7 +14,7 @@ redirect_from:
   - /components/switch.smappee/
 ---
 
-The `smappee` component adds support for the [Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.
+The `smappee` integration adds support for the [Smappee](https://www.smappee.com/) controller for energy monitoring and Comport plug switches.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -29,13 +23,13 @@ There is currently support for the following device types within Home Assistant:
 
 Will be automatically added when you connect to the Smappee controller.
 
-The smappee component gets information from [Smappee API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview). Note: their cloud API now requires a subscription fee of €2.50 per month for Smappee Energy/Solar or €3 per month for Smappee Plus.
+The smappee integration gets information from [Smappee API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview). Note: their cloud API now requires a subscription fee of €2.50 per month for Smappee Energy/Solar or €3 per month for Smappee Plus.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 Info on how to get API access is described in the [smappy wiki](https://github.com/EnergieID/smappy/wiki).
 
-To use the `smappee` component in your installation, add the following to your `configuration.yaml` file:
+To use the `smappee` integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

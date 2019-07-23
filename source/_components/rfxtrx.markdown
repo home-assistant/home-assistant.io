@@ -1,19 +1,13 @@
 ---
-layout: page
 title: "RFXtrx"
 description: "Instructions on how to integrate RFXtrx into Home Assistant."
-date: 2015-10-08 10:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
 ha_category:
   - Hub
 ha_release: pre 0.7
 ---
 
-The `rfxtrx` component supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com) which communicate in the frequency range of 433.92 MHz.
+The `rfxtrx` integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com) which communicate in the frequency range of 433.92 MHz.
 
 To enable RFXtrx in your installation, add the following to your `configuration.yaml` file:
 

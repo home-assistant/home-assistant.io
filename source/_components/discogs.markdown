@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Discogs Sensor
 description: "Instructions on how to set up Discogs sensors within Home Assistant."
-date: 2017-12-04 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Multimedia
 ha_release: 0.61
@@ -18,12 +12,12 @@ redirect_from:
 
 The `discogs` platform allows you to see the current amount of records in your [Discogs](https://discogs.com) collection.
 
-## {% linkable_title Setup %}
+## Setup
 
 First, you'll need to get a personal access token from your Discogs account.
 You can generate a token from your profile's [Developer settings](https://www.discogs.com/settings/developers).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml`:
 

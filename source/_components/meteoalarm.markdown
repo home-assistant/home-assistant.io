@@ -1,12 +1,6 @@
 ---
-layout: page
 title: MeteoAlarm Sensor
 description: "Instructions on how to set up MeteoAlarm binary sensors within Home Assistant."
-date: 2019-05-03 16:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: meteoalarm.png
 ha_category: Binary Sensor
 ha_release: 0.93
@@ -17,7 +11,7 @@ The `MeteoAlarm` platform allows one to watch for weather alerts in europe from 
 
 The binary sensor state shows if applicable the warning message. The details are available as attribute.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this binary sensor, add the following lines to your `configuration.yaml`:
 
@@ -50,7 +44,7 @@ language:
 {% endconfiguration %}
 
 
-{% linkable_title Example output %}
+Example output
 
 You will find an example below when the state is "on".
 
@@ -84,7 +78,7 @@ There are a few awareness levels:
 * 3; orange; Severe
 * 4; red; High
 
-{% linkable_title Example automation %}
+Example automation
 
 Below you find an example of an automation.
 
@@ -99,11 +93,11 @@ automation:
     action:
       - service: notify.notify
         data_template:
-          title: '{{state_attr('binary_sensor.meteoalarm', 'headline')}}'
+          title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"
           message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
 ```
 {% endraw %}
 
-<p class='note warning'>
-This component is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
-</p>
+<div class='note warning'>
+This integration is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
+</div>

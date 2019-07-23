@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sensibo A/C controller"
 description: "Instructions on how to integrate Sensibo A/C controller into Home Assistant."
-date: 2017-04-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sensibo.png
 ha_category:
   - Climate
@@ -38,13 +32,13 @@ id:
   type: string
 {% endconfiguration %}
 
-<p class="note">
+<div class="note">
 If you create the API key using a dedicated user (and not your main user),
 then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
-</p>
+</div>
 
-### {% linkable_title Full config example %}
+### Full config example
 ```yaml
 climate:
   - platform: sensibo
@@ -54,7 +48,7 @@ climate:
       - id2
 ```
 
-### {% linkable_title Adding a quick switch example %}
+### Adding a quick switch example
 
 If you want a "Quick Switch" to turn your AC On / Off, you can do that using the following `Switch Template`:
 
@@ -65,14 +59,16 @@ switch:
     switches:
       ac:
         friendly_name: "AC"
-        value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'heat')}}"
+        value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'fan_only') }}"
         turn_on:
-          service: climate.turn_on
+          service: climate.set_havc_mode
           data:
             entity_id: climate.ac
+            hvac_mode: cool
         turn_off:
-          service: climate.turn_off
+          service: climate.set_havc_mode
           data:
             entity_id: climate.ac
+            hvac_mode: off
 ```
 {% endraw %}

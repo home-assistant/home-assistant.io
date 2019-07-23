@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWeatherMap"
 description: "Instructions on how to integrate OpenWeatherMap within Home Assistant."
-date: 2016-09-29 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openweathermap.png
 ha_category:
   - Weather
@@ -27,7 +21,7 @@ There is currently support for the following device types within Home Assistant:
 
 You need an API key which is free but requires a [registration](http://home.openweathermap.org/users/sign_up).
 
-## {% linkable_title Weather %}
+## Weather
 
 To add OpenWeatherMap to your installation, add the following to your `configuration.yaml` file:
 
@@ -65,11 +59,13 @@ longitude:
   default: "The longitude in your `configuration.yaml` file."
 {% endconfiguration %}
 
-<p class='note'>
-This platform is an alternative to the [`openweathermap`](/components/sensor.openweathermap/) sensor.
-</p>
+<div class='note'>
 
-## {% linkable_title Sensor %}
+This platform is an alternative to the [`openweathermap`](/components/sensor.openweathermap/) sensor.
+
+</div>
+
+## Sensor
 
 The `openweathermap` platform uses [OpenWeatherMap](http://openweathermap.org/) as a source for current meteorological data for your location. The `forecast` will show you the condition in 3h.
 

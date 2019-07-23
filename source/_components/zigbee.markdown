@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Zigbee"
 description: "Instructions on how to integrate a Zigbee network with Home Assistant."
-date: 2016-01-27 17:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: zigbee.png
 ha_category:
   - Binary Sensor
@@ -22,7 +16,7 @@ redirect_from:
   - /components/switch.zigbee/
 ---
 
-[Zigbee](http://www.zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](http://www.digi.com/lp/xbee) as wireless General Purpose Input/Output (GPIO) devices. The component requires a local Zigbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
+[Zigbee](http://www.zigbee.org/what-is-zigbee/) integration for Home Assistant allows you to utilize modules such as the [XBee](http://www.digi.com/lp/xbee) as wireless General Purpose Input/Output (GPIO) devices. The integration requires a local Zigbee device to be connected to a serial port. Through this, it will send and receive commands to and from other devices on the Zigbee mesh network.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,7 +25,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light) - Digital output pins
 - [Switch](#switch) - Digital output pins
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The local Zigbee device (assuming XBee) must have an up to date Router or Coordinator API firmware installed.
 
@@ -61,11 +55,11 @@ To find the possible serial port names of your device, run:
 ls /dev/ttyUSB*
 ```
 
-<p class='note'>
+<div class='note'>
 The port may also appear as /dev/ttyACM* if you're communicating with the Zigbee device through an Arduino.
-</p>
+</div>
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 # Example configuration.yaml entry
@@ -74,11 +68,11 @@ zigbee:
   baud: 115200
 ```
 
-## {% linkable_title Binary Sensor %}
+## Binary Sensor
 
 A `zigbee` binary sensor in this context is a device connected to one of the digital input pins on a [Zigbee](http://www.zigbee.org/) module. The states reported by such a device are limited to `on` or `off`. By default, a binary sensor is considered `on` when the Zigbee device's digital input pin is held 'high' and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
 
-### {% linkable_title Configuration %}
+### Configuration
 
 To enable a digital input pin as binary sensor in your installation, add the following lines to your `configuration.yaml`:
 
@@ -110,7 +104,7 @@ on_state:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Light %}
+## Light
 
 A Zigbee light in this context is a light connected to one of the digital output pins on a Zigbee module. It can simply be switched on and off. By default, a light is considered `on` when the Zigbee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
 
@@ -143,7 +137,7 @@ on_state:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Sensor %}
+## Sensor
 
 There are two types of [Zigbee](http://www.zigbee.org/) sensor available to Home Assistant:
 
@@ -186,9 +180,9 @@ max_volts:
   type: float
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
-#### {% linkable_title Analog Input Pin %}
+#### Analog Input Pin
 
 The analog input pins on an XBee (non-Pro) will read 0V to 1.2 V. This is translated by the [xbee-helper](https://github.com/flyte/xbee-helper) library into a percentage. The maximum voltage your Zigbee device will read is configurable using the `max_volts` configuration variable.
 
@@ -206,7 +200,7 @@ sensor:
 
 See the [Digi knowledge base](http://knowledge.digi.com/articles/Knowledge_Base_Article/Digital-and-analog-sampling-using-XBee-radios) for more XBee sampling details.
 
-#### {% linkable_title Temperature Sensor %}
+#### Temperature Sensor
 
 The XBee Pro (and perhaps other third party modules) contains a thermometer device which can be read by using the `TP` AT command.
 
@@ -221,7 +215,7 @@ sensor:
     address: 0013A20050E752C5
 ```
 
-## {% linkable_title Switch %}
+## Switch
 
 A Zigbee switch in this context is a device connected to one of the digital output pins on a Zigbee module. It can simply be switched on and off. By default, a switch is considered `on` when the Zigbee device's digital output is held `high` and considered `off` when it is held `low`. This behavior can be inverted by setting the `on_state` configuration variable to `low`.
 

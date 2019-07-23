@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Linux Battery"
 description: "Instructions on how to integrate Linux Battery information into Home Assistant."
-date: 2016-09-06 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: linux_battery.png
 ha_category:
   - System Monitor

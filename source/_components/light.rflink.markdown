@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFLink Light"
 description: "Instructions on how to integrate RFLink lights into Home Assistant."
-date: 2016-01-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Light
@@ -14,7 +8,7 @@ ha_release: 0.38
 ha_iot_class: Assumed State
 ---
 
-The `rflink` component supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.nemcon.nl/blog2/), for example the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink gateway is an Arduino firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 First, you have to set up your [RFLink hub](/components/rflink/).
 
@@ -119,7 +113,7 @@ devices:
           type: [list, string]
 {% endconfiguration %}
 
-### {% linkable_title Light state %}
+### Light state
 
 Initially the state of a light is unknown. When the light is turned on or off (via frontend or remote) the state is known and will be shown in the frontend.
 
@@ -138,9 +132,9 @@ light:
 
 Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
 
-### {% linkable_title Light types %}
+### Light types
 
-Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The RFLink component support three types of lights to make things work in every situation:
+Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The RFLink integration support three types of lights to make things work in every situation:
 
 - *Hybrid*: This type sends a `dim` followed by an an `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
 - *Switchable*: Device type that sends only `on` and `off` commands. It work for both on/off and dimmable type switches. However dimmables might have issues with signal repetition (see above).
@@ -149,7 +143,7 @@ Light devices can come in different forms. Some only switch on and off, other su
 
 By default new lights are assigned the `switchable` type. Protocol supporting dimming are assigned the `hybrid` type. Currently only `newkaku` protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.
 
-### {% linkable_title Hiding/ignoring lights %}
+### Hiding/ignoring lights
 
 Lights are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
 
@@ -157,11 +151,11 @@ Lights are added automatically when the RFLink gateway intercepts a wireless com
 - Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
 - [Ignore devices on a platform level](/components/rflink/#ignoring-devices)
 
-### {% linkable_title Device support %}
+### Device support
 
 See [device support](/components/rflink/#device-support)
 
-### {% linkable_title Additional configuration examples %}
+### Additional configuration examples
 
 Multiple lights with `signal_repetitions` and custom names
 

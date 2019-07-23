@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Auth"
-description: "This component is responsible for providing the authentication endpoints."
-date: 2018-03-19 21:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
+description: "This integration is responsible for providing the authentication endpoints."
 logo: home-assistant.png
 ha_category:
   - Other
@@ -14,5 +8,5 @@ ha_release: 0.73
 ha_qa_scale: internal
 ---
 
-This component creates the endpoints for the [authentication system](/docs/authentication/) that is built into Home Assistant.
-There are no configuration options for this component directly as it relies on the auth system in the core.
+This integration creates the endpoints for the [authentication system](/docs/authentication/) that is built into Home Assistant.
+There are no configuration options for this integration directly as it relies on the auth system in the core.

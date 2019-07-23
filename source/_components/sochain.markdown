@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SoChain"
 description: "Instructions on how to integrate chain.so data within Home Assistant."
-date: 2017-06-01 16:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sochain.png
 ha_category:
   - Finance

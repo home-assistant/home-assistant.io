@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ONVIF Camera"
 description: "Instructions on how to integrate a ONVIF camera within Home Assistant."
-date: 2017-06-09 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: onvif.png
 ha_category:
   - Camera
@@ -17,7 +11,7 @@ redirect_from:
 
 The `onvif` camera platform allows you to use an [ONVIF](https://www.onvif.org/) camera in Home Assistant. This requires the [`ffmpeg` component](/components/ffmpeg/) to be already configured.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable your ONVIF camera in your installation, add the following to your `configuration.yaml` file:
 
@@ -67,7 +61,7 @@ extra_arguments:
 
 Most of the ONVIF cameras support more than one audio/video profile. Each profile provides different image quality. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. One of the reasons may be that your hardware isn't able to render the highest quality image in real-time, especially when running on Raspberry Pi. Therefore you can choose which profile do you want to use by setting in config `profile` variable.
 
-### {% linkable_title Service `camera.onvif_ptz` %}
+### Service `camera.onvif_ptz`
 
 If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.
 

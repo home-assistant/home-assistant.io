@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Discord"
 description: "Instructions on how to add Discord notifications to Home Assistant."
-date: 2016-01-14 15:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: discord.png
 ha_category:
   - Notifications
@@ -15,7 +9,7 @@ redirect_from:
  - /components/notify.discord/
 ---
 
-The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows components to send messages to the user using Discord.
+The [Discord service](https://discordapp.com/) is a platform for the notify component. This allows integrations to send messages to the user using Discord.
 
 In order to get a token you need to go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application. Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**).
 
@@ -44,7 +38,7 @@ token:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Setting up the bot %}
+### Setting up the bot
 
 Bots can only send messages to servers or attach local available images. To add the bot to a server you are an admin on, get the details of the bot from the [Discord My Apps page](https://discordapp.com/developers/applications/me).
 
@@ -72,7 +66,7 @@ Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.
 
-#### {% linkable_title Example service payload %}
+#### Example service payload
 
 ```json
 {
@@ -89,7 +83,7 @@ This channel ID has to be used as the target when calling the notification servi
 }
 ```
 
-### {% linkable_title Notes %}
+### Notes
 
 You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the user name to copy the ID like you did for the channel ID up above.
 

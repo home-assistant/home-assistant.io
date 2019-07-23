@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MaryTTS"
 description: "Instructions on how to setup MaryTTS with Home Assistant."
-date: 2017-04-08 16:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: marytts.png
 ha_category:
   - Text-to-speech
@@ -17,7 +11,7 @@ redirect_from:
 
 The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) Text-to-Speech engine to read a text with natural sounding voices.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable text-to-speech with MaryTTS, add the following lines to your `configuration.yaml`:
 
@@ -57,7 +51,7 @@ language:
 
 See [documentation](http://mary.dfki.de/documentation/index.html) for details.
 
-## {% linkable_title Full configuration example %}
+## Full configuration example
 
 A full configuration sample including optional variables:
 

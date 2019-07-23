@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Aurora sensor"
 description: "Know when auroras might be visible at your location"
-date: 2017-02-14 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Environment
 ha_release: 0.39
@@ -21,7 +15,7 @@ This service gives a number 0-100 representing the current likelihood of visible
 
 You can check the attributes of the sensor to see your exact forecast.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the aurora binary sensor to your installation, add the following to your `configuration.yaml` file:
 
@@ -44,7 +38,7 @@ name:
   default: Aurora Visibility
 {% endconfiguration %}
 
-## {% linkable_title Full example %}
+## Full example
 
 ```yaml
 binary_sensor:

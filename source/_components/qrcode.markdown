@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "QR Code Recognition"
 description: "Instructions on how to integrate QR Code Recognition into Home Assistant."
-date: 2019-01-18 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Image Processing
@@ -19,7 +13,7 @@ The `qrcode` image processing platform enables QR code recognition from cameras.
 
 To get this running, please install `zbar-tools` (Ubuntu 18.04)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml` file:
 

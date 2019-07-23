@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.19: Empowering scripts and Alexa"
 description: "The new release of Home Assistant includes a lot of upgrades to how we handle scripts and make them available in a wide range of new components including automation and alexa."
 date: 2016-05-07 11:06:00 -0700
 date_formatted: "May 7, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -91,7 +89,7 @@ light:
 [allow client key authentication]: /components/mqtt/
 [Pioneer AVR]: /components/media_player.pioneer/
 [Acer Projectors]: /components/switch.acer_projector/
-[HVAC component]: /components/hvac/
+[HVAC component]: /components/climate/
 [OctoPrint]: /components/octoprint/
 [Z-Wave]: /components/zwave/
 [lock]: /components/lock/

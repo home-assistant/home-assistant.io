@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DirecTV"
 description: "Instructions on how to integrate DirecTV receivers into Home Assistant."
-date: 2016-07-19 01:0+0000
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: directv.png
 ha_category:
   - Media Player
@@ -16,7 +10,7 @@ redirect_from:
  - /components/media_player.directv/
 ---
 
-Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery component](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
+Master [DirecTV](http://www.directv.com/) receivers (ie: those that have tuners) will be automatically discovered if you enable the [discovery integration](/components/discovery/) and the receiver is powered-on. Slave/RVU client/Genie boxes will also be discovered, but only if they are also online at the time of discovery.
 
 To ensure that your DirecTV boxes are always found and configured, they should be added into your `configuration.yaml`.
 
@@ -91,13 +85,13 @@ media_player:
 
 It is important to notice that the host and port variables for slave/Genie receivers are the same as the master receiver.
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Media control services %}
+### Media control services
 
 Available services: turn_on, turn_off, media_play, media_pause, media_stop, media_next_track, media_previous_track, play_media
 
-#### {% linkable_title Service `media_player.play_media` %}
+#### Service `media_player.play_media`
 
 | Service data attribute | Optional | Description                                                                                                                                                            |
 | -----------------------| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notify Group"
 description: "Instructions on how to setup the notify group platform."
-date: 2016-08-18 00:12
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Notifications
@@ -16,7 +10,7 @@ ha_qa_scale: internal
 
 The `group` notification platform allows you to combine multiple `notify` platforms into a single service.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,7 +44,7 @@ services:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 An example on how to use it in an automation:
 

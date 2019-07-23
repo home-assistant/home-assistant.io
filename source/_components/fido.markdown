@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Fido Sensor"
 description: "Instructions on how to integrate Fido data usage within Home Assistant."
-date: 2017-01-01 17:17
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: fido.png
 ha_category:
   - Network
@@ -18,7 +12,7 @@ redirect_from:
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 

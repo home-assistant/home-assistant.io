@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Yesss SMS"
 description: "Instructions on how to add user notifications to Home Assistant."
-date: 2017-10-27 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: yesssat.png
 ha_category:
   - Notifications
@@ -17,13 +11,13 @@ redirect_from:
 
 The `yessssms` platform is using the Austrian mobile operator [Yesss.at](https://yesss.at) to send SMS via its web-site.
 
-<p class='note warning'>
+<div class='note warning'>
 Regular charges apply and a contract or prepaid plan is needed.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
 Do not use this for high frequency notifications. The web-SMS page is rate limited and sending more than 45 SMS/h might get you blocked.
-</p>
+</div>
 
 You can send to any number, but your phone number will appear as sender.
 
@@ -54,8 +48,10 @@ recipient:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 Verify that your credentials work on [Yesss.at's website](https://yesss.at). Using the wrong credentials three times in a row will get you suspended for one hour.
 Home Assistant will not try to login after the account has been suspended.
 Re-check the credentials and restart Home Assistant.
-</p>
+
+</div>

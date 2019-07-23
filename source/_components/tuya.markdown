@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tuya"
 description: "Instructions on how to setup the Tuya hub within Home Assistant."
-date: 2018-07-09 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tuya.png
 ha_category:
   - Hub
@@ -27,7 +21,7 @@ redirect_from:
   - /components/switch.tuya/
 ---
 
-The `tuya` component is the main component to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
+The `tuya` integration is the main integration to integrate all [Tuya Smart](https://www.tuya.com) related platforms. You will need your Tuya account information (username, password and account country code) to discover and control devices which related to your account.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -38,7 +32,7 @@ There is currently support for the following device types within Home Assistant:
 - **Scene** - The device state in frontend panel will not change immediately after you activate a scene.
 - **Switch** - The platform supports switch and socket.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add your Tuya devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -69,7 +63,7 @@ platform:
   default: tuya
 {% endconfiguration %}
 
-## {% linkable_title Service %}
+## Service
 
 These services are available for the `tuya` component:
 

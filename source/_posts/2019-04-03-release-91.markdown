@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.91: More streaming, better Zigbee, cameras with ESPHome"
 description: "Big update that brings goodies across the board."
 date: 2019-04-03 00:11:03
 date_formatted: "April 3, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-04-release-91/social.png
 ---
@@ -28,17 +26,17 @@ A BIG shout to [@awarecan], who has migrated our CI infrastructure to [CircleCI]
 
 And in case you missed the announcement, we will soon start working on [an official Android app](/blog/2019/04/01/android/). And in case it wasn't clear, our other announcement, that we would [occassionally show ads in the UI](https://twitter.com/home_assistant/status/1112752645763223552), was an April fools joke 😁.
 
-## {% linkable_title Notable breaking change %}
+## Notable breaking change
 
 We finished the great migration. All built-in platforms are now in their own folder. This means that if you had a custom component or platform that had the same name as a built-in one, you have to rename it. If you still have platforms in your `custom_components/` directory in the old file format, `sensor/my_platform.py`, rename it to `my_platform/sensor.py`. It still works but it will not be supported in a future release.
 
 Thanks to [@Swamp-Ig], [@robbiet480] and [@cgtobi] for their work on this!
 
-## {% linkable_title Trusted networks now support trusted users %}
+## Trusted networks now support trusted users
 
 Trusted networks has been updated by [@awarecan] to allow specifying specific uses that specific IP addresses are allowed to log into. If a user is logging in with trusted networks and there is only a single user, you can now configure it to skip the login form and automatically login. See [the documentation](/docs/authentication/providers/#trusted-networks) for more info.
 
-## {% linkable_title ESPHome Cameras %}
+## ESPHome Cameras
 
 This release adds camera support to the ESPHome integration. If you haven't heard about [ESPHome](https://www.esphome.io) yet, it allows you to create your own sensors and smart devices and configure them using YAML. With Home Assistant 0.91, it is now possible to integrate cameras. This means that you can have a WiFi enabled camera that integrates automatically into Home Assistant for as little as $9 😲.
 
@@ -48,7 +46,7 @@ Check this cool demo, part of [this blog post](https://www.dopebuild.com/i-am-so
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-9luy-od6Tw" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title Zigbee ZHA pairing experience %}
+## Zigbee ZHA pairing experience
 
 Every release our Zigbee integration is getting better thanks to the hard work by [@dmulcahey], [@damarco] and [@Adminiuga]. This release introduces a brand new pairing experience. While pairing mode is enabled, any device that is getting paired will instantly show up, allowing users to configure the name and the area.
 
@@ -56,14 +54,14 @@ Every release our Zigbee integration is getting better thanks to the hard work b
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ye-tf2RFfLQ" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title VSCode hass.io add-on %}
+## VSCode hass.io add-on
 
 If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Code add-on by Frenck.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I&#39;m so excited to release this add-on 😃<br><br>Today I give you the Visual Studio Code!! add-on for <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a>! 🎉<br><br>The full VSCode experience in your HA frontend including the HA VSCode extension preconfigured out of the box!<a href="https://t.co/7bQ6JIF8yQ">https://t.co/7bQ6JIF8yQ</a><a href="https://twitter.com/hashtag/InternetOfThings?src=hash&amp;ref_src=twsrc%5Etfw">#InternetOfThings</a> <a href="https://twitter.com/hashtag/hassio?src=hash&amp;ref_src=twsrc%5Etfw">#hassio</a> <a href="https://t.co/8CwTfKVJvV">pic.twitter.com/8CwTfKVJvV</a></p>&mdash; Franck Nijhof (@Frenck) <a href="https://twitter.com/Frenck/status/1110654397485334533?ref_src=twsrc%5Etfw">March 26, 2019</a>
 </blockquote>
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Add LCN sensor platform ([@alengwenus] - [#21440]) ([lcn docs]) (new-platform)
 - Add ESPHome Camera ([@OttoWinter] - [#22107]) ([esphome docs]) (new-platform)
@@ -71,7 +69,7 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 - Add support for Tfiac Climate component ([@fredrike] - [#21823]) ([tfiac docs]) (new-platform)
 - Add switches to control Daikin Airbase zones ([@fredrike] - [#22417]) ([daikin docs]) (new-platform)
 
-## {% linkable_title Release 0.91.1 - April 4 %}
+## Release 0.91.1 - April 4
 
 - Change URL handling ([@pvizeli] - [#22713]) ([hassio docs])
 - fix device class lookup for binary sensors ([@dmulcahey] - [#22724]) ([zha docs])
@@ -105,7 +103,7 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [stream docs]: /components/stream/
 [zha docs]: /components/zha/
 
-## {% linkable_title Release 0.91.2 - April 8 %}
+## Release 0.91.2 - April 8
 
 - Correctly load Mopar's config ([@rohankapoorcom] - [#22771]) ([mopar docs])
 - Fix konnected unique_id computation for switches ([@heythisisnate] - [#22777]) ([konnected docs]) (breaking change)
@@ -160,7 +158,7 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [yeelight docs]: /components/yeelight/
 [zha docs]: /components/zha/
 
-## {% linkable_title Release 0.91.3 - April 10 %}
+## Release 0.91.3 - April 10
 
 - Fix position of add_entities of binary sensor ([@AZDane] - [#22866]) ([concord232 docs])
 - More Mobile app sensor fixes ([@robbiet480] - [#22914]) ([mobile_app docs])
@@ -178,7 +176,7 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [hassio docs]: /components/hassio/
 [mobile_app docs]: /components/mobile_app/
 
-## {% linkable_title Release 0.91.4 - April 16 %}
+## Release 0.91.4 - April 16
 
 - Fix ingress bug with Firefox ([@pvizeli] - [#23121]) ([hassio docs]) ([http docs])
 
@@ -187,24 +185,24 @@ If you run hass.io on an Intel NUC and haven't seen it yet, check out the VS Cod
 [hassio docs]: /components/hassio/
 [http docs]: /components/http/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - __Z-Wave__ - The usb_path in configuration.yaml now overrides config entry usb_path. This is potentially a breaking change if people have a stale usb_path setting in configuration.yaml that's no longer accurate. This should help reduce the number of people that need to manually edit the storage/core.config_entries file if their usb_path changes. ([@cgarwood] - [#22038]) ([zwave docs])
 
 - __iOS__ - Improves the text description of ATTR_BATTERY_STATE_UNPLUGGED from Unplugged to Not Charging as many new iOS devices now use Wireless charging and there is no concept of "Plugging In". This is potentially a breaking change if you have automations making use of "unplugged". ([@FattusMannus] - [#22152]) ([ios docs])
 - __Iliad Italy__ - __Removed__ - This was removed because it uses webscraping.  ([@eliseomartelli] - [#22175])
-- __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](https://www.home-assistant.io/components/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
-- __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](https://www.home-assistant.io/components/websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([websocket_api docs])
+- __Netgear lte__ - The previous three components (network, notify, and sensor) now fall under one netgear_lte component. Check the [updated documentation](/components/netgear_lte/) for more information. ([@amelchio] - [#22105]) ([netgear_lte docs])
+- __API streams sensor__ - __Removed__ -  This sensor component was designed to count connected front-end clients. However, it depended on the implementation details of other components, and has therefore been broken since 0.80, so it has been removed. The replacement sensor is now the [websocket_api sensor](/components/websocket_api/), which does basically the same thing apart from the rename. ([@Swamp-Ig] - [#22200]) ([websocket_api docs])
 - __Public Transit (GTFS)__
   * The state for this sensor component was a countdown in minutes. If the next departure was in a few hours, this number became quite large and a tad harder to rapidly calculate mentally (463 minutes anyone?). The sensor's state output has been changed from minutes to an ISO 8601 UTC timestamp, which allows the UI to interpret the state as needed. ([@renemarc] - [#21053]) ([gtfs docs])
   * Sensor updates were running many database queries to populate attributes, on top of the bus schedule queries themselves. This is doubled with two sensors. That led to a lot of slowdowns for everything else when using an SD card! Considering that some data never changes (agency, routes...) and that others like departure times are good until invalidated, now we fetch such metadata at first and then only when relevant changes do occur. GTFS sensor attributes are now named using the standard snake_case format. ([@renemarc] - [#20966]) ([gtfs docs])
@@ -216,7 +214,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - __Mopar__ - The mopar sensor platform has been broken up into a base component with sensor, switch, and lock platforms. The sensor.mopar_remote_command service has been removed since the functionality has been folded into the new platforms and the new mopar.sound_horn service. Please view the documentation to see the new setup instructions. ([@rohankapoorcom] - [#21526]) ([mopar docs])
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Fix regression of the xiaomi_aqara config validation ([@syssi] - [#22435]) ([xiaomi_aqara docs]) (breaking change) (beta fix)
 - Fix dev branch ([@awarecan] - [#22493]) ([homekit_controller docs]) (beta fix)
@@ -247,7 +245,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Return 0 for failed Foscam streams ([@cwhits] - [#22651]) ([foscam docs]) (beta fix)
 - Fix racy homekit_controller platform setup caused by #22368 ([@Jc2k] - [#22655]) ([homekit_controller docs]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Add sense guard clause ([@kbickar] - [#22014]) ([sense docs])
 - Upgrade prefetched tox env to py37 ([@awarecan] - [#22029])

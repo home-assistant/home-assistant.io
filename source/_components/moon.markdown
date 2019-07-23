@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Moon Sensor"
 description: "Instructions on how to integrate the moon sensor into Home Assistant."
-date: 2017-02-03 07:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Environment
@@ -19,7 +13,7 @@ redirect_from:
 
 The `moon` sensor platform is tracking the moon phases.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the moon sensor, add the following lines to your `configuration.yaml`:
 

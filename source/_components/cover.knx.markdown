@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Cover"
 description: "Instructions on how to integrate KNX covers with Home Assistant."
-date: 2017-06-18 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Cover
@@ -17,7 +11,7 @@ ha_iot_class: Local Polling
 
 The `knx` cover platform is used as in interface with KNX covers.
 
-The `knx` component must be configured correctly, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly, see [KNX Integration](/components/knx).
 
 To use your KNX covers in your installation, add the following to your `configuration.yaml` file:
 

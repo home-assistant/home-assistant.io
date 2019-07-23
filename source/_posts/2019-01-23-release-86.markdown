@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.86: New Lovelace UI and Zigbee Management Panel!"
 description: "Lovelace is in, Zigbee Control Panel is in. New demo is in."
 date: 2019-01-23 00:01:03
 date_formatted: "January 23, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-01-release-86/zha.png
 ---
@@ -20,7 +18,7 @@ Next up, we've updated the [Home Assistant demo](https://demo.home-assistant.io)
   Screenshot of Lovelace in the new demo.
 </p>
 
-## {% linkable_title Zigbee management panel %}
+## Zigbee management panel
 
 This release includes a brand new Zigbee management panel to manage your Zigbee network thanks to the hard work by [@dmulcahey] with the help of [@Adminiuga] and [@damarco]. The new panel makes it easy to:
 
@@ -36,7 +34,7 @@ The Zigbee team is also planning a bunch of cool things for 2019. Direct device 
   Screenshot of the Zigbee management panel.
 </p>
 
-## {% linkable_title Noteworthy breaking changes %}
+## Noteworthy breaking changes
 
 Update: the entity ID one was too harsh, it's now a warning.
 
@@ -52,7 +50,7 @@ This issue also impacts the entity registry, which could contain in some cases i
 
 Another noteworthy breaking change (sorry!), is that the automation `time` trigger has been split into two: `time` and `time_pattern`. If you had a time trigger containing the keys `hours`, `minutes` or `seconds`, update the platform from `time` to `time_pattern`.
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Support for Homekit controller/alarm control panel ([@adrum] - [#19612]) ([homekit_controller docs]) ([alarm_control_panel.homekit_controller docs]) (new-platform)
 - Add support for HomeKit Controller Locks ([@adrum] - [#19867]) ([homekit_controller docs]) ([lock.homekit_controller docs]) (new-platform)
@@ -60,7 +58,7 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 - Add Roku hub and remote ([@soberstadt] - [#17548]) ([roku docs]) ([media_player.roku docs]) ([remote.roku docs]) (breaking change) (new-platform)
 - Add emulated_roku component ([@mindigmarton] - [#17596]) ([emulated_roku docs])
 
-## {% linkable_title Release 0.86.1 - January 23 %}
+## Release 0.86.1 - January 23
 
 - Hotfix for blink initialization failure. Fixes #20335 ([@fronzbot] - [#20351]) ([blink docs])
 - [FIX] Time reporting incorrect in sensor.gtt ([@eliseomartelli] - [#20362]) ([sensor.gtt docs])
@@ -80,7 +78,7 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [blink docs]: /components/blink/
 [sensor.gtt docs]: /components/sensor.gtt/
 
-## {% linkable_title Release 0.86.2 - January 24 %}
+## Release 0.86.2 - January 24
 
 - Philips Hue - Remove unnessesary warning ([@starkillerOG] - [#20394]) ([hue docs])
 - history allowed to load states with invalid entity IDs ([@balloob] - [#20399])
@@ -91,7 +89,7 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [@starkillerOG]: https://github.com/starkillerOG
 [hue docs]: /components/hue/
 
-## {% linkable_title Release 0.86.3 - January 26 %}
+## Release 0.86.3 - January 26
 
 - Philips Hue, include debug message for color gamut ([@starkillerOG] - [#20455]) ([hue docs])
 - Warn instead of break for old slugs/entity ids ([@balloob] - [#20478])
@@ -102,7 +100,7 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [@starkillerOG]: https://github.com/starkillerOG
 [hue docs]: /components/hue/
 
-## {% linkable_title Release 0.86.4 - January 28 %}
+## Release 0.86.4 - January 28
 
 - Bumps aioasuswrt ([@kennedyshead] - [#20432]) ([asuswrt docs])
 - Add check to validate gamut ([@starkillerOG] - [#20518])
@@ -117,17 +115,17 @@ Another noteworthy breaking change (sorry!), is that the automation `time` trigg
 [asuswrt docs]: /components/asuswrt/
 [tellduslive docs]: /components/tellduslive/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Automation: Split time_pattern triggers from time trigger ([@armills] - [#19825]) ([automation.interval docs]) ([automation.time docs]) (breaking change)
 - Each instance of Home Assistant will now generate it's own unique webhook url for Geofencyto use. One will need to be generated and provided to the iOS app to replace the existing url: `https://myhome.duckdns.org/api/geofency?api_password=HA_PASSWORD` ([@rohankapoorcom] - [#18951]) ([geofency docs]) (breaking change)
@@ -148,7 +146,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - The SMA sensor can monitor several new sensors. Unfortunately some of the existing sensors were renamed:
 `current_power` is now `grid_power` and `grid_voltage` is now `voltage_l1` (the voltage from all three phases are available). The sensors also support the entity registry, making editing their names a breeze from the frontend. ([@kellerza] - [#19753]) ([sensor.sma docs])
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Sensibo to use HA operation modes ([@balloob] - [#20180]) ([climate.sensibo docs]) (breaking change) (beta fix)
 - Distribute reconnect ([@balloob] - [#20181]) ([cloud docs]) (beta fix)
@@ -167,7 +165,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update locationsharinglib to version 3.0.11 ([@rolfberkenbosch] - [#20322]) ([device_tracker docs]) (beta fix)
 - Fix invalid entity ID in entity registry ([@balloob] - [#20328]) (breaking change) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Support for Homekit controller/alarm control panel ([@adrum] - [#19612]) ([homekit_controller docs]) ([alarm_control_panel.homekit_controller docs]) (new-platform)
 - update powerview scene component to latest api. ([@sander76] - [#19717]) ([scene.hunterdouglas_powerview docs])

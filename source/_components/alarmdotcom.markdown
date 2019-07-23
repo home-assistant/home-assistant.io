@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Alarm.com Alarm Control Panel"
 description: "Instructions on how to integrate Alarm.com into Home Assistant."
-date: 2016-01-14 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: alarmdotcom.png
 ha_category:
   - Alarm
@@ -17,7 +11,7 @@ redirect_from:
 
 The `alarmdotcom` platform is consuming the information provided by [Alarm.com](https://www.alarm.com/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml`:
 

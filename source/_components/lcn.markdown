@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LCN"
 description: "Instructions on how to integrate LCN components with Home Assistant."
-date: 2018-11-01 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lcn.png
 ha_category:
   - Hub
@@ -14,6 +8,7 @@ ha_category:
   - Climate
   - Cover
   - Light
+  - Scene
   - Sensor
   - Switch
 ha_release: 0.85
@@ -26,7 +21,7 @@ redirect_from:
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](http://www.lcn.eu) hardware devices.
 
-The component requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
+The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
 With this setup sending and receiving commands to and from LCN modules is possible.
 
 There is currently support for the following device types within Home Assistant:
@@ -35,16 +30,19 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
+- [Scene](#scene)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-<p class='note'>
-  Please note: Besides the implemented platforms the `lcn` component offers a variety of [service calls](#services).
+<div class='note'>
+
+  Please note: Besides the implemented platforms the `lcn` integration offers a variety of [service calls](#services).
   These service calls cover functionalities of the LCN system which cannot be represented by the platform implementations.
   They are ideal to be used in automation scripts or for the `template` platforms.
-</p>
 
-## {% linkable_title Configuration %}
+</div>
+
+## Configuration
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
 You have to specify at least one ip/port with login credentials for a PCHK host.
@@ -84,6 +82,14 @@ lcn:
       address: myhome.s0.m7
       output: output1
       dimmable: true
+      transition: 5
+
+  scenes:
+    - name: Romantic
+      address: myhome.s0.m7
+      register: 1
+      scene: 4
+      outputs: [output1, output2, relais1, relais3, relais4]
       transition: 5
 
   sensors:
@@ -193,7 +199,7 @@ climates:
     lockable:
       description: "Climate control can be locked."
       required: false
-      type: bool
+      type: boolean
       default: false
 
 covers:
@@ -234,13 +240,44 @@ lights:
     dimmable:
       description: Enable the dimming feature for this light.
       required: false
-      type: bool
+      type: boolean
       default: false
     transition:
       description: Transition (ramp) time in seconds.
       required: false
-      type: int
+      type: integer
       default: 0
+
+scenes:
+  description: List of your scenes.
+  required: false
+  type: map
+  keys:
+    name:
+      description: "Name of the scene."
+      required: true
+      type: string
+    address:
+      description: "[Address](#lcn-addresses) of the module/group."
+      required: true
+      type: string
+    register:
+      description: Number of scene register (0..9).
+      required: true
+      type: integer
+    scene:
+      description: Number of scene (0..9).
+      required: true
+      type: integer
+    outputs:
+      description: "List of ports ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
+      required: false
+      type: list
+    transition:
+      description: Transition (ramp) time in seconds.
+      required: false
+      type: integer
+      default: None
 
 sensors:
   description: List of your sensors.
@@ -284,7 +321,7 @@ switches:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title LCN Addresses %}
+## LCN Addresses
 
 LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
 
@@ -292,7 +329,7 @@ Modules can be arranged in _segments_. Segments can be addressed by their numeri
 
 LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
 
-The LCN component allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
+The LCN integration allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
 
 Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
 
@@ -316,11 +353,11 @@ s0.g7
 
 Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, the first connection defined in the [configuration](#configuration) will be used.
 
-## {% linkable_title LCN Constants %}
+## LCN Constants
 
 The platforms and service calls use several predefined constants as parameters.
 
-### {% linkable_title Ports %}
+### Ports
 
 | Constant | Values |
 | -------- | ------ |
@@ -340,7 +377,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | `motor3` | `relay5`     | `relay6`      |
 | `motor4` | `relay7`     | `relay8`      |
 
-### {% linkable_title Variables and Units %}
+### Variables and Units
 
 | Constant | Values |
 | -------- | ------ |
@@ -352,21 +389,22 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | TIME_UNIT | `seconds`, `minutes`, `hours`, `days` |
 | RELVARREF | `current`, `prog` |
 
-### {% linkable_title States %}:
+### States:
 
 | Constant | Values |
 | -------- | ------ |
-| LED_STATE | `on`. `off`, `blink`, `flicker` |
-| LOGICOP_STATE | `not`. `or`, `and` |
+| LED_STATE | `on`, `off`, `blink`, `flicker` |
+| LOGICOP_STATE | `not`, `or`, `and` |
+| KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
-### {% linkable_title Keys %}:
+### Keys:
 
 Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
 Examples: `a1`, `a5`, `d8`.
 
-## {% linkable_title Platforms %}
+## Platforms
 
-### {% linkable_title Binary Sensor %}
+### Binary Sensor
 
 The `lcn` binary sensor platform allows the monitoring of the following [LCN](http://www.lcn.eu) binary data sources:
 
@@ -376,29 +414,35 @@ The `lcn` binary sensor platform allows the monitoring of the following [LCN](ht
 
 The binary sensor can be used in automation scripts or in conjunction with `template` platforms.
 
-### {% linkable_title Climate %}
+### Climate
 
 The `lcn` climate platform allows the control of the [LCN](http://www.lcn.eu) climate regulators.
 This platform depends on the correct configuration of the module's regulators which has to be done in the LCN-PRO programming software.
 You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature. 
 If the control is set lockable, the regulator can be turned on/off. 
 
-<p class='note'>
-If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](climate.generic_thermostat) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
-</p>
+<div class='note'>
 
-### {% linkable_title Cover %}
+If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](/components/generic_thermostat/) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
+
+</div>
+
+### Cover
 
 The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays which have been configured as motor controllers.
 
-### {% linkable_title Light %}
+### Light
 
 The `lcn` light platform allows the control of the following [LCN](http://www.lcn.eu) ports:
 
 - (Dimmable) output ports
 - Relays
 
-### {% linkable_title Sensor %}
+### Scene
+
+The `lcn` scene platform allows the activation of previously programmed [LCN](http://www.lcn.eu) scenes.
+
+### Sensor
 
 The `lcn` sensor platform allows the monitoring of the following [LCN](http://www.lcn.eu) data sources:
 
@@ -411,24 +455,24 @@ The `lcn` sensor platform allows the monitoring of the following [LCN](http://ww
 
 The sensor can be used in automation scripts or in conjunction with `template` platforms.
 
-<p class='note'>
+<div class='note'>
   Ensure that the LCN module is configured properly to provide the requested value.
   Otherwise the module might show unexpected behavior or return error messages.
-</p>
+</div>
 
-### {% linkable_title Switch %}
+### Switch
 
 The `lcn` switch platform allows the control of the following [LCN](http://www.lcn.eu) ports:
 
 - Output ports
 - Relays
 
-## {% linkable_title Services %}
+## Services
 
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
 Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them. 
 
-### {% linkable_title Service `output_abs` %}
+### Service `output_abs`
 
 Set absolute brightness of output port in percent.
 
@@ -441,11 +485,16 @@ Set absolute brightness of output port in percent.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "brightness": 100, "transition": 0}
+```yaml
+service: output_abs
+data:
+  addres: myhome.0.7
+  output: output1
+  brightness: 100
+  transition: 0
 ```
 
-### {% linkable_title Service `output_rel` %}
+### Service `output_rel`
 
 Set relative brightness of output port in percent.
 
@@ -458,11 +507,15 @@ Set relative brightness of output port in percent.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "brightness": 30}
+```yaml
+service: output_rel
+data:
+  address: myhome.0.7
+  output: output1
+  brightness: 30
 ```
 
-### {% linkable_title Service `output_toggle` %}
+### Service `output_toggle`
 
 Toggle output port.
 
@@ -474,11 +527,15 @@ Toggle output port.
 
 Example:
 
-```
-{"address": "myhome.0.7", "output": "output1", "transition": 0}
+```yaml
+service: output_toggle
+data:
+  address: myhome.0.7
+  output: output1
+  transition: 0
 ```
 
-### {% linkable_title Service `relays` %}
+### Service `relays`
 
 Set the relays status. The relays states are defined as a string with eight characters.
 Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=nochange).
@@ -492,11 +549,14 @@ Example states:  `t---001-`
 
 Example:
 
-```
-{"address": "myhome.0.7", "state": "t---001-"}
+```yaml
+service: relays
+data:
+  address: myhome.0.7
+  state: t---001-
 ```
 
-### {% linkable_title Service `led` %}
+### Service `led`
 
 Set the led status.
 
@@ -507,11 +567,15 @@ Set the led status.
 
 Example:
 
-```
-{"address": "myhome.0.7", "led": "led6", "state": "blink"}
+```yaml
+service: led
+data:
+  address: myhome.0.7
+  led: led6
+  state: blink
 ```
 
-### {% linkable_title Service `var_abs` %}
+### Service `var_abs`
 
 Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -526,16 +590,21 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1", "value": 75, "unit_of_measurement": "%"}
+```yaml
+service: var_abs
+data:
+  address: myhome.0.7
+  variable: var1
+  value: 75
+  unit_of_measurement: %
 ```
 
-<p class='note'>
+<div class='note'>
   Ensure that the LCN module is configured properly to provide acces to the defined variable.
   Otherwise the module might show unexpected behaviors or return error messages.
-</p>
+</div>
 
-### {% linkable_title Service `var_rel` %}
+### Service `var_rel`
 
 Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -550,16 +619,21 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1", "value": 10, "unit_of_measurement": "%"}
+```yaml
+service: var_rel
+data:
+  address: myhome.0.7
+  variable: var1
+  value: 10
+  unit_of_measurement: %
 ```
 
-<p class='note'>
-  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+<div class='note'>
+  Ensure that the LCN module is configured properly to provide access to the defined variable.
   Otherwise the module might show unexpected behavior or return error messages.
-</p>
+</div>
 
-### {% linkable_title Service `var_reset` %}
+### Service `var_reset`
 
 Reset value of variable or setpoint.
 
@@ -570,16 +644,19 @@ Reset value of variable or setpoint.
 
 Example:
 
-```
-{"address": "myhome.0.7", "variable": "var1"}
+```yaml
+service: var_reset:
+data:
+  address: myhome.0.7
+  variable: var1
 ```
 
-<p class='note'>
-  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+<div class='note'>
+  Ensure that the LCN module is configured properly to provide access to the defined variable.
   Otherwise the module might show unexpected behavior or return error messages.
-</p>
+</div>
 
-### {% linkable_title Service `lock_regulator` %}
+### Service `lock_regulator`
 
 Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
@@ -592,11 +669,15 @@ If `state` is not defined, it is assumed to be `False`.
 
 Example:
 
-```
-{"address": "myhome.0.7", "setpoint": "r1varsetpoint", "state": true}
+```yaml
+service: lock_regulator
+data:
+  address: myhome.0.7
+  setpoint: r1varsetpoint
+  state: true
 ```
 
-### {% linkable_title Service `send_keys` %}
+### Service `send_keys`
 
 Send keys (which executes bound commands).
 The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
@@ -608,41 +689,69 @@ If `time_unit` is not defined, it is assumed to be `seconds`.
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
 | `keys` | No | Keys string |
-| `state` | Yes | Keys state | [SENDKEYCOMMANDS](#states) |
+| `state` | Yes | Keys state | [KEY_STATE](#states) |
 | `time` | Yes | Deferred time | 0.. |
 | `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
 
 Examples:
 
-```
-{"address": "myhome.0.7", "keys": "a1a5d8", "state": "hit"}
-{"address": "myhome.0.7", "keys": "a1a5d8", "time": 5, "time_unit": "s"}
+Send keys immediately:
+```yaml
+service: send_keys
+data:
+  address: myhome.0.7
+  keys: a1a5d8
+  state: hit
 ```
 
-### {% linkable_title Service `lock_keys` %}
+Send keys deferred:
+```yaml
+service: send_keys
+data:
+  address: myhome.0.7
+  keys: a1a5d8
+  time: 5
+  time_unit: s
+```
+
+### Service `lock_keys`
 
 Locks keys.
 If table is not defined, it is assumend to be table `a`.
 The key lock states are defined as a string with eight characters. Each character represents the state change of a key lock (1=on, 0=off, t=toggle, -=nochange).
-The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only tabley `a` is allowed.
+The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only table `a` is allowed.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
 | `table` | Yes | Table with keys to lock |
-| `state` | No | Key lock states as string | [SENDKEYCOMMANDS](#states) |
+| `state` | No | Key lock states as string | [KEY_STATE](#states) |
 | `time` | Yes | Time period to lock | 0.. |
 | `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
 
 Examples:
 
-```
-{"address": "myhome.0.7", "table": "a", "state": "1---t0--"}
-{"address": "myhome.0.7", "state": "1---t0--", "time": 10, "time_unit": "s"}
+Lock keys forever:
+```yaml
+service: lock_keys
+data:
+  address: myhome.0.7
+  table: a
+  state: 1---t0--
 ```
 
-### {% linkable_title Service `dyn_text` %}
+Lock keys for a specified time period:
+```yaml
+service: lock_keys
+data:
+  address: myhome.0.7
+  state: 1---t0--
+  time: 10
+  time_unit: s
+```
+
+### Service `dyn_text`
 
 Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
@@ -657,11 +766,15 @@ Each row can be set independently and can store up to 60 characters (encoded in 
 
 Example:
 
-```
-{"address": "myhome.0.7", "row": 1, "text": "text in row 1"}
+```yaml
+service: dyn_text
+data:
+  address: myhome.0.7
+  row: 1
+  text: "text in row 1"
 ```
 
-### {% linkable_title Service `pck` %}
+### Service `pck`
 
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 
@@ -672,6 +785,9 @@ Send arbitrary PCK command. Only the command part of the PCK command has to be s
 
 Example:
 
-```
-{"address": "myhome.0.7", "pck": "PIN4"}
+```yaml
+service: pck
+data:
+  address: myhome.0.7
+  pck: PIN4
 ```

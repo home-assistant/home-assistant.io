@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Honeywell Thermostat"
 description: "Instructions on how to integrate Honeywell thermostats within Home Assistant."
-date: 2016-02-07 22:01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: honeywell.png
 ha_category:
   - Climate
@@ -16,54 +10,67 @@ redirect_from:
  - /components/climate.honeywell/
 ---
 
+The `honeywell` climate platform integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/]) climate systems.
 
-The `honeywell` climate platform let you control Honeywell Connected thermostats from Home Assistant.
+It does not support the home security functionality of TCC.
 
-To set it up, add the following information to your `configuration.yaml` file:
+It uses the [somecomfort](https://github.com/kk7ds/somecomfort) client library.
+
+<div class='note'>
+
+There is some potential confusion over this integration because it was previously implemented as a combination of two _distinct_ climate systems, one being US-based, the other EU-based.
+
+These two regions are _not_ interchangeable, and the `eu` region is now deprecated.  Ongoing support for such systems is available via the [evohome](/components/evohome/) integration.
+
+</div>
+
+### US-based Systems
+
+These systems are based in North America, and temperatures are usually in Fahrenheit. They would likely be HVAC systems. They always use the [somecomfort](https://github.com/kk7ds/somecomfort) client library. In this integration, this is called the `us` region.
+
+If your system is US-based, then you can access your system via [https://mytotalconnectcomfort.com/portal/](https://mytotalconnectcomfort.com/portal/) (note the `/portal/`).
+
+### EU-based Systems
+
+These systems are based in Europe (including the UK & Ireland), and temperatures are usually in Celsius. They would likely be heating-only systems. They always use the [evohome-client](https://github.com/watchforstock/evohome-client) client library. In this integration, this is called the `eu` region.
+
+If your system is EU-based, then you can access it via [https://international.mytotalconnectcomfort.com/](https://international.mytotalconnectcomfort.com/) (note the `international`).
+
+## Configuration
+
+To set up this integration, add the following to the `climate:` section of your **configuration.yaml** file:
 
 ```yaml
 climate:
+# Example configuration.yaml entry
   - platform: honeywell
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    scan_interval: 600
+    region: us
 ```
-<p class='note'>
-Scan interval is expressed in seconds. Omitting or mis-configuring `scan_interval` may result in too-frequent polling and cause you to be rate-limited by Honeywell.
-</p>
 
 {% configuration %}
 username:
-  description: The username of an user with access.
+  description: Email address of an account with access the TCC website for your region.
   required: true
   type: string
 password:
-  description: The password for your given admin account.
+  description: Password for the account.
   required: true
   type: string
 region:
-  description: Region identifier (either 'eu' or 'us').  Use the `somecomfort` client library for `us`, and evohome-client for `eu`.
-  required: false
-  default: eu
+  description: Region identifier.
+  required: true
+  default: us
   type: string
-scan_interval:
-  description: Scan interval is expressed in seconds. Recommended value of 600 seconds. Omitting scan_interval may result in too-frequent polling and cause you to rate-limited by Honeywell.
-  required: false
-  default: 120
-  type: integer
-away_temperature:
-  description: "(*only for eu region*) Heating setpoint when away mode is on, in deg C."
-  required: false
-  default: 16.0
-  type: float
 away_cool_temperature:
-  description: "(*only for us region*) Cooling setpoint when away mode is on, in deg C."
+  description: "Cooling setpoint when away mode is on, in degrees Fahrenheit."
   required: false
-  default: 30.0
-  type: float
+  default: 88
+  type: integer
 away_heat_temperature:
-  description: "(*only for us region*) Heating setpoint when away mode is on, in deg C."
+  description: "Heating setpoint when away mode is on, in degrees Fahrenheit."
   required: false
-  default: 16.0
-  type: float
+  default: 61
+  type: integer
 {% endconfiguration %}

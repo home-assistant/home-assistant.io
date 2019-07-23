@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Smart Baby Monitor"
 description: "How to build your own smart baby monitor"
 date: 2017-02-03 01:00:00 UTC
 date_formatted: "February 3, 2017"
 author: Pascal Vizeli
-comments: true
 categories: How-To
 og_image: /images/blog/2017-02-babyphone/social.png
 ---
@@ -16,15 +14,17 @@ Obviously, you can use the setup as a general purpose surveillance system to mon
 
 <!--more-->
 
-### {% linkable_title Setup %}
+### Setup
 
 We need an IP camera that can capture sound in the baby's room. It is also possible to use a Raspberry Pi with a microphone and send the audio to Home Assistant with `ffmpeg -f alsa -i hw:1,0 -vn -f rtp rtp://236.0.0.1:2000` over multicast. We can set the `input` option on the Home Assistant side to `rtp://236.0.0.1:2000` in the same network.
 
 Next, we attach a `ffmpeg_noise` binary sensor to our IP camera. The sensor has an output `option` that allows us to send the output to an [icecast2](http://icecast.org/) server for playing over speakers integrated with Home Assistant. We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don't want to play the audio after the noise sensor trigger.
 
-<p class='note'>
+<div class='note'>
+
 We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_noise`. Also all service going to component and was rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
-</p>
+
+</div>
 
 On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install an [icecast2](http://icecast.org/) server using:
 
@@ -93,7 +93,7 @@ automation:
      entity_id: binary_sensor.ffmpeg_noise
 ```
 
-### {% linkable_title Trigger an alarm %}
+### Trigger an alarm
 
 Now we can make a lot stuff. Here is a simple example of an automation what should be possible with Sonos speakers.
 
@@ -141,6 +141,6 @@ automation:
        - light.bedroom
 ```
 
-### {% linkable_title Thanks %}
+### Thanks
 
 Special thanks to [arsaboo](https://github.com/arsaboo) for assistance in writing this blogpost.

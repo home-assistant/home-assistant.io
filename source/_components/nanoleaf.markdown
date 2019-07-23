@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nanoleaf Light Panel"
 description: "Instructions how to integrate Nanoleaf Light Panels into Home Assistant."
-date: 2018-01-04 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nanoleaf_light.png
 ha_category:
   - Light
@@ -16,7 +10,7 @@ redirect_from:
  - /components/light.nanoleaf/
 ---
 
-### {% linkable_title Configuration Sample %}
+### Configuration Sample
 
 The `nanoleaf` platform allows you to control [Nanoleaf Light Panels](https://nanoleaf.me) from Home Assistant.
 
@@ -48,7 +42,7 @@ name:
   default: Nanoleaf
 {% endconfiguration %}
 
-### {% linkable_title Getting The Auth Token %}
+### Getting The Auth Token
 
 1. Make sure that your Nanoleaf Light Panel is fully patched (as of the time of writing the latest version was 3.0.8 for Aurora and 1.2.0 for Canvas)
 2. Hold down the *ON* button on the Panel for 5 seconds; the LED will start flashing

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MySensors Light"
 description: "Instructions on how to integrate MySensors lights into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
 ha_category:
   - DIY
@@ -39,7 +33,7 @@ Sketch should acknowledge a command sent from controller with the same type.  If
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title MySensors 1.x example sketch %}
+### MySensors 1.x example sketch
 
 ```cpp
 /*
@@ -114,7 +108,7 @@ void incomingMessage(const MyMessage &message) {
 }
 ```
 
-### {% linkable_title MySensors 2.x example sketch %}
+### MySensors 2.x example sketch
 
 ```cpp
 /*

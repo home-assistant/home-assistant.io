@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EQ3 Bluetooth Smart Thermostats"
 description: "Instructions on how to integrate EQ3 Bluetooth Smart Thermostats into Home Assistant."
-date: 2016-04-18 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: eq3.gif
 ha_category:
   - Climate
@@ -22,7 +16,7 @@ The current functionality allows setting the temperature as well as controlling 
 As the device doesn't contain a temperature sensor ([read more](https://forum.fhem.de/index.php/topic,39308.15.html)),
 we report target temperature also as current one.
 
-### {% linkable_title Testing the connectivity %}
+### Testing the connectivity
 
 Before configuring Home Assistant you should check that connectivity with the thermostat is working, which can be done with the eq3cli tool:
 
@@ -39,7 +33,7 @@ Current mode: auto dst
 Valve: 0
 ```
 
-### {% linkable_title Configuration %}
+### Configuration
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "File"
 description: "Instructions on how to integrate sensors which read from files into Home Assistant."
-date: 2015-06-22 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: file.png
 ha_category:
   - Utility
@@ -24,7 +18,7 @@ There is currently support for the following device types within Home Assistant:
 - [Notifications](#notifications)
 - [Sensor](#sensor)
 
-## {% linkable_title Notifications %}
+## Notifications
 
 The `file` platform allows you to store notifications from Home Assistant as a file.
 
@@ -57,7 +51,7 @@ timestamp:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [whitelist_external_dirs](/docs/configuration/basic/).
 
@@ -90,11 +84,11 @@ value_template:
   type: template
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-#### {% linkable_title Entries as JSON %}
+#### Entries as JSON
 
 Assuming that the log file contains multiple values formatted as JSON like shown below:
 

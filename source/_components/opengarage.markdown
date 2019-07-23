@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenGarage Cover"
 description: "Instructions on how to integrate OpenGarage.io covers within Home Assistant."
-date: 2017-04-07 14:25
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: opengarage.png
 ha_category:
   - DIY
@@ -17,7 +11,7 @@ redirect_from:
 
 The `opengarage` cover platform lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable OpenGarage Covers in your installation, add the following to your `configuration.yaml` file:
 
@@ -105,7 +99,7 @@ sensor:
     garage_car_present:
       friendly_name: 'Honda in Garage'
       value_template: {% raw %}'{% if states.cover.honda %}
-          {% if states.cover.honda.state == "open" %}
+          {% if is_state('cover.honda', 'open') %}
             n/a
           {% elif ((states.cover.honda.attributes["distance_sensor"] > 40) and (states.cover.honda.attributes["distance_sensor"] < 100)) %}
             Yes

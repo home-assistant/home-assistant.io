@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ampio Smog"
 description: "Instructions on how to setup Ampio Smog sensors in Home Assistant."
-date: 2019-02-17 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ampio_smog.png
 ha_category:
   - Health
@@ -17,11 +11,11 @@ ha_iot_class: "Cloud Polling"
 
 The `ampio` air quality platform will query the open data API of [ampio.pl](http://smog1.ampio.pl:3050/) to monitor air quality sensor station.
 
-## {% linkable_title Setup %}
+## Setup
 
 To get the ID of a station you need to contact Ampio directly.
 
-## {% linkable_title Manual Configuration %}
+## Manual Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 

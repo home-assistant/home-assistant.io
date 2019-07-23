@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Push"
 description: "Instructions how to use Push Camera within Home Assistant."
-date: 2018-06-26 23:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: camcorder.png
 ha_category:
   - Camera
@@ -22,7 +16,7 @@ Optionally the Push Camera can **buffer** a given number of images, creating an 
 
 Images are cleared on new events, and events are separated by a soft (configurable) **timeout**.
 
-## {% linkable_title Integration with motionEye %}
+## Integration with motionEye
 
 The `push` camera can as an example be used with [motionEye](https://github.com/ccrisan/motioneye/wiki) a web frontend for the motion daemon. motionEye is usually configured to save/record files ***only*** when motion is detected. It provides a hook to run a command whenever an image is saved, which can be used together with cURL to send the motion detected images to the `push` camera, as shown in this example:
 
@@ -45,7 +39,7 @@ camera:
     webhook_id: my_custom_webhook_id
 ```
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this camera in your installation, add the following to your `configuration.yaml` file:
 

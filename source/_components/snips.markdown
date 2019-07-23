@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Snips"
 description: "Instructions on how to integrate Snips within Home Assistant."
-date: 2018-05-02 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: snips.png
 ha_category:
   - Voice
@@ -23,9 +17,9 @@ Snips takes voice or text as input and produces *intents* as output, which are e
 
 ![Snips Modules](/images/screenshots/snips_nlu.png)
 
-## {% linkable_title The Snips Voice Platform %}
+## The Snips Voice Platform
 
-### {% linkable_title Installation %}
+### Installation
 
 The Snips platform can be installed via the Snips APT/Debian repository.
 
@@ -44,7 +38,7 @@ Note that if the keyserver pgp.mit.edu is down then try to use another one in th
 $ sudo apt-key adv --keyserver pgp.surfnet.nl --recv-keys D4F50CDCA10A2849
 ```
 
-### {% linkable_title Creating an assistant %}
+### Creating an assistant
 
 Head over to the [Snips Console](https://console.snips.ai) to create your assistant. Launch the training and download by clicking on the "Download Assistant" button.
 
@@ -75,7 +69,7 @@ Note that if you already have an assistant installed and wish to replace it then
 (pi) $ sudo mv /home/pi/assistant /usr/share/snips/assistant
 ```
 
-### {% linkable_title Running Snips %}
+### Running Snips
 
 Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Microphones](https://docs.snips.ai/articles/raspberrypi/hardware/microphones).
 
@@ -93,13 +87,13 @@ followed by a command, e.g.
 
 > Set the lights to green in the living room
 
-As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant component subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml` file, as explained below.
+As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant integration subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml` file, as explained below.
 
-#### {% linkable_title Optional: specifying an external MQTT broker %}
+#### Optional: specifying an external MQTT broker
 
 By default, Snips runs its own MQTT broker. But we can also tell Snips to use an external broker by specifying this when launching Snips. In this case, we need to specify this in the `/etc/snips.toml` configuration file. For more information on configuring this, see the [Snips Platform Configuration](https://docs.snips.ai/articles/platform/platform-configuration) article.
 
-## {% linkable_title Home Assistant configuration %}
+## Home Assistant configuration
 
 {% configuration %}
 feedback_sounds:
@@ -117,7 +111,7 @@ probability_threshold:
   type: float
 {% endconfiguration %}
 
-### {% linkable_title Specifying the MQTT broker %}
+### Specifying the MQTT broker
 
 Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/docs/mqtt/) to use by adding the following entry to the `configuration.yaml` file:
 
@@ -137,11 +131,11 @@ mqtt:
 
 Alternatively, MQTT can be configured to bridge messages between servers if using a custom MQTT broker such as [mosquitto](https://mosquitto.org/).
 
-### {% linkable_title Triggering actions %}
+### Triggering actions
 
 In Home Assistant, we trigger actions based on intents produced by Snips using the [`intent_script`](/components/intent_script) component. For instance, the following block handles a `ActivateLightColor` intent to change light colors:
 
-Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips component in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/components/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips component is trying to match the non-username version of the intent (i.e., just `playmusic`).
+Note: If your Snips action is prefixed with a username (e.g., `john:playmusic` or `john__playmusic`), the Snips integration in Home Assistant [will try and strip off the username](https://github.com/home-assistant/home-assistant/blob/c664c20165ebeb248b98716cf61e865f274a2dac/homeassistant/components/snips.py#L126-L129). Bear this in mind if you get the error `Received unknown intent` even when what you see on the MQTT bus looks correct. Internally the Snips integration is trying to match the non-username version of the intent (i.e., just `playmusic`).
 
 {% raw %}
 ```yaml
@@ -159,7 +153,7 @@ intent_script:
 
 In the `data_template` block, we have access to special variables, corresponding to the slot names for the intent. In the present case, the `ActivateLightColor` has two slots, `objectLocation` and `objectColor`.
 
-### {% linkable_title Special slots %}
+### Special slots
 
 Several special values for slots are populated with the `siteId` the intent originated from and the probability value for the intent, the `sessionId` generate by the dialogue manager, and `slote_name` raw which will contain the raw, uninterpreted text of the slot value.
 
@@ -185,11 +179,11 @@ SetTimer:
 ```
 {% endraw %}
 
-### {% linkable_title Sending TTS Notifications %}
+### Sending TTS Notifications
 
 You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` services. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
 
-#### {% linkable_title Service `snips.say` %}
+#### Service `snips.say`
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
@@ -197,7 +191,7 @@ You can send TTS notifications to Snips using the `snips.say` and `snips.say_act
 | `site_id`              |      yes | Site to use to start session.                          |
 | `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 
-#### {% linkable_title Service `snips.say_action` %}
+#### Service `snips.say_action`
 
 | Service data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
@@ -207,13 +201,13 @@ You can send TTS notifications to Snips using the `snips.say` and `snips.say_act
 | `can_be_enqueued`      |      yes | If True, session waits for an open session to end, if False session is dropped if one is running. |
 | `intent_filter`        |      yes | Array of Strings - A list of intents names to restrict the NLU resolution to on the first query. |
 
-### {% linkable_title Snips Support %}
+### Snips Support
 
 There is an active [Forum](https://forum.snips.ai) for further support.
 
-### {% linkable_title Configuration Examples %}
+### Configuration Examples
 
-#### {% linkable_title Turn on a light %}
+#### Turn on a light
 
 ```yaml
 intent_script:
@@ -225,7 +219,7 @@ intent_script:
       service: light.turn_on
 ```
 
-##### {% linkable_title Open a Garage Door %}
+##### Open a Garage Door
 
 ```yaml
 intent_script:
@@ -239,7 +233,7 @@ intent_script:
           entity_id: garage_door
 ```
 
-##### {% linkable_title Intiating a query %}
+##### Intiating a query
 
 Here is a more complex example. The automation is triggered if the garage door is open for more than 10 minutes. Snips will then ask you if you want to close it and if you respond with something like "Close the garage door" it will do so. Unfortunately there is no builtin support for yes and no responses.
 
@@ -270,7 +264,7 @@ intent_script:
       - service: script.garage_door_close
 ```
 
-##### {% linkable_title Weather %}
+##### Weather
 
 So now you can open and close your garage door, let's check the weather. Add the Weather by Snips Skill to your assistant. Create a weather sensor, in this example [Dark Sk](/components/sensor.darksky/) and the `api_key` in the `secrets.yaml` file.
 

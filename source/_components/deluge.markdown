@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Deluge"
 description: "Instructions on how to integrate Deluge within Home Assistant."
-date: 2017-10-19 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: deluge.png
 ha_category:
   - Downloading
@@ -24,7 +18,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## {% linkable_title Sensor %}
+## Sensor
 
 The `deluge` platform allows you to monitor your downloads with [Deluge](http://deluge-torrent.org/) from within Home Assistant and setup automation based on the information.
 
@@ -79,7 +73,7 @@ monitored_variables:
       description: The current upload speed.
   {% endconfiguration %}
 
-## {% linkable_title Switch %}
+## Switch
 
 The `deluge` switch platform allows you to control your [Deluge](http://deluge-torrent.org/) client from within Home Assistant. The platform enables you switch all your torrents in pause, and then unpause them all.
 

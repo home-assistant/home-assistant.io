@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Push Notifications"
 description: "Instructions on how to use the HTML5 push notifications platform from Home Assistant."
-date: 2016-08-17 21:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: html5.png
 ha_category:
   - Notifications
@@ -17,15 +11,19 @@ redirect_from:
 
 The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
 
-<p class='note'>
+<div class='note'>
+
 HTML5 push notifications **do not** work on iOS.
-</p>
 
-<p class='note warning'>
+</div>
+
+<div class='note warning'>
+
 The GCM configuration option is deprecated and will stop working in April 2019, see [https://developers.google.com/cloud-messaging/faq](https://developers.google.com/cloud-messaging/faq). If you are installing this platform for the first time, follow the VAPID configuration steps. To migrate your current installation from GCM to VAPID configuration, follow the instructions below. You can skip the first 3 steps and continue in step 4 with your existing project. You will also need to delete `html5_push_registrations.conf` and [re-enable the notifications in your browser](#setting-up-your-browser).
-</p>
 
-## {% linkable_title Configuration %}
+</div>
+
+## Configuration
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 
@@ -79,7 +77,7 @@ gcm_sender_id:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Requirements %}
+### Requirements
 
 The `html5` platform can only function if all of the following requirements are met:
 
@@ -90,7 +88,7 @@ The `html5` platform can only function if all of the following requirements are 
 * You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running [NGINX](/ecosystem/nginx/) in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e. not self signed).
 * You are willing to accept the notification permission in your browser.
 
-### {% linkable_title Configuring the platform %}
+### Configuring the platform
 
 1. Make sure you can access your Home Assistant installation from outside your network over HTTPS ([see docs](/docs/configuration/remote/)).
 2. Create a new project at [https://console.cloud.google.com/home/dashboard](https://console.cloud.google.com/home/dashboard).
@@ -100,7 +98,7 @@ The `html5` platform can only function if all of the following requirements are 
 6. Select 'Cloud Messaging' tab.
 7. Generate a new key pair under the Web configuration listing at the bottom of the page. To view the private key click the three dots to the right and 'Show private key'. 
 
-### {% linkable_title Setting up your browser %}
+### Setting up your browser
 
 Assuming you have already configured the platform:
 
@@ -113,7 +111,7 @@ Assuming you have already configured the platform:
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
 
-### {% linkable_title Testing %}
+### Testing
 
 Assuming the previous test completed successfully and your browser was registered, you can test the notification as follows:
 
@@ -123,12 +121,12 @@ Assuming the previous test completed successfully and your browser was registere
 4. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
 5. If everything worked you should see a popup notification.
 
-### {% linkable_title Usage %}
+### Usage
 
 The `html5` platform accepts a standard notify payload. However, there are also some special features built in which you can control in the payload.
 
 
-#### {% linkable_title Actions %}
+#### Actions
 
 Chrome supports notification actions, which are configurable buttons that arrive with the notification and can cause actions on Home Assistant to happen when pressed. You can send up to 2 actions.
 
@@ -143,7 +141,7 @@ data:
       title: Open door
 ```
 
-#### {% linkable_title Data %}
+#### Data
 
 Any parameters that you pass in the notify payload that aren't valid for use in the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `priority`, `ttl`) will be sent back to you in the [callback events](#automating-notification-events).
 
@@ -154,7 +152,7 @@ data:
   my-custom-parameter: front-door-open
 ```
 
-#### {% linkable_title Tag %}
+#### Tag
 
 By default, every notification sent has a randomly generated UUID (v4) set as its _tag_ or unique identifier. The tag is unique to the notification, _not_ to a specific target. If you pass your own tag in the notify payload you can replace the notification by sending another notification with the same tag. You can provide a `tag` like so:
 
@@ -183,7 +181,7 @@ Example of adding a tag to your notification. This won't create new notification
 ```
 {% endraw %}
 
-#### {% linkable_title Targets %}
+#### Targets
 
 If you do not provide a `target` parameter in the notify payload a notification will be sent to all registered targets as listed in `html5_push_registrations.conf`. You can provide a `target` parameter like so:
 
@@ -203,11 +201,11 @@ target:
   - unnamed device 2
 ```
 
-#### {% linkable_title Overrides %}
+#### Overrides
 
 You can pass any of the parameters listed [here](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification#Parameters) in the `data` dictionary. Please note, Chrome specifies that the maximum size for an icon is 320px by 320px, the maximum `badge` size is 96px by 96px and the maximum icon size for an action button is 128px by 128px.
 
-#### {% linkable_title URL %}
+#### URL
 
 You can provide a URL to open when the notification is clicked by putting `url` in the data dictionary like so:
 
@@ -220,7 +218,7 @@ data:
 
 If no URL or actions are provided, interacting with a notification will open your Home Assistant in the browser. You can use relative URLs to refer to Home Assistant, i.e. `/map` would turn into `https://192.168.1.2:8123/map`.
 
-#### {% linkable_title TTL and Priority %}
+#### TTL and Priority
 
 Newer Android versions introduced stronger battery optimization, so notifications by default are delivered only when phone is awake.
 Options TTL and priority tries to help users solve those problems. Default value of TTL is `86400s` and priority is `normal`.
@@ -234,7 +232,7 @@ data:
   priority: high
 ```
 
-### {% linkable_title Dismiss %}
+### Dismiss
 
 You can dismiss notifications by using service notify.html5_dismiss like so:
 
@@ -250,7 +248,7 @@ You can dismiss notifications by using service notify.html5_dismiss like so:
 If no target is provided, it dismisses for all.
 If no tag is provided, it dismisses all notifications.
 
-### {% linkable_title Automating notification events %}
+### Automating notification events
 
 During the lifespan of a single push notification, Home Assistant will emit a few different events to the event bus which you can use to write automations against.
 
@@ -266,7 +264,7 @@ Common event payload parameters are:
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 
-#### {% linkable_title received event %}
+#### received event
 
 You will receive an event named `html5_notification.received` when the
 notification is received on the device.
@@ -278,7 +276,7 @@ notification is received on the device.
     event_type: html5_notification.received
 ```
 
-#### {% linkable_title clicked event %}
+#### clicked event
 
 You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
 
@@ -300,7 +298,7 @@ or
       action: open_door
 ```
 
-#### {% linkable_title closed event %}
+#### closed event
 
 You will receive an event named `html5_notification.closed` when the notification is closed.
 
@@ -311,7 +309,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
     event_type: html5_notification.closed
 ```
 
-### {% linkable_title Making notifications work with NGINX proxy %}
+### Making notifications work with NGINX proxy
 
 If you use [NGINX](/ecosystem/nginx/) as a proxy with authentication in front of your Home Assistant instance, you may have trouble with receiving events back to Home Assistant. It's because of authentication token that cannot be passed through the proxy.
 
@@ -336,7 +334,7 @@ If you still have the problem, even with mentioned rule, try to add this code:
     proxy_pass_header Authorization;
 ```
 
-#### {% linkable_title Verify your domain %}
+#### Verify your domain
 
 If you need to verify domain ownership with Google Webmaster Central/Search Console while configuring this component, follow these steps:
 

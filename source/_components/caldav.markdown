@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CalDav"
 description: "Instructions on how to integrate a WebDav calendar into Home Assistant."
-date: 2017-11-27 23:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling
@@ -22,10 +16,10 @@ that below). These sensors will be `on` if you have an on going event in that
 calendar or `off` if the event is later in time, or if there is no event at all.
 The WebDav calendar get updated roughly every 15 minutes.
 
-### {% linkable_title Prerequisites %}
+### Prerequisites
 
-You need to have a CalDav server and credentials for it. This component was
-tested against [Baikal](http://sabre.io/baikal/) but any component complying
+You need to have a CalDav server and credentials for it. This integration was
+tested against [Baikal](http://sabre.io/baikal/) but any integration complying
 with the RFC4791 should work. [Nextcloud](https://nextcloud.com/)
 and [Owncloud](https://owncloud.org/) work fine.
 
@@ -36,7 +30,7 @@ Python caldav library. On a Debian based system, install them by:
 $ sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
 ```
 
-### {% linkable_title Basic Setup %}
+### Basic Setup
 
 To integrate a WebDav calendar in Home Assistant,
 add the following section to your `configuration.yaml` file:
@@ -65,7 +59,7 @@ your account. Those calendars will be `on` when there is an ongoing event and
 You have to setup custom calendars in order to take them into account or for
 advanced event filtering.
 
-### {% linkable_title Custom calendars %}
+### Custom calendars
 
 You have the possibility to create multiple binary
 sensors for events that match certain conditions.
@@ -134,7 +128,7 @@ custom_calendars:
       type: string
 {% endconfiguration %}
 
-### {% linkable_title Sensor attributes %}
+### Sensor attributes
 
  - **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting !!-10 would trigger this attribute to be on 10 minutes before the event starts.
  - **all_day**: `True/False` if this is an all day event. Will be `False` if there is no event found.
@@ -144,7 +138,7 @@ custom_calendars:
  - **start_time**: Start time of event.
  - **end_time**: End time of event.
 
-### {% linkable_title Examples %}
+### Examples
 
 All events of the calendars "private" and "holidays". Note that all day events are not included.
 ```yaml

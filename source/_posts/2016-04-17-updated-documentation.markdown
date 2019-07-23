@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Updated documentation"
 description: "We have reorganized our documentation which should make it easier to get started and develop for Home Assistant."
 date: 2016-04-17 23:09:00 UTC
 date_formatted: "April 17, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Website
 ---
 

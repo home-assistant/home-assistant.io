@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "System Monitor"
 description: "Instructions on how to monitor the Home Assistant host."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: system_monitor.png
 ha_category:
   - System Monitor
@@ -18,7 +12,7 @@ redirect_from:
 
 The `systemmonitor` sensor platform allows you to monitor disk usage,
 memory usage, CPU usage, and running processes. This platform has superseded the
-process component which is now considered deprecated.
+process integration which is now considered deprecated.
 
 To add this platform to your installation,
 add the following to your `configuration.yaml` file:
@@ -76,7 +70,7 @@ file.
 | process                | Binary, e.g., `octave-cli` |
 | last_boot              |                           |
 
-## {% linkable_title Linux specific %}
+## Linux specific
 
 To retrieve all available network interfaces on a Linux System, execute the
 `ifconfig` command.
@@ -85,7 +79,7 @@ To retrieve all available network interfaces on a Linux System, execute the
 ifconfig -a | sed 's/[ \t].*//;/^$/d'
 ```
 
-## {% linkable_title Windows specific %}
+## Windows specific
 
 When running this platform on Microsoft Windows, Typically,
 the default interface would be called `Local Area Connection`,

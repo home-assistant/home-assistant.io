@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DD-WRT"
 description: "Instructions on how to integrate DD-WRT based routers into Home Assistant."
-date: 2015-05-11 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ddwrt.png
 ha_category:
   - Presence Detection
@@ -15,7 +9,7 @@ redirect_from:
  - /components/device_tracker.ddwrt/
 ---
 
-This platform offers presence detection by looking at connected devices to a [DD-WRT](http://www.dd-wrt.com/site/index) based router.
+This platform offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.
 
 To use a DD-WRT router in your installation, add the following to your `configuration.yaml` file:
 
@@ -51,7 +45,12 @@ verify_ssl:
   required: false
   type: boolean
   default: true
+wireless_only:
+  description: Whether to only list devices that are connected directly to the router via WiFi or include those connected via Ethernet or other networked access points as well.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 By default Home Assistant pulls information about connected devices from DD-WRT every 5 seconds.
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

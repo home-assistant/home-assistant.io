@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "QNAP Sensor"
 description: "Instructions on how to integrate the QNAP sensor within Home Assistant."
-date: 2017-02-02 06:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: qnap.png
 ha_category:
   - System Monitor
@@ -18,7 +12,7 @@ redirect_from:
 
 This `qnap` sensor allows getting various statistics from your [QNAP NAS](https://www.qnap.com/en-us/).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use the `qnap` sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -122,13 +116,13 @@ monitored_conditions:
       description: Displays the used space of the volume as a percentage (creates a new entry for each volume).
 {% endconfiguration %}
 
-### {% linkable_title Self-signed certificates %}
+### Self-signed certificates
 
 If your QNAP device uses self-signed certificates, set the `verify_ssl` option to `false`.
 
-### {% linkable_title QNAP device support: %}
+### QNAP device support:
 
-This component has been tested on the following devices:
+This integration has been tested on the following devices:
 
 - TS-259 Pro+ (QTS 4.2.6)
 - TS-410 (QTS 4.2.3)

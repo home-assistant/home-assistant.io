@@ -1,13 +1,6 @@
 ---
-layout: page
 title: "eCoal water boiler controller"
 description: "Instructions on how to integrate eSterownik.pl eCoal.pl controller into Home Assistant."
-date: 2018-11-29 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-# logo: raspberry-pi.png
 ha_category:
   - Water heater
 ha_release: 0.87
@@ -17,9 +10,9 @@ redirect_from:
  - /components/switch.ecoal_boiler/
 ---
 
-The `ecoal_boiler` component is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
+The `ecoal_boiler` integration is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your eCoal pumps or sensors in your installation, add the following to your `configuration.yaml` file:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sigfox Sensor"
 description: "Display messages from Sigfox devices in Home Assistant."
-date: 2018-04-07 12:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sigfox.png
 ha_category:
   - Sensor
@@ -16,9 +10,9 @@ redirect_from:
  - /components/sensor.sigfox/
 ---
 
-[SigFox](https://www.sigfox.com/en) component adding a sensor for each Sigfox device registered with your account. The default name of sensors is `sigfox_{DEVICE_ID}` where `DEVICE_ID` is the devices Sigfox ID. The state of an added Sigfox sensor is the payload of the last message published by that device. Additionally, there are attributes for the latitude and longitude coordinates of the device, as well as the signal-to-noise ratio ([snr](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)).
+[SigFox](https://www.sigfox.com/en) integration adding a sensor for each Sigfox device registered with your account. The default name of sensors is `sigfox_{DEVICE_ID}` where `DEVICE_ID` is the devices Sigfox ID. The state of an added Sigfox sensor is the payload of the last message published by that device. Additionally, there are attributes for the latitude and longitude coordinates of the device, as well as the signal-to-noise ratio ([snr](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)).
 
-## {% linkable_title Setup %}
+## Setup
 
 Note that `your_api_login` and `your_api_password` are your **API access credentials** which can be accessed by following:
 
@@ -27,7 +21,7 @@ Note that `your_api_login` and `your_api_password` are your **API access credent
 1. Select `API ACCESS`
 1. Click on `new` and create new access entry
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use this sensor, add the following to your `configuration.yaml` file:
 

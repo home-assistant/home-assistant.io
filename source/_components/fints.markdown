@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FinTS Sensor"
 description: "Instructions on how to use the FinTS sensor."
-date: 2018-03-25 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Finance
 ha_release: "0.70"
@@ -17,7 +11,7 @@ redirect_from:
 
 With the FinTS sensor, you can fetch your account information from your bank. This only works with banks that support the FinTS (aka. HBCI) standard. The FinTS standard used by many German banks. So if you do not have a German bank account, this will most likely not work for you. To find out if your bank supports FinTS, check the bank's website or call their hotline.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To find out the configuration for your bank, check their website or call their hotline. Do not use random information you find on the Internet! As you're storing your bank account information in the Home Assistant configuration: Make sure that this configuration is not accessible to anyone.
 

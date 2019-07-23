@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Stride"
 description: "Instructions how to add Stride notifications to Home Assistant."
-date: 2018-03-14 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: stride.png
 ha_category:
   - Notifications
@@ -54,7 +48,7 @@ panel:
   type: string
 {% endconfiguration %}
 
-### {% linkable_title Stride service data %}
+### Stride service data
 
 The following attributes can be placed `data` for extended functionality.
 

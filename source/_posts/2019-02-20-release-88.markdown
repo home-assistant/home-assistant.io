@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.88: Persons, Command line auth and event subscriptions"
 description: "Happy new release day to all of you! Great features, solid bug fixes and performance gains."
 date: 2019-02-20 00:11:03
 date_formatted: "February 20, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-02-release-88/components.png
 ---
@@ -25,7 +23,7 @@ We also have a new command line auth provider. This will allow you to use a shel
 
 [@andrewsayre] has been working hard on extending the SmartThings support. This release brings sensors and climate devices into the mix. Awesome!
 
-## {% linkable_title Noteworthy breaking changes %}
+## Noteworthy breaking changes
 
 We have tightened config validation, so expect a couple of new warnings. Platform configuration will no longer allow to contain keys that are not supported. This should help with finding typos in your current and future YAML configs. This will currently fallback to a warning and will become a full error in the future.
 
@@ -33,7 +31,7 @@ Note for Lovelace custom card developers: if you relied on the availability of `
 
 Note for custom component developers: We are moving to a new file structure. More information on [our dev blog](https://developers.home-assistant.io/blog/2019/02/19/the-great-migration.html).
 
-## {% linkable_title New Platforms %}
+## New Platforms
 
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
@@ -55,7 +53,7 @@ Note for custom component developers: We are moving to a new file structure. Mor
 - Norway air quality ([@Danielhiversen] - [#20683]) (new-platform)
 - Add Lock capability to SmartThings platform ([@bendews] - [#20977]) ([smartthings docs]) (new-platform)
 
-## {% linkable_title New Features %}
+## New Features
 
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
 - Added HomeKit fan speed based on speed_list ([@nd-net] - [#19767]) ([homekit docs]) (new-feature)
@@ -65,7 +63,7 @@ Note for custom component developers: We are moving to a new file structure. Mor
 - Add quirks info to ZHA device ([@dmulcahey] - [#20923]) ([zha docs]) (new-feature)
 - Added IDs and enabled workarounds for Yale YRD220, YRL220, YRD120 ([@mw-white] - [#20929]) ([zwave docs]) (new-feature)
 
-## {% linkable_title Release 0.88.1 - February 21 %}
+## Release 0.88.1 - February 21
 
 - Fix ZHA bugs ([@dmulcahey] - [#21246]) ([zha docs])
 - Add missing configuration option to plex ([@elupus] - [#21264]) ([media_player.plex docs])
@@ -93,7 +91,7 @@ Note for custom component developers: We are moving to a new file structure. Mor
 [sensor.imap_email_content docs]: /components/sensor.imap_email_content/
 [zha docs]: /components/zha/
 
-## {% linkable_title Release 0.88.2 - February 27 %}
+## Release 0.88.2 - February 27
 
 - Make sure that device trackers is always a list during creation ([@balloob] - [#21193]) ([person docs])
 - Allow custom_effect to be absent from Flux configuration ([@conleydg] - [#21317]) ([light.flux_led docs])
@@ -120,17 +118,17 @@ Note for custom component developers: We are moving to a new file structure. Mor
 [smartthings docs]: /components/smartthings/
 [xiaomi_aqara docs]: /components/xiaomi_aqara/
 
-## {% linkable_title If you need help... %}
+## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## Reporting Issues
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
 
-## {% linkable_title Breaking Changes %}
+## Breaking Changes
 
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)
@@ -148,7 +146,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Return None if no GTFS departures found ([@renemarc] - [#20919]) ([sensor.gtfs docs]) (breaking change) (beta fix)
 - Set aioharmony version to 0.1.8 ([@ehendrix23] - [#21213]) ([harmony docs]) (breaking change) (beta fix)
 
-## {% linkable_title Beta Fixes %}
+## Beta Fixes
 
 - Set ZHA device availability on new join ([@dmulcahey] - [#21066]) ([zha docs]) (beta fix)
 - Set uvloop version consistent with hass.io ([@philhawthorne] - [#21080]) (beta fix)
@@ -177,7 +175,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Fix an Ambient PWS exception when location info is missing ([@bachya] - [#21220]) ([ambient_station docs]) (beta fix)
 - Prevent invalid context from crashing ([@balloob] - [#21231]) (beta fix)
 
-## {% linkable_title All changes %}
+## All changes
 
 - Fix typo in config entries doc ([@therve] - [#20619]) ([point docs])
 - Update synology-srm dependency to 0.0.4 ([@aerialls] - [#20625]) ([device_tracker docs])
@@ -283,7 +281,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update denonavr to 0.7.8 (add various sound modes) ([@scarface-4711] - [#20951]) ([media_player.denonavr docs])
 - Add missing data fields to Ambient PWS ([@bachya] - [#20808]) ([ambient_station docs]) ([sensor.ambient_station docs])
 - HomematicIP fix cover direction ([@mxworm] - [#20901]) ([homematicip_cloud docs])
-- Update pyHS100 to 0.3.4 ([@StefanBCN] - [#20979]) ([light.tplink docs]) ([switch.tplink docs])
+- Update pyHS100 to 0.3.4 ([@stefnb] - [#20979]) ([light.tplink docs]) ([switch.tplink docs])
 - Upgrade slixmpp to 1.4.2 ([@fabaff] - [#20971]) ([notify docs])
 - Upgrade ruamel.yaml to 0.15.87 ([@fabaff] - [#20955])
 - Set cover level using emulated_hue ([@ptc] - [#19594]) ([emulated_hue docs])
@@ -556,7 +554,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@OnFreund]: https://github.com/OnFreund
 [@OttoWinter]: https://github.com/OttoWinter
 [@Sholofly]: https://github.com/Sholofly
-[@StefanBCN]: https://github.com/StefanBCN
+[@stefnb]: https://github.com/stefnb
 [@SukramJ]: https://github.com/SukramJ
 [@SupremeSports]: https://github.com/SupremeSports
 [@VirtualL]: https://github.com/VirtualL

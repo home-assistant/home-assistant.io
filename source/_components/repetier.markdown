@@ -1,29 +1,22 @@
 ---
-layout: page
 title: Repetier-Server Component
 description: "Instructions how to add Repetier-Server sensors to Home Assistant."
-date: 2019-05-01
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: repetier.png
 ha_category:
   - Hub
   - Sensor
-featured: false
 ha_release: 0.94
 ha_iot_class: Local Polling
 ---
 
 [Repetier-Server](https://www.repetier-server.com/) is a 3D printer/CNC server, able to control multiple devices on the same server.
-This component handles the main integration to the server.
+This integration handles the main integration to the server.
 
 There is currently support for the following device types within Home Assistant:
 
 - Sensor
 
-## {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 repetier:
@@ -33,6 +26,7 @@ repetier:
 
 {% configuration %}
 repetier:
+  description: Repetier integration
   type: list
   required: true
   keys:
@@ -100,7 +94,7 @@ camera:
     mjpeg_url: http://YOUR_REPETIER_HOST_IP:8080/?action=stream
 ```
 
-### {% linkable_title Retrieve API-key %}
+### Retrieve API-key
 
 To generate the needed API-key do the following:
 

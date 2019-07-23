@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Kankun SP3 Wifi Switch"
 description: "Instructions for the Kankun SP3 Wifi switch"
-date: 2016-12-28 01:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Switch
 ha_release: 0.36
@@ -21,7 +15,7 @@ script to provide an HTTP API. Details of the necessary modifications can be fou
 [here](http://www.homeautomationforgeeks.com/openhab_http.shtml#kankun) (be sure to install the JSON version
 of the script as linked above).
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable it, add the following lines to your `configuration.yaml`:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Blackbird 8x8 HDMI Matrix Switch"
 description: "Instructions on how to integrate Monoprice Blackbird 4k 8x8 HDBaseT Matrix Switch into Home Assistant."
-date: 2018-03-29 16:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: monoprice.svg
 ha_category:
   - Media Player
@@ -45,20 +39,22 @@ host:
 zones:
   description: This is the list of zones available. Valid zones are 1, 2, 3, 4, 5, 6, 7, 8. Each zone must have a name assigned to it.
   required: true
-  type: integer
+  type: map
   keys:
-    name:
+    ZONE_NUMBER:
       description: The name of the zone.
+      type: string
 sources:
   description: The list of sources available. Valid source numbers are 1, 2, 3, 4, 5, 6, 7, 8. Each source number corresponds to the input number on the Blackbird matrix switch. Similar to zones, each source must have a name assigned to it.
   required: true
-  type: integer
+  type: map
   keys:
-    name:
+    ZONE_NUMBER:
       description: The name of the source.
+      type: string
 {% endconfiguration %}
 
-### {% linkable_title Service `media_player.blackbird_set_all_zones` %}
+### Service `media_player.blackbird_set_all_zones`
 
 Set all zones to the same input source. This service allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated.
 

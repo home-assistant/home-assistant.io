@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Osram Lightify"
 description: "Instructions on how to integrate Osram Lightify into Home Assistant."
-date: 2016-05-29 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: osramlightify.png
 ha_category:
   - Light
@@ -66,7 +60,7 @@ The only thing that you can do out of the box is to track whether they are avail
 Also for sensors a list of raw values is exposed as `sensor_values` attribute, and you can use them
 in automations, if you know what particular values mean for your sensor.
 
-It is suggested to make [scan_interval](https://www.home-assistant.io/docs/configuration/platform_options/#scan-interval)
+It is suggested to make [scan_interval](/docs/configuration/platform_options/#scan-interval)
 (30 seconds by default) less or equal to `interval_lightify_status`, oherwise the latter won't work
 as expected. Shorter `scan_interval` may improve synchronization speed between individual lights and
 groups. For example, if you turn on a group, all its lights may be updated to `on` immediately,
