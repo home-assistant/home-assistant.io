@@ -34,7 +34,7 @@ token:
     description: "See [Fortinet Developer Network](https://fndn.fortinet.com) for how to create an API token. Remember this integration only needs read access to a FortiGate, so configure the API user to only to have limited and read-only access."
     required: true
     type: string
-  verify_ssl:
+verify_ssl:
     description: If the SSL certificate should be verified. In most home cases users do not have a verified certificate.
     required: false
     type: boolean
