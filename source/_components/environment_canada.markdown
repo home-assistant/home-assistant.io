@@ -129,10 +129,10 @@ language:
   type: string
   default: english
 scan_interval:
-  description: The time between updates in minutes.
+  description: The time between updates in seconds.
   required: false
-  type: int
-  default: 10
+  type: integer
+  default: 600
 {% endconfiguration %}
 
 ###Alert TTS Script
