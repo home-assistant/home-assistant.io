@@ -1,8 +1,6 @@
 ---
-layout: page
 title: "Velbus"
 description: "Access and control your Velbus devices."
-footer: true
 logo: velbus.png
 ha_category:
   - Hub
