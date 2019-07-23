@@ -98,9 +98,8 @@ $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@
 - It's recommended to run Home Assistant as a dedicated user.
 - If you want Home Assistant to automatically start at boot, check the [autostart docs](/docs/autostart/)
 
-<p class='info'>
+<br>
 Looking for more advanced guides? Check our [Raspbian guide](/docs/installation/raspberry-pi/) or the [other installation guides](/docs/installation/).
-</p>
 
 ### After upgrading Python
 
