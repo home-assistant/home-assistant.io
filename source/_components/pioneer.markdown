@@ -45,9 +45,9 @@ timeout:
   required: false
   type: float
 sources:
-  description: A list of mappings from source friendly name to source code (e.g. `TV:'05'`). Valid source codes depend on the receiver (some known codes can be found below). Codes must be defined as strings (between single or double quotation marks), so that `05` is not implicitly transformed to `5`, which wouldn't be a valid source code.
+  description: A list of mappings from source friendly name to the source code (e.g. `TV:'05'`). Valid source codes depend on the receiver (some known codes can be found below). Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
   required: false
-  default: Empty list (i.e. no soruce selection will be possible)
+  default: Empty list (i.e. no source selection will be possible)
   type: list
 {% endconfiguration %}
 
@@ -56,14 +56,14 @@ Notes:
 - Some Pioneer AVRs use the port 23 default and some are reported to use 8102.
 - `timeout` is a socket level option and should only be configured if you know what you are doing.
 
-
 ### Source codes
 
-Under these lines you can find some sample `sources` lists per receiver model. Here we use the source names as shown on the remote as key for each code. However these are for display purposes only, so you could rename inputs to better match your set-up (e.g. `HDMI: '19'` to `Kodi: '19'`.
+Under these lines, you can find some sample `sources` lists per receiver model. Here we use the source names as shown on the remote as key for each code. However these are for display purposes only, so you could rename inputs to better match your set-up (e.g. `HDMI: '19'` to `Kodi: '19'`.
 
-Codes must be defined as strings (between single or double quotation marks), so that `05` is not implicitly transformed to `5`, which wouldn't be a valid source code.
+Codes must be defined as strings (between single or double quotation marks) so that `05` is not implicitly transformed to `5`, which wouldn't be valid source code.
 
 #### VSX-921
+
 ```yaml
 sources:
   'PHONO': '00'
@@ -86,6 +86,7 @@ sources:
 ```
 
 #### VSX-822-K
+
 ```yaml
 sources:
   'CD': '01'
@@ -106,6 +107,7 @@ sources:
 ```
 
 #### VSX-824
+
 ```yaml
 sources:
   'CD': '01'
