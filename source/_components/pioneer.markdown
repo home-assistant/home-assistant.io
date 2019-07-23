@@ -19,10 +19,6 @@ To add a Pioneer receiver to your installation, add the following to your `confi
 media_player:
   - platform: pioneer
     host: 192.168.0.10
-    sources:
-      SAT: '06'
-      TV: '05'
-      Game: '49'
 ```
 
 {% configuration %}
