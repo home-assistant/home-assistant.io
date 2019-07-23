@@ -14,7 +14,6 @@ redirect_from:
   - /components/binary_sensor.ring/
   - /components/camera.ring/
   - /components/sensor.ring/
-  - /components/switch.ring/
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.
