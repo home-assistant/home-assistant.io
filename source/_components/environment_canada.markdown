@@ -19,8 +19,10 @@ The following device types and data are supported:
 - [Camera](#camera) - Radar imagery
 
 <p class='note'>
+
   On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
   `sudo apt-get install libatlas-base-dev libopenjp2-7`
+
 </p>
 
 ## Location Selection
