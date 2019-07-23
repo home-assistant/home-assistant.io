@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Suez Water Sensor"
 description: "Instructions on how to integrate Suez Water daily data within Home Assistant."
-date: 2019-06-06 11:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: suez.png
 ha_release: 0.97
 ha_category:
@@ -18,14 +12,14 @@ The `suez_water` sensor platform fetches your last day consumption of water from
 
 It also gets the following data:
 
-- Daily consumption for current month
-- Daily consumption for previous month
+- Daily consumption for the current month
+- Daily consumption for the previous month
 - Monthly consumption for the last 26 months
 - Highest monthly consumption
 - Last year total consumption
 - Current year total consumption
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To add the Suez Water sensor to your installation, add your _Tout Sur Mon Eau_ account credentials and your `counter_id` to your `configuration.yaml` file:
 
