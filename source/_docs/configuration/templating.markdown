@@ -277,7 +277,7 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - Filter `min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
-- Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a unicode object, or the value of the byte when the argument is an 8-bit string.
+- Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
 ### Regular expressions
 
