@@ -1,5 +1,5 @@
 ---
-title: "VeSync Switch"
+title: "VeSync Integration"
 description: "Instructions on how to set up Etekcity VeSync switches and outlets within Home Assistant."
 logo: vesync.png
 ha_category:
@@ -69,7 +69,6 @@ VeSync outlets will expose the following details for only the smart outlets. Ene
 | ----------------------- | ----------------------------------------------------------------------- | --------------- |
 | `current_power_w`       | The present power consumption of the switch in watts.                   | 100             |
 | `today_energy_kwh`      | The kilowatt hours used by the switch during the previous 24 hours.     | 0.12            |
-| `active_time`           | The number of minutes the device has been on                            | 43              |
 | `voltage`               | Current voltage of the device                                           | 120.32          |
 | `weekly_energy_total`   | Total energy usage for week starting from Monday 12:01AM in kWh         | 14.74           |
 | `monthly_energy_total`  | Total energy usage for month starting from 12:01AM on the first in kWh  | 52.30           |
