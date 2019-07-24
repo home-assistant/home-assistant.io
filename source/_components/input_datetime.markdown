@@ -53,6 +53,10 @@ input_datetime:
         required: false
         type: boolean
         default: false
+      icon:
+        description: Icon to display for the component.
+        required: false
+        type: icon
       initial:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
