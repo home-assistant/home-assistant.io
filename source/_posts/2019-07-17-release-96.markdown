@@ -218,6 +218,33 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [zha docs]: /components/zha/
 [zwave docs]: /components/zwave/
 
+## Release 0.96.4 - July 23
+
+- Fix Netatmo climate battery level ([@cgtobi] - [#25165]) ([netatmo docs])
+- Tweak evohome migration ([@zxdavb] - [#25281]) ([evohome docs])
+- Bump pyatmo version to 2.1.2 ([@cgtobi] - [#25296]) ([netatmo docs])
+- [climate] Bugfix/Tweak honeywell migration ([@zxdavb] - [#25369]) ([honeywell docs])
+- Update Daikin preset modes ([@fredrike] - [#25395]) ([daikin docs])
+- Update pysonos to 0.0.22 ([@amelchio] - [#25399]) ([sonos docs])
+- [climate] Correct evohome hvac_action ([@zxdavb] - [#25407]) ([evohome docs])
+
+[#25165]: https://github.com/home-assistant/home-assistant/pull/25165
+[#25281]: https://github.com/home-assistant/home-assistant/pull/25281
+[#25296]: https://github.com/home-assistant/home-assistant/pull/25296
+[#25369]: https://github.com/home-assistant/home-assistant/pull/25369
+[#25395]: https://github.com/home-assistant/home-assistant/pull/25395
+[#25399]: https://github.com/home-assistant/home-assistant/pull/25399
+[#25407]: https://github.com/home-assistant/home-assistant/pull/25407
+[@amelchio]: https://github.com/amelchio
+[@cgtobi]: https://github.com/cgtobi
+[@fredrike]: https://github.com/fredrike
+[@zxdavb]: https://github.com/zxdavb
+[daikin docs]: /components/daikin/
+[evohome docs]: /components/evohome/
+[honeywell docs]: /components/honeywell/
+[netatmo docs]: /components/netatmo/
+[sonos docs]: /components/sonos/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
