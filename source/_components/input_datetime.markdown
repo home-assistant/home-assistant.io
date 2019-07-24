@@ -54,7 +54,7 @@ input_datetime:
         type: boolean
         default: false
       icon:
-        description: Icon to display for the component.
+        description: Icon to display in the frontend.
         required: false
         type: icon
       initial:
@@ -75,6 +75,7 @@ automations and templates.
 | `has_date` | `true` if this entity has a date.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
 | `timestamp` | A timestamp representing the time held in the input.<br>If `has_
+
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home
