@@ -66,6 +66,7 @@ pip3 install mapscookiegettercli
 ```
 
 Then run the command:
+
 ```shell
 maps-cookie-getter
 ```
