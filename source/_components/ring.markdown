@@ -55,7 +55,7 @@ password:
 
 ## Binary Sensor
 
-Once you have enabled the [Ring component](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,7 +83,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 Please note that downloading and playing Ring video will require a Ring Protect plan.
 </div>
 
-Once you have enabled the [Ring component](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -157,7 +157,7 @@ hass.services.call('downloader', 'download_file', data)
 
 ## Sensor
 
-Once you have enabled the [Ring component](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -191,7 +191,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 
 ## Switch
 
-Once you have enabled the [Ring component](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
