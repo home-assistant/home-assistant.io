@@ -42,7 +42,6 @@ To use this integration, all devices must be registered with the VeSync App. Onc
 vesync:
     username: YOUR_USERNAME
     password: YOUR_PASSWORD
-    time_zone: TIME_ZONE
 ```
 
 {% configuration %}
@@ -54,10 +53,6 @@ password:
   description: Password needed to log in to VeSync.
   required: true
   type: string
-time_zone:
-  description: Custom time zone for calculating energy usage for week, month and year (Not used for Air Purifier).  If you enter nothing, it will default to the configured time zone in Home Assistant and if time zone is not configured it will default to UTC.
-  required: false
-  type: time_zone
 {% endconfiguration %}
 
 ## Services
