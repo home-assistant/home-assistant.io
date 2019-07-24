@@ -11,7 +11,7 @@ redirect_from:
 
 The `vesync` integration enables you to control Etekcity smart switches and outlets connected to the VeSync App.
 
-The devices must be added to the VeSync App before they can be discovered by this component.
+The devices must be added to the VeSync App before this integration can discover them.
 
 The following platforms are supported:
 
@@ -23,7 +23,7 @@ This integration supports devices controllable by the VeSync App.  The following
 
 ### Plugs
 
-- Etekcity 7 Amp US oulet - ESW01-USA (Round)
+- Etekcity 7 Amp US outlet - ESW01-USA (Round)
 - Etekcity 10 Amp US outlet - ESW10-USA (Round)
 - Etekcity 10 Amp EU outlet - ESW10-EU (Round)
 - Etekcity 15 Amp US outlet - ESW15-USA (Rectangular)
@@ -35,7 +35,7 @@ This integration supports devices controllable by the VeSync App.  The following
 
 ## Configuration
 
-To use this integration, all devices must be registered with the VeSync App. Once registration is complete you can add the VeSync component by adding the VeSync integration in the configuration section of the frontend and entering your username and password.  You can also use the traditional configuration method by adding the following to your `configuration.yaml` file:
+To use this integration, all devices must be registered with the VeSync App. Once registration is complete, you can add the VeSync integration by adding the VeSync integration in the configuration section of the frontend and entering your username and password.  You can also use the traditional configuration method by adding the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,7 +80,7 @@ In order to get the attributes readings from supported devices, such as energy f
 
 In the example below, change all of the `vesync_switch`'s to match your device's entity ID.
 
-Adapted from the [TP-Link Component](https://www.home-assistant.io/components/tplink/#plugs).
+Adapted from the [TP-Link integration](https://www.home-assistant.io/components/tplink/#plugs).
 
 {% raw %}
 
