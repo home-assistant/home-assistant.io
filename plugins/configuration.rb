@@ -37,7 +37,7 @@ module Jekyll
       type.strip!
       if TYPE_LINKS.include? type.downcase
         url = TYPE_LINKS[type.downcase] % {component: component}
-        "[%s](%s)" % [type, url]
+        "<a href=\"%s\">%s</a>" % [url, type]
       else
         type
       end
