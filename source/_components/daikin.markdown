@@ -60,7 +60,7 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 - [**turn on/off**](https://www.home-assistant.io/components/climate#service-climateturn_on)
 - [**fan mode**](https://www.home-assistant.io/components/climate#service-climateset_fan_mode) (speed)
 - [**swing mode**](https://www.home-assistant.io/components/climate#service-climateset_swing_mode)
-- [**set_preset_mode**](https://www.home-assistant.io/components/climate#service-climateset_away_mode) (away, none)
+- [**set_preset_mode**](https://www.home-assistant.io/components/climate#service-climateset_preset_mode) (away, none)
 
 Current inside temperature is displayed.
 
@@ -74,7 +74,7 @@ Some models do not support setting of **fan speed** or **swing mode**.
 
 Preset mode **away** translates to Daikin's *Holiday Mode*:<br/>
 "*Holiday mode* is used when you want to turn off your units when you leave you home for a longer time.<br/>
-
+<br/>
 When *Holiday mode* is enabled, the following action take place:
 - All connected units are turned OFF.
 - All schedule timers are disabled."
