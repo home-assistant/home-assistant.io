@@ -141,7 +141,7 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
 </div>
 
-To perform the Hass.io installation on Ubuntu, run the following commands:
+To prepare your machine for the Hass.io installation, run the following commands:
 
 ```bash
 sudo -i
@@ -152,17 +152,23 @@ apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificat
 curl -fsSL get.docker.com | sh
 ```
 
-The below script works for generic installs on x86/x64 machines, running an OS such as Ubuntu. 
+The following script will then install Hass.io on a variety of operating systems and machine types.
 
 ```bash
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
 ```
 
-Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 3, the flag `-- -m raspberrypi3` is required. The install script would then look like this.
+Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 3, the flag `-- -m raspberrypi3` is required. The install script would then look like this:
 
 ```bash
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi3
 ```
+#### Other machine flags include
+ 
+ - raspberrypi2
+ - odroid-c2
+ - orangepi-prime
+
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
