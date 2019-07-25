@@ -245,6 +245,21 @@ The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha0
 [netatmo docs]: /components/netatmo/
 [sonos docs]: /components/sonos/
 
+## Release 0.96.5 - July 25
+
+- Bump geniushub client ([@zxdavb] - [#25458]) ([geniushub docs])
+- Allow cors for static files ([@balloob] - [#25468]) ([http docs])
+- Fix Nest turning off eco ([@balloob] - [#25472]) ([nest docs])
+
+[#25458]: https://github.com/home-assistant/home-assistant/pull/25458
+[#25468]: https://github.com/home-assistant/home-assistant/pull/25468
+[#25472]: https://github.com/home-assistant/home-assistant/pull/25472
+[@balloob]: https://github.com/balloob
+[@zxdavb]: https://github.com/zxdavb
+[geniushub docs]: /components/geniushub/
+[http docs]: /components/http/
+[nest docs]: /components/nest/
+
 ## If you need help...
 
 ...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e).
