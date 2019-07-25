@@ -57,7 +57,7 @@ We will need a few things to get started with installing Home Assistant. The lat
    - Create a folder named `network` in the root of the newly formatted USB-stick.
    - Within that folder create a file named `my-network` without extension.
    - Copy one of [the examples] to the `my-network` file and adjust accordingly.
-   - Plug the USB-stick into the Raspberry Pi 3.
+   - Plug the USB-stick into the Raspberry Pi 3. (The USB-stick needs to be inserted to the device during the following setup process only and can be disconnected afterwards.)
 
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply, so it turns on.
