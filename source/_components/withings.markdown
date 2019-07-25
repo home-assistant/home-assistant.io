@@ -84,11 +84,11 @@ base_url:
   required: false
   type: string
   default: The base URL provided in the home assistant `api` component.
-measurements:
-  description: A list of measurements to track.
+measures:
+  description: A list of measures to track.
   required: false
   type: map
-  default: All of the measurements.
+  default: All of the measures.
   keys:
     body_temperature_c:
       description: "Body temperature (unit of measure: celsius)."
