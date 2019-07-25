@@ -72,11 +72,11 @@ Some models do not support setting of **fan speed** or **swing mode**.
 
 <div class='note'>
 
-Preset mode **away** translates to Daikin's *Holiday Mode*:<br/>
+Preset mode **away** translates to Daikin's "Holiday Mode":<br/>
 
-> *Holiday mode* is used when you want to turn off your units when you leave you home for a longer time.<br/>
+> "Holiday mode" is used when you want to turn off your units when you leave you home for a longer time.<br/>
 > <br/>
-> When *Holiday mode* is enabled, the following action take place:
+> When "Holiday mode" is enabled, the following action take place:
 > - All connected units are turned OFF.
 > - All schedule timers are disabled.
 
