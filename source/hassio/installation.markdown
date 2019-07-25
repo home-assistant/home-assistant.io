@@ -152,10 +152,16 @@ apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificat
 curl -fsSL get.docker.com | sh
 ```
 
-And to install Hass.io the one below. That one is used also for other distributions.
+The below script works for generic installs on x86/x64 machines, running an OS such as Ubuntu. 
 
 ```bash
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
+```
+
+Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 3, the flag `-- -m raspberrypi3` is required. The install script would then look like this.
+
+```bash
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi3
 ```
 
 <div class='note'>
