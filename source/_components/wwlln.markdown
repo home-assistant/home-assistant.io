@@ -25,9 +25,9 @@ New data is returned every 10 minutes.
 
 ## Configuration
 
-To retrieve data from the WWLLN, add the following to your `configuration.yaml`
-file:
+To retrieve data from the WWLLN, edit your `configuration.yaml` file manually or use the "Integrations" feature in the GUI, you find it under Configurations - Integrations.
 
+To manually add the component, add the following to your `configuration.yaml`:
 ```yaml
 wwlln:
 ```
