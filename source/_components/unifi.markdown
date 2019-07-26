@@ -53,6 +53,11 @@ site:
   type: string
   required: true
   default: None
+block_client:
+  description: Clients that can be blocked from the network
+  type: list
+  required: false
+  default: None
 detection_time:
   description: How long since the last seen time before the device is marked away, specified in seconds.
   type: integer
@@ -67,7 +72,7 @@ ssid_filter:
 
 ### Configuring Users
 
-The UniFi controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the Unifi device tracker. If you want POE control as well you would need to have 'admin' permissions.
+The UniFi controller allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the Unifi device tracker. If you want blocking of network access or POE control as well you would need to have 'admin' permissions.
 
 ### Conflicts with MQTT
 
@@ -89,9 +94,15 @@ If Home Assistant and the UniFi controller are running on separate machines or V
 
 ## Switch
 
-Switches are network devices that are powered by POE switches from Ubuiqitis UniFi line of networking gear.
+### Block network access for clients
 
-Note that POE control actually configures the network port of the switch which the device is connected to.
+Allow control of network access to clients configured in `configuration.yaml`
+
+### Control clients powered by POE
+
+Entities appear automatically for each connected POE client. If no POE client device is in operation, no entity will be visible. Note: Unifi infrastructure devices such as access points and other switches are not (yet) supported, even if they are powered over ethernet themselves.
+
+Note that POE control actually configures the network port of the switch which the client is connected to.
 
 ## Debugging integration
 
