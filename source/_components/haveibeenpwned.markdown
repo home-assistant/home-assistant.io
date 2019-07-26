@@ -36,6 +36,10 @@ email:
   description: List of email addresses.
   required: true
   type: list
+api_key:
+  description: HaveIBeenPwned API Key
+  required: true
+  type: string
 {% endconfiguration %}
 
 ## Breach meta data
