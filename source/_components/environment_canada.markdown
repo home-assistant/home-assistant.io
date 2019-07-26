@@ -105,7 +105,6 @@ sensor:
     - `advisories` - Current advisory alerts.
     - `statements` - Current special weather statements.
     - `endings` - Alerts that have recently ended.
-- The platform refreshes the data every minute (primarily to update alerts), and the source data is typically updated hourly within 10 minutes after the hour.
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
     - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
@@ -129,6 +128,11 @@ language:
   required: false
   type: string
   default: english
+scan_interval:
+  description: The time between updates in seconds.
+  required: false
+  type: integer
+  default: 600
 {% endconfiguration %}
 
 ###Alert TTS Script
