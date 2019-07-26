@@ -13,7 +13,9 @@ redirect_from:
 The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
 
 <div class='note warning'>
+
   The HaveIBeenPwned API now requires you to pay $3.50 a month in order to query the API. More info can be found [here](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/)
+
 </div>
 
 ## Configuration
