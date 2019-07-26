@@ -163,6 +163,7 @@ Some installation types require flags to identify the computer type, for example
 ```bash
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi3
 ```
+
 #### Other machine types
  
  - `intel-nuc`
