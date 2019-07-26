@@ -7,14 +7,14 @@ sidebar: true
 comments: false
 sharing: true
 footer: true
-ha_release: 0.96
+ha_release: 0.97
 ha_category: 
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
 ---
 
-The `delijn` sensor will give you the departure time of the next bus, tram or subway a specific stop of the De Lijn public transport network in Flanders (Belgium).
+The `delijn` sensor will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
 
 ## {% linkable_title Setup %}
 
@@ -30,7 +30,7 @@ To enable this sensor, add the following lines to your `configuration.yaml` file
 sensor:
   - platform: delijn
     api_key: 'API_SUBSCRIPTION_KEY'
-    nextpassage:
+    next_departure:
     - stop_id: 'STOP_ID'
 ```
 
@@ -39,7 +39,7 @@ api_key:
   description: "API Subscription key needed to access De Lijn API's."
   required: true
   type: string
-nextpassage:
+next_departure:
   description: One or multiple departure sensors.
   required: true
   type: list
@@ -48,8 +48,8 @@ nextpassage:
       description: "ID of the stop, e.g. `200552`."
       required: true
       type: string
-    max_passages:
-      description: "Specify the maximal number of passages at a stop to return"
+    number_of_departures:
+      description: "Specify the maximum number of departures/passages at a stop to retrieve"
       required: false
       default: 5
       type: integer
@@ -67,10 +67,10 @@ sensor:
   # De Lijn public transport
   - platform: delijn
     api_key: 'abcdefg'
-    nextpassage:
+    next_departure:
     - stop_id: '200018'
     - stop_id: '201169'
-      max_passages: 20
+      number_of_departures: 20
 ```
 
 ## {% linkable_title Custom Lovelace card %}
