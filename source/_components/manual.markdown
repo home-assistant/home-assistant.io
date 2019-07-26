@@ -214,7 +214,6 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 {% raw %}
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
-  #initial_state: 'on'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
@@ -229,7 +228,6 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 {% raw %}
 ```yaml
 - alias: 'Send notification when alarm is in pending status'
-  #initial_state: 'on'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
@@ -244,7 +242,6 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 {% raw %}
 ```yaml
 - alias: 'Send notification when alarm is Armed in Away mode'
-  #initial_state: 'on'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
@@ -259,7 +256,6 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 {% raw %}
 ```yaml
 - alias: 'Send notification when alarm is Armed in Home mode'
-  #initial_state: 'on'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
@@ -267,7 +263,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
   action:
     - service: notify.notify
       data_template:
-        # using multi-line notation, allows for easier quoting
+        # Using multi-line notation allows for easier quoting
         message: >
           ALARM! The alarm is armed in Home mode {{ states('sensor.date_time') }}
 ```
