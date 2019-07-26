@@ -163,12 +163,17 @@ Some installation types require flags to identify the computer type, for example
 ```bash
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi3
 ```
-#### Other machine flags include
+#### Other machine types
  
- - raspberrypi2
- - odroid-c2
- - orangepi-prime
-
+ - `intel-nuc`
+ - `raspberrypi`
+ - `raspberrypi2`
+ - `raspberrypi3`
+ - `raspberrypi3-64`
+ - `odroid-c2`
+ - `odroid-cu2`
+ - `odriod-xu`
+ - `orangepi-prime`
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
