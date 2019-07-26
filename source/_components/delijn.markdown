@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "De Lijn"
 description: "Instructions on how to integrate De Lijn (Flemish public transport company) departure times into Home Assistant."
-date: 2019-05-23 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_release: 0.97
 ha_category: 
   - Transport
@@ -16,12 +10,12 @@ ha_iot_class: Cloud Polling
 
 The `delijn` sensor will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
 
-## {% linkable_title Setup %}
+## Setup
 
 Create a developer account at [De Lijn Open Data portal](https://data.delijn.be/) to get a free API subscription key.
 For valid stop IDs check for the 6 digits at the physical stops or visit the [stops page](https://www.delijn.be/en/haltes/) of the De Lijn website.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this sensor, add the following lines to your `configuration.yaml` file:
 
@@ -55,9 +49,9 @@ next_departure:
       type: integer
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
-### {% linkable_title Full configuration %}
+### Full configuration
 
 The example below shows a full configuration with two sensors, only the abcdefg needs to be replaced with an actual API subscription key. The first stop_id will return the default next 5 passages, the second stop_id has been forced to return the next 20 passages.
 
@@ -73,6 +67,6 @@ sensor:
       number_of_departures: 20
 ```
 
-## {% linkable_title Custom Lovelace card %}
+## Custom Lovelace card
 
-Works best with the following custom Lovelace card: https://github.com/bollewolle/delijn-card
+Works best with the following custom Lovelace card: <https://github.com/bollewolle/delijn-card>
