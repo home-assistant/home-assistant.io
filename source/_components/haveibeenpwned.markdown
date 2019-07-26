@@ -30,7 +30,7 @@ sensor:
     email:
       - your_email1@domain.com
       - your_email2@domain.com
-    api_key: apikeygoeshere
+    api_key: API_KEY
 ```
 
 {% configuration %}
