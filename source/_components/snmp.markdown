@@ -48,6 +48,10 @@ The following OID examples pull the current MAC Address table from a router. Thi
 | TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
 | Ubiquiti | Edgerouter Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
 
+<div class='note warning'>
+OpenWRT will only return information regarding clients that it has an ARP entry for - not associated stations. If it is an access point operating in dumb mode, ie. bridging from wired to wireless, and the internal DHCP is disabled, data regarding clients may not be present or reliable.
+</div>
+
 To use the SNMP version 1 or 2c platform in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
