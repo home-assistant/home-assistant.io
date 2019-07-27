@@ -24,7 +24,13 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 <div class='note warning'>
-This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
+  This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
+  This can somewhat be mitigated with by installing fping on the device and performing a broadcast ping periodically.
+  
+  ```
+  opkg update; opkg install fping
+  echo "$(echo '*/5 * * * * /usr/bin/fping 172.24.32.0/24' ; crontab -l)" | crontab -
+  ```
 </div>
 
 ## Presence Detection
