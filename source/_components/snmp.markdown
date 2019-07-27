@@ -24,13 +24,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 <div class='note warning'>
-  This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
-  This can somewhat be mitigated with by installing fping on the device and performing a broadcast ping periodically.
-  
-  ```
-  opkg update; opkg install fping
-  echo "$(echo '*/5 * * * * /usr/bin/fping 172.24.32.0/24' ; crontab -l)" | crontab -
-  ```
+This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
 </div>
 
 ## Presence Detection
@@ -56,6 +50,13 @@ The following OID examples pull the current MAC Address table from a router. Thi
 
 <div class='note warning'>
 OpenWRT will only return information regarding clients that it has an ARP entry for - not associated stations. If it is an access point operating in dumb mode, ie. bridging from wired to wireless, and the internal DHCP is disabled, data regarding clients may not be present or reliable.
+  
+This can somewhat be mitigated with by installing fping on the device and performing a broadcast ping periodically.
+
+```
+opkg update; opkg install fping
+echo "$(echo '*/5 * * * * /usr/bin/fping 172.24.32.0/24' ; crontab -l)" | crontab -
+```
 </div>
 
 To use the SNMP version 1 or 2c platform in your installation, add the following to your `configuration.yaml` file:
