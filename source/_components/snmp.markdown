@@ -50,9 +50,9 @@ The following OID examples pull the current MAC Address table from a router. Thi
 
 <div class='note warning'>
 OpenWRT will only return information regarding clients that it has an ARP entry for - not associated stations. If it is an access point operating in dumb mode, ie. bridging from wired to wireless, and the internal DHCP is disabled, data regarding clients may not be present or reliable.
-<br>  
+
 This can somewhat be mitigated with by installing fping on the device and performing a broadcast ping periodically.
-<br>
+
 ```
 opkg update; opkg install fping
 echo "$(echo '*/5 * * * * /usr/bin/fping 172.24.32.0/24' ; crontab -l)" | crontab -
