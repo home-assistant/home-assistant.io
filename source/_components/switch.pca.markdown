@@ -15,8 +15,7 @@ To use your PCA 301 switch or socket in your installation, add the following to 
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: pca
+elv:
     device: SERIAL_PORT
 ```
 
