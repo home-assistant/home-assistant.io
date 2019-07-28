@@ -171,6 +171,7 @@ This service can set modem configuration options (otherwise available in the mod
 
 The following automation example processes incoming SMS messages with the [Conversation](/components/conversation/) integration and then deletes the message from the inbox.
 
+{% raw %}
 ```yaml
 automation:
   - alias: SMS conversation
@@ -186,3 +187,4 @@ automation:
           host: '{{ trigger.event.data.host }}'
           sms_id: '{{ trigger.event.data.sms_id }}'
 ```
+{% endraw %}
