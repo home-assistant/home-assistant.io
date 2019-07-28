@@ -32,3 +32,10 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
+## Switchbot Entity
+
+There are two attributes available on the Switchbot entity to give you more information about your device.
+
+- `last_run_success`: If `true` if the last action sent to the Switchbot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messgages.
+- `assumed_state`: Always `true`. If the state of the Switchbot entity cannot be determined, it is assumed to be `on`.
