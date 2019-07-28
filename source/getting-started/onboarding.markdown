@@ -3,21 +3,23 @@ title: "Onboarding Home Assistant"
 description: "Instructions to get Home Assistant configured."
 ---
 
-Alright, you made it here. The tough part is done.
+
+Alright, you made it here. The tough part is done. Just a few things left to configure.
 
 With Home Assistant installed, it's time for doing the initial configuration. Here you will create the owner account of Home Assistant. This account will be an administrator and will always be able to change everything. Enter a name, username, password and click on "create account".
 
-Now you're brought to the main screen of Home Assistant: the states screen. The states screen will show all your devices. So let's get that screen filled up!
+Next step you need to name your Home, the default is prefilled but you can name as you see fit.
 
-Open the menu on the top left and click on Configuration. On the next screen, click on Integrations. At this screen you will be able to set up integrations with Home Assistant. You might notice a "discovered" section, these are integrations that we found on your network and can easily be added with a few clicks. If your integrations are not discovered, find them in the list and click on configure.
+Then select your location (you can hit the detect button to help), this is used to set your co-ordinates for items like weather, also make sure to set your timezone from the dropdown below. You should also set your elevation.
 
-<p class='img'>
-<img src='/images/getting-started/integrations.png' />
-The integrations page in the configurations panel shows you all your configured integrations.
-</p>
+Validate your units, Metric or Imperial then select next.
 
-When each integration is done setting up, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
+In the next stage Home Assistant will discover all the awesome items you have in your house and ask you to configure them. Most items should be self explanatory and don't worry, if you miss something you can always add it in later.
 
-When you're done, navigate back to the states panel and voila, your devices are ready for you to control.
+For each integration, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
+
+Once you are happy select Finish.
+
+Now you're brought to the main screen of Home Assistant this will show all your devices.
 
 ### [Next step: Automate Home Assistant &raquo;](/getting-started/automation/)
