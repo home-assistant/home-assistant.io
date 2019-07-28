@@ -8,13 +8,13 @@ ha_category:
   - Camera
   - Sensor
   - Switch
+  - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 redirect_from:
   - /components/binary_sensor.ring/
   - /components/camera.ring/
   - /components/sensor.ring/
-  - /components/switch.ring/
 ---
 
 The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant.
@@ -27,6 +27,7 @@ There is currently support for the following device types within Home Assistant:
 - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Light](#light)
 
 Currently only doorbells are supported by this sensor.
 
@@ -54,11 +55,16 @@ password:
   description: The password for accessing your Ring account.
   required: true
   type: string
+scan_interval:
+  description: How frequently to query for new video, or current sensor values in seconds
+  required: false
+  type: integer
+  default: 10
 {% endconfiguration %}
 
 ## Binary Sensor
 
-Once you have enabled the [Ring component](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using a binary sensor. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -86,7 +92,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 Please note that downloading and playing Ring video will require a Ring Protect plan.
 </div>
 
-Once you have enabled the [Ring component](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -99,11 +105,6 @@ ffmpeg_arguments:
   description: Extra options to pass to ffmpeg, e.g., image quality or video filter options.
   required: false
   type: string
-scan_interval:
-  description: How frequently to query for new video in seconds.
-  required: false
-  type: integer
-  default: 90
 {% endconfiguration %}
 
 **Note:** To be able to playback the last capture, it is required to install the `ffmpeg` component. Make sure to follow the steps mentioned at [FFMPEG](/components/ffmpeg/) documentation.
@@ -160,7 +161,7 @@ hass.services.call('downloader', 'download_file', data)
 
 ## Sensor
 
-Once you have enabled the [Ring component](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the sensor platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -194,7 +195,7 @@ Currently it supports doorbell, external chimes and stickup cameras.
 
 ## Switch
 
-Once you have enabled the [Ring component](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
+Once you have enabled the [Ring integration](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -202,4 +203,16 @@ switch:
   - platform: ring
 ```
 
-This will add a switch for every camera that supports a siren, and for every camera that supports a floodlight. Note the siren will only turn on for 30 seconds before automatically turning off.
+This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+
+## Light
+
+Once you have enabled the [Ring integration](/components/ring), you can start using the light platform. Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: ring
+```
+
+This will add a light for every camera that supports a floodlight
