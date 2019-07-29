@@ -45,6 +45,7 @@ elkm1:
   - host: elk://IP_ADDRESS_1
   ...
   - host: elk://IP_ADDRESS_2
+    prefix: gh  # for guest house controller
 ```
 
 {% configuration %}
