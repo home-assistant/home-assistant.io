@@ -42,7 +42,7 @@ velbus:
 
 ## Port Sstring
 
-The porti string used in the user interface or the configuration file can have 2 formats:
+The port string used in the user interface or the configuration file can have 2 formats:
 
 - For a serial device: /dev/ttyUSB00
 - For a tcp/ip device: 127.0.0.1:3678
