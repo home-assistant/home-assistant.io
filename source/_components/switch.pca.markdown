@@ -16,7 +16,7 @@ To use your PCA 301 switch or socket in your installation, add the following to 
 ```yaml
 # Example configuration.yaml entry
 elv:
-    device: SERIAL_PORT
+  device: SERIAL_PORT
 ```
 
 This platform will add all PCA 301 switches which are in range. You can read the total used energy in KWh and the current power in Watt.
