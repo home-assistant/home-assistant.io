@@ -74,7 +74,7 @@ The next two statements result in the same value if the state exists. The second
 {% raw %}
 ```text
 {{ states('device_tracker.paulus') }}
-{{ states('device_tracker.paulus') }}
+{{ states.device_tracker.paulus }}
 ```
 {% endraw %}
 
