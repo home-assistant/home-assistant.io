@@ -47,12 +47,12 @@ payload_on:
   description: The payload that represents enabled state.
   required: false
   type: string
-  default: ON
+  default: 'ON'
 payload_off:
   description: The payload that represents disabled state.
   required: false
   type: string
-  default: OFF
+  default: 'OFF'
 value_template:
   description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
   required: false
