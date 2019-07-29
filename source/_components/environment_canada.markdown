@@ -98,6 +98,7 @@ sensor:
     - `wind_bearing` - The current wind direction in degrees.
     - `high_temp` - The next forecast high temperature, in ºC.
     - `low_temp` - The next forecast low temperature, in ºC.
+    - `uv_index` - The next forecast UV index.
     - `pop` - The next forecast probability of precipitation, in %.
     - `text_summary` - A textual description of the next forecast period, e.g. "Tonight. Mainly cloudy. Low -12."
     - `warnings` - Current warning alerts.
