@@ -11,7 +11,7 @@ ha_iot_class: Local Polling
 The `ps4` integration allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
 
-- This integration supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
+- This integration supports controlling multiple PlayStation 4 consoles for your instance. You can add another console by setting up the integration again. You may also have multiple entities for the same PlayStation 4 console if you would like to use additional PSN (PlayStation Network) accounts. To do this, login to the additional account in the PS4 Second Screen app, and complete the setup of the integration again.
 
 ## Requirements
 
@@ -127,8 +127,63 @@ Some titles will have different SKUs in the PlayStation Store database depending
 | Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |                            |
 
 <div class='note'>
-  The regions which are unavailable have no database or have formatting in the database which can not be used by the component.
+  The regions which are unavailable have no database or have formatting in the database which can not be used by the integration.
 </div>
+
+## Media Data
+
+  The PlayStation 4 integration will fetch information about the game or app that is currently running from your region's [PlayStation Store](https://store.playstation.com) database. This information includes the title that the game or app is listed as in the Playstation Store, the url for the corresponding cover/artwork. As the name and the SKU (stock keeping unit) ID for each game will differ from region to region, it is important to correctly set your region in the integration setup to obtain accurate information.
+
+  Items in the Playstation Store are continuously changing as well. Games are often re-released which results in a slight modification to the title in addition to new cover art. The original version will often be replaced completely with the re-released version, with the original, no longer existing in the PlayStation Store at all.
+  
+  Occasionally, the integration may fail to get the data at all, or may get incorrect data. To correct this issue the integration allows for manual editing via any text editor or with services via the frontend.
+  
+### Formatting
+
+  When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your `configuration.yaml` file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines there will be indented entries for each game or app the integration finds. See the following example and table:
+  
+```json
+{
+    "CUSA00129": {
+        "locked": true,
+        "media_content_type": "app",
+        "media_image_url": "http://localhost:8123/local/image.jpg",
+        "media_title": "Netflix"
+    },
+    "CUSA00123": {
+        "locked": false,
+        "media_content_type": "game",
+        "media_image_url": null,
+        "media_title": "Something"
+    }
+}
+```
+
+| Field | Value | Description |
+| ----- | ----- | ----------- |
+| `locked` | boolean | Must be `true` or `false`
+| `media_content_type` | string | Must be `game` or `app`
+| `media_image_url` | string | Any valid url for an image
+| `media_title` | string | The title of the game or app
+
+  Each game or app will have a field named `locked` with a value of `true` or `false` associated to it. The default value will be `false` for each entry. If `locked` is `true` the integration will not overwrite the data pertaining to that game or app.
+  
+  You can set `locked` to `True` to simply just confirm that the attributes of the game or app are correct.
+  
+  Using services which edit the data of a game or app, automatically set the `locked` value to `true`.
+  
+### Editing with Text Editor
+<div class='note'>
+  Backup a copy of your `.ps4-games.json` before continuing. If there are errors in the formatting, your file may be deleted.
+</div>
+
+  To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app. 
+
+### Media Data Services
+
+  The following services are provided to correct/edit the data for games and apps which the PS4 integration displays/retrieves incorrectly or can not find.
+  
+
 
 ## Services
 
