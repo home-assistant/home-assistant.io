@@ -93,7 +93,7 @@ Next you need create a Lambda function.
 - Under `Configuration` tab, expand `Designer`, then click `Alexa Smart Home` in the left part of the panel to add a Alexa Smart Home trigger to your Lambda function.
 - Scroll down little bit, you need input the `Skill ID` from the skill you created in previous step. (tips: you may need switch back to Alexa Developer Console to copy the `Skill ID`.
 - Click your Lambda Function icon in the middle of the diagram, scroll down you will see a `Function code` window.
-- Clear the example code, copy the Python script from: <https://gist.github.com/awarecan/630510a9742f5f8901b5ab284c25e912> (doesn't support Alexa's proactive mode) or <https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b> (modified code to support Alexa's proactive mode, see details below)
+- Clear the example code, copy the Python script from: <https://gist.github.com/matt2005/744b5ef548cc13d88d0569eea65f5e5b> (modified code to support Alexa's proactive mode, see details below)
 - Scroll down a little bit, you will find `Environment variables`, you need add 4 environment variables:
   * BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if need
   * NOT_VERIFY_SSL *(optional)*: you can set it to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
