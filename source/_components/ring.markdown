@@ -7,8 +7,6 @@ ha_category:
   - Binary Sensor
   - Camera
   - Sensor
-  - Switch
-  - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 redirect_from:
@@ -26,8 +24,6 @@ There is currently support for the following device types within Home Assistant:
 - [Camera](#camera)
 - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Sensor](#sensor)
-- [Switch](#switch)
-- [Light](#light)
 
 Currently only doorbells are supported by this sensor.
 
@@ -192,27 +188,3 @@ monitored_conditions:
 {% endconfiguration %}
 
 Currently it supports doorbell, external chimes and stickup cameras.
-
-## Switch
-
-Once you have enabled the [Ring integration](/components/ring), you can start using the switch platform. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: ring
-```
-
-This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
-
-## Light
-
-Once you have enabled the [Ring integration](/components/ring), you can start using the light platform. Add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-light:
-  - platform: ring
-```
-
-This will add a light for every camera that supports a floodlight
