@@ -216,11 +216,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 
 - There are different endpoint URLs, depending on the region of your skill. Please check the available endpoints at <https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html#endpoints>
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][amazon-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
-- If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available."
-
-<p class='note warning'>
-To successfully link your Amazon account when Alexa's proactive mode activated (i.e. "Send Alexa Events" enabled), make sure that you are using the modified code for your Lambda function as well as you restart your Home Assistant after each step of disabling or enabling the skill in Alexa. Otherwise, the Alexa skill might not be able to link to your Home Assistant due to invalid token.
-</p>
+- If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
 ### Alexa web-based app
 
