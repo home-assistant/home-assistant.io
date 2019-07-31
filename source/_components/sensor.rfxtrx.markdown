@@ -54,17 +54,28 @@ sensor:
 
 Only these data_type are valid:
 
-- *Temperature*
+- *Temperature*, *Temperature2*
 - *Humidity*
+- *Humidity status*
 - *Barometer*
 - *Wind direction*
+- *Wind average speed*
+- *Wind gust*
 - *Rain rate*
-- *Energy usage*
-- *Total usage*
+- *Rain total*
 - *Sound*
 - *Sensor Status*
 - *Counter value*
 - *UV*
+- *Forecast*
+- *Forecast numeric*
+- *Chill*
+- *Energy usage*
+- *Total usage*
+- *Voltage*
+- *Current*
+- *Battery numeric*
+- *Rssi numeric*
 
 Example configuration:
 
