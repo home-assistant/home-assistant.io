@@ -31,7 +31,7 @@ The DHW controller is represented as a **WaterHeater** device: It will report it
 
 ### Round Thermostat
 
-Although Round Thermostat is, strictly speaking, a single zone system (i.e. a Controller and a single Zone), they are merged into a single **Climate** device.
+Although Round Thermostat is, strictly speaking, a Controller and a single Zone, they are merged into a single **Climate** device.
 
 ## Configuration
 
