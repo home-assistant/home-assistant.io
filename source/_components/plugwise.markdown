@@ -13,6 +13,8 @@ To find your IP address using the Plugwise App. When connected choose the 'Setti
 
 ### Configuration
 
+#### Minimal example
+
 ```yaml
 # Minimal configuration.yaml entry
 climate:
@@ -20,6 +22,8 @@ climate:
     password: your_short_id # required, the ID on the smile (some string of 6 characters)
     host: local_ip_address  # required, the IP-address of your smile
 ```
+
+#### Full example
 
 ```yaml
 # Example configuration.yaml entry to show only devices at your vacation and primary homes
@@ -65,7 +69,11 @@ max_temp:
   type: integer
 {% endconfiguration %}
 
-### Service `climate.set_hvac_mode`
+### Service
+
+#### Set HVAC mode (schedule)
+
+Service: `climate.set_hvac_mode`
 
 Available options include `auto` or `off`. Meaning `auto` is a schedule is active and `off` there is no schedule active (active preset or manually set temperature will continue).
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
@@ -89,7 +97,9 @@ Changing the active schedule can be done, though not easily:
 - Change the attribute `active_schema` to the actual name of your schema as available from the above attribute or your Plugwise App.
 - Activate the schedule (press the calendar button on the UI-card).
 
-### Service `climate.set_temperature`
+#### Set temperature
+
+Service: `climate.set_temperature`
 
 Example:
 
@@ -103,7 +113,9 @@ script:
           temperature: 19.5
 ```
 
-### Service `climate.set_preset_mode`
+#### Set preset mode
+
+Service: `climate.set_preset_mode`
 
 Available options include: `home`, `vacation`, `no_frost`, `asleep` & `away`
 
