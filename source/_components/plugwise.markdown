@@ -11,9 +11,9 @@ This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en
 
 To find your IP address using the Plugwise App. When connected choose the 'Settings'-icon and go to 'HTML-interface'. Go to the (now little lower) 'Settings'-icon and choose 'Preferences'. Under 'System' then 'Networking' you will find your IP address.
 
-### Configuration
+## Configuration
 
-#### Minimal example
+You have to add the following to your configuration.yaml file.
 
 ```yaml
 # Minimal configuration.yaml entry
@@ -21,21 +21,6 @@ climate:
   - platform: plugwise
     password: your_short_id # required, the ID on the smile (some string of 6 characters)
     host: local_ip_address  # required, the IP-address of your smile
-```
-
-#### Full example
-
-```yaml
-# Example configuration.yaml entry to show only devices at your vacation and primary homes
-climate:
-  - platform: anna
-    name: Anna Thermostat   # optional, only if you want to use a different name
-    password: your_short_id # required, the ID on the smile (some string of 6 characters)
-    host: local_ip_address  # required, the IP-address of your smile
-    username: smile         # optional, default username is smile
-    port: 80 		    # optional, only needed when other than 80
-    min_temp: 4 	    # optional, when you want to change the minimal temperature
-    max_temp: 30 	    # optional, when you want to change the maximum temperature
 ```
 
 {% configuration %}
@@ -68,6 +53,22 @@ max_temp:
   required: false
   type: integer
 {% endconfiguration %}
+
+#### Full configuration example
+
+```yaml
+# Example configuration.yaml entry to show only devices at your vacation and primary homes
+climate:
+  - platform: anna
+    name: Anna Thermostat   # optional, only if you want to use a different name
+    password: your_short_id # required, the ID on the smile (some string of 6 characters)
+    host: local_ip_address  # required, the IP-address of your smile
+    username: smile         # optional, default username is smile
+    port: 80 		    # optional, only needed when other than 80
+    min_temp: 4 	    # optional, when you want to change the minimal temperature
+    max_temp: 30 	    # optional, when you want to change the maximum temperature
+```
+
 
 ### Service
 
