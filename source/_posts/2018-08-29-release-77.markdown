@@ -469,7 +469,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.deconz docs]: /components/sensor.deconz/
 [sensor.geizhals docs]: /components/sensor.geizhals/
 [sensor.glances docs]: /components/sensor.glances/
-[sensor.netatmo_public docs]: /components/sensor.netatmo_public/
+[sensor.netatmo_public docs]: /components/netatmo/#sensor
 [sensor.noaa_tides docs]: /components/sensor.noaa_tides/
 [sensor.openuv docs]: /components/sensor.openuv/
 [sensor.scrape docs]: /components/sensor.scrape/
