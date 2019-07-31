@@ -19,19 +19,19 @@ It does not support the home security functionality of TCC.
 
 It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library.
 
-Honeywell removed support for higher-precision temperatures from the v2 API, so temperatures are reported to the nearest 0.5C.
+Honeywell removed support for higher-precision temperatures from the v2 API, and reported temperatures are rounded up to the nearest 0.5C.
 
 ### evohome
 
 evohome is a multi-zone system. Each Zone is represented as a **Climate** device: it will expose the Zone's operating mode, temperature and setpoint.
 
-The Controller/Location is also represented as a **Climate** device: it will expose the location's operating mode (see below for details). Note that the Controller's temperatures are calculated as an average of all the Zones.
+The Controller/Location is also represented as a **Climate** device: it will expose the location's operating mode (see below for details). Note that the Controller's current temperature is calculated as an average of all the Zones.
 
 The DHW controller is represented as a **WaterHeater** device: It will report its current temperature (but not target temperature), and it can be turned on or off.
 
 ### Round Thermostat
 
-Round Thermostat is a single zone system. It is currently implemented as two **Climate** devices, as if a single zone evohome system.
+Although Round Thermostat is, strictly speaking, a single zone system (i.e. a Controller and a single Zone), it is implemented as a single **Climate** device.
 
 ## Configuration
 
@@ -115,8 +115,8 @@ The Zones will expose the current/upcoming scheduled `setpoints`:
 All evohome entities may have faults, and these can be turned into sensors, or:
 {% raw %}
 ```
-{% if state_attr('climate.main_room', 'status').activeFaults %}
-  {% if state_attr('climate.main_room', 'status').activeFaults[0].faultType == 'TempZoneActuatorLowBattery' %}
+{% if state_attr('climate.bedroom', 'status').activeFaults %}
+  {% if state_attr('climate.bedroom', 'status').activeFaults[0].faultType == 'TempZoneActuatorLowBattery' %}
     There is a low battery
   {% endif %}
     There is a Fault!
