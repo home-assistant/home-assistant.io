@@ -57,12 +57,13 @@ We will need a few things to get started with installing Home Assistant. The lat
    - Create a folder named `network` in the root of the newly formatted USB-stick.
    - Within that folder create a file named `my-network` without extension.
    - Copy one of [the examples] to the `my-network` file and adjust accordingly.
-   - Plug the USB-stick into the Raspberry Pi 3. (The USB-stick needs to be inserted to the device during the following setup process only and can be disconnected afterwards.)
+   - Plug the USB-stick into the Raspberry Pi 3.
 
 1. Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.
 1. Connect your Raspberry Pi to the power supply, so it turns on.
 1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
 1. Home Assistant will be available at [http://hassio.local:8123][local]. If you are running an older Windows or have stricter network configuration, you might need to access Home Assistant at [http://hassio:8123][host].
+1. If you have used a USB-stick for configuring the network, it can now be removed.
 
 [local]: http://hassio.local:8123
 [host]: http://hassio:8123
