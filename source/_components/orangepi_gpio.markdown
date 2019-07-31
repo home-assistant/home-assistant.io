@@ -64,7 +64,7 @@ As this platform supports different types of GPIO pinouts for difference Orange 
 | `neocore2` | Supports the NanoPi Neocore 2 |
 
 ## Additional steps
-This integration uses the `SYSFS` filesystem to get control of the GPIOs. Therefore an operatings system with `CONFIG_GPIO_SYSFS` is required. As far as I know, most out-of-the-box distributions still enable this by default.
+This integration uses the `SYSFS` filesystem to get control of the GPIOs. Therefore an operating system with `CONFIG_GPIO_SYSFS` is required. As far as I know, most out-of-the-box distributions still enable this by default.
 
 As of Linux 4.8 sysfs-gpio is marked as obsolete. However as of today, the alternative GPIO character device is not widely used. Therefore we will use this until the new character device is more widely supported.
 

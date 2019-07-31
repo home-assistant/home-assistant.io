@@ -421,7 +421,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [vera docs]: /components/vera/
 [websocket_api docs]: /components/websocket_api/
 [zwave docs]: /components/zwave/
-[zwave.api docs]: /components/zwave.api/
+[zwave.api docs]: /components/zwave/
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [#7673]: https://github.com/home-assistant/home-assistant/pull/7673
@@ -433,5 +433,5 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.ubus docs]: /components/device_tracker.ubus/
 [hassio docs]: /components/hassio/
 [media_player.volumio docs]: /components/media_player.volumio/
-[telegram_bot.__init__ docs]: /components/telegram_bot.__init__/
+[telegram_bot.__init__ docs]: /components/telegram_bot/
 [discord]: https://discord.gg/c5DvZ4e

@@ -509,7 +509,7 @@ Example:
 ```yaml
 service: output_abs
 data:
-  addres: myhome.0.7
+  address: myhome.0.7
   output: output1
   brightness: 100
   transition: 0

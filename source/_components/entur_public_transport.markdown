@@ -129,4 +129,4 @@ The stop id is the content after `id=` parameter in the url. Copy paste this int
 
 **Q:** Where do I find a line id to add to the whitelisting?
 
-**A:** The sensor will show the line id, and is the recommended way to find it, while we wait for 'Nasjonalt Stoppestedregister' to become public. It is also possible to see the line ids by using the developer tool in the browser while looking at the trafic in [Entur's travel planer](https://en-tur.no).
+**A:** The sensor will show the line id, and is the recommended way to find it, while we wait for 'Nasjonalt Stoppestedregister' to become public. It is also possible to see the line ids by using the developer tool in the browser while looking at the traffic in [Entur's travel planer](https://en-tur.no).

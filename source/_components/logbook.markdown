@@ -11,7 +11,7 @@ ha_release: 0.7
 
 The logbook integration provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
-chronological order. [See the demo for a live example](/demo/). It depends on
+chronological order. It depends on
 the `recorder` integration for storing the data. This means that if the
 [`recorder`](/components/recorder/) integration is set up to use e.g., MySQL or
 PostgreSQL as data store, the `logbook` integration does not use the default

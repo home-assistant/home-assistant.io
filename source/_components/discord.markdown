@@ -13,7 +13,7 @@ The [Discord service](https://discordapp.com/) is a platform for the notify comp
 
 In order to get a token you need to go to the [Discord My Apps page](https://discordapp.com/developers/applications/me) and create a new application. Once the application is ready, create a [bot](https://discordapp.com/developers/docs/topics/oauth2#bots) user (**Create a Bot User**).
 
-Retreive the **Client ID** from the information section and the (hidden) **Token** of your bot for later.
+Retrieve the **Client ID** from the information section and the (hidden) **Token** of your bot for later.
 
 When setting up the application you can use this [icon](/images/favicon-192x192-full.png).
 
@@ -66,21 +66,15 @@ Right click channel name and copy the channel ID (**Copy ID**).
 
 This channel ID has to be used as the target when calling the notification service. Multiple channel IDs can be specified, across multiple servers.
 
-#### Example service payload
+#### Example service call
 
-```json
-{
-  "message": "A message from Home Assistant",
-  "target": [
-    "1234567890",
-    "0987654321"
-  ],
-  "data": {
-    "images": [
-      "/tmp/garage_cam.jpg"
-    ]
-  }
-}
+```yaml
+- service: notify.discord
+  data:
+    message: "A message from Home Assistant"
+    target: ["1234567890", "0987654321"]
+    data:
+      images: "/tmp/garage_cam"
 ```
 
 ### Notes

@@ -82,12 +82,12 @@ area:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -103,12 +103,12 @@ counter:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -124,12 +124,12 @@ keypad:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -145,12 +145,12 @@ output:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -166,12 +166,12 @@ setting:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -187,12 +187,12 @@ task:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -208,12 +208,12 @@ thermostat:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -229,12 +229,12 @@ plc:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -250,12 +250,12 @@ zone:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.

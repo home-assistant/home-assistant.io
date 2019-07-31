@@ -193,7 +193,7 @@ automation:
     platform: sun
     # Possible values: sunset, sunrise
     event: sunset
-    # Optional time offset. This example will trigger 45 minutes before sunrise.
+    # Optional time offset. This example will trigger 45 minutes before sunset.
     offset: '-00:45:00'
 ```
 
