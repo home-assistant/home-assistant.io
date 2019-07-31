@@ -67,7 +67,7 @@ Huge thanks to [@pvizeli] who drove the core implementation and to the following
 [@marvin-w]: https://github.com/marvin-w
 [@OnFreund]: https://github.com/OnFreund
 [@SukramJ]: https://github.com/SukramJ
-[@teachingbirds]: https://github.com/teachingbirds
+[@isabellaalstrom]: https://github.com/isabellaalstrom
 
 ## Advanced mode
 
@@ -87,7 +87,7 @@ The [Home Assistant code repository on GitHub](https://github.com/home-assistant
 
 The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha053/) to discuss all the ins and outs of this new release.
 
-[@teachingbirds] has redone her Lovelace UI and it is looking fabulous!
+[@isabellaalstrom] has redone her Lovelace UI and it is looking fabulous!
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Redid my whole layout for the <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> dashboard yesterday on a whim. &quot;Nest hub inspired&quot;, I call it. 😄 I like it a lot! Feels put together and less messy. <a href="https://t.co/8pmA5CWKev">pic.twitter.com/8pmA5CWKev</a></p>&mdash; Isa (@teachingbirds) <a href="https://twitter.com/teachingbirds/status/1151113630391427072?ref_src=twsrc%5Etfw">July 16, 2019</a>
 </blockquote>
