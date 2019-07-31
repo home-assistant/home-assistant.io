@@ -81,7 +81,7 @@ In order to connect to the device, you need a *login id*. The easiest way to obt
 
 Make sure Home Sharing is enabled on the Apple TV.
 
-To scan for devices and determine the `login_id`, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select services. 
+To scan for devices and determine the `login_id`, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**. 
 
 <img src='/images/screenshots/developer-tools.png' />
 
@@ -111,7 +111,7 @@ If you, when playing media with `play_url`, get the following error message:
 
 *“This AirPlay connection requires iOS 7.1 or later, OS X 10.10 or later, or iTunes 11.2 or later.”*
 
-then device authentication is required, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select services. 
+then device authentication is required, open the developer tools by selecting the hammer icon in the sidebar. Once in the developer tools select **services**. 
 
 <img src='/images/screenshots/developer-tools.png' />
 
