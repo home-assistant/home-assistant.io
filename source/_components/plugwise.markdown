@@ -54,7 +54,7 @@ max_temp:
   type: integer
 {% endconfiguration %}
 
-#### Full configuration example
+### Full configuration example
 
 ```yaml
 # Example configuration.yaml entry to show only devices at your vacation and primary homes
@@ -68,7 +68,6 @@ climate:
     min_temp: 4 	    # optional, when you want to change the minimal temperature
     max_temp: 30 	    # optional, when you want to change the maximum temperature
 ```
-
 
 ### Service
 
@@ -132,7 +131,6 @@ script:
           preset_mode: asleep
 ```
 
-
 ### Troubleshooting
 
 Example of a working configuration excerpt (with debugging enabled):
@@ -156,5 +154,3 @@ Example of something going wrong (IP address not set) excerpt is shown below. Co
   File "/home/homeassistant/.homeassistant/custom_components/plugwise/climate.py", line 130, in __init__
     self._api = Haanna(self._username, self._password, self._host, self._port)
 ```
-
-
