@@ -83,7 +83,9 @@ monitored_conditions:
       description: The relative humidity.
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This sensor is an alternative to the [`metoffice`](/components/weather.metoffice/) weather platform.
 The weather platform is easier to configure but less customizable.
-</p>
+
+</div>

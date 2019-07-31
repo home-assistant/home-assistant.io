@@ -44,6 +44,7 @@ allow_unreachable:
   description: This will allow unreachable bulbs to report their state correctly.
   required: false
   type: boolean
+  default: false
 filename:
   description: Make this unique if specifying multiple Hue hubs.
   required: false
@@ -52,6 +53,7 @@ allow_hue_groups:
   description: Disable this to stop Home Assistant from importing the groups defined on the Hue bridge.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Examples
@@ -107,9 +109,9 @@ $ curl http://<bridge>/api/<username>/lights
 
 Home Assistant will automatically detect your new `LightGroup` and add it to the interface.
 
-<p class='note warning'>
+<div class='note warning'>
   To support Hue Light Groups, your bridge needs to have at least firmware 1.13 (released on June 3, 2016).
-</p>
+</div>
 
 More information can be found on the [Philips Hue API documentation](https://www.developers.meethue.com/documentation/groups-api#22_create_group) website.
 

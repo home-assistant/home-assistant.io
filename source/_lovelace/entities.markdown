@@ -91,7 +91,7 @@ action_name:
 service_data:
   required: false
   description: The service data to use.
-  type: object
+  type: map
 {% endconfiguration %}
 
 ### Divider
@@ -104,7 +104,7 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: object
+  type: string
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 

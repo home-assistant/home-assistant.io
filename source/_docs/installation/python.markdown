@@ -4,9 +4,11 @@ description: "Installation of Home Assistant on your computer."
 redirect_from: /getting-started/installation-python/
 ---
 
-<p class='note'>
+<div class='note'>
+
 If you're running a Linux-based platform, we strongly recommend you follow the instructions for a [virtual environment](/docs/installation/virtualenv/) instead. If you're running on Windows then [see here](/docs/installation/windows/#installing-in-a-python-virtual-environment) instead.
-</p>
+
+</div>
 
 Once Python is installed, execute the following code in a console:
 

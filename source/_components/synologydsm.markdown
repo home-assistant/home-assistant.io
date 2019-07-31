@@ -132,17 +132,19 @@ monitored_conditions:
       description: Displays the maximum temperature of all disks in the volume (creates a new entry for each volume).
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 After booting Home Assistant it can take up to 15 minutes for the sensors to show up. This is due to the fact that sensors are created after Home Assistant has fully been initialized.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
 This sensor will wake up your Synology NAS if it's in hibernation mode.
-</p>
+</div>
 
-<p class='note warning'>
+<div class='note warning'>
+
   If you set `ssl:` to `False`, you *have* to also explicitly set `port:` to **5000**.
-</p>
+
+</div>
 
 ## Separate User Configuration
 

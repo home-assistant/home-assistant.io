@@ -18,9 +18,11 @@ The first is available just looking at the [ViaggiaTreno](http://viaggiatreno.it
 `http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/<Station name>`
 (e.g., `http://www.viaggiatreno.it/viaggiatrenonew/resteasy/viaggiatreno/autocompletaStazione/ROMA` will list all station names (with ids) that starts with *ROMA*).
 
-<p class='note'>
+<div class='note'>
+
 Note that the `station_id` is referred to the train's **departing station**. If a train number does not match with the station id, no data will be returned to the sensor.
-</p>
+
+</div>
 
 Then add the data to your `configuration.yaml` file as shown in the example:
 
@@ -47,13 +49,15 @@ train_name:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 In a future implementation, the station name could be used to automatically search best-matching station id, without the need to specify it.
-</p>
+</div>
 
 The public timetables are coming from [ViaggiaTreno](http://viaggiatreno.it).
 
-<p class='note'>
+<div class='note'>
+
 Instructions (in Italian) for the API are available at:
 https://github.com/bluviolin/TrainMonitor/wiki/API-del-sistema-Viaggiatreno
-</p>
+
+</div>

@@ -39,9 +39,11 @@ hub:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This integration requires the [Modbus](/components/modbus/) integration to be set up to work
-</p>
+
+</div>
 
 Full configuration example including modbus setup shown below:
 

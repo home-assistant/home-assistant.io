@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "World Wide Lightning Location Network (WWLLN)"
 description: "Instructions on how to integrate WWLLN within Home Assistant."
-date: 2019-07-06 23:17
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: wwlln.jpg
 ha_category: Geolocation
 ha_release: 0.96
@@ -27,7 +21,9 @@ is available as the state of each entity.
   <img src='{{site_root}}/images/screenshots/wwlln-feed-map.png' />
 </p>
 
-New data is returned every 5 minutes.
+New data is fetched every 10 minutes. Because data from the WWLLN may vary in terms
+of how real-time it is, the default `window` parameter is set to 1 hour to ensure that as
+many strikes are caught as possible.
 
 ## Configuration
 
@@ -50,9 +46,9 @@ longitude:
 radius:
   description: The radius around your location to monitor; defaults to 25 km or mi (depending on the unit system defined in your `configuration.yaml`).
   required: false
-  type: int
+  type: integer
 window:
-  description: The amount of time before now for which strikes should be considered "active" and shown in the UI.
+  description: The amount of time before now for which strikes should be considered "active" and shown in the UI. Note that a window of less than 1 hour may cause Home Assistant to miss events.
   required: false
   type: time
 {% endconfiguration %}
@@ -69,7 +65,6 @@ the standard ones:
 | source             | `wwlln` to be used in conjunction with the `geo_location` automation trigger. |
 | external_id        | The external ID used in the feed to identify the earthquake in the feed. |
 | publication_date   | Date and time when this event occurred. |
-
 
 ## Full Configuration
 

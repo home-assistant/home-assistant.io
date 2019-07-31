@@ -28,9 +28,11 @@ Getting the right indentation can be tricky if you're not using an editor with a
 
 You can use the online service [YAMLLint](http://www.yamllint.com/) to check if your YAML syntax is correct before loading it into Home Assistant which will save you some time. If you do so, be aware that this is a third-party service and is not maintained by the Home Assistant community.
 
-<p class='note'>
+<div class='note'>
+
 Please pay attention on not storing private data (passwords, API keys, etc.) directly in your `configuration.yaml` file. Private data can be stored in a [separate file](/docs/configuration/secrets/) or in [environmental variables](/docs/configuration/yaml/#using-environment-variables), which circumvents this problem of security.
-</p>
+
+</div>
 
 Text following a `#` are comments and are ignored by the system.
 

@@ -14,9 +14,9 @@ Chances are, you have a dynamic IP address (your ISP changes your address period
 
 This will vary depending on your OS. Caddy has a [nice utillity](https://caddyserver.com/download) that generates an installer script.
 
-<p class='note'>
+<div class='note'>
     Make sure you include the `hook.service` plugin if you want to run Caddy as a service
-</p>
+</div>
 
 ### 3. Port forwarding.
 

@@ -76,11 +76,13 @@ volume_step:
 
 The min_volume and max_volume are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force it to go higher or lower than the values set with the plus and minus buttons.
 
-<p class='note warning'>
+<div class='note warning'>
+
 On linux the user running home-assistant needs `dialout` permissions to access the serial port.
 This can be added to the user by doing `sudo usermod -a -G dialout <username>`.
 Be aware that the user might need to logout and logon again to activate these permissions.
-</p>
+
+</div>
 
 A full configuration example could look like this:
 

@@ -5,9 +5,11 @@ description: "Enhance your Hass.io installation with a local voice assistant."
 
 [Snips.ai](https://snips.ai/) is an AI-powered voice assistant that runs on the Raspberry Pi 3 and x86 platforms. It runs on-device and is Private by Design.
 
-<p class='warning note'>
+<div class='warning note'>
+
 The Snips add-on depends on the Mosquitto add on to bridge to Home Assistant, so make sure that is installed.
-</p>
+
+</div>
 
 Home Assistant comes with certain Intents builtin to handle common tasks. A complete list of Intents can be found in this wiki [Hass Snips Bundle](https://github.com/tschmidty69/hass-snips-bundle-intents/wiki).
 
@@ -55,6 +57,7 @@ language:
 custom_tts:
   description: Whether to use a TTS provider from Home Assistant for a variety of voices.
   type: boolean
+  default: false
 tts_platform:
   description: Which TTS platform to use.
   type: string

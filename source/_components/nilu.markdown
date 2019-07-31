@@ -23,34 +23,34 @@ air_quality:
 ```
 
 {% configuration %}
-  latitude:
-    description: Manually specify latitude. By default, the value will be taken from the Home Assistant configuration.
-    required: false
-    type: number
-    default: Provided by Home Assistant configuration.
-  longitude:
-    description: Manually specify longitude. By default, the value will be taken from the Home Assistant configuration.
-    required: false
-    type: number
-    default: Provided by Home Assistant configuration.
-  name:
-    description: Name of the sensor to use in the frontend.
-    required: false
-    default: NILU
-    type: string
-  area:
-    description: Name of an area to get sensor stations from. See available areas below.
-    required: exclusive
-    type: string
-  stations:
-    description: Name of a specific station to get measurements from.
-    required: exclusive
-    type: string
-  show_on_map:
-    description: Option to show the position of the sensor station on the map.
-    required: false
-    default: false
-    type: boolean
+latitude:
+  description: Manually specify latitude. By default, the value will be taken from the Home Assistant configuration.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
+longitude:
+  description: Manually specify longitude. By default, the value will be taken from the Home Assistant configuration.
+  required: false
+  type: float
+  default: Provided by Home Assistant configuration.
+name:
+  description: Name of the sensor to use in the frontend.
+  required: false
+  default: NILU
+  type: string
+area:
+  description: Name of an area to get sensor stations from. See available areas below.
+  required: exclusive
+  type: string
+stations:
+  description: Name of a specific station to get measurements from.
+  required: exclusive
+  type: string
+show_on_map:
+  description: Option to show the position of the sensor station on the map.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 ## Health risk index explainations

@@ -53,6 +53,7 @@ ac_mode:
   description: Set the switch specified in the *heater* option to be treated as a cooling device instead of a heating device.
   required: false
   type: boolean
+  default: false
 min_cycle_duration:
   description: Set a minimum amount of time that the switch specified in the *heater* option must be in its current state prior to being switched either off or on.
   required: false
@@ -72,7 +73,7 @@ keep_alive:
   required: false
   type: [time, integer]
 initial_hvac_mode:
-  description: Set the initial HVAC mode. Valid values are `heat`, `cool` or `auto`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
+  description: Set the initial HVAC mode. Valid values are `off`, `heat` or `cool`. Value has to be double quoted. If this parameter is not set, it is preferable to set a *keep_alive* value. This is helpful to align any discrepancies between *generic_thermostat* and *heater* state.
   required: false
   type: string
 away_temp:

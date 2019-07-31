@@ -41,6 +41,6 @@ To get the access token for your TV configure the `lg_netcast` platform in Home 
 After starting Home Assistant the TV will display the access token on screen.
 Just add the token to your configuration and restart Home Assistant and the media player integration for your LG TV will show up.
 
-<p class='note'>
+<div class='note'>
 The access token will not change until you factory reset your TV.
-</p>
+</div>

@@ -30,6 +30,8 @@ Config directory: /home/homeassistant/.homeassistant
 Please enter password for encrypted keyring:
 ```
 
-<p class='note warning'>
+<div class='note warning'>
+
   If you are using the Python Keyring, [autostarting](/getting-started/autostart/) of Home Assistant will no longer work.
-</p>
+
+</div>

@@ -89,17 +89,19 @@ is based on [tiwillam]'s fsapi project. Special thanks to both developers, this 
 
 ## Notes and Limitations
 
-<p class='note warning'>
+<div class='note warning'>
+
 The Frontier Silicon API does not provide a multi-user environment. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. This renders the usage of [UNDOK] almost impossible, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session.
 *If you want to prevent Home Assistant to auto connect to your device, simply change the PIN code of the device to something else than: 1234*
-</p>
+
+</div>
 
 [Frontier Silicon chipset]: http://www.frontier-silicon.com/digital-radio-solutions
 [Medion Radios]: http://internetradio.medion.com/
 [IR110]: https://www.hama.com/00054823/hama-ir110-internet-radio-internet-radio-multi-room-app-control
 [DIR3110]: https://www.hama.com/00054824/hama-digitalradio-dir3110-internetradio-dab+-fm-multiroom-app-steuerung
-[MD 87466]: https://www.medion.com/de/shop/internet-dab-radios-medion-kuechen-internetradio-medion-p83302-md-87466-50051273a1.html
-[SIRD 14 C2]: https://www.lidl.de/de/silvercrest-stereo-internetradio-sird-14-c2/p233545
+[MD 87466]: https://www.medion.com/gb/service/start/_product.php?msn=50051273&gid=14
+[SIRD 14 C2]: https://www.silvercrest-multiroom.de/fileadmin/user_upload/pdf/handbucher/Bedienungsanleitungen/IR/279398_SIRD_14_C2_ML4_V1.1_GB_CZ_SK_DE.pdf
 [fsapi]: https://github.com/zhelev/python-fsapi
 [UNDOK]: http://www.frontier-silicon.com/undok
 [flammy]: https://github.com/flammy/fsapi/

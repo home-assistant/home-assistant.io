@@ -73,7 +73,7 @@ filters:
     window_size:
       description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states)
       required: false
-      type: [int, time]
+      type: [integer, time]
       default: 1
     precision:
       description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().

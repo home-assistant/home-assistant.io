@@ -68,7 +68,7 @@ verify_ssl:
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
-  type: positive integer
+  type: integer
   default: 10
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.
@@ -89,11 +89,11 @@ password:
 headers:
   description: The headers for the requests.
   required: false
-  type: list, string
+  type: [string, list]
 json_attributes:
   description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
   reqired: false
-  type: list, string
+  type: [string, list]
 force_update:
   description: Sends update events even if the value hasn't changed. Useful if you want to have meaningful value graphs in history.
   reqired: false
@@ -101,9 +101,9 @@ force_update:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 Make sure that the URL exactly matches your endpoint or resource.
-</p>
+</div>
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](http://arest.io/).
 

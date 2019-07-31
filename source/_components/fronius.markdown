@@ -50,7 +50,7 @@ monitored_conditions:
 
 ## Monitored data
 
-Each sensor type chosen as monitored condition adds a set of sensors to homeassistant.
+Each sensor type chosen as monitored condition adds a set of sensors to Home Assistant.
 
 - `power_flow`
 
@@ -99,3 +99,31 @@ sensor:
     - sensor_type: power_flow
 ```
 
+## Sensors configuration
+
+To extract more detailed values from the state of each integrated sensor and to circumvent undefined values,
+it is possible to use template sensors as an interface.
+For the major part of interesting information this is now done automatically by the component.
+
+{% raw %}
+```yaml
+- platform: template
+  sensors:
+    electricity_inverter1_power_netto:
+      unit_of_measurement: 'W'
+      value_template: >-
+        {% if states.sensor.fronius_1921684247_inverter_1.attributes.power_ac is defined -%}
+          {{ states_attr('sensor.fronius_1921684247_inverter_1', 'power_ac') | float | round(2) }}
+        {%- else -%}
+          0
+        {%- endif %}
+    electricity_autonomy:
+      unit_of_measurement: '%'
+      value_template: >-
+        {% if states.sensor.fronius_1921684247_power_flow.attributes.relative_autonomy is defined -%}
+          {{ states_attr('sensor.fronius_1921684247_power_flow', 'relative_autonomy') | float | round(2) }}
+        {%- else -%}
+          0
+        {%- endif %}
+```
+{% endraw %}

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Arcam FMJ Receivers"
 description: "Instructions on how to integrate Arcam FMJ Receivers into Home Assistant."
-date: 2019-04-28 13:59 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: arcam.svg
 ha_category: Media Player
 ha_release: 0.96
@@ -17,7 +11,7 @@ The `arcam_fmj` integration allows you to control [Arcam FMJ Receveivers](https:
 
 Supported devices:
 
-- AVR 380 
+- AVR 380
 - AVR 450
 - AVR 750
 - Likely other AVRs
@@ -49,15 +43,18 @@ zone:
   type: map
   keys:
     ZONE_INDEX:
-      name:
-        description: Name of zone
-        required: false
-        type: string
-        default: Arcam FMJ - ZONE_INDEX
-      turn_on:
-        description: Service to use when turning on device when no connection is established
-        required: false
-        type: action
+      description: Zone index number.
+      type: map
+      keys:
+        name:
+          description: Name of zone
+          required: false
+          type: string
+          default: Arcam FMJ - ZONE_INDEX
+        turn_on:
+          description: Service to use when turning on device when no connection is established
+          required: false
+          type: action
 {% endconfiguration %}
 
 ```yaml

@@ -49,7 +49,7 @@ host:
 port:
   description: The port of the ethernet to serial adapter.
   required: true
-  type: port
+  type: integer
 dimmers:
   description: List of dimmers.
   required: false

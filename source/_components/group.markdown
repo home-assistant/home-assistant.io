@@ -44,6 +44,7 @@ all:
   description: Set this to `true` if the group state should only turn *on* if **all** grouped entities are *on*.
   required: false
   type: boolean
+  default: false
 icon:
   description: The icon that shows in the front end. **The rest of this only applies to the deprecated UI `/states`**. If the group is a view, this icon will show at the top in the frontend instead of the name. If the group is a view and both name and icon have been specified, the icon will appear at the top of the frontend and the name will be displayed as the mouse-over text. 
   required: false
@@ -52,6 +53,7 @@ view:
   description: "**Only applies to the deprecated UI `/states`**. If yes then the entry will be shown as a view (tab) at the top. Groups that are set to `view: true` cannot be used as entities in other views. *Does not apply to Lovelace.*"
   required: false
   type: boolean
+  default: false
 control:
   description: "**Only applies to the deprecated UI `/states`**. Set value to `hidden`. If hidden then the group switch will be hidden. *Does not apply to Lovelace.*"
   required: false

@@ -4,15 +4,19 @@ description: "Step to update Home Assistant."
 redirect_from: /getting-started/updating/
 ---
 
-<p class='note warning'>
+<div class='note warning'>
+
 The upgrade process differs depending on the installation you have, so please review the documentation that is specific to your install [Hass.io](/hassio/), [Hassbian](/docs/installation/hassbian/common-tasks/#update-home-assistant), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant).
-</p>
+
+</div>
 
 Check what's new in the latest version and potentially impacts your system in [Home Assistant release notes](https://github.com/home-assistant/home-assistant/releases). It is good practice to review these release notes and pay close attention to the **Breaking Changes** that are listed there. If you haven't done an update for a while, you should also check previous release notes as they can also contain relevant **Breaking Changes**. **Breaking Changes** may require configuration updates for your components. If you missed this and Home Assistant refuses to start, check the log file in the [configuration](/docs/configuration/) directory, e.g., `.homeassistant/home-assistant.log`, for details about broken components.
 
-<p class='note'>
+<div class='note'>
+
 To avoid permission errors, the upgrade must be run as the same user as the installation was completed, again review the documentation specific to your install [Hass.io](/hassio/), [Hassbian](/docs/hassbian/installation/), [Vagrant](/docs/installation/vagrant/), or [Virtualenv](/docs/installation/virtualenv).
-</p>
+
+</div>
 
 The default way to update Home Assistant to the latest release, when available, is:
 
@@ -57,9 +61,9 @@ $ pip3 install --pre --upgrade homeassistant
 
 If you want to stay on the bleeding-edge Home Assistant development branch, you can upgrade to `dev`.
 
-<p class='note warning'>
+<div class='note warning'>
   The "dev" branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
-</p>
+</div>
 
 ```bash
 $ pip3 install --upgrade git+git://github.com/home-assistant/home-assistant.git@dev

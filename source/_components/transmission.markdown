@@ -64,6 +64,7 @@ turtle_mode:
   description: If enabled, it creates a switch entity to control the 'Alternative Speed Limits' (aka 'Turtle mode') setting.
   required: false
   type: boolean
+  default: false
 scan_interval:
   description: How frequently to query for new data. Defaults to 120 seconds.
   required: false
@@ -72,7 +73,7 @@ monitored_conditions:
   type: integer
   description: "List of monitored conditions. Possible values are:"
   required: false
-  type: map
+  type: list
   keys:
     current_status:
       description: The status of your Transmission daemon.
@@ -116,3 +117,13 @@ Example of configuration of an automation with completed torrents:
       title: "Torrent completed!"
       message: "{{trigger.event.data.name}}"
 ```
+
+## Services
+
+### Service `add_torrent`
+
+Adds a new torrent to download. It can either be a URL (http, https or ftp), magnet link or a local file (make sure that the path is white listed).
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `torrent` | no | Torrent to download

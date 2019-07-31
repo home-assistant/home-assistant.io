@@ -66,9 +66,11 @@ climate:
 The following values are valid for the `hvac_mode` attribute:
 
 - Off (maps internally to HVAC_MODE_OFF within Home Assistant)
+- Auto (maps internally to HVAC_MODE_AUTO within Home Assistant)
 - Heat (maps internally to HVAC_MDOE_HEAT within Home Assistant)
+- Cool (maps internally to HVAC_MDOE_COOL within Home Assistant)
 - Fan only (maps internally to HVAC_MODE_FAN_ONLY within Home Assistant)
-- Dehumidification (maps internally to HVAC_MODE_DRY within Home Assistant)
+- Dry (maps internally to HVAC_MODE_DRY within Home Assistant)
 
 The following presets are valid for the `preset_mode` attribute:
 
@@ -157,7 +159,7 @@ operation_mode_comfort_address:
 operation_modes:
   description: Overrides the supported operation modes.
   required: false
-  type: array
+  type: list
 on_off_address:
   description: KNX address for switching the climate device on/off.
   required: false

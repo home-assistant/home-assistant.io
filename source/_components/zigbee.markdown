@@ -55,9 +55,9 @@ To find the possible serial port names of your device, run:
 ls /dev/ttyUSB*
 ```
 
-<p class='note'>
+<div class='note'>
 The port may also appear as /dev/ttyACM* if you're communicating with the Zigbee device through an Arduino.
-</p>
+</div>
 
 ### Example
 

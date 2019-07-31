@@ -16,9 +16,11 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 
 If you are planning to use Slack as yourself then you'll need to create a [new app](https://api.slack.com/apps) under your Slack.com account. After creating the app, access the OAuth & Permissions link under the Features heading in the sidebar. Your OAuth Access Token should be located there. This is the key that you'll use in your `configuration.yaml` file.
 
-<p class='note'>
+<div class='note'>
+
 There is an app credential Verification Token on the Basic Settings of your app. This is **not** the API key you want.
-</p>
+
+</div>
 
 You will also need to ensure that you have added the appropriate scope when configuring your app. In this case, in the Scopes section, add the `Send messages as user` scope, e.g., (chat:write:user).
 
@@ -43,6 +45,7 @@ notify:
 name: 
   description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: false
+  type: string
   default: "notify"
 api_key:
   description: The Slack API token to use for sending Slack messages.
@@ -60,6 +63,7 @@ username:
 icon:
   description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
   required: false
+  type: string
 {% endconfiguration %}
 
 ### Slack service data

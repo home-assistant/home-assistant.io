@@ -62,9 +62,9 @@ Property screen of the Maker Channel
 
 Once you have added your key to your `configuration.yaml` file, restart your Home Assistant server. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
 
-<p class='note'>
+<div class='note'>
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
-</p>
+</div>
 
 ### Multiple IFTTT keys
 
@@ -81,7 +81,7 @@ ifttt:
 
 ### Testing your trigger
 
-You can use the **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant frontend, open the sidebar, click on the first icon in the developer tools. This should get you to the **Call Service** screen. Fill in the following values:
+You can use **Developer Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, open the Home Assistant sidebar, click on Developer Tools, and then the **Services** tab. Fill in the following values:
 
 Field | Value
 ----- | -----

@@ -122,11 +122,14 @@ motion_sensor:
   description: Activate motion sensor if `auto_discovery` is disabled.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
-<p class='note'>
-  You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
-</p>
+<div class='note'>
+
+You need to enable logging in the Android app (`Data logging` > `Enable data logging`), if you wish to see the sensor states in Home Assistant. The sensor states stays as `unknown`, until it's enabled.
+
+</div>
 
 ## Full example
 

@@ -35,7 +35,7 @@ host:
 monitored_conditions:
   description: The cartridge colours to monitor. 
   required: true
-  type: map
+  type: list
   keys:
     black:
       description: The black ink cartridge

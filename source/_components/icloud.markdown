@@ -50,13 +50,15 @@ gps_accuracy_threshold:
   type: integer
 {% endconfiguration %}
 
-<p class='note warning'>
-Low `max_interval` may cause battery drainage as it wakes up your device to get the current location.
-</p>
+<div class='note warning'>
 
-<p class='note warning'>
+Low `max_interval` may cause battery drainage as it wakes up your device to get the current location.
+
+</div>
+
+<div class='note warning'>
 You may receive an email from Apple stating that someone has logged into your account.
-</p>
+</div>
 
 To disable the drainage of the battery, a dynamic interval is being used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 

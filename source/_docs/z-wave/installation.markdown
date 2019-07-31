@@ -49,7 +49,7 @@ autoheal:
 device_config / device_config_domain / device_config_glob:
   description: "This attribute contains node-specific override values. NOTE: This needs to be specified if you are going to use any of the following options. See [Customizing devices and services](/docs/configuration/customizing-devices/) for the format."
   required: false
-  type: string, list
+  type: [string, list]
   keys:
     ignored:
       description: Ignore this entity completely. It won't be shown in the Web Interface and no events are generated for it.
@@ -156,7 +156,7 @@ $ ls -1tr /dev/tty*|tail -n 1
 
 #### Raspberry Pi specific
 
-On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant.
+On the Raspberry Pi you will need to enable the serial interface in the `raspi-config` tool before you can add Z-Wave to Home Assistant. Make sure to reboot the Raspberry Pi for the setting to take effect.
 
 #### Linux (except Hassbian)
 

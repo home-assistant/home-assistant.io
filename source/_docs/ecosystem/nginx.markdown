@@ -15,9 +15,9 @@ Chances are, you have a dynamic IP address (your ISP changes your address period
 
 This will vary depending on your OS. Check out Google for this. After installing, ensure that NGINX is not running.
 
-<p class='note'>
+<div class='note'>
 You will at least need nginx >= 1.3.13, as WebSocket support is required for the reverse proxy.
-</p>
+</div>
 
 ### 3. Obtain an SSL certificate
 
@@ -57,9 +57,11 @@ $ sudo openssl dhparam -out dhparams.pem 2048
 
 Create a new file `/etc/nginx/sites-available/hass` and copy the configuration file at the bottom of the page into it.
 
-<p class='note'>
+<div class='note'>
+
 Some Linux distributions (including CentOS and Fedora) will not have the `/etc/nginx/sites-available/` directory. In this case, remove the default server {} block from the `/etc/nginx/nginx.conf` file and paste the contents from the bottom of the page in its place. If doing this, proceed to step 7.
-</p>
+
+</div>
 
 ### 6. Enable the Home Assistant configuration.
 

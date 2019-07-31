@@ -95,9 +95,9 @@ binary_sensor:
   - platform: mystrom
 ```
 
-<p class='note'>
+<div class='note'>
 The firmware version 2.56 doesn't support TLS/SSL. This means that you are only able to use the WiFi Buttons if you are using plain-text communication between Home Assistant and the clients/entities.
-</p>
+</div>
 
 ### Setup of myStrom Buttons
 

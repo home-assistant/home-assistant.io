@@ -51,6 +51,7 @@ hidden:
   type: boolean
   default: true
 commands:
+  description: A list of commands
   required: false
   type: map
   keys:

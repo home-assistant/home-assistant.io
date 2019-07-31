@@ -85,10 +85,12 @@ force_resize:
   description: Resize the image even if the resulting image would take up more bandwidth than the original.
   required: false
   type: boolean
+  default: false
 cache_images:
   description: Preserve the last image and re-send in the case the camera is not responding.
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Examples

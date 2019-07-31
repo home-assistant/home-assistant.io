@@ -28,6 +28,6 @@ sensor:
 addresses:
   description: List of bitcoin wallet addresses to watch.
   required: true
-  type: string, list
+  type: [string, list]
 {% endconfiguration %}
 

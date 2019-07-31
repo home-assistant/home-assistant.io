@@ -42,10 +42,10 @@ Configuration options for the UPS Sensor:
         milliseconds: 0
     </pre>
 
-<p class='note warning'>
+<div class='note warning'>
 The UPS sensor logs into the UPS My Choice website to scrape package data. It does not use an API. Use at your own risk.
-</p>
+</div>
 
-<p class='note info'>
+<div class='note info'>
 If the UPS sensor is throwing an error about not being able to login to the UPS My Choice website, it's likely because there is a new UPS Technology Agreement (UTA) preventing the scraper from accessing the package data. Login to UPS My Choice manually and accept the UTA to resolve this.
-</p>
+</div>

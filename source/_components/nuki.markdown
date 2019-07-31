@@ -41,7 +41,7 @@ token:
 
 ## Services
 
-### Service `nuki_unlatch`
+### Service `open`
 
 This will unlatch the door, ie. open it (provided this works with your type of door).
 
@@ -49,7 +49,7 @@ This will unlatch the door, ie. open it (provided this works with your type of d
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
 
-### Service `nuki_lock_n_go`
+### Service `lock_n_go`
 
 This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
 See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more details about this feature.
@@ -58,3 +58,11 @@ See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
 | `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
+
+### Service `check_connection` 
+
+This will force the communication between the bridge and the lock, updating the available attribute.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.

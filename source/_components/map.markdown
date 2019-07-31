@@ -14,6 +14,7 @@ This offers a map on the frontend to display the location of tracked devices. To
 # Example configuration.yaml entry
 map:
 ```
-<p class='note'>
+
+<div class='note'>
 Devices that are currently at home won't show on the map.
-</p>
+</div>

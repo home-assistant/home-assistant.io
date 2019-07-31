@@ -13,15 +13,19 @@ so remotes such as Harmony and Android apps can connect to it through WiFi as if
 Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.
 Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.
 
-<p class='note'>
-Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
-</p>
+<div class='note'>
 
-<p class='note warning'>
+Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
+
+</div>
+
+<div class='note warning'>
+
 This integration opens an unauthenticated API on the host, allowing anything on the local network to access
 your Home Assistant instance through the automations you create with emulated Roku as the trigger.
 Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's ip or DNS name)
-</p>
+
+</div>
 
 ## Configuration
 

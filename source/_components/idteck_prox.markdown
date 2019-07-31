@@ -33,7 +33,7 @@ host:
 port:
   description: The port of the ethernet to serial adapter
   required: true
-  type: port
+  type: integer
 name:
   description: The name of the prox card reader
   required: true

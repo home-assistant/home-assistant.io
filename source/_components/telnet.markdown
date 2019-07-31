@@ -26,6 +26,7 @@ switch:
       command_off: "PWR OFF"
       command_state: "PWR?"
       value_template: '{{ value == "PWR=01" }}'
+      timeout: 0.9
 ```
 {% endraw %}
 
@@ -69,4 +70,9 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
+        timeout:
+          description: How long to wait for a reply after a telnet command is sent. 
+          required: false
+          default: 0.2
+          type: float
 {% endconfiguration %}

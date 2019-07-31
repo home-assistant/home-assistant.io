@@ -5,9 +5,11 @@ description: "Instructions to get Home Assistant configured."
 
 Until now we have been able to configure Home Assistant purely via the user interface. However, not all options are accessible via the user interface. The other options are accessible via the Home Assistant configuration file called `configuration.yaml`. A default one is created when Home Assistant started for the first time.
 
-<p class='note'>
+<div class='note'>
+
 This final step of the getting started only applies if you've installed Home Assistant via Hass.io. If you've used another installation method, [see here](/docs/configuration/).
-</p>
+
+</div>
 
 We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Hass.io add-on store: the HASS Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Hass.io. On the new page, open the add-on store tab.
 

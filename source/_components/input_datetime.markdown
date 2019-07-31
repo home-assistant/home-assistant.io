@@ -21,13 +21,16 @@ add the following lines to your `configuration.yaml`:
 input_datetime:
   both_date_and_time:
     name: Input with both date and time
-    has_    has_time: true
+    has_date: true
+    has_time: true
   only_date:
     name: Input with only date
-    has_    has_time: false
+    has_date: true
+    has_time: false
   only_time:
     name: Input with only time
-    has_    has_time: true
+    has_date: false
+    has_time: true
 ```
 
 {% configuration %}
@@ -39,7 +42,7 @@ input_datetime:
       name:
         description: Friendly name of the datetime input.
         required: false
-        type: String
+        type: string
       has_time:
         description: Set to `true` if the input should have a time. At least one `has_time` or `has_date` must be defined.
         required: false
@@ -53,7 +56,7 @@ input_datetime:
       initial:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
-        type: datetime | time | date
+        type: [datetime, time, date]
         default: 1970-01-01 00:00 | 1970-01-01 | 00:00
 {% endconfiguration %}
 
@@ -137,5 +140,12 @@ automation:
     entity_id: input_datetime.date_and_time
     data_template:
       datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
+  - service: input_datetime.set_datetime
+    data_template:
+      entity_id: input_datetime.date_and_time
+      date: >
+        {{ now().timestamp() | timestamp_custom("%Y-%m-%d", true) }}
+      time: >
+        {{ now().timestamp() | timestamp_custom("%H:%M:%S", true) }}
 ```
 {% endraw %}

@@ -20,9 +20,11 @@ We need an IP camera that can capture sound in the baby's room. It is also possi
 
 Next, we attach a `ffmpeg_noise` binary sensor to our IP camera. The sensor has an output `option` that allows us to send the output to an [icecast2](http://icecast.org/) server for playing over speakers integrated with Home Assistant. We can use the binary sensor in our automation. You can ignore the icecast2 setup if you don't want to play the audio after the noise sensor trigger.
 
-<p class='note'>
+<div class='note'>
+
 We change the platform name for binary sensor in 0.38 from `ffmpeg` to `ffmpeg_noise`. Also all service going to component and was rename from `binary_sensor.ffmpeg_xy` to `ffmpeg.xy`.
-</p>
+
+</div>
 
 On Raspbian Jessie, you can setup [FFmpeg](/components/ffmpeg) and install an [icecast2](http://icecast.org/) server using:
 

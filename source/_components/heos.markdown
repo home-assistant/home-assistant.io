@@ -33,9 +33,9 @@ host:
   type: string
 {% endconfiguration %}
 
-<p class='note info'>
+<div class='note info'>
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
-</p>
+</div>
 
 ## Services
 

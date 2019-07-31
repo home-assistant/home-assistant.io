@@ -10,13 +10,13 @@ redirect_from:
  - /components/sensor.cpuspeed/
 ---
 
-
 The `cpuspeed` sensor platform to allow you to monitor the current CPU speed.
 
+<div class='note warning'>
 
-<p class='note warning'>
   You can't use this sensor in a Container (like Hass.io) as it requires access to the physical CPU. Also, not all [ARM CPUs](https://github.com/workhorsy/py-cpuinfo/#cpu-support) are supported.
-</p>
+
+</div>
 
 ## Configuration
 

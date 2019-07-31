@@ -63,7 +63,7 @@ period:
   description: The time in seconds for one complete oscillation of the periodic contribution.
   required: false
   default: 0
-  type: seconds
+  type: integer
 phase:
   description: The phase offset (in degrees) to apply to the periodic component.
   required: false

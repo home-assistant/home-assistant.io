@@ -3,9 +3,11 @@ title: "Remote Access with TLS/SSL via Let's Encrypt"
 description: "A guide to remotely accessing Home Assistant and securing the connection with an SSL certificate from Let's Encrypt"
 ---
 
-<p class='note'>
+<div class='note'>
+
 If you are using Hass.io or Hassbian, do not use this guide. Instead, use the [DuckDNS add-on](/addons/duckdns/) for Hass.io or the [DuckDNS suite](https://github.com/home-assistant/hassbian-scripts/blob/master/docs/suites/duckdns.md) for Hassbian to automatically maintain a subdomain including HTTPS certificates via Let's Encrypt.
-</p>
+
+</div>
 
 This guide was added by mf_social on 16/03/2017 and was valid at the time of writing. This guide makes the following assumptions:
 
@@ -227,19 +229,21 @@ Protocol - Both
 
 Remember to save the new rule.
 
-<p class='note'>
+<div class='note'>
 In cases where your ISP blocks port 80 you will need to change the port forward options to forward port 443 from outside to port 443 on your Home Assistant device. Please note that this will limit your options for automatically renewing the certificate, but this is a limitation because of your ISP setup and there is not a lot we can do about it!
-</p>
+</div>
 
 Now SSH in to the device your Home Assistant is running on.
 
-<p class='note'>
+<div class='note'>
+
 If you're running the 'standard' setup on a Raspberry Pi the chances are you just logged in as the 'pi' user. If not, you may have logged in as the Home Assistant user. There are commands below that require the Home Assistant user to be on the `sudoers` list. If you are not using the 'standard' Pi setup it is presumed you will know how to get your Home Assistant user on the `sudoers` list before continuing.  If you are running the 'standard' Pi setup, from your 'pi' user issue the following command (where `homeassistant` is the Home Assistant user):
 
+```bash
+sudo adduser homeassistant sudo
 ```
-$ sudo adduser homeassistant sudo
-```
-</p>
+
+</div>
 
 If you did not already log in as the user that currently runs Home Assistant, change to that user (usually `homeassistant` or `hass` - you may have used a command similar to this in the past):
 
@@ -296,15 +300,17 @@ Did all of that go without a hitch? Wahoo! Your Let's Encrypt certificate is now
 
 ### 5 - Check the incoming connection
 
-<p class='note'>
+<div class='note'>
+
 Following on from Step 4 your SSH will still be in the certbot folder. If you edit your configuration files over SSH you will need to change to our `homeassistant` folder:
 
 ```
-$ cd ~/.homeassistant
+cd ~/.homeassistant
 ```
 
 If you use Samba shares to edit your files you can exit your SSH now.
-</p>
+
+</div>
 
 If during step 4 you had to use port 443 instead of port 80 to generate your certificate, you should delete that rule now.
 
@@ -401,9 +407,11 @@ $ sudo apt-get update
 $ sudo apt-get install ssl-cert-check
 ```
 
-<p class='note'>
+<div class='note'>
+
 In cases where, for whatever reason, apt-get installing is not appropriate for your installation you can fetch the ssl-cert-check script from `http://prefetch.net/code/ssl-cert-check` bearing in mind that you will have to modify the command in the sensor code below to run the script from wherever you put it, modify permission if necessary and so on.
-</p>
+
+</div>
 
 To set up a senor add the following to your `configuration.yaml` (remembering to correct the URL for your DuckDNS):
 

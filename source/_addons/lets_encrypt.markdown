@@ -3,9 +3,11 @@ title: "Let's Encrypt"
 description: "Automatically manage your SSL certificate using Let's Encrypt."
 ---
 
-<p class='note'>
+<div class='note'>
+
 You should not use this if you are also using the [DuckDNS add-on]. The DuckDNS add-on has integrated Let's Encrypt support.
-</p>
+
+</div>
 
 Setup and manage a [Let's Encrypt](https://letsencrypt.org/) certificate. This add-on will create a certificate on the first run and will auto-renew if the certificate is within 30 days of expiration. This add-on uses port 80 to verify the certificate request. You will need to stop all other add-ons that also use this port.
 

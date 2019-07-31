@@ -79,6 +79,7 @@ fade:
   description: Fade is either `true` or `false` and tells a dimmer if it should fade smooth or instant between values (only for IKEA protocol as it seems).
   required: false
   type: boolean
+  default: false
 code:
   description: A number series based on ones and zeroes often used for dip-switch based devices.
   required: false
