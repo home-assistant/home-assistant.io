@@ -13,6 +13,18 @@ og_image: /images/blog/2019-08-release-97/components.png
 
 <a href='/components/#version/0.96'><img src='/images/blog/2019-08-release-97/components.png' style='border: 0;box-shadow: none;'></a>
 
+## Python 3.5 support has been dropped
+
+As per previous announcements, this is the first release that requires at least Python 3.6.
+
+## UI changes
+
+- Improved accessibility. This is an [ongoing effort](https://github.com/home-assistant/home-assistant-polymer/issues/3267) on making the frontend accessible for visually impaired users.
+- Split out configuration.yaml actions fron core config into a new server control config panel. Thanks [@IcyPalm]
+- Markdown card will now have size + 1 if it has a header defined. Some layouts might move around due to this.
+
+[@icypalm]: https://www.github.com/IcyPalm/
+
 ## New Integrations
 
 - Add support for recording history to Apache Kafka ([@bachya] - [#25085]) ([apache_kafka docs]) (new-integration)
