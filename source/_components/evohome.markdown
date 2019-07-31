@@ -79,20 +79,50 @@ If the zone is in **FollowSchedule** mode, its `temperature` (target temperature
 
 If the Controller is set to **HeatingOff** (target temperature to minimum) or **Away** (target temperature to 12C), then the Zones will inherit that mode regardless of their own setpoint mode.
 
-If the Zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint. Once this is done, the ZOne can be switched to **PermanentOverride** mode.
+If the Zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint. Once this is done, the Zone can be switched to **PermanentOverride** mode.
 
-In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE`. However, the actual operating mode of these devices can be tracked via its state attributes, which includes a JSON data structure for current state called `status`.
+In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE`.
 
-For the Controller:
+## Useful Templates
+
+The actual operating mode of evohome entities can be tracked via their state attributes, which includes a JSON data structure for current state called `status`.
+
+For the Controller, see `systemModeStatus`:
 {% raw %}
 ```
-value_template: "{{ state_attr('climate.main_room', 'status').systemModeStatus.mode }}"
+{% if state_attr('climate.my_home', 'status').systemModeStatus.mode == "Away" %}
+  The system is in Away mode
+{% else %}
+  The system is not in Away mode
+{% endif %}
 ```
 {% endraw %}
 
-For the Zones:
+For the Zones, it is `setpointStatus`:
 {% raw %}
 ```
-value_template: "{{ state_attr('climate.my_house', 'status').setpointStatus.setpointMode }}"
+{{ state_attr('climate.kitchen', 'status').setpointStatus.setpointMode }}
 ```
 {% endraw %}
+
+The Zones will expose the current/upcoming scheduled `setpoints`:
+{% raw %}
+```
+{{ state_attr('climate.kitchen', 'status').setpoints.next.temperature }}
+```
+{% endraw %}
+
+All evohome entities may have faults, and these can be turned into sensors, or:
+{% raw %}
+```
+{% if state_attr('climate.main_room', 'status').activeFaults %}
+  {% if state_attr('climate.main_room', 'status').activeFaults[0].faultType == 'TempZoneActuatorLowBattery' %}
+    There is a low battery
+  {% endif %}
+    There is a Fault!
+{% else %}
+  Yay, everything is OK :)
+{% endif %}
+```
+{% endraw %}
+
