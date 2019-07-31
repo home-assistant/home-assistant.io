@@ -22,7 +22,7 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 
  - Core: Add service to restart Home Assistant ([@rmkraus])
  - Core: Allow device to report as unavailable ([@MartinHjelmare])
- - Core: Allow overriding polling interval in platforms and [via config][polling-config] ([@balloob])
+ - Core: Allow overriding polling interval in platforms and via config ([@balloob])
  - Frontend: support for a [default view] have been added to replace the show all view ([@balloob])
  - Component: Added [apcupsd] component ([@flyte])
  - Component: Added component to log values to [Splunk] ([@miniconfig])
@@ -82,7 +82,6 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [@Danielhiversen]: https://github.com/Danielhiversen/
 [@roqeer]: https://github.com/roqeer/
 [@jaharkes]: https://github.com/jaharkes/
-[polling-config]: /cookbook/customize_polling_interval/
 [default view]: /components/group/
 [apcupsd]: /components/apcupsd/
 [Splunk]: /components/splunk/

@@ -549,7 +549,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [scene docs]: /components/scene/
 [sensor.airvisual docs]: /components/sensor.airvisual/
 [sensor.alpha_vantage docs]: /components/sensor.alpha_vantage/
-[sensor.bloomsky docs]: /components/sensor.bloomsky/
+[sensor.bloomsky docs]: /components/bloomsky/#sensor
 [sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
 [sensor.buienradar docs]: /components/sensor.buienradar/
 [sensor.deconz docs]: /components/sensor.deconz/

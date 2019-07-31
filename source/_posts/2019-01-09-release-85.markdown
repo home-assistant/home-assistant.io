@@ -838,7 +838,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.dublin_bus_transport docs]: /components/sensor.dublin_bus_transport/
 [sensor.eliqonline docs]: /components/sensor.eliqonline/
 [sensor.entur_public_transport docs]: /components/sensor.entur_public_transport/
-[sensor.esphome docs]: /components/sensor.esphome/
+[sensor.esphome docs]: /components/esphome/
 [sensor.fail2ban docs]: /components/sensor.fail2ban/
 [sensor.filter docs]: /components/sensor.filter/
 [sensor.flunearyou docs]: /components/sensor.flunearyou/

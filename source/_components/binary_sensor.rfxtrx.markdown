@@ -90,7 +90,7 @@ automatic_add:
 
 <div class='note warning'>
 
-This integration and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
+This integration and the [rfxtrx switch](/components/switch.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
 Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
 
 </div>
