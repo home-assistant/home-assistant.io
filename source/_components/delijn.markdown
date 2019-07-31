@@ -6,6 +6,7 @@ ha_category:
   - Transport
   - Sensor
 ha_iot_class: Cloud Polling
+logo: delijn.svg
 ---
 
 The `delijn` sensor will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
