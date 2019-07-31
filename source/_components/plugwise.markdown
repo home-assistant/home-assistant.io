@@ -4,8 +4,6 @@ description: "Plugwise Climate integration."
 logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
-redirect_from:
-  - /components/climate.tado/
 ha_release: 0.97
 ---
 
