@@ -83,7 +83,7 @@ If the Zone's temperature is changed, then it will be a **TemporaryOverride** th
 
 In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE`.
 
-## Useful Templates
+## Useful Jinja Templates
 
 The actual operating mode of evohome entities can be tracked via their state attributes, which includes a JSON data structure for current state called `status`.
 
