@@ -25,6 +25,10 @@ As per previous announcements, this is the first release that requires at least 
 
 [@icypalm]: https://www.github.com/IcyPalm/
 
+## In other news
+
+TBD
+
 ## New Integrations
 
 - Add support for recording history to Apache Kafka ([@bachya] - [#25085]) ([apache_kafka docs]) (new-integration)
