@@ -19,7 +19,7 @@ It does not support the home security functionality of TCC.
 
 It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library.
 
-Honeywell removed support for higher-precision temperatures from the v2 API, and reported temperatures are rounded up to the nearest 0.5C.
+Honeywell removed support for higher-precision temperatures from the v2 API, and thus reported temperatures are rounded up to the nearest 0.5C.
 
 ### evohome
 
@@ -31,7 +31,7 @@ The DHW controller is represented as a **WaterHeater** device: It will report it
 
 ### Round Thermostat
 
-Although Round Thermostat is, strictly speaking, a single zone system (i.e. a Controller and a single Zone), it is implemented as a single **Climate** device.
+Although Round Thermostat is, strictly speaking, a single zone system (i.e. a Controller and a single Zone), they are merged into a single **Climate** device.
 
 ## Configuration
 
@@ -81,7 +81,7 @@ If the Controller is set to **HeatingOff** (target temperature to minimum) or **
 
 If the Zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint. Once this is done, the Zone can be switched to **PermanentOverride** mode.
 
-In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE`.
+In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE` (but also see `systemModeStatus`, `setpointStatus`, below).
 
 ## Useful Jinja Templates
 
