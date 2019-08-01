@@ -4,10 +4,10 @@ description: "Plugwise Climate integration."
 logo: plugwise.png
 ha_category: Climate
 ha_iot_class: Local Polling
-ha_release: 0.97
+ha_release: 0.98
 ---
 
-This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, you will need it's secret key and IP address.
+This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, you will need its secret key and IP address.
 
 To find your IP address using the Plugwise App. When connected choose the 'Settings'-icon and go to 'HTML-interface'. Go to the (now little lower) 'Settings'-icon and choose 'Preferences'. Under 'System' then 'Networking' you will find your IP address.
 
@@ -36,22 +36,27 @@ name:
   description: The name of your thermostat, i.e. "Anna"
   required: false
   type: string
+  default: "Plugwise Thermostat"
 username:
   description: Should you ever need to change this, you can
   required: false
   type: string
+  default: smile
 port:
   description: When having a custom setup, you can change the port number
   required: false
   type: integer
+  default: 80
 min_temp:
-  description: If you want to adjust the lower boundary, the integration will no allow temperatures below the set value.
+  description: If you want to adjust the lower boundary, the integration will not allow temperatures below the set value.
   required: false
   type: integer
+  default: 4
 max_temp:
-  description: If you want to adjust the upper boundary, the integration will no allow temperatures above the set value.
+  description: If you want to adjust the upper boundary, the integration will not allow temperatures above the set value.
   required: false
   type: integer
+  default: 30
 {% endconfiguration %}
 
 ### Full configuration example
@@ -75,7 +80,7 @@ climate:
 
 Service: `climate.set_hvac_mode`
 
-Available options include `auto` or `off`. Meaning `auto` is a schedule is active and `off` there is no schedule active (active preset or manually set temperature will continue).
+Available options include `auto` or `off`. The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `off` there is no schedule active, i.e. the active preset or manually set temperature be used to control the climate of your house/rooms.
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
