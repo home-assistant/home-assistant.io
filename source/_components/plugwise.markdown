@@ -7,9 +7,12 @@ ha_iot_class: Local Polling
 ha_release: 0.98
 ---
 
-This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, you will need its secret key and IP address.
+This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, you will need its password and IP address.
 
-To find your IP address using the Plugwise App. When connected choose the 'Settings'-icon and go to 'HTML-interface'. Go to the (now little lower) 'Settings'-icon and choose 'Preferences'. Under 'System' then 'Networking' you will find your IP address.
+The password can be found on the bottom of your Smile, it should consist of 6 characters. To find your IP address use the Plugwise App: 
+ - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
+ - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
+ - Choose 'System' then 'Networking' and your IP address will be shown.
 
 ## Configuration
 
