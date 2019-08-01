@@ -37,9 +37,10 @@ unifi:
   controllers:
     - host: unifi
       site: My site
+      dont_track_devices: true
       ssid_filter:
         - 'HomeSSID'
-          'IoTSSID'
+        - 'IoTSSID'
 ```
 
 {% configuration %}
@@ -63,6 +64,16 @@ detection_time:
   type: integer
   required: false
   default: 300
+dont_track_clients:
+  description: enable to not allow device tracker to track clients.
+  type: boolean
+  required: false
+  default: false
+dont_track_devices:
+  description: enable to not allow device tracker to track devices.
+  type: boolean
+  required: false
+  default: false
 ssid_filter:
   description: Filter the SSIDs that tracking will occur on.
   type: list
