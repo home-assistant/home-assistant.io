@@ -26,7 +26,7 @@ Forward ports 443 and 80 to your server on your router. Do not forward port 8123
 
 Use this as your Caddyfile, change the domain name to match yours.
 
-```
+```text
 example.com {
     proxy / localhost:8123 {
         websocket

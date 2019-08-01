@@ -36,6 +36,9 @@ This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage 
 
 ```
 /var/log/homeassistant/home-assistant.log
+```
+
+```text
 {
         rotate 7
         daily

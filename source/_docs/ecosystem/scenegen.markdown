@@ -33,7 +33,7 @@ You should now be ready to run `scenegen`
 
 ## Basic Operation
 
-```
+```text
 usage: scenegen [-h] [-k KEY] [-s SCENENAME] [-m MAPFILE] [-f FILTER]
                 [-c {xy_color,rgb_color,color_temp,color_name}] [-t TYPES]
                 url
@@ -60,7 +60,7 @@ optional arguments:
 
 For basic operation just supply the url and optionally the api key (using the --key option) on the command line and scenegen will output a list of all lights and switches with their attributes. Optionally use the `--scenename` flag to explicitly set the scenename.
 
-```
+```text
 $ ./scenegen.py https://<some url> -k <some api key>
 name: My New Scene
 entities:
@@ -126,7 +126,7 @@ This will make more sense as and when more types are added.
 
 Maps allow you to specify and label various subsets of devices that you want to work on together. A mapfile is specified using the `--mapfile` option and is a `.ini` style file consisting of section headers and entries. The section headers specify a region or zone or otherwise organized selection of entities you want to filter on, and it is mandatory to have at least one. If you create a map file like this:
 
-```
+```text
 [entities]
 light.living_room:
 light.dining_room:
@@ -136,7 +136,7 @@ The trailing colons are necessary to prevent parsing errors for including just k
 
 If you run scenegen with the `--mapfile` argument pointing to that file you will only get output for the listed entities (the name of the section is irrelevant if not using the `--filter` option). A more complex mapfile might look like this:
 
-```
+```text
 [Outside]
 light.porch:
 switch.path_lights:
