@@ -37,22 +37,22 @@ wwlln:
 
 {% configuration %}
 latitude:
-description: The latitude you want to monitor; defaults to the value defined in `configuration.yaml`.
-required: false
-type: float
+  description: The latitude you want to monitor; defaults to the value defined in `configuration.yaml`.
+  required: false
+  type: float
 longitude:
-description: The longitude you want to monitor; defaults to the value defined in `configuration.yaml`.
-required: false
-type: float
+  description: The longitude you want to monitor; defaults to the value defined in `configuration.yaml`.
+  required: false
+  type: float
 radius:
-description: The radius around your location to monitor; defaults to 25 km or mi (depending on the unit system defined in your `configuration.yaml`).
-required: false
-type: integer
+  description: The radius around your location to monitor; defaults to 25 km or mi (depending on the unit system defined in your `configuration.yaml`).
+  required: false
+  type: integer
 window:
-description: The amount of time before now for which strikes should be considered "active" and shown in the UI. Note that a window of less than 1 hour may cause Home Assistant to miss events.
-required: false
-type: time
-default: 10 minutes
+  description: The amount of time before now for which strikes should be considered "active" and shown in the UI. Note that a window of less than 1 hour may cause Home Assistant to miss events.
+  required: false
+  type: time
+  default: 10 minutes
 {% endconfiguration %}
 
 ## State Attributes
