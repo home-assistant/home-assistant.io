@@ -105,6 +105,9 @@ Set target humidity of climate device
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. Else targets all.
 | `humidity` | no | New target humidity for climate device
+| `target_humidity_high` | yes | New target high humidity for climate device
+| `target_humidity_low` | yes | New target low humidity for climate device
+| `hvac_mode` | yes | HVAC mode to set humidity to. This defaults to current HVAC mode if not set, or set incorrectly.
 
 #### Automation example
 
@@ -118,6 +121,7 @@ automation:
       data:
         entity_id: climate.kitchen
         humidity: 60
+        hvac_mode: dry
 ```
 
 ### Service `climate.set_fan_mode`
