@@ -38,7 +38,7 @@ name:
 monitored_conditions:
   description: The parameters that should be monitored.
   required: false
-  type: map
+  type: list
   keys:
     temperature:
       description: Temperature at the sensor's location.

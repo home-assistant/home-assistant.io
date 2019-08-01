@@ -40,7 +40,7 @@ wait:
 
 ### Security
 
-Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can *execute arbitary code* on the home assistant server, which is very unsafe.
+Ensure if this is a public-facing server, that the port is secured. Anyone who is able to access the debugger port can *execute arbitrary code* on the home assistant server, which is very unsafe.
 
 If the home assistant server is behind your firewall with only the http(s) port exposed, then this is safe from outside connections.
 

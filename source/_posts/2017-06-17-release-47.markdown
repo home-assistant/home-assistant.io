@@ -549,7 +549,7 @@ automation:
 [switch.raspihats docs]: /components/switch.raspihats/
 [switch.rest docs]: /components/switch.rest/
 [switch.template docs]: /components/switch.template/
-[telegram_bot.__init__ docs]: /components/telegram_bot.__init__/
+[telegram_bot.__init__ docs]: /components/telegram_bot/
 [telegram_bot.polling docs]: /components/telegram_bot.polling/
 [telegram_bot.webhooks docs]: /components/telegram_bot.webhooks/
 [updater docs]: /components/updater/

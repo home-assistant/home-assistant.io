@@ -63,6 +63,7 @@ sensor:
 {% configuration %}
 monitored_conditions:
   description: Conditions to be monitored.
+  type: list
   keys:
     rainsensor:
       description: Returns the sensor level.

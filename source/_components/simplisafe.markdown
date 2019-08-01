@@ -15,6 +15,8 @@ There is currently support for the following device types within Home Assistant:
 
 - Alarm
 
+## Configuration
+
 To enable this component, add the following lines to your `configuration.yaml`:
 
 ```yaml
@@ -39,3 +41,28 @@ code:
   required: false
   type: string
 {% endconfiguration %}
+
+## Services
+
+Note that the `system_id` parameter required by the below service calls can be discovered
+by looking at the device state attributes for the integration's `alarm_control_panel`
+entity.
+
+### `simplisafe.remove_pin`
+
+Remove a SimpliSafe PIN (by label or PIN value).
+
+| Service Data Attribute    | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `system_id`                |      no  | The ID of the system to remove the PIN from |
+| `label_or_pin`              |      no  | The PIN label or value to remove            |
+
+### `simplisafe.set_pin`
+
+Set a SimpliSafe PIN.
+
+| Service Data Attribute    | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `system_id`                |      no  | The ID of the system to remove the PIN from |
+| `label`                     |      no  | The label to show in the SimpliSafe UI      |
+| `pin`                       |      no  | The PIN value to use                        |

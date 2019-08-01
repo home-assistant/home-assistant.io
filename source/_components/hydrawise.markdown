@@ -45,7 +45,7 @@ scan_interval:
   default: 30
 {% endconfiguration %}
 
-To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/account) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as the `API_KEY`.
+To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/login) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as the `API_KEY`.
 
 ## Binary Sensor
 

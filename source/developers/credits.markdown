@@ -2113,7 +2113,7 @@ This page contains a list of people who have contributed in one way or another t
 3 commits to open-zwave
 3 commits to home-assistant.io
 ")
-- [Collin Allen (@commandtab)](https://github.com/commandtab "1 total commits to the Home Assistant orga:
+- [Collin Allen (@command-tab)](https://github.com/command-tab "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [Comic Chang (@comicchang)](https://github.com/comicchang "1 total commits to the Home Assistant orga:
@@ -2728,7 +2728,7 @@ This page contains a list of people who have contributed in one way or another t
 - [dennisaion (@dennisaion)](https://github.com/dennisaion "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
-- [Denver P (@DrTexxOfficial)](https://github.com/DrTexxOfficial "1 total commits to the Home Assistant orga:
+- [Denver P (@DrTexx)](https://github.com/DrTexx "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [Department G33k (@department-g33k)](https://github.com/department-g33k "1 total commits to the Home Assistant orga:
@@ -3076,7 +3076,7 @@ This page contains a list of people who have contributed in one way or another t
 25 commits to home-assistant
 6 commits to home-assistant.io
 ")
-- [eltoro81 (@eltoro81)](https://github.com/eltoro81 "1 total commits to the Home Assistant orga:
+- [mvjt (@mvjt)](https://github.com/mvjt "1 total commits to the Home Assistant orga:
 1 commit to home-assistant.io
 ")
 - [Elvis (@mu3)](https://github.com/mu3 "1 total commits to the Home Assistant orga:
@@ -3374,7 +3374,7 @@ This page contains a list of people who have contributed in one way or another t
 2 commits to home-assistant.io
 1 commit to home-assistant
 ")
-- [fedor1210 (@fedor1210)](https://github.com/fedor1210 "3 total commits to the Home Assistant orga:
+- [augustdipierro (@augustdipierro)](https://github.com/augustdipierro "3 total commits to the Home Assistant orga:
 3 commits to home-assistant.io
 ")
 - [Felipe Cypriano (@fcy)](https://github.com/fcy "1 total commits to the Home Assistant orga:

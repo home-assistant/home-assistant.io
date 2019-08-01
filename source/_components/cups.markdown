@@ -15,7 +15,7 @@ The `cups` sensor platform is using the open source printing system [CUPS](https
 
 ## Setup
 
-You will need to install the `python3-dev` or `python3-devel` pacakge and the development files for CUPS (`libcups2-dev` or`cups-devel`) on your system manually (e.g., `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`). This integration doesn't work out-of-the-box in a container-based setup.
+You will need to install the `python3-dev` or `python3-devel` package and the development files for CUPS (`libcups2-dev` or`cups-devel`) on your system manually (e.g., `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`). This integration doesn't work out-of-the-box in a container-based setup.
 
 To set up the sensor the "Queue Name" of the printer is needed. The fastest way to get it, is to visit the CUPS web interface at "http://[IP ADDRESS PRINT SERVER]:631" and go to "Printers".
 
@@ -57,3 +57,23 @@ is_cups_server:
   type: boolean
   default: true
 {% endconfiguration %}
+
+## {% linkable_title Examples %}
+
+Default configuration for an IPP printer:
+
+```yaml
+# Example configuration.yaml entry for an IPP printer
+sensor:
+  - platform: cups
+    host: PRINTER_IP
+    is_cups_server: false
+    printers:
+      - ipp/print
+```
+
+<div class='note'>
+
+You will need to install the `python3-dev` or `python3-devel` and the development files for CUPS (`libcups2-dev` or`cups-devel`) package on your system manually (eg. `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`).
+
+</div>

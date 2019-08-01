@@ -36,7 +36,7 @@ image:
 state_image:
   required: false
   description: "Map entity states to images (`state: image URL`, check the example below)."
-  type: object
+  type: map
 aspect_ratio:
   required: false
   description: "Forces the height of the image to be a ratio of the width. You may enter a value such as: `16x9`, `16:9`, `1.78`."
@@ -58,7 +58,7 @@ show_state:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -83,7 +83,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true

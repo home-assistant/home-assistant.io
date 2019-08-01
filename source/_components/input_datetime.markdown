@@ -21,13 +21,16 @@ add the following lines to your `configuration.yaml`:
 input_datetime:
   both_date_and_time:
     name: Input with both date and time
-    has_    has_time: true
+    has_date: true
+    has_time: true
   only_date:
     name: Input with only date
-    has_    has_time: false
+    has_date: true
+    has_time: false
   only_time:
     name: Input with only time
-    has_    has_time: true
+    has_date: false
+    has_time: true
 ```
 
 {% configuration %}
@@ -50,6 +53,10 @@ input_datetime:
         required: false
         type: boolean
         default: false
+      icon:
+        description: Icon to display in the frontend.
+        required: false
+        type: icon
       initial:
         description: Set the initial value of this input, depending on `has_time` and `has_date`.
         required: false
@@ -68,6 +75,7 @@ automations and templates.
 | `has_date` | `true` if this entity has a date.
 | `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_| `hour`<br>`minute`<br>`second` | The hour, minute and second of the time.<br>(only available if `has_time: true`)
 | `timestamp` | A timestamp representing the time held in the input.<br>If `has_
+
 ### Restore State
 
 This integration will automatically restore the state it had prior to Home

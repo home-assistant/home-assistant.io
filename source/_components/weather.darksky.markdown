@@ -38,12 +38,12 @@ api_key:
 latitude:
   description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 longitude:
   description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 units:
   description: "Manually specify unit system. Valid values are: `auto`, `us`, `si`, `ca`, `uk` and `uk2`."

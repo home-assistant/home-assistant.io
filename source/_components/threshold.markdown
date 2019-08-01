@@ -39,7 +39,7 @@ binary_sensor:
 entity_id:
   description: "The entity to monitor. Only [sensors](/components/sensor/) are supported."
   required: true
-  type: entity_id
+  type: string
 lower:
   description: The lower threshold which the observed value is compared against.
   required: false

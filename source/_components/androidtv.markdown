@@ -232,6 +232,6 @@ Available key commands include:
 - `BACK`
 - `MENU`
 
-The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/e1c07176efc9216cdcff8245c920224c0234ea56/androidtv/constants.py#L115-L155).
+The full list of key commands can be found [here](https://github.com/JeffLIrion/python-androidtv/blob/bf1058a2f746535921b3f5247801469c4567e51a/androidtv/constants.py#L143-L186).
 
 You can also use the command `GET_PROPERTIES` to retrieve the properties used by Home Assistant to update the device's state.  These will be stored in the media player's `'adb_response'` attribute and logged at the INFO level, this information can be used to help improve state detection in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.

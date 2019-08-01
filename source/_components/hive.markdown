@@ -25,11 +25,12 @@ This integration uses the unofficial API used in the official Hive website [http
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
-- [Climate](#climate)
-- [Light](#light)
-- [Sensor](#sensor)
-- [Switch](#switch)
+- [Binary Sensor](#Binary-Sensor)
+- [Climate](#Climate)
+- [Light](#Light)
+- [Sensor](#Sensor)
+- [Switch](#Switch)
+- [Water Heater](#Water-Heater)
 
 To add your Hive devices into your Home Assistant installation, add the following to your `configuration.yaml` file:
 
@@ -102,3 +103,11 @@ The `hive` switch platform integrates your Hive plugs into Home Assistant, enabl
 The platform supports the following Hive products:
 
 - Hive Active Plug
+
+## Water Heater
+
+The `hive` water heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
+
+The platform supports the following Hive products:
+
+- Hot Water Control

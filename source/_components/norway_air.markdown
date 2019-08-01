@@ -31,11 +31,11 @@ forecast:
 latitude:
   description: Manually specify latitude.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 longitude:
   description: Manually specify longitude.
   required: false
-  type: number
+  type: float
   default: Provided by Home Assistant configuration
 {% endconfiguration %}

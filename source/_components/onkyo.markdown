@@ -41,7 +41,7 @@ name:
 max_volume:
   description: Maximum volume. Defaults to 80.
   required: false
-  type: number
+  type: integer
 sources:
   description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
   required: false

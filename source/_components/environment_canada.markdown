@@ -18,6 +18,13 @@ The following device types and data are supported:
 - [Sensor](#sensor) - Current conditions and alerts
 - [Camera](#camera) - Radar imagery
 
+<p class='note'>
+
+  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  `sudo apt-get install libatlas-base-dev libopenjp2-7`
+
+</p>
+
 ## Location Selection
 
 Each platform automatically determines which weather station's data to use. However, as station coordinates provided by Environment Canada are somewhat imprecise, in some cases you may need to override the automatic selection to use the desired station.
@@ -40,10 +47,10 @@ weather:
   - platform: environment_canada
 ```
 
-- The sensor checks for new data every 10 minutes, and the source data is typically updated hourly within 10 minutes after the hour.
+- The platform checks for new data every 10 minutes, and the source data is typically updated hourly within 10 minutes after the hour.
 - If no name is given, the weather entity will be named `weather.<station_name>`.
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station code based on [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
+    - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
 
 {% configuration %}
@@ -60,7 +67,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the weather entity.
+  description: Name to be used for the entity ID, e.g. `weather.<name>`.
   required: false
   type: string
 forecast:
@@ -82,11 +89,35 @@ sensor:
   - platform: environment_canada
 ```
 
-- By default, a sensor entity is created for each monitored condition and each category of alert. Each sensor entity will be given the `device_id` of `sensor.<optional-name_><condition>`.
-- The sensor checks for new data every 10 minutes, and the source data is typically updated hourly within 10 minutes after the hour.
+- A sensor will be created for each of the following conditions, with a default name like `sensor.temperature`:     
+    - `temperature` - The current temperature, in ºC.
+    - `dewpoint` - The current dewpoint, in ºC.
+    - `wind_chill` - The current wind chill, in ºC.
+    - `humidex` - The current humidex, in ºC.
+    - `pressure` - The current air pressure, in kPa.
+    - `tendency` - The current air pressure tendency, e.g. "Rising".
+    - `humidity` - The current humidity, in %.
+    - `visibility` - The current visibility, in km.
+    - `condition` - A brief text statement of the current weather conditions, e.g. "Sunny".
+    - `wind_speed` - The current sustained wind speed, in km/h.
+    - `wind_gust` - The current wind gust, in km/h.
+    - `wind_dir` - The current cardinal wind direction, e.g. "SSW".
+    - `wind_bearing` - The current wind direction in degrees.
+    - `high_temp` - The next forecast high temperature, in ºC.
+    - `low_temp` - The next forecast low temperature, in ºC.
+    - `uv_index` - The next forecast UV index.
+    - `pop` - The next forecast probability of precipitation, in %.
+    - `text_summary` - A textual description of the next forecast period, e.g. "Tonight. Mainly cloudy. Low -12."
+    - `precip_yesterday` - The total amount of precipitation that fell the previous day.
+    - `warnings` - Current warning alerts.
+    - `watches` - Current watch alerts.
+    - `advisories` - Current advisory alerts.
+    - `statements` - Current special weather statements.
+    - `endings` - Alerts that have recently ended.
 - The platform automatically determines which weather station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
-    - A specific station code based on [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
+    - A specific station code of the form `AB/s0000123` based on those listed in [this CSV file](http://dd.weatheroffice.ec.gc.ca/citypage_weather/docs/site_list_towns_en.csv), or
     - A specific latitude/longitude
+- In the case of multiple alerts in the same category, the titles and details of each are concatenated together with a pipe (`|`) separator.
 
 {% configuration %}
 latitude:
@@ -101,57 +132,31 @@ station:
   description: The station code of a specific weather station to use. If provided, this station will be used and any latitude/longitude coordinates provided will be ignored. Station codes must be in the form of `AB/s0000123`, where `AB`is a provincial abbreviation and `s0000123` is a numeric station code. 
   required: false
   type: string
-name:
-  description: Name to be used for the sensor entities.
+language:
+  description: Language to use for entity display names and textual data (English or French).
   required: false
   type: string
-monitored_conditions:
-  description: The conditions to monitor. A sensor will be created for each condition.
-  required: true
-  type: list
-  default: All keys
-  keys:
-    temperature:
-      description: The current temperature, in ºC.
-    dewpoint:
-      description: The current dewpoint, in ºC.
-    wind_chill:
-      description: The current wind chill, in ºC.
-    humidex:
-      description: The current humidex, in ºC.
-    pressure:
-      description: The current air pressure, in kPa.
-    tendency:
-      description: The current air pressure tendency, e.g. "Rising" or "Falling".
-    humidity:
-      description: The current humidity, in %.
-    visibility:
-      description: The current visibility, in km.
-    condition:
-      description: A brief text statement of the current weather conditions, e.g. "Sunny".
-    wind_speed:
-      description: The current sustained wind speed, in km/h.
-    wind_gust:
-      description: The current wind gust, in km/h.
-    wind_dir:
-      description: The current cardinal wind direction, e.g. "SSW".
-    high_temp:
-      description: The next forecast high temperature, in ºC.
-    low_temp:
-      description: The next forecast low temperature, in ºC.
-    pop:
-      description: The next forecast probability of precipitation, in %.
-    warnings:
-      description: Current warning alerts.
-    watches:
-      description: Current watch alerts.
-    advisories:
-      description: Current advisory alerts.
-    statements:
-      description: Current special weather statements.
-    endings:
-      description: Alerts that have recently ended.
+  default: english
+scan_interval:
+  description: The time between updates in seconds.
+  required: false
+  type: integer
+  default: 600
 {% endconfiguration %}
+
+###Alert TTS Script
+
+If you would like to have alerts announced via a text-to-speech service, you can use a script similar to the following:
+
+{% raw %}
+```yaml
+weather_alert_tts:
+  sequence:
+   - service: tts.amazon_polly_say
+      data_template:
+        message: "{{ states('sensor.warnings') }} in effect. {{ state_attr('sensor.warnings', 'alert detail') }}"
+```
+{% endraw %}
 
 ## Camera
 
@@ -164,6 +169,11 @@ To add Environment Canada radar imagery to your installation, add the desired li
 camera:
   - platform: environment_canada
 ```
+
+<p class='note'>
+  On Raspbian or Hassbian, you may need to manually install additional prerequisites with the following command:
+  `sudo apt-get install libatlas-base-dev libopenjp2-7`
+</p>
 
 - If no name is given, the camera entity will be named `camera.<station_name>_radar`.
 - The platform automatically determines which radar station to use based on the system's latitude/longitude settings. For greater precision, it is also possible to specify either:
@@ -184,7 +194,7 @@ station:
   required: false
   type: string
 name:
-  description: Name to be used for the camera entity.
+  description: Name to be used for the entity ID, e.g. `camera.<name>`.
   required: false
   type: string
 loop:

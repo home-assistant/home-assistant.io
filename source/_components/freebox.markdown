@@ -45,9 +45,9 @@ port:
   type: string
 {% endconfiguration %}
 
-You can find out your Freebox host and port by opening
-[this address](http://mafreebox.freebox.fr/api_version) in your browser. The
+You can find out your Freebox host and port by opening the address mafreebox.freebox.fr/api_version in your browser. The
 returned json should contain an api_domain (`host`) and a https_port (`port`).
+Please consult the [api documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
 ### Initial setup
 
@@ -60,7 +60,7 @@ authorize it by pressing the right arrow on the facade of the Freebox when
 prompted to do so.
 
 To make the WiFi switch working you will have to add "Modification des réglages de la Freebox
-" permission to Home Assitant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
+" permission to Home Assistant application in "Paramètres de la Freebox" > "Gestion des accès" > "Applications".
 
 ### Supported routers
 

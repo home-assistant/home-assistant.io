@@ -48,7 +48,7 @@ entity:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: map
   default: "position: absolute, transform: translate(-50%, -50%)"
 title:
   required: false
@@ -78,7 +78,7 @@ title:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -103,7 +103,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -128,7 +128,7 @@ hold_action:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
@@ -158,7 +158,7 @@ title:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -183,7 +183,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -208,7 +208,7 @@ hold_action:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
@@ -230,11 +230,11 @@ service:
 service_data:
   required: false
   description: The service data to use.
-  type: object
+  type: map
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
@@ -260,7 +260,7 @@ entity:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -285,7 +285,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -310,7 +310,7 @@ hold_action:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
@@ -332,7 +332,7 @@ title:
 tap_action:
   required: false
   description: Action to take on tap
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -357,7 +357,7 @@ tap_action:
 hold_action:
   required: false
   description: Action to take on tap-and-hold
-  type: object
+  type: map
   keys:
     action:
       required: true
@@ -395,7 +395,7 @@ camera_view:
 state_image:
   required: false
   description: '[State-based images](#how-to-use-state_image)'
-  type: object
+  type: map
 filter:
   required: false
   description: Default CSS filter
@@ -403,7 +403,7 @@ filter:
 state_filter:
   required: false
   description: '[State-based CSS filters](#how-to-use-state_filter)'
-  type: object
+  type: map
 aspect_ratio:
   required: false
   description: Height-width-ratio.
@@ -412,7 +412,7 @@ aspect_ratio:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
@@ -458,7 +458,7 @@ type:
 style:
   required: true
   description: Position and style the element using CSS.
-  type: object
+  type: string
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 

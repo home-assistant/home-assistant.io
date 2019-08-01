@@ -79,6 +79,7 @@ json_attributes_topic:
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract the JSON dictionary from messages received on the `json_attributes_topic`."
   required: false
+  type: template
 json_attributes:
   description: (Deprecated, replaced by json_attributes_topic) A list of keys to extract values from a JSON dictionary payload and then set as sensor attributes.
   required: false

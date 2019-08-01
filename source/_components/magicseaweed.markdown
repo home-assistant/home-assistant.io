@@ -78,17 +78,10 @@ monitored_conditions:
     max_breaking_swell:
       description: The maximum wave height as the state with a detailed list of forecast attributes.
 units:
-  description: Specify the unit system.
+  description: Specify the unit system. Either `uk`, `eu` or `us`.
   required: false
   default: Default to `uk` or `us` based on the temperature preference in Home Assistant.
   type: string
-  keys:
-    uk:
-      description: Use UK units.
-    eu:
-      description: Use EU units.
-    us:
-      description: Use US units.
 {% endconfiguration %}
 
 Details about the API are available in the [Magicseaweed documentation](https://magicseaweed.com/developer/forecast-api).

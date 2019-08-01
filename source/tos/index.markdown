@@ -88,7 +88,7 @@ In no event will Home Assistant, or its suppliers or licensors, be liable with r
 
 ## 16. General Representation and Warranty
 
-You represent and warrant that (i) your use of the Website will be in strict accordance with the Home Assistant [Privacy Policy](/privacy), [Community Guidelines](/guidelines), with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the country in which this website resides or the country in which you reside) and (ii) your use of the Website will not infringe or misappropriate the intellectual property rights of any third party.
+You represent and warrant that (i) your use of the Website will be in strict accordance with the Home Assistant [Privacy Policy](/privacy), [Community Guidelines](https://community.home-assistant.io/t/how-to-help-us-help-you-or-how-to-ask-a-good-question/114371), with this Agreement and with all applicable laws and regulations (including without limitation any local laws or regulations in your country, state, city, or other governmental area, regarding online conduct and acceptable content, and including all applicable laws regarding the transmission of technical data exported from the country in which this website resides or the country in which you reside) and (ii) your use of the Website will not infringe or misappropriate the intellectual property rights of any third party.
 
 ## 17. Indemnification
 

@@ -49,13 +49,8 @@ time_zone:
     lst_ldt:
       description: Local Standard/Local Daylight Time. The time local to the requested station.
 unit_system:
-  description: Specify the unit system.
+  description: Specify the unit system. Use `metric` (Celsius, meters, cm/s) or `english` (fahrenheit, feet, knots) units.
   required: false
   default: Defaults to `metric` or `imperial` based on the Home Assistant configuration.
   type: string
-  keys:
-    metric:
-      description: Metric (Celsius, meters, cm/s) units.
-    english:
-      description: English (fahrenheit, feet, knots) units.
 {% endconfiguration %}

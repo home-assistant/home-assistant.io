@@ -3,12 +3,16 @@ title: "Weblink"
 description: "Instructions on how to setup Links within Home Assistant."
 logo: home-assistant.png
 ha_category:
-  - Front end
+  - Front End
 ha_release: 0.13
 ha_qa_scale: internal
 ---
 
 The `weblink` integration allows you to display links in the Home Assistant frontend.
+
+<div class='note'>
+The below documentation applies to the classic "States" user interface. Starting with Home Assistant 0.86, Lovelace is the new default interface. For information on configuring weblinks in Lovelace please follow [these instructions](/lovelace/entities/#weblink) instead.
+</div>
 
 ## Configuration
 

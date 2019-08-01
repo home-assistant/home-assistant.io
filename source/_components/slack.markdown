@@ -45,6 +45,7 @@ notify:
 name: 
   description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
   required: false
+  type: string
   default: "notify"
 api_key:
   description: The Slack API token to use for sending Slack messages.
@@ -62,6 +63,7 @@ username:
 icon:
   description: Use one of the Slack emojis as an Icon for the supplied username.  Slack uses the standard emoji sets used [here](http://www.webpagefx.com/tools/emoji-cheat-sheet/).
   required: false
+  type: string
 {% endconfiguration %}
 
 ### Slack service data

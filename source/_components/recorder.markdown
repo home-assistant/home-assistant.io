@@ -8,7 +8,7 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` component](/components/history/).
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/components/history/).
 
 Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
@@ -23,7 +23,7 @@ recorder:
 
 {% configuration %}
 recorder:
-  description: Enables the recorder component. Only allowed once.
+  description: Enables the recorder integration. Only allowed once.
   required: true
   type: map
   keys:
@@ -49,11 +49,11 @@ recorder:
         domains:
           description: The list of domains to be excluded from recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be excluded from recordings.
           required: false
-          type: List
+          type: list
     include:
       description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
@@ -62,11 +62,11 @@ recorder:
         domains:
           description: The list of domains to be included in the recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be included in the recordings.
           required: false
-          type: List
+          type: list
 {% endconfiguration %}
 
 Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
@@ -115,7 +115,7 @@ recorder:
      - sensor.date
 ```
 
-If you only want to hide events from your history, take a look at the [`history` component](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` component. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your history, take a look at the [`history` integration](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### Service `purge`
 

@@ -52,7 +52,7 @@ The following sensors are supported.
 - **Supply temperature:** Air temperature of the air supplied to the house.
 - **Extract temperature:** Air temperature of the air extracted from the house.
 - **Exhaust temperature:** Exhausted air temperature.
-- **Remaining filter lifetime:** Reamining filter lifetime measured in percent.
+- **Remaining filter lifetime:** Remaining filter lifetime measured in percent.
 
 ## Switch
 

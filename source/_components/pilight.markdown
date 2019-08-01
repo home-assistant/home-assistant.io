@@ -116,6 +116,7 @@ disarm_after_trigger:
   description: Configure sensor as trigger type.
   required: false
   type: boolean
+  default: false
 reset_delay_sec:
   description: >
     Seconds before the sensor is disarmed if

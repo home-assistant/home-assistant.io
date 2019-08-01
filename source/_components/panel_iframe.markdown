@@ -3,7 +3,7 @@ title: "Panel iFrame"
 description: "Instructions on how to add iFrames in the frontend of Home Assistant."
 logo: home-assistant.png
 ha_category:
-  - Front end
+  - Front End
 ha_release: 0.25
 ha_qa_scale: internal
 ---
@@ -33,36 +33,37 @@ panel_iframe:
 
 
 {% configuration %}
-  panel_iframe:
-    description: Enables the panel_iframe component. Only allowed once.
-    required: true
-    type: map
-    keys:
-      panel_name:
-        description: Name of the panel. Only allowed once.
-        required: true
-        type: map
-        keys:
-          title:
-            description: Friendly title for the panel. Will be used in the sidebar.
-            required: true
-            type: string
-          url:
-            description: The absolute URL or relative URL with an absolute path to open.
-            required: true
-            type: string
-          icon:
-            description: Icon for entry.
-            required: false
-            type: icon
-          require_admin:
-            description: If admin access is required to see this iframe.
-            required: false
-            type: boolean
+panel_iframe:
+  description: Enables the panel_iframe component. Only allowed once.
+  required: true
+  type: map
+  keys:
+    panel_name:
+      description: Name of the panel. Only allowed once.
+      required: true
+      type: map
+      keys:
+        title:
+          description: Friendly title for the panel. Will be used in the sidebar.
+          required: true
+          type: string
+        url:
+          description: The absolute URL or relative URL with an absolute path to open.
+          required: true
+          type: string
+        icon:
+          description: Icon for entry.
+          required: false
+          type: icon
+        require_admin:
+          description: If admin access is required to see this iframe.
+          required: false
+          type: boolean
+          default: false
 {% endconfiguration %}
 
 <div class='note warning'>
 
-Do **not** create one that are named `lovelace` it will overwrite lovelace causing it to never load.
+Do **not** create one that is named `lovelace` it will overwrite lovelace causing it to never load.
 
 </div>

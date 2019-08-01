@@ -791,7 +791,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [route53 docs]: /components/route53/
 [sabnzbd docs]: /components/sabnzbd/
 [sensor.api_streams docs]: /components/sensor.api_streams/
-[sensor.bloomsky docs]: /components/sensor.bloomsky/
+[sensor.bloomsky docs]: /components/bloomsky/#sensor
 [sensor.bmw_connected_drive docs]: /components/sensor.bmw_connected_drive/
 [sensor.dnsip docs]: /components/sensor.dnsip/
 [sensor.dsmr docs]: /components/sensor.dsmr/

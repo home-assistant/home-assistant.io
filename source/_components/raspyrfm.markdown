@@ -72,7 +72,7 @@ switches:
     channel_config:
       description: Channel configuration of the control unit. The exact keys needed depend on the control unit manufacturer and model.
       required: true
-      type: dict
+      type: map
 {% endconfiguration %}
 
 ## Device support

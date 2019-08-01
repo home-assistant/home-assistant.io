@@ -88,5 +88,5 @@ netatmo:
 [Swagger.yaml format]: https://github.com/home-assistant/home-assistant/blob/dev/docs/swagger.yaml
 [All-in-One installer]: /getting-started/installation-raspberry-pi-all-in-one/
 [standalone Raspberry Pi installation guide]: /getting-started/installation-raspberry-pi/
-[Voltage sensor]: /components/sensor.bloomsky/
+[Voltage sensor]: /components/bloomsky/#sensor
 [SNMP]: /components/sensor.snmp/

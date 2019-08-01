@@ -8,18 +8,9 @@ description: "Installation of Home Assistant on your Arch Linux computer."
 Install the needed Python packages.
 
 ```bash
-$ sudo pacman -S python
-$ sudo pacman -S python-pip
+sudo pacman -S python
+sudo pacman -S python-pip
 ```
 
-and Home Assistant itself.
-
-```bash
-$ pip3 install --user homeassistant
-```
-
-Home Assistant is part of the [AUR](https://aur.archlinux.org/packages/home-assistant/). This means that it can be installed with `pacaur`. This package is often broken or outdated:
-
-```bash
-$ pacaur -S home-assistant
-```
+From here on, we recommend you to follow the
+[virtualenv](https://www.home-assistant.io/docs/installation/virtualenv/) guide.

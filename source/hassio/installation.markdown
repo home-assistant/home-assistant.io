@@ -15,6 +15,8 @@ The following will take you through the steps required to install Hass.io.
      - [Raspberry Pi 2 Model B][pi2]
      - [Raspberry Pi 3 Model B and B+ 32bit][pi3-32] (recommended)
      - [Raspberry Pi 3 Model B and B+ 64bit][pi3-64]
+     - [(Beta) Raspberry Pi 4 Model B 32bit][pi4-32] (recommended)
+     - [(Beta) Raspberry Pi 4 Model B 64bit][pi4-64]
      - [Tinkerboard][tinker]
      - [Odroid-C2][odroid-c2]
      - [Odroid-XU4][odroid-xu4]
@@ -136,10 +138,12 @@ You also need to have Docker-CE installed. There are well-documented procedures 
 
   Some distributions, like Ubuntu, have a `docker.io` package available. Using that packages will cause issues!
   Be sure to install the official Docker-CE from the above listed URL.
+  
+  Docker is not always ready with a release when a new Ubuntu version is out. Check if your version of Ubuntu is supported by docker [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
 
 </div>
 
-To perform the Hass.io installation on Ubuntu, run the following commands:
+To prepare your machine for the Hass.io installation, run the following commands:
 
 ```bash
 sudo -i
@@ -150,11 +154,29 @@ apt-get install -y apparmor-utils apt-transport-https avahi-daemon ca-certificat
 curl -fsSL get.docker.com | sh
 ```
 
-And to install Hass.io the one below. That one is used also for other distributions.
+The following script will then install Hass.io on a variety of operating systems and machine types.
 
 ```bash
 curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s
 ```
+
+Some installation types require flags to identify the computer type, for example, when using a Raspberry Pi 3, the flag `-- -m raspberrypi3` is required. The install script would then look like this:
+
+```bash
+curl -sL "https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh" | bash -s -- -m raspberrypi3
+```
+
+#### Other machine types
+ 
+ - `intel-nuc`
+ - `raspberrypi`
+ - `raspberrypi2`
+ - `raspberrypi3`
+ - `raspberrypi3-64`
+ - `odroid-c2`
+ - `odroid-cu2`
+ - `odriod-xu`
+ - `orangepi-prime`
 
 <div class='note'>
 When you use this installation method, the core SSH add-on may not function correctly. If that happens, use the community SSH add-on. Some of the documentation might not work for your installation either.
@@ -170,6 +192,8 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [pi2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi2-2.12.img.gz
 [pi3-32]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-2.12.img.gz
 [pi3-64]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_rpi3-64-2.12.img.gz
+[pi4-32]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi4-3.3.img.gz
+[pi4-64]: https://github.com/home-assistant/hassos/releases/download/3.3/hassos_rpi4-64-3.3.img.gz
 [tinker]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_tinker-2.12.img.gz
 [odroid-c2]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-c2-2.12.img.gz
 [odroid-xu4]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_odroid-xu4-2.12.img.gz
@@ -178,7 +202,7 @@ A detailed guide about running Hass.io as a virtual machine is available in the 
 [vmdk]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vmdk.gz
 [vhdx]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vhdx.gz
 [vdi]: https://github.com/home-assistant/hassos/releases/download/2.12/hassos_ova-2.12.vdi.gz
-[linux]: https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio
+[linux]: https://github.com/home-assistant/hassio-installer
 [local]: http://hassio.local:8123
 [samba]: /addons/samba/
 [ssh]: /addons/ssh/

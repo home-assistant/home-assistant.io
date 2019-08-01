@@ -101,4 +101,5 @@ individual:
   description: A 'true'/'false' to specify whether we should show individual sensors when a list of hostids is provided. If false, the sensor state will be the count of all triggers for the specified hosts (or all hosts within the Zabbix instance, if hostids isn't provided).
   required: false
   type: boolean
+  default: false
 {% endconfiguration %}

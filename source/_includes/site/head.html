@@ -26,7 +26,7 @@
     {% if page.author_twitter %}<meta name="twitter:creator" content="@{{ page.author_twitter }}">{% endif %}
     <meta name="twitter:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
-    <meta name="twitter:image" content="{{ social_image }}">
+    <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
 
     <link href="/stylesheets/prism.css" rel="stylesheet">
     <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">

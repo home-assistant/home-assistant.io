@@ -21,7 +21,7 @@ redirect_from:
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](http://www.lcn.eu) hardware devices.
 
-The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and a LCN hardware coupler. Alternatively a LCN-PKE coupler can be used which offers two PCHK licenses.
+The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. Alternatively, an LCN-PKE coupler can be used which offers two PCHK licenses.
 With this setup sending and receiving commands to and from LCN modules is possible.
 
 There is currently support for the following device types within Home Assistant:
@@ -36,8 +36,8 @@ There is currently support for the following device types within Home Assistant:
 
 <div class='note'>
 
-  Please note: Besides the implemented platforms the `lcn` integration offers a variety of [service calls](#services).
-  These service calls cover functionalities of the LCN system which cannot be represented by the platform implementations.
+  Please note: Besides the implemented platforms, the `lcn` integration offers a variety of [service calls](#services).
+  These service calls cover functionalities of the LCN system, which cannot be represented by the platform implementations.
   They are ideal to be used in automation scripts or for the `template` platforms.
 
 </div>
@@ -45,7 +45,7 @@ There is currently support for the following device types within Home Assistant:
 ## Configuration
 
 To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
-You have to specify at least one ip/port with login credentials for a PCHK host.
+You have to specify at least one IP/port with login credentials for a PCHK host.
 Consider to store your credentials in a [secrets.yaml](/docs/configuration/secrets).
 
 ```yaml
@@ -97,7 +97,7 @@ lcn:
       address: myhome.s0.m7
       source: var3
       unit_of_measurement: °C
-  
+
   switches:
     - name: Sprinkler switch
       address: myhome.s0.m7
@@ -127,7 +127,7 @@ connections:
       required: true
       type: string
     name:
-      description: Optional connection identifier. If omited, the connections will be named consecutively as _pchk_, _pchk1_, _pchk2_, ...
+      description: Optional connection identifier. If omitted, the connections will be named consecutively as _pchk_, _pchk1_, _pchk2_, ...
       required: false
       default: pchk
       type: string
@@ -218,6 +218,10 @@ covers:
     motor:
       description: "Motor port ([MOTOR_PORT](#ports))."
       required: true
+      type: string
+    reverse_time:
+      description: "Reverse time ([REVERSE_TIME](#variables-and-units), see also [Cover](#cover))."
+      required: false
       type: string
 
 lights:
@@ -329,7 +333,7 @@ Modules can be arranged in _segments_. Segments can be addressed by their numeri
 
 LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
 
-The LCN integration allows the connection to more than one hardware coupler. In this case it has to be specified which hardware coupler should be used for addressing the specified module.
+The LCN integration allows the connection to more than one hardware coupler. In this case, it has to be specified which hardware coupler should be used for addressing the specified module.
 
 Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
 
@@ -363,12 +367,12 @@ The platforms and service calls use several predefined constants as parameters.
 | -------- | ------ |
 | OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
 | RELAY_PORT | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8` |
-| MOTOR_PORT | `motor1`, `motor2`, `motor3`, `motor4` |
+| MOTOR_PORT | `motor1`, `motor2`, `motor3`, `motor4`, `outputs` |
 | LED_PORT | `led1`, `led2`, `led3`, `led4`, `led5`, `led6`, `led7`, `led8`, `led9`, `led10`, `led11`, `led12` |
 | LOGICOP_PORT | `logicop1`, `logicop2`, `logicop3`, `logicop4` |
 | BINSENSOR_PORT | `binsensor1`, `binsensor2`, `binsensor3`, `binsensor4`, `binsensor5`, `binsensor6`, `binsensor7`, `binsensor8` |
 
-The [MOTOR_PORT](#ports) values specify which hardware relay configuration will be used:
+The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configuration will be used:
 
 | Motor    | Relay on/off | Relay up/down |
 | :------: | :----------: | :-----------: |
@@ -376,6 +380,11 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | `motor2` | `relay3`     | `relay4`      |
 | `motor3` | `relay5`     | `relay6`      |
 | `motor4` | `relay7`     | `relay8`      |
+
+| Motor     | Output up | Output down |
+| :-------: | :-------: | :---------: |
+| `outputs` | `output1` | `output2`   |
+
 
 ### Variables and Units
 
@@ -388,6 +397,7 @@ The [MOTOR_PORT](#ports) values specify which hardware relay configuration will 
 | VAR_UNIT | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree` |
 | TIME_UNIT | `seconds`, `minutes`, `hours`, `days` |
 | RELVARREF | `current`, `prog` |
+| REVERSE_TIME | `rt70`, `rt600`, `rt1200` |
 
 ### States:
 
@@ -417,19 +427,30 @@ The binary sensor can be used in automation scripts or in conjunction with `temp
 ### Climate
 
 The `lcn` climate platform allows the control of the [LCN](http://www.lcn.eu) climate regulators.
-This platform depends on the correct configuration of the module's regulators which has to be done in the LCN-PRO programming software.
-You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature. 
-If the control is set lockable, the regulator can be turned on/off. 
+This platform depends on the correct configuration of the module's regulators, which has to be done in the LCN-PRO programming software.
+You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature.
+If the control is set lockable, the regulator can be turned on/off.
 
 <div class='note'>
 
-If you intend to leave the regulation to home assistant, you should consider using the [Generic Thermostat](climate.generic_thermostat) in conjuction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
+If you intend to leave the regulation to Home Assistant, you should consider using the [Generic Thermostat](/components/generic_thermostat/) in conjunction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
 
 </div>
 
 ### Cover
 
-The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays which have been configured as motor controllers.
+The `lcn` cover platform allows the control of [LCN](http://www.lcn.eu) relays and output ports which have been configured as motor controllers.
+
+Only for the module with firmware earlier than 190C:<br>
+The configuration allows the optional definition of reverse time. This is the time which is waited during the switching of the motor currents.
+The reverse time should only be defined when using the [MOTOR_PORT](#ports) value `OUTPUTS`. For all other configuration, the reverse time has to be defined in the LCN Pro software.
+For the reverse time, you may choose one of the following constants: `RT70` (70ms), `RT600` (600ms), `RT1200` (1,2s).
+
+<p class='note'>
+If you are using the module's output ports for motor control, ensure that you have configured the output ports as motor controllers in the LCN Pro software!
+Otherwise, the output ports are not mutually interlocked and you run the risk of destroying the motor.
+</p>
+
 
 ### Light
 
@@ -457,7 +478,7 @@ The sensor can be used in automation scripts or in conjunction with `template` p
 
 <div class='note'>
   Ensure that the LCN module is configured properly to provide the requested value.
-  Otherwise the module might show unexpected behavior or return error messages.
+  Otherwise, the module might show unexpected behavior or return error messages.
 </div>
 
 ### Switch
@@ -470,7 +491,7 @@ The `lcn` switch platform allows the control of the following [LCN](http://www.l
 ## Services
 
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
-Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them. 
+Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them.
 
 ### Service `output_abs`
 
@@ -479,16 +500,16 @@ Set absolute brightness of output port in percent.
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
-| `brightness` | Yes | Absolute brightness in percent | 0..100 | 
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
+| `brightness` | Yes | Absolute brightness in percent | 0..100 |
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
 
 Example:
 
 ```yaml
 service: output_abs
 data:
-  addres: myhome.0.7
+  address: myhome.0.7
   output: output1
   brightness: 100
   transition: 0
@@ -501,9 +522,9 @@ Set relative brightness of output port in percent.
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
-| `brightness` | Yes | Relative brightness in percent | -100..100 | 
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
+| `brightness` | Yes | Relative brightness in percent | -100..100 |
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
 
 Example:
 
@@ -522,8 +543,8 @@ Toggle output port.
 | Service data attribute | Optional | Description  | Values |
 | ---------------------- | -------- | -----------  | ------ |
 | `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) | 
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 | 
+| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
+| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
 
 Example:
 
@@ -682,7 +703,7 @@ data:
 Send keys (which executes bound commands).
 The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
 If `state` is not defined, it is assumed to be `hit`.
-The command allow the sending of keys immediately or deferred. For a deferred sendig the attributes `time` and `time_unit` have to be specified. For deferred sending the only key state allowed is `hit`.
+The command allows the sending of keys immediately or deferred. For a deferred sending the attributes `time` and `time_unit` have to be specified. For deferred sending, the only key state allowed is `hit`.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
 | Service data attribute | Optional | Description  | Values |
@@ -717,9 +738,9 @@ data:
 ### Service `lock_keys`
 
 Locks keys.
-If table is not defined, it is assumend to be table `a`.
+If the table is not defined, it is assumed to be table `a`.
 The key lock states are defined as a string with eight characters. Each character represents the state change of a key lock (1=on, 0=off, t=toggle, -=nochange).
-The command allows the locking of keys for a specified time period. For a time period the attributes `time` and `time_unit` have to be specified. For a time period only table `a` is allowed.
+The command allows the locking of keys for a specified time period. For a time period, the attributes `time` and `time_unit` have to be specified. For a time period, only table `a` is allowed.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
 | Service data attribute | Optional | Description  | Values |

@@ -459,7 +459,7 @@ influxdb:
 [notify.html5 docs]: /components/notify.html5/
 [notify.joaoapps_join docs]: /components/notify.joaoapps_join/
 [notify.mailgun docs]: /components/notify.mailgun/
-[notify.matrix docs]: /components/notify.matrix/
+[notify.matrix docs]: /components/matrix/#notifications
 [notify.smtp docs]: /components/notify.smtp/
 [notify.telegram docs]: /components/notify.telegram/
 [notify.webostv docs]: /components/notify.webostv/

@@ -91,5 +91,4 @@ We use [Pivotal Tracker] to track things that are in progress and what we might 
 [Duck DNS]: /addons/duckdns/
 [advanced-install]: /hassio/installation/#alternative-install-on-generic-linux-server
 [Pivotal Tracker]: https://www.pivotaltracker.com/n/projects/2020851
-[run-local]: /hassio/run_local/
 [Resin.io]: https://resin.io

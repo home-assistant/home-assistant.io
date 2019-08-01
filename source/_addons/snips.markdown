@@ -57,6 +57,7 @@ language:
 custom_tts:
   description: Whether to use a TTS provider from Home Assistant for a variety of voices.
   type: boolean
+  default: false
 tts_platform:
   description: Which TTS platform to use.
   type: string

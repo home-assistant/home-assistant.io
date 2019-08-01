@@ -74,7 +74,7 @@ The next two statements result in the same value if the state exists. The second
 {% raw %}
 ```text
 {{ states('device_tracker.paulus') }}
-{{ states('device_tracker.paulus') }}
+{{ states.device_tracker.paulus }}
 ```
 {% endraw %}
 
@@ -142,11 +142,11 @@ With strings:
 ```
 {% endraw %}
 
-### {% linkable_title Working with Groups %}
+### Working with Groups
 
 The `expand` function and filter can be used to sort entities and expand groups. It outputs a sorted array of entities with no duplicates.
 
-#### {% linkable_title Expand examples %}
+#### Expand examples
 
 {% raw %}
 ```text
@@ -200,7 +200,7 @@ These can also be combined in any combination:
 ```
 {% endraw %}
 
-#### {% linkable_title Closest examples %}
+#### Closest examples
 
 The closest function and filter will find the closest entity to the Home Assisant location:
 
@@ -277,6 +277,7 @@ Some of these functions can also be used in a [filter](http://jinja.pocoo.org/do
 - Filter `min` will obtain the smallest item in a sequence.
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 
 ### Regular expressions
 

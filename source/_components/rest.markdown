@@ -68,7 +68,7 @@ verify_ssl:
 timeout:
   description: Defines max time to wait data from the endpoint.
   required: false
-  type: positive integer
+  type: integer
   default: 10
 unit_of_measurement:
   description: Defines the units of measurement of the sensor, if any.

@@ -9,7 +9,7 @@ redirect_from:
  - /components/device_tracker.ddwrt/
 ---
 
-This platform offers presence detection by looking at connected devices to a [DD-WRT](http://www.dd-wrt.com/site/index) based router.
+This platform offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.
 
 To use a DD-WRT router in your installation, add the following to your `configuration.yaml` file:
 

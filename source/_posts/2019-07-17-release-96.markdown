@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.96: Notion, updated sidebar, advanced mode"
 description: "We have cleaned up the climate integration and the UI."
 date: 2019-07-17 00:11:03
 date_formatted: "July 17, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-07-release-96/demo-sidebar.png
 ---
@@ -23,7 +21,7 @@ Home Assistant has adopted a new [Python support strategy](https://github.com/ho
 
 ## Pimp my Sidebar
 
-The sidebar has gotten an improved look! Idea started with [a mockup by @JuanMTech on Twitter](https://twitter.com/JuanMTech/status/1143757213971943424) and grew into a full blown implementation. The sidebar will now always be visible in a minimized mode. Hovering it will expand it. The developer tool buttons have been collapsed into a single menu item. The dev tools will now store it's exact state when you navigate away, included the dev tool that is open. We've also taken the opportunity to make notifications accessible from the sidebar, instead of only via the Lovelace UI.
+The sidebar has gotten an improved look! Idea started with [a mockup by @JuanMTech on Twitter](https://twitter.com/JuanMTech/status/1143757213971943424) and grew into a full blown implementation. When visiting Home Assistant on devices with big screens (tablets, laptops, desktops), the sidebar will now always be visible in a minimized mode with the ability to fully hide it via the profile page. The developer tool buttons have been collapsed into a single menu item. The dev tools will now store it's exact state when you navigate away, included the dev tool that is open. We've also taken the opportunity to make notifications accessible from the sidebar, instead of only via the Lovelace UI.
 
 On mobile devices the sidebar will behave like it previously did. Check [the demo](https://demo.home-assistant.io) for a preview.
 
@@ -69,7 +67,7 @@ Huge thanks to [@pvizeli] who drove the core implementation and to the following
 [@marvin-w]: https://github.com/marvin-w
 [@OnFreund]: https://github.com/OnFreund
 [@SukramJ]: https://github.com/SukramJ
-[@teachingbirds]: https://github.com/teachingbirds
+[@isabellaalstrom]: https://github.com/isabellaalstrom
 
 ## Advanced mode
 
@@ -85,7 +83,11 @@ Big shout out to [@frenck] who has been doing a lot of clean up on the website. 
 
 Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blog/2019/07/09/home-assistant-cast-preview/), a new interface for Home Assistant that runs on Chromecasts and Google Assistant devices with screens.
 
-[@teachingbirds] has redone her Lovelace UI and it is looking fabulous!
+The [Home Assistant code repository on GitHub](https://github.com/home-assistant/home-assistant) has hit 25.000 stars! 🤩
+
+The Home Assistant Podcast has published [episode 53](https://hasspodcast.io/ha053/) to discuss all the ins and outs of this new release.
+
+[@isabellaalstrom] has redone her Lovelace UI and it is looking fabulous!
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Redid my whole layout for the <a href="https://twitter.com/home_assistant?ref_src=twsrc%5Etfw">@home_assistant</a> dashboard yesterday on a whim. &quot;Nest hub inspired&quot;, I call it. 😄 I like it a lot! Feels put together and less messy. <a href="https://t.co/8pmA5CWKev">pic.twitter.com/8pmA5CWKev</a></p>&mdash; Isa (@teachingbirds) <a href="https://twitter.com/teachingbirds/status/1151113630391427072?ref_src=twsrc%5Etfw">July 16, 2019</a>
 </blockquote>
@@ -107,6 +109,156 @@ Last week [@balloob] showed a preview of the upcoming [Home Assistant Cast](/blo
 - [climate] Bugfix honeywell misleading error message ([@zxdavb] - [#25048]) ([evohome docs]) ([honeywell docs]) (new-platform)
 - [climate] Add water_heater to evohome ([@zxdavb] - [#25035]) ([evohome docs]) (beta fix) (new-platform)
 - [Climate] Hive Add water heater Component post the refresh of the climate component. ([@KJonline] - [#25148]) ([hive docs]) (beta fix) (new-platform)
+
+## Release 0.96.1 - July 18
+
+- Show off value ([@pvizeli] - [#25236])
+- Fix eq3btsmart ([@pvizeli] - [#25238]) ([eq3btsmart docs])
+- Make presets prettier ([@cgtobi] - [#25245]) ([netatmo docs])
+- Fix the unit of measurement for ecobee climate ([@cgtobi] - [#25246]) ([ecobee docs])
+- ecobee Preset Fix ([@geekofweek] - [#25256]) ([ecobee docs])
+- Update CT80 Humidity call ([@zombielinux] - [#25258]) ([radiotherm docs])
+- Restore SmartThings A/C on/off services ([@andrewsayre] - [#25259]) ([smartthings docs])
+- Add hvac modes back to opentherm ([@balloob] - [#25268]) ([opentherm_gw docs])
+- Added states and modes for zwave climate ([@stboch] - [#25274]) ([zwave docs])
+
+[#25236]: https://github.com/home-assistant/home-assistant/pull/25236
+[#25238]: https://github.com/home-assistant/home-assistant/pull/25238
+[#25245]: https://github.com/home-assistant/home-assistant/pull/25245
+[#25246]: https://github.com/home-assistant/home-assistant/pull/25246
+[#25256]: https://github.com/home-assistant/home-assistant/pull/25256
+[#25258]: https://github.com/home-assistant/home-assistant/pull/25258
+[#25259]: https://github.com/home-assistant/home-assistant/pull/25259
+[#25268]: https://github.com/home-assistant/home-assistant/pull/25268
+[#25274]: https://github.com/home-assistant/home-assistant/pull/25274
+[@andrewsayre]: https://github.com/andrewsayre
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@geekofweek]: https://github.com/geekofweek
+[@pvizeli]: https://github.com/pvizeli
+[@stboch]: https://github.com/stboch
+[@zombielinux]: https://github.com/zombielinux
+[ecobee docs]: /components/ecobee/
+[eq3btsmart docs]: /components/eq3btsmart/
+[netatmo docs]: /components/netatmo/
+[opentherm_gw docs]: /components/opentherm_gw/
+[radiotherm docs]: /components/radiotherm/
+[smartthings docs]: /components/smartthings/
+[zwave docs]: /components/zwave/
+
+## Release 0.96.2 - July 19
+
+- Fix fritzbox climate HVAC mode / temperature ([@cgtobi] - [#25275]) ([fritzbox docs])
+- Fixed python-wink method names ([@w1ll1am23] - [#25285]) ([wink docs])
+- [climate] Correct honeywell supported_features ([@zxdavb] - [#25292]) ([honeywell docs])
+- Fix HM with use wrong datapoint for off ([@pvizeli] - [#25298]) ([homematic docs])
+- Fix plant error when adding new value ([@cgtobi] - [#25302]) ([plant docs])
+
+[#25275]: https://github.com/home-assistant/home-assistant/pull/25275
+[#25285]: https://github.com/home-assistant/home-assistant/pull/25285
+[#25292]: https://github.com/home-assistant/home-assistant/pull/25292
+[#25298]: https://github.com/home-assistant/home-assistant/pull/25298
+[#25302]: https://github.com/home-assistant/home-assistant/pull/25302
+[@cgtobi]: https://github.com/cgtobi
+[@pvizeli]: https://github.com/pvizeli
+[@w1ll1am23]: https://github.com/w1ll1am23
+[@zxdavb]: https://github.com/zxdavb
+[fritzbox docs]: /components/fritzbox/
+[homematic docs]: /components/homematic/
+[honeywell docs]: /components/honeywell/
+[plant docs]: /components/plant/
+[wink docs]: /components/wink/
+
+## Release 0.96.3 - July 21
+
+- temporary patch to fix KNX climate devices ([@farmio] - [#25356]) ([knx docs])
+- Restore sensiobo turn on/off methods ([@balloob] - [#25321]) ([sensibo docs])
+- Update zwave climate mappings ([@eyager1] - [#25327]) ([zwave docs])
+- Restore Daikin A/C on/off services ([@fredrike] - [#25332]) ([daikin docs])
+- Fix for hvac_modes list being null ([@schmic] - [#25347]) ([zwave docs])
+- add available to device info ([@dmulcahey] - [#25349]) ([zha docs])
+- Fix preset service call ([@cgtobi] - [#25358]) ([netatmo docs])
+- Improve geniushub logging and bump client ([@zxdavb] - [#25359]) ([geniushub docs])
+- Introduce PRESET_NONE for climate ([@balloob] - [#25360])
+- bump quirks version ([@dmulcahey] - [#25362]) ([zha docs])
+- Fix ESPHome climate migration ([@OttoWinter] - [#25366]) ([esphome docs])
+- fix remove and re-add scenario ([@dmulcahey] - [#25370]) ([zha docs])
+- change and condition to or condition ([@dmulcahey] - [#25374])
+- Add Netatmo climate battery level ([@cgtobi] - [#25143]) ([netatmo docs])
+
+[#25321]: https://github.com/home-assistant/home-assistant/pull/25321
+[#25143]: https://github.com/home-assistant/home-assistant/pull/25143
+[#25327]: https://github.com/home-assistant/home-assistant/pull/25327
+[#25332]: https://github.com/home-assistant/home-assistant/pull/25332
+[#25347]: https://github.com/home-assistant/home-assistant/pull/25347
+[#25349]: https://github.com/home-assistant/home-assistant/pull/25349
+[#25356]: https://github.com/home-assistant/home-assistant/pull/25356
+[#25358]: https://github.com/home-assistant/home-assistant/pull/25358
+[#25359]: https://github.com/home-assistant/home-assistant/pull/25359
+[#25360]: https://github.com/home-assistant/home-assistant/pull/25360
+[#25362]: https://github.com/home-assistant/home-assistant/pull/25362
+[#25366]: https://github.com/home-assistant/home-assistant/pull/25366
+[#25370]: https://github.com/home-assistant/home-assistant/pull/25370
+[#25374]: https://github.com/home-assistant/home-assistant/pull/25374
+[@OttoWinter]: https://github.com/OttoWinter
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@dmulcahey]: https://github.com/dmulcahey
+[@eyager1]: https://github.com/eyager1
+[@farmio]: https://github.com/farmio
+[@fredrike]: https://github.com/fredrike
+[@schmic]: https://github.com/schmic
+[@zxdavb]: https://github.com/zxdavb
+[daikin docs]: /components/daikin/
+[esphome docs]: /components/esphome/
+[geniushub docs]: /components/geniushub/
+[knx docs]: /components/knx/
+[netatmo docs]: /components/netatmo/
+[sensibo docs]: /components/sensibo/
+[zha docs]: /components/zha/
+[zwave docs]: /components/zwave/
+
+## Release 0.96.4 - July 23
+
+- Fix Netatmo climate battery level ([@cgtobi] - [#25165]) ([netatmo docs])
+- Tweak evohome migration ([@zxdavb] - [#25281]) ([evohome docs])
+- Bump pyatmo version to 2.1.2 ([@cgtobi] - [#25296]) ([netatmo docs])
+- [climate] Bugfix/Tweak honeywell migration ([@zxdavb] - [#25369]) ([honeywell docs])
+- Update Daikin preset modes ([@fredrike] - [#25395]) ([daikin docs])
+- Update pysonos to 0.0.22 ([@amelchio] - [#25399]) ([sonos docs])
+- [climate] Correct evohome hvac_action ([@zxdavb] - [#25407]) ([evohome docs])
+
+[#25165]: https://github.com/home-assistant/home-assistant/pull/25165
+[#25281]: https://github.com/home-assistant/home-assistant/pull/25281
+[#25296]: https://github.com/home-assistant/home-assistant/pull/25296
+[#25369]: https://github.com/home-assistant/home-assistant/pull/25369
+[#25395]: https://github.com/home-assistant/home-assistant/pull/25395
+[#25399]: https://github.com/home-assistant/home-assistant/pull/25399
+[#25407]: https://github.com/home-assistant/home-assistant/pull/25407
+[@amelchio]: https://github.com/amelchio
+[@cgtobi]: https://github.com/cgtobi
+[@fredrike]: https://github.com/fredrike
+[@zxdavb]: https://github.com/zxdavb
+[daikin docs]: /components/daikin/
+[evohome docs]: /components/evohome/
+[honeywell docs]: /components/honeywell/
+[netatmo docs]: /components/netatmo/
+[sonos docs]: /components/sonos/
+
+## Release 0.96.5 - July 25
+
+- Bump geniushub client ([@zxdavb] - [#25458]) ([geniushub docs])
+- Allow cors for static files ([@balloob] - [#25468]) ([http docs])
+- Fix Nest turning off eco ([@balloob] - [#25472]) ([nest docs])
+
+[#25458]: https://github.com/home-assistant/home-assistant/pull/25458
+[#25468]: https://github.com/home-assistant/home-assistant/pull/25468
+[#25472]: https://github.com/home-assistant/home-assistant/pull/25472
+[@balloob]: https://github.com/balloob
+[@zxdavb]: https://github.com/zxdavb
+[geniushub docs]: /components/geniushub/
+[http docs]: /components/http/
+[nest docs]: /components/nest/
 
 ## If you need help...
 
@@ -151,6 +303,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Velbus__ - Added autodicovery for covers in velbus and bumped the python velbus version ([@Cereal2nd] - [#24877]) ([velbus docs])
 - __ZHA__ - ZHA entities are being removed and battery sensors are being added. We have been asked several times to remove the ZHA domain entities because they do not follow the HA standards. They were originally used to show device online / offline status, rssi, lqi and last seen. They were eventually expanded to hold battery information as well because many Zigbee devices have several power configuration clusters. Online and offline handling, rssi, lqi last seen and the handling of device availability have all been moved to the device object and battery information has been split back out into its own sensor. Any users that created template sensors that leveraged the data in the ZHA entities will be affected by this change. ([@dmulcahey] - [#24909]) ([zha docs])
 - __Netatmo__ - If the module type can not be determined the climate device will default to the type "valve" as it implements a subset of "thermostat". Consequently those devices wont be able to be turned off. This should not be a major issue and should only happen when there are issues with the data retrieved form the Netatmo API. ([@cgtobi] - [#25029]) ([netatmo docs])
+- __Netatmo__ - The configuration of individual monitored conditions has been removed so that now all conditions are available per module by default. ([@cgtobi] - [#24944]) (netatmo docs)
 - __GeoJSON Events__ - Update geojson_client library to version 0.4.This changes the access to the external feed from HTTP to HTTPS for the nsw_rural_fire_service_feed platform. This should normally not make any difference to anyone consuming this feed. Only if for example you have set up a template sensor or automation that reads the external_id attribute of a geo_location entity and compare it against a pattern, would you need to change this. ([@exxamalte] - [#25039]) ([geo_json_events docs]) ([nsw_rural_fire_service_feed docs]) ([usgs_earthquakes_feed docs])
 
 ## Beta Fixes
