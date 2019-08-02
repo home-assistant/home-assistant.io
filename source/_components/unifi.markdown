@@ -73,6 +73,11 @@ dont_track_devices:
   type: boolean
   required: false
   default: false
+dont_track_wired_clients:
+  description: enable to not allow device tracker to track wired clients.
+  type: boolean
+  required: false
+  default: false
 ssid_filter:
   description: Filter the SSIDs that tracking will occur on.
   type: list
