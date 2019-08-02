@@ -9,7 +9,7 @@ ha_iot_class: Local Polling
 ha_release: 0.96
 ---
 
-The `fronius` sensor will poll a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.
+The `fronius` sensor polls a [Fronius](http://www.fronius.com/) solar inverter, battery system or smart meter and present the values as sensors in Home Assistant.
 
 ## Configuration
 
@@ -55,13 +55,14 @@ Each sensor type chosen as monitored condition adds a set of sensors to Home Ass
 - `power_flow`
 
     Cumulative data such as the energy produced in the current day or year and overall produced energy.
-    Also live values such as
-    - power fed to grid (if positive) or taken from grid (if negative)
-    - power load as generator (if positive) or consumer (if negative) 
-    - battery charging power (if positive) or discharging power (if negative) and information about backup or standby mode
-    - photovoltaic production
-    - current relative self consumption of produced energy
-    - current relative autonomy
+    Also, live values such as:
+    
+    - Power fed to the grid (if positive) or taken from the grid (if negative).
+    - Power load as a generator (if positive) or consumer (if negative).
+    - Battery charging power (if positive) or discharging power (if negative) and information about backup or standby mode.
+    - Photovoltaic production.
+    - Current relative self-consumption of produced energy.
+    - Current relative autonomy.
 
 - `inverter`
 
