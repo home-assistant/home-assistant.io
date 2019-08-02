@@ -1,4 +1,3 @@
-
 ---
 title: "Fronius"
 description: "Instructions on how to connect your Fronius Inverter to Home Assistant."
