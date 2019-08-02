@@ -22,7 +22,7 @@ To allow WebSocket by default for all service exposed by NGINX, you can enable i
 
 Open `/usr/syno/share/nginx/Portal.mustache` and add the followings in the `Location` section:
 
-```
+```text
         proxy_set_header        Upgrade             $http_upgrade;
         proxy_set_header        Connection          "upgrade";
         proxy_read_timeout      86400;
@@ -43,7 +43,7 @@ You can find more information [here](https://github.com/orobardet/dsm-reverse-pr
 - Copy the Home Assistant specific Reverse Proxy settings from the existing `/etc/nginx/app.d/server.ReverseProxy.conf` file to `/usr/local/etc/nginx/conf.d/http.HomeAssistant.conf`.
 - Include these lines in the location declaration:
 
-```
+```text
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
 ```
