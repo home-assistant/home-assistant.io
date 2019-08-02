@@ -7,28 +7,29 @@ ha_iot_class: Local Polling
 ha_release: 0.98
 ---
 
-This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, you will need its password and IP address.
+This enables [Plugwise](https://plugwise.com) [Anna](https://www.plugwise.com/en_US/products/anna) thermostats to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
 
 The password can be found on the bottom of your Smile, it should consist of 6 characters. To find your IP address use the Plugwise App: 
+
  - Open the Plugwise App and choose the 'Settings'-icon (&#9776;) and choose 'HTML-interface'. 
  - Go to the (lower) 'Settings'-icon (&#9776;) and choose 'Preferences'. 
  - Choose 'System' then 'Networking' and your IP address will be shown.
 
 ## Configuration
 
-You have to add the following to your configuration.yaml file.
+You have to add the following to your configuration.yaml file:
 
 ```yaml
 # Minimal configuration.yaml entry
 climate:
   - platform: plugwise
-    password: your_short_id # required, the ID on the smile (some string of 6 characters)
-    host: local_ip_address  # required, the IP-address of your smile
+    password: YOUR_SHORT_IP 
+    host: YOUR_SMILE_LOCAL_IP
 ```
 
 {% configuration %}
 password:
-  description: Your Smile ID (located on the bottom of the Smile, not the Anna)
+  description: Your Smile ID (located on the bottom of the Smile, not the Anna).
   required: true
   type: string
 host:
@@ -36,17 +37,17 @@ host:
   required: true
   type: string
 name:
-  description: The name of your thermostat, i.e. "Anna"
+  description: The name of your thermostat, i.e., "Anna".
   required: false
   type: string
   default: "Plugwise Thermostat"
 username:
-  description: Should you ever need to change this, you can
+  description: Should you ever need to change this, you can.
   required: false
   type: string
   default: smile
 port:
-  description: When having a custom setup, you can change the port number
+  description: When having a custom setup, you can change the port number.
   required: false
   type: integer
   default: 80
@@ -65,16 +66,14 @@ max_temp:
 ### Full configuration example
 
 ```yaml
-# Example configuration.yaml entry to show only devices at your vacation and primary homes
 climate:
   - platform: anna
-    name: Anna Thermostat   # optional, only if you want to use a different name
-    password: your_short_id # required, the ID on the smile (some string of 6 characters)
-    host: local_ip_address  # required, the IP-address of your smile
-    username: smile         # optional, default username is smile
-    port: 80 		    # optional, only needed when other than 80
-    min_temp: 4 	    # optional, when you want to change the minimal temperature
-    max_temp: 30 	    # optional, when you want to change the maximum temperature
+    name: YOUR_THERMOSTAT_NAME
+    password: YOUR_SHORT_ID
+    host: YOUR_SMILE_LOCAL_IP
+    port: YOUR_SMILE_PORT_NUMBER
+    min_temp: YOUR_MINIMAL_TARGET_TEMPERATURE
+    max_temp: YOUR_MAXIMAL_TARGET_TEMPERATURE
 ```
 
 ### Service
@@ -83,7 +82,7 @@ climate:
 
 Service: `climate.set_hvac_mode`
 
-Available options include `auto` or `off`. The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `off` is that there is no schedule active, i.e. the active preset or manually set temperature is to be used to control the climate of your house or rooms.
+Available options include `auto` or `off`. The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `off` is that there is no schedule active, i.e., the active preset or manually set temperature is to be used to control the climate of your house or rooms.
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
@@ -125,7 +124,7 @@ script:
 
 Service: `climate.set_preset_mode`
 
-Available options include: `home`, `vacation`, `no_frost`, `asleep` & `away`
+Available options include: `home`, `vacation`, `no_frost`, `asleep` & `away`.
 
 Example:
 
@@ -143,7 +142,7 @@ script:
 
 Example of a working configuration excerpt (with debugging enabled):
 
-```source
+```txt
 [homeassistant.loader] Loaded plugwise from custom_components.plugwise
 [homeassistant.loader] You are using a custom integration for plugwise which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you do experience issues with Home Assistant.
 [custom_components.plugwise.climate] Plugwise: custom component loading (Anna PlugWise climate)
@@ -154,9 +153,9 @@ Example of a working configuration excerpt (with debugging enabled):
 [custom_components.plugwise.climate] Update called
 ```
 
-Example of something going wrong (IP address not set) excerpt is shown below. Correct your configuration and try again. If the errors persist, please share a larger excerpt of your logfile
+Example of something going wrong (IP address not set) excerpt is shown below. Correct your configuration and try again. If the errors persist, please share a larger excerpt of your logfile.
 
-```source
+```txt
 1970-01-01 00:00:01 ERROR (MainThread) [homeassistant.components.climate] Error while setting up platform plugwise
   File "/home/homeassistant/.homeassistant/custom_components/plugwise/climate.py", line 104, in setup_platform
   File "/home/homeassistant/.homeassistant/custom_components/plugwise/climate.py", line 130, in __init__
