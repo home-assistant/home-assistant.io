@@ -33,7 +33,7 @@ monitored_conditions:
   required: true
   type: list
   keys:
-    type:
+    sensor_type:
       description: "The kind of device, can be one of \"inverter\", \"storage\", \"meter\", or \"power_flow\""
       required: true
       type: string
