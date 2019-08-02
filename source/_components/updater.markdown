@@ -61,12 +61,12 @@ For an added bonus, an automation integration can be created to send a message w
 automation:
   alias: Update Available Notification
   trigger:
-  - platform: state
-    entity_id: binary_sensor.updater
-    from: 'off'
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.updater
+      from: 'off'
+      to: 'on'
   action:
-  - service: notify.notify
-    data:
-      message: 'Update for Home Assistant is available.'
+    - service: notify.notify
+      data:
+        message: 'Update for Home Assistant is available.'
 ```
