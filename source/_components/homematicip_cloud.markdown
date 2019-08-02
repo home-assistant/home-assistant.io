@@ -87,6 +87,7 @@ authtoken:
 * homematicip_cloud.binary_sensor
   * Window and door contact (*HmIP-SWDO, -I*)
   * Contact Interface flush-mount – 1 channel (*HmIP-FCI1*)
+  * Contact Interface (*HmIP-SCI*)
   * Window Rotary Handle Sensor (*HmIP-SRH*)
   * Smoke sensor and alarm (*HmIP-SWSD*)
   * Motion Detector with Brightness Sensor - indoor (*HmIP-SMI*)
