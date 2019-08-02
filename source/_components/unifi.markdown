@@ -37,7 +37,6 @@ unifi:
   controllers:
     - host: unifi
       site: My site
-      dont_track_devices: true
       ssid_filter:
         - 'HomeSSID'
         - 'IoTSSID'
