@@ -34,9 +34,7 @@ $ sudo service hass-daemon install
 
 This logrotate script at `/etc/logrotate.d/homeassistant` will create an outage of a few seconds every week at night. If you do not want this add `--log-rotate-days 7` to the `FLAGS` variable in the init script.
 
-```
-/var/log/homeassistant/home-assistant.log
-```
+File `/var/log/homeassistant/home-assistant.log`:
 
 ```text
 {
