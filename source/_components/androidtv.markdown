@@ -260,3 +260,5 @@ The `state_detection_rules` configuration parameter allows you to provide your o
 * `'media_session_state'` = try to use the `media_session_state` property to determine the state
 * `'audio_state'` = try to use the `audio_state` property to determine the state
 * `'wake_lock_size'` = if the `wake_lock_size` property is present in this map, then use its corresponding state
+
+To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.
