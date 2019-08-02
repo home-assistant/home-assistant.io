@@ -26,32 +26,22 @@ filter:
   required: false
   type: list
   keys:
-    exclude:
-      description: Excluded from recording.
+    exclude_entities:
+      description: The list of entity ids to be excluded from recording.
       required: false
       type: list
-      keys:
-        entities:
-          description: The list of entity ids to be excluded from recording.
-          required: false
-          type: list
-        domains:
-          description: The list of domains to be excluded from recording.
-          required: false
-          type: list
-    include:
-      description: Included in recordings. If set, all other entities will not be recorded. Values set by the **exclude** option will prevail.
+    exclude_domains:
+      description: The list of domains to be excluded from recording.
       required: false
       type: list
-      keys:
-        entities:
-          description: The list of entity ids to be included from recordings.
-          required: false
-          type: list
-        domains:
-          description: The list of domains to be included from recordings.
-          required: false
-          type: list
+    include_entities:
+      description: The list of entity ids to be included from recordings. If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
+      required: false
+      type: list
+    include_domains:
+      description: The list of domains to be included from recordings. If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
+      required: false
+      type: list
 {% endconfiguration %}
 
 You can then configure Prometheus to fetch metrics from Home Assistant by adding to its `scrape_configs` configuration.
