@@ -132,8 +132,8 @@ media_player:
       'com.hulu.plus':
         - 'media_session_state'
         - 'wake_lock_size':
-            4: 'playing'
-            2: 'paused'
+            4: 'playing'  # this indentation is important!
+            2: 'paused'   # this indentation is important!
 
   # Use the Python ADB implementation with authentication
   # to setup a Fire TV device and don't get the running apps
