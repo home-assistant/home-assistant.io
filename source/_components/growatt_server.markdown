@@ -49,6 +49,7 @@ name:
 {% endconfiguration %}
 
 ## Example with multiple plants
+
 ```yaml
 # Example configuration.yaml entry
 sensor:
