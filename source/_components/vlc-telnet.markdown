@@ -15,7 +15,7 @@ To add a VLC media player to your installation, add the following to your `confi
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  - platform: vlc-telnet
+  - platform: vlc_telnet
     host: IP_ADDRESS
     password: PASSWORD
 ```
@@ -53,7 +53,7 @@ A full configuration for VLC could look like the one below:
 ```yaml
 # Example configuration.yaml entry
 media_player:
-  - platform: vlc-telnet
+  - platform: vlc_telnet
     name: Remote Player
     host: 192.168.1.48
     port: 4212
