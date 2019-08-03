@@ -33,9 +33,8 @@ To use a MikroTik router in your installation, add the following to your `config
 
 ```yaml
 # Example configuration.yaml entry
-device_tracker:
-  - platform: mikrotik
-    host: IP_ADDRESS
+mikrotik:
+  - host: IP_ADDRESS
     username: ROUTEROS_USERNAME
     password: ROUTEROS_PASSWORD
 ```
@@ -70,9 +69,14 @@ ssl:
   default: false
   type: boolean
 method:
-  description: Override autodetection of device scanning method. Can be `wireless` to use local wireless registration, `capsman` for capsman wireless registration, or `ip` for DHCP leases.
+  description: Override autodetection of device scanning method. Can be `wireless` to use local wireless registration, `capsman` for capsman wireless registration, or `dhcp` for DHCP leases.
   required: false
   type: string
+arp_ping:
+  description: Use ARP ping with DHCP method for device scanning.
+  required: false
+  default: false
+  type: boolean
 {% endconfiguration %}
 
 <div class='note info'>
@@ -113,17 +117,17 @@ To use this device tracker you need restricted privileges only. To enhance the s
 /user set password="YOUR_PASSWORD" homeassistant
 ```
 
-## Using the additional configuration to the `mikrotik` device tracker entry in your `configuration.yaml` file:
+## Using the additional configuration to the `mikrotik` entry in your `configuration.yaml` file:
 
 ```yaml
-device_tracker:
-  - platform: mikrotik
-    host: 192.168.88.1
+mikrotik:
+  - host: 192.168.88.1
     username: homeassistant
     password: YOUR_PASSWORD
     ssl: true
     port: 8729
-    method: capsman
+    method: wireless
+    track_devices: true
 ```
 
 See the [device tracker integration page](/components/device_tracker/) for instructions on how to configure the people to be tracked.
