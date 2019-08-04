@@ -129,11 +129,16 @@ media_player:
         - 'standby'
       'com.netflix.ninja':
         - 'media_session_state'
-      'com.hulu.plus':
-        - 'media_session_state'
-        - 'wake_lock_size':
-            4: 'playing'  # this indentation is important!
-            2: 'paused'   # this indentation is important!
+      'com.ellation.vrv':
+        - 'audio_state'
+      'com.plexapp.android':
+        - 'playing':
+            'media_session_state': 3  # this indentation is important!
+            'wake_lock_size': 3       # this indentation is important!
+        - 'paused':
+            'media_session_state': 3  # this indentation is important!
+            'wake_lock_size': 1       # this indentation is important!
+        - 'standby'
 
   # Use the Python ADB implementation with authentication
   # to setup a Fire TV device and don't get the running apps
@@ -256,9 +261,13 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 The `state_detection_rules` configuration parameter allows you to provide your own rules for state detection.  The keys are app IDs, and the values are lists of rules that are evaluated in order.  Valid rules are:
 
-* `'standby'`, `'playing'`, `'paused'`, `'idle'`, `'stopped'`, or `'off'` = always use the specified state for the state when this app is open
+* `'standby'`, `'playing'`, `'paused'`, `'idle'`, `'stopped'`, or `'off'`
+  * If this is not a map, then this state will always be reported when this app is the current app
+  * If this is a map, then its entries are conditions that will be checked.  If all of the conditions are true, then this state will be reported.  Valid conditions pertain to 3 properties (see the example configuration above):
+    1. ``'media_session_state'``
+    2. ``'audio_state'``
+    3. ``'wake_lock_size'``
 * `'media_session_state'` = try to use the `media_session_state` property to determine the state
 * `'audio_state'` = try to use the `audio_state` property to determine the state
-* `'wake_lock_size'` = if the `wake_lock_size` property is present in this map, then use its corresponding state
 
 To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.
