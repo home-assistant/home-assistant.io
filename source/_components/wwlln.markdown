@@ -70,7 +70,7 @@ the standard ones:
 ```yaml
 # Example configuration.yaml entry
 wwlln:
-    radius: 100
-    latitude: 37.39
-    longitude: -5.99
+  radius: 100
+  latitude: 37.39
+  longitude: -5.99
 ```
