@@ -3,6 +3,7 @@ title: "MikroTik"
 description: "Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant."
 logo: mikrotik.png
 ha_category:
+  - Hub
   - Presence Detection
 ha_release: 0.44
 redirect_from:
@@ -11,7 +12,11 @@ redirect_from:
 
 The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](http://mikrotik.com) based router.
 
-## Configuring `mikrotik` device tracker
+There is currently support for the following device types within Home Assistant:
+
+- Presence Detection
+
+## Configuring `mikrotik` hub
 
 You have to enable accessing the RouterOS API on your router to use this platform.
 
@@ -125,8 +130,16 @@ mikrotik:
     username: homeassistant
     password: YOUR_PASSWORD
     ssl: true
+    arp_ping: true
+    method: dhcp
+    track_devices: true
+
+  - host: 192.168.88.2
+    username: homeassistant
+    password: YOUR_PASSWORD
+    ssl: true
     port: 8729
-    method: wireless
+    method: capsman
     track_devices: true
 ```
 
