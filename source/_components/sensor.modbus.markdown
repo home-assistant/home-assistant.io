@@ -111,6 +111,12 @@ registers:
 
 It's possible to change the default 30 seconds scan interval for the sensor updates as shown in the [Platform options](/docs/configuration/platform_options/#scan-interval) documentation.
 
+<div class='note'>
+
+If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
+
+</div>
+
 ### Full example
 
 Example a temperature sensor with a 10 seconds scan interval:
