@@ -29,7 +29,7 @@ As per previous announcements, this is the first release that requires at least 
 
 Frenck wrote [an excellent blog post](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) how to make a $2 smart doorbell using Home Assistant and ESPHome.
 
-[@jimz011] has updated his amazing Lovelace config and shared it on the forums. Preview below, but also make sure to check out [the forum post](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-august-2019-ha-0-96-x-compatible-now-with-dynamic-themes/)
+[@jimz011] has updated his amazing Lovelace config and shared it [on the forums](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-august-2019-ha-0-96-x-compatible-now-with-dynamic-themes/). Preview below.
 
 [@jimz011]: https://github.com/jimz011
 
