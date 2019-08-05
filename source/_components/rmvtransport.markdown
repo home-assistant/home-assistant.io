@@ -75,6 +75,11 @@ next_departure:
       required: false
       default: 5
       type: integer
+    show_on_map:
+      description: Enable/Disable to display the station on the map.
+      required: false
+      default: false
+      type: boolean
 {% endconfiguration %}
 
 ## Examples
