@@ -62,7 +62,7 @@ name:
   type: string
   default: "HERE Travel Time"
 mode:
-  description: "You can choose between: `car`, `pedestrian`, `publicTransport` or `truck`. The default is `car`."
+  description: "You can choose between: `bicycle`, `car`, `pedestrian`, `publicTransport` or `truck`. The default is `car`."
   required: false
   type: string
   default: "car"
