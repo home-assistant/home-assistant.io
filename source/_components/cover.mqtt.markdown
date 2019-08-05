@@ -70,11 +70,26 @@ state_open:
   required: false
   type: string
   default: open
+state_opening:
+  description: The payload that represents the opening state.
+  required: false
+  type: string
+  default: opening
+state_closing:
+  description: The payload that represents the closing state.
+  required: false
+  type: string
+  default: closing
 state_closed:
   description: The payload that represents the closed state.
   required: false
   type: string
   default: closed
+state_stopped:
+  description: The payload that represents the stopped state.
+  required: false
+  type: string
+  default: stopped
 position_topic:
   description: The MQTT topic subscribed to receive cover position messages. If `position_topic` is set `state_topic` is ignored.
   required: false
