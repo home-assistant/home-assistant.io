@@ -25,10 +25,12 @@ For a demo, also check out the [Home Assistant Cast launcher](https://cast.home-
 
 You need to authorize Home Assistant Cast to access your Home Assistant instance. Once it's authorized, you can start Home Assistant Cast on your Chromecast device. Your Chromecast device will then set up a direct connection to your Home Assistant instance and you can pick a view to display.
 
+Home Assistant Cast can:
+
 - Render Lovelace views, including custom cards
-- Real-time data stream will ensure the UI always shows the latest state of your house
-- Navigate between views using navigate actions or weblinks
-- Instant updates of the casted Lovelace UI when you update your Lovelace configuration.
+- Stream real-time data to make sure that the UI always shows the latest state of your house
+- Navigate between views using navigate actions inside an entities card or using weblinks
+- Instantly update the casted Lovelace UI when you update your Lovelace configuration
 
 ## About touch
 
