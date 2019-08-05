@@ -27,7 +27,15 @@ As per previous announcements, this is the first release that requires at least 
 
 ## In other news
 
-TBD
+Frenck wrote [an excellent blog post](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) how to make a $2 smart doorbell using Home Assistant and ESPHome.
+
+[@jimz011] has updated his amazing Lovelace config and shared it on the forums. Preview below, but also make sure to check out [the forum post](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-august-2019-ha-0-96-x-compatible-now-with-dynamic-themes/)
+
+[@jimz011]: https://github.com/jimz011
+
+<div class="videoWrapper">
+  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/bosM57vFM9s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 ## New Integrations
 
@@ -78,6 +86,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update to buienradar json api; and additional monitored_conditions ([@mjj4791] - [#24463]) ([buienradar docs]) (breaking change)
 - Bump Python support to min Python 3.6.0 ([@balloob] - [#25582]) (breaking change)
 - Improve and align Rejseplanen with other transport components (Breaking) ([@DarkFox] - [#25375]) ([rejseplanen docs]) (breaking change)
+- Ecobee presets now represent the different Ecobee comfort settings. Selectable by name instead of unknown ID. ([@balloob] - PR link todo)
 
 ## All changes
 
