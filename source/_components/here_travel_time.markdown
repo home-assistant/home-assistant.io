@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HERE Travel Time"
 description: "Instructions on how to add HERE travel time to Home Assistant."
-date: 2019-06-06 15:06
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: HERE_logo.svg
 ha_category:
   - Transport
@@ -17,7 +11,7 @@ ha_release: 0.95
 
 The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://developer.here.com/documentation/routing/topics/introduction.html).
 
-## {% linkable_title Setup %}
+## Setup
 
 You need to register for an API key by following the instructions [here](https://developer.here.com/documentation/routing/topics/introduction.html?create=Freemium-Basic&keepState=true&step=account).
 
@@ -25,7 +19,7 @@ HERE offers a Freemium Plan which includes 250.000 free Transactions per month. 
 
 By default HERE will deactivate your account if you exceed the free Transaction limit for the month. You can add payment details to reenable your account as described [here](https://developer.here.com/faqs)
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the sensor, add the following lines to your `configuration.yaml` file:
 
@@ -88,7 +82,7 @@ scan_interval:
   default: 300
 {% endconfiguration %}
 
-## {% linkable_title Dynamic Configuration %}
+## Dynamic Configuration
 
 Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor` and `person`. If an entity is placed in the origin or destination then every 5 minutes when the platform updates it will use the latest location of that entity.
 
@@ -112,7 +106,7 @@ sensor:
     destination: Eddies House    # Friendly name of a zone
 ```
 
-## {% linkable_title Entity Tracking %}
+## Entity Tracking
 
 - **device_tracker**
   - If the state is a zone, then the zone location will be used
@@ -125,7 +119,7 @@ sensor:
   - All other states will be passed directly into the HERE API
     - This includes all valid locations listed in the *Configuration Variables*
 
-## {% linkable_title Updating sensors on-demand using Automation %}
+## Updating sensors on-demand using Automation
 
 You can also use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
@@ -152,4 +146,3 @@ automation:
     - service: homeassistant.update_entity
       entity_id: sensor.morning_commute
 ```
-
