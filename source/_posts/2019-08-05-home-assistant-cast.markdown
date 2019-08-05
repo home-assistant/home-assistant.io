@@ -17,32 +17,32 @@ Home automation itself has never been a goal of Home Assistant. Instead, it's a 
 
 Today we're introducing Home Assistant Cast to help with this. With Home Assistant Cast, people in your house can have quick access to see the state of your house and it's residents, and quickly adjust the most important settings. This is achieved by running on Chromecast powered screens that you already have throughout your house: your Google Nest Hubs and TVs.
 
-You can launch Home Assistant Cast by going to [**the Home Assistant Cast launcher website**](https://cast.home-assistant.io). It works with any version of Home Assistant released in the last year. Home Assistant Cast is able to show any Lovelace view, including support for custom cards and themes. Got no Lovelace configuration? Don't worry, we'll generate a view and show that instead.
+You can launch Home Assistant Cast by going to [**the Home Assistant Cast launcher website**](https://cast.home-assistant.io). It works with any version of Home Assistant released in the last year. Home Assistant Cast can show any Lovelace view, including support for custom cards and themes. Got no Lovelace configuration? Don't worry, we'll generate a view and show that instead.
 
 For a demo, also check out the [Home Assistant Cast launcher](https://cast.home-assistant.io). If you have any questions, make sure to check the [Frequently Asked Questions](https://cast.home-assistant.io/faq.html).
 
 ## How it works
 
-You need to authorize Home Assistant Cast to access your Home Assistant instance. Once it's authorized, you can start Home Assistant Cast on your Chromecast device. Your Chromecast device will then set up a direct connection to your Home Assistant instance and you can pick a view to display.
+You need to authorize Home Assistant Cast to access your Home Assistant instance. Once it's authorized, you can start Home Assistant Cast on your Chromecast device. Next, your Chromecast device will set up a direct connection to your Home Assistant instance and give you the option to pick a view to display.
 
 Home Assistant Cast can:
 
-- Render Lovelace views, including custom cards
-- Stream real-time data to make sure that the UI always shows the latest state of your house
-- Navigate between views using navigate actions inside an entities card or using weblinks
-- Instantly update the casted Lovelace UI when you update your Lovelace configuration
+- Render Lovelace views, including custom cards.
+- Stream real-time data to make sure that the UI always shows the latest state of your house.
+- Navigate between views using navigate actions inside an entities card or using weblinks.
+- Instantly update the casted Lovelace UI when you update your Lovelace configuration.
 
 ## About touch
 
-We have been able to get touch controls working on the Google Nest Hub and other Google Assistant devices with a screen. The available configuration options to indicate that we're a touch optimized app [did not work](https://github.com/home-assistant/home-assistant-polymer/blob/98b882d5991e05fae7962d96e5d0f7a5ae773a5b/cast/src/receiver/entrypoint.ts#L18-L30). We were still able to achieve touch controls by [manipulating code](https://github.com/home-assistant/home-assistant-polymer/blob/98b882d5991e05fae7962d96e5d0f7a5ae773a5b/cast/src/receiver/layout/hc-main.ts#L200-L206) that is injected into the Home Assistant Cast website when the Chromecast runs our receiver application.
+We have been able to get touch controls working on the Google Nest Hub and other Google Assistant devices with a screen. The available configuration options to indicate that we're a touch-optimized app [did not work](https://github.com/home-assistant/home-assistant-polymer/blob/98b882d5991e05fae7962d96e5d0f7a5ae773a5b/cast/src/receiver/entrypoint.ts#L18-L30). We were still able to achieve touch controls by [manipulating code](https://github.com/home-assistant/home-assistant-polymer/blob/98b882d5991e05fae7962d96e5d0f7a5ae773a5b/cast/src/receiver/layout/hc-main.ts#L200-L206) that is injected into the Home Assistant Cast website when the Chromecast runs our receiver application.
 
-There is no guarantee that touch controls will keep working. It might stop this week, next month, next year, or it will keep working forever.
+There is no guarantee that touch controls will keep working. It might stop this week, next month, next year, or it keeps working forever.
 
-I hope that by releasing it with touch controls enabled, we are able to show Google that this is something that people want, and are willing to invest in for just this reason. I encourage people to share photos and videos of Home Assistant Cast on YouTube/social media with the hashtag `#homeassistantcast`.
+I hope that by releasing it with touch controls enabled, we can show Google that this is something that people want, and are willing to invest in for just this reason. I encourage people to share photos and videos of Home Assistant Cast on Twitter, Facebook, YouTube and other social media with the hashtag `#homeassistantcast`.
 
 ## Coming soon and future plans
 
-On August 7 Home Assistant 0.97 will be released. This release will allow launching Home Assistant Cast from the Home Assistant frontend. You can do this by including a new `cast` row that can be placed inside an entities card.
+On August 7, Home Assistant 0.97 will be released. This release will allow launching Home Assistant Cast from the Home Assistant frontend. You can do this by including a new `cast` row that can be placed inside an entities card.
 
 ```yaml
 # Example entities card configuration
@@ -58,4 +58,4 @@ entities:
 This is the first release of Home Assistant Cast, and so we focused on the minimum that was worthy of a release. We still have some more things planned:
 
 - Allow starting Home Assistant Cast from Home Assistant itself (not a browser), as part of an automation or script.
-- Use Home Assistant Cast as a text-to-speech target (inspired by [lovelace-browser-commander by @thomasloven](https://github.com/thomasloven/lovelace-browser-commander))
+- Use Home Assistant Cast as a text-to-speech target (inspired by [lovelace-browser-commander by @thomasloven](https://github.com/thomasloven/lovelace-browser-commander)).
