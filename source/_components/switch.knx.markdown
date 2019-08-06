@@ -11,14 +11,16 @@ logo: knx.png
 ha_category:
   - Switch
 ha_release: 0.24
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
-<p class='note'>
-  The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
-</p>
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
 
-The `knx` switch component is used as an interface to switching actuators.
+</div>
+
+The `knx` switch platform is used as an interface to switching actuators.
 
 ## Configuration
 
