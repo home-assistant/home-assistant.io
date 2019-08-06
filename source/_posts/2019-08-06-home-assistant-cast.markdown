@@ -1,8 +1,8 @@
 ---
 title: "Home Assistant Cast"
 description: "Show Home Assistant on a Chromecast or Google Assistant device with screen."
-date: 2019-08-05 01:11:03
-date_formatted: "August 5, 2019"
+date: 2019-08-06 01:11:03
+date_formatted: "August 6, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
 categories: Announcements
