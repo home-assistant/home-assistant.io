@@ -17,6 +17,14 @@ og_image: /images/blog/2019-08-release-97/components.png
 
 As per previous announcements, this is the first release that requires at least Python 3.6.
 
+## Reload scenes from configuration.yaml
+
+Thanks to [@balloob] it is now possible to reload scenes from configuration.yaml without restarting Home Assistant. This is part of an effort for Home Assistant 1.0 to make scenes a first class citizen of Home Assistant, including creating/restoring scenes on the fly in the future. To track the effort, [follow this page](https://github.com/home-assistant/home-assistant/issues/25681).
+
+## Home Assistant Cast
+
+In case you missed the announcement, we released Home Assistant Cast yesterday. It allows you to transform any Cast interface into a display for Home Assistant. Read the announcement for more information.
+
 ## UI changes
 
 - Improved accessibility. This is an [ongoing effort](https://github.com/home-assistant/home-assistant-polymer/issues/3267) on making the frontend accessible for visually impaired users.
@@ -72,38 +80,38 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 ## Breaking Changes
 
-- **Python** - Bump Python support to min Python 3.6.0 ([@balloob] - [#25582]) 
-- **Z-Wave** - Improve handling of Z-Wave config entry vs yaml config. If a Z-Wave `network_key` is specified in configuration.yaml it will override a `network_key` specified in the Z-Wave config entry. ([@cgarwood] - [#25112]) ([zwave docs]) 
-- **Unifi** - Unifi Device tracker is now part of config entry. After initial import the unifi device tracker configuration is no longer needed. If configuring SSID filter or detection time you will need to use the new configuration from UniFi. See UniFi component documentation for details. ([@Kane610] - [#24367]) ([unifi docs]) 
+- **Python** - Bump Python support to min Python 3.6.0 ([@balloob] - [#25582])
+- **Z-Wave** - Improve handling of Z-Wave config entry vs yaml config. If a Z-Wave `network_key` is specified in configuration.yaml it will override a `network_key` specified in the Z-Wave config entry. ([@cgarwood] - [#25112]) ([zwave docs])
+- **Unifi** - Unifi Device tracker is now part of config entry. After initial import the unifi device tracker configuration is no longer needed. If configuring SSID filter or detection time you will need to use the new configuration from UniFi. See UniFi component documentation for details. ([@Kane610] - [#24367]) ([unifi docs])
 - **Ecobee** - Ecobee presets now represent the different Ecobee comfort settings. Selectable by name instead of unknown ID. ([@balloob] - PR link todo)
-- **Calendar** - Rewrite calendar component - The calendar integration has been rewritten to follow our current standards and is mostly non breaking. The reset (clean up) of state attributes upon an event time passing has been removed, though. Attributes are no longer set to an arbitrary default value, and will now keep the attributes representing the last event. With this change, automations that rely on state attributes getting reset will need to be updated. All platforms have been converted. - ([@MartinHjelmare] - [#24950]) ([caldav docs]) ([calendar docs]) ([demo docs]) ([google docs]) ([todoist docs]) 
-- **SyncThru** - The monitored_conditions configuration option has been removed. All available monitored conditions will be used by default. Users that have been using the monitored_conditions option need to remove it from the syncthru section in configuration.yaml. ([@nielstron] - [#25052]) ([syncthru docs]) 
+- **Calendar** - Rewrite calendar component - The calendar integration has been rewritten to follow our current standards and is mostly non breaking. The reset (clean up) of state attributes upon an event time passing has been removed, though. Attributes are no longer set to an arbitrary default value, and will now keep the attributes representing the last event. With this change, automations that rely on state attributes getting reset will need to be updated. All platforms have been converted. - ([@MartinHjelmare] - [#24950]) ([caldav docs]) ([calendar docs]) ([demo docs]) ([google docs]) ([todoist docs])
+- **SyncThru** - The monitored_conditions configuration option has been removed. All available monitored conditions will be used by default. Users that have been using the monitored_conditions option need to remove it from the syncthru section in configuration.yaml. ([@nielstron] - [#25052]) ([syncthru docs])
 - **KNX** - Updates the knx component to use xknx 0.11.1 . This introduces several new features and bugfixes. For a complete list see: https://github.com/XKNX/xknx/releases/tag/0.11.0  ([@farmio] - [#24738]) ([knx docs])
   - `scene:` `scene_number` is now 1 indexed according to KNX standards. Previously it was 0 based. Please add 1 to your already configured scene numbers (`scene_number: 5` becomes `scene_number: 6`).
   - `sensor:` `state_address` replaces `address` in configuration
-  - `binary_sensor:` `state_address` replace `address` in configuration when using xknx config file (`knx: config_file = ...`): Replace `group_address` in BinarySensor and Sensor with `group_address_state`. 
+  - `binary_sensor:` `state_address` replace `address` in configuration when using xknx config file (`knx: config_file = ...`): Replace `group_address` in BinarySensor and Sensor with `group_address_state`.
 - **RitAssist** - The company has been renamed from RitAssist to FleetGO, so this component needed to get renamed. Users of this integration will need to update their device_tracker config section to use the new name. ([@depl0y] - [#25093]) ([fleetgo docs]) ([ritassist docs])
-- **N26** - Adds support for multiple N26 accounts. The generation of unique ids for spaces has been changed. Users may need to remove the stale old id entities, representing spaces, from the entity registry. ([@gorynychzmey] - [#25086]) ([n26 docs]) 
-- **Environment Canada** - This change removes the `monitored_conditions` and `name` options and adds an optional `language` option. Sensors are now created for all provided data. ([@michaeldavie] - [#24884]) ([environment_canada docs]) 
+- **N26** - Adds support for multiple N26 accounts. The generation of unique ids for spaces has been changed. Users may need to remove the stale old id entities, representing spaces, from the entity registry. ([@gorynychzmey] - [#25086]) ([n26 docs])
+- **Environment Canada** - This change removes the `monitored_conditions` and `name` options and adds an optional `language` option. Sensors are now created for all provided data. ([@michaeldavie] - [#24884]) ([environment_canada docs])
 ```yaml
 sensor:
   - platform: environment_canada
     language: french
 ```
 
-- **TotalConnect** - Total Connect Client was upgraded to support more than one alarm panel and allow future support for additional sensors. Previous `alarm_control_panel` entries must be removed, and a new totalconnect entry must be added to configuration.yaml. See https://www.home-assistant.io/components/totalconnect/ for configuration details. ([@austinmroczek] - [#24427]) ([totalconnect docs]) 
-- **Nuki** - The `lock.nuki_unlatch` service has been removed. It has been replaced by the `lock.open` service. The `lock.nuki_lock_n_go` service has been renamed to `nuki.lock_n_go`. Users that are using the removed or renamed services in automations need to replace them with the new services. ([@franfos] - [#22888]) ([nuki docs]) 
-- **Snapcast** - This changes adds multiroom support for the snapcast component. It adds 2 services `media_player.snapcast_join` and `media_player.snapcast_unjoin` to group/ungroup a client with another client. Also added source selection support in the snapcast clients as the groups are unusable due to their dynamic nature. ([@lyghtnox] - [#24061]) ([snapcast docs]) 
+- **TotalConnect** - Total Connect Client was upgraded to support more than one alarm panel and allow future support for additional sensors. Previous `alarm_control_panel` entries must be removed, and a new totalconnect entry must be added to configuration.yaml. See https://www.home-assistant.io/components/totalconnect/ for configuration details. ([@austinmroczek] - [#24427]) ([totalconnect docs])
+- **Nuki** - The `lock.nuki_unlatch` service has been removed. It has been replaced by the `lock.open` service. The `lock.nuki_lock_n_go` service has been renamed to `nuki.lock_n_go`. Users that are using the removed or renamed services in automations need to replace them with the new services. ([@franfos] - [#22888]) ([nuki docs])
+- **Snapcast** - This changes adds multiroom support for the snapcast component. It adds 2 services `media_player.snapcast_join` and `media_player.snapcast_unjoin` to group/ungroup a client with another client. Also added source selection support in the snapcast clients as the groups are unusable due to their dynamic nature. ([@lyghtnox] - [#24061]) ([snapcast docs])
 - **Ambient Weather Station** - The `unique_id` for Ambient sensors uses a new formula, meaning that even though they have the same friendly names, new sensors will be created. The integration will automatically perform this migration under the hood, but if you've altered the entity IDs of any Ambient PWS entities, you'll need do the same to the new entities upon creation. Additionally, the `monitored_keys` configuration option is no longer supported in `configuration.yaml`. The integration will now create sensors for all conditions supported by the particular device.
-([@bachya] - [#25284]) ([ambient_station docs]) 
-- **Google Maps** - Google Passwords are no longer required to be provided in your config. An external program is now required to obtain the necessary cookie file to place in your Home Assistant config directory. This is due to the authentication process being removed from the underlying package. Existing users should remove the `password:` entry from their config file (username is still required). The cookie file previously generated should still be valid and will allow the tracker to continue functioning normally until the cookie is invalidated. New users will need to follow the instructions on the Google Maps Location Sharing page to create their cookie file.([@shbatm] - [#25316]) ([google_maps docs]) 
+([@bachya] - [#25284]) ([ambient_station docs])
+- **Google Maps** - Google Passwords are no longer required to be provided in your config. An external program is now required to obtain the necessary cookie file to place in your Home Assistant config directory. This is due to the authentication process being removed from the underlying package. Existing users should remove the `password:` entry from their config file (username is still required). The cookie file previously generated should still be valid and will allow the tracker to continue functioning normally until the cookie is invalidated. New users will need to follow the instructions on the Google Maps Location Sharing page to create their cookie file.([@shbatm] - [#25316]) ([google_maps docs])
 
 - **BuienRadar** - Updates to the new version of python-buienrader (1.0.1); this version now leverages the new json buienradar-api.  ([@mjj4791] - [#24463]) ([buienradar docs])
 
   The following sensor types (monitored_conditions) are no longer supported, since they are no longer provided by the json api of buienradar:
-  
+
   - snow_1d .. snow_5d
-  
+
   The following monitored conditions will change units:
 
   - windgust (now km/h, was m/s)
@@ -111,7 +119,7 @@ sensor:
   - windspeed_?d (now km/h, was m/s)
   - visibility (now km, was m)
 
- 
+
 - **Rejseplanen** - Improve and align Rejseplanen with other transport components. ([@DarkFox] - [#25375]) ([rejseplanen docs])
   - All attributes changed to snake_case.
   - Later departure attribute has been removed.

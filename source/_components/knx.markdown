@@ -14,7 +14,7 @@ The integration requires a local KNX/IP interface like the [Weinzierl 730](https
 
 <div class='note warning'>
 
-  Please note, the `knx` platform does not support Windows and needs at least python version 3.5.
+  Please note, the `knx` platform does not support Windows.
 
 </div>
 
@@ -162,7 +162,3 @@ address:
   description: KNX group address.
   type: string
 {% endconfiguration %}
-
-### Known issues
-
-Due to lame multicast support the routing abstraction and the gateway scanner only work with Python >=3.5.
