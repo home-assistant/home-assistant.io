@@ -13,9 +13,11 @@ ha_category:
 ha_release: 0.63
 ---
 
-<p class='note'>
-  The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
-</p>
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+
+</div>
 
 The `knx` scenes platform allows you to trigger [KNX](http://www.knx.org) scenes.
 
