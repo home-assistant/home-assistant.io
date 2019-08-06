@@ -5,8 +5,14 @@ logo: knx.png
 ha_category:
   - Light
 ha_release: 0.44
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ---
+
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+
+</div>
 
 The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
 
@@ -14,8 +20,6 @@ The `knx light` integration is used as an interface to control knx actuators for
 - dimming actuators
 - LED controllers
 - DALI gateways
-
-The `knx` integration must be configured correctly to use this component, see [KNX Component](/components/knx).
 
 ## Configuration
 
@@ -55,6 +59,14 @@ color_address:
   type: string
 color_state_address:
   description: KNX group address for retrieving the RGB color of the light. *DPT 232.600*
+  required: false
+  type: string
+rgbw_address:
+  description: KNX group address for setting the RGBW color of the light. *DPT 251.600*
+  required: false
+  type: string
+rgbw_state_address:
+  description: KNX group address for retrieving the RGBW color of the light. *DPT 251.600*
   required: false
   type: string
 color_temperature_address:
