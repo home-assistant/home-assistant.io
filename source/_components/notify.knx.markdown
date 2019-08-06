@@ -11,12 +11,14 @@ logo: knx.png
 ha_category:
   - Notifications
 ha_release: 0.53
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
-<p class='note'>
-  The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
-</p>
+<div class='note'>
+  
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
+
+</div>
 
 The `knx` notify platform allows you to send notifications to [KNX](http://www.knx.org) devices.
 
