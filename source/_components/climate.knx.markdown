@@ -18,7 +18,7 @@ ha_iot_class: Local Push
   
 The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
 
-</p>
+</div>
 
 The `knx` climate platform is used as an interface to KNX thermostats and room controllers.
 
