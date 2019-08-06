@@ -23,7 +23,7 @@ Thanks to [@balloob] it is now possible to reload scenes from configuration.yaml
 
 ## Home Assistant Cast
 
-In case you missed the announcement, we released Home Assistant Cast yesterday. It allows you to transform any Cast interface into a display for Home Assistant. Read the announcement for more information.
+In case you missed the announcement, we released Home Assistant Cast yesterday. It allows you to transform any Cast interface into a display for Home Assistant. [Read the announcement for more information.](/blog/2019/08/06/home-assistant-cast/)
 
 ## UI changes
 
