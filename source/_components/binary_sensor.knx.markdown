@@ -16,13 +16,13 @@ ha_iot_class: Local Push
 
 <div class='note'>
   
-The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
 
 </div>
 
 The `knx` sensor platform allows you to monitor [KNX](http://www.knx.org) binary sensors.
 
-Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Component - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
+Binary sensors are read-only. To write to the knx-bus configure an exposure [KNX Integration - Expose](/components/knx/#exposing-sensor-values-or-time-to-knx-bus).
 
 ## Configuration
 
