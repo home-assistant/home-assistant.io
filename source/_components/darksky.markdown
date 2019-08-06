@@ -84,9 +84,9 @@ monitored_conditions:
     summary:
       description: A human-readable text summary.
     icon:
-      description: A machine-readable text summary, suitable for selecting an icon for display. See [Dark Sky API documentation][] for the list of possible values.
+      description: A machine-readable text summary, suitable for selecting an icon for display. See [Dark Sky API documentation](https://darksky.net/dev/docs) for the list of possible values.
     precip_type:
-      description: The type of precipitation occurring at the given time. If `precip_intensity` is zero, then this property will be `unknown`. See [Dark Sky API documentation][] for the list of possible values.
+      description: The type of precipitation occurring at the given time. If `precip_intensity` is zero, then this property will be `unknown`. See [Dark Sky API documentation](https://darksky.net/dev/docs) for the list of possible values.
     precip_intensity:
       description: The intensity of precipitation occurring at the given time. This value is conditional on probability (that is, assuming any precipitation occurs at all).
     precip_probability:
@@ -236,7 +236,4 @@ All language options are described in this table that you can use for the dark s
 While the platform is called "darksky" the sensors will show up in Home Assistant as "dark_sky" (eg: sensor.dark_sky_summary).
 </div>
 
-More details about the API are available in the [Dark Sky API documentation][].
-
-[Dark Sky API documentation]: https://darksky.net/dev/docs
-
+More details about the API are available in the [Dark Sky API documentation](https://darksky.net/dev/docs).
