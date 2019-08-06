@@ -36,9 +36,11 @@ Home Assistant Cast can:
 
 We have been able to get touch controls working on the Google Nest Hub and other Google Assistant devices with a screen. The available configuration options to indicate that we're a touch-optimized app [did not work](https://github.com/home-assistant/home-assistant-polymer/blob/98b882d5991e05fae7962d96e5d0f7a5ae773a5b/cast/src/receiver/entrypoint.ts#L18-L30). We were still able to achieve touch controls by [manipulating code](https://github.com/home-assistant/home-assistant-polymer/blob/98b882d5991e05fae7962d96e5d0f7a5ae773a5b/cast/src/receiver/layout/hc-main.ts#L200-L206) that is injected into the Home Assistant Cast website when the Chromecast runs our receiver application.
 
-There is no guarantee that touch controls will keep working. It might stop this week, next month, next year, or it keeps working forever.
+There is no guarantee that touch controls will keep working, it might be blocked. It might stop this week, next month, next year, or it keeps working forever.
 
-I hope that by releasing it with touch controls enabled, we can show Google that this is something that people want, and are willing to invest in for just this reason. I encourage people to share photos and videos of Home Assistant Cast on Twitter, Facebook, YouTube and other social media with the hashtag `#homeassistantcast`.
+I hope that by releasing it with touch controls enabled, we can show Google that this is something that people want, and are willing to invest in for just this reason.
+
+**To make sure everyone sees it, I encourage people to share photos and videos of Home Assistant Cast in action on Twitter, Facebook, YouTube and other social media with the hashtag `#homeassistantcast`. Let's share the love!**
 
 ## Coming soon and future plans
 
