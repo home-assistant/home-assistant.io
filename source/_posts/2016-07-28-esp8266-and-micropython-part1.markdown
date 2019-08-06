@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "ESP8266 and MicroPython - Part 1"
 description: "Using MicroPython on ESP8266 based devices and Home Assistant."
 date: 2016-07-28 06:00:00 +0200
 date_formatted: "July 28, 2016"
 author: Fabian Affolter
-comments: true
 categories: How-To ESP8266 Micropython
 og_image: /images/blog/2016-07-micropython/social.png
 ---
@@ -56,9 +54,11 @@ Type "help()" for more information.
 >>> 
 ```
 
-<p class='note'>
+<div class='note'>
+
 The public build of the firmware may be different than the firmware distributed to the backers of the Kickstarter campaign. Especially in regard of the [available modules](http://docs.micropython.org/en/latest/esp8266/py-modindex.html), turned on debug messages, and alike. Also, the WebREPL may not be started by default.
-</p>
+
+</div>
 
 Connect a LED to pin 5 (or another pin of your choosing) to check if the ESP8266 is working as expected. 
 
@@ -116,9 +116,11 @@ If you reboot, you should see your current IP address in the terminal.
 
 First let's create a little consumer for Home Assistant sensor's state. The code to place in `main.py` is a mixture of code from above and the [RESTful API](/developers/rest_api/) of Home Assistant. If the temperature in the kitchen is higher than 20 °C then the LED connected to pin 5 is switched on. 
 
-<p class='note'>
+<div class='note'>
+
 If a module is missing then you need to download it from the [MicroPython Library overview](https://github.com/micropython/micropython-lib) and upload it to the ESP8266 with `webrepl_cli.py` manually.
-</p>
+
+</div>
 
 ```python
 # Sample code to request the state of a Home Assistant entity.

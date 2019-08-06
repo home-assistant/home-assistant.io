@@ -1,21 +1,25 @@
 ---
-layout: page
 title: "Habitica"
 description: "Instructions on enabling Habitica support for your Home Assistant"
-date: 2018-08-09 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: habitica.png
-ha_category: Hub
-ha_version: 0.78
-ha_iot_class: "Cloud Polling"
+ha_category:
+  - Hub
+  - Sensor
+ha_release: 0.78
+ha_iot_class: Cloud Polling
+redirect_from:
+  - /components/sensor.habitica/
 ---
 
-This component allows you to monitor and manage your Habitica profile. This component exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
-This component enables usage of [`sensor.habitica` platform.](/components/sensor.habitica/)
-To use the component you should use this example configuration:
+This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
+
+There is currently support for the following device types within Home Assistant:
+
+- Sensor - Allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant.
+
+The sensors will automatically appear, after setup the Habitica component.
+
+To use the integration you should use this example configuration:
 
 ```yaml
 # Minimum viable configuration.yaml entry
@@ -55,7 +59,7 @@ sensors:
   default: all (`name`, `hp`, `maxHealth`, `mp`, `maxMP`, `exp`, `toNextLevel`, `lvl`, `gp`, `class`)
 {% endconfiguration %}
 
-### {% linkable_title API Service Parameters %}
+### API Service Parameters
 
 The API is exposed to Home Assistant as a service called `habitica.api_call`. To call it you should specify this keys in service data:
 
@@ -79,15 +83,17 @@ For example, let's say that there is a configured `habitica` platform for user `
 Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.
 To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a json object with task properties.
 So let's call the API on `habitica.api_call`.
+
 * The `name` key becomes `xxxNotAValidNickxxx`.
 * The `path` key is trickier.
-    * Remove 'https://habitica.com/api/v3/' at the beginning of the endpoint URL.
-    * Split the remaining on slashes (/) and **append the lowercase method** at the end.
-    * You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
+  * Remove 'https://habitica.com/api/v3/' at the beginning of the endpoint URL.
+  * Split the remaining on slashes (/) and **append the lowercase method** at the end.
+  * You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
 * The `args` key is more or less described in the [docs](https://habitica.com/apidoc/).
 
 Combining all together:
 call `habitica.api_call` with data
+
 ```
 {
   "name": "xxxNotAValidNickxxx",
@@ -101,6 +107,7 @@ This call will create a new todo on `xxxNotAValidNickxxx`'s account with text `U
 ![example task created](/images/screenshots/habitica_new_task.png)
 
 Also an event `habitica_api_call_success` will be fired with the following data:
+
 ```
 {
   "name": "xxxNotAValidNickxxx",

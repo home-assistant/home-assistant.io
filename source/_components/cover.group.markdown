@@ -1,15 +1,10 @@
 ---
-layout: page
 title: "Cover Group"
 description: "Instructions how to setup grouped covers in Home Assistant."
-date: 2018-02-11 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Cover
+ha_category:
+  - Cover
 ha_release: 0.66
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
@@ -36,9 +31,9 @@ cover:
   entities:
     description: List of all cover entities you want to control.
     required: true
-    type: [string | list]
+    type: [string, list]
 {% endconfiguration %}
 
-## {% linkable_title Functionality %}
+## Functionality
 
 It works best if you group covers with the same supported features together (like support for `open`/`close`/`stop`/`position`/`tilt controls`), but is not limited to it. In case you have bundled covers with different features together, the controls will only affect those covers that support the actions.

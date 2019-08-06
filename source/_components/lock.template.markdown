@@ -1,15 +1,10 @@
 ---
-layout: page
 title: "Template Lock"
 description: "Instructions on how to integrate Template Locks into Home Assistant."
-date: 2018-10-09 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Lock
+ha_category:
+  - Lock
 ha_release: 0.81
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
@@ -18,11 +13,11 @@ The `template` platform creates locks that combines components.
 
 For example, if you have a garage door with a toggle switch that operates the motor and a sensor that allows you know whether the door is open or closed, you can combine these into a lock that knows whether the garage door is open or closed.
 
-This can simplify the GUI and make it easier to write automations. You can mark the components you have combined as `hidden` so they don't appear themselves.
+This can simplify the GUI and make it easier to write automations. You can mark the integrations you have combined as `hidden` so they don't appear themselves.
 
 In optimistic mode, the lock will immediately change state after every command. Otherwise, the lock will wait for state confirmation from the template. Try to enable it, if experiencing incorrect lock operation.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable Template Locks in your installation, add the following to your `configuration.yaml` file:
 
@@ -69,15 +64,15 @@ lock:
     default: false
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
 
-If you are using the state of a platform that takes extra time to load, the Template Lock may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+If you are using the state of a platform that takes extra time to load, the Template Lock may get an `unknown` state during startup. This results in error messages in your log file until that platform has completed loading. If you use `is_state()` function in your template, you can avoid this situation. For example, you would replace {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an unknown result: {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+## Examples
 
 In this section, you find some real-life examples of how to use this lock.
 
-### {% linkable_title Lock from Switch %}
+### Lock from Switch
 
 This example shows a lock that copies data from a switch.
 
@@ -98,7 +93,7 @@ lock:
 ```
 {% endraw %}
 
-### {% linkable_title Optimistic Mode %}
+### Optimistic Mode
 
 This example shows a lock in optimistic mode. This lock will immediately change state after command and will not wait for state update from the sensor.
 
@@ -120,7 +115,7 @@ lock:
 ```
 {% endraw %}
 
-### {% linkable_title Sensor and Two Switches %}
+### Sensor and Two Switches
 
 This example shows a lock that takes its state from a sensor, and uses two momentary switches to control a device.
 

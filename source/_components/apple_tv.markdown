@@ -1,25 +1,30 @@
 ---
-layout: page
 title: "Apple TV"
 description: "Instructions on how to integrate Apple TV devices into Home Assistant."
-date: 2017-06-26 20:47
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: apple.png
-ha_category: Multimedia
-ha_iot_class: "Local Push"
+ha_category:
+  - Multimedia
+  - Media Player
+  - Remote
+ha_iot_class: Local Push
 ha_release: 0.49
+redirect_from:
+  - /components/media_player.apple_tv/
+  - /components/remote.apple_tv/
 ---
 
 The `apple_tv` platform allows you to control an Apple TV (3rd and 4th generation). See the [remote platform](/components/remote.apple_tv/) if you want to send remote control buttons, e.g., arrow keys.
 
-<p class='note'>
-Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
-</p>
+There is currently support for the following device types within Home Assistant:
 
-## {% linkable_title Configuration %}
+- Media Player
+- [Remote](#remote)
+
+<div class='note'>
+Currently, you must have Home Sharing enabled for this to work. Support for pairing Home Assistant with your device will be supported in a later release.
+</div>
+
+## Configuration
 
 To use this component, you must first install some system libraries and a compiler. For Debian or a similar system, this should be enough:
 
@@ -61,6 +66,7 @@ start_off:
   description: Set to true if the device should start in fake standby.
   required: false
   type: boolean
+  default: false
 credentials:
   description: Credentials used for AirPlay playback.
   required: false
@@ -69,9 +75,9 @@ credentials:
 
 In order to connect to the device, you need a *login id*. The easiest way to obtain this identifier is to use the `apple_tv_scan` service (described below). Additional information about `start_off` and `credentials` can also be found under the guides section.
 
-## {% linkable_title Guides %}
+## Guides
 
-### {% linkable_title Scanning for devices %}
+### Scanning for devices
 
 Make sure Home Sharing is enabled on the Apple TV.
 
@@ -99,7 +105,7 @@ Note: You must use 'pair' with devices that have home sharing disabled
 
 Just copy and paste the `login_id` from the device you want to add. For more details about `atvremote`, see: [this page](http://pyatv.readthedocs.io/en/master/atvremote.html).
 
-### {% linkable_title Setting up device authentication %}
+### Setting up device authentication
 
 If you, when playing media with `play_url`, get the following error message:
 
@@ -129,7 +135,7 @@ apple_tv:
 
 Restart Home Assistant, and you should now be able to use `play_url` as before.
 
-### {% linkable_title My Apple TV turns on when I restart Home Assistant %}
+### My Apple TV turns on when I restart Home Assistant
 
 The Apple TV will automatically turn on if a request is sent to it, e.g., if a button is pressed, something is streamed to it via AirPlay or if current state (currently playing) is accessed. This is how Apple has designed it, and it will cause problems if you are using HDMI CEC. Every time Home Assistant is started, a new request is sent to the device to figure out what is currently playing. When using CEC, this will wake up your TV and other devices you have configured.
 
@@ -143,13 +149,13 @@ The first two points are quite obvious. Fake standby is a concept implemented in
 
 To put a device into fake standby when starting Home Assistant, add `start_off: true` to your configuration.
 
-<p class='note warning'>
+<div class='note warning'>
 Turning the device on/off in the user interface will *not* turn the physical device on/off according to the description above.
-</p>
+</div>
 
-## {% linkable_title Services %}
+## Services
 
-### {% linkable_title Service `apple_tv_authenticate` %}
+### Service `apple_tv_authenticate`
 
 To play media on an Apple TV with device authentication enabled (e.g., ATV4 with tvOS 10.2+), Home Assistant must be properly authenticated. This method starts the process and presents the credentials needed for playback as a persistent notification. Please see guide above for usage.
 
@@ -157,6 +163,33 @@ To play media on an Apple TV with device authentication enabled (e.g., ATV4 with
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`s of Apple TVs.
 
-### {% linkable_title Service `apple_tv_scan` %}
+### Service `apple_tv_scan`
 
 Scans the local network for Apple TVs. All found devices are presented as a persistent notification.
+
+## Remote
+
+The `apple_tv` remote platform allows you to send remote control buttons to an Apple TV. It is automatically setup when an Apple TV is configured.
+
+At the moment, the following buttons are supported:
+
+- up
+- down
+- left
+- right
+- menu
+- top_menu
+- select
+
+A typical service call for press several buttons looks like this.
+
+```yaml
+service: remote.send_command
+data:
+  entity_id: remote.apple_tv
+  command:
+    - left
+    - left
+    - menu
+    - select
+```

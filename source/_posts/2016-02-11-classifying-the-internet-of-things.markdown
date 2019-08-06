@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Classifying the Internet of Things"
 description: ""
 date: 2016-02-12 22:31:00 UTC
 date_formatted: "February 12, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Internet-of-Things
 og_image: /images/blog/2016-02-classifying-internet-of-things/social.png
 ---
@@ -73,11 +71,11 @@ We want our users to get the best home automation experience out there and this 
 The background to how we got to these classifiers can be read after the break.
 <!--more-->
 
-## {% linkable_title State %}
+## State
 
 How state is communicated can be broken down into 5 categories. They are not mutually exclusive - a device state can be available both via the cloud and local connectivity.
 
-### {% linkable_title No state available %}
+### No state available
 These are devices that do not have the capabilities to make their state available. They only allow to be controlled. For example, devices with infrared remote controls like TVs and ACs. You can press the turn on button on the remote but can only assume that your command was received and executed successfully. The device might not be powered or something is blocking the infrared receiver.
 
 Home automation will have to approach such devices based on the assumption that it’s commands are received correctly: using optimistic updates. This means that after sending a command it will update the state of the device as if the command was received successfully.
@@ -90,7 +88,7 @@ Disadvantages:
 
  - Home automation will assume the wrong state if the command is not received correctly or if the device is controlled in any other way outside of the home automation system.
 
-### {% linkable_title Polling the cloud %}
+### Polling the cloud
 These are devices that will only report their state to their own cloud backend. The cloud backend will allow reading the state but will not notify when a new state has arrived. This requires the home automation to check frequently if the state has been updated.
 
 Advantages:
@@ -103,14 +101,14 @@ Disadvantages:
  - It doesn’t work if the internet is down or the company stops support.
  - You are no longer in control about who has access to your data.
 
-### {% linkable_title Cloud pushing new state %}
+### Cloud pushing new state
 All off the previous section applies to this one. On top of that the cloud will now notify the home automation when a new state has arrived. This means that as soon as the cloud knows, the home automation knows.
 
 Advantages:
 
  - New state known as soon as available in the cloud.
 
-### {% linkable_title Polling the local device %}
+### Polling the local device
 These devices will offer an API that is locally accessible. The home automation will have to frequently check if the state has been updated.
 
 Advantages:
@@ -121,7 +119,7 @@ Disadvantages:
 
  - To be pollable, a device needs to be always online which requires the device to be connected to a power source.
 
-### {% linkable_title Local device pushing new state %}
+### Local device pushing new state
 The best of the best. These devices will send out a notice when they get to a new state. These devices usually use a home automation protocol to pass it’s message to a hub that will do the heavy lifting of managing and notifying subscribers
 
 Advantages:
@@ -135,14 +133,14 @@ Disadvantages:
  - If using deep sleep and wifi, will suffer a delay when waking up because connecting to WiFi and receiving an IP takes time.
 
 
-## {% linkable_title Control %}
+## Control
 
 Controlling a device can, just like state, be done through cloud and/or local connectivity. But the more important part of control is knowing if your command was a success and the new state of the device.
 
-### {% linkable_title No control available %}
+### No control available
 These devices are not able to be controlled. They will only offer state.
 
-### {% linkable_title Poll State after sending command %}
+### Poll State after sending command
 These devices will require the state to be polled after sending a command to see if a command was successful.
 
 Advantages:
@@ -153,13 +151,13 @@ Disadvantages:
 
  - It can take time before the state gets updated. How often do we poll and how long do we wait till we consider the command failed? Also, a state may change because of other factors. Difficult to determine if the updated state is because of our command.
 
-### {% linkable_title Device pushes state update %}
+### Device pushes state update
 These devices will not return a new state as a result of the command but instead will push a new state right away. The downside of this approach is that we have to assume that a state update coming in within a certain period of time after a command is related to the command.
 
-### {% linkable_title Command returns new state %}
+### Command returns new state
 The very best. These devices will answer the command with the new state after executing the command.
 
-## {% linkable_title Classifying Home Assistant %}
+## Classifying Home Assistant
 Home Assistant tries to offer the best experience possible via its APIs. There are different ways of interacting with Home Assistant but all are local.
 
  - State polling is available via the REST API

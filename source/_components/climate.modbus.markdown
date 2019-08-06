@@ -1,22 +1,17 @@
 ---
-layout: page
 title: "Modbus Climate"
 description: "Instructions how to integrate a Modbus thermostat within Home Assistant."
-date: 2018-01-29 9:35
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: modbus.png
-ha_category: Climate
+ha_category:
+  - Climate
 ha_release: 0.68
-ha_iot_class: "Local Polling"
+ha_iot_class: Local Polling
 ---
 
 
 The `modbus` thermostat allows you to use a sensor value (current temperature) and target value (target temperature) from [Modbus](http://www.modbus.org/) registers.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To use your Modbus thermostat in your installation, add the following to your `configuration.yaml` file:
 
@@ -25,6 +20,7 @@ To use your Modbus thermostat in your installation, add the following to your `c
 climate:
   - platform: modbus
     name: Watlow F4T
+    hub: hub1
     slave: 1
     target_temp_register: 2782
     current_temp_register: 27586
@@ -34,6 +30,11 @@ climate:
 name:
   description: Name of the device
   required: true
+  type: string
+hub:
+  description: The name of the hub.
+  required: false
+  default: default
   type: string
 slave:
   description: The number of the slave (Optional for tcp and upd Modbus, use 1).
@@ -64,7 +65,7 @@ precision:
 {% endconfiguration %}
 
 
-### {% linkable_title Services %}
+### Services
 
 | Service | Description |
 | ------- | ----------- |

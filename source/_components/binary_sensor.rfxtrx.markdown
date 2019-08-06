@@ -1,27 +1,23 @@
 ---
-layout: page
 title: "RFXtrx Binary Sensor"
 description: "Instructions on how to integrate RFXtrx binary sensors into Home Assistant."
-date: 2017-03-26 12:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
+ha_release: 0.48
 ---
 
 The `rfxtrx` platform support binary sensors that
 communicate in the frequency range of 433.92 MHz.
-The rfxtrx binary sensor component provides support for them.
+The rfxtrx binary sensor integration provides support for them.
 
 Many cheap sensors available on the web today are based on a particular RF chip
 called *PT-2262*. Depending on the running firmware on the RFXcom box, some of
 them may be recognized under the X10 protocol but most of them are recognized
-under the *Lighting4* protocol. The rfxtrx binary sensor component provides
+under the *Lighting4* protocol. The rfxtrx binary sensor integration provides
 some special options for them, while other rfxtrx protocols should work too.
 
-## {% linkable_title Setting up your devices %}
+## Setting up your devices
 
 Once you have set up your [rfxtrx hub](/components/rfxtrx/), the easiest way
 to find your binary sensors is to add this to your `configuration.yaml`:
@@ -61,7 +57,7 @@ devices:
       required: false
       type: string
     device_class:
-      description: "The [type or class of the sensor](/components/binary_sensor/) to set the icon in the frontend."
+      description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
       required: false
       type: device_class
     fire_event:
@@ -92,15 +88,19 @@ automatic_add:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
-This component and the [rfxtrx switch](/components/switch/rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
-Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
-</p>
+<div class='note warning'>
 
-<p class='note warning'>
+This integration and the [rfxtrx switch](/components/switch.rfxtrx/) can steal each other's devices when setting the `automatic_add` configuration parameter to `true`.
+Set `automatic_add` only when you have some devices to add to your installation, otherwise leave it to `false`.
+
+</div>
+
+<div class='note warning'>
+
 If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</p>
+
+</div>
 
 Binary sensors have only two states - "on" and "off". Many door or window
 opening sensors will send a signal each time the door/window is open or closed.
@@ -131,7 +131,7 @@ binary_sensor:
       seconds: 5
 ```
 
-### {% linkable_title Options for PT-2262 devices under the Lighting4 protocol %}
+### Options for PT-2262 devices under the Lighting4 protocol
 
 When a data packet is transmitted by a PT-2262 device using the Lighting4
 protocol, there is no way to automatically extract the device identifier and the
@@ -186,7 +186,7 @@ devices:
     command_off: 0x7
 ```
 
-The *automatic_add* option makes the rfxtrx binary sensor component calculate
+The *automatic_add* option makes the rfxtrx binary sensor integration calculate
 and display the configuration options for you in the Home Assistant logs:
 
 ```text
@@ -201,7 +201,7 @@ This automatic guess should work most of the time but there is
 no guarantee on that. You should activate it only when you
 want to configure your new devices and leave it off otherwise.
 
-### {% linkable_title Known working devices %}
+### Known working devices
 
 The following devices are known to work with the rfxtrx binary sensor component.
 There are too many other to list.

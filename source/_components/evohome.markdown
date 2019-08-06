@@ -1,43 +1,52 @@
 ---
-layout: page
-title: "Honeywell evohome"
-description: "Instructions on how to integrate Honeywell evohome devices with Home Assistant."
-date: 2018-09-25 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
+title: "Honeywell evohome/TCC systems"
+description: "Instructions on how to integrate a Honeywell evohome/TCC system with Home Assistant."
 logo: honeywell.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Climate
 ha_release: 0.80
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
+redirect_from:
+  - /components/climate.evohome/
 ---
 
-The `evohome` platform is the main component to set up and integrate all supported evohome devices.
+The `evohome` integration links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
+ * the Honeywell evohome CH/DHW system, and
+ * the Honeywell Round Thermostat
 
-It uses the [evohomeclient](https://pypi.org/project/evohomeclient/) client library and so will let you control (only) _EU-based_ [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) systems.
+It does not support the home security functionality of TCC.
 
-Currently, only Controllers are supported; support for Heating zones and DHW controllers will be added at a later time.
+It uses v2 of the [evohome-client](https://github.com/watchforstock/evohome-client) client library.
 
-It is related to the [honeywell](/components/climate.honeywell/) climate component, which allows limited integration with evohome Heating zones.  These two components should be usuable side-by-side, but YMMV.
+Honeywell removed support for higher-precision temperatures from the v2 API, so temperatures are reported to the nearest 0.5C.
 
+### evohome
 
-## {% linkable_title Configuration %}
+evohome is a multi-zone system. Each Zone is represented as a **Climate** device: it will expose the Zone's operating mode, temperature and setpoint.
 
-To use this component in your installation, add the following to your `configuration.yaml` file:
+The Controller/Location is also represented as a **Climate** device: it will expose the location's operating mode (see below for details). Note that the Controller's temperatures are calculated as an average of all the Zones.
+
+The DHW controller is represented as a **WaterHeater** device: It will report its current temperature (but not target temperature), and it can be turned on or off.
+
+### Round Thermostat
+
+Round Thermostat is a single zone system. It is currently implemented as two **Climate** devices, as if a single zone evohome system.
+
+## Configuration
+
+To set up this integration, add the following to your **configuration.yaml** file:
 
 ```yaml
 # Example configuration.yaml entry
 evohome:
   username: YOUR_USERNAME
   password: YOUR_PASSWORD
-  location_idx: 0
 ```
-This is a IoT cloud-polling device, and the `scan_interval` is currently fixed at 3 minutes.  Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
 
 {% configuration %}
 username:
-  description: The username (email address) that has access to [Honeywell Connect Comfort](https://international.mytotalconnectcomfort.com/Account/Login) web site.
+  description: The username (email address) that has access to [Honeywell TCC](https://international.mytotalconnectcomfort.com/Account/Login) web site.
   required: true
   type: string
 password:
@@ -45,8 +54,45 @@ password:
   required: true
   type: string
 location_idx:
-  description: Used to select which location to use, if your login has access to more than one location.  Multiple locations are not supported.
+  description: Used to select which location to use, if your login has access to more than one location. Multiple locations at one time are not supported.
   required: false
-  type: int
+  type: integer
   default: 0
+scan_interval:
+  description: How often updates are retrieved from Honeywell's web servers. The minimum value is 60 seconds.
+  required: false
+  type: integer
+  default: 300
 {% endconfiguration %}
+
+This is an IoT cloud-polling device, and the recommended `scan_interval` is 180 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by Honeywell.
+
+## Operating modes, and Inheritance
+
+Zones support only three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride**.
+
+Mostly, the Zone 'inherits' its functional operating mode from the controller (the actual algorithm for this is a little complicated).
+
+The evohome Controller supports seven distinct system modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**; **AutoWithReset** is a hidden mode that will revert all Zones to **FollowSchedule** mode.
+
+If the zone is in **FollowSchedule** mode, its `temperature` (target temperature) is a function of its scheduled temperature and its functional mode - for example, **AutoWithEco** is scheduled temperature less 3C.
+
+If the Controller is set to **HeatingOff** (target temperature to minimum) or **Away** (target temperature to 12C), then the Zones will inherit that mode regardless of their own setpoint mode.
+
+If the Zone's temperature is changed, then it will be a **TemporaryOverride** that will revert to **FollowSchedule** at the next scheduled setpoint. Once this is done, the ZOne can be switched to **PermanentOverride** mode.
+
+In Home Assistant, all this is done via `HVAC_MODE` and `PRESET_MODE`. However, the actual operating mode of these devices can be tracked via its state attributes, which includes a JSON data structure for current state called `status`.
+
+For the Controller:
+{% raw %}
+```
+value_template: "{{ state_attr('climate.main_room', 'status').systemModeStatus.mode }}"
+```
+{% endraw %}
+
+For the Zones:
+{% raw %}
+```
+value_template: "{{ state_attr('climate.my_house', 'status').setpointStatus.setpointMode }}"
+```
+{% endraw %}

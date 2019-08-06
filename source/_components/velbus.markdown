@@ -1,35 +1,51 @@
 ---
-layout: page
 title: "Velbus"
 description: "Access and control your Velbus devices."
-date: 2017-06-17 16.58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: velbus.png
-ha_category: Hub
-ha_iot_class: "Local Push"
+ha_category:
+  - Hub
+  - Binary Sensor
+  - Climate
+  - Sensor
+  - Switch
+ha_iot_class: Local Push
 ha_release: "0.50"
+redirect_from:
+  - /components/climate.velbus/
+  - /components/sensor.velbus/
+  - /components/binary_sensor.velbus/
+  - /components/switch.velbus/
 ---
 
-The `velbus` component supports the Velbus USB, Velbus serial and a TCP/IP gateway.
+The `velbus` integration supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
-## {% linkable_title Configuration %}
+There is currently support for the following device types within Home Assistant:
 
-The gateway needs to be configured by adding the following lines to your `configuration.yaml` file:
+- Binary Sensor
+- Climate
+- Sensor
+- Switch
+- Cover
+
+## Configuration
+
+There are 2 options in configuring the velbus integration:
+
+- Via the Home Assistant user interface where it will let you enter the port string to connect to the Velbus bus.
+- Via the Home Assistant `configuration.yaml` file.
 
 ```yaml
 # Example configuration.yaml entry for a USB or serial interface
 velbus:
-  port: '/dev/ttyUSB00'
+  port: 'PORT_STRING'
 ```
 
-```yaml
-# Example configuration.yaml entry for a TCP/IP interface
-velbus:
-  port: '127.0.0.1:3678'
-```
+## Port Sstring
+
+The port string used in the user interface or the configuration file can have 2 formats:
+
+- For a serial device: /dev/ttyUSB00
+- For a tcp/ip device: 127.0.0.1:3678
 
 {% configuration %}
 port:

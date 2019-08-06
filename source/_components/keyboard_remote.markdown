@@ -1,21 +1,16 @@
 ---
-layout: page
 title: "Keyboard Remote"
 description: "Instructions on how to use a keyboard to remote control Home Assistant."
-date: 2016-09-28 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: keyboard.png
-ha_category: Other
+ha_category:
+  - Other
 ha_release: 0.29
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 Receive signals from a keyboard and use it as a remote control.
 
-This component allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
+This integration allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
 
 The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
 
@@ -25,11 +20,20 @@ keyboard_remote:
   type: 'key_up'
 ```
 
-Configuration variables:
-
-- **type** (*Required*): Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
-- **device_descriptor** (*Optional*): Path to the local event input device file that corresponds to the keyboard.
-- **device_name** (*Optional*): Name of the keyboard device.
+{% configuration %}
+type:
+  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.
+  required: true
+  type: string
+device_description:
+  description: Path to the local event input device file that corresponds to the keyboard.
+  required: false
+  type: string
+device_name:
+  description: Name of the keyboard device.
+  required: false
+  type: string
+{% endconfiguration %}
 
 Either `device_name` or `device_descriptor` must be present in the configuration entry. Indicating a device name is useful in case of repeating disconnections and re-connections of the device (for example, a bluetooth keyboard): the local input device file might change, thus breaking the configuration, while the name remains the same.
 In case of presence of multiple devices of the same model, `device_descriptor` must be used.
@@ -72,11 +76,11 @@ automation:
 
 `device_descriptor` or `device_name` may be specificed in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
 
-## {% linkable_title Disconnections %}
+## Disconnections
 
-This component manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
+This integration manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
 
-If the keyboard disconnects, the component will fire an event `keyboard_remote_disconnected`.
+If the keyboard disconnects, the integration will fire an event `keyboard_remote_disconnected`.
 When the keyboard reconnects, an event `keyboard_remote_connected` will be fired.
 
 Here's an automation example that plays a sound through a media player whenever the keyboard connects/disconnects:
@@ -108,7 +112,7 @@ automation:
           media_content_type: music
 ```
 
-## {% linkable_title Permissions %}
+## Permissions
 
 There might be permissions problems with the event input device file. If this is the case, the user that Home Assistant runs as must be allowed read and write permissions with:
 

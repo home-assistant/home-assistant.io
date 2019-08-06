@@ -1,26 +1,17 @@
 ---
-layout: page
 title: "Dialogflow"
 description: "Instructions on how integrate Dialogflow with Home Assistant."
-date: 2017-01-27 11:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dialogflow.png
-ha_category: Voice
-featured: false
+ha_category:
+  - Voice
 ha_release: 0.56
-redirect_from: /components/apiai/
+redirect_from:
+  - /components/apiai/
 ---
 
-<p class='note'>
-Before 0.56 this component was named `apiai`.
-</p>
+The `dialogflow` integration is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
 
-The `dialogflow` component is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
-
-Dialogflow requires a public endpoint (HTTPS recommended), so your Home Assistant should be exposed to the Internet. Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
+To be able to receive messages from DialogFlow, your Home Assistant instance needs to be accessible from the web ([Hass.io instructions](/addons/duckdns/)) and you need to have the `base_url` configured for the HTTP integration ([docs](/components/http/#base_url)). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 
 Dialogflow could be [integrated](https://dialogflow.com/docs/integrations/) with many popular messaging, virtual assistant and IoT platforms.
 
@@ -40,18 +31,22 @@ Using Dialogflow will be easy to create conversations like:
 
 To use this integration, you should define a conversation (intent) in Dialogflow, configure Home Assistant with the speech to return and, optionally, the action to execute.
 
-### {% linkable_title Configuring your Dialogflow account %}
+### Configuring your Dialogflow account
+
+To get the webhook URL, go to the integrations page in the configuration screen and find "Dialogflow". Click on "configure". Follow the instructions on the screen.
 
 - [Login](https://console.dialogflow.com/) with your Google account
 - Click on "Create Agent"
 - Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone
 - Click "Save"
-- Go to "Fulfillment" (in the left menu)
-- Enable Webhook and set your Home Assistant URL with the Dialogflow endpoint, e.g., `https://myhome.duckdns.org/api/dialogflow?api_password=HA_PASSWORD`
+- Go to project settings (cog symbol in left menu)
+- under "API VERSION" click on "V1 API"
+- Now go to "Fulfillment" (in the left menu)
+- Enable Webhook and set your Dialogflow webhook url as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
 - Click "Save"
 - Create a new intent
 - Below "User says" write one phrase that you, the user, will tell Dialogflow, e.g., `What is the temperature at home?`
-- In "Action" set some key (this will be the bind with Home Assistant configuration), eg.: GetTemperature
+- In "Action" set some key (this will be the bind with Home Assistant configuration), e.g.,: GetTemperature
 - In "Response" set "Cannot connect to Home Assistant or it is taking to long" (fall back response)
 - At the end of the page, click on "Fulfillment" and check "Use webhook"
 - Click "Save"
@@ -60,12 +55,11 @@ To use this integration, you should define a conversation (intent) in Dialogflow
 
 Take a look to "Integrations", in the left menu, to configure third parties.
 
+### Configuring Home Assistant
 
-### {% linkable_title Configuring Home Assistant %}
+When activated, the [`alexa` integration](/components/alexa/) will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) integration.
 
-When activated, the [`alexa` component](/components/alexa/) will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/components/intent_script) component.
-
-## {% linkable_title Examples %}
+## Examples
 
 Download [this zip](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** -> **Export and Import**) for examples intents to use with this configuration:
 
@@ -117,4 +111,3 @@ intent_script:
           entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
 ```
 {% endraw %}
-

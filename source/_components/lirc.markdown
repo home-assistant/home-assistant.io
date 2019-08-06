@@ -1,32 +1,27 @@
 ---
-layout: page
 title: "LIRC"
 description: "Instructions on how to integrate IR remotes with LIRC into Home Assistant."
-date: 2016-05-22 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lirc.gif
-ha_category: Automation
-featured: false
+ha_category:
+  - Automation
 ha_release: 0.21
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 [LIRC](http://www.lirc.org/) integration for Home Assistant allows you to receive signals from an infrared remote control and control actions based on the buttons you press. You can use them to set scenes or trigger any other [automation](/components/automation/).
 
-Sending IR commands is not supported in this component (yet), but can be accomplished using the [shell_command component](/components/shell_command/) in conjunction with the `irsend` command.
+Sending IR commands is not supported in this integration (yet), but can be accomplished using the [shell_command component](/components/shell_command/) in conjunction with the `irsend` command.
 
-### {% linkable_title Installation %}
+### Installation
 
 To allow Home Assistant to talk to your IR receiver, you need to first make sure you have the correct dependencies installed:
 
 ```bash
-$ sudo apt-get install lirc liblircclient-dev
+sudo apt-get install lirc liblircclient-dev
 ```
 
-<p class='note'>
+<div class='note'>
+
 If you are configuring on a Raspberry Pi, there are excellent instructions with GPIO schematics and driver configurations [here](http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/). Take notice, the instructions in this blog are valid for Raspian Jesse where lirc 0.9.0 was included in the debian package. In Raspian Stretch lirc 0.9.4 is included in the Debian package.
 The configuration is slightly different :
 
@@ -35,9 +30,10 @@ The configuration is slightly different :
  - 0.9.4 defaults to using systemd for controlling the services. This is not just start/stop functionality, systemd is used to implement new features and to address shortcomings in 0.9.0. However, traditional systemV scripts are also installed and could be used although this is less tested and not really documented.
 
 For more information have a look at `/usr/share/doc/lirc/README.Debian.gz` where the update process is explained when you have updated from jessie to stretch.
-</p>
 
-### {% linkable_title Configuring LIRC %}
+</div>
+
+### Configuring LIRC
 
 Now teach LIRC about your particular remote control by preparing a lircd configuration file (`/etc/lirc/lircd.conf`). Search the [LIRC remote database](http://lirc.sourceforge.net/remotes/) for your model. If you can't find it, then you can always use the `irrecord` program to learn your remote. This will create a valid configuration file. Add as many remotes as you want by pasting them into the file. If `irrecord` doesn't work (e.g., for some air conditioner remotes), then the `mode2` program is capable of reading the codes in raw mode, followed by `irrecord -a` to extract hex codes.
 
@@ -73,16 +69,16 @@ $ ircat home-assistant
 and pressing some buttons on the remote. You should see them register on the screen if LIRC is properly configured.
 
 
-### {% linkable_title Configuration Home Assistant %}
+### Configuration Home Assistant
 
 ```yaml
 # Example configuration.yaml entry
 lirc:
 ```
 
-#### {% linkable_title Events %}
+#### Events
 
-The LIRC component fires `ir_command_received` events on the bus. You can capture the events and respond to them in automation scripts like this:
+The LIRC integration fires `ir_command_received` events on the bus. You can capture the events and respond to them in automation scripts like this:
 
 ```yaml
 # Example configuration.yaml automation entry

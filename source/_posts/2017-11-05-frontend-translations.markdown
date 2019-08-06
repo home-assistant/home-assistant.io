@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "Translating Home Assistant"
 description: "Introduction to the new translation integration with Lokalise."
 date: 2017-11-05 20:00:00 -0500
 date_formatted: "November 5, 2017"
 author: Adam Mills
-comments: true
 categories: Community
 og_image: /images/blog/2017-11-0.57/languages.png
 ---
@@ -15,7 +13,7 @@ og_image: /images/blog/2017-11-0.57/languages.png
 The Home Assistant sidebar in 12 different languages.
 </p>
 
-## {% linkable_title Translations %}
+## Translations
 
 As mentioned in the [0.57 release notes](/blog/2017/11/04/release-57/), Home Assistant has launched a translated frontend. With the immediate influx of translations, we’ve made integration with a translation tool a top priority. [@c727] took the initiative to evaluate several tools, and we’re happy to announce that Home Assistant will be partnering with [Lokalise](https://lokalise.co/) to manage our translations!
 

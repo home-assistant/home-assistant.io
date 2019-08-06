@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Perform actions based on input select"
 description: "Example playing media to Chromecast based on input select element"
-date: 2016-03-07 12:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 

@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Entity Filter Card"
 sidebar_label: Entity Filter
 description: "This card allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home. "
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 This card allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
@@ -35,7 +29,7 @@ state_filter:
 card:
   required: false
   description: Extra options to pass down to the card rendering the result.
-  type: object
+  type: map
   default: entities card
 show_empty:
   required: false
@@ -44,33 +38,33 @@ show_empty:
   default: true
 {% endconfiguration %}
 
-### {% linkable_title Examples %}
+### Examples
 
 Show only active switches or lights in the house
 ```yaml
-- type: entity-filter
-  entities:
-    - entity: light.bed_light
-      name: Bed
-    - light.kitchen_lights
-    - light.ceiling_lights
-  state_filter:
-    - "on"
+type: entity-filter
+entities:
+  - entity: light.bed_light
+    name: Bed
+  - light.kitchen_lights
+  - light.ceiling_lights
+state_filter:
+  - "on"
 ```
 
 Show only people that are at home using [glance](/lovelace/glance/):
 
 ```yaml
-- type: entity-filter
-  entities:
-    - device_tracker.demo_paulus
-    - device_tracker.demo_anne_therese
-    - device_tracker.demo_home_boy
-  state_filter:
-    - home
-  card: 
-    type: glance
-    title: People at home
+type: entity-filter
+entities:
+  - device_tracker.demo_paulus
+  - device_tracker.demo_anne_therese
+  - device_tracker.demo_home_boy
+state_filter:
+  - home
+card:
+  type: glance
+  title: People at home
 ```
 
 <p class='img'>

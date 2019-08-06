@@ -1,26 +1,21 @@
 ---
-layout: page
 title: "IFTTT Alarm Control Panel"
 description: "Instructions on how to integrate IFTTT-controlled security systems into Home Assistant."
-date: 2018-03-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ifttt.png
-ha_category: Alarm
+ha_category:
+  - Alarm
 ha_release: 0.66
 ---
 
 The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/discover).
 
-This platform depends on the [IFTTT](/components/ifttt/) Home Assistant component. See the component's documentation to set it up.
+This platform depends on the [IFTTT](/components/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 
-<p class='note'>
+<div class='note'>
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.
-</p>
+</div>
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable this, add the following lines to your `configuration.yaml` file:
 
@@ -75,11 +70,13 @@ optimistic:
   default: false
 {% endconfiguration %}
 
-<p class='note warning'>
-It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
-</p>
+<div class='note warning'>
 
-### {% linkable_title Required IFTTT applets %}
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+
+</div>
+
+### Required IFTTT applets
 
 Next, you will need to set up the required IFTTT applets as listed below.
 

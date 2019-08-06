@@ -1,22 +1,16 @@
 ---
-layout: page
 title: "Browsers"
 description: "Browser Compatibility List"
-date: 2016-06-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/browsers/
 ---
 
-Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which were tested. This doesn't mean that older or newer releases not work.
+Home Assistant requires a web browser to show the frontend and supports all major modern browsers. We don't test the web interface against all available browsers but this page tracks different browsers on various operating systems and should help you to pick a browser which works. The "Release" column contains the release number which was tested. This doesn't mean that older or newer releases are not work.
 
 If a browser is listed as working but you are still having problems, it is possible that some add-on or extension may be the problem. Some add-ons or extension are known to cause issue with the frontend, but it's not possible to test them all. If you are having issues with the frontend displaying correctly, you should disable all your add-ons or extensions and enable them one at a time.
 
 We would appreciate if you help to keep this page up-to-date and add feedback.
 
-## {% linkable_title Microsoft Windows %}
+## Microsoft Windows
 
 | Browser                   | Release        | State      | Comments                 |
 | :------------------------ |:---------------|:-----------|:-------------------------|
@@ -27,13 +21,13 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Iridium]                 | 48.2           | works      |                          |
 | [Opera]                   | 42.0.2393.351  | works      |                          |
 
-## {% linkable_title macOS %}
+## macOS
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
 | [Safari]              |                | works      | Map is fixed since 0.51. |
 
-## {% linkable_title Linux %}
+## Linux
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -50,9 +44,10 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [w3m]                 | 0.5.3          | fails      | display the icon shown while loading HA |
 | [Epiphany]            | 3.18.5         | works      |                          |
 | [surf]                | 0.7            | works      |                          |
-| [Chrome]              | 69.0.3497.100  | works      |                          |
+| [Chrome]              | 71.0.3578.98   | works      |                          |
+| [Waterfox]            | 56.2.6         | fails      |                          |
 
-## {% linkable_title Android %}
+## Android
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -60,7 +55,7 @@ We would appreciate if you help to keep this page up-to-date and add feedback.
 | [Firefox]             | 46.0.1         | works      | Can also be added to desktop |
 | [Opera]               | 42.0.2246.112628 | works    | Can also be added to desktop |
 
-## {% linkable_title iOS %}
+## iOS
 
 | Browser               | Release        | State      | Comments                 |
 | :-------------------- |:---------------|:-----------|:-------------------------|
@@ -87,4 +82,5 @@ There are reports that devices running with iOS prior to iOS 10, especially old 
 [Tor Browser]: https://www.torproject.org/
 [Uzbl]: http://www.uzbl.org/
 [w3m]: http://w3m.sourceforge.net/
+[Waterfox]: https://www.waterfoxproject.org
 

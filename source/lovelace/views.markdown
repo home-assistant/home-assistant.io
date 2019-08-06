@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Views"
 description: "The Lovelace UI is a powerful and configurable interface for Home Assistant."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 To display cards on the UI you have to define them in views. Views sort cards in columns based on their `card size`. If you want to group some cards you have to use `stack` cards.
@@ -34,9 +28,9 @@ views:
       required: false
       description: Cards to display in this view.
       type: list
-    id:
+    path:
       required: false
-      description: IDs are used in the URL, more info below. If you don't specify an ID, a random one will be added automatically.
+      description: Paths are used in the URL, more info below.
       type: string
       default: view index
     icon:
@@ -58,20 +52,18 @@ views:
       type: string
 {% endconfiguration %}
 
-## {% linkable_title IDs %}
+## Paths
 
-You can link to one view from another view by its ID. For this use cards that support navigation (`navigation_path`). Do not use special characters in IDs.
+You can link to one view from another view by its path. For this use cards that support navigation (`navigation_path`). Do not use special characters in paths.
 
-IDs are also used to identify a view for editing in the Home Assistant frontend (not yet released), we will add a randomly generated ID to your view if you don't specify one. You can change this ID, as long as every view has a unique ID.
-
-### {% linkable_title Example %}
+### Example
 
 View config:
 
 ```yaml
 - title: Living room
   # the final path is /lovelace/living_room
-  id: living_room
+  path: living_room
 ```
 
 Picture card config:
@@ -79,25 +71,27 @@ Picture card config:
 ```yaml
 - type: picture
   image: /local/living_room.png
-  navigation_path: /lovelace/living_room
+  tap_action:
+    action: navigate
+    navigation_path: /lovelace/living_room
 ```
 
-## {% linkable_title Icons %}
+## Icons
 
 If you define an icon the title will be used as a tool-tip.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Garden
   icon: mdi:flower
 ```
 
-## {% linkable_title Panel mode %}
+## Panel mode
 
 This renders the first card on full width, other cards in this view will not be rendered. Good for cards like `map`, `stack` or `picture-elements`.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Map
@@ -109,22 +103,22 @@ This renders the first card on full width, other cards in this view will not be 
         - zone.home
 ```
 
-## {% linkable_title Background %}
+## Background
 
 Style the background of views using [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets). For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Living room
   background: center / cover no-repeat url("/local/background.png") fixed
 ```
 
-## {% linkable_title Themes %}
+## Themes
 
 Set a separate [theme](/components/frontend/#themes) for the view and its cards.
 
-### {% linkable_title Example %}
+### Example
 
 ```yaml
 - title: Home

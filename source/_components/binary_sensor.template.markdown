@@ -1,27 +1,21 @@
 ---
-layout: page
 title: "Template Binary Sensor"
 description: "Instructions on how to integrate Template Binary Sensors into Home Assistant."
-date: 2016-02-25 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-ha_category: Binary Sensor
+ha_category:
+  - Binary Sensor
 ha_release: 0.12
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 logo: home-assistant.png
 ha_qa_scale: internal
 ---
 
-The `template` platform supports sensors which break out the `state` and
-`state_attributes` from other entities. The state of a Template Binary Sensor
-can only be `on` or `off`.
+The `template` platform supports binary sensors which get their values from
+other entities. The state of a Template Binary Sensor can only be `on` or
+`off`.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To enable Template Binary Sensors in your installation, add the following to
-your `configuration.yaml` file:
+Here is an example of adding a Template Binary Sensor to the `configuration.yaml` file:
 
 {% raw %}
 ```yaml
@@ -32,7 +26,7 @@ binary_sensor:
       sun_up:
         friendly_name: "Sun is up"
         value_template: >-
-          {{ states.sun.sun.attributes.elevation|float > 0 }}
+          {{ state_attr('sun.sun', 'elevation')|float > 0 }}
 ```
 {% endraw %}
 
@@ -54,14 +48,14 @@ sensors:
         entity_id:
           description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
           required: false
-          type: string, list
+          type: [string, list]
         device_class:
-          description: The type/class of the sensor to set the icon in the frontend.
+          description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
           type: device_class
           default: None
         value_template:
-          description: Defines a template to set the state of the sensor.
+          description: The sensor is `on` if the template evaluates as `True` and `off` otherwise. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor’s device_class value
           required: true
           type: template
         icon_template:
@@ -82,7 +76,9 @@ sensors:
           type: time
 {% endconfiguration %}
 
-## {% linkable_title Considerations %}
+## Considerations
+
+### Startup
 
 If you are using the state of a platform that takes extra time to load, the
 Template Binary Sensor may get an `unknown` state during startup. This results
@@ -94,11 +90,19 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 
-## {% linkable_title Examples %}
+### Entity IDs
+
+The template engine will attempt to work out what entities should trigger an
+update of the sensor. This can fail, for example if your template loops over
+the contents of a group. In this case you can use `entity_id` to provide a
+list of entity IDs that will cause the sensor to update or you can run the
+service `homeassistant.update_entity` to update the sensor at will.
+
+## Examples
 
 In this section you find some real-life examples of how to use this sensor.
 
-### {% linkable_title Sensor Threshold %}
+### Sensor Threshold
 
 This example indicates true if a sensor is above a given threshold. Assuming a
 sensor of `furnace` that provides a current reading for the fan motor, we can
@@ -106,7 +110,7 @@ determine if the furnace is running by checking that it is over some threshold:
 
 {% raw %}
 ```yaml
-sensor:
+binary_sensor:
   - platform: template
     sensors:
       furnace_on:
@@ -116,7 +120,7 @@ sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Switch as Sensor %}
+### Switch as Sensor
 
 Some movement sensors and door/window sensors will appear as a switch. By using
 a Template Binary Sensor, the switch can be displayed as a binary sensors. The
@@ -137,7 +141,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Combining Multiple Sensors %}
+### Combining Multiple Sensors
 
 This example combines multiple CO sensors into a single overall
 status. When using templates with binary sensors, you need to return
@@ -158,7 +162,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Washing Machine Running %}
+### Washing Machine Running
 
 This example creates a washing machine "load running" sensor by monitoring an
 energy meter connected to the washer. During the washer's operation, the energy
@@ -181,7 +185,7 @@ binary_sensor:
 ```
 {% endraw %}
 
-### {% linkable_title Is Anyone Home? %}
+### Is Anyone Home?
 
 This example is determining if anyone is home based on the combination of device
 tracking and motion sensors. It's extremely useful if you have kids/baby sitter/
@@ -203,5 +207,32 @@ binary_sensor:
              or is_state('binary_sensor.living_room_139', 'on')
              or is_state('binary_sensor.porch_ms6_1_129', 'on')
              or is_state('binary_sensor.family_room_144', 'on') }}
+```
+{% endraw %}
+
+### Change the icon when state changes
+
+This example demonstrates how to use `icon_template` to change the entity's
+icon as its state changes, it evaluates the state of its own sensor and uses a 
+conditional statement to output the appropriate icon. 
+
+
+{% raw %}
+```yaml
+sun:
+binary_sensor:
+  - platform: template
+    sensors:
+      sun_up:
+        entity_id:
+          - sun.sun
+        value_template: >-
+          {{ is_state("sun.sun", "above_horizon") }}
+        icon_template: >-
+          {% if is_state("binary_sensor.sun_up", "on") %}
+            mdi:weather-sunset-up
+          {% else %}
+            mdi:weather-sunset-down
+          {% endif %}
 ```
 {% endraw %}

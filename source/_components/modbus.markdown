@@ -1,33 +1,29 @@
 ---
-layout: page
 title: "Modbus"
 description: "Instructions on how to integrate Modbus within Home Assistant."
-date: 2015-04-25 9:16
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: modbus.png
-ha_category: Hub
+ha_category:
+  - Hub
 ha_release: pre 0.7
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
 
 [Modbus](http://www.modbus.org/) is a serial communication protocol to control PLCs (Programmable logic controller).
 It currently supports sensors and switches which can be controlled over serial, TCP, and UDP connections.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 The configuration for adding modbus to your installation depends on the connection type, either a network or serial connection.
 
-### {% linkable_title Network connection %}
+### Network connection
 
 For a network connection, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for a TCP connection
 modbus:
+  name: hub1
   type: tcp
   host: IP_ADDRESS
   port: 2020
@@ -46,6 +42,11 @@ port:
   description: The network port for the communication.
   required: true
   type: integer
+name:
+  description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
+  required: false
+  default: default
+  type: string
 timeout:
   description: Timeout for slave response in seconds.
   required: false
@@ -53,13 +54,14 @@ timeout:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Serial connection %}
+### Serial connection
 
 For a serial connection, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for a serial connection
 modbus:
+  name: hub1
   type: serial
   method: rtu
   port: /dev/ttyUSB0
@@ -98,6 +100,11 @@ parity:
   description: "The parity for the serial connection; can be `E`, `O` or `N`."
   required: true
   type: string
+name:
+  description: Name for this hub. Must be unique, so it is required when setting up multiple instances.
+  required: false
+  default: default
+  type: string
 timeout:
   description: Timeout for slave response in seconds.
   required: false
@@ -105,15 +112,41 @@ timeout:
   type: integer
 {% endconfiguration %}
 
-### {% linkable_title Services %}
+### Multiple connections
+
+Multiple connections are possible, add something like the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry for multiple TCP connections
+modbus:
+  - type: tcp
+    host: IP_ADDRESS_1
+    port: 2020
+    name: hub1
+
+  - type: tcp
+    host: IP_ADDRESS_2
+    port: 501
+    name: hub2
+```
+
+### Services
 
 
 | Service | Description |
 | ------- | ----------- |
-| write_register | Write register. Requires `unit`, `address` and `value` fields. `value` can be either single value or an array |
+| write_register | Write register. Requires `hub`, `unit`, `address` and `value` fields. `value` can be either single value or an array |
 
+#### Service Data Attributes
 
-## {% linkable_title Building on top of Modbus %}
+| Attribute | Description |
+| --------- | ----------- |
+| name      | Hub name (defaults to 'default' when omitted) |
+| unit      | Slave address (set to 255 you talk to Modbus via TCP) |
+| address   | Address of the Register (e.g., 138) |
+| value     | A single value or an array of 16-bit values. Single value will call modbus function code 6. Array will call modbus function code 16. Array might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]` |
+
+## Building on top of Modbus
 
  - [Modbus Binary Sensor](/components/binary_sensor.modbus/)
  - [Modbus Sensor](/components/sensor.modbus/)

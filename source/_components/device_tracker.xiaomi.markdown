@@ -1,20 +1,15 @@
 ---
-layout: page
 title: "Xiaomi Router"
 description: "Instructions on how to integrate Xiaomi routers into Home Assistant."
-date: 2017-01-12 12:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
-ha_category: Presence Detection
+ha_category:
+  - Presence Detection
 ha_release: 0.36
 ---
 
 The `xiaomi` platform offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.
 
-## {% linkable_title Setup %}
+## Setup
 
 To use an Xiaomi router in your installation, add the following to your `configuration.yaml` file:
 
@@ -42,9 +37,9 @@ password:
   type: string
 {% endconfiguration %}
 
-See the [device tracker component page](/components/device_tracker/) for instructions how to configure the people to be tracked.
+See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.
 
-### {% linkable_title Compatibility test %}
+### Compatibility test
 
 To ensure that your router is compatible, navigate to `http://YOUR_ROUTER_IP/api/misystem/devicelist`.
 You should see a listing of the device currently connected to your router.

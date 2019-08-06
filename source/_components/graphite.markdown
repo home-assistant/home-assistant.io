@@ -1,18 +1,13 @@
 ---
-layout: page
 title: "Graphite"
 description: "Instructions on how to record Home Assistant history in Graphite."
-date: 2016-02-10 17:11
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: graphite.png
-ha_category: History
+ha_category:
+  - History
 ha_release: 0.13
 ---
 
-The `graphite` component records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
+The `graphite` integration records all events and state changes and feeds the data to a [graphite](http://graphite.wikidot.com/) instance.
 
 To enable this component, add the following lines to your `configuration.yaml`:
 
@@ -23,7 +18,7 @@ graphite:
 
 {% configuration %}
 host:
-  description: IP address of your graphite host, e.g., http://192.168.1.10.
+  description: IP address of your graphite host, e.g., 192.168.1.10.
   required: false
   type: string
   default: localhost

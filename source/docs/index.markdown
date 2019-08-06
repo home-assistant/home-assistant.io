@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Documentation"
 description: "Documentation for Home Assistant"
-date: 2016-10-26 00:46
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The documentation covers beginner to advanced topics around the installation, setup, configuration, and usage of Home Assistant.
@@ -36,11 +30,11 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>MQTT</div>
   </a>
-  <a class='option-card' href='/docs/ecosystem/hadashboard/'>
+  <a class='option-card' href='/lovelace/'>
     <div class='img-container'>
       <img src='/images/supported_brands/view-dashboard.png' />
     </div>
-    <div class='title'>HADashboard</div>
+    <div class='title'>Lovelace user interface</div>
   </a>
   <a class='option-card' href='/docs/ecosystem/ios/'>
     <div class='img-container'>

@@ -1,19 +1,14 @@
 ---
-layout: page
 title: "RESTful Command"
 description: "Instructions on how to integrate REST commands into Home Assistant."
-date: 2018-02-24 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: restful.png
-ha_category: Automation
+ha_category:
+  - Automation
 ha_release: 0.36
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
-This component can expose regular REST commands as services. Services can be called from a [script] or in [automation].
+This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
 
 [script]: /components/script/
 [automation]: /getting-started/automation/
@@ -29,8 +24,8 @@ rest_command:
 
 {% configuration %}
 service_name:
-  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.service_name'.
-  required: true 
+  description: The name used to expose the service. E.g., in the above example, it would be 'rest_command.example_request'.
+  required: true
   type: map
   keys:
     url:
@@ -59,7 +54,7 @@ service_name:
       required: false
       type: string
     timeout:
-      description: Timeout for requests in seconds. 
+      description: Timeout for requests in seconds.
       required: false
       type: string
       defaut: 10
@@ -67,9 +62,14 @@ service_name:
       description: Content type for the request.
       required: false
       type: string
+    verify_ssl:
+      description: Verify the SSL certificate of the endpoint.
+      required: false
+      type: boolean
+      default: true
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 The commands can be dynamic, using templates to insert values of other entities. Service call support variables for doing things with templates.
 
@@ -80,11 +80,12 @@ rest_command:
   my_request:
     url: https://slack.com/api/users.profile.set
     method: POST
-    headers: 
+    headers:
       authorization: !secret rest_headers_secret
       accept: 'application/json, text/html'
     payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
     content_type:  'application/json; charset=utf-8'
+    verify_ssl: true
 ```
 {% endraw %}
 

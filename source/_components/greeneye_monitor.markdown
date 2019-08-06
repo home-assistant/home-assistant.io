@@ -1,16 +1,14 @@
 ---
-layout: page
 title: "GreenEye Monitor"
 description: "Instructions on how to integrate your GreenEye Monitor within Home Assistant."
-date: 2018-09-02 11:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: brultech.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Sensor
 ha_release: 0.82
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
+redirect_from:
+  - /components/sensor.greeneye_monitor/
 ---
 
 The [GreenEye Monitor (GEM)](http://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
@@ -22,7 +20,7 @@ Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET"
 greeneye_monitor:
   port: 8000
   monitors:
-    - serial_number: YOUR_SERIAL_NUMBER
+    - serial_number: "YOUR_SERIAL_NUMBER"
       channels:
         - number: 1
           name: total_power
@@ -40,7 +38,7 @@ greeneye_monitor:
           name: back_porch_temperature
 ```
 
-By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/components/recorder) component for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/components/influxdb) component and exclude the GEM sensors from `recorder`.
+By default, GEM will send updates every 5 seconds. That's a lot of data, and the databases used by the [`recorder`](/components/recorder) integration for history don't do well with that much data, so it is recommended to configure the [`influxdb`](/components/influxdb) integration and exclude the GEM sensors from `recorder`.
 
 {% configuration %}
 port:
@@ -53,9 +51,9 @@ monitors:
   type: list
   keys:
     serial_number:
-      description: The last five digits (omitting leading zeroes) of your GEM serial number.
+      description: Your 8-digit GEM serial number, as it appears in the UI.
       required: true
-      type: integer
+      type: string
     channels:
       description: The list of channels that should appear in Home Assistant for this monitor. Data from other channels will be ignored.
       required: false
@@ -72,7 +70,7 @@ monitors:
         net_metering:
           description: Set to `true` if the channel is configured for net metering in the GEM, otherwise `false`.
           required: false
-          type: bool
+          type: boolean
           default: false
     temperature_sensors:
       description: Configuration for temperature sensors
@@ -123,4 +121,3 @@ monitors:
           type: string
           default: s
 {% endconfiguration %}
-

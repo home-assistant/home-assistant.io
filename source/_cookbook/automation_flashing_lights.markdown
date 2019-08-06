@@ -1,16 +1,10 @@
 ---
-layout: page
 title: "Examples for flashing lights"
 description: "Automation examples for flashing lights in case of an alarm."
-date: 2016-03-30 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Automation Examples
 ---
 
-#### {% linkable_title Flashing lights triggered by an alarm %}
+#### Flashing lights triggered by an alarm
 
 For flashing regular lights in case an alarm is triggered.
 

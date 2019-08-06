@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OwnTracks with two MQTT brokers"
 description: "Setting up OwnTracks with 2 MQTT brokers bridged for use with the MQTT bridge for SmartThings."
-date: 2016-08-27 10:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category: Infrastructure
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RPC Shutdown"
 description: "Simple way for remote windows shutdowns."
-date: 2017-09-25 14:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Allows you to shut down a Windows computer with a service call from Home Assistant.
@@ -33,7 +27,7 @@ Allows you to shut down a Windows computer with a service call from Home Assista
 - **computers/address** (*Required*): IP address or NetBIOS name of the computer for the shutdown.
 - **computers/credentials** (*Required*): Credentials for logging into computer. Use a `%` as the delimiter of username and password.
 
-### {% linkable_title Home Assistant configuration %}
+### Home Assistant configuration
 
 Use the following inside Home Assistant service call to use it:
 
@@ -44,6 +38,8 @@ data:
   input: test-pc
 ```
 
-<p class='note'>
-The `user` specified in the credentials should be an applicable user listed in `C:/Users`. This may differ from the username used to login to Windows. Depending on your settings and privileges within Windows, changes to the firewall, UAC (User Account Control) and registry settings may be required to allow this add-on to remotely shut down your computer. There are many guides available online on how to adjust these settings.  
-</p>
+<div class='note'>
+
+The `user` specified in the credentials should be an applicable user listed in `C:/Users`. This may differ from the username used to login to Windows. Depending on your settings and privileges within Windows, changes to the firewall, UAC (User Account Control) and registry settings may be required to allow this add-on to remotely shut down your computer. There are many guides available online on how to adjust these settings.
+
+</div>

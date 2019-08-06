@@ -1,24 +1,19 @@
 ---
-layout: page
 title: "route53"
 description: "Automatically update your AWS Route53 DNS records."
-date: 2018-02-10 20:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: route53.png
-ha_category: Network
-ha_release: "0.81"
+ha_category:
+  - Network
+ha_release: 0.81
 ---
 
-With the `route53` component can you keep your AWS Route53 DNS records up to date.
+With the `route53` integration can you keep your AWS Route53 DNS records up to date.
 
-The component will run every hour, but can also be started manually by using the service `route53.update_records` under services.
+The integration will run every hour, but can also be started manually by using the service `route53.update_records` under services.
 
 Please note that this platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
 
-## {% linkable_title Setup %}
+## Setup
 
 You will need to configure your AWS Account with a suitable IAM policy and API keys for this to function.
 
@@ -60,11 +55,11 @@ Here is an IAM Policy sample, don't forget to update your Zone ID on the Resourc
 
 4. Once this has been done, create a new user called `homeassistant` and add the IAM policy to the user, allowing it to manage this DNS resource.
 
-5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the component definition YAML.
+5. Under the security credentials tab for the `homeassistant` user, create a set of access keys for placement in the integration definition YAML.
 
-## {% linkable_title Configuration %}
+## Configuration
 
-To use the component in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,7 +67,7 @@ route53:
   aws_access_key_id: ABC123
   aws_secret_access_key: DEF456
   zone: ZONEID678
-  domain: home.yourdomain.com
+  domain: yourdomain.com
   records:
     - vpn
     - hassio
@@ -100,4 +95,9 @@ records:
   description: A list of records you want to update.
   required: true
   type: list
+ttl:
+  description: The TTL value for the DNS records.
+  required: false
+  type: integer
+  default: 300
 {% endconfiguration %}

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.11: Extended support for DIY solutions"
 description: "Home Assistant 0.11 has been released with extended support for making your own home automation components using a Raspberry Pi and MySensors."
 date: 2016-01-17 15:20:00 -0800
 date_formatted: "January 17, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 ---
 
@@ -15,7 +13,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [github-ha]: https://github.com/home-assistant/home-assistant/
 [release-pr]: https://github.com/home-assistant/home-assistant/pull/883#partial-users-participants
 
-<img src='/images/supported_brands/mysensors.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/raspberry-pi.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='50' /><img src='/images/supported_brands/yr.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/telldus.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/free_mobile.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/netatmo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/alarmdotcom.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/proliphix.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/mysensors.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/raspberry-pi.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='50' /><img src='/images/supported_brands/yr.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/telldus_tellstick.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/free_mobile.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/netatmo.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/alarmdotcom.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/proliphix.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
  - [MySensors] revamped and switch support added ([@MartinHjelmare][@MartinHjelmare])
  - Full refactor of RPi GPIO. Now includes [binary sensor][rpi-bs] and [switch][rpi-s] ([@sfam])
@@ -56,7 +54,7 @@ First release of 2016 and we are on 🔥! The [main repository][github-ha] has p
 [Universal media player]: /components/media_player.universal/
 [Netatmo]: /components/sensor.netatmo/
 [Alarm.com]: /components/alarm_control_panel.alarmdotcom/
-[Proliphix]: /components/thermostat.proliphix/
+[Proliphix]: /components/proliphix/
 [rpi-bs]: /components/binary_sensor.rpi_gpio/
 [rpi-s]: /components/switch.rpi_gpio/
 [input_boolean]: /components/input_boolean/

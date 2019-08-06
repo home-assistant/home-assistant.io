@@ -1,36 +1,56 @@
 ---
-layout: page
 title: "Elk-M1 Controller"
 description: "Instructions to setup the Elk-M1 controller."
-date: 2018-10-07 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: elkproducts.png
 ha_release: 0.81
-ha_category: Hub
-ha_iot_class: "Local Push"
+ha_category:
+  - Hub
+  - Alarm
+  - Climate
+  - Light
+  - Scene
+  - Sensor
+  - Switch
+ha_iot_class: Local Push
+redirect_from:
+  - /components/alarm_control_panel.elkm1/
+  - /components/climate.elkm1/
+  - /components/light.elkm1/
+  - /components/scene.elkm1/
+  - /components/sensor.elkm1/
+  - /components/switch.elkm1/
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
 
 The Elk-M1 controller is manufactured by [Elk Products](https://www.elkproducts.com).
 
-## {% linkable_title Configuration %}
+There is currently support for the following device types within Home Assistant:
 
-To integrate Elk-M1 controller with Home Assistant, add the following
+- **Alarm** - An Elk-M1 area (also known as partition) is represented as an `alarm_control_panel`.
+- **Climate** - An Elk-M1 thermostat is represented as a `climate` entity.
+- **Light** - An Elk-M1 light (which can be X10, Insteon, UPB) is represented as a `light`.
+- **Scene** - Elk-M1 tasks are represented as `scene` entities.
+- **Sensor** - Elk-M1 counters, keypads, panel, settings, and zones are represented as `sensor` entities.
+- **Switch** - Elk-M1 outputs are represented as `switch` entities.
+
+## Configuration
+
+To integrate one or more Elk-M1 controllers with Home Assistant, add the following
 section to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
 elkm1:
-  host: elk://IP_ADDRESS
+  - host: elk://IP_ADDRESS_1
+  ...
+  - host: elk://IP_ADDRESS_2
+    prefix: gh  # for guest house controller
 ```
 
 {% configuration %}
 host:
-  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`.
+  description: Connection string to Elk of the form `<method>://<address>[:port]`. `<method>` is `elk` for non-secure connection, `elks` for secure connection, and `serial` for serial port connection. `<address>` is IP address or domain or for `serial` the serial port that the Elk is connected to. Optional `<port>` is the port to connect to on the Elk, defaulting to 2101 for `elk` and 2601 for `elks`. For `serial` method, _address_ is the path to the tty _/dev/ttyS1_ for example and `[:baud]` is the baud rate to connect with.  You may have multiple host sections for connecting multiple controllers.
   required: true
   type: string
 username:
@@ -40,6 +60,10 @@ username:
 password:
   description: Password to login to Elk. Only required if using `elks` connection method.
   required: false
+  type: string
+prefix:
+  description: The prefix to use, if any, for all the devices created for this controller. At most one host can omit the prefix, all others must have a unique prefix within the home assistant instance.
+  require: false
   type: string
 temperature_unit:
   description: The temperature unit that the Elk panel uses. Valid values are `C` and `F`.
@@ -58,12 +82,12 @@ area:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -79,12 +103,12 @@ counter:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -100,12 +124,12 @@ keypad:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -121,12 +145,12 @@ output:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -142,12 +166,12 @@ setting:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -163,12 +187,12 @@ task:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -184,12 +208,12 @@ thermostat:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -205,12 +229,12 @@ plc:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
@@ -226,21 +250,38 @@ zone:
       required: false
       default: true
     include:
-      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a postive integer or a X10 housecode. See configuration below for examples of ranges.
+      description: List to include in the form of either `<value>` or `<value>-<value>` where `<value>` is a positive integer or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: All included.
     exclude:
-      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or a X10 housecode. See configuration below for examples of ranges.
+      description: List to exclude in the form of either `<value>` or `<value>-<value>` where `<value>` is a number or an X10 housecode. See configuration below for examples of ranges.
       type: list
       required: false
       default: None excluded.
 {% endconfiguration %}
 
 Example configuration of the above:
+
 ```yaml
 elkm1:
   host: elks://IP_ADDRESS
+  username: USERNAME
+  password: PASSWORD
+  area:
+    exclude: [5-8]
+  zone:
+    exclude: [11-16, 19-192, 199-208]
+  plc:
+    include: [a1-d16, 192]
+    exclude: [b12-d5]
+```
+
+Example for a serial port instance on /dev/ttyS1 at 9600 baud:
+
+```yaml
+elkm1:
+  host: serial://dev/ttyS1:9600
   username: USERNAME
   password: PASSWORD
   area:

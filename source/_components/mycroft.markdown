@@ -1,20 +1,22 @@
 ---
-layout: page
 title: "Mycroft"
 description: "Instructions on how to setup Mycroft AI within Home Assistant."
-date: 2017-08-26 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mycroft.png
-ha_category: Voice
+ha_category:
+  - Voice
+  - Notifications
 ha_release: 0.53
+redirect_from:
+  - /components/notify.mycroft/
 ---
 
 [Mycroft](https://mycroft.ai) is an open source voice assistant that allows you to send notifications and more to Mycroft from Home Assistant.
 
-## {% linkable_title Configuration %}
+There is currently support for the following device types within Home Assistant:
+
+- **Notifications** - Allows to deliver notifications from Home Assistant to [Mycroft AI](https://mycroft.ai/).
+
+## Configuration
 
 To use Mycroft in your installation, add the following to your `configuration.yaml` file:
 
@@ -30,5 +32,3 @@ host:
   required: true
   type: string
 {% endconfiguration %}
-
-

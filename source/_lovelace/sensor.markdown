@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Sensor Card"
 sidebar_label: Sensor
 description: "The sensor card gives you information about the sensor state"
-date: 2018-10-07 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
@@ -42,38 +36,26 @@ unit:
   required: false
   description: The unit of measurement
   type: string
-height:
+detail:
   required: false
-  description: Height of the graph
+  description: Detail of the graph `1` or `2`, `1` equals one point/hour, `2` equals six points/hour
   type: integer
-  default: 100
-line_width:
-  required: false
-  description: Width of the line stroke
-  type: integer
-  default: 5
-line_color:
-  required: false
-  description: Color of the line stroke
-  type: string
-accuracy:
-  required: false
-  description: Amount of data points on the graph
-  type: integer
-  default: 10
+  default: 1
 hours_to_show:
   required: false
   description: Hours to show in graph
   type: integer
   default: 24
+theme:
+  required: false
+  description: Set to any theme within `themes.yaml`
+  type: string
 {% endconfiguration %}
 
-## {% linkable_title Example %}
+## Example
 
 ```yaml
-- type: sensor
-  entity: sensor.illumination
-  name: Illumination
-  height: 75
-  line_color: "#3498db"
+type: sensor
+entity: sensor.illumination
+name: Illumination
 ```

@@ -1,29 +1,24 @@
 ---
-layout: page
 title: "Dominos Pizza"
 description: "Instructions on how to setup Dominos Pizza ordering within Home Assistant."
-date: 2017-11-05 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dominos.png
-ha_category: Other
-ha_iot_class: "Cloud Polling"
+ha_category:
+  - Other
+ha_iot_class: Cloud Polling
 ha_release: 0.59
 ---
 
-The `dominos` component allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
+The `dominos` integration allows you to order Dominos Pizza from within your Home Assistant scripts and automations.
 
-At present, this component only supports ordering within Canada and the US.
+At present, this integration only supports ordering within Canada and the US.
 
-## {% linkable_title Configuration %}
+## Configuration
 
 To enable the component, you need to set up your customer information and define some orders.
 
-Orders are a group of product codes. You can get these product codes by inspecting an order request from the Dominos web app, or you can [add this custom panel by following this readme](https://github.com/wardcraigj/hass-dominos-panel) to see the available product codes in a separate panel in your install.
+Orders are a group of product codes. You can get these product codes by inspecting an order request from the Dominos web app, or you can [add this custom panel by following this readme](https://github.com/craigjmidwinter/hass-dominos-panel) to see the available product codes in a separate panel in your install.
 
-Currently, there is no support in this component for toppings, coupons or order tracking.
+Currently, there is no support in this integration for toppings, coupons or order tracking.
 
 ```yaml
 dominos:

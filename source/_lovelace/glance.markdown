@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Glance Card"
 sidebar_label: Glance
 description: "The Glance card allows you to see a list of entities at a glance."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Glance cards are very compact. Very useful to group together multiple sensors for a quick and easy overview. Keep in mind that this can be used together with [entity-filter](/lovelace/entity-filter/) cards to create dynamic cards.
@@ -32,7 +26,12 @@ title:
   type: string
 show_name:
   required: false
-  description: Show entity names.
+  description: Show entity name.
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show entity icon.
   type: boolean
   default: "true"
 show_state:
@@ -50,7 +49,7 @@ columns:
   type: integer
 {% endconfiguration %}
 
-## {% linkable_title Options For Entities %}
+## Options For Entities
 
 If you define entities as objects instead of strings, you can add more customization and configuration:
 
@@ -69,40 +68,71 @@ icon:
   type: string
 tap_action:
   required: false
-  description: "Set to `toggle` or `call-service` for direct actions."
-  type: string
-  default: more-info
+  description: Action to take on tap
+  type: map
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
 hold_action:
   required: false
-  description: Action to perform when clicked-and-held (e.g., `more-info`, `toggle`, `call-service`).
-  type: string
-  default: none
-service:
-  required: false
-  description: "For `call-service`, e.g., `media_player.media_play_pause`"
-  type: string
-service_data:
-  required: false
-  description: The service data to use.
-  type: object
-  default: "entity_id: entity_id"
+  description: Action to take on tap-and-hold
+  type: map
+  keys:
+    action:
+      required: true
+      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `none`)"
+      type: string
+      default: "`more-info`"
+    navigation_path:
+      required: false
+      description: "Path to navigate to (e.g. `/lovelace/0/`) when `action` defined as `navigate`"
+      type: string
+      default: none
+    service:
+      required: false
+      description: "Service to call (e.g. `media_player.media_play_pause`) when `action` defined as `call-service`"
+      type: string
+      default: none
+    service_data:
+      required: false
+      description: "Service data to include (e.g. `entity_id: media_player.bedroom`) when `action` defined as `call-service`"
+      type: string
+      default: none
 {% endconfiguration %}
 
-## {% linkable_title Examples %}
+## Examples
 
 Basic example:
 
 ```yaml
-- type: glance
-  title: Glance card sample
-  entities:
-    - binary_sensor.movement_backyard
-    - light.bed_light
-    - binary_sensor.basement_floor_wet
-    - sensor.outside_temperature
-    - light.ceiling_lights
-    - switch.ac
-    - lock.kitchen_door
+type: glance
+title: Glance card sample
+entities:
+  - binary_sensor.movement_backyard
+  - light.bed_light
+  - binary_sensor.basement_floor_wet
+  - sensor.outside_temperature
+  - light.ceiling_lights
+  - switch.ac
+  - lock.kitchen_door
 ```
 
 <p class='img'>
@@ -113,15 +143,18 @@ Screenshot of the glance card with custom title.
 Define entities as objects and apply a custom name:
 
 ```yaml
-- type: glance
-  title: Better names
-  entities:
-    - entity: binary_sensor.movement_backyard
-      name: Movement?
-    - light.bed_light
-    - binary_sensor.basement_floor_wet
-    - sensor.outside_temperature
-    - light.ceiling_lights
-    - switch.ac
-    - lock.kitchen_door
+type: glance
+title: Better names
+entities:
+  - entity: binary_sensor.movement_backyard
+    name: Movement?
+  - light.bed_light
+  - binary_sensor.basement_floor_wet
+  - sensor.outside_temperature
+  - light.ceiling_lights
+  - switch.ac
+  - lock.kitchen_door
+  - entity: switch.wall_plug_switch
+    tap_action:
+      action: toggle
 ```

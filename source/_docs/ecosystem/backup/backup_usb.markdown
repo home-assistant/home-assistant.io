@@ -1,17 +1,11 @@
 ---
-layout: page
 title: "Configuration Backup to USB drive"
 description: "Instructions on how backup your Home Assistant configuration to USB drive"
-date: 2017-04-29 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 This will step you through the process of setting up a backup of your Home Assistant configuration to a USB device. This is a good method if you don't want to mask all of your passwords since the backup is kept locally at your home/residence.
 
-### {% linkable_title Requirements %}
+### Requirements
 
 First, you need a USB drive. It should be formatted properly for your device and connected to your device before beginning. Any type of partition will work, but Linux filesystems are preferred so that you can set permissions.
 Once connected you want to mount the drive. To find the path where it is located, you can use the `dmesg` command. 
@@ -41,7 +35,7 @@ Mount the drive (as root) to `/media`
 # sudo mount /dev/sda1 /media/
 ```
 
-### {% linkable_title Prepare the USB Device %}
+### Prepare the USB Device
 
 Change to the `/media` directory and create a folder called `hassbackup`. Change the ownership to the user that runs Home Assistant. In this example case, the user and group are both `homeassistant`.
 
@@ -57,7 +51,7 @@ drwxr-xr-x  2 homeassistant homeassistant  4096 Apr 29 10:36 hassbackup
 drwx------  2 root          root          16384 Apr 29 10:18 lost+found
 ```
 
-### {% linkable_title Install Dependency %}
+### Install Dependency
 
 The script in the next section uses zip to preserve space on your drive. So we will install zip next.
 
@@ -69,7 +63,7 @@ Building dependency tree
 Setting up zip (3.0-8) ...
 ```
 
-### {% linkable_title Download and Run Script %}
+### Download and Run Script
 
 Become the `homeassistant` user (or whatever user runs Home Assistant). Change to whatever directory you would like the [script](https://gist.github.com/riemers/041c6a386a2eab95c55ba3ccaa10e7b0) placed into and run the following command.
 
@@ -92,7 +86,7 @@ $ .homeassistant/extraconfig/shell_code/usb_backup.sh
 [i] Keeping all files no prunning set
 ```
 
-### {% linkable_title Set Up Crontab %}
+### Set Up Crontab
 
 To automatically backup your configuration on a schedule, you can add a crontab for it as the `homeassistant` user.
 Change the path below to the directory where you placed the `usb_backup.sh` and run the following line. This will backup every night at 3 am.
@@ -101,7 +95,7 @@ Change the path below to the directory where you placed the `usb_backup.sh` and 
 (crontab -l 2>/dev/null; echo "0 3 * * * /home/homeassistant/.homeassistant/extraconfig/shell_code/usb_backup.sh") | crontab -
 ```
 
-### {% linkable_title Auto Mount the USB Device %}
+### Auto Mount the USB Device
 
 NOTE: This does not automatically mount your USB drive at boot. You will need to manually mount your drive after each boot or add a line to your `/etc/fstab` file.
 

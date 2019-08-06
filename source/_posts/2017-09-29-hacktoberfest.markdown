@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Participating in Hacktoberfest"
 description: "Home Assistant will be participating in Hacktoberfest to help people to get started with open-source."
 date: 2017-09-29 08:00:00 +0000
 date_formatted: "September 29, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Community
 og_image: /images/blog/2017-09-hacktoberfest/hacktoberfest-2017.png
 ---

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Actionable notifications"
 description: "Making push notifications a two way system"
-date: 2016-10-25 15:00:00 -0700
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/ios/notifications/actions/
 ---
 
@@ -23,7 +17,7 @@ Examples of actionable notifications:
   Actionable notifications allow the user to send a command back to Home Assistant.
 </p>
 
-## {% linkable_title Overview of how actionable notifications work %}
+## Overview of how actionable notifications work
 
 In advance of sending a notification:
 
@@ -43,22 +37,22 @@ When sending a notification:
   How the iOS device and Home Assistant work together to enable actionable notifications.
 </p>
 
-## {% linkable_title Definitions %}
+## Definitions
 - Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
 - Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
 
-## {% linkable_title Category parameters %}
+## Category parameters
 
 - **name** (*Required*): A friendly name for this category.
 - **identifier** (*Required*): A unique identifier for the category. Must be lowercase and have no special characters or spaces.
 - **actions** (*Required*): A list of actions.
 
-## {% linkable_title Actions parameters %}
+## Actions parameters
 
 - **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
 - **title** (*Required*): The text to display on the button. Keep it short.
 - **activationMode** (*Optional*): The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`.
-- **authenticationRequired** (*Optional*): If a truthy value (`true`, `True`, `yes`, etc.) the user must unlock the device before the action is performed.
+- **authenticationRequired** (*Optional*): If `true`, the user must unlock the device before the action is performed.
 - **destructive** (*Optional*): When the value of this property is a truthy value, the system displays the corresponding button differently to indicate that the action is destructive (text color is red).
 - **behavior** (*Optional*): When `textInput` the system provides a way for the user to enter a text response to be included with the notification. The entered text will be sent back to Home Assistant. Default value is `default`.
 - **textInputButtonTitle** (*Optional*): The button label. *Required* if `behavior` is `textInput`.
@@ -76,20 +70,20 @@ ios:
           - identifier: 'SOUND_ALARM'
             title: 'Sound Alarm'
             activationMode: 'background'
-            authenticationRequired: yes
-            destructive: yes
+            authenticationRequired: true
+            destructive: true
             behavior: 'default'
           - identifier: 'SILENCE_ALARM'
             title: 'Silence Alarm'
             activationMode: 'background'
-            authenticationRequired: yes
-            destructive: no
+            authenticationRequired: true
+            destructive: false
             behavior: 'textInput'
             textInputButtonTitle: 'Silencio!'
             textInputPlaceholder: 'Placeholder'
 ```
 
-## {% linkable_title Building automations for notification actions %}
+## Building automations for notification actions
 Here is an example automation to send a notification with a category in the payload:
 
 ```yaml
@@ -143,7 +137,7 @@ Notes:
 * `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
 * When adding or updating push categories be sure to update push settings within the Home Assistant iOS app. This can be found within the app at **Settings** (gear icon) > **Notification Settings**.
 
-## {% linkable_title Compatibility with different devices %}
+## Compatibility with different devices
 
 * For devices that support "Force Touch" / "3D Touch" - a long press on the notification will cause the actions to appear. Devices such as iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
 

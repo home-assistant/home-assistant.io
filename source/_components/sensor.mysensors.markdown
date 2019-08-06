@@ -1,23 +1,21 @@
 ---
-layout: page
 title: "MySensors Sensor"
 description: "Instructions on how to integrate MySensors sensors into Home Assistant."
-date: 2016-10-01 15:00 +0200
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mysensors.png
-ha_category: DIY
-featured: false
-ha_iot_class: "Local Push"
+ha_category:
+  - DIY
+  - Sensor
+ha_iot_class: Local Push
+ha_release: 0.7
 ---
 
 Integrates MySensors sensors into Home Assistant. See the [main component] for configuration instructions.
 
+## Supported sensor types
+
 The following sensor types are supported:
 
-##### MySensors version 1.4 and higher
+### MySensors version 1.4 and higher
 
 S_TYPE             | V_TYPE
 -------------------|---------------------------------------
@@ -38,7 +36,7 @@ S_CUSTOM           | V_VAR1, V_VAR2, V_VAR3, V_VAR4, V_VAR5
 S_DUST             | V_DUST_LEVEL
 S_SCENE_CONTROLLER | V_SCENE_ON, V_SCENE_OFF
 
-##### MySensors version 1.5 and higher
+### MySensors version 1.5 and higher
 
 S_TYPE         | V_TYPE
 ---------------|----------------------------------
@@ -51,7 +49,7 @@ S_LIGHT_LEVEL  | V_LEVEL
 S_AIR_QUALITY  | V_LEVEL (replaces V_DUST_LEVEL)
 S_DUST         | V_LEVEL (replaces V_DUST_LEVEL)
 
-##### MySensors version 2.0 and higher
+### MySensors version 2.0 and higher
 
 S_TYPE          | V_TYPE
 ----------------|--------------------------
@@ -60,7 +58,7 @@ S_GAS           | V_FLOW, V_VOLUME
 S_GPS           | V_POSITION
 S_WATER_QUALITY | V_TEMP, V_PH, V_ORP, V_EC
 
-### {% linkable_title Custom unit of measurement %}
+## Custom unit of measurement
 
 Some sensor value types are not specific for a certain sensor type. These do not have a default unit of measurement in Home Assistant. For example, the V_LEVEL type can be used for different sensor types, dust, sound, vibration etc.
 
@@ -68,7 +66,9 @@ By using V_UNIT_PREFIX, it's possible to set a custom unit for any sensor. The s
 
 For more information, visit the [serial api] of MySensors.
 
-### {% linkable_title MySensors 1.5 example sketch %}
+## Example sketches
+
+### MySensors 1.5 example sketch
 
 ```cpp
 /**
@@ -79,7 +79,7 @@ For more information, visit the [serial api] of MySensors.
  */
 
 #include <SPI.h>
-#include <MySensor.h>  
+#include <MySensor.h>
 #include <BH1750.h>
 #include <Wire.h>
 
@@ -94,7 +94,7 @@ MyMessage msg(CHILD_ID, V_LEVEL);
 MyMessage msgPrefix(CHILD_ID, V_UNIT_PREFIX);  // Custom unit message.
 uint16_t lastlux = 0;
 
-void setup()  
+void setup()
 {
   gw.begin();
   gw.sendSketchInfo(SN, SV);
@@ -104,8 +104,8 @@ void setup()
   gw.send(msgPrefix.set("lux"));  // Set custom unit.
 }
 
-void loop()      
-{     
+void loop()
+{
   uint16_t lux = lightSensor.readLightLevel();  // Get Lux value
   if (lux != lastlux) {
       gw.send(msg.set(lux));
@@ -116,7 +116,7 @@ void loop()
 }
 ```
 
-### {% linkable_title MySensors 2.x example sketch %}
+### MySensors 2.x example sketch
 
 ```cpp
 /**

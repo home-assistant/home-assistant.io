@@ -1,11 +1,9 @@
 ---
-layout: post
 title: "HTTP to MQTT bridge"
 description: "How to integrate IFTTT with HA using MQTT"
 date: 2017-03-28 06:00:00 +0000
 date_formatted: "March 28, 2017"
 author: petkov
-comments: true
 categories: How-To
 og_image: /images/blog/2017-03-bridge/social.png
 ---
@@ -18,7 +16,7 @@ The HTTP to MQTT bridge should fill that gap. The idea is to receive messages us
 
 The app could be hosted on any Node.js hosting. I prefer [Heroku: Cloud Application Platform](https://www.heroku.com/home) for its simplicity.
 
-### {% linkable_title Bringing pieces together %}
+### Bringing pieces together
 
 1. Configure the Home Assistant [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
 1. Configure [CloudMQTT](https://www.cloudmqtt.com/). Check this [video tutorial](https://www.youtube.com/watch?v=VaWdvVVYU3A) for details.
@@ -35,11 +33,11 @@ The app could be hosted on any Node.js hosting. I prefer [Heroku: Cloud Applicat
    * Content Type: `application/json`
    * Body: `{"topic":"<mqtt_topic>","message":"<mqtt_message>","key":"<AUTH_KEY>"}`
 
-### {% linkable_title Subscribe to latest version %}
+### Subscribe to latest version
 
 Additionally you can make Heroku to update the HTTP to MQTT bridge app to the latest available version from the GitHub repository automatically. To do this follow the instruction on the [Heroku help page](https://devcenter.heroku.com/articles/github-integration#automatic-deploys).
 
-### {% linkable_title Improve response time %}
+### Improve response time
 
 After 30 minutes of inactivity Heroku will put your app into sleep mode. This will result in ~10 seconds response time. To prevent Heroku from putting your app into sleep mode, ping it every 10 minutes. You can do that by sending regular HTTP GET request to http://your_app/keep_alive/. But be careful. Heroku free quota is 550 hours per month. Without sleeping your app will be allowed to run only 22 days a month. Additionally the `keep_alive` method will send a simple MQTT message to prevent the broker from sleeping as well. The topic and message can be configured using Heroku environment variables `KEEP_ALIVE_TOPIC` and `KEEP_ALIVE_MESSAGE` and both are set to "keep_alive" by default.
 
@@ -54,9 +52,8 @@ rest_command:
 automation:
   alias: HTTP to MQTT keep alive
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/10'
-    seconds: 00
   condition:
     condition: time
     after: '7:30:00'
@@ -65,6 +62,6 @@ automation:
     service: rest_command.http_to_mqtt_keep_alive
 ```
 
-### {% linkable_title Thanks %}
+### Thanks
 
 Special thanks to Ben from [BRUH Automation](https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w/featured) for awesome tutorials which inspired me to do this project.

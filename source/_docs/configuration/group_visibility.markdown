@@ -1,18 +1,12 @@
 ---
-layout: page
 title: "Group Visibility"
 description: "Instructions on how to change group visibility using automations."
-date: 2016-10-29 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /topics/group_visibility/
 ---
 
 After filling Home Assistant with all your precious home automation devices, you usually end up with a cluttered interface and lots of groups that are not interesting in your current context. What if you just want to show groups that are interesting _now_ and hide the rest? That's when group visibility comes to play.
 
-## {% linkable_title Changing visibility of a group %}
+## Changing visibility of a group
 
 To change visibility of a group, use the service `group.set_visibility`, pass the group name as `entity_id` and use `visible` to decide whether the group should be shown or hidden.
 
@@ -20,14 +14,14 @@ To change visibility of a group, use the service `group.set_visibility`, pass th
 service: group.set_visibility
 entity_id: group.basement
 data:
-  visible: False
+  visible: false
 ```
 
-<p class='note'>
+<div class='note'>
 If a sensor belongs to only one group and that group is hidden, the sensor will "jump" to the top of the web interface. Add the sensor to an additional (visible) group if you do not want this to happen.
-</p>
+</div>
 
-## {% linkable_title Automations %}
+## Automations
 
 First you should decide under which circumstances a group should be visible or not. Depending on the complexity, you might have to write two automations: one that hides the group and another that shows it.
 
@@ -42,7 +36,7 @@ automation:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: False
+      visible: false
 
 automation 2:
   trigger:
@@ -52,10 +46,10 @@ automation 2:
     service: group.set_visibility
     entity_id: group.basement
     data:
-      visible: True
+      visible: true
 ```
 
-## {% linkable_title Easier automations %}
+## Easier automations
 
 One of the most common uses cases are to show groups during certain times of day, maybe commuting information during a work day morning or light switches when it is getting dark. The complexity of automations needed to make this happen will quickly get out of hand. So, one way to make the automations easier is to create a sensor that alters its state depending on time of day. One way of doing that is using a `command_line` sensor and a script:
 
@@ -103,9 +97,9 @@ sensor:
     name: Occasion
     command: "python3 occasion.py"
 ```
-<p class='note'>
+<div class='note'>
 If you are using docker to run Home Assistant then the occasion.py script will be placed under /config. Your command should instead be: command: "python3 /config/occasion.py"
-</p>
+</div>
 
 
 To simplify things, we create a Home Assistant script that changes the visibility of a group, but also verifies that an entity is in a specific state:
@@ -140,7 +134,7 @@ automation:
 
 Our previously defined script will be called if `sensor.occasion` changes state OR when Home Assistant has started. The group `group.work_sensors` will be shown when `sensor.occasion` changes state to "work_morning" and hidden otherwise.
 
-### {% linkable_title The complete example %}
+### The complete example
 
 ```yaml
 group:

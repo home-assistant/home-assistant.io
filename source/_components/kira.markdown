@@ -1,20 +1,25 @@
 ---
-layout: page
 title: "Kira"
 description: "Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant."
-date: 2017-05-07 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: keene.png
-ha_category: Hub
+ha_category:
+  - Hub
+  - Remote
+  - Sensor
 ha_release: 0.45
+redirect_from:
+  - /components/sensor.kira/
+  - /components/remote.kira/
 ---
 
-The `kira` component is the main component to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.
+The `kira` integration is the main integration to integrate Keene Electronics IR over IP [Kira](https://www.keene.co.uk/keene-ir-anywhere-single-worldwide.html) modules with Home Assistant.
 
-### {% linkable_title Example Configuration %}
+There is currently support for the following device types within Home Assistant:
+
+- Remote
+- Sensor
+
+### Example Configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -23,7 +28,7 @@ kira:
 
 Kira modules have no built-in mechanism for auto-discovery, so will need to be configured to send packets to Home Assistant. Documentation for this can be found on the manufacturer's website [Here](https://www.keene.co.uk/pages/iranywhere/index.html).
 
-### {% linkable_title Configuration Options %}
+### Configuration Options
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,9 +85,9 @@ remotes:
 
 If no sensors or remotes are specified, a sensor with default values will be added.
 
-### {% linkable_title Code Configuration %}
+### Code Configuration
 
-The first time the Kira component is loaded, `kira_codes.yaml` will be created in the Home Assistant configuration directory.
+The first time the Kira integration is loaded, `kira_codes.yaml` will be created in the Home Assistant configuration directory.
 
 ```yaml
 # Example kira_codes.yaml entry
@@ -126,7 +131,7 @@ repeat:
 
 Some manufacturers (e.g., Samsung) require an IR code to be sent a number of times in a row in rapid succession (usually 3). This doesn't apply to the vast majority of devices, but it can be helpful if needed.
 
-### {% linkable_title Code Types %}
+### Code Types
 
 When creating an entry in `kira_codes.yaml`, a few different kinds of codes can be used.
 
