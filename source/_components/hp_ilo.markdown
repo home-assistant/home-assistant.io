@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HP ILO"
 description: "How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant."
-date: 2016-08-15 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hewlett_packard_enterprise.png
 ha_category:
   - System Monitor
@@ -127,9 +121,9 @@ sensor:
 
 ## Hardware specifics
 
-<p class='note warning'>
+<div class='note warning'>
 Not every hardware supports all values.
-</p>
+</div>
 
 ### HP Microserver Gen8
 

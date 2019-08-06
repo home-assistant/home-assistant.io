@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "HDMI CEC"
 description: "Instructions on how to interact with HDMI CEC via Home Assistant."
-date: 2016-06-24 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Automation
 logo: hdmi.png
@@ -29,9 +23,11 @@ The computer running Home Assistant must support CEC, and of course be connected
 
 [libcec](https://github.com/Pulse-Eight/libcec) must be installed for this integration to work. Follow the installation instructions for your environment, provided at the link. `libcec` installs Python 3 bindings by default as a system Python module. If you are running Home Assistant in a [Python virtual environment](/docs/installation/virtualenv/), make sure it can access the system module, by either symlinking it or using the `--system-site-packages` flag.
 
-<p class='note'>
+<div class='note'>
+
 If you are using [Hass.io](/hassio/) then just move forward to the configuration as all requirements are already fulfilled.
-</p>
+
+</div>
 
 #### Symlinking into virtual environment
 
@@ -53,9 +49,12 @@ $ ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/pyth
 
 ```
 
-<p class='note'>If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs,
+<div class='note'>
+
+If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs,
 `* failed to open vchiq instance` you will also need to add the user account Home Assistant runs under, to the `video` group. To add the Home Assistant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
-</p>
+
+</div>
 
 ## Testing your installation
 
@@ -89,8 +88,11 @@ power status:  on
 language:      ???
 ```
 
-<p class='note'>`address:` entry above this will be used to configure Home Assistant, this address is represented below as 3: BlueRay player.
-</p>
+<div class='note'>
+
+`address:` entry above this will be used to configure Home Assistant, this address is represented below as 3: BlueRay player.
+
+</div>
 
 ## Configuration Example
 

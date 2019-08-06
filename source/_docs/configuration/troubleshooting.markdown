@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
-date: 2015-01-20 22:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/troubleshooting-configuration/
 ---
 
@@ -84,9 +78,9 @@ Contents of `sensors.yaml`:
   ...
 ```
 
-<p class='note'>
+<div class='note'>
 Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
-</p>
+</div>
 
 ### Entity names
 

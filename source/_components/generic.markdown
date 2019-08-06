@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Generic IP Camera"
 description: "Instructions on how to integrate IP cameras within Home Assistant."
-date: 2015-07-11 0:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Camera
 logo: home-assistant.png

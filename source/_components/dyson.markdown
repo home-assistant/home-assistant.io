@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Dyson"
 description: "Instructions on how to integrate Dyson into Home Assistant."
-date: 2017-05-27 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: dyson.png
 ha_category:
   - Hub
@@ -80,9 +74,11 @@ devices:
 
 The `devices` list is optional, but you'll have to provide them if discovery is not working (warnings in the logs and the devices are not available in Home Assistant web interface).
 
-<p class='note warning'>
+<div class='note warning'>
+
 Discovery is not yet supported for any robot vacuum models (Dyson 360 Eye). For these devices, you will need to provide them in the `devices` list.
-</p>
+
+</div>
 
 To find a devices IP address, you can use your router or `nmap`:
 
@@ -130,7 +126,7 @@ This integration supports the following services (see [Climate](/components/clim
 - [`turn_off`](/components/climate/#service-climateturn_off)
 - [`set_temperature`](/components/climate/#service-climateset_temperature)
 - [`set_fan_mode`](/components/climate/#service-climateset_fan_mode)
-- [`set_operation_mode`](/components/climate/#service-climateset_operation_mode)
+- [`set_hvac_mode`](/components/climate/#service-climateset_hvac_mode)
 
 ## Fan
 

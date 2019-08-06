@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xiaomi Switch"
 description: "Instructions on how to set up the Xiaomi switch within Home Assistant."
-date: 2017-07-21 16:34
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: xiaomi.png
 ha_category:
   - Switch

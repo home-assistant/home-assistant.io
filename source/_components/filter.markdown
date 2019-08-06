@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Filter Sensor"
 description: "Instructions on how to integrate Data Filter Sensors into Home Assistant."
-date: 2018-02-20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Utility
 ha_release: 0.65
@@ -79,7 +73,7 @@ filters:
     window_size:
       description: Size of the window of previous states. Time based filters such as `time_simple_moving_average` will require a time period (size in time), while other filters such as `outlier` will require an integer (size in number of states)
       required: false
-      type: [int, time]
+      type: [integer, time]
       default: 1
     precision:
       description: See [_lowpass_](#low-pass) filter. Defines the precision of the filtered state, through the argument of round().

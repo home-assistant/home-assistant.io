@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Graph"
 description: "Basic example how to create a graph with a Jupyter notebook."
-date: 2016-07-23 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /ecosystem/notebooks/graph/
 ---
 

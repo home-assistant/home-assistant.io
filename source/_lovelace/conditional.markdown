@@ -1,13 +1,7 @@
 ---
-layout: page
 title: Conditional Card
 sidebar_label: Conditional
 description: Displays another card based on entity states.
-date: 2018-07-26 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Displays another card based on entity states.
@@ -37,7 +31,7 @@ conditions:
 card:
   required: true
   description: Card to display if all conditions match.
-  type: object
+  type: map
 {% endconfiguration %}
 
 *one is required (`state` or `state_not`)

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWRT (luci)"
 description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openwrt.png
 ha_category:
   - Presence Detection
@@ -19,9 +13,11 @@ _This is one of multiple ways we support OpenWRT. For an overview, see [openwrt]
 
 This is a presence detection scanner for OpenWRT using [luci](http://wiki.openwrt.org/doc/techref/luci).
 
-<p class='note'>
+<div class='note'>
+
 This integration requires a [workaround](https://github.com/home-assistant/home-assistant/issues/1258#issuecomment-252469880) when using luci with HTTPS and a self-signed certificate.
-</p>
+
+</div>
 
 Before this scanner can be used you have to install the luci RPC package on OpenWRT:
 
@@ -64,7 +60,9 @@ See the [device tracker integration page](/components/device_tracker/) for instr
 
 This device tracker provides a number of additional attributes for each tracked device (if it is at home): `flags`, `ip`, `device`, and `host`. The first three attributes are taken from the ARP table returned by the luci RPC. The `host` attribute is taken from the platform configuration and can be used to distinguish in which router a device is logged in, if you are using multiple OpenWRT routers.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
 If you want to locally fix your OpenWRT installation, you can apply the change manually to `/usr/lib/lua/luci/controller/rpc.lua`, or simply set a fixed timeout. The default is 3600.
-</p>
+
+</div>

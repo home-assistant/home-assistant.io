@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "LIFX Cloud Scenes"
 description: "Instructions on using native LIFX scenes with Home Assistant."
-date: 2017-04-15 23:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lifx.png
 ha_category:
   - Scene

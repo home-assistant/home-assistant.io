@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Weather Forecast Card"
 sidebar_label: Weather Forecast
 description: "The Weather card allows you a visual card to display the weather."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 The weather forecast is a card to display the weather. Very useful to include on interfaces that people display on the wall.
@@ -40,8 +34,10 @@ type: weather-forecast
 entity: weather.dark_sky
 ```
 
-<p class="note">
+<div class="note">
+
   This card works only with platforms that define a `weather` entity.
   
   E.g., it works with [Dark Sky](/components/weather.darksky/) but not [Dark Sky Sensor](/components/sensor.darksky/)
-</p>
+
+</div>

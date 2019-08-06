@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Entur public transport"
 description: "Instructions for how to set up monitoring of public transport departures in Norway."
-date: 2018-10-09 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: entur.svg
 ha_category:
   - Transport
@@ -22,8 +16,9 @@ For each stop place given in the configuration, a sensor will be mounted for tha
 
 Real-time data is fetched from [Entur](https://www.entur.org). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
 
-<p class='note'>Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
-</p>
+<div class='note'>
+Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
+</div>
 
 ## Configuration
 
@@ -134,4 +129,4 @@ The stop id is the content after `id=` parameter in the url. Copy paste this int
 
 **Q:** Where do I find a line id to add to the whitelisting?
 
-**A:** The sensor will show the line id, and is the recommended way to find it, while we wait for 'Nasjonalt Stoppestedregister' to become public. It is also possible to see the line ids by using the developer tool in the browser while looking at the trafic in [Entur's travel planer](https://en-tur.no).
+**A:** The sensor will show the line id, and is the recommended way to find it, while we wait for 'Nasjonalt Stoppestedregister' to become public. It is also possible to see the line ids by using the developer tool in the browser while looking at the traffic in [Entur's travel planer](https://en-tur.no).

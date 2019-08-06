@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "NX584 Alarm Control Panel"
 description: "Instructions on how to integrate NX584 into Home Assistant."
-date: 2016-02-07 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: networx.png
 ha_category:
   - Alarm
@@ -82,7 +76,7 @@ exclude_zones:
 zone_types:
   description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones below.
   required: false
-  type: map
+  type: list
   keys:
     opening:
       description: Opening

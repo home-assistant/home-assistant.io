@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "0.31: Reading you the news, some serious business, spooky hackery and a breaking Z-Wave change"
 description: "Alexa Flash Briefing API support, Markdown in persistent notifications, a new updater component, Hacktoberfest and breaking Z-Wave changes."
 date: 2016-10-22 13:00:00 -0700
@@ -7,7 +6,6 @@ date_formatted: "October 22, 2016"
 release_date: 2016-10-23 21:57:00 -0700
 author: Robbie Trencheny
 author_twitter: robbie
-comments: true
 categories: Release-Notes
 ---
 
@@ -185,7 +183,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
 - Notify: [Matrix] support added ([@mweinelt])
 - Device tracker - nmap: Allow specifying multiple inputs for [nmap] ([@hcooper])
 - Device Tracker - snmp: SNMPv3 now supported ([@T3m3z])
-- Notify: [Telstra] SMS now supported ([@nvella])
+- Notify: Telstra SMS now supported ([@nvella])
 - Camera: [Verisure] now supported ([@turbokongen])
 - Support added for [Neato] Connected Robot ([@jabesq])
 - Media player: More options for [Yamaha] AVR ([@ehagan])
@@ -270,19 +268,18 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [Concord232]: /components/alarm_control_panel.concord232/
 [HTTP]: /components/http/
 [HaveIBeenPwned]: /components/sensor.haveibeenpwned/
-[Matrix]: //components/notify.matrix/
+[Matrix]: /components/matrix/#notifications
 [Neato]: /components/switch.neato/
 [Pilight]: /components/sensor.pilight/
 [Proximity]: /components/proximity/
 [PyPi]: https://pypi.python.org/pypi
 [Synology]: /components/camera.synology/
-[Telstra]: /components/notify.telstra/
 [UUID]: https://en.wikipedia.org/wiki/Universally_unique_identifier
 [Verisure]: /components/camera.verisure/
 [WUnderground]: /components/sensor.wunderground/
 [Yamaha]: /components/media_player.yamaha/
 [Zoneminder]: /components/zoneminder/
-[emoncms]: //components/emoncms_history/
+[emoncms]: /components/emoncms_history/
 [filtering]: /components/logbook/
 [flash-briefing-docs]: /components/alexa/
 [hacktoberfest-blog]: /blog/2016/10/02/hacktoberfest/

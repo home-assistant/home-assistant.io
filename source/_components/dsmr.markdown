@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DSMR or Slimme meter"
 description: "Instructions on how to integrate DSMR Smartmeter within Home Assistant."
-date: 2016-11-12 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: netbeheernederland.jpg
 ha_category:
   - Energy
@@ -129,7 +123,7 @@ or
 2001:raw:600:/dev/ttyUSB0:9600 EVEN 1STOPBIT 7DATABITS XONXOFF LOCAL -RTSCTS
 ```
 
-[HASSbian](/getting-started/installation-raspberry-pi-image/) users have to give dialout permission to the user `homeassistant`:
+[HASSbian](/docs/installation/hassbian/installation/) users have to give dialout permission to the user `homeassistant`:
 
 ```bash
 $ sudo usermod -a -G dialout homeassistant

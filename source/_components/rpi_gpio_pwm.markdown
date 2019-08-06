@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PWM LED Light"
 description: "Instructions on how to setup PWM LEDs within Home Assistant."
-date: 2017-04-04 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - DIY
 ha_iot_class: Local Push
@@ -18,7 +12,7 @@ redirect_from:
 
 The `rpi_gpio_pwm` platform allows to control multiple lights using pulse-width modulation, for example led strips. It supports one-color, RGB and RGBW LEDs driven by GPIOs of a Raspberry Pi or a PCA9685 controller.
 
-For controlling the GPIOs, the platform connects to the [pigpio-daemon](http://abyz.co.uk/rpi/pigpio/pigpiod.html), which must be running. On Raspbian Jessie 2016-05-10 or newer the `pigpio` library is already included. On other operating systems it needs to be installed first (see [installation instructions](https://github.com/soldag/python-pwmled#installation)).
+For controlling the GPIOs, the platform connects to the [pigpio-daemon](http://abyz.me.uk/rpi/pigpio/pigpiod.html), which must be running. On Raspbian Jessie 2016-05-10 or newer the `pigpio` library is already included. On other operating systems it needs to be installed first (see [installation instructions](https://github.com/soldag/python-pwmled#installation)).
 
 ## Configuration
 

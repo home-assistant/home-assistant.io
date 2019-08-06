@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TED5000 electricity monitoring"
 description: "How to add a TED5000 to Home Assistant."
-date: 2016-09-27 11:19
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ted.png
 ha_category:
   - Energy

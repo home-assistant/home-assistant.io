@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Deluge"
 description: "Instructions on how to integrate Deluge within Home Assistant."
-date: 2017-10-19 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: deluge.png
 ha_category:
   - Downloading

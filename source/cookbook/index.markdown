@@ -1,12 +1,7 @@
 ---
-layout: page
 title: "Cookbook"
 description: "Community maintained list of different ways to use Home Assistant."
-date: 2015-10-08 19:05
 sidebar: false
-comments: false
-sharing: true
-footer: true
 regenerate: true
 hide_github_edit: true
 ---
@@ -21,9 +16,11 @@ For [`python_script:` examples](/components/python_script/) visit the [Scripts s
 
 New recipes can be added via the [home-assistant.io repository](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_cookbook).
 
-<p class='note'>
+<div class='note'>
+
 A great place to find popular configurations is on this [GitHub search](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories) for repositories with the `home-assistant-config` topic.
-</p>
+
+</div>
 
 {% assign cookbook = site.cookbook | sort: 'title' %}
 {% assign categories = cookbook | map: 'ha_category' | uniq | sort %}

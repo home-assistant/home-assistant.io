@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Mi Flora plant sensor"
 description: "Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant."
-date: 2016-09-19 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: miflora.png
 ha_category:
   - Environment
@@ -16,7 +10,7 @@ redirect_from:
  - /components/sensor.miflora/
 ---
 
-The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](https://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
+The `miflora` sensor platform allows one to monitor plant soil and air conditions. The [Mi Flora plant sensor](http://www.huahuacaocao.com/product) is a small Bluetooth Low Energy device that monitors the moisture and conductivity of the soil as well as ambient light and temperature. Since only one BLE device can be polled at a time, the library implements locking to prevent polling more than one device at a time.
 
 There are "Chinese" and "International" versions available and there is a [report](https://community.home-assistant.io/t/miflora-showing-data-unknown/19550/8) that only the "International" works.
 
@@ -97,6 +91,7 @@ force_update:
   description: Sends update events even if the value hasn't changed.
   required: false
   type: boolean
+  default: false
 median:
   description: "Sometimes the sensor measurements show spikes. Using this parameter, the poller will report the median of the last 3 (you can also use larger values) measurements. This filters out single spikes. Median: 5 will also filter double spikes. If you never have problems with spikes, `median: 1` will work fine."
   required: false
@@ -108,9 +103,11 @@ adapter:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 By default the sensor is only polled once every 20 minutes (`scan_interval` is 1200 seconds by default). On a Home Assistant restart sensor will report initial value. If you set `median: 3`, it will take _at least_ 40 minutes before the sensor will report an average value. Keep in mind though that reducing polling intervals will have a negative effect on the battery life.
-</p>
+
+</div>
 
 ## Full example
 
@@ -122,7 +119,7 @@ sensor:
   - platform: miflora
     mac: 'xx:xx:xx:xx:xx:xx'
     name: Flower 1
-    force_update: false
+    force_update: true    
     median: 3
     monitored_conditions:
       - moisture

@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.65: Rename entities, new filter sensor, UpCloud and Channels"
 description: "A new Home Assistant release full of amazing new features. Rename entities without a restart, filter out anomalies or apply other filters to data, improved HomeKit support."
 date: 2018-03-09 00:01:00
 date_formatted: "March 9, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-03-0.65/entity-registry-name.gif
 ---
@@ -250,7 +248,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Python 3.5 Async Await Syntax ([@OttoWinter] - [#12815]) ([mqtt docs])
 - Improved Homekit tests ([@cdce8p] - [#12800]) ([homekit docs])
 - Add light.group platform ([@OttoWinter] - [#12229]) ([light.group docs]) (new-platform)
-- Add icons to Xiaomi Aqara sensors ([@bakedraccoon] - [#12814]) ([sensor.xiaomi_aqara docs])
+- Add icons to Xiaomi Aqara sensors ([@thijsdejong] - [#12814]) ([sensor.xiaomi_aqara docs])
 - Egardia redesign - generic component and sensor support ([@jeroenterheerdt] - [#11994]) ([egardia docs]) ([alarm_control_panel.egardia docs]) ([binary_sensor.egardia docs]) (breaking change) (new-platform)
 - Skip flaky light.group test [skipci] ([@balloob] - [#12847])
 - Update volvooncall.py ([@danielhiversen] - [#12834]) ([switch.volvooncall docs])
@@ -495,7 +493,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@aronsky]: https://github.com/aronsky
 [@awkwardDuck]: https://github.com/awkwardDuck
 [@bachya]: https://github.com/bachya
-[@bakedraccoon]: https://github.com/bakedraccoon
+[@thijsdejong]: https://github.com/thijsdejong
 [@balloob]: https://github.com/balloob
 [@bertbert72]: https://github.com/bertbert72
 [@bokub]: https://github.com/bokub
@@ -575,7 +573,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [device_tracker.tesla docs]: /components/device_tracker.tesla/
 [device_tracker.ubus docs]: /components/device_tracker.ubus/
 [egardia docs]: /components/egardia/
-[fan.insteon_plm docs]: /components/fan.insteon_plm/
+[fan.insteon_plm docs]: /components/insteon/
 [frontend docs]: /components/frontend/
 [google_assistant docs]: /components/google_assistant/
 [group docs]: /components/group/
@@ -592,7 +590,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.group docs]: /components/light.group/
 [light.hue docs]: /components/light.hue/
 [light.hyperion docs]: /components/light.hyperion/
-[light.insteon_plm docs]: /components/light.insteon_plm/
+[light.insteon_plm docs]: /components/insteon/
 [light.knx docs]: /components/light.knx/
 [light.lifx docs]: /components/light.lifx/
 [light.limitlessled docs]: /components/light.limitlessled/
@@ -619,7 +617,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [sensor.folder docs]: /components/sensor.folder/
 [sensor.history_stats docs]: /components/sensor.history_stats/
 [sensor.imap docs]: /components/sensor.imap/
-[sensor.insteon_plm docs]: /components/sensor.insteon_plm/
+[sensor.insteon_plm docs]: /components/insteon/
 [sensor.luftdaten docs]: /components/sensor.luftdaten/
 [sensor.netatmo docs]: /components/sensor.netatmo/
 [sensor.plex docs]: /components/sensor.plex/

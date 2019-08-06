@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Daikin AC"
 description: "Instructions on how to integrate Daikin AC devices with Home Assistant."
-date: 2017-12-10 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: daikin.png
 ha_category:
   - Climate
@@ -36,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-The Daikin integration can be configured in three ways. 
+The Daikin integration can be configured in three ways.
 
 - Automatically via the [discovery]({{site_root}}/components/discovery/) integration.
 - Via the Home Assistant user interface where it will let you enter the IP-address of your Daikin AC.
@@ -61,18 +55,32 @@ hosts:
 
 The `daikin` climate platform integrates Daikin air conditioning systems into Home Assistant, enabling control of setting the following parameters:
 
-- [**mode**](https://www.home-assistant.io/components/climate#service-climateset_operation_mode) (cool, heat, dry, fan only or auto)
+- [**set_hvac_mode**](/components/climate/#service-climateset_hvac_mode) (off, heat, cool, auto, or fan only)
 - [**target temperature**](https://www.home-assistant.io/components/climate#service-climateset_temperature)
+- [**turn on/off**](https://www.home-assistant.io/components/climate#service-climateturn_on)
 - [**fan mode**](https://www.home-assistant.io/components/climate#service-climateset_fan_mode) (speed)
 - [**swing mode**](https://www.home-assistant.io/components/climate#service-climateset_swing_mode)
-- [**turn on/off**](https://www.home-assistant.io/components/climate#service-climateturn_on)
-- [**away mode**](https://www.home-assistant.io/components/climate#service-climateset_away_mode)
+- [**set_preset_mode**](https://www.home-assistant.io/components/climate#service-climateset_preset_mode) (away, none)
 
 Current inside temperature is displayed.
 
-<p class='note'>
+<div class='note'>
+  
 Some models do not support setting of **fan speed** or **swing mode**.
-</p>
+  
+</div>
+
+<div class='note'>
+
+Preset mode **away** translates to Daikin's "Holiday Mode":<br/>
+<br>
+_"Holiday mode" is used when you want to turn off your units when you leave you home for a longer time._<br>
+<br>
+_When "Holiday mode" is enabled, the following action take place:_
+ - _All connected units are turned OFF._
+ - _All schedule timers are disabled._
+
+</div>
 
 ## Sensor
 
@@ -81,14 +89,16 @@ The `daikin` sensor platform integrates Daikin air conditioning systems into Hom
 - Inside temperature
 - Outside temperature
 
-<p class='note'>
+<div class='note'>
 Some models only report outside temperature when they are turned on.
-</p>
+</div>
 
 ## Switch
 
 Daikin AirBase units exposes zones (typically rooms) that can be switched on/off individually.
 
-<p class='note'>
+<div class='note'>
+
 Zones with the name `-` will be ignored, just as the AirBase application is working.
-</p>
+
+</div>

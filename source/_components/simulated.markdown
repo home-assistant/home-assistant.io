@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Simulated sensor"
 description: "Component for simulating a numerical sensor."
-date: 2018-02-20 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility
@@ -69,7 +63,7 @@ period:
   description: The time in seconds for one complete oscillation of the periodic contribution.
   required: false
   default: 0
-  type: seconds
+  type: integer
 phase:
   description: The phase offset (in degrees) to apply to the periodic component.
   required: false

@@ -6,6 +6,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Use Bash as the default shell
 ENV SHELL=/bin/bash 
 
+# Set an environment variable to be able to detect we are in dev container
+ENV DEVCONTAINER=true
+
 # Locale env vars
 ENV \
     LANG=en_US.UTF-8 \

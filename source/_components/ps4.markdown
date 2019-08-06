@@ -1,23 +1,16 @@
 ---
-layout: page
 title: "Sony PlayStation 4"
 description: "Instructions on how to integrate a Sony PlayStation 4 into Home Assistant."
-date: 2019-02-12 01:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ps4.png
 ha_category:
   - Media Player
 ha_release: 0.89
+ha_config_flow: true
 ha_iot_class: Local Polling
 ---
 
 The `ps4` integration allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
-
-- This integration supports controlling a single PlayStation 4 for your instance. Additional consoles may be supported in a future release.
 
 ## Requirements
 
@@ -28,11 +21,11 @@ The `ps4` integration allows you to control a
 
 1. Download the Second Screen App and make sure that you can find and control your PlayStation 4 normally.
 
-<p class='note'>
+<div class='note'>
   Read the section "Granting Port Access" below before continuing.
-</p>
+</div>
 
-2. Navigate to `Configuration -> Integrations` and select `Configure` for `PlayStation 4`.
+2. Navigate to `Configuration -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
 
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
@@ -43,15 +36,15 @@ The `ps4` integration allows you to control a
 
 The PlayStation 4 integration requires the use of privileged ports to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance you may need to allow usage of privileged ports manually.
 
-<p class='note warning'>
+<div class='note warning'>
   Do not run your <b>Home Assistant</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
-</p>
+</div>
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter* which runs your Home Assistant instance needs access to the mentioned ports.
 
-<p class='note'>
+<div class='note'>
   If your Home Assistant device is running <b>Hass.io</b> on <b>HassOS</b>, it does not require additional configuration.
-</p>
+</div>
 
 ### Debian-based
 Home Assistant installed on a Debian-type OS may require configuration. This section is applicable but not limited to the following operating systems:
@@ -77,7 +70,7 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 
 To find your system Python path:
 
-- Add the [System Health](https://www.home-assistant.io/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/dev-info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
+- Add the [System Health](/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
 
   ```bash
   whereis python<version>
@@ -110,9 +103,11 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 
 ## Configuration
 
-<p class='note'>
+<div class='note'>
+
   The PlayStation 4 integration does not use entries from `configuration.yaml`. You must configure this integration by using `Integrations`
-</p>
+
+</div>
 
 ## Regions
 
@@ -120,20 +115,19 @@ Some titles will have different SKUs in the PlayStation Store database depending
 
 |  Available Regions                                                          | Unavailable Regions        |
 | --------------------------------------------------------------------------- | -------------------------- |
-| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Phillipines, |
+| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Philippines, |
 | Canada, Chile, Columbia, Costa Rica, Croatia, Cyprus, Czech Republic,       | Serbia, Ukraine, Vietnam   |
 | Denmark, Ecuador, El Salvador, Finland, France, Germany, Greece, Guatemala, |                            |
 | Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel,   |                            |
-| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Maylasia, Mexico,         |                            |
+| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Malaysia, Mexico,         |                            |
 | Middle East, Nederland, New Zealand, Nicaragua, Norway, Oman, Panama,       |                            |
 | Peru, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Singapore,    |                            |
 | Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan,       |                            |
 | Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |                            |
 
-
-<p class='note'>
+<div class='note'>
   The regions which are unavailable have no database or have formatting in the database which can not be used by the component.
-</p>
+</div>
 
 ## Services
 

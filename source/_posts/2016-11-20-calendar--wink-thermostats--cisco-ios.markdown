@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.33: New Calendar component, Wink thermostats and Cisco IOS"
 description: "Continued our upgrade to Async, fixed tons of bugs and added a few new things."
 date: 2016-11-20 00:04:05 +0000
 date_formatted: "November 20, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2016-11-0.33/social.png
 ---

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Ring"
 description: "Instructions on how to integrate your Ring.com devices within Home Assistant."
-date: 2017-04-01 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ring.png
 ha_category:
   - Doorbell
@@ -30,6 +24,10 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 Currently only doorbells are supported by this sensor.
+
+<p class='note'>
+This component does NOT allow for live viewing of your Ring camera within Home Assistant.
+</p>
 
 ## Configuration
 
@@ -79,9 +77,9 @@ Currently it supports doorbell, external chimes and stickup cameras.
 
 ## Camera
 
-<p class='note'>
+<div class='note'>
 Please note that downloading and playing Ring video will require a Ring Protect plan.
-</p>
+</div>
 
 Once you have enabled the [Ring component](/components/ring), you can start using the camera platform. Add the following to your `configuration.yaml` file:
 

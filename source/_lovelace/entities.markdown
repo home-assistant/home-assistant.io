@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "Entities Card"
 sidebar_label: Entities
 description: "Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Entities will be the most common type of card that will also be the most familiar to people using the standard interface. It groups items together very close to how groups used to do.
@@ -97,7 +91,7 @@ action_name:
 service_data:
   required: false
   description: The service data to use.
-  type: object
+  type: map
 {% endconfiguration %}
 
 ### Divider
@@ -110,7 +104,7 @@ type:
 style:
   required: false
   description: Style the element using CSS.
-  type: object
+  type: string
   default: "height: 1px, background-color: var(--secondary-text-color)"
 {% endconfiguration %}
 

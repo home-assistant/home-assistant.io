@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Sensor"
 description: "Instructions on how to integrate Template Sensors into Home Assistant."
-date: 2016-01-27 07:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Sensor
 ha_release: 0.12
@@ -56,7 +50,7 @@ sensor:
       entity_id:
         description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
         required: false
-        type: string, list
+        type: [string, list]
       unit_of_measurement:
         description: "Defines the units of measurement of the sensor, if any. This will also influence the graphical presentation in the history visualization as a continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values."
         required: false

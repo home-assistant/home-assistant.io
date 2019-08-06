@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SmartHab"
 description: "Instructions on how to integrate SmartHab devices into Home Assistant"
-date: 2019-02-13 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: smarthab.png
 ha_release: 0.94
 ha_category:
@@ -24,12 +18,12 @@ Assistant.
 Once you have added a `smarthab` entry to your configuration, your supported 
 devices will automatically be discovered and made available on your dashboard.
 
-<p class='note warning'>
+<div class='note warning'>
   To prevent being automatically logged out of your SmartHab mobile app, you
   might want to create a secondary user in the app's settings and grant it
   access to your home. You can then configure the integration using this account's
   credentials. This is also more secure, as this user should be less priviledged.
-</p>
+</div>
 
 ```yaml
 # Example configuration.yaml entry

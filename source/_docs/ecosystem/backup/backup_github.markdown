@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Configuration Backup to GitHub"
 description: "Instructions on how backup your Home Assistant configuration to GitHub"
-date: 2017-01-05 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /cookbook/githubbackup/
 ---
 
@@ -16,13 +10,15 @@ Backing up and regularly syncing your Home Assistant configuration to [GitHub](h
 - A documented history of your changes for troubleshooting purposes.
 - It will help the Home Assistant community learn from your configuration examples.
 
-<p class='note'>
-This is not a comprehensive tutorial on using GitHub, more information can be found in the [GitHub Help](https://help.github.com/) pages. This guide assumes the user has an intermediate experience level and is comfortable with such concepts as: navigating the Home Assistant directory structure, logging in as the Home Assistant user, and working with the command line.
-</p>
+<div class='note'>
 
-<p class='note'>
+This is not a comprehensive tutorial on using GitHub, more information can be found in the [GitHub Help](https://help.github.com/) pages. This guide assumes the user has an intermediate experience level and is comfortable with such concepts as: navigating the Home Assistant directory structure, logging in as the Home Assistant user, and working with the command line.
+
+</div>
+
+<div class='note'>
 This will not create a full backup of your Home Assistant files or your OS. In addition to backing up to Github, you should consider having regular backups of all your Home Assistant configuration files and images of your SD card if applicable.
-</p>
+</div>
 
 ### Important Best Practices
 
@@ -44,15 +40,19 @@ $ sudo apt-get install git
 
 ### Step 2: Creating `.gitignore`
 
-<p class='note warning'>
+<div class='note warning'>
+
 Before creating and pushing your Home Assistant configuration to GitHub, please make sure to follow the [`secrets.yaml`](/docs/configuration/secrets/) best practice mentioned above and scrub your configuration for any passwords or sensitive information.
-</p>
+
+</div>
 
 Creating a `.gitignore` file in your repository will tell Git which files NOT to push to the GitHub server. This should be used to prevent publishing sensitive files to the public. It should contain a list of filenames and pattern matches. This list should include at least your [`secrets.yaml`](/docs/configuration/secrets/) file, device configuration files, and the Home Assistant database/directory structure. The `.gitignore` file should be placed in the root of your Home Assistant configuration directory: `<config dir/.gitignore`.
 
-<p class='note'>
+<div class='note'>
+
   If you are creating the `.gitignore` file on Windows, make sure that you save the file with Unix line endings (i.e. by using an editor like Notepad++).
-</p>
+
+</div>
 
 Here is an example that will ignore everything but your YAML configuration.
 
@@ -77,9 +77,9 @@ secrets.yaml
 known_devices.yaml
 ```
 
-<p class='note'>
+<div class='note'>
   You might read this guide too late and accidentally already have your secrets published. It is not enough to just remove them with a new commit. Git is a version control system and keeps history. You need to delete your repository and start a new one. Also change all passwords and revoke the API keys that were public.
-</p>
+</div>
 
 More information on the layout of the file can be found in the [.gitignore manual](https://git-scm.com/docs/gitignore).
 
@@ -122,9 +122,9 @@ Congratulations, you now have a copy of your current Home Assistant Configuratio
 
 You should update your repository on a regular basis. Ideally after you make a major configuration change (new device, new component, etc.). The below script will update your repository with any changed configuration files and allow you to add a comment with the commit for tracking purposes:
 
-<p class='note'>
+<div class='note'>
 You may need to adjust the paths in the script depending on your Home Assistant configuration.
-</p>
+</div>
 
 `gitupdate.sh`
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Flux Light Adjustment"
 description: "Instructions on how to have switches call command line commands."
-date: 2016-06-01 17:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Automation
 ha_release: 0.21
@@ -78,6 +72,7 @@ disable_brightness_adjust:
   description: If true, brightness will not be adjusted besides color temperature.
   required: false
   type: boolean
+  default: false
 mode:
   description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
   required: false

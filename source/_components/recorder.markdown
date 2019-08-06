@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Recorder"
 description: "Instructions on how to configure the data recorder for Home Assistant."
-date: 2018-06-03 11:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - "History"
@@ -14,7 +8,7 @@ ha_release: pre 0.7
 ha_qa_scale: internal
 ---
 
-The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` component](/components/history/).
+The `recorder` integration is responsible for storing details in a database, which then are handled by the [`history` integration](/components/history/).
 
 Home Assistant uses [SQLAlchemy](http://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This means that you can use **any** SQL backend for the recorder that is supported by SQLAlchemy, like [MySQL](https://www.mysql.com/), [MariaDB](https://mariadb.org/), [PostgreSQL](https://www.postgresql.org/), or [MS SQL Server](https://www.microsoft.com/en-us/sql-server/).
 
@@ -29,14 +23,14 @@ recorder:
 
 {% configuration %}
 recorder:
-  description: Enables the recorder component. Only allowed once.
+  description: Enables the recorder integration. Only allowed once.
   required: true
   type: map
   keys:
     db_url:
       description: The URL that points to your database.
       required: false
-      type: URL
+      type: string
     purge_keep_days:
       description: Specify the number of history days to keep in recorder database after a purge.
       required: false
@@ -55,11 +49,11 @@ recorder:
         domains:
           description: The list of domains to be excluded from recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be excluded from recordings.
           required: false
-          type: List
+          type: list
     include:
       description: Configure which integrations should be included in recordings. If set, all other entities will not be recorded.
       required: false
@@ -68,11 +62,11 @@ recorder:
         domains:
           description: The list of domains to be included in the recordings.
           required: false
-          type: List
+          type: list
         entities:
           description: The list of entity ids to be included in the recordings.
           required: false
-          type: List
+          type: list
 {% endconfiguration %}
 
 Defining domains and entities to `exclude` (aka. blacklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains. Usually, these are entities/domains that do not change (like `weblink`) or rarely change (like `updater` or `automation`).
@@ -121,7 +115,7 @@ recorder:
      - sensor.date
 ```
 
-If you only want to hide events from your history, take a look at the [`history` component](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` component. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your history, take a look at the [`history` integration](/components/history/). The same goes for the [logbook](/components/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 ### Service `purge`
 
@@ -146,19 +140,29 @@ Call the service `recorder.purge` to start a purge task which deletes events and
 | PostgreSQL (Socket)     | `postgresql://@/DB_NAME`                         |
 | MS SQL Server   | `mssql+pymssql://user:password@SERVER_IP/DB_NAME?charset=utf8` |
 
-<p class='note'>
+<div class='note'>
+
 Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8`.
-</p>
 
-<p class='note'>
-Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).</p>
+</div>
 
-<p class='note warning'>
-If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)</p>
+<div class='note'>
 
-<p class='note warning'>
+Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e. `localhost`).
+
+</div>
+
+<div class='note warning'>
+
+If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)
+
+</div>
+
+<div class='note warning'>
+
 If you are using the default `FULL` recovery model for MS SQL Server you will need to manually backup your log file to prevent your transaction log from growing too large. It is recommended you change the recovery model to `SIMPLE` unless you are worried about data loss between backups.
-</p>
+
+</div>
 
 ### Database startup
 

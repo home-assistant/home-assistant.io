@@ -1,16 +1,9 @@
 ---
-layout: page
 title: "Amazon Alexa Custom Skill"
 description: "Instructions on how to build your Alexa/Amazon Echo custom commands to connect with Home Assistant."
-date: 2015-12-13 13:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: amazon-alexa.png
 ha_category:
   - Voice
-featured: false
 ha_release: "0.10"
 ---
 

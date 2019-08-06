@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Spotify"
 description: "Instructions on how to integrate Spotify into Home Assistant."
-date: 2017-04-10 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: spotify.png
 ha_category:
   - Media Player
@@ -24,9 +18,9 @@ The `spotify` media player platform allows you to control
 - Spotify account
 - Spotify application, properly configured (see below)
 
-<p class='note'>
+<div class='note'>
 Controlling the Spotify integration (pause, play, next, etc.) requires a Premium account. If you do not have a Premium account, the integration in the frontend will not show the controls.
-</p>
+</div>
 
 To create the required Spotify application:
 
@@ -122,6 +116,19 @@ which are part of the
 [media_player.play_media](/components/media_player/#service-media_playerplay_media)
 service. You can test this from the services
 control panel in the Home Assistant frontend.
+
+## Services
+Extra services besides the default ones in component [Media Player component](/components/media_player/).
+
+### Service `play_playlist`
+
+Play a Spotify playlist with an option to start on a random position of the playlist.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `media_content_id`     | no       | Spotify URI of playlist. Must be playlist kind of URI.
+| `random_song`          | yes      | True to select random song at start, False to start from beginning.
+
 
 The above playlist example is a URI link to the "Reggae Infusions" playlist.
 [This support document from Spotify](https://support.spotify.com/us/article/sharing-music/)

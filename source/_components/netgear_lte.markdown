@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Netgear LTE"
 description: "Instructions on how to integrate your Netgear LTE modem within Home Assistant."
-date: 2018-06-06 23:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: netgear.png
 ha_release: 0.72
 ha_category:
@@ -69,7 +63,7 @@ notify:
     recipient:
       description: The phone number of a default recipient or a list with multiple recipients.
       required: false
-      type: string, list
+      type: [string, list]
     name:
       description: The name of the notification service.
       required: false
@@ -177,6 +171,7 @@ This service can set modem configuration options (otherwise available in the mod
 
 The following automation example processes incoming SMS messages with the [Conversation](/components/conversation/) integration and then deletes the message from the inbox.
 
+{% raw %}
 ```yaml
 automation:
   - alias: SMS conversation
@@ -192,3 +187,4 @@ automation:
           host: '{{ trigger.event.data.host }}'
           sms_id: '{{ trigger.event.data.sms_id }}'
 ```
+{% endraw %}

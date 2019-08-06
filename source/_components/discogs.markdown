@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Discogs Sensor
 description: "Instructions on how to set up Discogs sensors within Home Assistant."
-date: 2017-12-04 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Multimedia
 ha_release: 0.61

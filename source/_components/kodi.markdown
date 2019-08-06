@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Kodi"
 description: "Instructions on how to integrate Kodi into Home Assistant."
-date: 2015-06-22 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: kodi.png
 ha_category:
   - Notifications
@@ -249,9 +243,11 @@ media_player:
           command: standby
 ```
 
-<p class='note'>
+<div class='note'>
+
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your kodi player. Use this with caution.
-</p>
+
+</div>
 
 ### Kodi services samples
 
@@ -302,8 +298,6 @@ script:
           entity_id: media_player.kodi
           method: VideoLibrary.Scan
 ```
-
-For a more complex usage of the `kodi_call_method` service, with event triggering of Kodi API results, you can have a look at this [example](/cookbook/automation_kodi_dynamic_input_select/)
 
 ## Notifications
 
@@ -374,6 +368,7 @@ message:
   required: true
   type: string
 data:
+  description: Configure message properties
   required: false
   type: map
   keys:

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Scenes"
 description: "Instructions on how to setup scenes within Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Organization
@@ -70,6 +64,6 @@ automation:
     entity_id: scene.romantic
 ```
 
-<p class='note'>
+<div class='note'>
 Please note that the scene integration for the most part only supports one service call per entity to achieve the state. Due to this limitation, you cannot set states belonging to different services. A workaround for this limitation is to write a script, which you then turn on in your scene. A few integrations have direct support for multiple service calls per state, Currently this is the media_player and climate components.
-</p>
+</div>

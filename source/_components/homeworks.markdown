@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Homeworks Hub"
 description: "How to use Lutron Homeworks Series 4 & 8 with Home Assistant."
-date: 2018-10-05 23:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lutron.png
 ha_category:
   - Hub
@@ -55,7 +49,7 @@ host:
 port:
   description: The port of the ethernet to serial adapter.
   required: true
-  type: port
+  type: integer
 dimmers:
   description: List of dimmers.
   required: false

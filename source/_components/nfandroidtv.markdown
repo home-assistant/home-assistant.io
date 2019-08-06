@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Notifications for Android TV / FireTV"
 description: "Notifications for Android TV / FireTV"
-date: 2016-10-21 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nfandroidtv.png
 ha_category:
   - Notifications

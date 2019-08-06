@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Browser"
 description: "Instructions on how to setup the browser integration with Home Assistant."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility

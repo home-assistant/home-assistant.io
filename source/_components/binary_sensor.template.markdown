@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Binary Sensor"
 description: "Instructions on how to integrate Template Binary Sensors into Home Assistant."
-date: 2016-02-25 15:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Binary Sensor
 ha_release: 0.12
@@ -54,7 +48,7 @@ sensors:
         entity_id:
           description: A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.
           required: false
-          type: string, list
+          type: [string, list]
         device_class:
           description: Sets the [class of the device](/components/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
@@ -91,7 +85,7 @@ Template Binary Sensor may get an `unknown` state during startup. This results
 in error messages in your log file until that platform has completed loading.
 If you use `is_state()` function in your template, you can avoid this situation.
 For example, you would replace
-{% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
+{% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %}
 with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}

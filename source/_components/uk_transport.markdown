@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "UK transport"
 description: "Display the current status of UK train and bus departures."
-date: 2017-07-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: train.png
 ha_category:
   - Transport
@@ -18,9 +12,11 @@ redirect_from:
 
 The `uk_transport` sensor will display the time in minutes until the next departure in a specified direction from of a configured train station or bus stop. The sensor uses [transportAPI](http://www.transportapi.com/) to query live departure data and requires a developer application ID and key which can be obtained [here](https://developer.transportapi.com/). The [free tier](http://www.transportapi.com/plans/) allows 1000 requests daily, which is sufficient for a single sensor refreshing every 87 seconds.
 
-<p class='note warning'>
+<div class='note warning'>
+
 Additional sensors can be added but at the expense of a reduced refresh rate. 2 sensors can be updated every 2*87 = 174 seconds, and so on.
-</p>
+
+</div>
 
 Queries are entered as a list, with the two transport modes available being `bus` and `train`.
 

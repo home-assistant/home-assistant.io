@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "FRITZ!Box"
 description: "Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant."
-date: 2015-12-13 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: avm.png
 ha_category:
   - Presence Detection
@@ -20,9 +14,9 @@ The `fritz` platform offers presence detection by looking at connected devices t
 
 ## Setup
 
-<p class='note warning'>
-It might be necessary to install additional packages: <code>$ sudo apt-get install python3-lxml libxslt-dev libxml2-dev zlib1g-dev</code>
-If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>$ pip3 install lxml</code>; be patient this will take a while.</p>
+<div class='note warning'>
+It might be necessary to install additional packages: <code>sudo apt-get install python3-lxml libxslt-dev libxml2-dev zlib1g-dev</code>
+If you installed Home Assistant in a virtualenv, run the following commands inside it: <code>pip3 install lxml</code>; be patient this will take a while.</div>
 
 ## Configuration
 
@@ -49,8 +43,8 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 It seems that it is not necessary to use the password in current generation Fritz!Box routers because the necessary data can be retrieved anonymously.
-</p>
+</div>
 
 See the [device tracker integration page](/components/device_tracker/) for instructions how to configure the people to be tracked.

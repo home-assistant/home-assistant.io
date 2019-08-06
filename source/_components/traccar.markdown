@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Traccar GPS tracker"
 description: "Instructions how to use Traccar GPS tracker to track devices in Home Assistant."
-date: 2018-11-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: traccar.png
 ha_release: 0.83
 ha_category:
@@ -69,7 +63,7 @@ max_accuracy:
   type: integer
   default: 0
 skip_accuracy_filter_on:
-  description: Skip filter positon by "max_accuracy filter" if any of specified attributes are pressent on the traccar message.
+  description: Skip filter position by "max_accuracy filter" if any of specified attributes are pressent on the traccar message.
   required: false
   type: list
 monitored_conditions:

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AirVisual"
 description: "Instructions on how to use AirVisual data within Home Assistant"
-date: 2017-09-06 12:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: airvisual.jpg
 ha_category:
   - Health
@@ -22,9 +16,11 @@ This platform requires an AirVisual API key, which can be obtained [here](https:
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the Airvisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
-<p class='note warning'>
+<div class='note warning'>
+
 The "Community" API key is limited to 10,000 calls per month. In order to leave a buffer, the `airvisual` platform queries the API every 10 minutes (600 seconds) by default. Modification of this (via the `scan_interval` key) to a too-low value may result in your API key being deactivated.
-</p>
+
+</div>
 
 ## Configuration
 
@@ -39,44 +35,44 @@ sensor:
 {% configuration %}
 api_key:
   description: Your AirVisual API key.
-  required: required
+  required: true
   type: string
 monitored_conditions:
   description: "The air quality standard(s) to use (`us` for U.S., `cn` for Chinese)."
-  required: required
+  required: true
   type: list
   default: ['us', 'cn']
 show_on_map:
   description: "Whether to show a marker on the map at the specified location."
-  required: optional
+  required: false
   type: boolean
   default: true
 scan_interval:
   description: "The rate in seconds at which AirVisual should be polled for new data."
-  required: optional
+  required: false
   type: integer
   default: 600
 latitude:
   description: The latitude of the location to monitor.
-  required: optional
+  required: false
   type: string
   default: "The latitude defined under the `homeassistant` key in `configuration.yaml`."
 longitude:
   description: The longitude of the location to monitor.
-  required: optional
+  required: false
   type: string
   default: "The longitude defined under the `homeassistant` key in `configuration.yaml`."
 city:
   description: The city to monitor.
-  required: optional
+  required: false
   type: string
 state:
   description: The state the city belongs to.
-  required: optional
+  required: false
   type: string
 country:
   description: The country the state belongs to.
-  required: optional
+  required: false
   type: string
 {% endconfiguration %}
 

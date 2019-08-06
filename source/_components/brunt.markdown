@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Brunt Cover
 description: "Instructions on how to set up Brunt Blind Engine within Home Assistant."
-date: 2018-06-24 14:36
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: brunt.png
 ha_category:
   - Cover
@@ -45,6 +39,6 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 This integration is not affiliated with Brunt and retrieves data from the endpoints of the mobile application. Use at your own risk.
-</p>
+</div>

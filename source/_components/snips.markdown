@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Snips"
 description: "Instructions on how to integrate Snips within Home Assistant."
-date: 2018-05-02 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: snips.png
 ha_category:
   - Voice

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Light Switch"
 description: "Instructions on how to set up a light switch within Home Assistant."
-date: 2018-11-18 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Light
 ha_release: 0.83

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "GreenEye Monitor"
 description: "Instructions on how to integrate your GreenEye Monitor within Home Assistant."
-date: 2018-09-02 11:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: brultech.png
 ha_category:
   - Hub
@@ -76,7 +70,7 @@ monitors:
         net_metering:
           description: Set to `true` if the channel is configured for net metering in the GEM, otherwise `false`.
           required: false
-          type: bool
+          type: boolean
           default: false
     temperature_sensors:
       description: Configuration for temperature sensors

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "DuckDNS"
 description: "Automatically update your Duck DNS IP address with integrated HTTPS support via Let's Encrypt."
-date: 2017-04-30 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 featured: true
 ---
 
@@ -29,12 +23,13 @@ featured: true
 lets_encrypt:
   description: Let's Encrypt is a free, automated, and open certificate authority.
   required: true
-  type: list
+  type: map
   keys:
     accept_terms:
       description: If you accept the [Let's Encrypt Subscriber Agreement](https://letsencrypt.org/repository/), it will generate and update Let's Encrypt certificates for your DuckDNS domain.
       required: true
       type: boolean
+      default: false
 token:
   description: Your Duck DNS API key, from your DuckDNS account page.
   required: true

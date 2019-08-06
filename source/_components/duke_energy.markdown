@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Duke Energy"
 description: "Instructions on how to set Duke Energy smart meter sensors within Home Assistant."
-date: 2018-07-01 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: duke_energy.png
 ha_category:
   - Energy
@@ -47,7 +41,6 @@ password:
   type: string
 {% endconfiguration %}
 
-
-<p class='note'>
+<div class='note'>
 Meter usage isn't updated until mid-morning. Prior to updating your meter will report 0 for usage starting at midnight. The API is only called to update every 2 hours from startup time.
-</p>
+</div>

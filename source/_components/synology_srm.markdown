@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Synology SRM"
 description: "Instructions on how to integrate Synology SRM routers into Home Assistant."
-date: 2019-01-22 13:43
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: synology.png
 ha_category:
   - Presence Detection
@@ -38,7 +32,7 @@ port:
   description: The port to connect to the Synology SRM router.
   required: false
   default: 8001
-  type: int
+  type: integer
 username:
   description: The username of a user with administrative privileges.
   required: false

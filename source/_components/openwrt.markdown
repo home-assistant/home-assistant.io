@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "OpenWRT"
 description: "Instructions on how to integrate OpenWRT routers into Home Assistant."
-date: 2018-03-09 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: openwrt.png
 ha_category:
   - Presence Detection
@@ -40,7 +34,7 @@ There are _multiple_ ways of integrating an OpenWRT router for presence detectio
 
 ### Event-based device tracker
 
-This can be achieved by running a simple shell script on the OpenWRT router which calls the appropriate Home Assistant service. An OpenWRT package which does this is listed above. As this method directly calls the [service API](/developers/rest_api.markdown#post-apiservicesltdomainltservice), no special configuration is necessary on the Home Assistant side, except for ensuring the device_tracker API is running, which is achieved by adding the following to your `configuration.yaml` file:
+This can be achieved by running a simple shell script on the OpenWRT router which calls the appropriate Home Assistant service. An OpenWRT package which does this is listed above. As this method directly calls the [service API](https://developers.home-assistant.io/docs/en/external_api_rest.html#post-api-services-lt-domain-lt-service), no special configuration is necessary on the Home Assistant side, except for ensuring the device_tracker API is running, which is achieved by adding the following to your `configuration.yaml` file:
 
 ```yaml
 device_tracker:

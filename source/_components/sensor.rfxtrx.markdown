@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFXtrx Sensor"
 description: "Instructions on how to integrate RFXtrx sensors into Home Assistant."
-date: 2015-08-06 17:15
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rfxtrx.png
 ha_category:
   - Sensor
@@ -60,17 +54,28 @@ sensor:
 
 Only these data_type are valid:
 
-- *Temperature*
+- *Temperature*, *Temperature2*
 - *Humidity*
+- *Humidity status*
 - *Barometer*
 - *Wind direction*
+- *Wind average speed*
+- *Wind gust*
 - *Rain rate*
-- *Energy usage*
-- *Total usage*
+- *Rain total*
 - *Sound*
 - *Sensor Status*
 - *Counter value*
 - *UV*
+- *Forecast*
+- *Forecast numeric*
+- *Chill*
+- *Energy usage*
+- *Total usage*
+- *Voltage*
+- *Current*
+- *Battery numeric*
+- *Rssi numeric*
 
 Example configuration:
 
@@ -116,7 +121,7 @@ automatic_add:
   type: boolean
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
 If a device ID consists of only numbers, please make sure to surround it with quotes.
 This is a known limitation in YAML, because the device ID will be interpreted as a number otherwise.
-</p>
+</div>

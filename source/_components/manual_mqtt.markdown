@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Manual Alarm Control Panel with MQTT Support"
 description: "Instructions on how to integrate manual alarms into Home Assistant with MQTT support."
-date: 2017-07-02 9:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Alarm
@@ -94,6 +88,7 @@ disarm_after_trigger:
   description: If true, the alarm will automatically disarm after it has been triggered instead of returning to the previous state.
   required: false
   type: boolean
+  default: false
 armed_home/armed_away/armed_night/disarmed/triggered:
   description: State specific settings
   required: false
@@ -129,7 +124,7 @@ command_topic:
 qos:
   description: The maximum QoS level for subscribing and publishing to MQTT messages.
   required: false
-  type: int
+  type: integer
   default: 0
 payload_disarm:
   description: The payload to disarm this Alarm Panel.

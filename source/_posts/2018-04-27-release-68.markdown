@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.68: HomeKit control, Eufy, FritzBox, SigFox sensors"
 description: "Enjoy your weekend with this brand new release of Home Assistant."
 date: 2018-04-27 00:01:00
 date_formatted: "April 27, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2018-04-0.68/components.png
 ---
@@ -95,7 +93,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Brightness conversion for Abode dimmers ([@shred86] - [#13711]) ([light.abode docs])
 - Update CODEOWNERS (sensor.filter, sensor.upnp) ([@dgomes] - [#13736])
 - Reset permission ([@fabaff] - [#13743]) ([light.abode docs])
-- Throw an error when invalid device_mode is given ([@dangyuluo] - [#13739])
+- Throw an error when invalid device_mode is given ([@left4taco] - [#13739])
 - Fix so it is possible to ignore discovered config entry handlers ([@Kane610] - [#13741]) (beta fix)
 - Upgrade netdisco to 1.3.1 ([@fabaff] - [#13744])
 - Add MQTT Sensor unique_id ([@OttoWinter] - [#13318]) ([sensor.mqtt docs])
@@ -124,7 +122,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - HomeKit type_cover fix ([@cdce8p] - [#13832]) ([homekit docs])
 - Allow platform unloading ([@balloob] - [#13784]) ([hue docs]) ([light docs])
 - Support CO2/PM2.5/Light sensors in HomeKit ([@Yonsm] - [#13804]) ([homekit docs]) (new-feature)
-- Clicksend: Added support for multiple recipients ([@xTCx] - [#13812]) ([notify docs])
+- Clicksend: Added support for multiple recipients ([@asafbiton96] - [#13812]) ([notify docs])
 - Support Garage Doors in HomeKit ([@marthoc] - [#13796]) ([homekit docs]) (new-feature)
 - Abode better events ([@MisterWil] - [#13809]) ([abode docs])
 - UPnP async ([@dgomes] - [#13666]) ([upnp docs]) ([sensor.upnp docs])
@@ -367,7 +365,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@cdce8p]: https://github.com/cdce8p
 [@cgtobi]: https://github.com/cgtobi
 [@citruz]: https://github.com/citruz
-[@dangyuluo]: https://github.com/dangyuluo
+[@left4taco]: https://github.com/left4taco
 [@danielperna84]: https://github.com/danielperna84
 [@dersger]: https://github.com/dersger
 [@dgomes]: https://github.com/dgomes
@@ -408,7 +406,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@veleek]: https://github.com/veleek
 [@viorels]: https://github.com/viorels
 [@wiuwiu]: https://github.com/wiuwiu
-[@xTCx]: https://github.com/xTCx
+[@asafbiton96]: https://github.com/asafbiton96
 [abode docs]: /components/abode/
 [alexa docs]: /components/alexa/
 [binary_sensor.bmw_connected_drive docs]: /components/binary_sensor.bmw_connected_drive/

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Domains"
 description: "Keep your computer registered with the Google Domains dynamic DNS."
-date: 2017-10-23 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google_domains.png
 ha_category:
   - Network
@@ -43,6 +37,6 @@ google_domains:
   timeout:
     description: Timeout (in seconds) for the API calls.
     required: false
-    type: number
+    type: integer
     default: 10
 {% endconfiguration %}

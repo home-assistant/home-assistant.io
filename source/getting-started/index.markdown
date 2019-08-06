@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Install Home Assistant"
 description: "Getting started: How to install Home Assistant."
-date: 2016-09-26 21:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 {% comment %}
@@ -69,6 +63,7 @@ We will need a few things to get started with installing Home Assistant. The lat
 1. Connect your Raspberry Pi to the power supply, so it turns on.
 1. The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant, which will take about 20 minutes.
 1. Home Assistant will be available at [http://hassio.local:8123][local]. If you are running an older Windows or have stricter network configuration, you might need to access Home Assistant at [http://hassio:8123][host].
+1. If you have used a USB-stick for configuring the network, it can now be removed.
 
 [local]: http://hassio.local:8123
 [host]: http://hassio:8123

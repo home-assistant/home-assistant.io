@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "TEMPer Sensor"
 description: "Instructions on how to integrate TEMPer sensors into Home Assistant."
-date: 2015-08-06 19:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - DIY
 ha_iot_class: Local Push

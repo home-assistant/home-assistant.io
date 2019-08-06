@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Google Pub/Sub"
 description: "Setup for Google Pub/Sub integration"
-date: 2019-01-12 13:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: google-pubsub.png
 ha_category:
   - History
@@ -76,9 +70,9 @@ filter:
       type: list
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
   Not filtering domains or entities will send every event to Google PubSub, thus hitting the free tier limit very fast. Be sure to fill in this configuration parameter or have a paid subscription for Google Cloud.
-</p>
+</div>
 
 ### Saving the data using a Google Cloud Function
 

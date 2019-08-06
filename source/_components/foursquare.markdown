@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Foursquare
 description: "Instructions on how to the Foursquare API into Home Assistant."
-date: 2016-08-08 17:20
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: foursquare.png
 ha_category:
   - Social

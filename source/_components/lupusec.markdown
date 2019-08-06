@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lupus Electronics Home Security"
 description: "Instructions on integrating Lupusec home security with Home Assistant."
-date: 2018-10-03 16:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lupusec.png
 ha_category:
   - Hub

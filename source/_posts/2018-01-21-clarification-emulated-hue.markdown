@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Clarification about Emulated Hue"
 description: "The Emulated Hue component is not going to be removed nor will we ever remove any functionality from Home Assistant to push you to subscribe to the Community Support Package."
 date: 2018-01-21 01:00:00
 date_formatted: "January 21, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Public-Service-Announcement
 ---
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Rejseplanen Public Transport"
 description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
-date: 2019-01-09 08:52
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rejseplanen.png
 ha_category:
   - Transport
@@ -26,9 +20,9 @@ If you know the exact name of the stop you can search the stop_id with the follo
 
 If you don't know the name of the stop follow this guide:
 - Go to [https://www.openstreetmap.org](https://www.openstreetmap.org)
-- Make a search and fill in the location you want to find for. 
+- Make a search and fill in the location you want to find for.
 - The url will look like this [https://www.openstreetmap.org/#map=18/56.15756/10.20674](https://www.openstreetmap.org/#map=18/56.15756/10.20674)
-- Now insert the coordinates for the location in the url, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&) 
+- Now insert the coordinates for the location in the url, in this example it will be: [http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&](http://xmlopen.rejseplanen.dk/bin/rest.exe/stopsNearby?coordX=56.15756&coordY=10.20674&)
 - You will now see the 30 stops closest to your location.
 
 You will se a output like this:
@@ -62,15 +56,15 @@ stop_id:
 route:
   description: List of route names.
   required: false
-  type: string|list
+  type: [string, list]
 direction:
   description: List of directions to filter by.
   required: false
-  type: string|list
+  type: [string, list]
 departure_type:
   description: List of departure types to filter by.
   required: false
-  type: string|list
+  type: [string, list]
 {% endconfiguration %}
 
 ## Direction
@@ -124,7 +118,36 @@ The sensor can filter the timetables by one or more routes, directions and types
 |--------------|-------------|
 | BUS | Normal bus |
 | EXB | Express bus |
+| TB | Harbour bus|
 | LET | Letbanen |
 | M | Metro |
 | S | S-train |
 | REG | Regional train |
+| IC | Intercity train |
+| LYN | Intercity express train |
+| TOG | Other trains |
+
+## Attributes
+
+| Attribute    | Description                            |
+| ------------ | -------------------------------------- |
+| `due_in` | Minutes until departure |
+| `due_at` | Departure date and time |
+| `type` | Transport type |
+| `route` | Route code |
+| `direction` | Destination stop |
+| `stop` | Departure stop |
+| `stop_id` | ID of departure stop |
+| `attribution` | Attribution (required by data source) |
+| `next_departures` | List of further departures |
+
+### `next_departures`
+
+| Attribute    | Description                            |
+| ------------ | -------------------------------------- |
+| `due_in` | Minutes until departure |
+| `due_at` | Departure date and time |
+| `type` | Transport type |
+| `route` | Route code |
+| `direction` | Destination stop |
+| `stop` | Departure stop |

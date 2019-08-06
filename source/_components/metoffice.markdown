@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Met Office"
 description: "Instructions on how to integrate Met Office weather conditions into Home Assistant."
-date: 2017-03-23 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: metoffice.jpg
 ha_category:
   - Weather
@@ -49,7 +43,9 @@ longitude:
   type: float
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 This platform is an alternative to the [`metoffice`](/components/sensor.metoffice/) sensor.
 The weather platform is easier to configure but less customizable.
-</p>
+
+</div>

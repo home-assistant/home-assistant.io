@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Browsers"
 description: "Browser Compatibility List"
-date: 2016-06-25 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/browsers/
 ---
 

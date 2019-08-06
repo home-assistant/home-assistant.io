@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Sharp Aquos TV"
 description: "Instructions on how to integrate a Sharp Aquos TV into Home Assistant."
-date: 2016-11-02 12:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: sharp_aquos.png
 ha_category:
   - Media Player
@@ -16,7 +10,7 @@ redirect_from:
  - /components/media_player.aquostv/
 ---
 
-The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp.ca/en-CA/ForHome/HomeEntertainment/LEDTV/QuattronPlus.aspx).
+The `aquostv` platform allows you to control a [Sharp Aquos TV](http://www.sharp-world.com/aquos/en/index.html).
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
@@ -38,7 +32,7 @@ port:
   description: The port of the Sharp Aquos TV.
   required: false
   default: 10002
-  type: int
+  type: integer
 username:
   description: The username of the Sharp Aquos TV.
   required: false
@@ -60,13 +54,13 @@ power_on_enabled:
   type: boolean
 {% endconfiguration %}
 
+<div class='note warning'>
 
-<p class='note warning'>
 When you set **power_on_enabled** as True, you have to turn on your TV on the first time with the remote.
 Then you will be able to turn on with Home Assistant.
 Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consumes more power.
-</p>
 
+</div>
 
 Currently known supported models:
 
@@ -81,4 +75,4 @@ Currently known supported models:
 - LC-60EQ10U
 - LC-60SQ15U
 
-If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.aquostv.markdown).
+If your model is not on the list then give it a test, if everything works correctly then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_components/aquostv.markdown).

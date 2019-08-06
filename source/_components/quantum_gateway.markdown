@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Quantum Gateway"
 description: "Instructions on how to integrate Quantum Gateways into Home Assistant."
-date: 2018-09-30 01:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Presence Detection
 logo: fios.svg

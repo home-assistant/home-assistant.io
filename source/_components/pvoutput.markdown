@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "PVOutput Sensor"
 description: "Instructions on how to use PVOutput within Home Assistant."
-date: 2016-11-06 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pvoutput.png
 ha_category:
   - Energy
@@ -45,9 +39,11 @@ name:
   type: string
 {% endconfiguration %}
 
-<p class='note warning'>
+<div class='note warning'>
+
 It's recommended to set `scan_interval:` according to a value greater than 60 seconds. The service only allows 60 requests per hour but the sensor's default is 30 seconds.
-</p>
+
+</div>
 
 To format the PVoutput sensor it's recommended to use the [template component](/topics/templating/). For example:
 

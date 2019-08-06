@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ROVA Sensor"
 description: "Instructions on how to integrate ROVA sensor within Home Assistant."
-date: 2018-12-08 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rova.jpg
 ha_category:
   - Sensor
@@ -108,6 +102,6 @@ automation:
 ```
 {% endraw %}
 
-<p class='note warning'>
+<div class='note warning'>
 This integration is not affiliated with Rova and retrieves data from the endpoints of their website. Use at your own risk.
-</p>
+</div>

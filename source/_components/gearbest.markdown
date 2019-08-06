@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Gearbest"
 description: "Instructions on how to integrate a Gearbest sensor into Home Assistant."
-date: 2017-11-13 09:08
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: gearbest.png
 ha_category:
   - Sensor

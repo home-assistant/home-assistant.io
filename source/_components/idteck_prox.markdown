@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IDTECK Prox Card Reader"
 description: "How to use IDTECK proximity card readers."
-date: 2018-11-14 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: idteck.jpg
 ha_category:
   - Other
@@ -39,7 +33,7 @@ host:
 port:
   description: The port of the ethernet to serial adapter
   required: true
-  type: port
+  type: integer
 name:
   description: The name of the prox card reader
   required: true

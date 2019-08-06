@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Configurator"
 description: "Instructions on how to integrate the configurator in your components."
-date: 2015-03-15 00:51
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other
@@ -14,9 +8,9 @@ ha_qa_scale: internal
 ha_release: 0.7
 ---
 
-<p class='note'>
+<div class='note'>
 This integration is intended for developers.
-</p>
+</div>
 
 The configurator integration allows integrations to request information from the user. It is currently implemented as the minimum viable product:
 

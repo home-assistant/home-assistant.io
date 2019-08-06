@@ -1,15 +1,8 @@
 ---
-layout: page
 title: "eCoal water boiler controller"
 description: "Instructions on how to integrate eSterownik.pl eCoal.pl controller into Home Assistant."
-date: 2018-11-29 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
-# logo: raspberry-pi.png
 ha_category:
-  - Water heater
+  - Water Heater
 ha_release: 0.87
 ha_iot_class: Local Polling
 redirect_from:

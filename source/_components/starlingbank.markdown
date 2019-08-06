@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Starling Bank"
 description: "How to integrate your Starling Bank account within Home Assistant."
-date: 2018-09-07 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: starlingbank.png
 ha_category:
   - Finance
@@ -28,9 +22,9 @@ You can find more information about Starling Bank at [their website](https://www
 
 Once you have your own Starling bank account you will need to sign up for a Starling developer account [here](https://developer.starlingbank.com/signup). You won't need to do any development but you will need to get a "Personal Access Token" that will allow the integration to access your account balance.
 
-<p class='note info'>
+<div class='note info'>
   You control what access is granted using this token. This integration only needs very basic access (see below).
-</p>
+</div>
 
 Once you've signed up:
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "EPH Controls EMBER Thermostat"
 description: "Instructions on how to integrate EPH Controls EMBER thermostats within Home Assistant."
-date: 2017-10-07 12:40
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ephcontrolsember.png
 ha_category:
   - Climate

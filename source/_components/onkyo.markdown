@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Onkyo"
 description: "Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant."
-date: 2016-03-30 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: onkyo.png
 ha_category:
   - Media Player
@@ -47,7 +41,7 @@ name:
 max_volume:
   description: Maximum volume. Defaults to 80.
   required: false
-  type: number
+  type: integer
 sources:
   description: A list of mappings from source to source name. Valid sources can be found below. A default list will be used if no source mapping is specified.
   required: false

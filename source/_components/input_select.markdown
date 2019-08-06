@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Input Select"
 description: "Instructions on how to integrate the Input Select integration into Home Assistant."
-date: 2016-02-02 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -60,9 +54,11 @@ input_select:
         type: icon
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 Because YAML defines [booleans](http://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
-</p>
+
+</div>
 
 ### Restore State
 

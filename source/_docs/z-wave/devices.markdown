@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Z-Wave Devices"
 description: "What you need to know about Z-Wave devices."
-date: 2017-09-21 11:49
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/z-wave-devices/
 ---
 
@@ -47,9 +41,11 @@ Your Z-Wave mesh network is built with the devices that are mains powered (wheth
 
 Battery powered devices spend most of their time asleep, unable to relay traffic, to be queried, or receive changes. Changes sent while a device is asleep will be queued and sent the next time the device wakes. Details of the default wake interval, and how to manually wake the device (if supported) will be detailed in the devices's manual. Some battery powered devices (primarily locks and thermostats) support beaming (the *Beam* command class) that allows them to be remotely woken. This does require that all devices in the network responsible for relaying the commands between the controller and the device also support beaming.
 
-<p class='note'>
+<div class='note'>
+
 The Z-Wave capability *routing* doesn't mean the device routes traffic, it actually means that it's able to control other devices. You'll see this capability on most remotes and switches.
-</p>
+
+</div>
 
 ## Instant Status
 

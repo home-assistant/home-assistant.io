@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Bayesian Binary Sensor"
 description: "Instructions on how to integrate threshold Bayesian sensors into Home Assistant."
-date: 2017-08-27 20:05
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Utility
@@ -68,12 +62,12 @@ observations:
       required: true
       type: string
     entity_id:
-      description: Name of the entity to monitor.
-      required: true (for `state` and `numeric_state`)
+      description: Name of the entity to monitor. Required for `state` and `numeric_state`.
+      required: false
       type: string
     value_template:
-      description: Defines the template to be used.
-      required: true (for `template`)
+      description: Defines the template to be used. Required for `template`.
+      required: false
       type: template
     prob_given_true:
       description: The probability of the observation occurring, given the event is `true`.
@@ -85,8 +79,8 @@ observations:
       type: float
       default: "`1 - prob_given_true` if `prob_given_false` is not set"
     to_state:
-      description: The target state.
-      required: true (for `state`)
+      description: The target state. Required (for `state`).
+      required: false
       type: string
 {% endconfiguration %}
 

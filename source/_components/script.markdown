@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Scripts"
 description: "Instructions on how to setup scripts within Home Assistant."
-date: 2015-03-23 19:59
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Automation
@@ -28,9 +22,12 @@ script:
         data_template:
           message: Current temperature is {% raw %}{{ states('sensor.temperature') }}{% endraw %}
 ```
-<p class='note'>
-Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters. 
-</p>
+
+<div class='note'>
+
+Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e. `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
+
+</div>
 
 ```yaml
 script: 

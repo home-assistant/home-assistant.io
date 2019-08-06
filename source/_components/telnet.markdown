@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Telnet Switch"
 description: "Instructions on how to integrate telnet switches into Home Assistant."
-date: 2017-08-10 19:19
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Switch
 ha_release: 0.54
@@ -32,6 +26,7 @@ switch:
       command_off: "PWR OFF"
       command_state: "PWR?"
       value_template: '{{ value == "PWR=01" }}'
+      timeout: 0.9
 ```
 {% endraw %}
 
@@ -75,4 +70,9 @@ switches:
           description: The name used to display the switch in the frontend.
           required: false
           type: string
+        timeout:
+          description: How long to wait for a reply after a telnet command is sent. 
+          required: false
+          default: 0.2
+          type: float
 {% endconfiguration %}

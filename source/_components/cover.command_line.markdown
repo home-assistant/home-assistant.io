@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Command Line Cover"
 description: "How to control a cover with the command line."
-date: 2016-06-28 17:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: command_line.png
 ha_category:
   - Cover

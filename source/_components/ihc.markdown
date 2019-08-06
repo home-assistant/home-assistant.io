@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "IHC"
 description: "Instructions on how to integrate the IHC integrations with Home Assistant"
-date: 2017-11-11 22:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: ihc.png
 ha_category:
   - Hub
@@ -67,6 +61,7 @@ info:
   description: Shows the IHC "name", "note" and "position" attributes of each component. This will make it easier to identify the IHC products within Home Assistant.
   required: false
   type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Auto setup of IHC products

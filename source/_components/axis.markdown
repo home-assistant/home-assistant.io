@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Axis"
 description: "Integration between network devices from Axis Communications with Home Assistant."
-date: 2017-04-30 23:04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: axis.png
 ha_category:
   - Camera
@@ -28,9 +22,9 @@ Home Assistant will automatically discover their presence on your network.
 
 For configuration go to the `Integrations pane` on your Home Assistant instance.
 
-<p class='note'>
+<div class='note'>
   It is recommended that you create a user on your Axis device specifically for Home Assistant. For all current functionality, it is enough to create a user belonging to user group viewer.
-</p>
+</div>
 
 ## Troubleshooting discovery
 

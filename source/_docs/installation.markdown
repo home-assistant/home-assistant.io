@@ -1,24 +1,22 @@
 ---
-layout: page
 title: "Installation of Home Assistant"
 description: "Instructions on how to install Home Assistant to launch on start."
-date: 2017-02-15 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/installation/
 ---
 
-<p class='note'>
+<div class='note'>
+
 Beginners should check our [Getting started guide](/getting-started/) first.
-</p>
+
+</div>
 
 Home Assistant provides multiple ways to be installed. The first start may take up to 20 minutes because the required packages will be downloaded and installed. The web interface will be served on `http://ip.add.re.ss:8123/`. Replace `ip.add.re.ss` with the IP of the computer you installed it on.
 
-<p class='note warning'>
+<div class='note warning'>
+
   Please remember to [secure your installation](/docs/configuration/securing/) once you've finished with the installation process.
-</p>
+
+</div>
 
 ## Hardware
 

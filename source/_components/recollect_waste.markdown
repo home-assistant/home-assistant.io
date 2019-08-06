@@ -1,12 +1,6 @@
 ---
-layout: page
 title: Recollect Waste Sensor
 description: "Instructions on how to set up Recollect Waste sensor within Home Assistant."
-date: 2019-01-14 13:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: recollect-waste.png
 ha_category:
   - Sensor
@@ -57,6 +51,6 @@ name:
 
 The default frequency for pulling data from Recollect Waste is once a day (86400 seconds).
 
-<p class='note warning'>
+<div class='note warning'>
 The Recollect Waste sensor uses the Recollect API <strong>URL</strong> to obtain data not an official API from Recollect. Use at your own risk.
-</p>
+</div>

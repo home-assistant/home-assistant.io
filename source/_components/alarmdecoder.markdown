@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "AlarmDecoder Alarm"
 description: "Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device."
-date: 2017-04-02 13:28
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: alarmdecoder.png
 ha_category:
   - Alarm
@@ -146,9 +140,11 @@ The Alarm Decoder integration gives you access to several services for you to co
 - `alarm_disarm`: Disarms the alarm from any state. Also clears a `check_zone` flag after an alarm was triggered.
 - `alarmdecoder_alarm_toggle_chime`: Toggles the alarm's chime state.
 
-<p class='note'>
+<div class='note'>
+
 `alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
-</p>
+
+</div>
 
 ### Examples
 

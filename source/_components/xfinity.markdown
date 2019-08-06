@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Xfinity Gateway"
 description: "Instructions on how to integrate Xfinity Gateways into Home Assistant."
-date: 2019-02-12 19:44
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Presence Detection
 logo: xfinity.svg

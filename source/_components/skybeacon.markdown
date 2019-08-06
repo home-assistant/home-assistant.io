@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Skybeacon sensor"
 description: "Instructions on how to integrate MiFlora BLE plant sensor with Home Assistant."
-date: 2017-01-17 10:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - DIY
 ha_release: 0.37
@@ -44,7 +38,7 @@ name:
 monitored_conditions:
   description: The parameters that should be monitored.
   required: false
-  type: map
+  type: list
   keys:
     temperature:
       description: Temperature at the sensor's location.

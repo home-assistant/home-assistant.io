@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pushbullet Mirrors"
 description: "Instructions on how to read user pushes in Home Assistant"
-date: 2017-04-20 16:44
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pushbullet.png
 ha_category:
   - Sensor
@@ -23,9 +17,11 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Notifications](#notifications)
 
-<p class='note'>
+<div class='note'>
+
 The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
-</p>
+
+</div>
 
 ### Sensor
 
@@ -191,8 +187,10 @@ action:
       target: device/DEVICE_NAME
 ```
 
-- **target**: Pushbullet device to recive the notification.
+- **target**: Pushbullet device to receive the notification.
 
-<p class='note'>
+<div class='note'>
+
 Don't forget to [whitelist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
-</p>
+
+</div>

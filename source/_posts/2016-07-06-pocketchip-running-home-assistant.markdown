@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "PocketCHIP running Home Assistant"
 description: "Taking Home Assistant for a spin on a PocketCHIP."
 date: 2016-07-06 05:00:00 +0000
 date_formatted: "July 06, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2016-07-pocketchip/social.png
 ---

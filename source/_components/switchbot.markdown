@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Switchbot"
 description: "Instructions on how to set up Switchbot switches."
-date: 2018-09-03 22:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: switchbot.png
 ha_category:
   - Switch
@@ -38,3 +32,10 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
+## Switchbot Entity
+
+There are two attributes available on the Switchbot entity to give you more information about your device.
+
+- `last_run_success`: If `true` if the last action sent to the Switchbot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messgages.
+- `assumed_state`: Always `true`. If the state of the Switchbot entity cannot be determined, it is assumed to be `on`.

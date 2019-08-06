@@ -1,13 +1,7 @@
 ---
-layout: page
 title: "freedns.afraid.org"
 description: "Keep your DNS record up to date with FreeDNS."
-date: 2018-03-27 21:30
-sidebar: true
-comments: false
-sharing: true
 logo: afraid_freedns.png
-footer: true
 ha_category:
   - Network
 ha_release: 0.67
@@ -48,6 +42,6 @@ freedns:
   scan_interval:
     description: How often to call the update service.
     required: false
-    type: time period
+    type: time
     default: 10 minutes
 {% endconfiguration %}

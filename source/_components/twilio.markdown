@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Twilio"
 description: "Instructions on how to add Twilio notifications to Home Assistant."
-date: 2016-05-14 14:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: twilio.png
 ha_category:
   - Hub

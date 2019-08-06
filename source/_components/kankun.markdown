@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Kankun SP3 Wifi Switch"
 description: "Instructions for the Kankun SP3 Wifi switch"
-date: 2016-12-28 01:50
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Switch
 ha_release: 0.36

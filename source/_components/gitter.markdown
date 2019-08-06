@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Gitter Sensor"
 description: "Instructions on how to integrate a Gitter room sensor with Home Assistant"
-date: 2017-06-11 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: gitter.png
 ha_category:
   - Sensor

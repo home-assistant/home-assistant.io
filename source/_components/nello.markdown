@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Nello Lock"
 description: "Instructions on how to integrate Nello intercom devices."
-date: 2017-08-13 17:25
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: nello.png
 ha_category:
   - Lock
@@ -21,9 +15,9 @@ The `nello` platform allows you to control [Nello](https://www.nello.io) interco
 
 To get started you need to create a secondary Nello account and authorize it to access your lock(s).
 
-<p class="note warning">
+<div class="note warning">
 Be aware that if you use your main account for Home Assistant you may not be able to use it with the App.
-</p>
+</div>
 
 ## Configuration
 

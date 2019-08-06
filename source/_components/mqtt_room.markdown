@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Room Presence"
 description: "Instructions on how to track room presence within Home Assistant."
-date: 2016-08-21 03:58
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Presence Detection

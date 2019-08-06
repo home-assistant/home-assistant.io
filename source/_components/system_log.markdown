@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "System Log"
 description: "Summary of errors and warnings in Home Assistant during runtime."
-date: 2017-11-11 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: home-assistant.png
 ha_category:
   - Other

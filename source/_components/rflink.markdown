@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "RFLink"
 description: "Instructions on how to integrate RFLink gateway into Home Assistant."
-date: 2016-01-04
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rflink.png
 ha_category:
   - Hub
@@ -19,9 +13,9 @@ The 433 MHz spectrum is used by many manufacturers mostly using their own protoc
 
 RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](http://www.rflink.nl/blog2/) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
-<p class='note'> 
+<div class='note'>
 Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
-</p>
+</div>
 
 A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
 
@@ -89,13 +83,15 @@ Other methods of exposing the serial interface over TCP are possible (eg: ESP826
 
 Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively.
 
-<p class='note warning'>
-Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for Ikea Ansluta and Philips Living Colors)
-</p>
+<div class='note warning'>
 
-<p class='note'>
+Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for Ikea Ansluta and Philips Living Colors)
+
+</div>
+
+<div class='note'>
 When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming difficulties.
-</p>
+</div>
 
 ```yaml
 # Example configuration.yaml entry
@@ -141,9 +137,9 @@ rflink:
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
 
-<p class='note'>
+<div class='note'>
 Wildcards only work at the end of the ID, not in the middle or front!
-</p>
+</div>
 
 ### Device support
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "myStrom WiFi Bulb"
 description: "Instructions on how to integrate myStrom WiFi Bulbs into Home Assistant."
-date: 2017-04-18 06:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mystrom.png
 ha_category:
   - Light
@@ -24,9 +18,12 @@ The `mystrom` light platform allows you to control your [myStrom](https://mystro
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
 - [Light](#light)
+- [Binary Sensor](#binary-sensor)
+  - [Setup of myStrom Buttons](#setup-of-mystrom-buttons)
 - [Switch](#switch)
+  - [Setup](#setup)
+  - [Get the current power consumption](#get-the-current-power-consumption)
 
 ## Light
 
@@ -101,9 +98,9 @@ binary_sensor:
   - platform: mystrom
 ```
 
-<p class='note'>
+<div class='note'>
 The firmware version 2.56 doesn't support TLS/SSL. This means that you are only able to use the WiFi Buttons if you are using plain-text communication between Home Assistant and the clients/entities.
-</p>
+</div>
 
 ### Setup of myStrom Buttons
 
@@ -165,7 +162,7 @@ The `mystrom` switch platform allows you to control the state of your [myStrom](
 Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 <p class='img'>
-  <img src='{{site_root}}/images/components/mystrom/mystrom-advanced.png' />
+  <img src='{{site_root}}/images/components/mystrom/switch-advanced.png' />
 </p>
 
 To use your myStrom switch in your installation, add the following to your `configuration.yaml` file:

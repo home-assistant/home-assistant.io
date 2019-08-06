@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Automation Templating"
 description: "Advanced automation documentation using templating."
-date: 2016-04-24 08:30 +0100
-sidebar: true
-comments: false
-sharing: true
-footer: true
 redirect_from: /getting-started/automation-templating/
 ---
 
@@ -78,6 +72,8 @@ There are a few very important rules to remember when writing automation templat
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
+It is possible to use `data` and `data_template` concurrently but be aware that `data_template` will overwrite attributes that are provided in both.
+
 ## Trigger State Object
 
 Knowing how to access the [state object](/docs/configuration/state_object/) of a trigger entity could be one of the more common questions. Here are a few ways for the [`state`](#state), [`numeric_state`](#numeric_state) and [`template`](#template) triggers:
@@ -118,6 +114,7 @@ The following tables show the available trigger data per platform.
 | `trigger.above` | The above threshold, if any.
 | `trigger.from_state` | The previous [state object] of the entity.
 | `trigger.to_state` | The new [state object] that triggered trigger.
+| `trigger.for` | Timedelta object how long state has met above/below criteria, if any.
 
 ### state
 

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Tesla"
 description: "Instructions on how to integrate Tesla car into Home Assistant."
-date: 2017-08-28 17:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: tesla.png
 ha_category:
   - Car

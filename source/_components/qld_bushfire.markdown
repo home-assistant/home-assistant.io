@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Queensland Bushfire Alert"
 description: "Instructions on how to integrate the Queensland Bushfire Alert feed into Home Assistant."
-date: 2019-06-11 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: geo_location.png
 ha_category: Geolocation
 ha_iot_class: Cloud Polling
@@ -31,11 +25,13 @@ of each entity.
 
 The data is updated every 5 minutes.
 
-<p class='note'>
+<div class='note'>
+
 The material used by this integration is provided under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's copyright notice](https://www.qfes.qld.gov.au/Pages/copyright.aspx) for more information.
-</p>
+
+</div>
 
 ## Configuration
 

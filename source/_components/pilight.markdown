@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Pilight"
 description: "Instructions on how to setup Pilight within Home Assistant."
-date: 2015-08-07 18:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: pilight.png
 ha_category:
   - DIY
@@ -122,6 +116,7 @@ disarm_after_trigger:
   description: Configure sensor as trigger type.
   required: false
   type: boolean
+  default: false
 reset_delay_sec:
   description: >
     Seconds before the sensor is disarmed if

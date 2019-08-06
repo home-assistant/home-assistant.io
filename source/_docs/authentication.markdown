@@ -1,14 +1,8 @@
 ---
-layout: page
 title: "Authentication"
 description: "Guide on authentication in Home Assistant."
-date: 2018-08-23 09:40
 redirect_from:
   - /components/auth/
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 Our authentication system secures access to Home Assistant.
@@ -25,9 +19,9 @@ When you start Home Assistant for the first time the _owner_ user account is cre
  - Configure integrations and other settings (coming soon).
  - Configure Hass.io (coming soon).
 
-<p class='note'>
+<div class='note'>
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
-</p>
+</div>
 
 ### Your Account Profile
 

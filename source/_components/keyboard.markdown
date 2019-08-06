@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Keyboard"
 description: "Instructions on how to simulate key presses with Home Assistant."
-date: 2015-01-24 14:39
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: keyboard.png
 ha_category:
   - Automation

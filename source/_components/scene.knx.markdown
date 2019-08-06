@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Scene"
 description: "Instructions on how to integrate KNX Scenes into Home Assistant."
-date: 2018-02-03 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Scene

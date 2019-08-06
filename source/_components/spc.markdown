@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "SPC"
 description: "Instructions on how to setup Vanderbilt SPC devices within Home Assistant."
-date: 2017-05-18 08:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Hub
   - Alarm
@@ -19,7 +13,7 @@ redirect_from:
   - /components/alarm_control_panel.spc/
 ---
 
-Home Assistant has support to integrate your [Vanderbilt SPC](http://www.spc-intruder-detection.com/ssp-spc/) alarm panel and any connected motion, door and smoke sensors.
+Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door and smoke sensors.
 
 Integration with SPC is done through a third-party API gateway called [SPC Web Gateway](http://www.lundix.se/smarta-losningar/) which must be installed and configured somewhere on your network.
 
@@ -52,7 +46,7 @@ Supported sensors will be automatically discovered and added, however they will 
 
 ## Alarm
 
-The `spc` alarm control panel platform allows you to control your [Vanderbilt SPC](https://www.spcsupportinfo.com/) alarms.
+The `spc` alarm control panel platform allows you to control your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarms.
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
 
@@ -73,6 +67,6 @@ automation:
 
 ## Binary Sensor
 
-The `spc` platform allows you to get data from your [Vanderbilt SPC](http://www.spc-intruder-detection.com/ssp-spc/) binary sensors from within Home Assistant.
+The `spc` platform allows you to get data from your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) binary sensors from within Home Assistant.
 
 Check the [type/class](/components/binary_sensor/) list for a possible visualization of your zone. Currently motion, smoke and door sensors are supported.

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Rain Bird"
 description: "Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant."
-date: 2017-12-07 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: rainbird.png
 ha_category:
   - Irrigation
@@ -48,9 +42,9 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
 Please note that due to the implementation of the API within the LNK Module, there is a concurrency issue. For example, the Rain Bird app will give connection issues (like already a connection active).
-</p>
+</div>
 
 ## Sensor
 
@@ -69,6 +63,7 @@ sensor:
 {% configuration %}
 monitored_conditions:
   description: Conditions to be monitored.
+  type: list
   keys:
     rainsensor:
       description: Returns the sensor level.

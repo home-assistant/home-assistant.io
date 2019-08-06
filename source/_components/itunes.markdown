@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "iTunes"
 description: "Instructions on how to integrate iTunes into Home Assistant."
-date: 2015-06-22 11:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: itunes.png
 ha_category:
   - Media Player

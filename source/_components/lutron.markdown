@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Lutron"
 description: "Instructions on how to use Lutron devices with Home Assistant."
-date: 2017-01-28 13:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: lutron.png
 ha_category:
   - Hub
@@ -56,9 +50,11 @@ password:
   type: string
 {% endconfiguration %}
 
-<p class='note'>
+<div class='note'>
+
 It is recommended to assign a static IP address to your main repeater. This ensures that it won't change IP addresses, so you won't have to change the `host` if it reboots and comes up with a different IP address.
-</p>
+
+</div>
 
 ## Keypad buttons
 
@@ -74,7 +70,7 @@ For single-action buttons (scene selection, etc.), `action` will be `single`, an
 
 ## Scene
 
-This integration uses keypad programming to identify scenes.  Currently, it only works with SeeTouch keypads.
+This integration uses keypad programming to identify scenes.  Currently, it works with seeTouch, hybrid seeTouch, main repeater, homeowner, and seeTouch RF tabletop keypads.
 The Lutron scene platform allows you to control scenes programmed into your SeeTouch keypads.
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.

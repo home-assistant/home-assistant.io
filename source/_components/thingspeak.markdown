@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "ThingSpeak"
 description: "Record one entity in ThingSpeak"
-date: 2016-10-24 15:45
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: thingspeak.png
 ha_category:
   - "History"

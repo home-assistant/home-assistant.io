@@ -1,19 +1,19 @@
 ---
-layout: post
 title: "0.51: Massive history speed up, finished automation editor and official vacuum cleaner support"
 description: "Lots of frontend bugs have been squashed, the automation editor now supports all triggers and actions and vacuum cleaners are now an official component."
 date: 2017-08-12 00:11:05
 date_formatted: "August 12, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2017-08-0.51/components.png
 ---
 
 <a href='/components/#version/0.51'><img src='/images/blog/2017-08-0.51/components.png' style='border: 0;box-shadow: none;'></a>
 
-<p class='note warning'>This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.</p>
+<div class='note warning'>
+This release has to do a one time database migration which can take a long time on big databases (20 minutes). During this time the frontend will not work. Do not stop Home  Assistant while it is in progress.
+</div>
 
 Release 0.51 is around the corner and it contains some really great updates.
 
@@ -41,7 +41,7 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 
 ## New Platforms
 
-- Added Lutron Caseta Scene Support ([@809694+kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
+- Added Lutron Caseta Scene Support ([@kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
 - New media_player platform for Russound devices using the RIO protocol ([@wickerwaka] - [#8448]) ([media_player.russound_rio docs]) (new-platform)
 - New component: bluesound ([@thrawnarn] - [#7192]) ([media_player.bluesound docs]) (new-platform)
 - Add mochad light component ([@mtreinish] - [#8476]) ([light.mochad docs]) (new-platform)
@@ -95,7 +95,7 @@ vacuum:
 
 - Upgrade pushbullet.py to 0.11.0 ([@fabaff] - [#8691]) ([notify.pushbullet docs])
 - Upgrade mypy to 0.521 ([@fabaff] - [#8692])
-- Added Lutron Caseta Scene Support ([@809694+kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
+- Added Lutron Caseta Scene Support ([@kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
 - Remove deprecated host and ssl logic from Kodi ([@armills] - [#8700]) ([media_player.kodi docs])
 - Remove deprecated substitute interfaces ([@armills] - [#8701]) ([binary_sensor docs]) ([media_player docs])
 - Remove deprecated sensor_class config options ([@armills] - [#8702])
@@ -131,7 +131,7 @@ vacuum:
 - Update numpy 1.13.1 ([@pvizeli] - [#8806]) ([image_processing.opencv docs])
 - Upgrade aiohttp to 2.2.4 ([@fabaff] - [#8805])
 - Catch divide by zero errors when a sleep type is 0 ([@mezz64] - [#8809]) ([sensor.eight_sleep docs])
-- InfluxDB component improvements ([@hageltech] - [#8633]) ([influxdb docs])
+- InfluxDB component improvements ([@haimgel] - [#8633]) ([influxdb docs])
 - When Sonos gets a tts source - dont't show an image ([@andrey-git] - [#8777]) ([media_player.sonos docs])
 - Polymer 2 ([@balloob] - [#8815]) ([group docs])
 - geizhals sensor component ([@JulianKahnert] - [#8458]) ([sensor.geizhals docs]) (new-platform)
@@ -177,12 +177,12 @@ vacuum:
 - Allow usage of colorlog 3.0.1 ([@fabaff] - [#8885])
 - Change level ([@fabaff] - [#8883]) ([sensor.statistics docs])
 - Upgrade youtube_dl to 2017.8.6 ([@fabaff] - [#8880]) ([media_extractor docs])
-- Fix media_extractor for some sites ([@Spirit-X] - [#8887]) ([media_extractor docs])
+- Fix media_extractor for some sites ([@AlexxIT] - [#8887]) ([media_extractor docs])
 - Do not call update() in constructor ([@fabaff] - [#8878])
 - Do not call update() in constructor ([@fabaff] - [#8892]) ([binary_sensor.command_line docs]) ([sensor.command_line docs]) ([switch.command_line docs])
 - Changed Pi-hole graphs from stacked bar to line ([@bachya] - [#8896]) ([sensor.pi_hole docs])
 - Add longer text strings to mailbox demo to test string truncation ([@PhracturedBlue] - [#8893]) ([mailbox.demo docs]) ([mailbox.demo.txt docs])
-- added support for setting/getting position of lutron caseta covers ([@809694+kfcook] - [#8898]) ([cover.lutron_caseta docs])
+- added support for setting/getting position of lutron caseta covers ([@kfcook] - [#8898]) ([cover.lutron_caseta docs])
 - Fix for Neato D3 Connected state obtaining ([@karlkar] - [#8817]) ([sensor.neato docs]) ([switch.neato docs])
 - Update simplisafe-python version ([@w1ll1am23] - [#8908]) ([alarm_control_panel.simplisafe docs])
 - LIFX: improve performance of multi-light transitions ([@amelchio] - [#8873]) ([light.lifx docs])
@@ -300,7 +300,7 @@ vacuum:
 [#8925]: https://github.com/home-assistant/home-assistant/pull/8925
 [#8928]: https://github.com/home-assistant/home-assistant/pull/8928
 [#8930]: https://github.com/home-assistant/home-assistant/pull/8930
-[@809694+kfcook]: https://github.com/809694+kfcook
+[@kfcook]: https://github.com/kfcook
 [@CharlesBlonde]: https://github.com/CharlesBlonde
 [@Hellowlol]: https://github.com/Hellowlol
 [@JulianKahnert]: https://github.com/JulianKahnert
@@ -308,7 +308,7 @@ vacuum:
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [@OverloadUT]: https://github.com/OverloadUT
 [@PhracturedBlue]: https://github.com/PhracturedBlue
-[@Spirit-X]: https://github.com/Spirit-X
+[@AlexxIT]: https://github.com/AlexxIT
 [@StevenLooman]: https://github.com/StevenLooman
 [@abmantis]: https://github.com/abmantis
 [@alanfischer]: https://github.com/alanfischer
@@ -326,7 +326,7 @@ vacuum:
 [@foxel]: https://github.com/foxel
 [@fronzbot]: https://github.com/fronzbot
 [@gwhiteCL]: https://github.com/gwhiteCL
-[@hageltech]: https://github.com/hageltech
+[@haimgel]: https://github.com/haimgel
 [@jeroenterheerdt]: https://github.com/jeroenterheerdt
 [@karlkar]: https://github.com/karlkar
 [@leppa]: https://github.com/leppa
@@ -384,8 +384,8 @@ vacuum:
 [light.osramlightify docs]: /components/light.osramlightify/
 [lock.nuki docs]: /components/lock.nuki/
 [lutron_caseta docs]: /components/lutron_caseta/
-[mailbox.demo docs]: /components/mailbox.demo/
-[mailbox.demo.txt docs]: /components/mailbox.demo.txt/
+[mailbox.demo docs]: /components/demo/
+[mailbox.demo.txt docs]: /components/demo/
 [media_extractor docs]: /components/media_extractor/
 [media_player docs]: /components/media_player/
 [media_player.bluesound docs]: /components/media_player.bluesound/
@@ -420,7 +420,7 @@ vacuum:
 [sensor.geizhals docs]: /components/sensor.geizhals/
 [sensor.google_wifi docs]: /components/sensor.google_wifi/
 [sensor.lastfm docs]: /components/sensor.lastfm/
-[sensor.neato docs]: /components/sensor.neato/
+[sensor.neato docs]: /components/neato/
 [sensor.pi_hole docs]: /components/sensor.pi_hole/
 [sensor.pocketcasts docs]: /components/sensor.pocketcasts/
 [sensor.radarr docs]: /components/sensor.radarr/
@@ -441,14 +441,14 @@ vacuum:
 [switch.rachio docs]: /components/switch.rachio/
 [switch.rainmachine docs]: /components/switch.rainmachine/
 [switch.wink docs]: /components/switch.wink/
-[switch.xiaomi_vacuum docs]: /components/switch.xiaomi_vacuum/
+[switch.xiaomi_vacuum docs]: /components/vacuum.xiaomi_miio/
 [telegram_bot docs]: /components/telegram_bot/
 [updater docs]: /components/updater/
 [vacuum docs]: /components/vacuum/
 [vacuum.demo docs]: /components/vacuum.demo/
 [vacuum.dyson docs]: /components/vacuum.dyson/
 [vacuum.roomba docs]: /components/vacuum.roomba/
-[vacuum.xiaomi docs]: /components/vacuum.xiaomi/
+[vacuum.xiaomi docs]: /components/vacuum.xiaomi_miio/
 [weather.buienradar docs]: /components/weather.buienradar/
 [weather.yweather docs]: /components/weather.yweather/
 [weather.zamg docs]: /components/weather.zamg/

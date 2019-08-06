@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Shell command"
 description: "Instructions on how to integrate Shell commands into Home Assistant."
-date: 2015-10-13 19:10
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Automation
 logo: home-assistant.png

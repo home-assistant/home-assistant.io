@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Template Fan"
 description: "Instructions how to setup the Template fans within Home Assistant."
-date: 2018-05-03 09:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Fan
 ha_release: 0.69
@@ -106,6 +100,6 @@ fan:
       speeds:
         description: List of speeds the fan is capable of running at.
         required: false
-        type: string list
+        type: [string, list]
         default: ['low', 'medium', 'high']
 {% endconfiguration %}

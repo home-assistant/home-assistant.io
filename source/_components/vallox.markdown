@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Vallox Ventilation Units"
 description: "Instructions on how to integrate Vallox ventilation units into Home Assistant."
-date: 2019-06-19 20:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: vallox.png
 ha_category:
   - Fan
@@ -26,7 +20,7 @@ The **fan** platform of this integration allows you to either turn on/off the co
 
 Also, there is a **sensor** platform that exposes a number of relevant metrics like fan speed, various air temperatures and humidity.
 
-### {% linkable_title Configuration %}
+## Configuration
 
 ```yaml
 vallox:
@@ -45,7 +39,7 @@ name:
   type: string
 {% endconfiguration %}
 
-## {% linkable_title Profile Switching %}
+## Profile Switching
 
 For convenient switching of ventilation profiles in the GUI, consider using an [input_select](../input_select) hooked to an automation, for example:
 
@@ -73,9 +67,9 @@ automation:
 ```
 {% endraw %}
 
-## {% linkable_title Fan Services %}
+## Fan Services
 
-### {% linkable_title Service `vallox.set_profile` %}
+### Service `vallox.set_profile`
 
 Set the ventilation profile.
 
@@ -83,7 +77,7 @@ Set the ventilation profile.
 |------------------------|----------|------------------------------------------------------|
 | `profile`              |       no | Allowed values: `Home`, `Away`, `Boost`, `Fireplace` |
 
-### {% linkable_title Service `vallox.set_profile_fan_speed_home` %}
+### Service `vallox.set_profile_fan_speed_home`
 
 Set the fan speed of the `Home` profile.
 
@@ -91,8 +85,7 @@ Set the fan speed of the `Home` profile.
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-
-### {% linkable_title Service `vallox.set_profile_fan_speed_away` %}
+### Service `vallox.set_profile_fan_speed_away`
 
 Set the fan speed of the `Away` profile.
 
@@ -100,7 +93,7 @@ Set the fan speed of the `Away` profile.
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### {% linkable_title Service `vallox.set_profile_fan_speed_boost` %}
+### Service `vallox.set_profile_fan_speed_boost`
 
 Set the fan speed of the `Boost` profile.
 

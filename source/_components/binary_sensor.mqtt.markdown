@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "MQTT Binary Sensor"
 description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
-date: 2015-05-30 23:21
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: mqtt.png
 ha_category:
   - Binary Sensor
@@ -111,11 +105,11 @@ device:
     identifiers:
       description: A list of IDs that uniquely identify the device. For example a serial number.
       required: false
-      type: list, string
+      type: [list, string]
     connections:
       description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
       required: false
-      type: list, tuple
+      type: [list, map]
     manufacturer:
       description: The manufacturer of the device.
       required: false

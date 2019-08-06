@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Radarr Sensor"
 description: "Instructions on how to integrate Radarr sensors with Home Assistant"
-date: 2017-05-04 00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: radarr.png
 ha_category:
   - Downloading

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Views"
 description: "The Lovelace UI is a powerful and configurable interface for Home Assistant."
-date: 2018-07-01 10:28 +00:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ---
 
 To display cards on the UI you have to define them in views. Views sort cards in columns based on their `card size`. If you want to group some cards you have to use `stack` cards.

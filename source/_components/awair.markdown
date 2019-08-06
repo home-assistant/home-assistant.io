@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Awair Air Quality Monitor"
 description: "Instructions on how to setup Awair devices in Home Assistant."
-date: 2018-11-18 20:41
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: awair.jpg
 ha_category:
   - Health

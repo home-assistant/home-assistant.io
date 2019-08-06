@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "0.93: Essent, AmbiClimate, VS Code debugging"
 description: "This release improves our onboarding experience and our automation page."
 date: 2019-05-16 04:11:03
 date_formatted: "May 16, 2019"
 author: Paulus Schoutsen
 author_twitter: balloob
-comments: true
 categories: Release-Notes
 og_image: /images/blog/2019-05-release-93/components.png
 ---
@@ -814,7 +812,6 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [mysensors docs]: /components/mysensors/
 [namecheapdns docs]: /components/namecheapdns/
 [netatmo docs]: /components/netatmo/
-[netatmo_public docs]: /components/netatmo_public/
 [netgear_lte docs]: /components/netgear_lte/
 [nextbus docs]: /components/nextbus/
 [nmap_tracker docs]: /components/nmap_tracker/

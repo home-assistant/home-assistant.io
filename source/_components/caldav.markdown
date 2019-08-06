@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "CalDav"
 description: "Instructions on how to integrate a WebDav calendar into Home Assistant."
-date: 2017-11-27 23:14
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Calendar
 ha_iot_class: Cloud Polling

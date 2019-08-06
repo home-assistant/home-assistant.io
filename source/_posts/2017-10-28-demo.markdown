@@ -1,12 +1,10 @@
 ---
-layout: post
 title: "Home Assistant Demo"
 description: "Showing a demo of Home Assistant to an audience."
 date: 2017-10-28 10:00:00 +0200
 date_formatted: "October 28, 2017"
 author: Fabian Affolter
 author_twitter: fabaff
-comments: true
 categories: How-To
 og_image: /images/blog/2017-10-interactive-demo/demo-random.png
 ---
@@ -46,7 +44,7 @@ switch:
 </p>
 
 ## `random` platforms
-Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/binary_sensor.random.markdown) platform in addition to the already available [`random` sensor](/components/sensor.random/).
+Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](/components/random/#binary-sensor) platform in addition to the already available [`random` sensor](/components/sensor.random/).
 
 By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
 

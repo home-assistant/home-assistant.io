@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Light"
 description: "Instructions on how to integrate KNX lights with Home Assistant."
-date: 2016-06-24 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Light
@@ -84,12 +78,7 @@ color_temperature_state_address:
   required: false
   type: string
 color_temperature_mode:
-  description: Color temperature group address data type.
-  keys:
-    absolute:
-      description: color temperature in Kelvin. *color_temperature_address -> DPT 7.600*
-    relative:
-      description: color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
+  description: Color temperature group address data type. `absolute` color temperature in Kelvin. *color_temperature_address -> DPT 7.600*. `relative` color temperature in percent cold white (0% warmest; 100% coldest). *color_temperature_address -> DPT 5.001*
   required: false
   type: string
   default: absolute

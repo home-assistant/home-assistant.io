@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Hunter Hydrawise"
 description: "Instructions on how to integrate your Hunter Hydrawise Wi-Fi irrigation control system within Home Assistant."
-date: 2018-04-11 08:02
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: hydrawise_logo.png
 ha_category:
   - Irrigation
@@ -51,7 +45,7 @@ scan_interval:
   default: 30
 {% endconfiguration %}
 
-To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/account) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as the `API_KEY`.
+To get your API access token log into your [Hydrawise account](https://app.hydrawise.com/config/login) and in the 'My Account Details' section under Account Settings click 'Generate API Key'. Enter that key in your configuration file as the `API_KEY`.
 
 ## Binary Sensor
 

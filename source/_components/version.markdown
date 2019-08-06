@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "Version Sensor"
 description: "Instructions on how to integrate a version sensor into Home Assistant."
-date: 2017-08-10 10:30
-sidebar: true
-comments: false
-sharing: true
-footer: true
 ha_category:
   - Utility
 ha_iot_class: Local Push

@@ -1,12 +1,6 @@
 ---
-layout: page
 title: "KNX Climate"
 description: "Instructions on how to integrate KNX thermostats with Home Assistant."
-date: 2016-06-24 12:00
-sidebar: true
-comments: false
-sharing: true
-footer: true
 logo: knx.png
 ha_category:
   - Climate
@@ -77,14 +71,21 @@ climate:
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` are not necessary if `operation_mode_address` is specified.
 If the actor doesn't support explicit state communication objects the *_state_address can be configured with the same group address as the writeable *_address. The Read-Flag for the *_state_address communication object has to be set in ETS to support initial reading eg. when starting home-assistant.
 
-The following values are valid for the `operation_modes` attribute:
+The following values are valid for the `hvac_mode` attribute:
 
-- Comfort (maps internally to STATE_HEAT within Home Assistant)
-- Standby (maps internally to STATE_ECO within Home Assistant)
-- Night (maps internally to STATE_IDLE within Home Assistant)
-- Frost Protection (maps internally to STATE_MANUAL within Home Assistant)
-- Fan only (maps internally to STATE_FAN_ONLY within Home Assistant)
-- Dehumidification (maps internally to STATE_DRY within Home Assistant)
+- Off (maps internally to HVAC_MODE_OFF within Home Assistant)
+- Auto (maps internally to HVAC_MODE_AUTO within Home Assistant)
+- Heat (maps internally to HVAC_MDOE_HEAT within Home Assistant)
+- Cool (maps internally to HVAC_MDOE_COOL within Home Assistant)
+- Fan only (maps internally to HVAC_MODE_FAN_ONLY within Home Assistant)
+- Dry (maps internally to HVAC_MODE_DRY within Home Assistant)
+
+The following presets are valid for the `preset_mode` attribute:
+
+- Comfort (maps internally to PRESET_COMFORT within Home Assistant)
+- Standby (maps internally to PRESET_AWAY within Home Assistant)
+- Night (maps internally to PRESET_SLEEP within Home Assistant)
+- Frost Protection (maps internally to PRESET_ECO within Home Assistant)
 
 {% configuration %}
 name:
@@ -166,7 +167,7 @@ operation_mode_comfort_address:
 operation_modes:
   description: Overrides the supported operation modes.
   required: false
-  type: array
+  type: list
 on_off_address:
   description: KNX address for switching the climate device on/off.
   required: false
