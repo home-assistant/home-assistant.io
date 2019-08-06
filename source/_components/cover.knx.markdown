@@ -11,12 +11,14 @@ logo: knx.png
 ha_category:
   - Cover
 ha_release: 0.48
-ha_iot_class: "Local Push"
+ha_iot_class: Local Push
 ---
 
-<p class='note'>
-  The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
-</p>
+<div class='note'>
+
+The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+
+</div>
 
 The `knx` cover platform is used as an interface to KNX covers.
 
