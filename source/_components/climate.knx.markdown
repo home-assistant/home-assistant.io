@@ -16,7 +16,7 @@ ha_iot_class: Local Push
 
 <div class='note'>
   
-The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
 
 </div>
 
