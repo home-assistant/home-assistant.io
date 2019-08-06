@@ -8,6 +8,7 @@ ha_category:
   - Camera
   - Sensor
   - Switch
+  - Light
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 redirect_from:
@@ -200,3 +201,15 @@ switch:
 ```
 
 This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+
+## Light
+
+Once you have enabled the [Ring integration](/components/ring), you can start using the light platform. Add the following to your `configuration.yaml` file:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: ring
+```
+
+This will add a light for every camera that supports a light (such as a flood light).
