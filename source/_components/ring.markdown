@@ -25,7 +25,6 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-
 Currently only doorbells are supported by this sensor.
 
 <p class='note'>
