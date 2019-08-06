@@ -16,11 +16,11 @@ ha_iot_class: Local Push
 
 <div class='note'>
   
-The `knx` component must be configured correctly to use this component, see [KNX Component](/components/knx).
+The `knx` integration must be configured correctly to use this integration, see [KNX Integration](/components/knx).
 
 </div>
 
-The `knx light` component is used as an interface to control knx actuators for lighting applications such as:
+The `knx light` integration is used as an interface to control knx actuators for lighting applications such as:
 
 - switching actuators
 - dimming actuators
