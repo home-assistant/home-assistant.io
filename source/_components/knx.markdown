@@ -169,7 +169,7 @@ type:
   type: string
   required: true
 entity_id:
-  description: Entity id of the HASS component to be exposed. Not needed for types time, date and datetime.
+  description: Entity id to be exposed. Not needed for types time, date and datetime.
   type: string
 address:
   description: KNX group address.
