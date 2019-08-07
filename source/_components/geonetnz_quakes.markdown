@@ -40,7 +40,9 @@ We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science 
 
 ## Configuration
 
-To integrate the GeoNet New Zealand Quakes feed, add the following line to your `configuration.yaml`.
+To integrate the GeoNet New Zealand Quakes feed use the "Integrations" feature 
+in the GUI, you find it under Configurations - Integrations, or add the 
+following line to your `configuration.yaml`.
 
 ```yaml
 # Example configuration.yaml entry
