@@ -69,12 +69,12 @@ latitude:
   description: Latitude of the coordinates around which quakes are considered.
   required: false
   type: float
-  default: Latitude defined in your `configuration.yaml`
+  default: Latitude defined in your configuration.
 longitude:
   description: Longitude of the coordinates around which quakes are considered.
   required: false
   type: float
-  default: Longitude defined in your `configuration.yaml`
+  default: Longitude defined in your configuration.
 {% endconfiguration %}
 
 
