@@ -21,9 +21,9 @@ As per previous announcements, this is the first release that requires at least 
 
 ## Docker
 
-This is the latest release where our Docker image `homeassistant/home-assistant` is based on Debian. As decided in [ADR006 Docker Images](https://github.com/home-assistant/architecture/blob/master/adr/0006-docker-images.md), the image will now be based on Alpine Linux starting with the next release. This will be the same Home Assistant image that powers Hass.io. You don't need to change anything unless you were installing Debian packages or making any other changes to the running container. In that case you'll need to find the Alpine equivalent of whatever you were doing.
+This is the latest release for which our Docker image `homeassistant/home-assistant` is based on Debian. As decided in [ADR006 Docker Images](https://github.com/home-assistant/architecture/blob/master/adr/0006-docker-images.md), the image will now be based on Alpine Linux starting with the next release. This will be the same Home Assistant image that powers Hass.io. You don't need to change anything unless you were installing Debian packages or making any other changes to the running container. In that case you'll need to find the Alpine equivalent of whatever you were doing.
 
-Recent we improve the Docker environment for Hass.io with a Wheels backend and other feature and the cap grow between the spare maintained Debian image and the full maintained Hass.io images. We Focus us now to one Docker build backend and don't want to fragment our resources.
+The main driver behind this change is that by re-using images, maintenance will be easier and users of the `homeassistant/home-assistant` image can benefit of the many optimizations that went into the hass.io images.
 
 ## Reload scenes from configuration.yaml
 
