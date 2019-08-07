@@ -94,6 +94,36 @@ service_data:
   type: map
 {% endconfiguration %}
 
+### Cast
+
+Special row to start Home Assistant Cast.
+
+{% configuration %}
+type:
+  required: true
+  description: cast
+  type: string
+view:
+  required: true
+  description: Path to the view that needs to be shown.
+  type: string
+name:
+  required: false
+  description: Name to show in the row
+  type: string
+  default: Home Assistant Cast
+icon:
+  required: false
+  description: Icon to use
+  type: string
+  default: `hass:television`
+hide_if_unavailable:
+  required: false
+  description: Hide this row if casting is not available in the browser.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
 ### Divider
 
 {% configuration %}
