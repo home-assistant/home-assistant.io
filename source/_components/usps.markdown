@@ -13,6 +13,14 @@ redirect_from:
   - /components/sensor.usps/
 ---
 
+<div class="note warning">
+
+ This integration is deprecated and will be removed in Home Assistant 0.100.0.
+
+ For more information see [Architecture Decision Record: 0004](https://github.com/home-assistant/architecture/blob/master/adr/0004-webscraping.md).
+
+ </div>
+
 The `usps` platform allows one to track deliveries and inbound mail from the [US Postal Service (USPS)](https://www.usps.com/).
 In addition to having a USPS account, you will need to complete the "Opt-In" process for packages by clicking "Get Started Now" on [this page](https://my.usps.com/mobileWeb/pages/intro/start.action). You must also "Opt-In" to [Informed Delivery](https://informeddelivery.usps.com/box/pages/intro/start.action) to see inbound mail.
 
