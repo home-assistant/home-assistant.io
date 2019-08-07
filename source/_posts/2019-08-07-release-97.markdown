@@ -8,10 +8,10 @@ author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
 categories: Release-Notes
-og_image: /images/blog/2019-08-release-97/components.png
+og_image: /images/blog/2019-08-0.97/components.png
 ---
 
-<a href='/components/#version/0.97'><img src='/images/blog/2019-08-release-97/components.png' style='border: 0;box-shadow: none;'></a>
+<a href='/components/#version/0.97'><img src='/images/blog/2019-08-0.97/components.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for Home Assistant 0.97! It has been a very busy release cycle as we have been fine-tuning our development process, which makes it easier to maintain and contribute to Home Assistant in the future.
 
