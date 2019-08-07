@@ -143,6 +143,8 @@ monitored_conditions:
       description: The approximate distance to the nearest storm in miles.
     nearest_storm_bearing:
       description: The approximate direction of the nearest storm in degrees, with true north at 0° and progressing clockwise.
+    alerts:
+      description: Current severe weather advisories.
 units:
   description: Specify the unit system. Valid options are `auto`, `us`, `si`, `ca` and `uk2`. `auto` will let Dark Sky decide the unit system based on location.
   required: false

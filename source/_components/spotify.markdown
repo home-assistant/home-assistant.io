@@ -117,6 +117,19 @@ which are part of the
 service. You can test this from the services
 control panel in the Home Assistant frontend.
 
+## Services
+Extra services besides the default ones in component [Media Player component](/components/media_player/).
+
+### Service `play_playlist`
+
+Play a Spotify playlist with an option to start on a random position of the playlist.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `media_content_id`     | no       | Spotify URI of playlist. Must be playlist kind of URI.
+| `random_song`          | yes      | True to select random song at start, False to start from beginning.
+
+
 The above playlist example is a URI link to the "Reggae Infusions" playlist.
 [This support document from Spotify](https://support.spotify.com/us/article/sharing-music/)
 explains how to get this URI value to use for playlists in the Spotify component.

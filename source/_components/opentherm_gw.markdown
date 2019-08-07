@@ -513,10 +513,6 @@ Possible LED modes and their meaning are listed here:
 * M. Boiler requires maintenance.
 * P. Raised power mode active on thermostat interface.
 
-<div class='note'>
-The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
-</div>
-
 # Example
 
 A full configuration example with two configured OpenTherm Gateways - one connected via USB, the other over the network - looks like the one below.

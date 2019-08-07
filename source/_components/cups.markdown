@@ -57,3 +57,23 @@ is_cups_server:
   type: boolean
   default: true
 {% endconfiguration %}
+
+## {% linkable_title Examples %}
+
+Default configuration for an IPP printer:
+
+```yaml
+# Example configuration.yaml entry for an IPP printer
+sensor:
+  - platform: cups
+    host: PRINTER_IP
+    is_cups_server: false
+    printers:
+      - ipp/print
+```
+
+<div class='note'>
+
+You will need to install the `python3-dev` or `python3-devel` and the development files for CUPS (`libcups2-dev` or`cups-devel`) package on your system manually (eg. `sudo apt-get install python3-dev libcups2-dev` or `sudo dnf -y install python3-devel cups-devel`) along with a compiler (`gcc`).
+
+</div>

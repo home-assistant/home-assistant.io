@@ -11,9 +11,9 @@ ha_config_flow: true
 The `wwlln` integration displays lightning strike information from the
 [World Wide Lightning Location Network (WWLLN)](http://wwlln.net).
 
-Entities are generated, updated and removed automatically with each update 
-from the feed. Each entity defines latitude and longitude and will be shown 
-on the default map automatically, or on a map card by defining the source 
+Entities are generated, updated and removed automatically with each update
+from the feed. Each entity defines latitude and longitude and will be shown
+on the default map automatically, or on a map card by defining the source
 `wwlln`. The distance (in kilometers or miles, depending on your unit system)
 is available as the state of each entity.
 
@@ -21,13 +21,16 @@ is available as the state of each entity.
   <img src='{{site_root}}/images/screenshots/wwlln-feed-map.png' />
 </p>
 
-New data is returned every 10 minutes.
+New data is fetched every 10 minutes. Because data from the WWLLN may vary in terms
+of how real-time it is, the default `window` parameter is set to 1 hour to ensure that as
+many strikes are caught as possible.
 
 ## Configuration
 
 To retrieve data from the WWLLN, edit your `configuration.yaml` file manually or use the "Integrations" feature in the GUI, you find it under Configurations - Integrations.
 
 To manually add the component, add the following to your `configuration.yaml`:
+
 ```yaml
 wwlln:
 ```
@@ -46,7 +49,7 @@ radius:
   required: false
   type: integer
 window:
-  description: The amount of time before now for which strikes should be considered "active" and shown in the UI.
+  description: The amount of time before now for which strikes should be considered "active" and shown in the UI. Note that a window of less than 1 hour may cause Home Assistant to miss events.
   required: false
   type: time
   default: 10 minutes
@@ -54,16 +57,16 @@ window:
 
 ## State Attributes
 
-The following state attributes are available for each entity in addition to 
+The following state attributes are available for each entity in addition to
 the standard ones:
 
-| Attribute          | Description |
-|--------------------|-------------|
-| latitude           | Latitude of the lightning strike. |
-| longitude          | Longitude of the lightning strike. |
-| source             | `wwlln` to be used in conjunction with the `geo_location` automation trigger. |
-| external_id        | The external ID used in the feed to identify the lightning strike in the feed. |
-| publication_date   | Date and time when this event occurred. |
+| Attribute        | Description                                                                   |
+| ---------------- | ----------------------------------------------------------------------------- |
+| latitude         | Latitude of the lightning strike.                                             |
+| longitude        | Longitude of the lightning strike.                                            |
+| source           | `wwlln` to be used in conjunction with the `geo_location` automation trigger. |
+| external_id      | The external ID used in the feed to identify the earthquake in the feed.      |
+| publication_date | Date and time when this event occurred.                                       |
 
 ## Full Configuration
 

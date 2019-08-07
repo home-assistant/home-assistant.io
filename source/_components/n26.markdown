@@ -25,6 +25,17 @@ n26:
   password: YOUR_PASSWORD
 ```
 
+It is possible to add more than one account:
+
+```yaml
+# Example configuration.yaml entry
+n26:
+  - username: YOUR_EMAIL1
+    password: YOUR_PASSWORD1
+  - username: YOUR_EMAIL2
+    password: YOUR_PASSWORD2   
+```
+
 {% configuration %}
 username:
   description: The account username.
