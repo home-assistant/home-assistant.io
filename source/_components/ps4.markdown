@@ -71,7 +71,7 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 
 To find your system Python path:
 
-- Add the [System Health](/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/dev-info). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
+- Add the [System Health](/components/system_health/) integration to your `configuration.yaml`. In a web browser access your frontend and navigate to the about/logs page ("http://yourhomeassistanturl/dev-info"). In the System Health box locate the item **python_version** and note the value that is displayed. Then in terminal run:
 
   ```bash
   whereis python<version>
@@ -116,25 +116,49 @@ Some titles will have different SKUs in the PlayStation Store database depending
 
 |  Available Regions                                                          | Unavailable Regions        |
 | --------------------------------------------------------------------------- | -------------------------- |
-| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Phillipines, |
-| Canada, Chile, Columbia, Costa Rica, Croatia, Cyprus, Czech Republic,       | Serbia, Ukraine, Vietnam   |
-| Denmark, Ecuador, El Salvador, Finland, France, Germany, Greece, Guatemala, |                            |
-| Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel,   |                            |
-| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Maylasia, Mexico,         |                            |
-| Middle East, Nederland, New Zealand, Nicaragua, Norway, Oman, Panama,       |                            |
-| Peru, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Singapore,    |                            |
-| Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan,       |                            |
-| Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |                            |
+| Argentina, Australia, Austria, Bahrain, Belgium, Brazil, Bulgaria,          | China, Japan, Phillipines,
+| Canada, Chile, Columbia, Costa Rica, Croatia, Cyprus, Czech Republic,       | Serbia, Ukraine, Vietnam
+| Denmark, Ecuador, El Salvador, Finland, France, Germany, Greece, Guatemala, |
+| Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel,   |
+| Italy, Korea, Kuwait, Lebanon, Luxembourg, Malta, Maylasia, Mexico,         |
+| Middle East, Nederland, New Zealand, Nicaragua, Norway, Oman, Panama,       |
+| Peru, Poland, Portugal, Qatar, Romania, Russia, Saudi Arabia, Singapore,    |
+| Slovakia, Slovenia, South Africa, Spain, Sweden, Switzerland, Taiwan,       |
+| Thailand, Turkey, United Arab Emirates, United Kingdom, United States       |
 
 <div class='note'>
   The regions which are unavailable have no database or have formatting in the database which can not be used by the integration.
 </div>
 
+## Services
+
+### Service `send_command`
+
+Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
+
+| Service data attribute | Optional | Example                      | Description                           |
+| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
+| `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4.
+| `command`              | No       | `ps`                         | The command you want to send.         
+
+#### Available Commands
+
+Full list of supported commands.
+
+| Command  | Button Emulated  |
+| -------- | ---------------- |
+| `ps`     | PS (PlayStation)
+| `option` | Option
+| `enter`  | Enter
+| `back`   | Back
+| `up`     | Swipe Up
+| `down`   | Swipe Down
+| `left`   | Swipe Left
+| `right`  | Swipe Right
+
 ## Media Data
 
   The PlayStation 4 integration will fetch information about the game or app that is currently running from your region's [PlayStation Store](https://store.playstation.com) database. This information includes the title that the game or app is listed as in the Playstation Store, the url for the corresponding cover/artwork. As the name and the SKU (stock keeping unit) ID for each game will differ from region to region, it is important to correctly set your region in the integration setup to obtain accurate information.
-
-  Items in the Playstation Store are continuously changing as well. Games are often re-released which results in a slight modification to the title in addition to new cover art. The original version will often be replaced completely with the re-released version, with the original, no longer existing in the PlayStation Store at all.
   
   Occasionally, the integration may fail to get the data at all, or may get incorrect data. To correct this issue the integration allows for manual editing via any text editor or with services via the frontend.
   
@@ -153,7 +177,7 @@ Some titles will have different SKUs in the PlayStation Store database depending
     "CUSA00123": {
         "locked": false,
         "media_content_type": "game",
-        "media_image_url": null,
+        "media_image_url": "https://somerandomurl.com/image.jpg",
         "media_title": "Something"
     }
 }
@@ -166,50 +190,95 @@ Some titles will have different SKUs in the PlayStation Store database depending
 | `media_image_url` | string | Any valid url for an image
 | `media_title` | string | The title of the game or app
 
+  The data in the example shows 2 entries.
+
   Each game or app will have a field named `locked` with a value of `true` or `false` associated to it. The default value will be `false` for each entry. If `locked` is `true` the integration will not overwrite the data pertaining to that game or app.
   
   You can set `locked` to `True` to simply just confirm that the attributes of the game or app are correct.
   
   Using services which edit the data of a game or app, automatically set the `locked` value to `true`.
+
+  The `media_image_url` value can be any valid url. This includes the `local directory` of your Home Assistant instance. The first entry in the example directs to a file named `image.jpg` located in the `config/www/` directory.
   
 ### Editing with Text Editor
 <div class='note'>
-  Backup a copy of your `.ps4-games.json` before continuing. If there are errors in the formatting, your file may be deleted.
+  Backup a copy of your <b>.ps4-games.json</b> file before continuing. If there are errors in the formatting, your file may be deleted.
 </div>
 
-  To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app. 
+  To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console. 
 
-### Media Data Services
+### Editing with Services
 
-  The following services are provided to correct/edit the data for games and apps which the PS4 integration displays/retrieves incorrectly or can not find.
-  
+  The following services are provided to correct/edit the data for games and apps which the PS4 integration displays/retrieves incorrectly or could not find.
 
+  Refer to the following table for descriptions of the service attributes.
 
-## Services
+### Media Data Service Attributes
 
-### Service `send_command`
+| Service data attribute | Example     | Description |
+| ---------------------- | ----------- | ----------- |
+| `entity_id`            | `media_player.playstation_4`            | The entity which is currently playing media.
+| `media_content_id`     | `CUSA00123`                             | The SKU ID of the media.
+| `media_title`          | `A Title: The Name`                     | The title of the media.
+| `media_image_url`      | `http://localhost:8123/local/image.jpg` | A valid url directing to an image for the media cover art. 
+| `media_content_type`   | `game`                                  | The type of media. Must be `game` or `app`. Defaults to `game`.  
 
-Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
+### Service `media_add`
 
-| Service data attribute | Optional | Example                      | Description                           |
-| ---------------------- | -------- | ---------------------------- | ------------------------------------- |
-| `entity_id`            | No       | `media_player.playstation_4` | The entity id for your PlayStation 4. |
-| `command`              | No       | `ps`                         | The command you want to send.         |
+Manually add media data to source list. Media data will be locked and not be updated automatically.
 
-#### Available Commands
+| Service data attribute | Optional |
+| ---------------------- | -------- |
+| `media_content_id`     | No
+| `media_title`          | No
+| `media_image_url`      | Yes
+| `media_content_type`   | Yes
 
-Full list of supported commands.
+### Service `media_remove`
 
-| Command  | Button Emulated  |
-| -------- | ---------------- |
-| `ps`     | PS (PlayStation) |
-| `option` | Option           |
-| `enter`  | Enter            |
-| `back`   | Back             |
-| `up`     | Swipe Up         |
-| `down`   | Swipe Down       |
-| `left`   | Swipe Left       |
-| `right`  | Swipe Right      |
+Remove media data from source list.
+
+| Service data attribute | Optional |
+| ---------------------- | -------- |
+| `media_content_id`     | No       |
+
+### Service `media_unlock`
+
+Unlock the attributes of the media. Media data will be updated automatically.
+
+| Service data attribute | Optional |
+| ---------------------- | -------- |
+| `media_content_id`     | No
+
+### Service `media_unlock_playing`
+
+Unlock the attributes of the media which is currently playing. Media data will be updated automatically.
+
+| Service data attribute | Optional |
+| ---------------------- | -------- |
+| `entity_id`            | No
+
+### Service `media_edit`
+
+Edit or correct media data attributes. Media data will be locked and not be updated automatically. You can simply lock the data by leaving optional fields blank.
+
+| Service data attribute | Optional |
+| ---------------------- | -------- |
+| `media_content_id`     | No
+| `media_title`          | Yes
+| `media_image_url`      | Yes
+| `media_content_type`   | Yes
+
+### Service `media_edit_playing`
+
+Edit or correct the attributes of the media which is currently playing. Media data will be locked and not be updated automatically. You can simply lock the data by leaving optional fields blank.
+
+| Service data attribute | Optional |
+| ---------------------- | -------- |
+| `media_content_id`     | No
+| `media_title`          | Yes
+| `media_image_url`      | Yes
+| `media_content_type`   | Yes
 
 ## Troubleshooting
 
