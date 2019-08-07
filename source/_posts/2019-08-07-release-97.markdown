@@ -39,6 +39,7 @@ In case you missed the announcement, we released Home Assistant Cast yesterday. 
 
 ## UI changes
 
+- [New Cast row available](/lovelace/entities/#cast) in the Lovelace entities card to start Home Assistant Cast.
 - Improved accessibility for visually impaired users. This is an [ongoing effort](https://github.com/home-assistant/home-assistant-polymer/issues/3267) on making the frontend accessible.
 - Split out configuration.yaml actions from core config into a new server control config panel. Thanks [@IcyPalm]
 - Markdown card will now have size + 1 if it has a header defined. Some layouts might move around due to this.
