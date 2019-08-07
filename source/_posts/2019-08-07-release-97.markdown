@@ -13,7 +13,7 @@ og_image: /images/blog/2019-08-release-97/components.png
 
 <a href='/components/#version/0.97'><img src='/images/blog/2019-08-release-97/components.png' style='border: 0;box-shadow: none;'></a>
 
-It's time for Home Assistant 0.97! This has been a very busy release cycle as we have been fine tuning development. This will make it easier to maintain and contribute to Home Assistant in the future.
+It's time for Home Assistant 0.97! It has been a very busy release cycle as we have been fine-tuning our development process, which makes it easier to maintain and contribute to Home Assistant in the future.
 
 ## Python 3.5 support has been dropped
 
@@ -21,40 +21,44 @@ As per previous announcements, this is the first release that requires at least 
 
 ## Docker
 
-This is the latest release for which our Docker image `homeassistant/home-assistant` is based on Debian. As decided in [ADR006 Docker Images](https://github.com/home-assistant/architecture/blob/master/adr/0006-docker-images.md), the image will now be based on Alpine Linux starting with the next release. This will be the same Home Assistant image that powers Hass.io. You don't need to change anything unless you were installing Debian packages or making any other changes to the running container. In that case you'll need to find the Alpine equivalent of whatever you were doing.
+This is the last release that bases our Home Assistant Docker image (`homeassistant/home-assistant`) on Debian. As decided in [Architecture Decision Record 0006: Docker Images](https://github.com/home-assistant/architecture/blob/master/adr/0006-docker-images.md), the image will be based on Alpine Linux starting with the 0.98 release. These new Docker images will be running same the Home Assistant Docker image that powers Hass.io. You don't need to change anything unless you have installed Debian packages manually or made any other changes to the running container. However, if that is the case, you'll need to find the Alpine equivalent of whatever you were doing.
 
-The main driver behind this change is that by re-using images, maintenance will be easier and users of the `homeassistant/home-assistant` image can benefit of the many optimizations that went into the hass.io images.
+The main driver behind this change is that by re-using images, maintenance becomes easier, and users of the `homeassistant/home-assistant` image can benefit from the many optimizations that went into the Hass.io images.
 
-## Reload scenes from configuration.yaml
+## Reload scenes from `configuration.yaml`
 
-Thanks to [@balloob] it is now possible to reload scenes from configuration.yaml without restarting Home Assistant. This is part of an effort for Home Assistant 1.0 to make scenes a first class citizen of Home Assistant, including creating/restoring scenes on the fly in the future. To track this effort, [follow this page](https://github.com/home-assistant/home-assistant/issues/25681).
+Thanks to [@balloob] it is now possible to reload scenes from `configuration.yaml` without restarting Home Assistant. This is part of an effort for Home Assistant 1.0 to make scenes a first-class citizen of Home Assistant, including creating/restoring scenes on the fly in the future. To track this effort, [follow this page](https://github.com/home-assistant/home-assistant/issues/25681).
 
 ## Home Assistant Cast
 
-In case you missed the announcement, we released Home Assistant Cast yesterday. It allows you to transform any Cast interface into a display for Home Assistant. [Read the announcement for more information.](/blog/2019/08/06/home-assistant-cast/)
+In case you missed the announcement, we released Home Assistant Cast yesterday. It allows you to transform any Cast interface into a display for Home Assistant. [Read the announcement for more information.](/blog/2019/08/06/home-assistant-cast/).
 
 <p class='img'>
 <a href="/blog/2019/08/06/home-assistant-cast/"><img src='/images/blog/2019-08-home-assistant-cast/hero.png' alt='Picture of a Google Nest Hub with the Home Assistant UI on it.'></a>
 </p>
 
+Home Assistant Cast opens a whole new world of possibilities for using Lovelace, and we are really excited to learn what cool things you will do with it! If you created something, feel free to share it on social media using the `#homeassistantcast` hash-tag. We are looking forward to your pictures!
+
 ## UI changes
+
+This release contains a couple of notable UI changes:
 
 - [New Cast row available](/lovelace/entities/#cast) in the Lovelace entities card to start Home Assistant Cast.
 - Improved accessibility for visually impaired users. This is an [ongoing effort](https://github.com/home-assistant/home-assistant-polymer/issues/3267) on making the frontend accessible.
-- Split out configuration.yaml actions from core config into a new server control config panel. Thanks [@IcyPalm]
-- Markdown card will now have size + 1 if it has a header defined. Some layouts might move around due to this.
+- Split out `configuration.yaml` actions from the core configuration into a new server control config panel. Thanks [@IcyPalm]
+- Markdown card now has a size + 1, if it has a header defined. Some layouts might be moved around due to this.
 
 [@icypalm]: https://www.github.com/IcyPalm/
 
 ## In other news
 
-Frenck wrote [an excellent blog post](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) how to make a $2 smart doorbell using Home Assistant and ESPHome.
+[Frenck](https://github.com/frenck) wrote [an excellent blog post](https://frenck.dev/diy-smart-doorbell-for-just-2-dollar/) on how to make a $2 smart doorbell using Home Assistant and ESPHome, which doesn't require soldering.
 
-Aaron created a great tutorial explaining how to add an [interactive 3D floorplan to Home Assistant](https://aarongodfrey.dev/home%20automation/creating-a-3d-floorplan-in-home-assistant/).
+[Aaron](https://github.com/boralyl) created a great and detailed tutorial explaining how to add an [interactive 3D floorplan to Home Assistant](https://aarongodfrey.dev/home%20automation/creating-a-3d-floorplan-in-home-assistant/).
 
-We wrote about how we use Azure DevOps to automate the development of Home Assistant. [Check the developer blog](https://developers.home-assistant.io/blog/2019/07/19/building-all-the-things.html).
+We wrote about how we use Azure DevOps to automate the development of Home Assistant. Interested to see how Home Assistant is automatically build? [Check the developer blog](https://developers.home-assistant.io/blog/2019/07/19/building-all-the-things.html).
 
-[@jimz011] has updated his amazing Lovelace config and shared it [on the forums](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-august-2019-ha-0-97-x-compatible-massive-update/117086). Preview below.
+[@jimz011] has updated his amazing, HomeKit inspired, Lovelace config and shared it [on the forums](https://community.home-assistant.io/t/homekit-inspired-lovelace-by-jimz011-august-2019-ha-0-97-x-compatible-massive-update/117086). Sneak preview on how it looks:
 
 [@jimz011]: https://github.com/jimz011
 
