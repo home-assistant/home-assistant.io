@@ -116,7 +116,7 @@ icon:
   required: false
   description: Icon to use
   type: string
-  default: `hass:television`
+  default: "`hass:television`"
 hide_if_unavailable:
   required: false
   description: Hide this row if casting is not available in the browser.
