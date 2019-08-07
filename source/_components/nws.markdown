@@ -10,7 +10,7 @@ footer: true
 featured: false
 #logo: nws.png # permission needed
 ha_category: Weather
-ha_release: 0.97
+ha_release: 0.98
 ha_iot_class: Cloud Polling
 ---
 
@@ -18,7 +18,7 @@ The `nws` platform uses the [National Weather Service](https://www.weather.gov) 
 
 ## {% linkable_title Configuration %}
 
-According to the [API documentation](https://www.weather.gov/documentation/services-web-api/), a string is required for the API key and an email address is suggested to be included within the string.
+According to the [API documentation](https://www.weather.gov/documentation/services-web-api/), a string is required for the API key, and an email address is suggested to be included within the string.
 
 To add NWS to your installation using the closest station, add the following to your `configuration.yaml` file:
 
@@ -45,34 +45,34 @@ The default forecast is day and night, `mode: daynight`, while `mode: hourly` gi
 
 {% configuration %}
 api_key:
-  description: "Your API key.  Any string, but an email address is suggested to be included."
+  description: "Your API key. Any string, but an email address is suggested to be included."
   required: true
   type: string
 latitude:
-  description: Manually specify latitude. By default the value will be taken from the Home Assistant configuration.
+  description: "Manually specify latitude. By default the value will be taken from the Home Assistant configuration."
   required: false
   type: number
-  default: Provided by Home Assistant configuration
+  default: "Provided by Home Assistant configuration."
 longitude:
   description: Manually specify longitude. By default the value will be taken from the Home Assistant configuration.
   required: false
   type: number
-  default: Provided by Home Assistant configuration
+  default: "Provided by Home Assistant configuration."
 name:
   description: "Name to use in the frontend."
   required: false
   type: string
-  default: "Station name"
+  default: "Station name."
 mode:
   description: "The forecast type. Can be `daynight` or `hourly`."
   required: false
   type: string
   default: daynight
 station:
-  description: "METAR station code"
+  description: "METAR station code."
   required: false
   type: string
-  default: "Closest station to `latitude` and `longitude`"
+  default: "Closest station to `latitude` and `longitude` as returned by NWS API."
 {% endconfiguration %}
 
 Details about the API are available in the [NWS API documentation](https://www.weather.gov/documentation/services-web-api). The [pynws](https://github.com/MatthewFlamm/pynws) library is used to retrieve data.
