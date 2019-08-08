@@ -5,7 +5,7 @@ logo: rainforest_automation_logo.png
 ha_category:
   - Energy
   - Sensor
-ha_release: 0.96
+ha_release: 0.97
 ha_iot_class: Local Polling
 ---
 
