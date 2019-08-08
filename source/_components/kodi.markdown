@@ -86,7 +86,7 @@ timeout:
 
 ### Services
 
-#### Service `kodi_add_to_playlist`
+#### Service `kodi.add_to_playlist`
 
 Add music to the default playlist (i.e. playlistid=0).
 
@@ -105,7 +105,7 @@ Add music to the default playlist (i.e. playlistid=0).
 | `entity_id`            | yes      | Target a specific media player. It must be of type kodi. |
 | `shuffle_on`           | no       | True/false for shuffle on/off. |
 
-#### Service `kodi_call_method`
+#### Service `kodi.call_method`
 
 Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
