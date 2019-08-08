@@ -96,14 +96,7 @@ Add music to the default playlist (i.e. playlistid=0).
 | `media_type` | yes | Media type identifier. It must be one of SONG or ALBUM. |
 | `media_id` | no | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library. |
 | `media_name` | no| Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist. |
-| `artist_name` | no | Optional artist name for filtering media. |
-
-#### Service `media_player/kodi_set_shuffle`
-
-| Service data attribute | Optional | Description |
-|------------------------|----------|-------------|
-| `entity_id`            | yes      | Target a specific media player. It must be of type kodi. |
-| `shuffle_on`           | no       | True/false for shuffle on/off. |
+| `artist_name` | no | Optional artist name for filtering media. 
 
 #### Service `kodi.call_method`
 
