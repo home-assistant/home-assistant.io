@@ -18,11 +18,11 @@ The `knx` integration must be configured correctly, see [KNX Integration](/compo
 # Example configuration.yaml entry
 binary_sensor:
   - platform: knx
-    address: '6/0/2'
+    state_address: '6/0/2'
 ```
 
 {% configuration %}
-address:
+state_address:
   description: KNX group address of the binary sensor.
   required: true
   type: string
@@ -54,7 +54,7 @@ You can also attach actions to binary sensors (e.g., to switch on a light when a
 binary_sensor:
   - platform: knx
     name: Livingroom.3Switch3
-    address: '5/0/26'
+    state_address: '5/0/26'
     automation:
       - counter: 1
         hook: 'on'
