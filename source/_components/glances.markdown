@@ -132,6 +132,12 @@ resources:
       description: The total CPU usage in percent of Docker containers.
     docker_memory_use:
       description: The total memory used by Docker containers.
+    network_ping:
+      description: The ICMP return time, in ms, of the first configured port that uses rtt_warning
+    network_port:
+      description: The response time, in ms, of the first configured TCP port.
+    network_web:
+      description: The http return code of the first configured web_port.
 {% endconfiguration %}
 
 Not all platforms are able to provide all metrics. For instance `cpu_temp` is requires installing and configuring `lmsensors` in Ubuntu, and may not be available at all in other platforms.
