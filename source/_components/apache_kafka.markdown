@@ -18,7 +18,7 @@ To use the `apache_kafka` integration in your installation, add the following to
 
 ```yaml
 apache_kafka:
-  ip_address: localhost
+  host: localhost
   port: 9092
   topic: home_assistant_1
 ```
