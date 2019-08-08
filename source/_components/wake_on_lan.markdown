@@ -118,8 +118,8 @@ switch:
     name: "TARGET"
     ...
     turn_off:
-      service: shell_command.turn_off_TARGET
+      service: shell_command.turn_off_target
 
 shell_command:
-  turn_off_TARGET: 'ssh hass@TARGET sudo pm-suspend'
+  turn_off_target: 'ssh hass@TARGET sudo pm-suspend'
 ```
