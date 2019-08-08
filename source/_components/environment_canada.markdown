@@ -144,7 +144,7 @@ scan_interval:
   default: 600
 {% endconfiguration %}
 
-###Alert TTS Script
+### Alert TTS Script
 
 If you would like to have alerts announced via a text-to-speech service, you can use a script similar to the following:
 
