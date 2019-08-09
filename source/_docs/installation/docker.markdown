@@ -221,7 +221,7 @@ In order to use Z-Wave, Zigbee or other integrations that require access to devi
 
 ```bash
 $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
-   -e TZ=Australia/Melbourne --device /dev/ttyUSB0:/dev/ttyUSB0 \
+   -e "TZ=Australia/Melbourne" --device /dev/ttyUSB0:/dev/ttyUSB0 \
    --net=host homeassistant/home-assistant
 ```
 
