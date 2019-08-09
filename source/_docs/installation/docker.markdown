@@ -197,7 +197,8 @@ As the docker command becomes more complex, switching to `docker-compose` can be
       image: homeassistant/home-assistant
       volumes:
         - /PATH_TO_YOUR_CONFIG:/config
-        - /etc/localtime:/etc/localtime:ro
+      environment:
+        - TZ=America/New_York
       restart: always
       network_mode: host
 ```
@@ -220,7 +221,7 @@ In order to use Z-Wave, Zigbee or other integrations that require access to devi
 
 ```bash
 $ docker run --init -d --name="home-assistant" -v /PATH_TO_YOUR_CONFIG:/config \
-   -v /etc/localtime:/etc/localtime:ro --device /dev/ttyUSB0:/dev/ttyUSB0 \
+   -e TZ=Australia/Melbourne --device /dev/ttyUSB0:/dev/ttyUSB0 \
    --net=host homeassistant/home-assistant
 ```
 
@@ -234,7 +235,6 @@ or in a `docker-compose.yml` file:
       image: homeassistant/home-assistant
       volumes:
         - /PATH_TO_YOUR_CONFIG:/config
-        - /etc/localtime:/etc/localtime:ro
       devices:
         - /dev/ttyUSB0:/dev/ttyUSB0
         - /dev/ttyUSB1:/dev/ttyUSB1
