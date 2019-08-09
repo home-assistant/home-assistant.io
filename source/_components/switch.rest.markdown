@@ -51,6 +51,11 @@ body_off:
   required: false
   type: string
   default: OFF
+body_state:
+  description: "For poor IOT implementations of a REST API that don't return any data when querying the API endpoint without any body data, this option allows to send data in the body of the GET request when state of the switch is queried.  This value can also be a [template](/topics/templating/)."
+  required: false
+  type: string
+  default: None
 is_on_template:
   description: "A [template](/docs/configuration/templating/#processing-incoming-data) that determines the state of the switch from the value returned by the GET request on the resource URL. This template should compute to a boolean (True or False). If the value is valid JSON, it will be available in the template as the variable `value_json`. Default is equivalent to `'{% raw %}{{ value_json == body_on }}{% endraw %}'`. This means that by default, the state of the switch is on if and only if the response to the GET request matches."
   required: false
