@@ -18,6 +18,7 @@ A service file is needed to control Home Assistant with `systemd`. The template 
 - For most systems, the file is `/etc/systemd/system/home-assistant@YOUR_USER.service` with YOUR_USER replaced by the user account that Home Assistant will run as (normally `homeassistant`).  In particular, this is the case for Ubuntu 16.04.
 - If unfamiliar with command-line text editors, `sudo nano -w [filename]` can be used with `[filename]` replaced with the full path to the file.  Ex. `sudo nano -w /etc/systemd/system/home-assistant@YOUR_USER.service`.  After text entered, press CTRL-X then press Y to save and exit.
 - If you're running Home Assistant in a Python virtual environment or a Docker container, please skip to the appropriate template listed below.
+- If you've setup Home Assistant in following our [Python installation guide](/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](/getting-started/installation-raspberry-pi/), see the Python virtual environment.
 
 ```text
 [Unit]
@@ -35,7 +36,7 @@ WantedBy=multi-user.target
 
 ### Python virtual environment
 
-If you've setup Home Assistant in `virtualenv` following our [Python installation guide](/getting-started/installation-virtualenv/) or [manual installation guide for Raspberry Pi](/getting-started/installation-raspberry-pi/), the following template should work for you. If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately. `YOUR_USER` should be replaced by the user account that Home Assistant will run as (e.g `homeassistant`).
+If you've setup Home Assistant in `virtualenv`, the following template should work for you.If Home Assistant install is not located at `/srv/homeassistant`, please modify the `ExecStart=` line appropriately. `YOUR_USER` should be replaced by the user account that Home Assistant will run as (e.g `homeassistant`).
 
 ```text
 [Unit]
@@ -79,6 +80,8 @@ You need to reload `systemd` to make the daemon aware of the new configuration.
 ```bash
 $ sudo systemctl --system daemon-reload
 ```
+
+- If you get the error `-bash: $: command not found` try `sudo -i` and use the command `systemctl --system daemon-reload`. Type `exit` when the command is finished.
 
 To have Home Assistant start automatically at boot, enable the service.
 
