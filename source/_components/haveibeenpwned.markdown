@@ -35,7 +35,10 @@ email:
 
 ## API key
 
-The sensor require a API key to work. The Api key can be retrived on the [haveibeenpwned](https://haveibeenpwned.com/API/Key) API page .
+The sensor require a API key to work. The Api key can be retrived on the [haveibeenpwned](https://haveibeenpwned.com/API/Key) API page.
+<div class='note warning'>
+  The API comes with a monthly fee.
+</div>
 
 ## Breach meta data
 
