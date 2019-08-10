@@ -75,3 +75,6 @@ The Lutron scene platform allows you to control scenes programmed into your SeeT
 
 After setup, scenes will appear in Home Assistant using the area, keypad and button name.
 
+## Motion Sensors
+
+Any configured Powr Savr motion sensors will be added as "motion" binary_sensors. Lutron reports motion sensors within area as a single value. Sensitivity and timeouts for changing values are controlled on the sensors themselves, not in software.
