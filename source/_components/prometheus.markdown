@@ -3,11 +3,13 @@ title: "Prometheus"
 description: "Record events in Prometheus."
 logo: prometheus.png
 ha_category:
-  - "History"
+  - History
 ha_release: 0.49
 ---
 
 The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+
+## Configuration
 
 To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
 
@@ -42,7 +44,66 @@ filter:
       description: The list of domains to be included from recordings. If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
       required: false
       type: list
+default_metric:
+  type: string
+  description: Metric name to use when an entity doesn't have a unit. 
+  required: false
+  default: uses the entity id of the entity
+override_metric:
+  type: string
+  description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+  required: false
+component_config:
+  type: string
+  required: false
+  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_metric:
+      type: string
+      description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+      required: false
+component_config_domain:
+  type: string
+  required: false
+  description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_metric:
+      type: string
+      description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+      required: false
+component_config_glob: 
+  type: string
+  required: false
+  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_metric:
+      type: string
+      description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+      required: false
+
 {% endconfiguration %}
+
+## Full Example
+
+Advanced configuration example:
+
+```yaml
+# Advanced configuration.yaml entry
+prometheus:
+  namespace: hass
+  component_config_glob:
+    sensor.*_hum:
+      override_metric: humidity_percent
+    sensor.*_temp:
+      override_metric: temperature_c
+    sensor.temperature*:
+      override_metric: temperature_c
+    sensor.*_bat:
+      override_metric: battery_percent
+  filter:
+    include_domains:
+      - sensor
+```
 
 You can then configure Prometheus to fetch metrics from Home Assistant by adding to its `scrape_configs` configuration.
 
