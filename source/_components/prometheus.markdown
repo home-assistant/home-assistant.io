@@ -44,42 +44,42 @@ filter:
       description: The list of domains to be included from recordings. If set, all other entities will not be recorded. Values set by the **exclude_*** option will prevail.
       required: false
       type: list
-  default_metric:
-    type: string
-    description: Metric name to use when an entity doesn't have a unit. 
-    required: false
-    default: uses the entity id of the entity
-  override_metric:
-    type: string
-    description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
-    required: false
-  component_config:
-    type: string
-    required: false
-    description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
-    keys:
-      override_metric:
-        type: string
-        description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
-        required: false
-  component_config_domain:
-    type: string
-    required: false
-    description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
-    keys:
-      override_metric:
-        type: string
-        description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
-        required: false
-  component_config_glob: 
-    type: string
-    required: false
-    description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
-    keys:
-      override_metric:
-        type: string
-        description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
-        required: false
+default_metric:
+  type: string
+  description: Metric name to use when an entity doesn't have a unit. 
+  required: false
+  default: uses the entity id of the entity
+override_metric:
+  type: string
+  description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+  required: false
+component_config:
+  type: string
+  required: false
+  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_metric:
+      type: string
+      description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+      required: false
+component_config_domain:
+  type: string
+  required: false
+  description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_metric:
+      type: string
+      description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+      required: false
+component_config_glob: 
+  type: string
+  required: false
+  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  keys:
+    override_metric:
+      type: string
+      description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
+      required: false
 
 {% endconfiguration %}
 
