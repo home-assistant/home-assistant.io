@@ -16,7 +16,7 @@ The [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger) can be 
 | Platform                                          | Source                        |
 |---------------------------------------------------|-------------------------------|
 | GeoJSON Events                                    | `geo_json_events`               |
-| GeoGeoNet New Zealand Quakes                      | `geonetnz_quakes`               |
+| GeoNet New Zealand Quakes                         | `geonetnz_quakes`               |
 | IGN Sismología                                    | `ign_sismologia`                |
 | NSW Rural Fire Service Incidents                  | `nsw_rural_fire_service_feed`   |
 | Queensland Bushfire Alert                         | `qld_bushfire`                  |
