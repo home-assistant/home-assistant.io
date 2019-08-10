@@ -24,6 +24,7 @@ sensor:
     email:
       - your_email1@domain.com
       - your_email2@domain.com
+    api_key: apikeygoeshere
 ```
 
 {% configuration %}
@@ -31,6 +32,11 @@ email:
   description: List of email addresses.
   required: true
   type: list
+  
+api_key:
+  description: Api key.
+  required: true
+  type: key
 {% endconfiguration %}
 
 ## Breach meta data
