@@ -110,7 +110,7 @@ Call a [Kodi JSONRPC API](http://kodi.wiki/?title=JSON-RPC_API) method with opti
 
 ### Event triggering
 
-When calling the `kodi_call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
+When calling the `kodi.call_method` service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
 
 ```yaml
 entity_id: "<Kodi media_player entity_id>"
