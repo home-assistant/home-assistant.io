@@ -3,16 +3,23 @@ title: "Buienradar"
 description: "Instructions on how to integrate buienradar.nl weather within Home Assistant."
 logo: buienradar.png
 ha_category:
+  - Camera
   - Weather
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 redirect_from:
  - /components/weather.buienradar/
+ - /components/camera.buienradar/
 ---
 
 The `buienradar` platform uses [buienradar.nl](http://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
 
 The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor component).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
+
+Besides the weather platform, there is currently support for the following additional device types:
+
+- [Camera](#camera): Radar map
+- [Sensor](/components/sensor.buienradar/): More customizable
 
 ## Configuration
 
@@ -59,12 +66,55 @@ weather:
     forecast: true
 ```
 
+
 <div class='note'>
 
 This platform is an alternative to the [`buienradar`](/components/sensor.buienradar/) sensor.
 The weather platform is easier to configure but less customizable.
 
 </div>
+
+## Camera
+
+The `buienradar` camera platform uses [buienradar.nl](http://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant.
+
+Internally this component uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
+The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
+
+To add `buienradar` camera to Home Assistant, add the following section to your
+`configuration.yaml` file:
+```yaml
+# Example configuration.yaml entry
+camera:
+  - platform: buienradar
+```
+
+{% configuration %}
+name:
+  description: You can (optionally) specify the name of the camera. The name
+    will be shown in the user interface below the radar image.
+  required: false
+  type: string
+dimension:
+  description: Size of the image to be loaded from buienradar.nl
+    (120 to 700 pixels)
+  required: false
+  default: 512
+  type: integer
+delta:
+  description: Time interval in seconds between image updates
+  required: false
+  default: 600
+  type: integer
+{% endconfiguration %}
+
+### The `name` Variable
+
+If you specify a name, the camera will get this name as its label. A slugified
+version of the name will be used as the name of the entity.
+
+With the default of "Buienradar loop" the entity name becomes
+`camera.buienradar_loop`.
 
 [Usage statement:](https://www.buienradar.nl/overbuienradar/gratis-weerdata)
 > Buienradar makes free weather data available for use by individuals and businesses (website/intranet). The use of the weather data is allowed for **non-commercial purposes**. Please refer to the full usage statement linked above to confirm your use or to request permission.
