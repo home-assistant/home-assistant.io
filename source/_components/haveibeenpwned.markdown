@@ -33,6 +33,10 @@ email:
   type: list
 {% endconfiguration %}
 
+## API key
+
+The sensor require a API key to work. The Api key can be retrived on the [haveibeenpwned](https://haveibeenpwned.com/API/Key) API page .
+
 ## Breach meta data
 
 If one of your email accounts is breached the sensor will display breach meta data. It will list the title of the site where your email
