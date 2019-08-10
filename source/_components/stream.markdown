@@ -11,6 +11,12 @@ ha_qa_scale: internal
 
 The `stream` integration provides a way to proxy live streams through Home Assistant. The integration currently only supports proxying H.264 source streams to the HLS format and requires at least FFmpeg >= 3.2.
 
+<div class='note warning'>
+
+If you are also using the [shell_command component](/components/shell_command) there is currently a [bug in the library](https://github.com/home-assistant/home-assistant/issues/22999) used for `stream` that causes shell commands to crash Home Assistant.
+
+</div>
+
 ## Configuration
 
 To enable this component, add the following lines to your `configuration.yaml` file:
