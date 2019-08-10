@@ -11,6 +11,12 @@ ha_release: 0.7.6
 This integration can expose regular shell commands as services. Services can be called from a [script] or in [automation].
 Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
+<div class='note warning'>
+
+If you are also using the [stream component](/components/stream) there is currently a [bug in the library](https://github.com/home-assistant/home-assistant/issues/22999) used for `stream` that causes shell commands to crash Home Assistant.
+
+</div>
+
 [script]: /components/script/
 [automation]: /getting-started/automation/
 
